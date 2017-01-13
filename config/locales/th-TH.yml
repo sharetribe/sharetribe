@@ -381,7 +381,8 @@ th-TH:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -914,6 +915,7 @@ th-TH:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: "PayPal Express Checkout ได้ถูกปิดในรายการบัญชี PayPal ของผู้เขียน กรุณาติดต่อ ผู้เขียน เพื่อรายงานให้รู้ว่ามีปัญหากับบัญชี PayPal ของเขา และแนะนำให้ติดต่อฝ่ายบริการลูกค้าของ PayPal"
@@ -1239,8 +1241,8 @@ th-TH:
       offer_rejected: ข้อเสนอถูกปฏิเสธ
       offer_canceled: ข้อเสนอถูกยกเลิก
       listing_updated_successfully: การอัพเดทรายการเสร็จสมบูรณ์แล้ว
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "ผู้ดูแล %{service_name} เท่านั้นที่จะสามารถเข้าถึงพื้นที่นี้ได้"
       only_listing_author_can_close_a_listing: ผู้ประกาศเท่านั้นจึงจะมีสิทธิ์ลบประกาศได้
       only_listing_author_can_edit_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถแก้ไขรายการได้
@@ -2016,6 +2018,10 @@ th-TH:
     days: วัน
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2023,6 +2029,11 @@ th-TH:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

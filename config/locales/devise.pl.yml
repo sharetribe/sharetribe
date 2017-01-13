@@ -53,7 +53,7 @@ pl:
       failure: "Nie możemy Cię autoryzować z %{kind} ponieważ %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Instrukcje aktywacji"
+        subject: "Instrukcje potwierdzenia dołączenia do %{service_name}"
       reset_password_instructions:
         subject: "Instrukcje resetowania hasła"
       unlock_instructions:

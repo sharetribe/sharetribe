@@ -69,7 +69,7 @@ de:
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Marktplätzen sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deinen Marktplatz und wie man ihm beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: "Einstellungen speichern"
-        invite_people: "Lade Leute zu diesem Marktplatz ein"
+        invite_people: "Lade Leute zu dem Marktplatz %{service_name} ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
         edit_info: "Angaben bearbeiten"
@@ -96,9 +96,9 @@ de:
         community_custom_color1: Hauptfarbe
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixels betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
@@ -133,7 +133,7 @@ de:
         sender_address: "Absender Adresse: %{sender_address}"
         sender_address_default: "Absender Adresse: nicht festgelegt (verwendet wird die Standard Email %{sender_address})"
         need_to_change: "Wenn Du die Email Adresse ändern möchtest, kontaktiere bitte %{contact_support_link}."
-        contact_support_link_text: "Kontaktiere unseren Support"
+        contact_support_link_text: "kontaktiere Sharetribe Support"
         set_sender_address: "Lege eine absender adresse fest"
         sender_name_label: Name
         sender_name_placeholder: Absender
@@ -188,7 +188,7 @@ de:
         join_with_invite_only: "Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
         users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
-        require_verification_to_post_listings: "Nur von Administratoren verifizierte Benutzer können neue Einträge veröffentlichen"
+        require_verification_to_post_listings: "Nur verifizierte Benutzer können neue Einträge veröffentlichen"
         search_preferences: Einstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
@@ -244,7 +244,7 @@ de:
         enabled_for_you: "Für dich aktiviert"
         enabled_for_all: "Für alle aktiviert"
         new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
-        searchpage: ~
+        searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
       social_media:
         social_media: "Social media"
         twitter_handle: Twittername
@@ -312,7 +312,7 @@ de:
           pending_ext: "Warten auf die Paypal Zahlung"
         not_available: "nicht verfügbar"
       paypal_account:
-        paypal_admin_account: Zahlungen
+        paypal_admin_account: Zahlungssystem
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -384,12 +384,13 @@ de:
       subscription: Abonnement
       preview: "Seitenvorschau anzeigen"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      allow_availability_management: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Verfügbarkeit
+      read_more: "Mehr über automatische Verfügbarkeitsverwaltung lesen."
+      read_more_availability_management: "Mehr über Verfügbarkeitsverwaltung lesen."
+      allow_providers_to_manage_availability: "Erlaube den Verkäufern, ihre Verfügbarkeit mit Hilfe eines Kalenders zu verwalten"
+      per_day_availability: "\"Pro Tag\" Verfügbarkeit"
+      per_night_availability: "\"Pro Nacht\" Verfügbarkeit"
+      pricing_units_disabled_info: "Preiseinheiten können nicht verwendet werden wenn der Terminkalender eingeschaltet ist."
       index:
         listing_shapes: Auftragsarten
         description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach frei kommunizieren können."
@@ -477,16 +478,16 @@ de:
     paypal_accounts:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
-      contact_support_link_text: "kontaktiere den Sharetribe Support"
+      contact_support_link_text: "kontaktiere Support"
       integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
-      read_more_about_paypal: "Mehr über das Shartetribe Zahlungssystem hier lesen."
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      read_more_about_paypal: "Mehr über das Zahlungssystem lesen"
+      edit_payment_settings: "Zahlungseinstellungen bearbeiten"
+      supported_currencies_information_text: "Der Zahlungssystem von Sharetribe unterstützt 24 Währungen. Wenn deine Währung nicht auf der Liste ist, bitte %{contact_support_link}. Wenn du die Währung des Marktplatzes wechselst, werden bestehende Anzeigen die alte Währung behalten. Du musst diese Anzeigen manuell bearbeiten so dass sie die neue Währung bekommen."
+      currency_change_warning_text: "Aufpassen: Wenn du die Währung wechselst, vergiss nicht das deinen Benutzern zu erwählen und sie zu bitten, ihre bestehenden Anzeigen zu bearbeiten. Dadurch werden sie auch die neue Währung bekommen."
+      marketplace_currency_label: "Währung des Marktplatzes:"
       minimum_listing_price_label: "Der Mindestbetrag einer Transaktion:"
       transaction_fee_label: "Transaktionsgebühr:"
       minimum_transaction_fee_label: "Mindestgebühr für die Transaktion:"
@@ -771,7 +772,7 @@ de:
       request_marked_as_confirmed: "Anfrage erledigt. Denke daran, Feedback zu geben."
       request_marked_as_canceled: "Anfrage abgebrochen"
       has_marked_request_as_confirmed: "%{other_party_full_name} hat die Anfrage '%{request}' als \"erledigt\" markiert. Du kannst nun Feedback an %{other_party_given_name} geben."
-      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage des %{request} abgelehnt. Du kannst trotzdem der %{other_party_given_name} Feedback geben."
+      has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' abgelehnt. Du kannst trotzdem %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben, ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
     transaction_automatically_confirmed:
@@ -786,7 +787,7 @@ de:
       show_thread: "Unterhaltung anzeigen"
     confirmation_instructions:
       confirmation_instructions_signature: "Liebe Grüße, <br/> das %{service_name} Team"
-      need_to_confirm: "Du musst Deine E-Mail-Adresse bestätigen."
+      need_to_confirm: "Klicke unten, um deine E-Mail-Adresse zu bestätigen und %{service_name} zu beitreten."
       confirmation_link_text: "Meine E-Mail-Adresse bestätigen"
       or_paste_link: "Alternativ kannst du den folgenden Link in die Adresszeile deines Browsers kopieren:"
     common:
@@ -846,9 +847,9 @@ de:
       you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg Deiner Zahlung."
       product: Produkt
       price_per_unit_type: "Preis pro %{unit_type}"
-      duration: "Dauer:"
-      quantity: "Anzahl:"
-      subtotal: "Zwischensumme:"
+      duration: Dauer
+      quantity: Anzahl
+      subtotal: Zwischensumme
       total: Gesamtbetrag
       price: Preis
       service_fee: Servicegebühr
@@ -911,8 +912,8 @@ de:
       person_email: "E-mail:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
+      double_booking_payment_voided: "Leider sind die von dir gewählten Daten nicht mehr verfügbar. Bitte wähle neue Daten. Dein Zahlungsmittel wurde nicht belastet."
     onboarding:
       server_rendering: "Die Kurzanleitung konnte nicht geladen werden. Wir wurden über dieses Problem informiert und werden es schnellstmöglich lösen."
     listings:
@@ -927,6 +928,7 @@ de:
     transaction_agreement:
       required_error: "Du musst die Vereinbarung akzeptieren"
     paypal:
+      transaction_cannot_complete: "Transaktion konnte nicht abgeschlossen werden. Dies ist wahrscheinlich weil die Kreditkartentransaktion von der Bank nicht genehmigt wurde. Bitte versuche es erneut mit einer anderen Zahlungsmethode."
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
       seller_express_checkout_disabled: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere den Inhaber und lass ihn/sie wissen, dass es ein Problem mit seinem/ihrem Paypal-Konto gibt, und empfehle ihn/sie, den PayPal-Kundendienst zu kontaktieren."
@@ -1092,7 +1094,7 @@ de:
       this_article_link: "diesen Artikel"
       invitation_emails_field_placeholder: "freund1@beispiel.com, freund2@beispiel.com, ..."
       invitation_message_field_placeholder: "Ich bin diesem tollen Marktplatz beigetreten. Das solltest du auch tun!"
-      errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
+      errors_in_emails: "Überprüfe, ob die eingegebenen E-Mail-Adressen korrekt sind und keine ungewöhnliche Zeichen enthalten. Wenn du mehrere E-Mail-Adressen eingegeben hast, trenne sie mit einem Komma."
     list_item:
       review: Bewertung
       reviews: Bewertungen
@@ -1252,8 +1254,8 @@ de:
       offer_rejected: "Angebot abgelehnt"
       offer_canceled: "Angebot abgebrochen"
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung aktiviert."
+      listing_updated_availability_management_disabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung deaktiviert."
       only_kassi_administrators_can_access_this_area: "Nur  %{service_name} Administratoren können diesen Bereich aufrufen"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
@@ -1356,7 +1358,7 @@ de:
       edit_listing: "Eintrag bearbeiten"
       reopen_listing: "Eintrag wieder aktivieren"
       move_to_top: "Auf der Homepage nach oben verschieben"
-      show_in_updates_email: "In der nächsten automatischen E-Mail anzeigen"
+      show_in_updates_email: "Im nächsten Newsletter anzeigen"
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
       show_in_updates_email_success: "Dieser Eintrag wird auf der nächsten automatischen Update-E-Mail den Nutzern angezeigt"
@@ -1364,9 +1366,9 @@ de:
       open_in_google_maps: "In Google Maps öffnen"
     error:
       something_went_wrong: "Etwas ist schief gelaufen, Fehlercode: %{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Da ist etwas schiefgelaufen"
+      create_failed_to_connect_to_booking_service: "Erstellen der Anzeige fehlgeschlagen: Verbindung mit dem Buchungsdienst fehlgeschlagen. Bitte nochmal versuchen."
+      update_failed_to_connect_to_booking_service: "Aktualisierung der Anzeige fehlgeschlagen: Verbindung mit dem Buchungsdienst fehlgeschlagen. Bitte nochmal versuchen."
     follow_links:
       follow: "Erhalte E-Mails bei neuen Kommentaren"
       unfollow: "Diesem Eintrag nicht mehr folgen"
@@ -1513,7 +1515,7 @@ de:
       booking_to: Bis
       how_paypal_works: "Wie PayPal funktioniert"
       payment_help: "Hilfe beim Bezahlen"
-      unable_load_availability: ~
+      unable_load_availability: "Verfügbarkeitsinformationen konnte nicht geladen werden. Bitte versuche es nochmal später erneut."
     new:
       listing: Eintrag
       selected_category: "Kategorie: %{category}"
@@ -1588,8 +1590,8 @@ de:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Die gewählte Daten sind nicht verfügbar"
+      error_in_checking_availability: "Die Verfügbarkeit der gewählten Daten konnte nicht überprüft werden"
       details: Details
       by: "%{listing} von %{author}"
       payment: Zahlung
@@ -1597,8 +1599,8 @@ de:
       you_will_be_charged: "Die Kosten werden nur in Rechnung gestellt, wenn %{author} die Transaktion annimmt. %{author} muss die Transaktion innerhalb von %{expiration_period} Tagen akzeptieren. Wenn %{author} ablehnt oder nicht antwortet, werden keine Gebühren erhoben."
       day: Tag
       days: Tage
-      night: ~
-      nights: ~
+      night: Nacht
+      nights: Nächte
       invalid_parameters: "Ungültige Werte für neue Transaktion"
     transaction_agreement_checkbox:
       read_more: Anzeigen.
@@ -1638,9 +1640,9 @@ de:
     connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
     paypal_receive_funds_info_label_australia_only: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
     paypal_receive_funds_info_label: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: "Wenn Du einen Fehler beim Versuch siehst, Dein PayPal Konto mit %{service_name} zu verbinden, solltest Du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn Du ein Einzelunternehmer bist, empfiehlt PayPal einfach Deinen Namen als Geschäftsnamen zu verwenden."
-    upgrade_paypal_account_link_text: "Dich anmelden und auf ein Geschäftskonto umstellen"
+    paypal_receive_funds_info_australia_only: "Wenn du bei Verbindung deines Kontos zu %{service_name} einen Fehler bekommst, bitte entweder %{upgrade_paypal_account_link} und zu einem Business-Konto upgraden, oder (wenn du eine Privatperson bist), ein neues Premier-Konto erstellst. Beide Kontotypen sind kostenfrei."
+    paypal_receive_funds_info: "Wenn du einen Fehler beim Versuch siehst, dein PayPal Konto mit %{service_name} zu verbinden, solltest du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn du ein Einzelunternehmer bist, empfiehlt PayPal einfach deinen Namen als Geschäftsnamen zu verwenden."
+    upgrade_paypal_account_link_text: "dich anmelden und auf ein Geschäftskonto umstellen"
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator"
     you_are_ready_to_accept_payments: "Du bist bereit, Zahlungen entgegenzunehmen!"
@@ -1817,12 +1819,12 @@ de:
       change_email: Ändern
       confirm_your_email: "Bitte bestätige deine E-Mail-Adresse"
       account_confirmation_instructions: "Du wirst in Kürze eine E-Mail mit einem Link erhalten, den du anklicken musst, um die angegebene E-Mail-Adresse zu bestätigen. Nach der Bestätigung Deiner E-Mail ist die Registrierung bei %{service_name} abgeschlossen."
-      account_confirmation_instructions_title_admin: "Willkommen auf Deinem Marktplatz!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen."
-      contact_support_link_text: ~
+      account_confirmation_instructions_title_admin: "Bestätige deine E-Mail-Adresse"
+      before_full_access_you_need_to_confirm_email: "Bevor wir dir vollen Zugang zu deinem Marktplatz gewähren können, müssen wir nur noch eines tun: deine E-Mail-Adresse bestätigen."
+      before_confirmation_only_access_admin_dashboard: "Vor der Bestätigung hast du nur Zugang zu %{admin_dashboard_link}."
+      admin_dashboard_link_text: "Administrator Dashboard"
+      account_confirmation_instructions_admin: "Du wirst gleich eine E-Mail auf %{email_address} empfangen, die einen Link für die Verifizierung deiner E-Mail-Adresse enthält. Vergiss nicht, dein Spam-Ordner zu kontrollieren! Nachdem du deine E-Mail-Adresse mit dem Link in dieser E-Mail verifiziert hast, kannst du mit der Einrichtung deines Marktplatzes anfangen. Brauchst du Hilfe, bitte %{support_link}."
+      contact_support_link_text: "Kontaktiere unseren Support"
   settings:
     account:
       change: Ändern
@@ -1854,18 +1856,18 @@ de:
         status_confirmed: Bestätigt
         status_pending: Ausstehend
     notifications:
-      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen."
+      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen"
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
-      newsletters: Newsletter
-      community_updates: Neuigkeiten-E-Mails
+      newsletters: "E-mails von Administatoren"
+      community_updates: Newsletters
       email_about_confirm_reminders: "...ich vergessen habe, eine Anfrage als erledigt zu bestätigen"
       email_about_new_comments_to_own_listing: "...jemand mein Angebot oder meine Anfrage kommentiert"
       email_about_new_messages: "...mir jemand eine Nachricht sendet"
       email_about_new_received_testimonials: "...mir jemand eine Bewertung gibt"
       email_about_testimonial_reminders: "...ich vergessen habe, jemandem zu einer Transaktion eine Bewertung zu geben"
-      email_daily_community_updates: "Schickt mir täglich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      email_weekly_community_updates: "Schickt mir wöchentlich Neuigkeiten per E-Mail, sofern es neue Einträge gibt"
-      do_not_email_community_updates: "Schickt mir keine Neuigkeiten per E-Mail"
+      email_daily_community_updates: "Schickt mir <b>täglich</b> Newsletters, sofern es neue Einträge gibt"
+      email_weekly_community_updates: "Schickt mir <b>wöchentlich</b> Newsletters, sofern es neue Einträge gibt"
+      do_not_email_community_updates: "Schickt mir keine Newsletters"
       email_when_conversation_accepted: "...jemand mein Angebot oder meine Anfrage akzeptiert"
       email_when_conversation_rejected: "...jemand mein Angebot oder meine Anfrage ablehnt"
       email_about_completed_transactions: "...jemand mein Angebot oder meine Anfrage als erledigt markiert"
@@ -1884,7 +1886,7 @@ de:
       given_name: Vorname
       first_name_with_initial: "(anderen Benutzern wird nur der erste Buchstabe angezeigt)"
       first_name_only: "(wird anderen Benutzern nicht angezeigt)"
-      location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Bitte füge mindestens deine Postleitzahl hinzu. Du kannst auch einen Standort aus der Karte auswählen."
+      location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postleitzahl
@@ -1896,7 +1898,7 @@ de:
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
-      image_is_processing: "Dein Profilbild wird verarbeitet. Bitte lade die Seite nach einer Weile neu."
+      image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse
@@ -2030,9 +2032,15 @@ de:
   transactions:
     initiate:
       booked_days: "Gebuchte Tage:"
-      booked_nights: ~
+      booked_nights: "Gebuchte Nächte:"
+      booked_days_label:
+        one: "Gebuchter Tag:"
+        other: "Gebuchte Tage:"
+      booked_nights_label:
+        one: "Gebuchte Nacht:"
+        other: "Gebuchte Nächte:"
       price_per_day: "Preis pro Tag:"
-      price_per_night: ~
+      price_per_night: "Preis pro Nacht:"
       quantity: "Anzahl:"
       subtotal: "Zwischensumme:"
       shipping-price: "Versandkosten:"
@@ -2046,22 +2054,31 @@ de:
     days: Tage
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "Wir können die Verfügbarkeitsinformationen nicht anzeigen. Bitte versuche, die Seite erneut zu laden."
+          saving_failed: "Wir können die Änderungen an der Verfügbarkeit nicht speichern. Bitte versuche, die Seite erneut zu laden."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: Stück
+        hour: Stunde
+        day: Tag
+        night: Nacht
+        week: Woche
+        month: Monat
+      edit_availability_header: Verfügbarkeit
+      save_and_close_availability_editing: "Speichern und schließen"
+      confirm_discarding_unsaved_availability_changes_explanation: "Einige Änderungen zu der Verfügbarkeit wurden noch nicht gespeichert. Beim Fortsetzen gehen diese Änderungen verloren."
+      confirm_discarding_unsaved_availability_changes_question: "Bist du sicher, dass du diese Änderungen verwerfen willst?"
+      edit_listing_availability: "Verfügbarkeit der Anzeige bearbeiten"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Verzeihung, aber wir konnten keine Anzeigen mit deinen Suchkriterien finden."
+      try_other_search_terms: "Vielleicht könntest du andere Suchkriterien verwenden?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Bild hinzufügen"
+      no_picture: "Kein Bild"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Seite
+      page_of_pages: "von %{total_number_of_pages}"
     topbar:
       menu: Menü
       more: Mehr
@@ -2078,12 +2095,12 @@ de:
       admin_dashboard: "Administrator Dashboard"
       language: Sprache
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: Meilen
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} wird von %{sharetribe_link} Marktplatz Plattform betrieben."
+      create_own: "Willst du deinen eigenen Online-Marktplatz-Website wie %{service_name} erstellen? %{learn_more}."
+      learn_more: "Mehr erfahren"
   will_paginate:
     models:
       person:

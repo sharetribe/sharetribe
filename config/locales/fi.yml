@@ -69,7 +69,7 @@ fi:
         private_community_homepage_content: "Suljetun kauppapaikan etusivun sisältö"
         edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen kauppapaikkojen etusivulla. Tässä voit kertoa tarkemmin kauppapaikan tarkoituksesta sekä siitä, miten palveluun voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
         update_information: Tallenna
-        invite_people: "Kutsu uusia käyttäjiä"
+        invite_people: "Kutsu uusia käyttäjiä %{service_name} -palveluun"
         edit_signup_info: Liittymisohjeet
         edit_signup_info_description: "Nämä ohjeet näytetään käyttäjille liittymissivulla, kun he ovat liittymässä palveluun. Tähän voit lisätä ohjeita koskien esimerkiksi palveluun liittymistä tai sitä, mistä käyttäjät voivat hakea kutsua palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
@@ -197,7 +197,7 @@ fi:
         select_distance_unit: "Etäisyyden yksikkö %{distance_units_selector}"
         km: km
         miles: mailit
-        show_only_nearby: ~
+        show_only_nearby: "Näytä vain lähistöllä sijaitsevat ilmoitukset sijaintihaussa"
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
@@ -239,12 +239,12 @@ fi:
         ban_me_error: "Et voi poistaa itseäsi."
       new_layout:
         new_layout: "Uusi ulkoasu"
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap: "Sharetribe on parhaillaan siirtymässä kohti uutta, parannettua ulkoasua. Siirtymävaiheen aikana voit alla olevan valikon avulla valita, mitkä osat markkinapaikastasi näytetään vanhaa käyttöliittymää käyttäen. Uusi toiminnallisuus on ainoastaan käytössä uutta ulkoasua käyttäessäsi."
+        description_process: "Tuki vanhalle ulkoasulle poistetaan tulevaisuudessa. Sharetriben tiimi ilmoittaa sinulle, ennen kuin tämä tapahtuu. Onko sinulla kysymyksiä? Ole hyvä ja %{support_link}."
         enabled_for_you: "Käytössä vain sinulla"
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
-        searchpage: ~
+        searchpage: "Uusi hakusivu (tarvitsee uuden yläpalkin)"
       social_media:
         social_media: "Sosiaalinen media"
         twitter_handle: Twitter-tili
@@ -384,12 +384,13 @@ fi:
       subscription: Tilaus
       preview: "Esikatsele sivustoa"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      allow_availability_management: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Saatavuus
+      read_more: "Lue lisää automaattisesta saatavuuden hallinnasta."
+      read_more_availability_management: "Lue lisää saatavuuden hallinnasta."
+      allow_providers_to_manage_availability: "Salli myyjien hallita saatavuustietojaan kalenterin avulla"
+      per_day_availability: "\"Per päivä\" -saatavuus"
+      per_night_availability: "\"Per yö\" -saatavuus"
+      pricing_units_disabled_info: "Hinnan yksiköitä ei voi käyttää mikäli saatavuuskalenteri (availability calendar) on kytketty päälle."
       index:
         listing_shapes: Tilaustyypit
         description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja antaa tavaroita pois ilmaiseksi."
@@ -477,16 +478,16 @@ fi:
     paypal_accounts:
       marketplace_paypal_integration: Maksuasetukset
       preferences_updated: "Maksuasetukset päivitetty"
-      contact_support_link_text: "ota yhteys Sharetriben ylläpitoon"
-      integration_info_text: "Sharetribe-markkinapaikkojen maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi %{service_name}-palveluun ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
+      contact_support_link_text: "ota yhteys ylläpitoon"
+      integration_info_text: "Markkinapaikkasi maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
-      read_more_about_paypal: "Lue lisää Sharetriben maksujärjestelmästä"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      read_more_about_paypal: "Lue lisää maksujärjestelmästä"
+      edit_payment_settings: "Muokkaa maksuasetuksia"
+      supported_currencies_information_text: "Sharetriben maksujärjestelmä tukee 24 eri valuuttaa. Mikäli valuuttasi ei ole listattuna, ole hyvä ja %{contact_support_link}. Mikäli muutat markkinapaikkasi valuutan, olemassa olevissa ilmoituksissa säilyy vanha valuutta. Sinun tulee muokata näitä ilmoituksia yksitellen päivittääksesi niihin uuden valuutan."
+      currency_change_warning_text: "Huomio: mikäli vaihdat valuutan, älä unohda pyytää myyjiäsi päivittämään ilmoituksensa, jotta myös ne saavat uuden valuutan."
+      marketplace_currency_label: "Markkinapaikan valuutta:"
       minimum_listing_price_label: "Maksutapahtuman minimikoko:"
       transaction_fee_label: "Välityspalkkioprosentti:"
       minimum_transaction_fee_label: "Minimipalkkio:"
@@ -786,7 +787,7 @@ fi:
       show_thread: "Näytä viestiketju"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
-      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi."
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi painamalla alla olevaa näppäintä liittyessäsi %{service_name} -palveluun."
       confirmation_link_text: "Vahvista sähköpostini"
       or_paste_link: "Vaihtoehtoisesti voit kopioida seuraavan linkin selaimesi osoitepalkkiin:"
     common:
@@ -846,9 +847,9 @@ fi:
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
       product: Tuote
       price_per_unit_type: "Hinta per %{unit_type}"
-      duration: "Kesto:"
-      quantity: "Määrä:"
-      subtotal: "Välisumma:"
+      duration: Kesto
+      quantity: Määrä
+      subtotal: Välisumma
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu
@@ -911,8 +912,8 @@ fi:
       person_email: "Sähköpostiosoite:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."
+      double_booking_payment_voided: "Valitettavasti valitsemasi päivät eivät ole saatavilla. Ole hyvä ja valitse toiset päivämäärät. Sinua ei ole veloitettu."
     onboarding:
       server_rendering: "Aloitusopasta ei voitu ladata. Tieto virheestä on lähetetty meille ja korjaamme sen mahdollisimman pian."
     listings:
@@ -927,6 +928,7 @@ fi:
     transaction_agreement:
       required_error: "Sinun pitää hyväksyä ehdot"
     paypal:
+      transaction_cannot_complete: "Ostotapahtumaa ei voitu viedä loppuun. Tämän aiheuttaa usein luottokortin hylkääminen pankin toimesta. Ole hyvä ja yritä maksaa uudelleen eri maksuvälinettä käyttäen."
       buyer_cannot_pay_error: "PayPal hylkäsi maksuyrityksen. Ole hyvä ja ota yhteyttä PayPalin asiakastukeen: %{customer_service_link}"
       pending_review_error: "Maksu on vastaanotettu mutta PayPal merkitsi sen katselmoitavaksi. Kun PayPal on suorittanut katselmoinnin tehdään katevaraus automaattisesti."
       seller_express_checkout_disabled: "Ilmoituksen jättäjän PayPal-tili ei tällä hetkellä tue Express Checkout -toimintoa. Ole yhteydessä ilmoituksen jättäjään ja kerro hänelle, että hänen PayPal-tilissään on ongelma, joka estää maksujen vastaanottamisen, ja pyydä häntä olemaan yhteydessä PayPalin asiakaspalveluun."
@@ -1252,8 +1254,8 @@ fi:
       offer_rejected: "Tarjous hylätty"
       offer_canceled: "Tarjous peruttu"
       listing_updated_successfully: "Ilmoitus päivitetty onnistuneesti"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta aktivoitu."
+      listing_updated_availability_management_disabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta pois käytöstä."
       only_kassi_administrators_can_access_this_area: "Vain %{service_name}-palvelun ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
@@ -1356,7 +1358,7 @@ fi:
       edit_listing: "Muokkaa ilmoitusta"
       reopen_listing: "Avaa ilmoitus uudelleen"
       move_to_top: "Nosta ilmoitus etusivun ylälaitaan"
-      show_in_updates_email: "Näytä ilmoitus seuraavassa tapahtumapäivityssähköpostissa"
+      show_in_updates_email: "Näytä ilmoitus seuraavassa uutiskirjeessä"
       show_in_updates_email_loading: Ladataan...
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
       show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
@@ -1364,9 +1366,9 @@ fi:
       open_in_google_maps: "Avaa Google Maps -palvelussa"
     error:
       something_went_wrong: "Jotain meni vikaan, virhekoodi: %{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Jotakin meni pieleen"
+      create_failed_to_connect_to_booking_service: "Ilmoituksen luonti epäonnistui: Varauspalveluun ei saatu yhteyttä. Ole hyvä ja yritä uudelleen."
+      update_failed_to_connect_to_booking_service: "Ilmoituksen päivitys ei onnistunut: Varauspalveluun ei saatu yhteyttä. Ole hyvä ja yritä uudelleen."
     follow_links:
       follow: "Seuraa ilmoitusta"
       unfollow: "Lopeta ilmoituksen seuraaminen"
@@ -1513,7 +1515,7 @@ fi:
       booking_to: Loppuu
       how_paypal_works: "Miten PayPal toimii"
       payment_help: "Apua maksujen kanssa"
-      unable_load_availability: ~
+      unable_load_availability: "Saatavuustietoja ei voitu ladata. Ole hyvä ja yritä myöhemmin uudelleen."
     new:
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"
@@ -1588,8 +1590,8 @@ fi:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Valitut päivät eivät ole saatavilla"
+      error_in_checking_availability: "Saatavuustietoja ei voitu tarkistaa antamiltasi päivämääriltä."
       details: Erittely
       by: "%{listing} käyttäjältä %{author}"
       payment: maksu
@@ -1638,7 +1640,7 @@ fi:
     connected_account: "PayPal-tili '%{email}' yhdistetty onnistuneesti."
     paypal_receive_funds_info_label_australia_only: "PayPal-tilisi pitää pystyä ottamaan vastaan maksuja. Tätä varten saatat tarvita Premier- tai Business-tilin."
     paypal_receive_funds_info_label: "PayPal-tilisi pitää pystyä ottamaan maksuja vastaan. Saatat tarvita PayPal Business -tilin."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Jos näet virheen yhdistäessäsi tiliäsi %{service_name} -palveluun, voit joko päivittää PayPal-tilisi %{upgrade_paypal_account_link}, tai (jos olet yksityishenkilö) luoda uuden Premier-tilin. Molemmat tilityypit ovat täysin ilmaisia."
     paypal_receive_funds_info: "Jos näet virheviestin yrittäessäsi yhdistää PayPal-tilisi %{service_name}-palveluun, päivitä PayPal-tilisi %{upgrade_paypal_account_link}. Päivittäminen on ilmaista ja helppoa. Jos olet yksityishenkilö, PayPal suosittelee käyttämään koko nimeäsi \"Business name\" -kentässä."
     upgrade_paypal_account_link_text: "kirjautumalla sisään ja klikkaamalla päivitä-linkkiä"
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmä ei ole vielä käytössä, joten et voi vielä muokata maksuasetuksiasi. Ole hyvä ja %{contact_admin_link}."
@@ -1817,12 +1819,12 @@ fi:
       change_email: Vaihda
       confirm_your_email: "Vahvista sähköpostiosoitteesi"
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava vahvistaaksesi sähköpostiosoitteesi. Jos et löydä viestiä, muista tarkistaa roskapostikansiosi! Vahvistuksen jälkeen voit liittyä palveluun %{service_name}."
-      account_confirmation_instructions_title_admin: "Tervetuloa markkinapaikkasivustollesi!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: "Saat pian sähköpostiisi linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Mikäli et löydä viestiä, muista tarkistaa roskapostikansiosi! Tämän jälkeen voit aloittaa sivustosi muokkaamisen."
-      contact_support_link_text: ~
+      account_confirmation_instructions_title_admin: "Vahvista sähköpostiosoitteesi"
+      before_full_access_you_need_to_confirm_email: "Ennen kuin voimme antaa sinulle täyden pääsyn markkinapaikallesi, on vielä yksi juttu tehtävänä: sähköpostiosoitteesi vahvistaminen."
+      before_confirmation_only_access_admin_dashboard: "Ennen vahvistamista pääset ainoastaan %{admin_dashboard_link}."
+      admin_dashboard_link_text: ylläpitonäkymään
+      account_confirmation_instructions_admin: "Saat pian sähköpostiosoitteesesi %{email_address} linkin, jota sinun tulee klikata varmistaaksesi sähköpostiosoitteesi. Mikäli et löydä viestiä, muista tarkistaa roskapostikansiosi! Kun saat viestin, avaa siinä oleva linkki vahvistaaksesi osoitteesi, jonka jälkeen saat täyden pääsyn sivustoosi. Jos tarvitset apua, ole hyvä ja %{support_link}."
+      contact_support_link_text: "ota yhteys Sharetriben tukeen"
   settings:
     account:
       change: Vaihda
@@ -1856,16 +1858,16 @@ fi:
     notifications:
       email_from_admins: "Sivuston ylläpitäjä voi lähettää minulle sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
-      newsletters: Uutiskirjeet
+      newsletters: "Sähköpostit ylläpitäjiltä"
       community_updates: Tapahtumapäivitykset
       email_about_confirm_reminders: "...olen unohtanut merkitä pyynnön toteutuneeksi"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_daily_community_updates: "Lähetä viesti <b>päivittäin</b>, jos sivustolla on uusia ilmoituksia"
-      email_weekly_community_updates: "Lähetä viesti <b>viikoittain</b>, jos sivustolla on uusia ilmoituksia"
-      do_not_email_community_updates: "Älä lähetä minulle sähköpostia uusimmista ilmoituksista"
+      email_daily_community_updates: "Lähetä uutiskirje <b>päivittäin</b>, jos sivustolla on uusia ilmoituksia"
+      email_weekly_community_updates: "Lähetä uutiskirje <b>viikoittain</b>, jos sivustolla on uusia ilmoituksia"
+      do_not_email_community_updates: "Älä lähetä minulle uutiskirjeitä"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_completed_transactions: "...joku merkitsee pyyntöni tai tarjoukseni toteutetuksi"
@@ -1884,7 +1886,7 @@ fi:
       given_name: Etunimi
       first_name_with_initial: "(vain ensimmäinen kirjain näytetään muille käyttäjille)"
       first_name_only: "(ei näytetä muille käyttäjille)"
-      location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
+      location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva
       postal_code: Postinumero
@@ -2052,22 +2054,31 @@ fi:
     days: päivää
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "Saatavuustietoja ei voida näyttää. Ole hyvä ja kokeile päivittää sivu."
+          saving_failed: "Saatavuustietojen muutoksia ei voitu tallentaa. Ole hyvä ja kokeile päivittää sivu."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: kappale
+        hour: tunti
+        day: päivä
+        night: yö
+        week: viikko
+        month: kuukausi
+      edit_availability_header: Saatavuus
+      save_and_close_availability_editing: "Tallenna ja sulje"
+      confirm_discarding_unsaved_availability_changes_explanation: "Sinulla on tallentamattomia muutoksia saatavuustietoihin. Jos jatkat, muutokset eivät tallennu."
+      confirm_discarding_unsaved_availability_changes_question: "Oletko varma että haluat hylätä muutokset?"
+      edit_listing_availability: "Muokkaa ilmoituksen saatavuutta"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Valitettavasti antamillasi hakuehdoilla ei löytynyt ilmoituksia."
+      try_other_search_terms: "Ehkä voisit kokeilla muita hakutermejä?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Lisää kuva"
+      no_picture: "Ei kuvaa"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Sivu
+      page_of_pages: "/ %{total_number_of_pages}"
     topbar:
       menu: Valikko
       more: Lisää
@@ -2084,12 +2095,12 @@ fi:
       admin_dashboard: Ylläpitonäkymä
       language: Kieli
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mi
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} -palvelua pyörittää %{sharetribe_link} -markkinapaikkajärjestelmä."
+      create_own: "Haluatko luoda oman online-markkinapaikkasi, aivan kuin %{service_name}? %{learn_more}."
+      learn_more: "Lue lisää"
   will_paginate:
     models:
       person:

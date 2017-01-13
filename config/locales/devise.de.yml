@@ -51,7 +51,7 @@ de:
       failure: "Authentifizierung von %{kind} fehlgeschlagen wegen: \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Bestätigung Deines Benutzerkontos"
+        subject: "Bestätigungsinformationen für %{service_name}"
       reset_password_instructions:
         subject: "Anleitung zum Zurücksetzen des Passworts"
       unlock_instructions:

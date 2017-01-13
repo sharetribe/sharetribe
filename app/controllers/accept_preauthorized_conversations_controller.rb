@@ -65,6 +65,14 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     if res[:success]
       flash[:notice] = success_msg(res[:flow])
+
+      Analytics.record_event(
+        flash,
+        status == :paid ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
+        { listing_id: tx[:listing_id],
+          listing_uuid: tx[:listing_uuid].to_s,
+          transaction_id: tx[:id] })
+
       redirect_to person_transaction_path(person_id: sender_id, id: tx_id)
     else
       flash[:error] = error_msg(res[:flow])

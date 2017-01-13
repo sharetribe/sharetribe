@@ -9,6 +9,9 @@
   & .avatarProfileDropdown {
     visibility: hidden;
     margin-bottom: -32px;
+  }
+
+  & .transitionDelay {
     transition: visibility 0ms;
     transition-delay: 300ms;
   }

@@ -386,7 +386,8 @@ en:
     listing_shapes:
       availability_title: Availability
       read_more: "Read more about automatic availability management."
-      allow_availability_management: "Enable automatic availability management (prevent double bookings)"
+      read_more_availability_management: "Read more about availability management."
+      allow_providers_to_manage_availability: "Allow providers to manage their availability from a calendar"
       per_day_availability: "\"Per day\" availability"
       per_night_availability: "\"Per night\" availability"
       pricing_units_disabled_info: "Pricing units cannot be used when availability calendar is enabled."
@@ -846,9 +847,9 @@ en:
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
       product: Product
       price_per_unit_type: "Price per %{unit_type}"
-      duration: "Duration:"
-      quantity: "Quantity:"
-      subtotal: "Subtotal:"
+      duration: Duration
+      quantity: Quantity
+      subtotal: Subtotal
       total: Total
       price: Price
       service_fee: "Service fee"
@@ -927,6 +928,7 @@ en:
     transaction_agreement:
       required_error: "You need to accept the agreement"
     paypal:
+      transaction_cannot_complete: "Transaction cannot complete. This is most likely caused by the credit card failing bank authorization. Please, try purchasing again with an alternative payment method."
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
@@ -1252,8 +1254,8 @@ en:
       offer_rejected: "Offer rejected"
       offer_canceled: "Offer canceled"
       listing_updated_successfully: "Listing updated successfully"
-      listing_updated_availability_enabled: "Listing updated successfully. Automatic availability management enabled."
-      listing_updated_availability_disabled: "Listing updated successfully. Automatic availability management disabled."
+      listing_updated_availability_management_enabled: "Listing updated successfully. Availability management enabled."
+      listing_updated_availability_management_disabled: "Listing updated successfully. Availability management disabled."
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
@@ -1638,9 +1640,9 @@ en:
     connected_account: "PayPal account '%{email}' connected successfully."
     paypal_receive_funds_info_label_australia_only: "Your PayPal account needs to be able to accept payments. This might require a Premier or Business account."
     paypal_receive_funds_info_label: "Your PayPal account needs to be able to accept payments. This might require a Business account."
-    paypal_receive_funds_info_australia_only: "If you see an error when trying to connect your account to %{service_name}, either %{upgrade_paypal_account_link} and upgrade to a Business account, or (if you are an individual), create a new Premier account. Both account types are completely free."
-    paypal_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, upgrade your PayPal account by %{upgrade_paypal_account_link}. It's free and easy. If you're an individual, PayPal recommends using your name as the Business name."
-    upgrade_paypal_account_link_text: "logging in and clicking the upgrade link"
+    paypal_receive_funds_info_australia_only: "If you see an error when trying to connect your account to %{service_name}, either %{upgrade_paypal_account_link}, or (if you are an individual), create a new Premier account. Both account types are completely free."
+    paypal_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, %{upgrade_paypal_account_link}. It's free and easy. If you're an individual, PayPal recommends using your name as the Business name."
+    upgrade_paypal_account_link_text: "log in and upgrade your PayPal account to a business account"
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
     contact_admin_link_text: "contact the marketplace administrator"
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
@@ -2052,6 +2054,10 @@ en:
     days: days
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "We're not able to display availability information. Try to reload the page."
+          saving_failed: "We're not able to save availability changes. Try to reload the page."
       pricing_units:
         piece: piece
         hour: hour
@@ -2059,6 +2065,11 @@ en:
         night: night
         week: week
         month: month
+      edit_availability_header: Availability
+      save_and_close_availability_editing: "Save and close"
+      confirm_discarding_unsaved_availability_changes_explanation: "You have unsaved changes to your availability information. If you proceed, these changes will be lost."
+      confirm_discarding_unsaved_availability_changes_question: "Are you sure you want to discard your changes?"
+      edit_listing_availability: "Edit listing availability"
     no_listings:
       sorry: "Sorry, no listings could be found for your search criteria."
       try_other_search_terms: "Maybe try other search terms?"

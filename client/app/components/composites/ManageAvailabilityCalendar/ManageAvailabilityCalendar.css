@@ -1,0 +1,110 @@
+.root {
+  font-family: var(--ManageAvailabilityCalendar_fontFamily);
+  font-size: var(--ManageAvailabilityCalendar_fontSize);
+
+  /* stylelint-disable selector-class-pattern */
+
+  & :global(.CalendarMonth__caption) {
+    font-size: 18px;
+    padding-bottom: 45px;
+
+    & strong {
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  & :global(.DayPicker) {
+    box-shadow: none;
+  }
+
+  & :global(.DayPicker__week-header) {
+    top: 55px;
+
+    & small {
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+
+  & :global(.DayPickerNavigation__prev),
+  & :global(.DayPickerNavigation__next) {
+    border: none;
+
+    &:hover {
+      border: none;
+
+      & svg {
+        fill: #000;
+      }
+    }
+  }
+
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__prev) {
+    /* The navigation arrows have 9px padding. Add -9px margin to
+    align the arrows with the calendar */
+    margin-left: -9px;
+  }
+
+  & :global(.DayPickerNavigation--horizontal .DayPickerNavigation__next) {
+    /* The navigation arrows have 9px padding. Add -9px margin to
+    align the arrows with the calendar */
+    margin-right: -9px;
+  }
+
+  & :global(.CalendarMonth__day) {
+    border: 1px solid #ebebeb;
+    color: #5e6977;
+    background-color: #fff;
+    transition: background-color 0.1s ease-in;
+    font-weight: 500;
+
+    &:hover {
+      color: #d7d7d7;
+    }
+  }
+
+  & :global(.CalendarMonth__day--today) {
+    font-weight: bold;
+    color: #000;
+  }
+
+  & :global(.CalendarMonth__day--past) {
+    background-color: #f8f8f8;
+    color: #d7d7d7;
+    font-weight: normal;
+    cursor: default;
+  }
+
+  & :global(.CalendarMonth__day--blocked) {
+    background-color: #f8f8f8;
+    color: #d7d7d7;
+    font-weight: normal;
+
+    &:hover {
+      color: #5e6977;
+    }
+  }
+
+  & :global(.CalendarMonth__day--reserved) {
+    &,
+    &:hover,
+    &:active {
+      background-color: var(--colorReservedAvailability);
+      color: #fff;
+      cursor: default;
+      font-weight: normal;
+    }
+  }
+
+  & :global(.CalendarMonth__day--outside) {
+    cursor: pointer;
+  }
+
+  /* React-Dates fix: remove click events from invisible month */
+  & :global(.CalendarMonth:first-of-type) {
+    pointer-events: none;
+  }
+
+  /* stylelint-enable selector-class-pattern */
+}

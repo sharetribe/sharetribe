@@ -1,0 +1,34 @@
+version: '2'
+services:
+  web:
+    build: .
+    mem_limit: 512m
+    environment:
+      - PASSENGER_MIN_INSTANCES=1
+      - PASSENGER_MAX_POOL_SIZE=2
+    labels:
+      - convox.deployment.minimum=50
+      - convox.deployment.maximum=200
+      - convox.port.80.protocol=http
+      - convox.port.443.protocol=https
+      - convox.health.path=/_health
+      - convox.health.timeout=8
+      - convox.idle.timeout=60
+    ports:
+      - "80:3000"
+      - "443:3000"
+  worker:
+    build: .
+    mem_limit: 512m
+    environment:
+      - QUEUES=default,paperclip,mailers
+      - MAGICK_MAP_LIMIT=64MiB
+      - MAGICK_MEMORY_LIMIT=256MiB
+      - MAGICK_TIME_LIMIT=30
+    labels:
+      - convox.deployment.minimum=0
+      - convox.deployment.maximum=200
+      # scheduled task definitions
+      # Uncomment when deploying own installation of Sharetribe
+      #- convox.cron.test-task=0 9 * * ? bundle exec rails runner CommunityMailer.deliver_community_updates
+    command: [ "script/startup.sh", "worker" ]

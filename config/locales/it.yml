@@ -371,7 +371,8 @@ it:
     listing_shapes:
       availability_title: Disponibilità
       read_more: "Leggi di più sulla gestione automatica delle disponibilità"
-      allow_availability_management: "Abilita la gestione automatica della disponibilità (previene la doppia prenotazione)"
+      read_more_availability_management: "Leggi di più sulla gestione delle disponibilità"
+      allow_providers_to_manage_availability: ~
       per_day_availability: "disponibilità \"Per giorno\""
       per_night_availability: "Disponibilità \"Per notte\""
       pricing_units_disabled_info: ""
@@ -900,6 +901,7 @@ it:
     transaction_agreement:
       required_error: "E' necessario accettare l'accordo"
     paypal:
+      transaction_cannot_complete: "La transazione non può essere completata. Questo può essere dovuto alla mancata autorizzazione da parte della banca, per credito insufficiente o altri motivi. Per favore, prova con un altro metodo di pagamento."
       buyer_cannot_pay_error: "Il pagamento è stato rifiutato da PayPal. Si prega di contattare il loro Servizio Clienti per maggiori informazioni: %{customer_service_link}"
       pending_review_error: "Il pagamento è stato presentato, ma è stato contrassegnato da PayPal come 'in revisione'. Quando PayPal completarà la revisione, il pagamento verrà autorizzato automaticamente."
       seller_express_checkout_disabled: "Il pagamento con PayPal non è attivo sul conto PayPal dell'autore dell'inserzione. Per favore contatta l'autore, e mettilo a conoscenza che c'è un problema con il suo conto PayPal. Consigliali per favore di contattare l'Assistenza clienti PayPal."
@@ -1225,8 +1227,8 @@ it:
       offer_rejected: "Offerta rifiutata"
       offer_canceled: "Offerta cancellata"
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
-      listing_updated_availability_enabled: "L'inserzione si è aggiornata con successo. Abilitata la gestione automatica della disponibilità."
-      listing_updated_availability_disabled: "L'inserzione si è aggiornata con successo. Disabilitata la gestione automatica della disponibilità."
+      listing_updated_availability_management_enabled: "Inserzioni aggiornate con successo. Gestione delle disponibilità abilitate con successo."
+      listing_updated_availability_management_disabled: ""
       only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
@@ -1791,13 +1793,13 @@ it:
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: "Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, potrai unirti a %{service_name}."
       account_confirmation_instructions_title_admin: ~
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Prima di darti pieno acceso al tuo marketplace, c'è solo una cosa da fare: confermare l'indirizzo email."
+      before_confirmation_only_access_admin_dashboard: "Prima di confermare puoi accedere soltanto a %{admin_dashboard_link}"
+      admin_dashboard_link_text: "admin dashboard"
       account_confirmation_instructions_admin: |-
           Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, puoi cominciare a configurare il tuo profilo, le tue inserzioni, e le preferenze di ricezione email.
           Nel tuo account di posta aggiungi il nostro indirizzo email
-      contact_support_link_text: ~
+      contact_support_link_text: "Contatta il supporto di Sharetribe"
   settings:
     account:
       change: Cambia
@@ -2021,6 +2023,10 @@ it:
     days: giorni
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "Non è possibile mostrare l'informazione. Prova a ricaricare la pagina."
+          saving_failed: "Non è possibile salvare i cambiamenti alle disponibilità. Prova a ricaricare la pagina."
       pricing_units:
         piece: unità
         hour: ora
@@ -2028,11 +2034,16 @@ it:
         night: notte
         week: settimana
         month: mese
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: "Non hai salvato i cambiamenti alle informazioni sulle disponibilità. Se non lo fai, i cambiamenti verranno persi."
+      confirm_discarding_unsaved_availability_changes_question: "Hai la certezza di voler lasciar pedere i tuoi cambiamenti?"
+      edit_listing_availability: ~
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."
     listing_card:
-      add_picture: ~
+      add_picture: "Aggiungi immagine"
       no_picture: "Nessuna immagine"
     search:
       page: Pagina

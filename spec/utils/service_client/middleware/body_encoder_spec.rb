@@ -85,6 +85,17 @@ describe ServiceClient::Middleware::BodyEncoder do
     end
   end
 
+  describe "#enter" do
+    let(:encoder) { body_encoder.new(:transit_msgpack) }
+
+    it "uses opts encoding instead of default encoding" do
+      ctx = encoder.enter(req: { body: {"a" => 1}, headers: {}}, opts: {encoding: :json})
+
+      expect(JSON.parse(ctx[:req][:body])).to eq({"a" => 1})
+      expect_headers(ctx, "application/json")
+    end
+  end
+
   describe "#leave" do
 
     let(:encoder) { body_encoder.new(:transit_msgpack) }

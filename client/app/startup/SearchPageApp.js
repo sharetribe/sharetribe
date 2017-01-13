@@ -14,8 +14,8 @@ import SearchPageContainer from '../components/sections/SearchPage/SearchPageCon
 import { SearchPageModel } from '../components/sections/SearchPage/SearchPage';
 import { parse as parseListingModel } from '../models/ListingModel';
 import { parse as parseProfile } from '../models/ProfileModel';
-import { Image } from '../models/ImageModel';
-import TransitImmutableConverter from '../utils/transitImmutableConverter';
+import { Image, parse as parseImage } from '../models/ImageModel';
+import { createReader } from '../utils/transitImmutableConverter';
 
 const profilesToMap = (includes, getProfilePath) =>
   includes.reduce((acc, val) => {
@@ -80,7 +80,11 @@ export default (props) => {
     'sign_up',
   ], { locale });
 
-  const bootstrappedData = TransitImmutableConverter.fromJSON(_.get(props, 'searchPage.data', null));
+  const reader = createReader({
+    im: parseImage,
+  });
+
+  const bootstrappedData = reader.read(_.get(props, 'searchPage.data', null)) || Immutable.Map();
 
   const rawListings = bootstrappedData.get(':data', []);
 

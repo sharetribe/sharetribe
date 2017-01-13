@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe PaypalService::API::Payments do
 
   let(:token_store) { PaypalService::Store::Token }

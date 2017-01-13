@@ -303,8 +303,8 @@ ro:
         edit_listing_field: ~
       edit_price:
         description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
+        edit_price_field: "Editati campul pret"
+        show_price_filter_homepage: "Afisati filtrul pret pe pagina de start"
         price_min: ~
         price_max: ~
       edit_location:
@@ -339,7 +339,7 @@ ro:
         continue: ~
         minimum_value: ~
         maximum_value: ~
-        allow_decimals: ~
+        allow_decimals: "Permiteti zecimale"
       new:
         new_listing_field: ~
       field_types:
@@ -371,7 +371,8 @@ ro:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -896,6 +897,7 @@ ro:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -1017,8 +1019,8 @@ ro:
       some_private_requests_exist: "Exista deja <b>%{number_of_listings} solicitari</b>,"
     custom_filters:
       update_view: ~
-      min: ~
-      max: ~
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: ~
     grid_item:
@@ -1221,8 +1223,8 @@ ro:
       offer_rejected: "Oferta respinsa"
       offer_canceled: ~
       listing_updated_successfully: ~
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Numai administratorii %{service_name} pot accesa aceasta zona."
       only_listing_author_can_close_a_listing: "Numai autorul anuntului poate sa inchida acest anunt"
       only_listing_author_can_edit_a_listing: "Numai autorul anuntului poate edita un anunt"
@@ -1992,6 +1994,10 @@ ro:
     days: ~
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -1999,6 +2005,11 @@ ro:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

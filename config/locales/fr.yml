@@ -386,14 +386,15 @@ fr:
     listing_shapes:
       availability_title: Disponibilité
       read_more: "En savoir plus sur la gestion automatique des disponibilités."
-      allow_availability_management: "Activer la gestion automatique de la disponibilité (empêcher les doubles réservations)"
+      read_more_availability_management: "En savoir plus sur la gestion des disponibilités."
+      allow_providers_to_manage_availability: "Autoriser les fournisseurs à gérer leur disponibilité depuis un calendrier"
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
       index:
         listing_shapes: "Types de transaction"
         description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
-        read_more_about_order_types: "En apprendre plus sur les types de transaction"
+        read_more_about_order_types: "En savoir plus sur les types de transaction"
         add_new_shape: "Ajouter un nouveau type de transaction : "
         select_template: "Sélectionner un modèle..."
         all_categories: "Toutes les catégories"
@@ -779,7 +780,7 @@ fr:
       we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme terminée. La commande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
     booking_transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
-      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme réalisée. La demande a été réalisée automatiquement car une journée s'est écoulée depuis la fin de la période de réservation."
+      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme réalisée. La demande a été automatiquement réalisée car une journée s'est écoulée depuis la fin de la période de réservation."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
@@ -846,9 +847,9 @@ fr:
       you_have_made_new_payment: "Vous avez payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> à %{recipient_full_name}. Voici un reçu du paiement."
       product: Produit
       price_per_unit_type: "Prix par %{unit_type}"
-      duration: "Durée : "
-      quantity: "Quantité : "
-      subtotal: "Sous-total : "
+      duration: Durée
+      quantity: Quantité
+      subtotal: Sous-total
       total: Total
       price: Prix
       service_fee: "Frais de service"
@@ -927,6 +928,7 @@ fr:
     transaction_agreement:
       required_error: "Vous devez accepter l'accord"
     paypal:
+      transaction_cannot_complete: "La transaction n'a pas pu être réalisée. Ceci est probablement dû au fait que votre banque n'a pas autorisé l'utilisation de votre carte bancaire. Veuillez essayer de nouveau en utilisant une autre méthode de paiement."
       buyer_cannot_pay_error: "Le paiement a été refusé par PayPal. Veuillez contacter leur support client pour obtenir plus d'informations : %{customer_service_link}"
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
       seller_express_checkout_disabled: "PayPal Express Checkout a été désactivé pour le compte PayPal de l'auteur de cette annonce. Veuillez contacter l'auteur pour lui signaler qu'il y a un problème avec son compte PayPal et lui conseiller de contacter le service client PayPal."
@@ -1150,7 +1152,7 @@ fr:
       feedback: "Contacter l'équipe %{service_name}"
     application:
       join_this_community: "Rejoindre la place de marché"
-      read_more: "Lire la suite"
+      read_more: "En savoir plus"
       feedback: "Votre message pour l'équipe %{service_name}"
       dont_use_to_contact_support: "Nous avons remarqué que vous êtes un administrateur de %{service_name}. Ce formulaire est celui que vos utilisateur utilisent pour vous contacter. Vous ne pouvez pas utiliser ce formulaire pour contacter le support Sharetribe. Vous pouvez cependant le faire via le lien Support dans votre panneau d'administration."
       feedback_forum: "forum de discussion"
@@ -1252,8 +1254,8 @@ fr:
       offer_rejected: "Offre refusée"
       offer_canceled: "Offre annulée"
       listing_updated_successfully: "Annonce mise à jour avec succès"
-      listing_updated_availability_enabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités activée."
-      listing_updated_availability_disabled: "Annonce mise à jour avec succès. Gestion automatique des disponibilités désactivée."
+      listing_updated_availability_management_enabled: "Annonce mise à jour avec succès. Gestion des disponibilités activée."
+      listing_updated_availability_management_disabled: "Annonce mise à jour avec succès. Gestion des disponibilités désactivée."
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
@@ -1273,7 +1275,7 @@ fr:
       poll_update_failed: "Erreur lors de la mise à jour du sondage"
       poll_updated: "Sondage mis à jour"
       poll_deleted: "Sondage supprimé"
-      read_more: "Lire la suite !"
+      read_more: "En savoir plus !"
       registration_considered_spam: "L'inscription n'a pas fonctionné, veuillez nous contacter depuis le menu en précisant le message \"email2 error\"."
       reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
       reply_sent: "Message envoyé avec succès"
@@ -1638,9 +1640,9 @@ fr:
     connected_account: "Le compte PayPal '%{email}' est désormais connecté."
     paypal_receive_funds_info_label_australia_only: "Votre compte PayPal doit permettre de recevoir des paiements. Cela peut nécessiter un compte Premier ou Business."
     paypal_receive_funds_info_label: "Votre compte PayPal doit permettre la réception de paiements. Cela nécessite un compte Business."
-    paypal_receive_funds_info_australia_only: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, vous pouvez soit surclassez votre compte PayPal en %{upgrade_paypal_account_link} ou (si vous êtes un particulier), créer un nouvea compte Premier. Ces deux types de comptes sont entièrement gratuits."
-    paypal_receive_funds_info: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, surclassez votre compte PayPal en %{upgrade_paypal_account_link}. C'est simple et gratuit. Si vous êtes un particulier, PayPal recommande d'utiliser votre nom comme nom Business ou Entreprise."
-    upgrade_paypal_account_link_text: "vous connectant et cliquant sur le lien de surclassement"
+    paypal_receive_funds_info_australia_only: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, soit %{upgrade_paypal_account_link} ou (si vous êtes un particulier), créer un nouveau compte Premier. Ces deux types de comptes sont entièrement gratuits."
+    paypal_receive_funds_info: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, %{upgrade_paypal_account_link}. C'est simple et gratuit. Si vous êtes un particulier, PayPal recommande d'utiliser votre nom comme nom Business ou Entreprise."
+    upgrade_paypal_account_link_text: "connectez vous et surclassez votre compte PayPal en un compte Business"
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
     contact_admin_link_text: "contacter l'administrateur de la place de marché"
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
@@ -1776,7 +1778,7 @@ fr:
       no_reviews: "Aucun avis"
       show_all_listings: "Voir toutes les annonces"
       show_all_open_listings: "Voir toutes les annonces en ligne"
-      show_all_reviews: "Vois tous les avis"
+      show_all_reviews: "Voir tous les avis"
     followed_people:
       you_follow_plural: "Vous suivez %{count} personnes"
       you_follow_singular: "Vous suivez %{count} personne"
@@ -1817,11 +1819,11 @@ fr:
       change_email: Modifier
       confirm_your_email: "Veuillez confirmer votre email"
       account_confirmation_instructions: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer votre adresse email. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! Dès que vous l'aurez confirmée, vous pourrez rejoindre %{service_name}."
-      account_confirmation_instructions_title_admin: "Bienvenue sur votre place de marché !"
+      account_confirmation_instructions_title_admin: "Confirmez votre adresse email"
       before_full_access_you_need_to_confirm_email: "Avant que nous vous donnions un accès complet à votre place de marché, il n'y a plus qu'une petite chose à faire : confirmer votre adresse email."
       before_confirmation_only_access_admin_dashboard: "Avant la confirmation vous ne pouvez accéder qu'au %{admin_dashboard_link}."
       admin_dashboard_link_text: "panneau d'administration"
-      account_confirmation_instructions_admin: "Vous allez bientôt recevoir un email contenant un lien que vous devrez suivre pour confirmer l'adresse email que vous avez saisie. N'oubliez pas de vérifier votre dossier \"Spam\" ou \"Indésirables\" ! En cliquant sur ce lien vous pourrez commencer à configurer votre place de marché."
+      account_confirmation_instructions_admin: "Vous devriez avoir reçu un email à %{email_address} contenant un lien de confirmation. Si vous le ne voyez pas, vérifiez votre dossier spam ou cliquez sur le bouton ci-dessous pour l'envoyer de nouveau. Une fois arrivée, ouvrez le lien qu'il contient pour confirmer votre adresse, après quoi vous aurez un accès complet à votre place de marché. Si vous avez besoin d'aide, n'hésitez pas à %{support_link}."
       contact_support_link_text: "contacter le support Sharetribe"
   settings:
     account:
@@ -1872,8 +1874,8 @@ fr:
       email_about_new_payments: "...je reçois un nouveau paiement"
       email_about_new_listings_by_followed_people: "...quelqu'un que je suis publie une nouvelle annonce"
       unsubscribe_succesful: "Désinscription réussie"
-      unsubscribe_info_text: "Vous ne recevrez plus ces emails. Gérez vos %{settings_link} pour choisir quels emails vous voulez recevoir ou non, ou retourner sur la %{homepage_link}."
-      settings_link: paramètres
+      unsubscribe_info_text: "Vous ne recevrez plus ces emails. Vous pouvez %{settings_link} pour choisir quels genres d'emails vous souhaitez recevoir de %{service_name}, ou bien retourner sur la %{homepage_link}."
+      settings_link: "gérer vos paramètres"
       homepage_link: "page d'accueil"
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Le lien de désinscription a expiré. Veuillez vous connecter pour gérer vos paramètres de notifications."
@@ -2052,6 +2054,10 @@ fr:
     days: jours
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "Nous ne sommes pas en mesure d'afficher les informations de disponibilités. Essayez de recharger la page."
+          saving_failed: "Nous ne sommes pas en mesure de sauvegarder les changements de disponibilités. Essayez de recharger la page."
       pricing_units:
         piece: unité
         hour: heure
@@ -2059,6 +2065,11 @@ fr:
         night: nuit
         week: semaine
         month: mois
+      edit_availability_header: Disponibilité
+      save_and_close_availability_editing: "Sauvegarder et fermer"
+      confirm_discarding_unsaved_availability_changes_explanation: "Vous avez des modifications non sauvegardées pour vos informations de disponibilités. Si vous continuez, ces changements seront perdus."
+      confirm_discarding_unsaved_availability_changes_question: "Etes-vous sûr de vouloir annuler vos modifications ?"
+      edit_listing_availability: "Editer la disponibilité de l'annonce"
     no_listings:
       sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
       try_other_search_terms: "Essayez peut-être avec d'autres termes ?"

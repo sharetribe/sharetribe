@@ -60,7 +60,7 @@ window.ST.transaction = window.ST.transaction || {};
   }
 
 
-  function initializePayPalBuyForm(formId) {
+  function initializePayPalBuyForm(formId, analyticsEvent) {
     var $form = $('#' + formId);
     var formAction = $form.attr('action');
     var $spinner = setupSpinner($form);
@@ -78,13 +78,24 @@ window.ST.transaction = window.ST.transaction || {};
       .flatMapLatest(function (data) { return Bacon.$.ajaxPost(formAction, data); })
       .flatMapLatest(toOpResult);
 
+    var analyticsEventSent = formSubmitWithData
+      .flatMapLatest(function() {
+        var timeout = Bacon.later(3000, "timeout");
+        var response = Bacon.fromCallback(function(callback) {
+          ampClient.logEvent(analyticsEvent[0], analyticsEvent[1], callback);
+        });
+
+        return timeout.merge(response).take(1);
+      });
+
     submitInProgress.plug(formSubmitWithData.map(true));
     // Success response to operation keeps submissions blocked, error releases
     submitInProgress.plug(opResult.map(true).mapError(false));
     submitInProgress.skipDuplicates().onValue(_.partial(toggleSpinner, $spinner));
 
-    opResult.onValue(redirectFromOpResult);
     opResult.onError(showErrorFromOpResult);
+
+    Bacon.onValues(opResult, analyticsEventSent, redirectFromOpResult);
   }
 
   function initializeCreatePaymentPoller(opStatusUrl, redirectUrl) {

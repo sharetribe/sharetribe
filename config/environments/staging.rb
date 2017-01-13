@@ -55,16 +55,29 @@ Kassi::Application.configure do
     ActionMailer::Base.logger.level = Logger::INFO
   end
 
-  # Use a different cache store in production
-  config.cache_store = :dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
-    username: ENV["MEMCACHIER_USERNAME"],
-    password: ENV["MEMCACHIER_PASSWORD"],
-    failover:  true,
-    socket_timeout: 1.5,
-    socket_failure_delay:  0.2,
-    namespace: "sharetribe-staging",
-    compress: true
-  }
+  # Prefer redis instead of memcached
+  config.cache_store =
+    if ENV["redis_host"].present?
+      Readthis.fault_tolerant = true
+      [:readthis_store, {
+         redis: { host: ENV["redis_host"],
+                  port: ENV["redis_port"],
+                  driver: :hiredis},
+         db: ENV["redis_db"],
+         namespace: "cache",
+         expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
+       }]
+    else
+      [:dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
+         username: ENV["MEMCACHIER_USERNAME"],
+         password: ENV["MEMCACHIER_PASSWORD"],
+         failover:  true,
+         socket_timeout: 1.5,
+         socket_failure_delay:  0.2,
+         namespace: ENV["MEMCACHED_NAMESPACE"] || "sharetribe-staging",
+         compress: true
+       }]
+    end
 
   # Compress JavaScript and CSS
   config.assets.js_compressor = :uglifier

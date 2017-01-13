@@ -56,32 +56,38 @@ module ServiceClient
       class ParsingError < StandardError
       end
 
-      def initialize(encoding, decode_response: true)
+      def initialize(encoding, decode_response: true, encode_request: true)
         encoder = encoder_by_encoding(encoding)
 
         if encoder.nil?
           raise ArgumentError.new("Coulnd't find encoder for encoding: '#{encoding}'")
         end
 
-        @_request_encoder = encoder
+        @_default_encoder = encoder
         @_decode_response = decode_response
+        @_encode_request = encode_request
       end
 
       def enter(ctx)
         req = ctx.fetch(:req)
+        opts_encoding = ctx.dig(:opts, :encoding)
+        encode_request = Maybe(ctx.dig(:opts, :encode_request)).or_else(@_encode_request)
+        encoder = encoder_by_encoding(opts_encoding) || @_default_encoder
 
         body = req[:body]
         headers = req.fetch(:headers)
-        accept = @_request_encoder[:media_type]
-        content_type = body.nil? ? nil : @_request_encoder[:media_type]
+        accept = encoder[:media_type]
+        content_type = body.nil? ? nil : encoder[:media_type]
 
         ctx[:req][:headers]["Accept"] = accept
 
         # Encode only if the Content-Type differs from the target Content-Type.
         # This makes the middleware idempotent.
         if ctx[:req][:headers]["Content-Type"] != content_type
+          if encode_request
+            ctx[:req][:body] = encoder[:encoder].encode(body)
+          end
 
-          ctx[:req][:body] = @_request_encoder[:encoder].encode(body)
           ctx[:req][:headers]["Content-Type"] = content_type
         end
 
@@ -89,7 +95,9 @@ module ServiceClient
       end
 
       def leave(ctx)
-        return ctx unless @_decode_response
+        decode_response = Maybe(ctx.dig(:opts, :decode_response)).or_else(@_decode_response)
+
+        return ctx unless decode_response
 
         res = ctx.fetch(:res)
         headers = res.fetch(:headers)
@@ -97,7 +105,7 @@ module ServiceClient
 
         # Choose encoder by the Content-Type header, if possible.
         # Otherwise, fallback to the same encoder we used to encode the request
-        encoder = encoder_by_content_type(headers["Content-Type"]) || @_request_encoder
+        encoder = encoder_by_content_type(headers["Content-Type"]) || @_default_encoder
 
         begin
           ctx[:res][:body] = encoder[:encoder].decode(body)

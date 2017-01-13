@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe PaypalService::API::BillingAgreements do
 
   let(:account_store) { PaypalService::Store::PaypalAccount }

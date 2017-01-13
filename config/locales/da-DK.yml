@@ -388,7 +388,8 @@ da-DK:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -925,6 +926,7 @@ da-DK:
     transaction_agreement:
       required_error: "Du skal godkende kontrakten"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
       seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret. Kontakt sælger og fortæl dem, at der er et problem med deres PayPal-konto. Opfordr dem evt. til at kontakte PayPal kundeservice."
@@ -1250,8 +1252,8 @@ da-DK:
       offer_rejected: "Tilbud afslået"
       offer_canceled: "Tilbud annulleret"
       listing_updated_successfully: "Annoncen blev opdateret"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Kun %{service_name} administratorer kan få adgang til dette område"
       only_listing_author_can_close_a_listing: "Kun notering forfatter kan lukke en liste"
       only_listing_author_can_edit_a_listing: "Kun notering forfatter kan redigere en liste"
@@ -1666,7 +1668,7 @@ da-DK:
       paypal_account_billing_agreement_info_none: "%{service_name} opkræver i øjeblikket ikke et servicegebyr. Hvis servicegebyr er aktiveret, skal du give %{service_name} tilladelse til at opkræve et servicegebyr for at kunne modtage betalinger. Gebyret omfatter ikke %{paypal_info_link}."
       paypal_info_link_text: PayPal-gebyr
       billing_agreement_description: "Tillad %{service_name} at tage et servicegebyr."
-      billing_agreement: "Tillad adgang"
+      billing_agreement: "Giv tilladelse"
       permissions_not_granted: "Tilladelsen til at tilknytte din PayPal-konto mislykkedes."
       could_not_fetch_redirect_url: "Vi kunne ikke tilknytte din PayPal-konto."
       paypal_not_enabled: "PayPal-betalinger er ikke aktiveret."
@@ -2050,6 +2052,10 @@ da-DK:
     days: dage
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2057,6 +2063,11 @@ da-DK:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

@@ -1,0 +1,54 @@
+.root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  /* height is set by React, but min-height we can set here */
+  min-height: 135px;
+  max-height: var(--ManageAvailabilityHeader_height);
+  flex-grow: 1;
+}
+
+.imageLayer,
+.colorLayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.imageLayer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+}
+
+.colorLayer {
+  opacity: 0.9;
+}
+
+.listingHeader {
+  position: absolute;
+  bottom: var(--ManageAvailability_padding);
+  width: var(--ManageAvailability_contentWidth);
+  left: 50%;
+  margin-left: calc(-1 * (var(--ManageAvailability_contentWidth) / 2));
+  padding-top: 6px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+
+  /* Trigger hardware acceleration to remove weird text flash in Safari */
+  transform: translateZ(0);
+}
+
+.availabilityHeader {
+  position: absolute;
+  top: -25px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+}

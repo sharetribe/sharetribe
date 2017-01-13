@@ -223,11 +223,23 @@ class ApplicationController < ActionController::Base
   end
 
   # A before filter for views that only users that are logged in can access
+  #
+  # Takes one parameter: A warning message that will be displayed in flash notification
+  #
+  # Sets the `return_to` variable to session, so that we can redirect user back to this
+  # location after the user signed up.
+  #
+  # Returns true if user is logged in, false otherwise
   def ensure_logged_in(warning_message)
-    return if logged_in?
-    session[:return_to] = request.fullpath
-    flash[:warning] = warning_message
-    redirect_to login_path and return
+    if logged_in?
+      true
+    else
+      session[:return_to] = request.fullpath
+      flash[:warning] = warning_message
+      redirect_to login_path
+
+      false
+    end
   end
 
   def logged_in?
@@ -347,14 +359,25 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def report_queue_size
-    MonitoringService::Monitoring.report_queue_size
-  end
-
   def maintenance_warning
     now = Time.now
     @show_maintenance_warning = NextMaintenance.show_warning?(15.minutes, now)
     @minutes_to_maintenance = NextMaintenance.minutes_to(now)
+  end
+
+  # This hook will be called by Devise after successful Facebook
+  # login.
+  #
+  # Return path where you want the user to be redirected to.
+  #
+  def after_sign_in_path_for(resourse)
+    if session[:return_to]
+      return_to_path = session[:return_to]
+      session[:return_to] = nil
+      return_to_path
+    else
+      search_path
+    end
   end
 
   private

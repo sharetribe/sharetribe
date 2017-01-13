@@ -63,6 +63,29 @@ Kassi::Application.configure do
     namespace: "sharetribe-production",
     compress: true
   }
+#   # Prefer redis instead of memcached
+#   config.cache_store =
+#     if ENV["redis_host"].present?
+#       Readthis.fault_tolerant = true
+#       [:readthis_store, {
+#          redis: { host: ENV["redis_host"],
+#                   port: ENV["redis_port"],
+#                   driver: :hiredis},
+#          db: ENV["redis_db"],
+#          namespace: "cache",
+#          expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
+#        }]
+#     else
+#       [:dalli_store, (ENV["MEMCACHIER_GREEN_SERVERS"] || "").split(","), {
+#          username: ENV["MEMCACHIER_GREEN_USERNAME"],
+#          password: ENV["MEMCACHIER_GREEN_PASSWORD"],
+#          failover:  true,
+#          socket_timeout: 1.5,
+#          socket_failure_delay:  0.2,
+#          namespace: ENV["MEMCACHED_NAMESPACE"] || "sharetribe-production",
+#          compress: true
+#        }]
+#     end
 
   # Compress JavaScript and CSS
   #

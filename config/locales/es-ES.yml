@@ -386,7 +386,8 @@ es-ES:
     listing_shapes:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."
-      allow_availability_management: "Habilitar administración automática de disponibilidad (previene dobles reservaciones)"
+      read_more_availability_management: "Lee más acerca del manejo de la disponibilidad."
+      allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad."
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
@@ -846,9 +847,9 @@ es-ES:
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí está el recibo del pago."
       product: "Producto:"
       price_per_unit_type: "Precio por %{unit_type}"
-      duration: "Duración:"
-      quantity: "Cantidad:"
-      subtotal: "Subtotal:"
+      duration: Duración
+      quantity: Cantidad
+      subtotal: Subtotal
       total: Total
       price: Precio
       service_fee: "Cuota de servicio"
@@ -927,6 +928,7 @@ es-ES:
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
     paypal:
+      transaction_cannot_complete: "La transacción no pudo ser completada. La causa más probable es una falla de autorización por parte de tu banco. Por favor, intenta de nuevo usando un método de pago diferente."
       buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       seller_express_checkout_disabled: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al autor del anuncio para avisarle que hay un problema con su cuenta de PayPal y recomendarle que contacte al servicio al cliente de PayPal."
@@ -1252,8 +1254,8 @@ es-ES:
       offer_rejected: "Oferta rechazada"
       offer_canceled: "Oferta cancelada"
       listing_updated_successfully: "Anuncio actualizado"
-      listing_updated_availability_enabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha habilitado."
-      listing_updated_availability_disabled: "El anuncio se ha actualizado con éxito. La administración automática de disponibilidad se ha deshabilitado."
+      listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
+      listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de %{service_name} pueden acceder a esta área"
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
@@ -1817,12 +1819,12 @@ es-ES:
       change_email: Cambiar
       confirm_your_email: "Confirma tu correo electrónico"
       account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
-      account_confirmation_instructions_title_admin: "¡Bienvenido a tu comunidad!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar tu carpeta de correo no deseado! Una vez hayas confirmado tu cuenta, podrás comenzar a configurar tu comunidad."
-      contact_support_link_text: ~
+      account_confirmation_instructions_title_admin: "Confirma tu dirección de correo electrónico"
+      before_full_access_you_need_to_confirm_email: "Antes de darte acceso total a tu comunidad, es necesario que hagas sólo una cosa más: confirmar tu cuenta de correo electrónico."
+      before_confirmation_only_access_admin_dashboard: "Antes de confirmar to correo electrónico sólo puedes tener acceso al %{admin_dashboard_link}."
+      admin_dashboard_link_text: "panel de administración"
+      account_confirmation_instructions_admin: "Hemos enviado un correo electrónico a %{email_address} con un vínculo para confirmar tu cuenta de correo. Si no lo ves, revisa tu carpeta de correo no deseado o haz click en el botón de re-enviar! Una vez que llegue, abre el vínculo par confirmar tu cuenta de correo; una vez que lo hayas hecho, tendrás access completo a tu comunidad. Si necesitas ayuda, %{support_link}."
+      contact_support_link_text: "contacta al equipo de soporte de Sharetribe"
   settings:
     account:
       change: Cambiar
@@ -2052,6 +2054,10 @@ es-ES:
     days: días
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: "No hemos podido cargar información sobre disponibilidad. Intenta cargar la página nuevamente."
+          saving_failed: "No hemos podido guardar los cambios sobre disponibilidad. Intenta cargar la página nuevamente."
       pricing_units:
         piece: pieza
         hour: hora
@@ -2059,11 +2065,16 @@ es-ES:
         night: noche
         week: semana
         month: mes
+      edit_availability_header: Disponibilidad
+      save_and_close_availability_editing: "Guardar y cerrar"
+      confirm_discarding_unsaved_availability_changes_explanation: "Hay cambios sobre disponibilidad que no han sido guardados. Si continuas, estos cambios se perderán."
+      confirm_discarding_unsaved_availability_changes_question: "¿Estás seguro que quieres desechar los cambios?"
+      edit_listing_availability: "Editar la disponibilidad del anuncio"
     no_listings:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
       try_other_search_terms: "Intenta la búsqueda con términos distintos"
     listing_card:
-      add_picture: ~
+      add_picture: "Añadir imagen"
       no_picture: "No hay imagen"
     search:
       page: Página

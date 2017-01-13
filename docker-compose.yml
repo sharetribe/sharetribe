@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+  worker:
+    build: .
+    env_file: .env
+    environment:
+      - QUEUES=default,paperclip,mailers
+      - MAGICK_MAP_LIMIT=64MiB
+      - MAGICK_MEMORY_LIMIT=256MiB
+      - MAGICK_TIME_LIMIT=30
+    command: bundle exec rake jobs:work
+  memcached:
+    image: memcached:latest
+networks:
+  default:
+    external:
+      name: sharetribe

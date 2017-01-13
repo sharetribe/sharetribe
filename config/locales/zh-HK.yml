@@ -381,7 +381,8 @@ zh-HK:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -914,6 +915,7 @@ zh-HK:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "該支付款項被Paypal拒絕。請聯絡他們的客戶服務部以獲得更多訊息：%{customer_service_link}"
       pending_review_error: 款項已經提交但被Paypal標記為‘需要檢查’。當Paypal完成檢查後，該支款將會被自動授權。
       seller_express_checkout_disabled: PayPal快速結帳已暫停此訊息發佈者的PayPal帳戶。請聯絡發佈者及讓他們知道自己的PayPal帳戶發生問題，並提議他們聯絡PayPal的客戶服務。
@@ -1239,8 +1241,8 @@ zh-HK:
       offer_rejected: 貨品被拒絕
       offer_canceled: 已取消交易
       listing_updated_successfully: 訊息更新成功
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "只有%{service_name}管理員能夠進入這個區域"
       only_listing_author_can_close_a_listing: 僅作者能關閉發佈的訊息
       only_listing_author_can_edit_a_listing: 僅作者能編輯發佈的訊息
@@ -2017,6 +2019,10 @@ zh-HK:
     days: ~
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2024,6 +2030,11 @@ zh-HK:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

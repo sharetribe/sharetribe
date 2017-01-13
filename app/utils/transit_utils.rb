@@ -36,6 +36,8 @@ module TransitUtils
     io.string
   end
 
+  # Takes `content` (String) and `encoding` and decodes the Transit
+  # message
   def decode(content, encoding)
     Transit::Reader.new(
       encoding,
@@ -44,4 +46,5 @@ module TransitUtils
         "u" => UUIDReadHandler.new
       }).read
   end
+
 end

@@ -10,12 +10,15 @@ const flashNotifications = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case actionTypes.FLASH_NOTIFICATION_ADD:
-      return state.push(new FlashNotificationModel({
-        id: payload.id,
-        type: payload.type,
-        content: payload.content,
-        isRead: false,
-      }));
+      if (!state.find((n) => n.content === payload.content && !n.isRead)) {
+        return state.push(new FlashNotificationModel({
+          id: payload.id,
+          type: payload.type,
+          content: payload.content,
+          isRead: false,
+        }));
+      }
+      return state;
 
     case actionTypes.FLASH_NOTIFICATION_REMOVE:
       return state.update(

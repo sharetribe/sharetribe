@@ -25,7 +25,7 @@ gem 'jquery-rails', '3.1.3'
 # Bundle the extra gems:
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
-gem "passenger", "~> 5.0.18"
+gem "passenger", "~> 5.0.30"
 
 gem "mysql2", "~> 0.4.4"
 gem 'haml', "~> 4.0.5"
@@ -39,6 +39,8 @@ gem 'aws-sdk', '~> 2'
 gem "will_paginate", '~>3.0.5'
 gem 'dalli', "~> 2.6.4"
 gem "memcachier", "~> 0.0.2"
+gem 'readthis', "~> 2.0.1"
+gem 'hiredis'
 gem 'kgio', "~>2.9.2"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
@@ -78,7 +80,6 @@ gem 'stringex', '~> 2.5.2'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 4.1.0'
-gem 'librato-rails', "~> 0.11.1"
 
 gem 'jwt', '~> 1.5.2'
 
@@ -169,7 +170,7 @@ group :test do
   gem 'timecop', '~> 0.6.3'
   gem 'rack-test', "~> 0.6.2"
   gem 'database_cleaner', '~> 1.1'
-  gem 'connection_pool', "~> 0.9.3"
+  gem 'connection_pool', "~> 2.1"
 
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'

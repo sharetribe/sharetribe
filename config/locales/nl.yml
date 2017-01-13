@@ -9,7 +9,7 @@ nl:
         remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wil verwijderen?"
         saving_order: "Opslaan volgorde categorieën"
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
-        save_order_error: "Fout tijdens het opslagen volgorde categorieën. Vernieuw de pagina en probeer opnieuw."
+        save_order_error: "Fout tijdens het opslaan van de volgorde van de categorieën. Vernieuw de pagina en probeer opnieuw."
       new:
         new_listing_category: "Nieuw advertentie categorie"
       form:
@@ -87,7 +87,7 @@ nl:
         transaction_agreement_description: "Dit is de inhoud van de eigenlijke overeenkomst die gebruikers moeten aanvaarden. Deze inhoud wordt weergegeven wanneer de gebruiker de \"%{read_more}\" link klikt naast de overeenkomst hoofding."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
-        community_logo: "Desktop logo"
+        community_logo: Logo
         community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
@@ -133,7 +133,7 @@ nl:
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
-        contact_support_link_text: ~
+        contact_support_link_text: "Neem contact op met Sharetribe Support."
         set_sender_address: ~
         sender_name_label: ~
         sender_name_placeholder: ~
@@ -154,7 +154,7 @@ nl:
         invalid_email_domain_read_more_link: ~
         unknown_error: ~
         white_label_offer: ~
-        upgrade_plan_link: ~
+        upgrade_plan_link: "Upgrade naar het Pro plan of hoger"
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
@@ -199,7 +199,7 @@ nl:
         miles: mijlen
         show_only_nearby: "Laat alleen naburige advertenties zien met zoeken op locatie"
         listing_preferences: "Advertentie voorkeuren"
-        transaction_preferences: "Voorkeuren transacties"
+        transaction_preferences: "Transactie voorkeuren"
         show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
         show_category_in_listing_list: "Toon advertentietype in lijst overzicht"
         hide_expiration_date: "Vereis niet dat advertenties een vervaldatum hebben"
@@ -240,7 +240,7 @@ nl:
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap: "Sharetribe is momenteel bezig om een nieuwe en verbeterde lay-out uit te brengen. Gedurende de transitieperiode kun je kiezen welke delen van je marktplaats nog de oude lay-out blijven gebruiken, door middel van het menu hieronder. Nieuwe features zijn alleen beschikbaar in de nieuwe layout."
-        description_process: ~
+        description_process: "Ondersteuning voor de oude layout zal in de toekomst worden verwijderd. Het Sharetribe team zal je van te voren laten weten wanneer dit gebeurt. Vragen? Neem contact op via %{support_link}."
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: "Nieuwe menubalk boven (zichtbaar op iedere pagina)"
@@ -312,7 +312,7 @@ nl:
           pending_ext: "Wachten PayPal betaling"
         not_available: ~
       paypal_account:
-        paypal_admin_account: Betalingen
+        paypal_admin_account: Betalingsysteem
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -320,8 +320,8 @@ nl:
         description: "De minimum en maximum prijs hebben alleen invloed op de filter. Ze zetten geen limiet op de prijs van advertenties."
         edit_price_field: "Pas veld prijs aan"
         show_price_filter_homepage: "Toon filter prijs op homepagina"
-        price_min: "Minimum prijs"
-        price_max: "Maximum prijs"
+        price_min: "Filter minimum prijs"
+        price_max: "Filter maximum prijs"
       edit_location:
         edit_location_field: "Aanpassen veld locatie"
         this_field_is_required: "Dit veld is verplicht"
@@ -386,7 +386,8 @@ nl:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -475,10 +476,10 @@ nl:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: "Voorkeuren betalingen"
+      marketplace_paypal_integration: "Voorkeuren betalingsysteem"
       preferences_updated: "Voorkeuren betalingen bijgewerkt"
-      contact_support_link_text: ~
-      integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil maken op elke transactie."
+      contact_support_link_text: "Neem contact op met Support"
+      integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil ontvangen op elke transactie."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
@@ -491,8 +492,8 @@ nl:
       transaction_fee_label: "Transactiekosten:"
       minimum_transaction_fee_label: "Minimale transactie kosten:"
       save_settings: "Instellingen opslaan"
-      minimum_listing_price_below_tx_fee: "moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "moet groter zijn dan de minimale commissie %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "De minimal transactie grootte moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "De minimal transactie moet groter zijn dan de minimale commissie %{minimum_commission}."
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -582,10 +583,10 @@ nl:
       you_will_get_label: "Je krijgt:"
       total_label: "Totaal:"
       total_value: "%{seller_gets}*"
-      paypal_fee_info: ~
+      paypal_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>PayPals betaling verwerkingskosten </a>"
       shipping_price_label: "Verzenden:"
     confirm:
-      confirm_description: "Het verzoek is geleverd en kunt u markeren als afgehandeld. Hierna kunt u feedback geven aan de andere partij."
+      confirm_description: "Als het verzoek is geleverd, kunt u dat hier markeren als uitgevoerd. Hierna kunt u feedback geven aan de andere partij."
       cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'niet uitgevoerd'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
       cancel_payed_description: "Je verzoek is geaccepteerd. Als u van gedachten verandert, kunt u nog annuleren voordat de betaling gedaan moet worden.   "
       canceling_payed_transaction: "Transactie annuleren"
@@ -621,7 +622,7 @@ nl:
       accepted_request: "heeft het verzoek aanvaard"
       received_payment: ~
       accepted_offer: "heeft het voorstel aanvaard"
-      rejected_request: "heeft het verzoek niet aanvaard"
+      rejected_request: "heeft het verzoek niet aanvaard, betaling geannuleerd"
       rejected_offer: "heeft het voorstel niet aanvaard"
       confirmed_request: "markeerde het verzoek als uitgevoerd"
       confirmed_offer: "markeerde de aanbieding als uitgevoerd"
@@ -657,7 +658,7 @@ nl:
       total: "Totaal: %{total}"
     status:
       payment_errored: "Betaling mislukt. Probeer opnieuw a.u.b."
-      payment_errored_starter: "Betaling mislukt. Probeer opnieuw a.u.b. Contacteer support als dit probleem zich blijft voordoen."
+      payment_errored_starter: "Betaling mislukt. Probeer opnieuw a.u.b. Neem contact op met support als dit probleem zich blijft voordoen."
       payment_errored_author: "Betaling mislukt. Contacteer a.u.b. %{starter_name} en vraag hem om de betaling opnieuw uit te voeren."
       cancel_payed_transaction: Annuleer
       feedback_given: "Feedback gegeven"
@@ -685,7 +686,7 @@ nl:
       request_confirmed: Uitgevoerd
       request_canceled: Geannuleerd
       request_paid: "Betaling succesvol"
-      request_preauthorized: "Betaling succesvol"
+      request_preauthorized: "Betaling geautoriseerd"
       skip_feedback: "Sla feedback over"
       waiting_for_listing_author_to_accept_offer: "Wachten op %{listing_author_name} om het voorstel te aanvaarden"
       waiting_for_listing_author_to_accept_request: "Wachten op %{listing_author_name} om het verzoek te aanvaarden"
@@ -721,7 +722,7 @@ nl:
     access_denied:
       access_denied: "Toegang geweigerd"
       you_are_banned_in_this_community: "De beheerder heeft voorkomen dat je toegang hebt tot %{service_name}. Als je de beheerder wil bereiken, stuur dan %{link_to_contact_page}."
-      contact_page_link: feedback
+      contact_page_link: "neem contact op"
     new:
       welcome_fb_user: "Welkom op %{service_name}, %{name}!"
       fb_join_accept_terms: "Nog één stap voordat u bij %{service_name} bent aangesloten: u moet de gebruikersvoorwaarden aanvaarden."
@@ -842,9 +843,9 @@ nl:
       you_have_made_new_payment: "U heeft <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{recipient_full_name}. Hier is een betalingsbewijs."
       product: Product
       price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      duration: Duur
+      quantity: Aantal
+      subtotal: Subtotaal
       total: Totaal
       price: Prijs
       service_fee: "Service toeslag"
@@ -923,6 +924,7 @@ nl:
     transaction_agreement:
       required_error: "Je moet de overeenkomst accepteren"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: "Paypal Express Checkout is uitgeschakeld voor de adverteerders PayPal account. Neem contact op met de adverteerder en laat deze weten dat er een probleem is met zijn/haar PayPal account, en adviseer om contact op te nemen met de PayPal Customer Service."
@@ -953,8 +955,8 @@ nl:
       javascript_is_disabled_in_your_browser: "Javascript is niet actief in uw browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} werkt niet goed zonder JavaScript. Schakel JavaScript in bij de instellingen van uw browser en herlaad de pagina."
       contact_us: "Neem contact op"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Stuur bericht"
+      your_feedback_to_admins: "Jouw bericht naar %{service_name} team"
     send: Verstuur
     your_email_address: "Je e-mail adres"
   errors:
@@ -1084,7 +1086,7 @@ nl:
       message: "Een persoonlijk bericht"
       send_invitation: "Verstuur uitnodiging"
       add_email_addresses_description: "Voeg hieronder e-mail adressen toe van de mensen die je wil uitnodigen. Als je verschillende adressen wil toevoegen, scheid deze dan met een komma."
-      add_lots_of_email_addresses: "Gebruik een emailtool als je veel uitnodigingen wil verzenden. Check %{this_article_link} voor een overzicht van geschikte emailtools."
+      add_lots_of_email_addresses: "Tip: Gebruik een emailtool als je veel uitnodigingen wil verzenden. Check %{this_article_link} voor een overzicht van geschikte emailtools."
       this_article_link: "dit artikel"
       invitation_emails_field_placeholder: "vriend1@voorbeeld.com, vriend2@voorbeeld.com, ..."
       invitation_message_field_placeholder: "Ik werd lid van deze geweldige marktplaats. Doe het ook!"
@@ -1143,17 +1145,17 @@ nl:
     no_tribe:
       inbox: Inbox
       settings: Instellingen
-      feedback: ~
+      feedback: "Neem contact op met %{service_name} team"
     application:
       join_this_community: "Sluit aan bij marktplaats"
       read_more: "Lees meer"
-      feedback: ~
+      feedback: "Jouw bericht naar %{service_name} team"
       dont_use_to_contact_support: ~
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Neem contact op"
       or_check_our: "...of bekijk onze"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Stuur bericht"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben en om op die ideeën te stemmen."
       your_email_address: "Je e-mail adres"
       connect: Registreer
@@ -1223,7 +1225,7 @@ nl:
       error_with_session: "Fout in sessie."
       feedback_considered_spam: "Feedback is niet opgeslagen door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
-      feedback_saved: ~
+      feedback_saved: "Bedankt voor je bericht! We komen hier zo spoedig mogelijk op terug."
       feedback_sent_to: "Feedback gestuurd naar %{target_person}."
       feedback_skipped: "Feedback overgeslagen"
       invitation_cannot_be_sent: "Uitnodiging kon niet verstuurd worden"
@@ -1248,8 +1250,8 @@ nl:
       offer_rejected: "Aanbod afgewezen"
       offer_canceled: "Voorstel geannuleerd"
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Alleen %{service_name} administrators hebben toegang tot dit gedeelte"
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
@@ -1401,7 +1403,7 @@ nl:
         loading_image: Laden...
         image_uploading_in_progress: ~
         processing_takes_a_while: "Alle foto's zijn geupload. Het duurt even voordat ze verwerkt zijn, maar je kunt de advertentie nu opslaan en verder gaan."
-        this_may_take_a_while: "(dit kan even duren)"
+        this_may_take_a_while: "dit duurt slechts een moment"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Opladen afbeelding mislukt"
         image_processing_failed: ~
@@ -1581,7 +1583,7 @@ nl:
   listing_conversations:
     preauthorize:
       dates_not_available: ~
-      error_in_checking_availability: ~
+      error_in_checking_availability: "Kon beschikbaarheid van de geselecteerde data niet controleren"
       details: Details
       by: "%{listing} door %{author}"
       payment: Betaling
@@ -1664,15 +1666,15 @@ nl:
       permissions_not_granted: "Geen toestemming om te koppelen met PayPal."
       could_not_fetch_redirect_url: "Kan de redirect URL om te koppelen met PayPal niet ophalen."
       paypal_not_enabled: "PayPal betalingen zijn niet geactiveerd."
-      billing_agreement_canceled: "Overeenkomst facturatie geannuleerd"
-      billing_agreement_not_accepted: "Je hebt de facturatie overeenkomst bij PayPal niet geaccepteerd."
+      billing_agreement_canceled: "Factureringsvereenkomst geannuleerd"
+      billing_agreement_not_accepted: "Je hebt de factureringsovereenkomst bij PayPal niet geaccepteerd."
       billing_agreement_wrong_account: "De PayPal accounts kwamen niet overeen. Gebruik a.u.b. hetzelfde PayPal account dat je gebruikt hebt in de eerste stap."
       something_went_wrong: "Er is iets mis gegaan. Probeer a.u.b. opnieuw. Als het probleem zich blijft voordoen, neem dan contact met ons op."
       account_not_verified: "Je hebt je PayPal account nog niet geverifieerd. Ga naar PayPal.com en verifieer je account alvorens verder te gaan."
       account_restricted: "Je PayPal account is gelimiteerd en kan niet gekoppeld worden. Log a.u.b. in op paypal.com om na te gaan wat er mis is en neem contact op met PayPal support om dit probleem op te lossen."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: "Wijzig account"
+    change_account: "Wijzig Paypal account"
     missing: "Je hebt openstaande advertentie, maar je hebt je PayPal account nog niet gekoppeld. Daardoor kun je nog geen betalingen ontvangen. Koppel a.u.b. je PayPal account in je %{settings_link} and sta %{service_name} toe transactiekosten in rekening te brengen."
     from_your_payment_settings_link_text: "instellingen betalingen"
     redirect_message: ~
@@ -1809,7 +1811,7 @@ nl:
       change_email: Wijzig
       confirm_your_email: "Bevestig uw e-mail adres"
       account_confirmation_instructions: "U ontvangt een e-mail met een link waarmee u uw e-mail adres dient te bevestigen. Zodra dit is gebeurd kunt u lid worden van %{service_name}."
-      account_confirmation_instructions_title_admin: "Welkom bij je marktplaats!"
+      account_confirmation_instructions_title_admin: "Bevestig je emailadres."
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
@@ -1848,8 +1850,8 @@ nl:
     notifications:
       email_from_admins: "Ik ben bereid zo nu en dan updates te ontvangen van de beheerder(s)."
       i_want_to_get_email_notification_when: "Ik wil graag een e-mail bevestiging krijgen wanneer..."
-      newsletters: Nieuwsbrieven
-      community_updates: "Update e-mails"
+      newsletters: "Emails van beheerders"
+      community_updates: Nieuwsbrieven
       email_about_confirm_reminders: "...ik ben vergeten om een verzoek als uitgevoerd te bevestigen"
       email_about_new_comments_to_own_listing: "...iemand op mijn vraag of aanbod heeft gereageerd"
       email_about_new_messages: "...iemand me een bericht stuurt"
@@ -1857,7 +1859,7 @@ nl:
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_daily_community_updates: "Stuur mij een <b>dagelijkse<b> update als er nieuwe advertenties geplaatst worden"
       email_weekly_community_updates: "Stuur mij een <b>wekelijkse<b> update als er nieuwe advertenties geplaatst worden"
-      do_not_email_community_updates: "Ik ontvang liever geen updates"
+      do_not_email_community_updates: "Ik ontvang liever geen nieuwsbrieven"
       email_when_conversation_accepted: "...iemand mijn vraag of aanbod accepteert"
       email_when_conversation_rejected: "...iemand mijn vraag of aanbod weigert"
       email_about_completed_transactions: "...iemand mijn vraag markeert als voltooid"
@@ -1866,7 +1868,7 @@ nl:
       unsubscribe_succesful: "Uitschrijven succesvol uitgevoerd"
       unsubscribe_info_text: "U zal deze berichten niet langer ontvangen. Controleer uw %{settings_link} om te kiezen welke e-mails u wilt ontvangen van %{service_name}, of keer terug naar %{homepage_link}."
       settings_link: instellingen
-      homepage_link: "Home page"
+      homepage_link: "Home pagina"
       unsubscribe_unsuccesful: "Fout bij uitschrijven"
       unsuccessful_unsubscribe_info_text: "De reden is mogelijk dat de uitschrijf-link is verouderd of niet langer geldig is. Neem contact met ons en we zullen u uitschrijven of log in en wijzig uw e-mail instellingen."
     profile:
@@ -2025,6 +2027,10 @@ nl:
     days: dagen
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2032,6 +2038,11 @@ nl:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

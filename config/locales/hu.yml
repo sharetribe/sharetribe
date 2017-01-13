@@ -387,7 +387,8 @@ hu:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -928,6 +929,7 @@ hu:
     transaction_agreement:
       required_error: "Kérem fogadja el a megegyezést"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "PayPal az átutalást elutasította. Kérjük vegye fel a kapcsolatot a vevőszolgálatukkal: %{customer_service_link}"
       pending_review_error: "Az utalás elindításra került, de a PayPal jelölte mint: 'értékelés igénylése'. Amint a PayPal elvégzi az értékelést az utalás automatikusan engedélyezésre kerül."
       seller_express_checkout_disabled: "A PayPal Express Checkout tiltva van a hirdető PayPal fiókján. Kérjük lépjen kapcsolatba a hirdetővel és tudassa a problémáról. Továbbá tanácsolja neki, hogy vegye fel a kapcsolatot a PayPal ügyfélszolgálatával."
@@ -1253,8 +1255,8 @@ hu:
       offer_rejected: "Ajánlat visszautasítva"
       offer_canceled: "Ajánlat törölve"
       listing_updated_successfully: "Hidetését frissítette"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
@@ -2043,6 +2045,10 @@ hu:
     days: napok
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2050,6 +2056,11 @@ hu:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

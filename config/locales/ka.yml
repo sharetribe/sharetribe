@@ -381,7 +381,8 @@ ka:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -916,6 +917,7 @@ ka:
     transaction_agreement:
       required_error: "თქვენ უნდა დაადასტუროთ ხელშეკრულება"
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: "გადახდის უარყოფა მოხდა PayPal-დან. გთხოვთ დაუკავშირდეთ მათი კლიენტთა მოსმახურების სერვისს მეტი ინფორმაციისთვის: %{customer_service_link}"
       pending_review_error: "გადახდა დარეგსისტრირდა, მაგრამ მონიშნულია PayPal-ზე როგორც \"საჭიროებს გადახედვას\" როდესაც PayPal გადახედავს გადახდა ავტომატურად ავტორიზებული გახდება."
       seller_express_checkout_disabled: "PayPal-ის ექსპრეს გადახდა შეჩერებულია ჩამონათვლის ავტორებისთვის PayPal-ის ანგარიშზე. გთხოვთ დაუკავშირდით ავტორს და შეატყობინოთ, რომ რაღაც პრობლემაა მათი PayPal-ის ანგარიშთან და ურჩიეთ, რომ დაუკავშირდნენ PayPal-ის კლიენტთა მომსახურებას."
@@ -1241,8 +1243,8 @@ ka:
       offer_rejected: "შეთავაზება უარყოფილია"
       offer_canceled: "შეთავაზება გაუქმებულია"
       listing_updated_successfully: "ჩამონათვალი წარმატებით განახლდა"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "მხოლოდ %{service_name}ს ადმინისტრატორს შეუძლია შევიდეს ამ ადგილას"
       only_listing_author_can_close_a_listing: "მხოლოდ სიის ავტორს შეუძლია დახუროს ეს სია"
       only_listing_author_can_edit_a_listing: "მხოლოდ სიის ავტორს შეუძლია მისი დარედაქტირება."
@@ -2032,6 +2034,10 @@ ka:
     days: დღეები
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2039,6 +2045,11 @@ ka:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

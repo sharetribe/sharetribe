@@ -2,11 +2,11 @@ vi:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "Chỉnh sửa chủng loại %{category}"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
+        listing_categories: "Các hạng mục tin đăng"
+        create_a_new_category: "+ Tạo một hạng mục mới"
+        remove_category_confirmation: "Bạn có chắc là bạn muốn gỡ bỏ hạng mục %{category_name}"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
@@ -16,20 +16,22 @@ vi:
         category_name:
           category_title: ~
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "Hạng mục chủ"
+          no_parent: "Không có"
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
           select_all: ~
           clear_all: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: Lưu
+          cancel: Thôi
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category: "Gỡ bỏ hạng mục"
+        remove_category_name: "Gỡ bỏ hạng mục %{category_name}"
+        warning_remove_effects: "Cảnh báo! Loại bỏ hạng mục %{category_name} sẽ có những tác động sau:"
+        warning_listing_will_be_moved:
+          other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
         select_new_category: ~
         buttons:
           remove: ~
@@ -57,8 +59,8 @@ vi:
         invite_people: ~
         edit_signup_info: "Thông tin đăng ký"
         edit_signup_info_description: "Thông tin này sẽ được hiển thị trên trang đăng nhập. Bạn có thể tận dụng dụng để thêm hướng dẫn đăng nhập, địa chỉ đăng kí v.v..."
-        edit_info: ~
-        see_how_it_looks_like: ~
+        edit_info: "Chỉnh sửa thông tin"
+        see_how_it_looks_like: "Xem trông nó như thế nào"
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
@@ -75,7 +77,7 @@ vi:
         community_logo: Logo
         community_logo_icon: ~
         community_cover_photo: "Ảnh bìa"
-        small_community_cover_photo: ~
+        small_community_cover_photo: "Ảnh bìa nhỏ"
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Màu sắc chính"
@@ -87,8 +89,8 @@ vi:
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Ảnh sẽ được thu nhỏ về kích thước %{width}x%{height} pixel. Những ảnh quá cao sẽ được cắt ngay giữa. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
+        small_cover_photo_instructions_text_with_dimensions: "Hình ảnh sẽ được thu nhỏ lại thành thành kích thước %{height}x%{width} và những hình ảnh cao hơn sẽ được cắt ở giữa."
+        main_content_width: "Khi chọn ảnh bìa xin lưu ý rằng nội dung trang chính là %{main_width} pixel rộng nhất. Hãy nhớ cũng kiểm tra ảnh bìa của bạn trông như thế nào trên màn hình nhỏ hơn (ví dụ bằng cách sử dụng một cửa sổ trình duyệt hẹp hơn)."
         custom_color1_instructions_text: "Bạn có thể thay đổi màu của giao diện người dùng bằng cách nhập một mã hex vào đây. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> sẽ đưa ra mã hex tương ứng vớ  màu bạn chọn."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
@@ -300,7 +302,7 @@ vi:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
       edit_price:
         description: ~
         edit_price_field: ~
@@ -321,31 +323,31 @@ vi:
       index:
         listing_fields: ~
         listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        add_new_field: "Thêm trường mới:"
+        remove_field_confirmation: "Bạn có chắc bạn muốn gỡ bỏ trường %{field_name}"
+        cancel: Hủy
+        save: Lưu
+        field_title: "Tựa của trường"
+        field_type: "Loại trường"
+        categories: "Bảng liệt kê hạng mục nơi mà các trường được sử dụng"
         select_all: ~
         clear_all: ~
         options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
+        add_option: "+ Thêm tùy chọn"
+        saving_order: "Lưu trường đặt hàng"
+        save_order_successful: "Trường đặt hàng đã được lưu thành công"
         save_order_error: ~
-        select_one: ~
-        continue: ~
+        select_one: "Chọn loại trường..."
+        continue: "Tiếp tục"
         minimum_value: ~
         maximum_value: ~
         allow_decimals: ~
       new:
-        new_listing_field: ~
+        new_listing_field: "Trường liệt kê mới"
       field_types:
         text: ~
         number: ~
-        dropdown: ~
+        dropdown: "Xổ xuống"
         checkbox_group: ~
         date: ~
     emails:
@@ -371,7 +373,8 @@ vi:
     listing_shapes:
       availability_title: ~
       read_more: ~
-      allow_availability_management: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -467,11 +470,11 @@ vi:
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     transaction_types:
-      sell: ~
+      sell: Bán
       rent: ~
-      give: ~
-      lend: ~
-      swap: ~
+      give: Tặng
+      lend: "Cho mượn"
+      swap: "Trao đổi"
       service: ~
       request: ~
       inquiry: ~
@@ -807,19 +810,19 @@ vi:
       shipping_total: ~
     braintree_new_payment:
       product: "Sản phẩm"
-      price_payer_paid: ~
-      service_fee: ~
+      price_payer_paid: "Giá %{payer_full_name} trả trước:"
+      service_fee: "Phí dịch vụ %{service_name}"
       you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: "Biên nhận"
       you_have_made_new_payment: "Bạn đã thanh toán %{payment_sum} cho %{recipient_full_name} cho sản phẩm %{listing_title}. Đây là biên nhận."
-      product: ~
+      product: "Sản phẩm"
       price_per_unit_type: ~
       duration: ~
       quantity: ~
       subtotal: ~
       total: "Tổng cộng"
-      price: ~
+      price: Giá
       service_fee: "Phí dịch vụ"
       money_will_be_transferred: ~
     new_testimonial:
@@ -896,6 +899,7 @@ vi:
     transaction_agreement:
       required_error: ~
     paypal:
+      transaction_cannot_complete: ~
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
@@ -926,8 +930,8 @@ vi:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
       contact_us: "liên hệ với chúng tôi"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Gửi tin nhắn"
+      your_feedback_to_admins: "Tin nhắn của bạn đến nhóm %{service_name}"
     send: Gửi
     your_email_address: "Địa chỉ email của bạn"
   errors:
@@ -1016,7 +1020,7 @@ vi:
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
     custom_filters:
-      update_view: ~
+      update_view: "Cập nhật view"
       min: ~
       max: ~
     event_feed:
@@ -1051,7 +1055,7 @@ vi:
       no_reviews: "Chưa có phản hồi"
       no_image: "Không có hình ảnh"
       filter: "Bộ lọc"
-      this_is_private_community: ~
+      this_is_private_community: "Bạn cần phải đăng ký trước khi bạn có thể xem nội dung."
     invitation_form:
       email: "Địa chỉ email bạn của bạn:"
       message: "Thông điệp cá nhân:"
@@ -1116,17 +1120,17 @@ vi:
     no_tribe:
       inbox: "Hộp thư đến"
       settings: "Cài đặt"
-      feedback: ~
+      feedback: "Liên hệ với nhóm %{service_name}"
     application:
       join_this_community: ~
       read_more: "Xem thêm"
-      feedback: ~
+      feedback: "Tin nhắn của bạn đến nhóm %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
       or_check_our: "...hoặc kiểm tra"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Gửi tin nhắn"
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
       your_email_address: "Địa chỉ email của bạn (không bắt buộc)"
       connect: "Đăng ký"
@@ -1196,7 +1200,7 @@ vi:
       error_with_session: "Vùng bị lỗi"
       feedback_considered_spam: "Thông tin phản hồi không được lưu, vì định dạng của nó. Thử lại hoặc sử dụng diễn đàn thông tin phản hồi."
       feedback_not_saved: "Không thể gửi thông tin phản hồi."
-      feedback_saved: ~
+      feedback_saved: "Cảm ơn bạn rất nhiều vì đã nhắn tin! Chúng tôi sẽ phản hồi lại cho bạn càng sớm càng tốt."
       feedback_sent_to: "Thông tin phản hồi đã gửi đến"
       feedback_skipped: "Thông tin phản hổi đã bị bỏ qua"
       invitation_cannot_be_sent: "Không thể gửi lời mời"
@@ -1221,8 +1225,8 @@ vi:
       offer_rejected: "Hỗ trợ bị từ chối."
       offer_canceled: "Đề nghị bị hủy."
       listing_updated_successfully: "Cập nhật thành công"
-      listing_updated_availability_enabled: ~
-      listing_updated_availability_disabled: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
@@ -1338,7 +1342,7 @@ vi:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "Chọn một thứ..."
       departure_time:
         at: Tại
         departure_time: "Thời gian khởi hành"
@@ -1531,7 +1535,7 @@ vi:
       times: lần
       times_viewed: "đã xem"
       processing_uploaded_image: "(Đang xử lý hình ảnh tải lên...)"
-      listing_created_at: ~
+      listing_created_at: "Tin đăng đã được tạo"
       price:
         per_quantity_unit: ~
         per_day: ~
@@ -1994,6 +1998,10 @@ vi:
     days: ~
   web:
     listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2001,6 +2009,11 @@ vi:
         night: ~
         week: ~
         month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

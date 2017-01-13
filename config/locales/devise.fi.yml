@@ -51,7 +51,7 @@ fi:
       failure: "Kirjautuminen %{kind}-tunnuksella epäonnistui, syynä \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: Vahvistusohjeet
+        subject: "Vahvistusohjeet %{service_name} -palveluun liittymiselle"
       reset_password_instructions:
         subject: "Ohjeet salasanan vaihtoon"
       unlock_instructions:

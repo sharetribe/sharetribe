@@ -21,8 +21,9 @@ module TransactionTypeCreator
     },
     "Rent" => {
       price_enabled: true,
+      availability: :booking,
       units: [
-        {type: :day, quantity_selector: :day}
+        {type: :night, quantity_selector: :night}
       ]
     },
     "Request" => {

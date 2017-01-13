@@ -38,7 +38,7 @@ ro:
       reasons:
         inactive: inactiv
         unconfirmed: neconfirmat
-        locked: ~
+        locked: blocat
       update_needs_confirmation: "V-ați updatat cu succes contul, dar trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să vă verificati adresa, dand click pe link-ul de confirmare."
       signed_up: "Bine ati venit! V-ati autentificat cu succes."
       updated: "Cont actualizat cu succes."
@@ -52,7 +52,7 @@ ro:
       failure: ~
     mailer:
       confirmation_instructions:
-        subject: "Instrucţiuni de confirmare"
+        subject: "Instrucţiuni de confirmare pentru acces %{service_name}"
       reset_password_instructions:
         subject: "Instrucţiuni pentru a reseta parola"
       unlock_instructions:
