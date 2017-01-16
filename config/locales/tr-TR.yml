@@ -71,7 +71,7 @@ tr-TR:
         see_how_it_looks_like: "Nasıl göründüğüne bakın"
         verification_to_post_listings_info_content: "Doğrulanmamış kullanıcılar için bilgi metni"
         verification_to_post_listings_info_content_description: "Kullanıcılarınızın listeleme eklemeden önce sizin tarafınızdan elle onaylanmasını talep etmektesiniz. Burada onaylanmamış kullanıcıların yeni bir listeleme eklemeye çalıştığında karşılaşacakları default metni düzenleyebilirsiniz."
-        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların listeleme eklemeden önce yönetici tarafından elle onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
+        verification_to_post_listings_info_content_default: "%{service_name} kullanıcıların listeleme eklemeden önce yönetici tarafından onaylanmış olmasını talep etmektedir. Lütfen, onaylanmak için %{contact_admin_link}."
         contact_admin_link_text: "yöneticiyle iletişime geçin"
         save: "Ayarları kaydet"
         transaction_agreement: "İşlem sözleşmesi"
@@ -387,7 +387,7 @@ tr-TR:
       per_night_availability: ~
       pricing_units_disabled_info: ~
       index:
-        listing_shapes: ~
+        listing_shapes: "İşlem türü"
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
@@ -396,7 +396,7 @@ tr-TR:
         no_categories: "Kategori yok"
         category_count: ~
         header:
-          listing_shape_name: ~
+          listing_shape_name: "İşlem türü adı"
           listing_shape_categories: ~
         order:
           saving_order: ~
@@ -1249,7 +1249,7 @@ tr-TR:
       error_in_payment: "Ödeme sırasında hata meydana geldi. Eğer ödemeyi henüz tamamlamadıysanız, yeniden deneyin. Tamamladıysanız, lütfen bize ulaşın."
       cannot_receive_payment: "Bir hata sonucu, karşı taraf ödemeyi alamıyor. Lütfen durumu açıklığa kavuşturmak için yöneticilerle iletişime geçin."
       payment_waiting_for_later_accomplishment: "Ödeme yaptığınızda, satıcıyı bilgilendireceğiz ve faturanız e-posta yoluyla size ulaşacak."
-      password_recovery_sent: "Parola değiştirme bilgileri e-posta adresinize gönderildi."
+      password_recovery_sent: "Parola değiştirme bilgileri e-posta adresinize gönderildi, bu bazen bir kaç dakika sürebilir."
       person_activated: "Aktive edilen kullanıcılar"
       person_deactivated: "Hesabı dondurulan kullanıcılar"
       person_updated_successfully: "Bilgiler güncellendi"
@@ -2049,7 +2049,7 @@ tr-TR:
       profile: ~
       manage_listings: ~
       settings: ~
-      logout: ~
+      logout: "Çıkış yap"
       login: "Giriş yap"
       signup: "Kayıt ol"
       admin_dashboard: ~
