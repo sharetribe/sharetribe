@@ -2,13 +2,19 @@ module TransactionHelper
 
   def icon_for(status)
     case status
+    when "free"
+      "ss-check"
     when "confirmed"
       "ss-check"
     when "rejected"
       "ss-delete"
+    when "free_rejected"
+      "ss-delete"
     when "canceled"
       "ss-delete"
     when "accepted"
+      "ss-check"
+    when "free_accepted"
       "ss-check"
     when "paid"
       "ss-check"
@@ -211,7 +217,7 @@ module TransactionHelper
   #   }
   # }
   def get_conversation_statuses(conversation, is_author)
-    statuses = if conversation.listing && !conversation.status.eql?("free")
+    statuses = if conversation.listing #&& !conversation.status.eql?("free")
       status_hash = {
         paid: ->() { {
           both: [
@@ -283,6 +289,23 @@ module TransactionHelper
             status_info(t("conversations.status.request_rejected"), icon_classes: icon_for(conversation.status))
           ]
         } },
+        free: ->() { {
+          both: [
+            status_info(t("conversations.status.request_requested"), icon_classes: icon_for(conversation.status)),
+            free_status(conversation)
+          ]
+        } },
+        free_rejected: ->() { {
+          both: [
+            status_info(t("conversations.status.request_rejected"), icon_classes: icon_for(conversation.status))
+          ]
+        } },
+        free_accepted: ->() { {
+          both: [
+            status_info(t("conversations.status.request_accepted"), icon_classes: icon_for(conversation.status)),
+            feedback_status(conversation)
+          ]
+        } },
         errored: ->() { {
           author: [
             status_info(t("conversations.status.payment_errored_author", starter_name: conversation.starter.name(conversation.community)), icon_classes: icon_for("errored"))
@@ -341,6 +364,14 @@ module TransactionHelper
     end
   end
 
+  def free_status(transaction)
+    if current_user?(transaction.listing.author)
+      waiting_for_current_user_to_accept_free_request(transaction)
+    else
+      waiting_for_author_to_accept_free_request(transaction)
+    end
+  end
+
   def feedback_status(conversation)
     if conversation.has_feedback_from?(@current_user)
       feedback_given_status
@@ -381,6 +412,25 @@ module TransactionHelper
         link_classes: "reject_preauthorized",
         link_icon_with_text_classes: icon_for("reject_preauthorized"),
         link_text_with_icon: link_text_with_icon(transaction, "reject_preauthorized")
+      }
+    ]);
+  end
+
+  def waiting_for_current_user_to_accept_free_request(transaction)
+    status_links([
+      {
+        link_href: accept_free_person_message_path(@current_user, :id => transaction.id),
+        link_classes: "accept_preauthorized",
+        link_icon_with_text_classes: icon_for("accept_preauthorized"),
+        link_text_with_icon: link_text_with_icon(transaction, "accept_preauthorized"),
+        link_data: { :method => "put" }
+      },
+      {
+        link_href: reject_free_person_message_path(@current_user, :id => transaction.id),
+        link_classes: "reject_preauthorized",
+        link_icon_with_text_classes: icon_for("reject_preauthorized"),
+        link_text_with_icon: link_text_with_icon(transaction, "reject_preauthorized"),
+        link_data: { :method => "put" }
       }
     ]);
   end
@@ -431,6 +481,17 @@ module TransactionHelper
 
   def waiting_for_author_to_accept_preauthorized(transaction)
     text = t("conversations.status.waiting_for_listing_author_to_accept_request",
+      :listing_author_name => link_to(
+        transaction.author.given_name_or_username,
+        transaction.author
+      )
+    ).html_safe
+
+    status_info(text, icon_classes: 'ss-clock')
+  end
+
+  def waiting_for_author_to_accept_free_request(transaction)
+    text = t("conversations.status.waiting_for_listing_author_to_accept_free_request",
       :listing_author_name => link_to(
         transaction.author.given_name_or_username,
         transaction.author

@@ -95,6 +95,16 @@ module TransactionViewUtils
     }
 
     message = case transition[:to_state]
+    when "free_accepted"
+      {
+        sender: author,
+        mood: :positive
+      }
+    when "free_rejected"
+      {
+        sender: author,
+        mood: :negative
+      }
     when "preauthorized"
       {
         sender: starter,
@@ -151,6 +161,10 @@ module TransactionViewUtils
     }
 
     message = case state
+    when "free_accepted"
+      t("conversations.conversation.accepted_request")
+    when "free_rejected"
+      t("conversations.conversation.rejected_request")
     when "preauthorized"
       t("conversations.message.payment_preauthorized", sum: humanized_money_with_symbol(payment_sum))
     when "accepted"

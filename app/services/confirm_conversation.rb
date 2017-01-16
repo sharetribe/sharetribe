@@ -20,6 +20,12 @@ class ConfirmConversation
     end
   end
 
+  def free_confirm!
+    [3, 10].each do |send_interval|
+      Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 9, :run_at => send_interval.days.from_now)
+    end
+  end
+
   # Listing canceled by user
   def cancel!
     Delayed::Job.enqueue(TransactionCanceledJob.new(@transaction.id, @community.id))

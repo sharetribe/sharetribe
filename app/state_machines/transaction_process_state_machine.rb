@@ -3,6 +3,8 @@ class TransactionProcessStateMachine
 
   state :not_started, initial: true
   state :free
+  state :free_accepted
+  state :free_rejected
   state :initiated
   state :pending  # Deprecated
   state :preauthorized
@@ -15,6 +17,7 @@ class TransactionProcessStateMachine
   state :canceled
 
   transition from: :not_started,               to: [:free, :initiated]
+  transition from: :free,                      to: [:free_accepted, :free_rejected]
   transition from: :initiated,                 to: [:preauthorized]
   transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,               to: [:paid, :rejected]
@@ -44,6 +47,11 @@ class TransactionProcessStateMachine
   after_transition(to: :confirmed) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.confirm!
+  end
+
+  after_transition(to: :free_accepted) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.free_confirm!
   end
 
   after_transition(from: :paid, to: :canceled) do |conversation|

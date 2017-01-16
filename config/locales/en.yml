@@ -685,6 +685,7 @@ en:
           intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
       waiting_for_current_user_to_deliver_listing: "Waiting for you to fulfill the order for %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Waiting for %{listing_author_name} to fulfill the order for %{listing_title}"
+      request_requested: Requested
       request_accepted: Accepted
       request_rejected: Rejected
       request_confirmed: Completed
@@ -694,6 +695,7 @@ en:
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request. As soon as %{listing_author_name} accepts, you will be charged."
+      waiting_for_listing_author_to_accept_free_request: "Waiting for %{listing_author_name} to accept the request. As soon as %{listing_author_name} accepts, your transaction will be completed."
       waiting_for_you_to_accept_request: "Waiting for you to accept the request"
       waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed"
       waiting_confirmation_from_you: "Waiting for you to mark the order completed"
