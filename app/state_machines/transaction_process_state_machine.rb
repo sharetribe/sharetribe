@@ -54,6 +54,11 @@ class TransactionProcessStateMachine
     confirmation.free_confirm!
   end
 
+  after_transition(to: :free_rejected) do |conversation|
+    confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
+    confirmation.free_cancel!
+  end
+
   after_transition(from: :paid, to: :canceled) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!

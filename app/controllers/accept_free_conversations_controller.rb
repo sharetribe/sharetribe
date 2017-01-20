@@ -12,13 +12,13 @@ class AcceptFreeConversationsController < ApplicationController
 
   def accept
     res = accept_free_transaction(@current_community.id, @tx_id)
-    flash[:notice] = t("conversations.conversation.accepted_request") if res[:status] == 'free_accepted'
+    flash[:notice] = t("conversations.conversation.accepted_offer") if res[:status] == 'free_accepted'
     redirect_to person_transaction_path(person_id: @current_user.id, id: @tx_id)
   end
 
   def reject
     res = reject_free_transaction(@current_community.id, @tx_id)
-    flash[:notice] =t("conversations.conversation.rejected_request") if res[:status] == 'free_rejected'
+    flash[:notice] =t("conversations.conversation.rejected_offer") if res[:status] == 'free_rejected'
     redirect_to person_transaction_path(person_id: @current_user.id, id: @tx_id)
   end
 

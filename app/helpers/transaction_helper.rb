@@ -291,7 +291,7 @@ module TransactionHelper
         } },
         free: ->() { {
           both: [
-            status_info(t("conversations.status.request_requested"), icon_classes: icon_for(conversation.status)),
+            status_info(t("conversations.status.request_offered"), icon_classes: icon_for(conversation.status)),
             free_status(conversation)
           ]
         } },
@@ -462,7 +462,7 @@ module TransactionHelper
 
   def link_text_with_icon(conversation, status_link_name)
     if ["accept", "reject", "accept_preauthorized", "reject_preauthorized"].include?(status_link_name)
-      t("conversations.status_link.#{status_link_name}_request")
+      t("conversations.status_link.#{status_link_name}_offer")
     else
       t("conversations.status_link.#{status_link_name}")
     end

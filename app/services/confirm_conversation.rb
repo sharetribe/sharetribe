@@ -20,10 +20,17 @@ class ConfirmConversation
     end
   end
 
+  # Free transaction accpted by owner
   def free_confirm!
+    Delayed::Job.enqueue(FreeTransactionAcceptedJob.new(@transaction.id, @community.id))
     [3, 10].each do |send_interval|
       Delayed::Job.enqueue(TestimonialReminderJob.new(@transaction.id, nil, @community.id), :priority => 9, :run_at => send_interval.days.from_now)
     end
+  end
+
+  # Free transaction rejected by owner
+  def free_cancel!
+    Delayed::Job.enqueue(FreeTransactionRejectedJob.new(@transaction.id, @community.id))
   end
 
   # Listing canceled by user
