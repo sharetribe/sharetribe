@@ -25,6 +25,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Fixed
 
 - Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
+- Fixed number of issues in the Order Types form [#2858](https://github.com/sharetribe/sharetribe/pull/2858)
 
 ### Security
 
