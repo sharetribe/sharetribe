@@ -111,7 +111,23 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleCheckboxEnabled($(".js-unit-checkbox"), enabled);
     toggleLabelEnabled($(".js-unit-label"), enabled);
     toggleInfoEnabled($('.js-pricing-units-info'), enabled);
+    toggleCustomUnitsEnabled(enabled);
   };
+
+  var toggleCustomUnitsEnabled = function(enabled) {
+    toggleLabelEnabled($(".js-listing-shape-add-custom-unit-link"), enabled);
+    toggleInputEnabled($('.js-custom-unit input'), enabled);
+
+    // First, turn off the click listener
+    $('.js-listing-shape-add-custom-unit-link').off('click');
+
+    if (enabled) {
+      // Add click listener if custom units are enabled
+      $('.js-listing-shape-add-custom-unit-link').click(function() {
+        addCustomUnitForm();
+      });
+    }
+  }
 
   var toggleAvailabilityEnabled = function(enabled) {
     toggleCheckboxEnabled($(".js-availability"), enabled);
@@ -147,13 +163,20 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   var toggleCheckboxEnabled = function(el, state) {
+    toggleInputEnabled(el, state);
+
+    if (!state) {
+      el.prop('checked', false);
+    }
+  };
+
+  var toggleInputEnabled = function(el, state) {
     if(state) {
       el.prop('disabled', false);
     } else {
       el.prop('disabled', true);
-      el.prop('checked', false);
     }
-  };
+  }
 
   var toggleRadioEnabled = function(el, state) {
     if(state) {
@@ -186,9 +209,6 @@ window.ST.initializeListingShapeForm = function(formId) {
   });
   $('.js-online-payments').change(function() {
     onlinePaymentsChanged($(this));
-  });
-  $('.js-listing-shape-add-custom-unit-link').click(function() {
-    addCustomUnitForm();
   });
   $('.js-availability').click(function() {
     availabilityChanged($(this));
