@@ -99,7 +99,7 @@
       = label_tag("units[#{unit[:type]}]", unit[:label], class: "checkbox-row-label js-unit-label")
 
 - shape[:custom_units].each_with_index do |unit, index|
-  .row{class: "js-custom-unit-#{index}"}
+  .row{class: "js-custom-unit js-custom-unit-#{index}"}
     .col-12
       = hidden_field_tag("custom_units[existing][#{index}]", unit[:value])
       = label_tag("custom_units[existing][#{index}]", "#{t('admin.listing_shapes.custom_unit_form.per')} #{unit[:name][I18n.locale.to_s]}", class: "js-unit-label checkbox-row-label")

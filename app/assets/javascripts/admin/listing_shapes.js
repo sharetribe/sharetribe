@@ -58,8 +58,25 @@ window.ST.initializeListingShapeForm = function(formId) {
     }
   });
 
+  var initializeState = function(state) {
+    toggleOnlinePaymentEnabled(state.priceEnabled);
+    toggleUnitsEnabled(state.priceEnabled && !state.availabilityEnabled);
+    toggleShippingEnabled(state.onlinePaymentsEnabled);
+    toggleAvailabilityEnabled(state.onlinePaymentsEnabled);
+    toggleAvailabilityUnitsEnabled(state.availabilityEnabled);
+  }
+
+  var isChecked = function(el) {
+    return el.is(':checked');
+  };
+
+  var isPriceEnabled = isChecked;
+  var isOnlinePaymentsEnabled = isChecked;
+  var isAvailabilityEnabled = isChecked;
+
   var priceChanged = function(currentEl) {
-    var enabled = currentEl.is(':checked');
+    var enabled = isPriceEnabled(currentEl);
+
     if(enabled) {
       toggleOnlinePaymentEnabled(true);
       toggleUnitsEnabled(true);
@@ -73,7 +90,8 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   var onlinePaymentsChanged = function(currentEl) {
-    var enabled = currentEl.is(':checked');
+    var enabled = isOnlinePaymentsEnabled(currentEl);
+
     if(enabled) {
       toggleAvailabilityEnabled(true);
       toggleShippingEnabled(true);
@@ -87,7 +105,8 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   var availabilityChanged = function(currentEl) {
-    var enabled = currentEl.is(':checked');
+    var enabled = isAvailabilityEnabled(currentEl);
+
     if(enabled) {
       toggleAvailabilityUnitsEnabled(true);
       toggleUnitsEnabled(false);
@@ -111,7 +130,23 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleCheckboxEnabled($(".js-unit-checkbox"), enabled);
     toggleLabelEnabled($(".js-unit-label"), enabled);
     toggleInfoEnabled($('.js-pricing-units-info'), enabled);
+    toggleCustomUnitsEnabled(enabled);
   };
+
+  var toggleCustomUnitsEnabled = function(enabled) {
+    toggleLabelEnabled($(".js-listing-shape-add-custom-unit-link"), enabled);
+    toggleInputEnabled($('.js-custom-unit input'), enabled);
+
+    // First, turn off the click listener
+    $('.js-listing-shape-add-custom-unit-link').off('click');
+
+    if (enabled) {
+      // Add click listener if custom units are enabled
+      $('.js-listing-shape-add-custom-unit-link').click(function() {
+        addCustomUnitForm();
+      });
+    }
+  }
 
   var toggleAvailabilityEnabled = function(enabled) {
     toggleCheckboxEnabled($(".js-availability"), enabled);
@@ -147,13 +182,20 @@ window.ST.initializeListingShapeForm = function(formId) {
   };
 
   var toggleCheckboxEnabled = function(el, state) {
+    toggleInputEnabled(el, state);
+
+    if (!state) {
+      el.prop('checked', false);
+    }
+  };
+
+  var toggleInputEnabled = function(el, state) {
     if(state) {
       el.prop('disabled', false);
     } else {
       el.prop('disabled', true);
-      el.prop('checked', false);
     }
-  };
+  }
 
   var toggleRadioEnabled = function(el, state) {
     if(state) {
@@ -187,9 +229,6 @@ window.ST.initializeListingShapeForm = function(formId) {
   $('.js-online-payments').change(function() {
     onlinePaymentsChanged($(this));
   });
-  $('.js-listing-shape-add-custom-unit-link').click(function() {
-    addCustomUnitForm();
-  });
   $('.js-availability').click(function() {
     availabilityChanged($(this));
   });
@@ -198,7 +237,9 @@ window.ST.initializeListingShapeForm = function(formId) {
   $('.js-remove-custom-unit').click(removeCustomUnit);
 
   // Run once on init
-  priceChanged($('.js-price-enabled'));
-  onlinePaymentsChanged($('.js-online-payments'));
-  availabilityChanged($('.js-availability'));
+  initializeState({
+    priceEnabled: isPriceEnabled($('.js-price-enabled')),
+    onlinePaymentsEnabled: isOnlinePaymentsEnabled($('.js-online-payments')),
+    availabilityEnabled: isAvailabilityEnabled($('.js-availability')),
+  })
 };
