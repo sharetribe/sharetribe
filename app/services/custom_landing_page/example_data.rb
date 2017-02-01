@@ -258,6 +258,7 @@ module CustomLandingPage
         {"label": "How to use?", "href": {"type": "path", "id": "how_to_use"}},
         {"label": "Terms", "href": {"type": "path", "id": "terms"}},
         {"label": "Privary", "href": {"type": "path", "id": "privacy"}},
+        {"label": "Invite new members", "href": {"type": "path", "id": "new_invitation"}},
         {"label": "Sharetribe", "href": {"value": "https://www.sharetribe.com"}}
       ],
       "social": [
@@ -468,6 +469,7 @@ JSON
             "links": [
                 {"label": "About", "href": {"type": "path", "id": "about"}},
                 {"label": "Example Link", "href": {"value": "https://www.sharetribe.com"}},
+                {"label": "Invite new members", "href": {"type": "path", "id": "new_invitation"}},
                 {"label": "Contact us", "href": {"type": "path", "id": "contact_us"}}
             ],
             "social": [
