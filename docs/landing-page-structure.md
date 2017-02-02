@@ -218,6 +218,7 @@ Values to set:
   * `how_to_use`
   * `terms`
   * `privacy`
+  * `new_invitation` : links to the new invitation page
 
   If you need to add new path, add the path to the hash that is returned by the `LandingPageController#build_paths` method.
 
