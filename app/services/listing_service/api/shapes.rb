@@ -25,11 +25,8 @@ module ListingService::API
     end
 
     def create(community_id:, opts:)
-      validate_upsert_opts(opts).and_then { |valid_opts|
-        Result::Success.new(ShapeStore.create(
-                              community_id: community_id,
-                              opts: valid_opts
-                            ))
+      validate_upsert_opts({opts: opts}.merge(community_id: community_id)).and_then { |create_opts|
+        Result::Success.new(ShapeStore.create(create_opts))
       }
     end
 
@@ -41,7 +38,7 @@ module ListingService::API
       }
 
       validate_find_opts(find_opts, unique_result_required: true).and_then { |f_opts|
-        validate_upsert_opts(f_opts.merge(opts: opts))
+        validate_upsert_opts({opts: opts}.merge(f_opts))
       }.and_then { |update_opts|
         Maybe(ShapeStore.update(update_opts)).map { |shape|
           Result::Success.new(shape)
@@ -69,7 +66,9 @@ module ListingService::API
 
     private
 
-    def validate_upsert_opts(opts)
+    def validate_upsert_opts(shape)
+      opts = shape[:opts]
+
       error =
         if opts[:availability] == :booking
           if opts[:units].length != 1
@@ -79,7 +78,7 @@ module ListingService::API
           end
         end
 
-      error || Result::Success.new(opts)
+      error || Result::Success.new(shape)
     end
 
     def validate_find_opts(opts, unique_result_required:)

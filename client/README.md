@@ -69,6 +69,21 @@ Styleguide can be published as a static build, to be used for e.g. reviews by ot
 
 We're using a [custom fork](https://github.com/mporkola/storybook-deployer) of [Storybook deployer](https://github.com/kadirahq/storybook-deployer), modified to output different branches to different directories. The goal is to get it merged upstream, but it still requires some work.
 
+Running tests
+=============
+
+Run full test suite:
+
+```
+npm run test
+```
+
+For TDD type of development, where you run the same test multiple times, you may want to use `npm run devspecs`, which runs only specs and runs them a bit faster.
+
+```
+npm run test:devspecs
+```
+
 Linting JavaScript and CSS files
 ================================
 
@@ -79,3 +94,16 @@ You can run the linting with:
     npm run lint       # run both ESLint and stylelint
     npm run eslint     # run only ESLint
     npm run stylelint  # run only stylelint
+
+Troubleshooting
+===============
+
+Changes in `variables.js` file don't seem to take an effect
+-----------------------------------------------------------
+
+Restarting foreman is needed when `variables.js` is changes
+
+Changes in translations don't seem to take an effect
+----------------------------------------------------
+
+Run `rake assets:clobber` and restart foreman

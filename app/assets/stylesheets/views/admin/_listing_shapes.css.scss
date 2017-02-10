@@ -1,7 +1,19 @@
 @import "mixins/all";
 
 .listing-shape-label-disabled {
-  color: $border;
+  &,
+  & > a,
+  & > a:hover {
+    color: $border;
+  }
+
+  & > a {
+    cursor: default;
+
+    &:hover {
+      cursor: default;
+    }
+  }
 }
 
 .listing-shape-delete-button {

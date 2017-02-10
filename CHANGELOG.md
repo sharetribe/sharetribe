@@ -12,6 +12,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Add support for redis as cache store [#2786](https://github.com/sharetribe/sharetribe/pull/2786)
 - Add support for using PayPal in fake mode for development purposes. [Read more](./docs/using-fakepal.md) [#2598](https://github.com/sharetribe/sharetribe/pull/2598)
+- Add support for linking to member invitation page in CLP [#2859](https://github.com/sharetribe/sharetribe/pull/2859)
 
 ### Changed
 
@@ -25,6 +26,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Fixed
 
 - Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
+- Fixed number of issues in the Order Types form [#2858](https://github.com/sharetribe/sharetribe/pull/2858)
 
 ### Security
 
