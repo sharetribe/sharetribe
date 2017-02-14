@@ -374,6 +374,7 @@ class ApplicationController < ActionController::Base
     return_to_path = session[:return_to] || session[:return_to_content]
 
     if return_to_path
+      flash[:notice] = flash.alert if flash.alert # Devise sets flash.alert in case already logged in
       session[:return_to] = nil
       session[:return_to_content] = nil
       return_to_path
