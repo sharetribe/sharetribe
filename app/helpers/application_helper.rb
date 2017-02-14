@@ -622,11 +622,12 @@ module ApplicationHelper
   end
 
   def search_path(opts = {})
+    current_marketplace = request.env[:current_marketplace]
     PathHelpers.search_path(
-      community_id: @current_community.id,
+      community_id: current_marketplace.id,
       logged_in: @current_user.present?,
       locale_param: params[:locale],
-      default_locale: @current_community.default_locale,
+      default_locale: current_marketplace.default_locale,
       opts: opts)
   end
 
