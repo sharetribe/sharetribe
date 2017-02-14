@@ -130,11 +130,20 @@
           %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
           %input.js-sender-email-input{name: "email", type: :text, placeholder: t("admin.communities.outgoing_email.sender_email_placeholder"), disabled: disabled_attr, class: disabled_class}
 
-      .row.js-sender-address-preview-container.sender-address-preview-container.hidden
-        .col-12
-          .sender-address-preview
-            = t("admin.communities.outgoing_email.this_is_how_it_will_look")
-            %span.js-sender-address-preview-values
+      .js-sender-address-preview-container.sender-address-preview-container.hidden
+        .row
+          .col-12
+            .sender-address-preview
+              = t("admin.communities.outgoing_email.this_is_how_it_will_look")
+              %span.js-sender-address-preview-values
+        .row.js-sender-address-preview-container.sender-address-preview-container.hidden
+          .col-12
+            .alert-box-warning
+              %p
+                %span.alert-box-icon<>
+                  = icon_tag("alert", ["icon-fix"])
+                %span
+                  = t("admin.communities.outgoing_email.amazon_ses_notification", email_sender: "Amazon Web Services", email_subject: "Amazon SES Address Verification Request")
       .row
         %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
 

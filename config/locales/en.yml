@@ -139,6 +139,7 @@ en:
         sender_name_placeholder: "Sender name"
         sender_email_label: "Email address"
         sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "You will receive an email from %{email_sender} to confirm your e-mail address. The email subject is '%{email_subject}'. Follow the instructions to verify your email."
         this_is_how_it_will_look: "This is how it will look:"
         send_verification_button: "Send verification email"
         successfully_saved: "Sender address saved successfully. The verification email will be sent soon."
