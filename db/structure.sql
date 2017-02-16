@@ -315,7 +315,6 @@ CREATE TABLE `community_customizations` (
   `about_page_content` mediumtext,
   `terms_page_content` mediumtext,
   `privacy_page_content` mediumtext,
-  `storefront_label` varchar(255) DEFAULT NULL,
   `signup_info_content` text,
   `private_community_homepage_content` mediumtext,
   `verification_to_post_listings_info_content` mediumtext,
@@ -1599,7 +1598,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-08 14:13:02
+-- Dump completed on 2017-02-16 15:50:16
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3219,4 +3218,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161107132513');
 INSERT INTO schema_migrations (version) VALUES ('20161107141257');
 
 INSERT INTO schema_migrations (version) VALUES ('20161109094513');
+
+INSERT INTO schema_migrations (version) VALUES ('20170216134444');
 
