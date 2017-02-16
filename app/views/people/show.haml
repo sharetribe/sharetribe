@@ -3,7 +3,7 @@
 
 - content_for :title_header do
   %h1
-    %span.profile-title= @person.name(@current_community)
+    %span.profile-title= PersonViewUtils.person_display_name(@person, @current_community)
 
 .row
   .col-8

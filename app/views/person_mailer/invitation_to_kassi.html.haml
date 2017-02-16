@@ -8,9 +8,9 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
-      = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name(@current_community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+      = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => PersonViewUtils.person_display_name(@invitation.inviter, @current_community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
       - if @invitation.message && !@invitation.message.blank?
-        = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => @invitation.inviter.given_name_or_username)
+        = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => PersonViewUtils.person_display_name_for_type(@invitation.inviter, "first_name_only"))
 
 - if @invitation.message && !@invitation.message.blank?
   = render :partial => "quote", :locals => { :quote => @invitation.message }

@@ -3,7 +3,7 @@
 %tr
   %td{:align => "left", :style => "padding-top: 15px; padding-bottom: 25px;"}
     %font{body_font}
-      = t("emails.transaction_preauthorized.transaction_requested_by_user", :listing_title => @transaction.listing.title, :requester => @transaction.starter.name(@transaction.community))
+      = t("emails.transaction_preauthorized.transaction_requested_by_user", :listing_title => @transaction.listing.title, :requester => PersonViewUtils.person_display_name(@transaction.starter, @transaction.community))
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}

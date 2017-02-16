@@ -3,7 +3,7 @@
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
   %b= t("emails.new_member_notification.person_name")
-  = @person.name(@community)
+  = PersonViewUtils.person_display_name(@person, @community)
   %br/
   %b= t("emails.new_member_notification.person_email")
   = @email

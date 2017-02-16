@@ -1,5 +1,5 @@
 %h3
-  = t("emails.welcome_email_marketplace_creator.welcome_to_marketplace_creator", :name => @recipient.given_name_or_username)
+  = t("emails.welcome_email_marketplace_creator.welcome_to_marketplace_creator", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
 
 %p
   = t("emails.welcome_email_marketplace_creator.journey_begins")

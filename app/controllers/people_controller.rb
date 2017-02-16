@@ -195,7 +195,7 @@ class PeopleController < Devise::RegistrationsController
     @person.store_picture_from_facebook
 
     sign_in(resource_name, @person)
-    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(PersonViewUtils.person_display_name_for_type(@person, "first_name_only"), person_path(@person))).html_safe
 
     CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
 

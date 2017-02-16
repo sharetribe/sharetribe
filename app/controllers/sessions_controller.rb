@@ -64,7 +64,7 @@ class SessionsController < ApplicationController
       redirect_to terms_path and return
     end
 
-    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
+    flash[:notice] = t("layouts.notifications.login_successful", person_name: view_context.link_to(PersonViewUtils.person_display_name_for_type(@current_user, "first_name_only"), person_path(@current_user))).html_safe
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil

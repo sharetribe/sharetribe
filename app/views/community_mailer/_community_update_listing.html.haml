@@ -10,7 +10,7 @@
                   = link_to((image_tag listing.author.image.url(:thumb), :width => 50, :height => 50, :style => "display:block;margin-right:20px;margin-bottom:10px;margin-top:0;border:0"), person_url(listing.author, @url_params))
               %td{:valign => "top", :style => "margin-bottom: 0;padding-bottom: 0;"}
                 %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight: normal; font-size: 14px; margin-top: 0;margin-bottom:0;padding:0;line-height:14px;"}
-                  - name_link = link_to( listing.author.given_name_or_username, person_url(listing.author, @url_params), :style => "font-weight:bold;")
+                  - name_link = link_to(PersonViewUtils.person_display_name_for_type(listing.author, "first_name_only"), person_url(listing.author, @url_params), :style => "font-weight:bold;")
                   = t("emails.community_updates.added_listing",
                       :name_link => name_link,
                           :default => t("emails.community_updates.added_listing",

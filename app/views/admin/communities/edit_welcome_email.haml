@@ -160,7 +160,7 @@
       .text-part= t(".send_test_message")
   %p ***
   .welcome-email-editor-background
-    %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
+    %p= t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
     #welcome_email_content{:data => {:mercury => "full"}}
       - if @community_customization && @community_customization.welcome_email_content
         = @community_customization.welcome_email_content.html_safe

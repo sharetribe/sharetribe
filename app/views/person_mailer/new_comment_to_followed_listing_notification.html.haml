@@ -3,6 +3,6 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.new_comment.has_commented_listing_you_follow_in_kassi", :author => @comment.author.name(@community), :listing => @comment.listing.title)
+      = t("emails.new_comment.has_commented_listing_you_follow_in_kassi", :author => PersonViewUtils.person_display_name(@comment.author, @community), :listing => @comment.listing.title)
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_comment.view_comment"), :url => url}

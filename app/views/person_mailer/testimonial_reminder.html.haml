@@ -4,11 +4,11 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => @other_party.name(@conversation.community), :event => link_to(@conversation.listing_title, conversation_url), :given_name => @other_party.given_name_or_username).html_safe
+      = t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => PersonViewUtils.person_display_name(@other_party, @conversation.community), :event => link_to(@conversation.listing_title, conversation_url), :given_name => PersonViewUtils.person_display_name_for_type(@other_party, "first_name_only")).html_safe
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px"}
     %font{body_font}
-      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @other_party.given_name_or_username)
+      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@other_party, "first_name_only"))
 
-= render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => @other_party.given_name_or_username), :url => give_url}
+= render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@other_party, "first_name_only")), :url => give_url }

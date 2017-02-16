@@ -3,7 +3,7 @@
 %tr
   %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
-      = t("emails.common.hey", :name => @resource.given_name_or_username)
+      = t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@resource, "first_name_only"))
 
 %tr
   %td{:align => "left"}
