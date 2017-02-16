@@ -134,6 +134,7 @@ ja:
         sender_name_placeholder: ~
         sender_email_label: メールアドレス
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
         successfully_saved: ~
@@ -920,7 +921,7 @@ ja:
       accept_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
   error_pages:
-    back_to_kassi_front_page: 一番手前のページに戻る
+    back_to_kassi_front_page: 前のページに戻る
     error_404:
       if_you_believe: あなたの閲覧しているページのURLが正しく、正常に起動しているべきと信じるなら、どこでエラーを引き起こしたか、私たちに知らせてください。下記のフォームで、エラーの原因発見のために情報提供をお願いします。
       page_can_not_be_found: ページを見つけられませんでした！
@@ -928,8 +929,8 @@ ja:
     error_404_title: ページが見つかりません
     error_410:
       page_removed: ページは削除されました
-      page_you_requested_has_been_removed: ご指定のページを削除しました。
-      page_removed_reason: このために２，３前向きな理由があります。例えば、ユーザはアカウントやリストを削除するかもしれません。
+      page_you_requested_has_been_removed: ご指定のページは削除されました。
+      page_removed_reason: これにはいくつかの理由が考えられます。例えば、ユーザーがアカウントやリストを削除してしまった可能性があります。
     error_410_title: ページは削除されました
     error_500:
       temporary_unavailable: マーケットプレイスは一時的にご利用できません
@@ -994,7 +995,7 @@ ja:
     create_new_marketplace: 新規マーケットプレイスを作成
     contact_us: お問い合わせ
     profile: プロフィール
-    manage_listings: ~
+    manage_listings: リストを管理する
     invite: メンバーを招待する
     login: ログイン
     signup: 新規登録
@@ -1288,7 +1289,7 @@ ja:
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
       you_must_log_in_to_send_a_message: "他のユーザーにメッセージを送信するには、%{service_name}にログインしてください。"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "お取引をするには%{service_name}へログインしてください"
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
       you_must_log_in_to_view_this_page: このページを閲覧するにはログインしていなければなりません
       you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには、%{service_name}にログインしてください"
@@ -2054,7 +2055,7 @@ ja:
       user: ~
       inbox: 受信メール
       profile: プロフィール
-      manage_listings: ~
+      manage_listings: リストを管理する
       settings: 設定
       logout: ログアウト
       login: ログイン

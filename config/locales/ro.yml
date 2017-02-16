@@ -124,6 +124,7 @@ ro:
         sender_name_placeholder: ~
         sender_email_label: ~
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
         successfully_saved: ~
@@ -928,8 +929,8 @@ ro:
       javascript_is_disabled_in_your_browser: "JavaScript este dezactivat pentru browserul tau."
       kassi_does_not_currently_work_without_javascript: "%{service_name}nu funcţionează optim fără JavaScript. Încercaţi să activaţi JavaScript din preferinţele browserului dumneavoastră şi reîncărcaţi pagina."
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Trimite mesaj"
+      your_feedback_to_admins: "Mesajul tău către echipa %{service_name}"
     send: Trimite
     your_email_address: "Adresa ta de e-mail"
   errors:
@@ -1047,7 +1048,7 @@ ro:
       or: sau
       or_see_what_the_others: "...sau vezi ceea ce altii"
       recent_events: "Evenimente recente"
-      requesting: ~
+      requesting: nevoie
       tell_it_here: "Spune aici!"
       welcome_to_new_kassi: "Bine ai venit un nou %{service_name}"
       no_reviews: ~
@@ -1122,13 +1123,13 @@ ro:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "Mesajul tău către echipa %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "Forum de sugestii"
       feedback_handle: Sugestii
       give_feedback: Contacteaza-ne
       or_check_our: "...sau verifica a noastra"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Trimite mesaj"
       to_see_what_others_have_suggested: "pentru a vedea ceea ce altii au sugerat si pentru a vota acele idei."
       your_email_address: "Adresa ta e-mail (pentru a te contacta)"
       connect: ~
@@ -1198,7 +1199,7 @@ ro:
       error_with_session: "Eroare in aceasta sesiune."
       feedback_considered_spam: "Sugestia nu a fost salvata din pricina formatarii. Incearca din nou sau foloseste forumul de sugestii."
       feedback_not_saved: "Sugestia nu a putut fi trimisa."
-      feedback_saved: ~
+      feedback_saved: "Mulțumim mult pentru mesaj! Vom reveni în cel mai scurt timp posibil."
       feedback_sent_to: "Feedback trimis lui %{target_person}"
       feedback_skipped: "Sugestia a fost omisa"
       invitation_cannot_be_sent: ~
@@ -1256,16 +1257,16 @@ ro:
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: "Eroare necunoscuta. Utilizati pagina \"Contactati-ne\" pentru a trimite detaliile despre ceea ce s-a intamplat."
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      update_error: "A apărut o eroare la actualizarea informațiilor tale, te rugăm să mai încerci odata"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nu ești autorizat să dai feedback la acest eveniment"
+      you_are_not_authorized_to_do_this: "Nu ești autorizat să faci asta"
+      you_are_not_authorized_to_view_this_content: "Nu ești autorizat să vezi acest conținut"
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: "Nu poți răspunde unei oferte închise"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Ai oferit deja feedback despre acest eveniment"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
@@ -1294,10 +1295,10 @@ ro:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Cont
+      notifications: Notificari
+      profile: "Informații profil"
+      settings: Configurare
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1310,11 +1311,11 @@ ro:
     comment_form:
       ask_a_question: ~
       log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      send_comment: "Trimite comentariul"
+      to_send_a_comment: "pentru a trimite un nou comentariu."
+      write_comment: "Scrie un comentariu nou:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: Trebuie
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1342,17 +1343,17 @@ ro:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: La
+        departure_time: "Oră de plecare"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Descriere detaliată"
         youtube_info: ~
       destination:
-        destination: ~
+        destination: Destinație
       form_content:
-        favor: ~
+        favor: "un serviciu"
         housing: ~
         item: ~
         offer_something: ~
@@ -1363,13 +1364,13 @@ ro:
       googlemap:
         googlemap_copy: ~
         googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_updatemap: "Actualizează harta"
       images:
-        image: ~
+        image: Imagine
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Nici un fișier selectat"
+        remove_image: "Inlatură imaginea"
+        select_file: "Selectează fisier"
         add_more: ~
         removing: ~
         processing: ~
@@ -1384,7 +1385,7 @@ ro:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Locație
       price:
         price: ~
         per: ~
@@ -1402,7 +1403,7 @@ ro:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
+        location: Locație
         origin: ~
       send_button:
         save_listing: ~
@@ -1769,7 +1770,7 @@ ro:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
+      email: E-mail
       password_recovery_instructions: ~
       request_new_password: ~
       change_your_password: ~

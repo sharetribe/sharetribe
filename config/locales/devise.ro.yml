@@ -48,8 +48,8 @@ ro:
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
       unlocked: "Contul dvs. a fost deblocat. Autentificați-vă pentru a continua."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Autorizat cu succes prin contul %{kind}."
+      failure: "Nu ați putut fi autorizat prin %{kind} pentru că \"%{reason}\"."
     mailer:
       confirmation_instructions:
         subject: "Instrucţiuni de confirmare pentru acces %{service_name}"
