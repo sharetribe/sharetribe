@@ -224,8 +224,6 @@ class Person < ActiveRecord::Base
         .present?
   end
 
-  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
-  # Consider using PersonViewUtils
   def name_or_username(community_or_display_type=nil)
     if community_or_display_type.present? && community_or_display_type.class == Community
       display_type = community_or_display_type.name_display_type
@@ -249,15 +247,15 @@ class Person < ActiveRecord::Base
       return username
     end
   end
+  deprecate name_or_username: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+            deprecator: MethodDeprecator.new
 
-  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
-  # Consider using PersonViewUtils
   def full_name
     "#{given_name} #{family_name}"
   end
+  deprecate full_name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+            deprecator: MethodDeprecator.new
 
-  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
-  # Consider using PersonViewUtils
   def first_name_with_initial
     if family_name
       initial = family_name[0,1]
@@ -266,15 +264,15 @@ class Person < ActiveRecord::Base
     end
     "#{given_name} #{initial}"
   end
+  deprecate first_name_with_initial: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+            deprecator: MethodDeprecator.new
 
-  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
-  # Consider using PersonViewUtils
   def name(community_or_display_type)
     return name_or_username(community_or_display_type)
   end
+  deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+            deprecator: MethodDeprecator.new
 
-  # Deprecated: This is view logic (how to display name) and thus should not be in model layer
-  # Consider using PersonViewUtils
   def given_name_or_username
     if given_name.present?
       return given_name
@@ -282,6 +280,8 @@ class Person < ActiveRecord::Base
       return username
     end
   end
+  deprecate given_name_or_username: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+            deprecator: MethodDeprecator.new
 
   def set_given_name(name)
     update_attributes({:given_name => name })
