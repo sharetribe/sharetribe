@@ -1,0 +1,76 @@
+<div class="container">
+
+  <% p = @posts.shift %>
+  <div class="row">
+    <div class="blog-hero col-8">
+      <%= link_to post_path(p["post_id"]) do %>
+
+      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+      <div class="blog-hero-image" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"], 900) %>')">
+      </div>
+      <% end %>
+
+      <% end %>
+    </div>
+
+    <div class="hero-text col-4">
+
+      <h5 class="date">
+        <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
+      </h5>
+
+      <%= link_to post_path(p["post_id"]) do %>
+
+      <h3 class="blog-title-hero">
+        <%= raw p["post_title"] %>
+      </h3>
+
+      <% end %>
+
+
+      <div class="blog-desc">
+        <%= raw p["post_excerpt"] %>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="row">
+    <% @posts.each do |p| %>
+    <div class="blog-post col-4">
+      <%= link_to post_path(p["post_id"]) do %>
+
+      <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+      <div class="thumbnail" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"]) %>')">
+      </div>
+      <% end %>
+
+      <% end %>
+
+
+      <h5 class="date">
+        <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
+      </h5>
+
+      <div class="blog-caption">
+        <%= link_to post_path(p["post_id"]) do %>
+        <h3 class="blog-title">
+          <%= raw p["post_title"] %>
+        </h3>
+        <% end %>
+
+
+        <div class="blog-desc">
+          <%= raw p["post_excerpt"] %>
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+  </div>
+</div>

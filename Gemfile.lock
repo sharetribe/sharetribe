@@ -420,6 +420,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    retryable-rb (1.1.0)
     riddle (1.5.12)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -453,6 +454,8 @@ GEM
       unicode-display_width (~> 0.3)
     ruby-progressbar (1.8.1)
     ruby_dep (1.4.0)
+    rubypress (1.2.1)
+      retryable-rb
     rubyzip (1.2.0)
     sass (3.2.19)
     sass-rails (4.0.5)
@@ -603,6 +606,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   rspec_junit_formatter
   rubocop (~> 0.37.2)
+  rubypress
   sass (~> 3.2.9)
   sass-rails (~> 4.0.0)
   selenium-webdriver (~> 2.45)

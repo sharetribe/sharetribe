@@ -1,0 +1,148 @@
+.blog-post {
+  /*width:  49%;*/
+  /*height: 400px;*/
+  display: inline-block;
+}
+.blog-post img.thumbnail {
+  /*width: 80%;*/
+  /*height: 400px;*/
+}
+
+a:hover h3 {
+  color: #8C76FF;
+  transition-duration: .15s;
+}
+
+.date {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  color: #898989;
+}
+
+.date-post {
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+  color: #898989;
+  margin-bottom: 8px;
+}
+
+.post-details-title {
+  margin: center;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 45px;
+}
+
+.blog-title-hero {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 36px;
+  color: #5a5a5a;
+  margin-bottom: 8px;
+  margin: left;
+
+}
+
+h4 {
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 32px;
+  color: #5a5a5a;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 32px;
+  color: #5a5a5a;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 50px;
+  color: #5a5a5a;
+  margin-bottom: 64px;
+
+}
+
+.thumb-image {
+  width: 100%;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+
+}
+.blog-hero {
+  padding-bottom: 69px;
+
+}
+
+
+.blog-title {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 30px;
+  color: #5a5a5a;
+  margin-bottom: 8px;
+
+}
+
+.blog-desc {
+  font-size: 14px;
+  /*height: 40px;*/
+  letter-spacing: 1px;
+  color: #5a5a5a;
+  margin-bottom: 32px;
+
+}
+.blog-caption {
+  height: 300px;
+  overflow: hidden;
+}
+
+.hero-text {
+  /*margin-left: 570px;*/
+
+}
+
+.blog-hero-image {
+  height: 350px;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;  
+}
+
+.blog-hero-image-post {
+  height: 550px;
+  margin-bottom: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 64px; 
+}
+
+.thumbnail {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 16px;
+  /*overflow: hidden;*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*.wrapper < .container {
+  max-width: 100%;
+}*/
+
+

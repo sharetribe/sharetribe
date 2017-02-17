@@ -108,6 +108,12 @@ module TopbarHelper
       }
     ]
 
+    links << {
+      link: paths.posts_path,
+      title: 'Blog',
+      priority: 0
+    }
+
     if user&.has_admin_rights? || community.users_can_invite_new_users
       links << {
         link: paths.new_invitation_path(locale: locale_param),

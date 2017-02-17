@@ -1,0 +1,30 @@
+<div class="container">
+  <% p = @post %>
+  <div class="row">
+    <div class="blog-hero-post col-12">
+
+     <% if !p["post_thumbnail"].kind_of?(Array) && p["post_thumbnail"]["thumbnail"] %>
+     <div class="blog-hero-image-post" style="background-image: url('<%= resize_wordpress_thumbnail(p["post_thumbnail"]["thumbnail"], 970) %>')">
+     </div>
+     <% end %>
+
+    <h5 class="date-post">
+       <%= p["post_date"].to_time.strftime('%^b %d, %G') %>
+    </h5>
+
+     <h1 class="post-title-hero">
+      <%= raw p["post_title"] %>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="post-detail-title col-10">
+      <div class="blog-desc">
+        <%= raw p["post_content"] %>
+      </div>
+
+    </div>
+  </div> 
+</div> 
