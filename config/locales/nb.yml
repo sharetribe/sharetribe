@@ -139,7 +139,7 @@ nb:
         sender_name_placeholder: Avsendernavn
         sender_email_label: Epostadresse
         sender_email_placeholder: din-markedplass@eksempel.no
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Du vil motta en e-post fra %{email_sender} for å bekrefte e-postadressen din. I emnefeltet vi det stå '%{email_subject}'. Følg instruksjonen i e-posten for å bekrefte e-postadressen din."
         this_is_how_it_will_look: "Slik vil det se ut:"
         send_verification_button: "Send bekreftelses-epost"
         successfully_saved: "Avsender lagret. Bekreftelses-epost vil bli sendt snart."
@@ -1154,7 +1154,7 @@ nb:
     application:
       join_this_community: "Bli medlem"
       read_more: "Les mer"
-      feedback: "Din melding til %{service_name}-tea,et"
+      feedback: "Din melding til %{service_name}-teamet"
       dont_use_to_contact_support: "Vi ser du er admin for %{service_name}. Dette er skjemaet som dine brukere bruker for å kontakte deg. Du kan ikke bruke dette skjemaet for å kontakte Sharetribe support. Du kan kontakte Sharetribe support via Support-linken i administrasjonspanelet ditt."
       feedback_forum: diskusjonsforum
       feedback_handle: Tilbakemelding

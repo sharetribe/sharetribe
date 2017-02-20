@@ -134,7 +134,7 @@ ka:
         sender_name_placeholder: "გამგზავნის სახელი"
         sender_email_label: "ელ. ფოსტის მისამართი"
         sender_email_placeholder: sender-email@example.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "თქვენ მიიღებთ იმეილს %{email_sender}სგან რომ დაადასტუროთ თქვენ ელ-ფოსტის მისამართი. იმეილის სახელი იქნება %{email_subject}. გთხოვთ მიყევით ინსტრუქციას ელ. ფოსტაზე რომ დაადასტუროთ ელ. ფოსტის მისამართი. "
         this_is_how_it_will_look: "აი როგორ გამოჩნდება:"
         send_verification_button: "გააგზავნე დამდადასტურებელი მეილი"
         successfully_saved: "გამომგზავნის მისამართი წარმატებით იქნა შენახული. ეს დადასტურების მეილი მალე გაიგზავნება"
