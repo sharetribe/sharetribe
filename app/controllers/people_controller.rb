@@ -228,6 +228,7 @@ class PeopleController < Devise::RegistrationsController
       person_params = params.require(:person).permit(
         :given_name,
         :family_name,
+        :display_name,
         :street_address,
         :phone_number,
         :image,
