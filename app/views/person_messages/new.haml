@@ -2,7 +2,7 @@
   initialize_send_person_message_form('#{I18n.locale}');
 
 #new_message_form.centered-section
-  %h2= t("conversations.new.send_message_to_user", :person => @recipient.given_name_or_username)
+  %h2= t("conversations.new.send_message_to_user", :person => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
 
   = form_for @conversation, :url => person_person_messages_path(:person => @recipient) do |form|
     = fields_for "conversation[message_attributes]", Message.new do |message_form|

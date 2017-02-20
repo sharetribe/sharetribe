@@ -41,7 +41,7 @@ class TransactionMailer < ActionMailer::Base
         mail_params(
           @recipient,
           @community,
-          t("emails.transaction_preauthorized.subject", requester: transaction.starter.name(@community), listing_title: transaction.listing.title))) do |format|
+          t("emails.transaction_preauthorized.subject", requester: PersonViewUtils.person_display_name(transaction.starter, @community), listing_title: transaction.listing.title))) do |format|
         format.html {
           render locals: {
                    payment_expires_in_unit: expires_in[:unit],
@@ -105,7 +105,7 @@ class TransactionMailer < ActionMailer::Base
                    paypal_gateway_fee: humanized_money_with_symbol(-gateway_fee),
                    payment_seller_gets: humanized_money_with_symbol(you_get),
                    payer_full_name: buyer_model.name(community),
-                   payer_given_name: buyer_model.given_name_or_username,
+                   payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
                  }
         }
       end
@@ -140,7 +140,7 @@ class TransactionMailer < ActionMailer::Base
                    shipping_total: humanized_money_with_symbol(transaction[:shipping_price]),
                    payment_total: humanized_money_with_symbol(transaction[:payment_total]),
                    recipient_full_name: seller_model.name(community),
-                   recipient_given_name: seller_model.given_name_or_username,
+                   recipient_given_name: PersonViewUtils.person_display_name_for_type(seller_model, "first_name_only"),
                    automatic_confirmation_days: nil,
                    show_money_will_be_transferred_note: false
                  }

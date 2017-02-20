@@ -548,7 +548,7 @@ class ApplicationController < ActionController::Base
       {
         unread_count: MarketplaceService::Inbox::Query.notification_count(u.id, @current_community.id),
         avatar_url: u.image.present? ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
-        current_user_name: u.name(@current_community),
+        current_user_name: PersonViewUtils.person_display_name(u, @current_community),
         inbox_path: person_inbox_path(u),
         profile_path: person_path(u),
         manage_listings_path: person_path(u, show_closed: true),

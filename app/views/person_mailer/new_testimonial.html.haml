@@ -4,7 +4,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name(@current_community)) + "."
+      = t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(@testimonial.author, @current_community)) + "."
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_testimonial.view_feedback"), :url => view_url}
 
@@ -13,7 +13,7 @@
   %tr
     %td{:align => "left"}
       %font{body_font}
-        = t("emails.new_testimonial.you_can_give_feedback_to", :name => @testimonial.author.given_name_or_username)
-        = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @testimonial.author.given_name_or_username)
+        = t("emails.new_testimonial.you_can_give_feedback_to", :name => PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only"))
+        = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only"))
 
-  = render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => @testimonial.author.given_name_or_username), :url => give_url}
+  = render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only")), :url => give_url}

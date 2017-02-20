@@ -19,7 +19,7 @@
       - else
         = t('community_memberships.new.you_can_join_email_confirmation', email_ending: allowed_emails.first)
     - else
-      = t('community_memberships.new.welcome_fb_user', name: @current_user.given_name_or_username)
+      = t('community_memberships.new.welcome_fb_user', name: PersonViewUtils.person_display_name_for_type(@current_user, "first_name_only"))
       = t('community_memberships.new.fb_join_accept_terms')
 
   %p

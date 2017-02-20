@@ -4,14 +4,14 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}", :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username, :request => @conversation.listing.title)
+      = t("emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}", :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
 
 %tr
   %td{:align => "left", :style => "padding-top: 15px;"}
     %font{body_font}
-      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username)
+      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")))
 
-= render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => @conversation.other_party(@recipient).given_name_or_username), :url => url}
+= render :partial => "action_button", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")), :url => url}
 
 %tr
   %td{:align => "left", :style => "padding-bottom: 25px;"}

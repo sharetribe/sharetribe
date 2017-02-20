@@ -10,7 +10,7 @@
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
 - content_for :title, raw(@listing.title)
-- content_for :meta_author, @listing.author.name(@current_community)
+- content_for :meta_author, PersonViewUtils.person_display_name(@listing.author, @current_community)
 - content_for :meta_description, StringUtils.first_words(@listing.description, 15)
 - content_for :meta_image, @listing.listing_images.first.image.url(:medium) if !@listing.listing_images.empty?
 - dimensions = @listing.listing_images.first.get_dimensions_for_style(:medium) if !@listing.listing_images.empty?
@@ -148,7 +148,7 @@
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
           .listing-author-details
             .listing-author-name
-              = link_to @listing.author.name(@current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{@listing.author.name(@current_community)}"
+              = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
             - if @listing.author != @current_user
               .listing-author-contact
                 %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}

@@ -37,7 +37,7 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @message = message
       sending_params = {:to => recipient.confirmed_notification_emails_to,
-                        :subject => t("emails.new_message.you_have_a_new_message", :sender_name => message.sender.name(community)),
+                        :subject => t("emails.new_message.you_have_a_new_message", :sender_name => PersonViewUtils.person_display_name(message.sender, community)),
                         :from => community_specific_sender(community)}
 
       premailer_mail(sending_params)
@@ -90,7 +90,7 @@ class PersonMailer < ActionMailer::Base
       @testimonial = testimonial
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => testimonial.author.name(community)))
+                     :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(testimonial.author, community)))
     end
   end
 
@@ -139,7 +139,7 @@ class PersonMailer < ActionMailer::Base
       @other_party = @conversation.other_party(recipient)
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name(community)))
+                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => PersonViewUtils.person_display_name(@other_party, community)))
     end
   end
 
@@ -151,7 +151,7 @@ class PersonMailer < ActionMailer::Base
       @comment = comment
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name(community)))
+                     :subject => t("emails.new_comment.you_have_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
     end
   end
 
@@ -161,7 +161,7 @@ class PersonMailer < ActionMailer::Base
       @comment = comment
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name(community)))
+                     :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => PersonViewUtils.person_display_name(comment.author, community)))
     end
   end
 
@@ -180,7 +180,7 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @listing = listing
       @no_recipient_name = true
-      @author_name = listing.author.name(community)
+      @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
       @translate_scope = [ :emails, :new_listing_by_followed_person ]
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
@@ -198,7 +198,7 @@ class PersonMailer < ActionMailer::Base
     set_up_layout_variables(nil, invitation.community)
     @url_params[:locale] = mail_locale
     with_locale(mail_locale, invitation.community.locales.map(&:to_sym), invitation.community.id) do
-      subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => invitation.inviter.name(invitation.community), :community => invitation.community.full_name_with_separator(invitation.inviter.locale))
+      subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => PersonViewUtils.person_display_name(invitation.inviter, invitation.community), :community => invitation.community.full_name_with_separator(invitation.inviter.locale))
       premailer_mail(:to => invitation.email,
                      :from => community_specific_sender(invitation.community),
                      :subject => subject,
@@ -317,7 +317,7 @@ class PersonMailer < ActionMailer::Base
       subject = if @recipient.has_admin_rights? && !@test_email
         t("emails.welcome_email_marketplace_creator.welcome_email_subject_for_marketplace_creator")
       else
-        t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => person.given_name_or_username)
+        t("emails.welcome_email.welcome_email_subject", :community => community.full_name(recipient.locale), :person => PersonViewUtils.person_display_name_for_type(person, "first_name_only"))
       end
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),

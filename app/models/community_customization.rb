@@ -16,7 +16,6 @@
 #  about_page_content                         :text(16777215)
 #  terms_page_content                         :text(16777215)
 #  privacy_page_content                       :text(16777215)
-#  storefront_label                           :string(255)
 #  signup_info_content                        :text(65535)
 #  private_community_homepage_content         :text(16777215)
 #  verification_to_post_listings_info_content :text(16777215)
@@ -42,7 +41,6 @@ class CommunityCustomization < ActiveRecord::Base
     :how_to_use_page_content,
     :terms_page_content,
     :privacy_page_content,
-    :storefront_label,
     :signup_info_content,
     :private_community_homepage_content,
     :verification_to_post_listings_info_content,

@@ -14,7 +14,7 @@
                         - if @recipient.has_admin_rights? && !@test_email
                           = render :partial => "admin/communities/welcome_email_for_marketplace_creator"
                         - else
-                          %p= t("emails.common.hey", :name => @recipient.given_name_or_username)
+                          %p= t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
                           - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
                           - if customization && !customization.welcome_email_content.blank?
                             = customization.welcome_email_content.html_safe
