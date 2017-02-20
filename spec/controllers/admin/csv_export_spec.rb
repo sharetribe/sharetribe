@@ -25,12 +25,14 @@ describe Admin::CommunityMembershipsController, type: :controller do
 
       expect(user["first_name"]).to eq(@person.given_name)
       expect(user["last_name"]).to eq(@person.family_name)
+      expect(user["display_name"]).to eq(@person.display_name || "")
       expect(user["phone_number"]).to eq(@person.phone_number)
       expect(user["email_address"]).to eq(@person.emails.first.address)
       expect(user["status"]).to eq("accepted")
 
       expect(user2["first_name"]).to eq(@person.given_name)
       expect(user2["last_name"]).to eq(@person.family_name)
+      expect(user2["display_name"]).to eq(@person.display_name || "")
       expect(user2["phone_number"]).to eq(@person.phone_number)
       expect(user2["email_address"]).to eq(@other_email.address)
       expect(user2["status"]).to eq("accepted")
