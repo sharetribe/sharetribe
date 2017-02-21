@@ -35,7 +35,7 @@
       %thead
         %tr
           %th= render partial: "layouts/sort_link", locals: { column: "name", direction: sort_link_direction("name"), title: t("admin.communities.manage_members.name") }
-          %th= render partial: "layouts/sort_link", locals:{ column: "display_name", direction: sort_link_direction("display_name"), title: t("admin.communities.manage_members.display_name")}
+          %th= render partial: "layouts/sort_link", locals: { column: "display_name", direction: sort_link_direction("display_name"), title: t("admin.communities.manage_members.display_name")}
           %th= render partial: "layouts/sort_link", locals: { column: "email", direction: sort_link_direction("email"), title: t("admin.communities.manage_members.email") }
           %th= render partial: "layouts/sort_link", locals: { column: "join_date", direction: sort_link_direction("join_date"), title: t("admin.communities.manage_members.join_date") }
           - if @current_community.require_verification_to_post_listings

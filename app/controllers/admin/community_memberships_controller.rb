@@ -123,6 +123,8 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     case params[:sort]
     when "name"
       "people.given_name"
+    when "display_name"
+      "people.display_name"
     when "email"
       "emails.address"
     when "join_date"
