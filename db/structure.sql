@@ -1346,6 +1346,7 @@ CREATE TABLE `people` (
   `password_salt` varchar(255) DEFAULT NULL,
   `given_name` varchar(255) DEFAULT NULL,
   `family_name` varchar(255) DEFAULT NULL,
+  `display_name` varchar(255) DEFAULT NULL,
   `phone_number` varchar(255) DEFAULT NULL,
   `description` text,
   `image_file_name` varchar(255) DEFAULT NULL,
@@ -1598,7 +1599,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-16 15:50:16
+-- Dump completed on 2017-02-20 14:36:16
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3220,4 +3221,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161107141257');
 INSERT INTO schema_migrations (version) VALUES ('20161109094513');
 
 INSERT INTO schema_migrations (version) VALUES ('20170216134444');
+
+INSERT INTO schema_migrations (version) VALUES ('20170220123526');
 

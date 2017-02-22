@@ -35,6 +35,7 @@
       %thead
         %tr
           %th= render partial: "layouts/sort_link", locals: { column: "name", direction: sort_link_direction("name"), title: t("admin.communities.manage_members.name") }
+          %th= render partial: "layouts/sort_link", locals: { column: "display_name", direction: sort_link_direction("display_name"), title: t("admin.communities.manage_members.display_name")}
           %th= render partial: "layouts/sort_link", locals: { column: "email", direction: sort_link_direction("email"), title: t("admin.communities.manage_members.email") }
           %th= render partial: "layouts/sort_link", locals: { column: "join_date", direction: sort_link_direction("join_date"), title: t("admin.communities.manage_members.join_date") }
           - if @current_community.require_verification_to_post_listings
@@ -47,7 +48,9 @@
           - unless member.blank?
             %tr
               %td.admin-members-full-name
-                = link_to member.full_name, member
+                = link_to [member.given_name, member.family_name].join(" "), member
+              %td
+                = member.display_name
               %td
                 = mail_to member.confirmed_notification_email_addresses.first
               %td= l(membership.created_at, :format => :short_date)

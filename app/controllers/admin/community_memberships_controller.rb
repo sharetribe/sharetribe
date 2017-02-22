@@ -76,6 +76,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     header_row = %w{
       first_name
       last_name
+      display_name
       username
       phone_number
       address
@@ -95,6 +96,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
         user_data = [
           user.given_name,
           user.family_name,
+          user.display_name,
           user.username,
           user.phone_number,
           user.location ? user.location.address : "",
@@ -106,7 +108,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
         user_data.push(membership.can_post_listings) if community.require_verification_to_post_listings
         user.emails.each do |email|
           accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications
-          yielder << user_data.clone.insert(5, email.address, !!email.confirmed_at).insert(10, !!accept_emails_from_admin).to_csv(force_quotes: true)
+          yielder << user_data.clone.insert(6, email.address, !!email.confirmed_at).insert(11, !!accept_emails_from_admin).to_csv(force_quotes: true)
         end
       end
     end
@@ -121,6 +123,8 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     case params[:sort]
     when "name"
       "people.given_name"
+    when "display_name"
+      "people.display_name"
     when "email"
       "emails.address"
     when "join_date"

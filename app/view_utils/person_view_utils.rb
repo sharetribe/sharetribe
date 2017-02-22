@@ -20,6 +20,7 @@ module PersonViewUtils
       names(
         first_name: nil,
         last_name: nil,
+        display_name: nil,
         username: nil,
         name_display_type: nil,
         is_deleted: true,
@@ -29,6 +30,7 @@ module PersonViewUtils
       names(
         first_name: person.given_name,
         last_name: person.family_name,
+        display_name: person.display_name,
         username: person.username,
 
         name_display_type: name_display_type,
@@ -50,6 +52,7 @@ module PersonViewUtils
       names(
         first_name: nil,
         last_name: nil,
+        display_name: nil,
         username: nil,
         name_display_type: name_display_type,
         is_deleted: true,
@@ -59,6 +62,7 @@ module PersonViewUtils
       names(
         first_name: person_entity[:first_name],
         last_name: person_entity[:last_name],
+        display_name: person_entity[:display_name],
         username: person_entity[:username],
         name_display_type: name_display_type,
         is_deleted: person_entity[:is_deleted],
@@ -70,21 +74,25 @@ module PersonViewUtils
   def names(
         first_name:,
         last_name:,
+        display_name:,
         username:,
         name_display_type:,
         is_deleted:,
         deleted_user_text:
         )
     name_present = first_name.present?
+    display_name_present = display_name.present?
 
-    case [is_deleted, name_present, name_display_type]
+    case [is_deleted, name_present, display_name_present, name_display_type]
     when matches([true])
       [deleted_user_text]
-    when matches([__, true, "first_name_with_initial"])
+    when matches([__, __, true])
+      [display_name]
+    when matches([__, true, __, "first_name_with_initial"])
       first_name_with_initial(first_name, last_name)
-    when matches([__, true, "first_name_only"])
+    when matches([__, true, __, "first_name_only"])
       [first_name]
-    when matches([__, true, "full_name"])
+    when matches([__, true, __, "full_name"])
       full_name(first_name, last_name)
     when matches([__, true])
       first_name_with_initial(first_name, last_name)
@@ -96,6 +104,7 @@ module PersonViewUtils
   def display_name(
         first_name:,
         last_name:,
+        display_name:,
         username:,
         name_display_type:,
         is_deleted:,
@@ -103,6 +112,7 @@ module PersonViewUtils
         )
     names(first_name: first_name,
           last_name: last_name,
+          display_name: display_name,
           username: username,
           name_display_type: name_display_type,
           is_deleted: is_deleted,

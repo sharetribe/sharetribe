@@ -27,14 +27,25 @@
           = t("settings.profile.#{@current_community.name_display_type}")
     = form.text_field :family_name, :class => "text_field", :maxlength => "30"
 
+    -# Display name
+    .inline-label-container
+      = form.label :display_name, t("settings.profile.display_name"), class: "inline"
+    %span.alert-box-icon
+      = icon_tag("information", ["icon-fix"])
+    %small
+      = t("settings.profile.display_name_description")
+    = form.text_field :display_name, class: "text_field", :maxlength => "30"
+
     -# Location
     .inline-label-container
       = form.label :street_address, t("settings.profile.street_address"), :class => "inline"
       %small
         = t('settings.profile.default_in_listing')
-    = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
+    %span.alert-box-icon
+      = icon_tag("information", ["icon-fix"])
     %small
       = t("settings.profile.location_description")
+    = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
     #settings_map_canvas.map
       - content_for :extra_javascript do
         :javascript

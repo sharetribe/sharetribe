@@ -28,6 +28,7 @@
 #  password_salt                      :string(255)
 #  given_name                         :string(255)
 #  family_name                        :string(255)
+#  display_name                       :string(255)
 #  phone_number                       :string(255)
 #  description                        :text(65535)
 #  image_file_name                    :string(255)
@@ -151,6 +152,7 @@ class Person < ActiveRecord::Base
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i

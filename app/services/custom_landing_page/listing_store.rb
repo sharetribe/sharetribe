@@ -30,6 +30,7 @@ module CustomLandingPage
           "author_name" => PersonViewUtils.display_name(
             first_name: author.given_name,
             last_name: author.family_name,
+            display_name: author.display_name,
             username: author.username,
             name_display_type: name_display_type,
             is_deleted: author.deleted?,

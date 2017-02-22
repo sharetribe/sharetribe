@@ -14,34 +14,34 @@ Feature: Admin lists members
 
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed  | Remove User |
-      | matti manager | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe      | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name          | Display name | Email               | Joined      | Posting allowed | Remove User |
+      | matti manager |              | manager@example.com | Mar 1, 2014 |                 |             |
+      | john doe      |              | test2@example.com   | Mar 1, 2013 |                 |             |
+      | jane doe      |              | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
+      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
+      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed  | Remove User |
-      | matti manager | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe      | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
+      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
+      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
+      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Email"
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed  | Remove User |
-      | matti manager | manager@example.com | Mar 1, 2014 |                 |             |
-      | jane doe      | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      | test2@example.com   | Mar 1, 2013 |                 |             |
+      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
+      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
+      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
     When I follow "Joined"
     Then I should see list of users with the following details:
-      | Name          | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
+      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
+      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
 
   Scenario: Admin views member count
     Given there are 50 users with name prefix "User" "Number"
