@@ -117,6 +117,10 @@ module UserService::API
       generate_username_from_base(base, community_id)
     end
 
+    def replace_with_default_locale(community_id:, locales:, default_locale:)
+      Person.where(community_id: community_id, locale: locales).update_all(locale: default_locale)
+    end
+
     # private
 
     def generate_username(given_name, family_name, community_id)
