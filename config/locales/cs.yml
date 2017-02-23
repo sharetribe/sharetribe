@@ -324,7 +324,7 @@ cs:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
       edit_price:
-        description: ~
+        description: "Minimální a maximální cena ovlivňují pouze nastavení filtru, na samotnou cenu nabídek nemají vliv."
         edit_price_field: "Upravit cenu pole"
         show_price_filter_homepage: "Ukázat cenový filtr na domovské stránce"
         price_min: "Minimální cena"
@@ -489,11 +489,11 @@ cs:
     paypal_accounts:
       marketplace_paypal_integration: "Nastavení plateb"
       preferences_updated: "Nastavení plateb aktualizováno"
-      contact_support_link_text: ~
+      contact_support_link_text: "kontaktovat podporu"
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account_label: "Poskytuješ sám produkty nebo služby?"
+      link_paypal_personal_account: "Pokud ano, budeš ještě muset spojit tvůj PayPal účet s %{personal_payment_preferences_link}"
+      personal_payment_preferences_link_text: "Tvůj osobní účet pro marketplace"
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
@@ -1164,13 +1164,13 @@ cs:
     application:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
-      feedback: ~
+      feedback: "Tvoje zpráva pro %{service_name} tým"
       dont_use_to_contact_support: ~
       feedback_forum: "Diskuzní fórum"
       feedback_handle: "Napište nám"
       give_feedback: "Kontaktujte nás"
       or_check_our: "...nebo se podívejte na"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Poslat zprávu"
       to_see_what_others_have_suggested: "abyste viděli, co ostatní uživatelé navrhli a pro jaké nápady můžete hlasovat."
       your_email_address: "Vaše e-mailová adresa (abychom Vás mohli kontaktovat)"
       connect: "Zaregistrovat se"
@@ -1640,13 +1640,13 @@ cs:
   paypal_accounts:
     payout_info_title: "Informace o platbě"
     paypal_account_email_connected: "<del>Připojit se přes PayPal účet </del> Hotovo!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} používá PayPal jako poskytovatele platebních služeb. Aby bylo možné přijímat platby, je nutné vytvořit %{create_paypal_account_link} a propojit jej s %{service_name}."
     paypal_billing_agreement_made: "<del>%{service_name} opravňuje účtovat poplatek za transakce </del> Hotovo!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "Aby bylo možné účtovat transakční poplatek, je ještě potřeba povolit přístup u %{service_name}"
+    create_paypal_account_link_text: "PayPal účet"
     connected_account: "Přihlášení k PayPal účtu %{email} proběhlo úspěšně."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "Aby mohl Tvůj PayPal účet přijímat platby, bude možná potřeba \"Business\" účet."
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
@@ -1692,8 +1692,8 @@ cs:
     change_account: "Změnit účet"
     missing: "Máte otevřené inzeráty, ale Váš PayPal účet není ještě nastaven k přijímání plateb. Připojte svůj PayPal účet a prověďte %{service_name} povolení zúčtovat transakční poplatek z Vašeho %{settings_link}."
     from_your_payment_settings_link_text: "nastavení plateb"
-    redirect_message: ~
-    redirect_link_text: ~
+    redirect_message: "Probíhá přesměrování na PayPal. Pokud se nic nestane, klikni %{redirect_link}"
+    redirect_link_text: zde
     paypal_account_all_set_up: ~
     can_receive_payments: ~
     paypal_account_connected_summary: ~
