@@ -45,6 +45,7 @@ module PaypalCountryHelper
 
   UPGRADE_ACCOUNT_URL = {
     "br" => "https://www.paypal.com/br/cgi-bin/webscr?cmd=_business-upgrade-flow",
+    "jp" => "https://www.paypal.com/jp/webapps/mpp/merchant"
   }
 
   UPGRADE_ACCOUNT_URL.default = "https://www.paypal.com/%{country_code}/upgrade"
