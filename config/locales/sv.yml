@@ -228,6 +228,7 @@ sv:
         manage_members: "Hantera användare"
         email: E-post
         name: Namn
+        display_name: ~
         join_date: Anslöt
         admin: Admin
         posting_allowed: "Inlägg tillåtet"
@@ -1885,6 +1886,8 @@ sv:
       given_name: Förnamn
       first_name_with_initial: "(bara första bokstaven visas för andra användare)"
       first_name_only: "(visas inte för andra användare)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Du kan antingen ange din exakta position eller t ex bara ditt postnummer. Lägg minst till ditt postnummer. Du kan också välja en plats på kartan nedan."
       phone_number: Telefonnummer
       profile_picture: Profilbild

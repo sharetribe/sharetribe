@@ -228,6 +228,7 @@ fr-CA:
         manage_members: "Gérer les utilisateurs"
         email: Email
         name: Nom
+        display_name: ~
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
@@ -1871,6 +1872,8 @@ fr-CA:
       given_name: Prénom
       first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"

@@ -124,6 +124,7 @@ es:
         sender_name_placeholder: ~
         sender_email_label: ~
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
         successfully_saved: ~
@@ -212,6 +213,7 @@ es:
         manage_members: ~
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1858,6 +1860,8 @@ es:
       given_name: "Nombre:"
       first_name_with_initial: ~
       first_name_only: ~
+      display_name: ~
+      display_name_description: ~
       location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"

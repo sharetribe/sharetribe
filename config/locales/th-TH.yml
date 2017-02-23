@@ -223,6 +223,7 @@ th-TH:
         manage_members: จัดการผู้ใช้
         email: อีเมล์
         name: ชื่อ
+        display_name: ~
         join_date: เข้าร่วมแล้ว
         admin: ผู้ดูแลระบบ
         posting_allowed: การโพสต์ที่ได้รับอนุญาต
@@ -1869,6 +1870,8 @@ th-TH:
       given_name: ชื่อ
       first_name_with_initial: (แสดงเฉพาะอักษรตัวแรกให้ผู้ใช้งานคนอื่นเห็น)
       first_name_only: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
+      display_name: ~
+      display_name_description: ~
       location_description: "คุณสามารถให้ทั้งที่อยู่ หรือเฉพาะเมือง หรือเฉพาะรหัสไปรษณีย์ของคุณ จะเป็นการดีที่จะเพิ่มประเทศของคุณ ในขณะที่เพิ่มตำแหน่งของคุณ ตัวอย่าง: \"10117 Berlin, Germany\" หรือ \" 2000 Sand Hill Road, CA, USA \""
       phone_number: หมายเลขโทรศัพท์
       profile_picture: รูปโปรไฟล์

@@ -228,6 +228,7 @@ nb:
         manage_members: "Administrer brukere"
         email: E-post
         name: Navn
+        display_name: Visningsnavn
         join_date: Registert
         admin: Admin
         posting_allowed: "Annonsering tillatt"
@@ -1887,6 +1888,8 @@ nb:
       given_name: Fornavn
       first_name_with_initial: "(kun første bokstav vises andre brukere)"
       first_name_only: "(vises ikke til andre brukere)"
+      display_name: Visningsnavn
+      display_name_description: "Dersom du representerer en organisasjon kan du bruke deres navn som visningsnavn. Visningsnavnet vises istedenfor ditt faktiske navn når brukere ser på profilen din."
       location_description: "Du kan legge til eksakt adresse eller kun postnummer. Du kan også velge din plassering på kartet under."
       phone_number: Telefonnummer
       profile_picture: Profilbilde

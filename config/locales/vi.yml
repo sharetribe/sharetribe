@@ -215,6 +215,7 @@ vi:
         manage_members: ~
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1851,6 +1852,8 @@ vi:
       given_name: "Tên:"
       first_name_with_initial: ~
       first_name_only: ~
+      display_name: ~
+      display_name_description: ~
       location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
       profile_picture: "Ảnh đại diện"

@@ -233,6 +233,7 @@ sk-SK:
         manage_members: "Spravovať užívateľov"
         email: E-mail
         name: Meno
+        display_name: ~
         join_date: "Dátum registrácie"
         admin: Administrátor
         posting_allowed: "Pridávanie príspevkov je povolené"
@@ -1898,6 +1899,8 @@ sk-SK:
       given_name: Meno
       first_name_with_initial: "(zobrazí sa iba prvé písmeno užívateľom)"
       first_name_only: "(nezobrazí sa ostatným užívateľom)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Môžete zadať Vašu presnú adresu, alebo napríklad iba PSČ. Je dobré tiež pridať krajinu. Príklady: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Telefónne číslo"
       profile_picture: "Profilová fotka"

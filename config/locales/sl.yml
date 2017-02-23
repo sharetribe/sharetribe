@@ -213,6 +213,7 @@ sl:
         manage_members: ~
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1849,6 +1850,8 @@ sl:
       given_name: Ime
       first_name_with_initial: ~
       first_name_only: "(ni vidno drugim uporabnikom)"
+      display_name: ~
+      display_name_description: ~
       location_description: ~
       phone_number: "Telefonska številka"
       profile_picture: "Tvoja profilna slika"

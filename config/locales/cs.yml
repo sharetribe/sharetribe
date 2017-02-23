@@ -21,8 +21,8 @@ cs:
         category_transaction_types:
           transaction_types: "Typy objednávek"
           transaction_types_description: "Typy objednávek určují, jaký druh objednávek bude povolen pro inzeráty v této kategorii. Například povoleno pouze pro prodám, pronajmu nebo pro daruji."
-          select_all: ~
-          clear_all: ~
+          select_all: "Vybrat vše"
+          clear_all: "Smazat vše"
         buttons:
           save: Uložit
           cancel: Zrušit
@@ -99,7 +99,7 @@ cs:
         favicon: "Ikona webové stránky"
         favicon_info_text: "Ikona webové stránky nahradí výchozí Sharetribe logo. Rozlišení by mělo být 32x32 pixelů a nahraný obrázek bude přizpůsoben těmto rozměrům."
         community_custom_color1: "Základní barva"
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Barva tlačítka pro přidání nové položky"
         logo_instructions_text_with_dimensions: "Logo pozadí by mělo být %{width}x%{height}px. Toto logo se zobrazí uživatelům s většími obrazovkami."
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Toto čtvercové logo se zobrazí v případě, pokud lidé sdílí Vaše stránky na Facebooku, když si je prohlížejí na mobilním zařízení nebo když nastaví Vaše stránky jako domovskou stránku na jejich mobilním zařízení. Rozměry by měly být (alespoň) %{width}x%{height}px."
@@ -233,6 +233,7 @@ cs:
         manage_members: "Správa uživatelů"
         email: E-mail
         name: Jméno
+        display_name: ~
         join_date: "Naposledy přihlášen"
         admin: Správce
         posting_allowed: "Přidávání příspěvků povoleno"
@@ -291,8 +292,8 @@ cs:
         about_page: ~
       topbar:
         topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        new_listing_button_label: "Text tlačítka pro přidání nové položky"
+        invalid_post_listing_button_label: "Vyplň, prosím, validní text pro tlačítko \"Přidej novou položku\""
       transactions:
         export_all_as_csv: "Exportovat vše do formátu CSV"
         transactions: Transakce
@@ -349,8 +350,8 @@ cs:
         field_title: "Název pole"
         field_type: "Typ pole"
         categories: "Kategorie inzerátů, kde se pole vyskytuje"
-        select_all: ~
-        clear_all: ~
+        select_all: "Vybrat vše"
+        clear_all: "Smazat vše"
         options: Možnosti
         add_option: "+ Přidat možnost"
         saving_order: Uložit
@@ -779,8 +780,8 @@ cs:
       payment_settings_link: "nastavení plateb"
     transaction_confirmed:
       here_is_a_message_from: "Zde je zpráva od uživatele %{other_party_given_name}:"
-      request_marked_as_confirmed: "Žádost vyřízena - nezapomeňte ohodnotit uživatele"
-      request_marked_as_canceled: "Žádost zrušena"
+      request_marked_as_confirmed: "Objednávka vyřízena - nezapomeňte ohodnotit uživatele"
+      request_marked_as_canceled: "Objednávka zrušena"
       has_marked_request_as_confirmed: "Uživatel %{other_party_full_name} označil žádost %{request} jako vyřízenou. Nyní můžete ohodnotit uživatele %{other_party_given_name}."
       has_marked_request_as_canceled: "Uživatel %{other_party_full_name} zrušil žádost %{request}. Stále můžete ohodnotit uživatele %{other_party_given_name}."
       giving_feedback_is_good_idea: "Hodnocení je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatním vědět, že uživatel %{other_party_given_name} je důvěryhodný. V případě, že se vyskytly jakékoliv problémy, je dobré to také zmínit."
@@ -969,8 +970,8 @@ cs:
       javascript_is_disabled_in_your_browser: "Javascript je ve Vašem prohlížeči zablokován"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nepracuje správně bez Javascriptu. Zkuste povolit Javascript v nastavení ve Vašem prohlížeči, a potom znovu aktualizujte tuto stránku."
       contact_us: "kontaktujte nás"
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Poslat zprávu"
+      your_feedback_to_admins: "Tvoje zpráva pro %{service_name} tým"
     send: Poslat
     your_email_address: "Vaše a-mailová adresa"
   errors:
@@ -1076,7 +1077,7 @@ cs:
       is: je
       are: jsou
       what_do_you_need: "Co hledáte?"
-      post_new_listing: "Přidat nový inzerát"
+      post_new_listing: "Přidej novou položku"
       are_offering: nabídka
       add_news_item: "Přidat článek"
       lend_rent_help_carpool: "Prodejte, zapůjčte, pomozte, sdílejte jízdy"
@@ -1159,7 +1160,7 @@ cs:
     no_tribe:
       inbox: "Doručená pošta"
       settings: Nastavení
-      feedback: ~
+      feedback: "Kontaktovat %{service_name} tým"
     application:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
@@ -1239,7 +1240,7 @@ cs:
       error_with_session: Chyba
       feedback_considered_spam: "Zpětná vazba nebyla uložena z důvodu jejího formátování. Zkuste to znovu nebo využijte diskuzního fóra."
       feedback_not_saved: "Zpětná vazba nemohla být odeslána."
-      feedback_saved: ~
+      feedback_saved: "Děkujeme za zprávu! Ozveme se Ti hned jak to bude možné."
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
@@ -1346,8 +1347,8 @@ cs:
     comment:
       wrote: "byl napsán"
       send_private_message: "Poslat soukromou zprávu uživateli %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: smazat
+      are_you_sure: "Jsi si jistý, že chces smazat tento komentář?"
     comment_form:
       ask_a_question: "Okomentujte inzerát nebo se zeptejte na více podrobností. Ostatní uživatelé Váš komentář uvidí."
       log_in: "přihlásit se"
@@ -1893,6 +1894,8 @@ cs:
       given_name: Jméno
       first_name_with_initial: "(pouze první písmeno se zobrazí uživatelům)"
       first_name_only: "(nezobrazuje se ostatním uživatelům)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Můžete uvést přesnou adresu Vašeho bydliště nebo například pouze PSČ. Prosíme, uveďte alespoň PSČ. Adresu můžete také zadat na mapě níže.."
       phone_number: "Telefonní číslo"
       profile_picture: "Profilový obrázek"

@@ -228,6 +228,7 @@ da-DK:
         manage_members: "Administrer brugere"
         email: Email
         name: Navn
+        display_name: ~
         join_date: Tilmeldt
         admin: Administrator
         posting_allowed: "Oprettelse af annoncer tilladt"
@@ -1885,6 +1886,8 @@ da-DK:
       given_name: Fornavn
       first_name_with_initial: "(kun forbogstavet vil blive vist til andre brugere)"
       first_name_only: "(vises ikke til andre brugere)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
       phone_number: Telefonnnummer
       profile_picture: Profilbillede

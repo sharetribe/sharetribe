@@ -223,6 +223,7 @@ tr-TR:
         manage_members: "Kullanıcıları yönet"
         email: E-posta
         name: Ad
+        display_name: ~
         join_date: Katıldınız
         admin: Yönetici
         posting_allowed: "Listelemeye izin verildi"
@@ -1867,6 +1868,8 @@ tr-TR:
       given_name: Ad
       first_name_with_initial: "(sadece ilk harf diğer kullanıcılara gösterilir)"
       first_name_only: "(Diğer kullanıcılara gösterilmez.)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Açık adresinizi ya da sadece örneğin posta kodunuzu girebilirsiniz. Lütfen en azından posta kodunuzu ekleyin. Ya da aşağıdaki haritadan konumunuzu işaretleyebilirsiniz."
       phone_number: "Telefon numarası"
       profile_picture: "Profil resmi"

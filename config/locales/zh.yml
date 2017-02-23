@@ -223,6 +223,7 @@ zh:
         manage_members: 管理用户
         email: 电子邮件
         name: 姓名
+        display_name: ~
         join_date: 已加入
         admin: 管理员
         posting_allowed: 允许发布
@@ -1874,6 +1875,8 @@ zh:
       given_name: 名
       first_name_with_initial: （只将首字母显示给其他用户）
       first_name_only: （不显示给其他用户）
+      display_name: ~
+      display_name_description: ~
       location_description: 你可以选择提供你的准确住址或仅仅提供邮政编码。请至少填写邮政编码。你也可以通过地图选择一个地点。
       phone_number: 电话号码
       profile_picture: 个人头像

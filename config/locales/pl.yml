@@ -238,6 +238,7 @@ pl:
         manage_members: "Zarządzaj użytkownikami"
         email: "Adres email"
         name: Imię
+        display_name: ~
         join_date: Dołączył
         admin: Administrator
         posting_allowed: "Postowanie dozwolone"
@@ -1909,6 +1910,8 @@ pl:
       given_name: Imię
       first_name_with_initial: "(tylko pierwsza litera widoczna dla innych użytkowników)"
       first_name_only: "(nie widoczne dla innych użytkowników)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Możesz podać albo adres albo miasto lub kod pocztowy. Dobrze jest także dodać nazwę kraju podając lokalizację. Przykład: \"87-100 Toruń, Polska\" albo \"Marszałkowska 16, Warszawa, Polska\""
       phone_number: "Numer telefonu"
       profile_picture: "Zdjęcie profilowe"

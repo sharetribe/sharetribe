@@ -139,6 +139,7 @@ fi:
         sender_name_placeholder: "Lähettäjän nimi"
         sender_email_label: Sähköpostiosoite
         sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: ~
         this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
         send_verification_button: "Lähetä vahvistusviesti"
         successfully_saved: "Lähettäjän osoite tallennettu onnistuneesti. Saat pian vahvistussähköpostin."
@@ -227,6 +228,7 @@ fi:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
         name: Nimi
+        display_name: ~
         join_date: Liittynyt
         admin: Ylläpito
         posting_allowed: "Hyväksytty ilmoittaja"
@@ -1886,6 +1888,8 @@ fi:
       given_name: Etunimi
       first_name_with_initial: "(vain ensimmäinen kirjain näytetään muille käyttäjille)"
       first_name_only: "(ei näytetä muille käyttäjille)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva

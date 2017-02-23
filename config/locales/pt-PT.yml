@@ -219,6 +219,7 @@ pt-PT:
         manage_members: "Gerir utilizadores"
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: "Publicação permitida"
@@ -1870,6 +1871,8 @@ pt-PT:
       given_name: Nome
       first_name_with_initial: "(apenas a primeira letra mostrada para outros utilizadores)"
       first_name_only: "(não será mostrado a outros utilizadores)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Indique a sua localização exata ou o seu código postal. Também pode selecionar uma posição no mapa abaixo."
       phone_number: "Número de telefone"
       profile_picture: ~

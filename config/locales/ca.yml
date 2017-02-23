@@ -213,6 +213,7 @@ ca:
         manage_members: ~
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1851,6 +1852,8 @@ ca:
       given_name: "Nom:"
       first_name_with_initial: ~
       first_name_only: ~
+      display_name: ~
+      display_name_description: ~
       location_description: "Pots donar la teva ubicació exacta o tan sols el codi postal. Si us plau, afegeix almenys el teu codi postal. També pots escollir una localització des del mapa."
       phone_number: "Número de telèfon:"
       profile_picture: ~

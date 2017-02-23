@@ -223,6 +223,7 @@ zh-HK:
         manage_members: ~
         email: 電郵
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -1872,6 +1873,8 @@ zh-HK:
       given_name: 名
       first_name_with_initial: （只將首字母顯示给其他用户）
       first_name_only: (不顯示给其他用户）
+      display_name: ~
+      display_name_description: ~
       location_description: 您可以選擇提供你的確實地址，或只提供您的郵政編號。請至少提供您的郵政編號。您也可以通過以下地圖選擇一個地點。
       phone_number: 電話號碼
       profile_picture: 個人頭像

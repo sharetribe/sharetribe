@@ -139,6 +139,7 @@ nl:
         sender_name_placeholder: ~
         sender_email_label: ~
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
         successfully_saved: ~
@@ -227,6 +228,7 @@ nl:
         manage_members: "Beheer gebruikers"
         email: E-mail
         name: Naam
+        display_name: ~
         join_date: Aangesloten
         admin: Beheerder
         posting_allowed: "Plaatsen toegestaan"
@@ -1878,6 +1880,8 @@ nl:
       given_name: Voornaam
       first_name_with_initial: "(enkel eerste letter wordt getoond aan andere gebruikers)"
       first_name_only: "(niet getoond aan andere gebruikers)"
+      display_name: ~
+      display_name_description: ~
       location_description: "U kunt uw exacte locatie geven of bijvoorbeeld enkel uw postcode. Voeg a.u.b. minstens een postcode toe. U kunt ook een locatie op onderstaande kaart selecteren."
       phone_number: Telefoon
       profile_picture: "Profiel afbeelding"

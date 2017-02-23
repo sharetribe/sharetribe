@@ -213,6 +213,7 @@ ar:
         manage_members: "إدارة المستخدمين"
         email: "بريد إلكتروني"
         name: الإسم
+        display_name: ~
         join_date: "تم الإنضمام"
         admin: المشرف
         posting_allowed: "النشر مسموح"
@@ -1873,6 +1874,8 @@ ar:
       given_name: "الإسم الأول"
       first_name_with_initial: "(فقط الحرف الأول مرئي للمستخدمين الآخرين)"
       first_name_only: "(غير مرئي للمشتركين الآخرين)"
+      display_name: ~
+      display_name_description: ~
       location_description: "يمكنك إضافة عنوان الشارع أو المدينة أو الرمز البريدي. من الجيد إضافة بلدك عندما تضيف موقعك. مثلا: \"٢١٢١٢ جدة، المملكة العربية السعودية\" أو \"٢٠٠٠ شارع التحلية، جدة، المملكة العربية السعودية\""
       phone_number: "رقم الهاتف"
       profile_picture: "صورة الملف الشخصي"

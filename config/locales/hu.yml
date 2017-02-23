@@ -229,6 +229,7 @@ hu:
         manage_members: "Felhasználók kezelése"
         email: E-mail
         name: Név
+        display_name: ~
         join_date: Csatlakozva
         admin: Rendszergazda
         posting_allowed: "Posztolás engedélyezve"
@@ -1889,6 +1890,8 @@ hu:
       given_name: Keresztnév
       first_name_with_initial: "(a többi felhasználó csak az első betűt láthatja)"
       first_name_only: "(a többi felhasználó számára nem látható)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Ön megadhatja a pontos címét vagy például csak az irányítószámát. Kérjük adja meg legalább az irányítószámát. Továbbá az alábbi térképen is kiválaszthat egy helyet."
       phone_number: Telefonszám
       profile_picture: Profilkép
