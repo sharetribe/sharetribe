@@ -395,7 +395,7 @@ en:
       pricing_units_disabled_info: "Pricing units cannot be used when availability calendar is enabled."
       index:
         listing_shapes: "Order types"
-        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via free messages."
+        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via direct messages."
         read_more_about_order_types: "Read more about order types"
         add_new_shape: "Add new order type: "
         select_template: "Select template..."
@@ -622,7 +622,7 @@ en:
       canceled_offer: "Offer canceled."
       message_from: "Message from %{person}"
       about_listing: "About listing %{listing_title}"
-      free_message: "Free message"
+      free_message: "Direct message"
       message_content_not_available: "Message content not available"
     message:
       accepted_request: "accepted the request"
