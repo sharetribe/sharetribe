@@ -233,7 +233,7 @@ cs:
         manage_members: "Správa uživatelů"
         email: E-mail
         name: Jméno
-        display_name: ~
+        display_name: "Zobrazované jméno"
         join_date: "Naposledy přihlášen"
         admin: Správce
         posting_allowed: "Přidávání příspěvků povoleno"
@@ -1894,8 +1894,8 @@ cs:
       given_name: Jméno
       first_name_with_initial: "(pouze první písmeno se zobrazí uživatelům)"
       first_name_only: "(nezobrazuje se ostatním uživatelům)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Zobrazované jméno"
+      display_name_description: "V případě, že zastupuješ organizaci, je možné použít její jméno. Toto jméno bude pak zobrazeno ostatním uživatelům místo křestního jména a příjmení."
       location_description: "Můžete uvést přesnou adresu Vašeho bydliště nebo například pouze PSČ. Prosíme, uveďte alespoň PSČ. Adresu můžete také zadat na mapě níže.."
       phone_number: "Telefonní číslo"
       profile_picture: "Profilový obrázek"
@@ -2005,7 +2005,7 @@ cs:
       december: Pro
     today: Dnes
     clear: Určitě
-    format: mm/dd/yyyy
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%e %b %Y v %H:%M"

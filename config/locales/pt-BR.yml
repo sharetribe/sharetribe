@@ -228,7 +228,7 @@ pt-BR:
         manage_members: "Gerenciar usuários"
         email: E-mail
         name: Nome
-        display_name: ~
+        display_name: "Nome de exibição"
         join_date: Cadastrado
         admin: Administrador
         posting_allowed: "Envio permitido"
@@ -1890,8 +1890,8 @@ pt-BR:
       given_name: Nome
       first_name_with_initial: "(apenas a primeira letra mostrada para outros usuários)"
       first_name_only: "(não será mostrado a outros usuários)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Nome de exibição"
+      display_name_description: "Se você tem uma marca, pode usá-la como seu nome de exibição. Assim, os usuários visualizarão o nome da sua marca no lugar do seu nome e sobrenome."
       location_description: "Indique a sua localização exata ou o seu código postal. Você também pode selecionar uma posição no mapa abaixo."
       phone_number: "Número de telefone"
       profile_picture: "Foto do perfil"

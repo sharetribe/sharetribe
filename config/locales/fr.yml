@@ -228,7 +228,7 @@ fr:
         manage_members: "Gérer les utilisateurs"
         email: Email
         name: Nom
-        display_name: ~
+        display_name: "Nom d'affichage"
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
@@ -1888,8 +1888,8 @@ fr:
       given_name: Prénom
       first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Nom d'affichage"
+      display_name_description: "Si vous êtes une entreprise, vous pouvez utiliser son nom comme nom d'affichage. Le nom d'affichage sera visible par les autres utilisateurs à la place de votre nom et prénom."
       location_description: "Vous pouvez entrer votre adresse ou simplement une ville ou un code postal. Il est également utile de préciser votre pays lorsque vous entrez votre adresse. Exemples : \"10117 Berlin, Allemagne\" ou \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"

@@ -620,7 +620,7 @@ nb:
       canceled_offer: "Tilbud avbrutt."
       message_from: "Melding fra %{person}"
       about_listing: "Vedrørende annonse %{listing_title}"
-      free_message: "Gratis melding"
+      free_message: Direktemelding
       message_content_not_available: "Meldingsinnhold ikke tilgjengelig"
     message:
       accepted_request: "godtok forespørselen"
@@ -1889,7 +1889,7 @@ nb:
       first_name_with_initial: "(kun første bokstav vises andre brukere)"
       first_name_only: "(vises ikke til andre brukere)"
       display_name: Visningsnavn
-      display_name_description: "Dersom du representerer en organisasjon kan du bruke deres navn som visningsnavn. Visningsnavnet vises istedenfor ditt faktiske navn når brukere ser på profilen din."
+      display_name_description: "Dersom du representerer en organisasjon, kan du bruke organisasjonens navn som visningsnavn. Visningsnavnet vises for andre brukere i stedet for ditt fornavn og etternavn."
       location_description: "Du kan legge til eksakt adresse eller kun postnummer. Du kan også velge din plassering på kartet under."
       phone_number: Telefonnummer
       profile_picture: Profilbilde

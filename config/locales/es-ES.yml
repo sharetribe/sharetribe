@@ -139,7 +139,7 @@ es-ES:
         sender_name_placeholder: "Nombre del remitente"
         sender_email_label: "Dirección de correo electrónico"
         sender_email_placeholder: remitente-email@ejemplo.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Recibirás un correo de %{email_sender} para confirmar esta dirección de correo electrónico. El título del correo es %{email_subject}. Sigue las instrucciones en el correo para verificar tu dirección."
         this_is_how_it_will_look: "Así es como se verá:"
         send_verification_button: "Enviar correo de verificación"
         successfully_saved: "Dirección de remitente guardada correctamente. El correo de verificación se enviará pronto."
@@ -228,7 +228,7 @@ es-ES:
         manage_members: "Administrar usuarios"
         email: Email
         name: Nombre
-        display_name: ~
+        display_name: "Nombre Personalizado"
         join_date: "Fecha de registro"
         admin: Administrador
         posting_allowed: "Publicación permitida"
@@ -1888,8 +1888,8 @@ es-ES:
       given_name: "Nombre:"
       first_name_with_initial: "(Sólo se mostrará tu inicial al resto de usuarios)"
       first_name_only: "(no se mostrará a otros usuarios)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Nombre Personalizado"
+      display_name_description: "Si representas a una organización, puedes utilizar este campo para añadir el nombre que quieres mostrar a los otros usuarios. El nombre personalizado se mostrará a los otros usuarios en lugar de tu nombre y apellido."
       location_description: "Puedes dar tu ubicación exacta o indicar sólo tu código postal. Es buena idea indicar tu país al momento de añadir tu ubicación. Ejemplos son: \"10117 Berlin, Alemania\" or \"2000 Sand Hill Road, CA, USA\". ."
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
