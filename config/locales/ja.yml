@@ -223,7 +223,7 @@ ja:
         manage_members: ユーザを管理
         email: メールアドレス
         name: 名前
-        display_name: ~
+        display_name: 表示名
         join_date: 参加日
         admin: 管理人用
         posting_allowed: 投稿は許可されました
@@ -1866,8 +1866,8 @@ ja:
       given_name: 名
       first_name_with_initial: （他のユーザーには最初の一文字だけ表示されます）
       first_name_only: （他のユーザーには表示されません）
-      display_name: ~
-      display_name_description: ~
+      display_name: 表示名
+      display_name_description: 団体や法人の場合には、その組織名称を表示名として使用することができます。表示名はあなたの氏名の代わりに表示されます。
       location_description: 詳細な住所を掲載したくない場合には、郵便番号だけを掲載することもできます。少なくとも郵便番号は記載をお願いします。また、地図から所在地を選択することもできます。
       phone_number: 電話番号
       profile_picture: プロフィール写真
