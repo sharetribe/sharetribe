@@ -40,9 +40,6 @@ class HomepageController < ApplicationController
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
 
-
-    @homepage = true
-
     listing_shape_param = params[:transaction_type]
 
     selected_shape = all_shapes.find { |s| s[:name] == listing_shape_param }
