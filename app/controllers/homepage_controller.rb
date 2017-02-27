@@ -15,10 +15,9 @@ class HomepageController < ApplicationController
 
     filter_params = {}
 
-    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      filter_params[:categories] = category.own_and_subcategory_ids
-      @selected_category = category
-    end
+    m_selected_category = Maybe(@current_community.categories.find_by_url_or_id(params[:category]))
+    filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_else(nil)
+    selected_category = m_selected_category.or_else(nil)
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
@@ -36,11 +35,11 @@ class HomepageController < ApplicationController
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
       filters =
-        if (@selected_category)
+        if (selected_category)
           @current_community
             .custom_fields
             .joins(:category_custom_fields)
-            .where("category_custom_fields.category_id": @selected_category.own_and_subcategory_ids, search_filter: true)
+            .where("category_custom_fields.category_id": selected_category.own_and_subcategory_ids, search_filter: true)
             .distinct
         else
           @current_community
@@ -115,6 +114,7 @@ class HomepageController < ApplicationController
         shapes: all_shapes,
         filters: filters,
         show_price_filter: show_price_filter,
+        selected_category: selected_category,
         selected_shape: selected_shape,
         shape_name_map: shape_name_map,
         listing_shape_menu_enabled: listing_shape_menu_enabled,
