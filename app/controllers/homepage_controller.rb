@@ -13,6 +13,13 @@ class HomepageController < ApplicationController
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
+    filter_params = {}
+
+    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
+      filter_params[:categories] = category.own_and_subcategory_ids
+      @selected_category = category
+    end
+
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
@@ -28,15 +35,24 @@ class HomepageController < ApplicationController
       @show_categories = @categories.size > 1
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
-      filters = @current_community.custom_fields.where(search_filter: true).sort
+      filters =
+        if (@selected_category)
+          @current_community
+            .custom_fields
+            .joins(:category_custom_fields)
+            .where("category_custom_fields.category_id": @selected_category.own_and_subcategory_ids, search_filter: true)
+            .distinct
+        else
+          @current_community
+            .custom_fields.where(search_filter: true)
+        end
+
       @show_custom_fields = filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
 
 
     @homepage = true
-
-    filter_params = {}
 
     listing_shape_param = params[:transaction_type]
 
@@ -136,11 +152,6 @@ class HomepageController < ApplicationController
   private
 
   def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
-    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      filter_params[:categories] = category.own_and_subcategory_ids
-      @selected_category = category
-    end
-
     filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
