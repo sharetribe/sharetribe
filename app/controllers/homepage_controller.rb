@@ -34,17 +34,7 @@ class HomepageController < ApplicationController
       @show_categories = @categories.size > 1
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
-      filters =
-        if (selected_category)
-          @current_community
-            .custom_fields
-            .joins(:category_custom_fields)
-            .where("category_custom_fields.category_id": selected_category.own_and_subcategory_ids, search_filter: true)
-            .distinct
-        else
-          @current_community
-            .custom_fields.where(search_filter: true)
-        end
+      filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
 
       @show_custom_fields = filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
@@ -402,6 +392,24 @@ class HomepageController < ApplicationController
       current_path: request.fullpath,
       locale_param: params[:locale],
       host_with_port: request.host_with_port)
+  end
+
+  # Database select for "relevant" filters based on the `category_ids`
+  #
+  # If `category_ids` is present, returns only filter that belong to
+  # one of the given categories. Otherwise returns all filters.
+  #
+  def select_relevant_filters(category_ids)
+    if category_ids.present?
+      @current_community
+        .custom_fields
+        .joins(:category_custom_fields)
+        .where("category_custom_fields.category_id": category_ids, search_filter: true)
+        .distinct
+    else
+      @current_community
+        .custom_fields.where(search_filter: true)
+    end
   end
 
 end
