@@ -16,8 +16,8 @@ class HomepageController < ApplicationController
     filter_params = {}
 
     m_selected_category = Maybe(@current_community.categories.find_by_url_or_id(params[:category]))
-    filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_else(nil)
-    selected_category = m_selected_category.or_else(nil)
+    filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_nil
+    selected_category = m_selected_category.or_nil
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
