@@ -69,7 +69,7 @@ class HomepageController < ApplicationController
 
     current_page = Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1)
 
-    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
+    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use, filters)
 
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
@@ -138,7 +138,15 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
+  def remove_irrelevant_search_fields(fields, relevant_filters)
+    relevant_filter_ids = relevant_filters.map(&:id).to_set
+
+    fields.select { |field|
+      relevant_filter_ids.include?(field[:id])
+    }
+  end
+
+  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, filters)
     filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
     filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
     filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
@@ -164,7 +172,7 @@ class HomepageController < ApplicationController
       listing_shape_ids: Array(filter_params[:listing_shape]),
       price_cents: filter_params[:price_cents],
       keywords: filter_params[:search],
-      fields: checkboxes.concat(dropdowns).concat(numbers),
+      fields: remove_irrelevant_search_fields(checkboxes.concat(dropdowns).concat(numbers), filters),
       per_page: listings_per_page,
       page: current_page,
       price_min: params[:price_min],
