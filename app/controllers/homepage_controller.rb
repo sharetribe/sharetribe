@@ -34,9 +34,9 @@ class HomepageController < ApplicationController
       @show_categories = @categories.size > 1
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
-      filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
+      relevant_filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
 
-      @show_custom_fields = filters.present? || show_price_filter
+      @show_custom_fields = relevant_filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
 
@@ -68,8 +68,9 @@ class HomepageController < ApplicationController
     location_in_use = enabled_search_modes[:location]
 
     current_page = Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1)
+    relevant_search_fields = parse_relevant_search_fields(params, relevant_filters)
 
-    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use, filters)
+    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use, relevant_search_fields)
 
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
@@ -99,7 +100,7 @@ class HomepageController < ApplicationController
     else
       locals = {
         shapes: all_shapes,
-        filters: filters,
+        filters: relevant_filters,
         show_price_filter: show_price_filter,
         selected_category: selected_category,
         selected_shape: selected_shape,
@@ -109,7 +110,9 @@ class HomepageController < ApplicationController
         location_search_in_use: location_in_use,
         current_page: current_page,
         current_search_path_without_page: search_path(params.except(:page)),
-        viewport: viewport }
+        viewport: viewport,
+        relevant_search_fields: relevant_search_fields
+      }
 
       search_result.on_success { |listings|
         @listings = listings
@@ -128,13 +131,17 @@ class HomepageController < ApplicationController
 
   private
 
-  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, relevant_filters)
+  def parse_relevant_search_fields(params, relevant_filters)
     search_filters = SearchPageHelper.parse_filters_from_params(params)
-
     checkboxes = search_filters[:checkboxes]
     dropdowns = search_filters[:dropdowns]
-
     numbers = filter_unnecessary(search_filters[:numeric], @current_community.custom_numeric_fields)
+    search_fields = checkboxes.concat(dropdowns).concat(numbers)
+
+    SearchPageHelper.remove_irrelevant_search_fields(search_fields, relevant_filters)
+  end
+
+  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, relevant_search_fields)
 
     search = {
       # Add listing_id
@@ -142,7 +149,7 @@ class HomepageController < ApplicationController
       listing_shape_ids: Array(filter_params[:listing_shape]),
       price_cents: filter_range(params[:price_min], params[:price_max]),
       keywords: params[:q] ? params[:q] && keyword_search_in_use : nil,
-      fields: SearchPageHelper.remove_irrelevant_search_fields(checkboxes.concat(dropdowns).concat(numbers), relevant_filters),
+      fields: relevant_search_fields,
       per_page: listings_per_page,
       page: current_page,
       price_min: params[:price_min],
