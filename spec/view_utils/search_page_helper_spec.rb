@@ -33,10 +33,10 @@ describe SearchPageHelper do
       @custom_field_option4 = FactoryGirl.create(:custom_field_option, :custom_field =>  @custom_field2)
 
       array = SearchPageHelper.dropdown_field_options_for_search({
-        "filter_options_#{@custom_field_option1.id}" => @custom_field_option1.id,
-        "filter_options_#{@custom_field_option2.id}" => @custom_field_option2.id,
-        "filter_options_#{@custom_field_option3.id}" => @custom_field_option3.id,
-        "filter_options_#{@custom_field_option4.id}" => @custom_field_option4.id
+        "filter_option_#{@custom_field_option1.id}" => @custom_field_option1.id,
+        "filter_option_#{@custom_field_option2.id}" => @custom_field_option2.id,
+        "filter_option_#{@custom_field_option3.id}" => @custom_field_option3.id,
+        "filter_option_#{@custom_field_option4.id}" => @custom_field_option4.id
       })
 
       expect(array).to eq([

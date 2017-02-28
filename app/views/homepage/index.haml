@@ -15,8 +15,6 @@
   - if(@view_type.eql?("map"))
     = javascript_include_tag "markerclusterer.js"
 
-- search_params = SearchParams.remove_irrelevant_search_params(params, relevant_search_fields)
-
 - content_for :title_header do
   - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
   - if @big_cover_photo

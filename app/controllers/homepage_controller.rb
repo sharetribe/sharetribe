@@ -7,6 +7,7 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   # rubocop:disable AbcSize
+  # rubocop:disable MethodLength
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
@@ -70,7 +71,14 @@ class HomepageController < ApplicationController
     current_page = Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1)
     relevant_search_fields = parse_relevant_search_fields(params, relevant_filters)
 
-    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use, relevant_search_fields)
+    search_result = find_listings(params: params,
+                                  current_page: current_page,
+                                  listings_per_page: per_page,
+                                  filter_params: compact_filter_params,
+                                  includes: includes.to_set,
+                                  location_search_in_use: location_in_use,
+                                  keyword_search_in_use: keyword_in_use,
+                                  relevant_search_fields: relevant_search_fields)
 
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
@@ -111,7 +119,7 @@ class HomepageController < ApplicationController
         current_page: current_page,
         current_search_path_without_page: search_path(params.except(:page)),
         viewport: viewport,
-        relevant_search_fields: relevant_search_fields
+        search_params: CustomFieldSearchParams.remove_irrelevant_search_params(params, relevant_search_fields),
       }
 
       search_result.on_success { |listings|
@@ -128,6 +136,7 @@ class HomepageController < ApplicationController
     end
   end
   # rubocop:enable AbcSize
+  # rubocop:enable MethodLength
 
   private
 
@@ -141,14 +150,14 @@ class HomepageController < ApplicationController
     SearchPageHelper.remove_irrelevant_search_fields(search_fields, relevant_filters)
   end
 
-  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, relevant_search_fields)
+  def find_listings(params:, current_page:, listings_per_page:, filter_params:, includes:, location_search_in_use:, keyword_search_in_use:, relevant_search_fields:)
 
     search = {
       # Add listing_id
       categories: filter_params[:categories],
       listing_shape_ids: Array(filter_params[:listing_shape]),
       price_cents: filter_range(params[:price_min], params[:price_max]),
-      keywords: params[:q] ? params[:q] && keyword_search_in_use : nil,
+      keywords: keyword_search_in_use ? params[:q] : nil,
       fields: relevant_search_fields,
       per_page: listings_per_page,
       page: current_page,

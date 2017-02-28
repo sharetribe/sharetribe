@@ -1,4 +1,4 @@
-module SearchParams
+module CustomFieldSearchParams
 
   DROPDOWN_PREFIX = "filter_option_"
   CHECKBOX_PREFIX = "checkbox_filter_option_"
@@ -13,10 +13,11 @@ module SearchParams
 
     params.reject { |name|
       # Remove parameter if:
-      # - it is a (custom field) search parameter
+      # - it is a custom field search parameter
       # - it's not in the set of relevant param names
       #
-      search_param?(name) && !relevant_search_param_names.include?(name)
+      custom_field_search_param?(name) &&
+        !relevant_search_param_names.include?(name)
     }
   end
 
@@ -38,9 +39,9 @@ module SearchParams
     }.compact.to_set
   end
 
-  # CHECK if param is search param
+  # CHECK if param is custom fields search param
 
-  def search_param?(param_name)
+  def custom_field_search_param?(param_name)
     dropdown_param?(param_name) ||
       checkbox_param?(param_name) ||
       numeric_min_param?(param_name) ||

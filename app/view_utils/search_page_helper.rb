@@ -61,7 +61,7 @@ module SearchPageHelper
 
   # Return all params starting with `numeric_filter_`
   def numeric_filter_params(all_params)
-    all_params.select { |key, value| key.start_with?(SearchParams::NUMERIC_PREFIX) }
+    all_params.select { |key, value| key.start_with?(CustomFieldSearchParams::NUMERIC_PREFIX) }
   end
 
   def parse_numeric_filter_params(numeric_params)
@@ -90,7 +90,8 @@ module SearchPageHelper
 
   def options_from_params(params, prefix)
     option_ids = params.select { |key, value|
-      key.start_with?(prefix) }.values
+      key.start_with?(prefix)
+    }.values
 
     array_for_search = CustomFieldOption.find(option_ids)
       .group_by { |option| option.custom_field_id }
@@ -98,19 +99,19 @@ module SearchPageHelper
   end
 
   def dropdown_field_options_for_search(params)
-    options_from_params(params, SearchParams::DROPDOWN_PREFIX).map { |dropdown|
+    options_from_params(params, CustomFieldSearchParams::DROPDOWN_PREFIX).map { |dropdown|
       dropdown.merge(
         type: :selection_group,
-        operator: :or,
+        operator: :or
       )
     }
   end
 
   def checkbox_field_options_for_search(params)
-    options_from_params(params, SearchParams::CHECKBOX_PREFIX).map { |checkbox|
+    options_from_params(params, CustomFieldSearchParams::CHECKBOX_PREFIX).map { |checkbox|
       checkbox.merge(
         type: :selection_group,
-        operator: :and,
+        operator: :and
       )
     }
   end
