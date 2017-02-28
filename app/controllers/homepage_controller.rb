@@ -22,7 +22,7 @@ class HomepageController < ApplicationController
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
-      @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
+      @view_type = SearchPageHelper.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
       @big_cover_photo = !(@current_user || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo]
 
       @categories = @current_community.categories.includes(:children)
@@ -126,53 +126,23 @@ class HomepageController < ApplicationController
   end
   # rubocop:enable AbcSize
 
-  def self.selected_view_type(view_param, community_default, app_default, all_types)
-    if view_param.present? and all_types.include?(view_param)
-      view_param
-    elsif community_default.present? and all_types.include?(community_default)
-      community_default
-    else
-      app_default
-    end
-  end
-
   private
 
-  def remove_irrelevant_search_fields(fields, relevant_filters)
-    relevant_filter_ids = relevant_filters.map(&:id).to_set
+  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, relevant_filters)
+    search_filters = SearchPageHelper.parse_filters_from_params(params)
 
-    fields.select { |field|
-      relevant_filter_ids.include?(field[:id])
-    }
-  end
+    checkboxes = search_filters[:checkboxes]
+    dropdowns = search_filters[:dropdowns]
 
-  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use, filters)
-    filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
-    filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
-    filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
-
-    filter_params[:price_cents] = filter_range(params[:price_min], params[:price_max])
-
-    p = HomepageController.numeric_filter_params(params)
-    p = HomepageController.parse_numeric_filter_params(p)
-    p = HomepageController.group_to_ranges(p)
-    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
-
-    filter_params = filter_params.reject {
-      |_, value| (value == "all" || value == ["all"])
-    } # all means the filter doesn't need to be included
-
-    checkboxes = filter_params[:custom_checkbox_field_options].map { |checkbox_field| checkbox_field.merge(type: :selection_group, operator: :and) }
-    dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
-    numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
+    numbers = filter_unnecessary(search_filters[:numeric], @current_community.custom_numeric_fields)
 
     search = {
       # Add listing_id
       categories: filter_params[:categories],
       listing_shape_ids: Array(filter_params[:listing_shape]),
-      price_cents: filter_params[:price_cents],
-      keywords: filter_params[:search],
-      fields: remove_irrelevant_search_fields(checkboxes.concat(dropdowns).concat(numbers), filters),
+      price_cents: filter_range(params[:price_min], params[:price_max]),
+      keywords: params[:q] ? params[:q] && keyword_search_in_use : nil,
+      fields: SearchPageHelper.remove_irrelevant_search_fields(checkboxes.concat(dropdowns).concat(numbers), relevant_filters),
       per_page: listings_per_page,
       page: current_page,
       price_min: params[:price_min],
@@ -257,6 +227,14 @@ class HomepageController < ApplicationController
     .compact
   end
 
+  # Filter search params if their values equal min/max
+  def filter_unnecessary(search_params, numeric_fields)
+    search_params.reject do |search_param|
+      numeric_field = numeric_fields.find(search_param[:id])
+      search_param.slice(:id, :value) == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
+    end
+  end
+
   def filter_range(price_min, price_max)
     if (price_min && price_max)
       min = MoneyUtil.parse_str_to_money(price_min, @current_community.currency).cents
@@ -268,59 +246,6 @@ class HomepageController < ApplicationController
         nil
       end
     end
-  end
-
-  # Return all params starting with `numeric_filter_`
-  def self.numeric_filter_params(all_params)
-    all_params.select { |key, value| key.start_with?("nf_") }
-  end
-
-  def self.parse_numeric_filter_params(numeric_params)
-    numeric_params.inject([]) do |memo, numeric_param|
-      key, value = numeric_param
-      _, boundary, id = key.split("_")
-
-      hash = {id: id.to_i}
-      hash[boundary.to_sym] = value
-      memo << hash
-    end
-  end
-
-  def self.group_to_ranges(parsed_params)
-    parsed_params
-      .group_by { |param| param[:id] }
-      .map do |key, values|
-        boundaries = values.inject(:merge)
-
-        {
-          id: key,
-          value: (boundaries[:min].to_f..boundaries[:max].to_f)
-        }
-      end
-  end
-
-  # Filter search params if their values equal min/max
-  def self.filter_unnecessary(search_params, numeric_fields)
-    search_params.reject do |search_param|
-      numeric_field = numeric_fields.find(search_param[:id])
-      search_param == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
-    end
-  end
-
-  def self.options_from_params(params, regexp)
-    option_ids = HashUtils.select_by_key_regexp(params, regexp).values
-
-    array_for_search = CustomFieldOption.find(option_ids)
-      .group_by { |option| option.custom_field_id }
-      .map { |key, selected_options| {id: key, value: selected_options.collect(&:id) } }
-  end
-
-  def self.dropdown_field_options_for_search(params)
-    options_from_params(params, /^filter_option/)
-  end
-
-  def self.checkbox_field_options_for_search(params)
-    options_from_params(params, /^checkbox_filter_option/)
   end
 
   def shapes
