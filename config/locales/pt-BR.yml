@@ -139,7 +139,7 @@ pt-BR:
         sender_name_placeholder: "Nome do remetente"
         sender_email_label: "Endereço de e-mail"
         sender_email_placeholder: remetente@exemplo.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Você receberá um e-mail de %{email_sender} para confirmar seu endereço de e-mail. O assunto do e-mail será %{email_subject}. Siga as instruções para verificar seu endereço de e-mail."
         this_is_how_it_will_look: "Vai ficar assim:"
         send_verification_button: "Envie e-mail de verificação"
         successfully_saved: "Endereço de e-mail do remetente salvo com sucesso. O e-mail de verificação será enviado em breve."
@@ -524,8 +524,8 @@ pt-BR:
     share_types:
       request: requisição
       offer: oferta
-      borrow: emprestimo
-      buy: compra
+      borrow: empréstimo
+      buy: comprar
       give_away: doar
       lend: empréstimo
       receive: "pegar de graça"
@@ -710,7 +710,7 @@ pt-BR:
           verify: "Aguardando você verificar sua conta PayPal"
     status_link:
       accept_offer: "Aceitar oferta"
-      accept_request: "Aceitar requisição"
+      accept_request: "Aceitar solicitação"
       reject_offer: "Não agora"
       reject_request: "Não agora"
       accept_preauthorized_offer: "Aceitar oferta"
@@ -748,20 +748,20 @@ pt-BR:
   emails:
     accept_reminder:
       remember_to_accept_offer: "Lembrar de aceitar ou rejeitar uma oferta de %{sender_name}"
-      remember_to_accept_request: "Lembrar de aceitar ou rejeitar uma requisição de %{sender_name}"
+      remember_to_accept_request: "Lembrar de aceitar ou rejeitar uma solicitação de %{sender_name}"
       you_can_accept_or_reject_offer_at: "Você pode aceitar ou rejeitar a oferta de"
-      you_can_accept_or_reject_request_at: "Você pode aceitar ou rejeitar a requisição de"
+      you_can_accept_or_reject_request_at: "Você pode aceitar ou rejeitar a solicitação de"
       you_have_not_yet_accepted_or_rejected_offer: "Você ainda não aceitou nem rejeitou a oferta %{title} que recebeu em %{date}"
-      you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a requisição %{title} que recebeu em %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Você ainda não aceitou nem rejeitou a solicitação %{title} que recebeu em %{date}"
       show_thread: "Ver a conversa"
     branding:
       powered_by: "%{service_name} é desenvolvido por %{sharetribe_link} plataforma de mercado virtual."
       create_own: "Quer criar o seu próprio mercado virtual como o %{service_name}? %{learn_more}."
       learn_more: "Saiba mais"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi concluído, você deve confirmá-lo. Depois disso você pode dar um parecer ao %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Você ainda não confirmou ou cancelou o pedido %{request_link}. Se o pedido foi entregue, você deve confirmar isso. Depois disso, você pode avaliar %{other_party_given_name}."
       remember_to_confirm_request: "Lembre-se de confirmar ou cancelar um pedido"
-      if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será concluído por uma razão ou outra, você pode %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel: "Se você acha que este pedido não será entregue por uma razão ou outra, você pode %{cancel_it_link}."
       cancel_it_link_text: Cancelar
       automatic_confirmation: "Se você não confirmar ou cancelar o pedido no prazo de %{days_to_automatic_confirmation} dias depois de aceito, vamos marcá-lo automaticamente como concluído."
     payment_settings_reminder:
@@ -773,8 +773,8 @@ pt-BR:
       here_is_a_message_from: "Veja a mensagem de %{other_party_given_name} :"
       request_marked_as_confirmed: "Pedido realizado - deixe um comentário "
       request_marked_as_canceled: "Pedido anulado"
-      has_marked_request_as_confirmed: "%{other_party_full_name} tem marcado o pedido '%{request}' concluído. Agora você pode dar um parecer para %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} cancelou o pedido sobre '%{request}'. Você ainda pode dar um feedback a %{other_party_given_name}."
+      has_marked_request_as_confirmed: "%{other_party_full_name} marcou o pedido '%{request}' como concluído. Agora você pode avaliar %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} cancelou o pedido '%{request}'. Você ainda pode dar um feedback para %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dar feedback é sempre uma boa ideia. Se tudo correu bem, você deve deixar que os outros saibam que %{other_party_given_name} pode ser confiável. Se houve algum problema, é bom mencioná-lo também."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
     transaction_automatically_confirmed:
@@ -804,14 +804,14 @@ pt-BR:
       unsubscribe_from_these_emails: "cancelar o recebimento desses e-mails"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aceitou sua oferta %{listing}"
-      has_accepted_your_request: "%{accepter} aceitou sua requisição %{listing}"
+      has_accepted_your_request: "%{accepter} aceitou sua solicitação %{listing}"
       has_rejected_your_offer: "%{accepter} rejeitou sua oferta %{listing}"
-      has_rejected_your_request: "%{accepter} rejeitou sua requisição %{listing}"
+      has_rejected_your_request: "%{accepter} rejeitou sua solicitação %{listing}"
       view_thread: "Ver a conversa"
       your_offer_was_accepted: "Sua oferta foi aceita"
       your_offer_was_rejected: "Sua oferta foi rejeitada"
-      your_request_was_accepted: "Sua requisição foi aceita"
-      your_request_was_rejected: "Sua requisição foi rejeitada"
+      your_request_was_accepted: "Sua solicitação foi aceita"
+      your_request_was_rejected: "Sua solicitação foi rejeitada"
       you_can_now_pay_to: "Agora você pode pagar o montante solicitado a %{payment_receiver}."
       pay_now: "Pagar agora"
       remember_to_confirm: "Quando o pedido estiver completado, relembre de marcá-lo como completo. Se o pedido não o estiver, você terá %{days_to_automatic_confirmation} dias para cancelá-lo. Caso contrário ele irá ser automaticamente marcado como completo."
@@ -857,8 +857,8 @@ pt-BR:
       service_fee: "Despesas de serviço"
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} te deu um 'feedback' em %{service_name}"
-      you_can_give_feedback_to: "Você ainda não deu um 'feedback' para %{name}"
+      has_given_you_feedback_in_kassi: "%{name} te avaliou %{service_name}"
+      you_can_give_feedback_to: "Você ainda não avaliou %{name}"
       view_feedback: "Ver opinião"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Um anúncio que você segue foi atualizado"
@@ -878,14 +878,14 @@ pt-BR:
     newsletter:
       hi: "Oi %{name},"
       newest_offers: "O que atualmente as pessoas oferecem para os outros"
-      newest_requests: "O que as pessoas precisam atualmente"
+      newest_requests: "Do que as pessoas precisam atualmente"
       text_version_text: "Você poderia compartilhar algo que outros precisam? Ou você precisa de algo que outros já possuem? Adicionar uma oferta, um pedido ou verificar tudo o que outros estão oferecendo ou pedindo a %{url}"
     reset_password_instructions:
       change_my_password: "Alterar minha senha"
       reset_password_instructions: "<p>Você informou que esqueceu sua senha ou nome de usuário no serviço %{service_name}.</p><p>Seu nome de usuário é: %{username}</p><p>Se você precisa redefinir sua senha, clique no link seguinte: %{password_reset_link}</p><br/><p>Se você não fez essa solicitação, por favor ignore este e-mail. Sua senha não mudará até que acesse o link acima e crie uma nova.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Lembrete: Lembre de dar feedback para %{name}"
-      you_have_not_given_feedback_yet: "Você ainda não deu feedback para %{name} sobre o evento %{event}. Lembre de dar um feedback de como %{given_name} foi no evento"
+      remember_to_give_feedback_to: "Lembrete: avaliar %{name}"
+      you_have_not_given_feedback_yet: "Você ainda avaliou %{name} sobre %{event}. Lembre de avaliar como foi o evento de %{given_name}."
     transaction_preauthorized:
       subject: "%{requester} solicitou e autorizou o pagamento de %{listing_title}"
       transaction_requested_by_user: "%{requester} solicitou e pagou por \"%{listing_title}\""
@@ -919,14 +919,14 @@ pt-BR:
     onboarding:
       server_rendering: "Guia de introdução falhou ao carregar. Fomos informados sobre a situação e iremos corrigir isso."
     listings:
-      departure_time: "Hora de partida deve estar entre a hora atual e um ano a frente a contar de agora."
+      departure_time: "Hora de envio deve estar entre a hora atual e daqui a um ano."
       share_type: "Você precisa selecionar um."
-      valid_until: "Essa data deve estar entre a data atual e seis meses a contar de hoje."
+      valid_until: "Essa data deve estar entre hoje e daqui a 6 meses."
       price: "Preço deve ser um número inteiro."
       minimum_price: "Preço mínimo é %{minimum_price} %{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Se você quiser dar um feedback não neutro, você deverá explicar porque."
-      you_must_select_a_grade: "Lembre de dizer se sua experiencia foi positiva ou negativa."
+      you_must_explain_not_neutral_feedback: "Se você quiser dar uma avaliação que não seja neutra, deve explicar porquê."
+      you_must_select_a_grade: "Lembre-se de dizer se sua experiencia foi positiva ou negativa."
     transaction_agreement:
       required_error: "Você precisa aceitar o acordo"
     paypal:
@@ -939,12 +939,12 @@ pt-BR:
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."
       reject_authorization_error: "Ocorreu um erro ao tentar rejeitar pagamento pré-autorizado Paypal. Por favor, tente novamente."
   error_pages:
-    back_to_kassi_front_page: "Voltar para pagina inicial"
+    back_to_kassi_front_page: "Voltar para a página inicial"
     error_404:
       if_you_believe: "Se você acredita que o endereço está correto e deveria funcionar, por favor ajude-nos a localizar o erro deixando-nos saber qual endereço causou o erro e o que deveria ser visto na pagina, com o formulário a seguir."
-      page_can_not_be_found: "Pagina não pode ser encontrada"
-      page_you_requested_can_not_be_found: "A pagina solicitada não foi encontrada. Você tem certeza que digitou o endereço corretamente?"
-    error_404_title: "pagina não encontrada"
+      page_can_not_be_found: "Página não pode ser encontrada"
+      page_you_requested_can_not_be_found: "A página solicitada não foi encontrada. Você tem certeza que digitou o endereço certo?"
+    error_404_title: "página não encontrada"
     error_410:
       page_removed: "Página removida"
       page_you_requested_has_been_removed: "A página solicitada foi removida."
@@ -955,11 +955,11 @@ pt-BR:
       unable_to_process: "O serviço é incapaz de processar o seu pedido agora. Por favor, tente novamente em alguns instantes."
       we_hate_this: "Nós odiamos quando isso acontece! Fomos informados sobre a situação e estamos consertando."
       refer_to_error_id: "Se você deseja entrar em contato com o suporte em relação a este assunto, por favor, inclua um ID de erro \"%{error_id}\" em sua mensagem."
-    error_500_title: "falha ao carregar a pagina"
+    error_500_title: "falha ao carregar a página"
     error_description: "Descrição do erro"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desabilitado no seu navegador"
-      kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a pagina novamente."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} não funciona corretamente sem javascript. Tente habilitar o javascript nas configurações de seu navegador e recarregar a página novamente."
       contact_us: Contato
       send_feedback: "Enviar mensagem"
       your_feedback_to_admins: "Sua mensagem para a equipe do %{service_name}"
@@ -1021,18 +1021,18 @@ pt-BR:
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Além disso  existe <b>uma outra oferta</b>,"
-      additionally_one_private_request_exists: "Além disso  existe <b>uma outra requisição</b>,"
+      additionally_one_private_request_exists: "Além disso  existe <b>uma outra solicitação</b>,"
       additionally_some_private_offers_exist: "Além disso existem <b>%{number_of_listings} outras ofertas</b>,"
-      additionally_some_private_requests_exist: "Além disso existem <b>%{number_of_listings} outras requisições</b>,"
+      additionally_some_private_requests_exist: "Além disso existem <b>%{number_of_listings} outras solicitações</b>,"
     blank_slate:
       add_first: "Adicionar um!"
-      but_that_is_visible_only_to_registered_members: "mas isso é visível apenas por usuários registrados."
-      but_those_are_visible_only_to_registered_members: "mas isso é visível apenas por usuários registrados."
+      but_that_is_visible_only_to_registered_members: "mas isso só é visível para usuários registrados."
+      but_those_are_visible_only_to_registered_members: "mas isso só é visível para usuários registrados."
       create_new_account_for_yourself: "Crie sua nova conta"
       examples_of_what_you_could_offer_to_others: "O que você pode ofertar aos outros"
-      examples_of_what_you_could_request_to_others: "O que você pode requisitar aos outros"
-      favor_offer_list: "assistência à computadores, reparo de roupas, cozimento, reparos em bicicletas"
-      favor_request_list: "baba, lições de piano, caminhar com cachorros, cortar a grama"
+      examples_of_what_you_could_request_to_others: "O que você pode solicitar para os outros"
+      favor_offer_list: "assistência a computadores, reparo de roupas, comida, reparos em bicicletas"
+      favor_request_list: "serviço de babá, lições de piano, caminhar com cachorros, cortar a grama"
       favors_to_offer: "Ajuda: "
       favors_to_request: "Ajuda: "
       item_offer_list: "ferramentas, artigos esportivos, roupas, equipamentos para camping"
@@ -1046,10 +1046,10 @@ pt-BR:
       no_requests_visible_unless_logged_in: "Nenhuma solicitação de itens, serviços ou caronas compartilhadas visíveis para usuários não logados."
       one_private_offer_exists: "Existe <b>uma oferta</b>,"
       one_private_request_exists: "Existe <b>uma solicitação</b>,"
-      ride_offer: "Leve as crianças dos outros para os seus hobbies"
+      ride_offer: "Leve as crianças dos outros para seus afazeres"
       ride_request: "Uma carona para o trabalho"
       some_private_offers_exist: "Existem <b>%{number_of_listings} ofertas</b>,"
-      some_private_requests_exist: "Existem <b>%{number_of_listings} requisições</b>"
+      some_private_requests_exist: "Existem <b>%{number_of_listings} solicitações</b>"
     custom_filters:
       update_view: Atualizar
       min: "Mín:"
@@ -1157,8 +1157,8 @@ pt-BR:
       read_more: "Ler o seguinte"
       feedback: "Sua mensagem para a equipe do %{service_name}"
       dont_use_to_contact_support: "Percebemos que você é um administrador em %{service_name}. Este formulário é utilizado para seus usuários entrarem em contato com você. Você não pode usar este formulário para contatar o suporte Sharetribe. Você pode fazer isso através do link Suporte no seu painel de administração."
-      feedback_forum: "fórum de respostas"
-      feedback_handle: Reposta
+      feedback_forum: "fórum de avaliações"
+      feedback_handle: Avaliação
       give_feedback: Contato
       or_check_our: "...ou verifique nosso"
       send_feedback_to_admin: "Enviar mensagem"
@@ -1229,11 +1229,11 @@ pt-BR:
       email_confirmation_sent_to_new_address: "E-mail de confirmação é agora enviado para o novo endereço."
       email_not_found: "O e-mail que você forneceu não existe no banco de dados do %{service_name}."
       error_with_session: "Erro na sessão."
-      feedback_considered_spam: "Feedback não gravado, devido a sua formatação. Tente novamente ou use o fórum de feedback."
-      feedback_not_saved: "Feedback não pode ser enviado."
-      feedback_saved: "Agradecemos seu contato! retornaremos assim que possível."
-      feedback_sent_to: "Feedback enviado para %{target_person}."
-      feedback_skipped: "Feedback pulado."
+      feedback_considered_spam: "Sua avaliação não foi salva devido a formatação. Tente novamente ou use o fórum de avaliações."
+      feedback_not_saved: "Avaliação não pôde ser enviada."
+      feedback_saved: "Agradecemos seu contato! Retornaremos assim que possível."
+      feedback_sent_to: "Avaliação enviada para %{target_person}."
+      feedback_skipped: "Avaliação foi pulada."
       invitation_cannot_be_sent: "Convite não pôde ser enviado"
       invitation_limit_reached: "Você tentou enviar convites demais. Seu limite diário foi excedido."
       invitation_sent: "Convite enviado com sucesso"
@@ -1258,7 +1258,7 @@ pt-BR:
       listing_updated_successfully: "Anúncio atualizado com sucesso"
       listing_updated_availability_management_enabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade ativado."
       listing_updated_availability_management_disabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade desativado."
-      only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem aceder a esta área"
+      only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem acessar esta área"
       only_listing_author_can_close_a_listing: "Somente o autor do anúncio pode fechar o mesmo"
       only_listing_author_can_edit_a_listing: "Somente o autor do anúncio pode editar o mesmo"
       payment_successful: "Pagamento efetuado com sucesso"
@@ -1281,7 +1281,7 @@ pt-BR:
       registration_considered_spam: "Registro não funcionou, por favor, envie um feedback a partir do menu de cabeçalho e mencionar \"erro email2\"."
       reply_cannot_be_empty: "Você não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
-      request_accepted: "Pedido aceite"
+      request_accepted: "Pedido aceito"
       request_confirmed: "Pedido concluído"
       request_rejected: "Pedido rejeitado"
       request_canceled: "Pedido cancelado"
@@ -1289,7 +1289,7 @@ pt-BR:
       message_not_sent: "O envio de mensagem falhou. Por favor tente novamente."
       this_content_is_not_available_in_this_community: "Este conteúdo não está disponível"
       unknown_error: "Erro desconhecido. Por favor use o link Fale conosco para enviar detalhes sobre o que aconteceu."
-      update_error: "Ocorreu um erro ao tentar atualizar as suas informações, por favor, tente novamente"
+      update_error: "Ocorreu um erro ao atualizar as suas informações, por favor, tente novamente"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Você não está autorizado a fazer comentários sobre este evento"
       you_are_not_authorized_to_do_this: "Você não está autorizado a fazer isso"
       you_are_not_authorized_to_view_this_content: "Você não está autorizado a visualizar este conteúdo"
@@ -1303,7 +1303,7 @@ pt-BR:
       you_are_already_member: "Você já é membro da %{service_name}. Bem-vindo(a) de volta!"
       you_must_log_in_to_create_new_listing: "Você deve conectar a sua conta para %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
-      you_must_log_in_to_give_feedback: "Você deve conectar para escrever um 'feedback'"
+      you_must_log_in_to_give_feedback: "Você deve conectar para escrever uma avaliação"
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos usuários a %{service_name}"
       you_must_log_in_to_send_a_comment: "Você deve conectar para enviar um novo comentário"
       you_must_log_in_to_send_a_message: "Você deve fazer entrar no %{service_name} para enviar uma mensagem para outro usuário."
