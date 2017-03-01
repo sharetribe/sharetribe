@@ -66,7 +66,10 @@ Section `kind` is `hero`.
 Values to set:
 
 * `background_image`
-* `background_image_variation` sets the amount of dimming applied to the image. Possible values are `dark` (default) and `light`.
+* `background_image_variation` sets the amount of dimming applied to the image. Possible values are:
+  * `dark`: 50% darkening (default)
+  * `light`: 30% darkening
+  * `transparent`: no darkening
 
 Normally, the only keys that you need to modify in a `hero` section are the `background_image`, which links to an asset, and the `background_image_variation`, which sets the amount of darkening applied. For example:
 
