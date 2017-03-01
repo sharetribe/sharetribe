@@ -46,7 +46,7 @@ $footer__clickarea-y-padding-mobile: 12px;
   }
 
   @media #{$desktop} {
-    @include prefix-prop(align-items, baseline);
+    @include prefix-prop(align-items, center);
     margin-bottom: 48px - $footer__clickarea-y-padding-desktop;
     @include prefix-prop(flex-direction, row);
     max-width: 1140px + (2 * 24px);
