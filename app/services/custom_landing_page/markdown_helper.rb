@@ -48,7 +48,7 @@ module CustomLandingPage
 
     # Main method to render Markdown
     def render_markdown(str)
-      markdown.render(str).html_safe
+      markdown.render(str || "").html_safe
     end
 
     # Memoize the Markdown instance, as instructed in
