@@ -27,6 +27,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
 - Fixed number of issues in the Order Types form [#2858](https://github.com/sharetribe/sharetribe/pull/2858)
+- Fixed an issue which caused sign up to fail partially if the Facebook profile picture upload failed [#2886](https://github.com/sharetribe/sharetribe/pull/2886)
 
 ### Security
 
