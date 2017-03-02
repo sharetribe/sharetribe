@@ -328,7 +328,7 @@ class Person < ActiveRecord::Base
     self.save
   end
 
-  def store_picture_from_facebook()
+  def store_picture_from_facebook!()
     if self.facebook_id
       resp = RestClient.get(
         "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{self.facebook_id}/picture?type=large&redirect=false")
@@ -497,7 +497,14 @@ class Person < ActiveRecord::Base
   def update_facebook_data(facebook_id)
     self.update_attribute(:facebook_id, facebook_id)
     if self.image_file_size.nil?
-      self.store_picture_from_facebook
+      begin
+        self.store_picture_from_facebook!
+      rescue StandardError => e
+        # We can just catch and log the error, because if the profile picture upload fails
+        # we still want to make the user creation pass, just without the profile picture,
+        # which user can upload later
+        logger.error(e.message, :facebook_existing_user_profile_picture_upload_failed, { person_id: self.id })
+      end
     end
   end
 

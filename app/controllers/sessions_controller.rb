@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"])
       # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
       if @current_user.image_file_size.nil?
-        @current_user.store_picture_from_facebook
+        @current_user.store_picture_from_facebook!
       end
     end
 
