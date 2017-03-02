@@ -75,6 +75,18 @@
         fill: rgb(<%= s["icon_color"]["value"].join(",") %>);
       }
     <% end %>
+
+    <% if s["link_color"] %>
+      .info__paragraph--markdown a {
+        color: rgb(<%= s["link_color"]["value"].join(",") %>);
+      }
+    <% end %>
+
+    <% if s["link_color_hover"] %>
+      .info__paragraph--markdown a:hover {
+        color: rgb(<%= s["link_color_hover"]["value"].join(",") %>);
+      }
+    <% end %>
 <% end %>
 
 <section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="<%= background_image_style %> <%= background_color_style %>">
