@@ -121,7 +121,10 @@ Values to set:
 
 * `title`
 * `background_image`
-* `background_image_variation` - possible values: `light` and `dark` (default)
+* `background_image_variation` sets the amount of dimming applied to the image. Possible values are:
+  * `dark`: 50% darkening (default)
+  * `light`: 30% darkening
+  * `transparent`: no darkening
 * `paragraph`
 * `button_title`
 * `button_path`
