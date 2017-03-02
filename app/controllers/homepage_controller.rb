@@ -7,16 +7,23 @@ class HomepageController < ApplicationController
   VIEW_TYPES = ["grid", "list", "map"]
 
   # rubocop:disable AbcSize
+  # rubocop:disable MethodLength
   def index
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
+    filter_params = {}
+
+    m_selected_category = Maybe(@current_community.categories.find_by_url_or_id(params[:category]))
+    filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_nil
+    selected_category = m_selected_category.or_nil
+
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
     else
-      @view_type = HomepageController.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
+      @view_type = SearchPageHelper.selected_view_type(params[:view], @current_community.default_browse_view, APP_DEFAULT_VIEW_TYPE, VIEW_TYPES)
       @big_cover_photo = !(@current_user || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)) || params[:big_cover_photo]
 
       @categories = @current_community.categories.includes(:children)
@@ -28,15 +35,11 @@ class HomepageController < ApplicationController
       @show_categories = @categories.size > 1
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
 
-      filters = @current_community.custom_fields.where(search_filter: true).sort
-      @show_custom_fields = filters.present? || show_price_filter
+      relevant_filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
+
+      @show_custom_fields = relevant_filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
     end
-
-
-    @homepage = true
-
-    filter_params = {}
 
     listing_shape_param = params[:transaction_type]
 
@@ -66,8 +69,16 @@ class HomepageController < ApplicationController
     location_in_use = enabled_search_modes[:location]
 
     current_page = Maybe(params)[:page].to_i.map { |n| n > 0 ? n : 1 }.or_else(1)
+    relevant_search_fields = parse_relevant_search_fields(params, relevant_filters)
 
-    search_result = find_listings(params, current_page, per_page, compact_filter_params, includes.to_set, location_in_use, keyword_in_use)
+    search_result = find_listings(params: params,
+                                  current_page: current_page,
+                                  listings_per_page: per_page,
+                                  filter_params: compact_filter_params,
+                                  includes: includes.to_set,
+                                  location_search_in_use: location_in_use,
+                                  keyword_search_in_use: keyword_in_use,
+                                  relevant_search_fields: relevant_search_fields)
 
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
@@ -97,8 +108,9 @@ class HomepageController < ApplicationController
     else
       locals = {
         shapes: all_shapes,
-        filters: filters,
+        filters: relevant_filters,
         show_price_filter: show_price_filter,
+        selected_category: selected_category,
         selected_shape: selected_shape,
         shape_name_map: shape_name_map,
         listing_shape_menu_enabled: listing_shape_menu_enabled,
@@ -106,7 +118,9 @@ class HomepageController < ApplicationController
         location_search_in_use: location_in_use,
         current_page: current_page,
         current_search_path_without_page: search_path(params.except(:page)),
-        viewport: viewport }
+        viewport: viewport,
+        search_params: CustomFieldSearchParams.remove_irrelevant_search_params(params, relevant_search_fields),
+      }
 
       search_result.on_success { |listings|
         @listings = listings
@@ -122,51 +136,29 @@ class HomepageController < ApplicationController
     end
   end
   # rubocop:enable AbcSize
-
-  def self.selected_view_type(view_param, community_default, app_default, all_types)
-    if view_param.present? and all_types.include?(view_param)
-      view_param
-    elsif community_default.present? and all_types.include?(community_default)
-      community_default
-    else
-      app_default
-    end
-  end
+  # rubocop:enable MethodLength
 
   private
 
-  def find_listings(params, current_page, listings_per_page, filter_params, includes, location_search_in_use, keyword_search_in_use)
-    Maybe(@current_community.categories.find_by_url_or_id(params[:category])).each do |category|
-      filter_params[:categories] = category.own_and_subcategory_ids
-      @selected_category = category
-    end
+  def parse_relevant_search_fields(params, relevant_filters)
+    search_filters = SearchPageHelper.parse_filters_from_params(params)
+    checkboxes = search_filters[:checkboxes]
+    dropdowns = search_filters[:dropdowns]
+    numbers = filter_unnecessary(search_filters[:numeric], @current_community.custom_numeric_fields)
+    search_fields = checkboxes.concat(dropdowns).concat(numbers)
 
-    filter_params[:search] = params[:q] if params[:q] && keyword_search_in_use
-    filter_params[:custom_dropdown_field_options] = HomepageController.dropdown_field_options_for_search(params)
-    filter_params[:custom_checkbox_field_options] = HomepageController.checkbox_field_options_for_search(params)
+    SearchPageHelper.remove_irrelevant_search_fields(search_fields, relevant_filters)
+  end
 
-    filter_params[:price_cents] = filter_range(params[:price_min], params[:price_max])
-
-    p = HomepageController.numeric_filter_params(params)
-    p = HomepageController.parse_numeric_filter_params(p)
-    p = HomepageController.group_to_ranges(p)
-    numeric_search_params = HomepageController.filter_unnecessary(p, @current_community.custom_numeric_fields)
-
-    filter_params = filter_params.reject {
-      |_, value| (value == "all" || value == ["all"])
-    } # all means the filter doesn't need to be included
-
-    checkboxes = filter_params[:custom_checkbox_field_options].map { |checkbox_field| checkbox_field.merge(type: :selection_group, operator: :and) }
-    dropdowns = filter_params[:custom_dropdown_field_options].map { |dropdown_field| dropdown_field.merge(type: :selection_group, operator: :or) }
-    numbers = numeric_search_params.map { |numeric| numeric.merge(type: :numeric_range) }
+  def find_listings(params:, current_page:, listings_per_page:, filter_params:, includes:, location_search_in_use:, keyword_search_in_use:, relevant_search_fields:)
 
     search = {
       # Add listing_id
       categories: filter_params[:categories],
       listing_shape_ids: Array(filter_params[:listing_shape]),
-      price_cents: filter_params[:price_cents],
-      keywords: filter_params[:search],
-      fields: checkboxes.concat(dropdowns).concat(numbers),
+      price_cents: filter_range(params[:price_min], params[:price_max]),
+      keywords: keyword_search_in_use ? params[:q] : nil,
+      fields: relevant_search_fields,
       per_page: listings_per_page,
       page: current_page,
       price_min: params[:price_min],
@@ -251,6 +243,14 @@ class HomepageController < ApplicationController
     .compact
   end
 
+  # Filter search params if their values equal min/max
+  def filter_unnecessary(search_params, numeric_fields)
+    search_params.reject do |search_param|
+      numeric_field = numeric_fields.find(search_param[:id])
+      search_param.slice(:id, :value) == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
+    end
+  end
+
   def filter_range(price_min, price_max)
     if (price_min && price_max)
       min = MoneyUtil.parse_str_to_money(price_min, @current_community.currency).cents
@@ -262,59 +262,6 @@ class HomepageController < ApplicationController
         nil
       end
     end
-  end
-
-  # Return all params starting with `numeric_filter_`
-  def self.numeric_filter_params(all_params)
-    all_params.select { |key, value| key.start_with?("nf_") }
-  end
-
-  def self.parse_numeric_filter_params(numeric_params)
-    numeric_params.inject([]) do |memo, numeric_param|
-      key, value = numeric_param
-      _, boundary, id = key.split("_")
-
-      hash = {id: id.to_i}
-      hash[boundary.to_sym] = value
-      memo << hash
-    end
-  end
-
-  def self.group_to_ranges(parsed_params)
-    parsed_params
-      .group_by { |param| param[:id] }
-      .map do |key, values|
-        boundaries = values.inject(:merge)
-
-        {
-          id: key,
-          value: (boundaries[:min].to_f..boundaries[:max].to_f)
-        }
-      end
-  end
-
-  # Filter search params if their values equal min/max
-  def self.filter_unnecessary(search_params, numeric_fields)
-    search_params.reject do |search_param|
-      numeric_field = numeric_fields.find(search_param[:id])
-      search_param == { id: numeric_field.id, value: (numeric_field.min..numeric_field.max) }
-    end
-  end
-
-  def self.options_from_params(params, regexp)
-    option_ids = HashUtils.select_by_key_regexp(params, regexp).values
-
-    array_for_search = CustomFieldOption.find(option_ids)
-      .group_by { |option| option.custom_field_id }
-      .map { |key, selected_options| {id: key, value: selected_options.collect(&:id) } }
-  end
-
-  def self.dropdown_field_options_for_search(params)
-    options_from_params(params, /^filter_option/)
-  end
-
-  def self.checkbox_field_options_for_search(params)
-    options_from_params(params, /^checkbox_filter_option/)
   end
 
   def shapes
@@ -391,6 +338,24 @@ class HomepageController < ApplicationController
       current_path: request.fullpath,
       locale_param: params[:locale],
       host_with_port: request.host_with_port)
+  end
+
+  # Database select for "relevant" filters based on the `category_ids`
+  #
+  # If `category_ids` is present, returns only filter that belong to
+  # one of the given categories. Otherwise returns all filters.
+  #
+  def select_relevant_filters(category_ids)
+    if category_ids.present?
+      @current_community
+        .custom_fields
+        .joins(:category_custom_fields)
+        .where("category_custom_fields.category_id": category_ids, search_filter: true)
+        .distinct
+    else
+      @current_community
+        .custom_fields.where(search_filter: true)
+    end
   end
 
 end

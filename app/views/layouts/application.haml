@@ -69,7 +69,7 @@
         - search_params = ["q", "lc", "ls", "boundingbox", "distance_max"]
         - excluded_params = search_params unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
         - params.except("action", "controller", "view", "utf8", *excluded_params).each do |param, value|
-          - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
+          - unless CustomFieldSearchParams.custom_field_search_param?(param) || param.match(/^price_/)
             = hidden_field_tag param, value
         = hidden_field_tag "view", @view_type
         = content_for(:page_content)
