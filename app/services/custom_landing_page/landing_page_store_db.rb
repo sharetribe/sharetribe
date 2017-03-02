@@ -31,7 +31,7 @@ module CustomLandingPage
         raise LandingPageContentNotFound.new("Content missing. community_id: #{cid}, version: #{version}.")
       end
 
-      CustomLandingPage::LandingPageStoreDefaults.add_defaults(
+      LandingPageStoreDefaults.add_defaults(
         JSON.parse(content))
     end
 

@@ -20,15 +20,15 @@
     }
   <% end %>
 
-  <% if s["link_color"] %>
+  <% if s["paragraph_link_color"] %>
     .categories__paragraph--markdown a {
-      color: rgb(<%= s["link_color"]["value"].join(",") %>);
+      color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
     }
   <% end %>
 
-  <% if s["link_color_hover"] %>
+  <% if s["paragraph_link_color_hover"] %>
     .categories__paragraph--markdown a:hover {
-      color: rgb(<%= s["link_color_hover"]["value"].join(",") %>);
+      color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
     }
   <% end %>
 

@@ -2,8 +2,8 @@ module CustomLandingPage
   module LandingPageStoreDefaults
 
     DEFAULT_PARAGRAPH_LINK_COLORS = {
-      "link_color"       => { "type" => "marketplace_data", "id" => "primary_color" },
-      "link_color_hover" => { "type" => "marketplace_data", "id" => "primary_color_darken" }
+      "paragraph_link_color"       => { "type" => "marketplace_data", "id" => "primary_color" },
+      "paragraph_link_color_hover" => { "type" => "marketplace_data", "id" => "primary_color_darken" }
     }
 
     module_function

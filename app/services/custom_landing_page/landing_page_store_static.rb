@@ -10,7 +10,7 @@ module CustomLandingPage
     end
 
     def load_structure(*)
-      CustomLandingPage::LandingPageStoreDefaults.add_defaults(
+      LandingPageStoreDefaults.add_defaults(
         JSON.parse(CustomLandingPage::ExampleData::DATA_STR))
     end
 
