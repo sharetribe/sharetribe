@@ -186,18 +186,28 @@ class PeopleController < Devise::RegistrationsController
       :password => Devise.friendly_token[0,20],
       community_id: @current_community.id
     }
-    @person = Person.create!(person_hash)
-    # We trust that Facebook has already confirmed these and save the user few clicks
-    Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
 
-    @person.set_default_preferences
+    ActiveRecord::Base.transaction do
+      @person = Person.create!(person_hash)
+      # We trust that Facebook has already confirmed these and save the user few clicks
+      Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
 
-    @person.store_picture_from_facebook
+      @person.set_default_preferences
+      CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
+    end
+
+    begin
+      @person.store_picture_from_facebook!
+    rescue StandardError => e
+      # We can just catch and log the error, because if the profile picture upload fails
+      # we still want to make the user creation pass, just without the profile picture,
+      # which user can upload later
+      logger.error(e.message, :facebook_new_user_profile_picture_upload_failed, { person_id: @person.id })
+    end
 
     sign_in(resource_name, @person)
     flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(PersonViewUtils.person_display_name_for_type(@person, "first_name_only"), person_path(@person))).html_safe
 
-    CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
 
     session[:fb_join] = "pending_analytics"
 
