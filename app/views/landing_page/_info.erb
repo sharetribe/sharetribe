@@ -84,6 +84,7 @@
     <% when "single_column" %>
 
       <%
+        # TODO Move this logic away from the view layer
         paragraphs =
           if s["paragraph"]
             s["paragraph"].is_a?(Array) ? s["paragraph"] : [s["paragraph"]]
