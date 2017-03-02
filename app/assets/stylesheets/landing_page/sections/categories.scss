@@ -47,9 +47,11 @@ $categories__mobile-gutter: 12px;
   @include dimensions__section-title--limited-width;
 }
 
-.categories__paragraph {
-  @include typography__section-paragraph;
-  @include dimensions__section-paragraph--limited-width;
+.categories__paragraph--markdown {
+  & > p {
+    @include typography__section-paragraph;
+    @include dimensions__section-paragraph--limited-width;
+  }
 }
 
 .categories__button--ghost {

@@ -37,19 +37,9 @@
   <div class="listings__content">
     <h1 class="listings__title"><%= s["title"] %></h1>
 
-    <%
-      # TODO Move this logic away from the view layer
-      paragraphs =
-        if s["paragraph"]
-          s["paragraph"].is_a?(Array) ? s["paragraph"] : [s["paragraph"]]
-        else
-          []
-        end
-    %>
-
-    <% paragraphs.each do |p| %>
-      <p class="listings__paragraph"><%= p %></p>
-    <% end %>
+    <div class="listings__paragraph--markdown">
+      <%= render_markdown_array(s["paragraph"]) %>
+    </div>
 
     <div class="listings__listings">
       <% s["listings"].each do |listing| %>

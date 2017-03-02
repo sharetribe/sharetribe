@@ -28,6 +28,8 @@ class LandingPageController < ActionController::Metal
   #
   include Rails.application.routes.url_helpers
 
+  helper CLP::MarkdownHelper
+
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 

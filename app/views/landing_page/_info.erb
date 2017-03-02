@@ -83,19 +83,9 @@
     <% case s["variation"] %>
     <% when "single_column" %>
 
-      <%
-        # TODO Move this logic away from the view layer
-        paragraphs =
-          if s["paragraph"]
-            s["paragraph"].is_a?(Array) ? s["paragraph"] : [s["paragraph"]]
-          else
-            []
-          end
-      %>
-
-      <% paragraphs.each do |p| %>
-        <p class="info__paragraph"><%= p %></p>
-      <% end %>
+      <div class="info__paragraph--markdown">
+        <%= render_markdown_array(s["paragraph"]) %>
+      </div>
 
       <% if s["button_title"] %>
         <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button_path"]["value"] %>"><%= s["button_title"] %></a>
@@ -122,18 +112,10 @@
                 </div>
               <% end %>
               <h2 class="info__column-title"><%= c["title"] %></h2>
-              <%
-              paragraphs =
-                if c["paragraph"]
-                  c["paragraph"].is_a?(Array) ? c["paragraph"] : [c["paragraph"]]
-                else
-                  []
-                end
-              %>
 
-              <% paragraphs.each do |p| %>
-                <p class="info__column-paragraph"><%= p %></p>
-              <% end %>
+              <div class="info__column-paragraph--markdown">
+                <%= render_markdown_array(c["paragraph"]) %>
+              </div>
             </div>
 
             <% if c["button_title"] %>
