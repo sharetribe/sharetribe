@@ -19,6 +19,7 @@ class HomepageController < ApplicationController
     m_selected_category = Maybe(@current_community.categories.find_by_url_or_id(params[:category]))
     filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_nil
     selected_category = m_selected_category.or_nil
+    relevant_filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"
@@ -34,8 +35,6 @@ class HomepageController < ApplicationController
       listing_shape_menu_enabled = all_shapes.size > 1
       @show_categories = @categories.size > 1
       show_price_filter = @current_community.show_price_filter && all_shapes.any? { |s| s[:price_enabled] }
-
-      relevant_filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
 
       @show_custom_fields = relevant_filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
