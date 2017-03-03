@@ -1,8 +1,9 @@
 [
   "app/utils/service_client/middleware/middleware_base",
-  "app/utils/service_client/middleware/result_mapper",
-  "app/services/result",
+  "app/utils/service_client/middleware/result_mapper"
 ].each { |file| require_relative "../../../../#{file}" }
+
+require 'result'
 
 describe ServiceClient::Middleware::ResultMapper do
 

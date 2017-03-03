@@ -5,8 +5,9 @@
   "app/utils/service_client/middleware/endpoint_mapper",
   "app/utils/service_client/middleware/http_client",
   "app/utils/service_client/middleware/result_mapper",
-  "app/services/result",
 ].each { |file| require_relative "../../../#{file}" }
+
+require 'result'
 
 describe ServiceClient::Client do
 

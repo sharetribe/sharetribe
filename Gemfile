@@ -186,3 +186,5 @@ gem 'color', '~> 1.8'
 
 gem 'uuidtools', '~> 2.1'
 gem 'transit-ruby', '~> 0.8'
+
+gem 'result', git: 'https://github.com/sharetribe/result.git'
