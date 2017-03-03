@@ -82,13 +82,15 @@
     <% end %>
 
     <% if s["paragraph_link_color"] %>
-      .info__paragraph--markdown a {
+      .info__paragraph--markdown a,
+      .info__column-paragraph--markdown a {
         color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
       }
     <% end %>
 
     <% if s["paragraph_link_color_hover"] %>
-      .info__paragraph--markdown a:hover {
+      .info__paragraph--markdown a:hover,
+      .info__column-paragraph--markdown a:hover {
         color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
       }
     <% end %>
