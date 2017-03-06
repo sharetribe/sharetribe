@@ -395,7 +395,7 @@ es-ES:
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
       index:
         listing_shapes: "Tipos de Orden"
-        description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes gratuitos."
+        description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes directos."
         read_more_about_order_types: "Leer más sobre tipos de órdenes"
         add_new_shape: "Añadir un nuevo tipo de orden: "
         select_template: "Seleccionar plantilla..."
@@ -622,7 +622,7 @@ es-ES:
       canceled_offer: "Oferta cancelada."
       message_from: "Mensaje de %{person}"
       about_listing: "sobre el anuncio %{listing_title}"
-      free_message: "Mensaje gratuito"
+      free_message: "Mensaje directo"
       message_content_not_available: "Contenido del mensaje no disponible"
     message:
       accepted_request: "aceptó la solicitud"

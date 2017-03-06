@@ -139,7 +139,7 @@ fi:
         sender_name_placeholder: "Lähettäjän nimi"
         sender_email_label: Sähköpostiosoite
         sender_email_placeholder: sender-email@example.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Saat sähköpostin lähettäjältä %{email_sender} vahvistaaksesi sähköpostiosoitteesi. Sähköpostin aiherivi on '%{email_subject}'. Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
         this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
         send_verification_button: "Lähetä vahvistusviesti"
         successfully_saved: "Lähettäjän osoite tallennettu onnistuneesti. Saat pian vahvistussähköpostin."
@@ -228,7 +228,7 @@ fi:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
         name: Nimi
-        display_name: ~
+        display_name: Näyttönimi
         join_date: Liittynyt
         admin: Ylläpito
         posting_allowed: "Hyväksytty ilmoittaja"
@@ -395,7 +395,7 @@ fi:
       pricing_units_disabled_info: "Hinnan yksiköitä ei voi käyttää mikäli saatavuuskalenteri (availability calendar) on kytketty päälle."
       index:
         listing_shapes: Tilaustyypit
-        description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja antaa tavaroita pois ilmaiseksi."
+        description: "Tilaustyypit määrittelevät, kuinka tilaaminen toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja kommunikoida keskenään viestien kautta."
         read_more_about_order_types: "Lue lisää tilaustavoista"
         add_new_shape: "Lisää uusi tilaustapa: "
         select_template: "Valitse malli..."
@@ -622,7 +622,7 @@ fi:
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
       about_listing: "Liittyy ilmoitukseen %{listing_title}"
-      free_message: "Vapaa viesti"
+      free_message: "Suora viesti"
       message_content_not_available: "Viestin sisältöä ei voida näyttää"
     message:
       accepted_request: "hyväksyi pyynnön"
@@ -1888,8 +1888,8 @@ fi:
       given_name: Etunimi
       first_name_with_initial: "(vain ensimmäinen kirjain näytetään muille käyttäjille)"
       first_name_only: "(ei näytetä muille käyttäjille)"
-      display_name: ~
-      display_name_description: ~
+      display_name: Näyttönimi
+      display_name_description: "Jos edustat organisaatiota, voit käyttää organisaatiosi nimeä näyttönimenä. Tämä näyttönimi näkyy muille käyttäjille oman etu- ja sukunimesi sijaan."
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva

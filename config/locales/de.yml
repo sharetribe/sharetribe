@@ -139,7 +139,7 @@ de:
         sender_name_placeholder: Absender
         sender_email_label: "Email Adresse"
         sender_email_placeholder: absender-email@beispiel.de
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Du wirst eine E-mail von %{email_sender} erhalten, für die Bestätigung deiner E-mail. Der Betreff von dieser E-mail ist '%{email_subject}'. Bitte folge die Anweisungen in dieser E-mail um deine E-mail-Adresse zu bestätigen."
         this_is_how_it_will_look: "So wird es aussehen:"
         send_verification_button: "Sende Verifizierungsmail"
         successfully_saved: "Absender Adresse erfolgreich gespeichert. Die Verifizierungsmail wird demnächst verschickt."
@@ -228,7 +228,7 @@ de:
         manage_members: "Benutzer verwalten"
         email: E-Mail
         name: Name
-        display_name: ~
+        display_name: Anzeigename
         join_date: Beigetreten
         admin: Administrator
         posting_allowed: "Veröffentlichen von Einträgen erlaubt"
@@ -622,7 +622,7 @@ de:
       canceled_offer: "Angebot abgebrochen"
       message_from: "Nachricht von %{person}"
       about_listing: "In Bezug auf %{listing_title}"
-      free_message: Nachricht
+      free_message: "Direkte Nachricht"
       message_content_not_available: "Nachrichteninhalt nicht verfügbar"
     message:
       accepted_request: "Anfrage akzeptiert"
@@ -1888,8 +1888,8 @@ de:
       given_name: Vorname
       first_name_with_initial: "(anderen Benutzern wird nur der erste Buchstabe angezeigt)"
       first_name_only: "(wird anderen Benutzern nicht angezeigt)"
-      display_name: ~
-      display_name_description: ~
+      display_name: Anzeigename
+      display_name_description: "Wenn du eine Organisation vertretest, kannst du den Namen deiner Organisation als Anzeigename verwenden. Der Anzeigename wird den anderen Nutzern statt deiner Vor- und Nachnamen angezeigt."
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
       phone_number: Telefonnummer
       profile_picture: Profilbild

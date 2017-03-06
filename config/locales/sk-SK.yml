@@ -233,7 +233,7 @@ sk-SK:
         manage_members: "Spravovať užívateľov"
         email: E-mail
         name: Meno
-        display_name: ~
+        display_name: "Zobrazované Meno"
         join_date: "Dátum registrácie"
         admin: Administrátor
         posting_allowed: "Pridávanie príspevkov je povolené"
@@ -923,8 +923,10 @@ sk-SK:
       person_email: "E-mail:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Rezervácia zlyhala z dôvodu neočakávanej chyby. Skúste to neskôr prosím. Platba neprebehla."
+      double_booking_payment_voided: |-
+          Bohužiaľ termín, ktorý ste vybrali už nie je k dispozícii. Vyberte si iný termín. 
+          Platba neprebehla.
     onboarding:
       server_rendering: "Otvorenie začiatočníckej príručky zlyhalo. O chybe vieme a pracujeme na jej odstránení."
     listings:
@@ -1603,7 +1605,7 @@ sk-SK:
   listing_conversations:
     preauthorize:
       dates_not_available: "Vybraté dátumy nie sú k dispozícií"
-      error_in_checking_availability: ~
+      error_in_checking_availability: "Nepodarilo sa zistiť dostupnosť pre vybrané termíny"
       details: Detaily
       by: "%{listing} od užívateľa %{author}"
       payment: Platba
@@ -1899,7 +1901,7 @@ sk-SK:
       given_name: Meno
       first_name_with_initial: "(zobrazí sa iba prvé písmeno užívateľom)"
       first_name_only: "(nezobrazí sa ostatným užívateľom)"
-      display_name: ~
+      display_name: "Zobrazované Meno"
       display_name_description: ~
       location_description: "Môžete zadať Vašu presnú adresu, alebo napríklad iba PSČ. Je dobré tiež pridať krajinu. Príklady: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Telefónne číslo"

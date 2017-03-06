@@ -395,7 +395,7 @@ fr:
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
       index:
         listing_shapes: "Types de transaction"
-        description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
+        description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer directement."
         read_more_about_order_types: "En savoir plus sur les types de transaction"
         add_new_shape: "Ajouter un nouveau type de transaction : "
         select_template: "Sélectionner un modèle..."
@@ -622,7 +622,7 @@ fr:
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
       about_listing: "A propos de l'annonce %{listing_title}"
-      free_message: "Message libre"
+      free_message: "Message direct"
       message_content_not_available: "Le contenu du message n'est pas disponible"
     message:
       accepted_request: "a accepté la demande"

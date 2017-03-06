@@ -213,7 +213,7 @@ ar:
         manage_members: "إدارة المستخدمين"
         email: "بريد إلكتروني"
         name: الإسم
-        display_name: ~
+        display_name: "الأسم المعروض"
         join_date: "تم الإنضمام"
         admin: المشرف
         posting_allowed: "النشر مسموح"
@@ -605,7 +605,7 @@ ar:
       canceled_offer: "تم إلغاء العرض"
       message_from: "‎%{person}‎ رسالة من"
       about_listing: "‎%{listing_title}‎ عن الإعلان"
-      free_message: "رسالة مجانية"
+      free_message: "رسالة مباشرة"
       message_content_not_available: "محتوى الرسالة غير متوفر"
     message:
       accepted_request: "قَبِل الطلب"
@@ -1874,8 +1874,8 @@ ar:
       given_name: "الإسم الأول"
       first_name_with_initial: "(فقط الحرف الأول مرئي للمستخدمين الآخرين)"
       first_name_only: "(غير مرئي للمشتركين الآخرين)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "الأسم المعروض"
+      display_name_description: "إذا كنت تمثل شركة أو مؤسسة، يمكنك استعمال اسم المنشأة كالاسم المعروض في إعلانك. الإسم المعروض هو ما يراه المستخدمين الآخرين وزوار الموقع عوضا عن اسمك الأول والثاني"
       location_description: "يمكنك إضافة عنوان الشارع أو المدينة أو الرمز البريدي. من الجيد إضافة بلدك عندما تضيف موقعك. مثلا: \"٢١٢١٢ جدة، المملكة العربية السعودية\" أو \"٢٠٠٠ شارع التحلية، جدة، المملكة العربية السعودية\""
       phone_number: "رقم الهاتف"
       profile_picture: "صورة الملف الشخصي"
