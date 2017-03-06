@@ -210,6 +210,10 @@ Values to set:
 
   See `width`
 
+* `text`
+
+  A text string "A video description." It'll be embedded on top of the video.
+
 ### Footer
 
 Section `kind` is `footer`.
