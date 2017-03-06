@@ -20,12 +20,26 @@
     }
   <% end %>
 
+  <% if s["paragraph_link_color"] %>
+    .categories__paragraph--markdown a {
+      color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
+    }
+  <% end %>
+
+  <% if s["paragraph_link_color_hover"] %>
+    .categories__paragraph--markdown a:hover {
+      color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
+    }
+  <% end %>
+
 <% end %>
 
 <section id="<%= section_id %>" class="categories__section">
   <div class="categories__content">
     <h1 class="categories__title"><%= s["title"] %></h1>
-    <p class="categories__paragraph"><%= s["paragraph"] %></p>
+    <div class="categories__paragraph--markdown">
+      <%= render_markdown(s["paragraph"]) %>
+    </div>
 
     <div class="categories__categories">
       <% num_of_categories = s["categories"].length %>

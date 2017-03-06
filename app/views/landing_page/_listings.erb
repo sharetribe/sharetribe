@@ -31,12 +31,27 @@
       color: rgb(<%= s["price_color"]["value"].join(",") %>);
     }
   <% end %>
+
+  <% if s["paragraph_link_color"] %>
+    .listings__paragraph--markdown a {
+      color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
+    }
+  <% end %>
+
+  <% if s["paragraph_link_color_hover"] %>
+    .listings__paragraph--markdown a:hover {
+      color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
+    }
+  <% end %>
 <% end %>
 
 <section id="<%= section_id %>" class="listings__section">
   <div class="listings__content">
     <h1 class="listings__title"><%= s["title"] %></h1>
-    <p class="listings__paragraph"><%= s["paragraph"] %></p>
+
+    <div class="listings__paragraph--markdown">
+      <%= render_markdown_array(s["paragraph"]) %>
+    </div>
 
     <div class="listings__listings">
       <% s["listings"].each do |listing| %>

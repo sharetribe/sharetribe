@@ -14,6 +14,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add support for using PayPal in fake mode for development purposes. [Read more](./docs/using-fakepal.md) [#2598](https://github.com/sharetribe/sharetribe/pull/2598)
 - Add support for linking to member invitation page in CLP [#2859](https://github.com/sharetribe/sharetribe/pull/2859)
 - New feature: Hide irrelevant search filters when a category or subcategory is selected [#2882](https://github.com/sharetribe/sharetribe/pull/2882)
+- Landing page Markdown support [#2887](https://github.com/sharetribe/sharetribe/pull/2887)
 
 ### Changed
 

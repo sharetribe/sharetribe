@@ -80,8 +80,8 @@
       <% end %>
     </div>
     <hr class="footer__separator" />
-    <div class="footer__copyrights">
-      <%= s['copyright'] %>
+    <div class="footer__copyrights--markdown">
+      <%= render_markdown(s['copyright']) %>
     </div>
   </div>
 </footer>

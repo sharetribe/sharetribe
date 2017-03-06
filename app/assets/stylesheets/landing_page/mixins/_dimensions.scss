@@ -75,15 +75,27 @@ $dimension-card-border-radius: 4px;
 }
 
 @mixin dimensions__section-paragraph--limited-width {
-  margin: 18px $dimension-mobile-margin 36px $dimension-mobile-margin;
+  margin: 0px $dimension-mobile-margin 8px $dimension-mobile-margin;
+
+  &:last-of-type {
+    margin-bottom: 36px;
+  }
 
   @media #{$mobile-landscape}, #{$tablet} {
     max-width: 75%;
-    margin: 24px auto 48px auto;
+    margin: 0px auto 8px auto;
+
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
   }
 
   @media #{$desktop} {
     max-width: 75%;
-    margin: 24px auto 48px auto;
+    margin: 0px auto 8px auto;
+
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
   }
 }
