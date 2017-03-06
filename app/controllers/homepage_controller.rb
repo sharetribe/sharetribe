@@ -345,16 +345,19 @@ class HomepageController < ApplicationController
   # one of the given categories. Otherwise returns all filters.
   #
   def select_relevant_filters(category_ids)
-    if category_ids.present?
-      @current_community
-        .custom_fields
-        .joins(:category_custom_fields)
-        .where("category_custom_fields.category_id": category_ids, search_filter: true)
-        .distinct
-    else
-      @current_community
-        .custom_fields.where(search_filter: true)
-    end
+    relevant_filters =
+      if category_ids.present?
+        @current_community
+          .custom_fields
+          .joins(:category_custom_fields)
+          .where("category_custom_fields.category_id": category_ids, search_filter: true)
+          .distinct
+      else
+        @current_community
+          .custom_fields.where(search_filter: true)
+      end
+
+    relevant_filters.sort
   end
 
 end
