@@ -300,7 +300,6 @@ default: &default_settings
   # Harmony service API connection
   harmony_api_in_use: false
   harmony_api_url: http://localhost:8085
-  harmony_api_disable_authentication: false
   harmony_api_token_secret: secret_key1
 
   # Discovery service API connection
