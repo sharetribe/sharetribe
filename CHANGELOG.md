@@ -15,6 +15,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Add support for linking to member invitation page in CLP [#2859](https://github.com/sharetribe/sharetribe/pull/2859)
 - New feature: Hide irrelevant search filters when a category or subcategory is selected [#2882](https://github.com/sharetribe/sharetribe/pull/2882)
 - Landing page Markdown support [#2887](https://github.com/sharetribe/sharetribe/pull/2887)
+- Add instructions how to configure Harmony service [#2892](https://github.com/sharetribe/sharetribe/pull/2892)
 
 ### Changed
 
