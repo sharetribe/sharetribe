@@ -21,7 +21,7 @@ The availability management is tightly coupled to the transaction process, so Pa
 
   If everything goes well, you should see the Swagger UI.
 
-  If you are running Harmony service in other location than `localhost:8085` (e.g. different port) you need to change the URL. `localhost:8085` is the default location.
+  If you are running Harmony service in other location than `http://localhost:8085` (e.g. different port) you need to change the URL. `http://localhost:8085` is the default location.
 
 1. Enable Harmony
 
