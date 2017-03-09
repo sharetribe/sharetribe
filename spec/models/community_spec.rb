@@ -52,7 +52,7 @@
 #  currency                                   :string(3)        not null
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  minimum_price_cents                        :integer
-#  hide_expiration_date                       :boolean          default(FALSE)
+#  hide_expiration_date                       :boolean          default(TRUE)
 #  facebook_connect_id                        :string(255)
 #  facebook_connect_secret                    :string(255)
 #  google_analytics_key                       :string(255)

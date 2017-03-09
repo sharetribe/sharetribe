@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.6.32, for osx10.10 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.16, for osx10.11 (x86_64)
 --
 -- Host: 127.0.0.1    Database: sharetribe_development
 -- ------------------------------------------------------
@@ -250,7 +250,7 @@ CREATE TABLE `communities` (
   `currency` varchar(3) NOT NULL,
   `facebook_connect_enabled` tinyint(1) DEFAULT '1',
   `minimum_price_cents` int(11) DEFAULT NULL,
-  `hide_expiration_date` tinyint(1) DEFAULT '0',
+  `hide_expiration_date` tinyint(1) DEFAULT '1',
   `facebook_connect_id` varchar(255) DEFAULT NULL,
   `facebook_connect_secret` varchar(255) DEFAULT NULL,
   `google_analytics_key` varchar(255) DEFAULT NULL,
@@ -1599,7 +1599,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-20 14:36:16
+-- Dump completed on 2017-03-09 13:12:16
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3223,4 +3223,6 @@ INSERT INTO schema_migrations (version) VALUES ('20161109094513');
 INSERT INTO schema_migrations (version) VALUES ('20170216134444');
 
 INSERT INTO schema_migrations (version) VALUES ('20170220123526');
+
+INSERT INTO schema_migrations (version) VALUES ('20170309104456');
 
