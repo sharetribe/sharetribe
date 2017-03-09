@@ -33,6 +33,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 6.1.0 to 6.2.0
+
 NPM packages are updated, run `npm install` to get the latest packages.
 
 ## Upgrade from 6.0.0 to 6.1.0
