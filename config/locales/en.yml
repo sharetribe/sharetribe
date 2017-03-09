@@ -203,7 +203,6 @@ en:
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
         show_category_in_listing_list: "Display listing type in list view"
-        hide_expiration_date: "Do not require listings to have an expiration date"
         listing_comments_in_use: "Allow users to post comments to listings (viewable to all other users)"
         email_preferences: "Email preferences"
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
@@ -327,6 +326,9 @@ en:
       edit_location:
         edit_location_field: "Edit location field"
         this_field_is_required: "This field is required"
+      edit_expiration:
+        edit_expiration_field: "Edit location field"
+        enable: "Enable expiration date"
       form:
         field_required:
           this_field_is_required: "Make it mandatory to fill in this field when creating a new listing"

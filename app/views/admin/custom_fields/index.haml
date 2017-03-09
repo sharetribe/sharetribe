@@ -88,23 +88,23 @@
     - if show_custom_fields
       = render :partial => "listed_custom_field", :collection => @custom_fields.sort, :as => :custom_field
 
-    - unless @current_community.hide_expiration_date
-      .row
-        .col-5
-          %span.custom-fields-mobile-list-title.hidden-tablet
-            = t("admin.custom_fields.index.field_title")
-          = t("listings.form.valid_until.valid_until")
-        .col-5
-          %span.custom-fields-mobile-list-title.hidden-tablet
-            = t("admin.custom_fields.index.field_type")
-          %div
-            = t("admin.custom_fields.field_types.date")
-          %div.custom-fields-details
-        .col-2
-          = icon_tag("edit", ["icon-fix disabled"])
-          = icon_tag("cross", ["icon-fix disabled"])
-          = icon_tag("directup", ["icon-fix disabled"])
-          = icon_tag("directdown", ["icon-fix disabled"])
+    .row
+      .col-5
+        %span.custom-fields-mobile-list-title.hidden-tablet
+          = t("admin.custom_fields.index.field_title")
+        = t("listings.form.valid_until.valid_until")
+      .col-5
+        %span.custom-fields-mobile-list-title.hidden-tablet
+          = t("admin.custom_fields.index.field_type")
+        %div
+          = t("admin.custom_fields.field_types.date")
+        %div.custom-fields-details
+      .col-2
+        = link_to edit_expiration_admin_custom_fields_path, :class => "custom-fields-expiration-edit" do
+          = icon_tag("edit", ["icon-fix"])
+        = icon_tag("cross", ["icon-fix disabled"])
+        = icon_tag("directup", ["icon-fix disabled"])
+        = icon_tag("directdown", ["icon-fix disabled"])
 
     .row
       .col-5

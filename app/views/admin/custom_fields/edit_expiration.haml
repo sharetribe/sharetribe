@@ -1,0 +1,23 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t(".edit_expiration_field")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  = form_tag update_expiration_admin_custom_fields_path, method: :put do
+    .row
+      .col-12
+        .checkbox-container
+          = check_box_tag :listing_expiration_enabled, :enabled, listing_expiration_enabled
+          = label_tag :listing_expiration_enabled, t(".enable")
+
+    .add-custom-field-buttons
+      .inline-button-container
+        = button_tag t("admin.custom_fields.index.save")
+      .inline-button-container
+        %a{:href => admin_custom_fields_path, :class => "cancel-button"}
+          .content
+            = t("admin.custom_fields.index.cancel")
