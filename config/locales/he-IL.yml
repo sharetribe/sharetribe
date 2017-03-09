@@ -62,7 +62,7 @@ he-IL:
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        contact_admin_link_text: "שלח הודעה לצוות האתר"
         save: ~
         transaction_agreement: ~
         transaction_agreement_checkbox: ~
@@ -199,7 +199,7 @@ he-IL:
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
-        newsletter_weekly: ~
+        newsletter_weekly: שבועי
         delete_marketplace_title: ~
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
@@ -213,7 +213,7 @@ he-IL:
         manage_members: ~
         email: ~
         name: ~
-        display_name: ~
+        display_name: "שם לתצוגה"
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -230,14 +230,14 @@ he-IL:
         description_process: ~
         enabled_for_you: ~
         enabled_for_all: ~
-        new_topbar: ~
+        new_topbar: "הסרגל העליון החדש (בכל העמודים)"
         searchpage: ~
       social_media:
         social_media: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_instructions_link_text: "קרא עוד"
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
@@ -271,19 +271,19 @@ he-IL:
         max_number_of_links_info: ~
         about_page: ~
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "סרגל עליון"
+        new_listing_button_label: "טקסט ל\"צור שירות חדש\""
+        invalid_post_listing_button_label: "אנא הכנס טקסט תקין לכפתור \"צור שירות חדש\""
       transactions:
         export_all_as_csv: ~
         transactions: ~
         headers:
           conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
+          listing: שירות
+          status: סטטוס
+          sum: סה"כ
           started: ~
-          last_activity: ~
+          last_activity: "פעילות אחרונה"
           initiated_by: ~
           other_party: ~
         status:
@@ -302,13 +302,13 @@ he-IL:
         paypal_admin_account: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "ערוך את ‎%{field_name}‎"
       edit_price:
         description: ~
-        edit_price_field: ~
-        show_price_filter_homepage: ~
-        price_min: ~
-        price_max: ~
+        edit_price_field: "ערוך את המחיר"
+        show_price_filter_homepage: "הראה סינון מחיר בדף הבית"
+        price_min: "סנן מחיר מינימלי"
+        price_max: "סנן מחיר מקסימלי"
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
@@ -340,7 +340,7 @@ he-IL:
         select_one: ~
         continue: ~
         minimum_value: ~
-        maximum_value: ~
+        maximum_value: מקסימום
         allow_decimals: ~
       new:
         new_listing_field: ~
@@ -384,12 +384,12 @@ he-IL:
         read_more_about_order_types: ~
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
+        all_categories: תפריט
         no_categories: ~
         category_count: ~
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "שם סוג הזמנה"
+          listing_shape_categories: "קטגוריות בשימוש"
         order:
           saving_order: ~
           save_order_successful: ~
@@ -426,16 +426,16 @@ he-IL:
       pricing_and_checkout_title: ~
       online_payments_label: ~
       shipping_label: ~
-      price_label: ~
+      price_label: "אשר למוכר להוסיף מחיר"
       units_title: ~
       units_desc: ~
       units:
         piece: ~
-        hour: ~
+        hour: לשעה
         day: ~
         night: ~
-        week: ~
-        month: ~
+        week: לשבוע
+        month: לחודש
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -443,32 +443,32 @@ he-IL:
         title: ~
         label_heading: ~
         selector_label_heading: ~
-        label_placeholder: ~
+        label_placeholder: "למשל : \"גרם\", \"30 דקות\", אדם\", \"שיעור\""
         selector_placeholder: ~
         per: ~
         unit_type:
           heading: ~
-          quantity_label: ~
-          time_label: ~
+          quantity_label: "כמות (ליחידה, לק\"ג, לאדם, לסיור של שעתיים...)"
+          time_label: "זמן (לחצי שעה, לשבוע, לשנה)"
     paypal_accounts:
       marketplace_paypal_integration: ~
       preferences_updated: ~
-      contact_support_link_text: ~
+      contact_support_link_text: "פנה לתמיכה"
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: "קרא עוד אודות מערכת התשלום"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
+      minimum_listing_price_label: "מחיר סליקה מינימלי:"
       transaction_fee_label: ~
       minimum_transaction_fee_label: ~
       save_settings: ~
       minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_min: "עמלה ‎%{minimum_commission}‎"
     transaction_types:
       sell: ~
       rent: ~
@@ -484,9 +484,9 @@ he-IL:
         rent: ~
         request: ~
         offer: ~
-        inquiry: ~
+        inquiry: "שלח הודעה"
   common:
-    edit_page: ~
+    edit_page: "ערוך דף"
     default_community_slogan: ~
     default_community_description: ~
     cancel: בטל
@@ -549,7 +549,7 @@ he-IL:
       close_listing: ~
       update_later: ~
       optional_message: ~
-      price_to_pay: ~
+      price_to_pay: "סה\"כ לתשלום"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -559,7 +559,7 @@ he-IL:
       total_label: ~
       total_value: ~
       paypal_fee_info: ~
-      shipping_price_label: ~
+      shipping_price_label: "משלוח:"
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -573,7 +573,7 @@ he-IL:
     details:
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "מחיר ליום: ‎%{price}‎"
     index:
       loading_more_messages: "טוען הודעות נוספות"
       message_partitive: הודעה
@@ -590,7 +590,7 @@ he-IL:
       canceled_request: ~
       canceled_offer: ~
       message_from: ~
-      about_listing: ~
+      about_listing: "לגבי ‎%{listing_title}‎"
       free_message: ~
       message_content_not_available: ~
     message:
@@ -609,17 +609,17 @@ he-IL:
       message: הודעה
       message_to: ~
       optional_message_to: ~
-      send_message: ~
+      send_message: שלח
       send: ~
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: כותרת
-      send_message_to_user: ~
-      about_listing: ~
+      send_message_to_user: "שלח הודעה ל‎%{person}‎"
+      about_listing: "לגבי ‎%{listing_title}‎"
       author_has_to_accept_request: ~
     show:
-      in_response_to_listing: ~
+      in_response_to_listing: לגבי
       message_sent_by: ~
       message_sent_to: ~
       send_reply: "שלח/י תגובה"
@@ -628,7 +628,7 @@ he-IL:
       conversation_with_user: ~
       conversation_with: ~
       last_message_at: ~
-      price: ~
+      price: "מחיר: ‎%{price}‎"
       sum: ~
       total: ~
     status:
@@ -697,7 +697,7 @@ he-IL:
     access_denied:
       access_denied: ~
       you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      contact_page_link: "צור איתם קשר"
     new:
       welcome_fb_user: ~
       fb_join_accept_terms: ~
@@ -734,7 +734,7 @@ he-IL:
       cancel_it_link_text: ~
       automatic_confirmation: ~
     payment_settings_reminder:
-      remember_to_add_payment_details: ~
+      remember_to_add_payment_details: "אל תשכח להגדיר פרטי תשלום לקבלת הזמנות"
       you_have_added_listing_with_payment: ~
       please_go_to_payment_settings: ~
       payment_settings_link: ~
@@ -802,7 +802,7 @@ he-IL:
       you_have_a_new_message: "התקבלה הודעה חדשה ב‎%{service_name}‎ על ידי‎ ‎%{sender_name}‎"
     new_payment:
       new_payment: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "מחיר ל‎%{unit_type}‎"
       quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
@@ -810,19 +810,19 @@ he-IL:
       shipping_total: ~
     braintree_new_payment:
       product: ~
-      price_payer_paid: ~
+      price_payer_paid: "מחיר ‎%{payer_full_name}‎ שולם:"
       service_fee: ~
       you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "מחיר ל‎%{unit_type}‎"
       duration: ~
       quantity: ~
       subtotal: ~
       total: ~
-      price: ~
+      price: מחיר
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
@@ -845,7 +845,7 @@ he-IL:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      hi: ~
+      hi: "שלום ‎%{name}‎,"
       newest_offers: ~
       newest_requests: ~
       text_version_text: ~
@@ -891,8 +891,8 @@ he-IL:
       departure_time: ~
       share_type: "קיימת חובת בחירה."
       valid_until: "התאריך הנבחר חיב להיות מהיום ועד 6 חודשים מהיום."
-      price: ~
-      minimum_price: ~
+      price: "אנא הכנס מספר שלם"
+      minimum_price: "המחיר המינימלי הינו ‎%{minimum_price}‎‎%{currency}‎. "
     testimonials:
       you_must_explain_not_neutral_feedback: "אם ברצונך לכתוב משוב חיובי או שלילי, את/ה חייב/ת להסביר למה."
       you_must_select_a_grade: "זכור/זכרי לספר האם התנסותך הייתה חיובית או שלילית."
@@ -929,8 +929,8 @@ he-IL:
     no_javascript:
       javascript_is_disabled_in_your_browser: "JavaScript אינו פעיל כרגע בדפדפן שלך"
       kassi_does_not_currently_work_without_javascript: "‎%{service_name}‎ אינו פועל כשורה ללא JavaScript. נסה להפעיל JavaScript דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש."
-      contact_us: ~
-      send_feedback: ~
+      contact_us: "צור קשר"
+      send_feedback: שלח
       your_feedback_to_admins: "ההודעה שלך לצוות ‎%{service_name}‎"
     send: שלח
     your_email_address: "כתובת הדואר האלקטרוני שלך"
@@ -973,20 +973,20 @@ he-IL:
   header:
     about: אודות
     home: "דף הבית"
-    members: ~
-    new_listing: ~
+    members: קהילה
+    new_listing: "צור שירות חדש"
     mobile_version: "גרסה לסלולר"
     offers: הזמנות
     requests: בקשות
     search_kassi: "חיפוש ‎%{service_name}‎"
-    create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
-    manage_listings: ~
-    invite: ~
-    login: ~
-    signup: ~
-    menu: ~
+    create_new_marketplace: "צור אתר חדש"
+    contact_us: "צור קשר"
+    profile: "החשבון שלי"
+    manage_listings: ניהול
+    invite: "הזמן את החברים שלך"
+    login: כניסה
+    signup: "הרשמו עכשיו!"
+    menu: תפריט
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "יש עוד הזמנה נוספת אחת"
@@ -1013,14 +1013,14 @@ he-IL:
       no_open_offers_currently: "אין כל הצעה של פריט או שירות."
       no_open_requests_currently: "אין כל בקשה של פריט או שירות."
       no_requests_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין."
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
+      one_private_offer_exists: "ישנה כבר הצעה אחת,"
+      one_private_request_exists: "ישנה כבר בקשה אחת,"
       ride_offer: ~
       ride_request: "הסעה לעבודה"
       some_private_offers_exist: ~
       some_private_requests_exist: "ישנן ‎%{number_of_listings}‎ הזמנות"
     custom_filters:
-      update_view: ~
+      update_view: "עדכן חיפוש"
       min: ~
       max: ~
     event_feed:
@@ -1045,7 +1045,7 @@ he-IL:
       more_events: "אירועים נוספים..."
       news: חדשות
       no_news: ~
-      more_news: ~
+      more_news: "חדשות נוספות"
       or: ו
       or_see_what_the_others: "... או ראה אחרים"
       recent_events: "פוסטים אחרונים"
@@ -1072,26 +1072,26 @@ he-IL:
       distance_away: ~
     news_item:
       show_less: ~
-      show_more: ~
+      show_more: "הצג עוד"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
+      add_your_info: "הוסף את פרטי הקשר שלך"
+      add_a_profile_picture: "הוסף תמונת פרופיל"
       you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info_link: "הוסף את מידע עכשיו"
     recent_listing:
       please_offer: הזמנה
       comment: ~
       comments: ~
     filters:
-      show: ~
-      search: ~
-      map: ~
-      list: ~
+      show: "סינון:"
+      search: חפש
+      map: מפה
+      list: רשימה
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: הכל
+      all_categories: "היכן אתה?"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1105,7 +1105,7 @@ he-IL:
   landing_page:
     hero:
       search: ~
-      signup: ~
+      signup: "הרשמו עכשיו!"
       search_placeholder: ~
       search_location_placeholder: ~
     listings:
@@ -1118,22 +1118,22 @@ he-IL:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: ~
+      inbox: הודעות
       settings: ~
       feedback: ~
     application:
       join_this_community: ~
-      read_more: ~
+      read_more: "קרא עוד"
       feedback: "ההודעה שלך לצוות ‎%{service_name}‎"
       dont_use_to_contact_support: ~
       feedback_forum: "פורום משובים, הערות והארות."
       feedback_handle: משוב
       give_feedback: "צור קשר"
       or_check_our: "... או בדוק את ה"
-      send_feedback_to_admin: "שלח הודעה"
+      send_feedback_to_admin: שלח
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
-      connect: ~
+      connect: "הרשמו עכשיו!"
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
@@ -1146,7 +1146,7 @@ he-IL:
       received: התקבלו
       sent: נשלחו
     global-header:
-      select_language: ~
+      select_language: שפה
     infos:
       about: אודות
       how_to_use: "כיצד זה עובד"
@@ -1176,11 +1176,11 @@ he-IL:
       logout: התנתק
       notifications: התראות
       requests: "בקשות חברות"
-      settings: ~
-      sign_up: הרשמה
+      settings: הגדרות
+      sign_up: "הרשמו עכשיו!"
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "שלח הודעה לצוות האתר"
       test_welcome_email_delivered_to: ~
       something_went_wrong: ~
       community_updated: ~
@@ -1248,22 +1248,22 @@ he-IL:
       poll_deleted: ~
       read_more: "תקרא עוד!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
+      reply_cannot_be_empty: "לא ניתן לשלוח הודעות ללא תוכן"
+      reply_sent: "ההודעה נשלחה בהצלחה"
       request_accepted: "בקשתך אושרה"
       request_confirmed: ~
       request_rejected: "בקשתך נדחתה"
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "התוכן לא זמין"
       unknown_error: "שגיאה לא ידועה. אנא צור עמנו קשר עם פרטים נוספים."
       update_error: "שגיאה נוצרה בעת עדכון פרטיך, אנא נסה שנית."
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: "אינך מורשה לפעולה זו"
       you_are_not_authorized_to_view_this_content: "אינך מורשה לצפייה בתוכן זה"
       listing_closed: ~
-      send_instructions: ~
+      send_instructions: "תקבל איימיל עם הוראות לאיפוס סיסמתך בדקות הקרובות"
       you_cannot_reply_to_a_closed_offer: "אין אפשרות להגיב. ההצעה סגורה."
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
@@ -1282,7 +1282,7 @@ he-IL:
       you_must_log_in_to_view_your_inbox: "אנא התחבר ל‎%{service_name}‎ לבדיקת הדואר הנכנס"
       you_must_log_in_to_view_your_settings: "אנא התחבר ל‎%{service_name}‎ לבדיקת הגדרות חשבונך."
       you_must_log_in_to_add_news_item: ~
-      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_change_profile_settings: "אנא התחבר ל‎%{service_name}‎ על מנת לשנות את ההגדרות"
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: ~
@@ -1300,7 +1300,7 @@ he-IL:
       notifications: התראות
       profile: "הפרופיל שלי"
       settings: הגדרות
-      payments: ~
+      payments: תשלומים
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1319,10 +1319,10 @@ he-IL:
       you_must: "אתה חייב"
       subscribe_to_comments: ~
     edit:
-      edit_listing: ~
+      edit_listing: ערוך
     edit_links:
-      close_listing: ~
-      edit_listing: ~
+      close_listing: סגור
+      edit_listing: ערוך
       reopen_listing: ~
       move_to_top: ~
       show_in_updates_email: ~
@@ -1388,21 +1388,21 @@ he-IL:
       location:
         location: מיקום
       price:
-        price: ~
-        per: ~
-        per_day: ~
+        price: מחיר
+        per: מחיר
+        per_day: ליום
         mass: ~
-        time: ~
-        long_time: ~
+        time: "שעה, יום, חודש, ..."
+        long_time: "שבוע, חודש, ..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "‎%{paypal_fee_info_link}‎ ינוכה מהמחיר"
+        after_service_fee_you_will_get_paypal_text: "התשלום עבור ‎%{service_name}‎ ו‎%{sum_with_currency}‎ ינוכה מהמחיר."
         paypal_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        delivery: "סוג משלוח"
+        shipping: משלוח
+        shipping_price: "דמי משלוח"
+        shipping_price_additional: תוספות
+        pickup: "איסוף עצמי"
       origin:
         location: מיקום
         origin: מקור
@@ -1427,11 +1427,11 @@ he-IL:
         comma_separate: ~
         tags: תגיות
       title:
-        listing_title: ~
+        listing_title: כותרת
       valid_until:
         valid_until: "תאריך תפוגה"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: לבינתיים
       privacy:
         privacy: ~
         private: ~
@@ -1441,7 +1441,7 @@ he-IL:
       help_tags_title: תגיות
       help_valid_until_title: "תאריך תפוגה"
     index:
-      all_categories: "כל הקטגוריות"
+      all_categories: תפריט
       all_offer_types: "כל סוגי ההזמנות"
       all_request_types: "כל סוגי הבקשות"
       category: קטגוריה
@@ -1464,24 +1464,24 @@ he-IL:
     left_panel_link:
       borrows: ~
       buys: ~
-      favors: ~
+      favors: שירותים
       give_aways: ~
       housings: ~
-      items: ~
+      items: פריטים
       lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      receives: למסירה
+      rent_outs: להשכרה
+      rents: השכרה
+      rideshares: "נסיעה משותפת"
+      sells: מכירה
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: החלפה
     listing_actions:
       booking_from: ~
       booking_to: ~
       how_paypal_works: ~
-      payment_help: ~
+      payment_help: עזרה
       unable_load_availability: ~
     new:
       listing: ~
@@ -1490,29 +1490,29 @@ he-IL:
       selected_transaction_type: ~
       select_category: ~
       select_subcategory: ~
-      select_transaction_type: ~
+      select_transaction_type: בחר
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "שלח הודעה לצוות האתר"
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
     quantity:
-      hour: ~
+      hour: "מספר שעות:"
       day: ~
       night: ~
-      week: ~
-      month: ~
+      week: "מספר שבועות:"
+      month: "מספר חודשים:"
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: תגובה
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
-      add_profile_picture: ~
+      add_profile_picture: "הוסף תמונת פרופיל"
       comments: "דיון פתוח"
-      contact_by_phone: ~
-      contact: ~
+      contact_by_phone: "צור קשר טלפוני:"
+      contact: "שלח הודעה"
       favor_offer: ~
       favor_request: ~
       inquiry: ~
@@ -1521,38 +1521,38 @@ he-IL:
       no_description: ~
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: הצעה
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
+      request: בקשה
       rideshare_offer: ~
       rideshare_request: ~
       send_private_message: ~
-      tags: ~
+      tags: תוויות
       time: זמן
       times: זמנים
       times_viewed: נצפה
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
-        per_quantity_unit: ~
-        per_day: ~
+        per_quantity_unit: "ל‎%{quantity_unit}‎"
+        per_day: ליום
       delivery: ~
-      shipping: ~
-      shipping_no_price: ~
+      shipping: "משלוח (+‎%{price}‎)"
+      shipping_no_price: משלוח
       shipping_price_additional: ~
       pickup: ~
-      pickup_no_price: ~
+      pickup_no_price: "איסוף עצמי"
       youtube_video_player: "נגן וידאו של יוטיוב"
     unit_types:
       piece: ~
-      hour: ~
+      hour: שעה
       day: ~
       night: ~
-      week: ~
-      month: ~
+      week: שבוע
+      month: חודש
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -1570,28 +1570,28 @@ he-IL:
       nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: צפה.
   mapview:
     index:
-      all_categories: "כל הקטגוריות"
+      all_categories: תפריט
       all_offer_types: ~
       all_request_types: ~
       category: קטגוריה
       did_not_found_what_you_were_looking_for: ~
       favors: ~
       housing: ~
-      items: ~
+      items: פריטים
       list_view: ~
       map_view: ~
-      offer_something: ~
+      offer_something: שתף!
       offer_type: ~
       offers: ~
-      request_something: ~
+      request_something: בקש
       request_type: ~
-      requests: ~
+      requests: בקשות
       rideshare: ~
       you_have_something_others_do_not: ~
-    please_comment: ~
+    please_comment: תגובה
   mercury:
     content_too_long: ~
   okl:
@@ -1611,13 +1611,13 @@ he-IL:
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    contact_admin_link_text: "פנה למנהל האתר"
+    you_are_ready_to_accept_payments: "כעת אתה יכול לקבל תשלומים!"
     commission: ~
     new:
-      payout_info_you_need_to_connect: ~
+      payout_info_you_need_to_connect: "על מנת לקבל תשלומים, אתה צריך לחבר את חשבונך בפייפאל עם ‎%{service_name}‎"
       payout_info_text: ~
-      contact_admin_link_text: ~
+      contact_admin_link_text: "שלח הודעה לצוות האתר"
       admin_account_not_connected: ~
       paypal_account_email: ~
       paypal_account_email_placeholder: ~
@@ -1681,19 +1681,19 @@ he-IL:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
+      create_new_account: "צור חשבון"
+      email: איימיל
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
-      invalid_invitation_code: ~
+      family_name: "שם משפחה"
+      given_name: "שם פרטי"
+      i_accept_the: "אני מאשר"
+      invalid_invitation_code: "קוד ההזמנה לא תקין"
       invitation_code: "קוד הזמנה"
       not_required: ~
       notification_is_mandatory: ~
-      password_again: ~
+      password_again: "אשר סיסמה"
       show_my_name_to_others: ~
       sign_up: ~
       terms: ~
@@ -1708,26 +1708,26 @@ he-IL:
       grade: "ציון:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
-      no_image: ~
+      show_also_closed: "הצג שירותים לא פעילים"
+      show_only_open: "הצג שירותים פעילים בלבד"
+      no_image: "אין תמונה"
     show:
-      contact: ~
+      contact: "שלח הודעה ל‎%{person}‎"
       about_me: "קצת עלי:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
       address: "מיקום:"
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      as_expected: כצפוי
+      edit_profile_info: "ערוך פרופיל"
+      exceeded_expectations: "מעבר למצופה"
       positive: ~
       hide_description: ~
       less_than_expected: ~
-      phone_number: ~
+      phone_number: "מספר טלפון:"
       show_all_feedback: ~
       show_all_testimonials: ~
-      show_full_description: ~
+      show_full_description: "הצג עוד"
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       what_are_these: ~
@@ -1756,10 +1756,10 @@ he-IL:
       unfollow: ~
   sessions:
     new:
-      create_new_account: ~
+      create_new_account: "צור חשבון חדש"
       i_forgot_my_password: "שכחתי שם משתמש או סיסמה"
-      login: ~
-      login_to_kassi: ~
+      login: כניסה
+      login_to_kassi: "כניסה ל‎%{service_name}‎"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1771,7 +1771,7 @@ he-IL:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
+      email: איימיל
       password_recovery_instructions: ~
       request_new_password: ~
       change_your_password: ~
@@ -1803,7 +1803,7 @@ he-IL:
       unfinished_transactions: ~
       new_password: "סיסמה חדשה"
       save: שמור
-      these_fields_are_shown_only_to_you: ~
+      these_fields_are_shown_only_to_you: "שם המשתמש יוצר בחשבון שלך אלא אם רשמת את השם שלך. כל המידע נוסף יוצג רק לך."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -1825,17 +1825,17 @@ he-IL:
       newsletters: ~
       community_updates: ~
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
+      email_about_new_comments_to_own_listing: "...מישהו הגיב על ההזמנה או הבקשה שלי"
+      email_about_new_messages: "...מישהו שלח לי הודעה"
+      email_about_new_received_testimonials: "...מישהו כתב עלי משוב"
       email_about_testimonial_reminders: ~
       email_daily_community_updates: ~
-      email_weekly_community_updates: ~
+      email_weekly_community_updates: "שלח לי ניוזלטר שבועי אם יש שירותים חדשים"
       do_not_email_community_updates: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
       email_about_completed_transactions: ~
-      email_about_new_payments: ~
+      email_about_new_payments: "...קיבלתי תשלום חדש!"
       email_about_new_listings_by_followed_people: ~
       unsubscribe_succesful: ~
       unsubscribe_info_text: ~
@@ -1844,26 +1844,26 @@ he-IL:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
+      about_you: "קצת על עצמי"
       city: עיר
       family_name: "שם משפחה"
       given_name: "שם פרטי"
-      first_name_with_initial: ~
-      first_name_only: ~
-      display_name: ~
-      display_name_description: ~
-      location_description: ~
+      first_name_with_initial: "(רק האות הראשונה תוצג למשתמשים אחרים)"
+      first_name_only: "(לא יוצג למשתמשים אחרים)"
+      display_name: "שם לתצוגה"
+      display_name_description: "אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך."
+      location_description: "דוגמה : \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "מספר טלפון"
-      profile_picture: ~
+      profile_picture: "תמונת פרופיל"
       postal_code: מיקוד
-      profile_page: "בדף הפרופיל שלך"
+      profile_page: "בדף המשתמש שלך"
       profilemap: מפה
       street_address: מיקום
-      these_fields_are_shown_in_your: "המידע יהיה זמין לכל המשתמשים ב‎%{service_name}‎"
+      these_fields_are_shown_in_your: ~
       visible_to_everybody: "זמין לכולם"
       visible_to_registered_users: "(זמין למשתמשים מחוברים)"
-      default_in_listing: ~
-      invisible: ~
+      default_in_listing: "(משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה)"
+      invisible: "(לא יוצג למשתמשים אחרים)"
       image_is_processing: ~
     save_information: "שמור פרטים"
   shipping_address:
@@ -1877,34 +1877,34 @@ he-IL:
       accept_terms: "מאשר את תנאי השימוש - ‎%{service_name}‎"
       here: ~
       i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
+      i_accept_terms: "אני מאשר"
+      terms: "תנאי השימוש של ‎%{service_name}‎"
+      terms_have_changed: "תנאי השימוש שונו"
       you_can_view_the_new_terms: ~
       you_need_to_accept: ~
       you_need_to_accept_new_terms: ~
   testimonials:
     index:
-      all_testimonials: ~
+      all_testimonials: משובים
       feedback_altogether: ~
-      loading_more_testimonials: ~
+      loading_more_testimonials: "טוען משובים נוספים"
       no_testimonials: ~
     new:
       as_expected: ~
       exceeded_expectations: ~
       give_feedback_to: ~
       grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      less_than_expected: "מתחת למצופה"
+      send_feedback: "שלח משוב"
+      slightly_better_than_expected: "קצת מעבר למצופה"
+      slightly_less_than_expected: "קצת מתחת למצופה"
       textual_feedback: ~
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
       default_textual_feedback: ~
     testimonial:
-      about_listing: ~
+      about_listing: לגבי
   date:
     formats:
       long_with_abbr_day_name: ~
@@ -1934,31 +1934,31 @@ he-IL:
       friday: ~
       saturday: ~
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: ינואר
+      february: פברואר
+      march: מרץ
+      april: אפריל
+      may: מאי
+      june: יוני
+      july: יולי
+      august: אוגוסט
+      september: ספטמבר
+      october: אוקטובר
+      november: נובמבר
+      december: דצמבר
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: ינואר
+      february: פברואר
+      march: מרץ
+      april: אפריל
+      may: מאי
+      june: יוני
+      july: יולי
+      august: אוגוסט
+      september: ספטמבר
+      october: אוקטובר
+      november: נובמבר
+      december: דצמבר
     today: ~
     clear: ~
     format: ~
@@ -1968,30 +1968,40 @@ he-IL:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "לפני ‎%{count}‎ ימים"
+    days_ago: "לפני ‎%{count}‎ ימים"
+    hour_ago: "לפני ‎%{count}‎ שעות"
+    hours_ago: "לפני ‎%{count}‎ שעות"
+    minute_ago: "לפני ‎%{count}‎ דקות"
+    minutes_ago: "לפני ‎%{count}‎ דקות"
+    month_ago: "לפני ‎%{count}‎ חודשים"
+    months_ago: "לפני ‎%{count}‎ חודשים"
+    seconds_ago: "לפני ‎%{count}‎ שניות"
+    year_ago: "לפני שנה ‎%{count}‎"
+    years_ago: "לפני ‎%{count}‎ שנים"
+    time_to:
+      hours:
+        one: "שעה ‎%{count}‎"
+        other: "‎%{count}‎ שעות"
+      minutes:
+        one: "דקה ‎%{count}‎"
+        other: "‎%{count}‎ דקות"
+    days_since:
+      one: "יום ‎%{count}‎"
+      other: "‎%{count}‎ ימים"
   transactions:
     initiate:
       booked_days: ~
       booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
+      price_per_day: "מחיר ליום:"
+      price_per_night: "מחיר ללילה:"
       quantity: ~
       subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
+      shipping-price: "משלוח:"
+    price_per_quantity: "מחיר ‎%{unit_type}‎:"
+    price: "מחיר:"
     quantity: ~
-    unit_price: ~
+    unit_price: "מחיר יחידה:‎%{unit_price} ‎"
     total: ~
   unit:
     day: ~
@@ -2004,16 +2014,16 @@ he-IL:
           saving_failed: ~
       pricing_units:
         piece: ~
-        hour: ~
+        hour: שעה
         day: ~
         night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
+        week: שבוע
+        month: חודש
+      edit_availability_header: תפוסה
       save_and_close_availability_editing: ~
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      edit_listing_availability: "עדכן תפוסה"
     no_listings:
       sorry: ~
       try_other_search_terms: ~
@@ -2024,20 +2034,20 @@ he-IL:
       page: ~
       page_of_pages: ~
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: תפריט
+      more: עוד
+      search_placeholder: חפש...
+      search_location_placeholder: מיקום
+      user: משתמש
+      inbox: הודעות
+      profile: "החשבון שלי"
+      manage_listings: "נהל חשבון"
+      settings: הגדרות
+      logout: התנתק
+      login: כניסה
+      signup: "הרשמו עכשיו!"
+      admin_dashboard: "ניהול אדמיין"
+      language: שפה
     utils:
       km: ~
       mi: ~
