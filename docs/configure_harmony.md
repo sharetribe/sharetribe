@@ -6,7 +6,6 @@ This guide does not instruct how to install and run Harmony. See [README.md](htt
 
 ## Prerequisites
 
-* Harmony version 0.1.2 or newer
 * Sharetribe version 6.2.0 or newer
 * Harmony service up and running
 * Marketplace configured to use transaction process with PayPal payments.
