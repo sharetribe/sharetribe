@@ -590,7 +590,7 @@ he-IL:
       canceled_request: ~
       canceled_offer: ~
       message_from: ~
-      about_listing: "לגבי ‎%{listing_title}‎"
+      about_listing: "‎%{listing_title}‎ לגבי"
       free_message: ~
       message_content_not_available: ~
     message:
@@ -616,7 +616,7 @@ he-IL:
       you_will_get_notified: ~
       title: כותרת
       send_message_to_user: "שלח הודעה ל‎%{person}‎"
-      about_listing: "לגבי ‎%{listing_title}‎"
+      about_listing: "‎%{listing_title}‎ לגבי"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: לגבי
@@ -766,7 +766,7 @@ he-IL:
       kassi_team: "צוות ‎%{service_name}‎"
       thanks: "תודה רבה,"
       dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
+      edit_your_email_settings_here: "ערוך את פרטי האימייל שלך כאן"
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
@@ -787,7 +787,7 @@ he-IL:
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      here_is_a_message_from: "‎%{inviter}‎ הודעה אישית מ"
       join_now: ~
       invitation_code: ~
     new_comment:
@@ -807,7 +807,7 @@ he-IL:
       you_have_received_new_payment: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
-      shipping_total: ~
+      shipping_total: "משלוח:"
     braintree_new_payment:
       product: ~
       price_payer_paid: "מחיר ‎%{payer_full_name}‎ שולם:"
@@ -842,7 +842,7 @@ he-IL:
       intro_paragraph: ~
       intro_paragraph_link_text: ~
       reduce_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: "ערוך את פרטי האימייל שלך כאן"
       unsubscribe_link_text: ~
     newsletter:
       hi: "שלום ‎%{name}‎,"
@@ -931,7 +931,7 @@ he-IL:
       kassi_does_not_currently_work_without_javascript: "‎%{service_name}‎ אינו פועל כשורה ללא JavaScript. נסה להפעיל JavaScript דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש."
       contact_us: "צור קשר"
       send_feedback: שלח
-      your_feedback_to_admins: "ההודעה שלך לצוות ‎%{service_name}‎"
+      your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
     send: שלח
     your_email_address: "כתובת הדואר האלקטרוני שלך"
   errors:
@@ -974,7 +974,7 @@ he-IL:
     about: אודות
     home: "דף הבית"
     members: קהילה
-    new_listing: "צור שירות חדש"
+    new_listing: שתף
     mobile_version: "גרסה לסלולר"
     offers: הזמנות
     requests: בקשות
@@ -985,7 +985,7 @@ he-IL:
     manage_listings: ניהול
     invite: "הזמן את החברים שלך"
     login: כניסה
-    signup: "הרשמו עכשיו!"
+    signup: "!הרשמו עכשיו"
     menu: תפריט
   homepage:
     additional_private_listings_slate:
@@ -1058,8 +1058,8 @@ he-IL:
       this_is_private_community: ~
     invitation_form:
       email: ~
-      message: ~
-      send_invitation: ~
+      message: "הודעה אישית"
+      send_invitation: שלח
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1090,8 +1090,8 @@ he-IL:
       map_button: ~
       grid_button: ~
       list_button: ~
-      all_listing_types: הכל
-      all_categories: "היכן אתה?"
+      all_listing_types: בחר
+      all_categories: "?היכן אתה בעולם"
     errors:
       search_engine_not_responding: ~
   infos:
@@ -1105,7 +1105,7 @@ he-IL:
   landing_page:
     hero:
       search: ~
-      signup: "הרשמו עכשיו!"
+      signup: "!הרשמו עכשיו"
       search_placeholder: ~
       search_location_placeholder: ~
     listings:
@@ -1133,7 +1133,7 @@ he-IL:
       send_feedback_to_admin: שלח
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
-      connect: "הרשמו עכשיו!"
+      connect: "!הרשמו עכשיו"
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
@@ -1177,7 +1177,7 @@ he-IL:
       notifications: התראות
       requests: "בקשות חברות"
       settings: הגדרות
-      sign_up: "הרשמו עכשיו!"
+      sign_up: "!הרשמו עכשיו"
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: "שלח הודעה לצוות האתר"
@@ -1212,7 +1212,7 @@ he-IL:
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "ברוכים הבאים, ‎%{person_name}‎!"
-      logout_successful: "התנתקת מ‎%{service_name}‎. נתראה בקרוב!"
+      logout_successful: "‎%{service_name}‎ התנתקת מ"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -1342,15 +1342,15 @@ he-IL:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: ~
+          select_one___: "...בחר"
       departure_time:
         at: ב
         departure_time: "זמן עזיבה"
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: "תיאור הפרטים"
-        youtube_info: "אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור."
+        detailed_description: תיאור
+        youtube_info: ".אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור"
       destination:
         destination: יעד
       form_content:
@@ -1372,7 +1372,7 @@ he-IL:
         no_file_selected: "לא נבחר קובץ"
         remove_image: "הסר תמונה"
         select_file: "בחר קובץ"
-        add_more: ~
+        add_more: "הוסף עוד +"
         removing: ~
         processing: ~
         loading_image: ~
@@ -1395,8 +1395,8 @@ he-IL:
         time: "שעה, יום, חודש, ..."
         long_time: "שבוע, חודש, ..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: "‎%{paypal_fee_info_link}‎ ינוכה מהמחיר"
-        after_service_fee_you_will_get_paypal_text: "התשלום עבור ‎%{service_name}‎ ו‎%{sum_with_currency}‎ ינוכה מהמחיר."
+        no_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
         paypal_fee_info_link_text: ~
         delivery: "סוג משלוח"
         shipping: משלוח
@@ -1407,7 +1407,7 @@ he-IL:
         location: מיקום
         origin: מקור
       send_button:
-        save_listing: ~
+        save_listing: שמור
       share_type:
         select: ~
         borrow: ~
@@ -1429,7 +1429,7 @@ he-IL:
       title:
         listing_title: כותרת
       valid_until:
-        valid_until: "תאריך תפוגה"
+        valid_until: עד?
       valid_until_radio_buttons:
         for_the_time_being: לבינתיים
       privacy:
@@ -1485,16 +1485,16 @@ he-IL:
       unable_load_availability: ~
     new:
       listing: ~
-      selected_category: ~
-      selected_subcategory: ~
-      selected_transaction_type: ~
-      select_category: ~
-      select_subcategory: ~
+      selected_category: "‎%{category}‎"
+      selected_subcategory: "‎%{subcategory}‎"
+      selected_transaction_type: "‎%{transaction_type}‎"
+      select_category: בחר
+      select_subcategory: בחר
       select_transaction_type: בחר
       you_need_to_fill_payout_details_before_accepting: ~
       contact_admin_link_text: "שלח הודעה לצוות האתר"
       community_not_configured_for_payments: ~
-      payment_settings_link: ~
+      payment_settings_link: "הגדרות תשלום"
       community_not_configured_for_payments_admin: ~
     quantity:
       hour: "מספר שעות:"
@@ -1539,11 +1539,11 @@ he-IL:
       price:
         per_quantity_unit: "ל‎%{quantity_unit}‎"
         per_day: ליום
-      delivery: ~
+      delivery: "סוג משלוח"
       shipping: "משלוח (+‎%{price}‎)"
       shipping_no_price: משלוח
       shipping_price_additional: ~
-      pickup: ~
+      pickup: "איסוף עצמי"
       pickup_no_price: "איסוף עצמי"
       youtube_video_player: "נגן וידאו של יוטיוב"
     unit_types:
@@ -1724,7 +1724,7 @@ he-IL:
       positive: ~
       hide_description: ~
       less_than_expected: ~
-      phone_number: "מספר טלפון:"
+      phone_number: "מספר טלפון"
       show_all_feedback: ~
       show_all_testimonials: ~
       show_full_description: "הצג עוד"
@@ -1740,7 +1740,7 @@ he-IL:
       no_listings: ~
       no_open_listings: ~
       no_reviews: ~
-      show_all_listings: ~
+      show_all_listings: הכל
       show_all_open_listings: ~
       show_all_reviews: ~
     followed_people:
@@ -1793,7 +1793,7 @@ he-IL:
     account:
       change: שנה
       confirm_new_password: "אשר סיסמה חדשה"
-      delete_account: ~
+      delete_account: "מחר חשבון"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
@@ -1820,27 +1820,27 @@ he-IL:
         status_confirmed: ~
         status_pending: ~
     notifications:
-      email_from_admins: ~
+      email_from_admins: "אני מאשר קבלת מיילים מצוות האתר"
       i_want_to_get_email_notification_when: "אני רוצה לקבל התראות לדוא\"ל כאשר..."
-      newsletters: ~
-      community_updates: ~
-      email_about_confirm_reminders: ~
+      newsletters: "איימילים מצוות האתר"
+      community_updates: ניוזלטר
+      email_about_confirm_reminders: "...שכחתי לאשר הזמנה"
       email_about_new_comments_to_own_listing: "...מישהו הגיב על ההזמנה או הבקשה שלי"
       email_about_new_messages: "...מישהו שלח לי הודעה"
       email_about_new_received_testimonials: "...מישהו כתב עלי משוב"
-      email_about_testimonial_reminders: ~
-      email_daily_community_updates: ~
+      email_about_testimonial_reminders: "...שכחתי לכתוב ביקורת על אירוע"
+      email_daily_community_updates: "שלחו לי ניוזלטר יומי עם שיתופים חדשים!"
       email_weekly_community_updates: "שלח לי ניוזלטר שבועי אם יש שירותים חדשים"
-      do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
-      email_about_completed_transactions: ~
+      do_not_email_community_updates: "אל תשלחו לי ניוזלטר"
+      email_when_conversation_accepted: "...מישהו אישר את ההצעה או הבקשה שלי"
+      email_when_conversation_rejected: "...מישהו סרב להצעה או הבקשה שלי"
+      email_about_completed_transactions: "...מישהו השלים את ההזמנה שלי"
       email_about_new_payments: "...קיבלתי תשלום חדש!"
-      email_about_new_listings_by_followed_people: ~
-      unsubscribe_succesful: ~
+      email_about_new_listings_by_followed_people: "...מישהו שאני עוקב אחריו פרסם שיתוף חדש"
+      unsubscribe_succesful: "הסרנו אותך מהרשימה בהצלחה!"
       unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
+      settings_link: הגדרות
+      homepage_link: "דף הבית"
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
@@ -1848,11 +1848,11 @@ he-IL:
       city: עיר
       family_name: "שם משפחה"
       given_name: "שם פרטי"
-      first_name_with_initial: "(רק האות הראשונה תוצג למשתמשים אחרים)"
-      first_name_only: "(לא יוצג למשתמשים אחרים)"
+      first_name_with_initial: "רק האות הראשונה תוצג למשתמשים אחרים"
+      first_name_only: "לא יוצג למשתמשים אחרים"
       display_name: "שם לתצוגה"
       display_name_description: "אם אתה מייצג חברה, אתה יכול להשתמש בשם החברה כשם לתצוגה באתר. שם זה מוצג למשתמשים אחרים במקום השם הפרטי ושם המשפחה שלך."
-      location_description: "דוגמה : \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
+      location_description: "Examples: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "מספר טלפון"
       profile_picture: "תמונת פרופיל"
       postal_code: מיקוד
@@ -1862,12 +1862,12 @@ he-IL:
       these_fields_are_shown_in_your: ~
       visible_to_everybody: "זמין לכולם"
       visible_to_registered_users: "(זמין למשתמשים מחוברים)"
-      default_in_listing: "(משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה)"
-      invisible: "(לא יוצג למשתמשים אחרים)"
+      default_in_listing: "משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה"
+      invisible: "לא יוצג למשתמשים אחרים"
       image_is_processing: ~
     save_information: "שמור פרטים"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "כתובת למשלוח"
   tag_cloud:
     tag_used:
       with_tag: ~
@@ -1968,17 +1968,17 @@ he-IL:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: "לפני ‎%{count}‎ ימים"
-    days_ago: "לפני ‎%{count}‎ ימים"
-    hour_ago: "לפני ‎%{count}‎ שעות"
-    hours_ago: "לפני ‎%{count}‎ שעות"
-    minute_ago: "לפני ‎%{count}‎ דקות"
-    minutes_ago: "לפני ‎%{count}‎ דקות"
-    month_ago: "לפני ‎%{count}‎ חודשים"
-    months_ago: "לפני ‎%{count}‎ חודשים"
-    seconds_ago: "לפני ‎%{count}‎ שניות"
-    year_ago: "לפני שנה ‎%{count}‎"
-    years_ago: "לפני ‎%{count}‎ שנים"
+    day_ago: "‎%{count}‎ לפני יום"
+    days_ago: "ימים ‎%{count}‎ לפני"
+    hour_ago: "‎%{count}‎ לפני שעה"
+    hours_ago: "שעות ‎%{count}‎ לפני"
+    minute_ago: "‎%{count}‎ לפני דקה"
+    minutes_ago: "דקות ‎%{count}‎ לפני"
+    month_ago: "‎%{count}‎ לפני חודש"
+    months_ago: "חודשים ‎%{count}‎ לפני"
+    seconds_ago: "שניות ‎%{count}‎ לפני"
+    year_ago: "‎%{count}‎ לפני שנה"
+    years_ago: "שנים ‎%{count}‎ לפני"
     time_to:
       hours:
         one: "שעה ‎%{count}‎"
@@ -2045,7 +2045,7 @@ he-IL:
       settings: הגדרות
       logout: התנתק
       login: כניסה
-      signup: "הרשמו עכשיו!"
+      signup: "!הרשמו עכשיו"
       admin_dashboard: "ניהול אדמיין"
       language: שפה
     utils:
