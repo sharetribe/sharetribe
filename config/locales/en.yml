@@ -319,15 +319,15 @@ en:
         edit_listing_field: "Edit listing field '%{field_name}'"
       edit_price:
         description: "The minimum and maximum price only affect the filter. They do not set a limit for listing prices."
-        edit_price_field: "Edit price field"
+        edit_price_field: "Edit listing field 'Price'"
         show_price_filter_homepage: "Show price filter on homepage"
         price_min: "Filter minimum price"
         price_max: "Filter maximum price"
       edit_location:
-        edit_location_field: "Edit location field"
+        edit_location_field: "Edit listing field 'Location'"
         this_field_is_required: "This field is required"
       edit_expiration:
-        edit_expiration_field: "Edit expiration field"
+        edit_expiration_field: "Edit listing field 'Expiration date'"
         enable: "Enable expiration date"
       form:
         field_required:
