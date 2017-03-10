@@ -334,7 +334,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :require_verification_to_post_listings,
       :show_category_in_listing_list,
       :show_listing_publishing_date,
-      :hide_expiration_date,
       :listing_comments_in_use,
       :automatic_confirmation_after_days,
       :automatic_newsletters,

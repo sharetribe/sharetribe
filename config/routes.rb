@@ -285,6 +285,8 @@ Kassi::Application.routes.draw do
           post :order
           put :update_price
           put :update_location
+          get :edit_expiration
+          put :update_expiration
         end
       end
       resources :categories do
