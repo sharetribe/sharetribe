@@ -198,7 +198,6 @@ th-TH:
         transaction_preferences: การตั้งค่าการสั่งซื้อสินค้า
         show_listing_publishing_date: แสดงวันที่เผยแพร่รายการในหน้ารายการ
         show_category_in_listing_list: แสดงประเภทรายการในรูปแบบรายการ
-        hide_expiration_date: ไม่จำเป็นต้องบังคับให้รายการมีวันหมดอายุ
         listing_comments_in_use: "ให้สิทธิผู้ใช้ในการแสดงความคิดเห็นแก่รายการ (ผู้ใช้อื่น ๆ ทั้งหมดสามารถดูได้)"
         email_preferences: การกำหนดค่าอีเมล์
         automatic_newsletters: "ส่งจดหมายข่าวรายวัน / สัปดาห์โดยอัตโนมัติไปยังผู้ใช้ทั้งหมด (ยกเว้นกรณีที่พวกเขา เลือกที่จะไม่รับ)"
@@ -322,6 +321,9 @@ th-TH:
       edit_location:
         edit_location_field: แก้ไขข้อมูลตำแหน่ง
         this_field_is_required: ข้อมูลนี้จำเป็น
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: บังคับให้กรอกข้อมูลในช่องนี้เมื่อมีการสร้างรายการใหม่

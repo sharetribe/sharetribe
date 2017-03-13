@@ -204,7 +204,6 @@ hu:
         transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
         show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
-        hide_expiration_date: "Nem szükséges lejárati dátumot megadni a hírdetések feladásakor"
         listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
         email_preferences: "E-mail beállítások"
         automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
@@ -328,6 +327,9 @@ hu:
       edit_location:
         edit_location_field: "A hely mező szerkesztése"
         this_field_is_required: "A mező kitöltése kötelező."
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "A mező kitöltésének kötelezővé tétele új hirdetés feladásakor"

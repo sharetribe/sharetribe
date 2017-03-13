@@ -203,7 +203,6 @@ sv:
         transaction_preferences: Transaktionsinställningar
         show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"
         show_category_in_listing_list: "Visa annonstyp på annonssidan"
-        hide_expiration_date: "Kräv inte att annonser har ett utgångsdatum"
         listing_comments_in_use: "Tillåt att användare kan skriva kommentarer till annonser (detta visas för alla andra användare)."
         email_preferences: E-postinställningar
         automatic_newsletters: "Skicka automatiskt dagliga/veckovis nyhetsbrev till alla användare (såvida de inte vill)"
@@ -327,6 +326,9 @@ sv:
       edit_location:
         edit_location_field: "Redigera platsfält"
         this_field_is_required: "Detta fält måste fyllas i"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"

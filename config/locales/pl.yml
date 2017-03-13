@@ -213,7 +213,6 @@ pl:
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
         show_category_in_listing_list: "Wyświetl rodzaj oferty na widoku listy"
-        hide_expiration_date: "Nie wymagaj, aby oferty miały określone datę wygaśnięcia"
         listing_comments_in_use: "Pozwól użytkownikom dodawać komentarze do ofert (widoczne dla wszystkich pozostałych użytkowników)"
         email_preferences: "Preferencje email"
         automatic_newsletters: "Wysyłaj automatyczne newslettery: dzienne / tygodniowe do wszystkich użytkowników (jeżeli nie zrezygnowali z ich otrzymywania)"
@@ -337,6 +336,9 @@ pl:
       edit_location:
         edit_location_field: "Edytuj pole lokalizacji"
         this_field_is_required: "To pole jest wymagane"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Ustaw to pole jako wymagane, gdy tworzona jest nowa oferta"

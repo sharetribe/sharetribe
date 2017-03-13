@@ -203,7 +203,6 @@ fr:
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
-        hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
         listing_comments_in_use: "Permettre aux utilisateurs de commenter les annonces (visibles par tous les utilisateurs)"
         email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
@@ -327,6 +326,9 @@ fr:
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Lieu'"
         this_field_is_required: "Ce champ est obligatoire"
+      edit_expiration:
+        edit_expiration_field: "Modifier le champ d'annonce 'Date d'expiration'"
+        enable: "Activer la date d'expiration"
       form:
         field_required:
           this_field_is_required: "Rendre ce champ obligatoire lors de la création d'une nouvelle annonce"

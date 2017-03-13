@@ -198,7 +198,6 @@ zh-HK:
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
         show_category_in_listing_list: 在訊息列表中顯示訊息類型
-        hide_expiration_date: 發佈的訊息不需到期日
         listing_comments_in_use: 允許用戶對訊息發表評論（所有其他用戶皆可見）
         email_preferences: 電郵偏好設置
         automatic_newsletters: 自動發送每日/每周電子報給所有用戶（除非用戶選擇不接收）
@@ -322,6 +321,9 @@ zh-HK:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: ~

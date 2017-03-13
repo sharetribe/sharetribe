@@ -194,7 +194,6 @@ pt-PT:
         transaction_preferences: ~
         show_listing_publishing_date: "Mostrar data de publicação do anúncio na página do anúncio"
         show_category_in_listing_list: "Mostrar o tipo de anúncio na visualização em forma de lista"
-        hide_expiration_date: "Não requer anúncios para ter data de validade"
         listing_comments_in_use: "Permitir aos utilizadores comentarem nos anúncios (visível a todos os outros utilizadores)"
         email_preferences: ~
         automatic_newsletters: "Enviar automáticamente boletins diários / semanais para todos os utilizadores (a menos que optar por sair)"
@@ -318,6 +317,9 @@ pt-PT:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: ~

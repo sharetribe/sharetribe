@@ -208,7 +208,6 @@ cs:
         transaction_preferences: "Nastavení transakcí"
         show_listing_publishing_date: "Zobrazit datum zveřejnění inzerátu na stránce inzerátu"
         show_category_in_listing_list: "Zobrazit typ inzerátu v seznamu zobrazení"
-        hide_expiration_date: "Nevyžadovat inzeráty s datem vypršení platnosti"
         listing_comments_in_use: "Povolit uživatelům přidávat příspěvky k inzerátům (viditelné pro všechny uživatele)"
         email_preferences: "Nastavení e-mailu"
         automatic_newsletters: "Zasílat automaticky denní / týdenní newsletter všem uživatelům (v případě, že nezruší zasílání)"
@@ -332,6 +331,9 @@ cs:
       edit_location:
         edit_location_field: "Upravit umístění"
         this_field_is_required: "Toto pole je povinné"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Toto pole je povinné"

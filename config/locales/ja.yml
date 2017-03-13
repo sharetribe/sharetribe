@@ -198,7 +198,6 @@ ja:
         transaction_preferences: 課金の設定
         show_listing_publishing_date: リストページのリストの掲載日の日付を表示
         show_category_in_listing_list: リストの種類を一覧にする
-        hide_expiration_date: 有効期限の設定は必要ありません
         listing_comments_in_use: リストに対するコメントの投稿を許可してください（すべてのユーザに表示されます）
         email_preferences: 自動メール送信設定
         automatic_newsletters: 毎日・毎週、自動メールを全てのユーザに送信する（ユーザが拒否しない限り）
@@ -322,6 +321,9 @@ ja:
       edit_location:
         edit_location_field: 場所を編集
         this_field_is_required: この項目は入力必須です
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: この項目は入力必須です

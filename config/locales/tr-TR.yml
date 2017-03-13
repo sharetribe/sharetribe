@@ -198,7 +198,6 @@ tr-TR:
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
         show_category_in_listing_list: "Liste görünümünde listeleme türünü göster"
-        hide_expiration_date: "Listelemelere bitiş tarihi zorunluluğu koyma"
         listing_comments_in_use: "Diğer kullanıcıların listelemelere yorum yapmasına izin ver (diğer tüm kullanıcılar görebilir)"
         email_preferences: "E-posta tercihleri"
         automatic_newsletters: "Tüm kullanıcılara günlük / haftalık otomatik bülten gönder (aksini belirtmedikleri takdirde)"
@@ -322,6 +321,9 @@ tr-TR:
       edit_location:
         edit_location_field: "Konum alanını düzenle"
         this_field_is_required: "Bu alan zorunludur"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Bu alanı doldurmak zorunludur"

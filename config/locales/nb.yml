@@ -203,7 +203,6 @@ nb:
         transaction_preferences: Transaksjonsinnstillinger
         show_listing_publishing_date: "Vis dato annonsen ble publisert"
         show_category_in_listing_list: "Vis annonsetype som listevisning"
-        hide_expiration_date: "Ikke krev at annonser har en utløpsdato"
         listing_comments_in_use: "Tillatt at brukere kan kommentere på annonser(synlig for alle brukere)"
         email_preferences: Epost-innstillinger
         automatic_newsletters: "Send automatisk daglig/ukentlig nyhetsbrev til alle brukere (om de ikke velger aktivt å ikke motta)"
@@ -327,6 +326,9 @@ nb:
       edit_location:
         edit_location_field: "Endre stedsfelt"
         this_field_is_required: "Dette feltet er påkrevd"
+      edit_expiration:
+        edit_expiration_field: "Endre feltet 'utløpsdato'"
+        enable: "Slå på utløpsdato"
       form:
         field_required:
           this_field_is_required: "Dette feltet er påkrevd"

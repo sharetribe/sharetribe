@@ -205,7 +205,6 @@ nl:
         transaction_preferences: "Transactie voorkeuren"
         show_listing_publishing_date: "Toon publicatie datum van de advertentie op de advertentie pagina"
         show_category_in_listing_list: "Toon advertentietype in lijst overzicht"
-        hide_expiration_date: "Vereis niet dat advertenties een vervaldatum hebben"
         listing_comments_in_use: "Laat gebruikers toe commentaar te geven op advertenties (zichtbaar voor alle gebruikers)"
         email_preferences: "E-mail voorkeuren"
         automatic_newsletters: "Zend automatisch dagelijkse / wekelijkse nieuwsbrieven naar gebruikers (tenzij ze zich uitgeschreven hebben)"
@@ -329,6 +328,9 @@ nl:
       edit_location:
         edit_location_field: "Aanpassen veld locatie"
         this_field_is_required: "Dit veld is verplicht"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Verplicht dit veld in te vullen bij een nieuwe advertentie"

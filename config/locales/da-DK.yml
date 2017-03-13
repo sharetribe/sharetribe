@@ -203,7 +203,6 @@ da-DK:
         transaction_preferences: "Transaktions indstillinger"
         show_listing_publishing_date: "Vis oprettelsesdato af annoncen på annonce siden"
         show_category_in_listing_list: "Vis annoncetype i liste visningen"
-        hide_expiration_date: "Påkræv ikke, at annoncer skal have en udløbsdato"
         listing_comments_in_use: "Tillad brugere at tilføje kommentarer til annoncen (kan ses af alle brugere)"
         email_preferences: E-mailindstillinger
         automatic_newsletters: "Send automatiske daglige / ugentlige nyhedsbreve til alle brugere på siden (undtaget hvis de har afmeldt disse emails)"
@@ -228,7 +227,7 @@ da-DK:
         manage_members: "Administrer brugere"
         email: Email
         name: Navn
-        display_name: ~
+        display_name: "Vist navn"
         join_date: Tilmeldt
         admin: Administrator
         posting_allowed: "Oprettelse af annoncer tilladt"
@@ -329,6 +328,9 @@ da-DK:
       edit_location:
         edit_location_field: "Rediger placerings feltet"
         this_field_is_required: "Dette felt er påkrævet"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: "Aktiver udløbsdato"
       form:
         field_required:
           this_field_is_required: "Dette felt er påkrævet."
@@ -388,12 +390,12 @@ da-DK:
       subscription: Abonnement
       preview: "Vis eksempel på min hjemmeside"
     listing_shapes:
-      availability_title: ~
+      availability_title: Tilgængelighed
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
+      per_day_availability: "\"Pr. dag\" tilgængelighed"
+      per_night_availability: "\"Pr. nat\" tilgængelighed"
       pricing_units_disabled_info: ~
       index:
         listing_shapes: "Ordre typer"
@@ -912,7 +914,9 @@ da-DK:
       person_email: "E-mail:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
+      booking_failed_payment_voided: |-
+          Booking mislykkedes på grund af en uventet fejl. Prøv igen senere.
+          Du er ikke blevet debiteret.
       double_booking_payment_voided: ~
     onboarding:
       server_rendering: "Kom godt i gang guide kunne ikke indlæses. Vi er blevet informeret om situationen, og vi løser det."
@@ -1822,9 +1826,9 @@ da-DK:
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplads!"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      admin_dashboard_link_text: "admin dashboard"
       account_confirmation_instructions_admin: "Du vil nu modtage en mail med et link som du skal klikke på for at bekræfte din indtastede mailadresse. Efter at have godkendt din email, kan du starte med at foretage ændringer på din nye markedsplads."
-      contact_support_link_text: ~
+      contact_support_link_text: "kontakt Sharetribe support"
   settings:
     account:
       change: Skift
@@ -1886,7 +1890,7 @@ da-DK:
       given_name: Fornavn
       first_name_with_initial: "(kun forbogstavet vil blive vist til andre brugere)"
       first_name_only: "(vises ikke til andre brugere)"
-      display_name: ~
+      display_name: "Vist navn"
       display_name_description: ~
       location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
       phone_number: Telefonnnummer
@@ -2061,25 +2065,25 @@ da-DK:
           something_went_wrong: ~
           saving_failed: ~
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
+        piece: styk
+        hour: time
+        day: dag
+        night: nat
+        week: uge
+        month: måned
+      edit_availability_header: Tilgængelighed
+      save_and_close_availability_editing: "Gem og luk"
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
-      sorry: ~
+      sorry: "Beklager, ingen annoncer blev fundet til dine søgekriterier."
       try_other_search_terms: ~
     listing_card:
-      add_picture: ~
+      add_picture: "Tilføj billede"
       no_picture: "Intet billede"
     search:
-      page: ~
+      page: Side
       page_of_pages: ~
     topbar:
       menu: Menu
@@ -2097,8 +2101,8 @@ da-DK:
       admin_dashboard: "Admin panel"
       language: Sprog
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mi
     branding:
       powered_by: "%{service_name} er powered af %{sharetribe_link} markedsplads platformen."
       create_own: "Vil du oprette din egen online markedsplads hjemmeside som %{service_name}? %{learn_more}."

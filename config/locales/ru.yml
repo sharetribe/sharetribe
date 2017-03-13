@@ -213,7 +213,6 @@ ru:
         transaction_preferences: "Настройки транзакции"
         show_listing_publishing_date: "Отобразить дату публикации на странице публикации"
         show_category_in_listing_list: "Показывать тип публикации"
-        hide_expiration_date: "Не требовать чтобы публикации имели дату окончания актуальности"
         listing_comments_in_use: "Позволить участникам комментировать публикации (видно для всех участников)"
         email_preferences: "Настройки e-mail"
         automatic_newsletters: "Автоматически отправлять ежедневно/еженедельно новости всем участникам (пока они не откажутся от подписки)"
@@ -337,6 +336,9 @@ ru:
       edit_location:
         edit_location_field: "Редактировать поле местоположения"
         this_field_is_required: "Это обязательное поле"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Это обязательное поле"
