@@ -18,6 +18,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Fix cropped cover photo in big screens [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
+- Add missing padding to homepage search field in mobile view [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
+
 ### Security
 
 ## [6.2.0] - 2017-03-09
