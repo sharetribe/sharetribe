@@ -244,6 +244,8 @@ CREATE TABLE `communities` (
   `small_cover_photo_updated_at` datetime DEFAULT NULL,
   `custom_color1` varchar(255) DEFAULT NULL,
   `custom_color2` varchar(255) DEFAULT NULL,
+  `slogan_color` varchar(6) DEFAULT NULL,
+  `description_color` varchar(6) DEFAULT NULL,
   `stylesheet_url` varchar(255) DEFAULT NULL,
   `stylesheet_needs_recompile` tinyint(1) DEFAULT '0',
   `service_logo_style` varchar(255) DEFAULT 'full-logo',
@@ -1599,7 +1601,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-09 13:12:16
+-- Dump completed on 2017-03-14 13:56:18
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3225,4 +3227,8 @@ INSERT INTO schema_migrations (version) VALUES ('20170216134444');
 INSERT INTO schema_migrations (version) VALUES ('20170220123526');
 
 INSERT INTO schema_migrations (version) VALUES ('20170309104456');
+
+INSERT INTO schema_migrations (version) VALUES ('20170313201104');
+
+INSERT INTO schema_migrations (version) VALUES ('20170314075755');
 

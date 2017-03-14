@@ -46,6 +46,8 @@
 #  small_cover_photo_updated_at               :datetime
 #  custom_color1                              :string(255)
 #  custom_color2                              :string(255)
+#  slogan_color                               :string(6)
+#  description_color                          :string(6)
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")

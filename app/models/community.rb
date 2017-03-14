@@ -45,6 +45,8 @@
 #  small_cover_photo_updated_at               :datetime
 #  custom_color1                              :string(255)
 #  custom_color2                              :string(255)
+#  slogan_color                               :string(6)
+#  description_color                          :string(6)
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
@@ -138,6 +140,8 @@ class Community < ActiveRecord::Base
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_format_of :slogan_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_format_of :description_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
 
   VALID_BROWSE_TYPES = %w{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
