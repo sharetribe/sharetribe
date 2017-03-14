@@ -393,7 +393,7 @@ class Community < ActiveRecord::Base
   end
 
   def has_customizations?
-    custom_color1 || custom_color2 || cover_photo.present? || small_cover_photo.present? || wide_logo.present? || logo.present?
+    custom_color1 || custom_color2 || slogan_color || description_color || cover_photo.present? || small_cover_photo.present? || wide_logo.present? || logo.present?
   end
 
   def has_custom_stylesheet?
