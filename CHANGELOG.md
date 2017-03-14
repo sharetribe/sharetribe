@@ -33,6 +33,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - New feature: Hide irrelevant search filters when a category or subcategory is selected [#2882](https://github.com/sharetribe/sharetribe/pull/2882)
 - Landing page Markdown support [#2887](https://github.com/sharetribe/sharetribe/pull/2887)
 - Add instructions how to configure Harmony service [#2892](https://github.com/sharetribe/sharetribe/pull/2892)
+- Add support for display name [#2869](https://github.com/sharetribe/sharetribe/pull/2869)
+- Add support for customizing community description and slogan color [#2898](https://github.com/sharetribe/sharetribe/pull/2898)
 
 ### Changed
 
