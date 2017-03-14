@@ -649,10 +649,14 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
   var form_id = "#edit_community_" + community_id;
   $(form_id).validate({
      rules: {
-       "community[custom_color1]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"}
+       "community[custom_color1]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"},
+       "community[description_color]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"},
+       "community[slogan_color]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"}
      },
      messages: {
-      "community[custom_color1]": { regex: invalid_color_code_message }
+       "community[custom_color1]": { regex: invalid_color_code_message },
+       "community[description_color]": { regex: invalid_color_code_message },
+       "community[slogan_color]": { regex: invalid_color_code_message }
     },
      submitHandler: function(form) {
        disable_and_submit(form_id, form, "false", locale);
