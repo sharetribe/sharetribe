@@ -384,7 +384,7 @@ ka:
       preview: "საიტის გადახედვა"
     listing_shapes:
       availability_title: ხელმისაწვდომობა
-      read_more: ~
+      read_more: "წაიკითხეთ მეტი ავტომატური ხელმისაწვდომობის მართვაზე."
       read_more_availability_management: "წაიკითხეთ მეტი ხელმისაწვდომობის შესახებ"
       allow_providers_to_manage_availability: "მიეცი უფლება პროვაიდერებს რათა მართონ მათი თავისუფალი დრო კალენდრიდან."
       per_day_availability: "დღიური ხელმისაწვდომობა"
@@ -481,7 +481,7 @@ ka:
       read_more_about_paypal: "წაიკითხე მეტი Sharetribe-ის გადახდის სისტემის შესახებ"
       edit_payment_settings: "დაარედაქტირეთ გადახდის პარამეტრები"
       supported_currencies_information_text: "Sharetribe-ის ონლაინ გადახდების სისტემა 24 ვალუტას იტევს. თუ თქვენი ვალუტა არ არის ჩამონათვალში დააჭირეთ მხარდაჭერის ბმულს%{contact_support_link}. თუ შეცვლით ბაზრის ვალუტას, არსებული განცხადებები შეინარჩუნებენ მათ ძველ ვალუტას. თქვენ უნდა დაარედაქტიროთ ეს ჩამონათვლები ინდივიდუალურად რათა გადახვიდეთ ახალ ვალუტაზე."
-      currency_change_warning_text: ~
+      currency_change_warning_text: "თუ თქვენ შეცვლით ვალუტას, არ დაგავიწყდეთ რომ თხოვოთ გამყიდველებს რათა მათ დაარედაქტირონ არსებული განცხადებები და შეცვალონ ის შესაბამის ვალუტაზე."
       marketplace_currency_label: "ბაზრის ვალუტა"
       minimum_listing_price_label: "მინიმუმ ტრანზაქციის ზმა:"
       transaction_fee_label: "ტრანზაქციის გადასახადი:"
@@ -503,7 +503,7 @@ ka:
         sell: ყიდვა
         rent: გაქირავება
         request: შეთავაზება
-        offer: მოთხოვნა
+        offer: ყიდვა
         inquiry: კონტაქტი
   common:
     edit_page: "დაარედაქტირე გვერდი"
@@ -515,7 +515,7 @@ ka:
     password: პაროლი
     service_name: "%{service_name}"
     share_types:
-      request: მოთხოვნა
+      request: ყიდვა
       offer: შეთავაზება
       borrow: სესხება
       buy: ყიდვა
@@ -921,7 +921,7 @@ ka:
     transaction_agreement:
       required_error: "თქვენ უნდა დაადასტუროთ ხელშეკრულება"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "ტრანზაქცია ვერ განხორციელდა. ეს ალბათ გამოწვეულია საკრედიტო ბარათის მიერ. სავარაუდოდ ვერ მოხდა ბანკის მიერ მისი ავტორიზაცია. გთხოვთ სცადოთ თავიდან - ალტერნატიული გადახდის მეთოდის გამოყენებით."
       buyer_cannot_pay_error: "გადახდის უარყოფა მოხდა PayPal-დან. გთხოვთ დაუკავშირდეთ მათი კლიენტთა მოსმახურების სერვისს მეტი ინფორმაციისთვის: %{customer_service_link}"
       pending_review_error: "გადახდა დარეგსისტრირდა, მაგრამ მონიშნულია PayPal-ზე როგორც \"საჭიროებს გადახედვას\" როდესაც PayPal გადახედავს გადახდა ავტომატურად ავტორიზებული გახდება."
       seller_express_checkout_disabled: "PayPal-ის ექსპრეს გადახდის სერვისი შეჩერებულია გამყიდველებისთვის PayPal-ის ანგარიშზე. გთხოვთ დაუკავშირდით გამყიდველს და შეატყობინოთ, რომ რაღაც პრობლემაა მათი PayPal-ის ანგარიშზე და ურჩიეთ, რომ დაუკავშირდნენ PayPal-ის კლიენტთა მომსახურების ცენტრს."
@@ -991,7 +991,7 @@ ka:
     comment:
       commented: "%{commenter_name} დააკომენტარა ჩამონათვალზე%{listing_title}%{time_ago}"
       offer_partitive: შეთავაზება
-      request_partitive: მოთხოვნა
+      request_partitive: ყიდვა
   header:
     about: შესახებ
     home: მთავარი
@@ -1507,7 +1507,7 @@ ka:
       booking_to: ზე
       how_paypal_works: "როგორ მუშაობს PayPal"
       payment_help: "გადახდის დახმარება"
-      unable_load_availability: ~
+      unable_load_availability: "ვერ მოხდა ჩატვირთვა ხელმისაწვდომობაზე. გთხოვთ თავიდან სცადოთ."
     new:
       listing: სია
       selected_category: "კატეგორია: %{category}"
@@ -1539,7 +1539,7 @@ ka:
       contact_by_phone: "დაეკონტაქტე ტელეფონით:"
       contact: კონტაქტი
       favor_offer: "სერვისის შეთავაზება"
-      favor_request: "სერვისის მოთხოვნა"
+      favor_request: "სერვისის ყიდვა"
       inquiry: განცხადება
       item_offer_trade: "გაცვალე შეთავაზება"
       item_request_trade: "გაცვალე მოთხოვნა"
@@ -1551,7 +1551,7 @@ ka:
       open_until: "ღიაა %{date}მდე"
       feedback: შეფასება
       qr_code: "QR კოდი"
-      request: მოთხოვნა
+      request: ყიდვა
       rideshare_offer: "დამგზავრების შეთავაზება"
       rideshare_request: "დამგზავრების მოთხოვნა"
       send_private_message: "გააგზავნეთ პერსონალური წერილი"
@@ -1588,7 +1588,7 @@ ka:
       by: "%{listing} %{author}სგან"
       payment: გადახდა
       exp: "ვადის გასვლა:"
-      you_will_be_charged: "თქვენ დაგერიცხებათ თანხა, მხოლოდ მაშინ, როცა %{author} დაადასტურებს ტრანზაქციას. %{author} საჭიროა დაადასტუროს ტრანზაქცია %{expiration_period} დღის განმავლობაში. თუ %{author} უარყოფს ან არ უპასუხებს მაშინ დარიცხვა არ მოხდება."
+      you_will_be_charged: "თქვენ ჩამოგეჭრებათ თანხა, მხოლოდ მაშინ, როცა %{author} დაადასტურებს ტრანზაქციას. %{author} საჭიროა დაადასტუროს ტრანზაქცია %{expiration_period} დღის განმავლობაში. თუ %{author} უარყოფს ან არ უპასუხებს მაშინ თქვენ თანხა არ ჩამოგეჭრებათ."
       day: დღე
       days: დღეები
       night: ღამე
@@ -1811,8 +1811,8 @@ ka:
       confirm_your_email: "გთხოვთ დაადასტურეთ თქვენი ელ. ფოსტა"
       account_confirmation_instructions: "თქვენ მალე მიიღებთ წერილს ელ. ფოსტაზე ბმულით რომ დაადასტუროთ თქვენი ელ. ფოსტის მისამართი. არ დაგავიწყდეთ სპამის ფოლდერის შემოწმება. თქვენი ელ. ფოსტის დადასტურების შემდეგ თქვენ შეგიძლით შემოუერთდეთ %{service_name}-ს."
       account_confirmation_instructions_title_admin: "დაადასტურეთ თქვენი ელ-ფოსტის მისამართი."
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
+      before_full_access_you_need_to_confirm_email: "სანამ ჩვენ მოგცემთ სრულ წვდომას თქვენს ბაზარზე, ერთი რამ გვინდა გთხოვოთ: დაადასტურეთ თქვენი ელ-ფოსტა."
+      before_confirmation_only_access_admin_dashboard: "დადასტურებამდე თქვენ წვდომა გექნებათ მხოლოდ %{admin_dashboard_link}ს"
       admin_dashboard_link_text: "ადმინისტრატორის პანელი"
       account_confirmation_instructions_admin: "თქვენ მალე მიიღებთ წერილს ელ. ფოსტაზე ბმულით რომ დაადასტუროთ თქვენი ელ. ფოსტის მისამართი. არ დაგავიწყდეთ სპამის ფოლდერის შემოწმება. ბმულის გახსნის შემდეგ თქვენ შეგიძლიათ დაიწყოთ თქვენი ბაზრის დაყენება."
       contact_support_link_text: "დაუკავშირდით ჩვენ დამხარებას"
@@ -2042,8 +2042,8 @@ ka:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "ჩვენ ვერ შევძელით გვეჩვენებინა ხელმისაწვდომობის ინფორმაცია. გთხოვთ სცადოთ გვერდის გადატვირთვა."
+          saving_failed: "ცვლილებების შენახვა ვერ მოხერხდა. გთხოვთ სცადოთ გვერდის გადატვირთვა."
       pricing_units:
         piece: ""
         hour: საათი
@@ -2053,14 +2053,14 @@ ka:
         month: თვე
       edit_availability_header: ხელმისაწვდომობა
       save_and_close_availability_editing: "შეინახეთ და დახურეთ"
-      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_explanation: "თქვენ არ დაგისრულებიათ ცვლილებების შეტანა. თუ გააგრძელებთ, ეს ცვლილებები დაიკარგება."
       confirm_discarding_unsaved_availability_changes_question: "დარწმუნებული ხართ რომ გსურთ უარყოთ ცვლილებები?"
       edit_listing_availability: "დაარედაქტირე ჩამონათვალის ხელმისაწვდომობა"
     no_listings:
       sorry: "სამწუხაროდ თქვენი ძებნის კატეგორიით ვერ მოიძებნა ჩამონათვალი. იქნებ სხვა ძებნის პირობები ცადოთ?"
       try_other_search_terms: "იქნებ სცადოთ სხვა ძებნის პირობები."
     listing_card:
-      add_picture: ~
+      add_picture: "დაამატე სურათი"
       no_picture: "სურათი არ არის"
     search:
       page: გვერდი
