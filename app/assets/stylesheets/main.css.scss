@@ -1990,7 +1990,7 @@ figure.fluidratio {
     margin-top: 0;
     position: relative;
     padding: 0;
-    color: $background;
+    color: $slogancolor;
     @include larger-type;
     line-height: em(18);
     @include media(tablet) {
@@ -1998,6 +1998,10 @@ figure.fluidratio {
       @include huge-type;
       line-height: em(15);
     }
+  }
+
+  .marketplace-lander-content-description {
+      color: $descriptioncolor;
   }
 
   .title-container {

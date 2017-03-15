@@ -12,6 +12,8 @@
 namespace :sharetribe do
   CUSTOM_COLOR1 = "ff0000"
   CUSTOM_COLOR2 = "00ff00"
+  CUSTOM_COLOR3 = "0000ff"
+  CUSTOM_COLOR4 = "00ffff"
 
   SOURCE_DIR    = "app/assets/stylesheets"
   SOURCE_FILE   = "application.scss"
@@ -21,6 +23,8 @@ namespace :sharetribe do
     {
       "link"                    => "#000000",
       "link2"                   => "#000000",
+      "slogancolor"             => "#000000",
+      "descriptioncolor"        => "#000000",
       "cover-photo-url"         => "\"default-cover-photo\"",
       "small-cover-photo-url"   => "\"default-small-cover-photo\"",
       "wide-logo-lowres-url"    => "\"default-wide-logo-lowres\"",
@@ -34,6 +38,8 @@ namespace :sharetribe do
     {
       "link"                    => "##{CUSTOM_COLOR1}",
       "link2"                   => "##{CUSTOM_COLOR2}",
+      "slogancolor"             => "##{CUSTOM_COLOR3}",
+      "descriptioncolor"        => "##{CUSTOM_COLOR4}",
       "cover-photo-url"         => "\"cover-photo\"",
       "small-cover-photo-url"   => "\"small-cover-photo\"",
       "wide-logo-lowres-url"    => "\"wide-logo-lowres\"",
@@ -201,14 +207,20 @@ namespace :sharetribe do
 
     overrides = find_overrides(default_styles, custom_styles)
 
-    color_map = ColorUtils.sass_color_variations([
-      transforms_hash(CUSTOM_COLOR1),
-      transforms_hash(CUSTOM_COLOR2)
-    ])
+    color_map = ColorUtils.sass_color_variations(
+      [
+        transforms_hash(CUSTOM_COLOR1),
+        transforms_hash(CUSTOM_COLOR2),
+        transforms_hash(CUSTOM_COLOR3),
+        transforms_hash(CUSTOM_COLOR4)
+      ]
+    )
 
     color_search_map = {
       color1: search_map(color_map, CUSTOM_COLOR1),
-      color2: search_map(color_map, CUSTOM_COLOR2)
+      color2: search_map(color_map, CUSTOM_COLOR2),
+      slogancolor: search_map(color_map, CUSTOM_COLOR3),
+      descriptioncolor: search_map(color_map, CUSTOM_COLOR4)
     }
 
     write_template(overrides_file, replace_with_template_strings(overrides, color_search_map))
