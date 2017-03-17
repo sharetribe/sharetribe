@@ -94,6 +94,10 @@ nl:
         favicon: Favicon
         favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
         community_custom_color1: Hoofdkleur
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: "Kleur van de \"Plaats een nieuwe advertentie\" button"
         logo_instructions_text_with_dimensions: "Het desktop logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
@@ -321,16 +325,16 @@ nl:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
       edit_price:
         description: "De minimum en maximum prijs hebben alleen invloed op de filter. Ze zetten geen limiet op de prijs van advertenties."
-        edit_price_field: "Pas veld prijs aan"
+        edit_price_field: "Pas veld 'Prijs' aan"
         show_price_filter_homepage: "Toon filter prijs op homepagina"
         price_min: "Filter minimum prijs"
         price_max: "Filter maximum prijs"
       edit_location:
-        edit_location_field: "Aanpassen veld locatie"
+        edit_location_field: "Pas veld 'Locatie' aan"
         this_field_is_required: "Dit veld is verplicht"
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Bewerk advertentie veld 'Verloopdatum'"
+        enable: "Activeer verloopdatum"
       form:
         field_required:
           this_field_is_required: "Verplicht dit veld in te vullen bij een nieuwe advertentie"

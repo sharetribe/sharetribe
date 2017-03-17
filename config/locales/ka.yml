@@ -89,6 +89,10 @@ ka:
         favicon: Favicon
         favicon_info_text: "Favicon ჩაანაცვლებს Sharetribe-ს მოყოლილ ლოგოს. გაფართოება უნდა იყოს 32x32 პიქსელი და ატვირთული სურათის ზომები შეიცვლება ამ გაფართოებაზე."
         community_custom_color1: "მთავარი ფერი"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: "დაპოსტე ახალი ჩამონათვალის ღილაკის ფერი"
         logo_instructions_text_with_dimensions: "დესკტოპის ლოგოს ზომა უნდა იყოს %{width}x%{height} პიქსელი."
         logo_instructions_text_with_dimensions_no_placing: "ლოგოს ზომა უნდა იყოს%{height}%{width}პიქსელი"
@@ -474,7 +478,7 @@ ka:
       marketplace_paypal_integration: "გადახდის სისტემის პარამეტრები"
       preferences_updated: "გადახდის პარამეტრები განახლებულია"
       contact_support_link_text: "დაუკავშირდით Sharetribe-ს დახმარებას"
-      integration_info_text: "Sharetribe-ის გადახდები ეფუძნება PayPal-ს. იმისთვის რომ ნება დართო შენ მომხმარებლებს რომ გამოიყენონ შენი ბაზარი შენ უნდა დაუკავშირდე შენს PayPal ანგარიშს. იმის შემდეგ რაც დაუკავშირდები შენი PayPal-ის ანგარიშს შეგიძლია მიუთითო მინიმუმ ტრანზაქციების ზომა და შესაძლო საკომისიო საფასური."
+      integration_info_text: "Sharetribe-ის გადახდები ეფუძნება PayPal-ს. იმისთვის რომ ნება დართო შენ მომხმარებლებს რომ გამოიყენონ შენი ბაზარი შენ უნდა დაუკავშირდე შენს PayPal ანგარიშს. იმის შემდეგ რაც დაუკავშირდები შენს PayPal ანგარიშს შეგიძლია მიუთითო მინიმუმ ტრანზაქციების ზომა და შესაძლო საკომისიო საფასური."
       link_paypal_personal_account_label: "თავად აწარმოებთ სერვისს ან პროდუქტს?"
       link_paypal_personal_account: "თუ კი, თქვენ ასევე დაგჭირდებათ თქვენ PayPal ანგარიშის დაკავშირება %{personal_payment_preferences_link}-სთან."
       personal_payment_preferences_link_text: "თქვენი პერსონალური ბაზრის ანგარიში"
@@ -1292,7 +1296,7 @@ ka:
       you_have_already_given_feedback_about_this_event: "თქვენ უკვე შეაფასეთ ეს ღონისძიება"
       you_are_now_member: "მოგესალმებით %{service_name}ზე!"
       you_are_already_member: "თქვენ უკვე ხართ %{service_name}ს წევრი. კეთილი იყოს თქვენი დაბრუნება."
-      you_must_log_in_to_create_new_listing: "თქვენ უნდ აშეხვიდეთ %{service_name}-ში, რათა შექმნათ ახალი ჩამონათვალი. თუ არ გაქვთ ანგარიში თქვენ შეგიძლიათ %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "თქვენ უნდა შეხვიდეთ %{service_name}ზე, რათა დაამატოთ განცხადება. თუ ჯერ არ გაქვთ ანგარიში, შეგიძლიათ %{sign_up_link}."
       additional_email_confirmed_dashboard: "თქვენი ელ-ფოსტა ეხლა დადასტურდა."
       you_must_log_in_to_give_feedback: "თქვენ უნდა შეხვიდეთ სისტემაში რათა შეაფასოთ"
       you_must_log_in_to_invite_new_users: "თქვენ უნდა შეხვიდეთ სისტემაში რათა მოიწვიოთ ახალი მომხმარებლები %{service_name}ზე"

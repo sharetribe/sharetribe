@@ -94,6 +94,10 @@ nb:
         favicon: Favicon
         favicon_info_text: "Favicon vil erstatte Sharetribe standardlogo. Størrelsen bør være 32x32 piksler. Bilder som lastes opp blir endret i størrelse til disse målene."
         community_custom_color1: Hovedfarge
+        community_slogan_color: "Farge på markedsplassens slagord"
+        community_slogan_color_instructions_text: "Du kan endre fargen på slagordet på forsiden ved å angi en fargekode i heksadesimaler. Slagordet vises til brukere som ikke er logget inn. %{colorpicker} kan hjelpe deg å velge en farge og gir deg også heksadesimalkoden på fargen. Du kan så lime inn koden her. %{see_how_it_looks_like}."
+        community_description_color: "Farge på markedsplassens beskrivelse"
+        community_description_color_instructions_text: "Du kan endre fargen på beskrivelsen på forsiden ved å angi en fargekode i heksadesimaler. Beskrivelsen vises til brukere som ikke er logget inn. %{colorpicker} kan hjelpe deg å velge en farge og gir deg også heksadesimalkoden på fargen. Du kan så lime inn koden her. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Farge på knappen for å opprette ny annonse"
         logo_instructions_text_with_dimensions: "Desktop logo størrelse skal være %{height}x%{width}px. Blir vist til brukere med større skjermer."
         logo_instructions_text_with_dimensions_no_placing: "Størrelsen på logoen burde være %{height} x %{width} piksler."

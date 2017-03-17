@@ -89,6 +89,12 @@ tr-TR:
         favicon: Favicon
         favicon_info_text: "Favicon default Sharetribe logosunun yerini alacaktır. Ebatlar 32x32 piksel olmalıdır ve yüklenen görseller bu boya getirilecektir."
         community_custom_color1: "Ana renk"
+        community_slogan_color: "Pazar yeri slogan rengi"
+        community_slogan_color_instructions_text: "Bir hex renk değeri girerek ana sayfa slogan rengini değiştirebilirsiniz. Slogan rengi kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} renk seçmenize ve hex renk kodu elde etmenize yardımcı olur. Sonrasında renk kodunu buradan kopyalayabilirsiniz  %{see_how_it_looks_like}."
+        community_description_color: "Pazar yeri açıklama rengi"
+        community_description_color_instructions_text: |-
+            Ana sayfa açıklama rengini bir hex renk kod değeri girerek değiştirebilirsiniz.
+            Açıklama kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} size renk seçmenizde yardımcı olur ve hex renk kodu verir. Sonrasında kodu buradan kopya edebilirsiniz.%{see_how_it_looks_like}
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Masaüstü logo ebatları %{width}x%{height} olmalıdır. Büyük ekrana sahip üyelere gösterilecektir."
         logo_instructions_text_with_dimensions_no_placing: ~
