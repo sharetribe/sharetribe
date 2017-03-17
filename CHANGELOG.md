@@ -16,6 +16,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
+- Removed default twitter handle [#2906](https://github.com/sharetribe/sharetribe/pull/2906)
+
 ### Fixed
 
 - Fix cropped cover photo in big screens [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
