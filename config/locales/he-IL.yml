@@ -991,7 +991,7 @@ he-IL:
     manage_listings: ניהול
     invite: "הזמן את החברים שלך"
     login: כניסה
-    signup: "!הרשמו עכשיו"
+    signup: "הרשמו עכשיו!"
     menu: תפריט
   homepage:
     additional_private_listings_slate:
@@ -1034,9 +1034,9 @@ he-IL:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: ~
-      no_listings_notification: ~
-      add_listing_link_text: ~
+      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים או שירותים. אולי תנסה מילת חיפוש אחרת?"
+      no_listings_notification: "איזה כיף! אתה הראשון לפתוח את הקהילה בעיר שלך. ‎%{add_listing_link}‎‎ שירותים או פרטים למכירה/מסירה ואל תשכח לשתף את הקהילה הישראלית המקומית!"
+      add_listing_link_text: "הוסף +"
       open_listing: ~
       open_listings: ~
       private_listing_notification_log_in: ~
@@ -1111,7 +1111,7 @@ he-IL:
   landing_page:
     hero:
       search: ~
-      signup: "!הרשמו עכשיו"
+      signup: "הרשמו עכשיו!"
       search_placeholder: ~
       search_location_placeholder: ~
     listings:
@@ -1139,7 +1139,7 @@ he-IL:
       send_feedback_to_admin: שלח
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
-      connect: "!הרשמו עכשיו"
+      connect: "הרשמו עכשיו!"
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
@@ -1183,7 +1183,7 @@ he-IL:
       notifications: התראות
       requests: "בקשות חברות"
       settings: הגדרות
-      sign_up: "!הרשמו עכשיו"
+      sign_up: "הרשמו עכשיו!"
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: "שלח הודעה לצוות האתר"
@@ -1200,7 +1200,7 @@ he-IL:
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
       create_new_listing: ~
-      create_one_here: "צור אחד כאן"
+      create_one_here: "להרשם כאן"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "כתובת הדואר האלקטרוני שהכנסת לא נמצאה במאגר של ‎%{service_name}‎."
       error_with_session: "שגיאה בפעולה זו."
@@ -1218,7 +1218,7 @@ he-IL:
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "ברוכים הבאים, ‎%{person_name}‎!"
-      logout_successful: "‎%{service_name}‎ התנתקת מ"
+      logout_successful: "התנתקת מ‎%{service_name}‎"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
@@ -1276,9 +1276,9 @@ he-IL:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event‎ך"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "אתה צריך להתחבר קודם ל‎%{service_name}‎, במידה ואין לך חשבון, אתה יכול ‎%{sign_up_link}‎"
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: "אנא התחבר לכתיבת משוב"
+      you_must_log_in_to_give_feedback: "אנא התחבר לכתיבת ביקורת"
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "אנא התחבר לכתיבת תגובה חדשה"
       you_must_log_in_to_send_a_message: "‎%{service_name}‎ אנא התחבר"
@@ -1356,7 +1356,7 @@ he-IL:
         repeated: ~
       description:
         detailed_description: תיאור
-        youtube_info: ".אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור"
+        youtube_info: "אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור."
       destination:
         destination: יעד
       form_content:
@@ -1373,7 +1373,7 @@ he-IL:
         googlemap_description: "ראה מפה"
         googlemap_updatemap: "עדכון מפה"
       images:
-        image: תמונה
+        image: תמונות
         best_result: ~
         no_file_selected: "לא נבחר קובץ"
         remove_image: "הסר תמונה"
@@ -1701,7 +1701,7 @@ he-IL:
       notification_is_mandatory: ~
       password_again: "אשר סיסמה"
       show_my_name_to_others: ~
-      sign_up: ~
+      sign_up: "צור חשבון חדש ב‎%{service_name}‎"
       terms: "תנאי שימוש"
       username_is_in_use: ".שם המשתמש כבר קיים"
       username_is_invalid: ~
@@ -1743,7 +1743,7 @@ he-IL:
       listings: ~
       open_listing: ~
       open_listings: ~
-      no_listings: ~
+      no_listings: "אין שירותים או פריטים למכירה/מסירה"
       no_open_listings: ~
       no_reviews: "אין ביקורות"
       show_all_listings: הכל
@@ -1765,7 +1765,7 @@ he-IL:
       create_new_account: "צור חשבון חדש"
       i_forgot_my_password: "שכחתי שם משתמש או סיסמה"
       login: כניסה
-      login_to_kassi: "‎%{service_name}‎ התחבר ל"
+      login_to_kassi: "התחבר ל‎%{service_name}‎"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -1773,7 +1773,7 @@ he-IL:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_facebook_account: "התחבר באמצעות פייסבוק"
       or_sign_up_with_your_username: "או באמצעות שם משתמש וכתובת הדואר האלקטרוני"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -1799,7 +1799,7 @@ he-IL:
     account:
       change: שנה
       confirm_new_password: "אשר סיסמה חדשה"
-      delete_account: "מחר חשבון"
+      delete_account: "מחק חשבון"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
@@ -2051,7 +2051,7 @@ he-IL:
       settings: הגדרות
       logout: התנתק
       login: כניסה
-      signup: "!הרשמו עכשיו"
+      signup: "הרשמו עכשיו!"
       admin_dashboard: "ניהול אדמיין"
       language: שפה
     utils:
