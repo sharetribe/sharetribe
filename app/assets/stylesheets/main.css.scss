@@ -154,7 +154,7 @@ ul {
   margin-top: lines(0.25);
 
   textarea {
-    height: lines(5);
+    min-height: lines(5);
   }
 }
 
@@ -1098,7 +1098,7 @@ $noscript-height: lines(4);
 
       textarea {
         width: 95%;
-        height: lines(4);
+        min-height: lines(4);
       }
 
     }
@@ -1125,7 +1125,7 @@ $noscript-height: lines(4);
       .comment-form {
         textarea {
           width: 100%;
-          height: lines(6);
+          min-height: lines(6);
         }
       }
     }
