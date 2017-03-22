@@ -25,7 +25,6 @@
 //= require jquery.form
 //= require jquery.validate
 //= require jquery.pageless
-//= require jquery.autosize-min
 //= require jquery.lightbox_me
 //= require jquery.transit.min
 //= require jquery.ui.widget
@@ -35,6 +34,7 @@
 //= require jquery.fileupload-process
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
+//= require autosize-min
 
 //= require selectize-standalone.js
 //= require datepicker/bootstrap-datepicker.js
