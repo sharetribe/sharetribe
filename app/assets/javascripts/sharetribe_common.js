@@ -56,7 +56,7 @@ function disable_submit_button(form_id) {
 }
 
 function auto_resize_text_areas(class_name) {
-  autosize($('textarea.' + class_name));
+  autosize(document.querySelectorAll('textarea.' + class_name));
 }
 
 function translate_validation_messages(locale) {

@@ -34,7 +34,7 @@
 //= require jquery.fileupload-process
 //= require jquery.fileupload-validate
 //= require jquery.fileupload-image
-//= require autosize-min
+//= require autosize
 
 //= require selectize-standalone.js
 //= require datepicker/bootstrap-datepicker.js
