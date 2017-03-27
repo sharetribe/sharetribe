@@ -99,3 +99,6 @@
 
 - unless on_admin?
   = @current_community.custom_head_script.try(:html_safe)
+
+- if on_admin?
+  = render partial: "layouts/intercom"
