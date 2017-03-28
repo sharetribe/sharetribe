@@ -1,7 +1,7 @@
 -# Admin navigation is split into link groups.
 - grouped_links = links.group_by {|l| l[:topic]}
 
-- if FeatureFlagHelper.feature_enabled?(:admin_intercom_respond)
+- if IntercomHelper.admin_intercom_respond_enabled?
   - content_for :extra_javascript do
     :javascript
       var desktop_selector = "#admin-support-link";

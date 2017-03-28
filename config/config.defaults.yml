@@ -398,6 +398,16 @@ default: &default_settings
   #
   font_proximanovasoft_url:
 
+  ##########################################
+  # Admin Intercom (sharetribe.com internal)
+  ##########################################
+
+  # Enable/disable Intercom Respond for Admin UI
+  admin_intercom_respond_enabled: false
+
+  # Admin Intercom App Id
+  admin_intercom_app_id: ""
+
   # Maximum number of links in sitemap.xml.
   #
   # The default number is 500. Increasing the limit may affect performance.

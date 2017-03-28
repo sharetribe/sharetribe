@@ -100,5 +100,5 @@
 - unless on_admin?
   = @current_community.custom_head_script.try(:html_safe)
 
-- if on_admin? && FeatureFlagHelper.feature_enabled?(:admin_intercom_respond)
-  = render partial: "layouts/intercom", locals: { email: @current_user.primary_email&.address, user_id: @current_user.id, user_uuid: @current_user.uuid_object.to_s, name: PersonViewUtils.person_display_name(@current_user, @current_community), marketplace_id: @current_community.id, marketplace_uuid: @current_community.uuid_object.to_s, marketplace_url: @current_community.full_url }
+- if on_admin? && IntercomHelper.admin_intercom_respond_enabled?
+  = render partial: "layouts/intercom", locals: { app_id: IntercomHelper.admin_intercom_app_id, email: @current_user.primary_email&.address, user_id: @current_user.id, user_uuid: @current_user.uuid_object.to_s, name: PersonViewUtils.person_display_name(@current_user, @current_community), marketplace_id: @current_community.id, marketplace_uuid: @current_community.uuid_object.to_s, marketplace_url: @current_community.full_url }

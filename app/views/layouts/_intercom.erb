@@ -7,7 +7,7 @@
  // var APP_ID = "av39ah88";
 
  window.intercomSettings = {
-   app_id: APP_ID,
+   app_id: "<%= app_id %>",
    email: <%= email&.to_json.html_safe %>,
    user_id: "<%= user_uuid %>",
    user_id_old: "<%= user_id %>",
