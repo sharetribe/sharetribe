@@ -13,7 +13,7 @@ module IntercomHelper
     #
     # Remove the feature flag helper when this is published to everyone
     #
-    APP_CONFIG.admin_intercom_respond_enabled.to_s.downcase == "true" &&
+    APP_CONFIG.admin_intercom_respond_enabled.to_s.casecmp("true") &&
       FeatureFlagHelper.feature_enabled?(:admin_intercom_respond)
   end
 
