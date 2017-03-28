@@ -1,8 +1,9 @@
 <script>
 (function(){
   window.ST = window.ST || {};
-  var intercomSettings = {
-    app_id: "<%= app_id %>",
+  var APP_ID = "<%= app_id %>";
+  window.intercomSettings = {
+    app_id: APP_ID,
     email: <%= email.to_json.html_safe %>,
     user_id: "<%= user_uuid %>",
     user_id_old: "<%= user_id %>",
