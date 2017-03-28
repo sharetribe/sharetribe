@@ -94,10 +94,10 @@ nl:
         favicon: Favicon
         favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
         community_custom_color1: Hoofdkleur
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
+        community_slogan_color: "Kleur marktplaats slogan"
+        community_slogan_color_instructions_text: "Je kunt de kleur van de slogan op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waar te vinden. Die vul je vervolgens hier in. %{see_how_it_looks_like}"
+        community_description_color: "Kleur marktplaats beschrijving"
+        community_description_color_instructions_text: "Je kunt de kleur van de beschrijving op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waarde te vinden. Die vul je vervolgens hier in.%{see_how_it_looks_like}"
         new_listing_button_custom_color: "Kleur van de \"Plaats een nieuwe advertentie\" button"
         logo_instructions_text_with_dimensions: "Het desktop logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
@@ -108,8 +108,8 @@ nl:
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: "Je kan de hoofdkleur van de intercace wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
-        new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen."
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
+        new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen. Je kunt de code dan hier kopieren."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de advertenties standaard weergegeven worden."
         grid: Raster

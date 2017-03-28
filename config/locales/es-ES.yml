@@ -94,10 +94,10 @@ es-ES:
         favicon: Favicon
         favicon_info_text: "El Favicon reemplazará el logo predeterminado de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
         community_custom_color1: "Color principal"
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
+        community_slogan_color: "Color del eslogan"
+        community_slogan_color_instructions_text: "Aquí puedes cambiar el color del eslogan que aparece en la página de inicio. Necesitas ingresar un valor de color hexadecimal. El eslogan se muestra solamente a los usuarios que no han iniciado sesión. En %{colorpicker} puedes elegir el color y luego puedes copiar aquí el código que ahí se genere. %{see_how_it_looks_like}."
+        community_description_color: "Color de la descripción de tu comunidad"
+        community_description_color_instructions_text: "Aquí puedes cambiar el color de la descripción que aparece en la página de inicio. Necesitas ingresar un valor de color hexadecimal. La descripción se muestra solamente a los usuarios que no han iniciado sesión. En %{colorpicker} puedes elegir el color y luego puedes copiar aquí el código que ahí se genere. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Color del botón de \"Publicar Anuncio\""
         logo_instructions_text_with_dimensions: "El logo debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
         logo_instructions_text_with_dimensions_no_placing: "El logo debe tener una resolución de %{width}x%{height} pixeles."
@@ -108,8 +108,8 @@ es-ES:
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
-        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y copiar el código aquí."
+        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y luego puedes copiar el código del color aquí."
+        new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y luego puedes copiar el código del color aquí."
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
         grid: Cuadrícula
@@ -323,12 +323,12 @@ es-ES:
         edit_listing_field: "Editar campo '%{field_name}'"
       edit_price:
         description: "El precio mínimo y máximo sólo afecta al filtro. No establece un límite para los precios de los anuncios."
-        edit_price_field: "Ha habido un fallo al editar el precio"
+        edit_price_field: "Editar el campo del \"precio\""
         show_price_filter_homepage: "Mostrar filtro por precio en la página principal"
         price_min: "Precio mínimo del filtro"
         price_max: "Precio máximo del filtro"
       edit_location:
-        edit_location_field: "Editar campo de localización geográfica"
+        edit_location_field: "Editar el campo de \"ubicación\""
         this_field_is_required: "Campo obligatorio"
       edit_expiration:
         edit_expiration_field: "Editar el campo \"Fecha de expiración\""
