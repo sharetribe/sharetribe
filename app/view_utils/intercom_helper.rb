@@ -14,7 +14,7 @@ module IntercomHelper
     APP_CONFIG.admin_intercom_app_id
   end
 
-  def in_test_group?
+  def in_admin_intercom_respond_test_group?
     ratio = (APP_CONFIG.admin_intercom_respond_test_group_ratio || 0).to_f
 
     Random.rand < ratio
