@@ -4,11 +4,12 @@
 - if IntercomHelper.admin_intercom_respond_enabled?
   - content_for :extra_javascript do
     :javascript
+      window.ST = window.ST || {};
       var desktop_selector = "#admin-support-link";
       var mobile_selector = "#support_left_navi_link";
       $([desktop_selector, mobile_selector].join(", ")).click(function(e) {
         e.preventDefault();
-        window.Intercom && window.Intercom('show');
+        window.ST.AdminIntercom && window.ST.AdminIntercom('show');
       });
 - else
   = render :partial => "admin/uservoice_widget" if APP_CONFIG.uservoice_widget_url.present?

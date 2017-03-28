@@ -408,6 +408,9 @@ default: &default_settings
   # Admin Intercom App Id
   admin_intercom_app_id: ""
 
+  # Admin Intercom secure mode secret
+  admin_intercom_secure_mode_secret: ""
+
   # The percentage of marketplaces where Admin Intercom Respond
   # will be enabled
   #
