@@ -408,6 +408,22 @@ default: &default_settings
   # Admin Intercom App Id
   admin_intercom_app_id: ""
 
+  # The percentage of marketplaces where Admin Intercom Respond
+  # will be enabled
+  #
+  # Examples:
+  #
+  #   1: Enabled for everyone
+  # 0.8: Enabled for 80%
+  # 0.2: Enabled for 20%
+  #   0: Enabled for no one
+  #
+  admin_intercom_respond_test_group_ratio: 0
+
+  #########
+  # Sitemap
+  #########
+
   # Maximum number of links in sitemap.xml.
   #
   # The default number is 500. Increasing the limit may affect performance.
