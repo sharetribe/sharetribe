@@ -311,6 +311,7 @@ module ApplicationHelper
         :name => "getting_started_guide"
       },
       {
+        :id => "admin-support-link",
         :topic => :general,
         :text => t("admin.left_hand_navigation.support"),
         :icon_class => icon_class("help"),

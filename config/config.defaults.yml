@@ -398,6 +398,35 @@ default: &default_settings
   #
   font_proximanovasoft_url:
 
+  ##########################################
+  # Admin Intercom (sharetribe.com internal)
+  ##########################################
+
+  # Enable/disable Intercom Respond for Admin UI
+  admin_intercom_respond_enabled: false
+
+  # Admin Intercom App Id
+  admin_intercom_app_id: ""
+
+  # Admin Intercom secure mode secret
+  admin_intercom_secure_mode_secret: ""
+
+  # The percentage of new marketplaces where Admin Intercom Respond
+  # will be enabled
+  #
+  # Examples:
+  #
+  #   1: Enabled for everyone
+  # 0.8: Enabled for 80%
+  # 0.2: Enabled for 20%
+  #   0: Enabled for no one
+  #
+  admin_intercom_respond_test_group_ratio: 0
+
+  #########
+  # Sitemap
+  #########
+
   # Maximum number of links in sitemap.xml.
   #
   # The default number is 500. Increasing the limit may affect performance.

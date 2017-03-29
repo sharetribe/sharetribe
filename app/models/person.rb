@@ -474,6 +474,17 @@ class Person < ActiveRecord::Base
     EmailService.emails_to_smtp_addresses(send_message_to)
   end
 
+  # Primary email is the first email address that is
+  #
+  # - confirmed
+  # - notifications allowed
+  #
+  # Returns Email record
+  #
+  def primary_email
+    EmailService.emails_to_send_message(emails).first
+  end
+
   # Notice: If no confirmed notification emails is found, this
   # method returns the first confirmed emails
   def confirmed_notification_email_to

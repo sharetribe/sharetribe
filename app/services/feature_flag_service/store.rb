@@ -20,7 +20,8 @@ module FeatureFlagService::Store
       :export_transactions_as_csv,
       :topbar_v1,
       :searchpage_v1,
-      :manage_searchpage
+      :manage_searchpage,
+      :admin_intercom_respond
     ].to_set
 
     def initialize(additional_flags:)
