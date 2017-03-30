@@ -1437,7 +1437,7 @@ en:
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_paypal_text: "%{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_paypal_text: "When someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
         paypal_fee_info_link_text: "PayPal's payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
