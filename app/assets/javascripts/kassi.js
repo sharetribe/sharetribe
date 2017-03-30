@@ -307,7 +307,6 @@ function initialize_reply_form(locale) {
 function initialize_listing_view(locale) {
   $('#listing-image-link').click(function() { $('#listing-image-lightbox').lightbox_me({centered: true, zIndex: 1000000}); });
   auto_resize_text_areas("listing_comment_content_text_area");
-  $('textarea').focus();
   prepare_ajax_form(
     "#new_comment",
     locale,
