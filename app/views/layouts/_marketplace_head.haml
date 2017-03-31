@@ -111,5 +111,7 @@
   - marketplace_url = @current_community.full_url
   - user_hash = IntercomHelper.user_hash(user_uuid)
   - email_confirmed = @current_user.primary_email.present?
+  - plan = @current_plan
+  - feature_flags = FeatureFlagHelper.feature_flags
 
-  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_id: user_id, user_uuid: user_uuid, name: name, marketplace_id: marketplace_id, marketplace_uuid: marketplace_uuid, marketplace_url: marketplace_url, user_hash: user_hash, email_confirmed: email_confirmed }
+  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_id: user_id, user_uuid: user_uuid, name: name, marketplace_id: marketplace_id, marketplace_uuid: marketplace_uuid, marketplace_url: marketplace_url, user_hash: user_hash, email_confirmed: email_confirmed, plan: plan, feature_flags: feature_flags }
