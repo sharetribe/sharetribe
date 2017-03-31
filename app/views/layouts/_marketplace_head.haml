@@ -102,7 +102,7 @@
 
 - if on_admin? && IntercomHelper.admin_intercom_respond_enabled?
   - app_id = IntercomHelper.admin_intercom_app_id
-  - email = @current_user.primary_email.address
+  - email = (@current_user.primary_email || @current_user.emails.first).address
   - user_id = @current_user.id
   - user_uuid = @current_user.uuid_object.to_s
   - name = PersonViewUtils.person_display_name(@current_user, @current_community)
@@ -110,5 +110,6 @@
   - marketplace_uuid = @current_community.uuid_object.to_s
   - marketplace_url = @current_community.full_url
   - user_hash = IntercomHelper.user_hash(user_uuid)
+  - email_confirmed = @current_user.primary_email.present?
 
-  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_id: user_id, user_uuid: user_uuid, name: name, marketplace_id: marketplace_id, marketplace_uuid: marketplace_uuid, marketplace_url: marketplace_url, user_hash: user_hash }
+  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_id: user_id, user_uuid: user_uuid, name: name, marketplace_id: marketplace_id, marketplace_uuid: marketplace_uuid, marketplace_url: marketplace_url, user_hash: user_hash, email_confirmed: email_confirmed }
