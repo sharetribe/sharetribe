@@ -1437,7 +1437,7 @@ fr:
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après les frais de service de %{service_name} et du prestataire de paiement vous recevrez %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} seront déduits du montant."
-        after_service_fee_you_will_get_paypal_text: "Les frais de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
+        after_service_fee_you_will_get_paypal_text: "Lorsque quelqu'un passera commande, les frais de service de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
         paypal_fee_info_link_text: "les frais de transaction PayPal"
         delivery: Livraison
         shipping: Envoi

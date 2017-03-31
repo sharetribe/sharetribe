@@ -1437,7 +1437,7 @@ es-ES:
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: "Después de la comisión de servicio de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
-        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio."
+        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio, cuando haya una transacción."
         paypal_fee_info_link_text: "comisión de procesamiento de pago de PayPal"
         delivery: "Método de envío"
         shipping: Envío
