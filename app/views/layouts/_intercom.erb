@@ -2,7 +2,7 @@
 (function(){
   window.ST = window.ST || {};
   var APP_ID = "<%= app_id %>";
-  window.intercomSettings = {
+  window.intercomSettings = Object.assign({
     // Identifier
     user_id: "<%= user_uuid %>",
     user_hash: <%= user_hash.to_json.html_safe %>,
@@ -11,11 +11,6 @@
     email: "<%= email %>",
     name: "<%= name %>",
     // Custom attributes ('info_' prefix)
-    info_user_id_old: "<%= user_id %>",
-    info_marketplace_id: "<%= marketplace_uuid %>",
-    info_marketplace_id_old: <%= marketplace_id %>,
-    info_marketplace_url: "<%= marketplace_url %>",
-    info_email_confirmed: <%= email_confirmed %>,
     info_plan_status: "<%= plan[:status] %>",
     info_plan_features: "<%= plan[:features].select { |_, v| v }.keys.join(", ") %>",
     info_plan_member_limit: <%= plan[:member_limit].to_json %>,
@@ -23,7 +18,7 @@
     info_plan_updated_at: <%= plan[:updated_at].to_time.to_i %>,
     info_plan_expires_at: <%= plan[:expires_at]&.to_time&.to_i.to_json %>,
     info_feature_flags: "<%= feature_flags.to_a.join(", ") %>"
-  };
+  }, <%= identity_information.to_json.html_safe %>);
   (function(){var w=window;var ic=w.ST.AdminIntercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.ST.AdminIntercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/' + APP_ID;var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
 })();
 </script>
