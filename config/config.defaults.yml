@@ -423,6 +423,10 @@ default: &default_settings
   #
   admin_intercom_respond_test_group_ratio: 0
 
+  admin_intercom_access_token: ""
+
+  admin_intercom_admin_id: ""
+
   #########
   # Sitemap
   #########
