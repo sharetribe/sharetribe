@@ -78,6 +78,14 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
+
+    #
+    # Prepare Intercom shutdown
+    # The real shutdown happens in the controller where the user is redirect to
+    # after logout, that is, HomepageController or LandingPageController
+    #
+    IntercomHelper::ShutdownHelper.prepare_intercom_shutdown(session)
+
     flash[:notice] = t("layouts.notifications.logout_successful")
     Analytics.mark_logged_out(flash)
     redirect_to landing_page_path

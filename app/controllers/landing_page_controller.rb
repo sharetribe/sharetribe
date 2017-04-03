@@ -21,6 +21,9 @@ class LandingPageController < ActionController::Metal
   # Add redirect_to
   include ActionController::Redirecting
 
+  # Add cookies
+  include ActionController::Cookies
+
   # Include route helpers.
   #
   # This needs to be included last! Otherwise you may get error saying
@@ -36,6 +39,9 @@ class LandingPageController < ActionController::Metal
   FONT_PATH = APP_CONFIG[:font_proximanovasoft_url]
 
   def index
+    # Clear Intercom session after logout
+    IntercomHelper::ShutdownHelper.intercom_shutdown(session, cookies, request.host_with_port)
+
     return if perform_redirect!
 
     cid = community(request).id

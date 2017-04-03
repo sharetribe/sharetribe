@@ -1,6 +1,69 @@
 # coding: utf-8
 module IntercomHelper
 
+  # Copied from
+  #
+  # https://github.com/intercom/intercom-rails/blob/1a077474f33c2629de1d1a46ff67f97c0b9a0264/lib/intercom-rails/shutdown_helper.rb
+  #
+  # ...with slight modifications.
+  #
+  module ShutdownHelper
+
+    LOGOUT_KEY = :prepare_intercom_shutdown
+
+    # This function imitates Intercom JavaScript library and how it
+    # defines the cookie domain. This regexp was found from the minified
+    # Intercom JavaScript library.
+    #
+    # The original JavaScript code:
+    #
+    # var n = /[^.]*\.([^.]*|..\...|...\...)$/,
+    # o = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
+    # findDomain: function(e) {
+    #   var t = e.match(o);
+    #   if (!t && (t = e.match(n))) {
+    #     var r = t[0];
+    #     return r = r.split(":")[0], "." + r
+    #   }
+    # }
+    #
+    # The regexp `o` is omited. (It seems to be IP matcher)
+    #
+    def self.find_domain(host_with_port)
+      domain_regexp = /[^.]*\.([^.]*|..\...|...\...)$/
+
+      match = domain_regexp.match(host_with_port)
+
+      if match
+        ".#{match[0].split(":")[0]}"
+      end
+    end
+
+    # This helper allows to erase cookies when a user log out of an application
+    # It is recommanded to call this function every time a user log out of your application
+    # specifically if you use both "Acquire" and another Intercom product
+    # Do not use before a redirect_to because it will not clear the cookies on a redirection
+    def self.intercom_shutdown_helper(cookies, domain)
+      cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
+    end
+
+    def self.prepare_intercom_shutdown(session)
+      session[LOGOUT_KEY] = true
+    end
+
+    def self.intercom_shutdown(session, cookies, host_with_port)
+      if session[LOGOUT_KEY]
+        session.delete(LOGOUT_KEY)
+        domain = find_domain(host_with_port)
+
+        if domain
+          intercom_shutdown_helper(cookies, domain)
+        end
+      end
+    end
+  end
+
   CONSOLE_CHECK = "\u{2705} "
   CONSOLE_CROSS = "\u{274c} "
   CONSOLE_WARNING = "\u{26A0} "

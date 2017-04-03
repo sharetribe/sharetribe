@@ -9,6 +9,9 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def index
+    # Clear Intercom session after logout
+    IntercomHelper::ShutdownHelper.intercom_shutdown(session, cookies, request.host_with_port)
+
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
