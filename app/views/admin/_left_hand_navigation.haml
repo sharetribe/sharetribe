@@ -9,7 +9,7 @@
       var mobile_selector = "#support_left_navi_link";
       $([desktop_selector, mobile_selector].join(", ")).click(function(e) {
         e.preventDefault();
-        window.ST.AdminIntercom && window.ST.AdminIntercom('show');
+        Intercom && Intercom('show');
       });
 - else
   = render :partial => "admin/uservoice_widget" if APP_CONFIG.uservoice_widget_url.present?
