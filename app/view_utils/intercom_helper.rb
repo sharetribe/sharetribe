@@ -126,13 +126,22 @@ module IntercomHelper
       end
 
     messages = verification_result[:results].map { |res|
-      if res[:passed] == :passed
-        "#{icons[:check]} #{res[:field_name]}: #{res[:intercom_value]}"
-      elsif res[:passed] == :warning
-        "#{icons[:warning]} #{res[:field_name]}: #{res[:intercom_value]}"
-      else
-        "#{icons[:cross]} #{res[:field_name]}: #{res[:intercom_value]} (in database: #{res[:database_value]})"
-      end
+      result_msg =
+
+        if res[:passed] == :passed
+          "#{icons[:check]} #{res[:field_name]}: #{res[:intercom_value]}"
+        elsif res[:passed] == :warning
+          "#{icons[:warning]} #{res[:field_name]}: #{res[:intercom_value]}"
+        else
+          "#{icons[:cross]} #{res[:field_name]}: #{res[:intercom_value]}"
+        end
+
+      db_diff =
+        if res[:database_value] != res[:intercom_value]
+          "(in database: #{res[:database_value]})"
+        end
+
+      [result_msg, db_diff].compact.join(" ")
     }
 
     [result, ""] + messages
@@ -155,7 +164,7 @@ module IntercomHelper
     ] + verify_identity_information(intercom_user, db_identity_information.except(:info_email_confirmed))
 
     {
-      result: verification_results.reduce(:passed) { |overall_result, current_result| new_overall_result(overall_result, current_result[:passed]) },
+      result: verification_results.reduce(:passed) { |a, e| new_overall_result(a, e[:passed]) },
       results: verification_results
     }
   end
