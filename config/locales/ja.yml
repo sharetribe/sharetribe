@@ -500,7 +500,7 @@ ja:
         rent: 借ります
         request: オファーします
         offer: リクエストします
-        inquiry: コンタクトを取ります
+        inquiry: お問い合わせ
   common:
     edit_page: ページの編集
     default_community_slogan: マーケットプレイスコミュニティー
@@ -561,7 +561,7 @@ ja:
   conversations:
     accept:
       details: ご注文の詳細
-      order_by: "%{orderer_link}順"
+      order_by: "%{orderer_link}の注文"
       accept_offer: オファーを受け入れる
       accept_request: リクエストを受け入れる
       reject_offer: 今回はやめる
@@ -585,8 +585,8 @@ ja:
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
       cancel_payed_description: リクエストが受諾され、しかしながら疑念を持ち始めた場合、お支払い前の段階でリクエストをキャンセルが出来ます。
       canceling_payed_transaction: 課金キャンセル
-      confirm: マーク完了
-      cancel: 何も起きませんでした
+      confirm: 取引完了
+      cancel: クレーム通知
       continue: 続ける
       give_feedback_to: "%{person_link}さんにレビューを書く"
       do_not_give_feedback: レビューを書くのをスキップする
@@ -706,8 +706,8 @@ ja:
       accept_preauthorized_request: リクエストを承諾する
       reject_preauthorized_offer: 今回はやめる
       reject_preauthorized_request: 今回はやめる
-      confirm: マーク完了
-      cancel: 何も起きませんでした
+      confirm: 取引完了
+      cancel: クレーム通知
   feedback:
     feedback_subject: ~
     feedback_body: ~
@@ -811,11 +811,11 @@ ja:
       join_now: 参加します
       invitation_code: "招待コード： %{code}"
     new_comment:
-      has_commented_your_listing_in_kassi: "%{author}さんは「%{listing}」のリストにコメントしました。"
-      view_comment: コメントを閲覧
-      you_have_a_new_comment: "%{author}さんは%{service_name}のあなたのリストでコメントしました"
-      listing_you_follow_has_a_new_comment: "あなたが%{service_name}でフォローしている%{author}さんがコメントしました"
-      has_commented_listing_you_follow_in_kassi: "あなたがフォロー中の%{service_name}の%{author}さんは「%{listing}」のリストにコメントしました。"
+      has_commented_your_listing_in_kassi: "いつもご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
+      view_comment: コメントを見る
+      you_have_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
+      listing_you_follow_has_a_new_comment: "いつも%{service_name}のご利用ありがとうございます。%{author}さんより新しいコメントがありましたのでお知らせいたします。"
+      has_commented_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。「%{listing}」で%{author}さんより新しいコメントがありましたのでお知らせいたします。"
     new_message:
       view_message: メッセージを閲覧
       has_sent_you_a_message_in_kassi: "%{sender}さんは%{service_name}でメッセージを送信しました。"
@@ -851,13 +851,13 @@ ja:
       view_feedback: レビューを閲覧
     new_update_to_listing:
       listing_you_follow_has_been_updated: あなたがフォローしているリストが更新されました
-      has_updated_listing_you_follow_in_kassi: "あなたが%{service_name}でフォロー中の%{author}さんは、「%{listing}」のリストを更新しました。"
+      has_updated_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。あなたがフォローしている%{author}さんの「%{listing}」ページが更新されましたのでお知らせいたします。"
       view_changes: 変更箇所を見る
     community_updates:
       added_offer: "%{name_link}さんがリストを追加しました："
       added_request: "%{name_link}さんがリクエストを追加しました："
       added_listing: "%{name_link}さんがリストを追加しました："
-      update_mail_title: "%{title_link}の更新"
+      update_mail_title: "%{title_link}最新情報"
       title_link_text: "%{community_name}"
       intro_paragraph: "こちらは%{time_since_last_update}間に、%{community_link}で更新された情報です。"
       intro_paragraph_link_text: "%{community_name}"
@@ -987,11 +987,11 @@ ja:
     login:
       logged_in_to_kassi: "%{time_ago}に%{name}さんは%{service_name}にログインしました。"
     comment:
-      commented: "%{time_ago}に%{commenter_name}さんは%{listing_title}のリストにコメントしました。"
+      commented: "%{time_ago}に「%{listing_title}」で%{commenter_name}さんより新しいコメントがありました。"
       offer_partitive: オファーする
       request_partitive: リクエストする
   header:
-    about: このサイトについて
+    about: "%{service_name}について"
     home: ホーム
     members: コミュニティ
     new_listing: あたらしいリスト
@@ -1003,7 +1003,7 @@ ja:
     contact_us: お問い合わせ
     profile: プロフィール
     manage_listings: リストを管理する
-    invite: メンバーを招待する
+    invite: お友だち紹介
     login: ログイン
     signup: 新規登録
     menu: メニュー
@@ -1107,7 +1107,7 @@ ja:
       search: 検索
       map: 地図で場所を限定する
       list: リストを表示する
-      map_button: 地図
+      map_button: マップ
       grid_button: 画像
       list_button: リスト
       all_listing_types: 全てのリストの種類
@@ -1138,9 +1138,9 @@ ja:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: 受信メール
+      inbox: 受信箱
       settings: 設定
-      feedback: "%{service_name}運営チームへのコンタクト"
+      feedback: "%{service_name}へのお問い合わせ"
     application:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
@@ -1168,7 +1168,7 @@ ja:
     global-header:
       select_language: 言語を選択
     infos:
-      about: このサイトについて
+      about: "%{service_name}について"
       how_to_use: ご利用ガイド
       info_about_kassi: "%{service_name}について"
       news: ニュース
@@ -1207,8 +1207,8 @@ ja:
       community_update_failed: 詳細の更新は失敗しました。
       account_creation_succesful_you_still_need_to_confirm_your_email: アカウントが正常に作成されました。メールアドレスの認証手続きをしてください。
       community_joined_succesfully_you_still_need_to_confirm_your_email: "%{service_name}へのご参加ありがとうございます。メールアドレスを確認し認証手続きを行ってください。"
-      comment_cannot_be_empty: 空欄でコメントできません
-      comment_sent: コメントを送信
+      comment_cannot_be_empty: コメントを入力してください
+      comment_sent: コメントを送信しました
       confirmation_link_is_wrong_or_used: 認証リンクがすでに使用されていたか、壊れていたようです。ログインを試してみて、問題が解決しない場合はサイト管理者にお問い合わせください。
       additional_email_confirmed: 入力したメールアドレスは承認されました。
       could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
@@ -1294,7 +1294,7 @@ ja:
       additional_email_confirmed_dashboard: メールアドレスが認証されました。
       you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
-      you_must_log_in_to_send_a_comment: 新しいコメントを送信するにはログインしてください
+      you_must_log_in_to_send_a_comment: コメントを送信するにはログインが必要です
       you_must_log_in_to_send_a_message: "他のユーザーにメッセージを送信するには、%{service_name}にログインしてください。"
       you_must_log_in_to_do_a_transaction: "お取引をするには%{service_name}へログインしてください"
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
@@ -1330,19 +1330,19 @@ ja:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: このリストについてのコメントや、更なる詳細について情報がほしい場合に書きこみが出来ます。すべてのユーザが、あなたのコメントを閲覧出来ることになります。
+      ask_a_question: お問い合わせは商品ページに公開されますので、個人が特定し得る内容は入力しないでください。
       log_in: ログイン
-      send_comment: コメントの送信
-      to_send_a_comment: 新しいコメントを送信。
-      write_comment: 新しいコメントを書く：
-      you_cannot_send_a_new_comment_because_listing_is_closed: このリストはクローズになりましたので、新しいコメントを送信できません。
+      send_comment: コメントを送信
+      to_send_a_comment: コメントを送信
+      write_comment: コメントする
+      you_cannot_send_a_new_comment_because_listing_is_closed: 公開停止中のため新しいコメントの送信はできません。
       you_must: ログインしてください
-      subscribe_to_comments: 新しいコメントや更新があるとき通知する
+      subscribe_to_comments: 新しいコメントがあった場合通知する
     edit:
-      edit_listing: 投稿を編集する
+      edit_listing: 編集する
     edit_links:
       close_listing: リストをクローズする
-      edit_listing: 投稿を編集する
+      edit_listing: 編集する
       reopen_listing: リストを再開する
       move_to_top: ホームページトップに移動する
       show_in_updates_email: このリストを次の自動メールで紹介
@@ -1357,8 +1357,8 @@ ja:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: 新しいコメントについてのメールを受けとります
-      unfollow: 新しいコメントについてのメールを受けとりません
+      follow: 新しいコメントがあった場合メールを受け取る
+      unfollow: 新しいコメントがあった場合メールを受け取らない
     form:
       custom_field_partials:
         dropdown:
@@ -1369,7 +1369,7 @@ ja:
       departure_time_radio_buttons:
         repeated: 繰り返し（「詳しい説明」の項目で時間と曜日を追加してください）
       description:
-        detailed_description: 詳細
+        detailed_description: 説明
         youtube_info: YouTubeへのリンクが含まれる場合には、詳細説明の下部に動画が表示されます
       destination:
         destination: 行き先
@@ -1418,11 +1418,11 @@ ja:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
         after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金より控除されます。"
         paypal_fee_info_link_text: PayPalのお支払い手数料
-        delivery: 配送の方法
-        shipping: 送料
+        delivery: 配送方法
+        shipping: 発送
         shipping_price: 送料
         shipping_price_additional: 追加の注文
-        pickup: 引き取り
+        pickup: 受け渡し
       origin:
         location: 場所
         origin: 起点となる場所
@@ -1447,7 +1447,7 @@ ja:
         comma_separate: 、
         tags: タグ
       title:
-        listing_title: リストのタイトル
+        listing_title: タイトル名
       valid_until:
         valid_until: 公開期間
       valid_until_radio_buttons:
@@ -1501,7 +1501,7 @@ ja:
       booking_from: この日から
       booking_to: この日まで
       how_paypal_works: PayPalの仕組み
-      payment_help: ~
+      payment_help: お支払いについて
       unable_load_availability: ~
     new:
       listing: リスト
@@ -1530,9 +1530,9 @@ ja:
     show:
       add_your_phone_number: あなたの電話番号を追加
       add_profile_picture: プロフィール写真を追加
-      comments: 質問コーナー＆詳細追加リクエスト
+      comments: コメント・お問い合わせ
       contact_by_phone: 電話でのご連絡：
-      contact: コンタクト
+      contact: お問い合わせ
       favor_offer: サービスをします
       favor_request: サービスをリクエストする
       inquiry: 質問
@@ -1559,12 +1559,12 @@ ja:
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
         per_day: 1日あたり
-      delivery: 配送の方法
-      shipping: "発送（%{price}）"
+      delivery: 配送方法
+      shipping: "送料 (+%{price})"
       shipping_no_price: 送料
       shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
-      pickup: "引き取り（%{price}）"
-      pickup_no_price: 引き取り
+      pickup: 受け渡し
+      pickup_no_price: 受け渡し
       youtube_video_player: ~
     unit_types:
       piece: 枚数
@@ -1699,7 +1699,7 @@ ja:
       invite_only_help_text_title: 招待制になっております
     inactive_notification:
       this_person_is_not_active_in_kassi: "今後もこのユーザーは%{service_name}でアクティブではありません"
-      inactive_description: "このユーザーは、%{service_name}の使用を停止しました。あなたはこのユーザーと連絡をとることや、レビューやコメントを残すことが出来ません。"
+      inactive_description: "申し訳ありませんがこちらのユーザーが%{service_name}を退会したためご連絡できません。"
     new:
       create_new_account: 新規登録
       email: メールアドレス
@@ -1799,7 +1799,7 @@ ja:
       change_your_password: パスワード変更
     confirmation_pending:
       welcome_to_kassi: "%{service_name}へようこそ！"
-      check_your_email: 受信トレイを確認してください。
+      check_your_email: 受信箱を確認してください。
       resend_confirmation_instructions: 認証メールを再送する
       your_current_email_is: "あなたのメールアドレスは %{email} です。"
       change_email: 変更する
@@ -1845,9 +1845,9 @@ ja:
       email_from_admins: 臨時の更新がある場合に、管理者より通知を希望します。
       i_want_to_get_email_notification_when: ☆以下のタイミングでメールの通知を希望します☆
       newsletters: ☆速報☆
-      community_updates: ☆メールを更新☆
+      community_updates: メルマガ登録
       email_about_confirm_reminders: "...リクエスト完了処理をし忘れました"
-      email_about_new_comments_to_own_listing: "...オファーまたはリクエストに対し誰かがコメントしました"
+      email_about_new_comments_to_own_listing: "...自分の出品中商品ページに新しいコメントがあった場合"
       email_about_new_messages: "...誰かがメッセージを送信しました"
       email_about_new_received_testimonials: "...誰かがレビューを書きました"
       email_about_testimonial_reminders: "...レビュー書くのを忘れました"
@@ -2062,7 +2062,7 @@ ja:
       search_placeholder: ~
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
       user: ~
-      inbox: 受信メール
+      inbox: 受信箱
       profile: プロフィール
       manage_listings: リストを管理する
       settings: 設定

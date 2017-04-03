@@ -54,7 +54,7 @@ he-IL:
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
         update_information: "שמור הגדרות"
-        invite_people: ~
+        invite_people: "הזמן את החברים ל‎%{service_name}‎!"
         edit_signup_info: ~
         edit_signup_info_description: ~
         edit_info: "ערך מידע"
@@ -302,7 +302,7 @@ he-IL:
           pending_ext: ~
         not_available: ~
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "מערכת התשלומים"
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -457,14 +457,14 @@ he-IL:
           quantity_label: "כמות (ליחידה, לק\"ג, לאדם, לסיור של שעתיים...)"
           time_label: "זמן (לחצי שעה, לשבוע, לשנה)"
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: "הגדרת מערכת התשלומים"
+      preferences_updated: "ההגדרות עודכנו"
       contact_support_link_text: "פנה לתמיכה"
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
       personal_payment_preferences_link_text: ~
-      read_more_about_paypal: "קרא עוד אודות מערכת התשלום"
+      read_more_about_paypal: "קרא עוד אודות מערכת התשלומים"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
@@ -596,7 +596,7 @@ he-IL:
       canceled_request: ~
       canceled_offer: ~
       message_from: ~
-      about_listing: "‎%{listing_title}‎ לגבי"
+      about_listing: "לגבי ‎%{listing_title}‎"
       free_message: ~
       message_content_not_available: ~
     message:
@@ -622,7 +622,7 @@ he-IL:
       you_will_get_notified: ~
       title: כותרת
       send_message_to_user: "‎%{person}‎ שלח הודעה ל"
-      about_listing: "‎%{listing_title}‎ לגבי"
+      about_listing: "לגבי ‎%{listing_title}‎"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: לגבי
@@ -632,7 +632,7 @@ he-IL:
       write_a_reply: "כתוב/כתבי תגובה:"
       conversation_about_listing: ~
       conversation_with_user: ~
-      conversation_with: ~
+      conversation_with: "שיחה עם ‎%{person}‎"
       last_message_at: ~
       price: "מחיר: ‎%{price}‎"
       sum: ~
@@ -764,7 +764,7 @@ he-IL:
       show_thread: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
-      need_to_confirm: ~
+      need_to_confirm: "להצטרפות ל‎%{service_name}‎ אנא אשרו את המייל שלכם על ידי לחיצה על הכפתור מטה."
       confirmation_link_text: "מאשר את הכתובת"
       or_paste_link: ~
     common:
@@ -859,7 +859,7 @@ he-IL:
       change_my_password: "שנה את סיסמתי"
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: "‎%{name}‎ תזכורת: זכור/זכרי לתת משוב ל"
+      remember_to_give_feedback_to: "תזכורת: זכור/זכרי לתת משוב ל‎%{name}‎"
       you_have_not_given_feedback_yet: "טרם כתבת משוב ל‎‎%{name}‎ על אירוע ‎%{event}‎. זכור/זכרי לכתוב משוב על רמת השירות של ‎%{given_name}‎."
     transaction_preauthorized:
       subject: ~
@@ -1034,8 +1034,10 @@ he-IL:
     grid_item:
       processing_uploaded_image: ~
     index:
-      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים או שירותים. אולי תנסה מילת חיפוש אחרת?"
-      no_listings_notification: "איזה כיף! אתה הראשון לפתוח את הקהילה בעיר שלך. ‎%{add_listing_link}‎‎ שירותים או פרטים למכירה/מסירה ואל תשכח לשתף את הקהילה הישראלית המקומית!"
+      no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים או שירותים."
+      no_listings_notification: |-
+          אייייזה כיף! אתה הראשון לפתוח את הקהילה בעיר שלך (-:
+          ‎%{add_listing_link}‎ שירותים או פרטים למכירה/מסירה ואל תשכח להזמין את הקהילה הישראלית המקומית לאתר!
       add_listing_link_text: "הוסף +"
       open_listing: ~
       open_listings: ~
@@ -1063,10 +1065,10 @@ he-IL:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
+      email: "הכניסו את המיילים של החברים"
       message: "הודעה אישית"
       send_invitation: שלח
-      add_email_addresses_description: ~
+      add_email_addresses_description: "עזרו לנו לבנות קהילות פעילות וגדולות! אנא שתפו את החברים (-:"
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: ~
@@ -1126,7 +1128,7 @@ he-IL:
     no_tribe:
       inbox: הודעות
       settings: ~
-      feedback: ~
+      feedback: "צור קשר עם צוות ‎%{service_name}‎"
     application:
       join_this_community: ~
       read_more: "קרא עוד"
@@ -1192,7 +1194,7 @@ he-IL:
       community_updated: ~
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "תודה שהצטרפתם ל‎%{service_name}‎! אנא אשרו את המייל שלכם."
       comment_cannot_be_empty: "לא ניתן להעלות תגובה ריקה"
       comment_sent: "תגובה נשלחה"
       confirmation_link_is_wrong_or_used: ~
@@ -1279,7 +1281,7 @@ he-IL:
       you_must_log_in_to_create_new_listing: "אתה צריך להתחבר קודם ל‎%{service_name}‎, במידה ואין לך חשבון, אתה יכול ‎%{sign_up_link}‎"
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "אנא התחבר לכתיבת ביקורת"
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "אנא התחבר על מנת להזמין את החברים ל‎%{service_name}‎"
       you_must_log_in_to_send_a_comment: "אנא התחבר לכתיבת תגובה חדשה"
       you_must_log_in_to_send_a_message: "‎%{service_name}‎ אנא התחבר"
       you_must_log_in_to_do_a_transaction: ~
@@ -1604,7 +1606,7 @@ he-IL:
     member_id: ~
     member_id_or_email: ~
   paypal_accounts:
-    payout_info_title: ~
+    payout_info_title: "קבלת תשלומים"
     paypal_account_email_connected: ~
     payout_info_paypal: ~
     paypal_billing_agreement_made: ~
@@ -1616,7 +1618,7 @@ he-IL:
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
+    admin_account_not_connected: "על מנת להפעיל את מערכת קבלת התשלומים של ‎%{service_name}‎ אנא פנה ל‎%{contact_admin_link}‎"
     contact_admin_link_text: "פנה למנהל האתר"
     you_are_ready_to_accept_payments: "כעת אתה יכול לקבל תשלומים!"
     commission: ~
@@ -1631,7 +1633,7 @@ he-IL:
       create_paypal_account: ~
       upgrade_paypal_account: ~
       paypal_account_billing_agreement: ~
-      follow_steps: ~
+      follow_steps: "שים לב לשלבים הבאים להגדרת קבלת התשלומים:"
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
@@ -1688,7 +1690,7 @@ he-IL:
       inactive_description: ~
     new:
       create_new_account: "צור חשבון"
-      email: איימיל
+      email: "דואר אלקטרוני"
       email_is_in_use: "כתובת הדואר אלקטרוני כבר בשימוש"
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
@@ -1718,7 +1720,7 @@ he-IL:
       show_only_open: "הצג שירותים פעילים בלבד"
       no_image: "אין תמונה"
     show:
-      contact: "‎%{person}‎ שלח הודעה ל"
+      contact: "שלח הודעה ל‎%{person}‎"
       about_me: "קצת עלי:"
       add_description: ~
       add_location: ~
@@ -1787,9 +1789,9 @@ he-IL:
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
+      confirm_your_email: "אנא אשר את המייל שלך"
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "אשר את האיימיל"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
@@ -1802,7 +1804,7 @@ he-IL:
       delete_account: "מחק חשבון"
       delete_account_button: ~
       delete_account_confirmation_popup: ~
-      email_addresses: ~
+      email_addresses: מיילים
       new_email: "הגדר כתובת דוא\"ל חדשה"
       delete_personal_information: ~
       delete_information_others_involved: ~
@@ -1814,7 +1816,7 @@ he-IL:
       email:
         address_title: ~
         remove_title: ~
-        remove_confirmation: ~
+        remove_confirmation: "אתה בטוח שאתה רוצה למחוק את המייל הזה?"
         receive_notifications_title_desktop: ~
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
@@ -1831,15 +1833,15 @@ he-IL:
       newsletters: "איימילים מצוות האתר"
       community_updates: ניוזלטר
       email_about_confirm_reminders: "...שכחתי לאשר הזמנה"
-      email_about_new_comments_to_own_listing: "...מישהו הגיב על ההזמנה או הבקשה שלי"
-      email_about_new_messages: "...מישהו שלח לי הודעה"
-      email_about_new_received_testimonials: "...מישהו כתב עלי משוב"
-      email_about_testimonial_reminders: "...שכחתי לכתוב ביקורת על אירוע"
+      email_about_new_comments_to_own_listing: "מישהו הגיב על ההזמנה או הבקשה שלי..."
+      email_about_new_messages: "מישהו שלח לי הודעה..."
+      email_about_new_received_testimonials: "מישהו כתב עלי משוב..."
+      email_about_testimonial_reminders: "שכחתי לכתוב ביקורת על אירוע..."
       email_daily_community_updates: "שלחו לי ניוזלטר יומי עם שיתופים חדשים!"
       email_weekly_community_updates: "שלח לי ניוזלטר שבועי אם יש שירותים חדשים"
       do_not_email_community_updates: "אל תשלחו לי ניוזלטר"
-      email_when_conversation_accepted: "...מישהו אישר את ההצעה או הבקשה שלי"
-      email_when_conversation_rejected: "...מישהו סרב להצעה או הבקשה שלי"
+      email_when_conversation_accepted: "מישהו אישר את ההצעה או הבקשה שלי..."
+      email_when_conversation_rejected: "מישהו סרב להצעה או הבקשה שלי..."
       email_about_completed_transactions: "...מישהו השלים את ההזמנה שלי"
       email_about_new_payments: "...קיבלתי תשלום חדש!"
       email_about_new_listings_by_followed_people: "...מישהו שאני עוקב אחריו פרסם שיתוף חדש"
@@ -1865,7 +1867,7 @@ he-IL:
       profile_page: "בדף המשתמש שלך"
       profilemap: מפה
       street_address: מיקום
-      these_fields_are_shown_in_your: ~
+      these_fields_are_shown_in_your: "המידע הזה זמין לכל הקהילה של ‎%{service_name}‎"
       visible_to_everybody: "זמין לכולם"
       visible_to_registered_users: "(זמין למשתמשים מחוברים)"
       default_in_listing: "משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה"
@@ -1974,17 +1976,17 @@ he-IL:
       shorter: ~
       short_date: ~
   timestamps:
-    day_ago: "‎%{count}‎ לפני יום"
-    days_ago: "ימים ‎%{count}‎ לפני"
-    hour_ago: "‎%{count}‎ לפני שעה"
-    hours_ago: "שעות ‎%{count}‎ לפני"
-    minute_ago: "‎%{count}‎ לפני דקה"
-    minutes_ago: "דקות ‎%{count}‎ לפני"
-    month_ago: "‎%{count}‎ לפני חודש"
-    months_ago: "חודשים ‎%{count}‎ לפני"
-    seconds_ago: "שניות ‎%{count}‎ לפני"
-    year_ago: "‎%{count}‎ לפני שנה"
-    years_ago: "שנים ‎%{count}‎ לפני"
+    day_ago: "לפני יום ‎%{count}‎"
+    days_ago: "לפני ‎%{count}‎ ימים"
+    hour_ago: "לפני שעה ‎%{count}‎"
+    hours_ago: "לפני ‎%{count}‎ שעות"
+    minute_ago: "לפני דקה ‎%{count}‎"
+    minutes_ago: "לפני ‎%{count}‎ דקות"
+    month_ago: "לפני חודש ‎%{count}‎"
+    months_ago: "לפני ‎%{count}‎ חודשים"
+    seconds_ago: "לפני ‎%{count}‎ שניות"
+    year_ago: "לפני שנה ‎%{count}‎"
+    years_ago: "לפני ‎%{count}‎ שנים"
     days_since:
       one: "יום ‎%{count}‎"
       other: "‎%{count}‎ ימים"
