@@ -94,10 +94,10 @@ de:
         favicon: Favicon
         favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
         community_custom_color1: Hauptfarbe
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
+        community_slogan_color: "Farbe des Marktplatz-Slogans"
+        community_slogan_color_instructions_text: "Du kannst die Farbe des Slogans ändern, indem du den Hex-Wert einer Farbe eingibst. Der Slogan wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
+        community_description_color: "Farbe der Marktplatz-Beschreibung"
+        community_description_color_instructions_text: "Du kannst die Farbe der Beschreibung ändern, indem du den Hex-Wert einer Farbe eingibst. Die Beschreibung wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
         logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
@@ -331,8 +331,8 @@ de:
         edit_location_field: "Standort bearbeiten"
         this_field_is_required: "Dieses Feld ist erforderlich"
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Eintragsfeld 'Ablaufdatum' bearbeiten"
+        enable: "Ablaufdatum aktivieren"
       form:
         field_required:
           this_field_is_required: "Dieses Feld ist erforderlich"
