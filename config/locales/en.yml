@@ -897,7 +897,7 @@ en:
       transaction_requested_by_user: "Great news! %{requester} is interested in \"%{listing_title}\" and has authorized payment for this listing"
       you_have_time_to_accept: "You need to accept or reject the request within %{payment_expires_in}." 
       if_you_do_accept: "- If you accept the request within this timeframe, you will receive the money immediately to your account."
-      if_you_do_not_accept: " - If you reject the request or don't accept it within this timeframe, the transaction will be automatically canceled, %{requester} will not be charged and you will not get paid."
+      if_you_do_not_accept: "- If you reject the request or don't accept it within this timeframe, the transaction will be automatically canceled, %{requester} will not be charged and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
