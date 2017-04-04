@@ -30,24 +30,19 @@ module IntercomHelper
     # }
     # ```
     #
-    # The regexp `o` is omited. (It seems to be IP matcher)
+    # The regexp `o` is omitted. (It seems to be IP matcher)
     #
     def self.find_domain(host_with_port)
       domain_regexp = /[^.]*\.([^.]*|..\...|...\...)$/
 
       match = domain_regexp.match(host_with_port)
 
-      if match
-        ".#{match[0].split(":")[0]}"
-      end
+      ".#{match[0].split(":")[0]}"
     end
 
     def self.intercom_shutdown(session, cookies, host_with_port)
       domain = find_domain(host_with_port)
-
-      if domain
-        cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
-      end
+      cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
     end
   end
 
