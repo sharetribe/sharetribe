@@ -1437,7 +1437,7 @@ fi:
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vähennetään hinnasta."
-        after_service_fee_you_will_get_paypal_text: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
+        after_service_fee_you_will_get_paypal_text: "Kun joku tekee tilauksen, %{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
         delivery: Kuljetustapa
         shipping: Postitus
