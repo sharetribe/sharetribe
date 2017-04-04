@@ -1,6 +1,51 @@
 # coding: utf-8
 module IntercomHelper
 
+  # Copied from
+  #
+  # https://github.com/intercom/intercom-rails/blob/1a077474f33c2629de1d1a46ff67f97c0b9a0264/lib/intercom-rails/shutdown_helper.rb
+  #
+  # ...with modifications.
+  #
+  module ShutdownHelper
+
+    LOGOUT_KEY = :prepare_intercom_shutdown
+
+    # This function imitates Intercom JavaScript library and how it
+    # defines the cookie domain. This regexp was found from the minified
+    # Intercom JavaScript library.
+    #
+    # The original JavaScript code:
+    #
+    # ```js
+    # var n = /[^.]*\.([^.]*|..\...|...\...)$/,
+    # o = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+    #
+    # findDomain: function(e) {
+    #   var t = e.match(o);
+    #   if (!t && (t = e.match(n))) {
+    #     var r = t[0];
+    #     return r = r.split(":")[0], "." + r
+    #   }
+    # }
+    # ```
+    #
+    # The regexp `o` is omitted. (It seems to be IP matcher)
+    #
+    def self.find_domain(host_with_port)
+      domain_regexp = /[^.]*\.([^.]*|..\...|...\...)$/
+
+      match = domain_regexp.match(host_with_port)
+
+      ".#{match[0].split(":")[0]}"
+    end
+
+    def self.intercom_shutdown(session, cookies, host_with_port)
+      domain = find_domain(host_with_port)
+      cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
+    end
+  end
+
   CONSOLE_CHECK = "\u{2705} "
   CONSOLE_CROSS = "\u{274c} "
   CONSOLE_WARNING = "\u{26A0} "
