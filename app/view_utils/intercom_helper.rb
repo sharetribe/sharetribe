@@ -5,7 +5,7 @@ module IntercomHelper
   #
   # https://github.com/intercom/intercom-rails/blob/1a077474f33c2629de1d1a46ff67f97c0b9a0264/lib/intercom-rails/shutdown_helper.rb
   #
-  # ...with slight modifications.
+  # ...with modifications.
   #
   module ShutdownHelper
 
@@ -17,9 +17,10 @@ module IntercomHelper
     #
     # The original JavaScript code:
     #
+    # ```js
     # var n = /[^.]*\.([^.]*|..\...|...\...)$/,
     # o = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-
+    #
     # findDomain: function(e) {
     #   var t = e.match(o);
     #   if (!t && (t = e.match(n))) {
@@ -27,6 +28,7 @@ module IntercomHelper
     #     return r = r.split(":")[0], "." + r
     #   }
     # }
+    # ```
     #
     # The regexp `o` is omited. (It seems to be IP matcher)
     #
@@ -40,26 +42,11 @@ module IntercomHelper
       end
     end
 
-    # This helper allows to erase cookies when a user log out of an application
-    # It is recommanded to call this function every time a user log out of your application
-    # specifically if you use both "Acquire" and another Intercom product
-    # Do not use before a redirect_to because it will not clear the cookies on a redirection
-    def self.intercom_shutdown_helper(cookies, domain)
-      cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
-    end
-
-    def self.prepare_intercom_shutdown(session)
-      session[LOGOUT_KEY] = true
-    end
-
     def self.intercom_shutdown(session, cookies, host_with_port)
-      if session[LOGOUT_KEY]
-        session.delete(LOGOUT_KEY)
-        domain = find_domain(host_with_port)
+      domain = find_domain(host_with_port)
 
-        if domain
-          intercom_shutdown_helper(cookies, domain)
-        end
+      if domain
+        cookies.delete("intercom-session-#{IntercomHelper.admin_intercom_app_id}".to_sym, domain: domain)
       end
     end
   end
