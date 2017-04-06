@@ -764,13 +764,13 @@ he-IL:
       show_thread: ~
     confirmation_instructions:
       confirmation_instructions_signature: ~
-      need_to_confirm: "להצטרפות ל‎%{service_name}‎ אנא אשרו את המייל שלכם על ידי לחיצה על הכפתור מטה."
+      need_to_confirm: ~
       confirmation_link_text: "מאשר את הכתובת"
       or_paste_link: ~
     common:
       hey: "שלום ‎%{name}‎,"
-      kassi_team: "צוות ‎%{service_name}‎"
-      thanks: "תודה רבה,"
+      kassi_team: "‎%{service_name}‎"
+      thanks: ",תודה רבה"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: "ערוך את פרטי האימייל שלך כאן"
       message_not_displaying_correctly: ~

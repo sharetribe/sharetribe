@@ -308,7 +308,7 @@ pt-BR:
           free: "Mensagem livre"
           pending: Pendente
           preauthorized: "Pagamento efetuado com sucesso"
-          accepted: Aceite
+          accepted: Aceito
           rejected: Recusada
           paid: Pago
           confirmed: Confirmado
@@ -618,7 +618,7 @@ pt-BR:
       no_received_messages: "Nenhuma mensagem recebida"
       no_sent_messages: "Nenhuma mensagem enviada"
     conversation:
-      accepted_request: "Pedido aceite."
+      accepted_request: "Pedido aceito."
       accepted_offer: "Oferta aceita."
       rejected_request: "Pedido rejeitado."
       rejected_offer: "Oferta rejeitada."
@@ -632,7 +632,7 @@ pt-BR:
       message_content_not_available: "O conteúdo da mensagem não está disponível"
     message:
       accepted_request: "aceitou o pedido"
-      received_payment: "O pedido foi aceite, pagamento recebido para %{sum}"
+      received_payment: "O pedido foi aceito, pagamento de %{sum} recebido"
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -692,7 +692,7 @@ pt-BR:
           verify: "Você não pode aceitar essa transação porque você não verificou a sua conta PayPal. Vá para %{paypal_url} para verificar sua conta."
           intl: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não tem um mecanismo de retirada. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
       waiting_for_current_user_to_deliver_listing: "Aguardando você entregar o pedido: %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "Aguardando por %{listing_author_name} para entregar %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Aguardando %{listing_author_name} entregar %{listing_title}"
       request_accepted: Aceito
       request_rejected: Rejeitado
       request_confirmed: Concluído
@@ -723,7 +723,7 @@ pt-BR:
       accept_preauthorized_request: "Aceitar o pedido"
       reject_preauthorized_offer: "Não agora"
       reject_preauthorized_request: "Não desta vez"
-      confirm: "Marca concluida"
+      confirm: "Marcar como concluída"
       cancel: "Não aconteceu"
   feedback:
     feedback_subject: "Novo comentário do %{service_name}"
