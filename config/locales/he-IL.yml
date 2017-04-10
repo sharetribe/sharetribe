@@ -548,21 +548,21 @@ he-IL:
     accept:
       details: ~
       order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
+      accept_offer: "אשר את ההצעה"
+      accept_request: "אשר את הבקשה"
+      reject_offer: "לא כעת"
+      reject_request: "לא כעת"
+      close_listing: "Close the listing %{listing_title_link}‎"
+      update_later: "השאר פעיל"
       optional_message: ~
       price_to_pay: "סה\"כ לתשלום"
       accept: ~
       decline: ~
-      quantity_label: ~
+      quantity_label: "כמות:"
       sum_label: ~
-      service_fee_label: ~
+      service_fee_label: "מחיר ‎%{service_name}‎ :"
       you_will_get_label: ~
-      total_label: ~
+      total_label: סה"כ
       total_value: ~
       paypal_fee_info: ~
       shipping_price_label: "משלוח:"
@@ -571,10 +571,10 @@ he-IL:
       cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
-      confirm: ~
+      confirm: "סמן כהושלם"
       cancel: ~
-      continue: ~
-      give_feedback_to: ~
+      continue: המשך
+      give_feedback_to: "כתוב ביקורת ל‎%{person_link}‎"
       do_not_give_feedback: ~
     details:
       day: יום
@@ -591,47 +591,47 @@ he-IL:
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
-      confirmed_request: ~
-      confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
-      message_from: ~
+      confirmed_request: "ההזמנה בוצעה."
+      confirmed_offer: "ההזמנה בוצעה."
+      canceled_request: "ההזמנה בוטלה."
+      canceled_offer: "ההזמנה בוטלה."
+      message_from: "הודעה מ‎%{person}‎"
       about_listing: "לגבי ‎%{listing_title}‎"
       free_message: ~
       message_content_not_available: ~
     message:
-      accepted_request: ~
+      accepted_request: "אישר את הבקשה"
       received_payment: ~
-      accepted_offer: ~
+      accepted_offer: "אישר את ההצעה"
       rejected_request: ~
       rejected_offer: ~
       confirmed_request: ~
       confirmed_offer: ~
-      canceled_request: ~
-      canceled_offer: ~
+      canceled_request: "ביטל את ההזמנה"
+      canceled_offer: "ביטל את ההזמנה"
       paid: ~
       payment_preauthorized: ~
     new:
       message: הודעה
-      message_to: ~
+      message_to: "הודעה ל‎%{author_name}‎"
       optional_message_to: ~
       send_message: שלח
-      send: ~
+      send: שלח
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
       title: כותרת
-      send_message_to_user: "‎%{person}‎ שלח הודעה ל"
+      send_message_to_user: "שלח הודעה ל‎%{person}‎"
       about_listing: "לגבי ‎%{listing_title}‎"
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: לגבי
-      message_sent_by: ~
-      message_sent_to: ~
+      message_sent_by: "הודעה נשלח ע\"י"
+      message_sent_to: "הודעה נשלח ל"
       send_reply: "שלח/י תגובה"
       write_a_reply: "כתוב/כתבי תגובה:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "עם ‎%{person}‎ לגבי ‎%{listing}‎"
+      conversation_with_user: "עם ‎%{person}‎"
       conversation_with: "שיחה עם ‎%{person}‎"
       last_message_at: ~
       price: "מחיר: ‎%{price}‎"
@@ -647,7 +647,7 @@ he-IL:
       give_feedback: "כתוב/כתבי המלצה או הערה"
       offer_accepted: "התקבל בהצלחה"
       offer_rejected: "אינו מאושר"
-      offer_canceled: ~
+      offer_canceled: בוטל
       offer_confirmed: ~
       offer_paid: ~
       offer_preauthorized: ~
@@ -722,11 +722,11 @@ he-IL:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: "זכור/זכרי לאשר או לדחות הצעה מ‎%{sender_name}‎"
-      remember_to_accept_request: "זכור/זכרי לאשר או לדחות בקשה מ‎%{sender_name}‎"
-      you_can_accept_or_reject_offer_at: "את/ה יכול/ה לאשר או לדחות את ההצעה ב"
-      you_can_accept_or_reject_request_at: "את/ה יכול/ה לאשר או לדחות את הבקשה ב"
-      you_have_not_yet_accepted_or_rejected_offer: "טרם אישרת או דחית את ההצעה ‎%{title}‎ שקיבלת ב‎%{date}‎."
+      remember_to_accept_offer: ~
+      remember_to_accept_request: ~
+      you_can_accept_or_reject_offer_at: ~
+      you_can_accept_or_reject_request_at: ~
+      you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: "טרם אישרת או דחית את הבקשה ‎%{title}‎ שקבלת ב‎%{date}‎."
       show_thread: ~
     branding:
@@ -778,10 +778,10 @@ he-IL:
       or: או
       unsubscribe_from_these_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: "‎%{accepter}‎ אישר/ה את ההצעה שלך ‎%{listing}‎."
-      has_accepted_your_request: "‎%{accepter}‎ אישר/ה את הבקשה שלך ‎%{listing}‎."
-      has_rejected_your_offer: "‎%{accepter}‎ לא אישר/ה את ההצעה שלך ‎%{listing}‎."
-      has_rejected_your_request: "‎%{accepter}‎ לא אישר/ה את הבקשה שלך ‎%{listing}‎."
+      has_accepted_your_offer: ~
+      has_accepted_your_request: ~
+      has_rejected_your_offer: ~
+      has_rejected_your_request: ~
       view_thread: ~
       your_offer_was_accepted: "הצעתך אושרה"
       your_offer_was_rejected: "הצעתך לא אושרה"
@@ -793,22 +793,22 @@ he-IL:
     invitation_to_kassi:
       hi: ~
       you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: "‎%{inviter}‎ הודעה אישית מ"
+      here_is_a_message_from: ~
       join_now: ~
       invitation_code: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: "‎%{author}‎ הגיב/ה על ‎%{service_name}‎."
+      you_have_a_new_comment: ~
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: "‎%{sender}‎ שלח/ה לך הודעה ב‎%{service_name}‎."
-      you_have_a_new_message: "התקבלה הודעה חדשה ב‎%{service_name}‎ על ידי‎ ‎%{sender_name}‎"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_payment:
       new_payment: ~
-      price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
+      price_per_unit_type: "מחיר ל‎%{unit_type}‎"
       quantity: ~
       you_have_received_new_payment: ~
     paypal_new_payment:
@@ -832,8 +832,8 @@ he-IL:
       service_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "‎%{name}‎ כתב/ה לך משוב ב‎%{service_name}‎"
-      you_can_give_feedback_to: "טרם כתבת משוב עבור ‎%{name}‎."
+      has_given_you_feedback_in_kassi: ~
+      you_can_give_feedback_to: ~
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -876,7 +876,7 @@ he-IL:
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
       welcome_email_footer_text: ~
-      settings_link_text: ~
+      settings_link_text: "בדוק את ההגדרות שלך"
     new_listing_by_followed_person:
       subject: ~
       has_posted_a_new_listing: ~
@@ -1037,7 +1037,7 @@ he-IL:
       no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים או שירותים."
       no_listings_notification: |-
           אייייזה כיף! אתה הראשון לפתוח את הקהילה בעיר שלך (-:
-          ‎%{add_listing_link}‎ שירותים או פרטים למכירה/מסירה ואל תשכח להזמין את הקהילה הישראלית המקומית לאתר!
+          ‎%{add_listing_link}‎ שירותים בעברית, עסקים ישראלים או פריטים למכירה/מסירה ואל תשכח להזמין את הקהילה הישראלית המקומית לאתר!
       add_listing_link_text: "הוסף +"
       open_listing: ~
       open_listings: ~
@@ -1127,7 +1127,7 @@ he-IL:
       learn_more: ~
     no_tribe:
       inbox: הודעות
-      settings: ~
+      settings: הגדרות
       feedback: "צור קשר עם צוות ‎%{service_name}‎"
     application:
       join_this_community: ~
@@ -1318,14 +1318,14 @@ he-IL:
       delete: ~
       are_you_sure: ~
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "..."
       log_in: התחבר
       send_comment: "שלח תגובה"
       to_send_a_comment: "לשליחת תגובה חדשה"
       write_comment: "כתוב תגובה חדשה:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
       you_must: אנא
-      subscribe_to_comments: ~
+      subscribe_to_comments: "עדכן אותי על תגובות חדשות"
     edit:
       edit_listing: ערוך
     edit_links:
@@ -1345,8 +1345,8 @@ he-IL:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "קבל עדכון לאימייל על תגובות חדשות"
+      unfollow: "בטל עדכונים על תגובות חדשות"
     form:
       custom_field_partials:
         dropdown:
@@ -1567,9 +1567,9 @@ he-IL:
     preauthorize:
       dates_not_available: ~
       error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
+      details: פרטים
+      by: "‎%{listing}‎ ע\"י ‎%{author}‎"
+      payment: תשלום
       exp: ~
       you_will_be_charged: ~
       day: יום

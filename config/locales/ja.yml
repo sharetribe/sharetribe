@@ -628,7 +628,7 @@ ja:
     new:
       message: メッセージ
       message_to: "%{author_name}さんへメッセージ"
-      optional_message_to: "%{author_name}さんへ任意でメッセージをする"
+      optional_message_to: "%{author_name}さんへのメッセージ（任意）"
       send_message: メッセージ送信する
       send: 送信する
       this_message_is_private: "このメッセージは、あなたと%{person}さんの間のプライベートなものです。%{person}さんは、メールでこのメッセージを通知されます。"
@@ -1061,7 +1061,7 @@ ja:
       are_offering: オファー
       add_news_item: 記事を追加する
       lend_rent_help_carpool: 売ります、無料で貸します、お手伝いします、ライドシェア
-      loading_more_content: 内容をロードしていす
+      loading_more_content: 読込中
       more_events: 取引をもっと閲覧する...
       news: ニュース
       no_news: ニュースがありません
@@ -1138,7 +1138,7 @@ ja:
       create_own: ~
       learn_more: ~
     no_tribe:
-      inbox: 受信箱
+      inbox: メール受信箱
       settings: 設定
       feedback: "%{service_name}へのお問い合わせ"
     application:
@@ -1214,7 +1214,7 @@ ja:
       could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
       facebook_email_unconfirmed: "あなたのFACEBOOKアカウントのメールアドレス%{email}は既に登録されておりますが、メールアドレスの承認が完了しておりません。メールアドレスの承認を完了してからFACEBOOKでログインを行ってください。"
       create_new_listing: もうひとつリストを作成する
-      create_one_here: ここから作成
+      create_one_here: こちらでご登録
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
       email_not_found: "ご記入いただいたメールアドレスは、%{service_name}に存在しません。"
       error_with_session: セッション中にエラーが起こりました
@@ -1290,19 +1290,19 @@ ja:
       you_have_already_given_feedback_about_this_event: 既にこの取引に関してレビューを書いています
       you_are_now_member: "%{service_name}へようこそ！"
       you_are_already_member: "あなたはすでに%{service_name}のメンバーです。おかえりなさい！"
-      you_must_log_in_to_create_new_listing: "新しいリストを投稿するには%{service_name}へログインしてください。アカウントをお持ちでない場合は、%{sign_up_link}してください。"
+      you_must_log_in_to_create_new_listing: "新しく出品するには%{service_name}へのログインが必要です。初めての方は、%{sign_up_link}お願いいたします。"
       additional_email_confirmed_dashboard: メールアドレスが認証されました。
       you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
       you_must_log_in_to_send_a_comment: コメントを送信するにはログインが必要です
-      you_must_log_in_to_send_a_message: "他のユーザーにメッセージを送信するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_send_a_message: "お問い合わせをするには、%{service_name}へのログインが必要です。"
       you_must_log_in_to_do_a_transaction: "お取引をするには%{service_name}へログインしてください"
       you_must_log_in_to_view_this_content: コンテンツを閲覧するにはログインしてください
       you_must_log_in_to_view_this_page: このページを閲覧するにはログインしていなければなりません
-      you_must_log_in_to_view_your_inbox: "メール受信箱を閲覧するには、%{service_name}にログインしてください"
-      you_must_log_in_to_view_your_settings: "設定を見るには、%{service_name}にログインしてください"
-      you_must_log_in_to_add_news_item: "新しい記事を追加するには、%{service_name}にログインしている必要があります。"
-      you_must_log_in_to_change_profile_settings: "プロフィールの設定を変更するには、%{service_name}にログインしてください。"
+      you_must_log_in_to_view_your_inbox: "メール受信箱を見るには、%{service_name}へのログインが必要です。"
+      you_must_log_in_to_view_your_settings: "設定を見るには、%{service_name}へのログインが必要です。"
+      you_must_log_in_to_add_news_item: "新しい記事を追加するには、%{service_name}へのログインが必要です。"
+      you_must_log_in_to_change_profile_settings: "プロフィール設定を変更するには、%{service_name}へのログインが必要です。"
       you_must_log_in_to_accept_or_reject: お取引を受諾か却下するにはログインしてください
       you_must_log_in_to_confirm_or_cancel: お取引をキャンセルか、承認するにはログインしてください
       you_need_to_confirm_your_account_first: メールアドレスを認証してください。
@@ -1419,13 +1419,13 @@ ja:
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
-        after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金より控除されます。"
+        after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金から差し引かれます"
         paypal_fee_info_link_text: PayPalのお支払い手数料
-        delivery: 配送方法
-        shipping: 発送
+        delivery: 配送
+        shipping: 発送する
         shipping_price: 送料
         shipping_price_additional: 追加の注文
-        pickup: 受け渡し
+        pickup: 手渡し
       origin:
         location: 場所
         origin: 起点となる場所
@@ -1562,12 +1562,12 @@ ja:
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
         per_day: 1日あたり
-      delivery: 配送方法
+      delivery: 配送
       shipping: "送料 (+%{price})"
       shipping_no_price: 送料
       shipping_price_additional: "送料 (+%{price}, 追加の注文: +%{shipping_price_additional})"
-      pickup: 受け渡し
-      pickup_no_price: 受け渡し
+      pickup: 手渡し
+      pickup_no_price: 手渡し
       youtube_video_player: YOUTUBEビデオ・プレイヤー
     unit_types:
       piece: 枚数
@@ -1773,18 +1773,18 @@ ja:
       you_follow_singular: "あなたは%{count}人フォロー中です。"
       they_follow_plural: "%{count}人にフォローされています"
       they_follow_singular: "%{count}人にフォローされています"
-      show_all_followed_people: フォローしてくれた人を閲覧する
-      no_followed_people: フォローした人はいません
+      show_all_followed_people: フォロー中の人すべて見る
+      no_followed_people: フォロー中の人はいません
     follow_button:
-      following: フォローしています
+      following: フォロー中
       follow: フォローする
-      unfollow: フォローをやめる
+      unfollow: 解除
   sessions:
     new:
       create_new_account: 新規登録する
       i_forgot_my_password: "ユーザー名 or パスワードを忘れた場合はこちら"
       login: ログイン
-      login_to_kassi: "%{service_name}にログイン"
+      login_to_kassi: "%{service_name}へログイン"
       connect_your_facebook_to_kassi: "あなたのFacebookアカウントを%{service_name}につなげる"
       facebook_account: Facebookのアカウント
       log_in_to_link_account: "もしすでに%{service_name}のアカウントをお持ちであれば、まずログインをしてからフェイスプックのアカウントをつないでください。"
@@ -1793,7 +1793,7 @@ ja:
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
       log_in_with_your_facebook_account: "Facebook IDでログイン"
-      or_sign_up_with_your_username: "または、ユーザー名 or メールアドレスで登録："
+      or_sign_up_with_your_username: "または、ユーザー名 or メールアドレスで："
       we_will_not_post_without_asking_you: あなたに断りなくFacebookに投稿することは、決してありません。
     password_forgotten:
       email: メールアドレス
@@ -1802,7 +1802,7 @@ ja:
       change_your_password: パスワード変更
     confirmation_pending:
       welcome_to_kassi: "%{service_name}へようこそ！"
-      check_your_email: 受信箱を確認してください。
+      check_your_email: メール受信箱をご確認ください。
       resend_confirmation_instructions: 認証メールを再送する
       your_current_email_is: "あなたのメールアドレスは %{email} です。"
       change_email: 変更する
@@ -1854,14 +1854,14 @@ ja:
       email_about_new_messages: "...誰かがメッセージを送信しました"
       email_about_new_received_testimonials: "...誰かがレビューを書きました"
       email_about_testimonial_reminders: "...レビュー書くのを忘れました"
-      email_daily_community_updates: サイトに新しいリストが投稿された場合、<b>毎日</b>最新情報を記載したメールを受け取る
-      email_weekly_community_updates: サイトに新しいリストが投稿された場合、<b>毎週</b>最新情報を記載したメールを受け取る
+      email_daily_community_updates: 新しく出品された商品について、<b>毎日</b>最新情報メールを受け取る
+      email_weekly_community_updates: 新しく出品された商品について、<b>毎週</b>最新情報メールを受け取る
       do_not_email_community_updates: 最新情報メールを受け取らない
       email_when_conversation_accepted: "...誰かが私のオファーあるいはリクエストを受け入れました"
       email_when_conversation_rejected: "...誰かが私のオファーあるいはリクエストを受け入れませんでした"
       email_about_completed_transactions: "...誰かが私のオファーかリクエストが完了しているとステータスを変更（マーク）しました"
       email_about_new_payments: "...新しいお支払いを受けました"
-      email_about_new_listings_by_followed_people: "...フォロー中の誰かが新しいリストを投稿しました"
+      email_about_new_listings_by_followed_people: "...フォロー中のユーザーが新しい商品を出品した時"
       unsubscribe_succesful: 購読をやめる
       unsubscribe_info_text: "これらのメールを今後受け取りません。今一度%{settings_link}から、%{service_name}より受け取りたい種類のメールを選んでください。もしくは%{homepage_link}に戻ります。"
       settings_link: メール通知設定
@@ -2065,7 +2065,7 @@ ja:
       search_placeholder: ~
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
       user: メンバー
-      inbox: 受信箱
+      inbox: メール受信箱
       profile: プロフィール
       manage_listings: リストを管理する
       settings: 設定
