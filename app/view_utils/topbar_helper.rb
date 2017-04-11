@@ -44,7 +44,7 @@ module TopbarHelper
         links: links,
         limit_priority_links: Maybe(MarketplaceService::API::Api.configurations.get(community_id: community.id).data)[:limit_priority_links].or_else(nil)
       },
-      locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change),
+      locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change, user.present?),
       avatarDropdown: {
         avatar: {
           image: user&.image.present? ? { url: user.image.url(:thumb) } : nil,
@@ -119,14 +119,16 @@ module TopbarHelper
     links + user_links
   end
 
-  def locale_props(community, current_locale, path_after_locale_change)
+  def locale_props(community, current_locale, path_after_locale_change, is_logged_in)
     community_locales = community.locales.map { |loc_ident|
       Sharetribe::AVAILABLE_LOCALES.find { |app_loc| app_loc[:ident] == loc_ident }
     }.compact.map { |loc|
       {
         locale_name: loc[:name],
         locale_ident: loc[:ident],
-        change_locale_uri: paths.change_locale_path({locale: loc[:ident], redirect_uri: path_after_locale_change})
+        change_locale_uri: PathHelpers.change_locale_path(is_logged_in: is_logged_in,
+                                                          locale: loc[:ident],
+                                                          redirect_uri: path_after_locale_change)
       }
     }
 
