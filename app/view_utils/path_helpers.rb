@@ -59,4 +59,25 @@ module PathHelpers
     @_url_helpers ||= Rails.application.routes.url_helpers
   end
 
+  # Path for locale change
+  #
+  # - If logged in: URL points to I18nController with redirect_url query string
+  # - If not logged in: Change the locale in the URL. No redirect_url query string
+  #
+  # For non-logged users, we don't want to include redirect_url query string, because
+  # it will create a number of unique links that the crawlers will request even though
+  # the page is the same
+  def change_locale_path(is_logged_in:, locale:, redirect_uri:)
+    if is_logged_in
+      paths.change_locale_path(locale: locale, redirect_uri: redirect_uri)
+    else
+      path_after_locale_change(locale: locale, redirect_uri: redirect_uri)
+    end
+  end
+
+  # Path after the current_user locale has been changed OR
+  # the new locale path, if anonymous user.
+  def path_after_locale_change(locale:, redirect_uri:)
+    "/#{locale}/#{redirect_uri}"
+  end
 end

@@ -37,4 +37,6 @@
       .toggle-menu-title
         = t("layouts.global-header.select_language")
 
-      = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array, locals: { return_after_locale_change: return_after_locale_change }
+      - locale_change_links.each do |locale_change_link|
+        %a{href: locale_change_link[:url]}
+          = locale_change_link[:title]
