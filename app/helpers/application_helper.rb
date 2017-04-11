@@ -531,14 +531,6 @@ module ApplicationHelper
     return links
   end
 
-  def display_expiration_notice?
-    ext_service_active = PlanService::API::Api.plans.active?
-    is_admin = Maybe(@current_user).has_admin_rights?.or_else(false)
-    is_expired = Maybe(@current_plan)[:expired].or_else(false)
-
-    ext_service_active && is_admin && is_expired
-  end
-
   # returns either "http://" or "https://" based on configuration settings
   def default_protocol
     APP_CONFIG.always_use_ssl ? "https://" : "http://"

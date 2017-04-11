@@ -34,7 +34,8 @@ class ApplicationController < ActionController::Base
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
     :ensure_consent_given,
-    :ensure_user_belongs_to_community
+    :ensure_user_belongs_to_community,
+    :set_display_expiration_notice
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -381,6 +382,13 @@ class ApplicationController < ActionController::Base
     else
       search_path
     end
+  end
+
+  def set_display_expiration_notice
+    ext_service_active = PlanService::API::Api.plans.active?
+    is_expired = Maybe(@current_plan)[:expired].or_else(false)
+
+    @display_expiration_notice = ext_service_active && is_expired
   end
 
   private

@@ -31,8 +31,11 @@
     - else
       = render partial: 'layouts/global_header', locals: header_props()
 
-    - if display_expiration_notice?
-      = render partial: "layouts/admin_expiration_notice", :locals => {external_plan_service_login_url: admin_plan_path}
+    - if @display_expiration_notice
+      - if @current_user&.has_admin_rights?
+        = render partial: "layouts/admin_expiration_notice", locals: {external_plan_service_login_url: admin_plan_path}
+      - else
+        = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
 
     - content_for(:page_content) do
       %section.marketplace-lander

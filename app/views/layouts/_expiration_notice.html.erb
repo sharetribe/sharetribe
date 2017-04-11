@@ -1,0 +1,21 @@
+<% content_for :javascript do %>
+  window.ST.initializeExpirationNotice('expiration-notice');
+<% end %>
+<div class="expiration-lightbox lightbox" id="expiration-notice" >
+  <div class="expiration-content">
+    <div class="expiration-head-panel">
+      <h1 class="expiration-title"><%= t("expiration.title") %></h1>
+      <div class="expiration-subcontent" >
+        <%= t("expiration.unavailable_info") %>
+      </div>
+      <div class="expiration-subcontent">
+        <%= t("expiration.all_available_info").html_safe %>
+      </div>
+    </div>
+    <a href="<%= contact_owner_link %>">
+      <div class="contact-owner">
+        <p class="contact-owner-title"><%= t("expiration.contact_owner") %></p>
+      </div>
+    </a>
+  </div>
+</div>
