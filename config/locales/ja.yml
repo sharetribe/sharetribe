@@ -646,7 +646,7 @@ ja:
       write_a_reply: 返事を書く
       conversation_about_listing: "%{listing}に関して%{person}さんと"
       conversation_with_user: "%{person}さんと"
-      conversation_with: "%{person}さんとの会話"
+      conversation_with: "%{person}さんとお取引"
       last_message_at: "最新メッセージ %{time}"
       price: "価格： %{price}"
       sum: "合計： %{sum}"
@@ -1877,17 +1877,17 @@ ja:
       first_name_only: （他のユーザーには表示されません）
       display_name: 表示名
       display_name_description: 団体や法人の場合には、その組織名称を表示名として使用することができます。表示名はあなたの氏名の代わりに表示されます。
-      location_description: 詳細な住所を掲載したくない場合には、郵便番号だけを掲載することもできます。少なくとも郵便番号は記載をお願いします。また、地図から所在地を選択することもできます。
+      location_description: 住所の記載は必要ありませんが、少なくとも国と都市の記載をお願いいたします。地図から所在地を選択することもできます。
       phone_number: 電話番号
       profile_picture: プロフィール写真
       postal_code: 郵便番号
       profile_page: プロフィール情報を設定
       profilemap: 地図で見る
-      street_address: 場所
+      street_address: 所在地
       these_fields_are_shown_in_your: "この情報は、%{service_name}のすべてのユーザーに表示されます。"
       visible_to_everybody: 全員に表示
       visible_to_registered_users: （ログイン済みユーザに表示）
-      default_in_listing: （これは新規リストを作成時用の初期設定です）
+      default_in_listing: （新規リスト作成時の初期設定）
       invisible: （他のユーザーに表示されません）
       image_is_processing: あなたのプロフィール用写真を準備中です。しばらくしてからページをリロードしてください。
     save_information: 情報を保存する
