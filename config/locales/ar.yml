@@ -313,10 +313,10 @@ ar:
         price_min: "أقل قيمة لفرز السعر"
         price_max: "أكبر قيمة لفرز السعر"
       edit_location:
-        edit_location_field: "تحرير حقل الموقع"
+        edit_location_field: "تحرير حقل الإعلان \"الموقع\""
         this_field_is_required: "هذا الحقل إجباري"
       edit_expiration:
-        edit_expiration_field: "تحرير حقل الموقع"
+        edit_expiration_field: "تحرير حقل الإعلان \"تاريخ الانتهاء\""
         enable: "تفعيل تاريخ الانتهاء"
       form:
         field_required:
@@ -1048,7 +1048,7 @@ ar:
       some_private_offers_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد عروض"
       some_private_requests_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد طلبات"
     custom_filters:
-      update_view: "تحديث الفرز"
+      update_view: فرز
       min: "أقل قيمة:"
       max: "أكبر قيمة:"
     event_feed:
@@ -2093,7 +2093,7 @@ ar:
       menu: القائمة
       more: المزيد
       search_placeholder: بحث...
-      search_location_placeholder: الموقع
+      search_location_placeholder: المدينة
       user: المستخدم
       inbox: "صندوق الوارد"
       profile: "الملف الشخصي"
