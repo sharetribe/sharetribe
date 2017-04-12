@@ -1,8 +1,13 @@
 # we don't want these to be community updated (wording & layout)
 en:
   expiration:
-    title: "Your Sharetribe trial has expired."
-    sub_title_new: "Don't worry, your data has not been deleted. You can unlock your marketplace immediately by subscribing to one of our paid plans."
-    link_to_external_service: "Choose a plan"
-    need_more_info: "Need more information?"
-    contact_us: "Contact us."
+    admin:
+      title: "Your Sharetribe trial has expired."
+      sub_title_new: "Don't worry, your data has not been deleted. You can unlock your marketplace immediately by subscribing to one of our paid plans."
+      link_to_external_service: "Choose a plan"
+      need_more_info: "Need more information?"
+      contact_us: "Contact us."
+    title: "The free trial of this marketplace has expired."
+    unavailable_info: "The marketplace is temporarily unavailable. None of the listings, pictures or other data has been deleted. "
+    all_available_info: "All will be available again when the marketplace owner subscribes to a paid <a href='https://www.sharetribe.com/?utm_source=expired-trial&utm_medium=modal&utm_campaign=end-user-modal-expired-trial'>Sharetribe</a> plan."
+    contact_owner: "Contact the owner"

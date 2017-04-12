@@ -1,8 +1,13 @@
 # we don't want these to be community updated (wording & layout)
 fr:
   expiration:
-    title: "Votre place de marché d'essai a expiré."
-    contact_us: "Contactez-nous."
-    sub_title_new: "Ne vous inquiétez pas, aucune donnée n'a été supprimée. Vous pouvez réactiver votre place de marché immédiatement en souscrivant à l'une de nos offres."
-    need_more_info: "Besoin de plus d'informations ?"
-    link_to_external_service: "Choisir une offre"
+    admin:
+      title: "Votre place de marché d'essai a expiré."
+      contact_us: "Contactez-nous."
+      sub_title_new: "Ne vous inquiétez pas, aucune donnée n'a été supprimée. Vous pouvez réactiver votre place de marché immédiatement en souscrivant à l'une de nos offres."
+      need_more_info: "Besoin de plus d'informations ?"
+      link_to_external_service: "Choisir une offre"
+    title: "La période d'essai gratuite de cette place de marché est terminée."
+    unavailable_info: "La place de marché est pour le moment indisponible. Les annonces, images et données n'ont pas été supprimées."
+    all_available_info: "Tout sera utilisable de nouveau dès que l'administrateur de la place de marché aura souscrit à une offre payante de <a href='https://www.sharetribe.com/?utm_source=expired-trial&utm_medium=modal&utm_campaign=end-user-modal-expired-trial'>Sharetribe</a>."
+    contact_owner: "Contacter les administrateurs"

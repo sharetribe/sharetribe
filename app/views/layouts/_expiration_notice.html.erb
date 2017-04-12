@@ -5,17 +5,17 @@
   <div class="expiration-content">
     <div class="expiration-head-panel">
       <h1 class="expiration-title"><%= t("expiration.title") %></h1>
-      <h2 class="expiration-subtitle" >
-        <%= t("expiration.sub_title_new") %>
-      </h2>
-      <div class="expiration-plan-external">
-        <a href="<%= external_plan_service_login_url %>">
-          <div class="expiration-plan-biannual">
-            <p class="expiration-subscribe-title"><%= t("expiration.link_to_external_service") %></p>
-          </div>
-        </a>
+      <div class="expiration-subcontent" >
+        <%= t("expiration.unavailable_info") %>
+      </div>
+      <div class="expiration-subcontent">
+        <%= t("expiration.all_available_info").html_safe %>
       </div>
     </div>
-    <p class="expiration-footer"><%= t("expiration.need_more_info") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.contact_us") %></a></p>
+    <a href="<%= contact_owner_link %>">
+      <div class="contact-owner">
+        <p class="contact-owner-title"><%= t("expiration.contact_owner").html_safe %></p>
+      </div>
+    </a>
   </div>
 </div>

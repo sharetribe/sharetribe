@@ -4,6 +4,7 @@ class FeedbacksController < ApplicationController
   skip_filter :cannot_access_without_confirmation
   skip_filter :ensure_consent_given
   skip_filter :ensure_user_belongs_to_community
+  skip_filter :set_display_expiration_notice
 
   FeedbackForm = FormUtils.define_form("Feedback",
                                        :content,
