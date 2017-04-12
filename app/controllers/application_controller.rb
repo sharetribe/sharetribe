@@ -557,15 +557,23 @@ class ApplicationController < ActionController::Base
       }
     }.or_else({})
 
+    locale_change_links = available_locales.map { |(title, locale_code)|
+      {
+        url: PathHelpers.change_locale_path(is_logged_in: @current_user.present?,
+                                            locale: locale_code,
+                                            redirect_uri: @return_to),
+        title: title
+      }
+    }
+
     common = {
       logged_in: @current_user.present?,
       homepage_path: @homepage_path,
-      return_after_locale_change: @return_to,
       current_locale_name: get_full_locale_name(I18n.locale),
       sign_up_path: sign_up_path,
       login_path: login_path,
       new_listing_path: new_listing_path,
-      available_locales: available_locales,
+      locale_change_links: locale_change_links,
       icons: pick_icons(
         APP_CONFIG.icon_pack,
         [

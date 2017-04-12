@@ -135,8 +135,7 @@ class Topbar extends Component {
     const newListingRoute = this.props.routes && this.props.routes.new_listing_path ?
             this.props.routes.new_listing_path() :
             '#';
-    const pathParams = { return_to: location };
-    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path(pathParams) : '#';
+    const loginRoute = this.props.routes.login_path ? this.props.routes.login_path() : '#';
     const signupRoute = this.props.routes.sign_up_path ? this.props.routes.sign_up_path() : '#';
 
     // language menu props
