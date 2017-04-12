@@ -560,15 +560,15 @@ ja:
       link_to_paypal_text: こちら
   conversations:
     accept:
-      details: ご注文の詳細
-      order_by: "%{orderer_link}の注文"
+      details: 注文情報
+      order_by: "%{orderer_link}さんの注文内容"
       accept_offer: オファーを受け入れる
       accept_request: リクエストを受け入れる
       reject_offer: 今回はやめる
       reject_request: 今回はやめる
       close_listing: "%{listing_title_link}をクローズします"
       update_later: このリストを再開する
-      optional_message: 追加メッセージ
+      optional_message: 任意メッセージ
       price_to_pay: 支払われる合計金額
       accept: 受諾する
       decline: 辞退する
@@ -578,7 +578,7 @@ ja:
       you_will_get_label: 受け取り額：
       total_label: 合計：
       total_value: "%{seller_gets}*"
-      paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPalの手数料</a>は含まず"
+      paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は別途かかります"
       shipping_price_label: 送料：
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
@@ -589,7 +589,7 @@ ja:
       cancel: クレーム通知
       continue: 続ける
       give_feedback_to: "%{person_link}さんにレビューを書く"
-      do_not_give_feedback: レビューを書くのをスキップする
+      do_not_give_feedback: レビュー書くのやめる
     details:
       day: 日
       days: 日
@@ -610,12 +610,12 @@ ja:
       canceled_request: リクエストはキャンセルされました。
       canceled_offer: オファーはキャンセルされました。
       message_from: "%{person}さんからメッセージ"
-      about_listing: "%{listing_title}から"
-      free_message: 自由メッセージ
+      about_listing: "%{listing_title}"
+      free_message: ダイレクトメッセージ
       message_content_not_available: メッセージ・コンテンツが閲覧できません。
     message:
-      accepted_request: リクエストを受諾しました
-      received_payment: "取引リクエストを承認し、%{sum} のお支払いも確認しました。"
+      accepted_request: リクエストを受け入れました
+      received_payment: "リクエストを受け入れ、%{sum} のお支払いも確認できました"
       accepted_offer: 受諾されたオファー
       rejected_request: リクエストは却下されました
       rejected_offer: 却下されたオファー
@@ -624,7 +624,7 @@ ja:
       canceled_request: リクエストはキャンセルされました
       canceled_offer: キャンセルされたオファー
       paid: "%{sum}をお支払いしました"
-      payment_preauthorized: "%{sum}のお支払い手続きが成功しました。"
+      payment_preauthorized: "%{sum}のお支払い手続きが完了しました"
     new:
       message: メッセージ
       message_to: "%{author_name}さんへメッセージ"
@@ -636,17 +636,17 @@ ja:
       you_will_get_notified: "%{person}さんがあなたに返事する際にメールを受け取る。"
       title: タイトル
       send_message_to_user: "%{person}さんにメッセージを送信する"
-      about_listing: "%{listing_title}から"
+      about_listing: "%{listing_title}"
       author_has_to_accept_request: "あなたが支払う前に、%{author_name}さんがリクエストを受諾する必要があります。"
     show:
       in_response_to_listing: リストについて
       message_sent_by: からメッセージが送信されました。
       message_sent_to: へメッセージが送信されました。
-      send_reply: 返信する
-      write_a_reply: 返事を書く
+      send_reply: 送信する
+      write_a_reply: メッセージを書く
       conversation_about_listing: "%{listing}に関して%{person}さんと"
       conversation_with_user: "%{person}さんと"
-      conversation_with: "%{person}さんとお取引"
+      conversation_with: "%{person}さんとお問い合わせ"
       last_message_at: "最新メッセージ %{time}"
       price: "価格： %{price}"
       sum: "合計： %{sum}"
@@ -657,18 +657,18 @@ ja:
       payment_errored_author: "お支払い手続きが失敗しました。%{starter_name}さんに連絡し、お支払いをもう一度行ってもらうようお願いしてみてください。"
       cancel_payed_transaction: キャンセル
       feedback_given: レビューされています
-      feedback_skipped: レビューを書くのをスキップしました
+      feedback_skipped: レビューを残しませんでした
       give_feedback: レビューを書く
       offer_accepted: 承認されました
       offer_rejected: 却下されました
       offer_canceled: キャンセルされました
       offer_confirmed: 完了しました
-      offer_paid: お支払い手続きは成功しました
-      offer_preauthorized: お支払い手続きは成功しました
+      offer_paid: お支払い手続きが完了しました
+      offer_preauthorized: お支払い手続きが完了しました
       offer_waiting_for_payment: "%{requester_name}さんのお支払い待ち"
       pay: 支払う
-      preauthorized: お支払い手続きは成功しました
-      paid: お支払い手続きは成功しました
+      preauthorized: お支払い手続きが完了しました
+      paid: お支払い手続きが完了しました
       pending_external:
         paypal:
           multicurrency: "%{currency}でのお金の受け取りに設定されていなかったため、PayPalのお支払い手続きが出来ませんでした。%{paypal_url} に行きログイン後、このお支払いに関して、手動で承諾するか、拒否するかをしてください。"
@@ -680,14 +680,14 @@ ja:
       request_rejected: 却下されました
       request_confirmed: 完了しました
       request_canceled: キャンセルしました
-      request_paid: お支払い手続きは成功しました
-      request_preauthorized: お支払い手続きは成功しました
-      skip_feedback: レビューを書くのをスキップする
+      request_paid: お支払い手続きが完了しました
+      request_preauthorized: お支払い手続きが完了しました
+      skip_feedback: レビュー書くのやめる
       waiting_for_listing_author_to_accept_offer: "%{listing_author_name}さんのオファーの承諾待ち"
       waiting_for_listing_author_to_accept_request: "%{listing_author_name}さんの受諾のステータス変更待ち"
       waiting_for_you_to_accept_request: リクエストの承認待ち
-      waiting_confirmation_from_requester: "%{requester_name}さんのリクエスト完了のステータス変更待ち"
-      waiting_confirmation_from_you: リクエスト完了のステータス変更待ち
+      waiting_confirmation_from_requester: "%{requester_name}さんのリクエスト完了待ち"
+      waiting_confirmation_from_you: リクエスト完了待ち
       waiting_payment_from_requester: "%{requester_name}さんのお支払い待ち"
       waiting_payment_from_you: あなたのお支払い待ち
       waiting_feedback_from_you: レビューを残してください
@@ -699,11 +699,11 @@ ja:
           verify: あなたのPayPalアカウントの確認待ち
     status_link:
       accept_offer: オファーを承諾する
-      accept_request: リクエストを承諾する
+      accept_request: リクエストを受け入れる
       reject_offer: 今回はやめる
       reject_request: 今回はやめる
       accept_preauthorized_offer: オファーを受け入れる
-      accept_preauthorized_request: リクエストを承諾する
+      accept_preauthorized_request: リクエストを受け入れる
       reject_preauthorized_offer: 今回はやめる
       reject_preauthorized_request: 今回はやめる
       confirm: 取引完了
@@ -1202,7 +1202,7 @@ ja:
       listing_could_not_be_saved: "リストは保存できませんでした。もう一度お試しください。問題が続くようでしたら、%{contact_admin_link}。"
       contact_admin_link_text: サイト管理者にお問い合わせ
       test_welcome_email_delivered_to: "テストメールを%{email}へお送りしました。"
-      something_went_wrong: 何かがうまくいかなかったようです。
+      something_went_wrong: エラーが発生しました
       community_updated: 詳細は更新されました。
       community_update_failed: 詳細の更新は失敗しました。
       account_creation_succesful_you_still_need_to_confirm_your_email: アカウントが正常に作成されました。メールアドレスの認証手続きをしてください。
@@ -1222,7 +1222,7 @@ ja:
       feedback_not_saved: レビューは送信できませんでした。
       feedback_saved: メッセージどうもありがとうございます！なるべく早めにご返信させていただきますのでどうぞお待ちください。
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
-      feedback_skipped: レビューをスキップしました
+      feedback_skipped: レビューを残しませんでした
       invitation_cannot_be_sent: 招待状は送られませんでした
       invitation_limit_reached: ~
       invitation_sent: 招待状は正常に送信されました
@@ -1250,7 +1250,7 @@ ja:
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
       only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
       only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
-      payment_successful: お支払い手続きは成功しました
+      payment_successful: お支払い手続きが完了しました
       payment_canceled: お支払いはキャンセルされました
       error_in_payment: お支払い時にエラー発生。お支払いを完了していない場合、再試行してください。完了している場合は、お問い合わせにご連絡ください。
       cannot_receive_payment: 何かのエラーによりお支払いを受領できませんでした。状況を明確にするため、サイト管理者にお問い合わせください。
@@ -1892,7 +1892,7 @@ ja:
       image_is_processing: あなたのプロフィール用写真を準備中です。しばらくしてからページをリロードしてください。
     save_information: 情報を保存する
   shipping_address:
-    shipping_address: 送り先
+    shipping_address: 届け先住所
   tag_cloud:
     tag_used:
       with_tag: タグあり
