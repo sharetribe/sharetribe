@@ -53,8 +53,8 @@ module NewLayoutViewUtils
         name: f[:name],
         enabled_for_user: person_flags.include?(f[:name]),
         enabled_for_community: community_flags.include?(f[:name]),
-        disabled_for_user: topbar_flag_disabled?(f, person_flags),
-        disabled_for_community: topbar_flag_disabled?(f, community_flags)
+        disabled_for_user: flag_disabled?(f, person_flags),
+        disabled_for_community: flag_disabled?(f, community_flags)
       })}
   end
 
@@ -103,9 +103,8 @@ module NewLayoutViewUtils
     flags.include?(:manage_searchpage) && !private_community || clp_enabled
   end
 
-  def topbar_flag_disabled?(fl, flags)
-    #topbar is required with other flags and thus disabled
-    fl[:name] == :topbar_v1 &&
-      !flags.reject{ |f| [:topbar_v1, :manage_searchpage].include?(f) }.empty?
+  def flag_disabled?(fl, flags)
+    # The required flag is enabled in flags and requirement is disabled
+    flags.include?(FEATURE_RELS.key(fl[:name]))
   end
 end
