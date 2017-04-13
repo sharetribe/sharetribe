@@ -6,8 +6,8 @@ module NewLayoutViewUtils
     [:name, :symbol, :mandatory],
     [:enabled_for_user, :bool, :mandatory],
     [:enabled_for_community, :bool, :mandatory],
-    [:disabled_for_user, :bool, default: false],
-    [:disabled_for_community, :bool, default: false]
+    [:required_for_user, :bool, default: false],
+    [:required_for_community, :bool, default: false]
   )
 
   # Describes feature relationships:
@@ -53,8 +53,8 @@ module NewLayoutViewUtils
         name: f[:name],
         enabled_for_user: person_flags.include?(f[:name]),
         enabled_for_community: community_flags.include?(f[:name]),
-        disabled_for_user: flag_disabled?(f, person_flags),
-        disabled_for_community: flag_disabled?(f, community_flags)
+        required_for_user: flag_required?(f, person_flags),
+        required_for_community: flag_required?(f, community_flags)
       })}
   end
 
@@ -103,8 +103,8 @@ module NewLayoutViewUtils
     flags.include?(:manage_searchpage) && !private_community || clp_enabled
   end
 
-  def flag_disabled?(fl, flags)
-    # The required flag is enabled in flags and requirement is disabled
+  def flag_required?(fl, flags)
+    # If the required flag is provided in flags, the requirement must be enabled
     flags.include?(FEATURE_RELS.key(fl[:name]))
   end
 end

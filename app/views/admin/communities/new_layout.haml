@@ -37,10 +37,10 @@
             = feature[:title]
         .col-3
           .checkbox-centered
-            = check_box_tag "enabled_for_user[#{ feature[:name] }]", true, feature[:enabled_for_user], disabled: feature[:disabled_for_user]
+            = check_box_tag "enabled_for_user[#{ feature[:name] }]", true, feature[:enabled_for_user], disabled: feature[:required_for_user]
         .col-3
           .checkbox-centered
-            = check_box_tag  "enabled_for_community[#{ feature[:name] }]", true, feature[:enabled_for_community], disabled: feature[:disabled_for_community]
+            = check_box_tag  "enabled_for_community[#{ feature[:name] }]", true, feature[:enabled_for_community], disabled: feature[:required_for_community]
     .row
       .col-12
         = form.button t("admin.communities.settings.update_settings")
