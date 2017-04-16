@@ -4,7 +4,7 @@ module MarketplaceService
       module_function
 
       def last_activity_type(inbox_item)
-        if inbox_item[:last_transition_at].nil?
+        if inbox_item[:last_transition_at].nil? || inbox_item[:transaction_type] == "Inquiry"
           return :message
         elsif inbox_item[:last_message_at].nil?
           return :transition
