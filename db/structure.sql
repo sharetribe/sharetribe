@@ -24,8 +24,8 @@ DROP TABLE IF EXISTS `active_sessions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `active_sessions` (
   `id` binary(16) NOT NULL,
-  `person_id` varchar(22) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `community_id` int(11) DEFAULT NULL,
+  `person_id` varchar(22) COLLATE utf8_unicode_ci NOT NULL,
+  `community_id` int(11) NOT NULL,
   `refreshed_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -1622,7 +1622,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-18 12:54:43
+-- Dump completed on 2017-04-18 17:55:18
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
