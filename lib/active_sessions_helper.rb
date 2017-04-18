@@ -1,6 +1,71 @@
 module ActiveSessionsHelper
-  class ActiveSession < ActiveRecord::Base
-    self.primary_key = "session_id"
+  module Store
+    Session = EntityUtils.define_builder(
+      [:id, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
+      [:person_id, :string, :optional],
+      [:community_id, :fixnum, :optional],
+      [:refreshed_at, :time, :mandatory],
+    )
+
+    class ActiveSession < ActiveRecord::Base
+      def self.active_sessions(ttl:)
+        where("refreshed_at >= ?", ttl.ago)
+      end
+
+      def self.expired_sessions(ttl:)
+        where("refreshed_at < ?", ttl.ago)
+      end
+    end
+
+    module_function
+
+    def create(data)
+      id = UUIDUtils.create
+      ActiveSession.create(data.merge(id: UUIDUtils.raw(id)))
+
+      id
+    end
+
+    def find_active(id:, ttl:)
+      active_session =
+        ActiveSession
+          .active_sessions(ttl: ttl)
+          .find_by(id: UUIDUtils.raw(id))
+
+      from_model(active_session)
+    end
+
+    def refresh(id:)
+      ActiveSession
+        .find_by(id: UUIDUtils.raw(id))
+        .touch(:refreshed_at)
+    end
+
+    def update(session)
+      id = session[:id]
+
+      ActiveSession
+        .update_attributes(session.except(:id))
+        .where(id: UUIDUtils.raw(id))
+    end
+
+    def delete(id:)
+      ActiveSession.delete_all(id: UUIDUtils.raw(id))
+    end
+
+    def cleanup(ttl:)
+      ActiveSession
+        .expired_sessions(ttl: ttl)
+        .delete_all
+    end
+
+    # private
+
+    def from_model(model)
+      if model
+        Session.call(EntityUtils.model_to_hash(model))
+      end
+    end
   end
 
   # Time-to-live
@@ -19,25 +84,27 @@ module ActiveSessionsHelper
 
   def create(user, warden)
     cookie_session = warden.request.session
-    sid = UUIDUtils.create
 
-    ActiveSession.create(
-      session_id: UUIDUtils.raw(sid),
+    id = Store.create(
       person_id: user.id,
       community_id: user.community_id,
       refreshed_at: Time.now)
 
-    cookie_session[:db_sid] = sid.to_s
+    cookie_session[:db_id] = id.to_s
   end
 
   def validate_and_refresh(user, warden)
-    cookie_session = warden.request.session
-    db_session = active_sessions.find_by(session_id: UUIDUtils.raw(UUIDTools::UUID.parse(cookie_session[:db_sid])))
+    id = parse_uuid(warden.request.session[:db_id])
 
-    if db_session.nil?
+    db_session =
+      if id
+        Store.find_active(id: id, ttl: SESSION_TTL)
+      end
+
+    if db_session.blank?
       warden.logout
-    elsif db_session.refreshed_at < SESSION_REFRESH_INTERVAL.ago
-      db_session.touch(:refreshed_at)
+    elsif db_session[:refreshed_at] < SESSION_REFRESH_INTERVAL.ago
+      Store.refresh(id: id)
     end
 
     # temporary
@@ -47,14 +114,17 @@ module ActiveSessionsHelper
   end
 
   def destroy(warden)
-    cookie_session = warden.request.session
-    ActiveSession.delete_all(session_id: UUIDUtils.raw(UUIDTools::UUID.parse(cookie_session[:db_sid])))
+    id = parse_uuid(warden.request.session[:db_id])
+
+    if id
+      Store.delete(id: id)
+    end
   end
 
   # Clean up all expired sessions.
   # This method can be called from the cron/scheduled job
   def cleanup
-    expired_sessions.delete_all
+    Store.cleanup(ttl: SESSION_TTL)
   end
 
   #
@@ -65,16 +135,15 @@ module ActiveSessionsHelper
   #
 
   def create_from_migrated()
-    sid = UUIDUtils.create
-
-    ActiveSession.create(
-      session_id: UUIDUtils.raw(sid),
-      refreshed_at: Time.now)
+    Store.create(refreshed_at: Time.now)
   end
 
   def populate_missing(user, db_session)
-    if db_session.person_id.nil? || db_session.community_id.nil?
-      db_session.update_attributes(person_id: user.id, community_id: user.community_id)
+    if db_session[:person_id].nil? || db_session[:community_id].nil?
+
+      Store.update(db_session.merge(
+                     person_id: user.id,
+                     community_id: user.community_id))
     end
   end
 
@@ -82,11 +151,9 @@ module ActiveSessionsHelper
   # private
   #
 
-  def active_sessions
-    ActiveSession.where("refreshed_at >= ?", SESSION_TTL.ago)
-  end
-
-  def expired_sessions
-    ActiveSession.where("refreshed_at < ?", SESSION_TTL.ago)
+  def parse_uuid(id_str)
+    if id_str
+      UUIDTools::UUID.parse(id_str)
+    end
   end
 end

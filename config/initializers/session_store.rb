@@ -15,8 +15,8 @@ class ActionDispatch::Session::MigrateToCookieStore < ActionDispatch::Session::C
         db_session = find_db_session(req)
 
         if db_session
-          db_sid = ActiveSessionsHelper.create_from_migrated.session_id
-          [db_session.session_id, db_session.data.merge(db_sid: db_sid)]
+          db_id = ActiveSessionsHelper.create_from_migrated.to_s
+          [db_session.session_id, db_session.data.merge(db_id: db_id)]
         else
           data = persistent_session_id!(data)
           [data["session_id"], data]
