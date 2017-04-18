@@ -7,15 +7,7 @@ module ActiveSessionsHelper
       [:refreshed_at, :time, :mandatory],
     )
 
-    class ActiveSession < ActiveRecord::Base
-      def self.active_sessions(ttl:)
-        where("refreshed_at >= ?", ttl.ago)
-      end
-
-      def self.expired_sessions(ttl:)
-        where("refreshed_at < ?", ttl.ago)
-      end
-    end
+    class ActiveSession < ActiveRecord::Base; end
 
     module_function
 
@@ -26,10 +18,9 @@ module ActiveSessionsHelper
       id
     end
 
-    def find_active(id:, ttl:)
+    def find(id:)
       active_session =
         ActiveSession
-          .active_sessions(ttl: ttl)
           .find_by(id: UUIDUtils.raw(id))
 
       from_model(active_session)
@@ -44,9 +35,9 @@ module ActiveSessionsHelper
     def update(session)
       id = session[:id]
 
+      # If you need to update refreshed_at, use refresh() method
       ActiveSession
-        .update_attributes(session.except(:id))
-        .where(id: UUIDUtils.raw(id))
+        .update(UUIDUtils.raw(id), session.except(:id, :refreshed_at))
     end
 
     def delete(id:)
@@ -54,9 +45,7 @@ module ActiveSessionsHelper
     end
 
     def cleanup(ttl:)
-      ActiveSession
-        .expired_sessions(ttl: ttl)
-        .delete_all
+      ActiveSession.where("refreshed_at < ?", ttl.ago).delete_all
     end
 
     # private
@@ -66,6 +55,71 @@ module ActiveSessionsHelper
         Session.call(EntityUtils.model_to_hash(model))
       end
     end
+  end
+
+  module CacheStore
+
+    EXPIRES_IN = 1.day
+
+    module_function
+
+    def create(data)
+      Store.create(data)
+    end
+
+    def find(id:)
+      # This method returns full data of the Session
+      # To save some bytes from the cache store, the
+      # full data is not cached, only the refreshed_at
+      # timestamp is cached
+      Store.find(id: id)
+    end
+
+    def find_refreshed_at(id:)
+      fetch_refreshed_at(id) {
+        Store.find(id: id)&.dig(:refreshed_at)
+      }
+    end
+
+    def refresh(id:)
+      invalidate_refreshed_at(id) {
+        Store.refresh(id: id)
+      }
+    end
+
+    def update(session)
+      # Update doesn't update refreshed_at, so no need to invalidate
+      Store.update(session)
+    end
+
+    def delete(id:)
+      invalidate_refreshed_at(id) {
+        Store.delete(id: id)
+      }
+    end
+
+    def cleanup(ttl:)
+      # Clean up doesn't invalidate cache, so make sure
+      # the refreshed_at timestamp is checked in the code
+      # that uses the fetched session
+      Store.cleanup(ttl: ttl)
+    end
+
+    # private
+
+    def fetch_refreshed_at(id, &block)
+      Rails.cache.fetch(cache_key(id), expires_in: EXPIRES_IN, &block)
+    end
+
+    def invalidate_refreshed_at(id, &block)
+      block.call if block
+      Rails.cache.delete(cache_key(id))
+    end
+
+    def cache_key(id)
+      "/active_sessions/#{id.to_s}"
+    end
+
   end
 
   # Time-to-live
@@ -85,7 +139,7 @@ module ActiveSessionsHelper
   def create(user, warden)
     cookie_session = warden.request.session
 
-    id = Store.create(
+    id = CacheStore.create(
       person_id: user.id,
       community_id: user.community_id,
       refreshed_at: Time.now)
@@ -96,35 +150,38 @@ module ActiveSessionsHelper
   def validate_and_refresh(user, warden)
     id = parse_uuid(warden.request.session[:db_id])
 
-    db_session =
+    refreshed_at =
       if id
-        Store.find_active(id: id, ttl: SESSION_TTL)
+        CacheStore.find_refreshed_at(id: id)
       end
 
-    if db_session.blank?
+    # temporary start
+    # remove this after db -> cookie migration period is over
+    if refreshed_at.present?
+      populate_missing(user, id)
+    end
+    # temporary end
+
+    if refreshed_at.blank? || refreshed_at < SESSION_TTL.ago
       warden.logout
-    elsif db_session[:refreshed_at] < SESSION_REFRESH_INTERVAL.ago
-      Store.refresh(id: id)
+    elsif refreshed_at < SESSION_REFRESH_INTERVAL.ago
+      CacheStore.refresh(id: id)
     end
 
-    # temporary
-    if db_session.present?
-      populate_missing(user, db_session)
-    end
   end
 
   def destroy(warden)
     id = parse_uuid(warden.request.session[:db_id])
 
     if id
-      Store.delete(id: id)
+      CacheStore.delete(id: id)
     end
   end
 
   # Clean up all expired sessions.
   # This method can be called from the cron/scheduled job
   def cleanup
-    Store.cleanup(ttl: SESSION_TTL)
+    CacheStore.cleanup(ttl: SESSION_TTL)
   end
 
   #
@@ -135,15 +192,16 @@ module ActiveSessionsHelper
   #
 
   def create_from_migrated()
-    Store.create(refreshed_at: Time.now)
+    CacheStore.create(refreshed_at: Time.now)
   end
 
-  def populate_missing(user, db_session)
-    if db_session[:person_id].nil? || db_session[:community_id].nil?
+  def populate_missing(user, id)
+    db_session = CacheStore.find(id: id)
 
-      Store.update(db_session.merge(
-                     person_id: user.id,
-                     community_id: user.community_id))
+    if db_session.present? && (db_session[:person_id].nil? || db_session[:community_id].nil?)
+      CacheStore.update(db_session.merge(
+                          person_id: user.id,
+                          community_id: user.community_id))
     end
   end
 
