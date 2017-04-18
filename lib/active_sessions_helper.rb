@@ -32,14 +32,6 @@ module ActiveSessionsHelper
         .touch(:refreshed_at)
     end
 
-    def update(session)
-      id = session[:id]
-
-      # If you need to update refreshed_at, use refresh() method
-      ActiveSession
-        .update(UUIDUtils.raw(id), session.except(:id, :refreshed_at))
-    end
-
     def delete(id:)
       ActiveSession.delete_all(id: UUIDUtils.raw(id))
     end
@@ -85,11 +77,6 @@ module ActiveSessionsHelper
       invalidate_refreshed_at(id) {
         Store.refresh(id: id)
       }
-    end
-
-    def update(session)
-      # Update doesn't update refreshed_at, so no need to invalidate
-      Store.update(session)
     end
 
     def delete(id:)
@@ -145,22 +132,27 @@ module ActiveSessionsHelper
       refreshed_at: Time.now)
 
     cookie_session[:db_id] = id.to_s
+
+    # temporary START
+    if cookie_session[:in_migration]
+      cookie_session.delete(:in_migration)
+    end
+    # temporary END
   end
 
   def validate_and_refresh(user, warden)
+    # temporary START
+    if warden.request.session[:in_migration]
+      create(user, warden)
+    end
+    # temporary END
+
     id = parse_uuid(warden.request.session[:db_id])
 
     refreshed_at =
       if id
         CacheStore.find_refreshed_at(id: id)
       end
-
-    # temporary start
-    # remove this after db -> cookie migration period is over
-    if refreshed_at.present?
-      populate_missing(user, id)
-    end
-    # temporary end
 
     if refreshed_at.blank? || refreshed_at < SESSION_TTL.ago
       warden.logout
@@ -182,27 +174,6 @@ module ActiveSessionsHelper
   # This method can be called from the cron/scheduled job
   def cleanup
     CacheStore.cleanup(ttl: SESSION_TTL)
-  end
-
-  #
-  # temporary
-  #
-  # These methods are temporary methods that should be removed when
-  # the migration period from DB session store to cookie store is over
-  #
-
-  def create_from_migrated()
-    CacheStore.create(refreshed_at: Time.now)
-  end
-
-  def populate_missing(user, id)
-    db_session = CacheStore.find(id: id)
-
-    if db_session.present? && (db_session[:person_id].nil? || db_session[:community_id].nil?)
-      CacheStore.update(db_session.merge(
-                          person_id: user.id,
-                          community_id: user.community_id))
-    end
   end
 
   #
