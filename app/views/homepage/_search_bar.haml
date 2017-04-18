@@ -1,3 +1,10 @@
+- # report search usage: keyword search results fetched
+- content_for :extra_javascript do
+  :javascript
+    if(document.getElementById('q').value !== "" && document.getElementById('lc') == null) {
+      window.report_analytics_event('user', "main search", "keyword search");
+    }
+
 .search-form-input.search-form-text-field
   = text_field_tag "q", params[:q], :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
 .search-form-input
