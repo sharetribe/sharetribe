@@ -273,12 +273,6 @@ default: &default_settings
   knowledge_base_url: http://www.example.com/knowledgebase
   display_knowledge_base_articles: false
 
-  # UserVoice Widget
-  # If you want to display a UserVoice widget in the Admin control panel, enter
-  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
-  # This is completely optional and probably not needed in most cases.
-  uservoice_widget_url:
-
   # External plan service connection
   # The connection details hosted Sharetribe uses to connect to external subscription management system.
   external_plan_service_in_use: false

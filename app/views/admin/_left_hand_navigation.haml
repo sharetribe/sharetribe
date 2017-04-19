@@ -11,8 +11,6 @@
         e.preventDefault();
         Intercom && Intercom('show');
       });
-- else
-  = render :partial => "admin/uservoice_widget" if APP_CONFIG.uservoice_widget_url.present?
 
 - sel_link = (local_assigns.has_key? :selected_left_navi_link) ? selected_left_navi_link : @selected_left_navi_link
 
