@@ -32,7 +32,7 @@ Given /^I log in(?: as "([^"]*)")?$/ do |person|
 end
 
 Given /^I am not logged in$/ do
-  # TODO Check here that not logged in
+  logout_user_without_browser
 end
 
 Given /^my given name is "([^"]*)"$/ do |name|

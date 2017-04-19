@@ -76,6 +76,7 @@ Feature: User views homepage
     Given there are following users:
       | person |
       | kassi_testperson1 |
+    And I am not logged in
     And there is a listing with title "car spare parts" from "kassi_testperson1" with category "Items" and with listing shape "Selling"
     And community "test" is private
     When I am on the home page

@@ -28,10 +28,16 @@ module LoginHelpers
   # No browser interaction
   def login_user_without_browser(username)
     person = Person.find_by(username: username)
-    login_as(person, :scope => :person)
+    Warden::Test::Helpers.login_as(person, :scope => :person)
     visit homepage_with_locale_path(:locale => :en)
     @logged_in_user = person
     @current_user = person
+  end
+
+  # Log out current user without browser interaction
+  def logout_user_without_browser
+    # Use logout Warden helper
+    Warden::Test::Helpers.logout
   end
 
 end
