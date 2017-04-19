@@ -273,12 +273,6 @@ default: &default_settings
   knowledge_base_url: http://www.example.com/knowledgebase
   display_knowledge_base_articles: false
 
-  # UserVoice Widget
-  # If you want to display a UserVoice widget in the Admin control panel, enter
-  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
-  # This is completely optional and probably not needed in most cases.
-  uservoice_widget_url:
-
   # External plan service connection
   # The connection details hosted Sharetribe uses to connect to external subscription management system.
   external_plan_service_in_use: false
@@ -410,18 +404,6 @@ default: &default_settings
 
   # Admin Intercom secure mode secret
   admin_intercom_secure_mode_secret: ""
-
-  # The percentage of new marketplaces where Admin Intercom Respond
-  # will be enabled
-  #
-  # Examples:
-  #
-  #   1: Enabled for everyone
-  # 0.8: Enabled for 80%
-  # 0.2: Enabled for 20%
-  #   0: Enabled for no one
-  #
-  admin_intercom_respond_test_group_ratio: 0
 
   admin_intercom_access_token: ""
 
