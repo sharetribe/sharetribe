@@ -4,8 +4,7 @@ module ActiveSessionsHelper
       [:id, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
       [:person_id, :string, :optional],
       [:community_id, :fixnum, :optional],
-      [:refreshed_at, :time, :mandatory],
-    )
+      [:refreshed_at, :time, :mandatory])
 
     class ActiveSession < ActiveRecord::Base; end
 
@@ -104,7 +103,7 @@ module ActiveSessionsHelper
     end
 
     def cache_key(id)
-      "/active_sessions/#{id.to_s}"
+      "/active_sessions/#{id}"
     end
 
   end
