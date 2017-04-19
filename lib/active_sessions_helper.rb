@@ -161,8 +161,15 @@ module ActiveSessionsHelper
   # This method can be called from the cron/scheduled job
   def cleanup
     logger.info("Cleaning up expired sessions...", :cleanup, { state: :starting })
-    count = CacheStore.cleanup(ttl: SESSION_TTL)
-    logger.info("Deleted #{count} expired sessions.", :cleanup, { state: :done, count: count })
+    begin
+      count = CacheStore.cleanup(ttl: SESSION_TTL)
+      logger.info("Deleted #{count} expired sessions.", :cleanup, { state: :success, count: count })
+    rescue StandardError => e
+      logger.info("Failed to clean up expired sessions.", :cleanup, { state: :error, message: e.message })
+
+      # Reraise (calling `raise` without arguments will reraise last error)
+      raise
+    end
   end
 
   def logger
