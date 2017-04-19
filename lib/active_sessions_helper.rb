@@ -131,21 +131,9 @@ module ActiveSessionsHelper
       refreshed_at: Time.now)
 
     cookie_session[:db_id] = id.to_s
-
-    # temporary START
-    if cookie_session[:in_migration]
-      cookie_session.delete(:in_migration)
-    end
-    # temporary END
   end
 
   def validate_and_refresh(user, warden)
-    # temporary START
-    if warden.request.session[:in_migration]
-      create(user, warden)
-    end
-    # temporary END
-
     id = parse_uuid(warden.request.session[:db_id])
 
     refreshed_at =
