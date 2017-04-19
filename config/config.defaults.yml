@@ -411,18 +411,6 @@ default: &default_settings
   # Admin Intercom secure mode secret
   admin_intercom_secure_mode_secret: ""
 
-  # The percentage of new marketplaces where Admin Intercom Respond
-  # will be enabled
-  #
-  # Examples:
-  #
-  #   1: Enabled for everyone
-  # 0.8: Enabled for 80%
-  # 0.2: Enabled for 20%
-  #   0: Enabled for no one
-  #
-  admin_intercom_respond_test_group_ratio: 0
-
   admin_intercom_access_token: ""
 
   admin_intercom_admin_id: ""

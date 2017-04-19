@@ -57,11 +57,6 @@ class IntApi::MarketplacesController < ApplicationController
     FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1])
     FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:topbar_v1])
 
-    # Enable Intercom
-    if IntercomHelper.in_admin_intercom_respond_test_group?
-      FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:admin_intercom_respond])
-    end
-
     # TODO handle error cases with proper response
 
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
