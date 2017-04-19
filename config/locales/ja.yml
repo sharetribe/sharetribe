@@ -619,7 +619,7 @@ ja:
       accepted_offer: 受諾されたオファー
       rejected_request: リクエストは却下されました
       rejected_offer: 却下されたオファー
-      confirmed_request: リクエスト完了のステータスに変更しました
+      confirmed_request: お取引が正常に完了しました
       confirmed_offer: オファー完了のステータスに変更しました
       canceled_request: リクエストはキャンセルされました
       canceled_offer: キャンセルされたオファー
@@ -674,8 +674,8 @@ ja:
           multicurrency: "%{currency}でのお金の受け取りに設定されていなかったため、PayPalのお支払い手続きが出来ませんでした。%{paypal_url} に行きログイン後、このお支払いに関して、手動で承諾するか、拒否するかをしてください。"
           verify: "あなたのPayPalアカウントが認証前だったため、あなたの取引は承諾されませんでした。%{paypal_url} に行き、承認手続きをしてください。"
           intl: "引き出しが出来ないPayPalアカウントであるため、お支払い手続きが出来ません。%{paypal_url} に行き、ログイン後手動でお支払いを受諾するか拒否するかしてください。"
-      waiting_for_current_user_to_deliver_listing: "%{listing_title}の納品待ち"
-      waiting_for_listing_author_to_deliver_listing: "%{listing_author_name}さんへ%{listing_title}の納品待ち"
+      waiting_for_current_user_to_deliver_listing: "%{listing_title}の注文を完了させてください"
+      waiting_for_listing_author_to_deliver_listing: "%{listing_title}の注文完了待ち"
       request_accepted: 承認されました
       request_rejected: 却下されました
       request_confirmed: 完了しました
@@ -686,8 +686,8 @@ ja:
       waiting_for_listing_author_to_accept_offer: "%{listing_author_name}さんのオファーの承諾待ち"
       waiting_for_listing_author_to_accept_request: "%{listing_author_name}さんの受諾のステータス変更待ち"
       waiting_for_you_to_accept_request: リクエストの承認待ち
-      waiting_confirmation_from_requester: "%{requester_name}さんのリクエスト完了待ち"
-      waiting_confirmation_from_you: リクエスト完了待ち
+      waiting_confirmation_from_requester: "%{requester_name}さんの取引完了待ち"
+      waiting_confirmation_from_you: 取引完了待ち
       waiting_payment_from_requester: "%{requester_name}さんのお支払い待ち"
       waiting_payment_from_you: あなたのお支払い待ち
       waiting_feedback_from_you: レビューを残してください
@@ -1849,7 +1849,7 @@ ja:
       i_want_to_get_email_notification_when: ☆以下のタイミングでメールの通知を希望します☆
       newsletters: ☆速報☆
       community_updates: メルマガ登録
-      email_about_confirm_reminders: "...リクエスト完了処理をし忘れました"
+      email_about_confirm_reminders: "...取引完了ボタンをクリックし忘れた時"
       email_about_new_comments_to_own_listing: "...自分の出品中商品ページに新しいコメントがあった場合"
       email_about_new_messages: "...誰かがメッセージを送信しました"
       email_about_new_received_testimonials: "...誰かがレビューを書きました"

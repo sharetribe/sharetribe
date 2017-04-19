@@ -185,7 +185,7 @@ vi:
         default_search_type: ~
         keyword_search: ~
         keyword_and_location_search: ~
-        location_search: ~
+        location_search: "Tìm bằng địa điểm"
         select_distance_unit: ~
         km: ~
         miles: ~
@@ -979,7 +979,7 @@ vi:
       offer_partitive: "hỗ trợ"
       request_partitive: "yêu cầu"
   header:
-    about: "Tìm hiểu về"
+    about: "Về chúng tôi"
     home: "Trang chủ"
     members: "Cộng đồng"
     new_listing: "Đăng một sản phẩm mới"
@@ -1045,7 +1045,7 @@ vi:
       is: là
       are: là
       what_do_you_need: "Bạn đang tìm kiếm gì ?"
-      post_new_listing: "Đăng một sản phẩm mới"
+      post_new_listing: "Đăng một bài đăng mới"
       are_offering: "hỗ trợ"
       add_news_item: "Thêm một bài viết"
       lend_rent_help_carpool: "Bán, cho vay, giúp đỡ, chia sẻ cuốc xe"
@@ -1115,7 +1115,7 @@ vi:
       search: ~
       signup: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: "Địa điểm"
     listings:
       no_listing_image: ~
   layouts:
@@ -1412,7 +1412,7 @@ vi:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: "Vị trí"
+        location: "Địa điểm"
         origin: Gốc
       send_button:
         save_listing: Lưu
@@ -1725,7 +1725,7 @@ vi:
       add_description: "Nói thứ gì đó về bản thân"
       add_location: "Thêm địa điểm"
       add_phone_number: "Thêm số điện thoại"
-      address: "Nơi ở:"
+      address: "Địa điểm"
       as_expected: "Như mong đợi"
       edit_profile_info: "Chỉnh sửa thông tin của bạn"
       exceeded_expectations: "Vượt quá mong đợi"
@@ -1743,13 +1743,13 @@ vi:
       reviews: "nhận được phản hồi"
       listing: "Tin rao"
       listings: "Tin rao"
-      open_listing: "Sản phẩm đang bán"
-      open_listings: "Sản phẩm đang bán"
+      open_listing: "Mở bài đăng"
+      open_listings: "Các bài đăng đang mở"
       no_listings: "Ko có sản phẩm nào."
       no_open_listings: "Hiện không có sản phẩm"
       no_reviews: "Chưa có phản hồi"
       show_all_listings: "Hiện tất cả sản phẩm/dịch vụ đang bán"
-      show_all_open_listings: "Hiện tất cả sản phẩm đang bán"
+      show_all_open_listings: "Hiện tất cả các bài đang đăng"
       show_all_reviews: "Hiện tất cả phản hồi"
     followed_people:
       you_follow_plural: ~
@@ -1866,7 +1866,7 @@ vi:
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
       profilemap: "Xem bản đồ"
-      street_address: "Nơi ở:"
+      street_address: "Địa điểm"
       these_fields_are_shown_in_your: "Thông tin này được hiển thị cho tất cả các người sử dụng %{service_name}"
       visible_to_everybody: "hiển thị đối với mọi người"
       visible_to_registered_users: "hiển thị cho người dùng đã đăng nhập"
@@ -2037,7 +2037,7 @@ vi:
       menu: ~
       more: ~
       search_placeholder: ~
-      search_location_placeholder: ~
+      search_location_placeholder: "Địa điểm"
       user: ~
       inbox: ~
       profile: ~

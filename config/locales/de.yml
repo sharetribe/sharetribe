@@ -108,8 +108,8 @@ de:
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
-        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen. Kopiere den Code hier ein."
-        new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du die Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen. Du musst nur den Code hier einfügen!"
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
+        new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du den Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Du musst nur den Code hier einfügen!"
         default_browse_view: Standardansicht
         default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Angebote auf der Webseite standardmäßig angezeigt werden."
         grid: Gitter
@@ -401,7 +401,7 @@ de:
       pricing_units_disabled_info: "Preiseinheiten können nicht verwendet werden wenn der Terminkalender eingeschaltet ist."
       index:
         listing_shapes: Auftragsarten
-        description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach frei kommunizieren können."
+        description: "Auftragsarten bestimmen wie der Auftragsprozess auf deiner Seite funktioniert. Du kannst bestimmen ob deine Nutzer vermieten oder verkaufen, oder nur einfach Einträge veröffentlichen und danach miteinander mithilfe von Nachrichten kommunizieren."
         read_more_about_order_types: "Lies mehr über Auftragsarten"
         add_new_shape: "Füge neue Auftragsart hinzu: "
         select_template: "Template wählen ..."
@@ -487,7 +487,7 @@ de:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
       contact_support_link_text: "kontaktiere Support"
-      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen müssen Sie Ihr PayPal-Konto verbinden. Nachdem Sie Ihr PayPal-Konto verbunden haben, können Sie den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
+      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen musst du dein PayPal-Konto verbinden. Nachdem du dein PayPal-Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       personal_payment_preferences_link_text: "Deinem Konto"
@@ -1437,7 +1437,7 @@ de:
         long_time: "Woche, Monat..."
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_paypal_text: "%{service_name} Gebühr %{sum_with_currency} und %{paypal_fee_info_link} wird vom Preis abgezogen."
+        after_service_fee_you_will_get_paypal_text: "Bei einer erfolgreichen Transaktion werden %{service_name} Gebühr (%{sum_with_currency}) und %{paypal_fee_info_link} vom Preis abgezogen."
         paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
         delivery: Lieferart
         shipping: Versand
@@ -1648,7 +1648,7 @@ de:
     connected_account: "PayPal Konto '%{email}' erfolgreich verknüpft."
     paypal_receive_funds_info_label_australia_only: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
     paypal_receive_funds_info_label: "Dein PayPal Konto muss Zahlungen empfangen können. Dafür ist u.U. ein PayPal Geschäftskonto erforderlich."
-    paypal_receive_funds_info_australia_only: "Wenn du bei Verbindung deines Kontos zu %{service_name} einen Fehler bekommst, bitte entweder %{upgrade_paypal_account_link} und zu einem Business-Konto upgraden, oder (wenn du eine Privatperson bist), ein neues Premier-Konto erstellst. Beide Kontotypen sind kostenfrei."
+    paypal_receive_funds_info_australia_only: "Wenn du bei Verbindung deines Kontos zu %{service_name} einen Fehler bekommst, bitte entweder %{upgrade_paypal_account_link}, oder (wenn du eine Privatperson bist), ein neues Premier-Konto erstellen. Beide Kontotypen sind kostenfrei."
     paypal_receive_funds_info: "Wenn du einen Fehler beim Versuch siehst, dein PayPal Konto mit %{service_name} zu verbinden, solltest du %{upgrade_paypal_account_link}. Das ist kostenlos und einfach. Wenn du ein Einzelunternehmer bist, empfiehlt PayPal einfach deinen Namen als Geschäftsnamen zu verwenden."
     upgrade_paypal_account_link_text: "dich anmelden und auf ein Geschäftskonto umstellen"
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
