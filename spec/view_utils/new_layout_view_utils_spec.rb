@@ -50,22 +50,22 @@ describe NewLayoutViewUtils do
             name: :foo,
             enabled_for_user: true,
             enabled_for_community: false,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: true,
             enabled_for_community: false,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
             enabled_for_community: true,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           }
         ])
       end
@@ -99,22 +99,22 @@ describe NewLayoutViewUtils do
             name: :foo,
             enabled_for_user: false,
             enabled_for_community: false,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           },
           { title: "Bar",
             name: :bar,
             enabled_for_user: false,
             enabled_for_community: false,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           },
           { title: "Wat",
             name: :wat,
             enabled_for_user: false,
             enabled_for_community: false,
-            disabled_for_user: false,
-            disabled_for_community: false
+            required_for_user: false,
+            required_for_community: false
           }
         ])
       end

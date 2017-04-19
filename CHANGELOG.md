@@ -23,6 +23,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Fix cropped cover photo in big screens [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
 - Add missing padding to homepage search field in mobile view [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
 - Fix unwanted scrolling in listing page by removing comment text area auto focus [#2917](https://github.com/sharetribe/sharetribe/pull/2917)
+- Fix faulty feature flag dependency handling [#2932](https://github.com/sharetribe/sharetribe/pull/2932)
 
 ### Security
 
