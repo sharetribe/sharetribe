@@ -160,7 +160,13 @@ module ActiveSessionsHelper
   # Clean up all expired sessions.
   # This method can be called from the cron/scheduled job
   def cleanup
-    CacheStore.cleanup(ttl: SESSION_TTL)
+    logger.info("Cleaning up expired sessions...", :cleanup, { state: :starting })
+    count = CacheStore.cleanup(ttl: SESSION_TTL)
+    logger.info("Deleted #{count} expired sessions.", :cleanup, { state: :done, count: count })
+  end
+
+  def logger
+    @logger ||= SharetribeLogger.new(:active_sessions)
   end
 
   #
