@@ -2,11 +2,11 @@
 
 You need to configure scheduled tasks in order to properly run your marketplace in production.
 
-Scheduled tasks are tasks that the system needs to run every now and then to keep the application working as expected. Operations such as sending mass emails to all users or cleaning up old data from the database are done in scheduled tasks.
+Scheduled tasks are tasks that the system needs to run regularly to keep the application working as expected. Operations such as sending mass emails to all users or cleaning up old data from the database are done in scheduled tasks.
 
 ## List of required tasks
 
-Here's a list of scheduled tasks you need to configure:
+Here is a list of scheduled tasks you need to configure:
 
 | Purpose | Command | Recommended run interval | Note |
 |---------|---------|--------------------------|------|
@@ -22,4 +22,4 @@ Here's a list of scheduled tasks you need to configure:
 
 In **Unix servers** `crontab` can be used to configure scheduled tasks
 
-Consult your hosting provider documentation to find out what's the recommended way to configure scheduled tasks.
+Consult your hosting provider documentation to find out what is the recommended way to configure scheduled tasks.
