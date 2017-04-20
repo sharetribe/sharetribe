@@ -148,6 +148,13 @@ class Listing < ActiveRecord::Base
   end
 
   def visible_to?(current_user, current_community)
+    # DEPRECATED
+    #
+    # Consider removing the `visible_to?` method.
+    #
+    # Reason: Authorization logic should be in the controller layer (filters etc.),
+    # not in the model layer.
+    #
     ListingVisibilityGuard.new(self, current_community, current_user).visible?
   end
 
