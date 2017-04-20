@@ -1025,14 +1025,18 @@ ClusterIcon.prototype.triggerClusterClick = function() {
     return map.getZoom() >= map.maxZoom;
   }
 
+  var allEquals = function(arr, comparator) {
+    var first = arr[0];
+    return arr.every(function(a) { return comparator(first, a) });
+  }
+
   var sameLocation = function(markers) {
-    return !!markers.reduce(function(a, b) {
-      if (a) {
-        var same = a.getPosition().equals(b.getPosition());
-        return same ? b : null;
-      } else {
-        return null;
-      }
+    var positions = markers.map(function(marker) {
+      return marker.getPosition();
+    });
+
+    return allEquals(positions, function(a, b) {
+      return a.equals(b);
     });
   }
   // SHARETRIBE modification END
