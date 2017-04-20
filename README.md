@@ -23,17 +23,17 @@ Would you like to set up your marketplace in one minute without touching code? [
 
 ## Tech Stack
 
-- Ruby 2.3  
-- Ruby on Rails 4.2  
+- Ruby 2.3
+- Ruby on Rails 4.2
 - MySQL  5.7
 - React + jQuery
 - Node.js 6.9 (for compiling JavaScript assets)
-- "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)  
-- Deploy: Custom Script (not using Mina or Cap3)  
+- "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
+- Deploy: Custom Script (not using Mina or Cap3)
 - Server: Heroku
-- Image hosting: Amazon S3  
+- Image hosting: Amazon S3
 - Background job: `[delayed_job](https://github.com/collectiveidea/delayed_job)`
-- Gem: 
+- Gem:
     -  [devise](https://github.com/plataformatec/devise) | Authentication
     -  [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
     -  [haml](https://github.com/haml/haml) and ERB | HTML teamplating
@@ -301,6 +301,8 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
 It is not recommended to serve static assets from a Rails server in production. Instead, you should use a CDN (Content Delivery Network) service, such as [Amazon CloudFront](https://aws.amazon.com/cloudfront/). To serve the assets from the CDN service, you need to change the `asset_host` configuration in the the `config/config.yml` file to point your CDN distribution.
+
+You need to configure a couple scheduled tasks in order to properly run your marketplace in production. See the [Scheduled tasks](docs/scheduled_tasks.md) documentation.
 
 **For production use we recommend you to upgrade only when new version is released and not to follow the master branch.**
 
