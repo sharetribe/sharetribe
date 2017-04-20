@@ -773,7 +773,7 @@ class ListingsController < ApplicationController
 
     raise ListingDeleted if @listing.deleted?
 
-    unless @listing.visible_to?(@current_user, @current_community) || (@current_user && @current_user.has_admin_rights?)
+    unless @listing.visible_to?(@current_user, @current_community)
       if @current_user
         flash[:error] = if @listing.closed?
           t("layouts.notifications.listing_closed")
