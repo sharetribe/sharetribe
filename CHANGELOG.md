@@ -30,6 +30,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- Upgrade Nokogiri and rubyzip gems [#2943](https://github.com/sharetribe/sharetribe/pull/2943)
+
 ## [6.2.0] - 2017-03-09
 
 ### Added
