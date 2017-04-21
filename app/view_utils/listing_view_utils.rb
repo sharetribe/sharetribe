@@ -79,11 +79,13 @@ module ListingViewUtils
 
   def shipping_info(shipping_type, shipping_price, shipping_price_additional)
     if shipping_type == :shipping && shipping_price_additional.present?
-      I18n.translate("listings.show.shipping_price_additional", price: humanized_money_with_symbol(shipping_price), shipping_price_additional: humanized_money_with_symbol(shipping_price_additional))
+      I18n.translate("listings.show.shipping_price_additional",
+                     price: MoneyViewUtils.to_humanized(shipping_price),
+                     shipping_price_additional: MoneyViewUtils.to_humanized(shipping_price_additional))
     elsif shipping_type == :shipping
-      I18n.translate("listings.show.shipping", price: humanized_money_with_symbol(shipping_price))
+      I18n.translate("listings.show.shipping", price: MoneyViewUtils.to_humanized(shipping_price))
     elsif shipping_type == :pickup
-      I18n.translate("listings.show.pickup", price: humanized_money_with_symbol(shipping_price))
+      I18n.translate("listings.show.pickup", price: MoneyViewUtils.to_humanized(shipping_price))
     else
       raise ArgumentError.new("Delivery type not supported")
     end
