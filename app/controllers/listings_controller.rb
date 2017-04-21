@@ -932,7 +932,7 @@ class ListingsController < ApplicationController
   end
 
   def delivery_config(require_shipping_address, pickup_enabled, shipping_price, shipping_price_additional, currency)
-    shipping = delivery_price_hash(:shipping, shipping_price, shipping_price_additional)
+    shipping = delivery_price_hash(:shipping, shipping_price, shipping_price_additional) if require_shipping_address
     pickup = delivery_price_hash(:pickup, Money.new(0, currency), Money.new(0, currency))
 
     case [require_shipping_address, pickup_enabled]
