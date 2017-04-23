@@ -318,7 +318,7 @@ function initialize_listing_view(locale) {
   });
 }
 
-function updateSellerGetsValue(priceInputSelector, displayTargetSelector, currencySelector, communityCommissionPercentage, minCommission, showReversed) {
+function updateSellerGetsValue(currency, locale, priceInputSelector, displayTargetSelector, currencySelector, communityCommissionPercentage, minCommission, showReversed) {
   // true == Show the fee instead of what's left after the fee
   showReversed = showReversed || false;
 
@@ -337,9 +337,8 @@ function updateSellerGetsValue(priceInputSelector, displayTargetSelector, curren
     }
 
     $display.text(
-      [ST.paymentMath.displayMoney(Math.max(0, displaySum)),
-       $currency.val()]
-        .join(" "));
+      ST.paymentMath.displayMoney(Math.max(0, displaySum), currency, locale, {inCents: false})
+    );
   }
 
   $input.keyup(updateYouWillGet);
