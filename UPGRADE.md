@@ -33,6 +33,8 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 6.2.0 to 6.3.0
+
 ### Migration from database session store to cookie-based session store
 
 This release migrates from database session store to cookie-based session store. The migration is done seamlessly without users being logged out.
