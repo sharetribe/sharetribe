@@ -17,8 +17,7 @@
   .row
     .col-12
       %h2= t("admin.communities.new_layout.new_layout")
-      %p= t("admin.communities.new_layout.description_roadmap")
-      %p= t("admin.communities.new_layout.description_process", support_link: support_link).html_safe
+      %p= t("admin.communities.new_layout.description_roadmap_new")
 
   = form_for community, :url => admin_new_layout_path, :method => :patch do |form|
     .row
