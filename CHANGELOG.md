@@ -12,9 +12,19 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
-- Migrate from database session store to cookie-based session store [#2935](https://github.com/sharetribe/sharetribe/pull/2935)
-
 ### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [6.3.0] - 2017-04-24
+
+### Changed
+
+- Migrate from database session store to cookie-based session store [#2935](https://github.com/sharetribe/sharetribe/pull/2935)
 
 ### Removed
 
@@ -359,7 +369,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.2.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...HEAD
+[6.3.0]: https://github.com/sharetribe/sharetribe/compare/v6.2.0...v6.3.0
 [6.2.0]: https://github.com/sharetribe/sharetribe/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...v6.1.0
 [6.0.0]: https://github.com/sharetribe/sharetribe/compare/v5.12.0...v6.0.0
