@@ -896,6 +896,8 @@ de:
       subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
       transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
       you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen. Wenn Du innerhalb dieses Zeitrahmens akzeptierst, wird die Zahlung durchgehen. Wenn Du nicht zustimmst, wird die Anfrage automatisch abgelehnt, und Du wirst nicht bezahlt."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."

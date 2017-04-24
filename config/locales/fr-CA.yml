@@ -884,6 +884,8 @@ fr-CA:
       subject: "%{requester} a demandé et payé pour %{listing_title}"
       transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"

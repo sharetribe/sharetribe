@@ -914,6 +914,8 @@ pl:
       subject: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       transaction_requested_by_user: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       you_have_time_to_accept: "Musisz zaakceptować lub odrzucić żądanie w ciągu %{payment_expires_in}. Jeśli zaakceptujesz je w tym czasie płatność przejdzie. Jeśli nie zaakceptujesz, żądanie zostanie automatycznie odrzucone i nie otrzymasz zapłaty."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_reminder:
       subject: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}"

@@ -896,6 +896,8 @@ fi:
       subject: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta %{listing_title}"
       transaction_requested_by_user: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta \"%{listing_title}\""
       you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"

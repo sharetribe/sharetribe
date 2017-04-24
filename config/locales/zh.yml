@@ -885,6 +885,8 @@ zh:
       subject: "%{requester}已经请求并授权支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天内接受或拒绝请求。如果在该期限内接受，你会收到付款。如果你在该期限内没有接受，请求将自动被拒绝，你将无法收到支付款项。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于%{listing_title}的请求"

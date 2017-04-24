@@ -896,6 +896,8 @@ nb:
       subject: "%{requester} har etterspurt og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har etterspurt og betalt for %{listing_title}"
       you_have_time_to_accept: "Du må akseptere eller avslå forespørselen innen %{payment_expires_in}. Hvis du aksepterer innen tidsfristen vil betalingen gjennomføres. Hvis du avslår vil forespørselen automatisk avbrytes og du vil ikke få betaling."
+      if_you_do_accept: "Hvis du aksepterer forespørselen innen denne tidsfristen, vil du øyeblikkelig motta pengene til din konto."
+      if_you_do_not_accept: "Hvis du avslår forespørselen eller ikke aksepterer den innen denne tidsfristen, vil transaksjonen bli avbrutt automatisk. %{requester} vil ikke bli belastet, og du vil ikke få betalt."
       click_here_to_reply: "Klikk her for å svare på forespørselen"
     transaction_preauthorized_reminder:
       subject: "Husk å akseptere forespørselen fra %{requester} vedrørende %{listing_title}"

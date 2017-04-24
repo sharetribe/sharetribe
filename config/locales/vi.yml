@@ -867,6 +867,8 @@ vi:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -1028,7 +1030,7 @@ vi:
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
     custom_filters:
-      update_view: "Cập nhật view"
+      update_view: "Cập nhật kết quả"
       min: ~
       max: ~
     event_feed:
@@ -1039,8 +1041,8 @@ vi:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: "Không có sản phẩm nào. %{add_listing_link}"
       add_listing_link_text: "Đăng tin rao mới"
-      open_listing: "sản phẩm đang bán"
-      open_listings: "sản phẩm đang bán"
+      open_listing: "bài đăng"
+      open_listings: "bài đăng"
       private_listing_notification_log_in: ~
       is: là
       are: là
@@ -1156,8 +1158,8 @@ vi:
     global-header:
       select_language: "Ngôn ngữ"
     infos:
-      about: "Đó là gì"
-      how_to_use: "Làm sao dùng"
+      about: "Về chúng tôi"
+      how_to_use: "Cách sử dụng"
       info_about_kassi: "Thông tin về %{service_name}"
       news: "Tin tức"
       register_details: "Chi tiết đăng ký"
@@ -1332,8 +1334,8 @@ vi:
       close_listing: "Đóng tin rao"
       edit_listing: "Thay đổi tin rao"
       reopen_listing: "Mở lại tin rao"
-      move_to_top: ~
-      show_in_updates_email: ~
+      move_to_top: "Di chuyển lên đầu trang"
+      show_in_updates_email: "Hiển thị trong bản tin tiếp theo"
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
@@ -2023,7 +2025,7 @@ vi:
       save_and_close_availability_editing: ~
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      edit_listing_availability: "Chỉnh sửa bài đăng trong danh sách"
     no_listings:
       sorry: ~
       try_other_search_terms: ~

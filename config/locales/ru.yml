@@ -905,6 +905,8 @@ ru:
       subject: "%{requester} запросил и оплатил за %{listing_title}"
       transaction_requested_by_user: "%{requester} запросил и оплатил за \"%{listing_title}\""
       you_have_time_to_accept: "Вам нужно принять или отклонить запрос в течении %{payment_expires_in}. Если вы примите запрос в течение этого времени, оплата будет произведена. Если вы отклоните, запрос будет автоматически отклонен и оплата Вам произведена не будет."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Нажмите здесь чтобы ответить на запрос"
     transaction_preauthorized_reminder:
       subject: "Не забудьте принять запрос от %{requester} о публикации %{listing_title}"

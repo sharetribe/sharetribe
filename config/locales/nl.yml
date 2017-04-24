@@ -896,6 +896,8 @@ nl:
       subject: "%{requester} heeft gevraagd en betaald voor %{listing_title}"
       transaction_requested_by_user: "%{requester} heeft gevraagd en betaald voor \"%{listing_title}\""
       you_have_time_to_accept: "Je dient het verzoek te accepteren of af te wijzen binnen %{payment_expires_in}. Als je binnen deze termijn accepteert, dan gaat de betaling door. Als je het verzoek niet accepteert, wordt het automatisch afgewezen en krijg je niet betaald."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_reminder:
       subject: "Vergeet niet om het verzoek van %{requester} betreffende advertentie %{listing_title} te accepteren"

@@ -894,6 +894,8 @@ da-DK:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
       you_have_time_to_accept: "Du skal acceptere eller afvise anmodningen inden for %{payment_expires_in}. Hvis du accepterer inden for denne tidsramme, vil betalingen gå igennem. Hvis du ikke accepterer, vil anmodningen automatisk blive afvist, og du vil ikke blive betalt."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Klik her for at sende dit svar"
     transaction_preauthorized_reminder:
       subject: "Husk at godkende ansøgningen fra %{requester} omhandlende annoncen %{listing_title}"

@@ -884,6 +884,10 @@ ar:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: "إذا قمت بالموافقة على الطلب في هذه الفترة المحددة، ستستلم النقود مباشرة إلى حسابك"
+      if_you_do_not_accept: |-
+          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
+          ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
       click_here_to_reply: "اضغط هنا للرد على الطلب"
     transaction_preauthorized_reminder:
       subject: ~
@@ -1129,7 +1133,7 @@ ar:
       click_here_link_text: "إضغط هنا"
     how_to_use:
       default_title: "كيفية العمل"
-      default_content: ~
+      default_content: "‎%{marketplace_name}‎ ستجد هنا معلومات عن كيفية عمل"
   landing_page:
     hero:
       search: بحث
@@ -1178,7 +1182,7 @@ ar:
     infos:
       about: "عن الموقع"
       how_to_use: "كيفية العمل"
-      info_about_kassi: "معلومات عن ‎%{service_name}‎"
+      info_about_kassi: "‎%{service_name}‎ معلومات عن"
       news: أخبار
       register_details: "سياسة الخصوصية"
       terms: "شروط الاستخدام"

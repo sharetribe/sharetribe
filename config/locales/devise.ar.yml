@@ -5,13 +5,6 @@ ar:
       not_found: "غير متوفر"
       already_confirmed: "لقد تم التأكد من البريد الإلكتروني الخاص بك مسبقا، قم بتسجيل الدخول الآن"
       not_locked: "لم يتم الإغلاق"
-      not_saved:
-        zero: "خطأ ١ منع ‎%{resource}‎ من الحفظ"
-        one: "عدد ‎%{count}‎ أخطاء منعت ‎%{resource}‎ من الحفظ"
-        two: "عدد ‎%{count}‎ أخطاء منعت ‎%{resource}‎ من الحفظ"
-        few: "عدد ‎%{count}‎ أخطاء منعت ‎%{resource}‎ من الحفظ"
-        many: "عدد ‎%{count}‎ أخطاء منعت ‎%{resource}‎ من الحفظ"
-        other: "عدد ‎%{count}‎ أخطاء منعت ‎%{resource}‎ من الحفظ"
   devise:
     failure:
       already_authenticated: "لقدم تم تسجيل دخولك مسبقا"

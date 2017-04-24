@@ -865,6 +865,8 @@ he-IL:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -1099,7 +1101,7 @@ he-IL:
       grid_button: ~
       list_button: ~
       all_listing_types: בחר
-      all_categories: קטגוריות
+      all_categories: "כל הקטגוריות"
     errors:
       search_engine_not_responding: ~
   infos:

@@ -895,6 +895,8 @@ hu:
       subject: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a %{listing_title} hirdetésben szereplő tételért."
       transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
       subject: "Ne feledje elfogadni %{requester} felkérését a %{listing_title} hirdetés ügyében"

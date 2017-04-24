@@ -885,6 +885,8 @@ ka:
       subject: "%{requester} მოითხოვა და ავტორიზება გაუკეთა %{listing_title}-ს გადახდას"
       transaction_requested_by_user: "%{requester} მოითხოვა და ავტორიზება გაუკეთა %{listing_title}-ს გადახდას"
       you_have_time_to_accept: "თქვენ უნდა დათანხმდეთ ან უარყოთ მოთხოვნა %{payment_expires_in} განმავლობაში. თუ დათანხმდებით ამ დროის განმავლობაში გადახდა განხორციელდება. თუ არ დათანხმდებით მოთხოვნა ავტომატურად უარყოფილი იქნება და ვერ მიიღებთ გადახდას."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "დააჭირე აქ რომ უპასუხო მოთხოვნას"
     transaction_preauthorized_reminder:
       subject: "არ დაგავიწყდეთ რომ დაადასტუროთ %{listing_title} ჩამონათვალის შესახებ მოთხოვნა %{requester}-სგან"

@@ -615,7 +615,7 @@ ja:
       message_content_not_available: メッセージ・コンテンツが閲覧できません。
     message:
       accepted_request: リクエストを受け入れました
-      received_payment: "リクエストを受け入れ、%{sum} のお支払いも確認できました"
+      received_payment: "リクエストを受け入れ、%{sum} のお支払いを確認できました"
       accepted_offer: 受諾されたオファー
       rejected_request: リクエストは却下されました
       rejected_offer: 却下されたオファー
@@ -879,6 +879,8 @@ ja:
       subject: "%{requester}さんは%{listing_title}に対してリクエストをし、お支払いが完了しました。"
       transaction_requested_by_user: "%{requester}さんは「%{listing_title}」に対してリクエストをし、お支払いが完了しました。"
       you_have_time_to_accept: "取引リクエストを%{payment_expires_in}日以内に承認してください。取引リクエストを受諾された場合は支払い手続きが完了しますが、却下された場合には支払われた金額は自動的に購入者に返却されます。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: リクエストに答えるにはこちらをクリックしてください
     transaction_preauthorized_reminder:
       subject: "%{listing_title}について%{requester}さんからのリクエストを承諾してください"
@@ -1149,7 +1151,7 @@ ja:
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
-      or_check_our: "...それとも確認する"
+      or_check_our: "...それか"
       send_feedback_to_admin: メッセージを送信する
       to_see_what_others_have_suggested: 他のユーザがそのアイデアについて、何を提案や投票したかを見てみる。
       your_email_address: あなたのメールアドレス
@@ -1314,10 +1316,10 @@ ja:
       email_deleted: メールアドレスは削除されました
       listing_author_payment_details_missing: このリストの作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。このリストの作者に直接連絡を取ってください。作成者
       images_are_processing: 現在画像を処理中です、今しばらくお待ちください。
-      automatically_logged_out_please_sign_in: セッションの期限が切れました。もう一度ログインしてください
       maintenance_mode:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります
         other: "このウェブサイトはメンテナンスのため%{count}分後にオフラインになります"
+      automatically_logged_out_please_sign_in: セッションの期限が切れました。もう一度ログインしてください
     settings:
       account: ご登録情報
       notifications: メール通知

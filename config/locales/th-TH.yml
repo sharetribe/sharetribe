@@ -883,6 +883,8 @@ th-TH:
       subject: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       transaction_requested_by_user: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       you_have_time_to_accept: "คุณต้องยอมรับหรือปฏิเสธคำขอภายใน %{payment_expires_in} หากคุณยอมรับ ภายในระยะเวลานี้ การชำระเงินจะผ่านระบบไป แต่ถ้าคุณไม่ยอมรับ คำขอจะถูกปฏิเสธ โดยอัตโนมัติ และคุณจะไม่ได้รับเงิน"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
     transaction_preauthorized_reminder:
       subject: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title}"

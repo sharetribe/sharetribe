@@ -893,9 +893,11 @@ fr:
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     transaction_preauthorized:
-      subject: "%{requester} a demandé et autorisé le paiement pour %{listing_title}"
-      transaction_requested_by_user: "%{requester} a demandé et autorisé le paiement pour \"%{listing_title}\""
+      subject: "%{requester} est intéressé(e) et a autorisé un paiement pour %{listing_title} posté sur %{service_name}"
+      transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
+      if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, %{requester} ne sera facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"

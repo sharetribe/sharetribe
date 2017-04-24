@@ -905,6 +905,8 @@ sk-SK:
       subject: "Užívateľ %{requester} zažiadal a potvrdil platbu pre inzerát %{listing_title}"
       transaction_requested_by_user: "Užívateľ %{requester}  zažiadal a potvrdil platbu pre inzerát \"%{listing_title}\""
       you_have_time_to_accept: "Musíte prijať alebo odmietnuť žiadosť do %{payment_expires_in}. Pokiaľ žiadosť do tej doby príjmete, platba bude prevedená. Pokiaľ ju do tej doby neprijmete, žiadosť bude automaticky odmietnutá a nedostanete zaplatené."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
     transaction_preauthorized_reminder:
       subject: "Nezabudnite prijať žiadosť od užívateľa %{requester} na inzerát %{listing_title}"

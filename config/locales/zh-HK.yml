@@ -883,6 +883,8 @@ zh-HK:
       subject: "%{requester}已請求及授權為%{listing_title}付款。"
       transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天內接受或拒絕請求。如果在該期限內接受，你將會收到付款。如果你在該期限內沒有接受，請求將自動被拒絕，你將無法收到款項。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: 按此以回應請求
     transaction_preauthorized_reminder:
       subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
