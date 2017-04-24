@@ -38,14 +38,18 @@ class LandingPageController < ActionController::Metal
   def index
     return if perform_redirect!
 
-    cid = community(request).id
+    com = community(request)
+    cid = com.id
+    is_private = com.private?
+    user_logged_in = user(request).present?
+    cta = is_private && !user_logged_in ? "signup" : "search" # cta: Call to action
     default_locale = community(request).default_locale
     version = CLP::LandingPageStore.released_version(cid)
     locale_param = params[:locale]
 
     begin
       content = nil
-      cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param)
+      cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param, cta)
       cache_hit = true
 
       if cache_meta.nil?
@@ -54,10 +58,11 @@ class LandingPageController < ActionController::Metal
           community_id: cid,
           default_locale: default_locale,
           locale_param: locale_param,
-          version: version
+          version: version,
+          cta: cta
         )
         cache_meta = CLP::Caching.cache_content!(
-          cid, version, locale_param, content, CACHE_TIME)
+          cid, version, locale_param, content, CACHE_TIME, cta)
       end
 
       if stale?(etag: cache_meta[:digest],
@@ -73,7 +78,8 @@ class LandingPageController < ActionController::Metal
             community_id: cid,
             default_locale: default_locale,
             locale_param: locale_param,
-            version: version
+            version: version,
+            cta: cta
           )
         end
 
@@ -85,7 +91,15 @@ class LandingPageController < ActionController::Metal
       # for conditional get.
 
       headers[CACHE_HEADER] = cache_hit ? "1" : "0"
-      expires_in(CACHE_TIME, public: true)
+
+      if is_private
+        # Don't add browser cache to private marketplaces
+        # In private marketplaces, we need to render different
+        # HTML is the user is logged in
+        expires_now
+      else
+        expires_in(CACHE_TIME, public: true)
+      end
     rescue CLP::LandingPageContentNotFound
       render_not_found()
     end
@@ -94,7 +108,12 @@ class LandingPageController < ActionController::Metal
   def preview
     return if perform_redirect!
 
-    cid = community(request).id
+    com = community(request)
+    cid = com.id
+    is_private = com.private?
+    user_logged_in = user(request).present?
+    cta = is_private && !user_logged_in ? "signup" : "search" # cta: Call to action
+
     default_locale = community(request).default_locale
 
     preview_version = parse_int(params[:preview_version])
@@ -113,7 +132,8 @@ class LandingPageController < ActionController::Metal
       self.response_body = render_landing_page(
         default_locale: default_locale,
         locale_param: locale_param,
-        structure: structure
+        structure: structure,
+        cta: cta
       )
     rescue CLP::LandingPageContentNotFound
       render_not_found()
@@ -142,7 +162,7 @@ class LandingPageController < ActionController::Metal
   def append_info_to_payload(payload)
     super
     payload[:community_id] = community(request)&.id
-    payload[:current_user_id] = nil
+    payload[:current_user_id] = user(request)&.id
 
     ControllerLogging.append_request_info_to_payload!(request, payload)
   end
@@ -151,12 +171,13 @@ class LandingPageController < ActionController::Metal
     I18nHelper.initialize_community_backend!(cid, [locale])
   end
 
-  def build_html(community_id:, default_locale:, locale_param:, version:)
+  def build_html(community_id:, default_locale:, locale_param:, version:, cta:)
     structure = CLP::LandingPageStore.load_structure(community_id, version)
     render_landing_page(
       default_locale: default_locale,
       structure: structure,
-      locale_param: locale_param
+      locale_param: locale_param,
+      cta: cta
     )
   end
 
@@ -175,7 +196,7 @@ class LandingPageController < ActionController::Metal
     }
   end
 
-  def build_denormalizer(cid:, default_locale:, locale_param:, landing_page_locale:, sitename:)
+  def build_denormalizer(cid:, default_locale:, locale_param:, landing_page_locale:, sitename:, cta:)
     search_path = ->(opts = {}) {
       PathHelpers.search_path(
         community_id: cid,
@@ -197,7 +218,7 @@ class LandingPageController < ActionController::Metal
     CLP::Denormalizer.new(
       link_resolvers: {
         "path" => CLP::LinkResolver::PathResolver.new(paths),
-        "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data),
+        "marketplace_data" => CLP::LinkResolver::MarketplaceDataResolver.new(marketplace_data, cta),
         "assets" => CLP::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], sitename),
         "translation" => CLP::LinkResolver::TranslationResolver.new(landing_page_locale),
         "category" => CLP::LinkResolver::CategoryResolver.new(category_data),
@@ -214,6 +235,10 @@ class LandingPageController < ActionController::Metal
 
   def community(request)
     @current_community ||= request.env[:current_marketplace]
+  end
+
+  def user(request)
+    @user ||= request.env["warden"]&.user
   end
 
   def plan(request)
@@ -236,7 +261,7 @@ class LandingPageController < ActionController::Metal
       google_analytics_key: c.google_analytics_key }
   end
 
-  def render_landing_page(default_locale:, locale_param:, structure:)
+  def render_landing_page(default_locale:, locale_param:, structure:, cta:)
     c = community(request)
 
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
@@ -262,6 +287,7 @@ class LandingPageController < ActionController::Metal
 
     denormalizer = build_denormalizer(
       cid: c&.id,
+      cta: cta,
       locale_param: locale_param,
       default_locale: default_locale,
       landing_page_locale: landing_page_locale,

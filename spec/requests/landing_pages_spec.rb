@@ -217,6 +217,31 @@ describe "Landing page", type: :request do
         expect(response.status).to eq(200)
       end
 
+      it "includes max-age header in the response for public marketplaces" do
+        get "http://#{@domain}"
+
+        expect(response.status).to eq(200)
+        expect(response.headers["Cache-Control"]).to eq("max-age=#{APP_CONFIG.clp_cache_time}, public")
+      end
+
+      describe "private marketplaces" do
+        before(:all) {
+          @orig_private = @community.private
+          @community.update_attributes(private: true)
+        }
+
+        after(:all) {
+          @community.update_attributes(private: @orig_private)
+        }
+
+        it "does not includes max-age header in the response for private marketplaces" do
+          get "http://#{@domain}"
+
+          expect(response.status).to eq(200)
+          expect(response.headers["Cache-Control"]).to eq("no-cache")
+        end
+      end
+
       describe "cache expiration" do
         before(:all) { Rails.cache.clear }
 

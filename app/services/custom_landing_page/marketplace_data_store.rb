@@ -7,10 +7,9 @@ module CustomLandingPage
 
     def marketplace_data(cid, locale)
       primary_color,
-      private,
       twitter_handle,
       name_display_type = Community.where(id: cid)
-                               .pluck(:custom_color1, :private, :twitter_handle, :name_display_type)
+                               .pluck(:custom_color1, :twitter_handle, :name_display_type)
                                .first
 
       name,
@@ -34,9 +33,7 @@ module CustomLandingPage
                     .first
 
       search_type =
-        if private
-          "private"
-        elsif main_search == "keyword_and_location"
+        if main_search == "keyword_and_location"
           "keyword_and_location_search"
         elsif main_search == "location"
           "location_search"
