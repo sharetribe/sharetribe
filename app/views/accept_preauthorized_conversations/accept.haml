@@ -37,7 +37,7 @@
           %span.conversation-per-unit-label
             = t("transactions.initiate.price_per_day")
           %span.conversation-per-unit-value
-            = humanized_money_with_symbol(listing.price)
+            = MoneyViewUtils.to_humanized(listing.price)
 
         .conversation-booking-wrapper
           %span.conversation-booking-label
@@ -53,7 +53,7 @@
           %span.conversation-per-unit-label
             = t("transactions.price_per_quantity", unit_type: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key))
           %span.conversation-per-unit-value
-            = humanized_money_with_symbol(listing.price)
+            = MoneyViewUtils.to_humanized(listing.price)
         .conversation-quantity-wrapper
           %span.conversation-quantity-label
             = ListingViewUtils.translate_quantity(listing.unit_type, listing.unit_selector_tr_key) || t("conversations.accept.quantity_label")
@@ -64,33 +64,33 @@
         %span.conversation-sum-label
           = t("conversations.accept.sum_label")
         %span.conversation-sum-value
-          = humanized_money_with_symbol(sum)
+          = MoneyViewUtils.to_humanized(sum)
       .conversation-service-fee-wrapper
         %span.conversation-service-fee-label
           = t("conversations.accept.service_fee_label")
         %span.conversation-service-fee-value
-          = "-#{humanized_money_with_symbol(fee)}"
+          = "-#{MoneyViewUtils.to_humanized(fee)}"
 
       - if shipping_price
         .conversation-shipping-price-wrapper
           %span.conversation-shipping-price-label
             = t("conversations.accept.shipping_price_label")
           %span.conversation-shipping-price-value
-            = humanized_money_with_symbol(shipping_price)
+            = MoneyViewUtils.to_humanized(shipping_price)
 
       - if payment_gateway == :paypal
         .conversation-total-wrapper
           %span.conversation-total-label
             = t("conversations.accept.total_label")
           %span.conversation-total-paypal-value
-            = t("conversations.accept.total_value", seller_gets: humanized_money_with_symbol(seller_gets))
+            = t("conversations.accept.total_value", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
 
       - else
         .conversation-total-wrapper
           %span.conversation-total-label
             = t("conversations.accept.you_will_get_label")
           %span.conversation-total-value
-            = humanized_money_with_symbol(seller_gets)
+            = MoneyViewUtils.to_humanized(seller_gets)
 
     - if payment_gateway == :paypal
       %p

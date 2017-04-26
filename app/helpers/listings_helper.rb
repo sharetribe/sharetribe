@@ -68,7 +68,7 @@ module ListingsHelper
   end
 
   def price_as_text(listing)
-    humanized_money_with_symbol(listing.price).upcase +
+    MoneyViewUtils.to_humanized(listing.price) +
     unless listing.quantity.blank? then " / #{listing.quantity}" else "" end
   end
 

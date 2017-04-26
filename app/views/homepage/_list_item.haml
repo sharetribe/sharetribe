@@ -10,7 +10,7 @@
       .home-list-price
         - if listing.price
           .home-list-item-price-value
-            = humanized_money_with_symbol(listing.price).upcase
+            = MoneyViewUtils.to_humanized(listing.price)
           - price_text = nil
           - if listing.quantity.present?
             - price_text = t("listings.form.price.per") + " " + listing.quantity
@@ -35,7 +35,7 @@
       .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
         - if listing.price
           .home-list-price-value-mobile
-            = humanized_money_with_symbol(listing.price).upcase
+            = MoneyViewUtils.to_humanized(listing.price)
           - price_text = nil
           - if listing.quantity.present?
             - price_text = t("listings.form.price.per") + " " + listing.quantity
