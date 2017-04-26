@@ -1,4 +1,10 @@
 es-ES:
+  number:
+    currency:
+      format:
+        separator: ","
+        delimiter: "."
+        format: "%n%u"
   admin:
     categories:
       edit:
@@ -893,11 +899,11 @@ es-ES:
       remember_to_give_feedback_to: "Recordatorio: Recuerda dar una valoración a %{name}"
       you_have_not_given_feedback_yet: "Aún no has dado una valoración a %{name} acerca de la transacción '%{event}'. Recuerda dar una valoración sobre cómo %{given_name} actuó durante la transacción."
     transaction_preauthorized:
-      subject: "%{requester} ha solicitado y autorizado el pago por %{listing_title}"
-      transaction_requested_by_user: "%{requester} ha solicitado y autorizado el pago por \"%{listing_title}\""
+      subject: "%{requester} está interesado en y autorizado el pago por %{listing_title} en %{service_name}"
+      transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}. Si aceptas dentro de este periodo, el pago será procesado. Si no aceptas, la solicitud se rechazará automáticamente y no recibirás el pago."
-      if_you_do_accept: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
+      if_you_do_not_accept: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago."
       click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     transaction_preauthorized_reminder:
       subject: "Recuerda aceptar la solicitud de %{requester} sobre el anuncio %{listing_title}"
