@@ -2,9 +2,9 @@ fi:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -250,8 +250,7 @@ fi:
         ban_me_error: "Et voi poistaa itseäsi."
       new_layout:
         new_layout: "Uusi ulkoasu"
-        description_roadmap: "Sharetribe on parhaillaan siirtymässä kohti uutta, parannettua ulkoasua. Siirtymävaiheen aikana voit alla olevan valikon avulla valita, mitkä osat markkinapaikastasi näytetään vanhaa käyttöliittymää käyttäen. Uusi toiminnallisuus on ainoastaan käytössä uutta ulkoasua käyttäessäsi."
-        description_process: "Tuki vanhalle ulkoasulle poistetaan tulevaisuudessa. Sharetriben tiimi ilmoittaa sinulle, ennen kuin tämä tapahtuu. Onko sinulla kysymyksiä? Ole hyvä ja %{support_link}."
+        description_roadmap_new: ~
         enabled_for_you: "Käytössä vain sinulla"
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"

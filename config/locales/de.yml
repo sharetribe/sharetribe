@@ -2,9 +2,9 @@ de:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: "."
+        delimiter: ","
+        format: "%n%u"
   admin:
     categories:
       edit:
@@ -250,8 +250,7 @@ de:
         ban_me_error: "Du kannst dich nicht selber sperren."
       new_layout:
         new_layout: "Neues Layout"
-        description_roadmap: "Wir entwickeln derzeit ein neues, verbessertes Layout für Sharetribe. Während der Umbruchphase kannst du unten wählen, welche Aspekte deines Marktplatzes das alte Layout verwenden sollen. Neue Features von Sharetribe werden nur mit dem neuen Layout verfügbar sein."
-        description_process: "Wir werden das alte Layout in der Zukunft allmählich abbauen. Das Sharetribe-Team wird dir informieren, bevor wir dies tun. Hast du Fragen? Du kannst das Team eine Nachricht hier schicken: %{support_link}."
+        description_roadmap_new: ~
         enabled_for_you: "Für dich aktiviert"
         enabled_for_all: "Für alle aktiviert"
         new_topbar: "Neuer Top Bar (auf jeder Seite angezeigt)"
@@ -902,8 +901,8 @@ de:
       subject: "%{requester} hat %{listing_title} angefragt und bezahlt"
       transaction_requested_by_user: "%{requester} hat \"%{listing_title}\" angefragt und bezahlt"
       you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen. Wenn Du innerhalb dieses Zeitrahmens akzeptierst, wird die Zahlung durchgehen. Wenn Du nicht zustimmst, wird die Anfrage automatisch abgelehnt, und Du wirst nicht bezahlt."
-      if_you_do_accept: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Wenn du die Anfrage innerhalb dieses Zeitrahmens akzeptierst, wirst du das Geld sofort auf dein Konto bekommen."
+      if_you_do_not_accept: "Wenn du die Anfrage ablehnst, oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
       click_here_to_reply: "Klicke hier, um auf die Anfrage zu antworten"
     transaction_preauthorized_reminder:
       subject: "Bitte denke daran, die Anfrage von %{requester} zum Angebot %{listing_title} zu akzeptieren."

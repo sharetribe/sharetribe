@@ -2,9 +2,9 @@ fr:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -250,8 +250,7 @@ fr:
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
       new_layout:
         new_layout: "Nouveau design"
-        description_roadmap: "Sharetribe est actuellement en train de déployer un nouveau et meilleur design. Durant cette phase de transition, vous pouvez sélectionner grâce au menu ci-dessous quelles sections de votre place de marché doivent continuer à utiliser l'ancien design. Les nouvelles fonctionnalités ne seront disponibles qu'avec le nouveau design."
-        description_process: "Le support de l'ancien design cessera un jour. L'équipe Sharetribe vous notifiera avant que cela n'arrive. Des questions? Contactez l'équipe via %{support_link}."
+        description_roadmap_new: ~
         enabled_for_you: "Activé pour vous"
         enabled_for_all: "Activé pour tous"
         new_topbar: "Nouvelle barre des menus (visible sur toute les pages)"
