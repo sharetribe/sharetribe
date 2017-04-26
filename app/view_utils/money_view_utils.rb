@@ -9,6 +9,7 @@ module MoneyViewUtils
   def to_humanized(m, locale = I18n.locale)
     # TODO: Remove feature flag
     if FeatureFlagHelper.feature_enabled?(:currency_formatting)
+      return "" if m.nil?
       separator = I18n.t("number.currency.format.separator", locale: locale)
       precision = m.currency.exponent.to_i
       zero_cents = "0" * precision
