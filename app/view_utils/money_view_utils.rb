@@ -20,7 +20,7 @@ module MoneyViewUtils
     else
       humanized_money_with_symbol(m).upcase
     end
-  rescue FeatureFlagHelperNotInitialized
+  rescue FeatureFlagHelper::FeatureFlagHelperNotInitialized
     humanized_money_with_symbol(m).upcase
   end
 end
