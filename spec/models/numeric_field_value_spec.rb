@@ -6,7 +6,7 @@
 #  custom_field_id :integer
 #  listing_id      :integer
 #  text_value      :text(65535)
-#  numeric_value   :float(24)
+#  numeric_value   :float(53)
 #  date_value      :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

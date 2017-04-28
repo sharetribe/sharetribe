@@ -525,7 +525,7 @@ CREATE TABLE `custom_field_values` (
   `custom_field_id` int(11) DEFAULT NULL,
   `listing_id` int(11) DEFAULT NULL,
   `text_value` text,
-  `numeric_value` float DEFAULT NULL,
+  `numeric_value` double DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -3254,4 +3254,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170313201104');
 INSERT INTO schema_migrations (version) VALUES ('20170314075755');
 
 INSERT INTO schema_migrations (version) VALUES ('20170613153959');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153960');
 
