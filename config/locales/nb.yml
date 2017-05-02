@@ -2,9 +2,9 @@ nb:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: " "
+        format: "%u %n"
   admin:
     categories:
       edit:
@@ -250,7 +250,7 @@ nb:
         ban_me_error: "Du kan ikke forby deg selv."
       new_layout:
         new_layout: "Ny layout"
-        description_roadmap_new: ~
+        description_roadmap_new: "Når nye layout-komponenter er tilgjengelige for markedsplassen din, kan du velge om du vil begynne å bruke de nye komponentene eller fortsette å bruke de gamle. Du kan aktivere valgene dine når som helst på denne siden. Det er anbefalt å alltid bruke nyeste versjon, siden de gamle komponentene kan bli faset ut etter hvert. Hvis en komponent som du bruker vil bli faset ut, vil du bli kontaktet i forkant."
         enabled_for_you: "Tilgjengelig for deg"
         enabled_for_all: "Tilgjengelig for alle"
         new_topbar: "Ny toppmeny (synlig på alle sider)"

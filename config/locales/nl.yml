@@ -2,8 +2,8 @@ nl:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
+        separator: ","
+        delimiter: " "
         format: ~
   admin:
     categories:
@@ -252,7 +252,7 @@ nl:
         ban_me_error: "Je kunt jezelf niet uitsluiten."
       new_layout:
         new_layout: "Nieuwe layout"
-        description_roadmap_new: ~
+        description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
         enabled_for_you: "Voor jou ingesteld"
         enabled_for_all: "Voor allen ingesteld"
         new_topbar: "Nieuwe menubalk boven (zichtbaar op iedere pagina)"

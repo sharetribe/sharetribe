@@ -17,7 +17,7 @@ vi:
         save_order_successful: ~
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Danh mục chủng loại mới"
       form:
         category_name:
           category_title: ~
@@ -38,6 +38,8 @@ vi:
         warning_remove_effects: "Cảnh báo! Loại bỏ hạng mục %{category_name} sẽ có những tác động sau:"
         warning_listing_will_be_moved:
           other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
+        warning_custom_field_will_be_moved:
+          other: "Có %{count} trường tùy chỉnh trong chủng loại. Nó sẽ được di chuyển đến các chủng loại đã chọn."
         select_new_category: ~
         buttons:
           remove: ~
@@ -205,7 +207,7 @@ vi:
         automatic_newsletters: ~
         email_admins_about_new_members: ~
         google_analytics_key: ~
-        twitter_handle: ~
+        twitter_handle: "Twitter xử lý (được sử dụng với nút tweet trong trang danh sách)"
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatic_newsletter_frequency: ~
@@ -488,8 +490,8 @@ vi:
       give: Tặng
       lend: "Cho mượn"
       swap: "Trao đổi"
-      service: ~
-      request: ~
+      service: "Chào bán"
+      request: "Yêu cầu"
       inquiry: ~
       share_for_free: ~
       default_action_button_labels:
