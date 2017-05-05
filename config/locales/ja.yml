@@ -1047,7 +1047,7 @@ ja:
       some_private_offers_exist: "既に<b>%{number_of_listings}件のオファーが</b>あります、"
       some_private_requests_exist: "既に<b>%{number_of_listings}件のリクエストが</b>あります、"
     custom_filters:
-      update_view: 表示を更新する
+      update_view: 絞り込む
       min: 最小：
       max: 最大：
     event_feed:
@@ -1437,7 +1437,7 @@ ja:
         location: 場所
         origin: 起点となる場所
       send_button:
-        save_listing: 投稿を保存する
+        save_listing: 出品する
       share_type:
         select: 選択
         borrow: 借りる

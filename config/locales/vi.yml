@@ -588,7 +588,7 @@ vi:
     details:
       day: ~
       days: ~
-      price_per_day: ~
+      price_per_day: "Giá mỗi ngày: %{price}"
     index:
       loading_more_messages: "Nạp thêm tin nhắn"
       message_partitive: "tin nhắn"
@@ -623,7 +623,7 @@ vi:
     new:
       message: "Tin nhắn"
       message_to: ~
-      optional_message_to: ~
+      optional_message_to: "Tin nhắn tùy chọn tới %{author_name}"
       send_message: "Gửi thông điệp"
       send: Gửi
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
@@ -827,7 +827,7 @@ vi:
       product: "Sản phẩm"
       price_payer_paid: "Giá %{payer_full_name} trả trước:"
       service_fee: "Phí dịch vụ %{service_name}"
-      you_will_get: ~
+      you_will_get: "Tổng cộng"
     receipt_to_payer:
       receipt_of_payment: "Biên nhận"
       you_have_made_new_payment: "Bạn đã thanh toán %{payment_sum} cho %{recipient_full_name} cho sản phẩm %{listing_title}. Đây là biên nhận."
@@ -1069,7 +1069,7 @@ vi:
       requesting: cần
       tell_it_here: "Cho nó biết ở đây!"
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
-      no_reviews: "Chưa có phản hồi"
+      no_reviews: "Chưa có đánh giá"
       no_image: "Không có hình ảnh"
       filter: "Bộ lọc"
       this_is_private_community: "Bạn cần phải đăng ký trước khi bạn có thể xem nội dung."
@@ -1077,7 +1077,7 @@ vi:
       email: "Địa chỉ email bạn của bạn:"
       message: "Thông điệp cá nhân:"
       send_invitation: "Gửi lời mời"
-      add_email_addresses_description: ~
+      add_email_addresses_description: "Thêm địa chỉ email của những người bạn đang mời vào ô bên dưới. Để thêm nhiều địa chỉ email, hãy phân tách bằng dấu phẩy."
       add_lots_of_email_addresses: ~
       this_article_link: ~
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
@@ -1347,7 +1347,7 @@ vi:
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Mở bằng bản đồ Google"
     error:
       something_went_wrong: ~
       something_went_wrong_plain: ~
@@ -1498,7 +1498,7 @@ vi:
       booking_from: ~
       booking_to: ~
       how_paypal_works: ~
-      payment_help: ~
+      payment_help: "Trợ giúp thanh toán"
       unable_load_availability: ~
     new:
       listing: "sản phẩm"
@@ -1537,7 +1537,7 @@ vi:
       item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
       no_image: "Không có hình ảnh"
-      no_reviews: "Chưa có phản hồi nào"
+      no_reviews: "Chưa có đánh giá nào"
       offer: "Hỗ trợ"
       listing_created: "Được tạo"
       open_until: "Cho đến : %{date}"
@@ -1580,7 +1580,7 @@ vi:
       by: ~
       payment: ~
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "Bạn sẽ chỉ bị tính phí nếu %{author} chấp nhận giao dịch. %{author} cần phải chấp nhận giao dịch trong vòng %{expiration_period} ngày. Nếu %{author} từ chối hoặc không trả lời, bạn sẽ không phải trả phí."
       day: ~
       days: ~
       night: ~
@@ -1676,7 +1676,7 @@ vi:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Tiến hành thanh toán"
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
@@ -1725,7 +1725,7 @@ vi:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
     profile_listings:
-      show_also_closed: "Hiển thị cũng đóng"
+      show_also_closed: "Hiển thị cả những bài đăng đang đóng"
       show_only_open: "Chỉ hiển thị mở"
       no_image: "Không có hình ảnh"
     show:
@@ -1755,8 +1755,8 @@ vi:
       open_listing: "Mở bài đăng"
       open_listings: "Các bài đăng đang mở"
       no_listings: "Ko có sản phẩm nào."
-      no_open_listings: "Hiện không có sản phẩm"
-      no_reviews: "Chưa có phản hồi"
+      no_open_listings: "Hiện không có bài đăng nào đang mở."
+      no_reviews: "Chưa có đánh giá"
       show_all_listings: "Hiện tất cả sản phẩm/dịch vụ đang bán"
       show_all_open_listings: "Hiện tất cả các bài đang đăng"
       show_all_reviews: "Hiện tất cả phản hồi"
@@ -1766,7 +1766,7 @@ vi:
       they_follow_plural: ~
       they_follow_singular: ~
       show_all_followed_people: ~
-      no_followed_people: ~
+      no_followed_people: "Hiện chưa theo dõi ai"
     follow_button:
       following: ~
       follow: ~
@@ -2000,9 +2000,11 @@ vi:
       other: "%{count} ngày"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Số ngày đặt"
       booked_nights: ~
-      price_per_day: ~
+      booked_days_label:
+        other: "Ngày đặt"
+      price_per_day: "Giá mỗi ngày"
       price_per_night: ~
       quantity: ~
       subtotal: ~

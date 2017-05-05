@@ -2,9 +2,9 @@ pt-BR:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: " "
+        format: "%u%n"
   admin:
     categories:
       edit:

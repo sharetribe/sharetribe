@@ -1,58 +1,58 @@
 nl:
   errors:
     messages:
-      expired: ~
+      expired: "is verlopen, vraag een nieuwe aan"
       not_found: "niet gevonden"
-      already_confirmed: "is reeds bevestigd"
+      already_confirmed: "is reeds bevestigd, probeer in te loggen"
       not_locked: "is niet gesloten"
       not_saved:
-        one: ~
-        other: ~
+        one: "%{count} fout verhindert %{resource} kan worden opgeslagen:"
+        other: "%{count} fouten verhinderen dat %{resource} kan worden opgeslagen:"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: "Je dient in te loggen of je in te schrijven."
+      already_authenticated: "Je bent al ingelogd."
+      unauthenticated: "Je dient in te loggen of je in te schrijven voordat je verder kan gaan."
       unconfirmed: "Je dient eerst je account te bevestigen."
-      locked: "Je account is gelocked."
+      locked: "Je account is geblokkeerd."
       invalid: "Ongeldig e-mail of wachtwoord."
-      invalid_token: "Invalide authenticiteit token."
+      invalid_token: "Ongeldig authenticatie token."
       timeout: "Je sessie is verlopen, log a.u.b. opnieuw in."
       inactive: "Je account is nog niet geactiveerd."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten."
+      updated_not_active: "Je wachtwoord is succesvol gewijzigd."
+      send_paranoid_instructions: "Indien je e-mail adres in onze database staat, ontvang je een bericht met een link om je wachtwoord te herstellen."
+      send_instructions: "Je ontvangt via e-mail instructies hoe je je wachtwoord kunt resetten."
       updated: "Je wachtwoord is gewijzigd. Je bent nu ingelogd."
     sessions:
       signed_in: "Je bent succesvol ingelogd."
       signed_out: "Je bent succesvol uitgelogd."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan bevestigen."
+      send_paranoid_instructions: "Indien je e-mail adres in onze database staat, ontvang je een bericht met instructies om je wachtwoord te bevestigen."
+      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kunt bevestigen."
       confirmed: "Je account is bevestigd."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Een bericht met de bevestigingslink is naar je e-mail adres gestuurd. Open a.u.b. de link om je account te activeren."
+      signed_up_but_inactive: "Je hebt je succesvol geregistreerd. Je kunt echter nog niet inloggen want je account is nog niet geactiveerd."
+      signed_up_but_locked: "Je hebt je succesvol geregistreerd. Je kunt echter nog niet inloggen omdat je account geblokkeerd is."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: "Je bent inschreven."
+        inactive: "niet actief"
+        unconfirmed: onbevestigd
+        locked: geblokkeerd
+      update_needs_confirmation: "Je heb je account succesvol bijgewerkt, maar we moeten je nieuw e-mail adres verifiëren. Controleer je inbox en klik op de mail die we je gestuurd hebben om je e-mail adres te bevestigen."
+      signed_up: "Welkom! Je bent succesvol inschreven."
       updated: "Je account gegevens zijn opgeslagen."
-      destroyed: "Je account is verwijderd, wellicht tot ziens!"
+      destroyed: "Je account is succesvol verwijderd. We hopen je snel weer terug te zien!"
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan un-locken."
-      unlocked: "Je account is ge-unlocked. Je kan nu weer inloggen."
+      send_paranoid_instructions: "Als je een bestaand account hebt, ontvang je binnen enkele minuten een e-mail met instructies om je account te deblokkeren."
+      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan deblokkeren."
+      unlocked: "Je account werd succesvol gedeblokeerd. Je kunt nu weer inloggen."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Succesvol geautoriseerd van %{kind} account."
+      failure: "Kan je niet autoriseren van %{kind} omdat '%{reason}'."
     mailer:
       confirmation_instructions:
-        subject: Bevestiging
+        subject: "Bevestigingsinstructies om lid te worden van %{service_name}"
       reset_password_instructions:
         subject: "Wachtwoord resetten"
       unlock_instructions:
-        subject: "Unlock instructies"
+        subject: Deblokkeringsinstructies
