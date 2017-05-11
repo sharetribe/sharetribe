@@ -129,33 +129,9 @@ Before you get started, the following needs to be installed:
 
 1.  Start the development server:
 
-    Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
-
-    1.  React component static build
-
-        ```bash
-        foreman start -f Procfile.static
-        ```
-
-    1.  React component & hot loading styleguide (http://localhost:9001/)
-
-        ```bash
-        foreman start -f Procfile.hot
-        ```
-
-1.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
-
-    1.  React component static build, React client only
-
-        ```bash
-        foreman start -f Procfile.client-static
-        ```
-
-    1.  React component & hot loading styleguide (http://localhost:9001/), React client only
-
-        ```bash
-        foreman start -f Procfile.client-hot
-        ```
+    ```bash
+    foreman start -f Procfile.static
+    ```
 
 1.  Invoke the delayed job worker in a new console (open the project root folder):
 
@@ -242,6 +218,36 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
   ```bash
   bundle exec guard
   ```
+
+### Working with React, Webpack and Foreman
+
+Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
+
+1.  React component static build
+
+    ```bash
+    foreman start -f Procfile.static
+    ```
+
+1.  React component & hot loading styleguide (http://localhost:9001/)
+
+    ```bash
+    foreman start -f Procfile.hot
+    ```
+
+1.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+
+1.  React component static build, React client only
+
+    ```bash
+    foreman start -f Procfile.client-static
+    ```
+
+1.  React component & hot loading styleguide (http://localhost:9001/), React client only
+
+    ```bash
+    foreman start -f Procfile.client-hot
+    ```
 
 ### Setting up Sharetribe for production
 
