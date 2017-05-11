@@ -12,6 +12,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Change instructions how to compile assets. This reduces the JavaScript bundle size drastically. [c613cac](https://github.com/sharetribe/sharetribe/commit/c613cac)
+
 ### Deprecated
 
 ### Removed
