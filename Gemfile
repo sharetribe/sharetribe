@@ -39,7 +39,6 @@ gem 'dalli', "~> 2.6.4"
 gem "memcachier", "~> 0.0.2"
 gem 'readthis', "~> 2.0.1"
 gem 'hiredis'
-gem 'kgio', "~>2.9.2"
 gem 'thinking-sphinx', '~> 3.1.1'
 gem 'flying-sphinx', "~>1.2.0"
 # Use patched v2.0.2
