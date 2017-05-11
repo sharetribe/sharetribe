@@ -61,101 +61,83 @@ Before you get started, the following needs to be installed:
 
 ### Setting up the development environment
 
-1. Get the code. Clone this git repository and check out the latest release:
+1.  Get the code. Clone this git repository and check out the latest release:
 
-  ```bash
-  git clone git://github.com/sharetribe/sharetribe.git
-  cd sharetribe
-  git checkout latest
-  ```
+    ```bash
+    git clone git://github.com/sharetribe/sharetribe.git
+    cd sharetribe
+    git checkout latest
+    ```
 
-1. Install the required gems by running the following command in the project root directory:
+1.  Install the required gems by running the following command in the project root directory:
 
-  ```bash
-  bundle install
-  ```
+    ```bash
+    bundle install
+    ```
 
-  **Note:** [`libv8` might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
+    **Note:** [`libv8` might fail to build with Clang 7.3](https://github.com/cowboyd/libv8/pull/207), in that case you can try installing V8 manually:
 
-  ```bash
-  brew tap homebrew/versions
-  brew install v8-315
+    ```bash
+    brew tap homebrew/versions
+    brew install v8-315
 
-  gem install libv8 -v '3.16.14.13' -- --with-system-v8
-  gem install therubyracer -- --with-v8-dir=/usr/local/opt/v8-315
+    gem install libv8 -v '3.16.14.13' -- --with-system-v8
+    gem install therubyracer -- --with-v8-dir=/usr/local/opt/v8-315
 
-  bundle install
-  ```
+    bundle install
+    ```
 
-1. Install node modules:
-  ```bash
-  npm install
-  ```
+1.  Install node modules:
 
-1. Create a `database.yml` file by copying the example database configuration:
+    ```bash
+    npm install
+    ```
 
-  ```bash
-  cp config/database.example.yml config/database.yml
-  ```
+1.  Create a `database.yml` file by copying the example database configuration:
 
-1. Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
+    ```bash
+    cp config/database.example.yml config/database.yml
+    ```
 
-1. Create a `config.yml` file by copying the example configuration file:
+1.  Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-  ```bash
-  cp config/config.example.yml config/config.yml
-  ```
+1.  Create a `config.yml` file by copying the example configuration file:
 
-1. Create and initialize the database:
+    ```bash
+    cp config/config.example.yml config/config.yml
+    ```
 
-  ```bash
-  bundle exec rake db:create db:structure:load
-  ```
+1.  Create and initialize the database:
 
-1. Run Sphinx index:
+    ```bash
+    bundle exec rake db:create db:structure:load
+    ```
 
-  ```bash
-  bundle exec rake ts:index
-  ```
+1.  Run Sphinx index:
 
-  **Note:** If your MySQL server is configured for SSL, update the `config/thinking_sphinx.yml` file and uncomment the `mysql_ssl_ca` lines. Configure correct SSL certificate chain for connection to your database over SSL.
+    ```bash
+    bundle exec rake ts:index
+    ```
 
-1. Start the Sphinx daemon:
+    **Note:** If your MySQL server is configured for SSL, update the `config/thinking_sphinx.yml` file and uncomment the `mysql_ssl_ca` lines. Configure correct SSL certificate chain for connection to your database over SSL.
 
-  ```bash
-  bundle exec rake ts:start
-  ```
+1.  Start the Sphinx daemon:
 
-1. Start the development server:
-Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
+    ```bash
+    bundle exec rake ts:start
+    ```
 
-  1. React component static build
-  ```bash
-  foreman start -f Procfile.static
-  ```
+1.  Start the development server:
 
-  1. React component & hot loading styleguide (http://localhost:9001/)
-  ```bash
-  foreman start -f Procfile.hot
-  ```
+    ```bash
+    foreman start -f Procfile.static
+    ```
 
-1. If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+1.  Invoke the delayed job worker in a new console (open the project root folder):
 
-  1. React component static build, React client only
-  ```bash
-  foreman start -f Procfile.client-static
-  ```
-
-  1. React component & hot loading styleguide (http://localhost:9001/), React client only
-  ```bash
-  foreman start -f Procfile.client-hot
-  ```
-
-1. Invoke the delayed job worker in a new console (open the project root folder):
-
-  ```bash
-  bundle exec rake jobs:work
-  ```
+    ```bash
+    bundle exec rake jobs:work
+    ```
 
 
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
@@ -164,28 +146,28 @@ Congratulations! Sharetribe should now be up and running for development purpose
 
 Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
 
-1. Install Mailcatcher:
+1.  Install Mailcatcher:
 
-  ```bash
-  gem install mailcatcher
-  ```
+    ```bash
+    gem install mailcatcher
+    ```
 
-1. Start it:
+1.  Start it:
 
-  ```bash
-  mailcatcher
-  ```
+    ```bash
+    mailcatcher
+    ```
 
-1. Add the following lines to `config/config.yml`:
+1.  Add the following lines to `config/config.yml`:
 
-```yml
-development:
-  mail_delivery_method: smtp
-  smtp_email_address: "localhost"
-  smtp_email_port: 1025
-```
+    ```yml
+    development:
+      mail_delivery_method: smtp
+      smtp_email_address: "localhost"
+      smtp_email_port: 1025
+    ```
 
-1. Open `http://localhost:1080` in your browser
+1.  Open `http://localhost:1080` in your browser
 
 ### Database migrations
 
@@ -201,32 +183,35 @@ Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](h
 
 Remember to follow *all* the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
 
-1. Navigate to the root directory of the sharetribe project
-1. Initialize your test database:
+1.  Navigate to the root directory of the sharetribe project
 
-  ```bash
-  bundle exec rake test:prepare
-  ```
+1.  Initialize your test database:
 
-  This needs to be rerun whenever you make changes to your database schema.
-1. If Zeus isn't running, start it:
+    ```bash
+    bundle exec rake test:prepare
+    ```
 
-  ```bash
-  zeus start
-  ```
+    This needs to be rerun whenever you make changes to your database schema.
 
-1. To run unit tests, open another terminal and run:
-  ```bash
-  zeus rspec spec
-  ```
+1.  If Zeus isn't running, start it:
 
-1. To run acceptance tests, open another terminal and run:
+    ```bash
+    zeus start
+    ```
 
-  ```bash
-  zeus cucumber
-  ```
+1.  To run unit tests, open another terminal and run:
 
-  Note that running acceptance tests is slow and may take a long time to complete.
+    ```bash
+    zeus rspec spec
+    ```
+
+1.  To run acceptance tests, open another terminal and run:
+
+    ```bash
+    zeus cucumber
+    ```
+
+    Note that running acceptance tests is slow and may take a long time to complete.
 
 To automatically run unit tests when code is changed, start [Guard](https://github.com/guard/guard):
 
@@ -234,68 +219,98 @@ To automatically run unit tests when code is changed, start [Guard](https://gith
   bundle exec guard
   ```
 
+### Working with React, Webpack and Foreman
+
+Some components are created with React (see [documentation](https://github.com/sharetribe/sharetribe/blob/master/client/README.md)) and they need to be built with Webpack. We have [Foreman](http://theforeman.org/) Procfiles that can be used to run both Rails and Webpack:
+
+1.  React component static build
+
+    ```bash
+    foreman start -f Procfile.static
+    ```
+
+1.  React component & hot loading styleguide (http://localhost:9001/)
+
+    ```bash
+    foreman start -f Procfile.hot
+    ```
+
+1.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+
+1.  React component static build, React client only
+
+    ```bash
+    foreman start -f Procfile.client-static
+    ```
+
+1.  React component & hot loading styleguide (http://localhost:9001/), React client only
+
+    ```bash
+    foreman start -f Procfile.client-hot
+    ```
+
 ### Setting up Sharetribe for production
 
 Before starting these steps, perform [steps 1-5 from above](#setting-up-the-development-environment).
 
-1. Set `secret_key_base`
+1.  Set `secret_key_base`
 
-  Generate secret key
+    Generate secret key
 
-  ```bash
-  rake secret
-  ```
+    ```bash
+    rake secret
+    ```
 
-  Add the following lines to `config/config.yml`:
+    Add the following lines to `config/config.yml`:
 
-  ```yml
-  production:
-    secret_key_base: # add here the generated key
-  ```
+    ```yml
+    production:
+      secret_key_base: # add here the generated key
+    ```
 
-  (You can also set the `secret_key_base` environment variable, if you don't want to store the secret key in a file)
+    (You can also set the `secret_key_base` environment variable, if you don't want to store the secret key in a file)
 
-1. Create the database:
+1.  Create the database:
 
-  ```bash
-  RAILS_ENV=production bundle exec rake db:create
-  ```
+    ```bash
+    RAILS_ENV=production bundle exec rake db:create
+    ```
 
-1. Initialize your database:
+1.  Initialize your database:
 
-  ```bash
-  RAILS_ENV=production bundle exec rake db:structure:load
-  ```
+    ```bash
+    RAILS_ENV=production bundle exec rake db:structure:load
+    ```
 
-1. Run Sphinx index:
+1.  Run Sphinx index:
 
-  ```bash
-  RAILS_ENV=production bundle exec rake ts:index
-  ```
+    ```bash
+    RAILS_ENV=production bundle exec rake ts:index
+    ```
 
-1. Start the Sphinx daemon:
+1.  Start the Sphinx daemon:
 
-  ```bash
-  RAILS_ENV=production bundle exec rake ts:start
-  ```
+    ```bash
+    RAILS_ENV=production bundle exec rake ts:start
+    ```
 
-1. Precompile the assets:
+1.  Precompile the assets:
 
-  ```bash
-  RAILS_ENV=production NODE_ENV=production bundle exec rake assets:precompile
-  ```
+    ```bash
+    RAILS_ENV=production NODE_ENV=production bundle exec rake assets:precompile
+    ```
 
-1. Invoke the delayed job worker:
+1.  Invoke the delayed job worker:
 
-  ```bash
-  RAILS_ENV=production bundle exec rake jobs:work
-  ```
+    ```bash
+    RAILS_ENV=production bundle exec rake jobs:work
+    ```
 
-1. In a new console, open the project root folder and start the server:
+1.  In a new console, open the project root folder and start the server:
 
-  ```bash
-  bundle exec rails server -e production
-  ```
+    ```bash
+    bundle exec rails server -e production
+    ```
 
 
 The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
