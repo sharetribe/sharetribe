@@ -30,7 +30,7 @@ const GuidePaypalPage = (props) => {
       }),
       div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content', {
         disable_payments_link: a(
-          { href: 'http://support.sharetribe.com/knowledgebase/articles/470085',
+          { href: 'https://help.sharetribe.com/payment-with-paypal/how-to-disable-payments-or-add-free-listings-to-your-marketplace',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.paypal.advice.disable_payments_alt'),

@@ -36,7 +36,7 @@ const GuideCoverPhotoPage = (props) => {
         span(
           t('web.admin.onboarding.guide.cover_photo.advice.content1',
             { link: a({
-              href: 'http://support.sharetribe.com/knowledgebase/articles/744438',
+              href: 'https://help.sharetribe.com/configuration-and-how-to/how-to-get-good-looking-cover-photos-logos-favicon-profiles-and-listing-pictures',
               target: '_blank',
               rel: 'noreferrer',
               alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
