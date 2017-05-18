@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - name: update all packages
+      apt: name=nodejs state=present
+

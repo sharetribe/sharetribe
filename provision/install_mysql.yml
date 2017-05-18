@@ -1,0 +1,15 @@
+---
+- hosts: all
+  roles:
+   - geerlingguy.mysql
+  vars:
+    mysql_root_password: password1
+    mysql_users:
+      test1:
+        password: test1
+        priv: test1.*:ALL
+    mysql_dbs:
+      test1:
+      test2:
+        encoding: latin1
+        collation: latin1_swedish_ci

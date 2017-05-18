@@ -1,0 +1,59 @@
+---
+- hosts: all
+#  remote_user: vagrant
+#  become_user: true
+  gather_facts: no
+  pre_tasks:
+  - name: 'install python2'
+    raw: sudo apt-get -y install python-simplejson
+  tasks:
+  - name: upgrade all packages
+    apt: upgrade=dist
+  - name: update all packages
+    apt: update_cache=yes
+  - shell: sudo apt-get -y remove git
+  - shell: sudo add-apt-repository -y ppa:git-core/ppa
+  - shell: sudo apt-get -y update
+  - shell: sudo apt-get -y install git
+  - name: install curl
+    apt: name=curl state=present
+  - name: install sasl (for memcached0
+    apt: name=libsasl2-2 state=present
+  - name: install sasl-dev
+    apt: name=libsasl2-dev state=present
+  - name: install zlib1g-dev
+    apt: name=zlib1g-dev state=present
+  - name: install build-essential
+    apt: name=build-essential state=present
+  - name: install libssl-dev
+    apt: name=libssl-dev state=present
+  - name: install libreadline-dev
+    apt: name=libreadline-dev state=present
+  - name: install libyaml-dev
+    apt: name=libyaml-dev state=present
+  - name: install libxml2-dev
+    apt: name=libxml2-dev state=present
+  - name: install libxslt1-dev
+    apt: name=libxslt1-dev state=present
+  - name: install libcurl4-openssl-dev
+    apt: name=libcurl4-openssl-dev state=present
+  - name: install python-software-properties
+    apt: name=python-software-properties state=present
+  - name: install libffi-dev
+    apt: name=libffi-dev state=present
+  - name: install libpq-dev
+    apt: name=libpq-dev state=present
+  - name: install libgdbm-dev
+    apt: name=libgdbm-dev state=present
+  - name: install libncurses5-dev
+    apt: name=libncurses5-dev state=present
+  - name: install automake
+    apt: name=automake state=present
+  - name: install libtool
+    apt: name=libtool state=present
+  - name: install bison
+    apt: name=bison state=present
+  - name: install libffi-dev
+    apt: name=libffi-dev state=present
+  - name: install gcc
+    apt: name=gcc state=present

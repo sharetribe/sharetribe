@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: true # https://github.com/zzet/ansible-rbenv-role/issues/37
+  vars:
+    rbenv:
+      env: system
+      version: v0.4.0
+      ruby_version: 2.3.1
+  roles:
+    - role: zzet.rbenv
+      rbenv_users:
+        - root
+
