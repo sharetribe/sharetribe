@@ -447,7 +447,7 @@ vi:
       units:
         piece: ~
         hour: ~
-        day: ~
+        day: "mỗi ngày"
         night: ~
         week: ~
         month: ~
@@ -750,7 +750,7 @@ vi:
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
-      you_have_added_listing_with_payment: "Bạn vừa đăng một tin rao vặt %{listing_link} kèm theo lựa chọn chia trả trược tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
+      you_have_added_listing_with_payment: "Bạn vừa đăng một bài %{listing_link} kèm theo lựa chọn chia trả trực tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
       please_go_to_payment_settings: ~
       payment_settings_link: "Phương thức thanh toán"
     transaction_confirmed:
@@ -851,7 +851,7 @@ vi:
     community_updates:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
       added_request: "%{name_link} đã thêm yêu cầu:"
-      added_listing: "%{name_link} đã đăng một tin rao mới :"
+      added_listing: "%{name_link} đã đăng một bài mới :"
       update_mail_title: ~
       title_link_text: "%{community_name}"
       intro_paragraph: ~
@@ -1047,7 +1047,7 @@ vi:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: "Không có sản phẩm nào. %{add_listing_link}"
-      add_listing_link_text: "Đăng tin rao mới"
+      add_listing_link_text: "Đăng bài mới"
       open_listing: "bài đăng"
       open_listings: "bài đăng"
       private_listing_notification_log_in: ~
@@ -1238,7 +1238,7 @@ vi:
       offer_accepted: "Hỗ trợ được chấp nhận"
       offer_confirmed: "Đề nghị được chấp nhận"
       offer_closed: "Hỗ trợ đã đóng"
-      listing_created_successfully: "Quá trình tạo tin rao mới đã hoàn tất. %{new_listing_link}"
+      listing_created_successfully: "Quá trình tạo bài đăng mới đã hoàn tất. %{new_listing_link}"
       offer_rejected: "Hỗ trợ bị từ chối."
       offer_canceled: "Đề nghị bị hủy."
       listing_updated_successfully: "Cập nhật thành công"
@@ -1332,15 +1332,15 @@ vi:
       send_comment: "Gửi bình luận"
       to_send_a_comment: "để gửi bình luận mới."
       write_comment: "Viết bình luận mới:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới vì tin rao này đã đóng lại."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới bài đăng này đã đóng."
       you_must: "Bạn phải"
       subscribe_to_comments: "Thông báo cho tôi những ý kiến mới và những cập nhật"
     edit:
-      edit_listing: "Thay đổi tin rao"
+      edit_listing: "Thay đổi bài đăng"
     edit_links:
-      close_listing: "Đóng tin rao"
-      edit_listing: "Thay đổi tin rao"
-      reopen_listing: "Mở lại tin rao"
+      close_listing: "Đóng bài đăng"
+      edit_listing: "Thay đổi bài đăng"
+      reopen_listing: "Mở lại bài đăng"
       move_to_top: "Di chuyển lên đầu trang"
       show_in_updates_email: "Hiển thị trong bản tin tiếp theo"
       show_in_updates_email_loading: ~
@@ -1407,7 +1407,7 @@ vi:
       price:
         price: Giá
         per: mỗi
-        per_day: ~
+        per_day: "mỗi ngày"
         mass: "đơn vị, kg, l, m2"
         time: "giờ, ngày, tháng"
         long_time: "tuần, tháng, ..."
@@ -1523,7 +1523,7 @@ vi:
     quantity_placeholder: ~
     please_comment: "Bình luận"
     reply_link:
-      listing_closed: "Tin rao này đã đóng lại"
+      listing_closed: "Bài đăng này đã đóng lại"
     show:
       add_your_phone_number: "Thêm số điện thoại của bạn"
       add_profile_picture: "Thêm ảnh tiểu sử"
@@ -1750,8 +1750,8 @@ vi:
       what_are_these: "Đây là gì?"
       review: "nhận được phản hồi"
       reviews: "nhận được phản hồi"
-      listing: "Tin rao"
-      listings: "Tin rao"
+      listing: "Bài đăng"
+      listings: "Bài đăng"
       open_listing: "Mở bài đăng"
       open_listings: "Các bài đăng đang mở"
       no_listings: "Ko có sản phẩm nào."

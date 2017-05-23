@@ -57,7 +57,7 @@ ja:
         edit_community: 基本情報
         enabled_languages: ~
         enabled_languages_description: ~
-        default_language: ~
+        default_language: デフォルト言語
         language_selection_disabled: ~
         community_name: マーケットプレイスの名前
         edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
@@ -404,13 +404,13 @@ ja:
         description: ~
         read_more_about_order_types: ~
         add_new_shape: ~
-        select_template: ~
+        select_template: テンプレートを選択...
         all_categories: すべてのカテゴリー
         no_categories: カテゴリーなし
         category_count: ~
         header:
           listing_shape_name: 課金タイプ名称
-          listing_shape_categories: ~
+          listing_shape_categories: 使用されているカテゴリ
         order:
           saving_order: 項目の順番を保存する
           save_order_successful: ~
@@ -426,7 +426,7 @@ ja:
       new:
         create_listing_shape: ~
         create: ~
-        cancel: ~
+        cancel: キャンセル
         create_success: ~
         create_failure: ~
       edit:
@@ -438,7 +438,7 @@ ja:
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
+      listing_shape_name: 名前
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
@@ -448,7 +448,7 @@ ja:
       online_payments_label: ~
       shipping_label: ~
       price_label: ~
-      units_title: ~
+      units_title: 通貨単位
       units_desc: ~
       units:
         piece: １点
@@ -687,7 +687,7 @@ ja:
       request_canceled: キャンセルしました
       request_paid: お支払い手続きが完了しました
       request_preauthorized: お支払い手続きが完了しました
-      skip_feedback: レビュー書くのやめる
+      skip_feedback: レビューを書くのをやめる
       waiting_for_listing_author_to_accept_offer: "%{listing_author_name}さんのオファーの承認待ち"
       waiting_for_listing_author_to_accept_request: "%{listing_author_name}さんの受諾のステータス変更待ち"
       waiting_for_you_to_accept_request: リクエストの承認待ち
@@ -857,7 +857,7 @@ ja:
     new_update_to_listing:
       listing_you_follow_has_been_updated: あなたがフォローしているリストが更新されました
       has_updated_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。あなたがフォローしている%{author}さんの「%{listing}」ページが更新されましたのでお知らせいたします。"
-      view_changes: 変更箇所を見る
+      view_changes: 内容を確認する
     community_updates:
       added_offer: "%{name_link}さんがリストを追加しました："
       added_request: "%{name_link}さんがリクエストを追加しました："
@@ -1053,13 +1053,13 @@ ja:
     event_feed:
       latest_events: どうしましたか
     grid_item:
-      processing_uploaded_image: （画像をアップロード中です...）
+      processing_uploaded_image: (画像をアップロード中...)
     index:
       no_listings_with_your_search_criteria: 一致する情報は見つかりませんでした。
       no_listings_notification: "リストがありません。%{add_listing_link}。"
       add_listing_link_text: 新しいリストを追加する
-      open_listing: 公開リスト
-      open_listings: 公開リスト
+      open_listing: 出品中リスト
+      open_listings: 出品中リスト
       private_listing_notification_log_in: ログイン
       is: は
       are: です
@@ -1220,14 +1220,14 @@ ja:
       additional_email_confirmed: 入力したメールアドレスは承認されました。
       could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
       facebook_email_unconfirmed: "あなたのFACEBOOKアカウントのメールアドレス%{email}は既に登録されておりますが、メールアドレスの承認が完了しておりません。メールアドレスの承認を完了してからFACEBOOKでログインを行ってください。"
-      create_new_listing: もうひとつリストを作成する
+      create_new_listing: 続けて出品する
       create_one_here: こちらでご登録
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
       email_not_found: "ご記入いただいたメールアドレスは、%{service_name}に存在しません。"
       error_with_session: セッション中にエラーが起こりました
       feedback_considered_spam: 初期化により内容は保存されませんでした。フィードバックフォーラムを使用して再試行してください。
       feedback_not_saved: レビューは送信できませんでした。
-      feedback_saved: メッセージどうもありがとうございます！なるべく早めにご返信させていただきますのでどうぞお待ちください。
+      feedback_saved: お問い合わせありがとうございます！通常24時間以内にご返信させていただきますのでよろしくお願いいたします。
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューを残しませんでした
       invitation_cannot_be_sent: 招待状は送られませんでした
@@ -1251,7 +1251,7 @@ ja:
       listing_created_successfully: "リストは掲載されました。%{new_listing_link}"
       offer_rejected: オファーは却下されました
       offer_canceled: オファーはキャンセルされました
-      listing_updated_successfully: 投稿は更新されました
+      listing_updated_successfully: 更新されました
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
@@ -1343,10 +1343,10 @@ ja:
       ask_a_question: お問い合わせは商品ページに公開されますので、個人が特定し得る内容は入力しないでください。
       log_in: ログイン
       send_comment: コメントを送信
-      to_send_a_comment: コメントを送信
+      to_send_a_comment: が必要です
       write_comment: コメントする
       you_cannot_send_a_new_comment_because_listing_is_closed: 公開停止中のため新しいコメントの送信はできません。
-      you_must: ログインしてください
+      you_must: コメントを送信するには
       subscribe_to_comments: 新しいコメントがあった場合通知する
     edit:
       edit_listing: 編集する
@@ -1407,7 +1407,7 @@ ja:
         processing: 処理中です...
         loading_image: 読み込み中...
         image_uploading_in_progress: 画像は現在アップロード中です・・・
-        processing_takes_a_while: 画像は全てアップロードされました。表示するのに少々時間がかかっておりますが投稿を保存して閉じても大丈夫です。
+        processing_takes_a_while: 画像はアップロードされましたが、表示するまで少々の時間がかかります。保存して閉じても結構です。
         this_may_take_a_while: （もう少々かかります）
         percentage_loaded: "%{percentage}％"
         uploading_failed: イメージ画像のアップロードに失敗しました
@@ -1539,7 +1539,7 @@ ja:
       listing_closed: リストはクローズになりました
     show:
       add_your_phone_number: あなたの電話番号を追加
-      add_profile_picture: プロフィール写真を追加
+      add_profile_picture: プロフィール画像を追加する
       comments: コメント・お問い合わせ
       contact_by_phone: 電話でのご連絡：
       contact: お問い合わせ
@@ -1564,7 +1564,7 @@ ja:
       time: 回
       times: 回
       times_viewed: 表示
-      processing_uploaded_image: （画像をアップロード中です...）
+      processing_uploaded_image: (画像をアップロード中...)
       listing_created_at: 掲載日
       price:
         per_quantity_unit: "あたり： %{quantity_unit}"
@@ -1679,7 +1679,7 @@ ja:
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
     paypal_account_connected_title: ~
     paypal_account_connected: ~
-    change_account: アカウントの変更
+    change_account: Paypalアカウントの変更
     missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
     from_your_payment_settings_link_text: お支払い設定
     redirect_message: ~
@@ -1746,7 +1746,7 @@ ja:
     show:
       contact: "%{person}さんに連絡する"
       about_me: 私について：
-      add_description: あなた自身について何か教えてください
+      add_description: プロフィール編集
       add_location: 現在位置を追加する
       add_phone_number: 電話番号を追加する
       address: 場所：
@@ -1767,13 +1767,13 @@ ja:
       reviews: 受信したレビュー
       listing: リスト
       listings: リスト
-      open_listing: 公開リスト
-      open_listings: 公開リスト
+      open_listing: 出品中リスト
+      open_listings: 出品中リスト
       no_listings: リストがありません
-      no_open_listings: 非公開リスト
+      no_open_listings: 出品中リストはありません
       no_reviews: レビューがありません
       show_all_listings: リストを表示する
-      show_all_open_listings: 公開リストを表示
+      show_all_open_listings: 出品中リストすべて表示
       show_all_reviews: すべてのレビューを表示
     followed_people:
       you_follow_plural: "あなたは%{count}人フォロー中です。"
@@ -1886,7 +1886,7 @@ ja:
       display_name_description: 団体や法人の場合には、その組織名称を表示名として使用することができます。表示名はあなたの氏名の代わりに表示されます。
       location_description: 住所の記載は必要ありませんが、少なくとも国と都市の記載をお願いいたします。地図から所在地を選択することもできます。
       phone_number: 電話番号
-      profile_picture: プロフィール写真
+      profile_picture: プロフィール画像
       postal_code: 郵便番号
       profile_page: プロフィール情報を設定
       profilemap: 地図で見る
@@ -1896,8 +1896,8 @@ ja:
       visible_to_registered_users: （ログイン済みユーザに表示）
       default_in_listing: （新規リスト作成時の初期設定）
       invisible: （他のユーザーに表示されません）
-      image_is_processing: あなたのプロフィール用写真を準備中です。しばらくしてからページをリロードしてください。
-    save_information: 情報を保存する
+      image_is_processing: プロフィール画像を準備中です。しばらく経ってからご確認ください。
+    save_information: 保存する
   shipping_address:
     shipping_address: 届け先住所
   tag_cloud:

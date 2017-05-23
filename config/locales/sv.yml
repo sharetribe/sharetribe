@@ -27,8 +27,8 @@ sv:
         category_transaction_types:
           transaction_types: Transaktionstyp
           transaction_types_description: "Transaktionstyper avgör vilka typ av transaktioner som tillåts med annonser i denna kategori. T ex är det bara försäljning, eller är det uthyrning och ge bort också tillåtet."
-          select_all: ~
-          clear_all: ~
+          select_all: "Välj alla"
+          clear_all: "Rensa allt"
         buttons:
           save: Spara
           cancel: Avbryt
@@ -178,7 +178,7 @@ sv:
         fr-CA: "Franska (Kanada)"
         es: "Spanska (Chile)"
         es-ES: Spanska
-        pt-PT: ~
+        pt-PT: Portugisiska
         pt-BR: "Brasiliansk portugisiska"
         nb: Norska
         sv: Svenska
@@ -200,14 +200,14 @@ sv:
         users_can_invite_new_users: "Alla användare kan bjuda in nya användare till denna marknadsplats"
         private: "Denna marknadsplats är privat (bara registrerade medlemmar kan se innehållet)"
         require_verification_to_post_listings: "Bara användare som är verifierade av admin kan skapa nya annonser"
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
+        search_preferences: "Sök inställningar"
+        default_search_type: "Söktyp:%{select_search_type}"
+        keyword_search: Nyckelordssökning
         keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
+        location_search: Platssökning
+        select_distance_unit: "Visa distans i %{distance_units_selector}"
+        km: km
+        miles: mil
         show_only_nearby: ~
         listing_preferences: Annonsinställningar
         transaction_preferences: Transaktionsinställningar
@@ -244,7 +244,7 @@ sv:
         ban_user: "Spärra användare"
         saving_user_status: Sparar...
         save_user_status_successful: Sparad
-        export_all_as_csv: ~
+        export_all_as_csv: "Exportera alla som CSV"
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
@@ -298,7 +298,7 @@ sv:
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: "Exportera alla som CSV"
         transactions: "Visa transaktioner"
         headers:
           conversation: Konversationstråd
@@ -327,7 +327,7 @@ sv:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
       edit_price:
-        description: ~
+        description: "Det minimala och maximala priset inverkar bara på filtret. De sätter inte en gräns för annonspriserna"
         edit_price_field: "Redigera prisfält"
         show_price_filter_homepage: "Visa prisfilter på startsidan"
         price_min: Minimipris
@@ -343,9 +343,9 @@ sv:
           this_field_is_required: "Detta fält måste fyllas i"
           this_field_is_required_checkbox: "Detta fält krävs (användaren måste välja minst ett alternativ)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Visa ett filter baserat på detta fält på första sidan"
+          date_cant_be_filtered: "Det finns inget filter tillgängligt för datumfältet."
+          text_cant_be_filtered: "Det finns inget skilt filter för textfältet. Det vanliga sökfältet söker även igenom textfält."
       index:
         listing_fields: "Annonsfält och filter"
         listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."
@@ -356,8 +356,8 @@ sv:
         field_title: Fältnamn
         field_type: "Typ av fält"
         categories: "Annonskategorier där fältet används"
-        select_all: ~
-        clear_all: ~
+        select_all: "Välj alla"
+        clear_all: "Rensa allt"
         options: Val
         add_option: "+ Lägg till alternativ"
         saving_order: "Spara fältordning"
@@ -493,9 +493,9 @@ sv:
       preferences_updated: "Betalningsinställningarna uppdaterade"
       contact_support_link_text: ~
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      link_paypal_personal_account_label: "Säljer du produkter eller tjänster?"
+      link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "Ditt personliga marknadsplats konto"
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
@@ -634,10 +634,10 @@ sv:
       message_from: "Meddelande från %{person}"
       about_listing: "Angående annons %{listing_title}"
       free_message: "Gratis meddelande"
-      message_content_not_available: ~
+      message_content_not_available: "Meddelandets innehåll är inte tillgängligt"
     message:
       accepted_request: "Acceptera förfrågan"
-      received_payment: ~
+      received_payment: "accepterade förfrågan, mottog betalningen för %{sum}"
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan"
       rejected_offer: "avslagit erbjudandet"
@@ -948,7 +948,7 @@ sv:
       transaction_cannot_complete: ~
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
-      seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled: "PayPal Express Checkout har blivit avstängd för annonsörens PayPal konto. Vänligen kontakta annonsören och meddela om problemet samt be dem kontakta PayPals kundtjänst."
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
@@ -1028,7 +1028,7 @@ sv:
     create_new_marketplace: "Skapa en ny marknadsplats"
     contact_us: "Kontakta oss"
     profile: Profil
-    manage_listings: ~
+    manage_listings: "Hantera annonser"
     invite: "Bjud in nya medlemmar"
     login: "Logga in"
     signup: "Bli medlem"
@@ -1115,7 +1115,7 @@ sv:
     list_item:
       review: granska
       reviews: recensioner
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} bort"
     news_item:
       show_less: "Visa mindre"
       show_more: "Visa mer"
@@ -1139,7 +1139,7 @@ sv:
       all_listing_types: "Alla annonstyper"
       all_categories: "Alla kategorier"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Sökfunktionen kan för tillfället inte nås. Försök igen senare."
   infos:
     about:
       default_about_text_title: "Vad är Sharetribe?"
@@ -1246,7 +1246,7 @@ sv:
       error_with_session: "Fel med session."
       feedback_considered_spam: "Feedbacken sparades inte på grund av formatet. Försök igen eller använd feedbacks forumet."
       feedback_not_saved: "Feedback kunde inte skickas."
-      feedback_saved: ~
+      feedback_saved: "Tack så mycket för ditt meddelande! Vi återkommer så fort vi kan."
       feedback_sent_to: "Feedback skickades till %{target_person}."
       feedback_skipped: "Feedback skippades"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
@@ -1301,7 +1301,7 @@ sv:
       request_rejected: "Förfrågan avslagen"
       request_canceled: "Förfrågan avbruten"
       message_sent: "Meddelande skickat"
-      message_not_sent: ~
+      message_not_sent: "Misslyckades att skicka meddelande. Vänligen försök igen."
       this_content_is_not_available_in_this_community: "Detta innehåll är inte tillgängligt"
       unknown_error: "Okänt fel. Vänligen använd kontakta oss länken för att skicka detaljer om vad som hände."
       update_error: "Ett fel uppstod när din information uppdaterades, vänligen försök igen."
@@ -1353,8 +1353,8 @@ sv:
     comment:
       wrote: skrev
       send_private_message: "Skicka privat meddelande till %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: "ta bort"
+      are_you_sure: "Är du säker på att du vill ta bort kommentaren?"
     comment_form:
       ask_a_question: "Kommentera annonsen eller fråga efter mer detaljer. Alla andra användare kommer att kunna se din kommentar."
       log_in: "logga in"
@@ -1376,7 +1376,7 @@ sv:
       show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
       show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Öppna i Google Maps"
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
       something_went_wrong_plain: ~
@@ -1396,7 +1396,7 @@ sv:
         repeated: "Upprepa (lägg in tider och dagar i fältet \"detaljerad beskrivning\")"
       description:
         detailed_description: "Detaljerad beskrivning"
-        youtube_info: ~
+        youtube_info: "Om din beskrivning innehåller länkar till YouTube videon kommer de visas under beskrivningen."
       destination:
         destination: Destination
       form_content:
@@ -1414,23 +1414,23 @@ sv:
         googlemap_updatemap: "Uppdatera karta"
       images:
         image: Bild
-        best_result: ~
+        best_result: "För bästa resultat använd JPG, GIF eller PNG bilder som är %{width}x%{height} pixlar"
         no_file_selected: "Ingen fil vald"
         remove_image: "Ta bort bild"
         select_file: "Välj fil"
-        add_more: ~
+        add_more: "+ Lägg till fler"
         removing: "Tar bort..."
         processing: Bearbetar...
         loading_image: Laddar...
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        image_uploading_in_progress: "Bilden laddas upp..."
+        processing_takes_a_while: "Alla bilder är nu uppladdade! Det kommer ta en stund att bearbeta dem men du kan redan spara annonsen och fortsätta"
         this_may_take_a_while: "(detta kan ta ett tag)"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Uppladdning av bild misslyckades"
-        image_processing_failed: ~
+        image_processing_failed: "Bild bearbetningen misslyckades"
         file_too_large: "Filen är för stor"
         accepted_formats: "Bilden måste antingen vara i formatet GIF, JPG, eller PNG."
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Alla bilder har inte laddats upp. Vill du verkligen fortsätta?"
       location:
         location: Plats
       price:
@@ -1591,7 +1591,7 @@ sv:
       shipping_price_additional: "Frakt (+%{price}, övriga poster: +%{shipping_price_additional})"
       pickup: Hämtas
       pickup_no_price: Hämtning
-      youtube_video_player: ~
+      youtube_video_player: "YouTube videospelare"
     unit_types:
       piece: styck
       hour: timme
@@ -1646,18 +1646,18 @@ sv:
   paypal_accounts:
     payout_info_title: Utbetalningsinformation
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
-    payout_info_paypal: "%{service_name} använder PayPal för hantering av betalningar. Du behöver ett %{create_paypal_account_link} som är anslutet till Campify för att ta emot betalningar från dina annonser. Du behöver också ge %{service_name} tillåtelse att ta ut en serviceavgift."
+    payout_info_paypal: "%{service_name} använder PayPal för hantering av betalningar. Du behöver ett %{create_paypal_account_link} för att ta emot betalningar från dina annonser. Du behöver också ge %{service_name} tillåtelse att ta ut en serviceavgift."
     paypal_billing_agreement_made: "<del>2. Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klart!"
-    commission_permission_needed: ~
+    commission_permission_needed: "Du måste också ge %{service_name} tillåtelse att ta en transaktionsavgift."
     create_paypal_account_link_text: PayPal-konto
-    connected_account: "PayPal-kontot '%{email}' är anslutet."
-    paypal_receive_funds_info_label_australia_only: ~
+    connected_account: "PayPal-kontot '%{email}' har blivit anslutet."
+    paypal_receive_funds_info_label_australia_only: "Ditt PayPal konto måste kunna ta ta emot betalningar. Detta kräver ett Premier eller Business konto hos PayPal."
     paypal_receive_funds_info_label: "Ditt PayPal-konto måste kunna ta emot betalningar. Detta kan kräva att du har ett \"Business account\"."
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: "Om du får ett felmeddelande när du försöker ansluta ditt PayPal-konto to %{service_name} kan du uppgradera ditt konto genom att %{upgrade_paypal_account_link}. Det är gratis och enkelt att uppdatera. Om du är privatperson rekommenderar PayPal att du använder ditt eget namn som \"Business Name\"."
     upgrade_paypal_account_link_text: "logga in och klicka på uppgraderings-länken"
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    admin_account_not_connected: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
+    contact_admin_link_text: "kontakta marknadsplatsens administratör"
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
     new:
@@ -1672,15 +1672,15 @@ sv:
       upgrade_paypal_account: "logga in till ditt PayPal konto"
       paypal_account_billing_agreement: "2. Ge %{service_name} tillåtelse att ta ut en serviceavgift."
       follow_steps: "Följ stegen nedan för att börja ta emot betalningar:"
-      connect_paypal_account_title: ~
+      connect_paypal_account_title: "Anslut ditt PayPal konto"
       connect_paypal_account_title_with_step: "Steg %{current_step}/%{total_steps}: Anslut ditt PayPal-konto"
       connect_paypal_account_instructions: "Klicka på knappen nedan för att logga in på PayPal och ansluta ditt konto till %{service_name}."
       connect_paypal_account: "Koppla ditt PayPal konto"
-      paypal_account_billing_agreement_with_step: "Steg %{current_step}/%{total_steps}: Tillåt debitering av serviceavgift"
+      paypal_account_billing_agreement_with_step: "Steg %{current_step}/%{total_steps}: Tillåt debitering av en serviceavgift"
       paypal_account_billing_agreement_info_both: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt), minsta avgift %{minimum_commission} att dras från ditt PayPalkonto. Du behöver tillåta betalningar på %{service_name}, och du behöver godkänna att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{minimum_commission} att dras från ditt PayPalkonto. För att acceptera betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "När du gör en försäljning på %{service_name}, så kommer en serviceavgift på %{commission_from_seller} av det totala priset (exkl. frakt) att dras från ditt PayPalkonto. För att godkänna betalningar på %{service_name} så behöver du tillåta att denna avgift tas. Avgiften inkluderar inte %{paypal_info_link}"
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "För närvarande tar inte %{service_name} en transaktionsavgift. Om transaktionsavgifter aktiveras bör du ge %{service_name} tillåtelse att ta en transaktionsavgift för att kunna ta emot betalningar. Avgiften inkluderar inte %{paypal_info_link}."
       paypal_info_link_text: "PayPal's betalningshanteringsavgift"
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"

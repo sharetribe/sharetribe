@@ -1648,7 +1648,7 @@ de:
   paypal_accounts:
     payout_info_title: Auszahlungsinformationen
     paypal_account_email_connected: "<del>Verknüpfung PayPal Konto</del> Abgeschlossen!"
-    payout_info_paypal: "%{service_name} nutzt PayPal als Zahlungsdienstleister. Ein %{create_paypal_account_link} ist nötig, um Zahlungen für Deine Angebote annehmen zu können. Dieser muss mit %{service_name} verbunden sein."
+    payout_info_paypal: "%{service_name} nutzt PayPal als Zahlungsdienstleister. Ein %{create_paypal_account_link} ist nötig, um Zahlungen für Deine Angebote annehmen zu können. Dieses muss mit %{service_name} verbunden sein."
     paypal_billing_agreement_made: "<del>Gewähre %{service_name} die Erlaubnis, eine Transaktionsgebühr zu berechnen</del> Abgeschlossen!"
     commission_permission_needed: "Du musst %{service_name} außerdem die Erlaubnis erteilen, eine Buchungsgebühr zu erheben."
     create_paypal_account_link_text: "PayPal Konto"
