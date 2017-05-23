@@ -423,6 +423,8 @@ Kassi::Application.routes.draw do
             get :accept_preauthorized, to: 'accept_preauthorized_conversations#accept'
             get :reject_preauthorized, to: 'accept_preauthorized_conversations#reject'
             put :acceptance_preauthorized, to: 'accept_preauthorized_conversations#accepted_or_rejected'
+            put :accept_free,              to: 'accept_free_conversations#accept'
+            put :reject_free,              to: 'accept_free_conversations#reject'
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do

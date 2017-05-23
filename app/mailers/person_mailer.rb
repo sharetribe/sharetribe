@@ -56,6 +56,30 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  def free_transaction_accepted(conversation, community)
+    @email_type =  "email_about_completed_transactions"
+    @conversation = conversation
+    recipient = conversation.starter
+    set_up_layout_variables(conversation.starter, community, @email_type)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+    end
+  end
+
+  def free_transaction_rejected(conversation, community)
+    @email_type =  "email_about_completed_transactions"
+    @conversation = conversation
+    recipient = conversation.starter
+    set_up_layout_variables(conversation.starter, community, @email_type)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+    end
+  end
+
   def transaction_automatically_confirmed(conversation, community)
     @email_type =  "email_about_completed_transactions"
     @conversation = conversation

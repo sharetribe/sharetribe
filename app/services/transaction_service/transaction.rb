@@ -167,6 +167,14 @@ module TransactionService::Transaction
       .or_else(res)
   end
 
+  def accept_free(community_id:, transaction_id:)
+    TransactionService::Process::Transition.transition_to(transaction_id, :free_accepted)
+  end
+
+  def reject_free(community_id:, transaction_id:)
+    TransactionService::Process::Transition.transition_to(transaction_id, :free_rejected)
+  end
+
   def complete(community_id:, transaction_id:, message: nil, sender_id: nil)
     tx = TxStore.get_in_community(community_id: community_id, transaction_id: transaction_id)
 

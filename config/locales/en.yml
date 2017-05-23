@@ -698,6 +698,8 @@ en:
           intl: "We couldn't process the PayPal payment because your PayPal account does not have a withdrawal mechanism. Go to %{paypal_url} and log in to your account to manually accept or reject the payment."
       waiting_for_current_user_to_deliver_listing: "Waiting for you to fulfill the order for %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Waiting for %{listing_author_name} to fulfill the order for %{listing_title}"
+      request_requested: Requested
+      request_offered: Offered
       request_accepted: Accepted
       request_rejected: Rejected
       request_confirmed: Completed
@@ -707,6 +709,7 @@ en:
       skip_feedback: "Skip feedback"
       waiting_for_listing_author_to_accept_offer: "Waiting for %{listing_author_name} to accept the offer"
       waiting_for_listing_author_to_accept_request: "Waiting for %{listing_author_name} to accept the request. As soon as %{listing_author_name} accepts, you will be charged."
+      waiting_for_listing_author_to_accept_free_request: "Waiting for %{listing_author_name} to accept your offer. As soon as %{listing_author_name} accepts, your transaction will be completed."
       waiting_for_you_to_accept_request: "Waiting for you to accept the request"
       waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed"
       waiting_confirmation_from_you: "Waiting for you to mark the order completed"
@@ -783,7 +786,11 @@ en:
     transaction_confirmed:
       here_is_a_message_from: "Here's a message from %{other_party_given_name}:"
       request_marked_as_confirmed: "Order completed - remember to give feedback"
+      request_marked_as_free_accepted: "Transaction completed - remember to give feedback"
+      request_marked_as_free_rejected: "Offer rejected"
       request_marked_as_canceled: "Order canceled"
+      has_marked_request_as_free_accepted: "%{other_party_full_name} has accepted your offer about '%{request}'. You can now give feedback to %{other_party_given_name}."
+      has_marked_request_as_free_rejected: "%{other_party_full_name} has rejected your offer."
       has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. You can now give feedback to %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
