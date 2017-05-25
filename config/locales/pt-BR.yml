@@ -684,7 +684,7 @@ pt-BR:
       offer_accepted: Aceito
       offer_rejected: Rejeitado
       offer_canceled: Cancelado
-      offer_confirmed: Concluído
+      offer_confirmed: Concluída
       offer_paid: "Pagamento efetuado com sucesso"
       offer_preauthorized: "Pagamento efetuado com sucesso"
       offer_waiting_for_payment: "Aguardando %{requester_name} para pagar"
@@ -693,14 +693,14 @@ pt-BR:
       paid: "Pagamento efetuado com sucesso"
       pending_external:
         paypal:
-          multicurrency: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não foi configurada para receber o dinheiro em  %{currency}. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
+          multicurrency: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não foi configurada para receber o dinheiro em %{currency}. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
           verify: "Você não pode aceitar essa transação porque você não verificou a sua conta PayPal. Vá para %{paypal_url} para verificar sua conta."
           intl: "Não foi possível processar o pagamento via PayPal porque a sua conta PayPal não tem um mecanismo de retirada. Vá para %{paypal_url} e conecte na sua conta para manualmente aceitar ou rejeitar o pagamento."
       waiting_for_current_user_to_deliver_listing: "Aguardando você entregar o pedido: %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Aguardando %{listing_author_name} entregar %{listing_title}"
       request_accepted: Aceito
       request_rejected: Rejeitado
-      request_confirmed: Concluído
+      request_confirmed: Concluída
       request_canceled: Cancelado
       request_paid: "Pagamento efetuado com sucesso"
       request_preauthorized: "Pagamento autorizado"

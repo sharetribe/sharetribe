@@ -26,7 +26,7 @@ ja:
           no_parent: 親カテゴリーなし
         category_transaction_types:
           transaction_types: 課金タイプ
-          transaction_types_description: カテゴリーの中のリストはどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
+          transaction_types_description: カテゴリーの中の投稿がどの課金タイプに該当するかを決めます。例えば、「売ります」だけにする場合、「貸します」と「あげます」「ご自由にどうぞ」にも適用する場合。
           select_all: 全て選択
           clear_all: 全て削除
         buttons:
@@ -37,13 +37,13 @@ ja:
         remove_category_name: "カテゴリ「%{category_name}」を削除する"
         warning_remove_effects: "警告！カテゴリー「%{category_name}」削除にあたり下記の影響があります："
         warning_listing_will_be_moved:
-          other: "%{count}個のリストが、そのカテゴリーにあります。選択れたカスタム項目の方へ移動します。"
+          other: "%{count}個の投稿が、そのカテゴリーにあります。選択したカテゴリーへ移動します。"
         warning_custom_field_will_be_moved:
           other: "%{count}個のカスタム項目が、そのカテゴリーとサブカテゴリにあります。選択れたカスタム項目の方へ移動します。"
         warning_subcategory_will_be_removed:
           other: "%{count}個のサブカテゴリが、カテゴリにあります。それらは削除されます。"
         warning_with_subcategories_listing_will_be_moved:
-          other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
+          other: "%{count}個の投稿が、そのカテゴリーとサブカテゴリにあります。選択されたカテゴリの方へ移動します。"
         warning_with_subcategories_custom_field_will_be_moved:
           other: "%{count}個のリストが、そのカテゴリーとサブカテゴリにあります。選択れたカテゴリの方へ移動します。"
         select_new_category: 新しいカテゴリを選択すると上記のリストはそちらへ移動されます：
@@ -55,10 +55,10 @@ ja:
         community_details: 基本情報
         community_look_and_feel: デザイン
         edit_community: 基本情報
-        enabled_languages: ~
-        enabled_languages_description: ~
+        enabled_languages: 有効な言語
+        enabled_languages_description: ユーザー側が利用できる言語。1番目の言語がデフォルトとなります。
         default_language: デフォルト言語
-        language_selection_disabled: ~
+        language_selection_disabled: "非公式の言語%{languages}を使用しているため、マーケットプレイスにおける言語選択ができません。言語設定を変更したい場合はSharetribe のサポートにお問い合わせください。"
         community_name: マーケットプレイスの名前
         edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
         community_slogan: マーケットプレイスのスローガン
@@ -132,33 +132,33 @@ ja:
         edit_message: メッセージを編集する
         send_test_message: テストメッセージを送信する
       outgoing_email:
-        title: ~
+        title: 送信先メールアドレス
         info: ~
         read_more: ~
-        sender_address: ~
+        sender_address: "送信者のアドレス: %{sender_address}"
         sender_address_default: ~
         need_to_change: ~
-        contact_support_link_text: ~
+        contact_support_link_text: Sharetribeサポートに問い合わせる
         set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
+        sender_name_label: 名前
+        sender_name_placeholder: 送信者名
         sender_email_label: メールアドレス
-        sender_email_placeholder: ~
+        sender_email_placeholder: sender-email@example.com
         amazon_ses_notification: ~
         this_is_how_it_will_look: ~
-        send_verification_button: ~
+        send_verification_button: 認証メールを送信
         successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
+        status: "ステータス: %{status}"
+        status_verified: "認証済 - 利用中"
+        status_error: エラーが発生しました。ページを更新してください。
         status_requested: ~
         status_expired: ~
         status_resent: ~
-        resend_link: ~
+        resend_link: 再送
         invalid_email_error: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: エラーが起きました
         white_label_offer: ~
         upgrade_plan_link: ~
         verification_sent_from: ~
@@ -219,15 +219,15 @@ ja:
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
+        delete_marketplace_title: マーケットプレイスを削除
+        type_marketplace_domain: "入力欄にマーケットプレイスのドメイン (%{domain})を入力してください。"
+        type_marketplace_domain_placeholder: マーケットプレイスのドメインを入力
+        once_you_delete: マーケットプレイスを削除すると、二度と復旧できません。ご注意ください。
+        are_you_sure: 実行しますか？
         i_understand_button: ~
         last_community_updates: ~
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_this_marketplace: マーケットプレイスを削除
       manage_members:
         manage_members: ユーザを管理
         email: メールアドレス
@@ -239,7 +239,7 @@ ja:
         ban_user: アカウント停止ユーザ
         saving_user_status: 保存中...
         save_user_status_successful: 保存しました
-        export_all_as_csv: ~
+        export_all_as_csv: CSVで全て出力
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
         ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
@@ -253,7 +253,7 @@ ja:
       social_media:
         social_media: ソーシャルメディア
         twitter_handle: Twitterのハンドル
-        twitter_handle_info_text: あなたのマーケットプレイスのTwitterのユーザー名（お持ちであれば）。リストページのツイートボタンを使うときに言及されます。
+        twitter_handle_info_text: "あなたのマーケットプレイスのTwitterのユーザー名 (お持ちであれば) 。投稿ページのツイートボタンを使うときに言及されます。"
         twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
         twitter_instructions_link_text: 続きを読む
         twitter_handle_placeholder: Twitterのユーザー名
@@ -293,11 +293,11 @@ ja:
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
-        export_all_as_csv: ~
+        export_all_as_csv: CSVで全て出力
         transactions: お支払い履歴の表示
         headers:
           conversation: 会話のスレッド
-          listing: リスト名
+          listing: 投稿
           status: ステータス
           sum: 合計
           started: 開始日
@@ -342,7 +342,7 @@ ja:
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: リストの項目とフィルターの設定
+        listing_fields: 投稿の項目とフィルターの設定
         listing_fields_help: ここにユーザが、リストを作成する時に記入する記入項目を設定できます。いくつかの項目は所定の位置にあり編集が出来ないので注意してください。
         add_new_field: 新しい項目を追加
         remove_field_confirmation: "%{field_name}を本当に削除しますか。"
@@ -350,7 +350,7 @@ ja:
         save: 保存する
         field_title: 項目のタイトル
         field_type: 項目の種類
-        categories: 項目が使用されるリストのカテゴリ
+        categories: 項目が使用される投稿のカテゴリ
         select_all: 全て選択
         clear_all: 全て削除
         options: オプション
@@ -401,55 +401,57 @@ ja:
       pricing_units_disabled_info: ~
       index:
         listing_shapes: 課金タイプ
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
+        description: 注文タイプとは、注文がどのように処理されるかを定義するものです。ユーザーが貸そうとしているのか売ろうとしているのか、あるいは単に広告を載せてダイレクトメッセージを通してやりとりをしようとしているのか、決める事ができます。
+        read_more_about_order_types: 課金タイプについてもっと読む
+        add_new_shape: "新しい課金タイプを追加: "
         select_template: テンプレートを選択...
         all_categories: すべてのカテゴリー
         no_categories: カテゴリーなし
-        category_count: ~
+        category_count: "%{category_count} カテゴリ"
         header:
           listing_shape_name: 課金タイプ名称
           listing_shape_categories: 使用されているカテゴリ
         order:
           saving_order: 項目の順番を保存する
-          save_order_successful: ~
-          save_order_error: ~
+          save_order_successful: 課金タイプの順序を保存しました
+          save_order_error: 項目の順番を保存する際にエラーが発生しました。ページを再読込して再実行してください。
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: 売ります
+        renting_products: 物のレンタル
+        offering_services: サービスの提供
+        giving_things_away: あげます
+        requesting: リクエストします
+        announcement: 広告を掲載中
+        custom: その他
       new:
-        create_listing_shape: ~
-        create: ~
+        create_listing_shape: 課金タイプを新規作成
+        create: 作成
         cancel: キャンセル
-        create_success: ~
-        create_failure: ~
+        create_success: "新しい課金タイプ'%{shape}'を作成しました"
+        create_failure: "新しい課金タイプを作成できませんでした。エラー: %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "課金タイプを編集 '%{shape}'"
         update: 保存する
         cancel: キャンセル
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
+        update_success: "課金タイプの変更 '%{shape}' は保存されました"
+        update_failure: "変更を保存できませんでした。エラー: %{error_msg}"
+        delete: 課金タイプを削除
+        can_not_delete_last: あなたのマーケットプレイスには一つしか注文タイプがないため、注文タイプを削除できません。
+        can_not_delete_only_one_in_categories: "カテゴリ%{categories}には注文タイプが一つしかないため、注文タイプを削除できません。"
+        confirm_delete_order_type:
+          other: "この注文タイプには%{count}件の投稿があります。注文タイプを削除すると、これらの投稿も一緒に削除されます。削除してよろしいですか？"
       listing_shape_name: 名前
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
+      listing_shape_name_placeholder: 例：売ります
+      action_button_label: チェックアウトボタンのラベル
+      action_button_placeholder: 例：買います
+      successfully_closed: 投稿を非公開にしました。
+      successfully_deleted: "課金タイプ'%{order_type}'を削除しました"
+      pricing_and_checkout_title: 料金の確認と支払い手続き
+      online_payments_label: 売り手のネット決済の受け付けを可能にする
+      shipping_label: 売り手に配送料を決める事を許可
+      price_label: 投稿に価格を付けることを売り手に許可する
       units_title: 通貨単位
-      units_desc: ~
+      units_desc: 価格単位を有効にした場合、掲載価格は「価格単位あたりの価格」として表示されます。例：「時間あたり$39」
       units:
         piece: １点
         hour: １時間
@@ -457,24 +459,28 @@ ja:
         night: １泊
         week: １週
         month: １ヵ月
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+      can_not_find: "id: %{id} の課金タイプは見つかりません"
+      add_custom_unit: +独自の価格単位を追加…
+      delete_custom_unit: 削除
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: 価格単位の新規作成
+        label_heading: ラベル
+        selector_label_heading: セレクターのラベル
+        label_placeholder: 例：「キロ」、「30分」、「人」、「クラス」
+        selector_placeholder: 例：「参加人数」、「キログラム」
+        per: /
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: 単位タイプ
+          quantity_label: "量の単位 (一個あたり、キロあたり、1人あたり、ツアー2時間あたり)"
+          time_label: "時間の単位 (30分あたり、2週間あたり、1年あたり...)"
+      close_listings_action:
+        other: "%{count}件の投稿を非公開にする"
+      confirm_close_listings_action:
+        other: "%{count}件の投稿を非公開にしてよろしいですか？"
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました
-      contact_support_link_text: ~
+      contact_support_link_text: サポートにお問い合わせ
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
@@ -572,7 +578,7 @@ ja:
       reject_offer: 今回はやめる
       reject_request: 今回はやめる
       close_listing: "%{listing_title_link}をクローズします"
-      update_later: このリストを再開する
+      update_later: 投稿を再開する
       optional_message: 任意メッセージ
       price_to_pay: 支払われる合計金額
       accept: 受諾する
@@ -644,7 +650,7 @@ ja:
       about_listing: "%{listing_title}"
       author_has_to_accept_request: "あなたが支払う前に、%{author_name}さんがリクエストを受諾する必要があります。"
     show:
-      in_response_to_listing: リストについて
+      in_response_to_listing: 投稿について
       message_sent_by: からメッセージが送信されました。
       message_sent_to: へメッセージが送信されました。
       send_reply: 送信する
@@ -717,7 +723,7 @@ ja:
     feedback_subject: "%{service_name}から新しい評価が届きました"
     feedback_body: "%{author_name_and_email}があなたに以下の評価を%{service_name}より送信されました。"
     unlogged_user: ~
-    anonymous_user: ~
+    anonymous_user: 匿名ユーザー
   community_memberships:
     access_denied:
       access_denied: アクセスが拒否されました
@@ -855,13 +861,13 @@ ja:
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
       view_feedback: レビューを閲覧
     new_update_to_listing:
-      listing_you_follow_has_been_updated: あなたがフォローしているリストが更新されました
+      listing_you_follow_has_been_updated: あなたがフォローしている投稿が更新されました
       has_updated_listing_you_follow_in_kassi: "いつも%{service_name}のご利用ありがとうございます。あなたがフォローしている%{author}さんの「%{listing}」ページが更新されましたのでお知らせいたします。"
       view_changes: 内容を確認する
     community_updates:
-      added_offer: "%{name_link}さんがリストを追加しました："
+      added_offer: "%{name_link}さんが投稿を追加しました："
       added_request: "%{name_link}さんがリクエストを追加しました："
-      added_listing: "%{name_link}さんがリストを追加しました："
+      added_listing: "%{name_link}さんが投稿を追加しました："
       update_mail_title: "%{title_link}最新情報"
       title_link_text: "%{community_name}"
       intro_paragraph: "こちらは%{time_since_last_update}間に、%{community_link}で更新された情報です。"
@@ -900,9 +906,9 @@ ja:
       settings_link_text: 設定を確認する
     new_listing_by_followed_person:
       subject: "%{service_name}で%{author_name}さんが新しいリストを投稿しました"
-      has_posted_a_new_listing: "%{author_name}さんが新しいリストを投稿をしました："
+      has_posted_a_new_listing: "%{author_name}さんが新しい投稿を投稿をしました："
       you_are_receiving_this_because: "あなたが%{author_name}さんをフォローしているので、このお知らせを送らせていただいております。"
-      view_listing: リストを閲覧する
+      view_listing: 投稿を見る
     new_member_notification:
       new_member_has_joined: "%{community}に新しいメンバーが参加しました。新メンバーは、まだメールアドレスを認証する必要があります。"
       this_is_automatic_message: "これは%{community}の管理者に自動送信されるメッセージです。"
@@ -944,7 +950,7 @@ ja:
     error_410:
       page_removed: ページは削除されました
       page_you_requested_has_been_removed: ご指定のページは削除されました。
-      page_removed_reason: これにはいくつかの理由が考えられます。例えば、ユーザーがアカウントやリストを削除してしまった可能性があります。
+      page_removed_reason: これにはいくつかの理由が考えられます。例えば、ユーザーがアカウントや投稿を削除してしまった可能性があります。
     error_410_title: ページは削除されました
     error_500:
       temporary_unavailable: マーケットプレイスは一時的にご利用できません
@@ -1001,7 +1007,7 @@ ja:
     about: このサイトについて
     home: ホーム
     members: コミュニティ
-    new_listing: あたらしいリスト
+    new_listing: あたらしい投稿
     mobile_version: モバイル版
     offers: オファー
     requests: リクエスト
@@ -1009,7 +1015,7 @@ ja:
     create_new_marketplace: 新規マーケットプレイスを作成
     contact_us: お問い合わせ
     profile: プロフィール
-    manage_listings: リストを管理する
+    manage_listings: 投稿を管理する
     invite: お友だち紹介
     login: ログイン
     signup: 新規登録
@@ -1056,10 +1062,10 @@ ja:
       processing_uploaded_image: (画像をアップロード中...)
     index:
       no_listings_with_your_search_criteria: 一致する情報は見つかりませんでした。
-      no_listings_notification: "リストがありません。%{add_listing_link}。"
-      add_listing_link_text: 新しいリストを追加する
-      open_listing: 出品中リスト
-      open_listings: 出品中リスト
+      no_listings_notification: "投稿がありません。%{add_listing_link}。"
+      add_listing_link_text: 新しい投稿を追加する
+      open_listing: 投稿を公開
+      open_listings: 出品中の投稿
       private_listing_notification_log_in: ログイン
       is: は
       are: です
@@ -1089,7 +1095,7 @@ ja:
       send_invitation: 招待状を送る
       add_email_addresses_description: 下の欄に招待したい方のメールアドレスを追加してください。メールアドレスが複数ある場合は、コンマで区切ってください。
       add_lots_of_email_addresses: ~
-      this_article_link: ~
+      this_article_link: この記事
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "〇〇ちゃん、このマーケットプレイス知ってる？ とりあえず見てみてよ。"
       errors_in_emails: メール・アドレスが有効であることを確認してください。複数のアドレスを追加の場合は、半角コンマ、スペースなしで区切ってください。
@@ -1117,7 +1123,7 @@ ja:
       map_button: マップ
       grid_button: 画像
       list_button: リスト
-      all_listing_types: 全てのリストの種類
+      all_listing_types: 全ての投稿の種類
       all_categories: すべてのカテゴリー
     errors:
       search_engine_not_responding: 現在検索が使用できません。今しばらくお待ちください。
@@ -1248,15 +1254,15 @@ ja:
       offer_accepted: オファーを受諾しました
       offer_confirmed: オファーは確定しました
       offer_closed: オファーはクローズしました
-      listing_created_successfully: "リストは掲載されました。%{new_listing_link}"
+      listing_created_successfully: "投稿が掲載されました。%{new_listing_link}"
       offer_rejected: オファーは却下されました
       offer_canceled: オファーはキャンセルされました
       listing_updated_successfully: 更新されました
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
       only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
-      only_listing_author_can_close_a_listing: リストの作成者のみがリストをクローズ出来ます
-      only_listing_author_can_edit_a_listing: このリストの作成者のみがこのリストを編集出来ます
+      only_listing_author_can_close_a_listing: 投稿者のみがこの投稿を編集出来ます
+      only_listing_author_can_edit_a_listing: 投稿者のみがこの投稿を編集出来ます
       payment_successful: お支払い手続きが完了しました
       payment_canceled: お支払いはキャンセルされました
       error_in_payment: お支払い時にエラー発生。お支払いを完了していない場合、再試行してください。完了している場合は、お問い合わせにご連絡ください。
@@ -1293,7 +1299,7 @@ ja:
       send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
       you_cannot_reply_to_a_closed_offer: クローズ済みのオファーに対し返信できません
       you_cannot_send_message_to_yourself: あなた自身へメッセージを送れません
-      you_followed_listing: このリスティングをフォロー中です
+      you_followed_listing: 投稿をフォロー中です
       you_have_already_given_feedback_about_this_event: 既にこの取引に関してレビューを書いています
       you_are_now_member: "%{service_name}へようこそ！"
       you_are_already_member: "あなたはすでに%{service_name}のメンバーです。おかえりなさい！"
@@ -1314,12 +1320,12 @@ ja:
       you_must_log_in_to_confirm_or_cancel: お取引をキャンセルか、承認するにはログインしてください
       you_need_to_confirm_your_account_first: メールアドレスを認証してください。
       you_must_fill_all_the_fields: 空欄を埋めてください
-      you_unfollowed_listing: あなたは今後このリストのフォローをしません
+      you_unfollowed_listing: 投稿のフォローをやめました
       joining_community_failed: 参加失敗
       can_not_delete_email: メールアドレスを削除できません
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
-      listing_author_payment_details_missing: このリストの作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。このリストの作者に直接連絡を取ってください。作成者
+      listing_author_payment_details_missing: この投稿の作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。「問合せ」ボタンをクリックして、このリストの作者に直接連絡を取ってください。
       images_are_processing: 現在画像を処理中です、今しばらくお待ちください。
       maintenance_mode:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります
@@ -1333,7 +1339,7 @@ ja:
       payments: お支払い
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: あなたはこのリストを閲覧する権限がありません。
+      listing_not_visible: 投稿を閲覧する権限がありません。
     comment:
       wrote: 書き込む
       send_private_message: "%{person}さんにプライベートメッセージを送信する"
@@ -1351,9 +1357,9 @@ ja:
     edit:
       edit_listing: 編集する
     edit_links:
-      close_listing: リストをクローズする
+      close_listing: 投稿を非公開にする
       edit_listing: 編集する
-      reopen_listing: リストを再開する
+      reopen_listing: 投稿を再公開する
       move_to_top: ホームページトップに移動する
       show_in_updates_email: このリストを次の自動メールで紹介
       show_in_updates_email_loading: 読み込み中...
@@ -1480,7 +1486,7 @@ ja:
       housing: スペース
       items: 品目
       list_view: リスト表示
-      listings: リスト
+      listings: 投稿
       map_view: 地図表示
       offer_something: 皆さんにお知らせする！
       offer_type: オファーの種類
@@ -1514,7 +1520,7 @@ ja:
       payment_help: お支払いについて
       unable_load_availability: ~
     new:
-      listing: リスト
+      listing: 投稿
       selected_category: "カテゴリー： %{category}"
       selected_subcategory: "サブカテゴリー： %{subcategory}"
       selected_transaction_type: "取引の種類： %{transaction_type}"
@@ -1523,9 +1529,9 @@ ja:
       select_transaction_type: 取引の種類を選択
       you_need_to_fill_payout_details_before_accepting: "リストを投稿する前に、お支払い情報の入力を完了している必要があります。%{payment_settings_link}で、情報入力をお願いします。"
       contact_admin_link_text: サイト管理者にお問い合わせください。
-      community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
+      community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しい投稿を掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
       payment_settings_link: お支払い設定
-      community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しいリストを掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
+      community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しい投稿の掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
     quantity:
       hour: 時間数：
       day: 日数：
@@ -1536,7 +1542,7 @@ ja:
     quantity_placeholder: 数量
     please_comment: コメント
     reply_link:
-      listing_closed: リストはクローズになりました
+      listing_closed: 投稿は非公開となりました
     show:
       add_your_phone_number: あなたの電話番号を追加
       add_profile_picture: プロフィール画像を追加する
@@ -1548,7 +1554,7 @@ ja:
       inquiry: 質問
       item_offer_trade: 交換の提案
       item_request_trade: 交換のリクエスト
-      no_description: このリストの詳細情報はありません
+      no_description: 投稿の詳細情報はありません
       no_image: イメージ画像がありません
       no_reviews: まだレビューがありません
       offer: オファー
@@ -1680,10 +1686,10 @@ ja:
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: Paypalアカウントの変更
-    missing: "公開されているリストがありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続手続きをお願いします。"
+    missing: "公開されている投稿がありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続し、%{service_name}への課金許可を与えてください。"
     from_your_payment_settings_link_text: お支払い設定
     redirect_message: ~
-    redirect_link_text: ~
+    redirect_link_text: こちら
     paypal_account_all_set_up: すべてのセットアップが完了しました！
     can_receive_payments: これであなたは支払いを受け取ることができるようになりました。
     paypal_account_connected_summary: "PayPalアカウントと「%{email}」は接続されました。"
@@ -1765,15 +1771,15 @@ ja:
       what_are_these: これらは何ですか。
       review: 受信したレビュー
       reviews: 受信したレビュー
-      listing: リスト
-      listings: リスト
-      open_listing: 出品中リスト
-      open_listings: 出品中リスト
-      no_listings: リストがありません
-      no_open_listings: 出品中リストはありません
+      listing: 投稿
+      listings: 投稿
+      open_listing: 投稿を公開
+      open_listings: 出品中の投稿
+      no_listings: 投稿がありません
+      no_open_listings: 出品中の投稿はありません
       no_reviews: レビューがありません
-      show_all_listings: リストを表示する
-      show_all_open_listings: 出品中リストすべて表示
+      show_all_listings: 投稿を表示する
+      show_all_open_listings: 出品中の投稿をすべて表示
       show_all_reviews: すべてのレビューを表示
     followed_people:
       you_follow_plural: "あなたは%{count}人フォロー中です。"
@@ -1830,7 +1836,7 @@ ja:
       delete_account_confirmation_popup: あたたのご登録を完全に抹消されたいとのことですが、お間違いございませんか。このお手続きの後で、もう一度元の状態に戻すことが出来なくなります。
       email_addresses: メールアドレス
       new_email: 新しいメールアドレス
-      delete_personal_information: あなたがアカウントを削除したい場合、（名前、電話番号、住所、メールアドレス、プロフィール写真などの）個人情報は永久に削除され、取り戻すことは出来なくなります。すべての作成されたリストも削除されます。その後、一切アカウント再開は見込めなくなります。
+      delete_personal_information: "アカウントを削除すると、個人情報 (名前、電話番号、住所、メールアドレス、プロフィール写真など) は永久に削除され、取り戻すことは出来なくなります。すべての作成された投稿も削除されます。アカウントの復旧はできません。"
       delete_information_others_involved: （他のユーザとの会話などの）付随するその他の情報、お取引履歴、レビューなどはあなたのアカウント削除お手続きのとき、すべて削除されます。次のステップに進むということは、あなたのお名前も、サイト上に表示されなくなります。
       unfinished_transactions: まだやりとりが完了がしていないお取引があるため、削除が出来ないようです。削除前に、すべてのお取引を最後まで完了させてください。
       new_password: 新しいパスワード
@@ -2074,7 +2080,7 @@ ja:
       user: メンバー
       inbox: メール受信箱
       profile: プロフィール
-      manage_listings: リストを管理する
+      manage_listings: 投稿を管理する
       settings: 設定
       logout: ログアウト
       login: ログイン
