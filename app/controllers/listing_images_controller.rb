@@ -4,7 +4,7 @@ class ListingImagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:destroy]
   skip_before_filter :warn_about_missing_payment_info
 
-  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url]
+  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url, :reorder]
 
   def destroy
     image = ListingImage.find_by_id(params[:id])
@@ -61,6 +61,13 @@ class ListingImagesController < ApplicationController
     else
       render json: ListingImageJSAdapter.new(listing_image).to_json, status: 200
     end
+  end
+
+  def reorder
+    params[:ordered_ids].split(",").each_with_index do |image_id, index|
+      ListingImage.where(listing_id: params[:listing_id], id: image_id).update_all(position: index+1)
+    end
+    render text: "OK"
   end
 
   private

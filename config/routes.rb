@@ -331,6 +331,7 @@ Kassi::Application.routes.draw do
         collection do
           post :add_from_file
           put :add_from_url
+          put :reorder
         end
       end
     end

@@ -538,5 +538,18 @@ window.ST.imageUploader = function(listings, opts) {
     return {element: $element, stream: ajaxResponse};
   }
 
+  function reorderImages() {
+    var ordered = [];
+    $(".listing-images .listing-image-id").each(function(){
+      if(this.value) {
+        ordered.push(this.value);
+      }
+    });
+    $.ajax({type: "PUT", url:  opts.reorderUrl, data: {ordered_ids: ordered.join(",")} });
+  }
+  if (opts.reorderUrl) {
+    $(".listing-images").sortable({stop: reorderImages});
+  }
+
   return status;
 };

@@ -16,6 +16,7 @@
 #  width              :integer
 #  height             :integer
 #  author_id          :string(255)
+#  position           :integer          default(0)
 #
 # Indexes
 #
@@ -42,6 +43,7 @@ class ListingImage < ActiveRecord::Base
         :square_2x => "816x816#"}
 
   before_save :set_dimensions!
+  before_create :set_position
 
   process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png", :priority => 1
   validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize.to_i, :unless => Proc.new {|model| model.image.nil? }
@@ -187,5 +189,9 @@ class ListingImage < ActiveRecord::Base
     else
       default_style
     end
+  end
+
+  def set_position
+    self.position = ListingImage.where(listing_id: listing_id).maximum(:position).to_i + 1
   end
 end
