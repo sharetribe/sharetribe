@@ -120,7 +120,7 @@ class Category < ActiveRecord::Base
   end
 
   def can_destroy?
-    is_subcategory? || community.top_level_categories.count > 1
+    throw :abort unless is_subcategory? || community.top_level_categories.count > 1 
   end
 
   def remove_needs_caution?
