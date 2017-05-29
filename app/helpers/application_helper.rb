@@ -319,7 +319,7 @@ module ApplicationHelper
         :name => "support",
         :data_uv_trigger => "contact"
       },
-	  {
+      {
         :id => "admin-academy-link",
         :topic => :general,
         :text => t("admin.left_hand_navigation.academy"),
