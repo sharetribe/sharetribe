@@ -3,7 +3,7 @@ class PaypalIpnController < ApplicationController
   include PaypalService::MerchantInjector
   include PaypalService::IPNInjector
 
-  skip_before_filter :verify_authenticity_token,
+  skip_before_action :verify_authenticity_token,
                      :fetch_logged_in_user,
                      :fetch_community,
                      :perform_redirect,
@@ -23,6 +23,6 @@ class PaypalIpnController < ApplicationController
     end
 
     # We received the message ok, so send back 200 OK with empty body
-    render nothing: true
+    render body: nil
   end
 end

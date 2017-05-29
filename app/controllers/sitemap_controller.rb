@@ -3,7 +3,6 @@ class SitemapController < ActionController::Metal
   include AbstractController::Rendering
   include ActionController::MimeResponds
   include ActionController::DataStreaming
-  include ActionController::RackDelegation
   include ActionController::Rescue
   include ActionController::Head
   include ActionController::Redirecting

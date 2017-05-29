@@ -1,13 +1,13 @@
 class FreeTransactionsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
 
-  before_filter :fetch_listing_from_params
-  before_filter :ensure_listing_is_open
-  before_filter :ensure_listing_author_is_not_current_user
-  before_filter :ensure_authorized_to_reply
+  before_action :fetch_listing_from_params
+  before_action :ensure_listing_is_open
+  before_action :ensure_listing_author_is_not_current_user
+  before_action :ensure_authorized_to_reply
 
   ContactForm = FormUtils.define_form("ListingConversation", :content, :sender_id, :listing_id, :community_id)
     .with_validations { validates_presence_of :content, :listing_id }

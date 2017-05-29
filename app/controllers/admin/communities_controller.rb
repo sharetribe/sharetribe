@@ -1,7 +1,7 @@
 class Admin::CommunitiesController < Admin::AdminBaseController
   include CommunitiesHelper
 
-  before_filter :ensure_white_label_plan, only: [:create_sender_address]
+  before_action :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"

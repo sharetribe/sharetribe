@@ -1,10 +1,10 @@
 class PersonMessagesController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
 
-  before_filter :fetch_recipient
+  before_action :fetch_recipient
 
   def new
     @conversation = Conversation.new

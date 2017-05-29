@@ -57,7 +57,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
   def order
     new_sort_order = params[:order].map(&:to_i).each_with_index
     order_categories!(new_sort_order)
-    render nothing: true, status: 200
+    render body: nil, status: 200
   end
 
   # Remove form

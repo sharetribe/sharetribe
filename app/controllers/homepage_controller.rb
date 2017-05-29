@@ -1,7 +1,7 @@
 # encoding: utf-8
 class HomepageController < ApplicationController
 
-  before_filter :save_current_path, :except => :sign_in
+  before_action :save_current_path, :except => :sign_in
 
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
@@ -102,7 +102,7 @@ class HomepageController < ApplicationController
           render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
         end
       }.on_error {
-        render nothing: true, status: 500
+        render body: nil, status: 500
       }
     else
       locals = {

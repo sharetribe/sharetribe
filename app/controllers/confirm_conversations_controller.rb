@@ -1,13 +1,13 @@
 class ConfirmConversationsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_confirm_or_cancel")
   end
 
-  before_filter :fetch_conversation
-  before_filter :fetch_listing
+  before_action :fetch_conversation
+  before_action :fetch_listing
 
-  before_filter :ensure_is_starter
+  before_action :ensure_is_starter
 
   MessageForm = Form::Message
 

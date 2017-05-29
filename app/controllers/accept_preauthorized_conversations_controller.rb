@@ -1,16 +1,16 @@
 class AcceptPreauthorizedConversationsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_accept_or_reject")
   end
 
-  before_filter :fetch_conversation
-  before_filter :fetch_listing
+  before_action :fetch_conversation
+  before_action :fetch_listing
 
-  before_filter :ensure_is_author
+  before_action :ensure_is_author
 
   # Skip auth token check as current jQuery doesn't provide it automatically
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def accept
     tx_id = params[:id]

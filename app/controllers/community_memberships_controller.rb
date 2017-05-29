@@ -1,20 +1,20 @@
 class CommunityMembershipsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
 
-  skip_filter :cannot_access_if_banned
-  skip_filter :cannot_access_without_confirmation
-  skip_filter :ensure_consent_given
-  skip_filter :ensure_user_belongs_to_community
+  skip_before_action :cannot_access_if_banned
+  skip_before_action :cannot_access_without_confirmation
+  skip_before_action :ensure_consent_given
+  skip_before_action :ensure_user_belongs_to_community
 
-  before_filter :ensure_membership_found
-  before_filter :ensure_membership_is_not_accepted
-  before_filter only: [:pending_consent, :give_consent] {
+  before_action :ensure_membership_found
+  before_action :ensure_membership_is_not_accepted
+  before_action only: [:pending_consent, :give_consent] {
     ensure_membership_status("pending_consent")
   }
-  before_filter only: [:confirmation_pending] {
+  before_action only: [:confirmation_pending] {
     ensure_membership_status("pending_email_confirmation")
   }
 

@@ -37,6 +37,10 @@ module Demoji
 
     end
   end
+
+  def changed?
+    has_changes_to_save? # FIXME-STR51
+  end
 end
 
 ActiveRecord::Base.send :include, Demoji

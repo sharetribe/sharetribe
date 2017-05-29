@@ -2,15 +2,15 @@ require 'rest_client'
 
 class SessionsController < ApplicationController
 
-  skip_filter :cannot_access_if_banned, :only => [ :destroy, :confirmation_pending ]
-  skip_filter :cannot_access_without_confirmation, :only => [ :destroy, :confirmation_pending ]
-  skip_filter :ensure_consent_given, only: [ :destroy, :confirmation_pending ]
-  skip_filter :ensure_user_belongs_to_community, :only => [ :destroy, :confirmation_pending ]
+  skip_before_action :cannot_access_if_banned, :only => [ :destroy, :confirmation_pending ]
+  skip_before_action :cannot_access_without_confirmation, :only => [ :destroy, :confirmation_pending ]
+  skip_before_action :ensure_consent_given, only: [ :destroy, :confirmation_pending ]
+  skip_before_action :ensure_user_belongs_to_community, :only => [ :destroy, :confirmation_pending ]
 
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
   # why we need to call the before filter below.
-  before_filter :allow_params_authentication!, :only => :create
+  before_action :allow_params_authentication!, :only => :create
 
   def new
     if params[:return_to].present?

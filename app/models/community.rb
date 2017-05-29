@@ -309,9 +309,9 @@ class Community < ActiveRecord::Base
   end
 
   def cache_previous_image_urls
-    return unless changed?
+    return unless has_changes_to_save?
 
-    changes.select { |attribute, values|
+    changes_to_save.select { |attribute, values|
       attachment_name = attribute.chomp("_file_name")
       attribute.end_with?("_file_name") && !send(:"#{attachment_name}_processing") && values[0]
     }.each { |attribute, values|
@@ -611,5 +611,6 @@ class Community < ActiveRecord::Base
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+    true
   end
 end

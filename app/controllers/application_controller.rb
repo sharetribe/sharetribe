@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :check_http_auth,
+  before_action :check_http_auth,
     :check_auth_token,
     :fetch_community,
     :fetch_community_plan_expiration_status,
@@ -38,11 +38,11 @@ class ApplicationController < ActionController::Base
     :set_display_expiration_notice
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
-  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
+  before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
   #this shuold be last
-  before_filter :push_reported_analytics_event_to_js
-  before_filter :push_reported_gtm_data_to_js
+  before_action :push_reported_analytics_event_to_js
+  before_action :push_reported_gtm_data_to_js
 
   helper_method :root, :logged_in?, :current_user?
 
