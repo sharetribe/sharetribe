@@ -318,6 +318,14 @@ module ApplicationHelper
         :path => "mailto:#{APP_CONFIG.support_email}",
         :name => "support",
         :data_uv_trigger => "contact"
+      },
+      {
+        :id => "admin-academy-link",
+        :topic => :general,
+        :text => t("admin.left_hand_navigation.academy"),
+        :icon_class => icon_class("academy"),
+        :path => "https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "academy"
       }
     ]
 

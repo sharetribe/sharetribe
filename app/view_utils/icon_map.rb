@@ -69,6 +69,7 @@ ICON_MAP = {
       "order_types" => "ss-cart",
       "download" => "ss-download",
       "credit_card" => "ss-creditcard",
+      "academy" => "ss-bookmark",
 
 
       # Default category & share type icons
