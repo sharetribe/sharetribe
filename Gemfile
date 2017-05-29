@@ -152,6 +152,7 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner'
   gem 'connection_pool'
+  gem 'rails-controller-testing'
 
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'

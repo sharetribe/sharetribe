@@ -18,7 +18,7 @@ describe SettingsController, type: :controller do
       @person.set_default_preferences
       expect(@person.min_days_between_community_updates).to eq(1)
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
+      get :unsubscribe, params: {:email_type => "community_updates", :person_id => @person.username}
       puts response.body
       expect(response.status).to eq(200)
 
@@ -31,7 +31,7 @@ describe SettingsController, type: :controller do
       @person.set_default_preferences
       expect(@person.min_days_between_community_updates).to eq(1)
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username, :auth => t}
+      get :unsubscribe, params: {:email_type => "community_updates", :person_id => @person.username, :auth => t}
       expect(response.status).to eq(200)
 
       @person = Person.find(@person.id) # fetch again to refresh
@@ -42,7 +42,7 @@ describe SettingsController, type: :controller do
       @person.set_default_preferences
       expect(@person.min_days_between_community_updates).to eq(1)
 
-      get :unsubscribe, {:email_type => "community_updates", :person_id => @person.username}
+      get :unsubscribe, params: {:email_type => "community_updates", :person_id => @person.username} 
       expect(response.status).to eq(401)
       expect(@person.min_days_between_community_updates).to eq(1)
     end

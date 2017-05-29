@@ -56,7 +56,7 @@ prefork = lambda {
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-    config.include Devise::TestHelpers, type: :controller
+    config.include Devise::Test::ControllerHelpers, type: :controller
     config.include SpecUtils
 
     Timecop.safe_mode = true

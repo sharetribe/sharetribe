@@ -28,7 +28,7 @@ describe Admin::CustomFieldsController, type: :controller do
       @custom_field = create_custom_field_for(@community)
 
       expect(@community.custom_fields.count).to eql(1)
-      delete :destroy, id: @custom_field.id
+      delete :destroy, params: { id: @custom_field.id }
 
       community = Community.find(@community.id)
       expect(community.custom_fields.count).to eql(0)
@@ -42,7 +42,7 @@ describe Admin::CustomFieldsController, type: :controller do
       community_custom_field_count = @community.custom_fields.count
       another_custom_field_count = @another_community.custom_fields.count
 
-      delete :destroy, id: @custom_field.id
+      delete :destroy, params: { id: @custom_field.id }
 
       community = Community.find(@community.id)
       another_community = Community.find(@another_community.id)
