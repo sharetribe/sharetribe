@@ -35,6 +35,10 @@ class SharetribeLogger
     @metadata = @metadata.merge(new_data.slice(*@metadata_keys))
   end
 
+  def info?
+    true # FIXME-STR51
+  end
+
   private
 
   def to_hash(msg, type, structured)

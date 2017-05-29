@@ -3,30 +3,30 @@ class ListingsController < ApplicationController
   class ListingDeleted < StandardError; end
 
   # Skip auth token check as current jQuery doesn't provide it automatically
-  skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
+  skip_before_action :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
-  before_filter :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
+  before_action :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
-  before_filter :only => [ :new, :new_form_content, :create ] do |controller|
+  before_action :only => [ :new, :new_form_content, :create ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
-  before_filter :save_current_path, :only => :show
-  before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
+  before_action :save_current_path, :only => :show
+  before_action :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
 
-  before_filter :only => [ :close ] do |controller|
+  before_action :only => [ :close ] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_filter :only => [ :edit, :edit_form_content, :update ] do |controller|
+  before_action :only => [ :edit, :edit_form_content, :update ] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
-  before_filter :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
+  before_action :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
 
-  before_filter :is_authorized_to_post, :only => [ :new, :create ]
+  before_action :is_authorized_to_post, :only => [ :new, :create ]
 
   def index
     @selected_tribe_navi_tab = "home"
@@ -535,10 +535,10 @@ class ListingsController < ApplicationController
 
     # Listings are sorted by `created_at`, so change it to now.
     if @listing.update_attribute(:updates_email_at, Time.now)
-      render :nothing => true, :status => 200
+      render :body => nil, :status => 200
     else
       logger.error("An error occured while trying to move the listing (id=#{Maybe(@listing).id.or_else('No id available')}) to the top of the homepage")
-      render :nothing => true, :status => 500
+      render :body => nil, :status => 500
     end
   end
 

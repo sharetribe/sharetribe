@@ -53,12 +53,12 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def promote_admin
     if removes_itself?(params[:remove_admin], @current_user)
-      render nothing: true, status: 405
+      render body: nil, status: 405
     else
       @current_community.community_memberships.where(person_id: params[:add_admin]).update_all("admin = 1")
       @current_community.community_memberships.where(person_id: params[:remove_admin]).update_all("admin = 0")
 
-      render nothing: true, status: 200
+      render body: nil, status: 200
     end
   end
 
@@ -66,7 +66,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     @current_community.community_memberships.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
     @current_community.community_memberships.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
 
-    render nothing: true, status: 200
+    render body: nil, status: 200
   end
 
   private

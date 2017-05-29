@@ -2,10 +2,10 @@
 # is an internal controller of Mercury. DO NOT rename this class to MercuryController!
 class MercuryUpdateController < ApplicationController
 
-  before_filter :ensure_is_admin
+  before_action :ensure_is_admin
 
   #Allow admin to access admin panel before email confirmation
-  skip_filter :cannot_access_without_confirmation
+  skip_before_action :cannot_access_without_confirmation
 
   # Update content with WYSIWYG editor Mercury
   def update

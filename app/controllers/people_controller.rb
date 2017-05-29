@@ -2,10 +2,10 @@ class PeopleController < Devise::RegistrationsController
   class PersonDeleted < StandardError; end
   class PersonBanned < StandardError; end
 
-  skip_before_filter :verify_authenticity_token, :only => [:creates]
-  skip_before_filter :require_no_authentication, :only => [:new]
+  skip_before_action :verify_authenticity_token, :only => [:creates]
+  skip_before_action :require_no_authentication, :only => [:new]
 
-  before_filter EnsureCanAccessPerson.new(
+  before_action EnsureCanAccessPerson.new(
     :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
 
   LOOSER_ACCESS_CONTROL = [
@@ -14,10 +14,10 @@ class PeopleController < Devise::RegistrationsController
     :check_invitation_code
   ]
 
-  skip_filter :cannot_access_if_banned,            only: LOOSER_ACCESS_CONTROL
-  skip_filter :cannot_access_without_confirmation, only: LOOSER_ACCESS_CONTROL
-  skip_filter :ensure_consent_given,               only: LOOSER_ACCESS_CONTROL
-  skip_filter :ensure_user_belongs_to_community,   only: LOOSER_ACCESS_CONTROL
+  skip_before_action :cannot_access_if_banned,            only: LOOSER_ACCESS_CONTROL
+  skip_before_action :cannot_access_without_confirmation, only: LOOSER_ACCESS_CONTROL
+  skip_before_action :ensure_consent_given,               only: LOOSER_ACCESS_CONTROL
+  skip_before_action :ensure_user_belongs_to_community,   only: LOOSER_ACCESS_CONTROL
 
   helper_method :show_closed?
 

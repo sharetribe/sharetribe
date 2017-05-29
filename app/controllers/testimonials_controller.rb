@@ -1,14 +1,14 @@
 class TestimonialsController < ApplicationController
 
-  before_filter :except => :index do |controller|
+  before_action :except => :index do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_give_feedback")
   end
 
-  before_filter :ensure_authorized_to_give_feedback, :except => :index
-  before_filter :ensure_feedback_not_given, :except => :index
+  before_action :ensure_authorized_to_give_feedback, :except => :index
+  before_action :ensure_feedback_not_given, :except => :index
 
   # Skip auth token check as current jQuery doesn't provide it automatically
-  skip_before_filter :verify_authenticity_token, :only => [:skip]
+  skip_before_action :verify_authenticity_token, :only => [:skip]
 
   def index
     username = params[:person_id]

@@ -1,11 +1,11 @@
 class PlansController < ApplicationController
-  skip_before_filter :check_http_auth,
+  skip_before_action :check_http_auth,
                      :verify_authenticity_token,
                      :fetch_logged_in_user,
                      :fetch_community,
                      :perform_redirect,
                      :fetch_community_membership
-  before_filter :ensure_external_plan_service_in_use!
+  before_action :ensure_external_plan_service_in_use!
 
   # Request data types
 

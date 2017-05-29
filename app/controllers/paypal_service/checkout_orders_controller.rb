@@ -1,9 +1,9 @@
 class PaypalService::CheckoutOrdersController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
-  before_filter do
+  before_action do
     unless PaypalHelper.community_ready_for_payments?(@current_community.id)
-      render :nothing => true, :status => 400
+      render :body => nil, :status => 400
     end
   end
 

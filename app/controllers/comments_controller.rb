@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_comment")
   end
 
-  before_filter :ensure_authorized_to_comment, only: [:create]
+  before_action :ensure_authorized_to_comment, only: [:create]
 
   def create
     if @comment.save

@@ -1,10 +1,10 @@
 class TransactionsController < ApplicationController
 
-  before_filter only: [:show] do |controller|
+  before_action only: [:show] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  before_filter only: [:new] do |controller|
+  before_action only: [:new] do |controller|
     fetch_data(params[:listing_id]).on_success do |listing_id, listing_model, _, process|
       Analytics.record_event(
         flash,
@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 

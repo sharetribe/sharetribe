@@ -1,6 +1,6 @@
 class Admin::ListingShapesController < Admin::AdminBaseController
 
-  before_filter :set_url_name
+  before_action :set_url_name
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
@@ -148,7 +148,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       listing_api.shapes.update(community_id: @current_community.id, listing_shape_id: d[:value][:id], opts: opts)
     }
 
-    render nothing: true, status: 200
+    render body: nil, status: 200
   end
 
   def close_listings
