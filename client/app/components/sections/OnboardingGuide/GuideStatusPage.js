@@ -33,7 +33,7 @@ const GuideStatusPage = (props) => {
     p({ className: css.description },
       t('web.admin.onboarding.guide.status_page.congratulation_p1.content',
         { knowledge_base_link: a(
-          { href: 'http://support.sharetribe.com/knowledgebase/articles/892140',
+          { href: 'https://help.sharetribe.com/configuration-and-how-to/what-to-do-after-the-basic-setup-of-your-marketplace',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.status_page.congratulation_p1.knowledge_base_alt'),
@@ -54,7 +54,7 @@ const GuideStatusPage = (props) => {
       t('web.admin.onboarding.guide.status_page.congratulation_p3.content',
          { contact_support_link: a(
            { 'data-uv-trigger': 'contact',
-             href: 'mailto:support@sharetribe.com',
+             href: 'mailto:help@sharetribe.com',
              title: t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_title'),
            },
            t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_link')),
