@@ -134,11 +134,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def update_new_layout
+    h_params = params.to_unsafe_hash
     @community = @current_community
-    enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    enabled_for_user = Maybe(h_params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_user = NewLayoutViewUtils.resolve_disabled(enabled_for_user)
 
-    enabled_for_community = Maybe(params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    enabled_for_community = Maybe(h_params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_community = NewLayoutViewUtils.resolve_disabled(enabled_for_community)
 
     response = update_feature_flags(community_id: @current_community.id, person_id: @current_user.id,
@@ -174,6 +175,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
   def update_topbar
     @community = @current_community
+    h_params = params.to_unsafe_hash
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
@@ -187,7 +189,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       })
     end
 
-    translations = params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
+    translations = h_params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
 
     if translations.any?{ |t| t[:translation].blank? }
       flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
