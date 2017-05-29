@@ -45,7 +45,7 @@ describe EmailsController, type: :controller do
 
       expect(Email.where(person_id: person.id).count).to eq(2)
 
-      delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
+      delete :destroy, params: {:person_id => person.id, :id => person.emails.first.id}
 
       expect(Email.where(person_id: person.id).count).to eq(1)
       expect(response.status).to eq(302)
@@ -65,7 +65,7 @@ describe EmailsController, type: :controller do
 
       expect(Email.where(person_id: person.id).count).to eq(2)
 
-      delete :destroy, {:person_id => person.id, :id => person.emails.first.id}
+      delete :destroy, params: {:person_id => person.id, :id => person.emails.first.id}
 
       expect(Email.where(person_id: person.id).count).to eq(2)
       expect(response.status).to eq(302)

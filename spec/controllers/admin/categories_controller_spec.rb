@@ -17,13 +17,13 @@ describe Admin::CategoriesController, type: :controller do
 
   describe "#order" do
     it "responds with 200 ok" do
-      post :order, order: [@cat1.id, @cat2.id, @cat3.id].shuffle
+      post :order, params: { order: [@cat1.id, @cat2.id, @cat3.id].shuffle }
       expect(response).to be_success
     end
 
     it "reorders the categories" do
       new_order = [@cat3.id, @cat1.id, @cat2.id]
-      post :order, order: new_order
+      post :order, params: { order: new_order }
       expect(@community.categories.pluck(:id)).to eq new_order
     end
 
@@ -32,7 +32,7 @@ describe Admin::CategoriesController, type: :controller do
       cat_other_community = FactoryGirl.create(:category, sort_priority: 3, community: community_other)
 
       new_order = [cat_other_community.id]
-      post :order, order: new_order
+      post :order, params: { order: new_order }
 
       cat_other_community.reload
       expect(cat_other_community.sort_priority).to eq 3

@@ -209,7 +209,7 @@ describe ListingsController, type: :controller do
 
   describe "ATOM feed" do
     it "lists the most recent listings in order" do
-      get :index, :format => :atom
+      get :index, params: { :format => :atom }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       expect(doc.at('feed/logo').text).to eq("https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png")
@@ -224,7 +224,7 @@ describe ListingsController, type: :controller do
     end
 
     it "supports localization" do
-      get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
+      get :index, params: { :community_id => @c1.id, :format => :atom, :locale => "fi" }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
@@ -240,7 +240,7 @@ describe ListingsController, type: :controller do
     end
 
     it "escapes html tags, but adds links" do
-      get :index, :community_id => @c1.id, :format => :atom
+      get :index, params: { :community_id => @c1.id, :format => :atom }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       expect(doc.at("feed/entry/content").text).to match(/&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/)
