@@ -99,6 +99,11 @@ module Kassi
     config.middleware.insert_before Rack::Sendfile, ::EnforceSsl
 
     # Handle cookies with old key
+    config.middleware.use Rack::MethodOverride 
+    config.middleware.use ActionDispatch::Cookies 
+    config.middleware.use ActionDispatch::Session::CookieStore 
+    config.middleware.use ActionDispatch::Flash
+
     config.middleware.insert_before ActionDispatch::Cookies, ::CustomCookieRenamer
 
     # Resolve current marketplace and append it to env
@@ -229,5 +234,6 @@ module Kassi
     # TODO remove deprecation warnings when removing legacy analytics
     ActiveSupport::Deprecation.warn("Support for Kissmetrics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_kissmetrics.to_s == "true"
     ActiveSupport::Deprecation.warn("Support for Google Analytics is deprecated, please use Google Tag Manager instead") if APP_CONFIG.use_google_analytics.to_s == "true"
+
   end
 end

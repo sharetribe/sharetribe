@@ -4,7 +4,7 @@ module PathHelpers
 
   def search_path(community_id:, logged_in:, locale_param:, default_locale:, opts: {})
 
-    o = opts.dup.to_hash
+    o = opts.dup.to_h
     o.delete("controller")
     o.delete("action")
     o.delete("locale")
