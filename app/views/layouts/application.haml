@@ -92,7 +92,7 @@
     = javascript_include_tag 'application'
 
     :javascript
-      window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+      window.ST.jsonTranslations = #{raw JSONTranslations.get(I18n.locale)}
 
     - if @analytics_event
       :javascript

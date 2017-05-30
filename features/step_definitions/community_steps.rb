@@ -81,7 +81,7 @@ Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, 
 end
 
 When /^I move to community "([^"]*)"$/ do |community|
-  Capybara.default_host = "#{community}.lvh.me"
+  Capybara.default_host = "http://#{community}.lvh.me:9887"
   Capybara.app_host = "http://#{community}.lvh.me:9887"
   @current_community = Community.where(ident: community).first
 end

@@ -46,7 +46,7 @@ class Category < ActiveRecord::Base
   belongs_to :community
 
   before_save :uniq_url
-  before_destroy :can_destroy?
+  before_destroy :can_be_destroyed?
 
 
   def translation_attributes=(attributes)
@@ -120,7 +120,11 @@ class Category < ActiveRecord::Base
   end
 
   def can_destroy?
-    throw :abort unless is_subcategory? || community.top_level_categories.count > 1 
+    is_subcategory? || community.top_level_categories.count > 1 
+  end
+
+  def can_be_destroyed?
+    throw :abort unless can_destroy?
   end
 
   def remove_needs_caution?

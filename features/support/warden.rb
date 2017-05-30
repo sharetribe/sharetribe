@@ -1,4 +1,4 @@
-include Devise::TestHelpers
+#include Devise::Test::ControllerHelpers
 
 # gives us the login_as(@user) method when request object is not present
 include Warden::Test::Helpers
