@@ -9,6 +9,8 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def index
+    params = unsafe_params_hash.select{|k, v| v.present? }
+
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
@@ -358,6 +360,10 @@ class HomepageController < ApplicationController
       end
 
     relevant_filters.sort
+  end
+
+  def unsafe_params_hash
+    params.to_h
   end
 
 end

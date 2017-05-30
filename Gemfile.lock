@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/fnando/i18n-js.git
-  revision: 2ca6d31365bb41db21e373d126cac00d38d15144
-  ref: 2ca6d31365bb41db21e373d126cac00d38d15144
-  branch: master
-  specs:
-    i18n-js (3.0.0.rc12)
-      i18n (~> 0.6, >= 0.6.6)
-
-GIT
   remote: https://github.com/ithouse/mercury.git
   revision: 45aa271a4277667724a11f297736ea7b9fb7f2d8
   ref: 45aa271a4277667724a11f297736ea7b9fb7f2d8
@@ -19,11 +10,11 @@ GIT
 
 GIT
   remote: https://github.com/pat/ts-delayed-delta.git
-  revision: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
-  ref: 839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d
+  revision: 0aef2195f3acc1da048f18bc0191c90538565705
   branch: master
   specs:
     ts-delayed-delta (2.0.2)
+      activerecord (>= 2.0)
       delayed_job
       thinking-sphinx (>= 1.5.0)
 
@@ -238,6 +229,8 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.8.1)
+    i18n-js (3.0.0)
+      i18n (~> 0.6, >= 0.6.6)
     i18n_data (0.7.0)
     innertube (1.1.0)
     intercom (3.5.14)
@@ -578,7 +571,7 @@ DEPENDENCIES
   guard-rspec
   haml
   hiredis
-  i18n-js!
+  i18n-js
   intercom
   jquery-rails
   js-routes

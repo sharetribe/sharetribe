@@ -2,13 +2,13 @@
 $("#comment_notice").html('<div class="comment_notice"><%= t("layouts.notifications.#{flash[:comment_notice]}") %></div');
 
 /* Add the new comment to the bottom of the comment list */
-$("#comment-list").append("<%= escape_javascript(render(:partial => 'listings/comment', :collection => [@comment])) %>");
+$("#comment-list").append("<%=raw escape_javascript(render(:partial => 'listings/comment', :collection => [@comment])) %>");
 
 /* Highlight the just added comment */
 $("#comment<%= @comment.id.to_s %>").effect("highlight", {}, 2000);
 
 /* Update comment count */
-$("#comment_count").html("(<%= @comment.listing.comments_count %>)");
+$("#comment_count").html("(<%=raw @comment.listing.comments_count %>)");
 
 /* Reset the message form */
 $("#new_comment")[0].reset();
@@ -18,4 +18,4 @@ $('#new_comment button').removeAttr('disabled');
 $('#new_comment button').text('<%= t("listings.comment_form.send_comment") %>');
 
 /* Update follow links */
-$("#follow-links").html("<%= escape_javascript(render(:partial => 'listings/follow_links')) %>");
+$("#follow-links").html("<%=raw escape_javascript(render(:partial => 'listings/follow_links')) %>");

@@ -306,10 +306,10 @@ class ListingsController < ApplicationController
   end
 
   def create_listing(shape, listing_uuid)
-    with_currency = params[:listing].merge({currency: @current_community.currency})
+    with_currency = params.to_h[:listing].merge({currency: @current_community.currency})
     valid_until_enabled = !@current_community.hide_expiration_date
     listing_params = ListingFormViewUtils.filter(with_currency, shape, valid_until_enabled)
-    listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    listing_unit = Maybe(params.to_h)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
     validation_result = ListingFormViewUtils.validate(
       params: listing_params,
@@ -449,7 +449,7 @@ class ListingsController < ApplicationController
     end
 
     valid_until_enabled = !@current_community.hide_expiration_date
-    with_currency = params[:listing].merge({currency: @current_community.currency})
+    with_currency = params.to_h[:listing].merge({currency: @current_community.currency})
     listing_params = ListingFormViewUtils.filter(with_currency, shape, valid_until_enabled)
     listing_unit = Maybe(params)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
     listing_params = ListingFormViewUtils.filter_additional_shipping(listing_params, listing_unit)
