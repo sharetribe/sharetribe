@@ -10,7 +10,7 @@ class AmazonBouncesController < ApplicationController
 
     if amz_message_type.to_s.downcase == 'subscriptionconfirmation'
       send_subscription_confirmation request.raw_post
-      render :body => nil and return
+      head :ok and return
     end
 
     if amz_message_type.to_s.downcase == 'notification'
@@ -28,7 +28,7 @@ class AmazonBouncesController < ApplicationController
         logger.warn msg.to_s
       end
     end
-    render :body => nil
+    head :ok
   end
 
   private
@@ -63,7 +63,7 @@ class AmazonBouncesController < ApplicationController
 
   def check_sns_token
     if APP_CONFIG.sns_notification_token != params['sns_notification_token']
-      return render :body => nil
+      return head :ok
     end
   end
 

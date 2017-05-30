@@ -60,7 +60,7 @@ describe Admin::CommunitiesController, type: :controller do
       text_en = "Modified en"
       translations_group = [{
         translation_key: "homepage.index.post_new_listing",
-        translations: [{ locale: "fi", translation: text_fi }, { locale: "en", translation: text_en }]
+        translations: [{ locale: "en", translation: text_en }, { locale: "fi", translation: text_fi } ]
       }]
 
       expect(TranslationService::API::Api.translations).to receive(:create)
