@@ -229,7 +229,7 @@ class PeopleController < Devise::RegistrationsController
     #Check that people don't exploit changing email to be confirmed to join an email restricted community
     if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
       flash[:error] = t("people.new.email_not_allowed")
-      redirect_back and return
+      redirect_back(fallback_location: homepage_url) and return
     end
 
     target_user.set_emails_that_receive_notifications(params[:person][:send_notifications])
@@ -299,7 +299,7 @@ class PeopleController < Devise::RegistrationsController
       flash[:error] = t("layouts.notifications.update_error")
     end
 
-    redirect_back
+    redirect_back(fallback_location: homepage_url)
   end
 
   def destroy
