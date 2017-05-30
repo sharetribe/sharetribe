@@ -9,6 +9,7 @@
 #  transaction_id :integer
 #  created_at     :datetime
 #  updated_at     :datetime
+#  most_recent    :boolean
 #
 # Indexes
 #
@@ -19,7 +20,7 @@
 class TransactionTransition < ActiveRecord::Base
   include Statesman::Adapters::ActiveRecordTransition
 
-  attr_accessible :to_state, :metadata, :sort_key
+  attr_accessible :to_state, :metadata, :sort_key, :most_recent
 
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :transaction_transitions, touch: true
 end
