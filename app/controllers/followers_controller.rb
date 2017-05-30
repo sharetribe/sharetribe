@@ -9,7 +9,7 @@ class FollowersController < ApplicationController
 
     target_user.followers << @current_user
     respond_to do |format|
-      format.html { redirect_back }
+      format.html { redirect_back(fallback_location: homepage_url) }
       format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end
@@ -19,7 +19,7 @@ class FollowersController < ApplicationController
 
     target_user.followers.delete(@current_user)
     respond_to do |format|
-      format.html { redirect_back }
+      format.html { redirect_back(fallback_location: homepage_url) }
       format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end
