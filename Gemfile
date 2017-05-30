@@ -37,8 +37,8 @@ gem 'flying-sphinx'
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
 gem 'ts-delayed-delta',
   :git    => 'https://github.com/pat/ts-delayed-delta.git',
-  :branch => 'master',
-  :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
+  :branch => 'master'
+#  :ref    => '839284f2f28b3f4caf3a3bf5ccde9a6d222c7f4d'
 gem 'possibly'
 
 gem 'delayed_job'
@@ -95,14 +95,7 @@ gem "react_on_rails", "~>6.9.0"
 gem "css_parser"
 gem 'sitemap_generator'
 
-# Use latest from master
-#
-# The latest master is needed because it contains the I18n.extend configuration
-# See: https://github.com/fnando/i18n-js/pull/397
-gem "i18n-js",
-    git: "https://github.com/fnando/i18n-js.git",
-    branch: "master",
-    ref: "2ca6d31365bb41db21e373d126cac00d38d15144"
+gem "i18n-js"
 
 # A store scoped to the request object for caching
 gem "request_store"
