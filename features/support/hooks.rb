@@ -1,5 +1,5 @@
 Before do
-  Capybara.default_host = 'test.lvh.me'
+  Capybara.default_host = 'http://test.lvh.me:9887'
   Capybara.server_port = 9887
   Capybara.app_host = "http://test.lvh.me:9887"
   @current_community = Community.where(ident: "test").first
@@ -24,28 +24,28 @@ After('@javascript') do
 end
 
 Before ('@subdomain2') do
-  Capybara.default_host = 'test2.lvh.me'
+  Capybara.default_host = 'http://test2.lvh.me:9887'
   Capybara.app_host = "http://test2.lvh.me:9887"
   @current_community = Community.where(ident: "test2").first
 end
 
 Before ('@no_subdomain') do
-  Capybara.default_host = 'lvh.me'
+  Capybara.default_host = 'http://lvh.me:9887'
   Capybara.app_host = "http://lvh.me:9887"
 end
 
 After('@no_subdomain') do
-  Capybara.default_host = 'test.lvh.me'
+  Capybara.default_host = 'http://test.lvh.me:9887'
   Capybara.app_host = "http://test.lvh.me:9887"
 end
 
 Before ('@www_subdomain') do
-  Capybara.default_host = 'www.lvh.me'
+  Capybara.default_host = 'http://www.lvh.me:9887'
   Capybara.app_host = "http://www.lvh.me:9887"
 end
 
 After('@www_subdomain') do
-  Capybara.default_host = 'test.lvh.me'
+  Capybara.default_host = 'http://test.lvh.me:9887'
   Capybara.app_host = "http://test.lvh.me:9887"
 end
 

@@ -14,7 +14,7 @@ require 'database_cleaner'
 
 # Turn off all automatic database cleaning to gain full control of
 # the cleanup process
-Cucumber::Rails::World.use_transactional_fixtures = false
+Cucumber::Rails::World.use_transactional_tests = false
 Cucumber::Rails::Database.autorun_database_cleaner = false
 
 # Using two hacks here:

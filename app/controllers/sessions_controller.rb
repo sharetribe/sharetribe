@@ -163,11 +163,14 @@ class SessionsController < ApplicationController
     origin_locale = get_origin_locale(request, available_locales())
     I18n.locale = origin_locale if origin_locale
     error_message = params[:error_reason] || "login error"
-    kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
+    kind = request.env["omniauth.error.strategy"].name.to_s || "Facebook"
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
     redirect_to search_path
   end
-
+  
+  def passthru
+    render status: 404, plain: "Not found. Authentication passthru."
+  end
   private
 
   def terms_accepted?(user, community)

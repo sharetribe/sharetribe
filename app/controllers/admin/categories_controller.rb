@@ -15,7 +15,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
 
   def create
     @selected_left_navi_link = "listing_categories"
-    @category = Category.new(params[:category].except(:listing_shapes))
+    @category = Category.new(params.to_h[:category].except(:listing_shapes))
     @category.community = @current_community
     @category.parent_id = nil if params[:category][:parent_id].blank?
     @category.sort_priority = Admin::SortingService.next_sort_priority(@current_community.categories)
@@ -45,7 +45,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
     shapes = get_shapes
     selected_shape_ids = shape_ids_from_params(params)
 
-    if @category.update_attributes(params[:category].except(:listing_shapes))
+    if @category.update_attributes(params.to_h[:category].except(:listing_shapes))
       update_category_listing_shapes(selected_shape_ids, @category)
       redirect_to admin_categories_path
     else
@@ -121,7 +121,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
 
     raise ArgumentError.new("No shapes selected for category #{category.id}, shape_ids: #{shape_ids}") if selected_shapes.empty?
 
-    CategoryListingShape.delete_all(category_id: category.id)
+    CategoryListingShape.where(category_id: category.id).delete_all
 
     selected_shapes.each { |s|
       CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
@@ -129,7 +129,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
   end
 
   def shape_ids_from_params(params)
-    params[:category][:listing_shapes].map { |s_param| s_param[:listing_shape_id].to_i }
+    params.to_h[:category][:listing_shapes].map { |s_param| s_param[:listing_shape_id].to_i }
   end
 
   def get_shapes

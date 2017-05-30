@@ -57,9 +57,9 @@ gem 'money-rails'
 
 # The latest release (0.9.0) is not Rails 4 compatible
 gem 'mercury-rails',
-  git: 'https://github.com/jejacks0n/mercury.git',
+  git: 'https://github.com/ithouse/mercury.git',
   branch: 'master',
-  ref: '1cc637b0bccea19085f824d2881c6513ed5ee8ae'
+  ref: '45aa271a4277667724a11f297736ea7b9fb7f2d8'
 
 gem 'countries'
 gem "mail_view"
@@ -72,13 +72,7 @@ gem 'airbrake'
 
 gem 'jwt'
 
-# Use Oauth2 from current master, because the newest release
-# uses old JWT version
-# (This can be removed when oauth2 version > 1.1.0 is released)
-gem 'oauth2',
-  git: 'https://github.com/intridea/oauth2.git',
-  branch: 'master',
-  ref: 'e0006cb5099bf392f011eb5c49cbec4f893bbdba'
+gem 'oauth2'
 
 gem 'lograge'
 gem 'public_suffix' # Needed currently to set GA hostname right, probably not

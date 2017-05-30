@@ -410,6 +410,9 @@ module EntityUtils
     end
 
     def with_result(specs:, data:, on_success:, on_failure:)
+      if data.is_a?(ActionController::Parameters)
+        data = data.to_h
+      end
       raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
       result = EntityUtils.transform_and_validate(specs, data)
 

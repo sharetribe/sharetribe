@@ -32,7 +32,7 @@ module ActiveSessionsHelper
     end
 
     def delete(id:)
-      ActiveSession.delete_all(id: UUIDUtils.raw(id))
+      ActiveSession.where(id: UUIDUtils.raw(id)).delete_all
     end
 
     def cleanup(ttl:)
