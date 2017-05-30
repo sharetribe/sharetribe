@@ -436,14 +436,18 @@ ja:
         update_success: "課金タイプの変更 '%{shape}' は保存されました"
         update_failure: "変更を保存できませんでした。エラー: %{error_msg}"
         delete: 課金タイプを削除
-        can_not_delete_last: あなたのマーケットプレイスには一つしか注文タイプがないため、注文タイプを削除できません。
-        can_not_delete_only_one_in_categories: "カテゴリ%{categories}には注文タイプが一つしかないため、注文タイプを削除できません。"
         confirm_delete_order_type:
           other: "この注文タイプには%{count}件の投稿があります。注文タイプを削除すると、これらの投稿も一緒に削除されます。削除してよろしいですか？"
+        can_not_delete_last: あなたのマーケットプレイスには一つしか注文タイプがないため、注文タイプを削除できません。
+        can_not_delete_only_one_in_categories: "カテゴリ%{categories}には注文タイプが一つしかないため、注文タイプを削除できません。"
       listing_shape_name: 名前
       listing_shape_name_placeholder: 例：売ります
       action_button_label: チェックアウトボタンのラベル
       action_button_placeholder: 例：買います
+      close_listings_action:
+        other: "%{count}件の投稿を非公開にする"
+      confirm_close_listings_action:
+        other: "%{count}件の投稿を非公開にしてよろしいですか？"
       successfully_closed: 投稿を非公開にしました。
       successfully_deleted: "課金タイプ'%{order_type}'を削除しました"
       pricing_and_checkout_title: 料金の確認と支払い手続き
@@ -473,10 +477,6 @@ ja:
           heading: 単位タイプ
           quantity_label: "量の単位 (一個あたり、キロあたり、1人あたり、ツアー2時間あたり)"
           time_label: "時間の単位 (30分あたり、2週間あたり、1年あたり...)"
-      close_listings_action:
-        other: "%{count}件の投稿を非公開にする"
-      confirm_close_listings_action:
-        other: "%{count}件の投稿を非公開にしてよろしいですか？"
     paypal_accounts:
       marketplace_paypal_integration: お支払い方法
       preferences_updated: お支払い情報は更新されました

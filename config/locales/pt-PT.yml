@@ -610,7 +610,7 @@ pt-PT:
       no_received_messages: "Nenhuma mensagem recebida"
       no_sent_messages: "Nenhuma mensagem enviada"
     conversation:
-      accepted_request: ""
+      accepted_request: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -624,7 +624,7 @@ pt-PT:
       message_content_not_available: ~
     message:
       accepted_request: ~
-      received_payment: ""
+      received_payment: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -900,7 +900,7 @@ pt-PT:
       welcome_email_subject: ~
       welcome_to_marketplace: ~
       love_marketplace_crew: ~
-      welcome_email_footer_text: ""
+      welcome_email_footer_text: ~
       settings_link_text: "Verifique as suas configurações"
     new_listing_by_followed_person:
       subject: "%{author_name} publicou um novo anúncio no %{service_name}"
@@ -1281,7 +1281,7 @@ pt-PT:
       registration_considered_spam: "O registo não funcionou. Por favor, contacte-nos a partir do menu de cabeçalho, mencionando \"erro email2\"."
       reply_cannot_be_empty: "Não pode enviar uma mensagem vazia"
       reply_sent: "Resposta enviada com sucesso!"
-      request_accepted: ""
+      request_accepted: ~
       request_confirmed: ~
       request_rejected: "Pedido rejeitado."
       request_canceled: ~
