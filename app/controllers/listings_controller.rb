@@ -342,7 +342,7 @@ class ListingsController < ApplicationController
       @listing.author = @current_user
 
       if @listing.save
-        upsert_field_values!(@listing, params[:custom_fields])
+        upsert_field_values!(@listing, params.to_h[:custom_fields])
 
         listing_image_ids =
           if params[:listing_images]
@@ -482,7 +482,7 @@ class ListingsController < ApplicationController
     old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
 
-    upsert_field_values!(@listing, params[:custom_fields])
+    upsert_field_values!(@listing, params.to_h[:custom_fields])
     finalise_update(@listing, shape, @current_community, update_successful, old_availability)
   end
 
