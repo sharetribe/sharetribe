@@ -125,12 +125,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.6.2'
   gem "rspec-rails"
 
   gem 'cucumber-rails', require: false # require: false is needed for cucumber-rails
 
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53.4'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
   gem 'launchy'
