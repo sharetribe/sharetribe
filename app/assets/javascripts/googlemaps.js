@@ -224,7 +224,9 @@ function invalid_locations(_prefix) {
   if (!_prefix)
     _prefix = prefix;
   var latitude = document.getElementById(_prefix+ "_latitude");
-  latitude.value = null;
+  if (latitude) {
+    latitude.value = null;
+  }
 }
 
 function update_model_location(place,_prefix){
