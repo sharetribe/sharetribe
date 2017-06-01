@@ -15,7 +15,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
 
   def create
     @selected_left_navi_link = "listing_categories"
-    @category = Category.new(params.to_h[:category].except(:listing_shapes))
+    @category = Category.new(category_params)
     @category.community = @current_community
     @category.parent_id = nil if params[:category][:parent_id].blank?
     @category.sort_priority = Admin::SortingService.next_sort_priority(@current_community.categories)
@@ -45,7 +45,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
     shapes = get_shapes
     selected_shape_ids = shape_ids_from_params(params)
 
-    if @category.update_attributes(params.to_h[:category].except(:listing_shapes))
+    if @category.update_attributes(category_params)
       update_category_listing_shapes(selected_shape_ids, @category)
       redirect_to admin_categories_path
     else
@@ -129,13 +129,17 @@ class Admin::CategoriesController < Admin::AdminBaseController
   end
 
   def shape_ids_from_params(params)
-    params.to_h[:category][:listing_shapes].map { |s_param| s_param[:listing_shape_id].to_i }
+    params[:category][:listing_shapes].map { |s_param| s_param[:listing_shape_id].to_i }
   end
 
   def get_shapes
     ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
       raise ArgumentError.new("Cannot find any shapes for community #{@current_community.id}") if shapes.nil?
     }
+  end
+
+  def category_params
+    params.require(:category).slice(:parent_id, :translation_attributes, :sort_priority, :url, :basename).permit!
   end
 
 end

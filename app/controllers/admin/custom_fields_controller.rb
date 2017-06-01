@@ -142,6 +142,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   end
 
   def build_custom_field_entity(type, params)
+    params = params.respond_to?(:to_unsafe_hash) ? params.to_unsafe_hash : params
     case type
     when "TextField"
       TextFieldEntity.call(params)
