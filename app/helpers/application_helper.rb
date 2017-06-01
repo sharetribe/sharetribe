@@ -323,7 +323,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.academy"),
         :icon_class => icon_class("academy"),
-        :path => "https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
         :name => "academy"
       }
     ]
