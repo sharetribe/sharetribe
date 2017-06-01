@@ -51,9 +51,6 @@ Kassi::Application.configure do
   # Configure static asset server for tests with Cache-Control for performance
   config.static_cache_control = "public, max-age=3600"
 
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
-
   config.cache_store = :memory_store, { :namespace => "sharetribe-test"}
 
   config.active_support.test_order = :random

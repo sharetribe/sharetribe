@@ -19,8 +19,6 @@
 #
 
 class PaypalAccount < ActiveRecord::Base
-  attr_accessible :email, :payer_id, :person_id, :community_id, :active
-
   belongs_to :person
   belongs_to :community
   has_one :order_permission, dependent: :destroy

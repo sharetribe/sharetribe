@@ -18,12 +18,4 @@
 class CommunityTranslation < ActiveRecord::Base
   validates_presence_of :locale, :translation_key
 
-  attr_accessible(
-    :community_id,
-    :locale,
-    :translation_key,
-    :translation
-  )
-
-
 end

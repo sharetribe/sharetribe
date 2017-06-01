@@ -12,11 +12,6 @@
 #
 
 class CategoryListingShape < ActiveRecord::Base
-  attr_accessible(
-    :category_id,
-    :listing_shape_id
-  )
-
   belongs_to :category
   belongs_to :listing_shape
 end

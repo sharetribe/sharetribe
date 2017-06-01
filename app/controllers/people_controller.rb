@@ -235,34 +235,7 @@ class PeopleController < Devise::RegistrationsController
     target_user.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
-      person_params = params.require(:person).permit(
-        :given_name,
-        :family_name,
-        :display_name,
-        :street_address,
-        :phone_number,
-        :image,
-        :description,
-        { location: [:address, :google_address, :latitude, :longitude] },
-        :password,
-        :password2,
-        { send_notifications: [] },
-        { email_attributes: [:address] },
-        :min_days_between_community_updates,
-        { preferences: [
-          :email_from_admins,
-          :email_about_new_messages,
-          :email_about_new_comments_to_own_listing,
-          :email_when_conversation_accepted,
-          :email_when_conversation_rejected,
-          :email_about_new_received_testimonials,
-          :email_about_confirm_reminders,
-          :email_about_testimonial_reminders,
-          :email_about_completed_transactions,
-          :email_about_new_payments,
-          :email_about_new_listings_by_followed_people,
-        ] }
-      )
+      person_params = person_update_params(params)
 
       Maybe(person_params)[:location].each { |loc|
         person_params[:location] = loc.merge(location_type: :person)
@@ -360,17 +333,18 @@ class PeopleController < Devise::RegistrationsController
   private
 
   # Create a new person by params and current community
-  def new_person(params, current_community)
+  def new_person(initial_params, current_community)
+    initial_params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
+    initial_params[:person][:test_group_number] = 1 + rand(4)
+    initial_params[:person][:community_id] = current_community.id
+
+    params = person_create_params(initial_params)
     person = Person.new
 
-    params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
-    params[:person][:test_group_number] = 1 + rand(4)
-    params[:person][:community_id] = current_community.id
+    email = Email.new(:person => person, :address => params[:email].downcase, :send_notifications => true, community_id: current_community.id)
+    params.delete(:email)
 
-    email = Email.new(:person => person, :address => params[:person][:email].downcase, :send_notifications => true, community_id: current_community.id)
-    params["person"].delete(:email)
-
-    person = build_devise_resource_from_person(params[:person])
+    person = build_devise_resource_from_person(params)
 
     person.emails << email
 
@@ -383,5 +357,57 @@ class PeopleController < Devise::RegistrationsController
     person.set_default_preferences
 
     [person, email]
+  end
+
+
+  def person_create_params(params)
+    params.require(:person).permit(
+        :given_name,
+        :family_name,
+        :display_name,
+        :street_address,
+        :phone_number,
+        :image,
+        :description,
+        { location: [:address, :google_address, :latitude, :longitude] },
+        :password,
+        :password2,
+        :locale,
+        :email,
+        :username,
+        :test_group_number,
+        :community_id
+    )
+  end
+
+  def person_update_params(params)
+    params.require(:person).permit(
+        :given_name,
+        :family_name,
+        :display_name,
+        :street_address,
+        :phone_number,
+        :image,
+        :description,
+        { location: [:address, :google_address, :latitude, :longitude] },
+        :password,
+        :password2,
+        { send_notifications: [] },
+        { email_attributes: [:address] },
+        :min_days_between_community_updates,
+        { preferences: [
+          :email_from_admins,
+          :email_about_new_messages,
+          :email_about_new_comments_to_own_listing,
+          :email_when_conversation_accepted,
+          :email_when_conversation_rejected,
+          :email_about_new_received_testimonials,
+          :email_about_confirm_reminders,
+          :email_about_testimonial_reminders,
+          :email_about_completed_transactions,
+          :email_about_new_payments,
+          :email_about_new_listings_by_followed_people,
+        ] }
+      )
   end
 end

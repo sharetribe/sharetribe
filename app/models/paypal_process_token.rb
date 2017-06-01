@@ -20,16 +20,6 @@
 #
 
 class PaypalProcessToken < ActiveRecord::Base
-  attr_accessible(
-    :process_token,
-    :community_id,
-    :paypal_token,
-    :transaction_id,
-    :op_completed,
-    :op_name,
-    :op_input,
-    :op_output)
-
   validates_presence_of(:process_token, :community_id)
 
 end

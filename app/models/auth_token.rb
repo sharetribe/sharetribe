@@ -21,8 +21,6 @@ class AuthToken < ActiveRecord::Base
   belongs_to :person
   after_initialize :defaults
 
-  attr_accessible :person, :person_id, :expires_at, :token_type
-
   validates_presence_of :person_id
   validates_presence_of :expires_at
   validates_uniqueness_of :token
