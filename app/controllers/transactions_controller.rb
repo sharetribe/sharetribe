@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
         ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
-      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery)))
+      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery).permit!))
 
       case [process[:process], gateway]
       when matches([:none])
