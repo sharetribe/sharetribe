@@ -36,7 +36,7 @@ const GuideFilterPage = (props) => {
             { not_too_many_link: a({
               target: '_blank',
               rel: 'noreferrer',
-              href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service',
+              href: 'https://www.sharetribe.com/academy/how-to-help-your-customers-find-the-right-product-or-service/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=onboardingguide',
             }, t('web.admin.onboarding.guide.filter.advice.not_too_many_link')) }),
         ]),
     ]),
