@@ -24,9 +24,6 @@
 
 class Email < ActiveRecord::Base
 
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
-
   include ApplicationHelper
   belongs_to :person
 

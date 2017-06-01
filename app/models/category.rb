@@ -19,15 +19,6 @@
 #
 
 class Category < ActiveRecord::Base
-  attr_accessible(
-    :community_id,
-    :parent_id,
-    :translations,
-    :translation_attributes,
-    :sort_priority,
-    :url,
-    :basename
-  )
 
   attr_accessor :basename
 

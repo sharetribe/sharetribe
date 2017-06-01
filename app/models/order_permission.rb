@@ -19,16 +19,6 @@
 #
 
 class OrderPermission < ActiveRecord::Base
-  attr_accessible(
-    :paypal_account,
-    :paypal_account_id,
-    :request_token,
-    :paypal_username_to,
-    :scope,
-    :verification_code,
-    :onboarding_id,
-    :permissions_granted)
-
   belongs_to :paypal_account, class_name: "PaypalAccount"
 
   validates_presence_of :paypal_account, :paypal_username_to

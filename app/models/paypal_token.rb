@@ -26,21 +26,6 @@
 
 class PaypalToken < ActiveRecord::Base
   validates_presence_of :community_id, :token, :transaction_id, :merchant_id, :express_checkout_url
-  attr_accessible(
-    :community_id,
-    :token,
-    :transaction_id,
-    :payment_action,
-    :merchant_id,
-    :item_name,
-    :item_quantity,
-    :item_price,
-    :currency,
-    :express_checkout_url,
-    :receiver_id,
-    :shipping_total
-  )
-
   monetize :item_price_cents, with_model_currency: :currency, allow_nil: true
   monetize :shipping_total_cents, with_model_currency: :currency, allow_nil: true
 end

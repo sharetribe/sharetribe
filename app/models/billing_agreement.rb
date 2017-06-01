@@ -16,8 +16,6 @@
 #
 
 class BillingAgreement < ActiveRecord::Base
-  attr_accessible :paypal_account, :request_token, :billing_agreement_id, :paypal_username_to
-
   belongs_to :paypal_account, class_name: "PaypalAccount"
 
   validates_presence_of :paypal_account, :request_token, :paypal_username_to

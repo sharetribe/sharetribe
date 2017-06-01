@@ -81,11 +81,6 @@ gem 'public_suffix' # Needed currently to set GA hostname right, probably not
 # Session store was removed from Rails 4
 gem 'activerecord-session_store'
 
-# This gem was added to make Rails 3.2 -> 4 upgrade path easier.
-# It adds `attr_protected` and `attr_accessor` methods to models.
-# We should remove this gem before upgrading to Rails 5
-gem 'protected_attributes_continued'
-
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'faraday-encoding'

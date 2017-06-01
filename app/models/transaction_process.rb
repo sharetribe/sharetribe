@@ -15,11 +15,6 @@
 #
 
 class TransactionProcess < ActiveRecord::Base
-  attr_accessible(
-    :community_id,
-    :process,
-    :author_is_seller
-  )
 
   def process
     read_attribute(:process).to_sym

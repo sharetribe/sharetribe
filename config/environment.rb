@@ -15,5 +15,3 @@ end
 
 # Initialize the rails application
 Kassi::Application.initialize!
-
-ActionController::Parameters.permit_all_parameters = true

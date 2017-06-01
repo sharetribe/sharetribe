@@ -78,8 +78,5 @@ Kassi::Application.configure do
   config.assets.debug = false
   config.assets.quiet = true
 
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
-
   config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
 end

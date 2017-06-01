@@ -23,17 +23,5 @@
 
 class PaymentSettings < ActiveRecord::Base
 
-  attr_accessible(
-    :active,
-    :community_id,
-    :payment_gateway,
-    :payment_process,
-    :commission_from_seller,
-    :minimum_price_cents,
-    :minimum_price_currency,
-    :minimum_transaction_fee_cents,
-    :minimum_transaction_fee_currency,
-    :confirmation_after_days)
-
   validates_presence_of(:community_id)
 end

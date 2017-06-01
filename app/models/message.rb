@@ -16,9 +16,6 @@
 
 class Message < ActiveRecord::Base
 
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
-
   after_save :update_conversation_read_status
 
   belongs_to :sender, :class_name => "Person"

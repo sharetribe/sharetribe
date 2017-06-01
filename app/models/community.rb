@@ -99,9 +99,6 @@
 
 class Community < ActiveRecord::Base
 
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
-
   require 'compass'
   require 'sass/plugin'
 

@@ -344,8 +344,6 @@ GEM
       addressable
       css_parser (>= 1.4.10)
       htmlentities (>= 4.0.0)
-    protected_attributes_continued (1.3.0)
-      activemodel (~> 5.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -593,7 +591,6 @@ DEPENDENCIES
   paypal-sdk-permissions
   possibly
   premailer
-  protected_attributes_continued
   pry-byebug
   public_suffix
   rack-test

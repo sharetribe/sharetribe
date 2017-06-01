@@ -16,7 +16,6 @@
 #
 
 class FeatureFlag < ActiveRecord::Base
-  attr_accessible(:community_id, :feature, :enabled)
 
   validates_presence_of(:community_id)
 end

@@ -363,7 +363,7 @@ class HomepageController < ApplicationController
   end
 
   def unsafe_params_hash
-    params.to_h
+    params.to_unsafe_hash
   end
 
 end
