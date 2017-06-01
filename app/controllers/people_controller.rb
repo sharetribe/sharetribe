@@ -361,7 +361,7 @@ class PeopleController < Devise::RegistrationsController
 
 
   def person_create_params(params)
-    params.require(:person).permit(
+    params.require(:person).slice(
         :given_name,
         :family_name,
         :display_name,
@@ -369,15 +369,15 @@ class PeopleController < Devise::RegistrationsController
         :phone_number,
         :image,
         :description,
-        { location: [:address, :google_address, :latitude, :longitude] },
+        :location,
         :password,
         :password2,
         :locale,
         :email,
         :username,
         :test_group_number,
-        :community_id
-    )
+        :community_id,
+    ).permit!
   end
 
   def person_update_params(params)
