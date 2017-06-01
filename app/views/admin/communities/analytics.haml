@@ -14,7 +14,7 @@
     .row
       .col-6
         - if display_knowledge_base_articles
-          - instructions_link = link_to(t("admin.communities.analytics.google_analytics_instructions_link_text"), "#{knowledge_base_url}/articles/412735-how-to-configure-google-analytics" )
+          - instructions_link = link_to(t("admin.communities.analytics.google_analytics_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-track-your-marketplace-traffic-with-google-analytics" )
           = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text_with_instructions", :instructions_link => instructions_link).html_safe }
         - else
           = render :partial => "layouts/info_text", :locals => { :text => t(".google_analytics_key_info_text") }
