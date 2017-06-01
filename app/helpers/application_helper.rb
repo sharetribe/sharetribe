@@ -311,13 +311,12 @@ module ApplicationHelper
         :name => "getting_started_guide"
       },
       {
-        :id => "admin-support-link",
+        :id => "admin-help-center-link",
         :topic => :general,
-        :text => t("admin.left_hand_navigation.support"),
+        :text => t("admin.left_hand_navigation.help_center"),
         :icon_class => icon_class("help"),
-        :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support",
-        :data_uv_trigger => "contact"
+        :path => "https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "help_center"
       },
       {
         :id => "admin-academy-link",
