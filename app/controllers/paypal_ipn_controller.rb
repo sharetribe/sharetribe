@@ -17,7 +17,7 @@ class PaypalIpnController < ApplicationController
     api = paypal_merchant.build_api(nil)
 
     if api.ipn_valid?(request.raw_post)  # return true if PP backend verifies the msg
-      ipn_service.store_and_create_handler(params)
+      ipn_service.store_and_create_handler(params.to_unsafe_hash)
     else
       logger.warn("Fake IPN message received: #{request.raw_post}")
     end

@@ -117,6 +117,7 @@ group :development do
   gem 'better_errors', '~> 2.1.1'
   gem 'web-console', '~> 3.5.1'
   gem 'awesome_print', '~> 1.7.0'
+  gem 'binding_of_caller'
 end
 
 group :test do

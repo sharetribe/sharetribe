@@ -348,7 +348,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     module_function
 
     def params_to_shape(params)
-      form_params = HashUtils.symbolize_keys(params)
+      form_params = HashUtils.symbolize_keys(params.to_unsafe_hash)
 
       parsed_params = form_params.merge(
         units: parse_units_from_params(form_params),

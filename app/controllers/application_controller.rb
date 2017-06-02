@@ -141,9 +141,9 @@ class ApplicationController < ActionController::Base
 
   def redirect_to_locale(new_locale, status)
     if @current_community.default_locale == new_locale.to_s
-      redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => status
+      redirect_to url_for(params.to_unsafe_hash.symbolize_keys.except(:locale).merge(only_path: true)), :status => status
     else
-      redirect_to url_for(params.merge(locale: new_locale, only_path: true)), :status => status
+      redirect_to url_for(params.to_unsafe_hash.symbolize_keys.merge(locale: new_locale, only_path: true)), :status => status
     end
   end
 
