@@ -3,7 +3,7 @@ require 'active_support/core_ext/module/aliasing'
 require 'active_support/core_ext/object/blank'
 
 module Demoji
-  def create_or_update_with_utf8_rescue
+  def create_or_update *args
     _rescued_counter ||= 0
 
     super
@@ -36,10 +36,6 @@ module Demoji
       end
 
     end
-  end
-
-  def changed?
-    has_changes_to_save? # FIXME-STR51
   end
 end
 
