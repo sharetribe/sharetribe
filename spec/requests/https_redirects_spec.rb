@@ -1,10 +1,6 @@
 require "spec_helper"
 
 describe "Redirect to HTTPS", type: :request do
-  def self.render_views?
-    false
-  end
-
   def expect_redirect(http_url, https_url)
     get http_url
     expect(response.status).to eq 301
