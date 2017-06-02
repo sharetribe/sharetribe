@@ -315,7 +315,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.help_center"),
         :icon_class => icon_class("help"),
-        :path => "https://help.sharetribe.com/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
         :name => "help_center"
       },
       {
@@ -323,7 +323,7 @@ module ApplicationHelper
         :topic => :general,
         :text => t("admin.left_hand_navigation.academy"),
         :icon_class => icon_class("academy"),
-        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :path => "https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
         :name => "academy"
       }
     ]
