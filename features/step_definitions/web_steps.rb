@@ -277,7 +277,16 @@ Given /^I will(?:| (not)) confirm all following confirmation dialogs in this pag
 end
 
 When /^I confirm alert popup$/ do
-  page.driver.browser.switch_to.alert.accept unless ENV['PHANTOMJS']
+  unless ENV['PHANTOMJS']
+    # wait is necessary for firefox if alerts have slide-out animations
+    wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
+    alert = wait.until { page.driver.browser.switch_to.alert }
+    alert.accept
+    begin
+      page.driver.browser.switch_to.alert
+    rescue Selenium::WebDriver::Error::NoSuchAlertError
+    end
+  end
 end
 
 Then /^I should see validation error$/ do
