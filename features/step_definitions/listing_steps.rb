@@ -169,3 +169,18 @@ When(/^I select subcategory "(.*?)"$/) do |subcategory_name|
   expect(page).to have_css(".select", text: subcategory_name)
   first(".select", text: subcategory_name).click
 end
+
+When(/^I set location to be New York/) do
+  # Assume that GoogleMaps is not accessible and simulate that google maps has
+  # set values to the appropriate hidden fields
+  address = 'New York, NY, USA'
+  latitude = '40.7127837'
+  longitude = '-74.00594130000002'
+  page.driver.execute_script(
+    " $('#listing_origin_loc_attributes_address').val('#{address}');
+      $('#listing_origin_loc_attributes_google_address').val('#{address}');
+      $('#listing_origin_loc_attributes_latitude').val('#{latitude}');
+      $('#listing_origin_loc_attributes_longitude').val('#{longitude}');
+    "
+  )
+end
