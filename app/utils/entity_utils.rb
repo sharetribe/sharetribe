@@ -411,6 +411,7 @@ module EntityUtils
 
     def with_result(specs:, data:, on_success:, on_failure:)
       if data.is_a?(ActionController::Parameters)
+        ActiveSupport::Deprecation.warn("EntityUtils used with ActionController::Parameters. Convert Parameters to Hash using `.to_unsafe_hash` before using EntityUtils")
         data = data.to_unsafe_hash
       end
       raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
