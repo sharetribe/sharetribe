@@ -150,7 +150,6 @@ module Cucumber
         # print_messages
       end
 
-      # rubocop:disable ParameterLists
       def before_step_result(keyword, step_match, multiline_arg, status, exception, source_indent, background, file_colon_line)
         @hide_this_step = false
         if exception
@@ -167,7 +166,6 @@ module Cucumber
 
         @status = status
       end
-      # rubocop:enable ParameterLists
 
       def step_name(keyword, step_match, status, source_indent, background, file_colon_line)
         return if @hide_this_step
