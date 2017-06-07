@@ -965,12 +965,11 @@ class ListingsController < ApplicationController
     add_location_params(listing_params, params)
   end
 
-  # TODO why is this not covered by tests
   def add_location_params(listing_params, params)
-    params = ActionController::Parameters.new(params)
     if params[:origin_loc_attributes].nil?
       listing_params
     else
+      params = ActionController::Parameters.new(params)
       location_params = params[:origin_loc_attributes].permit(
         :address,
         :google_address,

@@ -17,6 +17,20 @@ Feature: User creates a new listing
     Then I should see "Sledgehammer" within "#listing-title"
 
   @javascript
+  Scenario: Creating a new item request with location successfully
+    Given I am logged in
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Requesting" from listing type menu
+    And I fill in "listing_title" with "Sledgehammer"
+    And I fill in "listing_description" with "My description"
+    And I set location to be New York
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+
+  @javascript
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
