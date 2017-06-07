@@ -48,12 +48,6 @@ Kassi::Application.routes.draw do
   get "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   get "/change_locale" => "i18n#change_locale", :as => :change_locale
 
-
-  # Prettier link for admin panel
-  namespace :admin do
-    get '' => "getting_started_guide#index"
-  end
-
   # Internal API
   namespace :int_api do
     post "/create_trial_marketplace" => "marketplaces#create"
@@ -168,6 +162,7 @@ Kassi::Application.routes.draw do
     end
 
     namespace :admin do
+      get '' => "getting_started_guide#index"
 
       # Payments
       get  "/paypal_preferences"                      => "paypal_preferences#index"
