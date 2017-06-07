@@ -1,10 +1,10 @@
 module PlanService::Store::Plan
 
-  class TrialModel < ActiveRecord::Base
+  class TrialModel < ApplicationRecord
     self.table_name = :marketplace_trials
   end
 
-  class PlanModel < ActiveRecord::Base
+  class PlanModel < ApplicationRecord
     self.table_name = :marketplace_plans
     store :features, coder: JSON
   end

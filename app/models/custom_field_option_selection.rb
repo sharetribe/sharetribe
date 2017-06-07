@@ -15,7 +15,7 @@
 #  index_selected_options_on_custom_field_value_id                 (custom_field_value_id)
 #
 
-class CustomFieldOptionSelection < ActiveRecord::Base
+class CustomFieldOptionSelection < ApplicationRecord
   belongs_to :custom_field_value
   belongs_to :custom_field_option
 end

@@ -8,5 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class ProspectEmail < ActiveRecord::Base
+class ProspectEmail < ApplicationRecord
 end

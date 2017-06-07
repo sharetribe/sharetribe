@@ -17,5 +17,5 @@
 #  index_listing_units_on_listing_shape_id  (listing_shape_id)
 #
 
-class ListingUnit < ActiveRecord::Base
+class ListingUnit < ApplicationRecord
 end

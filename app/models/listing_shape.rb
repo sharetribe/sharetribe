@@ -23,7 +23,7 @@
 #  multicol_index                        (community_id,deleted,sort_priority)
 #
 
-class ListingShape < ActiveRecord::Base
+class ListingShape < ApplicationRecord
 
   has_and_belongs_to_many :categories, -> { order("sort_priority") }, join_table: "category_listing_shapes"
   has_many :listing_units

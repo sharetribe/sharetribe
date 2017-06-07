@@ -18,7 +18,7 @@
 #  index_order_permissions_on_paypal_account_id  (paypal_account_id)
 #
 
-class OrderPermission < ActiveRecord::Base
+class OrderPermission < ApplicationRecord
   belongs_to :paypal_account, class_name: "PaypalAccount"
 
   validates_presence_of :paypal_account, :paypal_username_to

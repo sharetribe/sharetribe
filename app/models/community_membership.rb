@@ -20,7 +20,7 @@
 #  index_community_memberships_on_person_id     (person_id) UNIQUE
 #
 
-class CommunityMembership < ActiveRecord::Base
+class CommunityMembership < ApplicationRecord
 
   VALID_STATUSES = ["accepted", "pending_email_confirmation", "pending_consent", "banned", "deleted_user"]
 

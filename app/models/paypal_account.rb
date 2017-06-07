@@ -18,7 +18,7 @@
 #  index_paypal_accounts_on_person_id     (person_id)
 #
 
-class PaypalAccount < ActiveRecord::Base
+class PaypalAccount < ApplicationRecord
   belongs_to :person
   belongs_to :community
   has_one :order_permission, dependent: :destroy

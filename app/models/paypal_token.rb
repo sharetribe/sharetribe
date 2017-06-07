@@ -24,7 +24,7 @@
 #  index_paypal_tokens_on_transaction_id  (transaction_id)
 #
 
-class PaypalToken < ActiveRecord::Base
+class PaypalToken < ApplicationRecord
   validates_presence_of :community_id, :token, :transaction_id, :merchant_id, :express_checkout_url
   monetize :item_price_cents, with_model_currency: :currency, allow_nil: true
   monetize :shipping_total_cents, with_model_currency: :currency, allow_nil: true

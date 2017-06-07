@@ -13,7 +13,7 @@ class DeleteProfilePictureJob < Struct.new(:person_id, :image_file_name)
       }
     end
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
     self.primary_key = "id"
 
     has_attached_file(:image,

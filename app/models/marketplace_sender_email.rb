@@ -16,6 +16,6 @@
 #  index_marketplace_sender_emails_on_community_id  (community_id)
 #
 
-class MarketplaceSenderEmail < ActiveRecord::Base
+class MarketplaceSenderEmail < ApplicationRecord
   # TODO Implementation
 end

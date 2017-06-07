@@ -19,7 +19,7 @@
 #  index_participations_on_person_id        (person_id)
 #
 
-class Participation < ActiveRecord::Base
+class Participation < ApplicationRecord
   belongs_to :conversation, :dependent => :destroy, inverse_of: :participations, touch: true
   belongs_to :person
 end

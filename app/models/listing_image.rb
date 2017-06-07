@@ -23,7 +23,7 @@
 #  index_listing_images_on_listing_id  (listing_id)
 #
 
-class ListingImage < ActiveRecord::Base
+class ListingImage < ApplicationRecord
 
   belongs_to :listing, touch: true
   belongs_to :author, :class_name => "Person"

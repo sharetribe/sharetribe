@@ -17,7 +17,7 @@
 #  index_auth_tokens_on_token  (token) UNIQUE
 #
 
-class AuthToken < ActiveRecord::Base
+class AuthToken < ApplicationRecord
   belongs_to :person
   after_initialize :defaults
 

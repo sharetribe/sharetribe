@@ -22,6 +22,6 @@
 #  index_shipping_addresses_on_transaction_id  (transaction_id)
 #
 
-class ShippingAddress < ActiveRecord::Base
+class ShippingAddress < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
 end

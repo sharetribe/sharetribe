@@ -22,7 +22,7 @@
 #  index_emails_on_person_id                 (person_id)
 #
 
-class Email < ActiveRecord::Base
+class Email < ApplicationRecord
 
   include ApplicationHelper
   belongs_to :person

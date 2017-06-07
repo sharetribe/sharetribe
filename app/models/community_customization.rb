@@ -28,7 +28,7 @@
 #  index_community_customizations_on_community_id  (community_id)
 #
 
-class CommunityCustomization < ActiveRecord::Base
+class CommunityCustomization < ApplicationRecord
 
   # Set sane limits for content length. These are either driven by
   # column length in MySQL or, in case of :mediumtext type, set low

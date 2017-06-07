@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class PaypalIpnMessage < ActiveRecord::Base
+class PaypalIpnMessage < ApplicationRecord
   validates_presence_of :body
 
   serialize :body, Hash

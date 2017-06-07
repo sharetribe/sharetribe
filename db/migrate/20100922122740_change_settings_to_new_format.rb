@@ -1,5 +1,5 @@
 class ChangeSettingsToNewFormat < ActiveRecord::Migration
-  class Setting < ActiveRecord::Base
+  class Setting < ApplicationRecord
   end
   def self.up
     change_column :people, :preferences, :text
@@ -13,7 +13,7 @@ class ChangeSettingsToNewFormat < ActiveRecord::Migration
           "email_when_new_friend_request" => (settings.email_when_new_friend_request == 1),
           "email_when_new_feedback_on_transaction" => (settings.email_when_new_comment_to_kassi_event == 1),
           "email_when_new_listing_from_friend" => (settings.email_when_new_listing_from_friend == 1)}})
-        
+
       end
       print "."; STDOUT.flush
     end

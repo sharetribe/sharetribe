@@ -1,12 +1,12 @@
 class CopyFavorsAndItemsAsListings < ActiveRecord::Migration
-  class Item < ActiveRecord::Base
+  class Item < ApplicationRecord
   end
-  class Favor < ActiveRecord::Base
+  class Favor < ApplicationRecord
   end
   def self.up
     say "Copying all #{Item.count} items as listings"
     say "The old data from items table IS NOT DELETED by this migration", true
-    
+
     Item.all.each do |item|
       listing = Listing.new({:author_id => item.owner_id,
                              :category => "item" ,
@@ -19,20 +19,20 @@ class CopyFavorsAndItemsAsListings < ActiveRecord::Migration
                              :status => (item.status == "disabled" ? "disabled" : "open"),
                              :created_at => item.created_at
                              })
-      
+
       if item.updated_at != item.created_at
         listing.last_modified = item.updated_at
       end
-      
+
       listing.save!
       listing.update_attribute("updated_at", item.updated_at)
       print "."; STDOUT.flush
     end
-    
+
     puts ""
     say "Copying all #{Favor.count} favors as listings"
     say "The old data from favors table IS NOT DELETED by this migration", true
-    
+
     Favor.all.each do |favor|
       listing = Listing.new({:author_id => favor.owner_id,
                                   :category => "favor" ,
@@ -44,11 +44,11 @@ class CopyFavorsAndItemsAsListings < ActiveRecord::Migration
                                   :status => (favor.status == "disabled" ? "disabled" : "open"),
                                   :updated_at => favor.updated_at,
                                   :created_at => favor.created_at})
-                                  
+
       if favor.updated_at != favor.created_at
         listing.last_modified = favor.updated_at
       end
-      
+
       listing.save!
       listing.update_attribute("updated_at", favor.updated_at)
       print "."; STDOUT.flush

@@ -18,7 +18,7 @@
 #  index_categories_on_url           (url)
 #
 
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
 
   attr_accessor :basename
 
@@ -111,7 +111,7 @@ class Category < ActiveRecord::Base
   end
 
   def can_destroy?
-    is_subcategory? || community.top_level_categories.count > 1 
+    is_subcategory? || community.top_level_categories.count > 1
   end
 
   def can_be_destroyed?

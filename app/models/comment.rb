@@ -15,7 +15,7 @@
 #  index_comments_on_listing_id  (listing_id)
 #
 
-class Comment < ActiveRecord::Base
+class Comment < ApplicationRecord
 
   belongs_to :author, :class_name => "Person"
   belongs_to :listing, :counter_cache => true

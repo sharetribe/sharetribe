@@ -1,6 +1,6 @@
 class PopulatePeopleUuid < ActiveRecord::Migration
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
   end
 
   def up

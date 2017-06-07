@@ -1,8 +1,8 @@
 module CustomLandingPage
   module LandingPageStoreDB
 
-    class LandingPage < ActiveRecord::Base; end
-    class LandingPageVersion < ActiveRecord::Base; end
+    class LandingPage < ApplicationRecord; end
+    class LandingPageVersion < ApplicationRecord; end
 
     module_function
 
