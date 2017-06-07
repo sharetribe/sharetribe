@@ -441,7 +441,7 @@ class Community < ApplicationRecord
   end
 
   def self.find_by_email_ending(email)
-    Community.all.each do |community|
+    Community.all.find_each do |community|
       return community if community.allowed_emails && community.email_allowed?(email)
     end
     return nil
