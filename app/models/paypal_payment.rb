@@ -39,7 +39,7 @@
 #  index_paypal_payments_on_transaction_id    (transaction_id) UNIQUE
 #
 
-class PaypalPayment < ActiveRecord::Base
+class PaypalPayment < ApplicationRecord
 
   validates_presence_of(
     :community_id,

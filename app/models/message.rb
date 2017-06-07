@@ -14,7 +14,7 @@
 #  index_messages_on_conversation_id  (conversation_id)
 #
 
-class Message < ActiveRecord::Base
+class Message < ApplicationRecord
 
   after_save :update_conversation_read_status
 

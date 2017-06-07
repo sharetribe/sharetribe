@@ -97,7 +97,7 @@
 #  index_communities_on_uuid    (uuid) UNIQUE
 #
 
-class Community < ActiveRecord::Base
+class Community < ApplicationRecord
 
   require 'compass'
   require 'sass/plugin'

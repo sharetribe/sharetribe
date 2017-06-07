@@ -16,7 +16,7 @@
 #  index_paypal_refunds_on_refunding_id  (refunding_id) UNIQUE
 #
 
-class PaypalRefund < ActiveRecord::Base
+class PaypalRefund < ApplicationRecord
   validates_presence_of :paypal_payment_id
   validates_uniqueness_of :refunding_id
 end

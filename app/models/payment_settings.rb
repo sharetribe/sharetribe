@@ -21,7 +21,7 @@
 #  index_payment_settings_on_community_id  (community_id)
 #
 
-class PaymentSettings < ActiveRecord::Base
+class PaymentSettings < ApplicationRecord
 
   validates_presence_of(:community_id)
 end

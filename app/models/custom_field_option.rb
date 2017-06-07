@@ -13,7 +13,7 @@
 #  index_custom_field_options_on_custom_field_id  (custom_field_id)
 #
 
-class CustomFieldOption < ActiveRecord::Base
+class CustomFieldOption < ApplicationRecord
   include SortableByPriority # use `sort_priority()` for sorting
 
   belongs_to :custom_field

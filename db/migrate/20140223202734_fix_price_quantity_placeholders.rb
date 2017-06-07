@@ -1,11 +1,11 @@
-class CommunityCategory < ActiveRecord::Base
+class CommunityCategory < ApplicationRecord
   belongs_to :community
   belongs_to :category
   belongs_to :share_type
 end
 
-class ShareType < ActiveRecord::Base
-    
+class ShareType < ApplicationRecord
+
   has_many :sub_share_types, :class_name => "ShareType", :foreign_key => "parent_id"
   # children is a more generic alias for sub share_types, used in classification.rb
   has_many :children, :class_name => "ShareType", :foreign_key => "parent_id"
@@ -13,9 +13,9 @@ class ShareType < ActiveRecord::Base
   has_many :community_categories
   has_many :communities, :through => :community_categories
   has_many :listings
-  has_many :translations, :class_name => "ShareTypeTranslation", :dependent => :destroy 
+  has_many :translations, :class_name => "ShareTypeTranslation", :dependent => :destroy
 
-  
+
 end
 
 class FixPriceQuantityPlaceholders < ActiveRecord::Migration
@@ -27,7 +27,7 @@ class FixPriceQuantityPlaceholders < ActiveRecord::Migration
     Rent.find_each do |rental_tt|
       puts "Updating trans type #{rental_tt.class} at #{rental_tt.community.domain} to have placeholder time"
       rental_tt.update_column(:price_quantity_placeholder, "time")
-    end  
+    end
 
     # handle custom cases
     CommunityCategory.where("price_quantity_placeholder IS NOT NULL").each do |cc|
@@ -41,7 +41,7 @@ class FixPriceQuantityPlaceholders < ActiveRecord::Migration
         transaction_type.update_column(:price_quantity_placeholder, cc.price_quantity_placeholder)
       end
 
-    end  
+    end
 
   end
 

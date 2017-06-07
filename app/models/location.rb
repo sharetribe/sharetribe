@@ -21,7 +21,7 @@
 #  index_locations_on_person_id     (person_id)
 #
 
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
 
   belongs_to :person
   belongs_to :listing

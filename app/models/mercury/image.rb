@@ -11,7 +11,7 @@
 #  updated_at         :datetime         not null
 #
 
-class Mercury::Image < ActiveRecord::Base
+class Mercury::Image < ApplicationRecord
 
   self.table_name = :mercury_images
 

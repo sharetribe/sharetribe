@@ -19,7 +19,7 @@
 #  index_testimonials_on_transaction_id  (transaction_id)
 #
 
-class Testimonial < ActiveRecord::Base
+class Testimonial < ApplicationRecord
 
   belongs_to :author, :class_name => "Person"
   belongs_to :receiver, :class_name => "Person"

@@ -14,7 +14,7 @@
 #  index_category_custom_fields_on_custom_field_id                  (custom_field_id)
 #
 
-class CategoryCustomField < ActiveRecord::Base
+class CategoryCustomField < ApplicationRecord
   belongs_to :category
   belongs_to :custom_field
 

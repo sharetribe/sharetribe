@@ -17,7 +17,7 @@
 #  index_conversations_on_listing_id       (listing_id)
 #
 
-class Conversation < ActiveRecord::Base
+class Conversation < ApplicationRecord
 
   has_many :messages, :dependent => :destroy
 

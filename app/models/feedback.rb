@@ -13,7 +13,7 @@
 #  community_id :integer
 #
 
-class Feedback < ActiveRecord::Base
+class Feedback < ApplicationRecord
 
   belongs_to :author, :class_name => "Person"
 

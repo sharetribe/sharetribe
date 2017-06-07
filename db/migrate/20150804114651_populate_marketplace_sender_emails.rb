@@ -1,6 +1,6 @@
 class PopulateMarketplaceSenderEmails < ActiveRecord::Migration
 
-  class Community < ActiveRecord::Base
+  class Community < ApplicationRecord
   end
 
   def up

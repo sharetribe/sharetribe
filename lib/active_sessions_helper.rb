@@ -6,7 +6,7 @@ module ActiveSessionsHelper
       [:community_id, :fixnum, :optional],
       [:refreshed_at, :time, :mandatory])
 
-    class ActiveSession < ActiveRecord::Base; end
+    class ActiveSession < ApplicationRecord; end
 
     module_function
 
