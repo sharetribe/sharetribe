@@ -49,8 +49,8 @@ class ApplicationController < ActionController::Base
   attr_reader :current_user
 
   def redirect_removed_locale
-    if params[:locale] && Kassi::Application.config.REMOVED_LOCALES.include?(params[:locale])
-      fallback = Kassi::Application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
+    if params[:locale] && Rails.application.config.REMOVED_LOCALES.include?(params[:locale])
+      fallback = Rails.application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
       redirect_to_locale(fallback, :moved_permanently)
     end
   end
