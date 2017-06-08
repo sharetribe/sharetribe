@@ -16,6 +16,7 @@
 #  width              :integer
 #  height             :integer
 #  author_id          :string(255)
+#  position           :integer          default(0)
 #
 # Indexes
 #

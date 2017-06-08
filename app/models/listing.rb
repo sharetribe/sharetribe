@@ -70,7 +70,7 @@ class Listing < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
-  has_many :listing_images, -> { where("error IS NULL") }, :dependent => :destroy
+  has_many :listing_images, -> { where("error IS NULL").order("position") }, :dependent => :destroy
 
   has_many :conversations
   has_many :comments, :dependent => :destroy
