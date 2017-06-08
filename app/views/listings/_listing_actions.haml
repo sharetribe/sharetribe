@@ -136,8 +136,7 @@
             });
             window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
             if ("#{delivery_type}" == "shipping" && #{shipping_price_additional != nil}) {
-              var currency = '#{Maybe(delivery_opts)[0][:price].currency.iso_code.or_else(@current_community.currency)}'
-              window.ST.initializeShippingPriceTotal(currency, '#{I18n.locale}', '#quantity', '.delivery-price-value');
+              window.ST.initializeShippingPriceTotal(#{currency_opts.to_json}, '#quantity', '.delivery-price-value');
             }
 
         .quantity-wrapper.input-group.clearfix

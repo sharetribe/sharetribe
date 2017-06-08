@@ -24,6 +24,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Fixed transaction button styles. Styles were broken in IE Edge. [#2968](https://github.com/sharetribe/sharetribe/pull/2968)
 - Fixed admin UI language change. [#2969](https://github.com/sharetribe/sharetribe/pull/2969)
+- Fix old mobile browser compatibility by removing dependency to Intl api. [#2979](https://github.com/sharetribe/sharetribe/pull/2979)
 
 ### Security
 
