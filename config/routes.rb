@@ -1,5 +1,5 @@
 # coding: utf-8
-Kassi::Application.routes.draw do
+Rails.application.routes.draw do
 
   namespace :mercury do
     resources :images

@@ -112,6 +112,7 @@ end
 group :development do
   gem 'rb-fsevent', '~> 0.9.8', require: false
   gem 'guard-rspec', '~> 4.7.3', require: false
+  gem 'listen', '~> 3.1.5'
   gem 'annotate', '~> 2.7.1'
   gem 'zeus', '~> 0.15.13', require: false
   gem 'better_errors', '~> 2.1.1'
