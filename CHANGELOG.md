@@ -10,6 +10,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- New feature: User can reorder listing images [#2970](https://github.com/sharetribe/sharetribe/pull/2970)
+
 ### Changed
 
 - Change instructions how to compile assets. This reduces the JavaScript bundle size drastically. [c613cac](https://github.com/sharetribe/sharetribe/commit/c613cac)
@@ -19,6 +21,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Removed
 
 ### Fixed
+
+- Fixed transaction button styles. Styles were broken in IE Edge. [#2968](https://github.com/sharetribe/sharetribe/pull/2968)
+- Fixed admin UI language change. [#2969](https://github.com/sharetribe/sharetribe/pull/2969)
 
 ### Security
 
