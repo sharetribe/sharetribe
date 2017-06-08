@@ -103,7 +103,7 @@ class ListingImagesController < ApplicationController
   end
 
   def authorized_to_destroy?(image)
-    if image.listing.present?
+    if image.listing.present? && image.listing.community_id == @current_community.id
       # Listing is present: We are deleting image from saved listing
       image.listing.author == @current_user || @current_user.has_admin_rights?
     else

@@ -36,7 +36,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
   end
 
   def ban
-    membership = CommunityMembership.find_by_id(params[:id])
+    membership = CommunityMembership.find_by(id: params[:id], community_id: @current_community.id)
 
     if membership.person == @current_user
       flash[:error] = t("admin.communities.manage_members.ban_me_error")
