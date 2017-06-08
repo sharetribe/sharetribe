@@ -167,11 +167,11 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
       @min_option_count = 2
     end
 
-    @custom_field = CustomField.find(params[:id])
+    @custom_field = @current_community.custom_fields.find(params[:id])
   end
 
   def update
-    @custom_field = CustomField.find(params[:id])
+    @custom_field = @current_community.custom_fields.find(params[:id])
 
     # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
     params[:custom_field][:min] = ParamsService.parse_float(params[:custom_field][:min]) if params[:custom_field][:min].present?

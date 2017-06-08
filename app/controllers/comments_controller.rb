@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
+    @comment = @current_community.listings.find(params[:listing_id]).comments.find(params[:id])
     if current_user?(@comment.author) || @current_user.has_admin_rights?
       @comment.destroy
       respond_to do |format|
