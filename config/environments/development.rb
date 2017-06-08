@@ -1,6 +1,6 @@
 require_relative './common.rb'
 
-Kassi::Application.configure do
+Rails.application.configure do
   APP_CONFIG ||= ConfigLoader.load_app_config
 
   # Settings specified here will take precedence over those in config/environment.rb
@@ -9,6 +9,9 @@ Kassi::Application.configure do
   # every request.  This slows down response time but is perfect for development
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
+
+  # Do not eager load code on boot.
+  config.eager_load = false
 
   # To autoload MailPreview, uncomment this line
   # (this is a hack which is fixed properly in Rails 4)
@@ -51,12 +54,25 @@ Kassi::Application.configure do
 
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = false
+
+  # Enable/disable caching. By default caching is disabled.
+  if Rails.root.join('tmp/caching-dev.txt').exist?
+    config.action_controller.perform_caching = true
+    config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
+    config.public_file_server.headers = {
+      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+    }
+  else
+    config.action_controller.perform_caching = false
+    config.cache_store = :null_store
+  end
 
   config.action_controller.action_on_unpermitted_parameters = :raise
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.perform_caching = false
 
   if APP_CONFIG.mail_delivery_method == "sendmail"
     ActionMailer::Base.delivery_method = :sendmail
@@ -73,10 +89,20 @@ Kassi::Application.configure do
     }
   end
 
+  # Print deprecation notices to the Rails logger.
+  config.active_support.deprecation = :log
+
+  # Raise an error on page load if there are pending migrations.
+  config.active_record.migration_error = :page_load
 
   # Expands the lines which load the assets
   config.assets.debug = false
   config.assets.quiet = true
 
-  config.cache_store = :memory_store, { :namespace => "sharetribe-dev"}
+  # Raises error for missing translations
+  config.action_view.raise_on_missing_translations = false
+
+  # Use an evented file watcher to asynchronously detect changes in source code,
+  # routes, locales, etc. This feature depends on the listen gem.
+  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
