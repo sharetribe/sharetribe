@@ -37,7 +37,7 @@ window.ST = window.ST || {};
     });
   };
 
-  module.initializeShippingPriceTotal = function(currency, locale, quantityInputSelector, shippingPriceSelector){
+  module.initializeShippingPriceTotal = function(currencyOpts, quantityInputSelector, shippingPriceSelector){
     var $quantityInput = $(quantityInputSelector);
     var $shippingPriceElements = $(shippingPriceSelector);
 
@@ -51,7 +51,12 @@ window.ST = window.ST || {};
 
         // To avoid floating point issues, do calculations in cents
         var newShippingPrice = shippingPriceCents + perAdditionalCents * additionalCount;
-        var priceForDisplay = ST.paymentMath.displayMoney(newShippingPrice, currency, locale, {inCents: true})
+        var priceForDisplay = ST.paymentMath.displayMoney(newShippingPrice,
+                                                          currencyOpts.symbol,
+                                                          currencyOpts.digits,
+                                                          currencyOpts.format,
+                                                          currencyOpts.separator,
+                                                          currencyOpts.delimiter)
         $priceEl.text(priceForDisplay);
       });
     };

@@ -32,8 +32,7 @@
           :javascript
             $(function() {
               updateSellerGetsValue(
-                "#{@current_community.currency}",
-                "#{I18n.locale}",
+                #{currency_opts.to_json},
                 "#listing_price",
                 "#fee_display",
                 #{commission_from_seller},

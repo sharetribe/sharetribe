@@ -216,6 +216,8 @@ class ListingsController < ApplicationController
         Result::Success.new([])
       end
 
+    currency = Maybe(@listing.price).currency.or_else(Money::Currency.new(@current_community.currency))
+
     view_locals = {
       form_path: form_path,
       payment_gateway: payment_gateway,
@@ -231,7 +233,8 @@ class ListingsController < ApplicationController
       manage_availability_props: manage_availability_props(@current_community, @listing),
       availability_enabled: availability_enabled,
       blocked_dates_result: blocked_dates_result,
-      blocked_dates_end_on: DateUtils.to_midnight_utc(blocked_dates_end_on)
+      blocked_dates_end_on: DateUtils.to_midnight_utc(blocked_dates_end_on),
+      currency_opts: MoneyViewUtils.currency_opts(I18n.locale, currency)
     }
 
     Analytics.record_event(
@@ -638,6 +641,7 @@ class ListingsController < ApplicationController
         end
 
       community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+      community_currency = Money::Currency.new(@current_community.currency)
 
       commission(@current_community, process).merge({
         shape: shape,
@@ -647,7 +651,8 @@ class ListingsController < ApplicationController
         pickup_enabled: @listing.pickup_enabled?,
         shipping_price_additional: shipping_price_additional,
         always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity,
-        paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code)
+        paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
+        currency_opts: MoneyViewUtils.currency_opts(I18n.locale, community_currency)
       })
     end
   end

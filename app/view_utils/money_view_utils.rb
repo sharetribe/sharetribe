@@ -13,16 +13,16 @@ module MoneyViewUtils
 
       # Explicitly resolve formatting. WebTranslateit resolves
       # translations to nils which causes an error with number_to_currency
-      formatting = currency_format(locale)
-      precision = m.currency.exponent.to_i
+      formatting = currency_opts(locale, m.currency)
+      precision = formatting[:digits]
       zero_cents = "0" * precision
 
       number_to_currency(m.amount,
-                         unit: m.symbol,
+                         unit: formatting[:symbol],
                          delimiter: formatting[:delimiter],
                          separator: formatting[:separator],
                          format: formatting[:format],
-                         precision: m.currency.exponent.to_i)
+                         precision: precision)
         .tr(" ", "\u202F")
         .gsub("#{formatting[:separator]}#{zero_cents}", "") # remove cents if they are zero
         .encode('utf-8')
@@ -35,11 +35,14 @@ module MoneyViewUtils
 
   # Return a hash of currency formatting options, sets defaults if
   # translations are not present
-  def currency_format(locale)
+  # Currency needs to be an instance of Money::Currency
+  def currency_opts(locale, currency)
     {
       separator: I18n.t("number.currency.format.separator", locale: locale) || ".",
       delimiter: I18n.t("number.currency.format.delimiter", locale: locale) || ",",
-      format: I18n.t("number.currency.format.format", locale: locale) || "%u%n"
+      format: I18n.t("number.currency.format.format", locale: locale) || "%u%n",
+      digits: currency.exponent.to_i,
+      symbol: currency.symbol
     }
   end
 end
