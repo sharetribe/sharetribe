@@ -164,7 +164,7 @@ nl:
         resend_link: "Opnieuw zenden"
         invalid_email_error: "Ongeldig email formaat voor '%{email}'"
         invalid_email_domain: "Het '%{email}' emailadres gebruikt een niet ondersteunde email provider. '%{domain}'. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Lees het knowledge base artikel (Engels) voor meer informatie."
+        invalid_email_domain_read_more_link: "Lees het Help Center artikel (Engels) voor meer informatie."
         unknown_error: "Er ging iets mis"
         white_label_offer: "Zet je eigen emailadres als de verzender en verwijder alle Sharetribe branding van uitgaande emailberichten door %{upgrade_pro_plan_link}"
         upgrade_plan_link: "Upgrade naar het Pro plan of hoger"
@@ -395,7 +395,6 @@ nl:
       users_and_transactions: "Gebruikers en transacties"
       configure: Configuratie
       emails_title: E-mails
-      support: Support
       subscription: Abonnement
       preview: "Preview site"
     listing_shapes:

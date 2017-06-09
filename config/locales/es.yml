@@ -2,9 +2,9 @@ es:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: " "
+        delimiter: ","
+        format: "%n%u"
   admin:
     categories:
       edit:
@@ -378,7 +378,6 @@ es:
       users_and_transactions: ~
       configure: ~
       emails_title: ~
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:

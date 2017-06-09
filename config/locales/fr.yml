@@ -265,7 +265,7 @@ fr:
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
-        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}."
+        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}"
         facebook_instructions_link_text: "Lire les instructions pour configurer Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
@@ -393,7 +393,6 @@ fr:
       users_and_transactions: "Utilisateurs et transactions"
       configure: Configuration
       emails_title: Emails
-      support: Support
       subscription: Abonnement
       preview: "Prévisualiser le site"
     listing_shapes:
