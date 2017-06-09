@@ -65,9 +65,9 @@ class ListingImagesController < ApplicationController
 
   def reorder
     params[:ordered_ids].split(",").each_with_index do |image_id, index|
-      ListingImage.where(listing_id: params[:listing_id], id: image_id).update_all(position: index+1)
+      ListingImage.find_by(listing_id: params[:listing_id], id: image_id).update(position: index+1)
     end
-    render text: "OK"
+    render plain: "OK"
   end
 
   private
