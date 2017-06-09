@@ -38,7 +38,7 @@ namespace :sharetribe do
     def pending_migrations
       migration_paths = ActiveRecord::Migrator.migrations_paths
       all_migrations = ActiveRecord::Migrator.migrations(migration_paths)
-      migrator = ActiveRecord::Migrator.new(:up, all_migrations, ActiveRecord::Migrator.last_version())
+      migrator = ActiveRecord::Migrator.new(:up, all_migrations, ActiveRecord::Migrator.last_migration.version())
       migrator.pending_migrations()
     end
 
@@ -52,7 +52,7 @@ namespace :sharetribe do
       raise StandardError.new("Unknown execution stage #{stage}") unless allowed_stages.include?(stage)
 
       puts "Current database version: #{ActiveRecord::Migrator.current_version()}"
-      puts "Last available version: #{ActiveRecord::Migrator.last_version()}"
+      puts "Last available version: #{ActiveRecord::Migrator.last_migration.version()}"
 
       pending_migrations = pending_migrations()
 
