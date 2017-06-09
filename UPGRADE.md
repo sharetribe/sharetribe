@@ -33,6 +33,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 6.3.0 to 6.4.0
+
+Nothing special. See the [#general-update-instructions].
+
 ## Upgrade from 6.2.0 to 6.3.0
 
 ### Migration from database session store to cookie-based session store
