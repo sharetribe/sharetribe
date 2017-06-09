@@ -10,15 +10,26 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+
+## [6.4.0] - 2017-06-09
+
+### Added
+
 - New feature: User can reorder listing images [#2970](https://github.com/sharetribe/sharetribe/pull/2970)
 
 ### Changed
 
 - Change instructions how to compile assets. This reduces the JavaScript bundle size drastically. [c613cac](https://github.com/sharetribe/sharetribe/commit/c613cac)
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -27,6 +38,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Fix old mobile browser compatibility by removing dependency to Intl api. [#2979](https://github.com/sharetribe/sharetribe/pull/2979)
 
 ### Security
+
+- Fixed cross-community security issues [#2978](https://github.com/sharetribe/sharetribe/pull/2978)
 
 ## [6.3.0] - 2017-04-24
 
@@ -378,7 +391,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...HEAD
+[6.4.0]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...v6.4.0
 [6.3.0]: https://github.com/sharetribe/sharetribe/compare/v6.2.0...v6.3.0
 [6.2.0]: https://github.com/sharetribe/sharetribe/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...v6.1.0
