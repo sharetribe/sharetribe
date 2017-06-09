@@ -10,14 +10,9 @@ Rails.application.configure do
   # since you don't have to restart the webserver when you make code changes.
   config.cache_classes = false
 
-  # Do not eager load code on boot.
-  config.eager_load = false
-
   # To autoload MailPreview, uncomment this line
   # (this is a hack which is fixed properly in Rails 4)
   # config.action_view.cache_template_loading = false
-
-  config.log_level = :debug
 
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)

@@ -9,12 +9,6 @@ Rails.application.configure do
   # If live updates for translations are in use, caching is set to false.
   config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load == "true" ? false : true)
 
-  # Eager load code on boot. This eager loads most of Rails and
-  # your application in memory, allowing both threaded web servers
-  # and those relying on copy on write to perform better.
-  # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
-
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -31,9 +25,6 @@ Rails.application.configure do
 
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
-
-  # See everything in the log (default is :info)
-  config.log_level = ENV["LOG_LEVEL"] || :info
 
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
