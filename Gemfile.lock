@@ -265,7 +265,7 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
-    mail (2.6.5)
+    mail (2.6.6.rc1)
       mime-types (>= 1.16, < 4)
     mail_view (2.0.4)
       tilt
@@ -582,6 +582,7 @@ DEPENDENCIES
   launchy (~> 2.1)
   listen (~> 3.1.5)
   lograge (~> 0.5.1)
+  mail (~> 2.6.6.rc1)
   mail_view (~> 2.0.4)
   memcachier (~> 0.0.2)
   mercury-rails!
