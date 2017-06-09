@@ -144,7 +144,8 @@ default: &default_settings
   # You can use Airbrake to track errors if you want.
   # You need to register an account and get an API key from airbrake.io
   use_airbrake: false
-  airbrake_api_key: 'your_own_api_key_here'
+  airbrake_project_id: 'your_own_project_id_here'
+  airbrake_project_key: 'your_own_project_key_here'
 
   # Mail delivery method for mails sent by Sharetribe
   # possible values for delivery method are: sendmail or smtp
