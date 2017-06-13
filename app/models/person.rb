@@ -268,10 +268,13 @@ class Person < ApplicationRecord
             deprecator: MethodDeprecator.new
 
   def name(community_or_display_type)
+    deprecation_message = "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils."
+    MethodDeprecator.new.deprecation_warning(:name, deprecation_message)
     return name_or_username(community_or_display_type)
   end
-  deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
+  # FIXME deprecate on Person#name brakes airbrake
+  # deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+  #          deprecator: MethodDeprecator.new
 
   def given_name_or_username
     if given_name.present?
