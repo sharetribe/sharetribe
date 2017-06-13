@@ -11,5 +11,6 @@
   = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
   = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
   = render :partial => "listings/form/send_button", :locals => { :form => form }
+  = hidden_field_tag 'listing_ordered_images'
 
 = render :partial => "listings/help_texts", :collection => ["help_valid_until"], :as => :field

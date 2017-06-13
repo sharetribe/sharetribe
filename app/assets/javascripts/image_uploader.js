@@ -547,8 +547,21 @@ window.ST.imageUploader = function(listings, opts) {
     });
     $.ajax({type: "PUT", url:  opts.reorderUrl, data: {ordered_ids: ordered.join(",")} });
   }
+
+  function localReorderImages() {
+    var ordered = [];
+    $(".listing-images .listing-image-id").each(function(){
+      if(this.value) {
+        ordered.push(this.value);
+      }
+    });
+    $("#listing_ordered_images").val(ordered.join(","));
+  }
+
   if (opts.reorderUrl) {
-    $(".listing-images").sortable({stop: reorderImages});
+    $(".listing-images").sortable({stop: reorderImages, items: '.fileinput-button:not(:last-child)' });
+  } else {
+    $(".listing-images").sortable({stop: localReorderImages, items: '.fileinput-button:not(:last-child)'});
   }
 
   return status;
