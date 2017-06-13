@@ -16,6 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `active_sessions`
+--
+
+DROP TABLE IF EXISTS `active_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `active_sessions` (
+  `id` binary(16) NOT NULL,
+  `person_id` varchar(22) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
+  `refreshed_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_active_sessions_on_person_id` (`person_id`),
+  KEY `index_active_sessions_on_community_id` (`community_id`),
+  KEY `index_active_sessions_on_refreshed_at` (`refreshed_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `auth_tokens`
 --
 
@@ -1601,7 +1622,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-14 13:56:18
+-- Dump completed on 2017-04-18 12:54:43
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3231,4 +3252,6 @@ INSERT INTO schema_migrations (version) VALUES ('20170309104456');
 INSERT INTO schema_migrations (version) VALUES ('20170313201104');
 
 INSERT INTO schema_migrations (version) VALUES ('20170314075755');
+
+INSERT INTO schema_migrations (version) VALUES ('20170613153959');
 
