@@ -57,11 +57,11 @@ class ErrorsController < ActionController::Base
   end
 
   def exception
-    env["action_dispatch.exception"]
+    request.env["action_dispatch.exception"]
   end
 
   def airbrake_error_id
-    env['airbrake.error_id'] if error_id_present?(env['airbrake.error_id'])
+    request.env['airbrake.error_id'] if error_id_present?(request.env['airbrake.error_id'])
   end
 
   def can_notify_airbrake
