@@ -41,7 +41,7 @@
   if (_flash_analytics) {
     for(var i = 0; i < _flash_analytics.length; i++) {
       var _event = _flash_analytics[i];
-      window.ST.analytics.logEvent( _event.event, _event.action, null, null, _event.props);
+      window.ST.analytics.logEvent( _event.event, _event.action, null, _event.props);
     }
   }
 
