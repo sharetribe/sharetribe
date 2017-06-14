@@ -110,4 +110,4 @@
   - feature_flags = FeatureFlagHelper.feature_flags
   - identity_information = IntercomHelper.identity_information(@current_user)
 
-  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_uuid: user_uuid, name: name, user_hash: user_hash, plan: plan, feature_flags: feature_flags, identity_information: identity_information }
+  = render partial: "analytics/intercom", locals: { app_id: app_id, email: email, user_uuid: user_uuid, name: name, user_hash: user_hash, plan: plan, feature_flags: feature_flags, identity_information: identity_information }

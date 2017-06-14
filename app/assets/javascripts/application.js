@@ -19,7 +19,6 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
 //= require jquery-ui-1.9.2.custom
 //= require jquery-ui-1.9.2.sortable
 //= require jquery.ui.touch-punch.min.js

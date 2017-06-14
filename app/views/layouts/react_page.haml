@@ -3,8 +3,7 @@
 %head
   %meta{charset: "utf-8"}
 
-  = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
-
+  = render partial: "analytics/head_scripts" 
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present?
     = render partial: "layouts/fonts", locals: { font_path: font_path }
