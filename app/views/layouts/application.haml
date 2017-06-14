@@ -94,15 +94,6 @@
     :javascript
       window.ST.jsonTranslations = #{raw JSONTranslations.get(I18n.locale)}
 
-    - if @analytics_event
-      :javascript
-        window.ST.analytics.logEvent.apply(null, #{@analytics_event});
-    - if @gtm_datalayer
-      :javascript
-        if(window.ST != null && typeof window.ST.gtmPush === 'function') {
-          window.ST.gtmPush(#{@gtm_datalayer.to_json.html_safe});
-        }
-
     :javascript
       $(function() {
         if ('touchAction' in document.body.style) {

@@ -288,8 +288,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       state_changed = Admin::OnboardingWizard.new(community.id)
         .update_from_event(:community_updated, community)
       if state_changed
-        report_to_gtm({event: "km_record", km_event: "Onboarding cover photo uploaded"})
-
+        Analytics.record_event(flash, "km_record", {km_event: "Onboarding cover photo uploaded"})
         flash[:show_onboarding_popup] = true
       end
     }

@@ -31,13 +31,19 @@
   };
   
   window.ST.analytics.gtm_handler = function(event, args) {
-    window.ST.gtmPush({
-      'event' : 'GAEvent',
-      'eventCategory' : args.category,
-      'eventAction' : args.saction,
-      'eventLabel' : args.opt_label,
-      'eventValue' : undefined
-    });
+    if (args.category == 'km_record') {
+      var data = $.extend({}, args.props);
+      data.event = 'km_record';
+      window.ST.gtmPush(data);
+    } else {
+      window.ST.gtmPush({
+        'event' : 'GAEvent',
+        'eventCategory' : args.category,
+        'eventAction' : args.saction,
+        'eventLabel' : args.opt_label,
+        'eventValue' : undefined
+      });
+    }
   }
   $(document).on('st-analytics:event', window.ST.analytics.gtm_handler);
 

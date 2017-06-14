@@ -52,7 +52,7 @@ class InvitationsController < ApplicationController
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:invitation_created, invitation)
         if state_changed
-          report_to_gtm({event: "km_record", km_event: "Onboarding invitation created"})
+          Analytics.record_event(flash, "km_record", {km_event: "Onboarding invitation created"})
 
           flash[:show_onboarding_popup] = true
         end

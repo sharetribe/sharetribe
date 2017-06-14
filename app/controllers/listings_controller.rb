@@ -376,7 +376,7 @@ class ListingsController < ApplicationController
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:listing_created, @listing)
         if state_changed
-          report_to_gtm({event: "km_record", km_event: "Onboarding listing created"})
+          Analytics.record_event(flash, "km_record", {km_event: "Onboarding listing created"})
 
           flash[:show_onboarding_popup] = true
         end
