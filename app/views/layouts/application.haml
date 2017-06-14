@@ -96,7 +96,7 @@
 
     - if @analytics_event
       :javascript
-        report_analytics_event.apply(null, #{@analytics_event});
+        window.ST.analytics.logEvent.apply(null, #{@analytics_event});
     - if @gtm_datalayer
       :javascript
         if(window.ST != null && typeof window.ST.gtmPush === 'function') {

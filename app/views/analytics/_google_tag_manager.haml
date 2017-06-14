@@ -30,3 +30,17 @@
       window.dataLayer.push(data);
     }
   };
+  
+  window.ST.analytics.gtm_handler = function(event, args) {
+    if (window.ST != null && typeof window.ST.gtmPush === 'function') {
+      window.ST.gtmPush({
+        'event' : 'GAEvent',
+        'eventCategory' : args.category,
+        'eventAction' : args.saction,
+        'eventLabel' : args.opt_label,
+        'eventValue' : undefined
+      });
+    }
+  }
+
+  $(document).on('st-analytics:event', window.ST.analytics.gtm_handler);
