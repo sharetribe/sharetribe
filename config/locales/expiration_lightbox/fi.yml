@@ -3,10 +3,12 @@ fi:
   expiration:
     admin:
       title: "Sharetribe-palvelun kokeilujakso on päättynyt."
-      contact_us: "Ota yhteyttä."
       sub_title_new: "Ei huolta, markkinapaikan tietoja ei ole poistettu. Voit jatkaa markkinapaikkasi käyttöä välittömästi tilaamalla jonkin maksullisista paketeistamme."
-      need_more_info: "Tarvitsetko enemmän tietoa?"
       link_to_external_service: "Valitse paketti"
+      need_more_info: "Tarvitsetko enemmän tietoa?"
+      contact_us: "Ota yhteyttä."
+      need_more_time: "Tarvitsetko lisää aikaa?"
+      let_us_extend_2_weeks: "Voimme jatkaa kokeilujaksoasi kahdella viikolla"
     title: "Markkinapaikan kokeilujakso on päättynyt."
     unavailable_info: "Markkinapaikka on tilapäisesti pois käytöstä. Ei huolta, markkinapaikan tietoja ei ole poistettu."
     all_available_info: "Markkinapaikka palaa käyttöön tietoineen, kun markkinapaikan omistaja tilaa jonkin <a href='https://www.sharetribe.com/?utm_source=expired-trial&utm_medium=modal&utm_campaign=end-user-modal-expired-trial'>Sharetriben</a> maksullisista paketeista."
