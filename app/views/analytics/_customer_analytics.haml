@@ -23,9 +23,7 @@
   };
 
   window.ST.analytics.customer_gat_handler = function(event, args) {
-    if (typeof ST.customerReportEvent === 'function') {
-      ST.customerReportEvent(args.category, args.action, args.opt_label);
-    }
+    ST.customerReportEvent(args.category, args.action, args.opt_label);
   }
 
   $(document).on('st-analytics:event', window.ST.analytics.customer_gat_handler);

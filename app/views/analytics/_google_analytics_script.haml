@@ -1,6 +1,6 @@
 <script>
 - if APP_CONFIG.use_google_tag_manager.to_s == "true"
-  = render partial: "analytics/google_tag_manager", locals: {feature_flags: feature_flags, community_id: community_id}
+  = render partial: "analytics/google_tag_manager"
 
 - if APP_CONFIG.use_google_analytics.to_s == "true"
   = render partial: "analytics/legacy_google_analytics"

@@ -14,39 +14,35 @@
      if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
  })(window,document);
 
- (function() {
-   var ampClient = amplitude.getInstance();
-   ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
+  $(document).on("st-analytics:setup", function(event, info) {
+    var ampClient = amplitude.getInstance();
+    ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
+ 
+    var userInfo = new amplitude.Identify()
+                                .set('community_id', info.community_id)
+                                .set('marketplace_uuid', info.community_uuid),
+                                .set('admin', info.user_is_admin);
+ 
+    if (info.plan_status) {
+      userInfo.set('plan_status', info.plan_status);
+    }
+ 
+    if (info.user_uuid) {
+      ampClient.setUserId(info.user_uuid);
+    }
+ 
+    ampClient.identify(userInfo);
+  });
 
-   var userInfo = new amplitude.Identify()
-                               .set('community_id', <%= community.id %>)
-                               .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
-                               .set('admin', <%= (user&.is_marketplace_admin?(@current_community) || false).to_json %>);
+  $(document).on("st-analytics:event", function(event, args){
+    ampClient.logEvent(args.category, args.props); 
+  });
 
-   <% if plan %>
-     userInfo.set('plan_status', '<%= plan[:status] %>');
-   <% end %>
-
-   <% if user %>
-     ampClient.setUserId('<%= user.uuid_object.to_s %>');
-   <% end %>
-
-   ampClient.identify(userInfo);
-
-   <% if flash[:_analytics_events].present? %>
-     <% flash[:_analytics_events].each do |ev| %>
-       ampClient.logEvent(<%= ev[:event]&.to_json&.html_safe %>,
-                          <%= ev[:props]&.to_json&.html_safe %>);
-     <% end %>
-   <% end %>
-
-   <% if flash[:_analytics_logout] %>
-     ampClient.setUserId(null);
-     ampClient.regenerateDeviceid();
-   <% end %>
- })();
+  $(document).on("st-analytics:logout", function(event, args){
+    ampClient.setUserId(null);
+    ampClient.regenerateDeviceid();
+  });
 <% end %>
-
  (function(exports) {
    exports.ampClient = {
      logEvent: function(eventType, eventProperties, opt_callback) {

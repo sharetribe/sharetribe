@@ -1,17 +1,16 @@
 :plain
   var dataLayer = dataLayer || [];
-  (function(dl){
-    var marketplaceId = #{community_id};
-    if (marketplaceId) {
-      dl.push({"event": "identify", "id": "mp-"+marketplaceId+"-admin" });
+  function _gtm_identify(dl, community_id, feature_flags){
+    if (community_id) {
+      dl.push({"event": "identify", "id": "mp-"+community_id+"-admin" });
     }
 
     dl.push({
       event: 'feature flags',
-      featureFlags: #{feature_flags.to_json.html_safe}
+      featureFlags: feature_flags
     });
 
-  })(dataLayer);
+  };
 
   <!-- Google Tag Manager -->
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -32,15 +31,16 @@
   };
   
   window.ST.analytics.gtm_handler = function(event, args) {
-    if (window.ST != null && typeof window.ST.gtmPush === 'function') {
-      window.ST.gtmPush({
-        'event' : 'GAEvent',
-        'eventCategory' : args.category,
-        'eventAction' : args.saction,
-        'eventLabel' : args.opt_label,
-        'eventValue' : undefined
-      });
-    }
+    window.ST.gtmPush({
+      'event' : 'GAEvent',
+      'eventCategory' : args.category,
+      'eventAction' : args.saction,
+      'eventLabel' : args.opt_label,
+      'eventValue' : undefined
+    });
   }
-
   $(document).on('st-analytics:event', window.ST.analytics.gtm_handler);
+
+  $(document).on('st-analytics:setup', function(event, info) {
+    _gtm_identify(dataLayer, info.community_id, info.feature_flags);
+  });
