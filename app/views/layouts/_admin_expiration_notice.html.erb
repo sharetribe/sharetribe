@@ -16,6 +16,9 @@
         </a>
       </div>
     </div>
-    <p class="expiration-footer"><%= t("expiration.admin.need_more_info") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.admin.contact_us") %></a></p>
+    <p class="expiration-footer">
+        <%= t("expiration.admin.need_more_info") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.admin.contact_us") %></a>.
+        <br/><%= t("expiration.admin.need_more_time") %> <a href="https://sharetribe.typeform.com/to/UR8QPq?email=<%= @current_user.primary_email.address %>&marketplace_domain=<%= @current_community.full_domain %>&marketplace_id=<%= @current_community.id %>"><%= t("expiration.admin.let_us_extend_2_weeks") %></a>.
+    </p>
   </div>
 </div>
