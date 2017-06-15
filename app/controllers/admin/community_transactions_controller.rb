@@ -12,7 +12,8 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         @current_community.id,
         sort_direction,
         pagination_opts[:limit],
-        pagination_opts[:offset])
+        pagination_opts[:offset],
+        request.format == :csv)
     else
       TransactionQuery.transactions_for_community_sorted_by_column(
         @current_community.id,

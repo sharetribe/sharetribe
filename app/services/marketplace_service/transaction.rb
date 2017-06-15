@@ -287,16 +287,18 @@ module MarketplaceService
           .limit(limit)
           .offset(offset)
           .order("#{sort_column} #{sort_direction}")
-
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
-      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset,  eager_includes = false)
         sql = sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
         transactions = TransactionModel.find_by_sql(sql)
-
+        if eager_includes
+          transactions = TransactionModel.where(:id => transactions.map(&:id))
+            .includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
+        end
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
         }
