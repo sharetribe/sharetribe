@@ -264,6 +264,7 @@ Rails.application.routes.draw do
         resources :transactions, controller: :community_transactions, only: :index do
           collection do
             get 'export'
+            get 'export_status'
           end
         end
         resources :emails

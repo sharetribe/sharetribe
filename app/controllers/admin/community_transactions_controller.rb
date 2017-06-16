@@ -87,11 +87,23 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
   end
 
   def export
-    flash[:notice] = I18n.t("admin.communities.transactions.export_is_emailed")
-    FeatureFlagHelper.with_feature(:export_transactions_as_csv) do
-      Delayed::Job.enqueue(ExportTransactionsJob.new(@current_user.id, @current_community.id))
+    if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv)
+      @export_result = ExportTaskResult.create
+      Delayed::Job.enqueue(ExportTransactionsJob.new(@current_user.id, @current_community.id, @export_result.id))
     end
-    redirect_to action: :index
+    respond_to do |format|
+      format.js { render layout: false } 
+    end
+  end
+
+  def export_status
+    export_result = ExportTaskResult.where(:token => params[:token]).first
+    if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv) && export_result
+      file_url = export_result.file.present? ? export_result.file.url : nil
+      render json: {token: export_result.token, status: export_result.status, url: file_url}
+    else
+      render json: {status: 'error'}
+    end
   end
 
   private

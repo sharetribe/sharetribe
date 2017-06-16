@@ -1,5 +1,5 @@
 require 'csv'
-class ExportTransactionsJob < Struct.new(:current_user_id, :community_id)
+class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :export_task_id)
   TransactionQuery = MarketplaceService::Transaction::Query
   include DelayedAirbrakeNotification
 
@@ -14,6 +14,8 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id)
   def perform
     community = Community.find(community_id)
     user = Person.find(current_user_id)
+    export_task = ExportTaskResult.find(export_task_id)
+    export_task.update_attribute(:status, 'started')
 
     conversations = TransactionQuery.transactions_for_community_sorted_by_activity(community.id, 'desc', nil, nil, true)
     conversations = conversations.map do |transaction|
@@ -29,7 +31,20 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id)
     csv_rows = []
     ExportTransactionsJob.generate_csv_for(csv_rows, conversations)
     csv_content = csv_rows.join("")
-    MailCarrier.deliver_now(PersonMailer.transactions_exported(user, community, csv_content))
+    marketplace_name = community.use_domain ? community.domain : community.ident 
+    filename = "#{marketplace_name}-transactions-#{Date.today}-#{export_task.token}.csv"
+    export_task.update_attributes(status: 'finished', file: FakeFileIO.new(filename, csv_content))
+  end
+
+  class FakeFileIO < StringIO
+    attr_reader :original_filename
+    attr_reader :path
+
+    def initialize(filename, content)
+      super(content)
+      @original_filename = File.basename(filename)
+      @path = File.path(filename)
+    end
   end
 
   def self.generate_csv_for(yielder, conversations)
