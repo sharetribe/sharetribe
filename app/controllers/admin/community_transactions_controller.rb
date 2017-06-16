@@ -47,7 +47,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 
-      transaction[:last_activity_at] = last_activity_for(transaction)
+      transaction[:last_activity_at] = ExportTransactionsJob.last_activity_for(transaction)
 
       transaction.merge({author: author, starter: starter})
     end
@@ -79,56 +79,22 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
           self.response.headers["Last-Modified"] = Time.now.ctime.to_s
 
           self.response_body = Enumerator.new do |yielder|
-            generate_csv_for(yielder, conversations)
+            ExportTransactionsJob.generate_csv_for(yielder, conversations)
           end
         end
       end
     end
   end
 
-  def generate_csv_for(yielder, conversations)
-    # first line is column names
-    yielder << %w{
-      transaction_id
-      listing_id
-      listing_title
-      status
-      currency
-      sum
-      started_at
-      last_activity_at
-      starter_username
-      other_party_username
-    }.to_csv(force_quotes: true)
-    conversations.each do |conversation|
-      yielder << [
-        conversation[:id],
-        conversation[:listing] ? conversation[:listing][:id] : "N/A",
-        conversation[:listing_title] || "N/A",
-        conversation[:status],
-        conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
-        conversation[:payment_total],
-        conversation[:created_at],
-        conversation[:last_activity_at],
-        conversation[:starter] ? conversation[:starter][:username] : "DELETED",
-        conversation[:author] ? conversation[:author][:username] : "DELETED"
-      ].to_csv(force_quotes: true)
+  def export
+    flash[:notice] = I18n.t("admin.communities.transactions.export_is_emailed")
+    FeatureFlagHelper.with_feature(:export_transactions_as_csv) do
+      Delayed::Job.enqueue(ExportTransactionsJob.new(@current_user.id, @current_community.id))
     end
+    redirect_to action: :index
   end
 
   private
-
-  def last_activity_for(conversation)
-    last_activity_at = 0
-    last_activity_at = if conversation[:conversation][:last_message_at].nil?
-      conversation[:last_transition_at]
-    elsif conversation[:last_transition_at].nil?
-      conversation[:conversation][:last_message_at]
-    else
-      [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
-    end
-    last_activity_at
-  end
 
   def simple_sort_column(sort_column)
     case sort_column
