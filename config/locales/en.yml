@@ -310,6 +310,7 @@ en:
         invalid_post_listing_button_label: "Please provide a valid text for \"Post a new listing\" button"
       transactions:
         export_all_as_csv: "Export all as CSV"
+        export_is_emailed: "Exported transactions data will be emailed to you shortly"
         transactions: "View transactions"
         headers:
           conversation: "Conversation thread"
@@ -1087,6 +1088,9 @@ en:
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
       person_name: "Name:"
       person_email: "Email:"
+    transactions_exported:
+      subject: "Transactions for %{community}"
+      body: "In attached CSV file you will find all transactions for %{community}"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

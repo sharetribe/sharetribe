@@ -296,8 +296,11 @@ module MarketplaceService
         sql = sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
         transactions = TransactionModel.find_by_sql(sql)
         if eager_includes
-          transactions = TransactionModel.where(:id => transactions.map(&:id))
+          tx_ids = transactions.map(&:id)
+          transactions = TransactionModel.where(:id => tx_ids)
             .includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
+          # keep sort order
+          transactions = transactions.sort_by{|tx| tx_ids.index(tx.id) }
         end
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
@@ -318,6 +321,10 @@ module MarketplaceService
 
       # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
       def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+        limit_string = ""
+        limit_string << " LIMIT #{limit} " if limit.present?
+        limit_string << " OFFSET #{offset} " if offset.present?
+
         "
           SELECT transactions.* FROM transactions
 
@@ -328,7 +335,7 @@ module MarketplaceService
           ORDER BY
             GREATEST(COALESCE(transactions.last_transition_at, 0),
               COALESCE(conversations.last_message_at, 0)) #{sort_direction}
-          LIMIT #{limit} OFFSET #{offset}
+         #{limit_string} 
         "
       end
 
