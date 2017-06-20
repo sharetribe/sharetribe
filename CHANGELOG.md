@@ -20,6 +20,11 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [7.0.0] - 2017-06-09
+
+### Changed
+
+- Updated Rails to 5.1.1 and Node to 7.8 [#2976](https://github.com/sharetribe/sharetribe/pull/2976)
 
 ## [6.4.0] - 2017-06-09
 
