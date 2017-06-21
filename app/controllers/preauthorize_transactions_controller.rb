@@ -1,14 +1,14 @@
 # coding: utf-8
 class PreauthorizeTransactionsController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 
-  before_filter :ensure_listing_is_open
-  before_filter :ensure_listing_author_is_not_current_user
-  before_filter :ensure_authorized_to_reply
-  before_filter :ensure_can_receive_payment
+  before_action :ensure_listing_is_open
+  before_action :ensure_listing_author_is_not_current_user
+  before_action :ensure_authorized_to_reply
+  before_action :ensure_can_receive_payment
 
   IS_POSITIVE = ->(v) {
     return if v.nil?

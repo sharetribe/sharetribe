@@ -32,7 +32,7 @@ describe "plan provisioning", type: :request do
 
     describe "security" do
       it "returns 401 if token doesn't match" do
-        post "http://webhooks.sharetribe.com/webhooks/plans", {plans: []}.to_json
+        post "http://webhooks.sharetribe.com/webhooks/plans", params: {plans: []}.to_json
         expect(response.status).to eq(401)
 
         error_log = log_target.parse_log(:error)
@@ -41,14 +41,14 @@ describe "plan provisioning", type: :request do
       end
 
       it "returns 200 if authorized" do
-        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: {plans: []}.to_json
         expect(response.status).to eq(200)
       end
     end
 
     describe "invalid JSON" do
       it "returns 400 Bad request, if JSON is invalid" do
-        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", "invalid JSON"
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: "invalid JSON"
         expect(response.status).to eq(400)
 
         error_log = log_target.parse_log(:error)
@@ -78,7 +78,7 @@ describe "plan provisioning", type: :request do
         ]
       }'
 
-        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", body
+        post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: body
 
         plan1234 = PlanService::API::Api.plans.get_current(community_id: 1234).data
 
@@ -130,7 +130,7 @@ describe "plan provisioning", type: :request do
     }
 
     it "returns 404 if external plan service is not in use" do
-      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", {plans: []}.to_json
+      post "http://webhooks.sharetribe.com/webhooks/plans?token=#{token}", params: {plans: []}.to_json
       expect(response.status).to eq(404)
     end
   end

@@ -39,33 +39,7 @@
 #  index_paypal_payments_on_transaction_id    (transaction_id) UNIQUE
 #
 
-class PaypalPayment < ActiveRecord::Base
-  attr_accessible(
-    :community_id,
-    :transaction_id,
-    :payer_id,
-    :receiver_id,
-    :merchant_id,
-    :order_id,
-    :order_date,
-    :currency,
-    :order_total_cents,
-    :authorization_id,
-    :authorization_date,
-    :authorization_expires_date,
-    :authorization_total_cents,
-    :payment_id,
-    :payment_date,
-    :payment_total_cents,
-    :fee_total_cents,
-    :payment_status,
-    :pending_reason,
-    :commission_payment_id,
-    :commission_payment_date,
-    :commission_total_cents,
-    :commission_fee_total_cents,
-    :commission_status,
-    :commission_pending_reason)
+class PaypalPayment < ApplicationRecord
 
   validates_presence_of(
     :community_id,

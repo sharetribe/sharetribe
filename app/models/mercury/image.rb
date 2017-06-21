@@ -11,14 +11,12 @@
 #  updated_at         :datetime         not null
 #
 
-class Mercury::Image < ActiveRecord::Base
+class Mercury::Image < ApplicationRecord
 
   self.table_name = :mercury_images
 
-  attr_accessible :image
-
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" },
-        :path => "images/mercury/:attachment/:id/:style/:filename",
+        :path => ":rails_root/public/system/mercury/images/:attachment/:id/:style/:filename",
         :url => "/system/:class/:attachment/:id/:style/:filename"
 
   validates_attachment_content_type :image,

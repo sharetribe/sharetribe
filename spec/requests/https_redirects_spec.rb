@@ -1,7 +1,6 @@
 require "spec_helper"
 
 describe "Redirect to HTTPS", type: :request do
-
   def expect_redirect(http_url, https_url)
     get http_url
     expect(response.status).to eq 301
@@ -40,7 +39,7 @@ describe "Redirect to HTTPS", type: :request do
     end
 
     it "does not happen when SSL is terminated on proxy" do
-      get "http://#{domain}", nil, { "X-Forwarded-Proto" => "https" }
+      get "http://#{domain}", params: nil, headers: { "X-Forwarded-Proto" => "https" }
       expect(response.status).to eq 200
     end
   end

@@ -16,9 +16,7 @@
 #  index_category_translations_on_category_id  (category_id)
 #
 
-class CategoryTranslation < ActiveRecord::Base
-
-  attr_accessible :name, :locale, :description, :category_id
+class CategoryTranslation < ApplicationRecord
 
   belongs_to :category, touch: true
 

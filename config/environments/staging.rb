@@ -1,16 +1,16 @@
 require_relative './common.rb'
 
-Kassi::Application.configure do
-  # Settings specified here will take precedence over those in config/environment.rb
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb
 
   # The staging environment is meant to be very similar to production, but to allow easier testing and debuging
 
-  # Code is not reloaded between requests
+  # Code is not reloaded between requests.
   # If live updates for translations are in use, caching is set to false.
   config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load == "true" ? false : true)
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
@@ -19,11 +19,12 @@ Kassi::Application.configure do
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 
+  # Disable serving static files from the `/public` folder by default since
+  # Apache or NGINX already handles this.
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
-
-  # See everything in the log (default is :info)
-  config.log_level = ENV["LOG_LEVEL"] || :info
 
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
@@ -88,8 +89,10 @@ Kassi::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.action_mailer.perform_caching = false
+
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable threaded mode
   # config.threadsafe!
@@ -98,7 +101,6 @@ Kassi::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   # config.i18n.fallbacks = true #fallbacks defined in intitializers/i18n.rb
 
-  config.action_mailer.raise_delivery_errors = true
 
   mail_delivery_method = (APP_CONFIG.mail_delivery_method.present? ? APP_CONFIG.mail_delivery_method.to_sym : :sendmail)
 
@@ -123,6 +125,9 @@ Kassi::Application.configure do
   }
 
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
+
+  # Send deprecation notices to registered listeners.
+  config.active_support.deprecation = :log
 
   # We don't need schema dumps in this environment
   config.active_record.dump_schema_after_migration = false

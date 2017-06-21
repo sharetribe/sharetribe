@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeNewLayoutManager(#{feature_rels.to_json});
+      window.ST.initializeNewLayoutManager(#{feature_rels.to_json.html_safe});
     });
 
 - content_for :title_header do

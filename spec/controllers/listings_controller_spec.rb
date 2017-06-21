@@ -1,4 +1,67 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: listings
+#
+#  id                              :integer          not null, primary key
+#  uuid                            :binary(16)       not null
+#  community_id                    :integer          not null
+#  author_id                       :string(255)
+#  category_old                    :string(255)
+#  title                           :string(255)
+#  times_viewed                    :integer          default(0)
+#  language                        :string(255)
+#  created_at                      :datetime
+#  updates_email_at                :datetime
+#  updated_at                      :datetime
+#  last_modified                   :datetime
+#  sort_date                       :datetime
+#  listing_type_old                :string(255)
+#  description                     :text(65535)
+#  origin                          :string(255)
+#  destination                     :string(255)
+#  valid_until                     :datetime
+#  delta                           :boolean          default(TRUE), not null
+#  open                            :boolean          default(TRUE)
+#  share_type_old                  :string(255)
+#  privacy                         :string(255)      default("private")
+#  comments_count                  :integer          default(0)
+#  subcategory_old                 :string(255)
+#  old_category_id                 :integer
+#  category_id                     :integer
+#  share_type_id                   :integer
+#  listing_shape_id                :integer
+#  transaction_process_id          :integer
+#  shape_name_tr_key               :string(255)
+#  action_button_tr_key            :string(255)
+#  price_cents                     :integer
+#  currency                        :string(255)
+#  quantity                        :string(255)
+#  unit_type                       :string(32)
+#  quantity_selector               :string(32)
+#  unit_tr_key                     :string(64)
+#  unit_selector_tr_key            :string(64)
+#  deleted                         :boolean          default(FALSE)
+#  require_shipping_address        :boolean          default(FALSE)
+#  pickup_enabled                  :boolean          default(FALSE)
+#  shipping_price_cents            :integer
+#  shipping_price_additional_cents :integer
+#  availability                    :string(32)       default("none")
+#
+# Indexes
+#
+#  homepage_query                      (community_id,open,sort_date,deleted)
+#  homepage_query_valid_until          (community_id,open,valid_until,sort_date,deleted)
+#  index_listings_on_category_id       (old_category_id)
+#  index_listings_on_community_id      (community_id)
+#  index_listings_on_listing_shape_id  (listing_shape_id)
+#  index_listings_on_new_category_id   (category_id)
+#  index_listings_on_open              (open)
+#  index_listings_on_uuid              (uuid) UNIQUE
+#  person_listings                     (community_id,author_id)
+#  updates_email_listings              (community_id,open,updates_email_at)
+#
+
 
 #Tests LisingControllers atom feed feature
 
@@ -146,7 +209,7 @@ describe ListingsController, type: :controller do
 
   describe "ATOM feed" do
     it "lists the most recent listings in order" do
-      get :index, :format => :atom
+      get :index, params: { :format => :atom }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       expect(doc.at('feed/logo').text).to eq("https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png")
@@ -161,7 +224,7 @@ describe ListingsController, type: :controller do
     end
 
     it "supports localization" do
-      get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
+      get :index, params: { :community_id => @c1.id, :format => :atom, :locale => "fi" }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.remove_namespaces!
@@ -177,7 +240,7 @@ describe ListingsController, type: :controller do
     end
 
     it "escapes html tags, but adds links" do
-      get :index, :community_id => @c1.id, :format => :atom
+      get :index, params: { :community_id => @c1.id, :format => :atom }
       expect(response.status).to eq(200)
       doc = Nokogiri::XML::Document.parse(response.body)
       expect(doc.at("feed/entry/content").text).to match(/&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/)

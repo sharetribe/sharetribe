@@ -97,10 +97,7 @@
 #  index_communities_on_uuid    (uuid) UNIQUE
 #
 
-class Community < ActiveRecord::Base
-
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
+class Community < ApplicationRecord
 
   require 'compass'
   require 'sass/plugin'
@@ -309,9 +306,9 @@ class Community < ActiveRecord::Base
   end
 
   def cache_previous_image_urls
-    return unless changed?
+    return unless has_changes_to_save?
 
-    changes.select { |attribute, values|
+    changes_to_save.select { |attribute, values|
       attachment_name = attribute.chomp("_file_name")
       attribute.end_with?("_file_name") && !send(:"#{attachment_name}_processing") && values[0]
     }.each { |attribute, values|
@@ -444,7 +441,7 @@ class Community < ActiveRecord::Base
   end
 
   def self.find_by_email_ending(email)
-    Community.all.each do |community|
+    Community.all.find_each do |community|
       return community if community.allowed_emails && community.email_allowed?(email)
     end
     return nil
@@ -611,5 +608,6 @@ class Community < ActiveRecord::Base
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+    true
   end
 end

@@ -8,6 +8,5 @@
 #  updated_at :datetime         not null
 #
 
-class ProspectEmail < ActiveRecord::Base
-  attr_accessible :email
+class ProspectEmail < ApplicationRecord
 end

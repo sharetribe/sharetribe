@@ -1,12 +1,12 @@
 class CommunitiesController < ApplicationController
-  skip_filter :fetch_community,
+  skip_before_action :fetch_community,
               :perform_redirect,
               :cannot_access_if_banned,
               :cannot_access_without_confirmation,
               :ensure_consent_given,
               :ensure_user_belongs_to_community
 
-  before_filter :ensure_no_communities
+  before_action :ensure_no_communities
 
   layout 'blank_layout'
 

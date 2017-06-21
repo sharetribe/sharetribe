@@ -62,7 +62,7 @@
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
 
-class Listing < ActiveRecord::Base
+class Listing < ApplicationRecord
 
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper

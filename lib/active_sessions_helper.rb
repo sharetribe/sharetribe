@@ -6,7 +6,7 @@ module ActiveSessionsHelper
       [:community_id, :fixnum, :optional],
       [:refreshed_at, :time, :mandatory])
 
-    class ActiveSession < ActiveRecord::Base; end
+    class ActiveSession < ApplicationRecord; end
 
     module_function
 
@@ -32,7 +32,7 @@ module ActiveSessionsHelper
     end
 
     def delete(id:)
-      ActiveSession.delete_all(id: UUIDUtils.raw(id))
+      ActiveSession.where(id: UUIDUtils.raw(id)).delete_all
     end
 
     def cleanup(ttl:)

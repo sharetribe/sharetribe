@@ -80,7 +80,7 @@ describe "CommunityMailer", type: :mailer do
       @l2 = FactoryGirl.create(:listing,
           :title => "motorbike",
           :description => "fast!",
-          :created_at => 1.hours.ago,
+          :created_at => 1.hour.ago,
           :listing_shape_id => 123,
           :community_id => @c2.id,
           :author => @p2)

@@ -49,7 +49,7 @@
 #  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
-class Transaction < ActiveRecord::Base
+class Transaction < ApplicationRecord
   attr_accessor :contract_agreed
 
   belongs_to :community

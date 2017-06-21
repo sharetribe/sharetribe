@@ -15,7 +15,7 @@
 #  locale_index                                 (custom_field_id,locale)
 #
 
-class CustomFieldName < ActiveRecord::Base
+class CustomFieldName < ApplicationRecord
   belongs_to :custom_field, touch: true
   validates :locale, :value, presence: true
 end

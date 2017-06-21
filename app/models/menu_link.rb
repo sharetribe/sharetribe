@@ -13,7 +13,7 @@
 #  index_menu_links_on_community_and_sort  (community_id,sort_priority)
 #
 
-class MenuLink < ActiveRecord::Base
+class MenuLink < ApplicationRecord
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy
   belongs_to :community
 

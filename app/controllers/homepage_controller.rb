@@ -1,7 +1,7 @@
 # encoding: utf-8
 class HomepageController < ApplicationController
 
-  before_filter :save_current_path, :except => :sign_in
+  before_action :save_current_path, :except => :sign_in
 
   APP_DEFAULT_VIEW_TYPE = "grid"
   VIEW_TYPES = ["grid", "list", "map"]
@@ -9,6 +9,8 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def index
+    params = unsafe_params_hash.select{|k, v| v.present? }
+
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
     all_shapes = shapes.get(community_id: @current_community.id)[:data]
@@ -102,7 +104,7 @@ class HomepageController < ApplicationController
           render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
         end
       }.on_error {
-        render nothing: true, status: 500
+        render body: nil, status: 500
       }
     else
       locals = {
@@ -358,6 +360,10 @@ class HomepageController < ApplicationController
       end
 
     relevant_filters.sort
+  end
+
+  def unsafe_params_hash
+    params.to_unsafe_hash
   end
 
 end

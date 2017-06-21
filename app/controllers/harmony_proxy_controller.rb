@@ -1,7 +1,7 @@
 class HarmonyProxyController < ApplicationController
 
-  skip_filter :cannot_access_without_confirmation, :ensure_consent_given
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :cannot_access_without_confirmation, :ensure_consent_given
+  skip_before_action :verify_authenticity_token
 
   # OR can be used to combine authorization methods using "OR" logic.
   # It takes any number of authorization methods. OR is a normal

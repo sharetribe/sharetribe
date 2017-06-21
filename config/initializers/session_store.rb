@@ -58,8 +58,7 @@ class ActionDispatch::Session::MigrateToCookieStore < ActionDispatch::Session::C
 
   private
 
-  def find_db_session(env)
-    req = Rack::Request.new(env)
+  def find_db_session(req)
     session_id = req.cookies[APP_CONFIG.cookie_session_key]
     ActiveRecord::SessionStore::Session.find_by_session_id(session_id)
   end

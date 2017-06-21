@@ -19,5 +19,5 @@
 #  index_transaction_process_tokens_on_process_token  (process_token) UNIQUE
 #
 
-class TransactionProcessToken < ActiveRecord::Base
+class TransactionProcessToken < ApplicationRecord
 end

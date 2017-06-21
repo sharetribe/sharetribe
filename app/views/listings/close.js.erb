@@ -1,11 +1,11 @@
 /* Update single listing page links */
-$("#listing-message-links").html("<%= escape_javascript(render(:partial => 'listings/listing_actions', locals: { form_path: nil, payment_gateway: payment_gateway, process: process, country_code: country_code, availability_enabled: availability_enabled })) %>");
+$("#listing-message-links").html("<%=raw escape_javascript(render(:partial => 'listings/listing_actions', locals: { form_path: nil, payment_gateway: payment_gateway, process: process, country_code: country_code, availability_enabled: availability_enabled })) %>");
 
 /* Highlight action */
 $("#listing-message-links").effect("highlight", {}, 2000);
 
 /* Update profile listing page links */
-$("#edit-profile-listing-links-" + <%= @listing.id.to_s %>).html("<%= escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
+$("#edit-profile-listing-links-" + <%= @listing.id.to_s %>).html("<%=raw escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
 
 /* Close comment form */
-$("#comment-form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");
+$("#comment-form").html("<%=raw escape_javascript(render(:partial => 'listings/comment_form')) %>");

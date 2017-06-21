@@ -3,8 +3,11 @@ module PathHelpers
   module_function
 
   def search_path(community_id:, logged_in:, locale_param:, default_locale:, opts: {})
+    if opts.is_a?(ActionController::Parameters)
+      opts = opts.to_unsafe_hash
+    end
 
-    o = opts.dup.to_hash
+    o = opts.dup.symbolize_keys
     o.delete("controller")
     o.delete("action")
     o.delete("locale")

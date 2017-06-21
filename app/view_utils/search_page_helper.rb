@@ -65,7 +65,7 @@ module SearchPageHelper
   end
 
   def parse_numeric_filter_params(numeric_params)
-    numeric_params.inject([]) do |memo, numeric_param|
+    numeric_params.to_h.inject([]) do |memo, numeric_param|
       key, value = numeric_param
       _, boundary, id = key.split("_")
 

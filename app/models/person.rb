@@ -63,7 +63,7 @@ require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
 
   include ErrorsHelper
   include ApplicationHelper
@@ -84,8 +84,6 @@ class Person < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
-
-  attr_protected :is_admin
 
   has_many :listings, -> { where(deleted: 0) }, :dependent => :destroy, :foreign_key => "author_id"
   has_many :emails, :dependent => :destroy, :inverse_of => :person
@@ -270,10 +268,13 @@ class Person < ActiveRecord::Base
             deprecator: MethodDeprecator.new
 
   def name(community_or_display_type)
+    deprecation_message = "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils."
+    MethodDeprecator.new.deprecation_warning(:name, deprecation_message)
     return name_or_username(community_or_display_type)
   end
-  deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
+  # FIXME deprecate on Person#name brakes airbrake
+  # deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+  #          deprecator: MethodDeprecator.new
 
   def given_name_or_username
     if given_name.present?

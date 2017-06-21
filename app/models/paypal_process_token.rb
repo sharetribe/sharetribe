@@ -19,17 +19,7 @@
 #  index_paypal_process_tokens_on_transaction    (transaction_id,community_id,op_name) UNIQUE
 #
 
-class PaypalProcessToken < ActiveRecord::Base
-  attr_accessible(
-    :process_token,
-    :community_id,
-    :paypal_token,
-    :transaction_id,
-    :op_completed,
-    :op_name,
-    :op_input,
-    :op_output)
-
+class PaypalProcessToken < ApplicationRecord
   validates_presence_of(:process_token, :community_id)
 
 end

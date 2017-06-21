@@ -1,6 +1,6 @@
 require_relative '../../lib/jsroutes_middleware.rb'
 
-Kassi::Application.configure do
+Rails.application.configure do
 
   str_to_lowercase_sym = ->(v) {
     if v.nil? || v.is_a?(Symbol)

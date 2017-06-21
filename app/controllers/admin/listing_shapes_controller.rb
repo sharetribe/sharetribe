@@ -1,6 +1,6 @@
 class Admin::ListingShapesController < Admin::AdminBaseController
 
-  before_filter :set_url_name
+  before_action :set_url_name
 
   LISTING_SHAPES_NAVI_LINK = "listing_shapes"
 
@@ -148,7 +148,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       listing_api.shapes.update(community_id: @current_community.id, listing_shape_id: d[:value][:id], opts: opts)
     }
 
-    render nothing: true, status: 200
+    render body: nil, status: 200
   end
 
   def close_listings
@@ -348,7 +348,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     module_function
 
     def params_to_shape(params)
-      form_params = HashUtils.symbolize_keys(params)
+      form_params = HashUtils.symbolize_keys(params.to_unsafe_hash)
 
       parsed_params = form_params.merge(
         units: parse_units_from_params(form_params),

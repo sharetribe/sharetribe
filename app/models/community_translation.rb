@@ -15,15 +15,7 @@
 #  index_community_translations_on_community_id  (community_id)
 #
 
-class CommunityTranslation < ActiveRecord::Base
+class CommunityTranslation < ApplicationRecord
   validates_presence_of :locale, :translation_key
-
-  attr_accessible(
-    :community_id,
-    :locale,
-    :translation_key,
-    :translation
-  )
-
 
 end

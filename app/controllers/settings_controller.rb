@@ -1,10 +1,10 @@
 class SettingsController < ApplicationController
 
-  before_filter :except => :unsubscribe do |controller|
+  before_action :except => :unsubscribe do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
-  before_filter EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: :unsubscribe
+  before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: :unsubscribe
 
   def show
     target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)

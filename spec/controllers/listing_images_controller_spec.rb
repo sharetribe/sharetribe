@@ -1,5 +1,31 @@
 # encoding: utf-8
 
+# == Schema Information
+#
+# Table name: listing_images
+#
+#  id                 :integer          not null, primary key
+#  listing_id         :integer
+#  created_at         :datetime
+#  updated_at         :datetime
+#  image_file_name    :string(255)
+#  image_content_type :string(255)
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  image_processing   :boolean
+#  image_downloaded   :boolean          default(FALSE)
+#  error              :string(255)
+#  width              :integer
+#  height             :integer
+#  author_id          :string(255)
+#  position           :integer          default(0)
+#
+# Indexes
+#
+#  index_listing_images_on_listing_id  (listing_id)
+#
+
+
 #Tests LisingControllers reorder feature
 
 require 'spec_helper'
@@ -71,7 +97,7 @@ describe ListingImagesController, type: :controller do
     @request.env[:current_marketplace] = @c1
   end
 
-  def stubbed_upload filename, content_type
+  def stubbed_upload(filename, content_type)
     fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
   end
 
@@ -81,7 +107,7 @@ describe ListingImagesController, type: :controller do
     end
 
     it "sets image position on upload" do
-      5.times{|i| post :add_from_file, listing_id: @l1.id, listing_image: { image: stubbed_upload('Bison_skull_pile.png', 'image/png') } }
+      5.times{|i| post :add_from_file, params: { listing_id: @l1.id, listing_image: { image: stubbed_upload('Bison_skull_pile.png', 'image/png') } } }
 
       expect(@l1.listing_images.size).to eq(5)
       expect(@l1.listing_images.map(&:position)).to eq([1,2,3,4,5])
@@ -94,7 +120,7 @@ describe ListingImagesController, type: :controller do
     end
 
     it "changes order of images" do
-      5.times{|i| post :add_from_file, listing_id: @l1.id, listing_image: { image: stubbed_upload('Bison_skull_pile.png', 'image/png') } }
+      5.times{|i| post :add_from_file, params: { listing_id: @l1.id, listing_image: { image: stubbed_upload('Bison_skull_pile.png', 'image/png') } } }
       orig_ids = @l1.listing_images.map(&:id)
 
       mixed_ids = nil
@@ -104,7 +130,7 @@ describe ListingImagesController, type: :controller do
       end
       expect(mixed_ids).not_to eq(orig_ids)
 
-      put :reorder, listing_id: @l1.id, ordered_ids: mixed_ids.join(",")
+      put :reorder, params: { listing_id: @l1.id, ordered_ids: mixed_ids.join(",") }
       expect(response.body).to eq("OK")
 
       @l1.reload

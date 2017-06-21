@@ -32,7 +32,7 @@
           :javascript
             $(function() {
               updateSellerGetsValue(
-                #{currency_opts.to_json},
+                #{raw currency_opts.to_json},
                 "#listing_price",
                 "#fee_display",
                 #{commission_from_seller},

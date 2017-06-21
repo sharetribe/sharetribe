@@ -16,7 +16,7 @@ class HandleRemovedPersonLocales < ActiveRecord::Migration
     "fr-rc" => "fr"
   }
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
   end
 
   def up

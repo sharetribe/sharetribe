@@ -1,6 +1,6 @@
 class Admin::CustomFieldsController < Admin::AdminBaseController
 
-  before_filter :field_type_is_valid, :only => [:new, :create]
+  before_action :field_type_is_valid, :only => [:new, :create]
 
   CHECKBOX_TO_BOOLEAN = ->(v) {
     if v == false || v == true
@@ -142,6 +142,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   end
 
   def build_custom_field_entity(type, params)
+    params = params.respond_to?(:to_unsafe_hash) ? params.to_unsafe_hash : params
     case type
     when "TextField"
       TextFieldEntity.call(params)
@@ -285,7 +286,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
       custom_field.update_attributes(:sort_priority => sort_priorities[custom_field.id])
     end
 
-    render nothing: true, status: 200
+    render body: nil, status: 200
   end
 
   private

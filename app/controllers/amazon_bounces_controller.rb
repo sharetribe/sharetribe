@@ -1,16 +1,16 @@
 class AmazonBouncesController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => :notification
-  skip_filter :fetch_community
-  skip_filter :perform_redirect
+  skip_before_action :verify_authenticity_token, :only => :notification
+  skip_before_action :fetch_community
+  skip_before_action :perform_redirect
 
-  before_filter :check_sns_token
+  before_action :check_sns_token
 
   def notification
     amz_message_type = request.headers['x-amz-sns-message-type']
 
     if amz_message_type.to_s.downcase == 'subscriptionconfirmation'
       send_subscription_confirmation request.raw_post
-      render :nothing => true and return
+      head :ok and return
     end
 
     if amz_message_type.to_s.downcase == 'notification'
@@ -28,7 +28,7 @@ class AmazonBouncesController < ApplicationController
         logger.warn msg.to_s
       end
     end
-    render :nothing => true
+    head :ok
   end
 
   private
@@ -63,7 +63,7 @@ class AmazonBouncesController < ApplicationController
 
   def check_sns_token
     if APP_CONFIG.sns_notification_token != params['sns_notification_token']
-      return render :nothing => true
+      return head :ok
     end
   end
 
