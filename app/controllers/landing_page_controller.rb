@@ -380,15 +380,23 @@ class LandingPageController < ActionController::Metal
   end
 
   def landing_page_styles
-    Rails.application.assets.find_asset("landing_page/styles.scss").to_s.html_safe
+    find_asset_path("landing_page/styles.scss")
   end
 
   def location_search_js
-    Rails.application.assets.find_asset("location_search.js").to_s.html_safe
+    find_asset_path("location_search.js")
   end
 
   def js_translations(topbar_locale)
-    Rails.application.assets.find_asset("i18n/#{topbar_locale}.js").to_s.html_safe
+    find_asset_path("i18n/#{topbar_locale}.js")
+  end
+
+  def find_asset_path(asset_name)
+    if Rails.configuration.assets.compile
+      Rails.application.assets.find_asset(asset_name)
+    else
+      Rails.application.assets_manifest.assets[asset_name]
+    end.to_s.html_safe
   end
 
   def locale
