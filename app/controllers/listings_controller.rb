@@ -489,7 +489,7 @@ class ListingsController < ApplicationController
   def finalise_update(listing, shape, community, update_successful, old_availability)
     if update_successful
       if listing.location
-        location_params = permit_origin_loc_params(params.require(:location))
+        location_params = permit_location_params(params)
         listing.location.update_attributes(location_params)
       end
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
@@ -973,7 +973,7 @@ class ListingsController < ApplicationController
       listing_params
     else
       params = ActionController::Parameters.new(params)
-      location_params = permit_origin_loc_params(params.require(:origin_loc_attributes)).merge(location_type: :origin_loc)
+      location_params = permit_location_params(params).merge(location_type: :origin_loc)
 
       listing_params.merge(
         origin_loc_attributes: location_params
@@ -981,8 +981,15 @@ class ListingsController < ApplicationController
     end
   end
 
-  def permit_origin_loc_params(params)
-    params.permit(:address, :google_address, :latitude, :longitude)
+  def permit_location_params(params)
+    p = if params[:location].present?
+          params.require(:location)
+        elsif params[:origin_loc_attributes].present?
+          params.require(:origin_loc_attributes)
+        elsif params[:listing].present? && params[:listing][:origin_loc_attributes].present?
+          params.require(:listing).require(:origin_loc_attributes)
+        end
+    p.permit(:address, :google_address, :latitude, :longitude) if p.present?
   end
 
   def get_transaction_process(community_id:, transaction_process_id:)
