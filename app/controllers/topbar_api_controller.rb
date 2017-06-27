@@ -14,7 +14,7 @@ class TopbarApiController < ApplicationController
     result = { props: p, marketplaceContext: m_ctx }
 
     respond_to do |format|
-      format.html { render text: result.to_json.html_safe }
+      format.html { render plain: result.to_json.html_safe }
       format.json { render json: result.to_json }
     end
   end
