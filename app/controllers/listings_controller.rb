@@ -488,7 +488,10 @@ class ListingsController < ApplicationController
 
   def finalise_update(listing, shape, community, update_successful, old_availability)
     if update_successful
-      listing.location.update_attributes(params[:location]) if listing.location
+      if listing.location
+        location_params = permit_origin_loc_params(params.require(:location))
+        listing.location.update_attributes(location_params)
+      end
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(listing.id, community.id))
       reprocess_missing_image_styles(listing) if listing.closed?
@@ -687,7 +690,7 @@ class ListingsController < ApplicationController
   end
 
   def select_unit(listing_unit, shape)
-    m_unit = Maybe(shape)[:units].map { |units|
+    Maybe(shape)[:units].map { |units|
       units.length == 1 ? units.first : units.find { |u| u == listing_unit }
     }
   end
@@ -815,7 +818,7 @@ class ListingsController < ApplicationController
         option_id = answer_value.to_i
         answer = DropdownFieldValue.new
         answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer,
-                                                                                :custom_field_option_id => answer_value,
+                                                                                :custom_field_option_id => option_id,
                                                                                 :listing_id => listing_id)]
         answer
       when :text
@@ -970,19 +973,16 @@ class ListingsController < ApplicationController
       listing_params
     else
       params = ActionController::Parameters.new(params)
-      location_params = params[:origin_loc_attributes].permit(
-        :address,
-        :google_address,
-        :latitude,
-        :longitude
-      ).merge(
-        location_type: :origin_loc
-      )
+      location_params = permit_origin_loc_params(params.require(:origin_loc_attributes)).merge(location_type: :origin_loc)
 
       listing_params.merge(
         origin_loc_attributes: location_params
       )
     end
+  end
+
+  def permit_origin_loc_params(params)
+    params.permit(:address, :google_address, :latitude, :longitude)
   end
 
   def get_transaction_process(community_id:, transaction_process_id:)
