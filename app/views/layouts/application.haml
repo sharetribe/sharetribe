@@ -31,9 +31,11 @@
     - else
       = render partial: 'layouts/global_header', locals: header_props()
 
-    - if display_expiration_notice?
-      = render partial: "layouts/expiration_notice",
-          :locals => {external_plan_service_login_url: admin_plan_path}
+    - if logged_in? && @display_expiration_notice
+      - if @current_user.has_admin_rights?
+        = render partial: "layouts/admin_expiration_notice", locals: {external_plan_service_login_url: admin_plan_path}
+      - else
+        = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
 
     - content_for(:page_content) do
       %section.marketplace-lander
@@ -69,7 +71,7 @@
         - search_params = ["q", "lc", "ls", "boundingbox", "distance_max"]
         - excluded_params = search_params unless FeatureFlagHelper.feature_enabled?(:topbar_v1)
         - params.except("action", "controller", "view", "utf8", *excluded_params).each do |param, value|
-          - unless param.match(/^filter_option/) || param.match(/^checkbox_filter_option/) || param.match(/^nf_/) || param.match(/^price_/)
+          - unless CustomFieldSearchParams.custom_field_search_param?(param) || param.match(/^price_/)
             = hidden_field_tag param, value
         = hidden_field_tag "view", @view_type
         = content_for(:page_content)
@@ -90,7 +92,7 @@
     = javascript_include_tag 'application'
 
     :javascript
-      window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+      window.ST.jsonTranslations = #{raw JSONTranslations.get(I18n.locale)}
 
     - if @analytics_event
       :javascript
@@ -98,7 +100,7 @@
     - if @gtm_datalayer
       :javascript
         if(window.ST != null && typeof window.ST.gtmPush === 'function') {
-          window.ST.gtmPush(#{@gtm_datalayer.to_json});
+          window.ST.gtmPush(#{@gtm_datalayer.to_json.html_safe});
         }
 
     :javascript

@@ -16,6 +16,6 @@
 #  index_marketplace_setup_steps_on_community_id  (community_id) UNIQUE
 #
 
-class MarketplaceSetupSteps < ActiveRecord::Base
+class MarketplaceSetupSteps < ApplicationRecord
   validates_presence_of(:community_id)
 end

@@ -1019,18 +1019,38 @@ function ClusterIcon(cluster, styles, opt_padding) {
  * Triggers the clusterclick event and zoom's if the option is set.
  */
 ClusterIcon.prototype.triggerClusterClick = function() {
+
+  // SHARETRIBE modification START
+  var isInMaxZoom = function(map) {
+    return map.getZoom() >= map.maxZoom;
+  }
+
+  var allEquals = function(arr, comparator) {
+    var first = arr[0];
+    return arr.every(function(a) { return comparator(first, a) });
+  }
+
+  var sameLocation = function(markers) {
+    var positions = markers.map(function(marker) {
+      return marker.getPosition();
+    });
+
+    return allEquals(positions, function(a, b) {
+      return a.equals(b);
+    });
+  }
+  // SHARETRIBE modification END
+
   var markerClusterer = this.cluster_.getMarkerClusterer();
   var locale = markerClusterer.locale || "en";
 
   // Trigger the clusterclick event.
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
-  var sameLocation = true;
   var markers = this.cluster_.getMarkers();
-  var position = markers[0].getPosition();
-  for (var i = 1, marker; marker = markers[i]; i++) {
-    if (!marker.getPosition().equals(position)) sameLocation = false;
-  }
-  if (sameLocation) {
+
+  var shouldShowInfoBubble = sameLocation(markers) || isInMaxZoom(this.map_);
+
+  if (shouldShowInfoBubble) {
     if (!this.showingInfo_) {
       this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
       this.showingInfo_ = true;

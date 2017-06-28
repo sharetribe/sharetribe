@@ -1,17 +1,17 @@
 hy-AM:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "ժամկետանց է, խնդրում ենք պահանջել նորը"
+      not_found: "չի գտնվել"
+      already_confirmed: "արդեն հաստատված է, խնդրում ենք մուտք գործել համակարգ"
+      not_locked: "չի փակվել"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
+      already_authenticated: "Արդեն մուտք գործած եք"
+      unauthenticated: "Պետք է մուտ գործեք կամ գրանցվեք նախքան շարունակելը։"
+      unconfirmed: "Պետք է հաստատեք ձեր հաշիվը նախքան շարունակելը։"
+      locked: "Ձեր հաշիվը արգելափակված է"
+      invalid: "Սխալ էլ․ փոստ կամ գաղտնաբառ"
       invalid_token: ~
       timeout: ~
       inactive: ~

@@ -14,7 +14,7 @@
 #  index_bookings_on_transaction_id  (transaction_id)
 #
 
-class Booking < ActiveRecord::Base
+class Booking < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
 
   def self.columns

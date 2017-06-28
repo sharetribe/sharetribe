@@ -14,10 +14,7 @@
 #  index_messages_on_conversation_id  (conversation_id)
 #
 
-class Message < ActiveRecord::Base
-
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
+class Message < ApplicationRecord
 
   after_save :update_conversation_read_status
 

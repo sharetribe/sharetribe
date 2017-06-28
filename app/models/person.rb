@@ -28,6 +28,7 @@
 #  password_salt                      :string(255)
 #  given_name                         :string(255)
 #  family_name                        :string(255)
+#  display_name                       :string(255)
 #  phone_number                       :string(255)
 #  description                        :text(65535)
 #  image_file_name                    :string(255)
@@ -62,7 +63,7 @@ require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
 
-class Person < ActiveRecord::Base
+class Person < ApplicationRecord
 
   include ErrorsHelper
   include ApplicationHelper
@@ -83,8 +84,6 @@ class Person < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
-
-  attr_protected :is_admin
 
   has_many :listings, -> { where(deleted: 0) }, :dependent => :destroy, :foreign_key => "author_id"
   has_many :emails, :dependent => :destroy, :inverse_of => :person
@@ -151,6 +150,7 @@ class Person < ActiveRecord::Base
   validates_length_of :username, :within => 3..20
   validates_length_of :given_name, :within => 1..255, :allow_nil => true, :allow_blank => true
   validates_length_of :family_name, :within => 1..255, :allow_nil => true, :allow_blank => true
+  validates_length_of :display_name, :within => 1..30, :allow_nil => true, :allow_blank => true
 
   validates_format_of :username,
                        :with => /\A[A-Z0-9_]*\z/i
@@ -268,10 +268,13 @@ class Person < ActiveRecord::Base
             deprecator: MethodDeprecator.new
 
   def name(community_or_display_type)
+    deprecation_message = "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils."
+    MethodDeprecator.new.deprecation_warning(:name, deprecation_message)
     return name_or_username(community_or_display_type)
   end
-  deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
+  # FIXME deprecate on Person#name brakes airbrake
+  # deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
+  #          deprecator: MethodDeprecator.new
 
   def given_name_or_username
     if given_name.present?
@@ -326,7 +329,7 @@ class Person < ActiveRecord::Base
     self.save
   end
 
-  def store_picture_from_facebook()
+  def store_picture_from_facebook!()
     if self.facebook_id
       resp = RestClient.get(
         "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{self.facebook_id}/picture?type=large&redirect=false")
@@ -472,6 +475,17 @@ class Person < ActiveRecord::Base
     EmailService.emails_to_smtp_addresses(send_message_to)
   end
 
+  # Primary email is the first email address that is
+  #
+  # - confirmed
+  # - notifications allowed
+  #
+  # Returns Email record
+  #
+  def primary_email
+    EmailService.emails_to_send_message(emails).first
+  end
+
   # Notice: If no confirmed notification emails is found, this
   # method returns the first confirmed emails
   def confirmed_notification_email_to
@@ -495,7 +509,14 @@ class Person < ActiveRecord::Base
   def update_facebook_data(facebook_id)
     self.update_attribute(:facebook_id, facebook_id)
     if self.image_file_size.nil?
-      self.store_picture_from_facebook
+      begin
+        self.store_picture_from_facebook!
+      rescue StandardError => e
+        # We can just catch and log the error, because if the profile picture upload fails
+        # we still want to make the user creation pass, just without the profile picture,
+        # which user can upload later
+        logger.error(e.message, :facebook_existing_user_profile_picture_upload_failed, { person_id: self.id })
+      end
     end
   end
 

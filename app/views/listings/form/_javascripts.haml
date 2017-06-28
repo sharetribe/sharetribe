@@ -5,10 +5,10 @@
 - content_for :listing_js do
   :javascript
     $(document).ready(function() {
-      var listingImageOpts = #{ListingImageS3OptionsJSAdapter.new(@listing).to_json}
-      var listingImages = #{ @listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+      var listingImageOpts = #{raw ListingImageS3OptionsJSAdapter.new(@listing).to_json}
+      var listingImages = #{raw @listing.listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
 
-      window.ST.initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{listing_id}", "#{shape[:price_enabled]}","#{t('error_messages.listings.price')}","#{minimum_price_cents}","#{Money::Currency.new(@current_community.currency).subunit_to_unit}","#{t('error_messages.listings.minimum_price', :minimum_price => Money.new(minimum_price_cents, @current_community.currency), :currency => @current_community.currency)}", #{@numeric_field_ids.collect { |numeric_field_id| "custom_fields[#{numeric_field_id}]" } }, listingImages, listingImageOpts, "#{t('listings.form.images.images_not_uploaded_confirm')}" );
+      window.ST.initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{listing_id}", "#{shape[:price_enabled]}","#{t('error_messages.listings.price')}","#{minimum_price_cents}","#{Money::Currency.new(@current_community.currency).subunit_to_unit}","#{t('error_messages.listings.minimum_price', :minimum_price => Money.new(minimum_price_cents, @current_community.currency), :currency => @current_community.currency)}", #{raw @numeric_field_ids.collect { |numeric_field_id| "custom_fields[#{numeric_field_id}]" }.to_json }, listingImages, listingImageOpts, "#{t('listings.form.images.images_not_uploaded_confirm')}" );
     });
 
 - if run_js_immediately

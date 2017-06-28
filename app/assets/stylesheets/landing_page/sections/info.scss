@@ -125,9 +125,11 @@ $content-padding: 36px;
   }
 }
 
-.info__paragraph {
-  @include typography__section-paragraph;
-  @include dimensions__section-paragraph;
+.info__paragraph--markdown {
+  & > p {
+    @include typography__section-paragraph;
+    @include dimensions__section-paragraph;
+  }
 }
 
 .info__button {
@@ -301,35 +303,38 @@ $content-padding: 36px;
   }
 }
 
-.info__column-paragraph {
-  @include typography__regular;
-  color: #525961;
+.info__column-paragraph--markdown {
 
-  // mobile
-  font-size: 16px;
-  letter-spacing: 0px;
-  line-height: 22px;
+  & > p {
+    @include typography__regular;
+    color: #525961;
 
-  margin: 0px $dimension-mobile-margin-big 8px $dimension-mobile-margin-big;
-
-  @media #{$mobile-landscape} {
-    margin: 0px 0px 8px 0px;
-  }
-
-  @media #{$tablet} {
+    // mobile
     font-size: 16px;
     letter-spacing: 0px;
     line-height: 22px;
 
-    margin: 0px 0px 8px 0px;
-  }
+    margin: 0px $dimension-mobile-margin-big 8px $dimension-mobile-margin-big;
 
-  @media #{$desktop} {
-    font-size: 18px;
-    letter-spacing: 0px;
-    line-height: 26px;
+    @media #{$mobile-landscape} {
+      margin: 0px 0px 8px 0px;
+    }
 
-    margin: 0px 0px 8px 0px;
+    @media #{$tablet} {
+      font-size: 16px;
+      letter-spacing: 0px;
+      line-height: 22px;
+
+      margin: 0px 0px 8px 0px;
+    }
+
+    @media #{$desktop} {
+      font-size: 18px;
+      letter-spacing: 0px;
+      line-height: 26px;
+
+      margin: 0px 0px 8px 0px;
+    }
   }
 }
 

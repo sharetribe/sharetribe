@@ -10,7 +10,6 @@ HarmonyClient = ServiceClient::Client.new(
     ServiceClient::Middleware::BodyEncoder.new(:transit_msgpack),
     ServiceClient::Middleware::ParamEncoder.new,
     ServiceClient::Middleware::JwtAuthenticator.new(
-      disable: APP_CONFIG.harmony_api_disable_authentication,
       secret: APP_CONFIG.harmony_api_token_secret,
       default_auth_context: ->(){
         session_ctx = SessionContextStore.get

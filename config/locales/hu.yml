@@ -1,4 +1,10 @@
 hu:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -93,6 +99,10 @@ hu:
         favicon: Favicon
         favicon_info_text: "A favicon az alapértelmezett Sharetribe logo helyébe fog lépni. Nagyága 32x32 pixel lehet és a feltöltött kép is ekkorára lesz újraméretezve."
         community_custom_color1: "Fő szín"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: "Új listázó gomb szín"
         logo_instructions_text_with_dimensions: "A logó mérete %{width}x%{height}px legyen. Ezt a nagyobb képernyőt használók láthatják majd."
         logo_instructions_text_with_dimensions_no_placing: "A logó megfelelő mérete a következő:%{width}x%{height}px"
@@ -204,7 +214,6 @@ hu:
         transaction_preferences: "Rendelési preferenciák"
         show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
         show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
-        hide_expiration_date: "Nem szükséges lejárati dátumot megadni a hírdetések feladásakor"
         listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
         email_preferences: "E-mail beállítások"
         automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
@@ -229,6 +238,7 @@ hu:
         manage_members: "Felhasználók kezelése"
         email: E-mail
         name: Név
+        display_name: ~
         join_date: Csatlakozva
         admin: Rendszergazda
         posting_allowed: "Posztolás engedélyezve"
@@ -241,8 +251,7 @@ hu:
         ban_me_error: "Nem tilthatja le önmagát"
       new_layout:
         new_layout: "Új megjelenés"
-        description_roadmap: "A Sharetribe egy új és továbbfejlesztett megjelenés bevezetésén dolgozik. Az átmeneti időszakban az alábbi menüvel kiválaszthatja hogy a piactér melyik részét szeretné a régi külsővel használni. Az új funkciók csakis az új megjelenést használva érhetőek el."
-        description_process: "A régi megjelenés támogatása megszűnik a közeljövőben, mielőtt ez megtörténik informálni fogjuk. Kérdés van? Lépjen kapcsolatba a csapatunkkal itt: %{support_link}"
+        description_roadmap_new: ~
         enabled_for_you: "Bekapcsolva saját részre"
         enabled_for_all: "Bekapcsolva mindenkinek"
         new_topbar: "Új top bar (minden oldalon látható)"
@@ -327,6 +336,9 @@ hu:
       edit_location:
         edit_location_field: "A hely mező szerkesztése"
         this_field_is_required: "A mező kitöltése kötelező."
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "A mező kitöltésének kötelezővé tétele új hirdetés feladásakor"
@@ -382,7 +394,6 @@ hu:
       users_and_transactions: "Felhasználók & tranzakciók"
       configure: Beállítás
       emails_title: E-mailek
-      support: Segítség
       subscription: Feliratkozás
       preview: "A honlap előnézete"
     listing_shapes:
@@ -888,6 +899,8 @@ hu:
       subject: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a %{listing_title} hirdetésben szereplő tételért."
       transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
       subject: "Ne feledje elfogadni %{requester} felkérését a %{listing_title} hirdetés ügyében"
@@ -1889,6 +1902,8 @@ hu:
       given_name: Keresztnév
       first_name_with_initial: "(a többi felhasználó csak az első betűt láthatja)"
       first_name_only: "(a többi felhasználó számára nem látható)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Ön megadhatja a pontos címét vagy például csak az irányítószámát. Kérjük adja meg legalább az irányítószámát. Továbbá az alábbi térképen is kiválaszthat egy helyet."
       phone_number: Telefonszám
       profile_picture: Profilkép

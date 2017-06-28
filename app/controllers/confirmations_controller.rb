@@ -1,6 +1,6 @@
 class ConfirmationsController < Devise::ConfirmationsController
 
-  skip_filter :cannot_access_if_banned,
+  skip_before_action :cannot_access_if_banned,
               :cannot_access_without_confirmation,
               :ensure_consent_given,
               :ensure_user_belongs_to_community

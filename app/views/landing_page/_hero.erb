@@ -1,4 +1,15 @@
-<% section_style_class = s["background_image_variation"] == "light" ? "hero__section--light" : "hero__section--dark" %>
+<%
+hero_style_variations = {
+  "light" => "hero__section--light",
+  "dark" => "hero__section--dark",
+  "transparent" => "hero__section"
+}
+
+hero_style_variations.default = "hero__section--dark"
+
+section_style_class = hero_style_variations[s["background_image_variation"]]
+%>
+
 <% content_for :hero_css do %>
   .<%= section_style_class %> {
     background-image: url('<%= s["background_image"]["src"] %>');

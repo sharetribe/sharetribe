@@ -22,20 +22,6 @@
 #  index_shipping_addresses_on_transaction_id  (transaction_id)
 #
 
-class ShippingAddress < ActiveRecord::Base
-  attr_accessible(
-    :transaction_id,
-    :status,
-    :name,
-    :phone,
-    :postal_code,
-    :city,
-    :country,
-    :country_code,
-    :state_or_province,
-    :street1,
-    :street2
-  )
-
+class ShippingAddress < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
 end

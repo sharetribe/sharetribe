@@ -1,10 +1,10 @@
 class TransactionsController < ApplicationController
 
-  before_filter only: [:show] do |controller|
+  before_action only: [:show] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
 
-  before_filter only: [:new] do |controller|
+  before_action only: [:new] do |controller|
     fetch_data(params[:listing_id]).on_success do |listing_id, listing_model, _, process|
       Analytics.record_event(
         flash,
@@ -17,7 +17,7 @@ class TransactionsController < ApplicationController
     end
   end
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 
@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
         ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
-      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery)))
+      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery).permit!))
 
       case [process[:process], gateway]
       when matches([:none])

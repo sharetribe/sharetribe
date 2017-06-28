@@ -1,4 +1,10 @@
 th-TH:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -89,6 +95,10 @@ th-TH:
         favicon: Favicon
         favicon_info_text: "Favicon จะแทนที่โลโก้เริ่มต้นของ Sharetribe  ขนาดควรจะเป็น 32x32 พิกเซล ภาพ ที่อัปโหลดจะถูกปรับขนาดเท่านี้"
         community_custom_color1: สีหลัก
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "โลโก้ควรมีขนาด %{width}x %{height} px ซึ่งจะแสดงต่อผู้ใช้ที่มีหน้าจอขนาดใหญ่"
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -198,7 +208,6 @@ th-TH:
         transaction_preferences: การตั้งค่าการสั่งซื้อสินค้า
         show_listing_publishing_date: แสดงวันที่เผยแพร่รายการในหน้ารายการ
         show_category_in_listing_list: แสดงประเภทรายการในรูปแบบรายการ
-        hide_expiration_date: ไม่จำเป็นต้องบังคับให้รายการมีวันหมดอายุ
         listing_comments_in_use: "ให้สิทธิผู้ใช้ในการแสดงความคิดเห็นแก่รายการ (ผู้ใช้อื่น ๆ ทั้งหมดสามารถดูได้)"
         email_preferences: การกำหนดค่าอีเมล์
         automatic_newsletters: "ส่งจดหมายข่าวรายวัน / สัปดาห์โดยอัตโนมัติไปยังผู้ใช้ทั้งหมด (ยกเว้นกรณีที่พวกเขา เลือกที่จะไม่รับ)"
@@ -223,6 +232,7 @@ th-TH:
         manage_members: จัดการผู้ใช้
         email: อีเมล์
         name: ชื่อ
+        display_name: ~
         join_date: เข้าร่วมแล้ว
         admin: ผู้ดูแลระบบ
         posting_allowed: การโพสต์ที่ได้รับอนุญาต
@@ -235,8 +245,7 @@ th-TH:
         ban_me_error: ~
       new_layout:
         new_layout: ~
-        description_roadmap: "ขณะนี้ Sharetribe ยังอยู่ในกระบวนการสร้างและปรับปรุงเลย์เอาท์ใหม่ ในช่วงการเปลี่ยนแปลงนี้ คุณสามารถเลือกได้ว่าส่วนไหนในตลาดของคุณควรจะยังคงใช้เลย์เอาท์เก่าอยู่โดยใช้เมนูด้านล่าง คุณสมบัติใหม่จะเปิดให้บริการในเลย์เอาท์ใหม่เท่านั้น"
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -321,6 +330,9 @@ th-TH:
       edit_location:
         edit_location_field: แก้ไขข้อมูลตำแหน่ง
         this_field_is_required: ข้อมูลนี้จำเป็น
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: บังคับให้กรอกข้อมูลในช่องนี้เมื่อมีการสร้างรายการใหม่
@@ -376,7 +388,6 @@ th-TH:
       users_and_transactions: ผู้ใช้และการทำธุรกรรม
       configure: ตั้งค่า
       emails_title: ~
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:
@@ -876,6 +887,8 @@ th-TH:
       subject: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       transaction_requested_by_user: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       you_have_time_to_accept: "คุณต้องยอมรับหรือปฏิเสธคำขอภายใน %{payment_expires_in} หากคุณยอมรับ ภายในระยะเวลานี้ การชำระเงินจะผ่านระบบไป แต่ถ้าคุณไม่ยอมรับ คำขอจะถูกปฏิเสธ โดยอัตโนมัติ และคุณจะไม่ได้รับเงิน"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
     transaction_preauthorized_reminder:
       subject: "อย่าลืมยอมรับคำขอจาก%{requester}เกี่ยวกับรายการ %{listing_title}"
@@ -1869,6 +1882,8 @@ th-TH:
       given_name: ชื่อ
       first_name_with_initial: (แสดงเฉพาะอักษรตัวแรกให้ผู้ใช้งานคนอื่นเห็น)
       first_name_only: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
+      display_name: ~
+      display_name_description: ~
       location_description: "คุณสามารถให้ทั้งที่อยู่ หรือเฉพาะเมือง หรือเฉพาะรหัสไปรษณีย์ของคุณ จะเป็นการดีที่จะเพิ่มประเทศของคุณ ในขณะที่เพิ่มตำแหน่งของคุณ ตัวอย่าง: \"10117 Berlin, Germany\" หรือ \" 2000 Sand Hill Road, CA, USA \""
       phone_number: หมายเลขโทรศัพท์
       profile_picture: รูปโปรไฟล์

@@ -17,11 +17,9 @@
 #  index_auth_tokens_on_token  (token) UNIQUE
 #
 
-class AuthToken < ActiveRecord::Base
+class AuthToken < ApplicationRecord
   belongs_to :person
   after_initialize :defaults
-
-  attr_accessible :person, :person_id, :expires_at, :token_type
 
   validates_presence_of :person_id
   validates_presence_of :expires_at

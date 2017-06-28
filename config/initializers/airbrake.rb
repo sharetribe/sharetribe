@@ -1,23 +1,29 @@
 if APP_CONFIG.use_airbrake
   Airbrake.configure do |config|
-    config.api_key = APP_CONFIG.airbrake_api_key
-    config.ignore_only  =  ["AbstractController::ActionNotFound",
-                            "ActiveRecord::RecordNotFound",
-                            "ActionController::RoutingError",
-                            #"ActionController::InvalidAuthenticityToken",
-                            "ActionController::UnknownAction",
-                            "PeopleController::PersonDeleted",
-                            "PeopleController::PersonBanned",
-                            "ListingsController::ListingDeleted"
-                            #"CGI::Session::CookieStore::TamperedWithCookie"
-                            ]
-    # The erros above are the defaults (from https://github.com/airbrake/airbrake)
-    # commented few out to see how often they happen
+    config.project_id = APP_CONFIG.airbrake_project_id
+    config.project_key = APP_CONFIG.airbrake_project_key
 
-    # NB: ignores for other services are defined in newrelic.yml,
-    # consider keeping them in sync!
 
-    # config.http_open_timeout = 60
-    # config.http_read_timeout = 60
+    config.root_directory = Rails.root
+    config.logger = Rails.logger
+    config.environment = Rails.env
+
+    config.ignore_environments = %w(development test)
+    config.blacklist_keys = Rails.application.config.filter_parameters
+  end
+
+  Airbrake.add_filter do |notice|
+    errors_to_ignore = [
+      "AbstractController::ActionNotFound",
+      "ActiveRecord::RecordNotFound",
+      "ActionController::RoutingError",
+      "ActionController::UnknownAction",
+      "PeopleController::PersonDeleted",
+      "PeopleController::PersonBanned",
+      "ListingsController::ListingDeleted"
+    ]
+    if notice[:errors].any? { |error| errors_to_ignore.include?(error[:type]) }
+      notice.ignore!
+    end
   end
 end

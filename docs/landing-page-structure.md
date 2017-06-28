@@ -33,6 +33,19 @@ A link is represented as a JSON object with keys `type` and `id`. For example, t
 
 See the [example JSON structure](../app/services/custom_landing_page/example_data.rb).
 
+## Limited Markdown support
+
+The landing page has a limited Markdown support. Some value support a limited set of Markdown elements. The supported Markdown elements are:
+
+- Paragraph. Piece of text separated by two linebreaks (Example: `First paragraph\n\nSecond paragraph`)
+- Italic (Example: `*This will be italic*`)
+- Bold (Example: `**This will be bold**`)
+- Bold+italic (Example: `***This will be bold and italic***`)
+- Line break (two spaces and `\n`) (Example: `Add new line  \n...but don't add new paragraph`)
+- Strike through (Example: `~~This will be striked through~~`)
+- Underline (Example: `_This will be underlined_`)
+- Links (Example: `Go to [Sharetribe homepage](https://www.sharetribe.com)`). Please note that it's highly encouraged to use relative URLs (links that start with `/`, e.g. `/s?category=all`) for all internal links.
+
 ## Settings
 
 The following values are set in `settings`:
@@ -51,7 +64,7 @@ The following values are set in `page`:
 * `twitter_image` is used to render `twitter:image` `meta` tag. Make sure it links to the correct hero image asset id or if you want to use a different asset, you can link to it.
 * `facebook_image` is used to render `og:image` `meta` tag. Make sure it links to the correct hero image asset id.
 * `title` is the page title. Defaults to marketplace name and slogan.
-* `google_site_verification`is the value for meta tag for Google search console verification code. You need to edit the default value to the correct verification code code. If you don't have a google verification code you can remove this line from the structure. 
+* `google_site_verification` is the value for meta tag for Google search console verification code. You need to edit the default value to the correct verification code code. If you don't have a google verification code you can remove this line from the structure.
 
 `page` includes a number of other SEO-related keys. They default to appropriate values for the marketplace, but can be overriden, if desired.
 
@@ -66,7 +79,10 @@ Section `kind` is `hero`.
 Values to set:
 
 * `background_image`
-* `background_image_variation` sets the amount of dimming applied to the image. Possible values are `dark` (default) and `light`.
+* `background_image_variation` sets the amount of dimming applied to the image. Possible values are:
+  * `dark`: 50% darkening (default)
+  * `light`: 30% darkening
+  * `transparent`: no darkening
 
 Normally, the only keys that you need to modify in a `hero` section are the `background_image`, which links to an asset, and the `background_image_variation`, which sets the amount of darkening applied. For example:
 
@@ -105,7 +121,10 @@ Values to set:
 
 * `title`
 * `background_image`
-* `background_image_variation` - possible values: `light` and `dark` (default)
+* `background_image_variation` sets the amount of dimming applied to the image. Possible values are:
+  * `dark`: 50% darkening (default)
+  * `light`: 30% darkening
+  * `transparent`: no darkening
 * `paragraph`
 * `button_title`
 * `button_path`
@@ -190,6 +209,10 @@ Values to set:
 * `height`
 
   See `width`
+
+* `text`
+
+  A text string "A video description." It'll be embedded on top of the video.
 
 ### Footer
 

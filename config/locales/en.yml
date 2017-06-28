@@ -1,4 +1,10 @@
 en:
+  number:
+    currency:
+      format:
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -94,6 +100,10 @@ en:
         favicon: Favicon
         favicon_info_text: "Favicon will replace the default Sharetribe logo. The dimensions should be 32x32 pixels and the uploaded image will be resized to these dimensions."
         community_custom_color1: "Main color"
+        community_slogan_color: "Marketplace slogan color"
+        community_slogan_color_instructions_text: "You can change the color of the slogan on the homepage by entering a hex color value. The slogan is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
+        community_description_color: "Marketplace description color"
+        community_description_color_instructions_text: "You can change the color of the description on the homepage by entering a hex color value. The description is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Post a new listing button color"
         logo_instructions_text_with_dimensions: "The logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
         logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height}px."
@@ -104,8 +114,8 @@ en:
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
-        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and copy the code here."
-        new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and copy the code here."
+        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
+        new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
         grid: Grid
@@ -152,7 +162,7 @@ en:
         resend_link: Resend
         invalid_email_error: "Invalid email format for '%{email}'"
         invalid_email_domain: "The '%{email}' email address is using an unsupported email provider: '%{domain}'. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Read the knowledge base article for more information."
+        invalid_email_domain_read_more_link: "Read the Help Center article for more information."
         unknown_error: "Something went wrong"
         white_label_offer: "Set your own email address as the sender and remove all Sharetribe branding from outgoing email messages by %{upgrade_pro_plan_link}."
         upgrade_plan_link: "upgrading to the Pro plan or higher"
@@ -203,7 +213,6 @@ en:
         transaction_preferences: "Order preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
         show_category_in_listing_list: "Display listing type in list view"
-        hide_expiration_date: "Do not require listings to have an expiration date"
         listing_comments_in_use: "Allow users to post comments to listings (viewable to all other users)"
         email_preferences: "Email preferences"
         automatic_newsletters: "Send automatic daily / weekly newsletters to all users (unless they opt out)"
@@ -228,6 +237,7 @@ en:
         manage_members: "Manage users"
         email: Email
         name: Name
+        display_name: "Display name"
         join_date: Joined
         admin: Admin
         posting_allowed: "Posting allowed"
@@ -240,8 +250,7 @@ en:
         ban_me_error: "You cannot ban yourself."
       new_layout:
         new_layout: "New layout"
-        description_roadmap: "Sharetribe is currently in the process of rolling out a new and improved layout. During the transition period, you can select which parts of your marketplace should continue using the old layout using the menu below. New features will only be available on the new layout."
-        description_process: "Support for the old layout will be removed in the future. The Sharetribe team will notify you before this happens. Questions? Contact the team via %{support_link}."
+        description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
         enabled_for_you: "Enabled for you"
         enabled_for_all: "Enabled for all"
         new_topbar: "New top bar (visible on every page)"
@@ -319,13 +328,16 @@ en:
         edit_listing_field: "Edit listing field '%{field_name}'"
       edit_price:
         description: "The minimum and maximum price only affect the filter. They do not set a limit for listing prices."
-        edit_price_field: "Edit price field"
+        edit_price_field: "Edit listing field 'Price'"
         show_price_filter_homepage: "Show price filter on homepage"
         price_min: "Filter minimum price"
         price_max: "Filter maximum price"
       edit_location:
-        edit_location_field: "Edit location field"
+        edit_location_field: "Edit listing field 'Location'"
         this_field_is_required: "This field is required"
+      edit_expiration:
+        edit_expiration_field: "Edit listing field 'Expiration date'"
+        enable: "Enable expiration date"
       form:
         field_required:
           this_field_is_required: "Make it mandatory to fill in this field when creating a new listing"
@@ -381,7 +393,6 @@ en:
       users_and_transactions: "Users & transactions"
       configure: Configuration
       emails_title: Emails
-      support: Support
       subscription: Subscription
       preview: "Preview site"
     listing_shapes:
@@ -394,7 +405,7 @@ en:
       pricing_units_disabled_info: "Pricing units cannot be used when availability calendar is enabled."
       index:
         listing_shapes: "Order types"
-        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via free messages."
+        description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via direct messages."
         read_more_about_order_types: "Read more about order types"
         add_new_shape: "Add new order type: "
         select_template: "Select template..."
@@ -621,7 +632,7 @@ en:
       canceled_offer: "Offer canceled."
       message_from: "Message from %{person}"
       about_listing: "About listing %{listing_title}"
-      free_message: "Free message"
+      free_message: "Direct message"
       message_content_not_available: "Message content not available"
     message:
       accepted_request: "accepted the request"
@@ -886,9 +897,11 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     transaction_preauthorized:
-      subject: "%{requester} has requested and authorized payment for %{listing_title}"
-      transaction_requested_by_user: "%{requester} has requested and authorized payment for \"%{listing_title}\""
+      subject: "%{requester} is interested and has authorized payment for %{listing_title} published in %{service_name}"
+      transaction_requested_by_user: "Great news! %{requester} is interested in \"%{listing_title}\" and has authorized payment for this listing."
       you_have_time_to_accept: "You need to accept or reject the request within %{payment_expires_in}. If you accept within this timeframe, the payment will go through. If you don't accept, the request will be automatically rejected and you will not get paid."
+      if_you_do_accept: "If you accept the request within this timeframe, you will receive the money immediately to your account."
+      if_you_do_not_accept: "If you reject the request or don't accept it within this timeframe, the transaction will be automatically cancelled, %{requester} will not be charged and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
@@ -1155,7 +1168,7 @@ en:
       join_this_community: "Join marketplace"
       read_more: "Read more"
       feedback: "Your message to %{service_name} team"
-      dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the Support link in your admin panel instead."
+      dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the support widget in the bottom right corner of the admin panel instead."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Contact us"
@@ -1430,7 +1443,7 @@ en:
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_paypal_text: "%{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
         paypal_fee_info_link_text: "PayPal's payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
@@ -1887,6 +1900,8 @@ en:
       given_name: "First name"
       first_name_with_initial: "(only first letter shown to other users)"
       first_name_only: "(not shown to other users)"
+      display_name: "Display name"
+      display_name_description: "If you represent an organisation, you can use its name as your display name. Display name is shown to other users instead of your first and last name."
       location_description: "You can provide either your street address or only a city or zip/postal code. It’s good to also add your country when adding your location. Examples: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Phone number"
       profile_picture: "Profile picture"

@@ -16,7 +16,7 @@
 
         - content_for :extra_javascript do
           :javascript
-            window.ST.rangeFilter("##{id}", #{range}, #{start}, #{labels}, #{fields}, false)
+            window.ST.rangeFilter("##{id}", #{range.to_json.html_safe}, #{start.to_json.html_safe}, #{labels.to_json.html_safe}, #{fields.to_json.html_safe}, false)
 
 .row
   .col-12

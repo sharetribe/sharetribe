@@ -1,8 +1,8 @@
 class ErrorsController < ActionController::Base
 
   layout 'blank_layout'
-  before_filter :current_community
-  before_filter :set_locale
+  before_action :current_community
+  before_action :set_locale
 
   def server_error
     error_id = airbrake_error_id
@@ -13,14 +13,14 @@ class ErrorsController < ActionController::Base
   def not_found
     respond_to do |format|
       format.html {render "status_404", status: 404, locals: { status: 404, title: title(404) }}
-      format.all { render nothing: true, status: 404 }
+      format.all { render body: nil, status: 404 }
     end
   end
 
   def not_acceptable
     respond_to do |format|
       format.html {render "status_404", status: 406, locals: { status: 406, title: title(406) }}
-      format.all { render nothing: true, status: 406 }
+      format.all { render body: nil, status: 406 }
     end
   end
 
@@ -57,11 +57,11 @@ class ErrorsController < ActionController::Base
   end
 
   def exception
-    env["action_dispatch.exception"]
+    request.env["action_dispatch.exception"]
   end
 
   def airbrake_error_id
-    env['airbrake.error_id'] if error_id_present?(env['airbrake.error_id'])
+    request.env['airbrake.error_id'] if error_id_present?(request.env['airbrake.error_id'])
   end
 
   def can_notify_airbrake

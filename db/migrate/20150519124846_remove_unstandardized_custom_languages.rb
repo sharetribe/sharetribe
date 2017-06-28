@@ -2,7 +2,7 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
 
   # Redefine all Active Record models, so that the migration doesn't depend on the version of code
   module MigrationModel
-    class Community < ActiveRecord::Base
+    class Community < ApplicationRecord
       has_many :categories, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::Category"
       has_many :community_customizations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CommunityCustomization"
       has_many :custom_fields, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomField"
@@ -14,18 +14,18 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
       end
     end
 
-    class Category < ActiveRecord::Base
+    class Category < ApplicationRecord
       has_many :translations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CategoryTranslation"
     end
 
-    class CategoryTranslation < ActiveRecord::Base
+    class CategoryTranslation < ApplicationRecord
       belongs_to :category, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::Category"
     end
 
-    class CommunityCustomization < ActiveRecord::Base
+    class CommunityCustomization < ApplicationRecord
     end
 
-    class CustomField < ActiveRecord::Base
+    class CustomField < ApplicationRecord
       has_many :names, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldName"
       has_many :options, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOption"
 
@@ -33,27 +33,27 @@ class RemoveUnstandardizedCustomLanguages < ActiveRecord::Migration
       self.inheritance_column = nil
     end
 
-    class CustomFieldName < ActiveRecord::Base
+    class CustomFieldName < ApplicationRecord
       belongs_to :custom_field, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomField"
     end
 
-    class CustomFieldOption < ActiveRecord::Base
+    class CustomFieldOption < ApplicationRecord
       has_many :titles, :foreign_key => "custom_field_option_id", class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOptionTitle"
     end
 
-    class CustomFieldOptionTitle < ActiveRecord::Base
+    class CustomFieldOptionTitle < ApplicationRecord
       belongs_to :custom_field_option, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::CustomFieldOption"
     end
 
-    class MenuLink < ActiveRecord::Base
+    class MenuLink < ApplicationRecord
       has_many :translations, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLinkTranslation"
     end
 
-    class MenuLinkTranslation < ActiveRecord::Base
+    class MenuLinkTranslation < ApplicationRecord
       belongs_to :menu_link, touch: true, class_name: "::RemoveUnstandardizedCustomLanguages::MigrationModel::MenuLink"
     end
 
-    class CommunityTranslation < ActiveRecord::Base
+    class CommunityTranslation < ApplicationRecord
     end
   end
 

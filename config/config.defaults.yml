@@ -144,7 +144,8 @@ default: &default_settings
   # You can use Airbrake to track errors if you want.
   # You need to register an account and get an API key from airbrake.io
   use_airbrake: false
-  airbrake_api_key: 'your_own_api_key_here'
+  airbrake_project_id: 'your_own_project_id_here'
+  airbrake_project_key: 'your_own_project_key_here'
 
   # Mail delivery method for mails sent by Sharetribe
   # possible values for delivery method are: sendmail or smtp
@@ -273,12 +274,6 @@ default: &default_settings
   knowledge_base_url: http://www.example.com/knowledgebase
   display_knowledge_base_articles: false
 
-  # UserVoice Widget
-  # If you want to display a UserVoice widget in the Admin control panel, enter
-  # the URL here. (looks like '//widget.uservoice.com/some_code_here.js')
-  # This is completely optional and probably not needed in most cases.
-  uservoice_widget_url:
-
   # External plan service connection
   # The connection details hosted Sharetribe uses to connect to external subscription management system.
   external_plan_service_in_use: false
@@ -299,8 +294,7 @@ default: &default_settings
 
   # Harmony service API connection
   harmony_api_in_use: false
-  harmony_api_url:
-  harmony_api_disable_authentication: false
+  harmony_api_url: http://localhost:8085
   harmony_api_token_secret: secret_key1
 
   # Discovery service API connection
@@ -398,6 +392,27 @@ default: &default_settings
   # - https://s3.amazonaws.com/my-bucket/fonts/
   #
   font_proximanovasoft_url:
+
+  ##########################################
+  # Admin Intercom (sharetribe.com internal)
+  ##########################################
+
+  # Enable/disable Intercom Respond for Admin UI
+  admin_intercom_respond_enabled: false
+
+  # Admin Intercom App Id
+  admin_intercom_app_id: ""
+
+  # Admin Intercom secure mode secret
+  admin_intercom_secure_mode_secret: ""
+
+  admin_intercom_access_token: ""
+
+  admin_intercom_admin_id: ""
+
+  #########
+  # Sitemap
+  #########
 
   # Maximum number of links in sitemap.xml.
   #

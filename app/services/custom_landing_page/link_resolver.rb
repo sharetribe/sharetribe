@@ -20,8 +20,9 @@ module CustomLandingPage
     end
 
     class MarketplaceDataResolver
-      def initialize(data)
+      def initialize(data, cta)
         @_data = data
+        @_cta = cta
       end
 
       def call(type, id, _)
@@ -29,8 +30,24 @@ module CustomLandingPage
           raise LinkResolvingError.new("Unknown marketplace data value '#{id}'.")
         end
 
-        value = @_data[id]
+        value =
+          case id
+          when "search_type"
+            search_type
+          else
+            value = @_data[id]
+          end
+
         { "id" => id, "type" => type, "value" => value }
+      end
+
+      def search_type
+        case @_cta
+        when "signup"
+          "private"
+        else
+          @_data["search_type"]
+        end
       end
     end
 

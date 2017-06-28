@@ -4,14 +4,10 @@ class RobotsGenerator
 
   CONTENT_TYPE = { "Content-Type" => "text/plain" }
 
-  class Request < Rack::Request
-    include ActionDispatch::Http::URL
-  end
-
   def self.call(env)
     community = community(env)
     reason = redirect_reason(env)
-    req = Request.new(env)
+    req = Rack::Request.new(env)
 
     target = redirect_target(community, reason, req)
     return target unless target.nil?

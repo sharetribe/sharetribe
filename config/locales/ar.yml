@@ -1,4 +1,10 @@
 ar:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -79,6 +85,10 @@ ar:
         favicon: "شعار المتصفح"
         favicon_info_text: ~
         community_custom_color1: "اللون الرئيسي"
+        community_slogan_color: "لون شعار السوق الإلكتروني"
+        community_slogan_color_instructions_text: ~
+        community_description_color: "لون وصف السوق الإلكتروني"
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: "لون زر الإضافة الجديدة"
         logo_instructions_text_with_dimensions: ~
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -188,7 +198,6 @@ ar:
         transaction_preferences: "تفضيلات الطلب"
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
-        hide_expiration_date: ~
         listing_comments_in_use: ~
         email_preferences: "تفضيلات البريد الإلكتروني"
         automatic_newsletters: ~
@@ -213,6 +222,7 @@ ar:
         manage_members: "إدارة المستخدمين"
         email: "بريد إلكتروني"
         name: الإسم
+        display_name: "الأسم المعروض"
         join_date: "تم الإنضمام"
         admin: المشرف
         posting_allowed: "النشر مسموح"
@@ -225,8 +235,7 @@ ar:
         ban_me_error: "لا يمكنك حظر نفسك"
       new_layout:
         new_layout: "تصميم جديد"
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: "مفعل لك فقط"
         enabled_for_all: "تفعيل للكل"
         new_topbar: "قائمة علوية جديدة (متوفر على كل صفحة)"
@@ -309,8 +318,11 @@ ar:
         price_min: "أقل قيمة لفرز السعر"
         price_max: "أكبر قيمة لفرز السعر"
       edit_location:
-        edit_location_field: "تحرير حقل الموقع"
+        edit_location_field: "تحرير حقل الإعلان \"الموقع\""
         this_field_is_required: "هذا الحقل إجباري"
+      edit_expiration:
+        edit_expiration_field: "تحرير حقل الإعلان \"تاريخ الانتهاء\""
+        enable: "تفعيل تاريخ الانتهاء"
       form:
         field_required:
           this_field_is_required: "اجعل هذا الحقل إجباري عندما يتم إنشاء إعلان جديد"
@@ -366,7 +378,6 @@ ar:
       users_and_transactions: "المستخدمين والعمليات"
       configure: تعديل
       emails_title: "عناوين بريدية"
-      support: "الدعم الفني"
       subscription: الإشتراك
       preview: "معاينة الموقع"
     listing_shapes:
@@ -604,7 +615,7 @@ ar:
       canceled_offer: "تم إلغاء العرض"
       message_from: "‎%{person}‎ رسالة من"
       about_listing: "‎%{listing_title}‎ عن الإعلان"
-      free_message: "رسالة مجانية"
+      free_message: "رسالة مباشرة"
       message_content_not_available: "محتوى الرسالة غير متوفر"
     message:
       accepted_request: "قَبِل الطلب"
@@ -877,6 +888,10 @@ ar:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: "إذا قمت بالموافقة على الطلب في هذه الفترة المحددة، ستستلم النقود مباشرة إلى حسابك"
+      if_you_do_not_accept: |-
+          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
+          ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
       click_here_to_reply: "اضغط هنا للرد على الطلب"
     transaction_preauthorized_reminder:
       subject: ~
@@ -993,7 +1008,7 @@ ar:
       request_partitive: طلب
   header:
     about: "عن الموقع"
-    home: الرئيسية
+    home: الإعلانات
     members: مجتمع
     new_listing: "إعلان جديد"
     mobile_version: "نسخة الجوال"
@@ -1001,7 +1016,7 @@ ar:
     requests: طلبات
     search_kassi: "‎%{service_name}‎ بحث"
     create_new_marketplace: "قم بإنشاء سوق إلكتروني جديد"
-    contact_us: "اتصل بنا"
+    contact_us: "رسالة للمشرف"
     profile: "الملف الشخصي"
     manage_listings: "إدارة الإعلانات"
     invite: "دعوة صديق"
@@ -1041,7 +1056,7 @@ ar:
       some_private_offers_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد عروض"
       some_private_requests_exist: "‎<b>‎‎%{number_of_listings}‎‎</b>‎ يوجد هنالك عدد طلبات"
     custom_filters:
-      update_view: "تحديث الفرز"
+      update_view: فرز
       min: "أقل قيمة:"
       max: "أكبر قيمة:"
     event_feed:
@@ -1122,7 +1137,7 @@ ar:
       click_here_link_text: "إضغط هنا"
     how_to_use:
       default_title: "كيفية العمل"
-      default_content: ~
+      default_content: "‎%{marketplace_name}‎ ستجد هنا معلومات عن كيفية عمل"
   landing_page:
     hero:
       search: بحث
@@ -1171,7 +1186,7 @@ ar:
     infos:
       about: "عن الموقع"
       how_to_use: "كيفية العمل"
-      info_about_kassi: "معلومات عن ‎%{service_name}‎"
+      info_about_kassi: "‎%{service_name}‎ معلومات عن"
       news: أخبار
       register_details: "سياسة الخصوصية"
       terms: "شروط الاستخدام"
@@ -1873,6 +1888,8 @@ ar:
       given_name: "الإسم الأول"
       first_name_with_initial: "(فقط الحرف الأول مرئي للمستخدمين الآخرين)"
       first_name_only: "(غير مرئي للمشتركين الآخرين)"
+      display_name: "الأسم المعروض"
+      display_name_description: "إذا كنت تمثل شركة أو مؤسسة، يمكنك استعمال اسم المنشأة كالاسم المعروض في إعلانك. الإسم المعروض هو ما يراه المستخدمين الآخرين وزوار الموقع عوضا عن اسمك الأول والثاني"
       location_description: "يمكنك إضافة عنوان الشارع أو المدينة أو الرمز البريدي. من الجيد إضافة بلدك عندما تضيف موقعك. مثلا: \"٢١٢١٢ جدة، المملكة العربية السعودية\" أو \"٢٠٠٠ شارع التحلية، جدة، المملكة العربية السعودية\""
       phone_number: "رقم الهاتف"
       profile_picture: "صورة الملف الشخصي"
@@ -2084,7 +2101,7 @@ ar:
       menu: القائمة
       more: المزيد
       search_placeholder: بحث...
-      search_location_placeholder: الموقع
+      search_location_placeholder: المدينة
       user: المستخدم
       inbox: "صندوق الوارد"
       profile: "الملف الشخصي"

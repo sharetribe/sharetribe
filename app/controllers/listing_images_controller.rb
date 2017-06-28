@@ -1,23 +1,23 @@
 class ListingImagesController < ApplicationController
 
   # Skip auth token check as current jQuery doesn't provide it automatically
-  skip_before_filter :verify_authenticity_token, :only => [:destroy]
-  skip_before_filter :warn_about_missing_payment_info
+  skip_before_action :verify_authenticity_token, :only => [:destroy]
+  skip_before_action :warn_about_missing_payment_info
 
-  before_filter :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url]
+  before_action :"ensure_authorized_to_add!", :only => [:add_from_file, :add_from_url, :reorder]
 
   def destroy
     image = ListingImage.find_by_id(params[:id])
 
     if image.nil?
-      render nothing: true, status: 404
+      render body: nil, status: 404
     elsif !authorized_to_destroy?(image)
-      render nothing: true, status: 401
+      render body: nil, status: 401
     else
       image_destroyed = image.destroy
 
       if image_destroyed
-        render nothing: true, status: 204
+        render body: nil, status: 204
       else
         error_messages = image.errors.full_messages
 
@@ -57,10 +57,17 @@ class ListingImagesController < ApplicationController
     listing_image = ListingImage.find_by_id(params[:id])
 
     if !listing_image
-      render nothing: true, status: 404
+      render body: nil, status: 404
     else
       render json: ListingImageJSAdapter.new(listing_image).to_json, status: 200
     end
+  end
+
+  def reorder
+    params[:ordered_ids].split(",").each_with_index do |image_id, index|
+      ListingImage.find_by(listing_id: params[:listing_id], id: image_id).update(position: index+1)
+    end
+    render plain: "OK"
   end
 
   private
@@ -103,7 +110,7 @@ class ListingImagesController < ApplicationController
   end
 
   def authorized_to_destroy?(image)
-    if image.listing.present?
+    if image.listing.present? && image.listing.community_id == @current_community.id
       # Listing is present: We are deleting image from saved listing
       image.listing.author == @current_user || @current_user.has_admin_rights?
     else
@@ -132,9 +139,9 @@ class ListingImagesController < ApplicationController
 
     case status
     when :not_found
-      render nothing: true, status: :not_found
+      render body: nil, status: :not_found
     when :unauthorized
-      render nothing: true, status: :unauthorized
+      render body: nil, status: :unauthorized
     end
   end
 end

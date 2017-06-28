@@ -16,6 +16,6 @@
 #  index_marketplace_configurations_on_community_id  (community_id)
 #
 
-class MarketplaceConfigurations < ActiveRecord::Base
+class MarketplaceConfigurations < ApplicationRecord
 
 end

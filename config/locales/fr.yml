@@ -1,4 +1,10 @@
 fr:
+  number:
+    currency:
+      format:
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -94,6 +100,10 @@ fr:
         favicon: Favicon
         favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
+        community_slogan_color: "Couleur du slogan de la place de marché"
+        community_slogan_color_instructions_text: "Vous pouvez changer la couleur du slogan sur la page d'accueil en entrant une valeur hexadécimale. %{colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici. %{see_how_it_looks_like}."
+        community_description_color: "Couleur de la description de la place de marché"
+        community_description_color_instructions_text: "Vous pouvez changer la couleur de la description sur la page d'accueil en entrant une valeur hexadécimale. %{colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Couleur du bouton Déposer une annonce"
         logo_instructions_text_with_dimensions: "Le logo doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
         logo_instructions_text_with_dimensions_no_placing: "Les dimensions du logo doivent être de %{width}*%{height} pixels."
@@ -104,8 +114,8 @@ fr:
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
-        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier ici."
-        new_listing_button_instructions_text: "Vous pouvez changer la couleur du bouton Déposer une nouvelle annonce en entrant une valeur hexadécimale. %{link_to_colorpicker} peut vous aider à choisir cette valeur que pourrez alors copier ici."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
+        new_listing_button_instructions_text: "Vous pouvez changer la couleur du bouton Déposer une nouvelle annonce en entrant une valeur hexadécimale. %{link_to_colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
         grid: Grille
@@ -139,6 +149,7 @@ fr:
         sender_name_placeholder: "Nom de l'expéditeur"
         sender_email_label: "Adresse email"
         sender_email_placeholder: expediteur@exemple.fr
+        amazon_ses_notification: "Vous recevrez un message de %{email_sender} pour confirmer votre adresse email. Le sujet de cet email sera \"%{email_subject}\". Veuillez suivre les instructions qu'il contient pour vérifier votre adresse."
         this_is_how_it_will_look: "Voici un aperçu du résultat : "
         send_verification_button: "Envoyer l'email de vérification"
         successfully_saved: "Adresse de l'expéditeur sauvegardée avec succès. L'email de vérification va être envoyé très prochainement."
@@ -151,7 +162,7 @@ fr:
         resend_link: Renvoyer
         invalid_email_error: "Format de l'email invalide pour '%{email}'"
         invalid_email_domain: "L'adresse email '%{email}' utilise le fournisseur '%{domain}' non supporté. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Lisez l'article dans la base de connaissances pour en savoir plus."
+        invalid_email_domain_read_more_link: "Lisez l'article dans l'espace d'aide pour en savoir plus."
         unknown_error: "Quelque chose s'est mal passé."
         white_label_offer: "Configurez votre propre adresse email comme expéditeur et supprimez toute mention de Sharetribe dans les messages envoyés en %{upgrade_pro_plan_link}."
         upgrade_plan_link: "vous abonnant à l'offre Pro ou supérieure"
@@ -202,7 +213,6 @@ fr:
         transaction_preferences: "Paramètres de commandes"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
-        hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
         listing_comments_in_use: "Permettre aux utilisateurs de commenter les annonces (visibles par tous les utilisateurs)"
         email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
@@ -227,6 +237,7 @@ fr:
         manage_members: "Gérer les utilisateurs"
         email: Email
         name: Nom
+        display_name: "Nom d'affichage"
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
@@ -239,8 +250,7 @@ fr:
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
       new_layout:
         new_layout: "Nouveau design"
-        description_roadmap: "Sharetribe est actuellement en train de déployer un nouveau et meilleur design. Durant cette phase de transition, vous pouvez sélectionner grâce au menu ci-dessous quelles sections de votre place de marché doivent continuer à utiliser l'ancien design. Les nouvelles fonctionnalités ne seront disponibles qu'avec le nouveau design."
-        description_process: "Le support de l'ancien design cessera un jour. L'équipe Sharetribe vous notifiera avant que cela n'arrive. Des questions? Contactez l'équipe via %{support_link}."
+        description_roadmap_new: "Lorsque de nouveaux éléments de design sont disponibles pour votre place de marché, vous pouvez choisir de les utiliser sans attendre ou bien de continuer à utiliser les anciens. Vous pouvez modifier votre choix à tout moment depuis cette page. Il est préférable de toujours utiliser les versions les plus récentes, puisque les anciens éléments seront rendus obsolètes à un moment. Si un élément que vous utilisez devenait obsolète, vous serez contacté au préalable."
         enabled_for_you: "Activé pour vous"
         enabled_for_all: "Activé pour tous"
         new_topbar: "Nouvelle barre des menus (visible sur toute les pages)"
@@ -255,7 +265,7 @@ fr:
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
-        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}."
+        facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}"
         facebook_instructions_link_text: "Lire les instructions pour configurer Facebook Connect."
         facebook_connect_id: "Facebook client id"
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
@@ -325,6 +335,9 @@ fr:
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Lieu'"
         this_field_is_required: "Ce champ est obligatoire"
+      edit_expiration:
+        edit_expiration_field: "Modifier le champ d'annonce 'Date d'expiration'"
+        enable: "Activer la date d'expiration"
       form:
         field_required:
           this_field_is_required: "Rendre ce champ obligatoire lors de la création d'une nouvelle annonce"
@@ -380,7 +393,6 @@ fr:
       users_and_transactions: "Utilisateurs et transactions"
       configure: Configuration
       emails_title: Emails
-      support: Support
       subscription: Abonnement
       preview: "Prévisualiser le site"
     listing_shapes:
@@ -393,7 +405,7 @@ fr:
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
       index:
         listing_shapes: "Types de transaction"
-        description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer sans paiement."
+        description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer directement."
         read_more_about_order_types: "En savoir plus sur les types de transaction"
         add_new_shape: "Ajouter un nouveau type de transaction : "
         select_template: "Sélectionner un modèle..."
@@ -620,7 +632,7 @@ fr:
       canceled_offer: "Offre annulée."
       message_from: "Message de %{person}"
       about_listing: "A propos de l'annonce %{listing_title}"
-      free_message: "Message libre"
+      free_message: "Message direct"
       message_content_not_available: "Le contenu du message n'est pas disponible"
     message:
       accepted_request: "a accepté la demande"
@@ -885,9 +897,11 @@ fr:
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis sur %{name}"
       you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis sur %{name} suite à l'annonce '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
     transaction_preauthorized:
-      subject: "%{requester} a demandé et autorisé le paiement pour %{listing_title}"
-      transaction_requested_by_user: "%{requester} a demandé et autorisé le paiement pour \"%{listing_title}\""
+      subject: "%{requester} est intéressé(e) et a autorisé un paiement pour %{listing_title} posté sur %{service_name}"
+      transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
+      if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
+      if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, %{requester} ne sera facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
@@ -1092,7 +1106,7 @@ fr:
       add_email_addresses_description: "Ajoutez ci-dessous les adresses email des gens que vous souhaitez inviter. Pour ajouter plusieurs adresses, séparez les par une virgule."
       add_lots_of_email_addresses: "Puisque vous êtes administrateur, voici un conseil : si vous souhaitez envoyer de nombreuses invitations, vous devriez utiliser un outil d'emailing. Lisez %{this_article_link} pour découvrir plusieurs services qui pourront répondre à ce besoin."
       this_article_link: "cet article"
-      invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
+      invitation_emails_field_placeholder: "ami1@example.com, ami2@example.com, ..."
       invitation_message_field_placeholder: "J'ai rejoint cette super place de marché. Tu devrais aussi !"
       errors_in_emails: "Vérifiiez que les adresses email que vous avez ajoutées sont valides et ne comportent pas de caractères interdits. Si vous avez ajouté plusieurs adresses, assurez-vous qu'elles soient séparées par une virgule."
     list_item:
@@ -1429,7 +1443,7 @@ fr:
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après les frais de service de %{service_name} et du prestataire de paiement vous recevrez %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} seront déduits du montant."
-        after_service_fee_you_will_get_paypal_text: "Les frais de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
+        after_service_fee_you_will_get_paypal_text: "Lorsque quelqu'un passera commande, les frais de service de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
         paypal_fee_info_link_text: "les frais de transaction PayPal"
         delivery: Livraison
         shipping: Envoi
@@ -1574,8 +1588,8 @@ fr:
         per_day: "par jour"
       delivery: Livraison
       shipping: "Envoi (+%{price})"
-      shipping_no_price: Livraison
-      shipping_price_additional: "Livraison (+%{price}, éléments supplémentaires: +%{shipping_price_additional})"
+      shipping_no_price: Envoi
+      shipping_price_additional: "Envoi (+%{price}, éléments supplémentaires : +%{shipping_price_additional})"
       pickup: Retrait
       pickup_no_price: Retrait
       youtube_video_player: "lecteur vidéo YouTube"
@@ -1886,6 +1900,8 @@ fr:
       given_name: Prénom
       first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
+      display_name: "Nom d'affichage"
+      display_name_description: "Si vous êtes une entreprise, vous pouvez utiliser son nom comme nom d'affichage. Le nom d'affichage sera visible par les autres utilisateurs à la place de votre nom et prénom."
       location_description: "Vous pouvez entrer votre adresse ou simplement une ville ou un code postal. Il est également utile de préciser votre pays lorsque vous entrez votre adresse. Exemples : \"10117 Berlin, Allemagne\" ou \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"

@@ -42,7 +42,7 @@ module ServiceClient
       def error_log(ctx)
         {
           req: ctx.fetch(:req).except(:body),
-          res: ctx[:res].except(:body),
+          res: Maybe(ctx)[:res].except(:body).or_nil,
           error_class: ctx[:error].class.to_s,
         }.merge(timing(ctx))
       end

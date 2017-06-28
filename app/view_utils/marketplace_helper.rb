@@ -8,11 +8,13 @@ module MarketplaceHelper
 
   def style_customizations_map(community)
     # get colors from helper, but strip # prefix
-    color1, color2 = CommonStylesHelper.marketplace_colors(community).map{ |k, v| v[1..-1] }
+    color1, color2, slogan_color, description_color = CommonStylesHelper.marketplace_colors(community).map{ |k, v| v[1..-1] }
 
     {
       color1: color1,
       color2: color2,
+      slogancolor: slogan_color,
+      descriptioncolor: description_color,
       image_map: {
         cover_photo:         community.stable_image_url(:cover_photo, :hd_header),
         small_cover_photo:   community.stable_image_url(:small_cover_photo, :hd_header),

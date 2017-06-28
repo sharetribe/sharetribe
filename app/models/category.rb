@@ -18,16 +18,7 @@
 #  index_categories_on_url           (url)
 #
 
-class Category < ActiveRecord::Base
-  attr_accessible(
-    :community_id,
-    :parent_id,
-    :translations,
-    :translation_attributes,
-    :sort_priority,
-    :url,
-    :basename
-  )
+class Category < ApplicationRecord
 
   attr_accessor :basename
 
@@ -46,7 +37,7 @@ class Category < ActiveRecord::Base
   belongs_to :community
 
   before_save :uniq_url
-  before_destroy :can_destroy?
+  before_destroy :can_be_destroyed?
 
 
   def translation_attributes=(attributes)
@@ -121,6 +112,10 @@ class Category < ActiveRecord::Base
 
   def can_destroy?
     is_subcategory? || community.top_level_categories.count > 1
+  end
+
+  def can_be_destroyed?
+    throw :abort unless can_destroy?
   end
 
   def remove_needs_caution?

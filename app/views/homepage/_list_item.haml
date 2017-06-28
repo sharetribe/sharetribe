@@ -10,7 +10,7 @@
       .home-list-price
         - if listing.price
           .home-list-item-price-value
-            = humanized_money_with_symbol(listing.price).upcase
+            = MoneyViewUtils.to_humanized(listing.price)
           - price_text = nil
           - if listing.quantity.present?
             - price_text = t("listings.form.price.per") + " " + listing.quantity
@@ -35,7 +35,7 @@
       .home-list-price-mobile{:class => (listing.listing_images.size > 0 ? "home-list-price-mobile-with-listing-image" : "home-list-price-mobile-without-listing-image")}
         - if listing.price
           .home-list-price-value-mobile
-            = humanized_money_with_symbol(listing.price).upcase
+            = MoneyViewUtils.to_humanized(listing.price)
           - price_text = nil
           - if listing.quantity.present?
             - price_text = t("listings.form.price.per") + " " + listing.quantity
@@ -55,7 +55,7 @@
           = image_tag(listing.author.avatar.thumb || missing_avatar(:thumb))
       .home-list-author-details
         = link_to(person_path(username: listing.author.username), :class => "home-list-author-name") do
-          = PersonViewUtils::person_entity_display_name(listing.author, @current_community.name_display_type)
+          = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
         .home-list-author-reviews
           - if listing.author.num_of_reviews > 0
             = icon_tag("testimonial")

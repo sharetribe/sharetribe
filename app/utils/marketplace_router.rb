@@ -233,16 +233,16 @@ module MarketplaceRouter
     end
   end
 
-  # Takes a Rails Request
+  # Takes an ActionDispatch::Request or Rack::Request
   #
   # Returns a Hash in a form that MarketplaceRouter expects
   #
   def request_hash(request)
     {
       host: request.host,
-      protocol: request.protocol,
+      protocol: (request.respond_to?(:protocol) ? request.protocol : "#{request.scheme}://"),
       fullpath: request.fullpath,
-      port_string: request.port_string,
+      port_string: (request.respond_to?(:port_string) ? request.port_string : ":#{request.port}"),
     }
   end
 

@@ -12,7 +12,7 @@
         .browsing-list-item-price
           - if listing.price
             .browsing-list-item-price-value
-              = humanized_money_with_symbol(listing.price).upcase
+              = MoneyViewUtils.to_humanized(listing.price)
             - price_text = nil
             - if listing.quantity.present?
               - price_text = t("listings.form.price.per") + " " + listing.quantity
@@ -55,7 +55,7 @@
         .browsing-list-item-price-mobile{ class: (listing.listing_images.size > 0 ? "browsing-list-item-price-mobile-with-listing-image" : "browsing-list-item-price-mobile-without-listing-image")}
           - if listing.price
             .browsing-list-item-price-value-mobile
-              = humanized_money_with_symbol(listing.price).upcase
+              = MoneyViewUtils.to_humanized(listing.price)
             - price_text = nil
             - if listing.quantity.present?
               - price_text = t("listings.form.price.per") + " " + listing.quantity

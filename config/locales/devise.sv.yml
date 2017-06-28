@@ -17,12 +17,12 @@ sv:
       invalid: "Ogiltig e-post eller lösenord."
       invalid_token: "Ogiltig identifiering."
       timeout: "Din session är avslutad, var vänlig logga in igen."
-      inactive: "Ditt konto är inte aktiverat."
+      inactive: "Ditt konto är inte aktiverat ännu."
     passwords:
-      updated_not_active: "Ditt lösenord har ändrats."
+      updated_not_active: "Ditt lösenord ändrades framgångsrikt."
       send_paranoid_instructions: "Om din e-postadress finns i vår databas kommer du att få en länk för att återställa ditt lösenord via e-post"
       send_instructions: "Du kommer snart att få ett e-postmeddelande med instruktioner om hur du återställer ditt lösenord."
-      updated: "Ditt lösenord har ändrats och du är inloggad."
+      updated: "Ditt lösenord ändrades framgångsrikt. Du är nu inloggad."
     sessions:
       signed_in: "Inloggningen lyckades."
       signed_out: "Utloggningen lyckades."

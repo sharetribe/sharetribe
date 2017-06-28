@@ -12,12 +12,12 @@ describe Admin::CommunityMembershipsController, type: :controller do
 
   describe "users CSV export" do
     it "returns 200" do
-      get :index, {format: :csv, community_id: @community.id}
+      get :index, params: {format: :csv, community_id: @community.id}
       expect(response.status).to eq(200)
     end
 
     it "returns CSV with actual data" do
-      get :index, {format: :csv, community_id: @community.id}
+      get :index, params: {format: :csv, community_id: @community.id} 
       response_arr = CSV.parse(response.body)
       expect(response_arr.count).to eq(3)
       user = Hash[*response_arr[0].zip(response_arr[1]).flatten]
@@ -25,12 +25,14 @@ describe Admin::CommunityMembershipsController, type: :controller do
 
       expect(user["first_name"]).to eq(@person.given_name)
       expect(user["last_name"]).to eq(@person.family_name)
+      expect(user["display_name"]).to eq(@person.display_name || "")
       expect(user["phone_number"]).to eq(@person.phone_number)
       expect(user["email_address"]).to eq(@person.emails.first.address)
       expect(user["status"]).to eq("accepted")
 
       expect(user2["first_name"]).to eq(@person.given_name)
       expect(user2["last_name"]).to eq(@person.family_name)
+      expect(user2["display_name"]).to eq(@person.display_name || "")
       expect(user2["phone_number"]).to eq(@person.phone_number)
       expect(user2["email_address"]).to eq(@other_email.address)
       expect(user2["status"]).to eq("accepted")
@@ -57,12 +59,12 @@ describe Admin::CommunityTransactionsController, type: :controller do
 
   describe "transactions CSV export" do
     it "returns 200" do
-      get :index, {format: :csv, per_page: 99999, community_id: @community.id}
+      get :index, params: {format: :csv, per_page: 99999, community_id: @community.id}
       expect(response.status).to eq(200)
     end
 
     it "returns CSV with actual data" do
-      get :index, {format: :csv, per_page: 99999, community_id: @community.id}
+      get :index, params: {format: :csv, per_page: 99999, community_id: @community.id}
       response_arr = CSV.parse(response.body)
       tx = Hash[*response_arr[0].zip(response_arr[1]).flatten]
 

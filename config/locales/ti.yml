@@ -1,4 +1,10 @@
 ti:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -79,6 +85,10 @@ ti:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: ~
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: ~
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -188,7 +198,6 @@ ti:
         transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
-        hide_expiration_date: ~
         listing_comments_in_use: ~
         email_preferences: ~
         automatic_newsletters: ~
@@ -213,6 +222,7 @@ ti:
         manage_members: ~
         email: ~
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -225,8 +235,7 @@ ti:
         ban_me_error: ~
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -311,6 +320,9 @@ ti:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -366,7 +378,6 @@ ti:
       users_and_transactions: ~
       configure: ~
       emails_title: ~
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:
@@ -858,6 +869,8 @@ ti:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -1849,6 +1862,8 @@ ti:
       given_name: ~
       first_name_with_initial: ~
       first_name_only: ~
+      display_name: ~
+      display_name_description: ~
       location_description: ~
       phone_number: ~
       profile_picture: ~

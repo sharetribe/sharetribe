@@ -10,17 +10,15 @@ module ServiceClient
 
     class JwtAuthenticator < MiddlewareBase
 
-      def initialize(disable:, secret:, default_auth_context: IDENTITY)
-        @_disabled = disable
+      def initialize(secret:, default_auth_context: IDENTITY)
         @_secret = secret
         @_default_auth_context = default_auth_context
       end
 
       def enter(ctx)
-        unless @_disabled
-          token = create_token(ctx[:opts][:auth_context] || @_default_auth_context.call)
-          ctx[:req][:headers]["Authorization"] = "Token #{token}"
-        end
+        token = create_token(ctx[:opts][:auth_context] || @_default_auth_context.call)
+        ctx[:req][:headers]["Authorization"] = "Token #{token}"
+
         ctx
       end
 

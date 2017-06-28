@@ -2,11 +2,11 @@ class MessagesController < ApplicationController
   MessageEntity = MarketplaceService::Conversation::Entity::Message
   PersonEntity = MarketplaceService::Person::Entity
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
 
-  before_filter EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_do_this")
+  before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_do_this")
 
   def create
     unless is_participant?(@current_user, params[:message][:conversation_id])

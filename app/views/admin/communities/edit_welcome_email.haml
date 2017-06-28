@@ -3,7 +3,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initializeSenderEmailForm(#{Maybe(user_defined_address).map { |a| HashUtils.camelize_keys(a) }.or_else(nil).to_json}, "#{status_check_url}", "#{resend_url}");
+      window.ST.initializeSenderEmailForm(#{Maybe(user_defined_address).map { |a| HashUtils.camelize_keys(a) }.or_else(nil).to_json.html_safe}, "#{status_check_url}", "#{resend_url}");
     });
 
 - content_for :title_header do
@@ -33,7 +33,7 @@
       %p= t("admin.communities.outgoing_email.info")
 
       %p
-        = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/articles/686493")
+        = link_to(t("admin.communities.outgoing_email.read_more"), "#{knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails")
 
   - content_for(:sender_address_preview) do
     - if sender_address[:type] == :default

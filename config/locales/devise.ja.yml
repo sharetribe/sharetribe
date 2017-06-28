@@ -1,16 +1,16 @@
 ja:
   errors:
     messages:
-      expired: ご登録の有効期限は終了しましたので、再登録をお願いします。
+      expired: 有効期限切れです。新しくリクエストしてください
       not_found: ページが見つかりません
       already_confirmed: 認証済みです。再度、ログインしてください。
       not_locked: ロックされていません。
       not_saved:
-        zero: "エラーは%{count}箇所でしたが、この%{resource}は保存されませんでした："
+        zero: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
         other: "%{count}箇所のエラーにより、この%{resource}は保存されませんでした："
   devise:
     failure:
-      already_authenticated: 既にログインしています。
+      already_authenticated: 既にログイン中です。
       unauthenticated: ご利用を続けるには、ログインか新規登録をする必要があります。
       unconfirmed: ご利用を続けるには、あなたのアカウントを承認する必要があります。
       locked: アカウントがロックされています。
@@ -24,7 +24,7 @@ ja:
       send_instructions: あなたのパスワードのリセット方法が記載されたメールが、まもなく届きます。
       updated: パスワードが正常に変更されました。あなたは今ログイン済です。
     sessions:
-      signed_in: 正常にログインしました。
+      signed_in: ログインしました。
       signed_out: 正常にログアウトしました。
     confirmations:
       send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、メール認証手続き手順を記載したメールがまもなく届きます。
@@ -51,7 +51,7 @@ ja:
       failure: "「%{reason}」のため%{kind}のアカウントのご利用を許可することができませんでした。"
     mailer:
       confirmation_instructions:
-        subject: 認証手続き
+        subject: "%{service_name}に加わるための認証手続き"
       reset_password_instructions:
         subject: パスワード再設定手続き
       unlock_instructions:

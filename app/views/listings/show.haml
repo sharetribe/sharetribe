@@ -46,11 +46,11 @@
               #listing-image-frame
 
               - if @prev_image_id && @next_image_id
-                = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
+                = link_to params.permit(:id, :locale).merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
                   .listing-image-navi-arrow-container
                     .listing-image-arrow-icon-container.left
                       = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
-                = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
+                = link_to params.permit(:id, :locale).merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
                   .listing-image-navi-arrow-container
                     .listing-image-arrow-icon-container.right
                       = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
@@ -58,7 +58,7 @@
 
             - content_for :extra_javascript do
               :javascript
-                var listingImages = #{listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+                var listingImages = #{raw listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
                 var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
                 ST.listingImages(listingImages, currentImage);
           - else
@@ -105,7 +105,8 @@
             .listing-fb-like-button
               = facebook_like(current_user?(@listing.author))
             .listing-tweet-button
-              = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data" => {count: "horizontal", via: (@current_community.twitter_handle || "Sharetribe"), text: @listing.title })
+              - twitter_params =  {count: "horizontal", via: (@current_community.twitter_handle), text: @listing.title }.compact
+              = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data" => twitter_params)
               - content_for :extra_javascript do
                 :javascript
                   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
@@ -131,7 +132,7 @@
         .col-12
           .listing-price
             %span.listing-price-amount
-              = humanized_money_with_symbol(@listing.price).upcase
+              = MoneyViewUtils.to_humanized(@listing.price)
             - with_quantity_text(@current_community, @listing) do |text|
               %span.listing-price-quantity
                 = text
@@ -139,7 +140,7 @@
     .row-with-divider
       .col-12
         #listing-message-links
-          = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type, country_code: country_code, blocked_dates_end_on: blocked_dates_end_on, blocked_dates_result: blocked_dates_result, manage_availability_props: manage_availability_props, availability_enabled: availability_enabled }
+          = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type, country_code: country_code, blocked_dates_end_on: blocked_dates_end_on, blocked_dates_result: blocked_dates_result, manage_availability_props: manage_availability_props, availability_enabled: availability_enabled, currency_opts: currency_opts }
 
     .row-with-divider
       .col-12

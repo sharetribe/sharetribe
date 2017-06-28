@@ -41,11 +41,11 @@
               ];
 
               $.fn.datepicker.dates['#{I18n.locale}'] = {
-                days: #{translated_days},
-                daysShort: #{translated_days_short},
-                daysMin: #{translated_days_min},
-                months: #{translated_months},
-                monthsShort: #{translated_months_short},
+                days: #{raw translated_days},
+                daysShort: #{raw translated_days_short},
+                daysMin: #{raw translated_days_min},
+                months: #{raw translated_months},
+                monthsShort: #{raw translated_months_short},
                 today: "#{t("datepicker.today")}",
                 weekStart: #{t("datepicker.week_start", default: 0)},
                 clear: "#{t("datepicker.clear")}",
@@ -136,7 +136,7 @@
             });
             window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
             if ("#{delivery_type}" == "shipping" && #{shipping_price_additional != nil}) {
-              window.ST.initializeShippingPriceTotal('#quantity', '.delivery-price-value', '#{Maybe(delivery_opts)[0][:price].currency.decimal_mark.or_else(".")}');
+              window.ST.initializeShippingPriceTotal(#{raw currency_opts.to_json}, '#quantity', '.delivery-price-value');
             }
 
         .quantity-wrapper.input-group.clearfix

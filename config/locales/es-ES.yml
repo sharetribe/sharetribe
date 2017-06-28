@@ -1,4 +1,10 @@
 es-ES:
+  number:
+    currency:
+      format:
+        separator: ","
+        delimiter: "."
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -94,6 +100,10 @@ es-ES:
         favicon: Favicon
         favicon_info_text: "El Favicon reemplazará el logo predeterminado de Sharetribe. Las dimensiones deberían ser de 32x32 pixels y la imagen que subas se recortará a ese tamaño."
         community_custom_color1: "Color principal"
+        community_slogan_color: "Color del eslogan"
+        community_slogan_color_instructions_text: "Aquí puedes cambiar el color del eslogan que aparece en la página de inicio. Necesitas ingresar un valor de color hexadecimal. El eslogan se muestra solamente a los usuarios que no han iniciado sesión. En %{colorpicker} puedes elegir el color y luego puedes copiar aquí el código que ahí se genere. %{see_how_it_looks_like}."
+        community_description_color: "Color de la descripción de tu comunidad"
+        community_description_color_instructions_text: "Aquí puedes cambiar el color de la descripción que aparece en la página de inicio. Necesitas ingresar un valor de color hexadecimal. La descripción se muestra solamente a los usuarios que no han iniciado sesión. En %{colorpicker} puedes elegir el color y luego puedes copiar aquí el código que ahí se genere. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Color del botón de \"Publicar Anuncio\""
         logo_instructions_text_with_dimensions: "El logo debe tener una resolución de %{width}x%{height} pixeles. Se mostrará a los usuarios con pantallas más grandes."
         logo_instructions_text_with_dimensions_no_placing: "El logo debe tener una resolución de %{width}x%{height} pixeles."
@@ -104,8 +114,8 @@ es-ES:
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
-        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y copiar el código aquí."
-        new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y copiar el código aquí."
+        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y luego puedes copiar el código del color aquí."
+        new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y luego puedes copiar el código del color aquí."
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
         grid: Cuadrícula
@@ -139,6 +149,7 @@ es-ES:
         sender_name_placeholder: "Nombre del remitente"
         sender_email_label: "Dirección de correo electrónico"
         sender_email_placeholder: remitente-email@ejemplo.com
+        amazon_ses_notification: "Recibirás un correo de %{email_sender} para confirmar esta dirección de correo electrónico. El título del correo es %{email_subject}. Sigue las instrucciones en el correo para verificar tu dirección."
         this_is_how_it_will_look: "Así es como se verá:"
         send_verification_button: "Enviar correo de verificación"
         successfully_saved: "Dirección de remitente guardada correctamente. El correo de verificación se enviará pronto."
@@ -151,7 +162,7 @@ es-ES:
         resend_link: Reenviar
         invalid_email_error: "Formato de correo electrónico para '%{email}' es inválido"
         invalid_email_domain: "La dirección de correo '%{email}' usa un proveedor de correo no soportado por nuestro sistema: '%{domain}'. %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Lee el artículo en nuestra base de conocimiento para más información."
+        invalid_email_domain_read_more_link: "Lee el artículo en nuestro centro de ayuda para obtener más información."
         unknown_error: "Algo salió mal"
         white_label_offer: "Configura tu propia dirección de correo electrónico al enviar mensajes y elimina toda mención de Sharetribe de los correos enviados desde tu comunidad al %{upgrade_pro_plan_link}"
         upgrade_plan_link: "suscribirte al plan Pro o un plan superior"
@@ -202,7 +213,6 @@ es-ES:
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
         show_category_in_listing_list: "Mostrar el tipo de anuncio en la vista de listado"
-        hide_expiration_date: "No requerir que los anuncios tengan una fecha de expiración."
         listing_comments_in_use: "Todos los usuarios pueden publicar comentarios en los anuncios (visibles para el resto de los usuarios)"
         email_preferences: "Preferencias de correo"
         automatic_newsletters: "Enviar el newsletter diario/semanal a todos los usuarios (excepto si no han aceptado el envío de mensajes automáticos)"
@@ -227,6 +237,7 @@ es-ES:
         manage_members: "Administrar usuarios"
         email: Email
         name: Nombre
+        display_name: "Nombre Personalizado"
         join_date: "Fecha de registro"
         admin: Administrador
         posting_allowed: "Publicación permitida"
@@ -239,8 +250,7 @@ es-ES:
         ban_me_error: "No te puedes rechazar a ti mismo."
       new_layout:
         new_layout: "Nuevo diseño"
-        description_roadmap: "En Sharetribe, estamos en el proceso de publicar un nuevo diseño de nuestra plataforma. Durante el periodo de transición, puedes decidir que partes de tu comunidad seguirán utilizando el viejo diseño usando el menú inferior. La mayoría de nuestras nuevas funciones no soportarán el viejo diseño."
-        description_process: "Soporte para el viejo diseño será eliminado en el futuro. El equipo de Sharetribe te notificará antes de que esto suceda. Si tienes alguna pregunta no dudes en contactarnos por medio del %{support_link}."
+        description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
         enabled_for_you: "Habilitar sólo para ti"
         enabled_for_all: "Habilitar para todos"
         new_topbar: "Nueva barra superior (visible en todas las páginas)"
@@ -318,13 +328,16 @@ es-ES:
         edit_listing_field: "Editar campo '%{field_name}'"
       edit_price:
         description: "El precio mínimo y máximo sólo afecta al filtro. No establece un límite para los precios de los anuncios."
-        edit_price_field: "Ha habido un fallo al editar el precio"
+        edit_price_field: "Editar el campo del \"precio\""
         show_price_filter_homepage: "Mostrar filtro por precio en la página principal"
         price_min: "Precio mínimo del filtro"
         price_max: "Precio máximo del filtro"
       edit_location:
-        edit_location_field: "Editar campo de localización geográfica"
+        edit_location_field: "Editar el campo de \"ubicación\""
         this_field_is_required: "Campo obligatorio"
+      edit_expiration:
+        edit_expiration_field: "Editar el campo \"Fecha de expiración\""
+        enable: "Habilitar fecha de expiración"
       form:
         field_required:
           this_field_is_required: "Hacer este campo obligatorio al crear un nuevo anuncio"
@@ -380,7 +393,6 @@ es-ES:
       users_and_transactions: "Usuarios y transacciones"
       configure: Configuración
       emails_title: Emails
-      support: Soporte
       subscription: Subscripción
       preview: "Vista Previa"
     listing_shapes:
@@ -393,7 +405,7 @@ es-ES:
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
       index:
         listing_shapes: "Tipos de Orden"
-        description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes gratuitos."
+        description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes directos."
         read_more_about_order_types: "Leer más sobre tipos de órdenes"
         add_new_shape: "Añadir un nuevo tipo de orden: "
         select_template: "Seleccionar plantilla..."
@@ -590,15 +602,15 @@ es-ES:
       paypal_fee_info: "* No incluye <a id='%{fee_info_link_id}' href='#'> los costos de procesamiento de pago de PayPal</a>"
       shipping_price_label: "Costos de envío:"
     confirm:
-      confirm_description: "Si tu solicitud se ha cumplido debes confirmarla como completada. Después podrás dar retroalimentación al otro usuario."
-      cancel_description: "Si tu solicitud no se cumplió, puedes marcarla como 'disputada'. Aún así podrás dar retroalimentación al otro usuario y describir qué pasó."
+      confirm_description: "Si tu solicitud se ha cumplido debes confirmarla como completada. Después podrás dar una valoración al otro usuario."
+      cancel_description: "Si tu solicitud no se cumplió, puedes marcarla como 'disputada'. Aún así podrás dar una valoración al otro usuario y describir qué pasó."
       cancel_payed_description: "Si tu solicitud fue aceptada pero tú has cambiado de opinion, todavía podrás cancelarla antes de que se complete el pago."
       canceling_payed_transaction: "Cancelar la transacción"
       confirm: Completada
       cancel: Disputar
       continue: Continuar
-      give_feedback_to: "Dar retroalimentación a %{person_link}"
-      do_not_give_feedback: "Omitir retroalimentación"
+      give_feedback_to: "Dar una valoración a %{person_link}"
+      do_not_give_feedback: "Omitir la valoración"
     details:
       day: día
       days: días
@@ -620,7 +632,7 @@ es-ES:
       canceled_offer: "Oferta cancelada."
       message_from: "Mensaje de %{person}"
       about_listing: "sobre el anuncio %{listing_title}"
-      free_message: "Mensaje gratuito"
+      free_message: "Mensaje directo"
       message_content_not_available: "Contenido del mensaje no disponible"
     message:
       accepted_request: "aceptó la solicitud"
@@ -665,9 +677,9 @@ es-ES:
       payment_errored_starter: "No pudimos procesar el pago. Por favor, vuelve a intentarlo y si el problema continúa, contacta con el equipo de soporte de Sharetribe."
       payment_errored_author: "El pago ha fallado. Por favor, contacta a %{starter_name} y pídele que vuelva a intentarlo de nuevo."
       cancel_payed_transaction: Cancelar
-      feedback_given: "Retroalimentación dada"
-      feedback_skipped: "Retroalimentación omitida"
-      give_feedback: "Enviar retroalimentación"
+      feedback_given: "Valoración dada"
+      feedback_skipped: "Valoración omitida"
+      give_feedback: "Enviar Valoración"
       offer_accepted: Aceptada
       offer_rejected: Rechazada
       offer_canceled: Cancelada
@@ -691,7 +703,7 @@ es-ES:
       request_canceled: Cancelada
       request_paid: "Pago realizado con éxito"
       request_preauthorized: "Pago autorizado"
-      skip_feedback: "Omitir retroalimentación"
+      skip_feedback: "Omitir Valoración"
       waiting_for_listing_author_to_accept_offer: "Esperando a que %{listing_author_name} acepte la oferta"
       waiting_for_listing_author_to_accept_request: "Esperando a que %{listing_author_name} acepte la solicitud. Tan pronto como %{listing_author_name} acepte, el monto será cargado a tu cuenta."
       waiting_for_you_to_accept_request: "Esperando a que aceptes la solicitud"
@@ -718,8 +730,8 @@ es-ES:
       confirm: "Marcar como completada"
       cancel: Disputar
   feedback:
-    feedback_subject: "Nueva retroalimentación de %{service_name}"
-    feedback_body: "%{author_name_and_email} ha enviado la siguiente retroalimentación desde %{service_name}"
+    feedback_subject: "Nuevo mensaje de %{service_name}"
+    feedback_body: "%{author_name_and_email} ha enviado el siguiente mensaje desde %{service_name}"
     unlogged_user: "Usuario no identificado"
     anonymous_user: "Usuario anónimo"
   community_memberships:
@@ -757,7 +769,7 @@ es-ES:
       create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
       learn_more: "Entérate cómo"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar retroalimentación a %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar una valoración a %{other_party_given_name}."
       remember_to_confirm_request: "Recuerda confirmar o cancelar una solicitud"
       if_will_not_happen_you_should_cancel: "Si crees que por alguna razón esta solicitud no se va a completar, puedes %{cancel_it_link}."
       cancel_it_link_text: cancelarla
@@ -769,17 +781,17 @@ es-ES:
       payment_settings_link: "configuración de pagos"
     transaction_confirmed:
       here_is_a_message_from: "Tienes un mensaje de %{other_party_given_name}:"
-      request_marked_as_confirmed: "Solicitud completada - Recuerda dejar retroalimentación"
+      request_marked_as_confirmed: "Solicitud completada - Recuerda dar una valoración"
       request_marked_as_canceled: "Solicitud cancelada"
-      has_marked_request_as_confirmed: "%{other_party_full_name} marcó la solicitud sobre '%{request}' como completada. Ahora puedes dar retroalimentación sobre %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} canceló la solicitud sobre '%{request}'. Aún así puedes dar retroalimentación a %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Dar retroalimentación es siempre una buena idea. Si todo salió bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
-      give_feedback_to: "Dar retroalimentación a %{other_party_given_name}"
+      has_marked_request_as_confirmed: "%{other_party_full_name} marcó la solicitud sobre '%{request}' como completada. Ahora puedes dar una valoración sobre %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} canceló la solicitud sobre '%{request}'. Aún así puedes dar una valoración a %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Dar una valoración es siempre una buena idea. Si todo salió bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
+      give_feedback_to: "Dar valoración a %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: "Solicitud completada automáticamente - Recuerda dar retroalimentación"
+      subject: "Solicitud completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
     booking_transaction_automatically_confirmed:
-      subject: "Transacción completada automáticamente - Recuerda dar retroalimentación"
+      subject: "Transacción completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu transacción sobre '%{request}' como completada de forma automática ya que ha pasado 1 día desde que se acabó el periodo de la reservación."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Ahora puedes escribir una valoración sobre %{other_party_given_name}. Dejar una valoración es siempre una buena idea. Si todo fue bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
@@ -855,9 +867,9 @@ es-ES:
       service_fee: "Cuota de servicio"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} te ha dado retroalimentación en %{service_name}"
-      you_can_give_feedback_to: "Aún no le has dado retroalimentación a %{name}."
-      view_feedback: "Ver la retroalimentación"
+      has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
+      you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
+      view_feedback: "Ver la valoración"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
       has_updated_listing_you_follow_in_kassi: "%{author} ha actualizado el anuncio '%{listing}' que estás siguiendo en %{service_name}."
@@ -868,7 +880,7 @@ es-ES:
       added_listing: "%{name_link} ha añadido un anuncio:"
       update_mail_title: "Novedades de %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Aquí están algunas de los eventos que han ocurrido en %{community_link} durante los últimos %{time_since_last_update}."
+      intro_paragraph: "Aquí están algunos de los eventos que han ocurrido en %{community_link} durante los últimos %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "¿Demasiados correos? %{settings_link} o %{unsubscribe_link}."
       settings_link_text: "Edita la configuración de tu correo electrónico aquí"
@@ -882,12 +894,14 @@ es-ES:
       change_my_password: "Cambiar mi contraseña"
       reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario de %{service_name} .</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no has solicitado este cambio, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace que aparece más arriba arriba y crees una nueva.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Recordatorio: Recuerda dar retroalimentación a %{name}"
-      you_have_not_given_feedback_yet: "Aún no has dado retroalimentación a %{name} acerca de la transacción '%{event}'. Recuerda dar retroalimentación sobre cómo %{given_name} actuó durante la transacción."
+      remember_to_give_feedback_to: "Recordatorio: Recuerda dar una valoración a %{name}"
+      you_have_not_given_feedback_yet: "Aún no has dado una valoración a %{name} acerca de la transacción '%{event}'. Recuerda dar una valoración sobre cómo %{given_name} actuó durante la transacción."
     transaction_preauthorized:
-      subject: "%{requester} ha solicitado y autorizado el pago por %{listing_title}"
-      transaction_requested_by_user: "%{requester} ha solicitado y autorizado el pago por \"%{listing_title}\""
+      subject: "%{requester} está interesado en y autorizado el pago por %{listing_title} en %{service_name}"
+      transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}. Si aceptas dentro de este periodo, el pago será procesado. Si no aceptas, la solicitud se rechazará automáticamente y no recibirás el pago."
+      if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
+      if_you_do_not_accept: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago."
       click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     transaction_preauthorized_reminder:
       subject: "Recuerda aceptar la solicitud de %{requester} sobre el anuncio %{listing_title}"
@@ -923,7 +937,7 @@ es-ES:
       price: "El precio debe ser un número entero."
       minimum_price: "El precio mínimo es %{minimum_price} %{currency}."
     testimonials:
-      you_must_explain_not_neutral_feedback: "Si deseas dar retroalimentación distinta a neutral, debes explicar por qué."
+      you_must_explain_not_neutral_feedback: "Si deseas dar valoración distinta a neutral, debes explicar por qué."
       you_must_select_a_grade: "Recuerda evaluar si tu experiencia fue positiva o negativa, haciendo click en uno de los íconos de más arriba (puedes ver las explicaciones de cada icono deslizando el mouse sobre ellos)."
     transaction_agreement:
       required_error: "Debes aceptar el acuerdo"
@@ -1230,8 +1244,8 @@ es-ES:
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtalo de nuevo o utiliza el foro para sugerencias."
       feedback_not_saved: "La sugerencia no puedo ser enviada."
       feedback_saved: "Gracias por tu mensaje! Nos pondremos en contacto tan pronto nos sea posible."
-      feedback_sent_to: "Retroalimentación enviada a %{target_person}."
-      feedback_skipped: "Retroalimentación omitida"
+      feedback_sent_to: "Valoración enviada a %{target_person}."
+      feedback_skipped: "Valoración omitida"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
       invitation_limit_reached: "Trataste de enviar muchas invitaciones. Has alcanzado el límite diario."
       invitation_sent: "Invitación enviada satisfactoriamente"
@@ -1288,7 +1302,7 @@ es-ES:
       this_content_is_not_available_in_this_community: "Este contenido no está disponible."
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar retroalimentación en este evento."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar una valoración en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
       listing_closed: "Este anuncio ha sido cerrado"
@@ -1296,12 +1310,12 @@ es-ES:
       you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
       you_cannot_send_message_to_yourself: "No puedes enviarte un mensaje"
       you_followed_listing: "Ahora estás siguiendo este anuncio"
-      you_have_already_given_feedback_about_this_event: "Ya has enviado retroalimentación sobre este evento"
+      you_have_already_given_feedback_about_this_event: "Ya has enviado una valoración sobre este evento"
       you_are_now_member: "Bienvenido a %{service_name}!"
       you_are_already_member: "Ya eres miembro de la comunidad de %{service_name} . Bienvenido otra vez!"
       you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu correo electrónico ha sido confirmado."
-      you_must_log_in_to_give_feedback: "Debes iniciar sesión para dar retroalimentación"
+      you_must_log_in_to_give_feedback: "Debes iniciar sesión para dar una valoración"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
       you_must_log_in_to_send_a_comment: "Debes iniciar sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar sesión en %{service_name} para enviar un mensaje a otro usuario."
@@ -1429,7 +1443,7 @@ es-ES:
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: "Después de la comisión de servicio de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
-        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio."
+        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio, cuando haya una transacción."
         paypal_fee_info_link_text: "comisión de procesamiento de pago de PayPal"
         delivery: "Método de envío"
         shipping: Envío
@@ -1462,7 +1476,7 @@ es-ES:
       title:
         listing_title: "Título del anuncio"
       valid_until:
-        valid_until: "Fecha de caducidad"
+        valid_until: "Fecha de expiración"
       valid_until_radio_buttons:
         for_the_time_being: "Por el momento"
       privacy:
@@ -1472,7 +1486,7 @@ es-ES:
     help_texts:
       help_share_type_title: "Tipo de oferta o solicitud"
       help_tags_title: Etiquetas
-      help_valid_until_title: "Fecha de caducidad"
+      help_valid_until_title: "Fecha de expiración"
     index:
       all_categories: "Todas las categorías"
       all_offer_types: "Todos los tipos de ofertas"
@@ -1705,7 +1719,7 @@ es-ES:
       activate: Activar
       deactivate: Desactivar
     help_texts:
-      feedback_description_title: Retroalimentación
+      feedback_description_title: Valoración
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
       invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta comunidad"
@@ -1785,7 +1799,7 @@ es-ES:
       they_follow_plural: "Siguen a %{count} personas"
       they_follow_singular: "Sigue a %{count} personas"
       show_all_followed_people: "Mostrar los usuarios a los que sigues"
-      no_followed_people: "No estás siguiendo a ningún usuario"
+      no_followed_people: "No sigue a ningún usuario"
     follow_button:
       following: Siguiendo
       follow: Seguir
@@ -1833,7 +1847,7 @@ es-ES:
       delete_account_button: "Eliminar mi cuenta de forma permanente."
       delete_account_confirmation_popup: "¿Estás seguro de querer eliminar tu cuenta de forma permanente? También eliminaras toda la información relacionada con tu cuenta. Si lo haces, ya no podrás volver atrás."
       email_addresses: "Direcciones de email"
-      new_email: "Nieva Dirección de Correo Electrónico"
+      new_email: "Nueva Dirección de Correo Electrónico"
       delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todas las publicaciones que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta."
       delete_information_others_involved: "La información en la que están involucrados otros miembros (conversaciones con otra gente, transacciones que has realizado, revisiones que has dado a otros, etc) no se eliminarán cuando canceles tu cuenta. No obstante, tu nombre no aparecerá visualizado en esa información."
       unfinished_transactions: "Tu cuenta no puede ser eliminada porque tienes transacciones en marcha. Por favor, completa todas las transacciones antes de eliminar tu cuenta."
@@ -1863,8 +1877,8 @@ es-ES:
       email_about_confirm_reminders: "...olvidé confirmar una solicitud como completada"
       email_about_new_comments_to_own_listing: "...alguien hace un comentario en mi oferta o solicitud"
       email_about_new_messages: "...alguien me envía un mensaje"
-      email_about_new_received_testimonials: "...alguien me dado retroalimentación"
-      email_about_testimonial_reminders: "...he olvidado dar retroalimentación sobre un evento"
+      email_about_new_received_testimonials: "...alguien me dado una valoración"
+      email_about_testimonial_reminders: "...he olvidado dar una valoración sobre un evento"
       email_daily_community_updates: "Envíame un correo de actualizaciones <b>diariamente</b> si hay nuevas publicaciones"
       email_weekly_community_updates: "Envíame un correo de actualizaciones <b>semanalmente</b> si hay nuevas publicaciones"
       do_not_email_community_updates: "No enviarme correos de actualizaciones"
@@ -1886,6 +1900,8 @@ es-ES:
       given_name: "Nombre:"
       first_name_with_initial: "(Sólo se mostrará tu inicial al resto de usuarios)"
       first_name_only: "(no se mostrará a otros usuarios)"
+      display_name: "Nombre Personalizado"
+      display_name_description: "Si representas a una organización, puedes utilizar este campo para añadir el nombre que quieres mostrar a los otros usuarios. El nombre personalizado se mostrará a los otros usuarios en lugar de tu nombre y apellido."
       location_description: "Puedes dar tu ubicación exacta o indicar sólo tu código postal. Es buena idea indicar tu país al momento de añadir tu ubicación. Ejemplos son: \"10117 Berlin, Alemania\" or \"2000 Sand Hill Road, CA, USA\". ."
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
@@ -1919,21 +1935,21 @@ es-ES:
       you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}. Los nuevos términos son necesarios para mantener el servicio después de que el proyecto de investigación ha terminado."
   testimonials:
     index:
-      all_testimonials: "Todas las sugerencias"
-      feedback_altogether: "Retroalimentación total: "
+      all_testimonials: "Todas las valoraciones"
+      feedback_altogether: "Valoración total: "
       loading_more_testimonials: "Leer más testimonios"
-      no_testimonials: "No hay sugerencias recibidas."
+      no_testimonials: "No hay valoraciones recibidas."
     new:
       as_expected: "Lo esperado"
       exceeded_expectations: "Mucho mejor de lo esperado"
-      give_feedback_to: "Da una sugerencia a %{person}"
+      give_feedback_to: "Da una valoración a %{person}"
       grade: "Cuál es tu evaluación general?"
       less_than_expected: "Peor de lo esperado"
       send_feedback: "Enviar sugerencia"
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
       textual_feedback: "Danos tu sugerencia textual"
-      this_will_be_shown_in_profile: "La retroalimentación que tú des será visible para otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta comunidad a evaluar si %{person} es una persona confiable."
+      this_will_be_shown_in_profile: "La valoración que tú des será visible para otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta comunidad a evaluar si %{person} es una persona confiable."
       positive: Positiva
       negative: Negativa
       default_textual_feedback: "Recibido sin problemas, muchas gracias."

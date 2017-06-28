@@ -13,7 +13,7 @@
         = author_link(listing)
       .bubble-price{:title => price_as_text(listing) }
         - if listing.price
-          = humanized_money_with_symbol(listing.price).upcase
+          = MoneyViewUtils.to_humanized(listing.price)
           - if listing.quantity.present?
             %span.bubble-price-quantity
               = t("listings.form.price.per") + " " + listing.quantity

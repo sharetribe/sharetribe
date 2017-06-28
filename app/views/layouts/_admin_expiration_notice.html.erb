@@ -1,0 +1,24 @@
+<% content_for :javascript do %>
+  window.ST.initializeExpirationNotice('expiration-notice');
+<% end %>
+<div class="expiration-lightbox lightbox" id="expiration-notice" >
+  <div class="expiration-content">
+    <div class="expiration-head-panel">
+      <h1 class="expiration-title"><%= t("expiration.admin.title") %></h1>
+      <h2 class="expiration-subtitle" >
+        <%= t("expiration.admin.sub_title_new") %>
+      </h2>
+      <div class="expiration-plan-external">
+        <a href="<%= external_plan_service_login_url %>">
+          <div class="expiration-plan-biannual">
+            <p class="expiration-subscribe-title"><%= t("expiration.admin.link_to_external_service") %></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <p class="expiration-footer">
+        <%= t("expiration.admin.need_more_info") %> <a href="mailto:sales@sharetribe.com"><%= t("expiration.admin.contact_us") %></a>.
+        <br/><%= t("expiration.admin.need_more_time") %> <a href="https://sharetribe.typeform.com/to/UR8QPq?email=<%= @current_user.primary_email.address %>&marketplace_domain=<%= @current_community.full_domain %>&marketplace_id=<%= @current_community.id %>"><%= t("expiration.admin.let_us_extend_2_weeks") %></a>.
+    </p>
+  </div>
+</div>

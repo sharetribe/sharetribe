@@ -1,0 +1,15 @@
+# we don't want these to be community updated (wording & layout)
+es-ES:
+  expiration:
+    admin:
+      title: "El periodo de prueba de tu comunidad ha expirado."
+      sub_title_new: "No te preocupes, toda la información de tu comunidad ha sido guardada. Puedes reactivar tu comunidad al suscribirte a alguno de nuestros planes."
+      link_to_external_service: "Escoge un plan"
+      need_more_info: "Necesitas más información?"
+      contact_us: "Contáctanos"
+      need_more_time: "Necesitas más tiempo?"
+      let_us_extend_2_weeks: "¿Podemos añadir 2 semanas más a tu periodo de prueba"
+    title: "El periodo de prueba de esta comunidad ha terminado."
+    unavailable_info: "La comunidad no está disponible por el momento. Sin embargo, todos los anuncios, imágenes y demás información han sido guardados."
+    all_available_info: "Toda la información estará disponible nuevamente cuando el administrador de la comunidad se suscriba a uno de los planes de <a href='https://www.sharetribe.com/?utm_source=expired-trial&utm_medium=modal&utm_campaign=end-user-modal-expired-trial'>Sharetribe</a>."
+    contact_owner: "Contacta a los administradores"

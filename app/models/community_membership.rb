@@ -20,7 +20,7 @@
 #  index_community_memberships_on_person_id     (person_id) UNIQUE
 #
 
-class CommunityMembership < ActiveRecord::Base
+class CommunityMembership < ApplicationRecord
 
   VALID_STATUSES = ["accepted", "pending_email_confirmation", "pending_consent", "banned", "deleted_user"]
 
@@ -29,8 +29,6 @@ class CommunityMembership < ActiveRecord::Base
   belongs_to :invitation
 
   attr_accessor :email
-
-  attr_protected :admin
 
   before_create :set_last_page_load_date_to_current_time
 

@@ -1,4 +1,10 @@
 zh-HK:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -89,6 +95,10 @@ zh-HK:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: 主色調
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: ~
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -198,7 +208,6 @@ zh-HK:
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示頁面顯示信息的發布日期
         show_category_in_listing_list: 在訊息列表中顯示訊息類型
-        hide_expiration_date: 發佈的訊息不需到期日
         listing_comments_in_use: 允許用戶對訊息發表評論（所有其他用戶皆可見）
         email_preferences: 電郵偏好設置
         automatic_newsletters: 自動發送每日/每周電子報給所有用戶（除非用戶選擇不接收）
@@ -223,6 +232,7 @@ zh-HK:
         manage_members: ~
         email: 電郵
         name: ~
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -235,8 +245,7 @@ zh-HK:
         ban_me_error: ~
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -321,6 +330,9 @@ zh-HK:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -376,7 +388,6 @@ zh-HK:
       users_and_transactions: ~
       configure: ~
       emails_title: 電郵
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:
@@ -876,6 +887,8 @@ zh-HK:
       subject: "%{requester}已請求及授權為%{listing_title}付款。"
       transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天內接受或拒絕請求。如果在該期限內接受，你將會收到付款。如果你在該期限內沒有接受，請求將自動被拒絕，你將無法收到款項。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: 按此以回應請求
     transaction_preauthorized_reminder:
       subject: "不要忘記接受來自%{requester}有關%{listing_title}的請求"
@@ -1872,6 +1885,8 @@ zh-HK:
       given_name: 名
       first_name_with_initial: （只將首字母顯示给其他用户）
       first_name_only: (不顯示给其他用户）
+      display_name: ~
+      display_name_description: ~
       location_description: 您可以選擇提供你的確實地址，或只提供您的郵政編號。請至少提供您的郵政編號。您也可以通過以下地圖選擇一個地點。
       phone_number: 電話號碼
       profile_picture: 個人頭像

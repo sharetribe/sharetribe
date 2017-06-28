@@ -43,6 +43,7 @@ module ListingIndexService::Search::Converters
             username: l.author.username,
             first_name: l.author.given_name,
             last_name: l.author.family_name,
+            display_name: l.author.display_name,
             avatar: {
               thumb: l.author.image.present? ? l.author.image.url(:thumb) : nil
             },

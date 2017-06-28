@@ -1,4 +1,10 @@
 fi:
+  number:
+    currency:
+      format:
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -94,6 +100,10 @@ fi:
         favicon: Favicon
         favicon_info_text: "Ladattu kuva korvaa oletuksena käytettävän Sharetriben logon. Faviconin koon tulee olla 32x32 pikseliä. Ladattu kuva muunnetaan tähän kokoon."
         community_custom_color1: Pääväri
+        community_slogan_color: "Kauppapaikan sloganin väri"
+        community_slogan_color_instructions_text: "Voit vaihtaa sloganin väriä antamalla värin heksakoodin. Slogan näytetään etusivulla käyttäjille, jotka eivät ole kirjautuneina sisään. %{colorpicker} auttaa sinua valitsemaan värin ja antaa sen heksakoodin. Voit kopioida värin tähän. %{see_how_it_looks_like}."
+        community_description_color: "Kauppapaikan kuvauksen väri"
+        community_description_color_instructions_text: "Voit vaihtaa kuvauksen väriä antamalla värin heksakoodin. Kuvaus näytetään etusivulla käyttäjille, jotka eivät ole kirjautuneina sisään. %{colorpicker} auttaa sinua valitsemaan värin ja antaa sen heksakoodin. Voit kopioida värin tähän. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Lisää uusi ilmoitus -napin väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä. Se näytetään käyttäjille, jotka katsovat sivua suuremmalta näytöltä."
         logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width}px."
@@ -139,6 +149,7 @@ fi:
         sender_name_placeholder: "Lähettäjän nimi"
         sender_email_label: Sähköpostiosoite
         sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "Saat sähköpostin lähettäjältä %{email_sender} vahvistaaksesi sähköpostiosoitteesi. Sähköpostin aiherivi on '%{email_subject}'. Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
         this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
         send_verification_button: "Lähetä vahvistusviesti"
         successfully_saved: "Lähettäjän osoite tallennettu onnistuneesti. Saat pian vahvistussähköpostin."
@@ -202,7 +213,6 @@ fi:
         transaction_preferences: Tilausasetukset
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"
         show_category_in_listing_list: "Näytä tilaustyyppi listanäkymässä"
-        hide_expiration_date: "Älä vaadi viimeisen voimassaolopäivän valintaa ilmoituksen lisäyksen yhteydessä"
         listing_comments_in_use: "Käyttäjät voivat kommentoida ilmoituksia (kommentit näkyvät muille käyttäjille)"
         email_preferences: Sähköpostiasetukset
         automatic_newsletters: "Lähetä automaattinen uutiskirje kaikille käyttäjille (paitsi jos he lopettavat tilauksen)"
@@ -227,6 +237,7 @@ fi:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
         name: Nimi
+        display_name: Näyttönimi
         join_date: Liittynyt
         admin: Ylläpito
         posting_allowed: "Hyväksytty ilmoittaja"
@@ -239,8 +250,7 @@ fi:
         ban_me_error: "Et voi poistaa itseäsi."
       new_layout:
         new_layout: "Uusi ulkoasu"
-        description_roadmap: "Sharetribe on parhaillaan siirtymässä kohti uutta, parannettua ulkoasua. Siirtymävaiheen aikana voit alla olevan valikon avulla valita, mitkä osat markkinapaikastasi näytetään vanhaa käyttöliittymää käyttäen. Uusi toiminnallisuus on ainoastaan käytössä uutta ulkoasua käyttäessäsi."
-        description_process: "Tuki vanhalle ulkoasulle poistetaan tulevaisuudessa. Sharetriben tiimi ilmoittaa sinulle, ennen kuin tämä tapahtuu. Onko sinulla kysymyksiä? Ole hyvä ja %{support_link}."
+        description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
         enabled_for_you: "Käytössä vain sinulla"
         enabled_for_all: "Käytössä kaikilla"
         new_topbar: "Uusi yläpalkki (näkyy joka sivulla)"
@@ -325,6 +335,9 @@ fi:
       edit_location:
         edit_location_field: "Muokkaa sijaintikenttää"
         this_field_is_required: "Tämä kenttä on pakollinen"
+      edit_expiration:
+        edit_expiration_field: "Muokkaa ilmoituskenttää \"viimeinen voimassaolopäivä\""
+        enable: "Salli viimeisen voimassaolopäivän asettaminen"
       form:
         field_required:
           this_field_is_required: "Tämä on pakollinen kenttä"
@@ -380,7 +393,6 @@ fi:
       users_and_transactions: "Käyttäjät ja tilaukset"
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
-      support: Asiakastuki
       subscription: Tilaus
       preview: "Esikatsele sivustoa"
     listing_shapes:
@@ -393,7 +405,7 @@ fi:
       pricing_units_disabled_info: "Hinnan yksiköitä ei voi käyttää mikäli saatavuuskalenteri (availability calendar) on kytketty päälle."
       index:
         listing_shapes: Tilaustyypit
-        description: "Tilaustyypit määrittelevät, kuinka tilaaminen ja käyttäjien välinen viestintä toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja antaa tavaroita pois ilmaiseksi."
+        description: "Tilaustyypit määrittelevät, kuinka tilaaminen toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja kommunikoida keskenään viestien kautta."
         read_more_about_order_types: "Lue lisää tilaustavoista"
         add_new_shape: "Lisää uusi tilaustapa: "
         select_template: "Valitse malli..."
@@ -620,7 +632,7 @@ fi:
       canceled_offer: "Tarjous peruutettu."
       message_from: "Viesti käyttäjältä %{person}"
       about_listing: "Liittyy ilmoitukseen %{listing_title}"
-      free_message: "Vapaa viesti"
+      free_message: "Suora viesti"
       message_content_not_available: "Viestin sisältöä ei voida näyttää"
     message:
       accepted_request: "hyväksyi pyynnön"
@@ -885,9 +897,11 @@ fi:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'"
     transaction_preauthorized:
-      subject: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta %{listing_title}"
-      transaction_requested_by_user: "%{requester} on tehnyt katevarauksen ja pyynnön tuotteesta \"%{listing_title}\""
+      subject: "%{requester} on kiinnostunut ilmoituksestasi %{listing_title} palvelussa %{service_name} ja tehnyt siitä katevarauksen"
+      transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
       you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
+      if_you_do_accept: "Jos hyväksyt pyynnön määräajan puitteissa, rahat siirretään tilillesi välittömästi."
+      if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
       subject: "Muista hyväksyä ilmoitukseen %{listing_title} liittyvä tilaus käyttäjältä %{requester}"
@@ -1429,7 +1443,7 @@ fi:
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vähennetään hinnasta."
-        after_service_fee_you_will_get_paypal_text: "%{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
+        after_service_fee_you_will_get_paypal_text: "Kun joku tekee tilauksen, %{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
         delivery: Kuljetustapa
         shipping: Postitus
@@ -1886,6 +1900,8 @@ fi:
       given_name: Etunimi
       first_name_with_initial: "(vain ensimmäinen kirjain näytetään muille käyttäjille)"
       first_name_only: "(ei näytetä muille käyttäjille)"
+      display_name: Näyttönimi
+      display_name_description: "Jos edustat organisaatiota, voit käyttää organisaatiosi nimeä näyttönimenä. Tämä näyttönimi näkyy muille käyttäjille oman etu- ja sukunimesi sijaan."
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva

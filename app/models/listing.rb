@@ -62,7 +62,7 @@
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
 
-class Listing < ActiveRecord::Base
+class Listing < ApplicationRecord
 
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
@@ -70,7 +70,7 @@ class Listing < ActiveRecord::Base
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
-  has_many :listing_images, -> { where("error IS NULL") }, :dependent => :destroy
+  has_many :listing_images, -> { where("error IS NULL").order("position") }, :dependent => :destroy
 
   has_many :conversations
   has_many :comments, :dependent => :destroy
@@ -148,6 +148,13 @@ class Listing < ActiveRecord::Base
   end
 
   def visible_to?(current_user, current_community)
+    # DEPRECATED
+    #
+    # Consider removing the `visible_to?` method.
+    #
+    # Reason: Authorization logic should be in the controller layer (filters etc.),
+    # not in the model layer.
+    #
     ListingVisibilityGuard.new(self, current_community, current_user).visible?
   end
 

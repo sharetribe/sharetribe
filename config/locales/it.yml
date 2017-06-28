@@ -1,4 +1,10 @@
 it:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -62,9 +68,9 @@ it:
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: "Questo marketplace richiede l'amministratore verifichi manualmente ogni persona prima che questa possa pubblicare un annuncio. Qui puoi impostare il testo predefinito che verrà mostrato agli utenti non verificati quando proveranno a pubblicare un nuovo annuncio."
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
+        contact_admin_link_text: "Contatta amministratore"
+        save: "Salva impostazioni"
+        transaction_agreement: "Contratto di transazione"
         transaction_agreement_checkbox: ~
         transaction_agreement_checkbox_header: ~
         transaction_agreement_checkbox_label_description: ~
@@ -79,6 +85,10 @@ it:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Colore principale"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: ~
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -94,11 +104,11 @@ it:
         default_browse_view: ~
         default_browse_view_instructions_text: ~
         grid: Griglia
-        list: ~
+        list: Elenco
         map: Mappa
         name_display_type: ~
         name_display_type_instructions_text: ~
-        full_name: ~
+        full_name: "Nome completo (Nome Cognome)"
         first_name_with_initial: ~
         first_name_only: ~
         invalid_color_code: "Il codice del colore deve contenere 6 numeri o lettere A-F, per esempio D96E21"
@@ -168,8 +178,8 @@ it:
         ja: ~
         it: ~
       settings:
-        settings: ~
-        general: ~
+        settings: Impostazioni
+        general: Generale
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
@@ -188,7 +198,6 @@ it:
         transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
-        hide_expiration_date: ~
         listing_comments_in_use: ~
         email_preferences: ~
         automatic_newsletters: ~
@@ -212,21 +221,21 @@ it:
       manage_members:
         manage_members: ~
         email: ~
-        name: ~
+        name: Nome
+        display_name: "Nome da mostrare"
         join_date: ~
         admin: ~
         posting_allowed: "Ora è possibile pubblicare annunci"
         ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
+        saving_user_status: Salvando...
+        save_user_status_successful: Salvato
         export_all_as_csv: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
         ban_me_error: ~
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -247,7 +256,7 @@ it:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
-        save: ~
+        save: "Salva impostazioni"
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -262,7 +271,7 @@ it:
         title_placeholder: ~
         url_placeholder: ~
         title: ~
-        language: ~
+        language: Lingua
         url: ~
         empty: ~
         max_number_of_links: ~
@@ -296,7 +305,7 @@ it:
           canceled: Cancellata
           initiated: "In attesa del pagamento di PayPal"
           pending_ext: "In attesa del pagamento di PayPal"
-        not_available: ~
+        not_available: "Non disponibile"
       paypal_account:
         paypal_admin_account: Pagamenti
     custom_fields:
@@ -310,7 +319,10 @@ it:
         price_max: "Prezzo massimo"
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Questo campo è obbligatorio"
+      edit_expiration:
+        edit_expiration_field: "Modifica il campo 'Data di scadenza'"
+        enable: "Abilita data di scadenza"
       form:
         field_required:
           this_field_is_required: ~
@@ -338,9 +350,9 @@ it:
         save_order_error: ~
         select_one: ~
         continue: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        minimum_value: Minimo
+        maximum_value: Massimo
+        allow_decimals: "Consenti decimali"
       new:
         new_listing_field: ~
       field_types:
@@ -366,7 +378,6 @@ it:
       users_and_transactions: "Utenti & transazioni"
       configure: Configura
       emails_title: ~
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:
@@ -383,7 +394,7 @@ it:
         read_more_about_order_types: "Leggi maggiori informazioni sul tipo di ordini"
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
+        all_categories: "Tutte le categorie"
         no_categories: ~
         category_count: ~
         header:
@@ -394,33 +405,33 @@ it:
           save_order_successful: ~
           save_order_error: ~
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
+        selling_products: "Vendendo prodotti"
+        renting_products: "Noleggiando prodotti"
+        offering_services: "Offrire servizi"
+        giving_things_away: "Dare via"
         requesting: ~
         announcement: ~
-        custom: ~
+        custom: Personalizzato
       new:
         create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create: Crea
+        cancel: Cancella
         create_success: ~
-        create_failure: ~
+        create_failure: "Non è stato possibile creare nuovo tipo di ordine. Errore:%{error_msg}"
       edit:
         edit_listing_shape: ~
         update: Salva
-        cancel: ~
+        cancel: Cancella
         update_success: ~
         update_failure: ~
-        delete: ~
+        delete: "Tipo di ordine"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: ~
       listing_shape_name_placeholder: ~
       action_button_label: ~
       action_button_placeholder: ~
-      successfully_closed: ~
+      successfully_closed: "Annunci chiusi con successo"
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
@@ -477,12 +488,12 @@ it:
       service: ~
       request: ~
       inquiry: ~
-      share_for_free: ~
+      share_for_free: "Condividere gratuitamente"
       default_action_button_labels:
-        sell: ~
+        sell: Compra
         rent: Affitta
         request: ~
-        offer: ~
+        offer: Richiesta
         inquiry: ~
   common:
     edit_page: "Modifica pagina"
@@ -558,7 +569,7 @@ it:
       quantity_label: "Quantità:"
       sum_label: "Subtotale:"
       service_fee_label: "Commissione di %{service_name}:"
-      you_will_get_label: ~
+      you_will_get_label: Riceverai
       total_label: "Totale:"
       total_value: ~
       paypal_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione di PayPal</a>"
@@ -862,6 +873,8 @@ it:
       subject: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
       transaction_requested_by_user: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
       you_have_time_to_accept: "E' necessario che accetti o rifiuti entro %{payment_expires_in}. Se accetti entro questo tempo, il pagamento sarà eseguito. Se non accetti, la richiesta sarà automaticamente rifiutata e non riceverai il pagamento."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_reminder:
       subject: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}"
@@ -933,8 +946,8 @@ it:
       javascript_is_disabled_in_your_browser: "Javascript è disabilitato nel tuo browser"
       kassi_does_not_currently_work_without_javascript: "%{service_name} non funziona bene senza javascript. Prova ad abilitare javascript nelle preferenze del tuo browser e dopo ricarica nuovamente la pagina."
       contact_us: contattaci
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Invia messaggio"
+      your_feedback_to_admins: "Il tuo messaggio a  %{service_name}  team"
     send: Invia
     your_email_address: "Il tuo indirizzo email"
   errors:
@@ -1024,8 +1037,8 @@ it:
       some_private_requests_exist: "Ci sono già <b>%{number_of_listings} richieste</b>,"
     custom_filters:
       update_view: Aggiorna
-      min: ~
-      max: ~
+      min: "Min:"
+      max: "Max:"
     event_feed:
       latest_events: "Cosa sta accadendo.."
     grid_item:
@@ -1038,7 +1051,7 @@ it:
       open_listings: "inserzioni aperte"
       private_listing_notification_log_in: accedi
       is: è
-      are: ~
+      are: sono
       what_do_you_need: "Di cosa hai bisogno?"
       post_new_listing: "Pubblica una nuova inserzione"
       are_offering: offerta
@@ -1100,10 +1113,10 @@ it:
   infos:
     about:
       default_about_text_title: "Che cos'è Sharetribe?"
-      default_about_text: ~
+      default_about_text: "Questo marketplace è offerto da piattaforma Sharetribe. Con Sharetribe puoi facilmente creare il tuo proprio online marketplace. E' gratuito e ci vuole solo un minuto per crearlo. Clicca qui %{click_here_link} per sapere di più!"
       click_here_link_text: "Clicca qui"
     how_to_use:
-      default_title: "F.A.Q. Domande frequenti"
+      default_title: "Come funziona"
       default_content: ~
   landing_page:
     hero:
@@ -1133,7 +1146,7 @@ it:
       feedback_handle: Feedback
       give_feedback: Contattaci
       or_check_our: "...o controlla i nostri"
-      send_feedback_to_admin: ~
+      send_feedback_to_admin: "Invia messaggio"
       to_see_what_others_have_suggested: "vedere cosa gli altri utenti hanno suggerito, e votare le  idee."
       your_email_address: "Il tuo indirizzo email (per contattarti)"
       connect: Registrati
@@ -1152,7 +1165,7 @@ it:
       select_language: "Seleziona lingua"
     infos:
       about: "+ Informazioni"
-      how_to_use: "F.A.Q. Domande frequenti"
+      how_to_use: "Come funziona"
       info_about_kassi: "Informazioni riferite a %{service_name}"
       news: News
       register_details: Privacy
@@ -1203,7 +1216,7 @@ it:
       error_with_session: "Errore con la sessione."
       feedback_considered_spam: "Feedback non salvato a causa della formattazione. Prova ancora o usa il forum dei feedback."
       feedback_not_saved: "Il feedback non può essere inviato."
-      feedback_saved: ~
+      feedback_saved: "Grazie per il tuo messaggio! Ti risponderemo al più presto possibile."
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
       invitation_cannot_be_sent: "L'invito non può essere inviato"
@@ -1500,7 +1513,7 @@ it:
       select_transaction_type: "Seleziona il tipo di annuncio"
       you_need_to_fill_payout_details_before_accepting: "È necessario compilare i dettagli di pagamento prima di poter postare il tuo spazio. Vai al %{payment_settings_link} e inserisci le informazioni."
       contact_admin_link_text: "Contatta l'amministratore"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} non è stato configurato per i pagamenti e quindi non puoi inserire nuovi annunci ancora. Contattare %{contact_admin_link} per ulteriori dettagli."
       payment_settings_link: "Impostazioni dei pagamenti"
       community_not_configured_for_payments_admin: ~
     quantity:
@@ -1510,7 +1523,7 @@ it:
       week: "Numero di settimane:"
       month: "Numero di mesi:"
       custom: "Quantità:"
-    quantity_placeholder: ~
+    quantity_placeholder: Quantità
     please_comment: Commenta
     reply_link:
       listing_closed: "L'inserzione è chiusa"
@@ -1523,8 +1536,8 @@ it:
       favor_offer: "Offerta di servizio"
       favor_request: "Richiesta di servizio"
       inquiry: ~
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Offerta swap"
+      item_request_trade: "Richiesta swap"
       no_description: "Nessuna descrizione"
       no_image: "Nessuna immagine"
       no_reviews: "Nessuna recensione è stata ricevuta"
@@ -1554,7 +1567,7 @@ it:
       pickup_no_price: Ritiro
       youtube_video_player: "YouTube video player"
     unit_types:
-      piece: ~
+      piece: pezzo
       hour: ora
       day: giorno
       night: notte
@@ -1862,6 +1875,8 @@ it:
       given_name: Nome
       first_name_with_initial: "(solo la prima lettera visibile ad altri utenti)"
       first_name_only: "(non visibile ad altri utenti)"
+      display_name: "Nome da moastrare"
+      display_name_description: "Se rappresenti un'organizzazione, puoi scegliere di visualizzarne il nome. Il nome dell'organizzazione è utilizzato e visualizzato agli altri utenti al posto del tuo nome e cognome ."
       location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
       phone_number: "Numero di telefono"
       profile_picture: "Immagine del profilo"
@@ -2077,8 +2092,8 @@ it:
         zero: transazioni
         one: transazione
         other: transazioni
-    previous_label: ~
-    next_label: ~
+    previous_label: "&#8592; Precedente"
+    next_label: "Successivo &#8594;"
     page_gap: ~
     page_entries_info:
       multi_page: ~

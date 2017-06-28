@@ -1,4 +1,10 @@
 zh-TW:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -89,6 +95,10 @@ zh-TW:
         favicon: 网站图标
         favicon_info_text: Favicon将取代默认的Sharetribe标识。它的尺寸应该是32x32像素，上传的图片将被调整为这个大小。
         community_custom_color1: 主要颜色
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "封面图片尺寸必须是%{width}x%{height}像素。它将显示给使用大屏幕的用户。"
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -198,7 +208,6 @@ zh-TW:
         transaction_preferences: 交易偏好
         show_listing_publishing_date: 在信息展示页面的显示信息的发布日期
         show_category_in_listing_list: 在信息列表视图中显示信息类型
-        hide_expiration_date: 不要求发布的信息设置过期日期
         listing_comments_in_use: 允许用户对信息发表评论（所有其他用户可见）
         email_preferences: 邮件发送偏好设置
         automatic_newsletters: 自动发送每日/每周新闻邮件给所有用户（除非用户选择不接收）
@@ -223,6 +232,7 @@ zh-TW:
         manage_members: 管理用户
         email: 电子邮件
         name: 姓名
+        display_name: ~
         join_date: 已加入
         admin: 管理员
         posting_allowed: 允许发布
@@ -235,8 +245,7 @@ zh-TW:
         ban_me_error: 你不能禁止自己。
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -321,6 +330,9 @@ zh-TW:
       edit_location:
         edit_location_field: 编辑地点字段
         this_field_is_required: 该字段必填
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: 这个字段是必填的。
@@ -376,7 +388,6 @@ zh-TW:
       users_and_transactions: 用户和交易
       configure: 配置
       emails_title: 电邮
-      support: 支持
       subscription: ~
       preview: ~
     listing_shapes:
@@ -878,6 +889,8 @@ zh-TW:
       subject: "%{requester}已经请求并授权支付了%{listing_title}"
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天内接受或拒绝请求。如果在该期限内接受，你会收到付款。如果你在该期限内没有接受，请求将自动被拒绝，你将无法收到支付款项。"
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
       subject: "记得接受来自%{requester}的关于%{listing_title}的请求"
@@ -1871,6 +1884,8 @@ zh-TW:
       given_name: 名
       first_name_with_initial: （只将首字母显示给其他用户）
       first_name_only: （不显示给其他用户）
+      display_name: ~
+      display_name_description: ~
       location_description: 你可以选择提供你的准确住址或仅仅提供邮政编码。请至少填写邮政编码。你也可以通过地图选择一个地点。
       phone_number: 电话号码
       profile_picture: 个人头像

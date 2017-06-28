@@ -79,4 +79,4 @@ Sharetribe's user interface is currently intertwined with the core Sharetribe ap
 
 ## How can I affect these plans?
 
-Talk to us! These plans are formed based on an overall understanding of Sharetribe customer needs and the Sharetribe vision. Feedback can alter either of these, which will then lead to changes in plans. You can either contact us via [email](mailto:support@sharetribe.com), the Sharetribe [idea forum](http://support.sharetribe.com/forums/240322-sharetribe-development-ideas) or our [community forum](https://www.sharetribe.com/community).
+Talk to us! These plans are formed based on an overall understanding of Sharetribe customer needs and the Sharetribe vision. Feedback can alter either of these, which will then lead to changes in plans. You can either contact us via [email](mailto:hello@sharetribe.com) or our [community forum](https://www.sharetribe.com/community).

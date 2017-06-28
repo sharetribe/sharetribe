@@ -1,8 +1,8 @@
 module CustomLandingPage
   module LandingPageStoreDB
 
-    class LandingPage < ActiveRecord::Base; end
-    class LandingPageVersion < ActiveRecord::Base; end
+    class LandingPage < ApplicationRecord; end
+    class LandingPageVersion < ApplicationRecord; end
 
     module_function
 
@@ -31,7 +31,8 @@ module CustomLandingPage
         raise LandingPageContentNotFound.new("Content missing. community_id: #{cid}, version: #{version}.")
       end
 
-      JSON.parse(content)
+      LandingPageStoreDefaults.add_defaults(
+        JSON.parse(content))
     end
 
     def enabled?(cid)

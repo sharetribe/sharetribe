@@ -2,4 +2,4 @@
 $("#comment<%= @comment.id.to_s %>").fadeOut(300, function() { $(this).remove(); });
 
 /* Update comment count */
-$("#comment_count").html("(<%= @comment.listing.comments_count - 1 %>)");
+$("#comment_count").html("(<%= @comment.listing.comments_count %>)");

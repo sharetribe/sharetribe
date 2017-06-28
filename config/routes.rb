@@ -1,5 +1,5 @@
 # coding: utf-8
-Kassi::Application.routes.draw do
+Rails.application.routes.draw do
 
   namespace :mercury do
     resources :images
@@ -47,12 +47,6 @@ Kassi::Application.routes.draw do
   get "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   get "/listings/new/:type" => "listings#new", :as => :new_request_without_locale # needed for some emails, where locale part is already set
   get "/change_locale" => "i18n#change_locale", :as => :change_locale
-
-
-  # Prettier link for admin panel
-  namespace :admin do
-    get '' => "getting_started_guide#index"
-  end
 
   # Internal API
   namespace :int_api do
@@ -168,6 +162,7 @@ Kassi::Application.routes.draw do
     end
 
     namespace :admin do
+      get '' => "getting_started_guide#index"
 
       # Payments
       get  "/paypal_preferences"                      => "paypal_preferences#index"
@@ -285,6 +280,8 @@ Kassi::Application.routes.draw do
           post :order
           put :update_price
           put :update_location
+          get :edit_expiration
+          put :update_expiration
         end
       end
       resources :categories do
@@ -334,6 +331,7 @@ Kassi::Application.routes.draw do
         collection do
           post :add_from_file
           put :add_from_url
+          put :reorder
         end
       end
     end

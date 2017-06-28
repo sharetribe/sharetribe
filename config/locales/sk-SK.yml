@@ -1,4 +1,10 @@
 sk-SK:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -99,6 +105,10 @@ sk-SK:
         favicon: "Ikonka webovej stránky"
         favicon_info_text: "Ikonka webovej stránky nahradí základné Sharetribe logo. Rozmery by mali byť 32x32 pixelov a nahratý súbor bude prispôsobený týmto rozmerom."
         community_custom_color1: "Hlavná farba"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: "Farba tlačítka Pridať nový inzerát"
         logo_instructions_text_with_dimensions: "Veľkosť loga by mala byť %{width}x%{height} pixelov. Toto logo bude zobrazené užívateľom s veľkou obrazovkou."
         logo_instructions_text_with_dimensions_no_placing: "Velkosť loga by mala byť %{width}x%{height}pixelov."
@@ -208,7 +218,6 @@ sk-SK:
         transaction_preferences: "Nastavenia transakcii"
         show_listing_publishing_date: "Zobraziť dátum zverejnenia na stránke inzerátu"
         show_category_in_listing_list: "Zobraziť typ inzerátu v zozname"
-        hide_expiration_date: "Nevyžadovať dátum vypršania platnosti inzerátov"
         listing_comments_in_use: "Povoliť užívateľom pridávať komentáre k inzerátom (viditeľné pre všetkých)"
         email_preferences: "Nastavenia e-mailu"
         automatic_newsletters: "Posielať automaticky denne / týždenne novinky všetkým užívateľom (pokiaľ nezrušia zasielanie)"
@@ -233,6 +242,7 @@ sk-SK:
         manage_members: "Spravovať užívateľov"
         email: E-mail
         name: Meno
+        display_name: "Zobrazované Meno"
         join_date: "Dátum registrácie"
         admin: Administrátor
         posting_allowed: "Pridávanie príspevkov je povolené"
@@ -245,8 +255,7 @@ sk-SK:
         ban_me_error: "Nemôžete seba samého vylúčiť."
       new_layout:
         new_layout: "Nový vzhľad"
-        description_roadmap: "Sharetribe momentálne vyvíja nový vylepšený vzhľad. Môžete si vybrať, či chcete použiť nový, alebo starý vzhľad vašeho trhoviska. Odporúča sa použiť nový vzhľad, pretože väčšina nových funkcií nepodporuje starý vzhľad. Starý vzhľad bude kompletne odstránený ."
-        description_process: "Podpora pre starý vzhľad bude v budúcnosti odstránená. Sharetribe tím vás o tom bude informovať. Otázky? Kontaktujte tím cez %{support_link}"
+        description_roadmap_new: ~
         enabled_for_you: "Sprístupnené pre Vás"
         enabled_for_all: "Sprístupnené pre všetkých"
         new_topbar: "Nová horná lišta (viditeľná na každej stránke)"
@@ -331,6 +340,9 @@ sk-SK:
       edit_location:
         edit_location_field: "Upraviť umiestnenie poľa"
         this_field_is_required: "Toto pole je povinné"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Označiť toto pole ako povinné pri vytváraní nového inzerátu"
@@ -386,7 +398,6 @@ sk-SK:
       users_and_transactions: "Užívatelia a platby"
       configure: Konfigurácia
       emails_title: E-maily
-      support: "Zákaznícka podpora"
       subscription: "Predplatné služieb"
       preview: "Náhľad stránky"
     listing_shapes:
@@ -898,6 +909,8 @@ sk-SK:
       subject: "Užívateľ %{requester} zažiadal a potvrdil platbu pre inzerát %{listing_title}"
       transaction_requested_by_user: "Užívateľ %{requester}  zažiadal a potvrdil platbu pre inzerát \"%{listing_title}\""
       you_have_time_to_accept: "Musíte prijať alebo odmietnuť žiadosť do %{payment_expires_in}. Pokiaľ žiadosť do tej doby príjmete, platba bude prevedená. Pokiaľ ju do tej doby neprijmete, žiadosť bude automaticky odmietnutá a nedostanete zaplatené."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
     transaction_preauthorized_reminder:
       subject: "Nezabudnite prijať žiadosť od užívateľa %{requester} na inzerát %{listing_title}"
@@ -922,8 +935,10 @@ sk-SK:
       person_email: "E-mail:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Rezervácia zlyhala z dôvodu neočakávanej chyby. Skúste to neskôr prosím. Platba neprebehla."
+      double_booking_payment_voided: |-
+          Bohužiaľ termín, ktorý ste vybrali už nie je k dispozícii. Vyberte si iný termín. 
+          Platba neprebehla.
     onboarding:
       server_rendering: "Otvorenie začiatočníckej príručky zlyhalo. O chybe vieme a pracujeme na jej odstránení."
     listings:
@@ -1602,7 +1617,7 @@ sk-SK:
   listing_conversations:
     preauthorize:
       dates_not_available: "Vybraté dátumy nie sú k dispozícií"
-      error_in_checking_availability: ~
+      error_in_checking_availability: "Nepodarilo sa zistiť dostupnosť pre vybrané termíny"
       details: Detaily
       by: "%{listing} od užívateľa %{author}"
       payment: Platba
@@ -1898,6 +1913,8 @@ sk-SK:
       given_name: Meno
       first_name_with_initial: "(zobrazí sa iba prvé písmeno užívateľom)"
       first_name_only: "(nezobrazí sa ostatným užívateľom)"
+      display_name: "Zobrazované Meno"
+      display_name_description: ~
       location_description: "Môžete zadať Vašu presnú adresu, alebo napríklad iba PSČ. Je dobré tiež pridať krajinu. Príklady: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       phone_number: "Telefónne číslo"
       profile_picture: "Profilová fotka"

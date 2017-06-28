@@ -1,4 +1,10 @@
 pl:
+  number:
+    currency:
+      format:
+        separator: ","
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -104,6 +110,10 @@ pl:
         favicon: "Ikona strony, tzw. favicon"
         favicon_info_text: "Favicon zastąpi domyślne logo Sharetribe. Wymiary powinny wynosić 32x32 piksele więc załadowany obrazek będzie przycięty do tych wymiarów."
         community_custom_color1: "Główny kolor"
+        community_slogan_color: "Kolor sloganu platformy"
+        community_slogan_color_instructions_text: "Możesz zmienić kolor sloganu na stronie głównej poprzez wpisanie kodu koloru. Slogan jest pokazywany użytkownikom niezalogowanym. %{colorpicker} może ci pomóc wybrać kolor i poda ci kod koloru. Możesz następnie skopiować ten kod tutaj. %{see_how_it_looks_like}."
+        community_description_color: "Kolor opisu platformy"
+        community_description_color_instructions_text: "Możesz zmienić kolor opisu na stronie głównej poprzez wpisanie kodu koloru. Opis jest pokazywany użytkownikom niezalogowanym. %{colorpicker} może ci pomóc wybrać kolor i poda ci kod koloru. Możesz następnie skopiować ten kod tutaj. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Opublikuj nowy kolor oferty"
         logo_instructions_text_with_dimensions: "Rozmiar logo powinien wynosić %{width} na %{height} pikseli. Będzie ono wyświetlane użytkownikom z większym ekranem."
         logo_instructions_text_with_dimensions_no_placing: "Wielkość logotypu powinna mieścić się w przedziale %{width} na %{height} pikseli."
@@ -149,7 +159,7 @@ pl:
         sender_name_placeholder: "Nazwa nadawcy"
         sender_email_label: "Adres e-mail"
         sender_email_placeholder: email-nadawcy@przyklad.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Otrzymasz e-maila od %{email_sender} w celu potwierdzenia twojego adresu e-mailowego. Temat e-maila brzmi %{email_subject}. Postępuj zgodnie z instrukcjami w celu potwierdzenia adresu e-mailowego."
         this_is_how_it_will_look: "Tak to będzie wyglądało:"
         send_verification_button: "Wyślij e-mail weryfikacyjny"
         successfully_saved: "Adres nadawcy zachowany. E-mail weryfikacyjny będzie wysłany wkrótce."
@@ -213,7 +223,6 @@ pl:
         transaction_preferences: "Preferencje dot. zamówień"
         show_listing_publishing_date: "Wyświetl datę publikacji oferty na liście ofert"
         show_category_in_listing_list: "Wyświetl rodzaj oferty na widoku listy"
-        hide_expiration_date: "Nie wymagaj, aby oferty miały określone datę wygaśnięcia"
         listing_comments_in_use: "Pozwól użytkownikom dodawać komentarze do ofert (widoczne dla wszystkich pozostałych użytkowników)"
         email_preferences: "Preferencje email"
         automatic_newsletters: "Wysyłaj automatyczne newslettery: dzienne / tygodniowe do wszystkich użytkowników (jeżeli nie zrezygnowali z ich otrzymywania)"
@@ -238,6 +247,7 @@ pl:
         manage_members: "Zarządzaj użytkownikami"
         email: "Adres email"
         name: Imię
+        display_name: "Imię wyświetlane"
         join_date: Dołączył
         admin: Administrator
         posting_allowed: "Postowanie dozwolone"
@@ -250,8 +260,7 @@ pl:
         ban_me_error: "Nie możesz wyrzucić samego siebie."
       new_layout:
         new_layout: "Nowy układ"
-        description_roadmap: "Platforma Sharetribe właśnie jest w procesie aktualizacji nowego i usprawnionego interfejsu. W trakcie możesz wybrać te części Twojej platformy, które mają korzystać ze starego interfejsu. Nowe funkcje będą widoczne tylko w nowym interfejsie."
-        description_process: "Wsparcie dla starego interfejsu zostanie wstrzymana w przyszłości. Zespół Sharetribe powiadomi Cię zanim to nastąpi. Pytania? Skontaktuj się z zespołem poprzez %{support_link}."
+        description_roadmap_new: "Kiedy nowy elementy układu graficznego będą dostępne dla Twojej platformy, możesz wybrać czy chcesz zacząć używać nowego elementu, czy pozostać przy starym. Możesz zmienić ten wybór zawsze na tej stronie. Rekomenduje się zawsze używanie nowych wersji, gdyż stare mogą stać się niepasujące w pewnym momencie. W przypadku gdy element, którego używasz stanie się niepasujący zostaniesz powiadomiony z wyprzedzeniem."
         enabled_for_you: "Włączone dla Ciebie"
         enabled_for_all: "Włączone dla wszystkich"
         new_topbar: "Nowy pasek górny (widoczny na każdej stronie)"
@@ -336,6 +345,9 @@ pl:
       edit_location:
         edit_location_field: "Edytuj pole lokalizacji"
         this_field_is_required: "To pole jest wymagane"
+      edit_expiration:
+        edit_expiration_field: "Edytuj pole oferty \"Data wygaśnięcia\""
+        enable: "Włącz datę wygaśnięcia"
       form:
         field_required:
           this_field_is_required: "Ustaw to pole jako wymagane, gdy tworzona jest nowa oferta"
@@ -391,7 +403,6 @@ pl:
       users_and_transactions: "Użytkownicy i transakcje"
       configure: Konfiguracja
       emails_title: E-maile
-      support: Pomoc
       subscription: Subskrypcja
       preview: "Podgląd strony"
     listing_shapes:
@@ -907,6 +918,8 @@ pl:
       subject: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       transaction_requested_by_user: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
       you_have_time_to_accept: "Musisz zaakceptować lub odrzucić żądanie w ciągu %{payment_expires_in}. Jeśli zaakceptujesz je w tym czasie płatność przejdzie. Jeśli nie zaakceptujesz, żądanie zostanie automatycznie odrzucone i nie otrzymasz zapłaty."
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     transaction_preauthorized_reminder:
       subject: "Pamiętaj, aby zaakceptować zapytanie od %{requester} o ofercie %{listing_title}"
@@ -1909,6 +1922,8 @@ pl:
       given_name: Imię
       first_name_with_initial: "(tylko pierwsza litera widoczna dla innych użytkowników)"
       first_name_only: "(nie widoczne dla innych użytkowników)"
+      display_name: "Imię wyświetlane"
+      display_name_description: "Jeśli reprezentujesz organizację lub firmę, możesz użyć jej nazwy jako imię wyświetlane. Imię wyświetlane jest pokazywane innym użytkownikom zamiast twojego imienia i nazwiska."
       location_description: "Możesz podać albo adres albo miasto lub kod pocztowy. Dobrze jest także dodać nazwę kraju podając lokalizację. Przykład: \"87-100 Toruń, Polska\" albo \"Marszałkowska 16, Warszawa, Polska\""
       phone_number: "Numer telefonu"
       profile_picture: "Zdjęcie profilowe"

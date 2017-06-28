@@ -13,7 +13,7 @@ class CreateSquareImagesJob < Struct.new(:image_id)
       }
     end
 
-  class ListingImage < ActiveRecord::Base
+  class ListingImage < ApplicationRecord
     self.primary_key = "id"
 
     has_attached_file(:image, {

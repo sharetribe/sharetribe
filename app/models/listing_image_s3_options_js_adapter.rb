@@ -13,6 +13,7 @@ class ListingImageS3OptionsJSAdapter < JSAdapter
     @max_image_filesize = APP_CONFIG.max_image_filesize
     @original_image_width = APP_CONFIG.original_image_width
     @original_image_height = APP_CONFIG.original_image_height
+    @reorder_url = listing.new_record? ? nil : reorder_listing_listing_images_path(listing.id)
   end
 
   def to_hash

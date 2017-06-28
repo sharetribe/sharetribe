@@ -17,8 +17,8 @@ class ListingVisibilityGuard
   def authorized_to_view?
     return false unless listing_belongs_to_community?
 
-    if user_logged_in? && user_member_of_community?
-      true
+    if user_logged_in?
+      user_member_of_community? || @user.has_admin_rights?
     else
       public_community?
     end

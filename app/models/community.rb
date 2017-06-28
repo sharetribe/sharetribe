@@ -45,13 +45,15 @@
 #  small_cover_photo_updated_at               :datetime
 #  custom_color1                              :string(255)
 #  custom_color2                              :string(255)
+#  slogan_color                               :string(6)
+#  description_color                          :string(6)
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
 #  currency                                   :string(3)        not null
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  minimum_price_cents                        :integer
-#  hide_expiration_date                       :boolean          default(FALSE)
+#  hide_expiration_date                       :boolean          default(TRUE)
 #  facebook_connect_id                        :string(255)
 #  facebook_connect_secret                    :string(255)
 #  google_analytics_key                       :string(255)
@@ -95,10 +97,7 @@
 #  index_communities_on_uuid    (uuid) UNIQUE
 #
 
-class Community < ActiveRecord::Base
-
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
+class Community < ApplicationRecord
 
   require 'compass'
   require 'sass/plugin'
@@ -138,6 +137,8 @@ class Community < ActiveRecord::Base
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_format_of :custom_color1, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_format_of :slogan_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_format_of :description_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
 
   VALID_BROWSE_TYPES = %w{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
@@ -305,9 +306,9 @@ class Community < ActiveRecord::Base
   end
 
   def cache_previous_image_urls
-    return unless changed?
+    return unless has_changes_to_save?
 
-    changes.select { |attribute, values|
+    changes_to_save.select { |attribute, values|
       attachment_name = attribute.chomp("_file_name")
       attribute.end_with?("_file_name") && !send(:"#{attachment_name}_processing") && values[0]
     }.each { |attribute, values|
@@ -389,7 +390,7 @@ class Community < ActiveRecord::Base
   end
 
   def has_customizations?
-    custom_color1 || custom_color2 || cover_photo.present? || small_cover_photo.present? || wide_logo.present? || logo.present?
+    custom_color1 || custom_color2 || slogan_color || description_color || cover_photo.present? || small_cover_photo.present? || wide_logo.present? || logo.present?
   end
 
   def has_custom_stylesheet?
@@ -440,7 +441,7 @@ class Community < ActiveRecord::Base
   end
 
   def self.find_by_email_ending(email)
-    Community.all.each do |community|
+    Community.all.find_each do |community|
       return community if community.allowed_emails && community.email_allowed?(email)
     end
     return nil
@@ -607,5 +608,6 @@ class Community < ActiveRecord::Base
 
   def initialize_settings
     update_attribute(:settings,{"locales"=>[APP_CONFIG.default_locale]}) if self.settings.blank?
+    true
   end
 end

@@ -47,6 +47,7 @@ module ListingIndexService::DataTypes
     [:username, :string, :mandatory],
     [:first_name, :string, :optional],
     [:last_name, :string, :optional],
+    [:display_name, :string, :optional],
     [:avatar, entity: AvatarImage],
     [:is_deleted, :bool, default: false],
     [:num_of_reviews, :fixnum, default: 0]

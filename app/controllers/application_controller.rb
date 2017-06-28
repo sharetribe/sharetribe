@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :check_http_auth,
+  before_action :check_http_auth,
     :check_auth_token,
     :fetch_community,
     :fetch_community_plan_expiration_status,
@@ -34,22 +34,23 @@ class ApplicationController < ActionController::Base
     :cannot_access_if_banned,
     :cannot_access_without_confirmation,
     :ensure_consent_given,
-    :ensure_user_belongs_to_community
+    :ensure_user_belongs_to_community,
+    :set_display_expiration_notice
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
-  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
+  before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
   #this shuold be last
-  before_filter :push_reported_analytics_event_to_js
-  before_filter :push_reported_gtm_data_to_js
+  before_action :push_reported_analytics_event_to_js
+  before_action :push_reported_gtm_data_to_js
 
   helper_method :root, :logged_in?, :current_user?
 
   attr_reader :current_user
 
   def redirect_removed_locale
-    if params[:locale] && Kassi::Application.config.REMOVED_LOCALES.include?(params[:locale])
-      fallback = Kassi::Application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
+    if params[:locale] && Rails.application.config.REMOVED_LOCALES.include?(params[:locale])
+      fallback = Rails.application.config.REMOVED_LOCALE_FALLBACKS[params[:locale]]
       redirect_to_locale(fallback, :moved_permanently)
     end
   end
@@ -140,9 +141,9 @@ class ApplicationController < ActionController::Base
 
   def redirect_to_locale(new_locale, status)
     if @current_community.default_locale == new_locale.to_s
-      redirect_to url_for(params.except(:locale).merge(only_path: true)), :status => status
+      redirect_to url_for(params.to_unsafe_hash.symbolize_keys.except(:locale).merge(only_path: true)), :status => status
     else
-      redirect_to url_for(params.merge(locale: new_locale, only_path: true)), :status => status
+      redirect_to url_for(params.to_unsafe_hash.symbolize_keys.merge(locale: new_locale, only_path: true)), :status => status
     end
   end
 
@@ -383,6 +384,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_display_expiration_notice
+    ext_service_active = PlanService::API::Api.plans.active?
+    is_expired = Maybe(@current_plan)[:expired].or_else(false)
+
+    @display_expiration_notice = ext_service_active && is_expired
+  end
+
   private
 
   # Override basic instrumentation and provide additional info for
@@ -557,15 +565,23 @@ class ApplicationController < ActionController::Base
       }
     }.or_else({})
 
+    locale_change_links = available_locales.map { |(title, locale_code)|
+      {
+        url: PathHelpers.change_locale_path(is_logged_in: @current_user.present?,
+                                            locale: locale_code,
+                                            redirect_uri: @return_to),
+        title: title
+      }
+    }
+
     common = {
       logged_in: @current_user.present?,
       homepage_path: @homepage_path,
-      return_after_locale_change: @return_to,
       current_locale_name: get_full_locale_name(I18n.locale),
       sign_up_path: sign_up_path,
       login_path: login_path,
       new_listing_path: new_listing_path,
-      available_locales: available_locales,
+      locale_change_links: locale_change_links,
       icons: pick_icons(
         APP_CONFIG.icon_pack,
         [

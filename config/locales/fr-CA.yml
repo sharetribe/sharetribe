@@ -1,4 +1,10 @@
 fr-CA:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -94,6 +100,10 @@ fr-CA:
         favicon: Favicon
         favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
         community_custom_color1: "Couleur principale"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Le logo large doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -203,7 +213,6 @@ fr-CA:
         transaction_preferences: "Paramètres de transactions"
         show_listing_publishing_date: "Afficher la date de publication de l'annonce sur la page de l'annonce"
         show_category_in_listing_list: "Afficher les types de transaction dans la vue liste"
-        hide_expiration_date: "Ne pas demander de date d'expiration pour les annonces"
         listing_comments_in_use: "Autoriser les utilisateurs à commenter les annonces (visibles par tous les utilisateurs)"
         email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
@@ -228,6 +237,7 @@ fr-CA:
         manage_members: "Gérer les utilisateurs"
         email: Email
         name: Nom
+        display_name: ~
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
@@ -240,8 +250,7 @@ fr-CA:
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -326,6 +335,9 @@ fr-CA:
       edit_location:
         edit_location_field: "Modifier le champ d'annonce 'Lieu'"
         this_field_is_required: "Ce champ est obligatoire"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: "Ce champ est obligatoire"
@@ -381,7 +393,6 @@ fr-CA:
       users_and_transactions: "Utilisateurs et transactions"
       configure: Configuration
       emails_title: Emails
-      support: Support
       subscription: ~
       preview: ~
     listing_shapes:
@@ -877,6 +888,8 @@ fr-CA:
       subject: "%{requester} a demandé et payé pour %{listing_title}"
       transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
@@ -1871,6 +1884,8 @@ fr-CA:
       given_name: Prénom
       first_name_with_initial: "(seule la première lettre est visible par les autres utilisateurs)"
       first_name_only: "(non visible par les autres utilisateurs)"
+      display_name: ~
+      display_name_description: ~
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"

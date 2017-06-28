@@ -7,7 +7,7 @@
         - else
           = t("transactions.initiate.price_per_night")
       %span.initiate-transaction-per-unit-value
-        = humanized_money_with_symbol(listing_price)
+        = MoneyViewUtils.to_humanized(listing_price)
 
     .initiate-transaction-booking-wrapper
       %span.initiate-transaction-booking-label
@@ -30,7 +30,7 @@
       %span.initiate-transaction-per-unit-label
         = t("transactions.price_per_quantity", unit_type: localized_unit_type)
       %span.initiate-transaction-per-unit-value
-        = humanized_money_with_symbol(listing_price)
+        = MoneyViewUtils.to_humanized(listing_price)
     - if quantity > 1
       .initiate-transaction-quantity-wrapper
         %span.initiate-transaction-quantity-label
@@ -43,14 +43,14 @@
       %span.initiate-transaction-sum-label
         = t("transactions.initiate.subtotal")
       %span.initiate-transaction-sum-value
-        = humanized_money_with_symbol(subtotal)
+        = MoneyViewUtils.to_humanized(subtotal)
 
   - if shipping_price.present?
     .initiate-transaction-shipping-price-wrapper
       %span.initiate-transaction-shipping-price-label
         = t("transactions.initiate.shipping-price")
       %span.initiate-transaction-shipping-price-value
-        = humanized_money_with_symbol(shipping_price)
+        = MoneyViewUtils.to_humanized(shipping_price)
 
   - if total.present?
     .initiate-transaction-total-wrapper
@@ -60,4 +60,4 @@
         - else
           = t("transactions.total")
       %span.initiate-transaction-total-value
-        = humanized_money_with_symbol(total)
+        = MoneyViewUtils.to_humanized(total)

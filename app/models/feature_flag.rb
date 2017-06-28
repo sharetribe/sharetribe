@@ -15,8 +15,7 @@
 #  index_feature_flags_on_community_id_and_person_id  (community_id,person_id)
 #
 
-class FeatureFlag < ActiveRecord::Base
-  attr_accessible(:community_id, :feature, :enabled)
+class FeatureFlag < ApplicationRecord
 
   validates_presence_of(:community_id)
 end

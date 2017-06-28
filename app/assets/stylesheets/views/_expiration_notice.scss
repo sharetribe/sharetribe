@@ -6,6 +6,7 @@
 }
 .expiration-content {
   position: relative;
+  overflow: hidden;
   width: 100%;
   background: $background;
   @include border-radius(em(5));
@@ -51,7 +52,7 @@
   border: solid 1px $sharetribe-color;
   color: white;
 }
-.expiration-subscribe-title {
+.expiration-subscribe-title, .contact-owner-title {
   text-align: center;
   font-size: 21px;
   line-height: 21px;
@@ -61,4 +62,22 @@
   font-size: 14px;
   line-height: 14px;
   text-align: center;
+}
+
+.contact-owner {
+  @include border-radius(em(5));
+  max-width: 300px;
+  margin: 0 auto 30px auto;
+  padding: 30px 0;
+  background-color: $sharetribe-color;
+  border: solid 1px $sharetribe-color;
+  color: white;
+}
+
+.expiration-subcontent {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 17px;
+  line-height: 30px;
+  font-weight: normal;
 }

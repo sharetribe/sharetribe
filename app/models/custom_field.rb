@@ -20,7 +20,7 @@
 #  index_custom_fields_on_search_filter  (search_filter)
 #
 
-class CustomField < ActiveRecord::Base
+class CustomField < ApplicationRecord
   include SortableByPriority # use `sort_priority()` for sorting
 
   has_many :names, class_name: "CustomFieldName", dependent: :destroy

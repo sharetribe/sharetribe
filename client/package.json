@@ -2,7 +2,8 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "6.9"
+    "node": "7.8",
+    "npm": "4.2.0"
   },
   "scripts": {
     "ensure-node-version": "check-node-version --package",
@@ -63,7 +64,7 @@
     "react-addons-shallow-compare": "15.4.1",
     "react-dates": "4.1.0",
     "react-dom": "15.4.1",
-    "react-on-rails": "6.1.1",
+    "react-on-rails": "6.9.3",
     "react-redux": "4.4.6",
     "redux": "3.6.0",
     "redux-thunk": "2.1.0",

@@ -1,7 +1,16 @@
 -# Admin navigation is split into link groups.
 - grouped_links = links.group_by {|l| l[:topic]}
 
-= render :partial => "admin/uservoice_widget" if APP_CONFIG.uservoice_widget_url.present?
+- if IntercomHelper.admin_intercom_respond_enabled?
+  - content_for :extra_javascript do
+    :javascript
+      window.ST = window.ST || {};
+      var desktop_selector = "#admin-support-link";
+      var mobile_selector = "#support_left_navi_link";
+      $([desktop_selector, mobile_selector].join(", ")).click(function(e) {
+        e.preventDefault();
+        Intercom && Intercom('show');
+      });
 
 - sel_link = (local_assigns.has_key? :selected_left_navi_link) ? selected_left_navi_link : @selected_left_navi_link
 

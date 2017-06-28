@@ -28,6 +28,7 @@
 #  password_salt                      :string(255)
 #  given_name                         :string(255)
 #  family_name                        :string(255)
+#  display_name                       :string(255)
 #  phone_number                       :string(255)
 #  description                        :text(65535)
 #  image_file_name                    :string(255)

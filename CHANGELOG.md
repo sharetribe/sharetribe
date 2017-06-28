@@ -10,14 +10,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
-- Add support for redis as cache store [#2786](https://github.com/sharetribe/sharetribe/pull/2786)
-- Add support for using PayPal in fake mode for development purposes. [Read more](./docs/using-fakepal.md) [#2598](https://github.com/sharetribe/sharetribe/pull/2598)
-- Add support for linking to member invitation page in CLP [#2859](https://github.com/sharetribe/sharetribe/pull/2859)
-
 ### Changed
-
-- Redirect user to the page where user was before login/sign up [#2758](https://github.com/sharetribe/sharetribe/pull/2758)
-- Updated NPM packages [#2762](https://github.com/sharetribe/sharetribe/pull/2762)
 
 ### Deprecated
 
@@ -25,10 +18,81 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
-- Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
-- Fixed number of issues in the Order Types form [#2858](https://github.com/sharetribe/sharetribe/pull/2858)
+### Security
+
+## [7.0.0] - 2017-06-09
+
+### Changed
+
+- Updated Rails to 5.1.1 and Node to 7.8 [#2976](https://github.com/sharetribe/sharetribe/pull/2976)
+
+## [6.4.0] - 2017-06-09
+
+### Added
+
+- New feature: User can reorder listing images [#2970](https://github.com/sharetribe/sharetribe/pull/2970)
+
+### Changed
+
+- Change instructions how to compile assets. This reduces the JavaScript bundle size drastically. [c613cac](https://github.com/sharetribe/sharetribe/commit/c613cac)
+
+### Fixed
+
+- Fixed transaction button styles. Styles were broken in IE Edge. [#2968](https://github.com/sharetribe/sharetribe/pull/2968)
+- Fixed admin UI language change. [#2969](https://github.com/sharetribe/sharetribe/pull/2969)
+- Fix old mobile browser compatibility by removing dependency to Intl api. [#2979](https://github.com/sharetribe/sharetribe/pull/2979)
 
 ### Security
+
+- Fixed cross-community security issues [#2978](https://github.com/sharetribe/sharetribe/pull/2978)
+
+## [6.3.0] - 2017-04-24
+
+### Changed
+
+- Migrate from database session store to cookie-based session store [#2935](https://github.com/sharetribe/sharetribe/pull/2935)
+
+### Removed
+
+- Removed default twitter handle [#2906](https://github.com/sharetribe/sharetribe/pull/2906)
+
+### Fixed
+
+- Fix cropped cover photo in big screens [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
+- Add missing padding to homepage search field in mobile view [#2895](https://github.com/sharetribe/sharetribe/pull/2895)
+- Fix unwanted scrolling in listing page by removing comment text area auto focus [#2917](https://github.com/sharetribe/sharetribe/pull/2917)
+- Fix faulty feature flag dependency handling [#2932](https://github.com/sharetribe/sharetribe/pull/2932)
+- Fix map bug where multiple listings close to each other caused the icon cluster to disapper when zoomed closed enough [#2942](https://github.com/sharetribe/sharetribe/pull/2942)
+- Fix issue [#2885](https://github.com/sharetribe/sharetribe/issues/2885): Landing page always shows Sign up button for private marketplace, even if the user is logged in [#2944](https://github.com/sharetribe/sharetribe/pull/2944)
+- Fix issue with fetching correct node.js release signing keys in Dockerfile [#2964](https://github.com/sharetribe/sharetribe/pull/2964)
+
+### Security
+
+- Upgrade Nokogiri and rubyzip gems [#2943](https://github.com/sharetribe/sharetribe/pull/2943)
+
+## [6.2.0] - 2017-03-09
+
+### Added
+
+- Add support for redis as cache store [#2786](https://github.com/sharetribe/sharetribe/pull/2786)
+- Add support for using PayPal in fake mode for development purposes. [Read more](./docs/using-fakepal.md) [#2598](https://github.com/sharetribe/sharetribe/pull/2598)
+- Add support for linking to member invitation page in CLP [#2859](https://github.com/sharetribe/sharetribe/pull/2859)
+- New feature: Hide irrelevant search filters when a category or subcategory is selected [#2882](https://github.com/sharetribe/sharetribe/pull/2882)
+- Landing page Markdown support [#2887](https://github.com/sharetribe/sharetribe/pull/2887)
+- Add instructions how to configure Harmony service [#2892](https://github.com/sharetribe/sharetribe/pull/2892)
+- Add support for display name [#2869](https://github.com/sharetribe/sharetribe/pull/2869)
+- Add support for customizing community description and slogan color [#2898](https://github.com/sharetribe/sharetribe/pull/2898)
+
+### Changed
+
+- Redirect user to the page where user was before login/sign up [#2758](https://github.com/sharetribe/sharetribe/pull/2758)
+- Updated NPM packages [#2762](https://github.com/sharetribe/sharetribe/pull/2762)
+
+### Fixed
+
+- Fixed broken transaction button styles [#2723](https://github.com/sharetribe/sharetribe/pull/2723)
+- Fixed number of issues in the Order Types form [#2858](https://github.com/sharetribe/sharetribe/pull/2858)
+- Fixed an issue which caused sign up to fail partially if the Facebook profile picture upload failed [#2886](https://github.com/sharetribe/sharetribe/pull/2886)
 
 ## [6.1.0] - 2016-10-31
 
@@ -332,7 +396,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...HEAD
+[6.4.0]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...v6.4.0
+[6.3.0]: https://github.com/sharetribe/sharetribe/compare/v6.2.0...v6.3.0
+[6.2.0]: https://github.com/sharetribe/sharetribe/compare/v6.1.0...v6.2.0
 [6.1.0]: https://github.com/sharetribe/sharetribe/compare/v6.0.0...v6.1.0
 [6.0.0]: https://github.com/sharetribe/sharetribe/compare/v5.12.0...v6.0.0
 [5.12.0]: https://github.com/sharetribe/sharetribe/compare/v5.11.0...v5.12.0

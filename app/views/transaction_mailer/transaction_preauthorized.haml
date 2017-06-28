@@ -9,5 +9,13 @@
   %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       = t("emails.transaction_preauthorized.you_have_time_to_accept", :payment_expires_in => translate_time_to(payment_expires_in_unit, payment_expires_in_count))
+%tr
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
+    %font{body_font}
+      %ul{style: "padding-left: 10px;"}
+        %li
+          = t("emails.transaction_preauthorized.if_you_do_accept")
+        %li
+          = t("emails.transaction_preauthorized.if_you_do_not_accept", requester: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community))
 
 = render :partial => "person_mailer/action_button", :locals => { :text => t("emails.transaction_preauthorized.click_here_to_reply"), :url => reply_url}

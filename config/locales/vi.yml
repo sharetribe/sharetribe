@@ -1,4 +1,10 @@
 vi:
+  number:
+    currency:
+      format:
+        separator: "."
+        delimiter: ","
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -7,22 +13,22 @@ vi:
         listing_categories: "Các hạng mục tin đăng"
         create_a_new_category: "+ Tạo một hạng mục mới"
         remove_category_confirmation: "Bạn có chắc là bạn muốn gỡ bỏ hạng mục %{category_name}"
-        saving_order: ~
-        save_order_successful: ~
+        saving_order: "Đang lưu thứ tự hạng mục"
+        save_order_successful: "thành công lưu dữ thứ tự hạng mục"
         save_order_error: ~
       new:
-        new_listing_category: ~
+        new_listing_category: "Danh mục chủng loại mới"
       form:
         category_name:
-          category_title: ~
+          category_title: "Tiêu đề hạng mục"
         category_parent:
           category_parent: "Hạng mục chủ"
           no_parent: "Không có"
         category_transaction_types:
           transaction_types: ~
           transaction_types_description: ~
-          select_all: ~
-          clear_all: ~
+          select_all: "Chọn tất cả"
+          clear_all: "Làm sạch tất cả"
         buttons:
           save: Lưu
           cancel: Thôi
@@ -32,26 +38,34 @@ vi:
         warning_remove_effects: "Cảnh báo! Loại bỏ hạng mục %{category_name} sẽ có những tác động sau:"
         warning_listing_will_be_moved:
           other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
-        select_new_category: ~
+        warning_custom_field_will_be_moved:
+          other: "Có %{count} trường tùy chỉnh trong chủng loại. Nó sẽ được di chuyển đến các chủng loại đã chọn."
+        select_new_category: "Chọn hạng mục mới để các sản phẩm được chọn được di chuyển đến đó"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: "Loại bỏ"
+          cancel: Hủy
+        warning_subcategory_will_be_removed:
+          other: "Có %{count} hạng mục con trong hạng mục. Xóa tất cả hạng mục con"
+        warning_with_subcategories_listing_will_be_moved:
+          other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
     communities:
       edit_details:
         community_details: ~
         community_look_and_feel: ~
         edit_community: ~
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
-        language_selection_disabled: ~
+        enabled_languages: "Bật các ngôn ngữ"
+        enabled_languages_description: "Bộ ngôn ngữ có sẵn cho người dùng. Hộp đầu tiên được sử dụng làm mặc định."
+        default_language: "Ngôn ngữ mặc định"
+        language_selection_disabled: "Chọn ngôn ngữ bị vô hiệu đối với thị trường của bạn vì bạn đang sử dụng các ngôn ngữ không chính thức sau: %{languages}. Vui lòng liên hệ với bộ phận hỗ trợ Sharetribe nếu bạn muốn thay đổi cài đặt ngôn ngữ."
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
         edit_community_slogan_description: ~
         community_description: ~
         edit_community_description_description: ~
-        community_search_placeholder: ~
+        community_search_placeholder: "Tìm kiếm văn bản trợ giúp"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
@@ -61,51 +75,55 @@ vi:
         edit_signup_info_description: "Thông tin này sẽ được hiển thị trên trang đăng nhập. Bạn có thể tận dụng dụng để thêm hướng dẫn đăng nhập, địa chỉ đăng kí v.v..."
         edit_info: "Chỉnh sửa thông tin"
         see_how_it_looks_like: "Xem trông nó như thế nào"
-        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content: "Văn bản thông tin cho người dùng không được xác minh"
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
-        save: ~
-        transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        contact_admin_link_text: "Liên hệ quản lí"
+        save: "Lưu thiết lâp"
+        transaction_agreement: "Hợp đồng giao dịch"
+        transaction_agreement_checkbox: "Yêu cầu người dùng chấp nhận thỏa thuận trước khi giao dịch"
+        transaction_agreement_checkbox_header: "Biểu tượng thỏa thuận"
+        transaction_agreement_checkbox_label_description: "Văn bản này sẽ được hiển thị bên cạnh một hộp kiểm trong biểu mẫu thanh toán. Người dùng cần kiểm tra hộp để tiến hành giao dịch. Một ví dụ nhãn sẽ là một cái gì đó như \"Bằng cách nhấp vào hộp này tôi chấp nhận các thỏa thuận.\""
+        transaction_agreement_text_header: "Văn bản thoả thuận"
+        transaction_agreement_description: "Đây là nội dung của thỏa thuận thực tế mà người dùng cần phải chấp nhận. Nội dung thỏa thuận được hiển thị khi người dùng nhấp vào liên kết \"%{read_more}\" bên cạnh nhãn thỏa thuận."
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: Logo
         community_logo_icon: ~
         community_cover_photo: "Ảnh bìa"
         small_community_cover_photo: "Ảnh bìa nhỏ"
-        favicon: ~
-        favicon_info_text: ~
+        favicon: "Biểu tượng yêu thích"
+        favicon_info_text: "Biểu tượng yêu thích sẽ thay thế logo mặc định của Sharetribe. Kích thước phải là 32x32 pixel và hình ảnh đã tải lên sẽ được định lại kích thước theo kích cỡ này."
         community_custom_color1: "Màu sắc chính"
-        new_listing_button_custom_color: ~
+        community_slogan_color: "Màu khẩu hiệu thị trường"
+        community_slogan_color_instructions_text: "Bạn có thể thay đổi màu sắc của slogan trên trang chủ bằng cách nhập một giá trị màu hex. Khẩu hiệu được hiển thị cho người dùng không đăng nhập %{colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây. %{see_how_it_looks_like}."
+        community_description_color: "Màu mô tả của thị trường"
+        community_description_color_instructions_text: "Bạn có thể thay đổi màu sắc của slogan trên trang chủ bằng cách nhập một giá trị màu hex. Khẩu hiệu được hiển thị cho người dùng không đăng nhập %{colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây. %{see_how_it_looks_like}."
+        new_listing_button_custom_color: "Đăng màu nút danh sách mới"
         logo_instructions_text_with_dimensions: "Logo phải có kích thước %{width}x%{height}."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Kích thước logo phải là %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: ~
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Logo hình vuông này sẽ được hiển thị khi mọi người chia sẻ trang web của bạn trên Facebook hoặc khi họ đánh dấu trang web của bạn vào màn hình chính của thiết bị di động của họ. Kích thước phải là (ít nhất) %{width}x%{height}px."
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Ảnh sẽ được thu nhỏ về kích thước %{width}x%{height} pixel. Những ảnh quá cao sẽ được cắt ngay giữa. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: "Hình ảnh sẽ được thu nhỏ lại thành thành kích thước %{height}x%{width} và những hình ảnh cao hơn sẽ được cắt ở giữa."
         main_content_width: "Khi chọn ảnh bìa xin lưu ý rằng nội dung trang chính là %{main_width} pixel rộng nhất. Hãy nhớ cũng kiểm tra ảnh bìa của bạn trông như thế nào trên màn hình nhỏ hơn (ví dụ bằng cách sử dụng một cửa sổ trình duyệt hẹp hơn)."
         custom_color1_instructions_text: "Bạn có thể thay đổi màu của giao diện người dùng bằng cách nhập một mã hex vào đây. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> sẽ đưa ra mã hex tương ứng vớ  màu bạn chọn."
-        new_listing_button_instructions_text: ~
-        default_browse_view: ~
-        default_browse_view_instructions_text: ~
-        grid: ~
-        list: ~
-        map: ~
-        name_display_type: ~
-        name_display_type_instructions_text: ~
-        full_name: ~
-        first_name_with_initial: ~
-        first_name_only: ~
+        new_listing_button_instructions_text: "Bạn có thể thay đổi màu của nút Đăng một danh sách mới bằng cách nhập một giá trị màu hex. %{link_to_colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây."
+        default_browse_view: "Chế độ duyệt mặc định"
+        default_browse_view_instructions_text: "Chế độ xem duyệt mặc định được sử dụng trên trang chủ để đặt cách danh sách được hiển thị theo mặc định."
+        grid: Lưới
+        list: "Danh sách"
+        map: "Bản đồ"
+        name_display_type: "Loại tên hiển thị"
+        name_display_type_instructions_text: "Chọn cách tên mỗi người dùng được hiển thị trên trang web."
+        full_name: "Tên đầy đủ (Tên Họ)"
+        first_name_with_initial: "Tên với chữ cái đầu tiên (Tên L)"
+        first_name_only: "Chỉ tên riêng (Tên)"
         invalid_color_code: "Mã màu sắc phải chứa 6 chữ số hoặc các kí tự từ A-F, ví dụ : D96E21"
-        custom_head_script: ~
-        custom_head_script_instructions_text: ~
+        custom_head_script: "Tập lệnh tùy chỉnh"
+        custom_head_script_instructions_text: "Tập lệnh này được tiêm bên trong thẻ <head> của mỗi trang và có thể được sử dụng để chèn CSS, JavaScript hoặc HTML tùy chỉnh. Xin lưu ý rằng những thay đổi trong tương lai đối với Sharetribe có thể làm cho kịch bản của bạn không tương thích."
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -114,213 +132,215 @@ vi:
         edit_message: "Thay đổi thông điệp"
         send_test_message: "Gửi thông điệp thử"
       outgoing_email:
-        title: ~
-        info: ~
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
-        amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
-        successfully_saved: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
-        invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
-        unknown_error: ~
-        white_label_offer: ~
-        upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        title: "Địa chỉ email đi"
+        info: "Tên và địa chỉ này được sử dụng cho email được gửi từ thị trường của bạn đến các thành viên."
+        read_more: "Đọc thêm về địa chỉ email gửi đi"
+        sender_address: "Địa chỉ người gửi: %{sender_address}"
+        sender_address_default: "Địa chỉ người gửi: không được đặt (sử dụng địa chỉ mặc định %{sender_address})"
+        need_to_change: "Nếu bạn cần thay đổi địa chỉ email, vui lòng %{contact_support_link}."
+        contact_support_link_text: "Liên hệ hỗ trợ Sharetribe"
+        set_sender_address: "Đặt địa chỉ người gửi"
+        sender_name_label: Tên
+        sender_name_placeholder: "Tên người gửi"
+        sender_email_label: "Địa chỉ email"
+        sender_email_placeholder: sender-email@example.com
+        amazon_ses_notification: "Bạn sẽ nhận được email từ %{email_sender} để xác nhận địa chỉ e-mail của bạn. Chủ đề email là '%{email_subject}'. Làm theo hướng dẫn để xác minh email của bạn."
+        this_is_how_it_will_look: "Đây là cách nó sẽ trông:"
+        send_verification_button: "Gửi email xác minh"
+        successfully_saved: "Đã lưu địa chỉ người gửi thành công. Email xác minh sẽ sớm được gửi."
+        status: "Trạng thái: %{status}"
+        status_verified: "Đã được xác minh khi sử dụng"
+        status_error: "Đã xảy ra lỗi. Vui lòng làm mới trang."
+        status_requested: "Đã xác minh - email xác minh được gửi tới %{email} %{time_ago}. %{resend_link}"
+        status_expired: "Xác minh %{email} đã hết hạn. %{resend_link}"
+        status_resent: "Email xác minh gửi lại %{email}. %{resend_link}"
+        resend_link: "Gửi lại"
+        invalid_email_error: "Định dạng email không hợp lệ cho '%{email}'"
+        invalid_email_domain: "Địa chỉ email '%{email}' đang sử dụng nhà cung cấp dịch vụ email không được hỗ trợ: '%{domain}'. %{invalid_email_domain_read_more_link}"
+        invalid_email_domain_read_more_link: "Đọc bài viết trong Trung tâm trợ giúp để biết thêm thông tin."
+        unknown_error: "Đã xảy ra sự cố"
+        white_label_offer: "Đặt địa chỉ email riêng của bạn làm người gửi và loại bỏ tất cả thương hiệu Sharetribe khỏi các email gửi đi bằng cách %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "nâng cấp lên kế hoạch Pro hoặc cao hơn"
+        verification_sent_from: "Email xác minh đã được gửi từ %{verification_sender_name}."
+        follow_the_instructions: "Vui lòng làm theo các hướng dẫn trong email để xác minh địa chỉ của bạn."
       getting_started:
-        getting_started: ~
+        getting_started: "Bắt đầu khóa hướng dẫn"
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        en: "Tiếng Anh"
+        en-AU: "Tiếng Anh (Úc)"
+        en-GB: "Tiếng Anh (Vương quốc Anh)"
+        fr: "Tiếng Pháp"
+        fr-CA: "Tiếng Pháp (Canada)"
+        es: "Tiếng Tây Ban Nha (Chile)"
+        es-ES: "Tiếng Tây Ban Nha"
+        pt-PT: "Tiếng Bồ Đào Nha"
+        pt-BR: "Tiếng Bồ Đào Nha (Braxin)"
+        nb: "Tiếng Na Uy Bokmål"
+        sv: "Tiếng Thụy Điển"
+        da-DK: "Tiếng Đan Mạch"
+        fi: "Tiếng Phần Lan"
+        ru: "Tiếng Nga"
+        de: "Tiếng Đức"
+        el: "Tiếng Hy Lạp"
+        nl: "Tiếng Hà Lan"
+        tr-TR: "Tiếng Thổ Nhĩ Kỳ"
+        zh: "Tiếng Trung"
+        ja: "Tiếng Nhật"
+        it: "Tiếng Ý"
       settings:
-        settings: ~
-        general: ~
+        settings: "Cài đặt"
+        general: Chung
         access: ~
         join_with_invite_only: ~
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
-        keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
-        listing_preferences: ~
+        search_preferences: "Tùy chọn tìm kiếm"
+        default_search_type: "Thể loai tìm kiếm: %{select_search_type}"
+        keyword_search: "Tìm kiếm từ khoá"
+        keyword_and_location_search: "Tìm kiếm từ khoá và vị trí"
+        location_search: "Tìm bằng địa điểm"
+        select_distance_unit: "Hiển thị khoảng cách trong %{distance_units_selector}"
+        km: km
+        miles: dặm
+        show_only_nearby: "Chỉ hiển thị các danh sách gần đó với tìm kiếm vị trí"
+        listing_preferences: "Danh mục yêu thích"
         transaction_preferences: ~
-        show_listing_publishing_date: ~
-        show_category_in_listing_list: ~
-        hide_expiration_date: ~
-        listing_comments_in_use: ~
-        email_preferences: ~
-        automatic_newsletters: ~
-        email_admins_about_new_members: ~
-        google_analytics_key: ~
-        twitter_handle: ~
-        update_settings: ~
-        automatically_confirmed_no_escrow: ~
-        automatic_newsletter_frequency: ~
-        newsletter_daily: ~
-        newsletter_weekly: ~
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        show_listing_publishing_date: "Hiển thị ngày đăng trên bài đăng"
+        show_category_in_listing_list: "Hiển thi thể loại bài đăng trên danh sách"
+        listing_comments_in_use: "Cho phép người dùng đăng nhận xét lên danh sách (có thể xem được với tất cả người dùng khác)"
+        email_preferences: "Email yêu thích"
+        automatic_newsletters: "Gửi bản tin hàng ngày / hàng tuần tự động cho tất cả người dùng (trừ khi họ chọn không tham gia)"
+        email_admins_about_new_members: "Gửi quản trị viên email mỗi khi người dùng mới đăng ký"
+        google_analytics_key: "ID theo dõi Google Analytics"
+        twitter_handle: "Twitter xử lý (được sử dụng với nút tweet trong trang danh sách)"
+        update_settings: "Lưu thiết lập"
+        automatically_confirmed_no_escrow: "Đơn đặt hàng sẽ được tự động đánh dấu là %{days_dropdown} ngày hoàn thành sau khi thanh toán đã được thực hiện"
+        automatic_newsletter_frequency: "Gửi bản tin tự động: %{frequency_dropdown}"
+        newsletter_daily: "Hằng ngày"
+        newsletter_weekly: "Hằng tuần"
+        delete_marketplace_title: "Xóa thị trường"
+        type_marketplace_domain: "Nhập tên miền thị trường của bạn (%{domain}) vào trường văn bản dưới đây:"
+        type_marketplace_domain_placeholder: "Nhập tên miền thị trường của bạn ở đây"
+        once_you_delete: "Một khi bạn xóa thị trường, bạn sẽ không thể truy cập vào nó nữa. Hãy cẩn thận."
+        are_you_sure: "Bạn có chắc không?"
+        i_understand_button: "Tôi hiểu rằng bằng cách nhấp vào nút này thị trường của tôi sẽ bị xóa"
+        last_community_updates: "Xin lưu ý rằng sau khi xóa, bạn và người dùng trên thị trường của bạn vẫn có thể nhận được email cập nhật thị trường cuối cùng."
+        you_will_be_redirected_to: "Sau khi bạn đã xóa thị trường của mình, bạn sẽ được chuyển hướng đến %{destination}. Bạn sẽ không thể truy cập vào thị trường của bạn nữa."
+        delete_this_marketplace: "Xóa thị trường này"
       manage_members:
-        manage_members: ~
-        email: ~
-        name: ~
-        join_date: ~
-        admin: ~
-        posting_allowed: ~
-        ban_user: ~
-        saving_user_status: ~
-        save_user_status_successful: ~
-        export_all_as_csv: ~
-        save_user_status_error: ~
+        manage_members: "Điều hành người dùng"
+        email: Email
+        name: Tên
+        display_name: "Tên hiển thị"
+        join_date: "Đã gia nhập"
+        admin: "Quản trị"
+        posting_allowed: "Bài đăng đã được duyệt"
+        ban_user: "Cấm người dùng"
+        saving_user_status: "Đang lưu..."
+        save_user_status_successful: "Đã lưu"
+        export_all_as_csv: "Xuất tất cả dưới dạng CSV"
+        save_user_status_error: "Lưu dữ không thành công. Hãy làm mới trang và thử lại."
         ban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: "Bạn không thể tự cấm mình."
       new_layout:
-        new_layout: ~
-        description_roadmap: ~
-        description_process: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        new_layout: "Bố cục mới"
+        description_roadmap_new: "Khi các thành phần bố cục mới được tạo sẵn cho thị trường của bạn, bạn có thể chọn xem bạn muốn bắt đầu sử dụng thành phần mới hay tiếp tục sử dụng thành phần mới. Bạn có thể bật / tắt vùng chọn ở bất kỳ điểm nào từ trang này. Bạn nên luôn luôn sử dụng phiên bản mới vì các thành phần cũ có thể được loại bỏ tại một số điểm. Trong trường hợp một thành phần mà bạn hiện đang sử dụng sẽ được loại bỏ, bạn sẽ được liên hệ trước."
+        enabled_for_you: "Bật cho bạn"
+        enabled_for_all: "Bật cho tất cả"
+        new_topbar: "Thanh trên cùng mới (hiển thị trên mỗi trang)"
+        searchpage: "Trang tìm kiếm mới (yêu cầu thanh trên cùng mới)"
       social_media:
-        social_media: ~
-        twitter_handle: ~
-        twitter_handle_info_text: ~
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
-        twitter_handle_placeholder: ~
-        invalid_twitter_handle: ~
-        facebook_connect: ~
-        facebook_connect_info_text: ~
-        facebook_connect_info_text_with_instructions: ~
-        facebook_instructions_link_text: ~
-        facebook_connect_id: ~
-        invalid_facebook_connect_id: ~
-        facebook_connect_secret: ~
-        invalid_facebook_connect_secret: ~
-        save: ~
+        social_media: "Mạng xã hội"
+        twitter_handle: "Tài khoản Twitter"
+        twitter_handle_info_text: "Tên đăng nhập của tài khoản Twitter trên thị trường của bạn (nếu bạn có). Nó sẽ được đề cập khi mọi người sử dụng nút tweet trên trang danh sách."
+        twitter_handle_info_text_with_instructions: "Tên đăng nhập của tài khoản Twitter trên thị trường của bạn (nếu bạn có). Nó sẽ được đề cập khi mọi người sử dụng nút tweet trên trang danh sách. %{instructions_link}."
+        twitter_instructions_link_text: "Đọc thêm"
+        twitter_handle_placeholder: "tên đăng nhập"
+        invalid_twitter_handle: "Tài khoản Twitter nên chỉ chứa tối đa 15 ký tự chữ và số (ký tự A-Z và số 0-9)."
+        facebook_connect: Facebook
+        facebook_connect_info_text: "Để kích hoạt Đăng nhập Facebook, hãy tạo một ứng dụng cho thị trường của bạn trong <a href='https://developers.facebook.com/'> trang tổng quan của nhà phát triển Facebook </a>. Thêm ID được tạo ra và khóa bí mật của ứng dụng tại đây."
+        facebook_connect_info_text_with_instructions: "Để kích hoạt Đăng nhập Facebook, hãy tạo một ứng dụng cho thị trường của bạn trong <a href='https://developers.facebook.com/'> trang tổng quan của nhà phát triển Facebook </a>. Thêm ID được tạo ra và khóa bí mật của ứng dụng tại đây. %{instructions_link}"
+        facebook_instructions_link_text: "Xem hướng dẫn để cấu hình Facebook Connect."
+        facebook_connect_id: "Tài khoản khách hàng Facebook"
+        invalid_facebook_connect_id: "Tài khoản khách hàng chỉ nên chứa số."
+        facebook_connect_secret: "Khách hàng bí mật Facebook"
+        invalid_facebook_connect_secret: "Khách hàng bí mật chỉ chứa số và chữ cái từ a tới f."
+        save: "Lưu thiết lâp"
       analytics:
-        analytics: ~
-        google_analytics_key: ~
-        google_analytics_key_info_text: ~
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
-        save: ~
+        analytics: "Phân tích"
+        google_analytics_key: "ID theo dõi Google Analytics"
+        google_analytics_key_info_text: "ID theo dõi tài khoản Google Analytics của bạn."
+        google_analytics_key_info_text_with_instructions: "ID theo dõi tài khoản Google Analytics của bạn.%{instructions_link}."
+        google_analytics_instructions_link_text: "Đọc thêm về kết nối Google Analytics"
+        save: "Lưu thiết lâp"
       menu_links:
-        menu_links: ~
-        save: ~
-        add_menu_link: ~
-        title_placeholder: ~
-        url_placeholder: ~
-        title: ~
-        language: ~
-        url: ~
-        empty: ~
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        menu_links: "Liên kết danh mục"
+        save: "Lưu thiết lập"
+        add_menu_link: "Thêm liên kết mới vào danh mục"
+        title_placeholder: "Tiêu đề liên kết"
+        url_placeholder: "http://example.com/en"
+        title: "Tiêu đề"
+        language: "Ngôn ngữ"
+        url: URL
+        empty: "Bạn không có bất kỳ liên kết danh mục bổ sung nào"
+        max_number_of_links: "Số liên kết tối đa được hiển thị trong thanh trên cùng: %{select_max_number}"
+        all: "Tất cả"
+        max_number_of_links_info: "Liên kết đến %{about_page} luôn được hiển thị như liên kết trình đơn đầu tiên"
+        about_page: "giới thiệu trang"
       topbar:
-        topbar: ~
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        topbar: "Thanh trên cùng"
+        new_listing_button_label: "Đăng văn bản nút danh sách mới"
+        invalid_post_listing_button_label: "Vui lòng cung cấp văn bản hợp lệ cho nút \"Đăng niêm yết mới\""
       transactions:
-        export_all_as_csv: ~
-        transactions: ~
+        export_all_as_csv: "Xuất tất cả dưới dạng CSV"
+        transactions: "Xem giao dịch"
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Chủ đề đối thoại"
+          listing: "Danh sách"
+          status: "Trạng thái"
+          sum: Tổng
+          started: "Bắt đầu"
+          last_activity: "Hoạt động mới nhất"
+          initiated_by: "Người khởi xướng"
+          other_party: "Bên thứ 3"
         status:
           free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
-          confirmed: ~
-          canceled: ~
-          initiated: ~
-          pending_ext: ~
-        not_available: ~
+          pending: "Đang chờ xử lý"
+          preauthorized: "Được phép"
+          accepted: "Được chấp nhận"
+          rejected: "Từ chối"
+          paid: "Đã thanh toán"
+          confirmed: "Xác nhận"
+          canceled: "Đã hủy"
+          initiated: "Đang chờ thanh toán PayPal"
+          pending_ext: "Đang chờ thanh toán PayPal"
+        not_available: "Không có sẵn"
       paypal_account:
-        paypal_admin_account: ~
+        paypal_admin_account: "Hệ thống thanh toán"
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
       edit_price:
-        description: ~
+        description: "Giá tối thiểu và tối đa chỉ ảnh hưởng đến bộ lọc. Họ không đặt ra một giới hạn cho giá niêm yết."
         edit_price_field: ~
-        show_price_filter_homepage: ~
+        show_price_filter_homepage: "Hiển thị bộ lọc giá trên trang chủ"
         price_min: ~
         price_max: ~
       edit_location:
         edit_location_field: ~
-        this_field_is_required: ~
+        this_field_is_required: "Khu này là bắt buộc"
+      edit_expiration:
+        edit_expiration_field: "Chỉnh sửa trường liệt kê 'Ngày hết hạn'"
+        enable: "Bật ngày hết hạn"
       form:
         field_required:
           this_field_is_required: ~
           this_field_is_required_checkbox: ~
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Hiển thị bộ lọc dựa trên trường này trên trang chủ"
+          date_cant_be_filtered: "Không có bộ lọc nào cho trường ngày tháng."
+          text_cant_be_filtered: "Không có bộ lọc cho trường văn bản. Các tìm kiếm văn bản chính tìm kiếm từ các trường văn bản."
       index:
         listing_fields: ~
         listing_fields_help: ~
@@ -331,26 +351,26 @@ vi:
         field_title: "Tựa của trường"
         field_type: "Loại trường"
         categories: "Bảng liệt kê hạng mục nơi mà các trường được sử dụng"
-        select_all: ~
-        clear_all: ~
-        options: ~
+        select_all: "Chọn tất cả"
+        clear_all: "Làm sạch tất cả"
+        options: "Các lựa chọn"
         add_option: "+ Thêm tùy chọn"
         saving_order: "Lưu trường đặt hàng"
         save_order_successful: "Trường đặt hàng đã được lưu thành công"
         save_order_error: ~
         select_one: "Chọn loại trường..."
         continue: "Tiếp tục"
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
+        minimum_value: "Tối thiểu"
+        maximum_value: "Tối đa"
+        allow_decimals: "Cho phép số thập phân"
       new:
         new_listing_field: "Trường liệt kê mới"
       field_types:
-        text: ~
-        number: ~
+        text: "Bản văn"
+        number: Số
         dropdown: "Xổ xuống"
-        checkbox_group: ~
-        date: ~
+        checkbox_group: "Hôp đánh giấu"
+        date: Ngày
     emails:
       new:
         send_email_to_members: ~
@@ -364,128 +384,135 @@ vi:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "Tin nhắn đã gửi."
     left_hand_navigation:
-      general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
-      support: ~
-      subscription: ~
-      preview: ~
+      general: Chung
+      users_and_transactions: "Người dùng & giao dịch"
+      configure: "Tinh chỉnh"
+      emails_title: Email
+      subscription: "Đăng ký"
+      preview: "Xem trước trang web"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: "Khả thi"
+      read_more: "Đọc thêm về quản lý tự động có sẵn."
+      read_more_availability_management: "Đọc thêm về quản lý có sẵn."
+      allow_providers_to_manage_availability: "Cho phép các nhà cung cấp quản lý có sẵn từ lịch"
+      per_day_availability: "lịch mỗi ngày"
+      per_night_availability: "Có \"mỗi đêm\""
+      pricing_units_disabled_info: "Không thể sử dụng đơn vị giá khi lịch tính khả dụng được bật."
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
-        all_categories: ~
-        no_categories: ~
-        category_count: ~
+        listing_shapes: "Kiểu đơn hàng"
+        description: "Các loại đơn đặt hàng xác định cách trình tự của quy trình làm việc trong trang web của bạn. Bạn có thể quyết định xem người dùng của bạn đang thuê hoặc bán, hoặc có thể chỉ đăng thông báo và giao tiếp thông qua các tin nhắn trực tiếp."
+        read_more_about_order_types: "Đọc thêm về các đơn đặt hàng"
+        add_new_shape: "Thêm loại đơn đặt hàng mới: "
+        select_template: "Chọn mẫu ..."
+        all_categories: "Tất cả danh mục"
+        no_categories: "Không có danh mục"
+        category_count: "%{category_count} thể loại"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: "Tên loại đặt hàng"
+          listing_shape_categories: "Danh mục nơi nó được sử dụng"
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: "Lưu đơn hàng"
+          save_order_successful: "Đã lưu lệnh đơn đặt hàng thành công"
+          save_order_error: "Đã xảy ra lỗi khi lưu đơn hàng. Hãy làm mới trang và thử lại."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: "Bán sản phẩm"
+        renting_products: "Cho thuê sản phẩm"
+        offering_services: "Cung cấp dịch vụ"
+        giving_things_away: "Cho đi mọi thứ"
+        requesting: "Yêu cầu"
+        announcement: "Đăng thông báo"
+        custom: "Tự chọn"
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: "Tạo loại đơn đặt hàng"
+        create: Tạo
+        cancel: Hủy
+        create_success: "Đã tạo loại đơn đặt hàng mới '%{shape}'"
+        create_failure: "Không thể tạo loại đơn đặt hàng mới. Lỗi: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
-      shipping_label: ~
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+        edit_listing_shape: "Chỉnh sửa loại đơn đặt hàng '%{shape}'"
+        update: Lưu
+        cancel: Hủy
+        update_success: "Thay đổi kiểu đơn đặt hàng '%{shape}' đã lưu"
+        update_failure: "Không thể lưu thay đổi. Lỗi: %{error_msg}"
+        delete: "Xóa loại đơn đặt hàng"
+        can_not_delete_last: "Bạn không thể xóa loại đơn hàng này vì đây là loại duy nhất trong thị trường của bạn."
+        can_not_delete_only_one_in_categories: "Bạn không thể xóa loại đơn hàng này vì trong các loại sau đây loại đơn đặt hàng này là loại chỉ sử dụng: %{categories}"
+        confirm_delete_order_type:
+          other: "Có %{count} danh sách có loại đơn đặt hàng này. Nếu bạn xóa loại đơn đặt hàng, danh sách này sẽ bị đóng. Bạn có chắc chắn muốn xóa loại đơn hàng?"
+      listing_shape_name: Tên
+      listing_shape_name_placeholder: "Ví dụ. Bán"
+      action_button_label: "Nhãn nút thanh toán"
+      action_button_placeholder: "Ví dụ. Mua"
+      successfully_closed: "Đóng danh sách thành công"
+      successfully_deleted: "Đã xoá thành công loại đơn đặt hàng '%{order_type}'"
+      pricing_and_checkout_title: "Giá cả và thanh toán"
+      online_payments_label: "Cho phép người bán chấp nhận thanh toán trực tuyến"
+      shipping_label: "Cho phép người bán xác định phí vận chuyển"
+      price_label: "Cho phép người bán thêm giá vào danh sách của họ"
+      units_title: "Đơn giá"
+      units_desc: "Nếu bạn đã bật các đơn vị đặt giá, giá niêm yết được hiển thị là \"giá cho mỗi đơn vị giá\". Ví dụ: \"39 đô la một giờ\"."
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+        piece: "Mỗi mảnh"
+        hour: "Một giờ"
+        day: "mỗi ngày"
+        night: "Mỗi đêm"
+        week: "Mỗi tuần"
+        month: "Mỗi tháng"
+      can_not_find: "Không thể tìm thấy loại đơn đặt hàng có id: %{id}"
+      add_custom_unit: "+ Thêm đơn vị đặt giá tùy chỉnh…"
+      delete_custom_unit: xóa
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: "Đơn giá mới"
+        label_heading: Nhãn
+        selector_label_heading: "Lựa chọn nhãn hiệu"
+        label_placeholder: "ví dụ. \"Kg\", \"30 phút\", \"người\", \"lớp học\""
+        selector_placeholder: "ví dụ. \"Số người\", \"Số kg\""
+        per: Mỗi
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: "Loại đơn vị"
+          quantity_label: "Số lượng (mỗi mảnh, trên kg, mỗi người, mỗi tour 2 giờ ...)"
+          time_label: "Thời gian (mỗi 30 phút, mỗi 2 tuần, mỗi năm ...)"
+      open_listings_warning:
+        other: "Có %{count} danh sách mở với loại đơn đặt hàng này. Nếu bạn thay đổi bất kỳ cài đặt nào dưới đây, danh sách đó sẽ giữ lại các cài đặt cũ. Danh sách có thể được thay đổi để cài đặt mới bằng cách chỉnh sửa nó theo cách thủ công. Nếu bạn không muốn có danh sách với cài đặt cũ hiển thị trên trang web của mình, bạn có thể đóng nó bằng cách nhấp vào nút bên dưới."
+      close_listings_action:
+        other: "Đóng %{count} danh sách"
+      confirm_close_listings_action:
+        other: "Bạn có chắc chắn muốn đóng %{count} danh sách?"
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
-      contact_support_link_text: ~
-      integration_info_text: ~
-      link_paypal_personal_account_label: ~
-      link_paypal_personal_account: ~
-      personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
-      minimum_transaction_fee_label: ~
-      save_settings: ~
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      marketplace_paypal_integration: "Hệ thống thanh toán yêu thích"
+      preferences_updated: "Tùy chọn hệ thống thanh toán đã được cập nhật"
+      contact_support_link_text: "liên hệ hỗ trợ"
+      integration_info_text: "Hệ thống thanh toán của thị trường của bạn được cung cấp bởi PayPal. Để cho phép người dùng thanh toán bằng cách sử dụng thị trường của bạn, bạn phải kết nối tài khoản PayPal. Một khi bạn đã kết nối tài khoản PayPal, bạn có thể chọn một kích thước giao dịch tối thiểu và một khoản phí hoa hồng có thể có."
+      link_paypal_personal_account_label: "Bạn có tự cung cấp sản phẩm hoặc dịch vụ không?"
+      link_paypal_personal_account: "Nếu có, bạn cũng cần phải kết nối tài khoản PayPal của bạn với %{personal_payment_preferences_link}."
+      personal_payment_preferences_link_text: "Tài khoản thị trường cá nhân của bạn"
+      read_more_about_paypal: "Đọc thêm về hệ thống thanh toán"
+      edit_payment_settings: "Chỉnh sửa cài đặt thanh toán"
+      supported_currencies_information_text: "Hệ thống thanh toán trực tuyến của Sharetribe hỗ trợ 24 loại tiền tệ. Nếu đơn vị tiền tệ của bạn không có trong danh sách, vui lòng %{contact_support_link}. Nếu bạn thay đổi đơn vị tiền tệ trên thị trường, các danh sách hiện tại sẽ giữ nguyên tiền tệ cũ. Bạn cần phải chỉnh sửa các danh sách riêng lẻ để chuyển đổi chúng sang đơn vị tiền tệ mới."
+      currency_change_warning_text: "Báo trước: nếu bạn tiến lên phía trước với thay đổi tiền tệ này, đừng quên yêu cầu người bán của bạn tự chỉnh sửa danh sách hiện tại của họ để có được cập nhật tiền tệ."
+      marketplace_currency_label: "Loại tiền tệ trong thị trường:"
+      minimum_listing_price_label: "Kích thước giao dịch tối thiểu:"
+      transaction_fee_label: "Phí giao dịch:"
+      minimum_transaction_fee_label: "Lệ phí giao dịch tối thiểu:"
+      save_settings: "Lưu các thiết lập"
+      minimum_listing_price_below_tx_fee: "Kích thước giao dịch tối thiểu phải lớn hơn hoặc bằng với phí giao dịch tối thiểu: %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Kích thước giao dịch tối thiểu phải lớn hơn hoa hồng tối thiểu %{minimum_commission}."
     transaction_types:
       sell: Bán
-      rent: ~
+      rent: "cho thuê"
       give: Tặng
       lend: "Cho mượn"
       swap: "Trao đổi"
-      service: ~
-      request: ~
+      service: "Chào bán"
+      request: "Yêu cầu"
       inquiry: ~
-      share_for_free: ~
+      share_for_free: "Chia sẻ miễn phí"
       default_action_button_labels:
-        sell: ~
-        rent: ~
-        request: ~
-        offer: ~
-        inquiry: ~
+        sell: Mua
+        rent: Thuê
+        request: "Đề nghị"
+        offer: "Yêu cầu"
+        inquiry: "Liên hệ"
   common:
     edit_page: "Chỉnh sửa trang này"
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
@@ -533,16 +560,20 @@ vi:
     username: "Tên đăng nhập"
     username_or_email: "Tên người dùng hoặc email"
     what_is_this: "Đây là gì?"
-    removed_user: ~
+    removed_user: "Đã loại bỏ người dùng"
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
+      title: "Phí xử lý thanh toán của PayPal"
+      body_text: |-
+          PayPal tính phí xử lý từ mỗi khoản thanh toán. Khoản phí này nằm trong khoảng từ 2% đến 5% tổng giá bán, phụ thuộc vào khối lượng bán hàng hàng tháng và quốc gia cư trú của người mua. Nói chung, mua hàng trong nước có mức phí thấp hơn của quốc tế và doanh thu hàng tháng cao hơn sẽ giúp bạn giảm giá.
+          Bạn có thể xem lệ phí chính xác bằng cách đăng nhập vào tài khoản PayPal của bạn và đi tới %{link_to_paypal}. Sau mỗi lần mua, bạn sẽ nhận được biên lai hiển thị chính xác chi phí.
+      body_with_shipping_text: |-
+          PayPal tính phí xử lý từ mỗi khoản thanh toán. Mức phí này là từ 2% đến 5% tổng giá bán (bao gồm cả vận chuyển), tùy thuộc vào doanh số hàng tháng của bạn và nước cư trú của người mua. Nói chung, mua hàng trong nước có mức phí thấp hơn của quốc tế và doanh thu hàng tháng cao hơn sẽ giúp bạn giảm giá.
+          Bạn có thể xem lệ phí chính xác bằng cách đăng nhập vào tài khoản PayPal của bạn và đi tới %{link_to_paypal}. Sau mỗi lần mua, bạn sẽ nhận được biên lai hiển thị chính xác chi phí.
+      link_to_paypal_text: đây
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: "Chi tiết đơn đặt hàng"
+      order_by: "Sắp xếp theo %{orderer_link}"
       accept_offer: "Chấp nhận đề nghị"
       accept_request: "Chấp nhận yêu cầu"
       reject_offer: "Để lần sau vậy."
@@ -551,16 +582,16 @@ vi:
       update_later: "Khoan đóng tin"
       optional_message: "Thông điệp"
       price_to_pay: "Giá tổng cộng"
-      accept: ~
-      decline: ~
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
-      paypal_fee_info: ~
-      shipping_price_label: ~
+      accept: "Chấp nhận"
+      decline: "Từ chối"
+      quantity_label: "Số lượng:"
+      sum_label: "Tổng phụ:"
+      service_fee_label: "%{service_name} phí:"
+      you_will_get_label: "Bạn sẽ nhận được:"
+      total_label: "Tổng:"
+      total_value: "%{seller_gets}*"
+      paypal_fee_info: "* Không bao gồm <a id='%{fee_info_link_id}' href='#'> lệ phí thanh toán của PayPal </a>"
+      shipping_price_label: "Vận chuyển:"
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -572,9 +603,9 @@ vi:
       give_feedback_to: "Để lại phải hồi cho %{person_link}"
       do_not_give_feedback: "Bỏ qua thông tin phản hồi"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: ngày
+      days: ngày
+      price_per_day: "Giá mỗi ngày: %{price}"
     index:
       loading_more_messages: "Nạp thêm tin nhắn"
       message_partitive: "tin nhắn"
@@ -590,26 +621,26 @@ vi:
       confirmed_offer: "Đề nghị hoàn tất."
       canceled_request: ~
       canceled_offer: "Đề nghị bị hủy."
-      message_from: ~
-      about_listing: ~
+      message_from: "Tin nhắn từ %{person}"
+      about_listing: "Giới thiệu danh sách %{listing_title}"
       free_message: ~
-      message_content_not_available: ~
+      message_content_not_available: "Nội dung tin nhắn không thể hiển thị"
     message:
       accepted_request: ~
-      received_payment: ~
+      received_payment: "Chấp nhận yêu cầu, đã nhận được thanh toán cho %{sum}"
       accepted_offer: "đã chấp nhận yêu cầu"
-      rejected_request: ~
+      rejected_request: "đã từ chối yêu cầu và hủy thanh toán"
       rejected_offer: "đã từ chối yêu cầu"
-      confirmed_request: ~
+      confirmed_request: "đã đánh dấu đơn hàng hoàn tất"
       confirmed_offer: "đánh dấu đề nghị hoàn tất."
       canceled_request: ~
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Thanh toán được ủy quyền:%{sum}"
     new:
       message: "Tin nhắn"
-      message_to: ~
-      optional_message_to: ~
+      message_to: "Nhắn tin cho %{author_name}"
+      optional_message_to: "Tin nhắn tùy chọn tới %{author_name}"
       send_message: "Gửi thông điệp"
       send: Gửi
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
@@ -617,8 +648,8 @@ vi:
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
       send_message_to_user: "Gửi tin nhắn đến %{person}"
-      about_listing: ~
-      author_has_to_accept_request: ~
+      about_listing: "Giới thiệu danh sách %{listing_title}"
+      author_has_to_accept_request: "%{author_name} cần chấp nhận yêu cầu trước khi bạn có thể trả tiền"
     show:
       in_response_to_listing: "về sản phẩm"
       message_sent_by: "Tin nhắn gửi bởi"
@@ -627,15 +658,15 @@ vi:
       write_a_reply: "Viết phản hồi:"
       conversation_about_listing: "Cuộc trò chuyện với %{person} về %{listing}."
       conversation_with_user: "Cuộc trò chuyện với %{person}."
-      conversation_with: ~
+      conversation_with: "Cuộc hội thoại với %{person}"
       last_message_at: "(tin nhắn mới nhất %{time})"
-      price: ~
-      sum: ~
-      total: ~
+      price: "Giá: %{price}"
+      sum: "Tổng: %{sum}"
+      total: "Tổng: %{total}"
     status:
-      payment_errored: ~
-      payment_errored_starter: ~
-      payment_errored_author: ~
+      payment_errored: "Thanh toán không thành công. Vui lòng thử lại."
+      payment_errored_starter: "Thanh toán không thành công. Vui lòng thử lại. Nếu sự cố vẫn tiếp diễn, vui lòng liên hệ với hỗ trợ của Sharetribe."
+      payment_errored_author: "Thanh toán không thành công. Hãy liên hệ với %{starter_name} và yêu cầu anh ta thực hiện thanh toán một lần nữa."
       cancel_payed_transaction: Hủy
       feedback_given: "Đánh giá"
       feedback_skipped: "Phản hồi bị bỏ qua"
@@ -644,59 +675,59 @@ vi:
       offer_rejected: "Hỗ trợ bị từ chối"
       offer_canceled: "Bị hủy"
       offer_confirmed: "Hoàn tất"
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Giao dịch thành công"
+      offer_preauthorized: "Giao dịch thành công"
+      offer_waiting_for_payment: "Đang chờ %{requester_name} thanh toán"
       pay: "Thanh toán"
-      preauthorized: ~
+      preauthorized: "Thanh toán thành công"
       paid: "Thanh toán thành công"
       pending_external:
         paypal:
-          multicurrency: ~
-          verify: ~
-          intl: ~
-      waiting_for_current_user_to_deliver_listing: ~
-      waiting_for_listing_author_to_deliver_listing: ~
+          multicurrency: "Chúng tôi không thể xử lý khoản thanh toán qua PayPal vì tài khoản PayPal của bạn chưa được thiết lập để nhận tiền trong %{currency}. Truy cập %{paypal_url} và đăng nhập vào tài khoản của bạn để chấp nhận hoặc từ chối thanh toán một cách thủ công."
+          verify: "Bạn không thể chấp nhận giao dịch này vì bạn chưa xác minh tài khoản PayPal của mình. Truy cập %{paypal_url} để xác minh tài khoản của bạn."
+          intl: "Chúng tôi không thể xử lý khoản thanh toán qua PayPal vì tài khoản PayPal của bạn không có cơ chế thu hồi. Truy cập %{paypal_url} và đăng nhập vào tài khoản của bạn để chấp nhận hoặc từ chối thanh toán một cách thủ công."
+      waiting_for_current_user_to_deliver_listing: "Đang chờ bạn hoàn thành đơn hàng cho %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Đang chờ %{listing_author_name} hoàn thành đơn hàng cho %{listing_title}"
       request_accepted: "Yêu cầu được chấp nhận"
       request_rejected: "Yêu cầu bị từ chối"
       request_confirmed: "Hoàn tất"
       request_canceled: "Bị hủy"
-      request_paid: ~
-      request_preauthorized: ~
+      request_paid: "Giao dịch thành công"
+      request_preauthorized: "Thanh toán được uỷ quyền"
       skip_feedback: "Bỏ qua thông tin phản hồi"
       waiting_for_listing_author_to_accept_offer: "Chờ %{listing_author_name} chấp nhận đề nghị"
       waiting_for_listing_author_to_accept_request: ~
-      waiting_for_you_to_accept_request: ~
+      waiting_for_you_to_accept_request: "Đang đợi bạn chấp nhận yêu cầu"
       waiting_confirmation_from_requester: ~
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Chờ %{requester_name} thanh toán"
-      waiting_payment_from_you: ~
-      waiting_feedback_from_you: ~
+      waiting_payment_from_you: "Đang chờ bạn trả tiền"
+      waiting_feedback_from_you: "Đang đợi bạn gửi phản hồi"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
-          intl: ~
-          unknown_reason: ~
-          verify: ~
+          multicurrency: "Đang chờ bạn chấp nhận thanh toán qua PayPal"
+          intl: "Đang chờ bạn chấp nhận thanh toán qua PayPal"
+          unknown_reason: "Thanh toán đang chờ xử lý. Đăng nhập vào tài khoản PayPal của bạn để xem thêm chi tiết."
+          verify: "Đang đợi bạn xác minh tài khoản PayPal"
     status_link:
       accept_offer: "Chấp nhận hỗ trợ"
       accept_request: "Chấp nhận yêu cầu"
       reject_offer: "Từ chối hỗ trợ"
       reject_request: "Từ chối yêu cầu"
-      accept_preauthorized_offer: ~
-      accept_preauthorized_request: ~
-      reject_preauthorized_offer: ~
-      reject_preauthorized_request: ~
+      accept_preauthorized_offer: "Chấp nhận đề nghị"
+      accept_preauthorized_request: "Chấp nhận yêu cầu"
+      reject_preauthorized_offer: "Không phải lúc này"
+      reject_preauthorized_request: "Không phải lúc này"
       confirm: "Đánh dấu hoàn tất"
       cancel: ~
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
-    anonymous_user: ~
+    feedback_subject: "Phản hồi mới từ %{service_name}"
+    feedback_body: "%{author_name_and_email} đã gửi phản hồi sau từ %{service_name}"
+    unlogged_user: "Người dùng chưa đăng nhập"
+    anonymous_user: "Người dùng ẩn danh"
   community_memberships:
     access_denied:
-      access_denied: ~
+      access_denied: "Truy cập đã bị từ chối"
       you_are_banned_in_this_community: ~
       contact_page_link: ~
     new:
@@ -711,10 +742,10 @@ vi:
       log_out: "đăng xuất"
       join_community_button: "Tham gia cộng đồng"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Mã lời mời không hợp lệ hoặc đã được sử dụng."
+      email_not_allowed: "Email này không được phép trong %{service_name}."
+      email_not_available: "Email bạn đã cung cấp đã được sử dụng."
+      consent_not_given: "Các điều khoản không được chấp nhận."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Hãy nhớ chấp nhận hoặc từ chối hỗ trợ"
@@ -725,9 +756,9 @@ vi:
       you_have_not_yet_accepted_or_rejected_request: "Bạn chưa chấp nhận hoặc từ chối yêu câu '%{title}' bạn đã nhận được vào ngày %{date}"
       show_thread: "Hiện cuộc trò chuyện"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} được cung cấp bởi nền tảng thị trường %{sharetribe_link}."
+      create_own: "Bạn muốn tạo trang web thị trường trực tuyến của riêng mình như %{service_name}? %{learn_more}."
+      learn_more: "Tìm hiểu thêm"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: ~
       remember_to_confirm_request: "Hãy nhớ xác nhận hoặc hủy bỏ yêu cầu"
@@ -736,7 +767,7 @@ vi:
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "Hãy nhớ điền hoàn chỉnh thông tin chi trả của bạn để nhận được thanh toán từ khách hàng."
-      you_have_added_listing_with_payment: "Bạn vừa đăng một tin rao vặt %{listing_link} kèm theo lựa chọn chia trả trược tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
+      you_have_added_listing_with_payment: "Bạn vừa đăng một bài %{listing_link} kèm theo lựa chọn chia trả trực tuyến. Tuy nhiên, thông tin chi trả trong tài khoản của không đầy đủ, bạn vui lòng điền đầy đủ thông tin để nhận được chi trả từ khách hàng."
       please_go_to_payment_settings: ~
       payment_settings_link: "Phương thức thanh toán"
     transaction_confirmed:
@@ -751,12 +782,12 @@ vi:
       subject: ~
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Đơn đặt hàng tự động hoàn thành - nhớ gửi nhận xét"
+      we_have_marked_request_as_confirmed: "Chúng tôi đã đánh dấu thứ tự về '%{request}' đã hoàn thành. Yêu cầu đã được tự động hoàn thành vì một ngày đã trôi qua kể từ khi thời gian đặt kết thúc."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
-      show_thread: ~
+      giving_feedback_is_good_idea: "Bây giờ bạn có thể gửi nhận xét cho %{other_party_given_name}. Cung cấp nhận xét luôn là một ý tưởng tốt. Nếu mọi thứ đã tốt, bạn nên cho người khác biết rằng %{other_party_given_name} đáng được tin cậy. Nếu có bất kỳ vấn đề nào, bạn cũng nên đề cập đến những điều đó."
+      give_feedback_to: "Gửi nhận xét tới %{other_party_given_name}"
+      show_thread: "Hiển thị cuộc trò chuyện"
     confirmation_instructions:
       confirmation_instructions_signature: "Kính thư,<br> nhóm %{service_name}"
       need_to_confirm: "Bạn cần phải xác nhận địa chỉ email của bạn bằng cách nhấp vào liên kết sau:"
@@ -803,29 +834,29 @@ vi:
       you_have_a_new_message: "Bạn có một tin nhắn mới tại %{service_name}"
     new_payment:
       new_payment: "Bạn vừa nhận được chi trả mới."
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "Giá mỗi: %{unit_type}"
+      quantity: "Số lượng"
       you_have_received_new_payment: "Bạn đã được trả %{payment_sum} cho %{listing_title} bởi %{payer_full_name}. Đây là hóa đơn."
     paypal_new_payment:
-      paypal_gateway_fee: ~
-      shipping_total: ~
+      paypal_gateway_fee: "Phí của PayPal:"
+      shipping_total: "Vận chuyển:"
     braintree_new_payment:
       product: "Sản phẩm"
       price_payer_paid: "Giá %{payer_full_name} trả trước:"
       service_fee: "Phí dịch vụ %{service_name}"
-      you_will_get: ~
+      you_will_get: "Tổng cộng"
     receipt_to_payer:
       receipt_of_payment: "Biên nhận"
       you_have_made_new_payment: "Bạn đã thanh toán %{payment_sum} cho %{recipient_full_name} cho sản phẩm %{listing_title}. Đây là biên nhận."
       product: "Sản phẩm"
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "Giá mỗi: %{unit_type}"
+      duration: "Thời lượng"
+      quantity: "Số lượng"
+      subtotal: "Tổng phụ:"
       total: "Tổng cộng"
       price: Giá
       service_fee: "Phí dịch vụ"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Số tiền này sẽ được chuyển đến %{recipient_name} khi a) bạn đã đánh dấu yêu cầu hoàn thành hoặc b) %{automatic_confirmation_days} ngày đã trôi qua kể từ khi bạn trả tiền."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} đã gửi bạn thông tin phản hồi tại %{service_name}"
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
@@ -837,7 +868,7 @@ vi:
     community_updates:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
       added_request: "%{name_link} đã thêm yêu cầu:"
-      added_listing: "%{name_link} đã đăng một tin rao mới :"
+      added_listing: "%{name_link} đã đăng một bài mới :"
       update_mail_title: ~
       title_link_text: "%{community_name}"
       intro_paragraph: ~
@@ -859,35 +890,37 @@ vi:
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
-      click_here_to_reply: ~
+      you_have_time_to_accept: "Bạn cần chấp nhận hoặc từ chối yêu cầu trong vòng %{payment_expires_in}. Nếu bạn chấp nhận trong khung thời gian này, thanh toán sẽ được thông qua. Nếu bạn không chấp nhận, yêu cầu sẽ tự động bị từ chối và bạn sẽ không được trả tiền."
+      if_you_do_accept: "Nếu bạn chấp nhận yêu cầu trong khung thời gian này, bạn sẽ nhận được tiền ngay vào tài khoản của bạn."
+      if_you_do_not_accept: "Nếu bạn từ chối yêu cầu hoặc không chấp nhận yêu cầu trong khung thời gian này, giao dịch sẽ tự động bị hủy, %{requester} sẽ không bị tính phí và bạn sẽ không được trả tiền."
+      click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về danh sách %{listing_title}"
+      remember_to_accept: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về danh sách \"%{listing_title}\". %{requester} đã trả tiền cho việc mặt hàng. Bạn phải chấp nhận yêu cầu để nhận khoản thanh toán."
+      one_day_left: "Nếu bạn không chấp nhận yêu cầu trong một ngày thì yêu cầu sẽ tự động bị từ chối và bạn sẽ không được trả tiền."
+      click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
     welcome_email:
       welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_to_marketplace: "Chào mừng bạn đến với %{service_name}! Rất vui khi bạn gia nhập."
+      love_marketplace_crew: "Yêu thích,<br /><i>%{service_name} đội</i>"
       welcome_email_footer_text: "Bạn muốn nhận thông báo nào từ %{service_name} ? %{settings_link}"
       settings_link_text: "Kiểm tra các thiết lập của bạn"
     new_listing_by_followed_person:
-      subject: ~
-      has_posted_a_new_listing: ~
-      you_are_receiving_this_because: ~
-      view_listing: ~
+      subject: "%{author_name} đã đăng một danh sách mới trong %{service_name}"
+      has_posted_a_new_listing: "%{author_name} đã đăng một danh sách mới:"
+      you_are_receiving_this_because: "Bạn nhận được thông báo này vì bạn theo dõi %{author_name}."
+      view_listing: "Xem danh sách"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "Một thành viên mới đã gia nhập %{community}. Họ vẫn có thể phải xác nhận địa chỉ email của họ."
+      this_is_automatic_message: "Đây là một thư tự động được gửi tới các quản trị viên của %{community}."
+      person_name: "Tên:"
+      person_email: "Email:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Việc đặt chỗ không thành công do lỗi không mong muốn. Vui lòng thử lại sau. Bạn chưa bị tính phí."
+      double_booking_payment_voided: "Thật không may những ngày mà bạn chọn không còn tồn tại. Vui lòng chọn ngày khác. Bạn chưa bị tính phí."
     onboarding:
-      server_rendering: ~
+      server_rendering: "Hướng dẫn bắt đầu không tải được. Chúng tôi đã được thông báo về tình hình và chúng tôi đang sửa chữa nó."
     listings:
       departure_time: "Thời gian khởi hành phải nằm trong khoảng từ thời gian hiện tại và một năm sau."
       share_type: "Bạn phải lựa chọn một."
@@ -898,16 +931,16 @@ vi:
       you_must_explain_not_neutral_feedback: "Nếu bạn muốn đưa ra thông tin phản hồi không trung lập, bạn phải giải thích tại sao."
       you_must_select_a_grade: "Nhớ chấm điểm người dùng bằng cách nhấp chuột vào một trong những biểu tượng ở trên (bạn có thể xem lời giải thích của các biểu tượng bằng cách giữ con trỏ chuột trên chúng)"
     transaction_agreement:
-      required_error: ~
+      required_error: "Bạn cần phải chấp nhận thỏa thuận"
     paypal:
-      transaction_cannot_complete: ~
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
-      seller_express_checkout_disabled: ~
-      generic_error: ~
-      cancel_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      transaction_cannot_complete: "Giao dịch không thể hoàn tất. Điều này có thể xảy ra do thẻ tín dụng không ủy quyền ngân hàng. Vui lòng thử mua lại bằng phương thức thanh toán thay thế."
+      buyer_cannot_pay_error: "Thanh toán đã bị PayPal từ chối. Vui lòng liên hệ với Dịch vụ Khách hàng của họ để biết thêm thông tin:%{customer_service_link}"
+      pending_review_error: "Thanh toán đã được gửi nhưng bị PayPal gắn cờ là 'yêu cầu xem xét lại'. Khi PayPal hoàn tất việc xem xét, thanh toán sẽ tự động được ủy quyền."
+      seller_express_checkout_disabled: "PayPal Express Checkout đã bị tắt đối với tài khoản PayPal của tác giả danh sách. Vui lòng liên hệ với tác giả và cho họ biết rằng có vấn đề với tài khoản PayPal của họ và khuyên họ liên hệ với Dịch vụ Khách hàng PayPal"
+      generic_error: "Đã xảy ra lỗi trong quá trình thanh toán. Không thể hoàn tất thanh toán qua PayPal của bạn."
+      cancel_error: "Đã xảy ra lỗi khi hủy. Không thể hoàn tất huỷ bỏ."
+      accept_authorization_error: "Đã xảy ra lỗi khi cố gắng chấp nhận thanh toán của Paypal. Vui lòng thử lại."
+      reject_authorization_error: "Đã xảy ra lỗi khi cố từ chối thanh toán của Paypal. Vui lòng thử lại."
   error_pages:
     back_to_kassi_front_page: "Quay lại %{service_name} đầu trang"
     error_404:
@@ -916,15 +949,15 @@ vi:
       page_you_requested_can_not_be_found: "Không tim thấy trang bạn yêu cầu. Bạn có chắc viết địa chỉ chính xác không?"
     error_404_title: "Trang không tim thấy"
     error_410:
-      page_removed: ~
-      page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
-    error_410_title: ~
+      page_removed: "Đã xóa trang"
+      page_you_requested_has_been_removed: "Trang bạn yêu cầu đã bị xóa."
+      page_removed_reason: "Có một vài lý do cho điều này. Ví dụ: người dùng có thể đã xóa tài khoản của họ hoặc danh sách có thể đã bị xóa."
+    error_410_title: "Xóa trang"
     error_500:
-      temporary_unavailable: ~
-      unable_to_process: ~
-      we_hate_this: ~
-      refer_to_error_id: ~
+      temporary_unavailable: "Thị trường tạm thời không hoạt động"
+      unable_to_process: "Dịch vụ không thể xử lý yêu cầu của bạn ngay bây giờ. Vui lòng thử lại sau vài phút."
+      we_hate_this: "Chúng tôi ghét khi điều này xảy ra! Chúng tôi đã được thông báo về tình hình và chúng tôi đang sửa chữa nó."
+      refer_to_error_id: "Nếu bạn muốn liên hệ với hỗ trợ liên quan đến vấn đề này, vui lòng bao gồm ID lỗi \"%{error_id}\" trong thư của bạn."
     error_500_title: "trang tải bị hỏng"
     error_description: "Mô tả lỗi"
     no_javascript:
@@ -937,15 +970,15 @@ vi:
     your_email_address: "Địa chỉ email của bạn"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
-      is_at: ~
-      before: ~
-      on_or_before: ~
-      after: ~
-      on_or_after: ~
-      positive_number: ~
+      invalid_date: "không phải là ngày hợp lệ"
+      invalid_time: "không phải là thời gian hợp lệ"
+      invalid_datetime: "không phải là thời gian hợp lệ"
+      is_at: "phải ở mức %{restriction}"
+      before: "phải là trước %{restriction}"
+      on_or_before: "phải ở mức hay trước %{restriction}"
+      after: "phải sau %{restriction}"
+      on_or_after: "phải ở mức hoặc sau %{restriction}"
+      positive_number: "Chèn một số."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
@@ -972,7 +1005,7 @@ vi:
       offer_partitive: "hỗ trợ"
       request_partitive: "yêu cầu"
   header:
-    about: "Tìm hiểu về"
+    about: "Về chúng tôi"
     home: "Trang chủ"
     members: "Cộng đồng"
     new_listing: "Đăng một sản phẩm mới"
@@ -983,11 +1016,11 @@ vi:
     create_new_marketplace: "Tạo một chợ điện tử mới"
     contact_us: "Liên hệ"
     profile: "Thông tin tài khoản"
-    manage_listings: ~
+    manage_listings: "Quản lý danh sách"
     invite: "Mời bạn bè"
     login: ~
-    signup: ~
-    menu: ~
+    signup: "Đăng kí"
+    menu: "Danh mục"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Ngoài ra có <b> một hỗ trợ khác </b>,"
@@ -1021,9 +1054,9 @@ vi:
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
     custom_filters:
-      update_view: "Cập nhật view"
-      min: ~
-      max: ~
+      update_view: "Cập nhật kết quả"
+      min: "Tối thiểu:"
+      max: "Tối đa:"
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     grid_item:
@@ -1031,14 +1064,14 @@ vi:
     index:
       no_listings_with_your_search_criteria: ~
       no_listings_notification: "Không có sản phẩm nào. %{add_listing_link}"
-      add_listing_link_text: "Đăng tin rao mới"
-      open_listing: "sản phẩm đang bán"
-      open_listings: "sản phẩm đang bán"
+      add_listing_link_text: "Đăng bài mới"
+      open_listing: "bài đăng"
+      open_listings: "bài đăng"
       private_listing_notification_log_in: ~
       is: là
       are: là
       what_do_you_need: "Bạn đang tìm kiếm gì ?"
-      post_new_listing: "Đăng một sản phẩm mới"
+      post_new_listing: "Đăng một bài đăng mới"
       are_offering: "hỗ trợ"
       add_news_item: "Thêm một bài viết"
       lend_rent_help_carpool: "Bán, cho vay, giúp đỡ, chia sẻ cuốc xe"
@@ -1053,7 +1086,7 @@ vi:
       requesting: cần
       tell_it_here: "Cho nó biết ở đây!"
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
-      no_reviews: "Chưa có phản hồi"
+      no_reviews: "Chưa có đánh giá"
       no_image: "Không có hình ảnh"
       filter: "Bộ lọc"
       this_is_private_community: "Bạn cần phải đăng ký trước khi bạn có thể xem nội dung."
@@ -1061,16 +1094,16 @@ vi:
       email: "Địa chỉ email bạn của bạn:"
       message: "Thông điệp cá nhân:"
       send_invitation: "Gửi lời mời"
-      add_email_addresses_description: ~
-      add_lots_of_email_addresses: ~
-      this_article_link: ~
+      add_email_addresses_description: "Thêm địa chỉ email của những người bạn đang mời vào ô bên dưới. Để thêm nhiều địa chỉ email, hãy phân tách bằng dấu phẩy."
+      add_lots_of_email_addresses: "Vì bạn là quản trị viên, đây là một mẹo: nếu bạn định gửi nhiều lời mời, bạn nên sử dụng một công cụ gửi email. Kiểm tra %{this_article_link} để tìm ra các nguồn lực về các dịch vụ email thích hợp."
+      this_article_link: "bài viết này"
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: ~
       errors_in_emails: "Hãy kiểm tra lại rằng mỗi địa chỉ bạn thêm vào đều chính xác. Mỗi địa chỉ được ngăn với nhau bởi dấu phấy."
     list_item:
       review: "Phản hồi sản phẩm"
       reviews: "Phẩn hồi sản phẩm"
-      distance_away: ~
+      distance_away: "cách %{distance} %{distance_unit}"
     news_item:
       show_less: "Hiển thị ít hơn"
       show_more: "Hiển thị thêm"
@@ -1091,33 +1124,33 @@ vi:
       map_button: "Bản đồ"
       grid_button: "Hiển thị theo lưới"
       list_button: "Hiển thị theo danh sách"
-      all_listing_types: "Tất cả"
+      all_listing_types: "Các thể loại"
       all_categories: "Tất cả các mục"
     errors:
-      search_engine_not_responding: ~
+      search_engine_not_responding: "Tìm kiếm hiện không khả dụng. Thử tìm lại sớm."
   infos:
     about:
       default_about_text_title: "Sharetribe là gì ?"
       default_about_text: "Chợ điện tử này được xây dựng trên nền tảng Sharetribe. Với Sharetribe bạn có thể dễ dàng tạo ra một cổng chợ điện tử cho riêng mình. Miễn phí và nhanh chóng, %{click_here_link} để thử"
       click_here_link_text: "Nhấn vào đây"
     how_to_use:
-      default_title: ~
-      default_content: ~
+      default_title: "Làm thế nào nó hoạt động"
+      default_content: "Tại đây bạn có thể tìm thông tin về %{marketplace_name} hoạt động như thế nào"
   landing_page:
     hero:
-      search: ~
-      signup: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
+      search: "Tìm kiếm"
+      signup: "Đăng ký"
+      search_placeholder: "Bạn đang tìm kiếm cái gì?"
+      search_location_placeholder: "Địa điểm"
     listings:
-      no_listing_image: ~
+      no_listing_image: "Không có ảnh"
   layouts:
     admin:
       admin: "ban quản trị %{service_name}"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} được cung cấp bởi nền tảng thị trường %{sharetribe_link}."
+      create_own: "Bạn muốn tạo trang web thị trường trực tuyến của riêng mình như %{service_name}? %{learn_more}."
+      learn_more: "Tìm hiểu thêm"
     no_tribe:
       inbox: "Hộp thư đến"
       settings: "Cài đặt"
@@ -1126,7 +1159,7 @@ vi:
       join_this_community: ~
       read_more: "Xem thêm"
       feedback: "Tin nhắn của bạn đến nhóm %{service_name}"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Chúng tôi nhận thấy bạn là quản trị viên của %{service_name}. Biểu mẫu này là những gì người dùng của bạn sử dụng để liên hệ với bạn. Bạn không thể sử dụng biểu mẫu này để liên hệ với sự hỗ trợ của Sharetribe. Bạn có thể thực hiện điều đó thông qua liên kết Hỗ trợ trong bảng quản trị của mình."
       feedback_forum: "diễn đàn thông tin phản hồi"
       feedback_handle: "Thông tin phản hồi"
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
@@ -1149,8 +1182,8 @@ vi:
     global-header:
       select_language: "Ngôn ngữ"
     infos:
-      about: "Đó là gì"
-      how_to_use: "Làm sao dùng"
+      about: "Về chúng tôi"
+      how_to_use: "Cách sử dụng"
       info_about_kassi: "Thông tin về %{service_name}"
       news: "Tin tức"
       register_details: "Chi tiết đăng ký"
@@ -1180,8 +1213,8 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng kí"
     notifications:
-      listing_could_not_be_saved: ~
-      contact_admin_link_text: ~
+      listing_could_not_be_saved: "Không thể lưu danh sách. Vui lòng thử lại. Nếu sự cố vẫn tiếp diễn, vui lòng %{contact_admin_link}."
+      contact_admin_link_text: "liên hệ quản lí"
       test_welcome_email_delivered_to: "Email thử nghiệm đã được gửi tới %{email}"
       something_went_wrong: "Có lỗi xảy ra"
       community_updated: ~
@@ -1193,7 +1226,7 @@ vi:
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
       additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
       could_not_get_email_from_facebook: "Tài khoảng Facebook không chứa địa chỉ mail. Bạn cần ít nhất 1 địa chỉ mail để tạo tài khoản trên trang này."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "Địa chỉ email '%{email}' liên kết với tài khoản Facebook của bạn đã được sử dụng nhưng chưa được xác nhận. Vui lòng xác nhận địa chỉ email trước khi đăng nhập vào Facebook."
       create_new_listing: "Đăng một sản phẩm khác"
       create_one_here: "tạo một ở đây"
       email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
@@ -1205,7 +1238,7 @@ vi:
       feedback_sent_to: "Thông tin phản hồi đã gửi đến"
       feedback_skipped: "Thông tin phản hổi đã bị bỏ qua"
       invitation_cannot_be_sent: "Không thể gửi lời mời"
-      invitation_limit_reached: ~
+      invitation_limit_reached: "Bạn đã cố gửi quá nhiều lời mời. Đã đạt đến giới hạn hàng ngày."
       invitation_sent: "Lời mời đã gửi thành công"
       inviting_new_users_is_not_allowed_in_this_community: "Không được phép mời người dùng mới trong cộng đồng %{service_name}"
       login_again: "Vui lòng đăng nhập lại."
@@ -1222,12 +1255,12 @@ vi:
       offer_accepted: "Hỗ trợ được chấp nhận"
       offer_confirmed: "Đề nghị được chấp nhận"
       offer_closed: "Hỗ trợ đã đóng"
-      listing_created_successfully: "Quá trình tạo tin rao mới đã hoàn tất. %{new_listing_link}"
+      listing_created_successfully: "Quá trình tạo bài đăng mới đã hoàn tất. %{new_listing_link}"
       offer_rejected: "Hỗ trợ bị từ chối."
       offer_canceled: "Đề nghị bị hủy."
       listing_updated_successfully: "Cập nhật thành công"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Danh sách cập nhật thành công. Quản lý có sẵn đã được bật."
+      listing_updated_availability_management_disabled: "Danh sách cập nhật thành công. Quản lý có sẵn đã được tắt"
       only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
@@ -1263,7 +1296,7 @@ vi:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bạn không được phân quyền để đưa ra thông tin phản hồi về sự kiện này"
       you_are_not_authorized_to_do_this: "Bạn không được phân quyền để làm việc này"
       you_are_not_authorized_to_view_this_content: "Bạn không được phân quyền để xem nội dung này"
-      listing_closed: ~
+      listing_closed: "Danh sách này đã bị đóng"
       send_instructions: "Bạn sẽ nhận được một email với các hướng dẫn làm thế nào để đặt lại mật khẩu của bạn trong một vài phút."
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
@@ -1277,7 +1310,7 @@ vi:
       you_must_log_in_to_invite_new_users: "Bạn phải đăng nhập để mời được người dùng mới vào %{service_name}"
       you_must_log_in_to_send_a_comment: "Bạn phải đăng nhập để gửi bình luận"
       you_must_log_in_to_send_a_message: "Bạn phải đăng nhập vào %{service_name} để gửi thông điệp đến người dùng khác"
-      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_do_a_transaction: "Bạn phải đăng nhập vào %{service_name} để thực hiện giao dịch."
       you_must_log_in_to_view_this_content: "Bạn phải đăng nhập để xem nội dung này"
       you_must_log_in_to_view_this_page: "Bạn phải đăng nhập để xem trang này"
       you_must_log_in_to_view_your_inbox: "Bạn phải đăng nhập vào %{service_name} để xem hộp thư đến của bạn."
@@ -1293,9 +1326,12 @@ vi:
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: "Địa chỉ mail mà bạn đang xóa không tồn tại."
       email_deleted: "Email đã được xóa."
-      listing_author_payment_details_missing: ~
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      listing_author_payment_details_missing: "Vui lòng liên hệ người đăng bằng cách nhấn vào nút 'Liên hệ' bên dưới. Họ cần phải cập nhật chi tiết thanh toán để nhận thanh toán."
+      images_are_processing: "Chúng tôi đang xử lý hình ảnh của bạn. Hãy cho chúng tôi vài phút và chúng sẽ được hiển thị."
+      automatically_logged_out_please_sign_in: "Bạn đã tự động đăng xuất. Xin vui lòng đăng nhập lại."
+      maintenance_mode:
+        zero: "Trang web bây giờ sẽ không hoạt động để bảo trì"
+        other: "Trang web bây giờ sẽ không hoạt động để bảo trì trong %{count} phút"
     settings:
       account: "Tài khoản"
       notifications: "Các ghi chú"
@@ -1308,35 +1344,35 @@ vi:
     comment:
       wrote: "đã viết"
       send_private_message: "Gửi tin nhắn riêng tư đến %{person}"
-      delete: ~
-      are_you_sure: ~
+      delete: xóa
+      are_you_sure: "Bạn có chắc chắn muốn xóa nhận xét?"
     comment_form:
       ask_a_question: "Hãy để lại bình luận để biết thêm chi tiết. Mọi người đều sẽ thấy bình luận của bạn."
       log_in: "đăng nhập"
       send_comment: "Gửi bình luận"
       to_send_a_comment: "để gửi bình luận mới."
       write_comment: "Viết bình luận mới:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới vì tin rao này đã đóng lại."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới bài đăng này đã đóng."
       you_must: "Bạn phải"
       subscribe_to_comments: "Thông báo cho tôi những ý kiến mới và những cập nhật"
     edit:
-      edit_listing: "Thay đổi tin rao"
+      edit_listing: "Thay đổi bài đăng"
     edit_links:
-      close_listing: "Đóng tin rao"
-      edit_listing: "Thay đổi tin rao"
-      reopen_listing: "Mở lại tin rao"
-      move_to_top: ~
-      show_in_updates_email: ~
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
+      close_listing: "Đóng bài đăng"
+      edit_listing: "Thay đổi bài đăng"
+      reopen_listing: "Mở lại bài đăng"
+      move_to_top: "Di chuyển lên đầu trang"
+      show_in_updates_email: "Hiển thị trong bản tin tiếp theo"
+      show_in_updates_email_loading: "Đang tải..."
+      show_in_updates_email_error: "Không thể truy cập máy chủ. Hãy thử lại sau khi làm mới trang."
       show_in_updates_email_success: ~
     map:
-      open_in_google_maps: ~
+      open_in_google_maps: "Mở bằng bản đồ Google"
     error:
-      something_went_wrong: ~
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong: "Đã xảy ra lỗi, mã lỗi: %{error_code}"
+      something_went_wrong_plain: "Đã xảy ra sự cố"
+      create_failed_to_connect_to_booking_service: "Tạo danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
+      update_failed_to_connect_to_booking_service: "Cập nhật danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
     follow_links:
       follow: "Thực hiện theo các danh sách này"
       unfollow: "Ngừng theo danh sách này"
@@ -1351,7 +1387,7 @@ vi:
         repeated: "Đã lặp lại (thêm thời gian và ngày trong trường 'mô tả chi tiết')"
       description:
         detailed_description: "Mô tả chi tiết"
-        youtube_info: ~
+        youtube_info: "Nếu mô tả của bạn có liên kết trên YouTube, các video sẽ được hiển thị bên dưới mô tả."
       destination:
         destination: Đích
       form_content:
@@ -1369,43 +1405,43 @@ vi:
         googlemap_updatemap: "Cập nhật bản đồ"
       images:
         image: Ảnh
-        best_result: ~
+        best_result: "Để có kết quả tốt nhất, hãy sử dụng các hình ảnh JPG, GIF hoặc PNG %{width} x %{height} pixels"
         no_file_selected: "Không có tập tin được chọn"
         remove_image: "Loại bỏ ảnh"
         select_file: "Chọ tập tin"
-        add_more: ~
-        removing: ~
-        processing: ~
-        loading_image: ~
-        image_uploading_in_progress: ~
-        processing_takes_a_while: ~
+        add_more: "+ Thêm"
+        removing: "Đang xóa ..."
+        processing: "Đang xử lí..."
+        loading_image: Tải...
+        image_uploading_in_progress: "Đang tải lên hình ảnh ..."
+        processing_takes_a_while: "Tất cả hình ảnh được tải lên! Việc xử lý chúng sẽ mất một chút thời gian, nhưng tốt hơn là lưu lại danh sách và tiếp tục."
         this_may_take_a_while: ~
-        percentage_loaded: ~
-        uploading_failed: ~
-        image_processing_failed: ~
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Tải hình ảnh không thành công"
+        image_processing_failed: "Xử lý hình ảnh không thành công"
         file_too_large: ~
         accepted_formats: "Tập tin ảnh phải là một trong các định dạng GIF, JPG hoặc PNG"
-        images_not_uploaded_confirm: ~
+        images_not_uploaded_confirm: "Tất cả hình ảnh chưa hoàn tất tải lên. Bạn có thực sự muốn tiếp tục?"
       location:
         location: "Địa điểm"
       price:
         price: Giá
         per: mỗi
-        per_day: ~
+        per_day: "mỗi ngày"
         mass: "đơn vị, kg, l, m2"
         time: "giờ, ngày, tháng"
         long_time: "tuần, tháng, ..."
         after_service_fee_you_will_get: ~
-        no_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        paypal_fee_info_link_text: ~
-        delivery: ~
-        shipping: ~
-        shipping_price: ~
-        shipping_price_additional: ~
-        pickup: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sẽ được khấu trừ khỏi giá."
+        after_service_fee_you_will_get_paypal_text: "Khi ai đó làm đơn đặt hàng, %{service_name} lệ phí (%{sum_with_currency}) và %{paypal_fee_info_link} sẽ được khấu trừ khỏi giá."
+        paypal_fee_info_link_text: "Phí xử lý thanh toán của PayPal"
+        delivery: "Phương thức vận chuyển:"
+        shipping: "Vận chuyển:"
+        shipping_price: "Phí vận chuyển:"
+        shipping_price_additional: "Hạng mục bổ sung"
+        pickup: "Tự lấy:"
       origin:
-        location: "Vị trí"
+        location: "Địa điểm"
         origin: Gốc
       send_button:
         save_listing: Lưu
@@ -1479,35 +1515,35 @@ vi:
       accept_for_frees: "Chấp nhận miễn phí"
       trades: Đổi
     listing_actions:
-      booking_from: ~
-      booking_to: ~
-      how_paypal_works: ~
-      payment_help: ~
-      unable_load_availability: ~
+      booking_from: Từ
+      booking_to: Tới
+      how_paypal_works: "Cách hoạt động của PayPal"
+      payment_help: "Trợ giúp thanh toán"
+      unable_load_availability: "Không thể tải thông tin có sẵn. Vui lòng thử lại sau."
     new:
       listing: "sản phẩm"
       selected_category: "Danh mục : %{category}"
       selected_subcategory: "Danh mục con : %{subcategory}"
-      selected_transaction_type: ~
+      selected_transaction_type: "Loại danh sách: %{transaction_type}"
       select_category: "Chọn chuyên mục"
-      select_subcategory: ~
-      select_transaction_type: ~
-      you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
-      payment_settings_link: ~
-      community_not_configured_for_payments_admin: ~
+      select_subcategory: "Chọn hạng con"
+      select_transaction_type: "Chọn loại danh sách"
+      you_need_to_fill_payout_details_before_accepting: "Bạn cần phải điền chi tiết thanh toán trước khi bạn có thể đăng danh sách. Truy cập %{payment_settings_link} để điền chi tiết."
+      contact_admin_link_text: "Liên hệ với quản trị viên"
+      community_not_configured_for_payments: "%{service_name} chưa được định cấu hình cho thanh toán, vì vậy bạn không thể đăng danh sách mới. Vui lòng %{contact_admin_link} để biết chi tiết."
+      payment_settings_link: "Cài đặt thanh toán"
+      community_not_configured_for_payments_admin: "%{service_name} chưa được định cấu hình cho thanh toán, vì vậy bạn không thể đăng danh sách mới. Truy cập %{payment_settings_link} để điền vào các chi tiết thanh toán."
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "Số giờ:"
+      day: "Số ngày"
+      night: "Số đêm:"
+      week: "Số tuần:"
+      month: "Số tháng:"
+      custom: "Số lượng:"
+    quantity_placeholder: "Số lượng"
     please_comment: "Bình luận"
     reply_link:
-      listing_closed: "Tin rao này đã đóng lại"
+      listing_closed: "Bài đăng này đã đóng lại"
     show:
       add_your_phone_number: "Thêm số điện thoại của bạn"
       add_profile_picture: "Thêm ảnh tiểu sử"
@@ -1521,7 +1557,7 @@ vi:
       item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
       no_image: "Không có hình ảnh"
-      no_reviews: "Chưa có phản hồi nào"
+      no_reviews: "Chưa có đánh giá nào"
       offer: "Hỗ trợ"
       listing_created: "Được tạo"
       open_until: "Cho đến : %{date}"
@@ -1538,40 +1574,40 @@ vi:
       processing_uploaded_image: "(Đang xử lý hình ảnh tải lên...)"
       listing_created_at: "Tin đăng đã được tạo"
       price:
-        per_quantity_unit: ~
-        per_day: ~
-      delivery: ~
-      shipping: ~
-      shipping_no_price: ~
-      shipping_price_additional: ~
-      pickup: ~
-      pickup_no_price: ~
-      youtube_video_player: ~
+        per_quantity_unit: "mỗi %{quantity_unit}"
+        per_day: "mỗi ngày"
+      delivery: "Phương thức vận chuyển:"
+      shipping: "Vận chuyển (+%{price})"
+      shipping_no_price: "Vận chuyển"
+      shipping_price_additional: "Vận chuyển (+%{price}, hạng mục bổ sung: +%{shipping_price_additional})"
+      pickup: "Tự lấy:"
+      pickup_no_price: "Tự lấy"
+      youtube_video_player: "YouTube video player"
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: cái
+      hour: giờ
+      day: ngày
+      night: đêm
+      week: tuần
+      month: tháng
     verification_required:
-      verification_required: ~
+      verification_required: "Yêu cầu xác minh"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
-      details: ~
-      by: ~
-      payment: ~
-      exp: ~
-      you_will_be_charged: ~
-      day: ~
-      days: ~
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      dates_not_available: "Ngày được chọn không hợp lệ"
+      error_in_checking_availability: "Không thể kiểm tra tính khả dụng cho những ngày đã chọn"
+      details: "Chi tiết"
+      by: "%{listing} bởi %{author}"
+      payment: "Thanh toán"
+      exp: "Hết hạn"
+      you_will_be_charged: "Bạn sẽ chỉ bị tính phí nếu %{author} chấp nhận giao dịch. %{author} cần phải chấp nhận giao dịch trong vòng %{expiration_period} ngày. Nếu %{author} từ chối hoặc không trả lời, bạn sẽ không phải trả phí."
+      day: ngày
+      days: ngày
+      night: đêm
+      nights: đêm
+      invalid_parameters: "Các giá trị không hợp lệ cho giao dịch mới"
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Xem.
   mapview:
     index:
       all_categories: "Tất cả các chuyên mục"
@@ -1594,80 +1630,80 @@ vi:
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
     please_comment: "Bình luận"
   mercury:
-    content_too_long: ~
+    content_too_long: "Nội dung chèn quá dài."
   okl:
     member_id: "ID thành viên"
     member_id_or_email: "Định danh hoặc email của thành viên"
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
-    payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
-    connected_account: ~
-    paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
-    paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: ~
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    payout_info_title: "Đang nhận tiền"
+    paypal_account_email_connected: "<del>Kết nối tài khoản PayPal</del> Hoàn tất!"
+    payout_info_paypal: "%{service_name} sử dụng PayPal làm nhà cung cấp thanh toán. %{create_paypal_account_link} là bắt buộc để chấp nhận thanh toán cho danh sách của bạn và phải được kết nối với %{service_name}."
+    paypal_billing_agreement_made: "<del>Cho phép %{service_name} quyền đánh phí giao dịch</del> Hoàn thành!"
+    commission_permission_needed: "Bạn cũng cần phải cấp phép %{service_name} để tính lệ phí giao dịch."
+    create_paypal_account_link_text: "Tài khoản Paypal"
+    connected_account: "Tài khoản Paypal '%{email}' đã kết nối thành công."
+    paypal_receive_funds_info_label_australia_only: "Tài khoản PayPal của bạn cần để có thể chấp nhận thanh toán. Điều này có thể yêu cầu tài khoản Premier hoặc Business."
+    paypal_receive_funds_info_label: "Tài khoản PayPal của bạn cần để có thể chấp nhận thanh toán. Điều này có thể yêu cầu tài khoản Doanh nghiệp."
+    paypal_receive_funds_info_australia_only: "Nếu bạn thấy lỗi khi cố gắng kết nối tài khoản của mình với %{service_name}, hoặc là %{upgrade_paypal_account_link}, hoặc (nếu bạn là một cá nhân), hãy tạo một tài khoản Premier mới. Cả hai loại tài khoản đều hoàn toàn miễn phí."
+    paypal_receive_funds_info: "Nếu bạn thấy lỗi khi cố kết nối tài khoản của mình với %{service_name}, %{upgrade_paypal_account_link}. Nó hoàn toàn miễn phí và dễ dàng. Nếu bạn là một cá nhân, PayPal khuyên bạn nên sử dụng tên của bạn làm tên Doanh nghiệp."
+    upgrade_paypal_account_link_text: "đăng nhập và nâng cấp tài khoản PayPal của bạn vào tài khoản doanh nghiệp"
+    admin_account_not_connected: "Việc sử dụng hệ thống thanh toán của %{service_name} để nhận thanh toán không thể thực hiện được vì các khoản thanh toán chưa được thiết lập. Vui lòng %{contact_admin_link} để biết chi tiết."
+    contact_admin_link_text: "Liên hệ với quản trị viên thị trường"
+    you_are_ready_to_accept_payments: "Bạn đã sẵn sàng để chấp nhập thanh toán!"
+    commission: "%{commission} %"
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
-      upgrade_paypal_account: ~
-      paypal_account_billing_agreement: ~
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
-      connect_paypal_account_instructions: ~
-      connect_paypal_account: ~
-      paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: ~
-      paypal_account_billing_agreement_info_fixed: ~
-      paypal_account_billing_agreement_info_relative: ~
-      paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
-      something_went_wrong: ~
-      account_not_verified: ~
-      account_restricted: ~
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
-    change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
-    paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+      payout_info_you_need_to_connect: "Để chấp nhận thanh toán, bạn cần phải kết nối tài khoản PayPal với %{service_name}."
+      payout_info_text: "Để kết nối tài khoản của bạn, hãy hoàn tất các bước sau."
+      contact_admin_link_text: "Liên hệ với quản trị viên"
+      admin_account_not_connected: "Không thể kết nối tài khoản PayPal của bạn vì %{service_name} chưa thiết lập thanh toán. Vui lòng %{contact_admin_link} để biết chi tiết."
+      paypal_account_email: "Kết nối tài khoản PayPal của bạn"
+      paypal_account_email_placeholder: "Địa chỉ email PayPal của bạn"
+      paypal_account_email_info_text: "Nếu bạn không có tài khoản PayPal, bạn có thể tạo một tài khoản bằng %{create_paypal_account}. Nếu bạn nhận được thông báo lỗi khi kết nối tài khoản PayPal, hãy nâng cấp tài khoản PayPal của bạn vào tài khoản doanh nghiệp. Nâng cấp là miễn phí và dễ dàng. Nếu bạn là một cá nhân, bạn có thể sử dụng tên và họ của bạn làm \"tên doanh nghiệp\". Để nâng cấp tài khoản của bạn, %{upgrade_paypal_account} và tìm liên kết nâng cấp."
+      create_paypal_account: "nhấn vào đây"
+      upgrade_paypal_account: "đăng nhập vào tài khoản Paypal của bạn"
+      paypal_account_billing_agreement: "Cho phép %{service_name} quyền đánh phí giao dịch"
+      follow_steps: "Thực hiện theo các bước dưới đây để bắt đầu nhận tiền:"
+      connect_paypal_account_title: "Kết nối tài khoản PayPal của bạn"
+      connect_paypal_account_title_with_step: "Bước %{current_step}/%{total_steps}: Kết nối tài khoản PayPal của bạn"
+      connect_paypal_account_instructions: "Nhấp vào nút bên dưới để đăng nhập vào PayPal và kết nối tài khoản PayPal với %{service_name}."
+      connect_paypal_account: "Kết nối tài khoản PayPal của bạn"
+      paypal_account_billing_agreement_with_step: "Bước %{current_step}/%{total_steps}: Cấp phép để tính lệ phí giao dịch"
+      paypal_account_billing_agreement_info_both: "Sau khi bạn bán hàng trên %{service_name}, phí dịch vụ (%{commission_from_seller} của tổng giá mục, không bao gồm vận chuyển, lệ phí tối thiểu %{minimum_commission}) sẽ được tính từ tài khoản PayPal của bạn. Giấy phép để làm điều này là bắt buộc để chấp nhận thanh toán trong %{service_name}. Lệ phí không bao gồm %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Sau khi bạn bán hàng trên %{service_name}, phí dịch vụ là %{minimum_commission} sẽ bị tính phí từ tài khoản PayPal của bạn. Giấy phép để làm điều này là bắt buộc để chấp nhận thanh toán trong %{service_name}. Lệ phí không bao gồm %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Sau khi bạn bán hàng trên %{service_name}, phí dịch vụ (%{commission_from_seller} của tổng giá mục, không bao gồm vận chuyển) sẽ được tính từ tài khoản PayPal của bạn. Giấy phép để làm điều này là bắt buộc để chấp nhận thanh toán trong %{service_name}. Lệ phí không bao gồm %{paypal_info_link}."
+      paypal_account_billing_agreement_info_none: "%{service_name} hiện không tính phí dịch vụ. Nếu bạn bật phí dịch vụ, bạn sẽ phải cấp phép %{service_name} tính phí dịch vụ để chấp nhận thanh toán. Lệ phí không bao gồm %{paypal_info_link}."
+      paypal_info_link_text: "Phí xử lý thanh toán của PayPal"
+      billing_agreement_description: "Cho phép %{service_name} quyền đánh phí giao dịch"
+      billing_agreement: "Cho phép"
+      permissions_not_granted: "Không cho phép quyền kết nối với tài khoản PayPal của bạn."
+      could_not_fetch_redirect_url: "Không thể tìm nạp URL chuyển hướng để kết nối với PayPal."
+      paypal_not_enabled: "Thanh toán PayPal không được bật."
+      billing_agreement_canceled: "Thoả thuận thanh toán đã bị hủy"
+      billing_agreement_not_accepted: "Bạn đã không chấp nhận thỏa thuận thanh toán trong PayPal."
+      billing_agreement_wrong_account: "Tài khoản PayPal không khớp. Vui lòng sử dụng cùng một tài khoản PayPal mà bạn đã kết nối trong bước đầu tiên."
+      something_went_wrong: "Đã xảy ra lỗi. Vui lòng thử lại. Nếu sự cố vẫn tiếp diễn, vui lòng liên hệ với quản trị viên trang web."
+      account_not_verified: "Bạn chưa xác minh tài khoản PayPal của mình. Bạn cần phải đi đến paypal.com và xác minh tài khoản của bạn trước khi bạn có thể tiếp tục."
+      account_restricted: "Tài khoản PayPal của bạn bị hạn chế và không thể kết nối. Vui lòng đăng nhập vào paypal.com để tìm hiểu thêm hoặc liên hệ với bộ phận hỗ trợ khách hàng của PayPal để giải quyết vấn đề"
+    paypal_account_connected_title: "Đã kết nối tài khoản PayPal"
+    paypal_account_connected: "Tài khoản PayPal <%{email}> đã được kết nối với %{service_name}."
+    change_account: "Thay đổi tài khoản PayPal"
+    missing: "Bạn có danh sách mở nhưng tài khoản Paypal của bạn không được thiết lập để nhận thanh toán. Kết nối tài khoản Paypal của bạn và cấp %{service_name} quyền để tính lệ phí giao dịch từ %{settings_link} của bạn."
+    from_your_payment_settings_link_text: "Cài đặt thanh toán"
+    redirect_message: "Chuyển hướng bạn đến PayPal. Nếu không có gì xảy ra, hãy nhấp vào %{redirect_link}."
+    redirect_link_text: đây
+    paypal_account_all_set_up: "Hoan hô, mọi thứ đã được thiết lập!"
+    can_receive_payments: "Bây giờ bạn có thể nhận thanh toán cho danh sách của bạn."
+    paypal_account_connected_summary: "Tài khoản PayPal <%{email}> đã kết nối thành công"
+    paypal_permission_granted_summary: "Cho phép cấp phí giao dịch"
   paypal:
-    pay_with_paypal: ~
-    checkout_with_paypal: ~
-    cancel_succesful: ~
+    pay_with_paypal: "Tiến hành thanh toán"
+    checkout_with_paypal: "Thanh toán với Paypal"
+    cancel_succesful: "Thanh toán PayPal đã bị hủy"
     transaction:
-      commission_payment_name: ~
-      commission_payment_description: ~
-    wait_while_loading: ~
-    chatting_with_paypal: ~
+      commission_payment_name: "Phí hoa hồng cho %{listing_title}"
+      commission_payment_description: "Marketplace %{service_name} đã nhận khoản hoa hồng này từ giao dịch liên quan đến %{listing_title}"
+    wait_while_loading: "Xin chờ."
+    chatting_with_paypal: "Chúng tôi đang trò chuyện với PayPal."
   people:
     edit_links:
       activate: "Kích hoạt"
@@ -1693,7 +1729,7 @@ vi:
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
       not_required: ", không bắt buộc"
-      notification_is_mandatory: ~
+      notification_is_mandatory: "Bạn phải chọn ít nhất một địa chỉ email để nhận thông báo. Nếu bạn không muốn nhận bất kỳ email nào từ %{service_name}, hãy kiểm tra cài đặt thông báo qua email của bạn."
       password_again: "Nhập lại mật khẩu:"
       show_my_name_to_others: "Hiển thị tên thật của tôi cho các người dùng %{service_name} khác"
       sign_up: "Tạo một tài khoản mới trong %{service_name}"
@@ -1703,13 +1739,13 @@ vi:
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
       visible_to_everybody: "hiển thị đối với mọi người"
       create_account_with_facebook: "Đăng nhập bằng Facebook"
-      OR: ~
-      signup_with_email: ~
+      OR: HOẶC
+      signup_with_email: "Đăng kí với email"
     profile_feedback:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
     profile_listings:
-      show_also_closed: "Hiển thị cũng đóng"
+      show_also_closed: "Hiển thị cả những bài đăng đang đóng"
       show_only_open: "Chỉ hiển thị mở"
       no_image: "Không có hình ảnh"
     show:
@@ -1718,7 +1754,7 @@ vi:
       add_description: "Nói thứ gì đó về bản thân"
       add_location: "Thêm địa điểm"
       add_phone_number: "Thêm số điện thoại"
-      address: "Nơi ở:"
+      address: "Địa điểm"
       as_expected: "Như mong đợi"
       edit_profile_info: "Chỉnh sửa thông tin của bạn"
       exceeded_expectations: "Vượt quá mong đợi"
@@ -1734,27 +1770,27 @@ vi:
       what_are_these: "Đây là gì?"
       review: "nhận được phản hồi"
       reviews: "nhận được phản hồi"
-      listing: "Tin rao"
-      listings: "Tin rao"
-      open_listing: "Sản phẩm đang bán"
-      open_listings: "Sản phẩm đang bán"
+      listing: "Bài đăng"
+      listings: "Bài đăng"
+      open_listing: "Mở bài đăng"
+      open_listings: "Các bài đăng đang mở"
       no_listings: "Ko có sản phẩm nào."
-      no_open_listings: "Hiện không có sản phẩm"
-      no_reviews: "Chưa có phản hồi"
+      no_open_listings: "Hiện không có bài đăng nào đang mở."
+      no_reviews: "Chưa có đánh giá"
       show_all_listings: "Hiện tất cả sản phẩm/dịch vụ đang bán"
-      show_all_open_listings: "Hiện tất cả sản phẩm đang bán"
+      show_all_open_listings: "Hiện tất cả các bài đang đăng"
       show_all_reviews: "Hiện tất cả phản hồi"
     followed_people:
-      you_follow_plural: ~
-      you_follow_singular: ~
-      they_follow_plural: ~
-      they_follow_singular: ~
-      show_all_followed_people: ~
-      no_followed_people: ~
+      you_follow_plural: "Bạn theo dõi %{count} người"
+      you_follow_singular: "Bạn theo dõi %{count} người"
+      they_follow_plural: "%{count} người theo dõi"
+      they_follow_singular: "%{count} người theo dõi"
+      show_all_followed_people: "Hiển thị tất cả những người theo dõi"
+      no_followed_people: "Hiện chưa theo dõi ai"
     follow_button:
-      following: ~
-      follow: ~
-      unfollow: ~
+      following: "Đang theo dõi"
+      follow: "Theo dõi"
+      unfollow: "Hủy theo dõi"
   sessions:
     new:
       create_new_account: "Tạo một tài khoản mới tại %{service_name}"
@@ -1784,12 +1820,12 @@ vi:
       change_email: "thay đổi"
       confirm_your_email: "Xác nhận email của bạn"
       account_confirmation_instructions: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập. Sau khi xác nhận email của bạn, bạn có thể bắt đầu sử dụng %{service_name}."
-      account_confirmation_instructions_title_admin: ~
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
-      contact_support_link_text: ~
+      account_confirmation_instructions_title_admin: "Xác nhận địa chỉ email của bạn"
+      before_full_access_you_need_to_confirm_email: "Trước khi chúng tôi có thể cung cấp cho bạn toàn quyền truy cập vào thị trường của bạn, chúng tôi chỉ cần thêm một điều nữa là hãy xác nhận địa chỉ email của bạn."
+      before_confirmation_only_access_admin_dashboard: "Trước khi xác nhận bạn chỉ có thể truy cập %{admin_dashboard_link}."
+      admin_dashboard_link_text: "Bảng điều khiển quản trị"
+      account_confirmation_instructions_admin: "Bạn cần phải nhận được một email tạ i%{email_address} với một liên kết xác nhận. Nếu bạn không nhìn thấy nó, kiểm tra thư mục spam của bạn hoặc nhấp vào nút bên dưới để gửi lại email. Khi nó đến, mở liên kết bao gồm để xác nhận địa chỉ của bạn, sau đó bạn sẽ có được quyền truy cập đầy đủ vào thị trường của bạn. Nếu bạn cần bất kỳ sự trợ giúp nào, đừng ngần ngại %{support_link}."
+      contact_support_link_text: "Liên hệ hỗ trợ Sharetribe"
   settings:
     account:
       change: "Thay đổi"
@@ -1799,13 +1835,13 @@ vi:
       delete_account_confirmation_popup: ~
       email_addresses: "Địa chỉ email"
       new_email: "Địa chỉ email mới"
-      delete_personal_information: ~
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_personal_information: "Nếu bạn xoá tài khoản của mình, thông tin cá nhân của bạn (tên, số điện thoại, địa chỉ, email, ảnh tiểu sử, v.v.) sẽ bị xóa vĩnh viễn và không thể phục hồi được. Tất cả danh sách bạn đã tạo sẽ bị xóa. Bạn sẽ không thể kích hoạt lại tài khoản của mình."
+      delete_information_others_involved: "Thông tin mà các thành viên khác tham gia (cuộc trò chuyện với người khác, giao dịch bạn thực hiện, nhận xét bạn đưa cho người khác, v.v ...) sẽ không bị xóa khi bạn xóa tài khoản của mình. Tuy nhiên, tên của bạn sẽ không còn được hiển thị bên cạnh thông tin này."
+      unfinished_transactions: "Bạn không thể xóa tài khoản của mình vì bạn có các giao dịch đang diễn ra. Vui lòng hoàn tất tất cả giao dịch trước khi xóa tài khoản của bạn."
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
-      email_already_confirmed: ~
+      email_already_confirmed: "Địa chỉ email của bạn đã được xác nhận."
       email:
         address_title: "Địa chỉ"
         remove_title: Xóa
@@ -1849,24 +1885,26 @@ vi:
       city: "Thành phố:"
       family_name: "Họ:"
       given_name: "Tên:"
-      first_name_with_initial: ~
-      first_name_only: ~
+      first_name_with_initial: "(Chỉ chữ cái đầu tiên được hiển thị cho người dùng khác)"
+      first_name_only: "(Không hiển thị cho người dùng khác)"
+      display_name: "Tên hiển thị"
+      display_name_description: "Nếu bạn đại diện cho một tổ chức, bạn có thể sử dụng tên của nó làm tên hiển thị. Tên hiển thị được hiển thị cho người dùng khác thay vì tên và họ của bạn."
       location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
       profile_picture: "Ảnh đại diện"
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
       profilemap: "Xem bản đồ"
-      street_address: "Nơi ở:"
+      street_address: "Địa điểm"
       these_fields_are_shown_in_your: "Thông tin này được hiển thị cho tất cả các người sử dụng %{service_name}"
       visible_to_everybody: "hiển thị đối với mọi người"
       visible_to_registered_users: "hiển thị cho người dùng đã đăng nhập"
-      default_in_listing: ~
-      invisible: ~
-      image_is_processing: ~
+      default_in_listing: "(Chỉ được sử dụng làm mặc định khi tạo danh sách mới)"
+      invisible: "(Không hiển thị cho người dùng khác)"
+      image_is_processing: "Xin chờ. Chúng tôi đang xử lý ảnh tiểu sử của bạn. Nó sẽ được sẵn sàng trong một hoặc hai phút."
     save_information: "Lưu thông tin"
   shipping_address:
-    shipping_address: ~
+    shipping_address: "Địa chỉ giao hàng"
   tag_cloud:
     tag_used:
       with_tag: "Với thẻ"
@@ -1906,7 +1944,7 @@ vi:
       about_listing: "về sản phẩm"
   date:
     formats:
-      long_with_abbr_day_name: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
   datepicker:
     days:
       sunday: "Chủ nhật"
@@ -1980,76 +2018,102 @@ vi:
     years_ago: "%{count} năm trước"
     days_since:
       other: "%{count} ngày"
+    time_to:
+      days:
+        other: "%{count} ngày"
+      seconds:
+        other: "%{count} thứ hai"
+      minutes:
+        other: "%{count} phút"
+      hours:
+        other: "%{count} giờ"
   transactions:
     initiate:
-      booked_days: ~
-      booked_nights: ~
-      price_per_day: ~
-      price_per_night: ~
-      quantity: ~
-      subtotal: ~
-      shipping-price: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+      booked_days: "Số ngày đặt"
+      booked_nights: "Đặt đêm:"
+      booked_days_label:
+        other: "Ngày đặt"
+      price_per_day: "Giá mỗi ngày"
+      price_per_night: "Giá mỗi đêm:"
+      quantity: "Số lượng:"
+      subtotal: "Tổng phụ:"
+      shipping-price: "Vận chuyển:"
+      booked_nights_label:
+        other: "Đặt đêm:"
+    price_per_quantity: "Giá mỗi %{unit_type}:"
+    price: "Giá:"
+    quantity: "Số lượng: %{quantity}"
+    unit_price: "Đơn giá: %{unit_price}"
+    total: "Tổng:"
   unit:
-    day: ~
-    days: ~
+    day: ngày
+    days: ngày
   web:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Chúng tôi không thể hiển thị thông tin về tính khả dụng. Hãy thử tải lại trang."
+          saving_failed: "Chúng tôi không thể lưu thay đổi tính khả dụng. Hãy thử tải lại trang."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+        piece: cái
+        hour: giờ
+        day: ngày
+        night: đêm
+        week: tuần
+        month: tháng
+      edit_availability_header: "Có sẵn"
+      save_and_close_availability_editing: "Lưu và đóng"
+      confirm_discarding_unsaved_availability_changes_explanation: "Bạn có các thay đổi chưa lưu cho thông tin về tính khả dụng của bạn. Nếu bạn tiến hành, những thay đổi này sẽ bị mất."
+      confirm_discarding_unsaved_availability_changes_question: "Bạn có chắc chắn muốn hủy thay đổi của mình không?"
+      edit_listing_availability: "Chỉnh sửa lịch của bài đăng"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Xin lỗi, không có danh sách nào có thể được tìm thấy cho các tiêu chí tìm kiếm của bạn."
+      try_other_search_terms: "Có thể thử các cụm từ tìm kiếm khác?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Thêm ảnh"
+      no_picture: "Không có ảnh"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Trang
+      page_of_pages: "của %{total_number_of_pages}"
     topbar:
-      menu: ~
-      more: ~
-      search_placeholder: ~
-      search_location_placeholder: ~
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
-      logout: ~
-      login: ~
-      signup: ~
-      admin_dashboard: ~
-      language: ~
+      menu: "Mục lục"
+      more: Thêm
+      search_placeholder: "Tìm kiếm..."
+      search_location_placeholder: "Địa điểm"
+      user: "Người dùng"
+      inbox: "Hộp thư đến"
+      profile: "Hồ sơ"
+      manage_listings: "Quản lý danh sách"
+      settings: "Cài đặt"
+      logout: "Đăng xuất"
+      login: "Đăng nhập"
+      signup: "Đăng ký"
+      admin_dashboard: "Bảng điều khiển quản trị"
+      language: "Ngôn ngữ"
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: mi
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} được cung cấp bởi nền tảng thị trường %{sharetribe_link}."
+      create_own: "Bạn muốn tạo trang web thị trường trực tuyến của riêng mình như %{service_name}? %{learn_more}."
+      learn_more: "Tìm hiểu thêm"
   will_paginate:
-    previous_label: ~
-    next_label: ~
-    page_gap: ~
+    previous_label: "&#8592; Trước"
+    next_label: "Kế tiếp &#8594;"
+    page_gap: "&ba chấm;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      multi_page: "Đang hiển thị %{model} %{from} - %{to} của tổng số %{count}"
+      multi_page_html: "Đang hiển thi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> của tổng số <b>%{count}</b>"
+      single_page:
+        zero: "Không thấy %{model}"
+        other: "Hiển thị %{count} %{model}"
+      single_page_html:
+        zero: "Không thấy %{model}"
+        other: "Hiển thị <b>;%{count}</b> %{model}"
+    models:
+      person:
+        zero: "Người dùng"
+        other: "Người dùng"
+      listing_conversation:
+        zero: "Giao dịch"
+        other: "Giao dịch"

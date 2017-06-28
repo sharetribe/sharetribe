@@ -57,14 +57,21 @@ module CustomLandingPage
       "kind": "info",
       "variation": "single_column",
       "title": "Single column info section without background image and call to action button",
-      "paragraph": ["This is a single column info section without background image and call to action button."]
+      "paragraph": "This is a single column info section without background image and call to action button."
+    },
+    {
+      "id": "markdown_support",
+      "kind": "info",
+      "variation": "single_column",
+      "title": "Limited Markdown support",
+      "paragraph": "Text paragraphs can contain Markdown markup. Limited subset of Markdown syntax blocks are allowed. Allowed blocks are *italic*, **bold**, ***bold+italic***, ~~strike through~~, _underline_ and [links](https://www.sharetribe.com).  \\nLine breaks and...\\n\\n...new paragraphs are also supported"
     },
     {
       "id": "single_info_without_cta",
       "kind": "info",
       "variation": "single_column",
       "title": "Single column info section without call to action button",
-      "paragraph": ["This is a single column info section without background image and call to action button."],
+      "paragraph": "This is a single column info section without background image and call to action button.",
       "background_image": {"type": "assets", "id": "default_hero_background"}
     },
     {
@@ -72,7 +79,7 @@ module CustomLandingPage
       "kind": "info",
       "variation": "single_column",
       "title": "Single column info section with background image and call to action button",
-      "paragraph": ["This is a single column info section with background image and call to action button."],
+      "paragraph": "This is a single column info section with background image and call to action button.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Go to sharetribe.com",
@@ -85,7 +92,7 @@ module CustomLandingPage
       "kind": "info",
       "variation": "single_column",
       "title": "Single column info section with call to action button",
-      "paragraph": ["This is a single column info section with call to action button."],
+      "paragraph": "This is a single column info section with call to action button.",
       "button_color": {"type": "marketplace_data", "id": "primary_color"},
       "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
       "button_title": "Contact us",
@@ -115,7 +122,7 @@ module CustomLandingPage
         {
           "icon": "grape",
           "title": "Column 1",
-          "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."],
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.\\n\\nParagraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.",
           "button_title": "Go to sharetribe.com",
           "button_path": {"value": "https://www.sharetribe.com"}
         },
@@ -136,7 +143,7 @@ module CustomLandingPage
       "columns": [
         {
           "title": "Column 1",
-          "paragraph": ["Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.","Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."]
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.\\n\\nParagraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         },
         {
           "title": "Column 2",
@@ -276,6 +283,7 @@ module CustomLandingPage
 
   "composition": [
     { "section": {"type": "sections", "id": "hero"}},
+    { "section": {"type": "sections", "id": "markdown_support"}},
     { "section": {"type": "sections", "id": "single_info_without_background_and_cta"}},
     { "section": {"type": "sections", "id": "single_info_without_cta"}},
     { "section": {"type": "sections", "id": "single_info_with_cta"}},

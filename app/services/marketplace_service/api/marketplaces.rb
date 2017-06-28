@@ -34,6 +34,8 @@ module MarketplaceService::API
       "doc",
       "docs",
       "support",
+      "support-team",
+      "help",
       "legal",
       "org",
       "net",
@@ -45,6 +47,7 @@ module MarketplaceService::API
       "local",
       "marketplace-academy",
       "academy-proxy",
+      "academy",
       "proxy",
       "preproduction",
       "staging",
@@ -115,6 +118,14 @@ module MarketplaceService::API
       default_locale = community.locales[0]
       community_name = community.name(default_locale)
       locales.each { |locale| Helper.first_or_create_community_customization!(community, community_name, locale) }
+
+      # Replace removed locale with default for users of marketplace
+      removed_locales = community.locales - locales
+      if removed_locales.present?
+        UserService::API::Users.replace_with_default_locale(community_id: community.id,
+                                                            locales: removed_locales,
+                                                            default_locale: locales.first)
+      end
 
       settings = community.settings || {}
       settings["locales"] = locales

@@ -192,29 +192,54 @@ describe "Landing page", type: :request do
       end
 
       it "request with correct etag returns 'not modified'" do
-        get "http://#{@domain}", nil, {"If-None-Match" => @etag}
+        get "http://#{@domain}", params: nil, headers: {"If-None-Match" => @etag}
 
         expect(response.status).to eq(304)
       end
 
       it "request with incorrect etag returns 200" do
         # incorrect etag is md5("foobar")
-        get "http://#{@domain}", nil, {"If-None-Match" => "14758f1afd44c09b7992073ccf00b43d"}
+        get "http://#{@domain}", params: nil, headers: {"If-None-Match" => "14758f1afd44c09b7992073ccf00b43d"}
 
         expect(response.status).to eq(200)
       end
 
       it "request with correct Last-Modified returns 'not modified'" do
-        get "http://#{@domain}", nil, {"If-Modified-Since" => @last_modified}
+        get "http://#{@domain}", params: nil, headers: {"If-Modified-Since" => @last_modified}
 
         expect(response.status).to eq(304)
       end
 
       it "request with past Last-Modified returns 200" do
         past = Time.parse(@last_modified) - 10.minutes
-        get "http://#{@domain}", nil, {"If-Modified-Since" => past.to_s}
+        get "http://#{@domain}", params: nil, headers: {"If-Modified-Since" => past.to_s}
 
         expect(response.status).to eq(200)
+      end
+
+      it "includes max-age header in the response for public marketplaces" do
+        get "http://#{@domain}"
+
+        expect(response.status).to eq(200)
+        expect(response.headers["Cache-Control"]).to eq("max-age=#{APP_CONFIG.clp_cache_time}, public")
+      end
+
+      describe "private marketplaces" do
+        before(:all) {
+          @orig_private = @community.private
+          @community.update_attributes(private: true)
+        }
+
+        after(:all) {
+          @community.update_attributes(private: @orig_private)
+        }
+
+        it "does not includes max-age header in the response for private marketplaces" do
+          get "http://#{@domain}"
+
+          expect(response.status).to eq(200)
+          expect(response.headers["Cache-Control"]).to eq("no-cache")
+        end
       end
 
       describe "cache expiration" do

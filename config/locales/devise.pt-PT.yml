@@ -48,7 +48,7 @@ pt-PT:
       unlocked: "A sua conta foi desbloqueada com sucesso. Por favor, conecte-se para continuar."
     omniauth_callbacks:
       success: "Autorizado com sucesso para a conta %{kind} ."
-      failure: "Não foi possivel autorizar para a conta %{kind} porque '%{reason}'"
+      failure: "Não foi possivel autorizar para a conta %{kind} porque \"%{reason}\""
     mailer:
       confirmation_instructions:
         subject: "Instruções de confirmação para aderir a %{service_name}"

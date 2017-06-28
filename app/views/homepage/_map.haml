@@ -7,10 +7,10 @@
 
     $(document).ready(function() {
       initialize_listing_map(
-        #{@listings.map { |l| {category: l[:category_id], id: l[:id], icon: l[:icon_name], latitude: l[:latitude], longitude: l[:longitude] } }.to_json},
+        #{raw @listings.map { |l| {category: l[:category_id], id: l[:id], icon: l[:icon_name], latitude: l[:latitude], longitude: l[:longitude] } }.to_json},
         "#{community_location_lat}",
         "#{community_location_lon}",
-        #{viewport.to_json},
+        #{raw viewport.to_json},
         "#{I18n.locale}",
         "#{@current_community.use_community_location_as_default}");
       });

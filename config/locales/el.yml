@@ -1,4 +1,10 @@
 el:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
   admin:
     categories:
       edit:
@@ -79,6 +85,10 @@ el:
         favicon: ~
         favicon_info_text: ~
         community_custom_color1: "Κυρίως χρώμα"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
         logo_instructions_text_with_dimensions: "Το λογότυπο πρέπει να έχει μέγεθος %{width}x%{height}px."
         logo_instructions_text_with_dimensions_no_placing: ~
@@ -124,6 +134,7 @@ el:
         sender_name_placeholder: ~
         sender_email_label: ~
         sender_email_placeholder: ~
+        amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
         successfully_saved: ~
@@ -187,7 +198,6 @@ el:
         transaction_preferences: ~
         show_listing_publishing_date: ~
         show_category_in_listing_list: ~
-        hide_expiration_date: ~
         listing_comments_in_use: ~
         email_preferences: ~
         automatic_newsletters: ~
@@ -212,6 +222,7 @@ el:
         manage_members: ~
         email: ~
         name: Όνομα
+        display_name: ~
         join_date: ~
         admin: ~
         posting_allowed: ~
@@ -224,8 +235,7 @@ el:
         ban_me_error: ~
       new_layout:
         new_layout: ~
-        description_roadmap: ~
-        description_process: ~
+        description_roadmap_new: ~
         enabled_for_you: ~
         enabled_for_all: ~
         new_topbar: ~
@@ -310,6 +320,9 @@ el:
       edit_location:
         edit_location_field: ~
         this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
       form:
         field_required:
           this_field_is_required: ~
@@ -365,7 +378,6 @@ el:
       users_and_transactions: ~
       configure: ~
       emails_title: ~
-      support: ~
       subscription: ~
       preview: ~
     listing_shapes:
@@ -857,6 +869,8 @@ el:
       subject: ~
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_not_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
       subject: ~
@@ -1851,6 +1865,8 @@ el:
       given_name: Όνομα
       first_name_with_initial: ~
       first_name_only: ~
+      display_name: ~
+      display_name_description: ~
       location_description: "Μπορείτε να συμπληρώσετε είτε την ακριβή τοποθεσία σας είτε μόνο τον ταχυδρομικό σας κωδικό. Παρακαλούμε να συμπληρώσετε τουλάχιστον τον ταχυδρομικό σας κωδικό. Εναλλακτικά, μπορείτε να διαλέξετε την τοποθεσία σας από τον χάρτη."
       phone_number: Τηλέφωνο
       profile_picture: "Εικόνα προφίλ"

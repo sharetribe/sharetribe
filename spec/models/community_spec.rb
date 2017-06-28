@@ -46,13 +46,15 @@
 #  small_cover_photo_updated_at               :datetime
 #  custom_color1                              :string(255)
 #  custom_color2                              :string(255)
+#  slogan_color                               :string(6)
+#  description_color                          :string(6)
 #  stylesheet_url                             :string(255)
 #  stylesheet_needs_recompile                 :boolean          default(FALSE)
 #  service_logo_style                         :string(255)      default("full-logo")
 #  currency                                   :string(3)        not null
 #  facebook_connect_enabled                   :boolean          default(TRUE)
 #  minimum_price_cents                        :integer
-#  hide_expiration_date                       :boolean          default(FALSE)
+#  hide_expiration_date                       :boolean          default(TRUE)
 #  facebook_connect_id                        :string(255)
 #  facebook_connect_secret                    :string(255)
 #  google_analytics_key                       :string(255)

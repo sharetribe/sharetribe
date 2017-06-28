@@ -1,6 +1,6 @@
 class FollowersController < ApplicationController
 
-  before_filter do |controller|
+  before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
@@ -9,7 +9,7 @@ class FollowersController < ApplicationController
 
     target_user.followers << @current_user
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_back(fallback_location: homepage_url) }
       format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end
@@ -19,7 +19,7 @@ class FollowersController < ApplicationController
 
     target_user.followers.delete(@current_user)
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_back(fallback_location: homepage_url) }
       format.js { render :partial => "people/follow_button", :locals => { :person => target_user } }
     end
   end

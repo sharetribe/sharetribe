@@ -16,22 +16,22 @@ module ApplicationHelper
     to_time = to_time.to_time if to_time.respond_to?(:to_time)
     distance_in_minutes = (((to_time - from_time).abs)/60).round
     distance_in_seconds = ((to_time - from_time).abs).round
-    case distance_in_minutes
-      when 0..1           then time = (distance_in_seconds < 60) ? t('timestamps.seconds_ago', :count => distance_in_seconds) : t('timestamps.minute_ago', :count => 1)
-      when 2..59          then time = t('timestamps.minutes_ago', :count => distance_in_minutes)
-      when 60..90         then time = t('timestamps.hour_ago', :count => 1)
-      when 90..1440       then time = t('timestamps.hours_ago', :count => (distance_in_minutes.to_f / 60.0).round)
-      when 1440..2160     then time = t('timestamps.day_ago', :count => 1) # 1-1.5 days
-      when 2160..2880     then time = t('timestamps.days_ago', :count => (distance_in_minutes.to_f / 1440.0).round) # 1.5-2 days
-      #else time = from_time.strftime(t('date.formats.default'))
+    time = case distance_in_minutes
+      when 0..1           then (distance_in_seconds < 60) ? t('timestamps.seconds_ago', :count => distance_in_seconds) : t('timestamps.minute_ago', :count => 1)
+      when 2..59          then t('timestamps.minutes_ago', :count => distance_in_minutes)
+      when 60..90         then t('timestamps.hour_ago', :count => 1)
+      when 90..1440       then t('timestamps.hours_ago', :count => (distance_in_minutes.to_f / 60.0).round)
+      when 1440..2160     then t('timestamps.day_ago', :count => 1) # 1-1.5 days
+      when 2160..2880     then t('timestamps.days_ago', :count => (distance_in_minutes.to_f / 1440.0).round) # 1.5-2 days
+      #else from_time.strftime(t('date.formats.default'))
     end
     if distance_in_minutes > 2880
       distance_in_days = (distance_in_minutes/1440.0).round
-      case distance_in_days
-        when 0..30    then time = t('timestamps.days_ago', :count => distance_in_days)
-        when 31..50   then time = t('timestamps.month_ago', :count => 1)
-        when 51..364  then time = t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
-        else               time = t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
+      time = case distance_in_days
+        when 0..30    then t('timestamps.days_ago', :count => distance_in_days)
+        when 31..50   then t('timestamps.month_ago', :count => 1)
+        when 51..364  then t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
+        else               t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
       end
     end
 
@@ -182,11 +182,10 @@ module ApplicationHelper
 
   def service_name
     if @current_community
-      service_name = @current_community.name(I18n.locale)
+      @current_community.name(I18n.locale)
     else
-      service_name = APP_CONFIG.global_service_name || "Sharetribe"
+      APP_CONFIG.global_service_name || "Sharetribe"
     end
-    return service_name
   end
 
   def email_not_accepted_message
@@ -311,12 +310,20 @@ module ApplicationHelper
         :name => "getting_started_guide"
       },
       {
+        :id => "admin-help-center-link",
         :topic => :general,
-        :text => t("admin.left_hand_navigation.support"),
+        :text => t("admin.left_hand_navigation.help_center"),
         :icon_class => icon_class("help"),
-        :path => "mailto:#{APP_CONFIG.support_email}",
-        :name => "support",
-        :data_uv_trigger => "contact"
+        :path => "#{APP_CONFIG.knowledge_base_url}/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "help_center"
+      },
+      {
+        :id => "admin-academy-link",
+        :topic => :general,
+        :text => t("admin.left_hand_navigation.academy"),
+        :icon_class => icon_class("academy"),
+        :path => "https://www.sharetribe.com/academy/?utm_source=marketplaceadminpanel&utm_medium=referral&utm_campaign=leftnavi",
+        :name => "academy"
       }
     ]
 
@@ -528,14 +535,6 @@ module ApplicationHelper
     end
 
     return links
-  end
-
-  def display_expiration_notice?
-    ext_service_active = PlanService::API::Api.plans.active?
-    is_admin = Maybe(@current_user).has_admin_rights?.or_else(false)
-    is_expired = Maybe(@current_plan)[:expired].or_else(false)
-
-    ext_service_active && is_admin && is_expired
   end
 
   # returns either "http://" or "https://" based on configuration settings

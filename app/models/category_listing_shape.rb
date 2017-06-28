@@ -11,12 +11,7 @@
 #  unique_listing_shape_category_joins           (listing_shape_id,category_id) UNIQUE
 #
 
-class CategoryListingShape < ActiveRecord::Base
-  attr_accessible(
-    :category_id,
-    :listing_shape_id
-  )
-
+class CategoryListingShape < ApplicationRecord
   belongs_to :category
   belongs_to :listing_shape
 end

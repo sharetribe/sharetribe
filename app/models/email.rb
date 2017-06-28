@@ -22,10 +22,7 @@
 #  index_emails_on_person_id                 (person_id)
 #
 
-class Email < ActiveRecord::Base
-
-  # TODO Rails 4, Remove
-  include ActiveModel::ForbiddenAttributesProtection
+class Email < ApplicationRecord
 
   include ApplicationHelper
   belongs_to :person

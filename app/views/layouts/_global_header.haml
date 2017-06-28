@@ -21,7 +21,9 @@
             = current_locale_name
             = icon_map_tag(icons, "dropdown", ["icon-dropdown"])
         #header-locales-toggle-menu.toggle-menu.header-toggle-menu-language.hidden
-          = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array, locals: {return_after_locale_change: return_after_locale_change}
+          - locale_change_links.each do |locale_change_link|
+            %a{href: locale_change_link[:url]}
+              = locale_change_link[:title]
 
     - unless logged_in
       .header-right
@@ -38,7 +40,7 @@
           %span.visible-tablet-inline
             = t("header.menu")
 
-    = render :partial => "layouts/header_menu", locals: { return_after_locale_change: return_after_locale_change, available_locales: available_locales, icons: icons}
+    = render :partial => "layouts/header_menu", locals: { locale_change_links: locale_change_links, icons: icons}
 
     -#
       If necessary, the buttons will overlap with the logo. Buttons should be on top, that's

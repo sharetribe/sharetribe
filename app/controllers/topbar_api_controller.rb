@@ -1,7 +1,7 @@
 # coding: utf-8
 class TopbarApiController < ApplicationController
 
-  skip_filter :cannot_access_without_confirmation, :ensure_consent_given
+  skip_before_action :cannot_access_without_confirmation, :ensure_consent_given
 
   def props
     locale = params[:locale]
@@ -14,7 +14,7 @@ class TopbarApiController < ApplicationController
     result = { props: p, marketplaceContext: m_ctx }
 
     respond_to do |format|
-      format.html { render text: result.to_json.html_safe }
+      format.html { render plain: result.to_json.html_safe }
       format.json { render json: result.to_json }
     end
   end

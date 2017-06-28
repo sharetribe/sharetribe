@@ -42,7 +42,7 @@ describe Admin::CommunitiesController, type: :controller do
 
     it "should allow changing custom_head_script" do
       script = "<script/>"
-      put :update_look_and_feel, id: @community.id, community: { custom_head_script: script }
+      put :update_look_and_feel, params: { id: @community.id, community: { custom_head_script: script } }
       @community.reload
       expect(@community.custom_head_script).to eql(script)
     end
@@ -60,12 +60,12 @@ describe Admin::CommunitiesController, type: :controller do
       text_en = "Modified en"
       translations_group = [{
         translation_key: "homepage.index.post_new_listing",
-        translations: [{ locale: "fi", translation: text_fi }, { locale: "en", translation: text_en }]
+        translations: [{ locale: "en", translation: text_en }, { locale: "fi", translation: text_fi } ]
       }]
 
       expect(TranslationService::API::Api.translations).to receive(:create)
         .with(@community.id, translations_group)
-      put :update_topbar, id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}
+      put :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en} }
     end
 
     it "should not update Post new listing button text with an invalid translation param" do
@@ -73,7 +73,7 @@ describe Admin::CommunitiesController, type: :controller do
       text_en = "Modified en"
 
       expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
-      patch :update_topbar, post_new_listing_button: {fi: text_fi, en: text_en}
+      patch :update_topbar, params: {post_new_listing_button: {fi: text_fi, en: text_en}}
     end
   end
 
@@ -101,25 +101,25 @@ describe Admin::CommunitiesController, type: :controller do
     it "should enable given features for a user" do
       expect(FeatureFlagService::API::Api.features)
         .to receive(:enable).with(community_id: @community.id, person_id: @user.id, features: [:foo, :bar])
-      put :update_new_layout, enabled_for_user: { foo: "true", bar: "true"  }
+      put :update_new_layout, params: { enabled_for_user: { foo: "true", bar: "true"  } }
     end
 
     it "should disable missing features for a user" do
       expect(FeatureFlagService::API::Api.features)
         .to receive(:disable).with(community_id: @community.id, person_id: @user.id, features: [:wat])
-      put :update_new_layout, enabled_for_user: { foo: "true", bar: "true"  }
+      put :update_new_layout, params: { enabled_for_user: { foo: "true", bar: "true"  } }
     end
 
     it "should enable given features for a community" do
       expect(FeatureFlagService::API::Api.features)
         .to receive(:enable).with(community_id: @community.id, features: [:foo, :bar])
-      put :update_new_layout, enabled_for_community: { foo: "true", bar: "true"  }
+      put :update_new_layout, params: { enabled_for_community: { foo: "true", bar: "true"  } }
     end
 
     it "should disable missing features for a community" do
       expect(FeatureFlagService::API::Api.features)
         .to receive(:disable).with(community_id: @community.id, features: [:wat])
-      put :update_new_layout, enabled_for_community: { foo: "true", bar: "true"  }
+      put :update_new_layout, params: { enabled_for_community: { foo: "true", bar: "true"  } }
     end
 
     it "should disable all features when nothind is passed" do
@@ -133,13 +133,13 @@ describe Admin::CommunitiesController, type: :controller do
 
   def attempt_to_update_different_community_with(action, params)
     different_community = FactoryGirl.create(:community)
-    put action, id: different_community.id, community: params
+    put action, params: {id: different_community.id, community: params}
     different_community.reload
     params.each { |key, value| expect(different_community.send(key)).not_to eql(value) }
   end
 
   def update_community_with(action, params)
-    put action, id: @community.id, community: params
+    put action, params: {id: @community.id, community: params}
     @community.reload
     params.each { |key, value| expect(@community.send(:[], key)).to eql(value) }
   end

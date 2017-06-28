@@ -1,7 +1,7 @@
 class Admin::CommunitiesController < Admin::AdminBaseController
   include CommunitiesHelper
 
-  before_filter :ensure_white_label_plan, only: [:create_sender_address]
+  before_action :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
@@ -70,7 +70,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
         when Some(:invalid_email)
           t("admin.communities.outgoing_email.invalid_email_error", email: res.data[:email])
         when Some(:invalid_domain)
-          kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/articles/686493", class: "flash-error-link")
+          kb_link = view_context.link_to(t("admin.communities.outgoing_email.invalid_email_domain_read_more_link"), "#{APP_CONFIG.knowledge_base_url}/configuration-and-how-to/how-to-define-your-own-address-as-the-sender-of-all-outgoing-emails", class: "flash-error-link") # rubocop:disable Metrics/LineLength
           t("admin.communities.outgoing_email.invalid_email_domain", email: res.data[:email], domain: res.data[:domain], invalid_email_domain_read_more_link: kb_link).html_safe
         else
           t("admin.communities.outgoing_email.unknown_error")
@@ -134,11 +134,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def update_new_layout
+    h_params = params.to_unsafe_hash
     @community = @current_community
-    enabled_for_user = Maybe(params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    enabled_for_user = Maybe(h_params[:enabled_for_user]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_user = NewLayoutViewUtils.resolve_disabled(enabled_for_user)
 
-    enabled_for_community = Maybe(params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
+    enabled_for_community = Maybe(h_params[:enabled_for_community]).map { |f| NewLayoutViewUtils.enabled_features(f) }.or_else([])
     disabled_for_community = NewLayoutViewUtils.resolve_disabled(enabled_for_community)
 
     response = update_feature_flags(community_id: @current_community.id, person_id: @current_user.id,
@@ -174,6 +175,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
   def update_topbar
     @community = @current_community
+    h_params = params.to_unsafe_hash
 
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
@@ -187,7 +189,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       })
     end
 
-    translations = params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
+    translations = h_params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
 
     if translations.any?{ |t| t[:translation].blank? }
       flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
@@ -267,10 +269,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     params[:community][:custom_color1] = nil if params[:community][:custom_color1] == ""
     params[:community][:custom_color2] = nil if params[:community][:custom_color2] == ""
+    params[:community][:description_color] = nil if params[:community][:description_color] == ""
+    params[:community][:slogan_color] = nil if params[:community][:slogan_color] == ""
 
     permitted_params = [
       :wide_logo, :logo,:cover_photo, :small_cover_photo, :favicon, :custom_color1,
-      :custom_color2, :default_browse_view, :name_display_type
+      :custom_color2, :slogan_color, :description_color, :default_browse_view, :name_display_type
     ]
     permitted_params << :custom_head_script
     community_params = params.require(:community).permit(*permitted_params)
@@ -334,7 +338,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :require_verification_to_post_listings,
       :show_category_in_listing_list,
       :show_listing_publishing_date,
-      :hide_expiration_date,
       :listing_comments_in_use,
       :automatic_confirmation_after_days,
       :automatic_newsletters,

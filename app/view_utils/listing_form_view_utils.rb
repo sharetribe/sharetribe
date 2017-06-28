@@ -1,7 +1,7 @@
 module ListingFormViewUtils
   module_function
 
-  def filter(params, shape)
+  def filter(params, shape, valid_until_enabled)
     filter_fields = []
 
     filter_fields << :price unless shape[:price_enabled]
@@ -10,8 +10,9 @@ module ListingFormViewUtils
     filter_fields << :shipping_price unless shape[:shipping_enabled]
     filter_fields << :shipping_price_additional unless shape[:shipping_enabled]
     filter_fields << :delivery_methods unless shape[:shipping_enabled]
+    filter_fields << ["valid_until(1i)", "valid_until(2i)", "valid_until(3i)"] unless valid_until_enabled
 
-    params.except(*filter_fields)
+    params.except(*filter_fields.flatten)
   end
 
   def filter_additional_shipping(params, unit)
@@ -23,7 +24,7 @@ module ListingFormViewUtils
 
   end
 
-  def validate(params, shape, unit)
+  def validate(params:, shape:, unit:, valid_until_enabled: false)
     errors = []
 
     errors << :price_required if shape[:price_enabled] && params[:price].nil?
@@ -33,6 +34,8 @@ module ListingFormViewUtils
 
     errors << :unit_required if shape[:units].present? && unit.blank?
     errors << :unit_does_not_belong if shape[:units].present? && unit.present? && !shape[:units].any? { |u| u == unit }
+
+    errors << :valid_until_missing if valid_until_enabled && ["valid_until(1i)", "valid_until(2i)", "valid_until(3i)"].any? { |key| params[key].blank? }
 
     if errors.empty?
       Result::Success.new

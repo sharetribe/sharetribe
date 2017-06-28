@@ -1,5 +1,5 @@
 class PopulateListingUnitKind < ActiveRecord::Migration
-  class ListingUnit < ActiveRecord::Base
+  class ListingUnit < ApplicationRecord
   end
 
   def up

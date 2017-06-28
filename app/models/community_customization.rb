@@ -28,25 +28,7 @@
 #  index_community_customizations_on_community_id  (community_id)
 #
 
-class CommunityCustomization < ActiveRecord::Base
-
-  attr_accessible :community_id,
-    :description,
-    :locale,
-    :name,
-    :slogan,
-    :blank_slate,
-    :welcome_email_content,
-    :about_page_content,
-    :how_to_use_page_content,
-    :terms_page_content,
-    :privacy_page_content,
-    :signup_info_content,
-    :private_community_homepage_content,
-    :verification_to_post_listings_info_content,
-    :search_placeholder,
-    :transaction_agreement_label,
-    :transaction_agreement_content
+class CommunityCustomization < ApplicationRecord
 
   # Set sane limits for content length. These are either driven by
   # column length in MySQL or, in case of :mediumtext type, set low
@@ -63,4 +45,20 @@ class CommunityCustomization < ActiveRecord::Base
   validates_length_of :transaction_agreement_content, maximum: 262140
 
   belongs_to :community
+
+  CONTENT_FIELDS = %i(
+    blank_slate
+    welcome_email_content
+    how_to_use_page_content
+    about_page_content
+    terms_page_content
+    privacy_page_content
+    signup_info_content
+    private_community_homepage_content
+    verification_to_post_listings_info_content
+    search_placeholder
+    transaction_agreement_label
+    transaction_agreement_content
+  )
+
 end

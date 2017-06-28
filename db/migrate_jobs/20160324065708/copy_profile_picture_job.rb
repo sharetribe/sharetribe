@@ -13,7 +13,7 @@ class CopyProfilePictureJob < Struct.new(:person_id)
       }
     end
 
-  class Person < ActiveRecord::Base
+  class Person < ApplicationRecord
     self.primary_key = "id"
 
     has_attached_file(:image,
