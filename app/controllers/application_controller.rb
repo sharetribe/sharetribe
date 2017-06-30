@@ -169,7 +169,7 @@ class ApplicationController < ActionController::Base
                            user_id: @current_user&.id,
                            request: request,
                            is_admin: Maybe(@current_user).is_admin?.or_else(false),
-                           is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?.or_else(false))
+                           is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?(@current_community).or_else(false))
   end
 
   # Ensure that user accepts terms of community and has a valid email
@@ -206,7 +206,7 @@ class ApplicationController < ActionController::Base
   def ensure_user_belongs_to_community
     return unless @current_user
 
-    if !@current_user.has_admin_rights? && @current_user.accepted_community != @current_community
+    if !@current_user.has_admin_rights?(@current_community) && @current_user.accepted_community != @current_community
 
       logger.info(
         "Automatically logged out user that doesn't belong to community",
@@ -343,7 +343,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_admin_status
-    @is_current_community_admin = @current_user && @current_user.has_admin_rights?
+    @is_current_community_admin = (@current_user && @current_user.has_admin_rights?(@current_community))
   end
 
   def fetch_community_plan_expiration_status
@@ -507,7 +507,7 @@ class ApplicationController < ActionController::Base
     return true if @current_user.is_admin?
 
     # Show for admins if their status is accepted
-    @current_user.is_marketplace_admin? &&
+    @current_user.is_marketplace_admin?(@current_community) &&
       @current_user.community_membership.accepted?
   end
 

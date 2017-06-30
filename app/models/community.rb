@@ -386,7 +386,7 @@ class Community < ApplicationRecord
   end
 
   def allows_user_to_send_invitations?(user)
-    (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights?
+    (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights?(self)
   end
 
   def has_customizations?

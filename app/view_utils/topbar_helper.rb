@@ -65,7 +65,7 @@ module TopbarHelper
       },
       user: {
         loggedInUsername: user&.username,
-        isAdmin: user&.has_admin_rights? || false,
+        isAdmin: user&.has_admin_rights?(community) || false,
       },
       unReadMessagesCount: MarketplaceService::Inbox::Query.notification_count(user&.id, community.id)
     }
@@ -108,7 +108,7 @@ module TopbarHelper
       }
     ]
 
-    if user&.has_admin_rights? || community.users_can_invite_new_users
+    if user&.has_admin_rights?(community) || community.users_can_invite_new_users
       links << {
         link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),

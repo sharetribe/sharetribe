@@ -547,7 +547,7 @@ class ListingsController < ApplicationController
 
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
-    return if current_user?(@listing.author) || @current_user.has_admin_rights?
+    return if current_user?(@listing.author) || @current_user.has_admin_rights?(@current_community)
     flash[:error] = error_message
     redirect_to @listing and return
   end
@@ -882,7 +882,7 @@ class ListingsController < ApplicationController
 
   def is_authorized_to_post
     if @current_community.require_verification_to_post_listings?
-      unless @current_user.has_admin_rights? || @current_community_membership.can_post_listings?
+      unless @current_user.has_admin_rights?(@current_community) || @current_community_membership.can_post_listings?
         redirect_to verification_required_listings_path
       end
     end
@@ -920,7 +920,7 @@ class ListingsController < ApplicationController
     when matches([:paypal])
       can_post = PaypalHelper.community_ready_for_payments?(community.id)
       error_msg =
-        if user.has_admin_rights?
+        if user.has_admin_rights?(community)
           t("listings.new.community_not_configured_for_payments_admin",
             payment_settings_link: view_context.link_to(
               t("listings.new.payment_settings_link"),

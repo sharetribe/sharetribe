@@ -613,7 +613,7 @@ module ApplicationHelper
   end
 
   def with_invite_link(&block)
-    if @current_user && (@current_user.has_admin_rights? || @current_community.users_can_invite_new_users)
+    if @current_user && (@current_user.has_admin_rights?(@current_community) || @current_community.users_can_invite_new_users)
       block.call()
     end
   end

@@ -88,7 +88,7 @@ class TransactionMailer < ActionMailer::Base
                              user_id: seller_model.id,
                              request: OpenStruct.new(session: {}, params: []), #fake request, will provide fake .session and .params
                              is_admin: seller_model.is_admin?,
-                             is_marketplace_admin: seller_model.is_marketplace_admin?) # TODO: remove when :currency_formatting flag is removed
+                             is_marketplace_admin: seller_model.is_marketplace_admin?(community)) # TODO: remove when :currency_formatting flag is removed
       premailer_mail(:to => seller_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_payment.new_payment")) do |format|
@@ -131,7 +131,7 @@ class TransactionMailer < ActionMailer::Base
                              user_id: buyer_model.id,
                              request: OpenStruct.new(session: {}, params: []), #fake request, will provide fake .session and .params
                              is_admin: buyer_model.is_admin?,
-                             is_marketplace_admin: buyer_model.is_marketplace_admin?) # TODO: remove when :currency_formatting flag is removed
+                             is_marketplace_admin: buyer_model.is_marketplace_admin?(community)) # TODO: remove when :currency_formatting flag is removed
       premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|

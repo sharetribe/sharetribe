@@ -49,7 +49,7 @@ class FeedbacksController < ApplicationController
 
   def render_form(form = nil)
     render action: :new, locals: feedback_locals(form).merge({
-      has_admin_rights: @current_user && @current_user.has_admin_rights?
+      has_admin_rights: @current_user && @current_user.has_admin_rights?(@current_community)
     })
   end
 
