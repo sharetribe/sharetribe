@@ -31,7 +31,7 @@ module SessionContextStore
     role =
       if person.nil?
         nil
-      elsif person.has_admin_rights?
+      elsif person.has_admin_rights?(community)
         :admin
       else
         :user

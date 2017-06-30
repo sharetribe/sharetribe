@@ -5,7 +5,7 @@
 - contact_support_link = link_to t("sessions.confirmation_pending.contact_support_link_text"), "mailto:#{support_email}"
 - admin_dashboard_link = link_to t("sessions.confirmation_pending.admin_dashboard_link_text"), admin_getting_started_guide_path
 
-- if @current_user.has_admin_rights?
+- if @current_user.has_admin_rights?(@current_community)
   %h2= t("sessions.confirmation_pending.account_confirmation_instructions_title_admin")
   %p= t("sessions.confirmation_pending.before_full_access_you_need_to_confirm_email")
   %p= t("sessions.confirmation_pending.before_confirmation_only_access_admin_dashboard", {admin_dashboard_link: admin_dashboard_link}).html_safe

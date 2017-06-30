@@ -112,7 +112,7 @@ class ListingImagesController < ApplicationController
   def authorized_to_destroy?(image)
     if image.listing.present? && image.listing.community_id == @current_community.id
       # Listing is present: We are deleting image from saved listing
-      image.listing.author == @current_user || @current_user.has_admin_rights?
+      image.listing.author == @current_user || @current_user.has_admin_rights?(@current_community)
     else
       # Listing is not present: We are deleting image from a new unsaved listing
       image.author == @current_user
@@ -130,7 +130,7 @@ class ListingImagesController < ApplicationController
 
         if listing.nil?
           :not_found
-        elsif listing.author == @current_user || @current_user.has_admin_rights?
+        elsif listing.author == @current_user || @current_user.has_admin_rights?(@current_community)
           :authorized
         else
           :unauthorized

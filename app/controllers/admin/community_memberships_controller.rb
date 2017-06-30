@@ -116,7 +116,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def removes_itself?(ids, current_admin_user)
     ids ||= []
-    ids.include?(current_admin_user.id) && current_admin_user.is_marketplace_admin?
+    ids.include?(current_admin_user.id) && current_admin_user.is_marketplace_admin?(@current_community)
   end
 
   def sort_column

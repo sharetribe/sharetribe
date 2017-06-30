@@ -289,14 +289,14 @@ class HarmonyProxyController < ApplicationController
     {
       marketplaceId: community.uuid_object.to_s,
       actorId: (user&.uuid_object || UUIDUtils.v0_uuid).to_s,
-      actorRole: role(user)
+      actorRole: role(user, community)
     }
   end
 
-  def role(user)
+  def role(user, community)
     if user.nil?
       nil
-    elsif user.has_admin_rights?
+    elsif user.has_admin_rights?(community)
       :admin
     else
       :user

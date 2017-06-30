@@ -425,12 +425,12 @@ class Person < ApplicationRecord
     community_membership.consent
   end
 
-  def is_marketplace_admin?
-    community_membership.admin?
+  def is_marketplace_admin?(community)
+    community_membership.community_id == community.id && community_membership.admin?
   end
 
-  def has_admin_rights?
-    is_admin? || is_marketplace_admin?
+  def has_admin_rights?(community)
+    is_admin? || is_marketplace_admin?(community)
   end
 
   def should_receive?(email_type)

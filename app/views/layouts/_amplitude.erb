@@ -21,7 +21,7 @@
    var userInfo = new amplitude.Identify()
                                .set('community_id', <%= community.id %>)
                                .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
-                               .set('admin', <%= (user&.is_marketplace_admin? || false).to_json %>);
+                               .set('admin', <%= (user&.is_marketplace_admin?(@current_community) || false).to_json %>);
 
    <% if plan %>
      userInfo.set('plan_status', '<%= plan[:status] %>');

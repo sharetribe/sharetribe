@@ -4,7 +4,7 @@
   %h3
     = link_to_unless comment.author.deleted?, PersonViewUtils.person_display_name(comment.author, @current_community), comment.author
   %small= time_ago(comment.created_at)
-  - if @current_user && (current_user?(comment.author) || @current_user.has_admin_rights?)
+  - if @current_user && (current_user?(comment.author) || @current_user.has_admin_rights?(@current_community))
     %small= link_to t('listings.comment.delete'), listing_comment_path(:listing_id => comment.listing.id, :id => comment.id), {method: :delete, data: { confirm: t('listings.comment.are_you_sure') }, :remote => :true}
   .comment-content
     - text_with_line_breaks do

@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @current_community.listings.find(params[:listing_id]).comments.find(params[:id])
-    if current_user?(@comment.author) || @current_user.has_admin_rights?
+    if current_user?(@comment.author) || @current_user.has_admin_rights?(@current_community)
       @comment.destroy
       respond_to do |format|
         format.html { redirect_to listing_path(params[:listing_id]) }

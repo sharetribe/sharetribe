@@ -18,7 +18,7 @@ class ListingVisibilityGuard
     return false unless listing_belongs_to_community?
 
     if user_logged_in?
-      user_member_of_community? || @user.has_admin_rights?
+      user_member_of_community? || @user.has_admin_rights?(@community)
     else
       public_community?
     end

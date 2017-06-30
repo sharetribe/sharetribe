@@ -103,7 +103,7 @@ module Admin
 
     def listing_created(setup_status, listing)
       if !setup_status[:listing] &&
-         listing&.author&.is_marketplace_admin?
+        listing&.author&.is_marketplace_admin?(Community.find(@community_id))
         :listing
       end
     end

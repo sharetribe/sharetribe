@@ -18,7 +18,7 @@ class InvitationsController < ApplicationController
 
     view_locals = {
       invitation_limit: invitation_limit,
-      has_admin_rights: @current_user.has_admin_rights?
+      has_admin_rights: @current_user.has_admin_rights?(@current_community)
     }
 
     render locals: onboarding_popup_locals.merge(view_locals)
