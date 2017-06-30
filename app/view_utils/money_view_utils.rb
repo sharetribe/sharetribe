@@ -7,9 +7,10 @@ module MoneyViewUtils
   # Converts instance of Money to properly formatted and localized string for view purposes
   # Replaces spaces with narrow non breaking spaces, we do not want monetary amounts to be split on separate lines
   def to_humanized(m, locale = I18n.locale)
+    return "" if m.nil?
+
     # TODO: Remove feature flag
     if FeatureFlagHelper.feature_enabled?(:currency_formatting)
-      return "" if m.nil?
 
       # Explicitly resolve formatting. WebTranslateit resolves
       # translations to nils which causes an error with number_to_currency
