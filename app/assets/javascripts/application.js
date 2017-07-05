@@ -22,6 +22,7 @@
 //= require jquery
 //= require jquery-ui-1.9.2.custom
 //= require jquery-ui-1.9.2.sortable
+//= require jquery.ui.touch-punch.min.js
 //= require jquery_ujs
 //= require jquery.form
 //= require jquery.validate

@@ -305,6 +305,8 @@ class ListingsController < ApplicationController
     create_listing(shape, listing_uuid)
   end
 
+
+  # rubocop:disable Metrics/AbcSize
   def create_listing(shape, listing_uuid)
     with_currency = params.to_unsafe_hash[:listing].merge({currency: @current_community.currency})
     valid_until_enabled = !@current_community.hide_expiration_date
@@ -354,6 +356,12 @@ class ListingsController < ApplicationController
 
         ListingImage.where(id: listing_image_ids, author_id: @current_user.id).update_all(listing_id: @listing.id)
 
+        if params[:listing_ordered_images].present?
+          params[:listing_ordered_images].split(",").each_with_index do |image_id, position|
+            ListingImage.where(id: image_id, author_id: @current_user.id).update_all(position: position+1)
+          end
+        end
+
         Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.id))
         if @current_community.follow_in_use?
           Delayed::Job.enqueue(NotifyFollowersJob.new(@listing.id, @current_community.id), :run_at => NotifyFollowersJob::DELAY.from_now)
@@ -388,6 +396,7 @@ class ListingsController < ApplicationController
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def edit
     @selected_tribe_navi_tab = "home"
