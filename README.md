@@ -7,7 +7,8 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
 ### Contents
-- [Tech Stack](#tech-stack)
+
+- [Technology stack](#technology-stack)
 - [Installation](#installation)
 - [Payments](#payments)
 - [Versioning](#versioning)
@@ -17,11 +18,12 @@ Would you like to set up your marketplace in one minute without touching code? [
 - [Release](#release)
 - [Technical roadmap](#technical-roadmap)
 - [Translation](#translation)
-- [Known issues](#known-issues)
+- [Bug tracker](#bug-tracker)
 - [Documentation](#documentation)
+- [Community forum](#community-forum)
 - [License](#mit-license)
 
-## Tech Stack
+## Technology stack
 
 - Ruby 2.3
 - Ruby on Rails 5.1.1
@@ -32,8 +34,8 @@ Would you like to set up your marketplace in one minute without touching code? [
 - Deploy: Custom Script (not using Mina or Cap3)
 - Server: Heroku
 - Image hosting: Amazon S3
-- Background job: `[delayed_job](https://github.com/collectiveidea/delayed_job)`
-- Gem:
+- Background job: [delayed_job](https://github.com/collectiveidea/delayed_job)
+- Gems:
     -  [devise](https://github.com/plataformatec/devise) | Authentication
     -  [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
     -  [haml](https://github.com/haml/haml) and ERB | HTML teamplating
@@ -434,9 +436,13 @@ Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for transl
 All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (except English).
 
 
-## Known issues
+## Bug tracker
 
-Browse open issues and submit new ones at http://github.com/sharetribe/sharetribe/issues.
+Browse open issues and submit new ones in [Github Issues](http://github.com/sharetribe/sharetribe/issues).
+
+We are dedicating the Github Issue only for bugs in the Sharetribe codebase. For general questions, start a new thread in the [Community forum](https://www.sharetribe.com/community/) instead of opening a new Issue.
+
+After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md)
 
 
 ## Documentation
