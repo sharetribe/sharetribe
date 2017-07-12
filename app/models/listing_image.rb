@@ -29,17 +29,19 @@ class ListingImage < ApplicationRecord
   belongs_to :author, :class_name => "Person"
 
   # see paperclip (for image_processing column)
-  has_attached_file :image, :styles => {
-        :small_3x2 => "240x160#",
-        :medium => "360x270#",
-        :thumb => "120x120#",
-        :original => "#{APP_CONFIG.original_image_width}x#{APP_CONFIG.original_image_height}>",
-        :big => Proc.new { |instance| instance.crop_big },
-        :email => "150x100#",
-        :square => "408x408#",
-        :square_2x => "816x816#"}
+  has_attached_file :image,
+    :styles => {
+      :small_3x2 => "240x160#",
+      :medium => "360x270#",
+      :thumb => "120x120#",
+      :original => "#{APP_CONFIG.original_image_width}x#{APP_CONFIG.original_image_height}>",
+      :big => Proc.new { |instance| instance.crop_big },
+      :email => "150x100#",
+      :square => "408x408#",
+      :square_2x => "816x816#"}
 
-  before_save :set_dimensions!
+  before_post_process :set_dimensions!
+
   before_create :set_position
 
   process_in_background :image, :processing_image_url => "/assets/listing_image/processing.png", :priority => 1
@@ -73,14 +75,19 @@ class ListingImage < ApplicationRecord
   def set_dimensions!
     # Silently return, if there's no `width` and `height`
     # Prevents old migrations from crashing
-    return unless self.respond_to?(:width) && self.respond_to?(:height)
+    return true unless self.respond_to?(:width) && self.respond_to?(:height)
+
+    return true if self.width.present? && self.height.present?
 
     geometry = extract_dimensions
 
     if geometry
       self.width = geometry.width.to_i
       self.height = geometry.height.to_i
+      self.save
     end
+
+    return true
   end
 
   def crop_big
@@ -93,7 +100,7 @@ class ListingImage < ApplicationRecord
   # @note Do this after resize operations to account for auto-orientation.
   # https://github.com/thoughtbot/paperclip/wiki/Extracting-image-dimensions
   def extract_dimensions
-    return unless image_ready?
+    return unless image_downloaded
     tempfile = image.queued_for_write[:original]
 
     # Works with uploaded files and existing files
