@@ -40,7 +40,7 @@ class ListingImage < ApplicationRecord
       :square => "408x408#",
       :square_2x => "816x816#"}
 
-  before_post_process :set_dimensions!
+  before_post_process :set_dimensions
 
   before_create :set_position
 
@@ -72,7 +72,7 @@ class ListingImage < ApplicationRecord
     end
   end
 
-  def set_dimensions!
+  def set_dimensions
     # Silently return, if there's no `width` and `height`
     # Prevents old migrations from crashing
     return true unless self.respond_to?(:width) && self.respond_to?(:height)
@@ -84,7 +84,6 @@ class ListingImage < ApplicationRecord
     if geometry
       self.width = geometry.width.to_i
       self.height = geometry.height.to_i
-      self.save
     end
 
     return true
