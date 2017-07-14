@@ -1367,16 +1367,16 @@ ro:
         destination: Destinație
       form_content:
         favor: "un serviciu"
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        housing: "un spatiu"
+        item: "un obiect"
+        offer_something: "ofera ceva"
+        request_something: "cere ceva"
+        rideshare: "o cursa"
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
+        googlemap_copy: "puncte finale de pe harta"
+        googlemap_description: "vizualizare harta"
         googlemap_updatemap: "Actualizează harta"
       images:
         image: Imagine
@@ -1417,70 +1417,70 @@ ro:
         pickup: ~
       origin:
         location: Locație
-        origin: ~
+        origin: origine
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: imprumut
+        buy: cumparare
+        give_away: donatie
+        lend: imprumut
+        offer_type: "tip de oferta"
+        receive: "accepta gratuit"
+        rent: inchiriere
+        rent_out: inchiriere
+        request_type: "tip de cerere"
+        sell: vanzare
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: schimb
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(separate prin virgula)"
+        tags: etichete
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "data expirarii"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "pentru moment"
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "tipul de oferta sau cerere"
+      help_tags_title: etichete
+      help_valid_until_title: "data expirarii"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "toate categoriile"
+      all_offer_types: "toate tipurile de oferte"
+      all_request_types: "toate tipurile de cereri"
+      category: categorie
+      did_not_found_what_you_were_looking_for: "Nu ai gasit ce cautai?"
+      favors: Servicii
+      housing: Spatii
+      items: Obiecte
+      list_view: "Vizualizare lista"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
+      map_view: "Vizualizare harta"
+      offer_something: "Spune-le si altora!"
+      offer_type: "Tipul de oferta"
+      offers: Oferte
+      request_something: "Cere ceva!"
+      request_type: "Tipul cererii"
+      requests: Cereri
+      rideshare: Rideshare
+      you_have_something_others_do_not: "Ai ceva de oferit?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
+      borrows: Imprumutare
+      buys: Cumparare
+      favors: Servicii
       give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
+      housings: Spatii
+      items: Obiecte
+      lends: Imprumut
       receives: ~
       rent_outs: ~
       rents: ~

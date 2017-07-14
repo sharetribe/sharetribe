@@ -40,16 +40,16 @@ vi:
           other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
         warning_custom_field_will_be_moved:
           other: "Có %{count} trường tùy chỉnh trong chủng loại. Nó sẽ được di chuyển đến các chủng loại đã chọn."
-        select_new_category: "Chọn hạng mục mới để các sản phẩm được chọn được di chuyển đến đó"
-        buttons:
-          remove: "Loại bỏ"
-          cancel: Hủy
         warning_subcategory_will_be_removed:
           other: "Có %{count} hạng mục con trong hạng mục. Xóa tất cả hạng mục con"
         warning_with_subcategories_listing_will_be_moved:
           other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
+        select_new_category: "Chọn hạng mục mới để các sản phẩm được chọn được di chuyển đến đó"
+        buttons:
+          remove: "Loại bỏ"
+          cancel: Hủy
     communities:
       edit_details:
         community_details: ~
@@ -435,14 +435,20 @@ vi:
         update_success: "Thay đổi kiểu đơn đặt hàng '%{shape}' đã lưu"
         update_failure: "Không thể lưu thay đổi. Lỗi: %{error_msg}"
         delete: "Xóa loại đơn đặt hàng"
-        can_not_delete_last: "Bạn không thể xóa loại đơn hàng này vì đây là loại duy nhất trong thị trường của bạn."
-        can_not_delete_only_one_in_categories: "Bạn không thể xóa loại đơn hàng này vì trong các loại sau đây loại đơn đặt hàng này là loại chỉ sử dụng: %{categories}"
         confirm_delete_order_type:
           other: "Có %{count} danh sách có loại đơn đặt hàng này. Nếu bạn xóa loại đơn đặt hàng, danh sách này sẽ bị đóng. Bạn có chắc chắn muốn xóa loại đơn hàng?"
+        can_not_delete_last: "Bạn không thể xóa loại đơn hàng này vì đây là loại duy nhất trong thị trường của bạn."
+        can_not_delete_only_one_in_categories: "Bạn không thể xóa loại đơn hàng này vì trong các loại sau đây loại đơn đặt hàng này là loại chỉ sử dụng: %{categories}"
       listing_shape_name: Tên
       listing_shape_name_placeholder: "Ví dụ. Bán"
       action_button_label: "Nhãn nút thanh toán"
       action_button_placeholder: "Ví dụ. Mua"
+      open_listings_warning:
+        other: "Có %{count} danh sách mở với loại đơn đặt hàng này. Nếu bạn thay đổi bất kỳ cài đặt nào dưới đây, danh sách đó sẽ giữ lại các cài đặt cũ. Danh sách có thể được thay đổi để cài đặt mới bằng cách chỉnh sửa nó theo cách thủ công. Nếu bạn không muốn có danh sách với cài đặt cũ hiển thị trên trang web của mình, bạn có thể đóng nó bằng cách nhấp vào nút bên dưới."
+      close_listings_action:
+        other: "Đóng %{count} danh sách"
+      confirm_close_listings_action:
+        other: "Bạn có chắc chắn muốn đóng %{count} danh sách?"
       successfully_closed: "Đóng danh sách thành công"
       successfully_deleted: "Đã xoá thành công loại đơn đặt hàng '%{order_type}'"
       pricing_and_checkout_title: "Giá cả và thanh toán"
@@ -472,12 +478,6 @@ vi:
           heading: "Loại đơn vị"
           quantity_label: "Số lượng (mỗi mảnh, trên kg, mỗi người, mỗi tour 2 giờ ...)"
           time_label: "Thời gian (mỗi 30 phút, mỗi 2 tuần, mỗi năm ...)"
-      open_listings_warning:
-        other: "Có %{count} danh sách mở với loại đơn đặt hàng này. Nếu bạn thay đổi bất kỳ cài đặt nào dưới đây, danh sách đó sẽ giữ lại các cài đặt cũ. Danh sách có thể được thay đổi để cài đặt mới bằng cách chỉnh sửa nó theo cách thủ công. Nếu bạn không muốn có danh sách với cài đặt cũ hiển thị trên trang web của mình, bạn có thể đóng nó bằng cách nhấp vào nút bên dưới."
-      close_listings_action:
-        other: "Đóng %{count} danh sách"
-      confirm_close_listings_action:
-        other: "Bạn có chắc chắn muốn đóng %{count} danh sách?"
     paypal_accounts:
       marketplace_paypal_integration: "Hệ thống thanh toán yêu thích"
       preferences_updated: "Tùy chọn hệ thống thanh toán đã được cập nhật"
@@ -1328,10 +1328,10 @@ vi:
       email_deleted: "Email đã được xóa."
       listing_author_payment_details_missing: "Vui lòng liên hệ người đăng bằng cách nhấn vào nút 'Liên hệ' bên dưới. Họ cần phải cập nhật chi tiết thanh toán để nhận thanh toán."
       images_are_processing: "Chúng tôi đang xử lý hình ảnh của bạn. Hãy cho chúng tôi vài phút và chúng sẽ được hiển thị."
-      automatically_logged_out_please_sign_in: "Bạn đã tự động đăng xuất. Xin vui lòng đăng nhập lại."
       maintenance_mode:
         zero: "Trang web bây giờ sẽ không hoạt động để bảo trì"
         other: "Trang web bây giờ sẽ không hoạt động để bảo trì trong %{count} phút"
+      automatically_logged_out_please_sign_in: "Bạn đã tự động đăng xuất. Xin vui lòng đăng nhập lại."
     settings:
       account: "Tài khoản"
       notifications: "Các ghi chú"
@@ -2019,27 +2019,27 @@ vi:
     days_since:
       other: "%{count} ngày"
     time_to:
-      days:
-        other: "%{count} ngày"
       seconds:
         other: "%{count} thứ hai"
       minutes:
         other: "%{count} phút"
       hours:
         other: "%{count} giờ"
+      days:
+        other: "%{count} ngày"
   transactions:
     initiate:
       booked_days: "Số ngày đặt"
       booked_nights: "Đặt đêm:"
       booked_days_label:
         other: "Ngày đặt"
+      booked_nights_label:
+        other: "Đặt đêm:"
       price_per_day: "Giá mỗi ngày"
       price_per_night: "Giá mỗi đêm:"
       quantity: "Số lượng:"
       subtotal: "Tổng phụ:"
       shipping-price: "Vận chuyển:"
-      booked_nights_label:
-        other: "Đặt đêm:"
     price_per_quantity: "Giá mỗi %{unit_type}:"
     price: "Giá:"
     quantity: "Số lượng: %{quantity}"
@@ -2098,18 +2098,6 @@ vi:
       create_own: "Bạn muốn tạo trang web thị trường trực tuyến của riêng mình như %{service_name}? %{learn_more}."
       learn_more: "Tìm hiểu thêm"
   will_paginate:
-    previous_label: "&#8592; Trước"
-    next_label: "Kế tiếp &#8594;"
-    page_gap: "&ba chấm;"
-    page_entries_info:
-      multi_page: "Đang hiển thị %{model} %{from} - %{to} của tổng số %{count}"
-      multi_page_html: "Đang hiển thi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> của tổng số <b>%{count}</b>"
-      single_page:
-        zero: "Không thấy %{model}"
-        other: "Hiển thị %{count} %{model}"
-      single_page_html:
-        zero: "Không thấy %{model}"
-        other: "Hiển thị <b>;%{count}</b> %{model}"
     models:
       person:
         zero: "Người dùng"
@@ -2117,3 +2105,15 @@ vi:
       listing_conversation:
         zero: "Giao dịch"
         other: "Giao dịch"
+    previous_label: "&#8592; Trước"
+    next_label: "Kế tiếp &#8594;"
+    page_gap: "&ba chấm;"
+    page_entries_info:
+      single_page:
+        zero: "Không thấy %{model}"
+        other: "Hiển thị %{count} %{model}"
+      single_page_html:
+        zero: "Không thấy %{model}"
+        other: "Hiển thị <b>;%{count}</b> %{model}"
+      multi_page: "Đang hiển thị %{model} %{from} - %{to} của tổng số %{count}"
+      multi_page_html: "Đang hiển thi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> của tổng số <b>%{count}</b>"

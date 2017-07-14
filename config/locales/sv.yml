@@ -104,7 +104,7 @@ sv:
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
-        new_listing_button_custom_color: ~
+        new_listing_button_custom_color: "Skapa en ny annons knapp färg"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
@@ -115,7 +115,7 @@ sv:
         small_cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten."
         main_content_width: "När du väljer en omslagsbild så notera att huvudsidans innehåll är %{main_width} pixlar brett som mest. Kom även ihåg att se hur omslagsbilden ser ut på mindre skärmar (t ex så kan du göra din webbläsares fönster mindre)."
         custom_color1_instructions_text: "Du kan ändra huvudfärgen på användargränssnittet genom att skriva in ett hex-värde. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjälpa dig att välja en färg och kopiera koden här."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Du kan ändra färgen på \"Skapa ny annons\" knappen genom att sätta in ett hex färgvärde. %{link_to_colorpicker} kan hjälpa dig att välja färg och ge dig hexvärdet. Du kan sedan kopiera koden hit."
         default_browse_view: "Standard bläddervy"
         default_browse_view_instructions_text: "Standard visningsläge används på startsidan för att se hur annonserna visas som standard."
         grid: Rutnätsvy
@@ -164,8 +164,8 @@ sv:
         invalid_email_domain: "E-postadressen %{email} använder en otillåten e-postleverantör: %{domain}. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Vänligen läs kunskapsbasartikeln för mer information."
         unknown_error: "Någonting gick fel"
-        white_label_offer: ~
-        upgrade_plan_link: ~
+        white_label_offer: "Sätt din egen e-postadress som avsändare och avlägsna all Sharetribe branding från utgående emails genom att %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "uppgradera till Pro planen eller högre"
         verification_sent_from: "Verifikationsmailet skickades från %{verification_sender_name}."
         follow_the_instructions: "Vänligen följ instruktionerna i mailet för att verifiera din adress."
       getting_started:
@@ -203,12 +203,12 @@ sv:
         search_preferences: "Sök inställningar"
         default_search_type: "Söktyp:%{select_search_type}"
         keyword_search: Nyckelordssökning
-        keyword_and_location_search: ~
+        keyword_and_location_search: "Nyckelord och platssökning"
         location_search: Platssökning
         select_distance_unit: "Visa distans i %{distance_units_selector}"
         km: km
         miles: mil
-        show_only_nearby: ~
+        show_only_nearby: "Visa endast närliggande annonser med platssökningen"
         listing_preferences: Annonsinställningar
         transaction_preferences: Transaktionsinställningar
         show_listing_publishing_date: "Visa publiceringsdatum på annonsen på annonssidan"
@@ -249,12 +249,12 @@ sv:
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
       new_layout:
-        new_layout: ~
+        new_layout: "Ny layout"
         description_roadmap_new: ~
-        enabled_for_you: ~
-        enabled_for_all: ~
-        new_topbar: ~
-        searchpage: ~
+        enabled_for_you: "Aktiverad för dig"
+        enabled_for_all: "Aktiverad för alla"
+        new_topbar: "Nya menyn (synlig på varje sida)"
+        searchpage: "Ny sök sida (kräver den nya menyn)"
       social_media:
         social_media: "Social media"
         twitter_handle: "Twitter användarnamn"
@@ -289,12 +289,12 @@ sv:
         language: Språk
         url: URL
         empty: "Du har inga ytterligare menylänkar"
-        max_number_of_links: ~
-        all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links: "Max antal länkar som visas I menyn: %{select_max_number}"
+        all: Alla
+        max_number_of_links_info: "Link till %{about_page} visas alltid först i menyn"
+        about_page: "\"om\" sidan"
       topbar:
-        topbar: ~
+        topbar: Menyn
         new_listing_button_label: ~
         invalid_post_listing_button_label: ~
       transactions:
@@ -393,8 +393,8 @@ sv:
       users_and_transactions: "Användare & transaktioner"
       configure: Konfiguration
       emails_title: E-post
-      subscription: ~
-      preview: ~
+      subscription: Prenumeration
+      preview: "Förhandsvisa sida"
     listing_shapes:
       availability_title: ~
       read_more: ~
@@ -490,7 +490,7 @@ sv:
     paypal_accounts:
       marketplace_paypal_integration: Betalningsegenskaper
       preferences_updated: "Betalningsinställningarna uppdaterade"
-      contact_support_link_text: ~
+      contact_support_link_text: "Kontakta support"
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
       link_paypal_personal_account_label: "Säljer du produkter eller tjänster?"
       link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
@@ -751,10 +751,10 @@ sv:
       log_out: "logga ut"
       join_community_button: "Gå med %{service_name}"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "Inbjudningskoden är inte giltig eller har redan använts."
+      email_not_allowed: "Denna epost är inte tillåten i %{service_name}."
+      email_not_available: "E-postadressen du angivit är redan i användning."
+      consent_not_given: "Villkoren godkändes inte."
   emails:
     accept_reminder:
       remember_to_accept_offer: "Kom ihåg att anta eller avslå ett erbjudande från %{sender_name}"
@@ -765,9 +765,9 @@ sv:
       you_have_not_yet_accepted_or_rejected_request: "Du har inte antagit eller avslagit förfrågan om '%{title}' som du tog emot den %{date}."
       show_thread: "Visa konversation"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
+      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      learn_more: "Lär dig mera"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
       remember_to_confirm_request: "Kom ihåg att godkänna eller avbryta din förfrågan"
@@ -922,16 +922,16 @@ sv:
       you_are_receiving_this_because: "Du har fått ett meddelande eftersom du följer %{author_name}."
       view_listing: "Visa annons"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
-      person_name: ~
-      person_email: ~
+      new_member_has_joined: "En ny användare har gått med i %{community}. De måste kanske ännu bekräfta sin e-postadress."
+      this_is_automatic_message: "Detta är ett automatisk meddelande skickat åt administratörerna av %{community}."
+      person_name: "Namn:"
+      person_email: "E-post:"
   error_messages:
     booking:
       booking_failed_payment_voided: ~
       double_booking_payment_voided: ~
     onboarding:
-      server_rendering: ~
+      server_rendering: "Kom igång guiden kunde inte laddas. Vi har blivit informerade om situationen och arbetar med att åtgärda det."
     listings:
       departure_time: "Avgångstid måste vara mellan nuvarande tid och ett år från nu."
       share_type: "Du måste välja en:"
@@ -1151,17 +1151,17 @@ sv:
     hero:
       search: Sök
       signup: "Gå med"
-      search_placeholder: ~
+      search_placeholder: "Vad letar du efter?"
       search_location_placeholder: Plats
     listings:
-      no_listing_image: ~
+      no_listing_image: "Ingen bild"
   layouts:
     admin:
       admin: "%{service_name} admin panel"
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
+      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      learn_more: "Lär dig mera"
     no_tribe:
       inbox: Inkorg
       settings: Inställningar
@@ -1170,7 +1170,7 @@ sv:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
       feedback: "Ditt meddelande till %{service_name} -teamet"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Vi lade märke till att du är en admin för %{service_name}. Detta formulär är till för att dina användare skall kunna kontakta dig. Du kan inte använda detta formulär för att kontakta Sharetribes kundtjänst. Använd chatten i högra hörnet istället."
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
       give_feedback: "Kontakta oss"
@@ -1237,7 +1237,7 @@ sv:
       confirmation_link_is_wrong_or_used: "Bekräftelselänken har redan används eller är trasig. Försök logga in eller skicka oss feedback om problemet kvarstår."
       additional_email_confirmed: "E-postadressen du skrev in är nu bekräftad."
       could_not_get_email_from_facebook: "Kunde inte hitta någon e-postadress från Facebook. Det går inte att skapa ett konto utan e-postadress."
-      facebook_email_unconfirmed: ~
+      facebook_email_unconfirmed: "E-postadressen %{email} som är kopplat till ditt Facebook konto används redan men har inte blivit bekräftad. Vänligen bekräfta e-postadressen innan du loggar in via Facebook."
       create_new_listing: "Skapa en ny annons"
       create_one_here: "skapa ett här"
       email_confirmation_sent_to_new_address: "E-postbekräftelse har nu skickats till den nya adressen."
@@ -1338,8 +1338,12 @@ sv:
       user_does_not_have_email_to_delete: "Du har inte e-postadressen som du försöker ta bort"
       email_deleted: "E-post borttaget"
       listing_author_payment_details_missing: "Vänligen kontakta ägaren genom att klicka på \"Kontakt\" nedan. De måste uppdatera sina betalningsdetaljer för att kunna ta emot betalning."
-      images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      images_are_processing: "Vi prossesserar dina bilder. Ge oss en minut eller två och de kommer vara synliga."
+      maintenance_mode:
+        zero: "Hemsidan kommer nu gå offline för underhåll"
+        one: "Hemsidan kommer gå offline for underhåll om %{count} minut"
+        other: "Hemsidan kommer gå offline for underhåll om %{count} minuter"
+      automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
     settings:
       account: Konto
       notifications: Aviseringar
@@ -2089,19 +2093,19 @@ sv:
       page_of_pages: ~
     topbar:
       menu: Meny
-      more: ~
+      more: Mera
       search_placeholder: Sök...
       search_location_placeholder: Plats
-      user: ~
+      user: Användare
       inbox: Inkorg
       profile: Profil
-      manage_listings: ~
+      manage_listings: "Hantera annonser"
       settings: Inställningar
       logout: "Logga ut"
       login: "Logga in"
       signup: "Gå med"
-      admin_dashboard: ~
-      language: ~
+      admin_dashboard: "Admin panel"
+      language: Språk
     utils:
       km: ~
       mi: ~

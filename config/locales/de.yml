@@ -162,7 +162,7 @@ de:
         resend_link: "Erneut senden"
         invalid_email_error: "Ungültiges Email Format für '%{email}'"
         invalid_email_domain: "Die \"%{email}\" Email Adresse nutzt einen nicht unterstützten Email Provider: \"%{domain}\". %{invalid_email_domain_read_more_link}"
-        invalid_email_domain_read_more_link: "Lies den Artikel in der Wissensdatenbank für mehr Informationen."
+        invalid_email_domain_read_more_link: "Lies den Artikel im Help Center für mehr Informationen."
         unknown_error: "Da ist etwas schief gelaufen"
         white_label_offer: "Lege Deine eigene E-Mail-Adresse als Absender fest und entferne das Sharetribe Branding von ausgehenden E-Mail-Nachrichten durch %{upgrade_pro_plan_link}."
         upgrade_plan_link: "Upgrade auf unseren Pro Plan oder höher"
@@ -1168,7 +1168,7 @@ de:
       join_this_community: "Marktplatz beitreten"
       read_more: "Mehr lesen"
       feedback: "Deine Nachricht an das Team von %{service_name}"
-      dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Das kannst du auf deinem Admin Panel tun, indem du auf \"Support\" klickst."
+      dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Stattdessen kannst du den Support-Widget in der unterer rechten Ecke verwenden, um Sharetribe zu kontaktieren."
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
       give_feedback: "Kontaktiere uns"
