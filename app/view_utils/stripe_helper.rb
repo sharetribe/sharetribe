@@ -5,6 +5,7 @@ module StripeHelper
   module_function
 
   def community_ready_for_payments?(community_id)
+    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
     stripe_active?(community_id) &&
       Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .map {|res| res[:success] ? res[:data] : nil}
@@ -14,6 +15,7 @@ module StripeHelper
   end
 
   def stripe_active?(community_id)
+    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
     active_settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
@@ -23,6 +25,7 @@ module StripeHelper
   end
 
   def stripe_provisioned?(community_id)
+    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
     settings = Maybe(TxApi.settings.get(
                       community_id: community_id,
                       payment_gateway: :stripe,
@@ -40,39 +43,13 @@ module StripeHelper
 
   def user_stripe_active?(community_id, person_id)
     account = StripeService::API::Api.accounts.get(community_id: community_id, person_id: person_id).data
-    user = Person.find(person_id)
-    account && account[:stripe_seller_id].present? && (account[:stripe_bank_id].present? || account[:account_type] == 'connect') && !user.preferences[:no_stripe]
+    account && account[:stripe_seller_id].present? && account[:stripe_bank_id].present? 
   end
 
   def publishable_key(community_id)
     return nil unless StripeHelper.stripe_active?(community_id)
     payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :stripe).maybe.get
     payment_settings[:api_publishable_key]
-  end
-
-  def estimate_stripe_fee(community_id, goal_total, author_id, starter_id)
-    return nil unless StripeHelper.stripe_active?(community_id)
-
-    platform_country = StripeService::API::Api.wrapper.platform_country(community_id)
-
-    case StripeService::API::Api.wrapper.destination(community_id)
-    when :platform
-      target_country = platform_country
-    when :seller
-      seller_account = StripeService::API::Api.accounts.get(community_id: community_id, person_id: starter_id).data
-      target_country = seller_account && seller_account[:address_country] || platform_country
-    end
-
-    payer_account = StripeService::API::Api.accounts.get(community_id: community_id, person_id: starter_id).data
-    source_country =  payer_account && payer_account[:stripe_source_country].present? ? payer_account[:stripe_source_country] : target_country
-
-    case StripeService::API::Api.wrapper.fee_mode(community_id)
-    when :put_on_buyer
-      new_total = StripeService::API::FeeCalculator.total_with_fee goal_total, target_country, source_country
-    when :put_on_seller
-      new_total = goal_total
-    end
-    new_total - goal_total
   end
 
   # Check if the user has open listings in the community but has not

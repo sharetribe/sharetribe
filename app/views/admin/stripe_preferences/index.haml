@@ -23,7 +23,6 @@
         .col-6
           = t(".private_key")
           %strong= @payment_settings[:api_visible_private_key]
-      = render partial: 'stripe_accounts/balance', locals: {stripe_balance: stripe_balance}
 
     - else
       =t(".info").html_safe

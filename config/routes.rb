@@ -106,7 +106,6 @@ Rails.application.routes.draw do
 
   devise_for :people, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "sessions" }
 
-  get '/stripe_connect' => 'stripe_accounts#connect', as: :person_stripe_connect
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
 
@@ -446,7 +445,6 @@ Rails.application.routes.draw do
         resource :stripe_account, only: [:show, :update, :create] do
           member do
             put :send_verification
-            post :add_card
           end
         end
 
@@ -456,7 +454,6 @@ Rails.application.routes.draw do
             get :account
             get :notifications
             get :unsubscribe
-            post :toggle_payment
           end
         end
         resources :testimonials

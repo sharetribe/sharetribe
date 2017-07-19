@@ -70,7 +70,6 @@ class Admin::StripePreferencesController < Admin::AdminBaseController
 
 
     view_locals = {
-      stripe_balance: stripe_api.check_balance(@current_community.id),
       stripe_prefs_form: stripe_prefs_form,
       min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
       max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
@@ -119,8 +118,7 @@ class Admin::StripePreferencesController < Admin::AdminBaseController
         flash[:show_onboarding_popup] = true
       end
       if stripe_prefs_form.api_private_key.present? && stripe_api.check_balance(@current_community.id)
-        platform_country = stripe_api.platform_country(@current_community.id)
-        tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize, country: platform_country)
+        tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
       end
 
       flash[:notice] = t("admin.stripe_preferences.update.updated")

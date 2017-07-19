@@ -75,7 +75,6 @@ class PreauthorizeTransactionsController < ApplicationController
 
   class OrderTotal
     attr_reader :item_total, :shipping_total
-    attr_accessor :gateway_fee
 
     def initialize(item_total:, shipping_total:)
       @item_total = item_total
@@ -83,7 +82,7 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     def total
-      item_total.total + shipping_total.total + (gateway_fee.present? ? gateway_fee : 0)
+      item_total.total + shipping_total.total
     end
   end
 
@@ -247,8 +246,6 @@ class PreauthorizeTransactionsController < ApplicationController
         item_total: item_total,
         shipping_total: shipping_total
       )
-      stripe_fee = StripeHelper.estimate_stripe_fee(@current_community.id, order_total.total, listing_entity[:author_id], @current_user.id)
-      order_total.gateway_fee = stripe_fee
 
       Analytics.record_event(
         flash.now,
@@ -278,7 +275,6 @@ class PreauthorizeTransactionsController < ApplicationController
                stripe_customer: stripe_customer_account,
                stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
                stripe_shipping_required: listing.require_shipping_address,
-               stripe_hide_stored_cards: APP_CONFIG.stripe_hide_stored_cards,
 
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),

@@ -443,10 +443,6 @@ default: &default_settings
   # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
   stripe_charge_destination: :platform
   
-  # :put_on_buyer  - add estimated fee to total price, so instead of $100.00 user pays $103.30 and seller receives plain $100 minus marketplace commission
-  # :put_on_seller - fee is charged from charge reciepint (seller or platform), so user pays $100.00 and seller receives $96.80 minus marketplace commission
-  stripe_fee_mode: :put_on_seller
-
   # Disable displaying stored cards for customer
   stripe_hide_stored_cards: true
 

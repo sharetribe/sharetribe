@@ -199,24 +199,11 @@ class StripeService::API::StripeApiWrapper
       return nil
     end
 
-    def platform_country(community)
-      with_stripe_payment_config(community) do |payment_settings|
-        payment_settings[:api_country] || Stripe::Account.retrieve.country
-      end
-    end
-
     DESTINATION_TYPES = [:platform, :seller]
     # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
     # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
     def destination(community)
       APP_CONFIG.stripe_charge_destination.to_sym
-    end
-
-    STRIPE_FEE_MODES = [:put_on_buyer, :put_on_seller]
-    # :put_on_buyer  - add estimated fee to total price, so instead of $100.00 user pays $103.30 and seller receives plain $100 minus marketplace commission
-    # :put_on_seller - fee is charged from charge reciepint (seller or platform), so user pays $100.00 and seller receives $96.80 minus marketplace commission
-    def fee_mode(community)
-      APP_CONFIG.stripe_fee_mode.to_sym
     end
 
     def send_verification(community, account_id, personal_id_number, file_path)
@@ -268,40 +255,5 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def with_stripe_oauth_config(community, &block)
-      with_stripe_payment_config(community) do |payment_settings|
-        options = {
-          site: 'https://connect.stripe.com',
-          authorize_url: '/oauth/authorize',
-          token_url: '/oauth/token'
-        }
-        client_id = payment_settings[:api_client_id]
-        api_key = Stripe.api_key
-        yield OAuth2::Client.new(client_id, api_key, options)      
-      end
-    end
-
-    def stripe_connect_url(community, redirect_uri)
-      with_stripe_oauth_config(community) do |oauth_client|
-        oauth_client.auth_code.authorize_url(scope: 'read_write', redirect_uri: redirect_uri)
-      end
-    end
-
-    def connect_account_callback(community, auth_code)
-      with_stripe_oauth_config(community) do |oauth_client|
-        oauth_client.auth_code.get_token(auth_code, :params => {:scope => 'read_write'})
-      end
-    end
-
-    def update_address(community, account_id, address)
-      with_stripe_payment_config(community) do |payment_settings|
-        account = Stripe::Account.retrieve(account_id)
-        account.legal_entity.address.city = address[:address_city]
-        account.legal_entity.address.state = address[:address_state]
-        account.legal_entity.address.postal_code = address[:address_postal_code]
-        account.legal_entity.address.line1 = address[:address_line1]
-        account.save
-      end
-    end
   end
 end

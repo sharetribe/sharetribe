@@ -100,35 +100,6 @@ class StripeAccountsController < ApplicationController
     redirect_to action: :show
   end
 
-  def add_card
-    payments_api.create_or_update_payer(@current_community.id, @current_user.id, {stripe_token: params[:stripe_token], stripe_email: @current_user.primary_email.address})
-    redirect_to action: :show
-  end
-
-  def connect
-    if params[:error].present? 
-      flash[:error] = params[:error_description]
-    else
-      token = stripe_api.connect_account_callback(@current_community.id, params[:code])
-      connect_attrs = {
-        access_token:     token.token,
-        refresh_token:    token.refresh_token,
-        stripe_seller_id: token.params['stripe_user_id']
-      }
-      result = accounts_api.create_connected(community_id: @current_community.id, person_id: @current_user.id, body: connect_attrs)
-      if result[:success]
-        redirect_to person_stripe_account_path(@current_user)
-        return
-      else
-        flash[:error] = result[:error_msg]
-      end
-    end
-    redirect_to person_stripe_account_path(@current_user)
-  rescue => e
-    flash[:error] = e.message
-    redirect_to person_stripe_account_path(@current_user)
-  end
-
   private
 
   STRIPE_COUNTRIES = StripeService::Store::StripeAccount::COUNTRIES
@@ -192,13 +163,11 @@ class StripeAccountsController < ApplicationController
 
     if m_account && m_account[:stripe_seller_id].present?
       seller_account = stripe_api.get_seller_account(@current_community.id, m_account[:stripe_seller_id])
-      stripe_balance = stripe_api.get_account_balance(@current_community.id, m_account[:stripe_seller_id])
     end
 
     if m_account && m_account[:stripe_customer_id].present?
       customer_account = stripe_api.get_customer_account(@current_community.id, m_account[:stripe_customer_id])
     end
-
 
     {
       community_ready_for_payments: community_ready_for_payments,
@@ -214,11 +183,6 @@ class StripeAccountsController < ApplicationController
       publishable_key: payment_settings[:api_publishable_key],
       customer_account: customer_account,
       seller_account: seller_account,
-      stripe_balance: stripe_balance,
-      hide_stored_cards: APP_CONFIG.stripe_hide_stored_cards,
-      client_id: payment_settings[:api_client_id],
-      use_stripe_connect: APP_CONFIG.stripe_accounts_mode == :connect,
-      stripe_connect_url: stripe_connect_url
     }
   end
 
@@ -256,11 +220,4 @@ class StripeAccountsController < ApplicationController
   def payments_api
     StripeService::API::Api.payments
   end
-
-  def stripe_connect_url
-    if APP_CONFIG.stripe_accounts_mode == :connect
-      stripe_api.stripe_connect_url(@current_community.id, person_stripe_connect_url(locale: nil))
-    end
-  end
-
 end

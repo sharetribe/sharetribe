@@ -21,8 +21,7 @@
         receive_funds_info_tr_key: receive_funds_info_tr_key,
         commission_required: commission_type != :none }
 
-    = render partial: 'no_paypal_toggle'
-    - if next_action == :ask_order_permission && !@current_user.preferences[:no_paypal]
+    - if next_action == :ask_order_permission
       - content_for :javascript do
         ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
 
@@ -49,7 +48,7 @@
                 .paypal-redirect-message
 
                   = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
-    - elsif next_action == :ask_billing_agreement  && !@current_user.preferences[:no_paypal]
+    - elsif next_action == :ask_billing_agreement
       - content_for :javascript do
         ST.initializeNewPaypalAccountHandler("ask_billing_agreement", "#{billing_agreement_action}", ".js-paypal-redirect-billing-agreement");
         ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-change-account");
@@ -106,7 +105,7 @@
             - content_for :extra_javascript do
               :javascript
                 $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
-    - elsif !@current_user.preferences[:no_paypal]
+    - else
  
       - content_for :javascript do
         ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-change-account");

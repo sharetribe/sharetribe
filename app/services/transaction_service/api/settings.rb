@@ -44,12 +44,11 @@ module TransactionService::API
                            payment_process: payment_process))
     end
 
-    def api_verified(community_id:, payment_gateway:, payment_process:, country:)
+    def api_verified(community_id:, payment_gateway:, payment_process:)
       Result::Success.new(PaymentSettingsStore.api_verified(
                            community_id: community_id,
                            payment_gateway: payment_gateway,
-                           payment_process: payment_process,
-                           country: country))
+                           payment_process: payment_process))
     end
 
 

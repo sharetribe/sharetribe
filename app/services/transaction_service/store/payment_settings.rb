@@ -90,10 +90,10 @@ module TransactionService::Store::PaymentSettings
     from_model(model)
   end
 
-  def api_verified(community_id:, payment_gateway:, payment_process:, country:)
+  def api_verified(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(api_verified: true, api_country: country)
+    model.update_attributes!(api_verified: true)
     from_model(model)
   end
 

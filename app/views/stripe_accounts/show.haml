@@ -5,16 +5,8 @@
 
 .left-navi-section.settings-section.payment-settings
 
-  - if community_ready_for_payments && !use_stripe_connect
+  - if community_ready_for_payments
     - if m_account.present?
-      - if !hide_stored_cards
-        .row.paypal-wizard
-          .col-12
-            .paypal-wizard-content
-              %h3.paypal-wizard-step
-                = t("stripe_accounts.online_payments")
-
-              = render partial: 'form_cards', locals: {customer_account: customer_account, publishable_key: publishable_key}
 
       %h2= t("stripe_accounts.payout_info_title")
       
@@ -23,10 +15,6 @@
       - if seller_account
         .row
           = t(".account_id", stripe_id: m_account[:stripe_seller_id]).html_safe
-          - if !seller_account.managed || seller_account.verification.fields_needed.empty?
-            %span.icon-ok-circle.color-green
-            %span.color-green= t(".verified")
-            = render partial: 'stripe_accounts/balance', locals: {stripe_balance: stripe_balance}
       
         .row.paypal-wizard
           .col-12
@@ -51,32 +39,6 @@
               = render partial: 'form_verification', locals: {account: m_account, seller_account: seller_account}
 
       - else
-        = render partial: 'no_stripe_toggle'
-        - if !@current_user.preferences[:no_stripe]
-          .row.paypal-wizard
-            .col-12
-              .paypal-wizard-content
-                %h3.paypal-wizard-step
-                  = t("stripe_accounts.step_1_your_info")
-
-                = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: false}
-
-    - else
-      - if !hide_stored_cards
-        .row.paypal-wizard
-          .col-12
-            .paypal-wizard-content
-              %h3.paypal-wizard-step
-                = t("stripe_accounts.online_payments")
-
-              = render partial: 'form_cards', locals: {customer_account: customer_account, publishable_key: publishable_key}
-
-      %h2= t("stripe_accounts.payout_info_title")
-        
-      %p= t(".managed_account")
-
-      = render partial: 'no_stripe_toggle'
-      - if !@current_user.preferences[:no_stripe]
         .row.paypal-wizard
           .col-12
             .paypal-wizard-content
@@ -84,21 +46,20 @@
                 = t("stripe_accounts.step_1_your_info")
 
               = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: false}
-    
-  - elsif community_ready_for_payments && use_stripe_connect
-    %h2= t("stripe_accounts.payout_info_title")
-      
-    %p= t(".connect_account")
-    - if m_account.present? && m_account[:stripe_seller_id].present? && m_account[:account_type] == 'connect'
-      %p
-        %span.icon-ok-circle.color-green
-        %span.color-green= t(".connected")
 
     - else
-      = link_to stripe_connect_url, class: 'stripe-connect' do
-        %span
-          = t("stripe_accounts.connect_with_stripe")
+      %h2= t("stripe_accounts.payout_info_title")
+        
+      %p= t(".managed_account")
 
+      .row.paypal-wizard
+        .col-12
+          .paypal-wizard-content
+            %h3.paypal-wizard-step
+              = t("stripe_accounts.step_1_your_info")
+
+            = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: false}
+    
   - else
     = t("stripe_accounts.admin_account_not_connected",
         contact_admin_link: link_to(t("stripe_accounts.contact_admin_link_text"),

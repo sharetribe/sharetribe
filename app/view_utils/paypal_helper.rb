@@ -34,8 +34,7 @@ module PaypalHelper
       payment_process: :preauthorize)
       .maybe
 
-    user = Person.find(person_id)
-    account_prepared?(community_id: community_id, person_id: person_id, settings: payment_settings) && !user.preferences[:no_paypal]
+    account_prepared?(community_id: community_id, person_id: person_id, settings: payment_settings)
   end
 
   def account_prepared_for_community?(community_id)

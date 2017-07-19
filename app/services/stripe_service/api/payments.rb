@@ -19,17 +19,16 @@ module StripeService::API
         case stripe_api.destination(tx[:community_id])
         when :platform
           source_id  = payer_account[:stripe_customer_id]
-          target_country = stripe_api.platform_country(tx[:community_id])
         when :seller
           source_id  = stripe_api.create_token(tx[:community_id], customer_id, seller_id).id
-          target_country = seller_account[:address_country]
         end
 
-        subtotal   = order_initial_total(tx)
-        total      = order_total(tx, payer_account[:stripe_source_country], target_country)
+        subtotal   = order_total(tx)
+        total      = subtotal
         commission = order_commission(tx)
-        fee        = order_fee(tx, payer_account[:stripe_source_country], target_country)
+        fee        = Money.new(0, subtotal.currency)
 
+        # FIXME-SS add service_name to description
         stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, "PURCHASE #{tx[:id]}")
 
         payment = PaymentStore.create(tx[:community_id], tx[:id], {
@@ -84,11 +83,9 @@ module StripeService::API
       def payment_details(tx)
         payment = PaymentStore.get(tx[:community_id], tx[:transaction_id] || tx[:id])
         unless payment
-          target_country = stripe_api.platform_country(tx[:community_id])
-
-          total      = order_total(tx, target_country, target_country)
+          total      = order_total(tx)
           commission = order_commission(tx)
-          fee        = order_fee(tx, target_country, target_country)
+          fee        = Money.new(0, total.currency)
           payment = {
             sum: total,
             commission: commission,
@@ -112,15 +109,11 @@ module StripeService::API
 
         case stripe_api.destination(tx[:community_id])
         when :platform
-          # we decrease seller payment by stripe fee unless we included it on top of total price for customer
-          if stripe_api.fee_mode(tx[:community_id]) == :put_on_seller
-            seller_gets -= payment[:real_fee] || 0
-          end
+          seller_gets -= payment[:real_fee] || 0
           if seller_gets > 0
             result = stripe_api.perform_transfer(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency, payment[:subtotal].cents, payment[:stripe_charge_id])
           end
         when :seller
-          # charge was direct to seller so stripe fee was already included
           if seller_gets > 0
             result = stripe_api.perform_payout(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency)
           end
@@ -165,30 +158,15 @@ module StripeService::API
         payer_account
       end
 
-      def order_initial_total(tx)
+      def order_total(tx)
         shipping_total = Maybe(tx[:shipping_price]).or_else(0)
         tx[:unit_price] * tx[:listing_quantity] + shipping_total
-      end
-
-      # Calculate Stripe fee for charge and add to initial
-      def order_total(tx, customer_country, seller_country)
-        goal_total = order_initial_total(tx)
-
-        case stripe_api.fee_mode(tx[:community_id])
-        when :put_on_buyer
-          StripeService::API::FeeCalculator.total_with_fee(goal_total, seller_country, customer_country)
-        when :put_on_seller
-          goal_total
-        end
       end
 
       def order_commission(tx)
         TransactionService::Transaction.calculate_commission(tx[:unit_price] * tx[:listing_quantity], tx[:commission_from_seller], tx[:minimum_commission])
       end
 
-      def order_fee(tx, customer_country, seller_country)
-        order_total(tx, customer_country, seller_country) - order_initial_total(tx)
-      end
     end
   end
 end

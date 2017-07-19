@@ -50,8 +50,11 @@
         = hidden_field_tag :delivery, delivery_method
       
       = hidden_field_tag :payment_type
-      
-      - if paypal_in_use
+
+      - if stripe_in_use
+        = render :partial => "listing_conversations/stripe_payment", locals: { stripe_customer: stripe_customer, publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required}
+     
+      - if paypal_in_use && !stripe_in_use
         .row
           .col-12.payment-button-wrapper
             = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
@@ -60,18 +63,16 @@
           .col-12
             = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: country_code }
 
+      - if paypal_in_use  && stripe_in_use
+        .row
+          .col-12.payment-button-wrapper
+            = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
+
+      - if stripe_in_use || paypal_in_use
         .row
           .col-12
             %p
               = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: paypal_expiration_period).html_safe
-      
-      - if stripe_in_use
-        = render :partial => "listing_conversations/stripe_payment", locals: { stripe_fee: price_break_down_locals[:stripe_fee], stripe_customer: stripe_customer, publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required, stripe_hide_stored_cards: stripe_hide_stored_cards}
-
-        .row
-          .col-12
-            %p
-              = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: stripe_expiration_period).html_safe
 
   %noscript
     = "For security reasons JavaScript has to be enabled"
