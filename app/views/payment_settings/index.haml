@@ -1,0 +1,24 @@
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.settings")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
+
+.left-navi-section.settings-section.payment-settings
+  %h2= t("paypal_accounts.payout_info_title")
+
+  - if @paypal_enabled && @stripe_enabled
+    .row
+      .col-12
+        = t("payment_settings.stripe_and_paypal_supported").html_safe
+  
+  - if @stripe_enabled
+    - if @paypal_enabled
+      %h2= t("payment_settings.stripe_title")
+
+    = render partial: "stripe_wizard", locals: local_assigns
+
+  - if @paypal_enabled
+    - if @stripe_enabled
+      %h2= t("payment_settings.paypal_title")
+
+    = render partial: "paypal_wizard", locals: local_assigns

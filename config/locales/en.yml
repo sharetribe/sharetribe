@@ -1441,6 +1441,7 @@ en:
       settings: Settings
       paypal_payments: PayPal Payments
       stripe_payments: Stripe Payments
+      payments: Payment system
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
@@ -2312,3 +2313,9 @@ en:
       credit_or_debit_card: Credit or debit card
       add_card: Add Card
       secure_card: "* Your card information is stored securely in Stripe"
+  payment_settings:
+    stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means yout users will be able to pay payments with either payment method.</p>"
+    stripe_title: Create managed Stripe account
+    paypal_title: Connect your PayPal account
+
+

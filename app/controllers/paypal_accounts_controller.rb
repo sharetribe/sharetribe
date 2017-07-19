@@ -8,46 +8,11 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def index
-    m_account = accounts_api.get(
-      community_id: @current_community.id,
-      person_id: @current_user.id
-    ).maybe
-
-    @selected_left_navi_link = "payments"
-
-    community_ready_for_payments = PaypalHelper.community_ready_for_payments?(@current_community)
-    unless community_ready_for_payments
-      flash.now[:warning] = t("paypal_accounts.admin_account_not_connected",
-                            contact_admin_link: view_context.link_to(
-                              t("paypal_accounts.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe
-    end
-
-    community_currency = @current_community.currency
-    payment_settings = payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal).maybe.get
-    community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
-
-    render(locals: {
-      next_action: next_action(m_account[:state].or_else("")),
-      community_ready_for_payments: community_ready_for_payments,
-      left_hand_navigation_links: settings_links_for(@current_user, @current_community),
-      order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
-      billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
-      paypal_account_email: m_account[:email].or_else(""),
-      commission_from_seller: t("paypal_accounts.commission", commission: payment_settings[:commission_from_seller]),
-      minimum_commission: Money.new(payment_settings[:minimum_transaction_fee_cents], community_currency),
-      commission_type: payment_settings[:commission_type],
-      currency: community_currency,
-      paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
-      create_url: PaypalCountryHelper.create_paypal_account_url(community_country_code),
-      upgrade_url: PaypalCountryHelper.upgrade_paypal_account_url(community_country_code),
-      receive_funds_info_label_tr_key: PaypalCountryHelper.receive_funds_info_label_tr_key(community_country_code),
-      receive_funds_info_tr_key: PaypalCountryHelper.receive_funds_info_tr_key(community_country_code)
-    })
+    redirect_to person_payment_settings_path(@current_user) 
   end
 
   def ask_order_permission
-    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
+    return redirect_to person_payment_settings_path(@current_user) unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
     response = accounts_api.request(
@@ -64,14 +29,14 @@ class PaypalAccountsController < ApplicationController
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :index
+      return redirect_to person_payment_settings_path(@current_user
     else
       render json: {redirect_url: permissions_url}
     end
   end
 
   def ask_billing_agreement
-    return redirect_to action: :index unless PaypalHelper.community_ready_for_payments?(@current_community)
+    return redirect_to person_payment_settings_path(@current_user) unless PaypalHelper.community_ready_for_payments?(@current_community)
 
     account_response = accounts_api.get(
       community_id: @current_community.id,
@@ -97,7 +62,7 @@ class PaypalAccountsController < ApplicationController
 
       if billing_agreement_url.blank?
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to action: :index
+        return redirect_to person_payment_settings_path(@current_user) 
       else
         render json: {redirect_url: billing_agreement_url}
       end
@@ -196,11 +161,7 @@ class PaypalAccountsController < ApplicationController
       end
 
     flash[:error] = error_msg
-    redirect_to action: error_redirect_action
-  end
-
-  def error_redirect_action
-    :index
+    redirect_to person_payment_settings_path(@current_user) 
   end
 
   def payment_gateway_commission(community_id)
