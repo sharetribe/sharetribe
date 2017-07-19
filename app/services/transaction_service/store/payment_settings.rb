@@ -136,12 +136,11 @@ module TransactionService::Store::PaymentSettings
     ).first
   end
 
-  API_KEY_FIELDS = %i(api_client_id api_private_key)
+  API_KEY_FIELDS = %i(api_publishable_key api_private_key)
 
   def encrypt_api_keys(settings)
     unless API_KEY_FIELDS.all?{|key| settings[key].present?}
-      settings.delete(:api_client_id)
-      settings.delete(:api_private_key)
+      API_KEY_FIELDS.each{|key| settings.delete(key) }
       return
     end
     # store visible hint

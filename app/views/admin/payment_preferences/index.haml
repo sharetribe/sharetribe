@@ -10,51 +10,31 @@
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section.payment-settings
-  
-  - if @payment_settings.blank?
-    .col-12
-      .alert-box-warning
-        %p
-          =t(".payments_not_enabled")
-  - else
-    %h1= t(".header")
 
-    .row
-      .col-12
-        =t(".info").html_safe
-    .row
-      .col-12
-        %table
-          %thead
-            %tr
-              %th= t(".active")
-              %th= t(".gateway")
-              %th= t(".process")
-              %th= t(".commission")
-              %th= t(".minimum_price")
-              %th= t(".minimum_fee")
-              %th= t(".api_verified")
-              %th= t(".actions")
-          %tbody
-            - @payment_settings.each do |settings|
-              %tr
-                %td.center
-                  - if settings[:active]
-                    %span.icon-ok-circle.color-green
-                  - else
-                    %span.icon-ban-circle.color-red
-                %td= settings[:payment_gateway]
-                %td= settings[:payment_process]
-                %td= settings[:commission_from_seller]
-                %td= settings[:minimum_price_cents]
-                %td= settings[:minimum_transaction_fee]
-                %td.center
-                  - if settings[:api_verified]
-                    %span.icon-ok-circle.color-green
-                  - else
-                    %span.icon-ban-circle.color-red
-                %td
-                  - if settings[:payment_gateway] == :stripe
-                    = link_to "Edit", admin_stripe_preferences_path
-                  - if settings[:payment_gateway] == :paypal
-                    = link_to "Edit", admin_paypal_preferences_path
+  %h1= t("admin.payment_preferences.title")
+
+  = render partial: 'info_header_text', locals: {display_knowledge_base_articles: display_knowledge_base_articles, stripe_enabled: stripe_enabled, paypal_enabled: paypal_enabled}
+  
+  .row.paypal-wizard
+    .col-12
+      - if stripe_enabled
+        - if !stripe_account[:api_verified]
+          = render partial: 'stripe_form', locals: {stripe_account: stripe_account, stripe_api_form: stripe_api_form}
+          .paypal-wizard-divider
+        - else
+          = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}
+          .paypal-wizard-divider
+
+      - if paypal_enabled
+        - if paypal_account.present?
+          = render partial: 'paypal_connect_own_notice'
+        
+        - if !paypal_account
+          = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
+
+        - else 
+          = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action} 
+
+      - if stripe_account[:api_verified] || paypal_account.present?
+        .paypal-wizard-divider
+        = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email}

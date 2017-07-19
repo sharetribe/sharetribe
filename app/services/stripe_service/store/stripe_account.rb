@@ -4,15 +4,14 @@
 module StripeService::Store::StripeAccount
   StripeAccountModel = ::StripeAccount
 
-  # Stripe is available only in some countries https://stripe.com/global
-  COUNTRIES = ["US", "GB", "AT", "BE", "CA", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE"]
+  # Stripe is available only in some countries https://stripe.com/global, we restrict to US and EU only
+  COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE"]
 
   COUNTRY_NAMES = [
     ["United States", "US"],
     ["United Kingdom", "GB"],
     ["Österreich", "AT"],
     ["België", "BE"],
-    ["Canada", "CA"],
     ["Schweiz", "CH"],
     ["Deutschland", "DE"],
     ["Danmark", "DK"],
@@ -38,7 +37,7 @@ module StripeService::Store::StripeAccount
     [:address_city, :string, :mandatory],
     [:address_line1, :string, :mandatory],
     [:address_postal_code, :string, :mandatory],
-    [:address_state, :string, :mandatory],
+    [:address_state, :string ],
     [:birth_date, :date, :mandatory],
     [:ssn_last_4, :string, :mandatory],
     [:personal_id_number, :string, :optional],

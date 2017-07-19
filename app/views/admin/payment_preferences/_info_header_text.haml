@@ -1,0 +1,30 @@
+- if paypal_enabled && stripe_enabled
+  .row
+    .col-12
+      =t("admin.payment_preferences.integration_info_text_paypal_and_stripe").html_safe
+
+  - if display_knowledge_base_articles
+    .row
+      .col-12
+        = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), "#{knowledge_base_url}/payment-with-paypal-and-stripe/guide-to-getting-started-with-payments"
+
+- elsif paypal_enabled
+  .row
+    .col-12
+      =t("admin.payment_preferences.integration_info_text_paypal_only").html_safe
+
+  - if display_knowledge_base_articles
+    .row
+      .col-12
+        = link_to t("admin.payment_preferences.read_more_about_paypal"), "#{knowledge_base_url}/payment-with-paypal/guide-to-getting-started-with-paypal-payments"
+
+- elsif stripe_enabled
+  .row
+    .col-12
+      =t("admin.payment_preferences.integration_info_text_stripe_only").html_safe
+
+  - if display_knowledge_base_articles
+    .row
+      .col-12
+        = link_to t("admin.payment_preferences.read_more_about_stripe"), "#{knowledge_base_url}/payment-with-stripe/guide-to-getting-started-with-stripe-payments"
+

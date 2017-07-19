@@ -1,0 +1,15 @@
+.paypal-wizard-content
+  .row
+    .col-12
+      %h3.paypal-account-connected
+        =icon_tag("check", ["icon-fix"])
+        =t("admin.payment_preferences.stripe_connected.title")
+  .row
+    .col-12
+      .paypal-connected-email.paypal-account-connected
+        =t("admin.payment_preferences.stripe_connected.private_key", :key => stripe_account[:api_visible_private_key]).html_safe
+  .row
+    .col-12
+      .paypal-connected-email.paypal-account-connected
+        =t("admin.payment_preferences.stripe_connected.publishable_key", :key => stripe_account[:api_publishable_key]).html_safe
+

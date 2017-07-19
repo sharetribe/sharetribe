@@ -167,6 +167,7 @@ Rails.application.routes.draw do
       
       # Payments
       get  "/payment_preferences"                     => "payment_preferences#index"
+      put  "/payment_preferences"                     => "payment_preferences#update"
       # PayPal
       get  "/paypal_preferences"                      => "paypal_preferences#index"
       post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"

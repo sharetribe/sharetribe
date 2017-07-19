@@ -435,7 +435,8 @@ default: &default_settings
 
   # Key pattern to ensure production keys
   stripe_private_key_pattern: "sk_test_.{24}"
-  
+  stripe_publishable_key_pattern: "pk_test_.{24}"
+
   # Stripe allows to hold funds up to 90 days
   stripe_max_booking_date: 90
   

@@ -233,6 +233,7 @@ en:
         last_community_updates: "Please note that after deletion, you and your marketplace users may still receive the last marketplace update emails."
         you_will_be_redirected_to: "After you have deleted your marketplace you will be redirected to %{destination}. You will not be able to access your marketplace anymore."
         delete_this_marketplace: "Delete this marketplace"
+        payment_preferences: "Payment System"
       manage_members:
         manage_members: "Manage users"
         email: Email
@@ -509,6 +510,23 @@ en:
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
     payment_preferences:
+      title: Payment system preferences
+      integration_info_text_paypal_and_stripe: "<p>If you want to allow your users to accept payments, you  need to connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means yout users will be able to accept payments with either payment method.</p> You ca create a new account with either service if you don't have one already. Once you have connected an account, you can choose a minimum transaction size and a possible commission fee.</p> What is a difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offeres one payment method (credit card). Paypal provide two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers</p>"
+      integration_info_text_paypal_only: "The payment system of your marketplace is powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee"
+      integration_info_text_stripe_only: "The payment system of your marketplace is powered by Stripe. To allow your users to pay using your marketplace, you must connect your Stripe API account. Once you have connected your Stripe API account, you can choose a minimum transaction size and a possible commission fee"
+      invalid_api_keys: "Invalid Stripe API keys"
+      missing_api_keys: "Missing Stripe API keys"
+      stripe_verified: "Stripe API access verified"
+      stripe_connected:
+        title: "Stripe - account connected"
+        private_key: "Private API key: <strong>%{key}</strong>"
+        publishable_key: "Publishable API key: <strong>%{key}</strong>"
+      stripe_form:
+        add_your_api_keys: Add your Stripe API keys
+        how_to_get_these: How to get these?
+        private_key: Private API key
+        publishable_key: Publishable API key
+        save_api_keys: Save Stripe API keys
       index:
         title: Payment Settings
         header: Available Payment Settings

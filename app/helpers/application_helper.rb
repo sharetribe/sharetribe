@@ -442,23 +442,13 @@ module ApplicationHelper
       :name => "listing_shapes"
     }
 
-    if PaypalHelper.paypal_active?(@current_community.id)
+    if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
       links << {
         :topic => :configure,
-        :text => t("admin.communities.paypal_account.paypal_admin_account"),
+        :text => t("admin.communities.settings.payment_preferences"),
         :icon_class => icon_class("payments"),
-        :path => admin_paypal_preferences_path(),
-        :name => "paypal_account"
-      }
-    end
-
-    if StripeHelper.stripe_provisioned?(@current_community.id)
-      links << {
-        :topic => :configure,
-        :text => t("admin.communities.stripe_account.stripe_admin_account"),
-        :icon_class => icon_class("payments"),
-        :path => admin_stripe_preferences_path(),
-        :name => "stripe_account"
+        :path => admin_payment_preferences_path(),
+        :name => "payment_preferneces"
       }
     end
 

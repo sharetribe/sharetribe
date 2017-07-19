@@ -136,7 +136,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to action: :index
+      return redirect_to admin_payment_preferences_path
     else
       render json: {redirect_url: permissions_url}
     end
@@ -145,7 +145,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
   def permissions_verified
     unless params[:verification_code].present?
       flash[:error] = t("paypal_accounts.new.permissions_not_granted")
-      return redirect_to action: :index
+      return redirect_to admin_payment_preferences_path
     end
 
     response = accounts_api.create(

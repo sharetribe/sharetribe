@@ -1,0 +1,8 @@
+.paypal-wizard-content
+  .paypal-connect-second-time-note
+    %strong
+      =t("admin.paypal_accounts.link_paypal_personal_account_label")
+    =t("admin.paypal_accounts.link_paypal_personal_account",
+      personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"),
+        paypal_account_settings_payment_path(@current_user.username))).html_safe
+.paypal-wizard-divider

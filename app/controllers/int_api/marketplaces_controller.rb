@@ -32,8 +32,8 @@ class IntApi::MarketplacesController < ApplicationController
 
     if marketplace
       TransactionService::API::Api.settings.provision(
-        community_id: marketplace[:id],
-        payment_gateway: :paypal,
+        community_id: 6,
+        payment_gateway: :stripe,
         payment_process: :preauthorize,
         active: true)
     end

@@ -1,0 +1,33 @@
+= form_for stripe_api_form, url: admin_payment_preferences_path, method: :put do |form|
+  .paypal-wizard-content
+    .row
+      .col-12
+        .row
+          %h3= t(".add_your_api_keys")
+          = link_to t(".how_to_get_these"), "#", class: "right"
+
+        .row
+          .col-4
+            = form.label :api_private_key, t(".private_key")
+          .col-8
+            = form.text_field :api_private_key, class: 'required'
+        .row
+          .col-4
+            = form.label :api_publishable_key, t(".publishable_key")
+          .col-8
+            = form.text_field :api_publishable_key, class: 'required'
+        .row
+          = button_tag t(".save_api_keys")
+- content_for :extra_javascript do
+  :javascript
+    $.validator.addMethod(
+      "regex",
+      function(value, element, regexp) {
+        re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+      },
+      "Please check your input."
+    );
+    $("#new_stripe_api_keys_form").validate();
+    $("#stripe_api_keys_form_api_private_key").rules("add", { regex: "#{APP_CONFIG.stripe_private_key_pattern}" });
+    $("#stripe_api_keys_form_api_publishable_key").rules("add", { regex: "#{APP_CONFIG.stripe_publishable_key_pattern}" });
