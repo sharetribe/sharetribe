@@ -39,16 +39,17 @@
       = text_field_tag 'shipping_address[phone]', '', class: 'required'
 
 - if stripe_customer && stripe_customer[:stripe_source_info].present? && !stripe_hide_stored_cards
-  = image_tag 'stripe_logo.png'
-  = button_tag t("stripe_accounts.pay_with_stripe", card: stripe_customer[:stripe_source_info]), id: "stripe-checkout-button", class: 'checkout-with-stripe-button'
-
+  .row
+    .col-12.payment-button-wrapper
+      = image_tag 'stripe_logo.png'
+      = button_tag t("stripe_accounts.pay_with_stripe", card: stripe_customer[:stripe_source_info]), id: "stripe-checkout-button", class: 'checkout-with-stripe-button'
 
 .form-row
   .row
     .col-12
       #card-element
       #card-errors{role: "alert"}
-    .col-12
+    .col-12.payment-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
 
 

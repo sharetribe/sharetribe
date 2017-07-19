@@ -36,17 +36,17 @@ window.ST.transaction = window.ST.transaction || {};
     spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "paypal-button-loading-img";
     var $spinner = $(spinner);
-    $form.find(".paypal-button-wrapper").append(spinner);
-    $spinner.hide();
+    $form.find(".payment-button-wrapper").append(spinner);
+    $(".paypal-button-loading-img").hide();
 
     return $spinner;
   }
 
   function toggleSpinner($spinner, show) {
     if (show === true) {
-      $spinner.show();
+      $(".paypal-button-loading-img").show();
     } else {
-      $spinner.hide();
+      $(".paypal-button-loading-img").hide();
     }
   }
 

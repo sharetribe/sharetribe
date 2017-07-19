@@ -177,9 +177,14 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def perform_transfer(community, account_id, amount_cents, currency, charge_id)
+    def perform_transfer(community, account_id, amount_cents, amount_currency, initial_amount, charge_id)
       with_stripe_payment_config(community) do |payment_settings|
-        Stripe::Transfer.create({amount: amount_cents, currency: currency, destination: account_id, source_transaction: charge_id})
+        charge = Stripe::Charge.retrieve(charge_id)
+        balance_txn = Stripe::BalanceTransaction.retrieve(charge.balance_transaction)
+        balance_currency = balance_txn.currency.upcase
+        # when platform balance is, say in EUR, but prices are in USD, recalc amount
+        fixed_amount = balance_currency == amount_currency ? amount_cents : (amount_cents * 1.0 / initial_amount * balance_txn.amount).to_i
+        Stripe::Transfer.create({amount: fixed_amount, currency: balance_currency, destination: account_id, source_transaction: charge_id})
       end
     end
 

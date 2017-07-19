@@ -117,11 +117,10 @@ module StripeService::API
             seller_gets -= payment[:real_fee] || 0
           end
           if seller_gets > 0
-            result = stripe_api.perform_transfer(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency, payment[:stripe_charge_id])
+            result = stripe_api.perform_transfer(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency, payment[:subtotal].cents, payment[:stripe_charge_id])
           end
         when :seller
           # charge was direct to seller so stripe fee was already included
-          # FIXME-SS payout schedule - do this only for manual payout
           if seller_gets > 0
             result = stripe_api.perform_payout(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency)
           end
