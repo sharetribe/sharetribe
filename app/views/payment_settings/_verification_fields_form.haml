@@ -1,0 +1,15 @@
+- if seller_needs_verification
+  %h2
+    = t("stripe_accounts.form_verification.need_verification")
+
+  = fields_for :stripe_verification_form do |form|
+    .row
+      .col-4
+        = label_tag :personal_id_number, t("stripe_accounts.form_verification.personal_id_number")
+      .col-8
+        = form.text_field :personal_id_number
+    .row
+      .col-4
+        = label_tag :document, t("stripe_accounts.form_verification.document")
+      .col-8
+        = form.file_field :document

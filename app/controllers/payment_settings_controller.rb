@@ -4,10 +4,12 @@ class PaymentSettingsController < ApplicationController
   end
 
   before_action :ensure_payments_enabled
+  before_action :load_stripe_account
 
   def index
     more_locals = {}
-    
+    @extra_forms ||= {}
+
     if @stripe_enabled
       more_locals.merge!(stripe_index)
     end
@@ -16,7 +18,33 @@ class PaymentSettingsController < ApplicationController
       more_locals.merge!(paypal_index)
     end
 
-    render 'index', locals: build_view_locals.merge(more_locals)
+    render 'index', locals: build_view_locals.merge(more_locals).merge(@extra_forms)
+  end
+
+  def update
+    unless @stripe_enabled
+      redirect_to action: :index
+    end
+
+    @extra_forms = {}
+
+    if params[:stripe_account_form].present?
+      stripe_create_account
+    end
+
+    if params[:stripe_bank_form].present?
+      stripe_update_bank_account
+    end
+
+    if params[:stripe_address_form].present?
+      stripe_update_address
+    end
+
+    if params[:stripe_verification_form].present?
+      stripe_send_verification
+    end
+
+    index
   end
 
   private
@@ -55,6 +83,13 @@ class PaymentSettingsController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
+    if @stripe_account[:seller_id_present]
+      seller_account = stripe_api.get_seller_account(@current_community.id, @stripe_account[:stripe_seller_id])
+      need_verification = seller_account && seller_account.managed && seller_account.verification.fields_needed.present?
+    else
+      need_verification = true
+    end
+
     {
       left_hand_navigation_links: settings_links_for(@current_user, @current_community),
       commission_from_seller: t("stripe_accounts.commission", commission: payment_settings[:commission_from_seller]),
@@ -63,15 +98,19 @@ class PaymentSettingsController < ApplicationController
       currency: community_currency,
       stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,
+      seller_account: seller_account,
+      seller_needs_verification: need_verification
     }
   end
 
   def stripe_index
-    stripe_account = stripe_accounts_api.get(community_id: @current_community.id, person_id: @current_user.id).data || {}
-
     {
-      stripe_account: stripe_account,
+      stripe_account: @stripe_account,
       available_countries: STRIPE_COUNTRIES,
+      stripe_account_form: StripeAccountForm.new(@stripe_account),
+      stripe_address_form: StripeAddressForm.new(@stripe_account),
+      stripe_bank_form: StripeBankForm.new(@stripe_account),
+      stripe_verification_form: StripeVerificationForm.new(@stripe_account),
     }
   end
 
@@ -127,6 +166,123 @@ class PaymentSettingsController < ApplicationController
 
   STRIPE_COUNTRY_NAMES = StripeService::Store::StripeAccount::COUNTRY_NAMES
 
+  def load_stripe_account
+    @stripe_account = stripe_accounts_api.get(community_id: @current_community.id, person_id: @current_user.id).data || {}
+  end
 
+  StripeAccountForm = FormUtils.define_form("StripeAccountForm",
+        :first_name,
+        :last_name,
+        :address_country,
+        :address_city,
+        :address_line1,
+        :address_postal_code,
+        :address_state,
+        :birth_date,
+        :ssn_last_4,
+        ).with_validations do
+    validates_presence_of :first_name, :last_name,
+        :address_country, :address_city, :address_line1, :address_postal_code, :address_state,
+        :birth_date
+    validates_inclusion_of :address_country, in: STRIPE_COUNTRIES
+  end
 
+  def stripe_create_account
+    return if @stripe_account[:stripe_seller_id].present?
+    stripe_account_form = parse_create_params(params[:stripe_account_form])
+    @extra_forms[:stripe_account_form] = stripe_account_form
+    if stripe_account_form.valid?
+      account_attrs = stripe_account_form.to_hash
+      account_attrs[:tos_ip] = request.remote_ip
+      account_attrs[:tos_date] = Time.now
+      result = stripe_accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
+      if result[:success]
+        load_stripe_account
+      else
+        flash[:error] = result[:error_msg]
+      end
+    end
+  end
+
+  def parse_create_params(params)
+    allowed_params = params.permit(*StripeAccountForm.keys)
+    allowed_params[:birth_date] = params[:birth_date].to_date
+    StripeAccountForm.new(allowed_params)
+  end
+
+  StripeBankForm = FormUtils.define_form("StripeBankForm",
+        :bank_country,
+        :bank_currency,
+        :bank_account_holder_name,
+        :bank_account_number,
+        :bank_routing_number
+        ).with_validations do
+    validates_presence_of :bank_country,
+        :bank_currency,
+        :bank_account_holder_name,
+        :bank_account_number
+    validates_inclusion_of :bank_country, in: STRIPE_COUNTRIES
+  end
+
+  def stripe_update_bank_account
+    return false unless @stripe_account[:stripe_seller_id].present?
+
+    bank_params = {
+      bank_country: @stripe_account[:address_country],
+      bank_currency: @current_community.currency,
+      bank_account_holder_name: [@stripe_account[:first_name], @stripe_account[:last_name]].join(" "),
+      bank_account_number: params[:stripe_bank_form][:bank_account_number],
+      bank_routing_number: params[:stripe_bank_form][:bank_routing_number]
+    }
+
+    bank_form = StripeBankForm.new(bank_params)
+    @extra_forms[:stripe_bank_form] = bank_form
+    has_changes = bank_form.bank_account_number != @stripe_account[:bank_account_number] && bank_form.bank_routing_number != @stripe_account[:bank_routing_number]
+
+    if bank_form.valid? && has_changes
+      result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)
+      if result[:success]
+        load_stripe_account
+      else
+        flash[:error] = result[:error_msg]
+      end
+    end
+  end
+
+  StripeAddressForm = FormUtils.define_form("StripeAddressForm",
+        :address_city,
+        :address_line1,
+        :address_postal_code,
+        :address_state).with_validations do
+    validates_presence_of :address_city, :address_line1, :address_postal_code
+  end
+
+  def stripe_update_address
+    return unless @stripe_account[:stripe_seller_id].present?
+
+    address_attrs = params.require(:stripe_address_form).permit(:address_line1, :address_city, :address_state, :address_postal_code)
+    @extra_forms[:stripe_address_form] = StripeAddressForm.new(address_attrs)
+    result = stripe_accounts_api.update_address(community_id: @current_community.id, person_id: @current_user.id, body: address_attrs)
+    if result[:success]
+      load_stripe_account
+    else
+      flash[:error] = result[:error_msg]
+    end
+  end
+
+  StripeVerificationForm = FormUtils.define_form("StripeVerificationForm",
+        :personal_id_number,
+        :document).with_validations do
+          validates_presence_of :personal_id_number, :document
+      end
+
+  def stripe_send_verification
+    return unless @stripe_account[:stripe_seller_id].present?
+
+    form = StripeVerificationForm.new(params.require(:stripe_verification_form).permit(:personal_id_number, :document))
+    if form.valid?
+      stripe_accounts_api.send_verification(community_id: @current_community.id, person_id: @current_user.id, personal_id_number: form.personal_id_number, file: form.document.path)
+      load_stripe_account
+    end
+  end
 end

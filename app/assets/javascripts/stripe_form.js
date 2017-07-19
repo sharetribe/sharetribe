@@ -49,8 +49,8 @@ window.ST = window.ST || {};
     return placeholder.join(", ")
   }
   module.initStripeBankForm = function() {
-    var prefix = "#stripe_bank_account_form";
-    $(prefix+"_bank_country").change(function(){
+    var prefix = "#stripe_bank_form";
+    $("#stripe_account_form_address_country").change(function(){
       var country = $(this).val();
       $(prefix+"_bank_account_number").prop('placeholder', get_placeholder(country, 'account_number'));
       if (!get_placeholder(country, 'account_number')) {
@@ -61,7 +61,7 @@ window.ST = window.ST || {};
       $(prefix+"_bank_routing_number").prop('placeholder', get_placeholder(country, 'routing_number'));
       $(prefix+"_bank_currency").val(DEFAULT_CURRENCIES[country]);
     });
-    $(prefix+"_bank_country").trigger('change');
+    $("#stripe_account_form_address_country").trigger('change');
   }
 })(window.ST);
 

@@ -1,0 +1,11 @@
+= fields_for stripe_bank_form do |form|
+  .row
+    .col-4
+      = form.label :bank_routing_number, t("stripe_accounts.form_bank.bank_routing_number")
+    .col-8
+      = form.text_field :bank_routing_number, class: 'required'
+  .row
+    .col-4
+      = form.label :bank_account_number, t("stripe_accounts.form_bank.bank_account_number")
+    .col-8
+      = form.text_field :bank_account_number, class: 'required'

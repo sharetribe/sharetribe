@@ -2263,13 +2263,14 @@ en:
     pay_with_stripe: "Pay with Stripe using %{card}"
     add_and_pay: "Pay with Stripe"
     missing: "You have open listings but your Stripe account is not set up to receive payments. Add your Stripe account and and bank account %{settings_link}."
-    missing_both: "You have open listings but your Stripe or PayPal account is not set up to receive payments. To configure your Stripe account, visit %{stripe_settings_link}. To connect and configure your PayPal account, visit %{paypal_settings_link}."
+    missing_both: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{stripe_settings_link}"
     step_1_your_info: Step 1. Account Information
     step_2_bank_info: Step 2. Bank Information
     step_3_verification: Step 3. Verification
     online_payments: "Store your card for one-click payments"
     not_now: "I do not want to setup Stripe account now"
     connect_with_stripe: "Connect with Stripe"
+
     show:
       account_id: "Your Stripe ID is <strong>%{stripe_id}</strong>"
       verified: Verified
@@ -2295,12 +2296,15 @@ en:
       tos_link: "By creating Stripe Account, you agree to <a href=\"https://stripe.com/us/connect-account/legal\" target=\"_blank\">Terms of Service</a>"
       create_account: Create Stripe Account
       update_address: Update address
+      save_details: Save Details
+      edit: Edit Details
+
     form_bank:
       bank_info: Bank Account Info for Payouts
       bank_country: Country
       bank_currency: Currency
-      bank_account_number: Account Number
-      bank_routing_number: Routing Number
+      bank_account_number: Bank Account Number
+      bank_routing_number: Bank Routing Number
       bank_account_holder_name: Account Holder Name
       create_bank_account: Add bank account
     form_verification:
@@ -2308,6 +2312,7 @@ en:
       document: Verification Document
       send_verification: Send Verification
       verification: Verification
+      need_verification: Verification Details
     form_cards:
       your_payment_cards: Your payment cards
       credit_or_debit_card: Credit or debit card

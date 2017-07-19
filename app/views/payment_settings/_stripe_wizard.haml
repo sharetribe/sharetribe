@@ -1,1 +1,91 @@
-STRIPE
+- if stripe_account[:stripe_seller_id].present?
+  .row.paypal-wizard
+    .col-12
+      .paypal-wizard-content
+        .row
+          .col-12
+            %h3.paypal-account-connected
+              =icon_tag("check", ["icon-fix"])
+              =t("admin.payment_preferences.stripe_connected.title")
+        .row
+          = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
+        %div.hidden#stripe_forms
+          = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+            .row
+              .col-6
+                = stripe_account[:first_name]
+                = stripe_account[:last_name]
+              .col-6
+                = stripe_account[:address_country]
+                = stripe_account[:birth_date]
+
+            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
+
+            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form}
+
+            = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
+
+            = button_tag t('stripe_accounts.form_new.save_details')
+  - content_for :extra_javascript do
+    :javascript
+      $(function(){ 
+      $("#edit-stripe-info").click(function(){
+        $("#stripe_forms").toggleClass("hidden");
+        return false;
+      });
+      if(#{stripe_account[:stripe_bank_id].blank? || flash[:error].present?}) {
+        $("#stripe_forms").toggleClass("hidden");
+      }})
+- else
+  .row.paypal-wizard
+    .col-12
+      .paypal-wizard-content
+        .row
+          .col-12
+          = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+            = fields_for stripe_account_form do |form|
+              .row
+                .col-2
+                  = form.label :first_name, t("stripe_accounts.form_new.first_name")
+                .col-4
+                  = form.text_field :first_name, class: 'required'
+                .col-2
+                  = form.label :last_name, t("stripe_accounts.form_new.last_name")
+                .col-4
+                  = form.text_field :last_name, class: 'required'
+
+              .row
+                .col-2
+                  = form.label :birth_date, t("stripe_accounts.form_new.birth_date")
+                .col-4
+                  = form.text_field :birth_date, class: 'required'
+
+                .col-2
+                  = form.label :ssn_last_4, t("stripe_accounts.form_new.ssn_last_4")
+                .col-4
+                  = form.text_field :ssn_last_4, class: 'required'
+
+              .row
+                .col-2
+                  = form.label :address_country, t("stripe_accounts.form_new.address_country")
+                .col-4
+                  = form.select :address_country, available_countries
+
+            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
+
+            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form}
+
+            = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
+
+            = t("stripe_accounts.form_new.tos_link").html_safe
+
+            = button_tag t('stripe_accounts.form_new.save_details')
+
+- content_for :extra_javascript do
+  :javascript
+    $(function() {
+      $("#stripe_account_form_birth_date").datepicker();
+      $("#stripe-account-form").validate();
+      window.ST.initStripeBankForm();
+    });
+

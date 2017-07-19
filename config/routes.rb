@@ -141,6 +141,7 @@ Rails.application.routes.draw do
     get "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
     get '/:person_id/settings/payments' => 'payment_settings#index', :as => :person_payment_settings
+    post '/:person_id/settings/payments' => 'payment_settings#update', :as => :update_person_payment_settings
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
     # community membership related actions
