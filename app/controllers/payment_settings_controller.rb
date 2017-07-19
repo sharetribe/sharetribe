@@ -56,7 +56,7 @@ class PaymentSettingsController < ApplicationController
       flash[:warning] = t("stripe_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
                               t("stripe_accounts.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe
+                                new_user_feedback_path)).html_safe # rubocop:disable Rails/OutputSafety
       redirect_to person_settings_path
     end
   end
@@ -193,7 +193,7 @@ class PaymentSettingsController < ApplicationController
     if stripe_account_form.valid?
       account_attrs = stripe_account_form.to_hash
       account_attrs[:tos_ip] = request.remote_ip
-      account_attrs[:tos_date] = Time.now
+      account_attrs[:tos_date] = Time.zone.now
       result = stripe_accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
       if result[:success]
         load_stripe_account

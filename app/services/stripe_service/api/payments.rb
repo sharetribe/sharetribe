@@ -73,7 +73,7 @@ module StripeService::API
                                       data: {
                                         status: 'paid',
                                         real_fee_cents: balance_txn.fee,
-                                        available_on: Time.at(balance_txn.available_on)
+                                        available_on: Time.zone.at(balance_txn.available_on)
                                       })
         Result::Success.new(payment)
       rescue => e
@@ -123,7 +123,7 @@ module StripeService::API
                                       data: {
                                         status: 'transfered',
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
-                                        transfered_at: Time.now
+                                        transfered_at: Time.zone.now
                                       })
         Result::Success.new(payment)
       rescue => e

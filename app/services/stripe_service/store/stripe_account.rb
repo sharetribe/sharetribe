@@ -179,7 +179,7 @@ module StripeService::Store::StripeAccount
       person_id: person_id,
     }
     model = StripeAccountModel.where(find_params).first
-    model.update_attribute(field, value)
+    model.update(field => value)
     from_model(model)
   end
 
