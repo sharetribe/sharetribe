@@ -448,7 +448,7 @@ module ApplicationHelper
         :text => t("admin.communities.settings.payment_preferences"),
         :icon_class => icon_class("payments"),
         :path => admin_payment_preferences_path(),
-        :name => "payment_preferneces"
+        :name => "payment_preferences"
       }
     end
 

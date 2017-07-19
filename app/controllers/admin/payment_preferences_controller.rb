@@ -95,7 +95,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def build_view_locals
-    @selected_left_navi_link = "paypal_account"
+    @selected_left_navi_link = "payment_preferences"
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(
       flash[:show_onboarding_popup],

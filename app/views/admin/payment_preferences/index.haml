@@ -26,15 +26,15 @@
           .paypal-wizard-divider
 
       - if paypal_enabled
-        - if paypal_account.present?
-          = render partial: 'paypal_connect_own_notice'
-        
-        - if !paypal_account
+       
+        - if !paypal_account.present?
           = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
 
         - else 
           = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action} 
 
+          = render partial: 'paypal_connect_own_notice'
+ 
       - if stripe_account[:api_verified] || paypal_account.present?
         .paypal-wizard-divider
         = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email}
