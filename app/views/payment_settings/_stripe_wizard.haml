@@ -19,7 +19,7 @@
                 = stripe_account[:address_country]
                 = stripe_account[:birth_date]
 
-            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
+            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_address_form, available_countries: available_countries}
 
             = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form}
 

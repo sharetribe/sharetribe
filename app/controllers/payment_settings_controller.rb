@@ -83,7 +83,7 @@ class PaymentSettingsController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
-    if @stripe_account[:seller_id_present]
+    if @stripe_account[:stripe_seller_id].present?
       seller_account = stripe_api.get_seller_account(@current_community.id, @stripe_account[:stripe_seller_id])
       need_verification = seller_account && seller_account.managed && seller_account.verification.fields_needed.present?
     else
