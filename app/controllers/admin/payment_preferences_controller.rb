@@ -148,7 +148,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     end
 
   def update_payment_preferences
-    currency = @current_community.currency
+    currency = params[:payment_preferences_form]["marketplace_currency"]
 
     if @paypal_enabled
       minimum_commission = paypal_minimum_commissions_api.get(currency)

@@ -5,7 +5,7 @@ module StripeHelper
   module_function
 
   def community_ready_for_payments?(community_id)
-    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
+    return false unless stripe_feature_enabled?(community_id)
     stripe_active?(community_id) &&
       Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .map {|res| res[:success] ? res[:data] : nil}
@@ -15,7 +15,7 @@ module StripeHelper
   end
 
   def stripe_active?(community_id)
-    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
+    return false unless stripe_feature_enabled?(community_id)
     active_settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
@@ -25,7 +25,7 @@ module StripeHelper
   end
 
   def stripe_provisioned?(community_id)
-    return false unless FeatureFlagHelper.feature_enabled?(:stripe)
+    return false unless stripe_feature_enabled?(community_id)
     settings = Maybe(TxApi.settings.get(
                       community_id: community_id,
                       payment_gateway: :stripe,
@@ -58,5 +58,10 @@ module StripeHelper
     stripe_active?(community_id) &&
       !user_and_community_ready_for_payments?(user_id, community_id) &&
       PaypalHelper.open_listings_with_payment_process?(community_id, user_id)
+  end
+
+  def stripe_feature_enabled?(community_id)
+    features = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
+    features.include?(:stripe)
   end
 end
