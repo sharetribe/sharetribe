@@ -432,14 +432,27 @@ default: &default_settings
   stripe_expiration_period: 7
   # Funds captured from charge are not available immediately, only after 7 days
   stripe_payout_delay: 7.5
+
+  # Key pattern to ensure production keys
   stripe_private_key_pattern: "sk_test_.{24}"
+  
+  # Stripe allows to hold funds up to 90 days
   stripe_max_booking_date: 90
+  
   # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
   # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
   stripe_charge_destination: :platform
+  
   # :put_on_buyer  - add estimated fee to total price, so instead of $100.00 user pays $103.30 and seller receives plain $100 minus marketplace commission
   # :put_on_seller - fee is charged from charge reciepint (seller or platform), so user pays $100.00 and seller receives $96.80 minus marketplace commission
   stripe_fee_mode: :put_on_seller
+
+  # Disable displaying stored cards for customer
+  stripe_hide_stored_cards: true
+
+  # :connect - use only Stripe Connect
+  # :managed - use only Managed 
+  stripe_accounts_mode: :managed
 
 production: &production_settings
   <<: *default_settings

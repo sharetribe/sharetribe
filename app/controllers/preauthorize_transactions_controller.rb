@@ -152,7 +152,7 @@ class PreauthorizeTransactionsController < ApplicationController
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
         elsif start_on == end_on
           Result::Error.new(nil, code: :at_least_one_day_or_night_required, tx_params: tx_params)
-        elsif StripeHelper.stripe_active?(@current_community.id) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
+        elsif StripeHelper.stripe_active?(tx_params[:marketplace_id]) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
           Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
@@ -220,6 +220,7 @@ class PreauthorizeTransactionsController < ApplicationController
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
+      tx_params[:marketplace_id] = @current_community.id
 
       Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid_object,
                                          listing_uuid: listing.uuid_object,
@@ -277,6 +278,7 @@ class PreauthorizeTransactionsController < ApplicationController
                stripe_customer: stripe_customer_account,
                stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
                stripe_shipping_required: listing.require_shipping_address,
+               stripe_hide_stored_cards: APP_CONFIG.stripe_hide_stored_cards,
 
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),

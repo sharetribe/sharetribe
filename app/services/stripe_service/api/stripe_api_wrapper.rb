@@ -262,5 +262,30 @@ class StripeService::API::StripeApiWrapper
         end
       end
     end
+
+    def with_stripe_oauth_config(community, &block)
+      with_stripe_payment_config(community) do |payment_settings|
+        options = {
+          site: 'https://connect.stripe.com',
+          authorize_url: '/oauth/authorize',
+          token_url: '/oauth/token'
+        }
+        client_id = payment_settings[:api_client_id]
+        api_key = Stripe.api_key
+        yield OAuth2::Client.new(client_id, api_key, options)      
+      end
+    end
+
+    def stripe_connect_url(community, redirect_uri)
+      with_stripe_oauth_config(community) do |oauth_client|
+        oauth_client.auth_code.authorize_url(scope: 'read_write', redirect_uri: redirect_uri)
+      end
+    end
+
+    def connect_account_callback(community, auth_code)
+      with_stripe_oauth_config(community) do |oauth_client|
+        oauth_client.auth_code.get_token(auth_code, :params => {:scope => 'read_write'})
+      end
+    end
   end
 end

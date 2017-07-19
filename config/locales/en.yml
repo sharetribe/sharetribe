@@ -2226,7 +2226,7 @@ en:
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
     commission: "%{commission} %"
     pay_with_stripe: "Pay with Stripe using %{card}"
-    add_and_pay: "Add Card and Pay with Stripe"
+    add_and_pay: "Pay with Stripe"
     missing: "You have open listings but your Stripe account is not set up to receive payments. Add your Stripe account and and bank account %{settings_link}."
     missing_both: "You have open listings but your Stripe or PayPal account is not set up to receive payments. To configure your Stripe account, visit %{stripe_settings_link}. To connect and configure your PayPal account, visit %{paypal_settings_link}."
     step_1_your_info: Step 1. Account Information
@@ -2234,10 +2234,13 @@ en:
     step_3_verification: Step 3. Verification
     online_payments: "Store your card for one-click payments"
     not_now: "I do not want to setup Stripe account now"
+    connect_with_stripe: "Connect with Stripe"
     show:
       account_id: "Your Stripe ID is <strong>%{stripe_id}</strong>"
       verified: Verified
       managed_account: "%{service_name} uses Stripe as payment gateway. In order to accept payments online, you must create Managed Stripe account."
+      connect_account: "%{service_name} uses Stripe as payment gateway. In order to accept payments online, you must connect your Stripe account."
+      connected: Stripe Account Connected
     new:
       stripe_not_enabled: "Stripe payments are not enabled."
     form_new:

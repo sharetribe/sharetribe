@@ -94,6 +94,30 @@ class StripeAccountsController < ApplicationController
     redirect_to action: :show
   end
 
+  def connect
+    if params[:error].present? 
+      flash[:error] = params[:error_description]
+    else
+      token = stripe_api.connect_account_callback(@current_community.id, params[:code])
+      connect_attrs = {
+        access_token:     token.token,
+        refresh_token:    token.refresh_token,
+        stripe_seller_id: token.params['stripe_user_id']
+      }
+      result = accounts_api.create_connected(community_id: @current_community.id, person_id: @current_user.id, body: connect_attrs)
+      if result[:success]
+        redirect_to person_stripe_account_path(@current_user)
+        return
+      else
+        flash[:error] = result[:error_msg]
+      end
+    end
+    redirect_to person_stripe_account_path(@current_user)
+  rescue => e
+    flash[:error] = e.message
+    redirect_to person_stripe_account_path(@current_user)
+  end
+
   private
 
   STRIPE_COUNTRIES = StripeService::Store::StripeAccount::COUNTRIES
@@ -172,6 +196,10 @@ class StripeAccountsController < ApplicationController
       customer_account: customer_account,
       seller_account: seller_account,
       stripe_balance: stripe_balance,
+      hide_stored_cards: APP_CONFIG.stripe_hide_stored_cards,
+      client_id: payment_settings[:api_client_id],
+      use_stripe_connect: APP_CONFIG.stripe_accounts_mode == :connect,
+      stripe_connect_url: stripe_connect_url
     }
   end
 
@@ -208,6 +236,12 @@ class StripeAccountsController < ApplicationController
 
   def payments_api
     StripeService::API::Api.payments
+  end
+
+  def stripe_connect_url
+    if APP_CONFIG.stripe_accounts_mode == :connect
+      stripe_api.stripe_connect_url(@current_community.id, person_stripe_connect_url(locale: nil))
+    end
   end
 
 end

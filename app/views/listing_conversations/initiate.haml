@@ -66,7 +66,7 @@
               = t("listing_conversations.preauthorize.you_will_be_charged", author: author_link, expiration_period: paypal_expiration_period).html_safe
       
       - if stripe_in_use
-        = render :partial => "listing_conversations/stripe_payment", locals: { stripe_fee: price_break_down_locals[:stripe_fee], stripe_customer: stripe_customer, publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required}
+        = render :partial => "listing_conversations/stripe_payment", locals: { stripe_fee: price_break_down_locals[:stripe_fee], stripe_customer: stripe_customer, publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required, stripe_hide_stored_cards: stripe_hide_stored_cards}
 
         .row
           .col-12

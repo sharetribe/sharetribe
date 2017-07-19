@@ -69,7 +69,7 @@ module TransactionService::Process
             else
 
               initiate_booking(tx: tx).on_error { |error_msg, data|
-                logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
+                logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
                 void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
 

@@ -36,6 +36,8 @@
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  stripe_source_country    :string(255)
+#  access_token             :string(255)
+#  refresh_token            :string(255)
 #
 # Indexes
 #

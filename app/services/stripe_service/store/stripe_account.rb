@@ -115,10 +115,29 @@ module StripeService::Store::StripeAccount
     [:bank_routing_number, :string]
   )
 
+  StripeConnectedAccount = EntityUtils.define_builder(
+    [:community_id, :mandatory, :fixnum],
+    [:person_id, :mandatory, :string],
+    [:stripe_seller_id, :mandatory, :string],
+    [:access_token, :string],
+    [:refresh_token, :string],
+    [:account_type, :string]
+  )
   module_function
 
   def create(opts:)
     entity = StripeAccountCreate.call(opts)
+    account_model = StripeAccountModel.where(community_id: entity[:community_id], person_id: entity[:person_id]).first
+    if account_model
+      account_model.update_attributes(entity)
+    else
+      account_model = StripeAccountModel.create!(entity)
+    end
+    from_model(account_model)
+  end
+
+  def create_connected(opts:)
+    entity = StripeConnectedAccount.call(opts.merge(account_type: 'connect'))
     account_model = StripeAccountModel.where(community_id: entity[:community_id], person_id: entity[:person_id]).first
     if account_model
       account_model.update_attributes(entity)

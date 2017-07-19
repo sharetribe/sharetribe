@@ -1228,6 +1228,8 @@ CREATE TABLE `stripe_accounts` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `stripe_source_country` varchar(255) DEFAULT NULL,
+  `access_token` varchar(255) DEFAULT NULL,
+  `refresh_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_stripe_accounts_on_person_id` (`person_id`),
   KEY `index_stripe_accounts_on_community_id` (`community_id`)
@@ -2219,6 +2221,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170707053915'),
 ('20170707104010'),
 ('20170707130931'),
-('20170710081759');
+('20170710081759'),
+('20170711064018');
 
 

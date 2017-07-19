@@ -29,6 +29,13 @@ module StripeService::API
       Result::Error.new(e.message)
     end
 
+    def create_connected(community_id:, person_id:, body:)
+      data = body.merge({ community_id: community_id, person_id: person_id})
+      Result::Success.new(accounts_store.create_connected(opts: data))
+    rescue => e
+      Result::Error.new(e.message)
+    end
+
     def update_field(community_id:, person_id:, field:, value:)
       Result::Success.new(accounts_store.update_field(community_id: community_id, person_id: person_id, field: field, value: value))
     rescue => e

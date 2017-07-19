@@ -38,7 +38,7 @@
     .col-8
       = text_field_tag 'shipping_address[phone]', '', class: 'required'
 
-- if stripe_customer && stripe_customer[:stripe_source_info].present?
+- if stripe_customer && stripe_customer[:stripe_source_info].present? && !stripe_hide_stored_cards
   = image_tag 'stripe_logo.png'
   = button_tag t("stripe_accounts.pay_with_stripe", card: stripe_customer[:stripe_source_info]), id: "stripe-checkout-button", class: 'checkout-with-stripe-button'
 
