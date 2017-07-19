@@ -152,6 +152,8 @@ class PreauthorizeTransactionsController < ApplicationController
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
         elsif start_on == end_on
           Result::Error.new(nil, code: :at_least_one_day_or_night_required, tx_params: tx_params)
+        elsif StripeHelper.stripe_active?(@current_community.id) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
+          Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
         end
@@ -312,6 +314,7 @@ class PreauthorizeTransactionsController < ApplicationController
                :end_cant_be_before_start,
                :delivery_method_missing,
                :at_least_one_day_or_night_required,
+               :date_too_late
               ].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
         elsif data[:code] == :dates_not_available

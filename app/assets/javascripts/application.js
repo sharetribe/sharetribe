@@ -90,4 +90,5 @@
 //= require listing_form
 //= require radio_buttons
 //= require new_layout
+//= require stripe_form
 //= require_self

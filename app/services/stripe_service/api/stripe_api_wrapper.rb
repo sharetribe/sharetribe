@@ -204,14 +204,14 @@ class StripeService::API::StripeApiWrapper
     # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
     # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
     def destination(community)
-      :platform
+      APP_CONFIG.stripe_charge_destination.to_sym
     end
 
     STRIPE_FEE_MODES = [:put_on_buyer, :put_on_seller]
     # :put_on_buyer  - add estimated fee to total price, so instead of $100.00 user pays $103.30 and seller receives plain $100 minus marketplace commission
     # :put_on_seller - fee is charged from charge reciepint (seller or platform), so user pays $100.00 and seller receives $96.80 minus marketplace commission
     def fee_mode(community)
-      :put_on_seller
+      APP_CONFIG.stripe_fee_mode.to_sym
     end
 
     def send_verification(community, account_id, personal_id_number, file_path)

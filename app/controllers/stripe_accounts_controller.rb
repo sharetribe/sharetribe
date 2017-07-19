@@ -33,11 +33,15 @@ class StripeAccountsController < ApplicationController
       account_attrs = stripe_account_form.to_hash
       account_attrs[:tos_ip] = request.remote_ip
       account_attrs[:tos_date] = Time.now
-      accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
-      redirect_to action: :show
-    else
-      render('show', locals: build_view_locals(stripe_account_form, m_account))
+      result = accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
+      if result[:success]
+        redirect_to action: :show
+        return
+      else
+        flash[:error] = result[:error_msg]
+      end
     end
+    render('show', locals: build_view_locals(stripe_account_form, m_account))
   end
 
   def update
@@ -57,11 +61,15 @@ class StripeAccountsController < ApplicationController
 
     if stripe_bank_form.valid?
       account_attrs = stripe_bank_form.to_hash
-      accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
-      redirect_to action: :show
-    else
-      render('show', locals: build_view_locals(stripe_account_form, m_account, stripe_bank_form))
+      result = accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
+      if result[:success]
+        redirect_to action: :show
+        return
+      else
+        flash[:error] = result[:error_msg]
+      end
     end
+    render('show', locals: build_view_locals(stripe_account_form, m_account, stripe_bank_form))
   end
 
   def send_verification
