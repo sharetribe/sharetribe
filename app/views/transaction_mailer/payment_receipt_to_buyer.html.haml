@@ -35,12 +35,6 @@
             = t("emails.receipt_to_payer.subtotal") #listing_title
           %td
             = subtotal
-        - if payment_gateway_fee.present? && fee_on_top
-          %tr
-            %td
-              = t("emails.payment_receipt_to_seller.#{gateway}_gateway_fee")
-            %td= "#{payment_gateway_fee}"
-
 
         - if shipping_total.present?
           %tr

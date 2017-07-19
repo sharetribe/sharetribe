@@ -148,8 +148,6 @@ class TransactionMailer < ActionMailer::Base
                    subtotal: MoneyViewUtils.to_humanized(transaction[:item_total]),
                    shipping_total: MoneyViewUtils.to_humanized(transaction[:shipping_price]),
                    payment_total: MoneyViewUtils.to_humanized(transaction[:payment_total]),
-                   payment_gateway_fee: MoneyViewUtils.to_humanized(transaction[:payment_gateway_fee]),
-                   fee_on_top: transaction[:payment_gateway] == :stripe && transaction[:item_total] < transaction[:payment_total],
                    recipient_full_name: seller_model.name(community),
                    recipient_given_name: PersonViewUtils.person_display_name_for_type(seller_model, "first_name_only"),
                    automatic_confirmation_days: nil,
