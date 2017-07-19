@@ -23,7 +23,7 @@
       - if seller_account
         .row
           = t(".account_id", stripe_id: m_account[:stripe_seller_id]).html_safe
-          - if seller_account.verification.fields_needed.empty?
+          - if !seller_account.managed || seller_account.verification.fields_needed.empty?
             %span.icon-ok-circle.color-green
             %span.color-green= t(".verified")
             = render partial: 'stripe_accounts/balance', locals: {stripe_balance: stripe_balance}

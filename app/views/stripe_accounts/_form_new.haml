@@ -1,4 +1,6 @@
 = form_for stripe_account_form, url: person_stripe_account_path(@current_user), method: :post do |form|
+  - if disabled
+    = hidden_field_tag 'update', '1'
   .row
     = form.error_messages
   .row
@@ -30,21 +32,21 @@
     .col-2
       = form.label :address_state, t(".address_state")
     .col-4
-      = form.text_field :address_state, class: 'required', disabled: disabled
+      = form.text_field :address_state, class: 'required'
   .row
     .col-2
       = form.label :address_city, t(".address_city")
     .col-4
-      = form.text_field :address_city, class: 'required', disabled: disabled
+      = form.text_field :address_city, class: 'required'
     .col-2
       = form.label :address_postal_code, t(".address_postal_code")
     .col-4
-      = form.text_field :address_postal_code, class: 'required', disabled: disabled
+      = form.text_field :address_postal_code, class: 'required'
   .row
     .col-2
-      = form.label :address_line1, t(".address_line1"), class: 'required', disabled: disabled
+      = form.label :address_line1, t(".address_line1"), class: 'required'
     .col-10
-      = form.text_field :address_line1, class: 'required', disabled: disabled
+      = form.text_field :address_line1, class: 'required'
   - unless disabled
     .row
       .col-12
@@ -56,6 +58,11 @@
     .row
       .col-12
         = form.button t(".create_account")
+  - else
+    .row
+      .col-12
+        = form.button t(".update_address")
+
 
 - content_for :extra_javascript do
   :javascript

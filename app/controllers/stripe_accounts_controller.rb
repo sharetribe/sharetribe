@@ -23,7 +23,17 @@ class StripeAccountsController < ApplicationController
       person_id: @current_user.id
     ).data
 
-    if m_account.present? && m_account[:stripe_seller_id].present?
+    if m_account.present? && m_account[:stripe_seller_id].present? && params[:update] != '1'
+      redirect_to action: :show
+      return
+    end
+
+    if params[:update] == '1'
+      address_attrs = params.require(:stripe_create_account_form).permit(:address_line1, :address_city, :address_state, :address_postal_code)
+      result = accounts_api.update_address(community_id: @current_community.id, person_id: @current_user.id, body: address_attrs)
+      if !result[:success]
+        flash[:error] = result[:error_msg]
+      end
       redirect_to action: :show
       return
     end
@@ -54,6 +64,7 @@ class StripeAccountsController < ApplicationController
       redirect_to action: :show
       return
     end
+
 
     stripe_account_form = StripeCreateAccountForm.new(m_account || {})
 
@@ -140,6 +151,14 @@ class StripeAccountsController < ApplicationController
         :birth_date, :ssn_last_4
     validates_inclusion_of :address_country, in: STRIPE_COUNTRIES
     validates_confirmation_of :tos
+  end
+
+  StripeAddressForm = FormUtils.define_form("StripeAddressForm",
+        :address_city,
+        :address_line1,
+        :address_postal_code,
+        :address_state).with_validations do
+    validates_presence_of :address_city, :address_line1, :address_postal_code, :address_state
   end
 
   StripeBankAccountForm = FormUtils.define_form("StripeBankAccountForm",

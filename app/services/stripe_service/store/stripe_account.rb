@@ -62,6 +62,13 @@ module StripeService::Store::StripeAccount
     [:personal_id_number, :string]
   )
 
+  StripeAddressUpdate = EntityUtils.define_builder(
+    [:address_city, :string],
+    [:address_line1, :string],
+    [:address_postal_code, :string],
+    [:address_state, :string]
+  )
+
   StripeAccount = EntityUtils.define_builder(
     [:community_id, :fixnum],
     [:person_id, :string],
@@ -162,6 +169,18 @@ module StripeService::Store::StripeAccount
     model.update_attributes(entity)
     from_model(model)
   end
+
+  def update_address(community_id:, person_id:, opts:)
+    find_params = {
+      community_id: community_id,
+      person_id: person_id,
+    }
+    model = StripeAccountModel.where(find_params).first
+    entity = StripeAddressUpdate.call(opts)
+    model.update_attributes(entity)
+    from_model(model)
+  end
+
 
   def update_bank_account(community_id:, person_id:, opts:)
     find_params = {

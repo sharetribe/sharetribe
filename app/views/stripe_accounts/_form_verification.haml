@@ -1,4 +1,4 @@
-- if seller_account.verification.fields_needed.present?
+- if seller_account && seller_account.managed && seller_account.verification.fields_needed.present?
   = form_tag send_verification_person_stripe_account_path(@current_user), method: :put, multipart: true do
     .row
       .col-4
@@ -14,7 +14,7 @@
     .row
       .col-12
         = submit_tag t(".send_verification")
-- elsif seller_account && seller_account.verification.fields_needed.empty?
+- elsif seller_account && (!seller_account.managed || seller_account.verification.fields_needed.empty?)
   %br
   %h2
     %span.icon-ok-circle.color-green
