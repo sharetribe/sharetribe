@@ -2,7 +2,7 @@
 
 = form_for @listing, :html => {:multipart => true} do |form|
   = render :partial => "listings/form/title", :locals => { :form => form }
-  = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => run_js_immediately, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape, unit_options: unit_options, shipping_price_additional: shipping_price_additional, paypal_fees_url: paypal_fees_url, currency_opts: currency_opts }
+  = render :partial => "listings/form/price", :locals => { :form => form, :seller_commission_in_use => seller_commission_in_use, :payment_gateway => payment_gateway, :run_js_immediately => run_js_immediately, :minimum_commission => minimum_commission, commission_from_seller: commission_from_seller, shape: shape, unit_options: unit_options, shipping_price_additional: shipping_price_additional, paypal_fees_url: paypal_fees_url, currency_opts: currency_opts, stripe_fees_url: stripe_fees_url, }
   = render partial: "listings/form/shipping", locals: { form: form, shape: shape, always_show_additional_shipping_price: always_show_additional_shipping_price, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled, shipping_price: shipping_price, shipping_price_additional: shipping_price_additional }
   = render :partial => "listings/form/description", :locals => { :form => form }
   = render :partial => "listings/form/custom_fields", :locals => { :form => form, :listing => @listing, :custom_fields => @custom_field_questions }

@@ -24,9 +24,17 @@
       - paypal_fee_info_link = capture do
         %a.listing-paypal-fee-info-link#paypal_fee_info_link
           = t(".paypal_fee_info_link_text")
+      - stripe_fee_info_link = capture do
+        %a.listing-stripe-fee-info-link#stripe_fee_info_link
+          = t(".stripe_fee_info_link_text")
+      - if !seller_commission_in_use 
+        - if payment_gateway == :paypal
+          = t(".no_service_fee_you_will_get_paypal_text", :paypal_fee_info_link => paypal_fee_info_link).html_safe
+        - elsif payment_gateway == :stripe
+          = t(".no_service_fee_you_will_get_paypal_text", :stripe_fee_info_link => stripe_fee_info_link).html_safe
+        - elsif payment_gateway == [:paypal, :stripe]
+          = t(".no_service_fee_you_will_get_paypal_stripe_text", :paypal_fee_info_link => paypal_fee_info_link, :stripe_fee_info_link => stripe_fee_info_link).html_safe
 
-      - if !seller_commission_in_use && payment_gateway == :paypal
-        = t(".no_service_fee_you_will_get_paypal_text", :paypal_fee_info_link => paypal_fee_info_link).html_safe
       - elsif seller_commission_in_use
         - content_for :seller_commission_js do
           :javascript
@@ -45,12 +53,16 @@
           - content_for :extra_javascript do
             = yield :seller_commission_js
 
-        - if payment_gateway == :paypal
+        - if payment_gateway == :paypal 
           = t(".after_service_fee_you_will_get_paypal_text", :sum_with_currency => '<span id="fee_display"></span>', :paypal_fee_info_link => paypal_fee_info_link).html_safe
+        - elsif payment_gateway == :stripe
+          = t(".after_service_fee_you_will_get_stripe_text", :sum_with_currency => '<span id="fee_display"></span>', :stripe_fee_info_link => stripe_fee_info_link).html_safe
+        - elsif payment_gateway == [:paypal, :stripe]
+          = t(".after_service_fee_you_will_get_paypal_stripe_text", :sum_with_currency => '<span id="fee_display"></span>', :stripe_fee_info_link => stripe_fee_info_link, :paypal_fee_info_link => paypal_fee_info_link).html_safe
         - else
           = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="fee_display"></span>').html_safe
 
-- if payment_gateway == :paypal
+- if payment_gateway == :paypal || payment_gateway == [:paypal, :stripe]
   = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
     %h2= t("common.paypal_fee_info.title")
     - text_with_line_breaks_html_safe do
@@ -67,3 +79,21 @@
     - content_for :extra_javascript do
       :javascript
         $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+
+- if payment_gateway == :stripe || payment_gateway == [:paypal, :stripe]
+  = render layout: "layouts/lightbox", locals: { id: "stripe_fee_info_content"} do
+    %h2= t("common.stripe_fee_info.title")
+    - text_with_line_breaks_html_safe do
+      - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
+      - if shape[:shipping_enabled]
+        = t("common.stripe_fee_info.body_with_shipping_text", link_to_stripe: link_to_stripe).html_safe
+      - else
+        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe).html_safe
+
+  - if run_js_immediately
+    :javascript
+      $('#stripe_fee_info_link').click(function() { $('#stripe_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+  - else
+    - content_for :extra_javascript do
+      :javascript
+        $('#stripe_fee_info_link').click(function() { $('#stripe_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });

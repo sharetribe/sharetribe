@@ -664,6 +664,7 @@ class ListingsController < ApplicationController
         shipping_price_additional: shipping_price_additional,
         always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity,
         paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
+        stripe_fees_url: "https://stripe.com/#{community_country_code.downcase}/pricing",
         currency_opts: MoneyViewUtils.currency_opts(I18n.locale, community_currency)
       })
     end

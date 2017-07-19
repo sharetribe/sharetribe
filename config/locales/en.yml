@@ -628,6 +628,16 @@ en:
           PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price (including shipping), depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       link_to_paypal_text: here
+    stripe_fee_info:
+      title: "Stripe's payment processing fee"
+      body_text: |-
+          Stripe charges a processing fee from each payment. This fee is between 1.4% and 3% of the total sales price, depending on the country of residence of the buyer. In general, domestic purchases have lower fees than international ones.
+          You can see fee fules by visiting Stripe %{link_to_stripe}. After each purchase you will get a receipt displaying the exact fee.
+      body_with_shipping_text: |-
+          Stripe charges a processing fee from each payment. This fee is between 1.4% and 3% of the total sales price (including shipping), depending on the country of residence of the buyer. In general, domestic purchases have lower fees than international ones.
+          You can see fee fules by visiting Stripe %{link_to_stripe}. After each purchase you will get a receipt displaying the exact fee.
+      link_to_stripe_text: here
+ 
   conversations:
     accept:
       details: "Order details"
@@ -649,6 +659,7 @@ en:
       total_label: "Total:"
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
+      stripe_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>Stripe's payment processing fee</a>"
       shipping_price_label: "Shipping:"
       stripe-fee_label: "Stripe Gateway Fee"
     confirm:
@@ -1525,8 +1536,13 @@ en:
         long_time: "week, month, ..."
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
+        no_service_fee_you_will_get_stripe_text: "%{stripe_fee_info_link} will be deducted from the price."
+        no_service_fee_you_will_get_paypal_stripe_text: "%{paypal_fee_info_link} or %{stripe_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_stripe_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{stripe_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_paypal_stripe_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} or %{stripe_fee_info_link} will be deducted from the price."
         paypal_fee_info_link_text: "PayPal's payment processing fee"
+        stripe_fee_info_link_text: "Stripe's payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
