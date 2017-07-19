@@ -187,6 +187,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
         flash[:show_onboarding_popup] = true
       end
+      flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     else
       flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
     end

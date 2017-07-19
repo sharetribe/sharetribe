@@ -28,8 +28,8 @@ module StripeService::API
         commission = order_commission(tx)
         fee        = Money.new(0, subtotal.currency)
 
-        # FIXME-SS add service_name to description
-        stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, "PURCHASE #{tx[:id]}")
+        description = "Payment #{tx[:id]} for #{tx[:listing_title]} via #{gateway_fields[:service_name]} "
+        stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, description)
 
         payment = PaymentStore.create(tx[:community_id], tx[:id], {
           payer_id: tx[:starter_id],

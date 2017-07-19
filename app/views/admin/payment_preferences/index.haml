@@ -35,6 +35,6 @@
 
           = render partial: 'paypal_connect_own_notice'
  
-      - if stripe_account[:api_verified] || paypal_account.present?
+      - if stripe_account.present? && stripe_account[:api_verified] || paypal_account.present?
         .paypal-wizard-divider
         = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email}
