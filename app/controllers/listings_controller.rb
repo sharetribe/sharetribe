@@ -942,11 +942,11 @@ class ListingsController < ApplicationController
     when matches([:stripe])
       can_post = StripeHelper.community_ready_for_payments?(community.id)
       error_msg =
-        if user.has_admin_rights?
+        if user.has_admin_rights?(community)
           t("listings.new.community_not_configured_for_payments_admin",
             payment_settings_link: view_context.link_to(
               t("listings.new.payment_settings_link"),
-              admin_stripe_preferences_path()))
+              admin_payment_preferences_path()))
             .html_safe
         else
           t("listings.new.community_not_configured_for_payments",

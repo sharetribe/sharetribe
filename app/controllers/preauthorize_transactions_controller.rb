@@ -582,7 +582,7 @@ class PreauthorizeTransactionsController < ApplicationController
           stripe_email: @current_user.primary_email.address,
           stripe_token: params[:stripe_token],
           shipping_address: params[:shipping_address],
-          service_name: @current_community.name
+          service_name: @current_community.name_with_separator(I18n.locale)
         }
     end
 

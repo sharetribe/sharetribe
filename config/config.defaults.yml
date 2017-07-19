@@ -533,3 +533,10 @@ test:
 
   paypal_implementation: fake
   fakepal_store: 'tmp/test_fakepal.store'
+
+  # Stripe tests use for now real api calls,
+  # Add your test keys to run features/stripe/stripe.feature
+  feature_stripe_publishable_key: pk_test_XXXXXXXXXXXXXXXXXXX
+  feature_stripe_private_key: sk_test_XXXXXXXXXXXXXXXXXXX
+  api_encryption_key: TESTAPISECRET
+

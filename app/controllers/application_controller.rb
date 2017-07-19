@@ -356,16 +356,11 @@ class ApplicationController < ActionController::Base
       missing_paypal = PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
       missing_stripe = StripeHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
 
-      paypal_settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
+      payment_settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
         person_payment_settings_path(@current_user), target: "_blank")
 
-      # FIXME-SS this should be one single payment settings link
-      warning = if missing_paypal && missing_stripe
-        t("stripe_accounts.missing_both", stripe_settings_link: stripe_settings_link)
-      end
-
-      if warning
-        flash.now[:warning] = warning.html_safe
+      if missing_paypal && missing_stripe
+        flash.now[:warning] = t("stripe_accounts.missing_payment", settings_link: payment_settings_link).html_safe
       end
     end
   end

@@ -95,6 +95,7 @@ Layout/EmptyLineAfterMagicComment:
     - 'app/view_utils/icon_map.rb'
     - 'app/view_utils/intercom_helper.rb'
     - 'features/support/feature_tests/action/paypal.rb'
+    - 'features/support/feature_tests/action/stripe.rb'
     - 'spec/controllers/listings_controller_spec.rb'
     - 'spec/models/community_spec.rb'
     - 'spec/services/feature_flag_service/api/features_spec.rb'

@@ -518,7 +518,7 @@ en:
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
       stripe_connected:
-        title: "Stripe - account connected"
+        title: "Stripe account connected"
         private_key: "Private API key: <strong>%{key}</strong>"
         publishable_key: "Publishable API key: <strong>%{key}</strong>"
       stripe_form:
@@ -2262,8 +2262,7 @@ en:
     commission: "%{commission} %"
     pay_with_stripe: "Pay with Stripe using %{card}"
     add_and_pay: "Pay with Stripe"
-    missing: "You have open listings but your Stripe account is not set up to receive payments. Add your Stripe account and and bank account %{settings_link}."
-    missing_both: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{stripe_settings_link}"
+    missing_payment: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{settings_link}"
     step_1_your_info: Step 1. Account Information
     step_2_bank_info: Step 2. Bank Information
     step_3_verification: Step 3. Verification
@@ -2313,11 +2312,6 @@ en:
       send_verification: Send Verification
       verification: Verification
       need_verification: Verification Details
-    form_cards:
-      your_payment_cards: Your payment cards
-      credit_or_debit_card: Credit or debit card
-      add_card: Add Card
-      secure_card: "* Your card information is stored securely in Stripe"
   payment_settings:
     stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means yout users will be able to pay payments with either payment method.</p>"
     stripe_title: Create managed Stripe account
