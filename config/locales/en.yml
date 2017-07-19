@@ -1682,6 +1682,16 @@ en:
       invalid_parameters: "Invalid values for new transaction"
     transaction_agreement_checkbox:
       read_more: View.
+    stripe_payment:
+      address: Shipping Address
+      address_country: Country
+      address_city: City
+      address_state: State or province
+      address_street1: Street
+      address_postal_code: Postal Code
+      address_name: Name
+      address_phone: Phone
+
   mapview:
     index:
       all_categories: "All categories"

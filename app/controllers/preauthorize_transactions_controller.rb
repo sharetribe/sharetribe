@@ -274,6 +274,7 @@ class PreauthorizeTransactionsController < ApplicationController
                stripe_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:stripe),
                stripe_customer: stripe_customer_account,
                stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
+               stripe_shipping_required: listing.require_shipping_address,
 
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
@@ -586,7 +587,8 @@ class PreauthorizeTransactionsController < ApplicationController
       gateway_fields =
         {
           stripe_email: @current_user.primary_email.address,
-          stripe_token: params[:stripe_token]
+          stripe_token: params[:stripe_token],
+          shipping_address: params[:shipping_address]
         }
     end
 

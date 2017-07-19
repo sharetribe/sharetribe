@@ -3,6 +3,8 @@ module StripeService::API
     class << self
       PaymentStore = StripeService::Store::StripePayment
 
+      TransactionStore = TransactionService::Store::Transaction
+
       def create_preauth_payment(tx, gateway_fields)
         seller_account = accounts_api.get(community_id: tx[:community_id], person_id: tx[:listing_author_id]).data
         if !seller_account || !seller_account[:stripe_seller_id].present?
@@ -40,6 +42,13 @@ module StripeService::API
           subtotal_cents: subtotal.cents,
           stripe_charge_id: stripe_charge.id
         })
+
+        if gateway_fields[:shipping_address].present?
+          TransactionStore.upsert_shipping_address(
+            community_id: tx[:community_id],
+            transaction_id: tx[:id],
+            addr: gateway_fields[:shipping_address])
+        end
 
         Result::Success.new(payment)
       rescue => e
