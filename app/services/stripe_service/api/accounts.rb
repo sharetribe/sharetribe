@@ -35,7 +35,6 @@ module StripeService::API
       stripe_api.update_address(community_id, account[:stripe_seller_id], body)
       Result::Success.new(accounts_store.update_address(community_id: community_id, person_id: person_id, opts: body))
     rescue => e
-      raise e
       Result::Error.new(e.message)
     end
 

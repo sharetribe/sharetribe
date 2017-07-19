@@ -52,7 +52,7 @@
       = hidden_field_tag :payment_type
 
       - if stripe_in_use
-        = render :partial => "listing_conversations/stripe_payment", locals: { stripe_customer: stripe_customer, publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required}
+        = render :partial => "listing_conversations/stripe_payment", locals: {  publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required}
      
       - if paypal_in_use && !stripe_in_use
         .row

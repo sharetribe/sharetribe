@@ -213,6 +213,8 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
+  # rubocop:disable MethodLength
+  # rubocop:disable AbcSize
   def initiate
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
@@ -253,10 +255,6 @@ class PreauthorizeTransactionsController < ApplicationController
         { listing_id: listing.id,
           listing_uuid: listing.uuid_object.to_s })
 
-      stripe_customer_account = StripeService::API::Api.accounts.get(community_id: @current_community.id, person_id: @current_user.id).data
-      paypal_in_use = PaypalHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id)
-      stripe_in_use = StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id)
-
       render "listing_conversations/initiate",
              locals: {
                start_on: tx_params[:start_on],
@@ -266,16 +264,11 @@ class PreauthorizeTransactionsController < ApplicationController
                quantity: tx_params[:quantity],
                author: query_person_entity(listing_entity[:author_id]),
                action_button_label: translate(listing_entity[:action_button_tr_key]),
-
-               paypal_in_use: paypal_in_use,
+               paypal_in_use: PaypalHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
                paypal_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
-
-               stripe_in_use: stripe_in_use,
-               stripe_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:stripe),
-               stripe_customer: stripe_customer_account,
+               stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
                stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
                stripe_shipping_required: listing.require_shipping_address,
-
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
                paypal_analytics_event: [
@@ -297,7 +290,7 @@ class PreauthorizeTransactionsController < ApplicationController
                  subtotal: subtotal_to_show(order_total),
                  shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
                  total: order_total.total,
-                 unit_type: listing.unit_type,
+                 unit_type: listing.unit_type
                 )
              }
     }

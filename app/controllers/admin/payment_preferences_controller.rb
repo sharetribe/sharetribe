@@ -150,11 +150,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update_payment_preferences
     currency = params[:payment_preferences_form]["marketplace_currency"]
 
-    if @paypal_enabled
-      minimum_commission = paypal_minimum_commissions_api.get(currency)
-    else
-      minimum_commission = 0
-    end
+    minimum_commission = @paypal_enabled ? paypal_minimum_commissions_api.get(currency) : 0
 
     form = PaymentPreferencesForm.new(parse_preferences(params[:payment_preferences_form], currency).merge(minimum_commission: minimum_commission))
     if form.valid?
@@ -224,12 +220,12 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update_stripe_keys
     api_form = StripeApiKeysForm.new(params[:stripe_api_keys_form])
     if api_form.valid? && api_form.api_private_key.present?
-      tx_settings_api.update({community_id: @current_community.id,
-                       payment_process: :preauthorize,
-                       payment_gateway: :stripe,
-                       api_private_key: api_form.api_private_key,
-                       api_publishable_key: api_form.api_publishable_key
-                      })
+      tx_settings_api.update({ community_id: @current_community.id,
+                               payment_process: :preauthorize,
+                               payment_gateway: :stripe,
+                               api_private_key: api_form.api_private_key,
+                               api_publishable_key: api_form.api_publishable_key
+                              })
       if stripe_api.check_balance(@current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:error] = t("admin.payment_preferences.stripe_verified")

@@ -1,7 +1,8 @@
 class StripeService::API::StripeApiWrapper
   class << self
 
-    @@mutex = Mutex.new
+    # rubocop:disable ClassVars
+    @@mutex ||= Mutex.new
 
     def payment_settings_for(community)
       PaymentSettings.where(community_id: community, payment_gateway: :stripe, payment_process: :preauthorize).first

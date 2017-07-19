@@ -120,7 +120,6 @@ class PaymentSettingsController < ApplicationController
 
     {
       next_action: next_action(paypal_account[:state] || ""),
-      order_permission_action: admin_paypal_preferences_account_create_path(),
       paypal_account: paypal_account,
       order_permission_action: ask_order_permission_person_paypal_account_path(@current_user),
       billing_agreement_action: ask_billing_agreement_person_paypal_account_path(@current_user),
@@ -179,7 +178,7 @@ class PaymentSettingsController < ApplicationController
         :address_postal_code,
         :address_state,
         :birth_date,
-        :ssn_last_4,
+        :ssn_last_4
         ).with_validations do
     validates_presence_of :first_name, :last_name,
         :address_country, :address_city, :address_line1, :address_postal_code, :address_state,
@@ -274,15 +273,19 @@ class PaymentSettingsController < ApplicationController
         :personal_id_number,
         :document).with_validations do
           validates_presence_of :personal_id_number, :document
-      end
+        end
 
   def stripe_send_verification
     return unless @stripe_account[:stripe_seller_id].present?
 
     form = StripeVerificationForm.new(params.require(:stripe_verification_form).permit(:personal_id_number, :document))
     if form.valid?
-      stripe_accounts_api.send_verification(community_id: @current_community.id, person_id: @current_user.id, personal_id_number: form.personal_id_number, file: form.document.path)
-      load_stripe_account
+      result = stripe_accounts_api.send_verification(community_id: @current_community.id, person_id: @current_user.id, personal_id_number: form.personal_id_number, file: form.document.path)
+      if result[:success]
+        load_stripe_account
+      else
+        flash[:error] = result[:error_msg]
+      end
     end
   end
 end

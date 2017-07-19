@@ -8,7 +8,7 @@ class PaypalAccountsController < ApplicationController
   DataTypePermissions = PaypalService::DataTypes::Permissions
 
   def index
-    redirect_to person_payment_settings_path(@current_user) 
+    redirect_to person_payment_settings_path(@current_user)
   end
 
   def ask_order_permission
@@ -29,7 +29,7 @@ class PaypalAccountsController < ApplicationController
 
     if permissions_url.blank?
       flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-      return redirect_to person_payment_settings_path(@current_user
+      return redirect_to person_payment_settings_path(@current_user)
     else
       render json: {redirect_url: permissions_url}
     end
@@ -62,7 +62,7 @@ class PaypalAccountsController < ApplicationController
 
       if billing_agreement_url.blank?
         flash[:error] = t("paypal_accounts.new.could_not_fetch_redirect_url")
-        return redirect_to person_payment_settings_path(@current_user) 
+        return redirect_to person_payment_settings_path(@current_user)
       else
         render json: {redirect_url: billing_agreement_url}
       end
@@ -161,7 +161,7 @@ class PaypalAccountsController < ApplicationController
       end
 
     flash[:error] = error_msg
-    redirect_to person_payment_settings_path(@current_user) 
+    redirect_to person_payment_settings_path(@current_user)
   end
 
   def payment_gateway_commission(community_id)
