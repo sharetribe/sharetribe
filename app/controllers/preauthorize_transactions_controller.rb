@@ -298,7 +298,6 @@ class PreauthorizeTransactionsController < ApplicationController
                  shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
                  total: order_total.total,
                  unit_type: listing.unit_type,
-                 stripe_fee: stripe_fee
                 )
              }
     }

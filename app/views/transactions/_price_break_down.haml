@@ -52,13 +52,6 @@
       %span.initiate-transaction-shipping-price-value
         = MoneyViewUtils.to_humanized(shipping_price)
 
-  - if stripe_fee.present? && stripe_fee > 0
-    .initiate-transaction-stripe-fee-wrapper
-      %span.initiate-transaction-stripe-fee-label
-        = t("transactions.initiate.stripe-fee")
-      %span.initiate-transaction-stripe-fee-value
-        = MoneyViewUtils.to_humanized(stripe_fee)
-
   - if total.present?
     .initiate-transaction-total-wrapper
       %span.initiate-transaction-total-label
