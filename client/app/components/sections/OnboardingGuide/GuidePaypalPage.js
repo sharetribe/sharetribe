@@ -40,7 +40,7 @@ const GuidePaypalPage = (props) => {
     ]),
 
     div(null, [
-      a({ className: css.nextButton, href: routes.admin_paypal_preferences_path() }, t('web.admin.onboarding.guide.paypal.setup_payments')),
+      a({ className: css.nextButton, href: routes.admin_payment_preferences_path() }, t('web.admin.onboarding.guide.paypal.setup_payments')),
       span({ className: css.buttonSeparator }, t('web.admin.onboarding.guide.paypal.cta_separator')),
       a({ className: css.nextButtonGhost, href: routes.edit_admin_listing_shape_path(pageData.additional_info.listing_shape_name) }, t('web.admin.onboarding.guide.paypal.disable_payments')),
     ]),

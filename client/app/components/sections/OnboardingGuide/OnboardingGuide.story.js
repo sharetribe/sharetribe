@@ -31,7 +31,7 @@ const onboardingData = [
       listing_shape_name: 'sell',
     },
     complete: false,
-    step: 'paypal',
+    step: 'payment',
   },
   {
     complete: false,
@@ -95,7 +95,7 @@ const filterProps = {
   },
 };
 
-const paypalProps = {
+const paymentProps = {
   changePage: function changePage(path) {
     action('back')(path);
   },
@@ -104,7 +104,7 @@ const paypalProps = {
   routes,
   pageData: {
     complete: true,
-    step: 'paypal',
+    step: 'payment',
     additional_info: {
       listing_shape_name: 'sell',
     },
@@ -163,7 +163,7 @@ storiesOf('Onboarding')
     )))
   .add('Guide: Paypal page', () => (
     div(columnWidth,
-      withProps(GuidePaypalPage, paypalProps)
+      withProps(GuidePaypalPage, paymentProps)
     )))
   .add('Guide: Listing page', () => (
     div(columnWidth,

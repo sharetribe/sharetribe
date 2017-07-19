@@ -23,8 +23,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     payment_type = tx[:payment_gateway]
     case payment_type
-    when :paypal
-      render_paypal_form("accept")
+    when :paypal, :stripe
+      render_payment_form("accept", payment_type)
     else
       raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
@@ -41,8 +41,8 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     payment_type = tx[:payment_gateway]
     case payment_type
-    when :paypal
-      render_paypal_form("reject")
+    when :paypal, :stripe
+      render_payment_form("reject", payment_type)
     else
       raise ArgumentError.new("Unknown payment type: #{payment_type}")
     end
@@ -143,20 +143,21 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     @listing_conversation = @current_community.transactions.find(params[:id])
   end
 
-  def render_paypal_form(preselected_action)
+  def render_payment_form(preselected_action, payment_type)
     transaction_conversation = MarketplaceService::Transaction::Query.transaction(@listing_conversation.id)
     result = TransactionService::Transaction.get(community_id: @current_community.id, transaction_id: @listing_conversation.id)
     transaction = result[:data]
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render "accept", locals: {
-      payment_gateway: :paypal,
+      payment_gateway: payment_type,
       listing: @listing,
       listing_quantity: transaction[:listing_quantity],
       booking: transaction[:booking],
       orderer: @listing_conversation.starter,
-      sum: transaction[:item_total],
+      sum: transaction[:item_total] + (transaction[:payment_gateway_fee] || 0),
       fee: transaction[:commission_total],
+      gateway_fee: transaction[:payment_gateway_fee],
       shipping_price: transaction[:shipping_price],
       shipping_address: transaction[:shipping_address],
       seller_gets: transaction[:checkout_total] - transaction[:commission_total],

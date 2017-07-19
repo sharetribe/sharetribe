@@ -565,7 +565,7 @@ class Community < ApplicationRecord
   #
   # There is a method `payment_type` is community service. Use that instead.
   def payments_in_use?
-    MarketplaceService::Community::Query.payment_type(id) == :paypal
+    MarketplaceService::Community::Query.payment_type(id).present?
   end
 
   def self.all_with_custom_fb_login

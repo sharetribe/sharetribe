@@ -61,6 +61,7 @@
           %h3= t(".transaction_preferences")
           .checkbox-container
             .settings-checkbox-label.label
+              - max_days = StripeHelper.stripe_active?(@current_community.id) ? 90 : 100
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..100), {}, :class => "inline-select"
               = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
 

@@ -10,7 +10,7 @@ const routes = {
   admin_getting_started_guide_slogan_and_description_path: noop,
   admin_getting_started_guide_cover_photo_path: noop,
   admin_getting_started_guide_filter_path: noop,
-  admin_getting_started_guide_paypal_path: noop,
+  admin_getting_started_guide_payment_path: noop,
   admin_getting_started_guide_listing_path: noop,
   admin_getting_started_guide_invitation_path: noop,
 };
@@ -23,12 +23,12 @@ const defaultProps = {
     slogan_and_description: 'Add Slogan / Description',
     cover_photo: 'Upload cover photo',
     filter: 'Add Fields / Filters',
-    paypal: 'Accept payments',
+    payment: 'Accept payments',
     listing: 'Add a listing',
     invitation: 'Invite users',
   },
   progress: 83,
-  next_step: 'paypal',
+  next_step: 'payment',
   guide_root: '/fi/admin/communities/501/getting_started_guide',
   routes,
 };

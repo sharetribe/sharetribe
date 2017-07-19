@@ -25,7 +25,7 @@ class TransactionMailer < ActionMailer::Base
     set_up_layout_variables(recipient, transaction.community)
     with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
-      payment_type = MarketplaceService::Community::Query.payment_type(@community.id)
+      payment_type = transaction.payment_gateway.to_sym
       gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
 
       expires = Maybe(transaction).booking.end_on.map { |booking_end|
@@ -67,7 +67,7 @@ class TransactionMailer < ActionMailer::Base
   end
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
-  def paypal_new_payment(transaction, seller_model = nil, buyer_model = nil, community = nil)
+  def payment_receipt_to_seller(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction[:listing_author_id])
     buyer_model ||= Person.find(transaction[:starter_id])
     community ||= Community.find(transaction[:community_id])
@@ -93,7 +93,7 @@ class TransactionMailer < ActionMailer::Base
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_payment.new_payment")) do |format|
         format.html {
-          render "paypal_payment_receipt_to_seller", locals: {
+          render "payment_receipt_to_seller", locals: {
                    conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
                    listing_title: transaction[:listing_title],
                    price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
@@ -105,10 +105,11 @@ class TransactionMailer < ActionMailer::Base
                    payment_total: MoneyViewUtils.to_humanized(payment_total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction[:shipping_price]),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),
-                   paypal_gateway_fee: MoneyViewUtils.to_humanized(-gateway_fee),
+                   payment_gateway_fee: MoneyViewUtils.to_humanized(-gateway_fee),
                    payment_seller_gets: MoneyViewUtils.to_humanized(you_get),
                    payer_full_name: buyer_model.name(community),
                    payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
+                   gateway: transaction[:payment_gateway],
                  }
         }
       end
@@ -116,7 +117,7 @@ class TransactionMailer < ActionMailer::Base
   end
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
-  def paypal_receipt_to_payer(transaction, seller_model = nil, buyer_model = nil, community = nil)
+  def payment_receipt_to_buyer(transaction, seller_model = nil, buyer_model = nil, community = nil)
     seller_model ||= Person.find(transaction[:listing_author_id])
     buyer_model ||= Person.find(transaction[:starter_id])
     community ||= Community.find(transaction[:community_id])
@@ -147,10 +148,14 @@ class TransactionMailer < ActionMailer::Base
                    subtotal: MoneyViewUtils.to_humanized(transaction[:item_total]),
                    shipping_total: MoneyViewUtils.to_humanized(transaction[:shipping_price]),
                    payment_total: MoneyViewUtils.to_humanized(transaction[:payment_total]),
+                   payment_gateway_fee: MoneyViewUtils.to_humanized(transaction[:payment_gateway_fee]),
+                   fee_on_top: transaction[:payment_gateway] == :stripe && transaction[:item_total] < transaction[:payment_total],
                    recipient_full_name: seller_model.name(community),
                    recipient_given_name: PersonViewUtils.person_display_name_for_type(seller_model, "first_name_only"),
                    automatic_confirmation_days: nil,
-                   show_money_will_be_transferred_note: false
+                   show_money_will_be_transferred_note: false,
+                   gateway: transaction[:payment_gateway],
+
                  }
         }
       }

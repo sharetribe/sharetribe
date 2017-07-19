@@ -1,0 +1,65 @@
+= form_for stripe_account_form, url: person_stripe_account_path(@current_user), method: :post do |form|
+  .row
+    = form.error_messages
+  .row
+    .col-2
+      = form.label :first_name, t(".first_name")
+    .col-4
+      = form.text_field :first_name, class: 'required', disabled: disabled
+    .col-2
+      = form.label :last_name, t(".last_name")
+    .col-4
+      = form.text_field :last_name, class: 'required', disabled: disabled
+
+  .row
+    .col-2
+      = form.label :birth_date, t(".birth_date")
+    .col-4
+      = form.text_field :birth_date, class: 'required', disabled: disabled
+    .col-2
+      = form.label :ssn_last_4, t(".ssn_last_4")
+    .col-4
+      = form.text_field :ssn_last_4, class: 'required', disabled: disabled
+
+  .row
+    .col-2
+      = form.label :address_country, t(".address_country")
+    .col-4
+      = form.select :address_country, available_countries, {}, disabled: disabled
+
+    .col-2
+      = form.label :address_state, t(".address_state")
+    .col-4
+      = form.text_field :address_state, class: 'required', disabled: disabled
+  .row
+    .col-2
+      = form.label :address_city, t(".address_city")
+    .col-4
+      = form.text_field :address_city, class: 'required', disabled: disabled
+    .col-2
+      = form.label :address_postal_code, t(".address_postal_code")
+    .col-4
+      = form.text_field :address_postal_code, class: 'required', disabled: disabled
+  .row
+    .col-2
+      = form.label :address_line1, t(".address_line1"), class: 'required', disabled: disabled
+    .col-10
+      = form.text_field :address_line1, class: 'required', disabled: disabled
+  - unless disabled
+    .row
+      .col-12
+        %label
+          = check_box_tag 'tos', 'true', false, disabled: disabled, class: 'required'
+          = t(".tos_link").html_safe
+
+  - if !disabled
+    .row
+      .col-12
+        = form.button t(".create_account")
+
+- content_for :extra_javascript do
+  :javascript
+    $(function() {
+      $("#stripe_create_account_form_birth_date").datepicker();
+      $("#new_stripe_create_account_form").validate();
+    })

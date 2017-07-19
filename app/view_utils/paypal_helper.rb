@@ -9,7 +9,7 @@ module PaypalHelper
   # configured the gateway.
   def community_ready_for_payments?(community_id)
     account_prepared_for_community?(community_id) &&
-      Maybe(TransactionService::API::Api.settings.get_active(community_id: community_id))
+      Maybe(TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
       .map {|_| true}
@@ -34,7 +34,8 @@ module PaypalHelper
       payment_process: :preauthorize)
       .maybe
 
-    account_prepared?(community_id: community_id, person_id: person_id, settings: payment_settings)
+    user = Person.find(person_id)
+    account_prepared?(community_id: community_id, person_id: person_id, settings: payment_settings) && !user.preferences[:no_paypal]
   end
 
   def account_prepared_for_community?(community_id)
@@ -55,12 +56,12 @@ module PaypalHelper
   # check that the gateway is fully configured. Use
   # community_ready_for_payments? if that's what you need.
   def paypal_active?(community_id)
-    active_settings = Maybe(TxApi.settings.get_active(community_id: community_id))
+    settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :paypal, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
       .or_else(nil)
 
-    return active_settings && active_settings[:payment_gateway] == :paypal
+    return settings && settings[:active] && settings[:payment_gateway] == :paypal
   end
 
 

@@ -26,7 +26,7 @@ const selectChild = function selectChild(data) {
       return { Page: GuideCoverPhotoPage, pageData };
     case 'filter':
       return { Page: GuideFilterPage, pageData };
-    case 'paypal':
+    case 'payment':
       return { Page: GuidePaypalPage, pageData };
     case 'listing':
       return { Page: GuideListingPage, pageData };
@@ -120,7 +120,7 @@ OnboardingGuide.propTypes = {
           'slogan_and_description',
           'cover_photo',
           'filter',
-          'paypal',
+          'payment',
           'listing',
           'invitation',
           'all_done',

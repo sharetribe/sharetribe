@@ -1,0 +1,11 @@
+@import "mixins/all";
+
+.color-red {
+  color: $red;
+}
+.color-green {
+  color: $green;
+}
+td.center {
+  text-align: center;
+}

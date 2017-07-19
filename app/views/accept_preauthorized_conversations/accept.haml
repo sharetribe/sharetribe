@@ -78,7 +78,15 @@
           %span.conversation-shipping-price-value
             = MoneyViewUtils.to_humanized(shipping_price)
 
-      - if payment_gateway == :paypal
+      - if payment_gateway == :paypal || payment_gateway == :stripe
+        - if gateway_fee.present? && gateway_fee > 0
+          .conversation-stripe-fee-wrapper
+            %span.conversation-stripe-fee-label
+              = t("conversations.accept.stripe-fee_label")
+            %span.conversation-stripe-fee-value
+              = "-#{MoneyViewUtils.to_humanized(gateway_fee)}"
+
+ 
         .conversation-total-wrapper
           %span.conversation-total-label
             = t("conversations.accept.total_label")

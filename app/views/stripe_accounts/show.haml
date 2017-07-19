@@ -1,0 +1,89 @@
+- content_for :title_header do
+  %h1= t("layouts.no_tribe.settings")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
+
+.left-navi-section.settings-section.payment-settings
+
+  - if community_ready_for_payments
+    - if m_account.present?
+      .row.paypal-wizard
+        .col-12
+          .paypal-wizard-content
+            %h3.paypal-wizard-step
+              = t("stripe_accounts.online_payments")
+
+            = render partial: 'form_cards', locals: {customer_account: customer_account, publishable_key: publishable_key}
+
+      %h2= t("stripe_accounts.payout_info_title")
+      
+      %p= t(".managed_account")
+
+      - if seller_account
+        .row
+          = t(".account_id", stripe_id: m_account[:stripe_seller_id]).html_safe
+          - if seller_account.verification.fields_needed.empty?
+            %span.icon-ok-circle.color-green
+            %span.color-green= t(".verified")
+            = render partial: 'stripe_accounts/balance', locals: {stripe_balance: stripe_balance}
+      
+        .row.paypal-wizard
+          .col-12
+            .paypal-wizard-content
+              %h3.paypal-wizard-step
+                = t("stripe_accounts.step_1_your_info")
+              = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: true}
+
+            .paypal-wizard-divider
+
+            .paypal-wizard-content
+              %h3.paypal-wizard-step
+                = t("stripe_accounts.step_2_bank_info")
+              = render partial: 'form_bank', locals: {stripe_bank_form: stripe_bank_form, available_countries: available_countries, disabled: m_account[:stripe_bank_id].present?}
+            
+            .paypal-wizard-divider
+
+            .paypal-wizard-content
+              %h3.paypal-wizard-step
+                = t("stripe_accounts.step_3_verification")
+
+              = render partial: 'form_verification', locals: {account: m_account, seller_account: seller_account}
+
+      - else
+        = render partial: 'no_stripe_toggle'
+        - if !@current_user.preferences[:no_stripe]
+          .row.paypal-wizard
+            .col-12
+              .paypal-wizard-content
+                %h3.paypal-wizard-step
+                  = t("stripe_accounts.step_1_your_info")
+
+                = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: false}
+
+    - else
+      .row.paypal-wizard
+        .col-12
+          .paypal-wizard-content
+            %h3.paypal-wizard-step
+              = t("stripe_accounts.online_payments")
+
+            = render partial: 'form_cards', locals: {customer_account: customer_account, publishable_key: publishable_key}
+
+      %h2= t("stripe_accounts.payout_info_title")
+        
+      %p= t(".managed_account")
+
+      = render partial: 'no_stripe_toggle'
+      - if !@current_user.preferences[:no_stripe]
+        .row.paypal-wizard
+          .col-12
+            .paypal-wizard-content
+              %h3.paypal-wizard-step
+                = t("stripe_accounts.step_1_your_info")
+
+              = render partial: 'form_new', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries, disabled: false}
+    
+  - else
+    = t("stripe_accounts.admin_account_not_connected",
+        contact_admin_link: link_to(t("stripe_accounts.contact_admin_link_text"),
+          new_user_feedback_path)).html_safe

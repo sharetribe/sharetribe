@@ -352,11 +352,30 @@ class ApplicationController < ActionController::Base
 
   # Before filter for PayPal, shows notification if user is not ready for payments
   def warn_about_missing_payment_info
-    if @current_user && PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
-      settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
+    if @current_user
+      missing_paypal = PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
+      missing_stripe = StripeHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)
+
+      paypal_settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
         paypal_account_settings_payment_path(@current_user), target: "_blank")
-      warning = t("paypal_accounts.missing", settings_link: settings_link)
-      flash.now[:warning] = warning.html_safe
+
+      stripe_settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
+        person_stripe_account_path(@current_user), target: "_blank")
+
+      warning = if missing_paypal && missing_stripe
+        t("stripe_accounts.missing_both", paypal_settings_link: paypal_settings_link, stripe_settings_link: stripe_settings_link)
+
+      elsif missing_paypal && !missing_stripe && PaypalHelper.community_ready_for_payments?(@current_community.id) && !@current_user.preferences[:no_paypal]
+        t("paypal_accounts.missing", settings_link: paypal_settings_link)
+
+      elsif !missing_paypal && missing_stripe && StripeHelper.community_ready_for_payments?(@current_community.id) && !@current_user.preferences[:no_stripe]
+        t("stripe_accounts.missing", settings_link: stripe_settings_link)
+
+      end
+
+      if warning
+        flash.now[:warning] = warning.html_safe
+      end
     end
   end
 

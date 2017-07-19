@@ -318,11 +318,13 @@ en:
           paid: Paid
           confirmed: Confirmed
           canceled: Canceled
-          initiated: "Waiting PayPal payment"
-          pending_ext: "Waiting PayPal payment"
+          initiated: "Waiting payment"
+          pending_ext: "Waiting payment"
         not_available: "Not available"
       paypal_account:
-        paypal_admin_account: "Payment system"
+        paypal_admin_account: "PayPal Payments"
+      stripe_account:
+        stripe_admin_account: "Stripe Payments"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -506,6 +508,35 @@ en:
       save_settings: "Save settings"
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
+    payment_preferences:
+      index:
+        title: Payment Settings
+        header: Available Payment Settings
+        info: You can configure available payment gateways for use in your marketplace. Currently platform supports PayPal and Stripe gateways.
+        active: Active
+        gateway: Gateway
+        process: Process
+        commission: Commission
+        minimum_price: Min.price
+        minimum_fee: Min.fee
+        api_verified: API verified?
+        actions: Actions
+        payments_not_enabled: Payments are not enabled for your marketplace
+    stripe_preferences:
+      index:
+        title: "Stripe gateway preferences"
+        header: "Stripe payment settings"
+        info: "Provide api keys for your stripe account. Once API is verified, keys cannot be changed. Ensure you use production key, starts with <strong>sk_prod_</strong>"
+        api_verified: "API Access Verified"
+        api_not_verified: "API Access Not verified"
+        api_settings: "Stripe API Access"
+        client_id: "Stripe Client ID"
+        private_key: "Private Key"
+        publishable_key: "Publishable Key (for Stripe.js form)"
+        payment_settings: "Payment Settings"
+      update:
+        updated: "Stripe Payment settings updated"
+
     transaction_types:
       sell: Selling
       rent: "Renting out"
@@ -601,6 +632,7 @@ en:
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
       shipping_price_label: "Shipping:"
+      stripe-fee_label: "Stripe Gateway Fee"
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your order was not fulfilled, you can mark it as 'disputed'. You can still give feedback to the other party and describe what happened."
@@ -846,6 +878,33 @@ en:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    payment_receipt_to_seller:
+      stripe_gateway_fee: "Stripe's fee:"
+      paypal_gateway_fee: "PayPal's fee:"
+      shipping_total: "Shipping:"
+      product: "Product:"
+      price_payer_paid: "Price %{payer_full_name} paid:"
+      service_fee: "%{service_name} service fee:"
+      you_will_get: "Total:"
+      new_payment: "You have received a new payment"
+      price_per_unit_type: "Price per %{unit_type}"
+      quantity: "Quantity:"
+      you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+    payment_receipt_to_payer:
+      receipt_of_payment: "Receipt of payment"
+      you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
+      product: Product
+      price_per_unit_type: "Price per %{unit_type}"
+      duration: Duration
+      quantity: Quantity
+      subtotal: Subtotal
+      total: Total
+      price: Price
+      service_fee: "Service fee"
+      stripe_gateway_fee: "Stripe's fee:"
+      paypal_gateway_fee: "PayPal's fee:"
+      money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
+
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -865,6 +924,8 @@ en:
       total: Total
       price: Price
       service_fee: "Service fee"
+      stripe_gateway_fee: "Stripe's fee:"
+      paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
@@ -950,6 +1011,8 @@ en:
       cancel_error: "An error occurred during cancellation. Could not finalize cancel."
       accept_authorization_error: "An error occurred while trying to accept preauthorized Paypal payment. Please, try again."
       reject_authorization_error: "An error occurred while trying to reject preauthorized Paypal payment. Please, try again."
+    stripe:
+      generic_error: "An error occurred during the payment process. Could not finalize your Stripe payment."
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:
@@ -1347,7 +1410,8 @@ en:
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
-      payments: Payments
+      paypal_payments: PayPal Payments
+      stripe_payments: Stripe Payments
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
@@ -1661,6 +1725,7 @@ en:
     contact_admin_link_text: "contact the marketplace administrator"
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
     commission: "%{commission} %"
+    not_now: "I do not want to connect PayPal account now"
     new:
       payout_info_you_need_to_connect: "In order to accept payments, you need to connect your PayPal account with %{service_name}."
       payout_info_text: "To connect your account, please complete the following steps."
@@ -2060,6 +2125,7 @@ en:
       quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
+      stripe-fee: "Stripe Fee (estimated):"
     price_per_quantity: "Price per %{unit_type}:"
     price: "Price:"
     quantity: "Quantity: %{quantity}"
@@ -2143,3 +2209,58 @@ en:
         other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+  stripe_accounts:
+    payout_info_title: "Receiving funds"
+    admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
+    contact_admin_link_text: "contact the marketplace administrator"
+    you_are_ready_to_accept_payments: "You are ready to accept payments!"
+    commission: "%{commission} %"
+    pay_with_stripe: "Pay with Stripe using %{card}"
+    add_and_pay: "Add Card and Pay with Stripe"
+    missing: "You have open listings but your Stripe account is not set up to receive payments. Add your Stripe account and and bank account %{settings_link}."
+    missing_both: "You have open listings but your Stripe or PayPal account is not set up to receive payments. To configure your Stripe account, visit %{stripe_settings_link}. To connect and configure your PayPal account, visit %{paypal_settings_link}."
+    step_1_your_info: Step 1. Account Information
+    step_2_bank_info: Step 2. Bank Information
+    step_3_verification: Step 3. Verification
+    online_payments: "Store your card for one-click payments"
+    not_now: "I do not want to setup Stripe account now"
+    show:
+      account_id: "Your Stripe ID is <strong>%{stripe_id}</strong>"
+      verified: Verified
+      managed_account: "%{service_name} uses Stripe as payment gateway. In order to accept payments online, you must create Managed Stripe account."
+    new:
+      stripe_not_enabled: "Stripe payments are not enabled."
+    form_new:
+      personal_info: Personal Details
+      last_name: Last Name
+      first_name: First Name
+      country: Country
+      birth_date: Date of birth
+      ssn_last_4: SSN Last 4
+      personal_id_number: Personal ID number
+      address: Address
+      address_country: Country
+      address_state: State
+      address_city: City
+      address_postal_code: Postal Code
+      address_line1: Street 
+      tos_link: "By creating Stripe Account, you agree to <a href=\"https://stripe.com/us/connect-account/legal\" target=\"_blank\">Terms of Service</a>"
+      create_account: Create Stripe Account
+    form_bank:
+      bank_info: Bank Account Info for Payouts
+      bank_country: Country
+      bank_currency: Currency
+      bank_account_number: Account Number
+      bank_routing_number: Routing Number
+      bank_account_holder_name: Account Holder Name
+      create_bank_account: Add bank account
+    form_verification:
+      personal_id_number: Personal ID number
+      document: Verification Document
+      send_verification: Send Verification
+      verification: Verification
+    form_cards:
+      your_payment_cards: Your payment cards
+      credit_or_debit_card: Credit or debit card
+      add_card: Add Card
+      secure_card: "* Your card information is stored securely in Stripe"

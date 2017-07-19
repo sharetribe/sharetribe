@@ -163,12 +163,17 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '' => "getting_started_guide#index"
-
+      
       # Payments
+      get  "/payment_preferences"                     => "payment_preferences#index"
+      # PayPal
       get  "/paypal_preferences"                      => "paypal_preferences#index"
       post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
+      # Stripe
+      get  "/stripe_preferences"                      => "stripe_preferences#index"
+      post "/stripe_preferences"                      => "stripe_preferences#update"
 
       # Settings
       get   "/settings" => "communities#settings",        as: :settings
@@ -179,7 +184,7 @@ Rails.application.routes.draw do
       get "getting_started_guide/slogan_and_description" => "getting_started_guide#slogan_and_description", as: :getting_started_guide_slogan_and_description
       get "getting_started_guide/cover_photo"            => "getting_started_guide#cover_photo",            as: :getting_started_guide_cover_photo
       get "getting_started_guide/filter"                 => "getting_started_guide#filter",                 as: :getting_started_guide_filter
-      get "getting_started_guide/paypal"                 => "getting_started_guide#paypal",                 as: :getting_started_guide_paypal
+      get "getting_started_guide/payment"                => "getting_started_guide#payment",                as: :getting_started_guide_payment
       get "getting_started_guide/listing"                => "getting_started_guide#listing",                as: :getting_started_guide_listing
       get "getting_started_guide/invitation"             => "getting_started_guide#invitation",             as: :getting_started_guide_invitation
 
@@ -436,12 +441,20 @@ Rails.application.routes.draw do
             get :billing_agreement_cancel
           end
         end
+        resource :stripe_account, only: [:show, :update, :create] do
+          member do
+            put :send_verification
+            post :add_card
+          end
+        end
+
         resources :transactions, only: [:show, :new, :create]
         resource :settings do
           member do
             get :account
             get :notifications
             get :unsubscribe
+            post :toggle_payment
           end
         end
         resources :testimonials

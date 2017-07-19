@@ -6,7 +6,7 @@ module FeatureTests
       module_function
 
       def click_payments_link
-        sidebar.click_on("Payment system")
+        sidebar.click_on("PayPal Payments")
       end
 
       def sidebar

@@ -423,6 +423,15 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .or_else(nil)
 
     payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+
+    p_set = Maybe(payment_settings_api.get(
+                   community_id: community_id,
+                   payment_gateway: :stripe,
+                   payment_process: :preauthorize))
+            .map {|res| res[:success] ? res[:data] : nil}
+            .or_else(nil)
+
+    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
   end
 
   def payment_settings_api

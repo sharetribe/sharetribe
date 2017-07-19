@@ -4,7 +4,7 @@ module TransactionService::Gateway
     PaymentSettingsStore = TransactionService::Store::PaymentSettings
 
     def configured?(community_id:, author_id:)
-      payment_settings = Maybe(PaymentSettingsStore.get_active(community_id: community_id))
+      payment_settings = Maybe(PaymentSettingsStore.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
                          .select {|set| paypal_settings_configured?(set)}
 
       personal_account_verified = paypal_account_verified?(community_id: community_id, person_id: author_id, settings: payment_settings)
@@ -16,7 +16,7 @@ module TransactionService::Gateway
 
     def tx_process_settings(opts_tx)
       currency = opts_tx[:unit_price].currency
-      p_set = PaymentSettingsStore.get_active(community_id: opts_tx[:community_id])
+      p_set = PaymentSettingsStore.get_active_by_gateway(community_id: opts_tx[:community_id], payment_gateway: :paypal)
 
       {minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],

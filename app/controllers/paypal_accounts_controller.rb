@@ -24,7 +24,7 @@ class PaypalAccountsController < ApplicationController
     end
 
     community_currency = @current_community.currency
-    payment_settings = payment_settings_api.get_active(community_id: @current_community.id).maybe.get
+    payment_settings = payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal).maybe.get
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     render(locals: {
@@ -205,7 +205,7 @@ class PaypalAccountsController < ApplicationController
 
   def payment_gateway_commission(community_id)
     p_set =
-      Maybe(payment_settings_api.get_active(community_id: community_id))
+      Maybe(payment_settings_api.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal }
       .or_else(nil)
@@ -213,10 +213,6 @@ class PaypalAccountsController < ApplicationController
     raise ArgumentError.new("No active paypal gateway for community: #{community_id}.") if p_set.nil?
 
     p_set[:commission_from_seller]
-  end
-
-  def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions
   end
 
   def payment_settings_api

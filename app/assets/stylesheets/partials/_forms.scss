@@ -4,7 +4,7 @@
 input[type=text],
 input[type=password],
 input[type=number],
-textarea {
+textarea, select {
   @include border-radius(em(5));
   border: 2px solid $border;
   min-height: 42px;

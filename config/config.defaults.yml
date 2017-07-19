@@ -429,12 +429,18 @@ default: &default_settings
   # Default 24 hours
   sitemap_cache_time: 86400
 
+  stripe_expiration_period: 7
+  # Funds captured from charge are not available immediately, only after 7 days
+  stripe_payout_delay: 7.5
+  stripe_private_key_pattern: "sk_test_.{24}"
+
 production: &production_settings
   <<: *default_settings
 
   eager_load: true
 
   log_level: INFO
+  stripe_private_key_pattern: "sk_prod_.{24}"
 
 staging:
   <<: *production_settings

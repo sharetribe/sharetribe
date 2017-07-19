@@ -25,8 +25,8 @@ module TransactionService::API
       Result::Success.new(PaymentSettingsStore.update(settings))
     end
 
-    def get_active(community_id:)
-      Result::Success.new(PaymentSettingsStore.get_active(community_id: community_id))
+    def get_active_by_gateway(community_id:, payment_gateway:)
+      Result::Success.new(PaymentSettingsStore.get_active_by_gateway(community_id: community_id, payment_gateway: payment_gateway))
     end
 
     # Update the given gateway and process to be the active one, disable others
@@ -43,6 +43,15 @@ module TransactionService::API
                            payment_gateway: payment_gateway,
                            payment_process: payment_process))
     end
+
+    def api_verified(community_id:, payment_gateway:, payment_process:, country:)
+      Result::Success.new(PaymentSettingsStore.api_verified(
+                           community_id: community_id,
+                           payment_gateway: payment_gateway,
+                           payment_process: payment_process,
+                           country: country))
+    end
+
 
   end
 end

@@ -218,6 +218,9 @@ module MarketplaceService
           when :paypal
             paypal_payments = PaypalService::API::Api.payments
             Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
+          when :stripe
+            stripe_payments = StripeService::API::Api.payments
+            Maybe(stripe_payments.payment_details(transaction))[:data][:payment_total].or_else(nil)
           end
 
         should_notify =

@@ -1,7 +1,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.new_payment.you_have_received_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :payer_full_name => payer_full_name, :payer_given_name => payer_given_name).html_safe
+      = t("emails.payment_receipt_to_seller.you_have_received_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :payer_full_name => payer_full_name, :payer_given_name => payer_given_name).html_safe
 
 %tr
   %td{:align => "left", :style => "padding: 20px 0;"}
@@ -9,7 +9,7 @@
       %tbody
         %tr
           %td{:width => "200"}
-            %b= t("emails.braintree_new_payment.product")
+            %b= t("emails.payment_receipt_to_seller.product")
           %td
             %b= listing_title
         - if duration.present? || listing_quantity > 1
@@ -32,29 +32,29 @@
               = listing_quantity
         %tr{:style => "border-top: 1px solid black"}
           %td
-            %b= t("emails.braintree_new_payment.price_payer_paid", :payer_full_name => payer_given_name)
+            %b= t("emails.payment_receipt_to_seller.price_payer_paid", :payer_full_name => payer_given_name)
           %td
             %b= subtotal
         %tr
           %td
-            = t("emails.braintree_new_payment.service_fee")
+            = t("emails.payment_receipt_to_seller.service_fee")
           %td= "#{payment_service_fee}"
 
         - if shipping_total.present?
           %tr
             %td
-              = t("emails.paypal_new_payment.shipping_total")
+              = t("emails.payment_receipt_to_seller.shipping_total")
             %td= shipping_total
 
-        - if paypal_gateway_fee.present?
+        - if payment_gateway_fee.present?
           %tr
             %td
-              = t("emails.paypal_new_payment.paypal_gateway_fee")
-            %td= "#{paypal_gateway_fee}"
+              = t("emails.payment_receipt_to_seller.#{gateway}_gateway_fee")
+            %td= "#{payment_gateway_fee}"
 
         %tr{:style => "border-top: 1px solid black"}
           %td
-            %b= t("emails.braintree_new_payment.you_will_get")
+            %b= t("emails.payment_receipt_to_seller.you_will_get")
           %td
             %b= payment_seller_gets
 

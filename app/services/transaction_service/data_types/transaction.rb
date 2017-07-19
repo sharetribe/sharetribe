@@ -5,7 +5,7 @@ module TransactionService::DataTypes::Transaction
   Transaction = EntityUtils.define_builder(
     [:id, :fixnum, :mandatory],
     [:payment_process, one_of: [:none, :postpay, :preauthorize]],
-    [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :none]],
+    [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :stripe, :none]],
     [:community_id, :fixnum, :mandatory],
     [:community_uuid, :uuid], # This will be mandatory once the migrations have run
     [:starter_id, :string, :mandatory],

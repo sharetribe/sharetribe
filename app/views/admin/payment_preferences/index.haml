@@ -1,0 +1,60 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t(".title")
+
+- if local_assigns[:show_onboarding_popup]
+  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section.payment-settings
+  
+  - if @payment_settings.blank?
+    .col-12
+      .alert-box-warning
+        %p
+          =t(".payments_not_enabled")
+  - else
+    %h1= t(".header")
+
+    .row
+      .col-12
+        =t(".info").html_safe
+    .row
+      .col-12
+        %table
+          %thead
+            %tr
+              %th= t(".active")
+              %th= t(".gateway")
+              %th= t(".process")
+              %th= t(".commission")
+              %th= t(".minimum_price")
+              %th= t(".minimum_fee")
+              %th= t(".api_verified")
+              %th= t(".actions")
+          %tbody
+            - @payment_settings.each do |settings|
+              %tr
+                %td.center
+                  - if settings[:active]
+                    %span.icon-ok-circle.color-green
+                  - else
+                    %span.icon-ban-circle.color-red
+                %td= settings[:payment_gateway]
+                %td= settings[:payment_process]
+                %td= settings[:commission_from_seller]
+                %td= settings[:minimum_price_cents]
+                %td= settings[:minimum_transaction_fee]
+                %td.center
+                  - if settings[:api_verified]
+                    %span.icon-ok-circle.color-green
+                  - else
+                    %span.icon-ban-circle.color-red
+                %td
+                  - if settings[:payment_gateway] == :stripe
+                    = link_to "Edit", admin_stripe_preferences_path
+                  - if settings[:payment_gateway] == :paypal
+                    = link_to "Edit", admin_paypal_preferences_path

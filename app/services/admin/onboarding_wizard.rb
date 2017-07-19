@@ -4,7 +4,7 @@ module Admin
     MarketplaceSetupSteps = ::MarketplaceSetupSteps
 
     KNOWN_STATUSES = [
-      :slogan_and_description, :cover_photo, :filter, :paypal, :listing, :invitation
+      :slogan_and_description, :cover_photo, :filter, :payment, :listing, :invitation
     ].to_set
 
     EVENT_TYPES = [
@@ -12,6 +12,7 @@ module Admin
       :community_updated,
       :custom_field_created,
       :paypal_preferences_updated,
+      :stripe_preferences_updated,
       :listing_created,
       :invitation_created,
       :listing_shape_updated
@@ -22,7 +23,7 @@ module Admin
       [:slogan_and_description, :bool, :mandatory],
       [:cover_photo, :bool, :mandatory],
       [:filter, :bool, :mandatory],
-      [:paypal, :bool, :mandatory],
+      [:payment, :bool, :mandatory],
       [:listing, :bool, :mandatory],
       [:invitation, :bool, :mandatory])
 
@@ -94,10 +95,18 @@ module Admin
       # ready for payments so repeating it here would be both waste
       # and also dangerous as PaypalHelper logic is used in all other
       # places.
-      if !setup_status[:paypal] &&
+      if !setup_status[:payment] &&
          community &&
          PaypalHelper.community_ready_for_payments?(community.id)
-        :paypal
+        :payment
+      end
+    end
+
+    def stripe_preferences_updated(setup_status, community)
+      if !setup_status[:payment] &&
+         community &&
+         StripeHelper.community_ready_for_payments?(community.id)
+        :payment
       end
     end
 
@@ -116,13 +125,13 @@ module Admin
     end
 
     def listing_shape_updated(setup_status, listing_shapes)
-      if !setup_status[:paypal] && listing_shapes.present? &&
+      if !setup_status[:payment] && listing_shapes.present? &&
         listing_shapes.any? {|shape|
           Maybe(TransactionProcess.where(id: shape[:transaction_process_id]).first)
             .map { |p| p[:process] == "none" }
             .or_else(false)
         }
-        :paypal
+        :payment
       end
     end
 
@@ -153,6 +162,7 @@ module Admin
         community_updated(setup_status, community),
         custom_field_created(setup_status, custom_field),
         paypal_preferences_updated(setup_status, community),
+        stripe_preferences_updated(setup_status, community),
         listing_created(setup_status, listing),
         invitation_created(setup_status, invitation),
         listing_shape_updated(setup_status, listing_shapes)

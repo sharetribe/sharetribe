@@ -1,0 +1,59 @@
+= javascript_include_tag "https://js.stripe.com/v3/"
+
+- if stripe_customer && stripe_customer[:stripe_source_info].present?
+  = image_tag 'stripe_logo.png'
+  = button_tag t("stripe_accounts.pay_with_stripe", card: stripe_customer[:stripe_source_info]), id: "stripe-checkout-button", class: 'checkout-with-stripe-button'
+
+.form-row
+  .row
+    .col-12
+      #card-element
+      #card-errors{role: "alert"}
+    .col-12
+      = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
+
+- content_for :extra_javascript do
+  :javascript
+    var stripe = Stripe("#{publishable_key}");
+    var elements = stripe.elements();
+    var style = {
+      base: {
+        color: '#32325d',
+        lineHeight: '24px',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    };
+    var card = elements.create('card', {style: style});
+    card.mount('#card-element');
+    card.addEventListener('change', function(event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+    });
+
+    $("#send-add-card").on('click', function(event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        } else {
+          var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
+          $("#transaction-form").append(input);
+          $("#transaction-form").submit();
+        }
+      });
+    });

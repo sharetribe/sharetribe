@@ -47,6 +47,18 @@ class SettingsController < ApplicationController
     end
   end
 
+  def toggle_payment
+    if params[:no_stripe].present?
+      @current_user.preferences[:no_stripe] = params[:no_stripe] == 'true'
+      @current_user.save
+    end
+    if params[:no_paypal].present?
+      @current_user.preferences[:no_paypal] = params[:no_paypal] == 'true'
+      @current_user.save
+    end
+    render body: "OK"
+  end
+
   private
 
   def add_location_to_person!(person)

@@ -11,6 +11,7 @@ module TransactionService::Process
 
     def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Transition.transition_to(tx[:id], :initiated)
+      tx[:current_state] = :initiated
 
       if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(

@@ -452,6 +452,16 @@ module ApplicationHelper
       }
     end
 
+    if StripeHelper.stripe_provisioned?(@current_community.id)
+      links << {
+        :topic => :configure,
+        :text => t("admin.communities.stripe_account.stripe_admin_account"),
+        :icon_class => icon_class("payments"),
+        :path => admin_stripe_preferences_path(),
+        :name => "stripe_account"
+      }
+    end
+
     links << {
       :topic => :configure,
       :text => t("admin.communities.social_media.social_media"),
@@ -523,15 +533,25 @@ module ApplicationHelper
     payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
 
     if payment_type.present?
+      if payment_type == :paypal || payment_type == [:paypal, :stripe]
+        links << {
+          :id => "settings-tab-payments",
+          :text => t("layouts.settings.paypal_payments"),
+          :icon_class => icon_class("payments"),
+          :path => paypal_account_settings_payment_path(@current_user),
+          :name => "payments"
+        }
+      end
 
-      links << {
-        :id => "settings-tab-payments",
-        :text => t("layouts.settings.payments"),
-        :icon_class => icon_class("payments"),
-        :path => paypal_account_settings_payment_path(@current_user),
-        :name => "payments"
-      }
-
+      if payment_type == :stripe || payment_type == [:paypal, :stripe]
+        links << {
+          :id => "settings-tab-stripe-payments",
+          :text => t("layouts.settings.stripe_payments"),
+          :icon_class => icon_class("payments"),
+          :path => person_stripe_account_path(@current_user),
+          :name => "stripe_payments"
+        }
+      end
     end
 
     return links

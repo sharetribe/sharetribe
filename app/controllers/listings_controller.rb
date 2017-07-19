@@ -747,7 +747,6 @@ class ListingsController < ApplicationController
 
   def commission(community, process)
     payment_type = MarketplaceService::Community::Query.payment_type(community.id)
-    payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
     currency = community.currency
 
     case [payment_type, process]
@@ -757,13 +756,13 @@ class ListingsController < ApplicationController
        minimum_commission: Money.new(0, currency),
        commission_from_seller: 0,
        minimum_price_cents: 0}
-    when matches([:paypal])
-      p_set = Maybe(payment_settings_api.get_active(community_id: community.id))
+    when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
+      p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: payment_type))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
         .or_else({})
 
-      {seller_commission_in_use: payment_settings[:commission_type].or_else(:none) != :none,
+      {seller_commission_in_use: p_set[:commission_type] != :none,
        payment_gateway: payment_type,
        minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
@@ -771,10 +770,6 @@ class ListingsController < ApplicationController
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
     end
-  end
-
-  def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions_api
   end
 
   def payment_settings_api
@@ -933,7 +928,24 @@ class ListingsController < ApplicationController
           t("listings.new.community_not_configured_for_payments_admin",
             payment_settings_link: view_context.link_to(
               t("listings.new.payment_settings_link"),
-              admin_paypal_preferences_path()))
+              admin_payment_preferences_path()))
+            .html_safe
+        else
+          t("listings.new.community_not_configured_for_payments",
+            contact_admin_link: view_context.link_to(
+              t("listings.new.contact_admin_link_text"),
+              new_user_feedback_path))
+            .html_safe
+        end
+      [can_post, error_msg]
+    when matches([:stripe])
+      can_post = StripeHelper.community_ready_for_payments?(community.id)
+      error_msg =
+        if user.has_admin_rights?
+          t("listings.new.community_not_configured_for_payments_admin",
+            payment_settings_link: view_context.link_to(
+              t("listings.new.payment_settings_link"),
+              admin_stripe_preferences_path()))
             .html_safe
         else
           t("listings.new.community_not_configured_for_payments",
