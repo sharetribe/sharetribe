@@ -568,7 +568,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def create_preauth_transaction(opts)
-    case opts[:payment_type]
+    case opts[:payment_type].to_sym
     when :paypal
       # PayPal doesn't like images with cache buster in the URL
       logo_url = Maybe(opts[:community])
@@ -609,7 +609,7 @@ class PreauthorizeTransactionsController < ApplicationController
           unit_selector_tr_key: opts[:listing].unit_selector_tr_key,
           availability: opts[:listing].availability,
           content: opts[:content],
-          payment_gateway: opts[:payment_type],
+          payment_gateway: opts[:payment_type].to_sym,
           payment_process: :preauthorize,
           booking_fields: opts[:booking_fields],
           delivery_method: opts[:delivery_method]
@@ -618,7 +618,6 @@ class PreauthorizeTransactionsController < ApplicationController
     if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:shipping_price]
     end
-
     TransactionService::Transaction.create({
         transaction: transaction,
         gateway_fields: gateway_fields

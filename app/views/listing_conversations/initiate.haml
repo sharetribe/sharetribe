@@ -66,7 +66,7 @@
       - if paypal_in_use  && stripe_in_use
         .row
           .col-12.payment-button-wrapper
-            = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
+            = image_tag 'checkout_with_paypal.png', alt: t("paypal.pay_with_paypal"), title:  t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button paypal-image"
 
       - if stripe_in_use || paypal_in_use
         .row
@@ -79,10 +79,14 @@
   - content_for :extra_javascript do
     :javascript
       $(function(){
-        $("button.checkout-with-paypal-button").click(function(){ 
+        $(".checkout-with-paypal-button").click(function(){ 
           $("#payment_type").val("paypal");
         });
-        $("button.checkout-with-stripe-button").click(function(){ 
+        $(".checkout-with-stripe-button").click(function(){ 
           $("#payment_type").val("stripe");
         });
+      });
+      $(".paypal-image").click(function(){
+        $("#payment_type").val("paypal");
+        $("#transaction-form").trigger("submit");
       });
