@@ -168,15 +168,10 @@ Rails.application.routes.draw do
       # Payments
       get  "/payment_preferences"                     => "payment_preferences#index"
       put  "/payment_preferences"                     => "payment_preferences#update"
-      # PayPal
-      get  "/paypal_preferences"                      => "paypal_preferences#index"
-      post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"
+      # PayPal Connect
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
-      # Stripe
-      get  "/stripe_preferences"                      => "stripe_preferences#index"
-      post "/stripe_preferences"                      => "stripe_preferences#update"
-
+      
       # Settings
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
