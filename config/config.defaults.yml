@@ -439,16 +439,16 @@ default: &default_settings
 
   # Stripe allows to hold funds up to 90 days
   stripe_max_booking_date: 90
-  
+
   # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
   # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
   stripe_charge_destination: :platform
-  
+
   # Disable displaying stored cards for customer
   stripe_hide_stored_cards: true
 
   # :connect - use only Stripe Connect
-  # :managed - use only Managed 
+  # :managed - use only Managed
   stripe_accounts_mode: :managed
 
 production: &production_settings
@@ -457,7 +457,8 @@ production: &production_settings
   eager_load: true
 
   log_level: INFO
-  stripe_private_key_pattern: "sk_prod_.{24}"
+  stripe_private_key_pattern: "sk_live_.{24}"
+  stripe_publishable_key_pattern: "pk_live_.{24}"
 
 staging:
   <<: *production_settings
@@ -536,7 +537,7 @@ test:
 
   # Stripe tests use for now real api calls,
   # Add your test keys to run features/stripe/stripe.feature
-  feature_stripe_publishable_key: pk_test_XXXXXXXXXXXXXXXXXXX
-  feature_stripe_private_key: sk_test_XXXXXXXXXXXXXXXXXXX
+  feature_stripe_publishable_key: pk_test_123456789012345678901234
+  feature_stripe_private_key: sk_test_123456789012345678901234
   api_encryption_key: TESTAPISECRET
 
