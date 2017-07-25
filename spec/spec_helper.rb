@@ -38,6 +38,7 @@ prefork = lambda {
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require "email_spec"
+  require './spec/support/webmock'
 
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
@@ -98,7 +99,7 @@ if defined?(Zeus)
     end
   end
   class << Zeus.plan
-    include ZeusWoTest  
+    include ZeusWoTest
   end
 else
   each_run.call

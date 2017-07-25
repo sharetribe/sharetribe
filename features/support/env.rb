@@ -14,6 +14,7 @@ require 'rspec/expectations'
 require 'cucumber/rails'
 require 'email_spec/cucumber'
 
+require './spec/support/webmock'
 # Uncomment this if needed to keep the browser open after the test
 # Capybara::Selenium::Driver.class_eval do
 #   def quit
