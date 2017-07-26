@@ -32,7 +32,7 @@ test:
     - (cd client && npm run build:client && npm run build:server):
         parallel: true
   override:
-    - bundle exec rubocop
+    - bundle exec rubocop -R
     - npm run lint:
         pwd: client
     - bundle exec rspec --format progress --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml:
