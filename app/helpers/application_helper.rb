@@ -442,7 +442,7 @@ module ApplicationHelper
       :name => "listing_shapes"
     }
 
-    if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_provisioned?(@current_community.id)
+    if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_feature_enabled?(@current_community.id)
       links << {
         :topic => :configure,
         :text => t("admin.communities.settings.payment_preferences"),

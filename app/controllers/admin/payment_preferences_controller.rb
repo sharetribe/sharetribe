@@ -20,11 +20,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update
     if params[:payment_preferences_form].present?
       update_payment_preferences
-
-    elsif params[:stripe_api_keys_form].present? && @stripe_enabled
+    elsif params[:stripe_api_keys_form].present? && @stripe_available
       update_stripe_keys
-
     end
+
     redirect_to action: :index
   end
 
@@ -221,12 +220,21 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update_stripe_keys
     api_form = StripeApiKeysForm.new(params[:stripe_api_keys_form])
     if api_form.valid? && api_form.api_private_key.present?
-      tx_settings_api.update({ community_id: @current_community.id,
-                               payment_process: :preauthorize,
-                               payment_gateway: :stripe,
-                               api_private_key: api_form.api_private_key,
-                               api_publishable_key: api_form.api_publishable_key
-                              })
+      if !@stripe_enabled
+        tx_settings_api.provision({ community_id: @current_community.id,
+                                    payment_process: :preauthorize,
+                                    payment_gateway: :stripe,
+                                    api_private_key: api_form.api_private_key,
+                                    api_publishable_key: api_form.api_publishable_key
+                                   })
+      else
+        tx_settings_api.update({ community_id: @current_community.id,
+                                 payment_process: :preauthorize,
+                                 payment_gateway: :stripe,
+                                 api_private_key: api_form.api_private_key,
+                                 api_publishable_key: api_form.api_publishable_key
+                                })
+      end
       if stripe_api.check_balance(@current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:error] = t("admin.payment_preferences.stripe_verified")

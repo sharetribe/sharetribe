@@ -13,7 +13,7 @@
 
   %h1= t("admin.payment_preferences.title")
 
-  = render partial: 'info_header_text', locals: {display_knowledge_base_articles: display_knowledge_base_articles, stripe_enabled: stripe_enabled, paypal_enabled: paypal_enabled}
+  = render partial: 'info_header_text', locals: {display_knowledge_base_articles: display_knowledge_base_articles, knowledge_base_url: knowledge_base_url, stripe_enabled: stripe_enabled, paypal_enabled: paypal_enabled}
 
   .row.paypal-wizard
     .col-12

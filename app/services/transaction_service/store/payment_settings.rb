@@ -149,9 +149,10 @@ module TransactionService::Store::PaymentSettings
   end
 
   def encrypt_value(value)
+    raise "can not encrypt Stripe keys, add app_encryption_key to config/config.yml" if APP_CONFIG.app_encryption_key.nil?
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt
-    cipher.key = Digest::SHA256.digest(APP_CONFIG.api_encryption_key)
+    cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
     iv = cipher.random_iv
     cipher.padding = 0
     cipher.iv = iv
@@ -162,7 +163,7 @@ module TransactionService::Store::PaymentSettings
   def decrypt_value(value)
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.decrypt
-    cipher.key = Digest::SHA256.digest(APP_CONFIG.api_encryption_key)
+    cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
     cipher.padding = 0
     plain = Base64.decode64(value)
     cipher.iv = plain.slice!(0,16)
