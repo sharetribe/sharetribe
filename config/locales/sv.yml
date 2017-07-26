@@ -106,7 +106,7 @@ sv:
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: "Skapa en ny annons knapp färg"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Logons storlek skall vara %{height}x%{width}pixlar"
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
@@ -295,8 +295,8 @@ sv:
         about_page: "\"om\" sidan"
       topbar:
         topbar: Menyn
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        new_listing_button_label: "Skapa en ny annons knapptext"
+        invalid_post_listing_button_label: "Vänligen ge en giltig text för \"skapa en ny annons\" knappen"
       transactions:
         export_all_as_csv: "Exportera alla som CSV"
         transactions: "Visa transaktioner"
@@ -447,7 +447,7 @@ sv:
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: Namn
       listing_shape_name_placeholder: "T ex sälja"
-      action_button_label: "Kassan namn på knapp"
+      action_button_label: "Utchecknings knapp namn"
       action_button_placeholder: "T ex köpa"
       open_listings_warning:
         one: "Det finns %{count} öppnad annons med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha dom gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra den manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du välja att stänga den genom att klicka på knappen nedan."
@@ -1382,7 +1382,7 @@ sv:
       open_in_google_maps: "Öppna i Google Maps"
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
-      something_went_wrong_plain: ~
+      something_went_wrong_plain: "Något gick fel"
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
@@ -1540,9 +1540,9 @@ sv:
       select_category: "Välj kategori"
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
-      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan skapa en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
       contact_admin_link_text: "kontakta administratören"
-      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
+      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lskapa nya annonser än. Vänligen %{contact_admin_link} för detaljer."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
     quantity:
@@ -1615,9 +1615,9 @@ sv:
       you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: natt
+      nights: nätter
+      invalid_parameters: "Ogiltiga värden för en ny transaktion"
     transaction_agreement_checkbox:
       read_more: Visa
   mapview:
@@ -2050,12 +2050,18 @@ sv:
   transactions:
     initiate:
       booked_days: "Bokade dagar:"
-      booked_nights: ~
+      booked_nights: "Bokade nätter:"
       price_per_day: "Pris per dag:"
-      price_per_night: ~
+      price_per_night: "Pris per natt:"
       quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
+      booked_days_label:
+        one: "Bokad dag:"
+        other: "Bokade dagar"
+      booked_nights_label:
+        one: "Bokad natt:"
+        other: "Bokade nätter:"
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antal: %{quantity}"
