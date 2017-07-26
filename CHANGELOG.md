@@ -17,6 +17,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Removed
 
 ### Fixed
+- Fix optional dependency issue on Linux with fsevents [#2161](https://github.com/sharetribe/sharetribe/issues/2161)
 
 ### Security
 
