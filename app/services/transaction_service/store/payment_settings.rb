@@ -78,15 +78,7 @@ module TransactionService::Store::PaymentSettings
   def activate(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-
-    unless model.active
-      ActiveRecord::Base.transaction do
-        PaymentSettingsModel.where(community_id: community_id, active: true)
-          .each { |m| m.update_attributes!(active: false) }
-        model.update_attributes!(active: true)
-      end
-    end
-
+    model.update_attributes!(active: true) unless model.active
     from_model(model)
   end
 
@@ -100,7 +92,6 @@ module TransactionService::Store::PaymentSettings
   def disable(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to disable: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-
     model.update_attributes!(active: false)
     from_model(model)
   end

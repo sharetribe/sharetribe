@@ -237,8 +237,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       end
       if stripe_api.check_balance(@current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
+        tx_settings_api.activate(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:error] = t("admin.payment_preferences.stripe_verified")
       else
+        tx_settings_api.disable(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:error] = t("admin.payment_preferences.invalid_api_keys")
       end
     else
