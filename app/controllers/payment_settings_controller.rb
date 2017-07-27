@@ -106,7 +106,7 @@ class PaymentSettingsController < ApplicationController
   def stripe_index
     {
       stripe_account: @stripe_account,
-      available_countries: STRIPE_COUNTRIES,
+      available_countries: STRIPE_COUNTRY_NAMES,
       stripe_account_form: StripeAccountForm.new(@stripe_account),
       stripe_address_form: StripeAddressForm.new(@stripe_account),
       stripe_bank_form: StripeBankForm.new(@stripe_account),
@@ -205,8 +205,13 @@ class PaymentSettingsController < ApplicationController
 
   def parse_create_params(params)
     allowed_params = params.permit(*StripeAccountForm.keys)
-    allowed_params[:birth_date] = params[:birth_date].to_date
+    allowed_params[:birth_date] = params[:birth_date].present? ? parse_date(params[:birth_date]) : nil
     StripeAccountForm.new(allowed_params)
+  end
+
+  def parse_date(value)
+    format = t("datepicker.format").gsub(/([md])[md]+/, '%\1').gsub(/yyyy/, '%Y')
+    Date.strptime(value, format) rescue nil
   end
 
   StripeBankForm = FormUtils.define_form("StripeBankForm",
