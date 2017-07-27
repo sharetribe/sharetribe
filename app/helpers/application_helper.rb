@@ -1,4 +1,6 @@
 # encoding: utf-8
+
+# rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
   # Removes whitespaces from HAML expressions
@@ -664,3 +666,4 @@ module ApplicationHelper
     value.present? ? value.strftime(format) : nil
   end
 end
+# rubocop:enable Metrics/ModuleLength

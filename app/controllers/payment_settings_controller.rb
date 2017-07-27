@@ -211,7 +211,7 @@ class PaymentSettingsController < ApplicationController
 
   def parse_date(value)
     format = t("datepicker.format").gsub(/([md])[md]+/, '%\1').gsub(/yyyy/, '%Y')
-    Date.strptime(value, format) rescue nil
+    Date.strptime(value, format) rescue nil # rubocop:disable Style/RescueModifier
   end
 
   StripeBankForm = FormUtils.define_form("StripeBankForm",
