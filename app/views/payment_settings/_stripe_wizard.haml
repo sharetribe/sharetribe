@@ -45,29 +45,31 @@
           = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
             = fields_for stripe_account_form do |form|
               .row
+                = form.error_messages
+              .row
                 .col-2
-                  = form.label :first_name, t("stripe_accounts.form_new.first_name")
+                  = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
                 .col-4
                   = form.text_field :first_name, class: 'required'
                 .col-2
-                  = form.label :last_name, t("stripe_accounts.form_new.last_name")
+                  = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
                 .col-4
                   = form.text_field :last_name, class: 'required'
 
               .row
                 .col-2
-                  = form.label :birth_date, t("stripe_accounts.form_new.birth_date")
+                  = form.label :birth_date, t("stripe_accounts.form_new.birth_date")+"*"
                 .col-4
-                  = form.text_field :birth_date, class: 'required'
+                  = form.text_field :birth_date, class: 'required', value: format_local_date(form.object.birth_date)
 
                 .col-2
-                  = form.label :ssn_last_4, t("stripe_accounts.form_new.ssn_last_4")
+                  = form.label :ssn_last_4, t("stripe_accounts.form_new.ssn_last_4")+"*"
                 .col-4
                   = form.text_field :ssn_last_4, class: 'required'
 
               .row
                 .col-2
-                  = form.label :address_country, t("stripe_accounts.form_new.address_country")
+                  = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
                 .col-4
                   = form.select :address_country, available_countries
 
@@ -84,7 +86,7 @@
 - content_for :extra_javascript do
   :javascript
     $(function() {
-      $("#stripe_account_form_birth_date").datepicker();
+      $("#stripe_account_form_birth_date").datepicker({dateFormat: "#{t("datepicker.format")}"});
       $("#stripe-account-form").validate();
       window.ST.initStripeBankForm();
     });

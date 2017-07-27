@@ -1,20 +1,20 @@
 = fields_for stripe_account_form do |form|
   .row
     .col-2
-      = form.label :address_state, t("stripe_accounts.form_new.address_state")
+      = form.label :address_state, t("stripe_accounts.form_new.address_state")+"*"
     .col-4
       = form.text_field :address_state
   .row
     .col-2
-      = form.label :address_city, t("stripe_accounts.form_new.address_city")
+      = form.label :address_city, t("stripe_accounts.form_new.address_city")+"*"
     .col-4
       = form.text_field :address_city, class: 'required'
-    .col-2
-      = form.label :address_postal_code, t("stripe_accounts.form_new.address_postal_code")
-    .col-4
+    .col-3
+      = form.label :address_postal_code, t("stripe_accounts.form_new.address_postal_code")+"*"
+    .col-3
       = form.text_field :address_postal_code, class: 'required'
   .row
     .col-2
-      = form.label :address_line1, t("stripe_accounts.form_new.address_line1"), class: 'required'
+      = form.label :address_line1, t("stripe_accounts.form_new.address_line1")+"*", class: 'required'
     .col-10
       = form.text_field :address_line1, class: 'required'

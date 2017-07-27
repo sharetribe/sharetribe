@@ -658,4 +658,9 @@ module ApplicationHelper
       content_for :extra_javascript do js end
     end
   end
+
+  def format_local_date(value)
+    format = t("datepicker.format").gsub(/([md])[md]+/, '%\1').gsub(/yyyy/, '%Y')
+    value.present? ? value.strftime(format) : nil
+  end
 end

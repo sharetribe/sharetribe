@@ -54,9 +54,9 @@ window.ST = window.ST || {};
       var country = $(this).val();
       $(prefix+"_bank_account_number").prop('placeholder', get_placeholder(country, 'account_number'));
       if (!get_placeholder(country, 'account_number')) {
-        $(prefix+"_bank_account_number").hide();
+        $(prefix+"_bank_account_number").parent().parent().hide();
       } else {
-        $(prefix+"_bank_account_number").show();
+        $(prefix+"_bank_account_number").parent().parent().show();
       }
       $(prefix+"_bank_routing_number").prop('placeholder', get_placeholder(country, 'routing_number'));
       $(prefix+"_bank_currency").val(DEFAULT_CURRENCIES[country]);
