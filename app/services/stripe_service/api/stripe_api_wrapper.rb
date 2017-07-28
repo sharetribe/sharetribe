@@ -112,7 +112,7 @@ class StripeService::API::StripeApiWrapper
           }
         end
         Stripe::Account.create({
-          managed: true,
+          type: 'custom',
           country: account_info[:address_country],
           legal_entity: {
             type: 'individual',
