@@ -126,6 +126,7 @@ module StripeService::Store::StripeAccount
   def create(opts:)
     entity = StripeAccountCreate.call(opts)
     account_model = StripeAccountModel.where(community_id: entity[:community_id], person_id: entity[:person_id]).first
+    entity.delete(:ssn_last_4)
     if account_model
       account_model.update_attributes(entity)
     else
