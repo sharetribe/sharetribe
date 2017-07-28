@@ -47,7 +47,7 @@ module StripeService::API
     def send_verification(community_id:, person_id:, personal_id_number:, file:)
       account = accounts_store.get(community_id: community_id, person_id: person_id)
       stripe_api.send_verification(community_id, account[:stripe_seller_id], personal_id_number, file)
-      Result::Success.new(accounts_store.update_field(community_id: community_id, person_id: person_id, field: :personal_id_number, value: personal_id_number))
+      Result::Success.new(account)
     rescue => e
       Result::Error.new(e.message)
     end

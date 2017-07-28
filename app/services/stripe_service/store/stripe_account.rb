@@ -39,8 +39,6 @@ module StripeService::Store::StripeAccount
     [:address_postal_code, :string, :mandatory],
     [:address_state, :string ],
     [:birth_date, :date, :mandatory],
-    [:ssn_last_4, :string, :mandatory],
-    [:personal_id_number, :string, :optional],
 
     [:tos_date, :time, :mandatory],
     [:tos_ip, :string, :mandatory],
@@ -56,9 +54,7 @@ module StripeService::Store::StripeAccount
     [:address_line1, :string],
     [:address_postal_code, :string],
     [:address_state, :string],
-    [:birth_date, :date],
-    [:ssn_last_4, :string],
-    [:personal_id_number, :string]
+    [:birth_date, :date]
   )
 
   StripeAddressUpdate = EntityUtils.define_builder(
@@ -72,8 +68,6 @@ module StripeService::Store::StripeAccount
     [:community_id, :fixnum],
     [:person_id, :string],
 
-    [:account_type, :string],
-
     [:stripe_seller_id, :string],
 
     [:first_name, :string],
@@ -86,15 +80,9 @@ module StripeService::Store::StripeAccount
     [:address_state, :string],
 
     [:birth_date, :date],
-    [:ssn_last_4, :string],
 
     [:tos_date, :time],
     [:tos_ip, :string],
-
-    [:charges_enabled, :to_bool],
-    [:transfers_enabled, :to_bool],
-    [:personal_id_number, :string],
-    [:verification_document, :string],
 
     [:stripe_bank_id, :string],
     [:bank_account_number, :string],
@@ -104,8 +92,6 @@ module StripeService::Store::StripeAccount
     [:bank_account_holder_type, :string],
     [:bank_routing_number, :string],
 
-    [:stripe_debit_card_id, :string],
-    [:stripe_debit_card_source, :string],
     [:stripe_customer_id, :string],
     [:stripe_source_info, :string],
     [:stripe_source_country, :string]
@@ -135,7 +121,7 @@ module StripeService::Store::StripeAccount
   end
 
   def create_customer(opts:)
-    account_model = StripeAccountModel.create!(opts.merge({account_type: 'customer'}))
+    account_model = StripeAccountModel.create!(opts)
     from_model(account_model)
   end
 
