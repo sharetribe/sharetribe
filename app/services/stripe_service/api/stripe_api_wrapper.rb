@@ -152,17 +152,19 @@ class StripeService::API::StripeApiWrapper
     def create_bank_account(community, account_info)
       with_stripe_payment_config(community) do |payment_settings|
         stripe_account = Stripe::Account.retrieve account_info[:stripe_seller_id]
-        stripe_account.external_accounts.create({
+        routing = account_info[:bank_routing_number].present? ? { routing_number: account_info[:bank_routing_number] } : {}
+        data = {
           external_account: {
             object: 'bank_account',
             account_number: account_info[:bank_account_number],
             currency:       account_info[:bank_currency],
-            routing_number: account_info[:bank_routing_number],
             country:        account_info[:bank_country],
             account_holder_name: account_info[:bank_holder_name],
             account_holder_type: 'individual'
-          }
-        })
+          }.merge(routing)
+        }
+
+        stripe_account.external_accounts.create(data)
       end
     end
 

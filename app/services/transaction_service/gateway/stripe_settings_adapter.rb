@@ -30,7 +30,7 @@ module TransactionService::Gateway
 
     def stripe_account_created?(community_id:, person_id: nil, settings: Maybe(nil))
       account = StripeService::API::Api.accounts.get(community_id: community_id, person_id: person_id).data
-      account && account[:stripe_seller_id].present?
+      account && account[:stripe_seller_id].present? && account[:stripe_bank_id].present?
     end
 
   end
