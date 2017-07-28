@@ -23,6 +23,7 @@ module FeatureTests
         # Save payment preferences
         payment_preferences.set_payment_preferences(min_price: min_price, commission: commission, min_commission: min_commission)
         payment_preferences.save_settings
+        onboarding_wizard.dismiss_dialog
         expect(page).to have_content("Payment system preferences updated")
       end
 

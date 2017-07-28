@@ -152,10 +152,10 @@ module StripeService::API
             accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_customer_id, value: stripe_customer.id)
           end
           card_info, card_country = stripe_api.get_card_info(stripe_customer)
-          payer_account = accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_info, value: card_info).data
-          payer_account = accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_country, value: card_country).data
+          accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_info, value: card_info)
+          accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_country, value: card_country)
         end
-        payer_account
+        accounts_api.get(community_id: community_id, person_id: person_id).data
       end
 
       def order_total(tx)

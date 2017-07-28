@@ -1,7 +1,9 @@
 # coding: utf-8
 
 Then("I expect transaction with Stripe test to pass") do
-  FakeStripe.stub_stripe
+  unless ENV['REAL_STRIPE']
+    FakeStripe.stub_stripe
+  end
 
   navigation = FeatureTests::Navigation
   data = FeatureTests::Data
