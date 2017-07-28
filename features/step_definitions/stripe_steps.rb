@@ -2,6 +2,13 @@
 
 Then("I expect transaction with Stripe test to pass") do
   unless ENV['REAL_STRIPE']
+    module FakeStripe
+      class StubApp
+        post "/v1/accounts/:account_id/external_accounts" do
+          json_response 201, fixture("update_account")
+        end
+      end
+    end
     FakeStripe.stub_stripe
   end
 
