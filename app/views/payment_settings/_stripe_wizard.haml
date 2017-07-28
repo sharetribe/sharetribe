@@ -21,7 +21,7 @@
 
             = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_address_form, available_countries: available_countries}
 
-            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form}
+            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account}
 
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 
@@ -75,7 +75,7 @@
 
             = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
 
-            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form}
+            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account}
 
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 

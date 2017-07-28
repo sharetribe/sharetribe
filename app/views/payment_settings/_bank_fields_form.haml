@@ -1,9 +1,14 @@
-= fields_for stripe_bank_form do |form|
+- if stripe_account[:stripe_bank_id].blank?
   .row
-    .col-4
-      = form.label :bank_routing_number, t("stripe_accounts.form_bank.bank_routing_number")+"*"
-    .col-8
-      = form.text_field :bank_routing_number, class: 'required'
+    .col-12
+      = t("stripe_accounts.form_bank.provide_info")
+= fields_for stripe_bank_form do |form|
+  - if ["US", "GB"].include?(stripe_account[:address_country]) || stripe_account[:address_country].blank?
+    .row
+      .col-4
+        = form.label :bank_routing_number, t("stripe_accounts.form_bank.bank_routing_number")+"*"
+      .col-8
+        = form.text_field :bank_routing_number, class: 'required'
   .row
     .col-4
       = form.label :bank_account_number, t("stripe_accounts.form_bank.bank_account_number")+"*"

@@ -11,8 +11,7 @@ module Admin
       :community_customizations_updated,
       :community_updated,
       :custom_field_created,
-      :paypal_preferences_updated,
-      :stripe_preferences_updated,
+      :payment_preferences_updated,
       :listing_created,
       :invitation_created,
       :listing_shape_updated
@@ -88,7 +87,7 @@ module Admin
       end
     end
 
-    def paypal_preferences_updated(setup_status, community)
+    def payment_preferences_updated(setup_status, community)
       # This event handler is an unfortunate exception as it's not a
       # pure function of input values. The reason is that PaypalHelper
       # already encapsulates the logic to check if a community is
@@ -97,15 +96,7 @@ module Admin
       # places.
       if !setup_status[:payment] &&
          community &&
-         PaypalHelper.community_ready_for_payments?(community.id)
-        :payment
-      end
-    end
-
-    def stripe_preferences_updated(setup_status, community)
-      if !setup_status[:payment] &&
-         community &&
-         StripeHelper.community_ready_for_payments?(community.id)
+         (PaypalHelper.community_ready_for_payments?(community.id) || StripeHelper.community_ready_for_payments?(community.id))
         :payment
       end
     end
@@ -161,8 +152,7 @@ module Admin
         community_customizations_updated(setup_status, community_customizations),
         community_updated(setup_status, community),
         custom_field_created(setup_status, custom_field),
-        paypal_preferences_updated(setup_status, community),
-        stripe_preferences_updated(setup_status, community),
+        payment_preferences_updated(setup_status, community),
         listing_created(setup_status, listing),
         invitation_created(setup_status, invitation),
         listing_shape_updated(setup_status, listing_shapes)

@@ -176,7 +176,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:paypal_preferences_updated, @current_community)
+        .update_from_event(:payment_preferences_updated, @current_community)
       if state_changed
         report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
                        {event: "km_record", km_event: "Onboarding paypal connected"}])
@@ -238,7 +238,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       if stripe_api.check_balance(@current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         tx_settings_api.activate(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
-        flash[:error] = t("admin.payment_preferences.stripe_verified")
+        flash[:notice] = t("admin.payment_preferences.stripe_verified")
       else
         tx_settings_api.disable(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:error] = t("admin.payment_preferences.invalid_api_keys")

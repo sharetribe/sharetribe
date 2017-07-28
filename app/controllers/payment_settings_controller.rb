@@ -241,7 +241,7 @@ class PaymentSettingsController < ApplicationController
 
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
-    has_changes = bank_form.bank_account_number != @stripe_account[:bank_account_number] && bank_form.bank_routing_number != @stripe_account[:bank_routing_number]
+    has_changes = bank_form.bank_account_number != @stripe_account[:bank_account_number] || bank_form.bank_routing_number != @stripe_account[:bank_routing_number]
 
     if bank_form.valid? && has_changes
       result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)
