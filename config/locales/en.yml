@@ -233,7 +233,7 @@ en:
         last_community_updates: "Please note that after deletion, you and your marketplace users may still receive the last marketplace update emails."
         you_will_be_redirected_to: "After you have deleted your marketplace you will be redirected to %{destination}. You will not be able to access your marketplace anymore."
         delete_this_marketplace: "Delete this marketplace"
-        payment_preferences: "Payment System"
+        payment_preferences: "Payment system"
       manage_members:
         manage_members: "Manage users"
         email: Email
@@ -319,13 +319,33 @@ en:
           paid: Paid
           confirmed: Confirmed
           canceled: Canceled
-          initiated: "Waiting payment"
-          pending_ext: "Waiting payment"
+          initiated: "Waiting PayPal payment"
+          pending_ext: "Waiting PayPal payment"
+          none:
+            free: Conversation
+          paypal:
+            free: Conversation
+            pending: Pending
+            preauthorized: Preauthorized
+            accepted: Accepted
+            rejected: Rejected
+            paid: Paid
+            confirmed: Confirmed
+            canceled: Canceled
+            initiated: "Waiting PayPal payment"
+            pending_ext: "Waiting PayPal payment"
+          stripe:
+            free: Conversation
+            pending: Pending
+            preauthorized: Preauthorized
+            accepted: Accepted
+            rejected: Rejected
+            paid: Paid
+            confirmed: Confirmed
+            canceled: Canceled
+            initiated: "Waiting Stripe payment"
+            pending_ext: "Waiting Stripe payment"
         not_available: "Not available"
-      paypal_account:
-        paypal_admin_account: "PayPal Payments"
-      stripe_account:
-        stripe_admin_account: "Stripe Payments"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -511,7 +531,7 @@ en:
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
     payment_preferences:
       title: Payment system preferences
-      integration_info_text_paypal_and_stripe: "<p>If you want to allow your users to accept payments, you  need to connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means yout users will be able to accept payments with either payment method.</p> You ca create a new account with either service if you don't have one already. Once you have connected an account, you can choose a minimum transaction size and a possible commission fee.</p> What is a difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offeres one payment method (credit card). Paypal provide two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers</p>"
+      integration_info_text_paypal_and_stripe: "<p>If you want to allow your users to accept payments, you  need to connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to accept payments with either payment method.</p> You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a minimum transaction size and a possible commission fee.</p> What is a difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offeres one payment method (credit card). Paypal provide two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers</p>"
       integration_info_text_paypal_only: "The payment system of your marketplace is powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee"
       integration_info_text_stripe_only: "The payment system of your marketplace is powered by Stripe. To allow your users to pay using your marketplace, you must connect your Stripe API account. Once you have connected your Stripe API account, you can choose a minimum transaction size and a possible commission fee"
       invalid_api_keys: "Invalid Stripe API keys"
@@ -519,12 +539,12 @@ en:
       stripe_verified: "Stripe API access verified"
       stripe_connected:
         title: "Stripe account connected"
-        private_key: "Private API key: <strong>%{key}</strong>"
+        private_key: "Secret API key: <strong>%{key}</strong>"
         publishable_key: "Publishable API key: <strong>%{key}</strong>"
       stripe_form:
         add_your_api_keys: Add your Stripe API keys
         how_to_get_these: How to get these?
-        private_key: Private API key
+        private_key: Secret API key
         publishable_key: Publishable API key
         save_api_keys: Save Stripe API keys
       index:
@@ -549,7 +569,7 @@ en:
         api_not_verified: "API Access Not verified"
         api_settings: "Stripe API Access"
         client_id: "Stripe Client ID"
-        private_key: "Private Key"
+        private_key: "Secret Key"
         publishable_key: "Publishable Key (for Stripe.js form)"
         payment_settings: "Payment Settings"
       update:
@@ -2314,7 +2334,7 @@ en:
       verification: Verification
       need_verification: Verification Details
   payment_settings:
-    stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means yout users will be able to pay payments with either payment method.</p>"
+    stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to pay payments with either payment method.</p>"
     stripe_title: Create managed Stripe account
     paypal_title: Connect your PayPal account
 
