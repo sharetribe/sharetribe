@@ -811,7 +811,6 @@ CREATE TABLE `marketplace_setup_steps` (
   `paypal` tinyint(1) NOT NULL DEFAULT '0',
   `listing` tinyint(1) NOT NULL DEFAULT '0',
   `invitation` tinyint(1) NOT NULL DEFAULT '0',
-  `stripe` tinyint(1) DEFAULT '0',
   `payment` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_marketplace_setup_steps_on_community_id` (`community_id`) USING BTREE
@@ -1195,8 +1194,8 @@ DROP TABLE IF EXISTS `stripe_accounts`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stripe_accounts` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `person_id` varchar(255) NOT NULL,
-  `community_id` bigint(20) DEFAULT NULL,
+  `person_id` varchar(255) DEFAULT NULL,
+  `community_id` int(11) DEFAULT NULL,
   `stripe_seller_id` varchar(255) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
@@ -1219,9 +1218,7 @@ CREATE TABLE `stripe_accounts` (
   `stripe_source_info` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_stripe_accounts_on_person_id` (`person_id`),
-  KEY `index_stripe_accounts_on_community_id` (`community_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
@@ -1239,13 +1236,13 @@ CREATE TABLE `stripe_payments` (
   `currency` varchar(255) DEFAULT NULL,
   `stripe_charge_id` varchar(255) DEFAULT NULL,
   `stripe_transfer_id` varchar(255) DEFAULT NULL,
-  `transfered_at` datetime DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
   `fee_cents` int(11) DEFAULT NULL,
   `real_fee_cents` int(11) DEFAULT NULL,
   `subtotal_cents` int(11) DEFAULT NULL,
+  `transfered_at` datetime DEFAULT NULL,
   `available_on` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2198,20 +2195,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170613153961'),
 ('20170613153965'),
 ('20170626065542'),
-('20170629113013'),
-('20170630085303'),
-('20170703090251'),
-('20170703123959'),
-('20170704120024'),
-('20170704121638'),
-('20170705132856'),
-('20170706020608'),
-('20170707053914'),
-('20170707053915'),
-('20170707104010'),
-('20170707130931'),
-('20170710081759'),
-('20170711064018'),
-('20170728065012');
+('20170801125553');
 
 

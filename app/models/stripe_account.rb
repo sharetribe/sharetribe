@@ -3,7 +3,7 @@
 # Table name: stripe_accounts
 #
 #  id                       :integer          not null, primary key
-#  person_id                :string(255)      not null
+#  person_id                :string(255)
 #  community_id             :integer
 #  stripe_seller_id         :string(255)
 #  first_name               :string(255)
@@ -27,11 +27,6 @@
 #  stripe_source_info       :string(255)
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
-#
-# Indexes
-#
-#  index_stripe_accounts_on_community_id  (community_id)
-#  index_stripe_accounts_on_person_id     (person_id)
 #
 
 class StripeAccount < ApplicationRecord
