@@ -85,12 +85,7 @@ module StripeService::Store::StripeAccount
     [:tos_ip, :string],
 
     [:stripe_bank_id, :string],
-    [:bank_account_number, :string],
-    [:bank_country, :string],
-    [:bank_currency, :string],
-    [:bank_account_holder_name, :string],
-    [:bank_account_holder_type, :string],
-    [:bank_routing_number, :string],
+    [:bank_account_last_4, :string],
 
     [:stripe_customer_id, :string],
     [:stripe_source_info, :string],
@@ -98,13 +93,7 @@ module StripeService::Store::StripeAccount
   )
 
   StripeBankAccount = EntityUtils.define_builder(
-    [:stripe_bank_id, :string],
-    [:bank_account_number, :string],
-    [:bank_country, :string],
-    [:bank_currency, :string],
-    [:bank_account_holder_name, :string],
-    [:bank_account_holder_type, :string],
-    [:bank_routing_number, :string]
+    [:stripe_bank_id, :string]
   )
 
   module_function
@@ -155,6 +144,8 @@ module StripeService::Store::StripeAccount
     }
     model = StripeAccountModel.where(find_params).first
     entity = StripeBankAccount.call(opts)
+    account_number = opts[:bank_account_number].to_s
+    entity[:bank_account_last_4] = account_number.sub(/^(..)(.+)(....)$/, '\1****\2')
     model.update_attributes(entity)
     from_model(model)
   end

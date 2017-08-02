@@ -16,10 +16,10 @@ module StripeService::API
         customer_id   = payer_account[:stripe_customer_id]
         seller_id     = seller_account[:stripe_seller_id]
 
-        case stripe_api.destination(tx[:community_id])
-        when :platform
+        case stripe_api.charges_mode(tx[:community_id])
+        when :separate, :destination
           source_id  = payer_account[:stripe_customer_id]
-        when :seller
+        when :direct
           source_id  = stripe_api.create_token(tx[:community_id], customer_id, seller_id).id
         end
 
@@ -89,15 +89,20 @@ module StripeService::API
           payment = {
             sum: total,
             commission: commission,
-            fee: fee,
+            real_fee: fee,
             subtotal: total - fee,
           }
+        end
+        gateway_fee = if stripe_api.charges_mode(tx[:community_id]) == :destination
+          Money.new(0, payment[:sum].currency)
+        else
+          payment[:real_fee]
         end
         {
           payment_total:       payment[:sum],
           total_price:         payment[:subtotal],
           charged_commission:  payment[:commission],
-          payment_gateway_fee: payment[:real_fee] || payment[:fee]
+          payment_gateway_fee: gateway_fee
         }
       end
 
@@ -107,13 +112,18 @@ module StripeService::API
 
         seller_gets = payment[:subtotal] - payment[:commission]
 
-        case stripe_api.destination(tx[:community_id])
-        when :platform
+        case stripe_api.charges_mode(tx[:community_id])
+        when :separate
           seller_gets -= payment[:real_fee] || 0
           if seller_gets > 0
-            result = stripe_api.perform_transfer(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency, payment[:subtotal].cents, payment[:stripe_charge_id])
+            result = stripe_api.perform_transfer(tx[:community_id],
+              seller_account[:stripe_seller_id],
+              seller_gets.cents,
+              payment[:sum].currency,
+              payment[:subtotal].cents,
+              payment[:stripe_charge_id])
           end
-        when :seller
+        when :direct, :destination
           if seller_gets > 0
             result = stripe_api.perform_payout(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency)
           end

@@ -58,8 +58,8 @@ class StripeService::API::StripeApiWrapper
 
     def charge(community, token, seller_account_id, amount, fee, currency, description)
       with_stripe_payment_config(community) do |payment_settings|
-        case destination(community)
-        when :seller
+        case charges_mode(community)
+        when :direct
           Stripe::Charge.create({
             source: token,
             amount: amount,
@@ -68,7 +68,7 @@ class StripeService::API::StripeApiWrapper
             application_fee: fee,
             capture: false
           }, { stripe_account: seller_account_id })
-        when :platform
+        when :separate
           Stripe::Charge.create({
             customer: token,
             amount: amount,
@@ -76,16 +76,28 @@ class StripeService::API::StripeApiWrapper
             currency: currency,
             capture: false
           })
+        when :destination
+          Stripe::Charge.create({
+            customer: token,
+            amount: amount,
+            description: description,
+            currency: currency,
+            capture: false,
+            destination: {
+              account: seller_account_id,
+              amount: amount - fee
+            }
+          })
         end
       end
     end
 
     def capture_charge(community, charge_id, seller_id)
       with_stripe_payment_config(community) do |payment_settings|
-        case destination(community)
-        when :seller
+        case charges_mode(community)
+        when :direct
           charge = Stripe::Charge.retrieve(charge_id, {stripe_account: seller_id})
-        when :platform
+        when :separate, :destination
           charge = Stripe::Charge.retrieve(charge_id)
         end
         charge.capture
@@ -100,11 +112,11 @@ class StripeService::API::StripeApiWrapper
 
     def register_seller(community, account_info)
       with_stripe_payment_config(community) do |payment_settings|
-        case destination(community)
-        when :platform
+        case charges_mode(community)
+        when :separate
           # platform holds captured funds until completion, up to 90 days, then makes transfer
           payout_mode = {}
-        when :seller
+        when :direct, :destination
           # managed accounts, make payout after completion om funds availability date
           payout_mode = {
             payout_schedule: {
@@ -203,11 +215,12 @@ class StripeService::API::StripeApiWrapper
       return nil
     end
 
-    DESTINATION_TYPES = [:platform, :seller]
-    # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
-    # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
-    def destination(community)
-      APP_CONFIG.stripe_charge_destination.to_sym
+    DESTINATION_TYPES = [:separate, :direct, :destination]
+    # :separate - Separate charges and transfers
+    # :direct   - Direct charges
+    # :destination - Direct charges
+    def charges_mode(community)
+      APP_CONFIG.stripe_charges_mode.to_sym
     end
 
     def send_verification(community, account_id, personal_id_number, file_path)
@@ -238,11 +251,11 @@ class StripeService::API::StripeApiWrapper
 
     def cancel_charge(community, charge_id, account_id, reason)
       with_stripe_payment_config(community) do |payment_settings|
-        reason_data =  reason.present? ? {reason: reason} : {}
-        case destination(community)
-        when :platform
+        reason_data = reason.present? ? {reason: reason} : {}
+        case charges_mode(community)
+        when :separate, :destination
           Stripe::Refund.create({charge: charge_id}.merge(reason_data))
-        when :seller
+        when :direct
           Stripe::Refund.create({charge: charge_id}.merge(reason_data), {stripe_account: account_id})
         end
       end
@@ -250,10 +263,10 @@ class StripeService::API::StripeApiWrapper
 
     def get_balance_txn(community, balance_txn_id, account_id)
       with_stripe_payment_config(community) do |payment_settings|
-        case destination(community)
-        when :platform
+        case charges_mode(community)
+        when :separate, :destination
           Stripe::BalanceTransaction.retrieve(balance_txn_id)
-        when :seller
+        when :direct
           Stripe::BalanceTransaction.retrieve(balance_txn_id, {stripe_account: account_id})
         end
       end

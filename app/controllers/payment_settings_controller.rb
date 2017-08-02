@@ -56,7 +56,7 @@ class PaymentSettingsController < ApplicationController
       flash[:warning] = t("stripe_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
                               t("stripe_accounts.contact_admin_link_text"),
-                                new_user_feedback_path)).html_safe # rubocop:disable Rails/OutputSafety
+                                new_user_feedback_path)).html_safe
       redirect_to person_settings_path
     end
   end
@@ -83,11 +83,10 @@ class PaymentSettingsController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
+    need_verification = false
     if @stripe_account[:stripe_seller_id].present?
       seller_account = stripe_api.get_seller_account(@current_community.id, @stripe_account[:stripe_seller_id])
-      need_verification = seller_account && seller_account.type = 'custom' && seller_account.verification.fields_needed.present?
-    else
-      need_verification = true
+      need_verification = seller_account && seller_account.verification.fields_needed.present? && seller_account.verification.due_by.present?
     end
 
     {
@@ -109,7 +108,7 @@ class PaymentSettingsController < ApplicationController
       available_countries: STRIPE_COUNTRY_NAMES,
       stripe_account_form: StripeAccountForm.new(@stripe_account),
       stripe_address_form: StripeAddressForm.new(@stripe_account),
-      stripe_bank_form: StripeBankForm.new(@stripe_account),
+      stripe_bank_form: StripeBankForm.new(@stripe_account.merge(bank_account_number: @stripe_account[:bank_account_last_4])),
       stripe_verification_form: StripeVerificationForm.new(@stripe_account),
     }
   end
@@ -241,9 +240,8 @@ class PaymentSettingsController < ApplicationController
 
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
-    has_changes = bank_form.bank_account_number != @stripe_account[:bank_account_number] || bank_form.bank_routing_number != @stripe_account[:bank_routing_number]
 
-    if bank_form.valid? && has_changes
+    if bank_form.valid? && bank_form.bank_account_number !~ /\*/
       result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)
       if result[:success]
         load_stripe_account
