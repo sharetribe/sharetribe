@@ -11,7 +11,7 @@
   - # Topbar adds its own maps script, otherwise add it if location search enabled or map is visible
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) && (main_search != :keyword || @view_type.eql?("map"))
   - if(needs_maps)
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
+    = javascript_include_tag "//maps.googleapis.com/maps/api/js?libraries=places#{key_param}"
   - if(@view_type.eql?("map"))
     = javascript_include_tag "markerclusterer.js"
 
