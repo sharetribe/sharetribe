@@ -29,7 +29,8 @@ module StripeService::API
         fee        = Money.new(0, subtotal.currency)
 
         description = "Payment #{tx[:id]} for #{tx[:listing_title]} via #{gateway_fields[:service_name]} "
-        stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, description)
+        metadata = {order_id: tx[:id], seller_id: tx[:listing_author_id], payer_id: tx[:starter_id], mode: stripe_api.charges_mode(tx[:community_id])}
+        stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, description, metadata)
 
         payment = PaymentStore.create(tx[:community_id], tx[:id], {
           payer_id: tx[:starter_id],
@@ -57,7 +58,7 @@ module StripeService::API
       def cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx[:community_id], tx[:id])
         seller_account = accounts_api.get(community_id: tx[:community_id], person_id: tx[:listing_author_id]).data
-        stripe_api.cancel_charge(tx[:community_id], payment[:stripe_charge_id], seller_account[:stripe_seller_id], reason)
+        stripe_api.cancel_charge(tx[:community_id], payment[:stripe_charge_id], seller_account[:stripe_seller_id], reason, {order_id: tx[:id]})
         payment = PaymentStore.update(transaction_id: tx[:id], community_id: tx[:community_id], data: {status: 'canceled'})
         Result::Success.new(payment)
       rescue => e
@@ -121,11 +122,19 @@ module StripeService::API
               seller_gets.cents,
               payment[:sum].currency,
               payment[:subtotal].cents,
-              payment[:stripe_charge_id])
+              payment[:stripe_charge_id],
+              {order_id: tx[:id]}
+            )
           end
         when :direct, :destination
           if seller_gets > 0
-            result = stripe_api.perform_payout(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency)
+            result = stripe_api.perform_payout(
+              tx[:community_id],
+              seller_account[:stripe_seller_id],
+              seller_gets.cents,
+              payment[:sum].currency,
+              {order_id: tx[:id]}
+            )
           end
         end
 
@@ -158,7 +167,7 @@ module StripeService::API
           if payer_account[:stripe_customer_id].present?
             stripe_customer = stripe_api.update_customer(community_id, payer_account[:stripe_customer_id], gateway_fields[:stripe_token])
           else
-            stripe_customer = stripe_api.register_customer(community_id, gateway_fields[:stripe_email], gateway_fields[:stripe_token])
+            stripe_customer = stripe_api.register_customer(community_id, gateway_fields[:stripe_email], gateway_fields[:stripe_token], {person_id: person_id})
             accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_customer_id, value: stripe_customer.id)
           end
           card_info, card_country = stripe_api.get_card_info(stripe_customer)

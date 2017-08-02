@@ -32,12 +32,12 @@ class StripeService::API::StripeApiWrapper
       }
     end
 
-    def register_customer(community, email, card_token)
+    def register_customer(community, email, card_token, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
-        Stripe::Customer.create(
-          email: email,
-          card: card_token
-        )
+        Stripe::Customer.create({
+            email: email,
+            card: card_token
+          }.merge(metadata: metadata))
       end
     end
 
@@ -56,7 +56,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def charge(community, token, seller_account_id, amount, fee, currency, description)
+    def charge(community, token, seller_account_id, amount, fee, currency, description, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :direct
@@ -67,7 +67,7 @@ class StripeService::API::StripeApiWrapper
             currency: currency,
             application_fee: fee,
             capture: false
-          }, { stripe_account: seller_account_id })
+          }.merge(metadata: metadata), { stripe_account: seller_account_id })
         when :separate
           Stripe::Charge.create({
             customer: token,
@@ -75,7 +75,7 @@ class StripeService::API::StripeApiWrapper
             description: description,
             currency: currency,
             capture: false
-          })
+          }.merge(metadata: metadata))
         when :destination
           Stripe::Charge.create({
             customer: token,
@@ -87,7 +87,7 @@ class StripeService::API::StripeApiWrapper
               account: seller_account_id,
               amount: amount - fee
             }
-          })
+          }.merge(metadata: metadata))
         end
       end
     end
@@ -110,7 +110,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def register_seller(community, account_info)
+    def register_seller(community, account_info, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :separate
@@ -150,7 +150,7 @@ class StripeService::API::StripeApiWrapper
             date: account_info[:tos_date].to_i,
             ip: account_info[:tos_ip],
           }
-        }.merge(payout_mode))
+        }.merge(payout_mode).merge(metadata: metadata))
       end
     end
 
@@ -187,20 +187,25 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def perform_payout(community, account_id, amount_cents, currency)
+    def perform_payout(community, account_id, amount_cents, currency, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
-        Stripe::Payout.create({amount: amount_cents, currency: currency}, {stripe_account: account_id})
+        Stripe::Payout.create({amount: amount_cents, currency: currency}.merge(metadata: metadata), {stripe_account: account_id})
       end
     end
 
-    def perform_transfer(community, account_id, amount_cents, amount_currency, initial_amount, charge_id)
+    def perform_transfer(community, account_id, amount_cents, amount_currency, initial_amount, charge_id, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
         charge = Stripe::Charge.retrieve(charge_id)
         balance_txn = Stripe::BalanceTransaction.retrieve(charge.balance_transaction)
         balance_currency = balance_txn.currency.upcase
         # when platform balance is, say in EUR, but prices are in USD, recalc amount
         fixed_amount = balance_currency == amount_currency ? amount_cents : (amount_cents * 1.0 / initial_amount * balance_txn.amount).to_i
-        Stripe::Transfer.create({amount: fixed_amount, currency: balance_currency, destination: account_id, source_transaction: charge_id})
+        Stripe::Transfer.create({
+            amount: fixed_amount,
+            currency: balance_currency,
+            destination: account_id,
+            source_transaction: charge_id
+          }.merge(metadata: metadata))
       end
     end
 
@@ -249,14 +254,14 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def cancel_charge(community, charge_id, account_id, reason)
+    def cancel_charge(community, charge_id, account_id, reason, metadata = {})
       with_stripe_payment_config(community) do |payment_settings|
         reason_data = reason.present? ? {reason: reason} : {}
         case charges_mode(community)
         when :separate, :destination
-          Stripe::Refund.create({charge: charge_id}.merge(reason_data))
+          Stripe::Refund.create({charge: charge_id}.merge(reason_data).merge(metadata: metadata))
         when :direct
-          Stripe::Refund.create({charge: charge_id}.merge(reason_data), {stripe_account: account_id})
+          Stripe::Refund.create({charge: charge_id}.merge(reason_data).merge(metadata: metadata), {stripe_account: account_id})
         end
       end
     end
