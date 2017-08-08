@@ -597,7 +597,7 @@ vi:
       cancel_description: ~
       cancel_payed_description: "Nếu đề nghị đã được chấp nhận nhưng bạn muốn đổi ý, bạn vẫn có thể hủy đề nghị trước khi thanh toán."
       canceling_payed_transaction: "Hủy giao dịch"
-      confirm: "Đánh dấu hoàn tất"
+      confirm: "Đánh dấu đã hoàn tất"
       cancel: ~
       continue: "Tiếp tục"
       give_feedback_to: "Để lại phải hồi cho %{person_link}"
@@ -617,8 +617,8 @@ vi:
       accepted_offer: "Đề nghị được chấp nhận"
       rejected_request: "Yêu cầu đã bị từ chối"
       rejected_offer: "Đề nghị đã bị tự chối."
-      confirmed_request: ~
-      confirmed_offer: "Đề nghị hoàn tất."
+      confirmed_request: "Đơn hàng đã hoàn tất."
+      confirmed_offer: "Đề nghị đã hoàn tất."
       canceled_request: ~
       canceled_offer: "Đề nghị bị hủy."
       message_from: "Tin nhắn từ %{person}"
@@ -698,7 +698,7 @@ vi:
       waiting_for_listing_author_to_accept_offer: "Chờ %{listing_author_name} chấp nhận đề nghị"
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: "Đang đợi bạn chấp nhận yêu cầu"
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "Đang chờ %{requester_name} đánh dấu đơn hàng hoàn tất"
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Chờ %{requester_name} thanh toán"
       waiting_payment_from_you: "Đang chờ bạn trả tiền"
@@ -772,7 +772,7 @@ vi:
       payment_settings_link: "Phương thức thanh toán"
     transaction_confirmed:
       here_is_a_message_from: "Bạn vừa nhận được tin nhắn từ %{other_party_given_name} :"
-      request_marked_as_confirmed: ~
+      request_marked_as_confirmed: "Đơn hàng đã hoàn tất - bạn đừng quên gửi nhận xét"
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
@@ -1415,7 +1415,7 @@ vi:
         loading_image: Tải...
         image_uploading_in_progress: "Đang tải lên hình ảnh ..."
         processing_takes_a_while: "Tất cả hình ảnh được tải lên! Việc xử lý chúng sẽ mất một chút thời gian, nhưng tốt hơn là lưu lại danh sách và tiếp tục."
-        this_may_take_a_while: ~
+        this_may_take_a_while: "việc này chỉ mất có vài giây"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Tải hình ảnh không thành công"
         image_processing_failed: "Xử lý hình ảnh không thành công"

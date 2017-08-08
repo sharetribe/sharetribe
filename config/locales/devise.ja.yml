@@ -51,7 +51,7 @@ ja:
       failure: "「%{reason}」のため%{kind}のアカウントのご利用を許可することができませんでした。"
     mailer:
       confirmation_instructions:
-        subject: "%{service_name}に加わるための認証手続き"
+        subject: "%{service_name}参加認証メール"
       reset_password_instructions:
         subject: パスワード再設定手続き
       unlock_instructions:

@@ -88,7 +88,7 @@ sv:
         transaction_agreement: Transaktionsavtal
         transaction_agreement_checkbox: "Kräver att användarna accepterar villkoren innan transaktion"
         transaction_agreement_checkbox_header: Avtal
-        transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan i kassan. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
+        transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan vid checkout. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
         transaction_agreement_text_header: Avtalstext
         transaction_agreement_description: "Detta är innehållet av avtalet som användarna måste acceptera. Avtalets innehåll syns när användaren klickar på %{read_more} länken."
       edit_look_and_feel:
@@ -396,13 +396,13 @@ sv:
       subscription: Prenumeration
       preview: "Förhandsvisa sida"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Tillgänglighet
+      read_more: "Läs mer om automatisk tillgänglighetshantering"
+      read_more_availability_management: "Läs mer om tillgänglighetshantering. "
+      allow_providers_to_manage_availability: "Tillåt säljare att hantera sin tillgänglighet i en kalender"
+      per_day_availability: "\"Per dag\" tillgänglighet"
+      per_night_availability: "\"Per natt\" tillgänglighet"
+      pricing_units_disabled_info: "Prissättningsenheter kan inte användas när tillgänglighets kalendern är aktiverad."
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -460,7 +460,7 @@ sv:
         other: "Är du säker på att du vill stänga %{count} annonserna?"
       successfully_closed: "Annonser stängda"
       successfully_deleted: "Ordertyp %{order_type} borttagen"
-      pricing_and_checkout_title: "Priser och kassan"
+      pricing_and_checkout_title: "Priser och utcheckning"
       online_payments_label: "Tillåt att säljare använder onlinebetalningssystem"
       shipping_label: "Låt säljare att definiera en fraktavgift"
       price_label: "Tillåt säljare att lägga till ett pris till deras annonser"
@@ -766,7 +766,7 @@ sv:
       show_thread: "Visa konversation"
     branding:
       powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
-      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
@@ -1160,7 +1160,7 @@ sv:
       admin: "%{service_name} admin panel"
     branding:
       powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
-      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      create_own: "Vill du skapa din egenj online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     no_tribe:
       inbox: Inkorg
@@ -1270,8 +1270,8 @@ sv:
       offer_rejected: "Erbjudandet nekades"
       offer_canceled: "Erbjudande avbrutet"
       listing_updated_successfully: "Annons uppdaterades"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
+      listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
@@ -1531,7 +1531,7 @@ sv:
       booking_to: Till
       how_paypal_works: "Hur PayPal fungerar"
       payment_help: Betalningshjälp
-      unable_load_availability: ~
+      unable_load_availability: "Kude inte ladda information om tillgänglighet. Vänligen försök igen senare."
     new:
       listing: annons
       selected_category: "Kategori: %{category}"
@@ -1607,7 +1607,7 @@ sv:
   listing_conversations:
     preauthorize:
       dates_not_available: ~
-      error_in_checking_availability: ~
+      error_in_checking_availability: "Kunde inte kontrollera tillgängligheten för de valda dagarna"
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betalning
@@ -1709,7 +1709,7 @@ sv:
     paypal_permission_granted_summary: "Villkoren för serviceavgifter har godkänts"
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
-    checkout_with_paypal: "Gå till kassan med PayPal"
+    checkout_with_paypal: "Gå till checkout med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
       commission_payment_name: "Provisionsbetalning för %{listing_title}"
@@ -2074,8 +2074,8 @@ sv:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Vi kan inte visa information om tillgängligheten. Vänligen ladda om sidan."
+          saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
       pricing_units:
         piece: ~
         hour: ~
@@ -2083,11 +2083,11 @@ sv:
         night: ~
         week: ~
         month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      edit_availability_header: Tillgängliget
+      save_and_close_availability_editing: "Spara och stäng"
+      confirm_discarding_unsaved_availability_changes_explanation: "Du har osparade ändringar i din tillgänglighets information. Om du fortsätter kommer dessa förändringar gå förlorade."
+      confirm_discarding_unsaved_availability_changes_question: "Är du säker du vill kassera dina ändringar?"
+      edit_listing_availability: "Ändra annons tillgänglighet"
     no_listings:
       sorry: ~
       try_other_search_terms: ~

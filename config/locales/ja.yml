@@ -195,15 +195,15 @@ ja:
         users_can_invite_new_users: 全てのユーザはこのマーケットプレイスに招待できます
         private: このマーケットプレイスはプライベートです（登録済みユーザのみこの情報を閲覧できます）
         require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
-        search_preferences: ~
-        default_search_type: ~
+        search_preferences: 検索条件
+        default_search_type: "検索タイプ:%{select_search_type}"
         keyword_search: キーワード検索
-        keyword_and_location_search: キーワード、場所で検索する
-        location_search: ~
-        select_distance_unit: ~
+        keyword_and_location_search: キーワードと位置で検索
+        location_search: 位置検索
+        select_distance_unit: "距離表示%{distance_units_selector}"
         km: ~
         miles: ~
-        show_only_nearby: ~
+        show_only_nearby: 位置検索で近隣の投稿のみ表示する
         listing_preferences: 優先リスト
         transaction_preferences: 課金の設定
         show_listing_publishing_date: リストページのリストの掲載日の日付を表示
@@ -1064,7 +1064,7 @@ ja:
       no_listings_notification: "投稿がありません。%{add_listing_link}。"
       add_listing_link_text: 新しい投稿を追加する
       open_listing: 投稿を公開
-      open_listings: 出品中の投稿
+      open_listings: 公開された投稿
       private_listing_notification_log_in: ログイン
       is: は
       are: です
@@ -1225,7 +1225,7 @@ ja:
       additional_email_confirmed: 入力したメールアドレスは承認されました。
       could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
       facebook_email_unconfirmed: "あなたのFACEBOOKアカウントのメールアドレス%{email}は既に登録されておりますが、メールアドレスの承認が完了しておりません。メールアドレスの承認を完了してからFACEBOOKでログインを行ってください。"
-      create_new_listing: 続けて出品する
+      create_new_listing: 続けて投稿する
       create_one_here: こちらでご登録
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
       email_not_found: "ご記入いただいたメールアドレスは、%{service_name}に存在しません。"
@@ -1302,7 +1302,7 @@ ja:
       you_have_already_given_feedback_about_this_event: 既にこの取引に関してレビューを書いています
       you_are_now_member: "%{service_name}へようこそ！"
       you_are_already_member: "あなたはすでに%{service_name}のメンバーです。おかえりなさい！"
-      you_must_log_in_to_create_new_listing: "新しく出品するには%{service_name}へのログインが必要です。初めての方は、%{sign_up_link}お願いいたします。"
+      you_must_log_in_to_create_new_listing: "新しく投稿するには%{service_name}へのログインが必要です。初めての方は、%{sign_up_link}お願いいたします。"
       additional_email_confirmed_dashboard: メールアドレスが認証されました。
       you_must_log_in_to_give_feedback: レビューを書くにはログインをしてください
       you_must_log_in_to_invite_new_users: "%{service_name}に新しいユーザを招待するにはログインしていなければなりません"
@@ -1345,7 +1345,7 @@ ja:
       delete: 削除
       are_you_sure: 本当にコメントを削除しますか？
     comment_form:
-      ask_a_question: お問い合わせは商品ページに公開されますので、個人が特定し得る内容は入力しないでください。
+      ask_a_question: コメントはすべてのユーザーに公開されますので、個人が特定し得る内容は入力しないでください。
       log_in: ログイン
       send_comment: コメントを送信
       to_send_a_comment: が必要です
@@ -1442,7 +1442,7 @@ ja:
         location: 場所
         origin: 起点となる場所
       send_button:
-        save_listing: 出品する
+        save_listing: 投稿する
       share_type:
         select: 選択
         borrow: 借りる
@@ -1773,12 +1773,12 @@ ja:
       listing: 投稿
       listings: 投稿
       open_listing: 投稿を公開
-      open_listings: 出品中の投稿
+      open_listings: 公開された投稿
       no_listings: 投稿がありません
-      no_open_listings: 出品中の投稿はありません
+      no_open_listings: 公開された投稿はありません
       no_reviews: レビューがありません
       show_all_listings: 投稿を表示する
-      show_all_open_listings: 出品中の投稿をすべて表示
+      show_all_open_listings: 公開された投稿をすべて表示
       show_all_reviews: すべてのレビューを表示
     followed_people:
       you_follow_plural: "あなたは%{count}人フォロー中です。"
@@ -1862,18 +1862,18 @@ ja:
       newsletters: ☆速報☆
       community_updates: メルマガ登録
       email_about_confirm_reminders: "...取引完了ボタンをクリックし忘れた時"
-      email_about_new_comments_to_own_listing: "...自分の出品中商品ページに新しいコメントがあった場合"
+      email_about_new_comments_to_own_listing: 私の公開された依頼または要望ページに新しいコメントがあった場合
       email_about_new_messages: "...誰かがメッセージを送信しました"
       email_about_new_received_testimonials: "...誰かがレビューを書きました"
       email_about_testimonial_reminders: "...レビュー書くのを忘れました"
-      email_daily_community_updates: 新しく出品された商品について、<b>毎日</b>最新情報メールを受け取る
-      email_weekly_community_updates: 新しく出品された商品について、<b>毎週</b>最新情報メールを受け取る
+      email_daily_community_updates: 新しい投稿があった場合、<b>毎日</b>最新情報メールを受け取る
+      email_weekly_community_updates: 新しい投稿があった場合、<b>毎週</b>最新情報メールを受け取る
       do_not_email_community_updates: 最新情報メールを受け取らない
       email_when_conversation_accepted: "...誰かが私のオファーあるいはリクエストを受け入れました"
       email_when_conversation_rejected: "...誰かが私のオファーあるいはリクエストを受け入れませんでした"
       email_about_completed_transactions: "...誰かが私のオファーかリクエストが完了しているとステータスを変更（マーク）しました"
       email_about_new_payments: "...新しいお支払いを受けました"
-      email_about_new_listings_by_followed_people: "...フォロー中のユーザーが新しい商品を出品した時"
+      email_about_new_listings_by_followed_people: "...フォロー中のユーザーが新しい投稿をした時"
       unsubscribe_succesful: 購読をやめる
       unsubscribe_info_text: "これらのメールを今後受け取りません。今一度%{settings_link}から、%{service_name}より受け取りたい種類のメールを選んでください。もしくは%{homepage_link}に戻ります。"
       settings_link: メール通知設定
