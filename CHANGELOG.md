@@ -20,7 +20,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
-## [7.0.0] - 2017-06-09
+## [7.0.0] - 2017-08-08
 
 ### Changed
 
