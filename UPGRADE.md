@@ -39,10 +39,18 @@ Make sure you have node 7.8 installed.
 
 Then follow the [#general-update-instructions].
 
-if foreman causes trouble with an error message:
-`'method_missing': undefined method 'this'`
-it's an issue with rubygems itself. Can be solved by updating rubygems with:
-`gem update --system`
+If foreman causes trouble with an error message:
+
+```
+'method_missing': undefined method 'this'
+```
+
+it's an issue with rubygems. This issue can be solved by updating rubygems with:
+
+```bash
+gem update --system
+```
+
 
 ## Upgrade from 6.3.0 to 6.4.0
 
