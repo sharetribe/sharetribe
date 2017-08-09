@@ -316,7 +316,7 @@ en:
           accepted: Accepted
           rejected: Rejected
           paid: Paid
-          confirmed: Confirmed
+          confirmed: Completed
           canceled: Canceled
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
@@ -1262,7 +1262,7 @@ en:
       news_item_updated: "Article updated"
       news_item_deleted: "Article removed"
       offer_accepted: "Offer accepted"
-      offer_confirmed: "Offer confirmed"
+      offer_confirmed: "Offer completed"
       offer_closed: "Offer closed"
       listing_created_successfully: "Listing created successfully. %{new_listing_link}."
       offer_rejected: "Offer rejected"
