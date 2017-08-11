@@ -2051,17 +2051,17 @@ sv:
     initiate:
       booked_days: "Bokade dagar:"
       booked_nights: "Bokade nätter:"
-      price_per_day: "Pris per dag:"
-      price_per_night: "Pris per natt:"
-      quantity: "Antal:"
-      subtotal: "Delsumma:"
-      shipping-price: "Frakt:"
       booked_days_label:
         one: "Bokad dag:"
         other: "Bokade dagar"
       booked_nights_label:
         one: "Bokad natt:"
         other: "Bokade nätter:"
+      price_per_day: "Pris per dag:"
+      price_per_night: "Pris per natt:"
+      quantity: "Antal:"
+      subtotal: "Delsumma:"
+      shipping-price: "Frakt:"
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antal: %{quantity}"

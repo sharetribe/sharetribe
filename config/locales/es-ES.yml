@@ -316,7 +316,7 @@ es-ES:
           accepted: Aceptada
           rejected: Rechazada
           paid: Pagada
-          confirmed: Confirmada
+          confirmed: Completa
           canceled: Cancelada
           initiated: "Esperando al pago de PayPal"
           pending_ext: "Esperando al pago de PayPal"
@@ -769,7 +769,7 @@ es-ES:
       create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
       learn_more: "Entérate cómo"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar una valoración a %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Aún no has completado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmar esto. Después de eso podrás dar una valoración a %{other_party_given_name}."
       remember_to_confirm_request: "Recuerda confirmar o cancelar una solicitud"
       if_will_not_happen_you_should_cancel: "Si crees que por alguna razón esta solicitud no se va a completar, puedes %{cancel_it_link}."
       cancel_it_link_text: cancelarla
@@ -1262,7 +1262,7 @@ es-ES:
       news_item_updated: "Artículo actualizado"
       news_item_deleted: "Artículo eliminado"
       offer_accepted: "Oferta aceptada"
-      offer_confirmed: "Oferta confirmada"
+      offer_confirmed: "Oferta completa"
       offer_closed: "Oferta cerrada"
       listing_created_successfully: "Anuncio publicado con éxito. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"
