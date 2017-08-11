@@ -316,7 +316,7 @@ fr:
           accepted: Acceptée
           rejected: Rejetée
           paid: Payée
-          confirmed: Confirmée
+          confirmed: Réalisée
           canceled: Annulée
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
@@ -683,7 +683,7 @@ fr:
       offer_accepted: Acceptée
       offer_rejected: Refusée
       offer_canceled: Annulée
-      offer_confirmed: Terminé
+      offer_confirmed: Terminée
       offer_paid: "Paiement réussi"
       offer_preauthorized: "Paiement réussi"
       offer_waiting_for_payment: "En attente du paiement par %{requester_name}"
@@ -699,7 +699,7 @@ fr:
       waiting_for_listing_author_to_deliver_listing: "En attente de %{listing_author_name} de la réalisation de la commande relative à %{listing_title}"
       request_accepted: Acceptée
       request_rejected: Refusée
-      request_confirmed: Terminé
+      request_confirmed: Terminée
       request_canceled: Annulée
       request_paid: "Paiement réussi"
       request_preauthorized: "Paiement autorisé"
@@ -769,7 +769,7 @@ fr:
       create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
       learn_more: "Découvrez-en plus"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la commande %{request_link}. Si la commande a été réalisée, vous devriez la marquer comme terminée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore réalisé ou annulé la commande %{request_link}. Si la commande a été réalisée, vous devriez la marquer comme terminée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette commande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
@@ -1262,7 +1262,7 @@ fr:
       news_item_updated: "Article mis à jour"
       news_item_deleted: "Article supprimé"
       offer_accepted: "Offre acceptée"
-      offer_confirmed: "Offre confirmée"
+      offer_confirmed: "Offre réalisée"
       offer_closed: "Offre close"
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre refusée"

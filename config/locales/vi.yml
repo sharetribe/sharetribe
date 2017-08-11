@@ -1379,7 +1379,7 @@ vi:
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Chọn một thứ..."
+          select_one___: "Chọn một..."
       departure_time:
         at: Tại
         departure_time: "Thời gian khởi hành"
@@ -1526,7 +1526,7 @@ vi:
       selected_subcategory: "Danh mục con : %{subcategory}"
       selected_transaction_type: "Loại danh sách: %{transaction_type}"
       select_category: "Chọn chuyên mục"
-      select_subcategory: "Chọn hạng con"
+      select_subcategory: "Chọn danh mục con"
       select_transaction_type: "Chọn loại danh sách"
       you_need_to_fill_payout_details_before_accepting: "Bạn cần phải điền chi tiết thanh toán trước khi bạn có thể đăng danh sách. Truy cập %{payment_settings_link} để điền chi tiết."
       contact_admin_link_text: "Liên hệ với quản trị viên"
