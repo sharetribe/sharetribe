@@ -23,8 +23,10 @@ When /^(?:|I )click "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_se
 end
 
 Then /^I should see selector "([^"]*)"(?: within "([^"]*)")?$/ do |css_selector, scope_selector|
-  with_scope(scope_selector) do
-    expect(page).to have_selector(css_selector)
+  wait_until do
+    with_scope(scope_selector) do
+      expect(page).to have_selector(css_selector)
+    end
   end
 end
 
