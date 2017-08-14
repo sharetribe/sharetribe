@@ -32,7 +32,7 @@ class StripeService::API::StripeApiWrapper
       }
     end
 
-    def register_customer(community, email, card_token, metadata = {})
+    def register_customer(community:, email:, card_token:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Customer.create({
             email: email,
@@ -41,7 +41,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def update_customer(community, customer_id, token)
+    def update_customer(community:, customer_id:, token:)
       with_stripe_payment_config(community) do |payment_settings|
         customer = Stripe::Customer.retrieve(customer_id)
         customer.source = token
@@ -56,7 +56,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def charge(community, token, seller_account_id, amount, fee, currency, description, metadata = {})
+    def charge(community:, token:, seller_account_id:, amount:, fee:, currency:, description:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :direct
@@ -92,7 +92,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def capture_charge(community, charge_id, seller_id)
+    def capture_charge(community:, charge_id:, seller_id:)
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :direct
@@ -104,13 +104,13 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def create_token(community, customer_id, account_id)
+    def create_token(community:, customer_id:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Token.create({customer: customer_id}, {stripe_account: account_id})
       end
     end
 
-    def register_seller(community, account_info, metadata = {})
+    def register_seller(community:, account_info:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :separate
@@ -154,7 +154,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def check_balance(community)
+    def check_balance(community:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Balance.retrieve
       end
@@ -162,7 +162,7 @@ class StripeService::API::StripeApiWrapper
       nil
     end
 
-    def create_bank_account(community, account_info)
+    def create_bank_account(community:, account_info:)
       with_stripe_payment_config(community) do |payment_settings|
         stripe_account = Stripe::Account.retrieve account_info[:stripe_seller_id]
         routing = account_info[:bank_routing_number].present? ? { routing_number: account_info[:bank_routing_number] } : {}
@@ -181,19 +181,19 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def get_account_balance(community, account_id)
+    def get_account_balance(community:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Balance.retrieve({stripe_account: account_id})
       end
     end
 
-    def perform_payout(community, account_id, amount_cents, currency, metadata = {})
+    def perform_payout(community:, account_id:, amount_cents:, currency:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Payout.create({amount: amount_cents, currency: currency}.merge(metadata: metadata), {stripe_account: account_id})
       end
     end
 
-    def perform_transfer(community, account_id, amount_cents, amount_currency, initial_amount, charge_id, metadata = {})
+    def perform_transfer(community:, account_id:, amount_cents:, amount_currency:, initial_amount:, charge_id:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         charge = Stripe::Charge.retrieve(charge_id)
         balance_txn = Stripe::BalanceTransaction.retrieve(charge.balance_transaction)
@@ -209,7 +209,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def get_card_info(customer)
+    def get_card_info(customer:)
       default_id = customer.default_source
       customer.sources.data.each do |source|
         if source.id == default_id && source.object == 'card'
@@ -224,11 +224,11 @@ class StripeService::API::StripeApiWrapper
     # :separate - Separate charges and transfers
     # :direct   - Direct charges
     # :destination - Direct charges
-    def charges_mode(community)
+    def charges_mode(community:)
       APP_CONFIG.stripe_charges_mode.to_sym
     end
 
-    def send_verification(community, account_id, personal_id_number, file_path)
+    def send_verification(community:, account_id:, personal_id_number:, file_path:)
       with_stripe_payment_config(community) do |payment_settings|
         document = Stripe::FileUpload.create({
             purpose: 'identity_document',
@@ -242,19 +242,19 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def get_seller_account(community, account_id)
+    def get_seller_account(community:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Account.retrieve(account_id)
       end
     end
 
-    def get_customer_account(community, customer_id)
+    def get_customer_account(community:, customer_id:)
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Customer.retrieve(customer_id)
       end
     end
 
-    def cancel_charge(community, charge_id, account_id, reason, metadata = {})
+    def cancel_charge(community:, charge_id:, account_id:, reason:, metadata:  {})
       with_stripe_payment_config(community) do |payment_settings|
         reason_data = reason.present? ? {reason: reason} : {}
         case charges_mode(community)
@@ -266,7 +266,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def get_balance_txn(community, balance_txn_id, account_id)
+    def get_balance_txn(community:, balance_txn_id:, account_id:)
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
         when :separate, :destination
@@ -277,7 +277,7 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def update_address(community, account_id, address)
+    def update_address(community:, account_id:, address:)
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
         account.legal_entity.address.city = address[:address_city]

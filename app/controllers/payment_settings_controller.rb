@@ -85,7 +85,7 @@ class PaymentSettingsController < ApplicationController
 
     need_verification = false
     if @stripe_account[:stripe_seller_id].present?
-      seller_account = stripe_api.get_seller_account(@current_community.id, @stripe_account[:stripe_seller_id])
+      seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
       need_verification = seller_account && seller_account.verification.fields_needed.present? && seller_account.verification.due_by.present?
     end
 
