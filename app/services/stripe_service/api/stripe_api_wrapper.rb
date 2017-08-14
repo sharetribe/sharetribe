@@ -228,7 +228,7 @@ class StripeService::API::StripeApiWrapper
     # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller
     #
     # By default :destination mode is used
-    def charges_mode(community:)
+    def charges_mode(community)
       APP_CONFIG.stripe_charges_mode.to_sym
     end
 

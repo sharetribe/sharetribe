@@ -2289,6 +2289,8 @@ en:
     online_payments: "Store your card for one-click payments"
     not_now: "I do not want to setup Stripe account now"
     connect_with_stripe: "Connect with Stripe"
+    name: "Full Name:"
+    country: "Country:"
 
     show:
       account_id: "Your Stripe ID is <strong>%{stripe_id}</strong>"

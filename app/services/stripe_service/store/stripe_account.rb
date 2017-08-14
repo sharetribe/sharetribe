@@ -30,19 +30,6 @@ module StripeService::Store::StripeAccount
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
     [:person_id, :optional, :string],
-
-    [:first_name, :string, :mandatory],
-    [:last_name, :string, :mandatory],
-    [:address_country, :string, :mandatory, one_of: COUNTRIES],
-    [:address_city, :string, :mandatory],
-    [:address_line1, :string, :mandatory],
-    [:address_postal_code, :string, :mandatory],
-    [:address_state, :string ],
-    [:birth_date, :date, :mandatory],
-
-    [:tos_date, :time, :mandatory],
-    [:tos_ip, :string, :mandatory],
-
     [:stripe_seller_id, :string, :mandatory]
   )
 
@@ -67,29 +54,9 @@ module StripeService::Store::StripeAccount
   StripeAccount = EntityUtils.define_builder(
     [:community_id, :fixnum],
     [:person_id, :string],
-
     [:stripe_seller_id, :string],
-
-    [:first_name, :string],
-    [:last_name, :string],
-
-    [:address_country, :string],
-    [:address_city, :string],
-    [:address_line1, :string],
-    [:address_postal_code, :string],
-    [:address_state, :string],
-
-    [:birth_date, :date],
-
-    [:tos_date, :time],
-    [:tos_ip, :string],
-
     [:stripe_bank_id, :string],
-    [:bank_account_last_4, :string],
-
-    [:stripe_customer_id, :string],
-    [:stripe_source_info, :string],
-    [:stripe_source_country, :string]
+    [:stripe_customer_id, :string]
   )
 
   StripeBankAccount = EntityUtils.define_builder(
@@ -114,29 +81,6 @@ module StripeService::Store::StripeAccount
     from_model(account_model)
   end
 
-  def update(community_id:, person_id:, opts:)
-    find_params = {
-      community_id: community_id,
-      person_id: person_id,
-    }
-    model = StripeAccountModel.where(find_params).first
-    entity = StripeAccountUpdate.call(opts)
-    model.update_attributes(entity)
-    from_model(model)
-  end
-
-  def update_address(community_id:, person_id:, opts:)
-    find_params = {
-      community_id: community_id,
-      person_id: person_id,
-    }
-    model = StripeAccountModel.where(find_params).first
-    entity = StripeAddressUpdate.call(opts)
-    model.update_attributes(entity)
-    from_model(model)
-  end
-
-
   def update_bank_account(community_id:, person_id:, opts:)
     find_params = {
       community_id: community_id,
@@ -144,8 +88,6 @@ module StripeService::Store::StripeAccount
     }
     model = StripeAccountModel.where(find_params).first
     entity = StripeBankAccount.call(opts)
-    account_number = opts[:bank_account_number].to_s
-    entity[:bank_account_last_4] = account_number.sub(/^(..)(.+)(....)$/, '\1****\2')
     model.update_attributes(entity)
     from_model(model)
   end

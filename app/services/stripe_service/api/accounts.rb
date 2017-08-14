@@ -34,7 +34,7 @@ module StripeService::API
       data = { community_id: community_id, person_id: person_id}
       account = accounts_store.get(person_id: person_id, community_id: community_id).to_hash
       stripe_api.update_address(community: community_id, account_id: account[:stripe_seller_id], address: body)
-      Result::Success.new(accounts_store.update_address(community_id: community_id, person_id: person_id, opts: body))
+      Result::Success.new(account)
     rescue => e
       Result::Error.new(e.message)
     end
