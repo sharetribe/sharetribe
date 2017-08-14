@@ -440,9 +440,13 @@ default: &default_settings
   # Stripe allows to hold funds up to 90 days
   stripe_max_booking_date: 90
 
-  # :separate    - Separate charges and transfers 
-  # :direct      - Direct charges
-  # :destination - Destination charges
+  # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
+  #
+  # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
+  # :direct      - Direct charges, payment goes to seller account, with application fee to admin account
+  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller  
+  #
+  # By default :destination mode is used
   stripe_charges_mode: :destination
 
   # Used to encrypt Stripe api keys

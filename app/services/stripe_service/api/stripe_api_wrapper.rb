@@ -221,9 +221,13 @@ class StripeService::API::StripeApiWrapper
     end
 
     DESTINATION_TYPES = [:separate, :direct, :destination]
-    # :separate - Separate charges and transfers
-    # :direct   - Direct charges
-    # :destination - Direct charges
+    # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
+    #
+    # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
+    # :direct      - Direct charges, payment goes to seller account, with application fee to admin account
+    # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller
+    #
+    # By default :destination mode is used
     def charges_mode(community:)
       APP_CONFIG.stripe_charges_mode.to_sym
     end
