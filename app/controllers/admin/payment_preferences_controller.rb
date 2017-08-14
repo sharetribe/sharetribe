@@ -13,8 +13,20 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     end
 
     more_locals.merge!(build_prefs_form)
+    view_locals = build_view_locals.merge(more_locals)
 
-    render 'index', locals: build_view_locals.merge(more_locals)
+    stripe_connected =  view_locals[:stripe_enabled] && view_locals[:stripe_account] && view_locals[:stripe_account][:api_verified]
+    paypal_connected =  view_locals[:paypal_enabled] && view_locals[:paypal_account].present?
+
+    payment_locals = {
+      stripe_connected: stripe_connected,
+      paypal_connected: paypal_connected,
+      payments_connected: stripe_connected || paypal_connected,
+      stripe_allowed:  StripeHelper.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      paypal_allowed:  PaypalHelper.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency)
+    }
+
+    render 'index', locals: view_locals.merge(payment_locals)
   end
 
   def update
@@ -73,6 +85,14 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     .or_else({})
   end
 
+  def active_tx_setttings
+    if @paypal_enabled
+      paypal_tx_settings
+    else
+      stripe_tx_settings
+    end
+  end
+
   def build_prefs_form(params = nil)
     currency = @current_community.currency
 
@@ -114,6 +134,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_enabled: @paypal_enabled,
       stripe_account: nil,
       paypal_account: nil,
+      country_name: ISO3166::Country[@current_community.country].local_name
     }
 
     onboarding_popup_locals.merge(view_locals)
@@ -124,14 +145,17 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     :minimum_listing_price,
     :minimum_commission,
     :minimum_transaction_fee,
-    :marketplace_currency
+    :marketplace_currency,
+    :mode
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
         only_integer: true,
         allow_nil: false,
         greater_than_or_equal_to: MIN_COMMISSION_PERCENTAGE,
-        less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE)
+        less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE,
+        if: proc { mode == 'transaction_fee' }
+      )
 
       available_currencies = MarketplaceService::AvailableCurrencies::CURRENCIES
       validates_inclusion_of(:marketplace_currency, in: available_currencies)
@@ -148,7 +172,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     end
 
   def update_payment_preferences
-    currency = params[:payment_preferences_form]["marketplace_currency"]
+    currency = params[:payment_preferences_form]["marketplace_currency"] || @current_community.currency
 
     minimum_commission = @paypal_enabled ? paypal_minimum_commissions_api.get(currency) : 0
 
@@ -161,10 +185,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         base_params = {community_id: @current_community.id,
                        payment_process: :preauthorize,
                        commission_from_seller: form.commission_from_seller.to_i,
-                       minimum_price_cents: form.minimum_listing_price.cents,
+                       minimum_price_cents: form.minimum_listing_price.try(:cents),
                        minimum_price_currency: currency,
-                       minimum_transaction_fee_cents: form.minimum_transaction_fee.cents,
-                       minimum_transaction_fee_currency: currency}
+                       minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
+                       minimum_transaction_fee_currency: currency}.compact
 
         if paypal_tx_settings.present?
           tx_settings_api.update(base_params.merge(payment_gateway: :paypal))
@@ -185,7 +209,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       end
       flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     else
-      flash[:error] = paypal_prefs_form.errors.full_messages.join(", ")
+      flash[:error] = form.errors.full_messages.join(", ")
     end
   end
 
@@ -201,11 +225,20 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     PaypalService::API::Api.accounts
   end
 
+  def parse_money_with_default(str_value, default, currency)
+    str_value.present? ? MoneyUtil.parse_str_to_money(str_value, currency) : Money.new(default.to_i, currency)
+  end
+
   def parse_preferences(params, currency)
+    tx_settings = active_tx_setttings
+    tx_fee =  parse_money_with_default(params[:minimum_transaction_fee], tx_settings[:minimum_transaction_fee_cents], currency)
+    tx_commission = params[:commission_from_seller] || tx_settings[:commission_from_seller]
+    tx_min_price = parse_money_with_default(params[:minimum_listing_price], tx_settings[:minimum_price_cents], currency)
+
     {
-      minimum_listing_price: MoneyUtil.parse_str_to_money(params[:minimum_listing_price], currency),
-      minimum_transaction_fee: MoneyUtil.parse_str_to_money(params[:minimum_transaction_fee], currency),
-      commission_from_seller: params[:commission_from_seller],
+      minimum_listing_price: tx_min_price,
+      minimum_transaction_fee: tx_fee,
+      commission_from_seller: tx_commission,
       marketplace_currency: currency
     }
   end

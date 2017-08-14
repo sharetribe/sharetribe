@@ -7,9 +7,19 @@
   .row
     .col-12
       .paypal-connected-email.paypal-account-connected
-        =t("admin.payment_preferences.stripe_connected.private_key", :key => stripe_account[:api_visible_private_key]).html_safe
+        -# Not a subject of I18n, forced fixed text
+        .col-6
+          Secret API Key: 
+        .col-6
+          %strong
+            = stripe_account[:api_visible_private_key]
   .row
     .col-12
       .paypal-connected-email.paypal-account-connected
-        =t("admin.payment_preferences.stripe_connected.publishable_key", :key => stripe_account[:api_publishable_key]).html_safe
+        -# Not a subject of I18n, forced fixed text
+        .col-6
+          Publishable API Key:
+        .col-6
+          %strong
+            = stripe_account[:api_publishable_key]
 

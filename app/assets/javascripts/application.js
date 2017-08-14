@@ -72,6 +72,7 @@
 //= require admin/listing_shapes
 //= require admin/settings.js
 //= require admin/emails.js
+//= require admin/payment_preferences.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

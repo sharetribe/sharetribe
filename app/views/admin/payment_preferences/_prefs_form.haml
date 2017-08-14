@@ -1,41 +1,10 @@
 .paypal-wizard-content
-  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "paypal_preferences_form" }, method: :put do |form|
-    .row.paypal-preferences
+  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "transaction_preferences_form_#{pref_mode}", class: "tx_pref_form" }, method: :put do |form|
+    = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
+    .row
       .col-12
         %h3.paypal-wizard-step
-          - if payment_prefs_valid
-            =icon_tag("check", ["icon-fix", "paypal-success-mark"])
-          =t("admin.paypal_accounts.edit_payment_settings")
-    .row
-      .col-12
-        %p.paypal-currency-information
-          %span.paypal-currency-info-icon
-            =icon_tag("information")
-          =t("admin.paypal_accounts.supported_currencies_information_text",
-             contact_support_link: link_to(t("admin.paypal_accounts.contact_support_link_text"), "mailto:#{support_email}", "data-uv-trigger" => "contact")).html_safe
-
-    .row
-      .col-6
-        = form.label :marketplace_currency, t("admin.paypal_accounts.marketplace_currency_label"), class: "paypal-horizontal-input-label"
-      .col-6
-        = form.select :marketplace_currency, options_for_select(available_currencies, currency)
-
-    .row.paypal-currency-change-warning-text
-      .col-12
-        .alert-box-warning
-          %p
-            %span.alert-box-icon
-              = icon_tag("alert", ["icon-fix"])
-            %span
-              = t("admin.paypal_accounts.currency_change_warning_text")
-
-    .row
-      .col-6
-        = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
-      .col-6
-        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
-        %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
-          = currency
+          = t("admin.payment_preferences.transaction_fee_settings")
     .row
       .col-6
         = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
@@ -52,4 +21,11 @@
           = currency
     .row
       .col-12
-        = form.button t("admin.paypal_accounts.save_settings")
+        = form.button t("admin.payment_preferences.transaction_fee_save")
+
+    - if pref_mode == 'stripe'
+      - stripe_fee_link = link_to t("admin.payment_preferences.stripe_fee"), "https://stripe.com/#{@current_community.country.downcase}/pricing" , target: "_blank"
+      .row
+        .col-12
+          %p
+            = t("admin.payment_preferences.stripe_fee_notice", stripe_fee_link: stripe_fee_link).html_safe

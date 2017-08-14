@@ -18,12 +18,17 @@ module FeatureTests
         admin_sidebar.click_payments_link
         payment_preferences.connect_stripe_account
 
-        expect(page).to have_content("Stripe account connected")
+        expect(page).to have_content("Stripe connected")
 
         # Save payment preferences
-        payment_preferences.set_payment_preferences(min_price: min_price, commission: commission, min_commission: min_commission)
-        payment_preferences.save_settings
+        payment_preferences.edit_payment_general_preferences(min_price: min_price)
+        payment_preferences.click_button("Save settings")
         onboarding_wizard.dismiss_dialog
+
+        payment_preferences.change_stripe_settings
+        payment_preferences.edit_payment_transaction_fee_preferences(commission: commission, min_commission: min_commission)
+        payment_preferences.click_button("Save")
+
         expect(page).to have_content("Payment system preferences updated")
       end
 
@@ -38,7 +43,7 @@ module FeatureTests
         settings_sidebar.click_payments_link
         payment_preferences.connect_stripe_account
 
-        expect(page).to have_content("Stripe account connected")
+        expect(page).to have_content("Stripe connected")
       end
 
       def request_listing(title:, expected_price: nil)

@@ -64,4 +64,19 @@ module StripeHelper
     features = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
     features.include?(:stripe)
   end
+
+  def stripe_country_spec(country)
+    STRIPE_COUNTRY_SPECS["data"].detect{|spec| spec["id"] == country }
+  end
+
+  def stripe_bank_currencies(country)
+    country_spec = stripe_country_spec(country)
+    return [] unless country_spec
+    bank_currencies = country_spec["supported_bank_account_currencies"]
+    bank_currencies.keys.select{|currency| bank_currencies[currency].include?(country) }
+  end
+
+  def stripe_allows_country_and_currency?(country, currency)
+    stripe_bank_currencies(country).include?(currency.downcase)
+  end
 end
