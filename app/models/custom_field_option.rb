@@ -36,5 +36,6 @@ class CustomFieldOption < ApplicationRecord
         titles.build(:value => value, :locale => locale)
       end
     end
+    self.updated_at = Time.zone.now # to change TranslationCache key
   end
 end
