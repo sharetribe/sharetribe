@@ -662,7 +662,7 @@ en:
           Stripe charges a processing fee from each payment. This fee is between 1.4% and 3% of the total sales price (including shipping), depending on the country of residence of the buyer. In general, domestic purchases have lower fees than international ones.
           You can see fee fules by visiting Stripe %{link_to_stripe}. After each purchase you will get a receipt displaying the exact fee.
       link_to_stripe_text: here
- 
+
   conversations:
     accept:
       details: "Order details"
@@ -2280,7 +2280,6 @@ en:
       multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
   stripe_accounts:
-    payout_info_title: "Receiving funds"
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
     contact_admin_link_text: "contact the marketplace administrator"
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
@@ -2288,61 +2287,50 @@ en:
     pay_with_stripe: "Pay with Stripe using %{card}"
     add_and_pay: "Pay with Stripe"
     missing_payment: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{settings_link}"
-    step_1_your_info: Step 1. Account Information
-    step_2_bank_info: Step 2. Bank Information
-    step_3_verification: Step 3. Verification
-    online_payments: "Store your card for one-click payments"
-    not_now: "I do not want to setup Stripe account now"
-    connect_with_stripe: "Connect with Stripe"
-    name: "Full Name:"
-    country: "Country:"
+    stripe_bank_connected: "Bank account details configured successfully!"
+    stripe_can_accept: "You're now all set to accept credit card payments"
+    stripe_only_hooray_title: "Hooray, everything is set up!"
+    stripe_credit_card: "Credit card"
+    paypal: PayPal
+    paypal_connected: PayPal account connected successfully!
 
-    show:
-      account_id: "Your Stripe ID is <strong>%{stripe_id}</strong>"
-      verified: Verified
-      managed_account: "%{service_name} uses Stripe as payment gateway. In order to accept payments online, you must create Managed Stripe account."
-      connect_account: "%{service_name} uses Stripe as payment gateway. In order to accept payments online, you must connect your Stripe account."
-      connected: Stripe Account Connected
-    new:
-      stripe_not_enabled: "Stripe payments are not enabled."
     form_new:
-      personal_info: Personal Details
-      last_name: Last Name
-      first_name: First Name
+      need_info: We need some information about you to be able to send you money
+      select_country: Select country...
+      legal_name: Legal name
       country: Country
-      birth_date: Date of birth
+      birth_date: Birth date
       ssn_last_4: SSN Last 4
       personal_id_number: Personal ID number
-      address: Address
       address_country: Country
       address_state: State
       address_city: City
-      address_postal_code: Postal Code
-      address_line1: Street 
-      tos_link: "By creating Stripe Account, you agree to <a href=\"https://stripe.com/us/connect-account/legal\" target=\"_blank\">Terms of Service</a>"
-      create_account: Create Stripe Account
-      update_address: Update address
+      address_postal_code: Postal code
+      address_line1: Street address
+      tos_link: "By creating Stripe Account, you agree to %{stripe_link}"
+      tos_link_title: Stripe Connected Account Agreement
       save_details: Save Details
       edit: Edit Details
 
     form_bank:
-      provide_info: Please provide correct bank details
-      bank_info: Bank Account Info for Payouts
-      bank_country: Country
-      bank_currency: Currency
-      bank_account_number: Bank Account Number
-      bank_routing_number: Bank Routing Number
-      bank_account_holder_name: Account Holder Name
-      create_bank_account: Add bank account
+      bank_account_number: Bank account number
+      bank_routing_number: Routing number
     form_verification:
       personal_id_number: Personal ID number
-      document: Verification Document
+      document: Verification document
       send_verification: Send Verification
-      verification: Verification
-      need_verification: Verification Details
+      need_verification: Need additional verification
   payment_settings:
-    stripe_and_paypal_supported:  "If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to pay payments with either payment method."
+    title: "Payout preferences"
+    stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to pay payments with either payment method.</p>"
     stripe_title: Create managed Stripe account
     paypal_title: Connect your PayPal account
+    credit_card: Credit card
+    paypal: PayPal
+    credit_card_bank_details: To accept credit card payments you need to provide yout bank details so we can move money to your bank account.
+    add_bank_details: Add bank details
+    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both
+    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal acclount so we can move money there
+    connect_paypal: Connect PayPal account
 
 

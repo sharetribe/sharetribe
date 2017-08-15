@@ -285,11 +285,15 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
         account.legal_entity.address.city = address[:address_city]
-        account.legal_entity.address.state = address[:address_state]
-        account.legal_entity.address.postal_code = address[:address_postal_code]
+        account.legal_entity.address.state = empty_string_as_nil(address[:address_state])
+        account.legal_entity.address.postal_code = empty_string_as_nil(address[:address_postal_code])
         account.legal_entity.address.line1 = address[:address_line1]
         account.save
       end
+    end
+
+    def empty_string_as_nil(value)
+      value.present? ? value : nil
     end
   end
 end

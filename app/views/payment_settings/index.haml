@@ -4,21 +4,57 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
-  %h2= t("paypal_accounts.payout_info_title")
+  %h2= t("payment_settings.title")
 
   - if @paypal_enabled && @stripe_enabled
     .row
       .col-12
-        = t("payment_settings.stripe_and_paypal_supported").html_safe
-  
-  - if @stripe_enabled
-    - if @paypal_enabled
-      %h2= t("payment_settings.stripe_title")
+        %p
+          = t("payment_settings.can_accept_stripe_and_paypal")
 
-    = render partial: "stripe_wizard", locals: local_assigns
+    .row.paypal-wizard
+      .paypal-wizard-content
+        .col-12
+          - if !seller_account.present? || !stripe_account[:stripe_bank_id].present?
+            %h3= t("payment_settings.credit_card")
+            %p 
+              = t("payment_settings.credit_card_bank_details")
+            %p
+              = link_to t("payment_settings.add_bank_details"), '#', id: "toggle_stripe_wizard"
+          
+          #stripe_wizard{class: @stripe_error || seller_account.present? ? "" : "hidden"}
+            = render partial: "stripe_wizard", locals: local_assigns
 
-  - if @paypal_enabled
-    - if @stripe_enabled
-      %h2= t("payment_settings.paypal_title")
+          .paypal-wizard-divider
 
+          - if !paypal_account.present?
+            %h3= t("payment_settings.paypal")
+            %p 
+              = t("payment_settings.to_accept_paypal")
+            %p
+              = link_to t("payment_settings.connect_paypal"), '#', id: "toggle_paypal_wizard"
+          - else
+            %h3.paypal-account-connected
+              =icon_tag("check", ["icon-fix"])
+              =t("stripe_accounts.paypal")
+              %br
+              =t("stripe_accounts.paypal_connected")
+
+            .row.paypal-link-wrapper
+              .col-12
+                %a.paypal-change-link#ask_paypal_permissions
+                  = t("paypal_accounts.change_account")
+
+          #paypal_wizard{class: paypal_account.present? ? "" : "hidden"}
+            = render partial: "paypal_wizard", locals: local_assigns
+
+      - content_for :extra_javascript do
+        :javascript
+          $("#toggle_stripe_wizard").click(function(){$("#stripe_wizard").show(); return false;});
+          $("#toggle_paypal_wizard").click(function(){$("#paypal_wizard").show(); return false;});
+
+  - elsif @paypal_enabled
     = render partial: "paypal_wizard", locals: local_assigns
+
+  - elsif @stripe_enabled
+    = render partial: "stripe_wizard", locals: local_assigns

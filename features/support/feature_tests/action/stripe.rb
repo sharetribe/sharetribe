@@ -43,7 +43,7 @@ module FeatureTests
         settings_sidebar.click_payments_link
         payment_preferences.connect_stripe_account
 
-        expect(page).to have_content("Stripe connected")
+        expect(page).to have_content("Bank account details configured successfully")
       end
 
       def request_listing(title:, expected_price: nil)
