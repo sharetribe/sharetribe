@@ -83,11 +83,10 @@ class PaymentSettingsController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
+    need_verification = false
     if @stripe_account[:stripe_seller_id].present?
-      seller_account = stripe_api.get_seller_account(@current_community.id, @stripe_account[:stripe_seller_id])
-      need_verification = seller_account && seller_account.type = 'custom' && seller_account.verification.fields_needed.present?
-    else
-      need_verification = true
+      seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
+      need_verification = seller_account && seller_account.verification.fields_needed.present? && seller_account.verification.due_by.present?
     end
 
     {
@@ -106,11 +105,12 @@ class PaymentSettingsController < ApplicationController
   def stripe_index
     {
       stripe_account: @stripe_account,
+      stripe_seller_account: @parsed_seller_account,
       available_countries: STRIPE_COUNTRY_NAMES,
-      stripe_account_form: StripeAccountForm.new(@stripe_account),
-      stripe_address_form: StripeAddressForm.new(@stripe_account),
-      stripe_bank_form: StripeBankForm.new(@stripe_account),
-      stripe_verification_form: StripeVerificationForm.new(@stripe_account),
+      stripe_account_form: StripeAccountForm.new(@parsed_seller_account),
+      stripe_address_form: StripeAddressForm.new(@parsed_seller_account),
+      stripe_bank_form: StripeBankForm.new(@parsed_seller_account),
+      stripe_verification_form: StripeVerificationForm.new(@parsed_seller_account),
     }
   end
 
@@ -167,6 +167,12 @@ class PaymentSettingsController < ApplicationController
 
   def load_stripe_account
     @stripe_account = stripe_accounts_api.get(community_id: @current_community.id, person_id: @current_user.id).data || {}
+    if @stripe_account[:stripe_seller_id].present?
+      @api_seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
+      @parsed_seller_account = parse_stripe_seller_account(@api_seller_account)
+    else
+      @parsed_seller_account = {}
+    end
   end
 
   StripeAccountForm = FormUtils.define_form("StripeAccountForm",
@@ -232,18 +238,17 @@ class PaymentSettingsController < ApplicationController
     return false unless @stripe_account[:stripe_seller_id].present?
 
     bank_params = {
-      bank_country: @stripe_account[:address_country],
+      bank_country: @parsed_seller_account[:address_country],
       bank_currency: @current_community.currency,
-      bank_account_holder_name: [@stripe_account[:first_name], @stripe_account[:last_name]].join(" "),
+      bank_account_holder_name: [@parsed_seller_account[:first_name], @parsed_seller_account[:last_name]].join(" "),
       bank_account_number: params[:stripe_bank_form][:bank_account_number],
       bank_routing_number: params[:stripe_bank_form][:bank_routing_number]
     }
 
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
-    has_changes = bank_form.bank_account_number != @stripe_account[:bank_account_number] || bank_form.bank_routing_number != @stripe_account[:bank_routing_number]
 
-    if bank_form.valid? && has_changes
+    if bank_form.valid? && bank_form.bank_account_number !~ /\*/
       result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)
       if result[:success]
         load_stripe_account
@@ -292,5 +297,22 @@ class PaymentSettingsController < ApplicationController
         flash[:error] = result[:error_msg]
       end
     end
+  end
+
+  def parse_stripe_seller_account(account)
+    bank_record = account.external_accounts.select{|x| x["default_for_currency"] }.first || {}
+    bank_number = [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
+    {
+      first_name: account.legal_entity.first_name,
+      last_name: account.legal_entity.first_name,
+
+      address_city: account.legal_entity.address.city,
+      address_state: account.legal_entity.address.state,
+      address_country: account.legal_entity.address.country,
+      address_line1: account.legal_entity.address.line1,
+      address_postal_code: account.legal_entity.address.postal_code,
+
+      bank_number_info: bank_number
+    }
   end
 end

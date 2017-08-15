@@ -235,7 +235,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
                                  api_publishable_key: api_form.api_publishable_key
                                 })
       end
-      if stripe_api.check_balance(@current_community.id)
+      if stripe_api.check_balance(community: @current_community.id)
         tx_settings_api.api_verified(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         tx_settings_api.activate(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize)
         flash[:notice] = t("admin.payment_preferences.stripe_verified")

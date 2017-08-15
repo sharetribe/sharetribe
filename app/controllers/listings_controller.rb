@@ -181,7 +181,9 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    paypal_in_use = PaypalHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+    stripe_in_use = StripeHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
     form_path = new_transaction_path(listing_id: @listing.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
@@ -220,7 +222,8 @@ class ListingsController < ApplicationController
 
     view_locals = {
       form_path: form_path,
-      payment_gateway: payment_gateway,
+      stripe_in_use: stripe_in_use,
+      paypal_in_use: paypal_in_use,
       # TODO I guess we should not need to know the process in order to show the listing
       process: process,
       delivery_opts: delivery_opts,
@@ -515,8 +518,9 @@ class ListingsController < ApplicationController
   def close
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+    paypal_in_use = PaypalHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+    stripe_in_use = StripeHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
 
     @listing.update_attribute(:open, false)
     respond_to do |format|
@@ -524,7 +528,13 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code, availability_enabled: @listing.availability.to_sym == :booking }
+        render :layout => false, locals: {
+          paypal_in_use: paypal_in_use,
+          stripe_in_use: stripe_in_use,
+          process: process,
+          country_code: community_country_code,
+          availability_enabled: @listing.availability.to_sym == :booking
+        }
       }
     end
   end

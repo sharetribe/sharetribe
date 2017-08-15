@@ -440,16 +440,14 @@ default: &default_settings
   # Stripe allows to hold funds up to 90 days
   stripe_max_booking_date: 90
 
-  # :platform - marketplace API account is responsible for fees, refunds, etc. funds are captured to platform account and then moved to seller by Transfer
-  # :seller   - Custom Account for seller is responsible for fees, funds are sent by Payout
-  stripe_charge_destination: :platform
-
-  # Disable displaying stored cards for customer
-  stripe_hide_stored_cards: true
-
-  # :connect - use only Stripe Connect
-  # :managed - use only Managed
-  stripe_accounts_mode: :managed
+  # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
+  #
+  # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
+  # :direct      - Direct charges, payment goes to seller account, with application fee to admin account
+  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller  
+  #
+  # By default :destination mode is used
+  stripe_charges_mode: :destination
 
   # Used to encrypt Stripe api keys
   app_encryption_key:

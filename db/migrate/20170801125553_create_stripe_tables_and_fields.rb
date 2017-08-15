@@ -36,12 +36,7 @@ class CreateStripeTablesAndFields < ActiveRecord::Migration[5.1]
       
       # bank info
       t.string      :stripe_bank_id
-      t.string      :bank_account_number
-      t.string      :bank_country
-      t.string      :bank_currency
-      t.string      :bank_account_holder_name
-      t.string      :bank_account_holder_type
-      t.string      :bank_routing_number
+      t.string      :bank_account_last_4
 
       # Buyer fields
       t.string      :stripe_customer_id

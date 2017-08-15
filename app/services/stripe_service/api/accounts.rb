@@ -6,7 +6,8 @@ module StripeService::API
     end
 
     def create(community_id:, person_id:, body:)
-      result = stripe_api.register_seller(community_id, body)
+      metadata = {sharetribe_community_id: community_id, sharetribe_person_id: person_id, sharetribe_mode: stripe_api.charges_mode(community_id)}
+      result = stripe_api.register_seller(community: community_id, account_info: body, metadata: metadata)
       data = body.merge(stripe_seller_id: result.id, community_id: community_id, person_id: person_id)
       Result::Success.new(accounts_store.create(opts: data))
     rescue => e
@@ -15,7 +16,7 @@ module StripeService::API
 
     def create_bank_account(community_id:, person_id:, body:)
       account = accounts_store.get(person_id: person_id, community_id: community_id).to_hash
-      result = stripe_api.create_bank_account(community_id, account.merge(body))
+      result = stripe_api.create_bank_account(community: community_id, account_info: account.merge(body))
       data = body.merge(stripe_bank_id: result.id)
       Result::Success.new(accounts_store.update_bank_account(community_id: community_id, person_id: person_id, opts: data))
     rescue => e
@@ -32,8 +33,8 @@ module StripeService::API
     def update_address(community_id:, person_id:, body:)
       data = { community_id: community_id, person_id: person_id}
       account = accounts_store.get(person_id: person_id, community_id: community_id).to_hash
-      stripe_api.update_address(community_id, account[:stripe_seller_id], body)
-      Result::Success.new(accounts_store.update_address(community_id: community_id, person_id: person_id, opts: body))
+      stripe_api.update_address(community: community_id, account_id: account[:stripe_seller_id], address: body)
+      Result::Success.new(account)
     rescue => e
       Result::Error.new(e.message)
     end
@@ -46,7 +47,7 @@ module StripeService::API
 
     def send_verification(community_id:, person_id:, personal_id_number:, file:)
       account = accounts_store.get(community_id: community_id, person_id: person_id)
-      stripe_api.send_verification(community_id, account[:stripe_seller_id], personal_id_number, file)
+      stripe_api.send_verification(community: community_id, account_id: account[:stripe_seller_id], personal_id_number: personal_id_number, file_path: file)
       Result::Success.new(account)
     rescue => e
       Result::Error.new(e.message)

@@ -16,11 +16,11 @@ module StripeService::API
         customer_id   = payer_account[:stripe_customer_id]
         seller_id     = seller_account[:stripe_seller_id]
 
-        case stripe_api.destination(tx[:community_id])
-        when :platform
+        case stripe_api.charges_mode(tx[:community_id])
+        when :separate, :destination
           source_id  = payer_account[:stripe_customer_id]
-        when :seller
-          source_id  = stripe_api.create_token(tx[:community_id], customer_id, seller_id).id
+        when :direct
+          source_id  = stripe_api.create_token(community: tx[:community_id], customer_id: customer_id, account_id: seller_id).id
         end
 
         subtotal   = order_total(tx)
@@ -29,7 +29,21 @@ module StripeService::API
         fee        = Money.new(0, subtotal.currency)
 
         description = "Payment #{tx[:id]} for #{tx[:listing_title]} via #{gateway_fields[:service_name]} "
-        stripe_charge = stripe_api.charge(tx[:community_id], source_id, seller_id, total.cents, commission.cents, total.currency.iso_code, description)
+        metadata = {
+          sharetribe_order_id: tx[:id],
+          sharetribe_seller_id: tx[:listing_author_id],
+          sharetribe_payer_id: tx[:starter_id],
+          sharetribe_mode: stripe_api.charges_mode(tx[:community_id])
+        }
+        stripe_charge = stripe_api.charge(
+          community: tx[:community_id],
+          token: source_id,
+          seller_account_id: seller_id,
+          amount: total.cents,
+          fee: commission.cents,
+          currency: total.currency.iso_code,
+          description: description,
+          metadata: metadata)
 
         payment = PaymentStore.create(tx[:community_id], tx[:id], {
           payer_id: tx[:starter_id],
@@ -57,7 +71,13 @@ module StripeService::API
       def cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx[:community_id], tx[:id])
         seller_account = accounts_api.get(community_id: tx[:community_id], person_id: tx[:listing_author_id]).data
-        stripe_api.cancel_charge(tx[:community_id], payment[:stripe_charge_id], seller_account[:stripe_seller_id], reason)
+        stripe_api.cancel_charge(
+          community: tx[:community_id],
+          charge_id: payment[:stripe_charge_id],
+          account_id: seller_account[:stripe_seller_id],
+          reason: reason,
+          metadata: {sharetribe_order_id: tx[:id]}
+        )
         payment = PaymentStore.update(transaction_id: tx[:id], community_id: tx[:community_id], data: {status: 'canceled'})
         Result::Success.new(payment)
       rescue => e
@@ -67,8 +87,8 @@ module StripeService::API
       def capture(tx)
         payment = PaymentStore.get(tx[:community_id], tx[:id])
         seller_account = accounts_api.get(community_id: tx[:community_id], person_id: tx[:listing_author_id]).data
-        charge = stripe_api.capture_charge(tx[:community_id], payment[:stripe_charge_id], seller_account[:stripe_seller_id])
-        balance_txn = stripe_api.get_balance_txn(tx[:community_id], charge.balance_transaction, seller_account[:stripe_seller_id])
+        charge = stripe_api.capture_charge(community: tx[:community_id], charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
+        balance_txn = stripe_api.get_balance_txn(community: tx[:community_id], balance_txn_id: charge.balance_transaction, account_id: seller_account[:stripe_seller_id])
         payment = PaymentStore.update(transaction_id: tx[:id], community_id: tx[:community_id],
                                       data: {
                                         status: 'paid',
@@ -89,15 +109,20 @@ module StripeService::API
           payment = {
             sum: total,
             commission: commission,
-            fee: fee,
+            real_fee: fee,
             subtotal: total - fee,
           }
+        end
+        gateway_fee = if stripe_api.charges_mode(tx[:community_id]) == :destination
+          Money.new(0, payment[:sum].currency)
+        else
+          payment[:real_fee]
         end
         {
           payment_total:       payment[:sum],
           total_price:         payment[:subtotal],
           charged_commission:  payment[:commission],
-          payment_gateway_fee: payment[:real_fee] || payment[:fee]
+          payment_gateway_fee: gateway_fee
         }
       end
 
@@ -107,15 +132,29 @@ module StripeService::API
 
         seller_gets = payment[:subtotal] - payment[:commission]
 
-        case stripe_api.destination(tx[:community_id])
-        when :platform
+        case stripe_api.charges_mode(tx[:community_id])
+        when :separate
           seller_gets -= payment[:real_fee] || 0
           if seller_gets > 0
-            result = stripe_api.perform_transfer(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency, payment[:subtotal].cents, payment[:stripe_charge_id])
+            result = stripe_api.perform_transfer(
+              community: tx[:community_id],
+              account_id: seller_account[:stripe_seller_id],
+              amount_cents: seller_gets.cents,
+              currency: payment[:sum].currency,
+              initial_amount: payment[:subtotal].cents,
+              charge_id: payment[:stripe_charge_id],
+              metadata: {sharetribe_order_id: tx[:id]}
+            )
           end
-        when :seller
+        when :direct, :destination
           if seller_gets > 0
-            result = stripe_api.perform_payout(tx[:community_id], seller_account[:stripe_seller_id], seller_gets.cents, payment[:sum].currency)
+            result = stripe_api.perform_payout(
+              community: tx[:community_id],
+              account_id: seller_account[:stripe_seller_id],
+              amount_cents: seller_gets.cents,
+              currency: payment[:sum].currency,
+              metadata: {shretribe_order_id: tx[:id]}
+            )
           end
         end
 
@@ -146,14 +185,21 @@ module StripeService::API
           end
 
           if payer_account[:stripe_customer_id].present?
-            stripe_customer = stripe_api.update_customer(community_id, payer_account[:stripe_customer_id], gateway_fields[:stripe_token])
+            stripe_customer = stripe_api.update_customer(
+              comunity: community_id,
+              customer_id: payer_account[:stripe_customer_id],
+              token: gateway_fields[:stripe_token]
+            )
           else
-            stripe_customer = stripe_api.register_customer(community_id, gateway_fields[:stripe_email], gateway_fields[:stripe_token])
+            stripe_customer = stripe_api.register_customer(
+              community: community_id,
+              email: gateway_fields[:stripe_email],
+              card_token: gateway_fields[:stripe_token],
+              metadata: {sharetribe_person_id: person_id}
+            )
             accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_customer_id, value: stripe_customer.id)
           end
-          card_info, card_country = stripe_api.get_card_info(stripe_customer)
-          accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_info, value: card_info)
-          accounts_api.update_field(community_id: community_id, person_id: person_id, field: :stripe_source_country, value: card_country)
+          card_info, card_country = stripe_api.get_card_info(customer: stripe_customer)
         end
         accounts_api.get(community_id: community_id, person_id: person_id).data
       end
