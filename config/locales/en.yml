@@ -690,6 +690,7 @@ en:
       total_value: "%{seller_gets}*"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
       stripe_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>Stripe's payment processing fee</a>"
+      payment_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>payment processing fee</a>"
       shipping_price_label: "Shipping:"
       stripe-fee_label: "Stripe Gateway Fee"
     confirm:

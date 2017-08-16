@@ -102,10 +102,10 @@
 
     - if payment_gateway == :paypal
       %p
-        = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
+        = t("conversations.accept.payment_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
 
       = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
-        %h2= t("common.paypal_fee_info.title")
+        %h2= t("common.payment_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
           = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
@@ -116,10 +116,10 @@
 
     - if payment_gateway == :stripe
       %p
-        = t("conversations.accept.stripe_fee_info", fee_info_link_id: "stripe_fee_info_link").html_safe
+        = t("conversations.accept.payment_fee_info", fee_info_link_id: "stripe_fee_info_link").html_safe
 
       = render layout: "layouts/lightbox", locals: { id: "stripe_fee_info_content"} do
-        %h2= t("common.stripe_fee_info.title")
+        %h2= t("common.payment_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
           = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe).html_safe
