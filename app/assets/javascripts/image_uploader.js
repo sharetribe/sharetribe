@@ -558,10 +558,13 @@ window.ST.imageUploader = function(listings, opts) {
     $("#listing_ordered_images").val(ordered.join(","));
   }
 
+  function unfocusMe() {
+    $(":text").blur();
+  }
   if (opts.reorderUrl) {
-    $(".listing-images").sortable({stop: reorderImages, items: '.fileinput-button:not(:last-child)' });
+    $(".listing-images").sortable({start: unfocusMe, stop: reorderImages, items: '.fileinput-button:not(:last-child)' });
   } else {
-    $(".listing-images").sortable({stop: localReorderImages, items: '.fileinput-button:not(:last-child)'});
+    $(".listing-images").sortable({start: unfocusMe, stop: localReorderImages, items: '.fileinput-button:not(:last-child)'});
   }
 
   return status;
