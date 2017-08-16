@@ -70,8 +70,12 @@ module FeatureTests
         listing_book.pay_with_stripe
 
         worker.work_until do
-          page.has_content?("Payment authorized") &&
-            page.has_content?("Snowman ☃ sells: #{title}")
+          begin
+            page.has_content?("Payment authorized") &&
+              page.has_content?("Snowman ☃ sells: #{title}")
+          rescue Selenium::WebDriver::Error::StaleElementReferenceError
+            false
+          end
         end
       end
 
