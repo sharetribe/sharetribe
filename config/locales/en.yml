@@ -1743,12 +1743,14 @@ en:
     transaction_agreement_checkbox:
       read_more: View.
     stripe_payment:
-      address: Shipping Address
+      payment: Payment
+      pay_with_card: Pay with credit card
+      address: Shipping address
       address_country: Country
       address_city: City
       address_state: State or province
       address_street1: Street
-      address_postal_code: Postal Code
+      address_postal_code: Postal code
       address_name: Name
       address_phone: Phone
 
@@ -1842,6 +1844,7 @@ en:
     paypal_permission_granted_summary: "Permission for transaction fees granted"
   paypal:
     pay_with_paypal: "Proceed to payment"
+    or_pay_with_paypal: "or"
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
     transaction:
@@ -2285,7 +2288,7 @@ en:
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
     commission: "%{commission} %"
     pay_with_stripe: "Pay with Stripe using %{card}"
-    add_and_pay: "Pay with Stripe"
+    add_and_pay: "Confirm payment"
     missing_payment: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{settings_link}"
     stripe_bank_connected: "Bank account details configured successfully!"
     stripe_can_accept: "You're now all set to accept credit card payments"

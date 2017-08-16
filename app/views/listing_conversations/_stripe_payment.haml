@@ -1,4 +1,9 @@
 = javascript_include_tag "#{STRIPE_JS_HOST}/v3/"
+- if paypal_in_use
+  .row
+    .col-12
+      %h3
+        = t(".pay_with_card")
 
 - if stripe_shipping_required
   %h4= t(".address")
@@ -43,6 +48,7 @@
     .col-12
       #card-element
       #card-errors{role: "alert"}
+  .row
     .col-12.payment-button-wrapper.paypal-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
 

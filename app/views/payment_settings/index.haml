@@ -25,8 +25,6 @@
           #stripe_wizard{class: @stripe_error || seller_account.present? ? "" : "hidden"}
             = render partial: "stripe_wizard", locals: local_assigns
 
-          .paypal-wizard-divider
-
           - if !paypal_account.present?
             %h3= t("payment_settings.paypal")
             %p 
