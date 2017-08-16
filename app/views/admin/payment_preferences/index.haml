@@ -11,30 +11,89 @@
 
 .left-navi-section.payment-settings
 
-  %h1= t("admin.payment_preferences.title")
-
-  = render partial: 'info_header_text', locals: {display_knowledge_base_articles: display_knowledge_base_articles, knowledge_base_url: knowledge_base_url, stripe_enabled: stripe_enabled, paypal_enabled: paypal_enabled}
-
   .row.paypal-wizard
     .col-12
-      - if stripe_enabled
-        - if !stripe_account[:api_verified]
-          = render partial: 'stripe_form', locals: {stripe_account: stripe_account, stripe_api_form: stripe_api_form}
-          .paypal-wizard-divider
+      = render partial: 'general_prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, payments_connected: stripe_connected || paypal_connected, country_name: country_name}
+
+    .paypal-wizard-content
+      .row
+        %h2 
+          = t("admin.payment_preferences.connect_a_payment_provider")
+      .col-12
+        - if !stripe_allowed && !paypal_allowed
+          - support_link = mail_to t("admin.payment_preferences.contact_support"), support_email
+          - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/supported-payments-currencies"
+          = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link)
         - else
-          = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}
-          .paypal-wizard-divider
 
-      - if paypal_enabled
+          - popup_link = link_to t("admin.payment_preferences.which_to_choose"), "#", id: "choose_payment_popup_link"
+          %p
+            = t("admin.payment_preferences.you_can_use_stripe_or_paypal", choose_link: popup_link).html_safe
+          
+          = render layout: "layouts/lightbox", locals: { id: "payment_choose_popup_content"} do
+            - text_with_line_breaks_html_safe do
+              = t("admin.payment_preferences.choose_popup_text")
+            - help_url = "#{knowledge_base_url}/payment-with-paypal-and-stripe/guide-to-getting-started-with-payments"
+            = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), help_url,  target: "_blank"
 
-        - if !paypal_account.present?
-          = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
+          - content_for :extra_javascript do
+            :javascript
+              $('#choose_payment_popup_link').click(function() { $('#payment_choose_popup_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
-        - else
-          = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
+          .row.connect-row
+            - if stripe_enabled && stripe_allowed
+              - if stripe_connected
+                .col-6
+                  %h3.paypal-account-connected
+                    =icon_tag("check", ["icon-fix"])
+                    =t("admin.payment_preferences.stripe_connected.title")
+                  = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_stripe_toggle"
+              - else
+                .col-6
+                  = link_to t("admin.payment_preferences.configure_stripe"), "#", class: "button", id: "config_stripe_toggle"
 
-          = render partial: 'paypal_connect_own_notice'
+            - if paypal_enabled && paypal_allowed
+              - if paypal_connected
+                .col-6
+                  %h3.paypal-account-connected
+                    =icon_tag("check", ["icon-fix"])
+                    =t("admin.payment_preferences.paypal_connected.title")
+                  = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_paypal_toggle"
+              - else
+                .col-6
+                  = link_to t("admin.payment_preferences.configure_paypal"), "#", class: "button", id: "config_paypal_toggle"
 
-      - if stripe_account.present? && stripe_account[:api_verified] || paypal_account.present?
-        .paypal-wizard-divider
-        = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email}
+          - if paypal_enabled && paypal_account.present?
+            .paypal-wizard-divider
+              = render partial: 'paypal_connect_own_notice'
+
+    .col-12.payment-tabs.hidden
+      .tabs-list
+        - if stripe_enabled && stripe_allowed
+          = link_to "Stripe", "#", data: {tab: 'stripe_tab'}, class: "tab-link stripe"
+        - if paypal_enabled && paypal_allowed
+          = link_to "PayPal", "#", data: {tab: 'paypal_tab'}, class: "tab-link paypal"
+
+      - if stripe_enabled && stripe_allowed
+        .tab-content.hidden#stripe_tab
+          - if !stripe_account[:api_verified]
+            - stripe_keys_link = "#{knowledge_base_url}/how-to-get-stripe-api-keys"
+            = render partial: 'stripe_form', locals: {stripe_account: stripe_account, stripe_api_form: stripe_api_form, stripe_keys_link: stripe_keys_link}
+          - else
+            = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}
+            .paypal-wizard-divider
+            = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'stripe'}
+
+      - if paypal_enabled && paypal_allowed
+        .tab-content.hidden#paypal_tab
+          - if !paypal_account.present?
+            = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
+          - else
+            = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
+            .paypal-wizard-divider
+            = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal'}
+
+    - content_for :extra_javascript do
+      :javascript
+        window.ST.initPaymentTabs(#{payment_prefs_form.minimum_listing_price.to_f}, "#{t("admin.payment_preferences.fee_should_be_less_than_minimum_price")}")
+

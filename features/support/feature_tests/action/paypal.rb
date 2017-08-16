@@ -18,12 +18,16 @@ module FeatureTests
         admin_sidebar.click_payments_link
         paypal_preferences.connect_paypal_account
 
-        expect(page).to have_content("PayPal account connected")
+        expect(page).to have_content("PayPal connected")
 
-        # Save payment preferences
-        paypal_preferences.set_payment_preferences(min_price: min_price, commission: commission, min_commission: min_commission)
-        paypal_preferences.save_settings
+        paypal_preferences.edit_payment_general_preferences(min_price: min_price)
+        paypal_preferences.click_button("Save settings")
         onboarding_wizard.dismiss_dialog
+
+        paypal_preferences.change_paypal_settings
+        paypal_preferences.edit_payment_transaction_fee_preferences(commission: commission, min_commission: min_commission)
+        paypal_preferences.click_button("Save")
+
         expect(page).to have_content("Payment system preferences updated")
       end
 

@@ -4,20 +4,23 @@
       .col-12
         .row
           %h3= t(".add_your_api_keys")
-          = link_to t(".how_to_get_these"), "#", class: "right"
+          = link_to t(".how_to_get_these"), stripe_keys_link, class: "right"
 
         .row
           .col-4
-            = form.label :api_private_key, t(".private_key")
+            -# Not a subject of I18n, forced fixed text
+            = form.label :api_private_key, "Secret API Key"
           .col-8
             = form.text_field :api_private_key, class: 'required'
         .row
           .col-4
-            = form.label :api_publishable_key, t(".publishable_key")
+            -# Not a subject of I18n, forced fixed text
+            = form.label :api_publishable_key, "Publishable API Key"
           .col-8
             = form.text_field :api_publishable_key, class: 'required'
         .row
           = button_tag t(".save_api_keys")
+
 - content_for :extra_javascript do
   :javascript
     $.validator.addMethod(

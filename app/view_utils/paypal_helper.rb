@@ -110,4 +110,18 @@ module PaypalHelper
   def accounts_api
     PaypalService::API::Api.accounts
   end
+
+
+  PAYPAL_CURRENCIES = [
+    'AUD', {'BRL' => 'BR'}, 'CAD', 'CZK', 'DKK', 'EUR', 'HKD', 'HUF', 'ILS',
+    'JPY', {'MYR' => 'MY'}, 'MXN', 'TWD', 'NZD', 'NOK', 'PHP', 'PLN', 'GBP',
+    'RUB', 'SGD', 'SEK', 'CHF', 'THB', {'TRY' => 'TR'}, 'USD'
+  ]
+  def paypal_allows_country_and_currency?(country, currency)
+    PAYPAL_CURRENCIES.each do |item|
+      return true if item == currency
+      return true if item.is_a?(Hash) && item[currency] == country
+    end
+    false
+  end
 end
