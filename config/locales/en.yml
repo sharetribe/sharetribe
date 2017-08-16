@@ -692,7 +692,7 @@ en:
       stripe_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>Stripe's payment processing fee</a>"
       payment_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>payment processing fee</a>"
       shipping_price_label: "Shipping:"
-      stripe-fee_label: "Stripe Gateway Fee"
+      stripe-fee_label: "Payment processing fee"
     confirm:
       confirm_description: "If your order has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
       cancel_description: "If your order was not fulfilled, you can mark it as 'disputed'. You can still give feedback to the other party and describe what happened."
@@ -939,8 +939,7 @@ en:
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
     payment_receipt_to_seller:
-      stripe_gateway_fee: "Stripe's fee:"
-      paypal_gateway_fee: "PayPal's fee:"
+      payment_gateway_fee: "Payment processing fee:"
       shipping_total: "Shipping:"
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
