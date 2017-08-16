@@ -9,15 +9,15 @@
         .row
           .col-4
             -# Not a subject of I18n, forced fixed text
-            = form.label :api_private_key, "Secret API Key"
-          .col-8
-            = form.text_field :api_private_key, class: 'required'
-        .row
-          .col-4
-            -# Not a subject of I18n, forced fixed text
             = form.label :api_publishable_key, "Publishable API Key"
           .col-8
             = form.text_field :api_publishable_key, class: 'required'
+        .row
+          .col-4
+            -# Not a subject of I18n, forced fixed text
+            = form.label :api_private_key, "Secret key"
+          .col-8
+            = form.text_field :api_private_key, class: 'required'
         .row
           = button_tag t(".save_api_keys")
 

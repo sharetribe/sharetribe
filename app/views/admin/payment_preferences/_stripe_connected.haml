@@ -9,17 +9,17 @@
       .paypal-connected-email.paypal-account-connected
         -# Not a subject of I18n, forced fixed text
         .col-6
-          Secret API Key: 
+          Publishable API Key:
         .col-6
           %strong
-            = stripe_account[:api_visible_private_key]
+            = stripe_account[:api_publishable_key]
   .row
     .col-12
       .paypal-connected-email.paypal-account-connected
         -# Not a subject of I18n, forced fixed text
         .col-6
-          Publishable API Key:
+          Secret key:
         .col-6
           %strong
-            = stripe_account[:api_publishable_key]
+            = stripe_account[:api_visible_private_key]
 
