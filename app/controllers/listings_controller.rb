@@ -934,40 +934,34 @@ class ListingsController < ApplicationController
       [true, ""]
     when matches([:paypal])
       can_post = PaypalHelper.community_ready_for_payments?(community.id)
-      error_msg =
-        if user.has_admin_rights?(community)
-          t("listings.new.community_not_configured_for_payments_admin",
-            payment_settings_link: view_context.link_to(
-              t("listings.new.payment_settings_link"),
-              admin_payment_preferences_path()))
-            .html_safe
-        else
-          t("listings.new.community_not_configured_for_payments",
-            contact_admin_link: view_context.link_to(
-              t("listings.new.contact_admin_link_text"),
-              new_user_feedback_path))
-            .html_safe
-        end
+      error_msg = make_error_msg(user, community)
       [can_post, error_msg]
     when matches([:stripe])
       can_post = StripeHelper.community_ready_for_payments?(community.id)
-      error_msg =
-        if user.has_admin_rights?(community)
-          t("listings.new.community_not_configured_for_payments_admin",
-            payment_settings_link: view_context.link_to(
-              t("listings.new.payment_settings_link"),
-              admin_payment_preferences_path()))
-            .html_safe
-        else
-          t("listings.new.community_not_configured_for_payments",
-            contact_admin_link: view_context.link_to(
-              t("listings.new.contact_admin_link_text"),
-              new_user_feedback_path))
-            .html_safe
-        end
+      error_msg = make_error_msg(user, community)
+      [can_post, error_msg]
+    when matches([[:paypal, :stripe]])
+      can_post = StripeHelper.community_ready_for_payments?(community.id) || PaypalHelper.community_ready_for_payments?(community.id)
+      error_msg = make_error_msg(user, community)
       [can_post, error_msg]
     else
       [true, ""]
+    end
+  end
+
+  def make_error_msg(user, community)
+    if user.has_admin_rights?(community)
+      t("listings.new.community_not_configured_for_payments_admin",
+        payment_settings_link: view_context.link_to(
+          t("listings.new.payment_settings_link"),
+          admin_payment_preferences_path()))
+        .html_safe
+    else
+      t("listings.new.community_not_configured_for_payments",
+        contact_admin_link: view_context.link_to(
+          t("listings.new.contact_admin_link_text"),
+          new_user_feedback_path))
+        .html_safe
     end
   end
 
