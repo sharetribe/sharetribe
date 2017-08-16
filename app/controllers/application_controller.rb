@@ -350,7 +350,7 @@ class ApplicationController < ActionController::Base
     @current_plan = request.env[:current_plan]
   end
 
-  # Before filter for PayPal, shows notification if user is not ready for payments
+  # Before filter for payments, shows notification if user is not ready for payments
   def warn_about_missing_payment_info
     if @current_user
       missing_paypal = PaypalHelper.open_listings_with_missing_payment_info?(@current_user.id, @current_community.id)

@@ -60,6 +60,9 @@ module StripeHelper
       PaypalHelper.open_listings_with_payment_process?(community_id, user_id)
   end
 
+  # We are not using FeatureFlagHelper.feature_enabled?(:stripe) here,
+  # the reason is that method Community#payments_in_use? uses MarketplaceService::Community::Query.payment_type which calls StripeHelper.stripe_active?
+  # and it can be invoked in context where FeatureFlagHelper is not initialized, like from PersonMailer
   def stripe_feature_enabled?(community_id)
     features = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
     features.include?(:stripe)
