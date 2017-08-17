@@ -109,7 +109,8 @@
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 
             .country-dependent{"data-country-except" => "XXX"}
-              - stripe_link = link_to t("stripe_accounts.form_new.tos_link_title"), "https://stripe.com/us/connect-account/legal", target: "_blank"
+              - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
+              - stripe_link = link_to t("stripe_accounts.form_new.tos_link_title"), base_terms_url, target: "_blank", data: {terms_url: base_terms_url}, id: "stripe-terms-link"
               = t("stripe_accounts.form_new.tos_link", stripe_link: stripe_link ).html_safe
 
               = button_tag t('stripe_accounts.form_new.save_details')

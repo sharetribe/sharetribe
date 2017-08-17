@@ -62,6 +62,9 @@ window.ST = window.ST || {};
       $(prefix+"_bank_routing_number").prop('placeholder', get_placeholder(country, 'routing_number'));
       $(prefix+"_bank_currency").val(DEFAULT_CURRENCIES[country]);
       if(country) {
+        if($("#stripe-terms-link").size() > 0 ) {
+          $("#stripe-terms-link").attr('href', $("#stripe-terms-link").data("terms-url").replace(/COUNTRY/, country.toLowerCase()));
+        }
         $(".address-lines").show();
         $(".country-dependent").each(function(){
           var only = $(this).data("country-only");
