@@ -17,7 +17,7 @@
 
     .paypal-wizard-content
       .row
-        %h2 
+        %h2
           = t("admin.payment_preferences.connect_a_payment_provider")
       .col-12
         - if !stripe_allowed && !paypal_allowed
@@ -26,19 +26,20 @@
           = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link)
         - else
 
-          - popup_link = link_to t("admin.payment_preferences.which_to_choose"), "#", id: "choose_payment_popup_link"
-          %p
-            = t("admin.payment_preferences.you_can_use_stripe_or_paypal", choose_link: popup_link).html_safe
-          
-          = render layout: "layouts/lightbox", locals: { id: "payment_choose_popup_content"} do
-            - text_with_line_breaks_html_safe do
-              = t("admin.payment_preferences.choose_popup_text")
-            - help_url = "#{knowledge_base_url}/payment-with-paypal-and-stripe/guide-to-getting-started-with-payments"
-            = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), help_url,  target: "_blank"
+          - if stripe_allowed && paypal_allowed
+            - popup_link = link_to t("admin.payment_preferences.which_to_choose"), "#", id: "choose_payment_popup_link"
+            %p
+              = t("admin.payment_preferences.you_can_use_stripe_or_paypal", choose_link: popup_link).html_safe
 
-          - content_for :extra_javascript do
-            :javascript
-              $('#choose_payment_popup_link').click(function() { $('#payment_choose_popup_content').lightbox_me({centered: true, zIndex: 1000000}); });
+            = render layout: "layouts/lightbox", locals: { id: "payment_choose_popup_content"} do
+              - text_with_line_breaks_html_safe do
+                = t("admin.payment_preferences.choose_popup_text")
+              - help_url = "#{knowledge_base_url}/payment-with-paypal-and-stripe/guide-to-getting-started-with-payments"
+              = link_to t("admin.payment_preferences.read_more_about_paypal_and_stripe"), help_url,  target: "_blank"
+
+            - content_for :extra_javascript do
+              :javascript
+                $('#choose_payment_popup_link').click(function() { $('#payment_choose_popup_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
           .row.connect-row
             - if stripe_enabled && stripe_allowed
