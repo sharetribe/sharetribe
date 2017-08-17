@@ -5,49 +5,44 @@
       %h3
         = t(".pay_with_card")
 
-- if stripe_shipping_required
-  %h4= t(".address")
-  .row
-    .col-4
-      %label= t(".address_country")
-    .col-8
-      = select_tag 'shipping_address[country_code]', options_for_select(StripeService::Store::StripeAccount::COUNTRY_NAMES), {}
-  .row
-    .col-4
-      %label= t(".address_state")
-    .col-8
-      = text_field_tag 'shipping_address[state]', '', class: 'required'
-  .row
-    .col-4
-      %label= t(".address_city")
-    .col-8
-      = text_field_tag 'shipping_address[city]', '', class: 'required'
-  .row
-    .col-4
-      %label= t(".address_postal_code")
-    .col-8
-      = text_field_tag 'shipping_address[postal_code]', '', class: 'required'
-  .row
-    .col-4
-      %label= t(".address_street1")
-    .col-8
-      = text_field_tag 'shipping_address[street1]', '', class: 'required'
-  .row
-    .col-4
-      %label= t(".address_name")
-    .col-4
-      = text_field_tag 'shipping_address[name]', '', class: 'required'
-  .row
-    .col-4
-      %label= t(".address_phone")
-    .col-8
-      = text_field_tag 'shipping_address[phone]', '', class: 'required'
-
 .form-row
   .row
     .col-12
       #card-element
-      #card-errors{role: "alert"}
+      %label.hidden#card-errors{role: "alert"}
+
+  - if stripe_shipping_required
+    %h2= t(".address")
+    .row
+      .col-12
+        %label= t(".address_street1")
+        = text_field_tag 'shipping_address[street1]', '', class: 'required'
+    .row
+      .col-12
+        %label= t(".address_street2")
+        = text_field_tag 'shipping_address[street2]', ''
+
+    .row
+      .col-4
+        %label= t(".address_postal_code")
+        = text_field_tag 'shipping_address[postal_code]', '', class: 'required'
+
+      .col-8
+        %label= t(".address_city")
+        = text_field_tag 'shipping_address[city]', '', class: 'required'
+
+    .row
+      .col-4
+        %label= t(".address_country")
+        = select_tag 'shipping_address[country_code]', options_for_select(StripeService::Store::StripeAccount::COUNTRY_NAMES), {}
+
+      .col-8
+        .us-only.hidden
+          %label= t(".address_state")
+          = select_tag 'shipping_address[state]', options_for_select(us_states), class: 'required', prompt: "Select state"
+    .row
+      .col-12
+
   .row
     .col-12.payment-button-wrapper.paypal-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
@@ -73,14 +68,23 @@
         iconColor: '#fa755a'
       }
     };
+    $("#transaction-form").validate();
+
+    $("#shipping_address_country_code").change(function(){
+      if($(this).val() == 'US') $(".us-only").show(); else $(".us-only").hide(); 
+    });
+    $("#shipping_address_country_code").trigger("change");
+
     var card = elements.create('card', {style: style});
     card.mount('#card-element');
     card.addEventListener('change', function(event) {
       var displayError = document.getElementById('card-errors');
       if (event.error) {
         displayError.textContent = event.error.message;
+        displayError.className = 'error';
       } else {
         displayError.textContent = '';
+        displayError.className = 'hidden';
       }
     });
 
@@ -88,13 +92,17 @@
       event.preventDefault();
 
       stripe.createToken(card).then(function(result) {
+        var errorElement = document.getElementById('card-errors');
         if (result.error) {
-          var errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
+          errorElement.className = 'error';
         } else {
+          errorElement.className = 'hidden';
           var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
           $("#transaction-form").append(input);
-          $("#transaction-form").submit();
+          if($("#transaction-form").valid()) {
+            $("#transaction-form").submit();
+          }
         }
       });
     });

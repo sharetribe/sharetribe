@@ -268,7 +268,7 @@ class PreauthorizeTransactionsController < ApplicationController
                paypal_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
                stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
                stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
-               stripe_shipping_required: listing.require_shipping_address,
+               stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
                paypal_analytics_event: [
