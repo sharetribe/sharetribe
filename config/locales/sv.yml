@@ -108,7 +108,7 @@ sv:
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
         logo_instructions_text_with_dimensions_no_placing: "Logons storlek skall vara %{height}x%{width}pixlar"
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Denna fyrkantiga logo kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
@@ -496,10 +496,10 @@ sv:
       link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Ditt personliga marknadsplats konto"
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Redigera betalnings inställningarna"
+      supported_currencies_information_text: "Sharetribes betalsystem stöder 24 valutor. Om din valuta inte finns med i listan vänligen %{contact_support_link}. Om du ändrar marknadsplatsens valuta kommer aktiva annonser bibehålla den gamla valutan. Du måste redigera alla dessa annonser skilt för att uppdatera valutan."
+      currency_change_warning_text: "OBS: om du slutför ändringen av valuta, glöm inte att be dina säljare att manuellt uppdatera sina annonser för att ändra till den nya valutan"
+      marketplace_currency_label: "Marknadsplatsens valuta:"
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
@@ -928,8 +928,8 @@ sv:
       person_email: "E-post:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."
+      double_booking_payment_voided: "Tyvärr är de datum du valde inte längre tillgängliga. Vänligen välj andra datum.  You haven't been charged."
     onboarding:
       server_rendering: "Kom igång guiden kunde inte laddas. Vi har blivit informerade om situationen och arbetar med att åtgärda det."
     listings:
@@ -944,7 +944,7 @@ sv:
     transaction_agreement:
       required_error: "Du behöver acceptera avtalet"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transaktionen kan inte slutföras. Detta är antagligen på grund av att kreditkortets bankauktorisation misslyckades. Vänligen försök igen med en annan betalningsmetod."
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
       seller_express_checkout_disabled: "PayPal Express Checkout har blivit avstängd för annonsörens PayPal konto. Vänligen kontakta annonsören och meddela om problemet samt be dem kontakta PayPals kundtjänst."
@@ -1383,8 +1383,8 @@ sv:
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
       something_went_wrong_plain: "Något gick fel"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Skapande av annons misslyckades: Misslyckades att ansluta till bokningstjänsten. Vänligen försök igen."
+      update_failed_to_connect_to_booking_service: "Uppdatering av annonsen misslyckades: Misslyckades att ansluta till bokningstjänsten. Vänligen försök igen."
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"
@@ -1606,7 +1606,7 @@ sv:
       verification_required: "Verifiering krävs"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
+      dates_not_available: "Ditt val innehåller dagar som inte är tillgängliga"
       error_in_checking_availability: "Kunde inte kontrollera tillgängligheten för de valda dagarna"
       details: Detaljer
       by: "%{listing} av %{author}"
@@ -1656,7 +1656,7 @@ sv:
     connected_account: "PayPal-kontot '%{email}' har blivit anslutet."
     paypal_receive_funds_info_label_australia_only: "Ditt PayPal konto måste kunna ta ta emot betalningar. Detta kräver ett Premier eller Business konto hos PayPal."
     paypal_receive_funds_info_label: "Ditt PayPal-konto måste kunna ta emot betalningar. Detta kan kräva att du har ett \"Business account\"."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Om du ser ett felmeddelande när du försöker ansluta ditt konto till %{service_name} bör du antingen %{upgrade_paypal_account_link} eller (om du är en privatperson), skapa ett nytt Premier konto. Båda kontotyperna är helt gratis."
     paypal_receive_funds_info: "Om du får ett felmeddelande när du försöker ansluta ditt PayPal-konto to %{service_name} kan du uppgradera ditt konto genom att %{upgrade_paypal_account_link}. Det är gratis och enkelt att uppdatera. Om du är privatperson rekommenderar PayPal att du använder ditt eget namn som \"Business Name\"."
     upgrade_paypal_account_link_text: "logga in och klicka på uppgraderings-länken"
     admin_account_not_connected: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
@@ -1836,11 +1836,11 @@ sv:
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
       account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Före vi kan ge dig full tillgång till din marknadsplats är det en sak till du måste göra: bekräfta din email adress."
+      before_confirmation_only_access_admin_dashboard: "Före du bekräftar din email har du enbart tillgång till %{admin_dashboard_link}"
+      admin_dashboard_link_text: "admin panel"
       account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
-      contact_support_link_text: ~
+      contact_support_link_text: "kontakta Sharetribe support"
   settings:
     account:
       change: Ändra
@@ -2077,26 +2077,26 @@ sv:
           something_went_wrong: "Vi kan inte visa information om tillgängligheten. Vänligen ladda om sidan."
           saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
+        piece: styck
+        hour: timme
+        day: dag
+        night: natt
+        week: vecka
+        month: månad
       edit_availability_header: Tillgängliget
       save_and_close_availability_editing: "Spara och stäng"
       confirm_discarding_unsaved_availability_changes_explanation: "Du har osparade ändringar i din tillgänglighets information. Om du fortsätter kommer dessa förändringar gå förlorade."
       confirm_discarding_unsaved_availability_changes_question: "Är du säker du vill kassera dina ändringar?"
       edit_listing_availability: "Ändra annons tillgänglighet"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Vi kunde tyvärr  inte hitta några resultat som matchade dina sökkriterier."
+      try_other_search_terms: "Kanske du kan använda andra ord att söka med?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Lägg till bild"
+      no_picture: "Ingen bild"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Sida
+      page_of_pages: "av %{total_number_of_pages}"
     topbar:
       menu: Meny
       more: Mera
@@ -2113,12 +2113,12 @@ sv:
       admin_dashboard: "Admin panel"
       language: Språk
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: ml
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
+      create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
+      learn_more: "Lär dig mera"
   will_paginate:
     models:
       person:
