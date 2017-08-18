@@ -140,6 +140,13 @@ class LandingPageController < ActionController::Metal
     end
   end
 
+  include ActionView::Helpers::JavaScriptHelper
+
+  def custom_head_scripts
+    js = @current_community.custom_head_script.to_s
+    render body: "document.write(\"#{escape_javascript js}\")", content_type: 'text/javascript'
+  end
+
 
   private
 
