@@ -20,6 +20,7 @@ gem "passenger", '~> 5.1.4'
 gem "mysql2", '~> 0.4.6'
 gem 'haml', '~> 5.0.1'
 gem 'sass', '~> 3.4.24'
+gem 'rack-attack', '~> 5.0.1'
 gem 'rest-client', '~> 2.0.2'
 
 gem 'paperclip', '~> 5.1.0'
