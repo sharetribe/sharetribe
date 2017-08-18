@@ -50,8 +50,8 @@ class PaymentSettingsController < ApplicationController
   private
 
   def ensure_payments_enabled
-    @paypal_enabled = PaypalHelper.paypal_active?(@current_community.id)
-    @stripe_enabled = StripeHelper.stripe_active?(@current_community.id)
+    @paypal_enabled = PaypalHelper.community_ready_for_payments?(@current_community.id)
+    @stripe_enabled = StripeHelper.community_ready_for_payments?(@current_community.id)
     unless @paypal_enabled || @stripe_enabled
       flash[:warning] = t("stripe_accounts.admin_account_not_connected",
                             contact_admin_link: view_context.link_to(
@@ -106,7 +106,7 @@ class PaymentSettingsController < ApplicationController
     {
       stripe_account: @stripe_account,
       stripe_seller_account: @parsed_seller_account,
-      available_countries: STRIPE_COUNTRY_NAMES,
+      available_countries: StripeService::Store::StripeAccount::COUNTRY_NAMES,
       stripe_account_form: StripeAccountForm.new(@parsed_seller_account),
       stripe_address_form: StripeAddressForm.new(@parsed_seller_account),
       stripe_bank_form: StripeBankForm.new(@parsed_seller_account),
@@ -161,10 +161,6 @@ class PaymentSettingsController < ApplicationController
     end
   end
 
-  STRIPE_COUNTRIES = StripeService::Store::StripeAccount::COUNTRIES
-
-  STRIPE_COUNTRY_NAMES = StripeService::Store::StripeAccount::COUNTRY_NAMES
-
   def load_stripe_account
     @stripe_account = stripe_accounts_api.get(community_id: @current_community.id, person_id: @current_user.id).data || {}
     if @stripe_account[:stripe_seller_id].present?
@@ -176,20 +172,26 @@ class PaymentSettingsController < ApplicationController
   end
 
   StripeAccountForm = FormUtils.define_form("StripeAccountForm",
-        :first_name,
-        :last_name,
+        :legal_name,
         :address_country,
         :address_city,
         :address_line1,
         :address_postal_code,
         :address_state,
         :birth_date,
-        :ssn_last_4
+        :ssn_last_4,
+        :personal_id_number
         ).with_validations do
-    validates_presence_of :first_name, :last_name,
-        :address_country, :address_city, :address_line1, :address_postal_code, :address_state,
-        :birth_date
-    validates_inclusion_of :address_country, in: STRIPE_COUNTRIES
+    validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
+
+    validates_presence_of :legal_name
+    validates_presence_of :birth_date
+
+    validates_presence_of :address_country, :address_city, :address_line1
+    validates_presence_of :address_postal_code, unless: proc { address_country == 'IE'  }
+    validates_presence_of :address_state, if: proc { ['AU', 'IE', 'US', 'CA'].include? address_country }
+    validates_presence_of :ssn_last_4, if: proc { address_country == 'US' }
+    validates_presence_of :personal_id_number, if: proc { address_country == 'CA' }
   end
 
   def stripe_create_account
@@ -198,12 +200,16 @@ class PaymentSettingsController < ApplicationController
     @extra_forms[:stripe_account_form] = stripe_account_form
     if stripe_account_form.valid?
       account_attrs = stripe_account_form.to_hash
+      first_name, last_name = account_attrs.delete(:legal_name).to_s.split(/\s+/, 2)
+      account_attrs[:first_name] = first_name
+      account_attrs[:last_name] = last_name
       account_attrs[:tos_ip] = request.remote_ip
       account_attrs[:tos_date] = Time.zone.now
       result = stripe_accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
       if result[:success]
         load_stripe_account
       else
+        @stripe_error = true
         flash[:error] = result[:error_msg]
       end
     end
@@ -211,13 +217,12 @@ class PaymentSettingsController < ApplicationController
 
   def parse_create_params(params)
     allowed_params = params.permit(*StripeAccountForm.keys)
-    allowed_params[:birth_date] = params[:birth_date].present? ? parse_date(params[:birth_date]) : nil
+    allowed_params[:birth_date] = params["birth_date(1i)"].present? ? parse_date(params) : nil
     StripeAccountForm.new(allowed_params)
   end
 
-  def parse_date(value)
-    format = t("datepicker.format").gsub(/([md])[md]+/, '%\1').gsub(/yyyy/, '%Y')
-    Date.strptime(value, format) rescue nil # rubocop:disable Style/RescueModifier
+  def parse_date(params)
+    Date.new params["birth_date(1i)"].to_i, params["birth_date(2i)"].to_i, params["birth_date(3i)"].to_i
   end
 
   StripeBankForm = FormUtils.define_form("StripeBankForm",
@@ -231,7 +236,7 @@ class PaymentSettingsController < ApplicationController
         :bank_currency,
         :bank_account_holder_name,
         :bank_account_number
-    validates_inclusion_of :bank_country, in: STRIPE_COUNTRIES
+    validates_inclusion_of :bank_country, in: StripeService::Store::StripeAccount::COUNTRIES
   end
 
   def stripe_update_bank_account
@@ -240,7 +245,7 @@ class PaymentSettingsController < ApplicationController
     bank_params = {
       bank_country: @parsed_seller_account[:address_country],
       bank_currency: @current_community.currency,
-      bank_account_holder_name: [@parsed_seller_account[:first_name], @parsed_seller_account[:last_name]].join(" "),
+      bank_account_holder_name: @parsed_seller_account[:legal_name],
       bank_account_number: params[:stripe_bank_form][:bank_account_number],
       bank_routing_number: params[:stripe_bank_form][:bank_routing_number]
     }
@@ -253,6 +258,7 @@ class PaymentSettingsController < ApplicationController
       if result[:success]
         load_stripe_account
       else
+        @stripe_error = true
         flash[:error] = result[:error_msg]
       end
     end
@@ -294,6 +300,7 @@ class PaymentSettingsController < ApplicationController
       if result[:success]
         load_stripe_account
       else
+        @stripe_error = true
         flash[:error] = result[:error_msg]
       end
     end
@@ -303,8 +310,7 @@ class PaymentSettingsController < ApplicationController
     bank_record = account.external_accounts.select{|x| x["default_for_currency"] }.first || {}
     bank_number = [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
     {
-      first_name: account.legal_entity.first_name,
-      last_name: account.legal_entity.first_name,
+      legal_name: [account.legal_entity.first_name,  account.legal_entity.last_name].join(" "),
 
       address_city: account.legal_entity.address.city,
       address_state: account.legal_entity.address.state,

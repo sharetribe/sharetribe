@@ -113,6 +113,10 @@ module StripeService::API
             subtotal: total - fee,
           }
         end
+
+        # in case of :destination payments, gateway fee is always charged from admin account, we cannot know it upfront, as transfer to seller = total - commission, is immediate
+        # in case of :direct payments, gateway fee is charged from seller account, and visible in balance transaction
+        # in case of :separate payments, gateway fee is charged from admin account, but then deducted from seller on delayed transfer
         gateway_fee = if stripe_api.charges_mode(tx[:community_id]) == :destination
           Money.new(0, payment[:sum].currency)
         else

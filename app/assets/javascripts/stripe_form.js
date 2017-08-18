@@ -61,8 +61,33 @@ window.ST = window.ST || {};
 
       $(prefix+"_bank_routing_number").prop('placeholder', get_placeholder(country, 'routing_number'));
       $(prefix+"_bank_currency").val(DEFAULT_CURRENCIES[country]);
+      if(country) {
+        $(".address-lines").show();
+        $(".country-dependent").each(function(){
+          var only = $(this).data("country-only");
+          var except = $(this).data("country-except");
+          if(only) {
+            if (only.indexOf(country) >= 0) {
+              $(this).show(); 
+            } else {
+              $(this).hide();
+            }
+          }
+          if(except) {
+            if (except.indexOf(country) < 0) {
+              $(this).show(); 
+            } else {
+              $(this).hide();
+            }
+          }
+        });
+      } else {
+        $(".address-lines").hide();
+        $(".country-dependent").hide();
+      }
     });
     $("#stripe_account_form_address_country").trigger('change');
   }
+
 })(window.ST);
 

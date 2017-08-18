@@ -522,9 +522,10 @@ module ApplicationHelper
       }
     ]
 
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
+    stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
 
-    if payment_type.present?
+    if paypal_ready || stripe_ready
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
