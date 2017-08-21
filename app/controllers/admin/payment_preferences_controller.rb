@@ -23,7 +23,9 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_connected: paypal_connected,
       payments_connected: stripe_connected || paypal_connected,
       stripe_allowed:  StripeHelper.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency),
-      paypal_allowed:  PaypalHelper.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency)
+      paypal_allowed:  PaypalHelper.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
+      paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
     }
 
     render 'index', locals: view_locals.merge(payment_locals)

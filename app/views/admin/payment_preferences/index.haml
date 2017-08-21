@@ -98,3 +98,12 @@
       :javascript
         window.ST.initPaymentTabs(#{payment_prefs_form.minimum_listing_price.to_f}, "#{t("admin.payment_preferences.fee_should_be_less_than_minimum_price")}")
 
+    - if stripe_enabled && stripe_allowed && stripe_account[:api_verified] && !stripe_ready
+      - content_for :extra_javascript do
+        :javascript
+          $('#config_stripe_toggle').click();
+    - elsif paypal_enabled && paypal_allowed && paypal_account.present? && !paypal_ready
+      - content_for :extra_javascript do
+        :javascript
+          $('#config_paypal_toggle').click();
+ 
