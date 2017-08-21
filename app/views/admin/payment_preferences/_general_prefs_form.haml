@@ -7,14 +7,14 @@
 
     .row
       .col-6
-        = form.label :marketplace_currency, t("admin.payment_preferences.your_country"), class: "paypal-horizontal-input-label"
+        = t("admin.payment_preferences.your_country")
       .col-6
         = country_name
 
     - if payments_connected
       .row
         .col-6
-          = form.label :marketplace_currency, t("admin.paypal_accounts.marketplace_currency_label"), class: "paypal-horizontal-input-label"
+          = t("admin.paypal_accounts.marketplace_currency_label")
         .col-6
           = currency
 

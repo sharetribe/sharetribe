@@ -531,11 +531,11 @@ en:
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
     payment_preferences:
       title: Payment system preferences
-      general_settings: "1. General Settings"
+      general_settings: "1. General settings"
       connect_a_payment_provider: "2. Connect a payment provider"
       contact_support: "contact support"
       no_payments_link_text: "here"
-      your_country: "Your country"
+      your_country: "Your country:"
       you_cannot_use_online_payments: "You cannot use online payments in %{country_name} with %{currency}. Please choose a different currency or %{support_link} to change your country. You can read more about supported countries and currencies %{help_link}. In the future we might add more payment providers and support more currencies"
       which_to_choose: "Which one to choose?"
       you_can_use_stripe_or_paypal: "You can use either Stripe, PayPal or both as your payment providers. %{choose_link}"
