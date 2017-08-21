@@ -94,6 +94,7 @@ module Kassi
     #Disable ip spoofing check to get rid of false alarms because of wrong configs in some proxies before our service
     #Consider enabling, and other actions described in http://blog.gingerlime.com/2012/rails-ip-spoofing-vulnerabilities-and-protection
     config.action_dispatch.ip_spoofing_check = false
+    config.action_dispatch.trusted_proxies = APP_CONFIG.trusted_proxies&.split(",")&.map(&:strip)
 
     # HealthCheck endpoint
     config.middleware.insert_before Rack::Sendfile, ::HealthCheck
