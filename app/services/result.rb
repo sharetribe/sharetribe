@@ -106,6 +106,7 @@ module Result
         self.error_msg = error_msg
         self.data = data
       end
+      rewrite_stripe_errors
     end
 
     # Error a -> Error a
@@ -135,6 +136,12 @@ module Result
     # Error a -> None
     def maybe()
       Maybe(nil)
+    end
+
+    def rewrite_stripe_errors
+      if error_msg && error_msg =~ /You can only create new accounts if you've registered your platform/
+        self.error_msg = I18n.t("payment_preferences.wrong_setup")
+      end
     end
 
   end
