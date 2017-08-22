@@ -254,3 +254,10 @@ $listing-author-avatar-height: 108;
 .listings-how-paypal-works-link {
   font-size: em(14);
 }
+@media (max-width: 480px) {
+  .checkbox-group {
+    .col-4 {
+      margin-bottom: 0;
+    }
+  }
+}
