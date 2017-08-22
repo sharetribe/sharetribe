@@ -14,6 +14,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Currencies can now be formatted with translations [#3043](https://github.com/sharetribe/sharetribe/pull/3043)
+
 ### Deprecated
 
 ### Removed
