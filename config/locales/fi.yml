@@ -4,7 +4,7 @@ fi:
       format:
         separator: ","
         delimiter: " "
-        format: "%n %u"
+        format: "%n%u"
   admin:
     categories:
       edit:

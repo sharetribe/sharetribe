@@ -2,9 +2,9 @@ de:
   number:
     currency:
       format:
-        separator: "."
-        delimiter: ","
-        format: "%n%u"
+        separator: ","
+        delimiter: "."
+        format: "%n %u"
   admin:
     categories:
       edit:

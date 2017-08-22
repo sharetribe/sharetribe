@@ -505,7 +505,7 @@ fr:
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
       save_settings: "Sauvegarder les paramètres"
       minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
+      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais minimaux de transaction %{minimum_commission}."
     transaction_types:
       sell: Vente
       rent: Location

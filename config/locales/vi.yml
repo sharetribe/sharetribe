@@ -636,7 +636,7 @@ vi:
       canceled_request: ~
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
-      payment_preauthorized: "Thanh toán được ủy quyền:%{sum}"
+      payment_preauthorized: "Thanh toán đã được cho phép: %{sum}"
     new:
       message: "Tin nhắn"
       message_to: "Nhắn tin cho %{author_name}"
@@ -693,10 +693,10 @@ vi:
       request_confirmed: "Hoàn tất"
       request_canceled: "Bị hủy"
       request_paid: "Giao dịch thành công"
-      request_preauthorized: "Thanh toán được uỷ quyền"
+      request_preauthorized: "Thanh toán đã được cho phép"
       skip_feedback: "Bỏ qua thông tin phản hồi"
       waiting_for_listing_author_to_accept_offer: "Chờ %{listing_author_name} chấp nhận đề nghị"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "Đang chờ %{listing_author_name} chấp nhận yêu cầu này. Ngay khi %{listing_author_name} chấp nhận yêu cầu này, bạn sẽ bị tính phí."
       waiting_for_you_to_accept_request: "Đang đợi bạn chấp nhận yêu cầu"
       waiting_confirmation_from_requester: "Đang chờ %{requester_name} đánh dấu đơn hàng hoàn tất"
       waiting_confirmation_from_you: ~
