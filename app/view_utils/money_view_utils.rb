@@ -9,29 +9,21 @@ module MoneyViewUtils
   def to_humanized(m, locale = I18n.locale)
     return "" if m.nil?
 
-    # TODO: Remove feature flag
-    if FeatureFlagHelper.feature_enabled?(:currency_formatting)
+    # Explicitly resolve formatting. WebTranslateit resolves
+    # translations to nils which causes an error with number_to_currency
+    formatting = currency_opts(locale, m.currency)
+    precision = formatting[:digits]
+    zero_cents = "0" * precision
 
-      # Explicitly resolve formatting. WebTranslateit resolves
-      # translations to nils which causes an error with number_to_currency
-      formatting = currency_opts(locale, m.currency)
-      precision = formatting[:digits]
-      zero_cents = "0" * precision
-
-      number_to_currency(m.amount,
-                         unit: formatting[:symbol],
-                         delimiter: formatting[:delimiter],
-                         separator: formatting[:separator],
-                         format: formatting[:format],
-                         precision: precision)
-        .tr(" ", "\u202F")
-        .gsub("#{formatting[:separator]}#{zero_cents}", "") # remove cents if they are zero
-        .encode('utf-8')
-    else
-      humanized_money_with_symbol(m).upcase
-    end
-  rescue FeatureFlagHelper::FeatureFlagHelperNotInitialized
-    humanized_money_with_symbol(m).upcase
+    number_to_currency(m.amount,
+                       unit: formatting[:symbol],
+                       delimiter: formatting[:delimiter],
+                       separator: formatting[:separator],
+                       format: formatting[:format],
+                       precision: precision)
+      .tr(" ", "\u202F")
+      .gsub("#{formatting[:separator]}#{zero_cents}", "") # remove cents if they are zero
+      .encode('utf-8')
   end
 
   # Return a hash of currency formatting options, sets defaults if
