@@ -84,11 +84,6 @@ class TransactionMailer < ActionMailer::Base
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
 
-      FeatureFlagHelper.init(community_id: community.id,
-                             user_id: seller_model.id,
-                             request: OpenStruct.new(session: {}, params: []), #fake request, will provide fake .session and .params
-                             is_admin: seller_model.is_admin?,
-                             is_marketplace_admin: seller_model.is_marketplace_admin?(community)) # TODO: remove when :currency_formatting flag is removed
       premailer_mail(:to => seller_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_payment.new_payment")) do |format|
@@ -127,11 +122,6 @@ class TransactionMailer < ActionMailer::Base
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
 
-      FeatureFlagHelper.init(community_id: community.id,
-                             user_id: buyer_model.id,
-                             request: OpenStruct.new(session: {}, params: []), #fake request, will provide fake .session and .params
-                             is_admin: buyer_model.is_admin?,
-                             is_marketplace_admin: buyer_model.is_marketplace_admin?(community)) # TODO: remove when :currency_formatting flag is removed
       premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
