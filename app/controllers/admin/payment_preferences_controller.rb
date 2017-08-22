@@ -232,7 +232,11 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def parse_money_with_default(str_value, default, currency)
-    str_value.present? ? MoneyUtil.parse_str_to_money(str_value, currency) : default.present? ? Money.new(default.to_i, currency) : nil
+    if str_value.present?
+      MoneyUtil.parse_str_to_money(str_value, currency)
+    elsif default.present?
+      Money.new(default.to_i, currency)
+    end
   end
 
   def parse_preferences(params, currency)
