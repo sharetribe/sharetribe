@@ -37,7 +37,7 @@
                 "#fee_display",
                 #{commission_from_seller},
                 #{minimum_commission.format(decimal_mark: ".", delimiter: "", symbol: false)},
-                #{payment_gateway == :paypal});
+                #{payment_gateway == :paypal || payment_gateway == :stripe});
             });
         - if run_js_immediately
           = yield :seller_commission_js
