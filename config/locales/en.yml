@@ -517,6 +517,8 @@ en:
       integration_info_text: "The payment system of your marketplace is powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
       link_paypal_personal_account_label: "Are you providing products or services yourself?"
       link_paypal_personal_account: "If so, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "If so, you will also need to connect your Stripe account to %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "If so, you will also need to connect your PayPal or Stripe account to %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "your personal marketplace account"
       read_more_about_paypal: "Read more about the payment system"
       edit_payment_settings: "Edit payment settings"
@@ -540,6 +542,9 @@ en:
       which_to_choose: "Which one to choose?"
       you_can_use_stripe_or_paypal: "You can use either Stripe, PayPal or both as your payment providers. %{choose_link}"
       read_more_about_paypal_and_stripe: "Read more about online payments, Stripe and PayPal"
+      general_settings_updated: Payment system general settings updated
+      transaction_fee_settings_updated: Transaction fee settings updated 
+
       choose_popup_text: |-
         If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
         You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a minimum transaction size and a possible fee you're charging from each transaction.
@@ -555,7 +560,7 @@ en:
       transaction_fee_settings: Transaction fee settings
       transaction_fee_save: Save
       stripe_fee: "Stripe's fees"
-      stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transcaction fee you are charging"
+      stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
       stripe_connected:
         title: "Stripe connected"
@@ -566,6 +571,8 @@ en:
         add_your_api_keys: Add your Stripe API keys
         how_to_get_these: How to get these?
         save_api_keys: Save Stripe API keys
+        invalid_private: That doesn't look like a correct secret key
+        invalid_public: That doesn't look like a correct publishable key
       index:
         title: Payment Settings
         header: Available Payment Settings

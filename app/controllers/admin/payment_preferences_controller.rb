@@ -186,7 +186,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
         base_params = {community_id: @current_community.id,
                        payment_process: :preauthorize,
-                       commission_from_seller: form.commission_from_seller.to_i,
+                       commission_from_seller: form.commission_from_seller,
                        minimum_price_cents: form.minimum_listing_price.try(:cents),
                        minimum_price_currency: currency,
                        minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
@@ -200,16 +200,20 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         end
       end
 
-      # Onboarding wizard step recording
-      state_changed = Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:payment_preferences_updated, @current_community)
-      if state_changed
-        report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
-                       {event: "km_record", km_event: "Onboarding paypal connected"}])
+      if form.mode == 'transaction_fee'
+        # Onboarding wizard step recording
+        state_changed = Admin::OnboardingWizard.new(@current_community.id)
+          .update_from_event(:payment_preferences_updated, @current_community)
+        if state_changed
+          report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
+                         {event: "km_record", km_event: "Onboarding paypal connected"}])
 
-        flash[:show_onboarding_popup] = true
+          flash[:show_onboarding_popup] = true
+        end
+        flash[:notice] = t("admin.payment_preferences.transaction_fee_settings_updated")
+      else
+        flash[:notice] = t("admin.payment_preferences.general_settings_updated")
       end
-      flash[:notice] = t("admin.paypal_accounts.preferences_updated")
     else
       flash[:error] = form.errors.full_messages.join(", ")
     end
@@ -228,20 +232,22 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def parse_money_with_default(str_value, default, currency)
-    str_value.present? ? MoneyUtil.parse_str_to_money(str_value, currency) : Money.new(default.to_i, currency)
+    str_value.present? ? MoneyUtil.parse_str_to_money(str_value, currency) : default.present? ? Money.new(default.to_i, currency) : nil
   end
 
   def parse_preferences(params, currency)
     tx_settings = active_tx_setttings
     tx_fee =  parse_money_with_default(params[:minimum_transaction_fee], tx_settings[:minimum_transaction_fee_cents], currency)
     tx_commission = params[:commission_from_seller] || tx_settings[:commission_from_seller]
+    tx_commission = tx_commission.present? ? tx_commission.to_i : nil
     tx_min_price = parse_money_with_default(params[:minimum_listing_price], tx_settings[:minimum_price_cents], currency)
 
     {
       minimum_listing_price: tx_min_price,
       minimum_transaction_fee: tx_fee,
       commission_from_seller: tx_commission,
-      marketplace_currency: currency
+      marketplace_currency: currency,
+      mode: params[:mode],
     }
   end
 
