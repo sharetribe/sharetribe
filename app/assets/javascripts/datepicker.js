@@ -70,7 +70,7 @@ window.ST = window.ST || {};
         newDate.setDate(newDate.getDate() + 1);
       }
       outputElement.val(module.utils.toISODate(newDate));
-      setTimeout(function() { $("#end-on").valid(); }, 300)
+      setTimeout(function() { $("#end-on").valid(); }, 360)
     });
   };
 })(window.ST);

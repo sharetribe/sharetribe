@@ -1114,7 +1114,7 @@
 				}
 			}
 			if (this.picker.is(':visible') && this._focused_from){
-				$(this._focused_from).focus();
+				//$(this._focused_from).focus();
 			}
 			delete this._focused_from;
 		},
@@ -1418,7 +1418,6 @@
       next_date.setDate(next_date.getDate()+1);
       var prev_date = new Date(new_date.valueOf());
       prev_date.setDate(prev_date.getDate()-1);
-
 			$.each(this.pickers, function(i, p){
 				if (!p.getUTCDate()) {
           if(p.plusOne && i == 1) {
@@ -1429,9 +1428,9 @@
         }
 			});
 
-			if (new_date < this.dates[j]){
+			if (j >= 0 && new_date <= this.dates[j]){
 				// Date being moved earlier/left
-				while (j >= 0 && new_date < this.dates[j]){
+				while (j >= 0 && new_date <= this.dates[j]){
           if(this.pickers[j].plusOne && j==0) {
 					  this.pickers[j].setUTCDate(prev_date);
           } else {
@@ -1440,9 +1439,9 @@
           j--;
 				}
 			}
-			else if (new_date > this.dates[k]){
+			else if (k < l && new_date >= this.dates[k]){
 				// Date being moved later/right
-				while (k < l && new_date > this.dates[k]){
+				while (k < l && new_date >= this.dates[k]){
           if(this.pickers[k].plusOne && k==0) {
 					  this.pickers[k].setUTCDate(next_date);
           } else {
