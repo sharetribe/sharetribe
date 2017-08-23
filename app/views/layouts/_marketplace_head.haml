@@ -42,9 +42,9 @@
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => strip_tags(meta_description).html_safe}
-%meta{ :property => "og:description", :content => strip_tags(meta_description).html_safe}
-%meta{ :name => "twitter:description", :content => strip_tags(meta_description).html_safe}
+%meta{ :name => "description", :content => strip_tags(meta_description)}
+%meta{ :property => "og:description", :content => strip_tags(meta_description)}
+%meta{ :name => "twitter:description", :content => strip_tags(meta_description)}
 %meta{ :property => "og:image", :content => meta_image}
 - if meta_image_width && meta_image_height
   %meta{ :property => "og:image:width", :content => meta_image_width}
