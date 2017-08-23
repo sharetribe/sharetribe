@@ -3,7 +3,7 @@
 - answer_title = custom_field_value.selected_options.map { |selected_option| selected_option.title(I18n.locale) }.join(", ")
 %b= "#{question_name}:"
 
-.row
+.row.checkbox-group
   - ArrayUtils.each_slice_columns(question.options.sort, 3) do |column|
     .col-4
       - column.each do |option|
