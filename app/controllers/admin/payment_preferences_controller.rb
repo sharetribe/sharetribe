@@ -189,14 +189,20 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       ActiveRecord::Base.transaction do
         @current_community.currency = currency
         @current_community.save!
-
-        base_params = {community_id: @current_community.id,
+        
+        if form.mode == 'transaction_fee'
+          base_params = {community_id: @current_community.id,
+                       payment_process: :preauthorize,
+                       commission_from_seller: form.commission_from_seller,
+                       minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
+                       minimum_transaction_fee_currency: currency}.compact
+        else
+          base_params = {community_id: @current_community.id,
                        payment_process: :preauthorize,
                        commission_from_seller: form.commission_from_seller,
                        minimum_price_cents: form.minimum_listing_price.try(:cents),
-                       minimum_price_currency: currency,
-                       minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
-                       minimum_transaction_fee_currency: currency}.compact
+                       minimum_price_currency: currency}.compact
+        end
 
         if paypal_tx_settings.present? && (params[:gateway] == 'paypal' || form.mode == 'general')
           tx_settings_api.update(base_params.merge(payment_gateway: :paypal))

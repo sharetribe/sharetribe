@@ -64,7 +64,7 @@
                     = link_to t("admin.payment_preferences.configure_paypal"), "#", class: "button", id: "config_paypal_toggle"
 
 
-    .col-12.payment-tabs.hidden
+    .col-12.payment-tabs.hidden.no-float
       .tabs-list
         - if stripe_enabled && stripe_allowed
           = link_to "Stripe", "#", data: {tab: 'stripe_tab'}, class: "tab-link stripe"
