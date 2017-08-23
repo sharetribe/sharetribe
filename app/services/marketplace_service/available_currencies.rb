@@ -69,4 +69,57 @@ module MarketplaceService::AvailableCurrencies
 
   CURRENCIES = SortedSet.new(["USD"].concat(COUNTRY_CURRENCIES.values))
 
+  # Austria, Belgium, Denmark, Finland, France, Germany, Ireland, Luxembourg, Netherlands, Norway, Spain, Sweden, Switzerland, the United Kingdom, the United States
+  COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US']
+
+  # Australia, Brazil, Canada, Czech Republic, Hong Kong, Hungary, Israel,  Japan, Malaysia, Mexico, New Zealand,  Poland, Philippines, Russia, Singapore, Taiwan, Thailand
+  COUNTRY_SET_PAYPAL_ONLY = ['AU', 'BR', 'CA', 'CZ', 'HK', 'HU', 'IL', 'JP', 'MY', 'MX', 'NZ', 'PL', 'PH', 'RU', 'SG', 'TW', 'TH']
+
+  VALID_CURRENCIES = {
+    "USD" => :country_sets,
+    "AUD" => :country_sets,
+    "BRL" => "BR",
+    "GBP" => :country_sets,
+    "CAD" => :country_sets,
+    "CZK" => "CZ",
+    "DKK" => :country_sets,
+    "EUR" => :country_sets,
+    "HKD" => :country_sets,
+    "HUF" => "HU",
+    "ILS" => :country_sets,
+    "JPY" => :country_sets,
+    "MYR" => :country_sets,
+    "MXN" => "MX",
+    "TWD" => :country_sets,
+    "NZD" => :country_sets,
+    "NOK" => :country_sets,
+    "PHP" => :country_sets,
+    "PLN" => :country_sets,
+    "RUB" => :country_sets,
+    "SGD" => :country_sets,
+    "SEK" => :country_sets,
+    "CHF" => :country_sets,
+    "THB" => :country_sets,
+  }
+
+  module_function
+
+  def stripe_allows_country_and_currency?(country, currency)
+    rule = VALID_CURRENCIES[currency]
+    if rule == :country_sets
+      COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country)
+    else
+      country == rule
+    end
+  end
+
+  def paypal_allows_country_and_currency?(country, currency)
+    rule = VALID_CURRENCIES[currency]
+    if rule == :country_sets
+      COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country) || COUNTRY_SET_PAYPAL.include?(country)
+    else
+      country == rule
+    end
+  end
+
 end

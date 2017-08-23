@@ -5,7 +5,7 @@ module StripeService::Store::StripeAccount
   StripeAccountModel = ::StripeAccount
 
   # Stripe is available only in some countries https://stripe.com/global, we restrict to US and EU only
-  COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE"]
+  COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
 
   COUNTRY_NAMES = [
     ["United States", "US"],
@@ -25,6 +25,11 @@ module StripeService::Store::StripeAccount
     ["Norge", "NO"],
     ["Portugal", "PT"],
     ["Sverige", "SE"],
+    ["Singapore", "SG"],
+    ["Hong Kong", "HK"],
+    ["Japan", "JP"],
+    ["Brazil", "BR"],
+    ["Mexico", "MX"],
   ]
 
   StripeAccountCreate = EntityUtils.define_builder(
