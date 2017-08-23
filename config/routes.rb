@@ -171,6 +171,7 @@ Rails.application.routes.draw do
       get  "/payment_preferences"                     => "payment_preferences#index"
       put  "/payment_preferences"                     => "payment_preferences#update"
       # PayPal Connect
+      get  "/paypal_preferences" => redirect("/%{locale}/admin/payment_preferences")
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
       
