@@ -143,8 +143,12 @@ class LandingPageController < ActionController::Metal
   include ActionView::Helpers::JavaScriptHelper
 
   def custom_head_scripts
-    js = @current_community.custom_head_script.to_s
-    render body: "document.write(\"#{escape_javascript js}\")", content_type: 'text/javascript'
+    if FeatureFlagHelper.feature_enabled?(:landing_scripts)
+      js = @current_community.custom_head_script.to_s
+      render body: "document.write(\"#{escape_javascript js}\")", content_type: 'text/javascript'
+    else
+      render body: "", content_type: 'text/javascript'
+    end
   end
 
 
