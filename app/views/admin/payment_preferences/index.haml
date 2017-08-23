@@ -11,7 +11,7 @@
 
 .left-navi-section.payment-settings
 
-  .row.paypal-wizard
+  .row.paypal-wizard.no-border
     .col-12
       = render partial: 'general_prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, payments_connected: stripe_connected || paypal_connected, country_name: country_name}
 
@@ -79,7 +79,7 @@
           - else
             = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}
             .paypal-wizard-divider
-            = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'stripe'}
+            = render partial: 'prefs_form', locals: {payment_prefs_form: stripe_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'stripe'}
 
       - if paypal_enabled && paypal_allowed
         .tab-content.hidden#paypal_tab
@@ -88,15 +88,13 @@
           - else
             = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
             .paypal-wizard-divider
-            = render partial: 'prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal'}
+            = render partial: 'prefs_form', locals: {payment_prefs_form: paypal_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal'}
+    
     - if paypal_ready && stripe_ready
-      %hr
       = render partial: 'paypal_connect_own_notice', locals: {connected_mode: 'stripe_and_paypal'}
     - elsif stripe_ready
-      %hr
       = render partial: 'paypal_connect_own_notice', locals: {connected_mode: 'stripe_only'}
     - elsif paypal_ready
-      %hr
       = render partial: 'paypal_connect_own_notice', locals: {connected_mode: 'paypal_only'}
 
     - content_for :extra_javascript do

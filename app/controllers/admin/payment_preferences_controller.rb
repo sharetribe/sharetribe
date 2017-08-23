@@ -97,23 +97,29 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def build_prefs_form(params = nil)
     currency = @current_community.currency
+    data = {paypal_prefs_form: nil, stripe_prefs_form: nil}
 
     if @paypal_enabled
-      minimum_commission = paypal_minimum_commissions_api.get(currency)
-      tx_settings = paypal_tx_settings
-    else
-      minimum_commission = 0
-      tx_settings = stripe_tx_settings
+      data[:paypal_prefs_form] = prefs_form_from_settings(paypal_tx_settings, paypal_minimum_commissions_api.get(currency), currency)
+    end
+    if @stripe_enabled
+      data[:stripe_prefs_form] = prefs_form_from_settings(stripe_tx_settings, 0, currency)
     end
 
-    form = PaymentPreferencesForm.new(
+    form = data[:paypal_prefs_form] || data[:stripe_prefs_form]
+    data[:payment_prefs_form] = form
+    data[:payment_prefs_valid] = form.valid?
+    data
+  end
+
+  def prefs_form_from_settings(tx_settings, minimum_commission, currency)
+    PaymentPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
       minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], currency),
       minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], currency),
       marketplace_currency: currency
     )
-    {payment_prefs_form: form, payment_prefs_valid: form.valid? }
   end
 
   def build_view_locals
@@ -192,10 +198,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
                        minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
                        minimum_transaction_fee_currency: currency}.compact
 
-        if paypal_tx_settings.present?
+        if paypal_tx_settings.present? && (params[:gateway] == 'paypal' || form.mode == 'general')
           tx_settings_api.update(base_params.merge(payment_gateway: :paypal))
         end
-        if stripe_tx_settings.present?
+        if stripe_tx_settings.present? && (params[:gateway] == 'stripe'|| form.mode == 'general')
           tx_settings_api.update(base_params.merge(payment_gateway: :stripe))
         end
       end
