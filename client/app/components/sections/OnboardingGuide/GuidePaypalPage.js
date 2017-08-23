@@ -14,15 +14,15 @@ const GuidePaypalPage = (props) => {
     h2({ className: css.title }, t('web.admin.onboarding.guide.paypal.title')),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1_stripe_paypal', {
       not_sure_link: a(
-        { 
-          href: "#",
-          id: "not_sure_link",
+        {
+          href: '#',
+          id: 'not_sure_link',
           target: '_blank',
           rel: 'noreferrer',
           alt: t('web.admin.onboarding.guide.paypal.not_sure_link'),
         },
         t('web.admin.onboarding.guide.paypal.not_sure_link')
-      )
+      ),
     })),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p2')),
 
