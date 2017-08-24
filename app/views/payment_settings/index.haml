@@ -17,17 +17,17 @@
         .col-12
           - if !seller_account.present? || !stripe_account[:stripe_bank_id].present?
             %h3= t("payment_settings.credit_card")
-            %p 
+            %p
               = t("payment_settings.credit_card_bank_details")
             %p
               = link_to t("payment_settings.add_bank_details"), '#', id: "toggle_stripe_wizard"
-          
+
           #stripe_wizard{class: @stripe_error || seller_account.present? ? "" : "hidden"}
             = render partial: "stripe_wizard", locals: local_assigns
 
           - if !paypal_account.present?
             %h3= t("payment_settings.paypal")
-            %p 
+            %p
               = t("payment_settings.to_accept_paypal")
             %p
               = link_to t("payment_settings.connect_paypal"), '#', id: "toggle_paypal_wizard"

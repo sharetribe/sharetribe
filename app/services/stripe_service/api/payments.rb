@@ -190,7 +190,7 @@ module StripeService::API
 
           if payer_account[:stripe_customer_id].present?
             stripe_customer = stripe_api.update_customer(
-              comunity: community_id,
+              community: community_id,
               customer_id: payer_account[:stripe_customer_id],
               token: gateway_fields[:stripe_token]
             )

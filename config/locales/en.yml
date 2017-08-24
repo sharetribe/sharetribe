@@ -1748,11 +1748,10 @@ en:
       address: Shipping address
       address_country: Country
       address_city: City
-      address_state: State or province
-      address_street1: Street
-      address_postal_code: Postal code
-      address_name: Name
-      address_phone: Phone
+      address_state: State
+      address_street1: Street address line 1
+      address_street2: Street address line 2 
+      address_postal_code: ZIP / Postal code
 
   mapview:
     index:
