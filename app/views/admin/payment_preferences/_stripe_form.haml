@@ -4,20 +4,20 @@
       .col-12
         .row
           %h3= t(".add_your_api_keys")
-          = link_to t(".how_to_get_these"), stripe_keys_link, class: "right"
+          = link_to t(".how_to_get_these"), stripe_keys_link, class: "right", target: "_blank"
 
         .row
           .col-4
             -# Not a subject of I18n, forced fixed text
-            = form.label :api_publishable_key, "Publishable API Key"
+            = form.label :api_publishable_key, "Publishable key:"
           .col-8
-            = form.text_field :api_publishable_key, class: 'required'
+            = form.text_field :api_publishable_key, class: 'required', placeholder: 'pk_live_8vh8lihx96riledmearee6u3'
         .row
           .col-4
             -# Not a subject of I18n, forced fixed text
-            = form.label :api_private_key, "Secret key"
+            = form.label :api_private_key, "Secret key:"
           .col-8
-            = form.text_field :api_private_key, class: 'required'
+            = form.text_field :api_private_key, class: 'required', placeholder: 'sk_live_vvwwzuewyz5kt4icf57udi1q'
         .row
           = button_tag t(".save_api_keys")
 
@@ -32,5 +32,5 @@
       "Please check your input."
     );
     $("#new_stripe_api_keys_form").validate();
-    $("#stripe_api_keys_form_api_private_key").rules("add", { regex: "#{APP_CONFIG.stripe_private_key_pattern}" });
-    $("#stripe_api_keys_form_api_publishable_key").rules("add", { regex: "#{APP_CONFIG.stripe_publishable_key_pattern}" });
+    $("#stripe_api_keys_form_api_private_key").rules("add", { regex: "#{APP_CONFIG.stripe_private_key_pattern}", messages: {regex: "#{t(".invalid_private")}"} });
+    $("#stripe_api_keys_form_api_publishable_key").rules("add", { regex: "#{APP_CONFIG.stripe_publishable_key_pattern}", messages: {regex: "#{t(".invalid_public")}"} });
