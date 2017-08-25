@@ -12,9 +12,8 @@ module CountryI18nHelper
   end
 
   def translate_list(country_codes)
-    collator = TwitterCldr::Collation::Collator.new(I18n.locale)
-    list = country_codes.map{|code| [translate(code), code]}
-    list.map{ |s| [s, collator.get_sort_key(s.first)] }.sort_by(&:last).map(&:first)
+    FFILocale.setlocale FFILocale::LC_COLLATE, 'en_US.UTF8' # default UCA is good enough
+    country_codes.map{|code| [translate(code), code]}.sort{ |a,b|  FFILocale.strcoll a[0], b[0] }
   end
 
 end

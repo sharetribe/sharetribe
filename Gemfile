@@ -167,4 +167,5 @@ gem 'redcarpet', '~> 3.4.0'
 
 gem 'intercom'
 
-gem 'twitter_cldr'
+gem 'ffi-locale', github: 'k3rni/ffi-locale'
+
