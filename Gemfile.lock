@@ -360,6 +360,8 @@ GEM
       json
       websocket (~> 1.0)
     rack (2.0.3)
+    rack-attack (5.0.1)
+      rack
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
     rack-test (0.6.3)
@@ -600,6 +602,7 @@ DEPENDENCIES
   premailer (~> 1.10.4)
   pry-byebug
   public_suffix (~> 2.0.5)
+  rack-attack (~> 5.0.1)
   rack-test (~> 0.6.3)
   rails (= 5.1.1)
   rails-controller-testing (~> 1.0.2)
