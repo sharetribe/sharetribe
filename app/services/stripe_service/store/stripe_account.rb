@@ -5,32 +5,9 @@ module StripeService::Store::StripeAccount
   StripeAccountModel = ::StripeAccount
 
   # Stripe is available only in some countries https://stripe.com/global, we restrict to US and EU only
-  COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
+  ALL_STRIPE_COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
+  COUNTRIES = ALL_STRIPE_COUNTRIES & ::MarketplaceService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL
 
-  COUNTRY_NAMES = [
-    ["United States", "US"],
-    ["United Kingdom", "GB"],
-    ["Österreich", "AT"],
-    ["België", "BE"],
-    ["Schweiz", "CH"],
-    ["Deutschland", "DE"],
-    ["Danmark", "DK"],
-    ["España", "ES"],
-    ["Suomi", "FI"],
-    ["France", "FR"],
-    ["Ireland", "IE"],
-    ["Italia", "IT"],
-    ["Luxembourg", "LU"],
-    ["Nederland", "NL"],
-    ["Norge", "NO"],
-    ["Portugal", "PT"],
-    ["Sverige", "SE"],
-    ["Singapore", "SG"],
-    ["Hong Kong", "HK"],
-    ["Japan", "JP"],
-    ["Brazil", "BR"],
-    ["Mexico", "MX"],
-  ]
 
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],

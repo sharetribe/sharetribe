@@ -107,7 +107,7 @@ class PaymentSettingsController < ApplicationController
     {
       stripe_account: @stripe_account,
       stripe_seller_account: @parsed_seller_account,
-      available_countries: StripeService::Store::StripeAccount::COUNTRY_NAMES,
+      available_countries: CountryI18nHelper.translate_list(StripeService::Store::StripeAccount::COUNTRIES),
       stripe_account_form: StripeAccountForm.new(@parsed_seller_account),
       stripe_address_form: StripeAddressForm.new(@parsed_seller_account),
       stripe_bank_form: StripeBankForm.new(@parsed_seller_account),
