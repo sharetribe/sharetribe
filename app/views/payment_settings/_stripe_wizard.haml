@@ -47,7 +47,7 @@
             .row
               .col-12
                 = label_tag t("stripe_accounts.form_new.country")
-                = CountryI18nHelper.translate(stripe_seller_account[:address_country])
+                = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
 
             = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_address_form, available_countries: available_countries}
 

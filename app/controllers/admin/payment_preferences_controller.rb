@@ -142,7 +142,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_enabled: @paypal_enabled,
       stripe_account: nil,
       paypal_account: nil,
-      country_name: ISO3166::Country[@current_community.country].local_name
+      country_name: CountryI18nHelper.translate_country(@current_community.country)
     }
 
     onboarding_popup_locals.merge(view_locals)

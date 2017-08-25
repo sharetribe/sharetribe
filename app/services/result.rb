@@ -146,7 +146,7 @@ module Result
         self.error_msg = I18n.t("payment_settings.invalid_bank_account_number")
       end
       if error_msg && error_msg =~ /Invalid (\w\w) postal code/
-        self.error_msg = I18n.t("payment_settings.invalid_postal_code", :country => CountryI18nHelper.translate(Regexp.last_match[1]))
+        self.error_msg = I18n.t("payment_settings.invalid_postal_code", :country => CountryI18nHelper.translate_country(Regexp.last_match[1]))
       end
     end
 
