@@ -127,6 +127,7 @@ class StripeService::API::StripeApiWrapper
         Stripe::Account.create({
           type: 'custom',
           country: account_info[:address_country],
+          email: account_info[:email],
           legal_entity: {
             type: 'individual',
             first_name: account_info[:first_name],

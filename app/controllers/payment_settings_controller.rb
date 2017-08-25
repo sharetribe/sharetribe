@@ -206,12 +206,13 @@ class PaymentSettingsController < ApplicationController
       account_attrs[:last_name] = last_name
       account_attrs[:tos_ip] = request.remote_ip
       account_attrs[:tos_date] = Time.zone.now
+      account_attrs[:email] =  @current_user.confirmed_notification_email_addresses.first || @current_user.primary_email.try(:address)
       result = stripe_accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
       if result[:success]
         load_stripe_account
       else
         @stripe_error = true
-        flash[:error] = result[:error_msg]
+        flash.now[:error] = result[:error_msg]
       end
     end
   end
@@ -260,7 +261,7 @@ class PaymentSettingsController < ApplicationController
         load_stripe_account
       else
         @stripe_error = true
-        flash[:error] = result[:error_msg]
+        flash.now[:error] = result[:error_msg]
       end
     end
   end
@@ -282,7 +283,7 @@ class PaymentSettingsController < ApplicationController
     if result[:success]
       load_stripe_account
     else
-      flash[:error] = result[:error_msg]
+      flash.now[:error] = result[:error_msg]
     end
   end
 
@@ -302,7 +303,7 @@ class PaymentSettingsController < ApplicationController
         load_stripe_account
       else
         @stripe_error = true
-        flash[:error] = result[:error_msg]
+        flash.now[:error] = result[:error_msg]
       end
     end
   end

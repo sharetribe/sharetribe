@@ -12,8 +12,8 @@
         %p
           = t("payment_settings.can_accept_stripe_and_paypal")
 
-    .row.paypal-wizard
-      .paypal-wizard-content
+    .row
+      %div
         .col-12
           - if !seller_account.present? || !stripe_account[:stripe_bank_id].present?
             %h3= t("payment_settings.credit_card")
