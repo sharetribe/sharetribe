@@ -133,7 +133,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     view_locals = {
       min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
       max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
-      available_currencies: MarketplaceService::AvailableCurrencies::VALID_CURRENCIES.keys,
+      available_currencies: MarketplaceService::AvailableCurrencies::CURRENCIES,
       currency: @current_community.currency,
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url,
@@ -182,7 +182,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update_payment_preferences
     currency = params[:payment_preferences_form]["marketplace_currency"] || @current_community.currency
 
-    minimum_commission = @paypal_enabled ? paypal_minimum_commissions_api.get(currency) : 0
+    minimum_commission = @paypal_enabled ? (paypal_minimum_commissions_api.get(currency) || 0) : 0
 
     form = PaymentPreferencesForm.new(parse_preferences(params[:payment_preferences_form], currency).merge(minimum_commission: minimum_commission))
     if form.valid?

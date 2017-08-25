@@ -67,39 +67,54 @@ module MarketplaceService::AvailableCurrencies
       "VA" => "EUR"
   }
 
-  CURRENCIES = SortedSet.new(["USD"].concat(COUNTRY_CURRENCIES.values))
+  CURRENCIES = [
+    "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BIF", "BMD",
+    "BND", "BOB", "BRL", "BSD", "BWP", "BZD", "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CVE", "CZK", "DJF",
+    "DKK", "DOP", "DZD", "EGP", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD",
+    "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "ISK", "JMD", "JPY", "KES", "KGS", "KHR", "KMF", "KRW", "KYD",
+    "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MUR", "MVR",
+    "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN",
+    "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "STD",
+    "SVC", "SZL", "THB", "TJS", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VND", "VUV",
+    "WST", "XAF", "XCD", "XOF", "XPF", "YER", "ZAR", "ZMW",
+  ]
+
+  CURRENCIES_WITH_NAMES = CURRENCIES.map do |currency|
+    info = Money::Currency.table[currency.downcase.to_sym]
+    [[info[:iso_code], info[:symbol], info[:name]].join(", "), currency]
+  end
 
   # Austria, Belgium, Denmark, Finland, France, Germany, Ireland, Luxembourg, Netherlands, Norway, Spain, Sweden, Switzerland, the United Kingdom, the United States
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US']
 
-  # Australia, Brazil, Canada, Czech Republic, Hong Kong, Hungary, Israel,  Japan, Malaysia, Mexico, New Zealand,  Poland, Philippines, Russia, Singapore, Taiwan, Thailand
-  COUNTRY_SET_PAYPAL_ONLY = ['AU', 'BR', 'CA', 'CZ', 'HK', 'HU', 'IL', 'JP', 'MY', 'MX', 'NZ', 'PL', 'PH', 'RU', 'SG', 'TW', 'TH']
+  # Australia, Brazil, Canada, Czech Republic, Hong Kong, Hungary, Israel, Italy,  Japan, Malaysia, Mexico, New Zealand,  Poland, Portugal, Philippines, Russia, Singapore, Taiwan, Thailand
+  COUNTRY_SET_PAYPAL_ONLY = ['AU', 'BR', 'CA', 'CZ', 'HK', 'HU', 'IL', 'IT', 'JP', 'MY', 'MX', 'NZ', 'PL', 'PT', 'PH', 'RU', 'SG', 'TW', 'TH']
 
   VALID_CURRENCIES = {
-    "USD" => :country_sets,
     "AUD" => :country_sets,
     "BRL" => "BR",
-    "GBP" => :country_sets,
     "CAD" => :country_sets,
+    "CHF" => :country_sets,
     "CZK" => "CZ",
     "DKK" => :country_sets,
     "EUR" => :country_sets,
+    "GBP" => :country_sets,
     "HKD" => :country_sets,
     "HUF" => "HU",
     "ILS" => :country_sets,
     "JPY" => :country_sets,
-    "MYR" => :country_sets,
     "MXN" => "MX",
-    "TWD" => :country_sets,
-    "NZD" => :country_sets,
+    "MYR" => :country_sets,
     "NOK" => :country_sets,
+    "NZD" => :country_sets,
     "PHP" => :country_sets,
     "PLN" => :country_sets,
     "RUB" => :country_sets,
-    "SGD" => :country_sets,
     "SEK" => :country_sets,
-    "CHF" => :country_sets,
+    "SGD" => :country_sets,
     "THB" => :country_sets,
+    "TWD" => :country_sets,
+    "USD" => :country_sets,
   }
 
   module_function
@@ -116,7 +131,7 @@ module MarketplaceService::AvailableCurrencies
   def paypal_allows_country_and_currency?(country, currency)
     rule = VALID_CURRENCIES[currency]
     if rule == :country_sets
-      COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country) || COUNTRY_SET_PAYPAL.include?(country)
+      COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country) || COUNTRY_SET_PAYPAL_ONLY.include?(country)
     else
       country == rule
     end
