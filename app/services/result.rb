@@ -140,7 +140,7 @@ module Result
 
     def rewrite_stripe_errors
       if error_msg && error_msg =~ /You can only create new accounts if you've registered your platform/
-        self.error_msg = I18n.t("payment_preferences.wrong_setup")
+        self.error_msg = I18n.t("payment_settings.wrong_setup")
       end
     end
 
