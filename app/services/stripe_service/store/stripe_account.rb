@@ -100,4 +100,10 @@ module StripeService::Store::StripeAccount
       .or_else(nil)
   end
 
+  def destroy(person_id: nil, community_id:)
+    StripeAccountModel.where(
+      person_id: person_id,
+      community_id: community_id
+    ).delete_all
+  end
 end

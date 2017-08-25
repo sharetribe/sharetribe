@@ -34,6 +34,13 @@ class PaymentSettingsController < ApplicationController
 
     if params[:stripe_bank_form].present?
       stripe_update_bank_account
+      # If we can't create both account and link external bank account, ignore this partial record, and not store in our DB
+      if @stripe_error && @just_created && @stripe_account[:stripe_seller_id].present?
+        stripe_accounts_api.destroy(community_id: @current_community.id, person_id: @current_user.id)
+        @stripe_account[:stripe_seller_id] = nil
+        index
+        return
+      end
     end
 
     if params[:stripe_address_form].present?
@@ -180,7 +187,6 @@ class PaymentSettingsController < ApplicationController
         :address_postal_code,
         :address_state,
         :birth_date,
-        :ssn_last_4,
         :personal_id_number
         ).with_validations do
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
@@ -191,12 +197,12 @@ class PaymentSettingsController < ApplicationController
     validates_presence_of :address_country, :address_city, :address_line1
     validates_presence_of :address_postal_code, unless: proc { address_country == 'IE'  }
     validates_presence_of :address_state, if: proc { ['AU', 'IE', 'US', 'CA'].include? address_country }
-    validates_presence_of :ssn_last_4, if: proc { address_country == 'US' }
     validates_presence_of :personal_id_number, if: proc { address_country == 'CA' }
   end
 
   def stripe_create_account
     return if @stripe_account[:stripe_seller_id].present?
+
     stripe_account_form = parse_create_params(params[:stripe_account_form])
     @extra_forms[:stripe_account_form] = stripe_account_form
     if stripe_account_form.valid?
@@ -209,6 +215,7 @@ class PaymentSettingsController < ApplicationController
       account_attrs[:email] =  @current_user.confirmed_notification_email_addresses.first || @current_user.primary_email.try(:address)
       result = stripe_accounts_api.create(community_id: @current_community.id, person_id: @current_user.id, body: account_attrs)
       if result[:success]
+        @just_created = true
         load_stripe_account
       else
         @stripe_error = true
@@ -310,7 +317,9 @@ class PaymentSettingsController < ApplicationController
 
   def parse_stripe_seller_account(account)
     bank_record = account.external_accounts.select{|x| x["default_for_currency"] }.first || {}
-    bank_number = [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
+    bank_number = if bank_record.present?
+      [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
+    end
     {
       legal_name: [account.legal_entity.first_name,  account.legal_entity.last_name].join(" "),
 

@@ -144,7 +144,6 @@ class StripeService::API::StripeApiWrapper
               month: account_info[:birth_date].month,
               year: account_info[:birth_date].year,
             },
-            ssn_last_4: (account_info[:address_country] == 'US' ? account_info[:ssn_last_4] : nil),
           },
 
           tos_acceptance: {

@@ -8,11 +8,13 @@ module CountryI18nHelper
       name = country.translations[variant]
       return name if name.present?
     end
-    return country.name
+    return country.local_name
   end
 
   def translate_list(country_codes)
-    country_codes.map{|code| [translate(code), code]}
+    collator = TwitterCldr::Collation::Collator.new(I18n.locale)
+    list = country_codes.map{|code| [translate(code), code]}
+    list.map{ |s| [s, collator.get_sort_key(s.first)] }.sort_by(&:last).map(&:first)
   end
 
 end

@@ -145,6 +145,9 @@ module Result
       if error_msg && error_msg =~ /You cannot use a live bank account number when making transfers or debits in test mode|We couldn't find the bank for this account number/
         self.error_msg = I18n.t("payment_settings.invalid_bank_account_number")
       end
+      if error_msg && error_msg =~ /Invalid (\w\w) postal code/
+        self.error_msg = I18n.t("payment_settings.invalid_postal_code", :country => CountryI18nHelper.translate(Regexp.last_match[1]))
+      end
     end
 
   end
