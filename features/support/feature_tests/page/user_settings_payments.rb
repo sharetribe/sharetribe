@@ -33,6 +33,7 @@ module FeatureTests
 
         payment_settings.fill_in("stripe_bank_form[bank_account_number]", with: "000123456789")
         payment_settings.fill_in("stripe_bank_form[bank_routing_number]", with: "110000000")
+        select_option("stripe_bank_form_bank_currency", "USD")
 
         payment_settings.click_button("Save details")
       end

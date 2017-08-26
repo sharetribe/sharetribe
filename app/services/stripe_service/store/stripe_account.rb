@@ -8,6 +8,7 @@ module StripeService::Store::StripeAccount
   ALL_STRIPE_COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
   COUNTRIES = ALL_STRIPE_COUNTRIES & ::MarketplaceService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL
 
+  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD"]
 
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],

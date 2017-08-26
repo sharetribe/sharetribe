@@ -246,6 +246,7 @@ class PaymentSettingsController < ApplicationController
         :bank_account_holder_name,
         :bank_account_number
     validates_inclusion_of :bank_country, in: StripeService::Store::StripeAccount::COUNTRIES
+    validates_inclusion_of :bank_currency, in: StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES
   end
 
   def stripe_update_bank_account
@@ -253,7 +254,7 @@ class PaymentSettingsController < ApplicationController
 
     bank_params = {
       bank_country: @parsed_seller_account[:address_country],
-      bank_currency: @current_community.currency,
+      bank_currency: params[:stripe_bank_form][:bank_currency],
       bank_account_holder_name: @parsed_seller_account[:legal_name],
       bank_account_number: params[:stripe_bank_form][:bank_account_number],
       bank_routing_number: params[:stripe_bank_form][:bank_routing_number]
@@ -329,7 +330,8 @@ class PaymentSettingsController < ApplicationController
       address_line1: account.legal_entity.address.line1,
       address_postal_code: account.legal_entity.address.postal_code,
 
-      bank_number_info: bank_number
+      bank_number_info: bank_number,
+      bank_currency: bank_record ? bank_record["currency"] : nil
     }
   end
 end
