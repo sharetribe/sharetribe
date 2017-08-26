@@ -152,13 +152,25 @@ module StripeService::API
               metadata: {sharetribe_order_id: tx[:id]}
             )
           end
-        when :direct, :destination
+        when :direct
           if seller_gets > 0
             result = stripe_api.perform_payout(
               community: tx[:community_id],
               account_id: seller_account[:stripe_seller_id],
               amount_cents: seller_gets.cents,
               currency: payment[:sum].currency,
+              metadata: {shretribe_order_id: tx[:id]}
+            )
+          end
+        when :destination
+          if seller_gets > 0
+            charge = stripe_api.get_charge(community: tx[:community_id], charge_id: payment[:stripe_charge_id])
+            transfer = stripe_api.get_transfer(community: tx[:community_id], transfer_id: charge.transfer)
+            result = stripe_api.perform_payout(
+              community: tx[:community_id],
+              account_id: seller_account[:stripe_seller_id],
+              amount_cents: transfer.amount,
+              currency: transfer.currency,
               metadata: {shretribe_order_id: tx[:id]}
             )
           end

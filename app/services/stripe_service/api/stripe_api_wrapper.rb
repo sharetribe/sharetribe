@@ -295,5 +295,17 @@ class StripeService::API::StripeApiWrapper
     def empty_string_as_nil(value)
       value.present? ? value : nil
     end
+
+    def get_charge(community:, charge_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe::Charge.retrieve charge_id
+      end
+    end
+
+    def get_transfer(community:, transfer_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe::Transfer.retrieve transfer_id
+      end
+    end
   end
 end

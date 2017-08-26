@@ -119,6 +119,7 @@ class PaymentSettingsController < ApplicationController
       stripe_address_form: StripeAddressForm.new(@parsed_seller_account),
       stripe_bank_form: StripeBankForm.new(@parsed_seller_account),
       stripe_verification_form: StripeVerificationForm.new(@parsed_seller_account),
+      stripe_mode: stripe_api.charges_mode(@current_community.id)
     }
   end
 
@@ -252,9 +253,14 @@ class PaymentSettingsController < ApplicationController
   def stripe_update_bank_account
     return false unless @stripe_account[:stripe_seller_id].present?
 
+    bank_currency = if stripe_api.charges_mode(@current_community.id) == :destination
+                      params[:stripe_bank_form][:bank_currency]
+                    else
+                      @current_community.currency
+                    end
     bank_params = {
       bank_country: @parsed_seller_account[:address_country],
-      bank_currency: params[:stripe_bank_form][:bank_currency],
+      bank_currency: bank_currency,
       bank_account_holder_name: @parsed_seller_account[:legal_name],
       bank_account_number: params[:stripe_bank_form][:bank_account_number],
       bank_routing_number: params[:stripe_bank_form][:bank_routing_number]

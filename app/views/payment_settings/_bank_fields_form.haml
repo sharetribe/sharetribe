@@ -1,8 +1,9 @@
 = fields_for stripe_bank_form do |form|
-  .row
-    .col-12
-      = form.label :bank_currency, t("stripe_accounts.form_bank.bank_currency")+"*"
-      = form.select :bank_currency, options_for_select(StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES, stripe_seller_account[:bank_currency] || form.object.bank_currency), class: 'required' 
+  - if stripe_mode == :destination
+    .row
+      .col-12
+        = form.label :bank_currency, t("stripe_accounts.form_bank.bank_currency")+"*"
+        = form.select :bank_currency, options_for_select(StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES, stripe_seller_account[:bank_currency] || form.object.bank_currency), class: 'required' 
   - if ["US", "GB"].include?(stripe_seller_account[:address_country]) || stripe_seller_account[:address_country].blank?
     .row
       .col-12
