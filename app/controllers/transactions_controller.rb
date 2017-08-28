@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class TransactionsController < ApplicationController
 
   before_action only: [:show] do |controller|

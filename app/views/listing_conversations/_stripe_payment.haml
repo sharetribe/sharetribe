@@ -4,7 +4,6 @@
     .col-12
       %h3
         = t(".pay_with_card")
-
 .form-row
   .row
     .col-12
@@ -39,7 +38,7 @@
       .col-8
         .us-only.hidden
           %label= t(".address_state")
-          = select_tag 'shipping_address[state]', options_for_select(us_states), class: 'required', prompt: "Select state"
+          = select_tag 'shipping_address[state_or_province]', options_for_select(us_states), class: 'required', prompt: "Select state"
     .row
       .col-12
 
