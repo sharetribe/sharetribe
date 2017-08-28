@@ -43,8 +43,15 @@ window.ST.transaction = window.ST.transaction || {};
   }
 
   function toggleSpinner($spinner, show) {
+    var prefix = "";
+    if ($("#payment_type").val() == 'paypal') {
+       prefix = '.paypal-payment ';
+    }
+    if ($("#payment_type").val() == 'stripe') {
+       prefix = '.stripe-payment ';
+    }
     if (show === true) {
-      $(".paypal-button-loading-img").show();
+      $(prefix + ".paypal-button-loading-img").show();
     } else {
       $(".paypal-button-loading-img").hide();
     }

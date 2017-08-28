@@ -1755,7 +1755,7 @@ en:
       read_more: View.
     stripe_payment:
       payment: Payment
-      pay_with_card: Pay with credit card
+      pay_with_card: Pay with credit or debit card
       address: Shipping address
       address_country: Country
       address_city: City
@@ -1854,6 +1854,7 @@ en:
     paypal_permission_granted_summary: "Permission for transaction fees granted"
   paypal:
     pay_with_paypal: "Proceed to payment"
+    checkout_with: "Checkout with"
     or_pay_with_paypal: "or"
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
