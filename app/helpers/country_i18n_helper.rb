@@ -16,4 +16,8 @@ module CountryI18nHelper
     country_codes.map{|code| [translate_country(code), code]}.sort{ |a,b|  FFILocale.strcoll a[0], b[0] }
   end
 
+  def all_translated_countries
+    translate_list(ISO3166::Country.codes)
+  end
+
 end

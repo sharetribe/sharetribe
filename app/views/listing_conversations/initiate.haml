@@ -25,7 +25,7 @@
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
       %li
-        = render partial: "transactions/price_break_down", locals: price_break_down_locals
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: false)
 
   = form_tag form_action, method: :post, id: "transaction-form" do
 
