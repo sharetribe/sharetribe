@@ -17,7 +17,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
     stripe_connected =  view_locals[:stripe_enabled] && view_locals[:stripe_account] && view_locals[:stripe_account][:api_verified]
     paypal_connected =  view_locals[:paypal_enabled] && view_locals[:paypal_account].present?
-    
+
     stripe_mode = stripe_api.charges_mode(@current_community.id)
     payment_locals = {
       stripe_connected: stripe_connected,

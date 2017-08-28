@@ -123,7 +123,7 @@ module MarketplaceService::AvailableCurrencies
     rule = VALID_CURRENCIES[currency]
     if rule == :country_sets
       if COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country)
-        if stripe_mode == :direct || stripe_mode == :separate
+        if [:direct, :separate].include?(stripe_mode)
           StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES.include?(currency)
         else
           true
