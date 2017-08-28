@@ -30,7 +30,7 @@ module StripeService::API
 
         description = "Payment #{tx[:id]} for #{tx[:listing_title]} via #{gateway_fields[:service_name]} "
         metadata = {
-          sharetribe_order_id: tx[:id],
+          sharetribe_transaction_id: tx[:id],
           sharetribe_seller_id: tx[:listing_author_id],
           sharetribe_payer_id: tx[:starter_id],
           sharetribe_mode: stripe_api.charges_mode(tx[:community_id])
@@ -76,7 +76,7 @@ module StripeService::API
           charge_id: payment[:stripe_charge_id],
           account_id: seller_account[:stripe_seller_id],
           reason: reason,
-          metadata: {sharetribe_order_id: tx[:id]}
+          metadata: {sharetribe_transaction_id: tx[:id]}
         )
         payment = PaymentStore.update(transaction_id: tx[:id], community_id: tx[:community_id], data: {status: 'canceled'})
         Result::Success.new(payment)
@@ -149,7 +149,7 @@ module StripeService::API
               currency: payment[:sum].currency,
               initial_amount: payment[:subtotal].cents,
               charge_id: payment[:stripe_charge_id],
-              metadata: {sharetribe_order_id: tx[:id]}
+              metadata: {sharetribe_transaction_id: tx[:id]}
             )
           end
         when :direct
