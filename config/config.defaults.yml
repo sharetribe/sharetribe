@@ -429,7 +429,7 @@ default: &default_settings
   # Default 24 hours
   sitemap_cache_time: 86400
 
-  stripe_expiration_period: 6
+  stripe_expiration_period: 3
   # Funds captured from charge are not available immediately, only after 7 days
   stripe_payout_delay: 7.5
 
