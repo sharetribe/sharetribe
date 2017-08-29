@@ -251,7 +251,6 @@ class PaymentSettingsController < ApplicationController
   end
 
   def stripe_update_bank_account
-    return false unless @stripe_account[:stripe_seller_id].present?
 
     bank_currency = if stripe_api.charges_mode(@current_community.id) == :destination
                       params[:stripe_bank_form][:bank_currency]
@@ -268,6 +267,7 @@ class PaymentSettingsController < ApplicationController
 
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
+    return false unless @stripe_account[:stripe_seller_id].present?
 
     if bank_form.valid? && bank_form.bank_account_number !~ /\*/
       result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)

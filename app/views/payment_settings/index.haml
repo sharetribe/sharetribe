@@ -32,6 +32,8 @@
               = t("payment_settings.to_accept_paypal")
             %p
               = link_to t("payment_settings.connect_paypal"), '#', id: "toggle_paypal_wizard"
+          - elsif next_action == :ask_billing_agreement
+            %h3= t("payment_settings.paypal")
           - else
             %h3.paypal-account-connected
               =icon_tag("check", ["icon-fix"])

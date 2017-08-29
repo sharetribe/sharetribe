@@ -56,6 +56,16 @@
           = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: paypal_account[:email],
               paypal_redirect_link: paypal_redirect_link}
         .paypal-wizard-divider
+      - else
+        .paypal-wizard-content
+          =t("stripe_accounts.paypal_connected_give_permission", email: paypal_account[:email])
+
+          .row.paypal-link-wrapper
+            .col-12
+              %a.paypal-change-link#ask_paypal_permissions
+                = t("paypal_accounts.change_account")
+        .paypal-wizard-divider
+
       .paypal-wizard-content
         .row
           .col-12

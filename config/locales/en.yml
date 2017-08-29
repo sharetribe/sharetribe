@@ -2309,6 +2309,7 @@ en:
     stripe_credit_card: "Credit card"
     paypal: PayPal
     paypal_connected: PayPal account connected successfully!
+    paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
 
     form_new:
       need_info: We need some information about you to be able to send you money.
@@ -2347,9 +2348,9 @@ en:
     paypal: PayPal
     credit_card_bank_details: To accept credit card payments you need to provide yout bank details so we can move money to your bank account.
     add_bank_details: Add bank details
-    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both
-    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal acclount so we can move money there
+    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both.
+    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal account so we can move money there.
     connect_paypal: Connect PayPal account
     wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the marketplace owners."
-    invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country"
+    invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"
