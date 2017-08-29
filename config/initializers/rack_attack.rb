@@ -25,7 +25,7 @@ class Rack::Attack
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:req/ip:#{req.ip}"
   throttle('req/ip', :limit => 300, :period => 5.minutes) do |req|
-    req.ip # unless req.path.start_with?('/assets')
+    req.env['action_dispatch.remote_ip'].to_s # unless req.path.start_with?('/assets')
   end
 
   ### Prevent Brute-Force Login Attacks ###
@@ -42,7 +42,7 @@ class Rack::Attack
   # Key: "rack::attack:#{Time.now.to_i/:period}:session/ip:#{req.ip}"
   throttle('session/ip', :limit => 5, :period => 1.minute) do |req|
     if req.path.end_with?('/sessions') && req.post?
-      req.ip
+      req.env['action_dispatch.remote_ip'].to_s
     end
   end
 
@@ -87,8 +87,8 @@ class Rack::Attack
   # end
 
 
-  # TODO: Remove when throttling is put in place
-  # Monkeypatch throttling checks and prevent action
+  # TODO: Remove when throttling is put in place.
+  # Monkeypatch throttling checks and prevent action.
   # First phase is to log only to check the limits. The rules need to
   # be in place and we hook into instrumentation and log all throttles.
   class << self
@@ -105,7 +105,7 @@ class Rack::Attack
             start: start,
             finish: finish,
             request_id: request_id,
-            request_ip: req.ip,
+            request_ip: req.env['action_dispatch.remote_ip'].to_s,
             matched: req.env['rack.attack.matched'],
             match_type: req.env['rack.attack.match_type'],
             match_data: req.env['rack.attack.match_data']
