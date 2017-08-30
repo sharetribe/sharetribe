@@ -12,8 +12,16 @@ module CountryI18nHelper
   end
 
   def translate_list(country_codes)
-    FFILocale.setlocale FFILocale::LC_COLLATE, 'en_US.UTF8' # default UCA is good enough
-    country_codes.map{|code| [translate_country(code), code]}.sort{ |a,b|  FFILocale.strcoll a[0], b[0] }
+    lang = I18n.locale.to_s.downcase.split("-").first
+    collator =  if TwitterCldr.supported_locale?(I18n.locale)
+                  TwitterCldr::Collation::Collator.new(I18n.locale)
+                elsif TwitterCldr.supported_locale?(lang)
+                  TwitterCldr::Collation::Collator.new(lang)
+                else
+                  TwitterCldr::Collation::Collator.new
+                end
+    list = country_codes.map{|code| [translate_country(code), code]}
+    list.map{ |s| [s, collator.get_sort_key(s.first)] }.sort_by(&:last).map(&:first)
   end
 
   def all_translated_countries
