@@ -25,7 +25,7 @@
         = form.button t("admin.payment_preferences.transaction_fee_save")
 
     - if pref_mode == 'stripe'
-      - stripe_fee_link = link_to t("admin.payment_preferences.stripe_fee"), "https://stripe.com/#{@current_community.country.downcase}/pricing" , target: "_blank"
+      - stripe_fee_link = link_to t("admin.payment_preferences.stripe_fee"), "#{knowledge_base_url}/what-are-stripes-payment-processing-fees" , target: "_blank"
       .row
         .col-12
           %p
