@@ -170,7 +170,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       validates_inclusion_of(:marketplace_currency, in: available_currencies)
 
       validate do |prefs|
-        if minimum_listing_price.nil? || minimum_listing_price < minimum_commission
+        if minimum_listing_price.nil? || minimum_listing_price < (minimum_commission || 0)
           prefs.errors[:base] << I18n.t("admin.paypal_accounts.minimum_listing_price_below_min",
                                         { minimum_commission: minimum_commission })
         elsif minimum_transaction_fee && minimum_listing_price < minimum_transaction_fee

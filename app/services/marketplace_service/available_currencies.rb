@@ -92,18 +92,18 @@ module MarketplaceService::AvailableCurrencies
 
   VALID_CURRENCIES = {
     "AUD" => :country_sets,
-    "BRL" => "BR",
+    "BRL" => "BR", # BRL is valid only for PayPal accounts in Brazil
     "CAD" => :country_sets,
     "CHF" => :country_sets,
-    "CZK" => "CZ",
+    "CZK" => :country_sets,
     "DKK" => :country_sets,
     "EUR" => :country_sets,
     "GBP" => :country_sets,
     "HKD" => :country_sets,
-    "HUF" => "HU",
+    "HUF" => :country_sets,
     "ILS" => :country_sets,
     "JPY" => :country_sets,
-    "MXN" => "MX",
+    "MXN" => :country_sets,
     "MYR" => :country_sets,
     "NOK" => :country_sets,
     "NZD" => :country_sets,
@@ -120,18 +120,8 @@ module MarketplaceService::AvailableCurrencies
   module_function
 
   def stripe_allows_country_and_currency?(country, currency, stripe_mode)
-    rule = VALID_CURRENCIES[currency]
-    if rule == :country_sets
-      if COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country)
-        if [:direct, :separate].include?(stripe_mode)
-          StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES.include?(currency)
-        else
-          true
-        end
-      end
-    else
-      country == rule
-    end
+    VALID_CURRENCIES[currency] && COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country) &&
+      (stripe_mode == :destination || StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES.include?(currency))
   end
 
   def paypal_allows_country_and_currency?(country, currency)

@@ -25,8 +25,7 @@
             - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/supported-payments-currencies"
             = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
           - else
-
-            - if stripe_allowed && paypal_allowed
+            - if stripe_allowed && paypal_allowed && stripe_enabled && paypal_enabled
               - popup_link = link_to t("admin.payment_preferences.which_to_choose"), "#", id: "choose_payment_popup_link"
               = t("admin.payment_preferences.you_can_use_stripe_or_paypal", choose_link: popup_link).html_safe
 
@@ -39,6 +38,17 @@
               - content_for :extra_javascript do
                 :javascript
                   $('#choose_payment_popup_link').click(function() { $('#payment_choose_popup_content').lightbox_me({centered: true, zIndex: 1000000}); });
+
+            - elsif paypal_allowed && paypal_enabled
+              - paypal_kb_link = link_to t("admin.payment_preferences.read_more_paypal"), "#{knowledge_base_url}/payment-with-paypal/guide-to-getting-started-with-paypal-payments", target: "_blank"
+              = t("admin.payment_preferences.you_can_use_paypal_only", read_more_link: paypal_kb_link).html_safe
+            - elsif stripe_allowed && stripe_enabled
+              - stripe_kb_link = link_to t("admin.payment_preferences.read_more_stripe"), "#{knowledge_base_url}/differences-between-stripe-and-paypal", target: "_blank"
+              = t("admin.payment_preferences.you_can_use_stripe_only", read_more_link: stripe_kb_link).html_safe
+            - else
+              - support_link = link_to t("admin.payment_preferences.contact_support"), "mailto:#{support_email}"
+              - help_link = link_to t("admin.payment_preferences.no_payments_link_text"), "#{knowledge_base_url}/supported-payments-currencies"
+              = t("admin.payment_preferences.you_cannot_use_online_payments", currency: @current_community.currency, country_name: country_name, support_link: support_link, help_link: help_link).html_safe
 
             .row.connect-row
               - if stripe_enabled && stripe_allowed
