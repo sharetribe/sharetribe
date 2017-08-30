@@ -108,7 +108,7 @@
         %h2= t("common.payment_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
 
       - content_for :extra_javascript do
         :javascript
@@ -122,7 +122,7 @@
         %h2= t("common.payment_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
-          = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe).html_safe
+          = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: stripe_commission).html_safe
 
       - content_for :extra_javascript do
         :javascript

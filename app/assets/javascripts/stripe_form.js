@@ -18,7 +18,15 @@ window.ST = window.ST || {};
     SE: { account_number: {title: "IBAN", format: "SE3550000000054910000003 (24 characters)"}},
     CH: { account_number: {title: "IBAN", format: "CH9300762011623852957 (21 characters)"}},
     GB: { routing_number: {title: "Sort Code", format: "12-34-56"}, account_number: {title:  "Account Number", format: "01234567 or IBAN GB82WEST12345698765432 (22 characters)"}},
-    US: { routing_number: {title: "Routing number", format: "111000000 (9 characters)"}, account_number: {title: "Account Number", format: "format varies"}}
+    US: { routing_number: {title: "Routing number", format: "111000000 (9 characters)"}, account_number: {title: "Account Number", format: "format varies"}},
+    CA: { routing_number: {title: "Routing number", format: "11000-000"}, account_number: {title: "Account Number", format: "000123456789"}},
+    BR: { routing_number: {title: "Routing number", format: "110-0000"}, account_number: {title: "Account Number", format: "000123456789"}},
+    MX: { account_number: {title: "Account number", format: "000000001234567897"}},
+    NZ: { routing_number: {title: "Routing number", format: "110000"}, account_number: {title: "Account Number", format: "0000000010"}},
+    AU: { routing_number: {title: "Routing number", format: "110000"}, account_number: {title: "Account Number", format: "0000000010"}},
+    SG: { routing_number: {title: "Routing number", format: "1100-000"}, account_number: {title: "Account Number", format: "000123456"}},
+    HK: { routing_number: {title: "Routing number", format: "110-000"}, account_number: {title: "Account Number", format: "000123-456"}},
+    JP: { routing_number: {title: "Routing number", format: "1100000"}, account_number: {title: "Account Number", format: "00012345"}}
   };
   var DEFAULT_CURRENCIES  = {
      AT: "EUR",
@@ -37,7 +45,9 @@ window.ST = window.ST || {};
      NO: "NOK",
      PT: "EUR",
      SE: "SEK",
-     US: "USD"
+     US: "USD",
+     CA: "CAD",
+     BR: "BRL",
   };
   function get_placeholder(country, field) {
     var record = BANK_RULES[country];

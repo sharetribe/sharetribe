@@ -22,8 +22,8 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       stripe_connected: stripe_connected,
       paypal_connected: paypal_connected,
       payments_connected: stripe_connected || paypal_connected,
-      stripe_allowed:  StripeHelper.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency),
-      paypal_allowed:  PaypalHelper.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      stripe_allowed:  MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      paypal_allowed:  MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
       stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
     }
@@ -97,23 +97,29 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def build_prefs_form(params = nil)
     currency = @current_community.currency
+    data = {paypal_prefs_form: nil, stripe_prefs_form: nil}
 
     if @paypal_enabled
-      minimum_commission = paypal_minimum_commissions_api.get(currency)
-      tx_settings = paypal_tx_settings
-    else
-      minimum_commission = 0
-      tx_settings = stripe_tx_settings
+      data[:paypal_prefs_form] = prefs_form_from_settings(paypal_tx_settings, paypal_minimum_commissions_api.get(currency), currency)
+    end
+    if @stripe_enabled
+      data[:stripe_prefs_form] = prefs_form_from_settings(stripe_tx_settings, 0, currency)
     end
 
-    form = PaymentPreferencesForm.new(
+    form = data[:paypal_prefs_form] || data[:stripe_prefs_form]
+    data[:payment_prefs_form] = form
+    data[:payment_prefs_valid] = form.valid?
+    data
+  end
+
+  def prefs_form_from_settings(tx_settings, minimum_commission, currency)
+    PaymentPreferencesForm.new(
       minimum_commission: minimum_commission,
       commission_from_seller: tx_settings[:commission_from_seller],
       minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], currency),
       minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], currency),
       marketplace_currency: currency
     )
-    {payment_prefs_form: form, payment_prefs_valid: form.valid? }
   end
 
   def build_view_locals
@@ -176,7 +182,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update_payment_preferences
     currency = params[:payment_preferences_form]["marketplace_currency"] || @current_community.currency
 
-    minimum_commission = @paypal_enabled ? paypal_minimum_commissions_api.get(currency) : 0
+    minimum_commission = @paypal_enabled ? (paypal_minimum_commissions_api.get(currency) || 0) : 0
 
     form = PaymentPreferencesForm.new(parse_preferences(params[:payment_preferences_form], currency).merge(minimum_commission: minimum_commission))
     if form.valid?
@@ -184,18 +190,28 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         @current_community.currency = currency
         @current_community.save!
 
-        base_params = {community_id: @current_community.id,
-                       payment_process: :preauthorize,
-                       commission_from_seller: form.commission_from_seller,
-                       minimum_price_cents: form.minimum_listing_price.try(:cents),
-                       minimum_price_currency: currency,
-                       minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
-                       minimum_transaction_fee_currency: currency}.compact
+        base_params = if form.mode == 'transaction_fee'
+          {
+            community_id: @current_community.id,
+            payment_process: :preauthorize,
+            commission_from_seller: form.commission_from_seller,
+            minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
+            minimum_transaction_fee_currency: currency
+          }.compact
+        else
+          {
+            community_id: @current_community.id,
+            payment_process: :preauthorize,
+            commission_from_seller: form.commission_from_seller,
+            minimum_price_cents: form.minimum_listing_price.try(:cents),
+            minimum_price_currency: currency
+          }.compact
+        end
 
-        if paypal_tx_settings.present?
+        if paypal_tx_settings.present? && (params[:gateway] == 'paypal' || form.mode == 'general')
           tx_settings_api.update(base_params.merge(payment_gateway: :paypal))
         end
-        if stripe_tx_settings.present?
+        if stripe_tx_settings.present? && (params[:gateway] == 'stripe'|| form.mode == 'general')
           tx_settings_api.update(base_params.merge(payment_gateway: :stripe))
         end
       end

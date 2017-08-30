@@ -98,7 +98,8 @@ class PaymentSettingsController < ApplicationController
       stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,
       seller_account: seller_account,
-      seller_needs_verification: need_verification
+      seller_needs_verification: need_verification,
+      paypal_commission: paypal_tx_settings[:commission_from_seller]
     }
   end
 

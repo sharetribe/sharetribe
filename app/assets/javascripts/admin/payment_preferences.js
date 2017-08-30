@@ -48,14 +48,6 @@ window.ST = window.ST || {};
         }
       });
     })
-    $(".tx_pref_form input").change(function(){
-      var _self = this;
-      $(".tx_pref_form input").each(function(){ 
-        if(_self.name == this.name && _self.form.id != this.form.id) {
-          $(this).val(_self.value);
-        }
-      });
-    });
   };
   module.initPaymentTabs = initPaymentTabs;
 

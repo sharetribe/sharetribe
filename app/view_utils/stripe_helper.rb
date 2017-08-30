@@ -72,14 +72,4 @@ module StripeHelper
     STRIPE_COUNTRY_SPECS["data"].detect{|spec| spec["id"] == country }
   end
 
-  def stripe_bank_currencies(country)
-    country_spec = stripe_country_spec(country)
-    return [] unless country_spec
-    bank_currencies = country_spec["supported_bank_account_currencies"]
-    bank_currencies.keys.select{|currency| bank_currencies[currency].include?(country) }
-  end
-
-  def stripe_allows_country_and_currency?(country, currency)
-    stripe_bank_currencies(country).include?(currency.downcase)
-  end
 end

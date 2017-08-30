@@ -168,9 +168,24 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       ),
       preselected_action: preselected_action,
       paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
-      stripe_fees_url: "https://stripe.com/#{community_country_code.downcase}/pricing"
-
+      stripe_fees_url: "https://stripe.com/#{community_country_code.downcase}/pricing",
+      paypal_commission: paypal_tx_settings[:commission_from_seller],
+      stripe_commission: stripe_tx_settings[:commission_from_seller]
     }
+  end
+
+  def paypal_tx_settings
+    Maybe(TransactionService::API::Api.settings.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
+    .select { |result| result[:success] }
+    .map { |result| result[:data] }
+    .or_else({})
+  end
+
+  def stripe_tx_settings
+    Maybe(TransactionService::API::Api.settings.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
+    .select { |result| result[:success] }
+    .map { |result| result[:data] }
+    .or_else({})
   end
 
 end

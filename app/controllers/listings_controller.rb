@@ -766,17 +766,32 @@ class ListingsController < ApplicationController
        payment_gateway: nil,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: 0,
-       minimum_price_cents: 0}
+       minimum_price_cents: 0,
+       stripe_commission: 0,
+       paypal_commission: 0,
+      }
     when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
       p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: payment_type))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
         .or_else({})
 
+      stripe_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: :stripe))
+        .select {|res| res[:success]}
+        .map {|res| res[:data]}
+        .or_else({})[:commission_from_seller]
+
+      paypal_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: :paypal))
+        .select {|res| res[:success]}
+        .map {|res| res[:data]}
+        .or_else({})[:commission_from_seller]
+
       {seller_commission_in_use: p_set[:commission_type] != :none,
        payment_gateway: payment_type,
        minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
+       stripe_commission: stripe_commission,
+       paypal_commission: paypal_commission,
        minimum_price_cents: p_set[:minimum_price_cents]}
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")

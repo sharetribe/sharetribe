@@ -23,7 +23,7 @@
     %small
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
-          = t(".payment_fee_info_link_text")
+          = payment_gateway == :paypal ? t(".paypal_fee_info_link_text") : t(".payment_fee_info_link_text")
       - if !seller_commission_in_use 
         = t(".no_service_fee_you_will_get_payment_text", :payment_fee_info_link => payment_fee_info_link).html_safe
 
@@ -37,22 +37,29 @@
                 "#fee_display",
                 #{commission_from_seller},
                 #{minimum_commission.format(decimal_mark: ".", delimiter: "", symbol: false)},
-                #{payment_gateway == :paypal || payment_gateway == :stripe});
+                true);
             });
         - if run_js_immediately
           = yield :seller_commission_js
         - else
           - content_for :extra_javascript do
             = yield :seller_commission_js
-
         - if payment_gateway.present?
-          = t(".after_service_fee_you_will_get_payment_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
+          - if payment_gateway == [:paypal, :stripe]
+            = t(".after_service_fee_you_will_get_payment_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
+          - if payment_gateway == :paypal
+            = t(".after_service_fee_you_will_get_paypal_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
+          - if payment_gateway == :stripe
+            = t(".after_service_fee_you_will_get_stripe_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
         - else
           = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="fee_display"></span>').html_safe
 
 - if payment_gateway.present?
   = render layout: "layouts/lightbox", locals: { id: "payment_fee_info_content"} do
-    %h2= t("common.payment_fee_info.title")
+    - if payment_gateway == :paypal
+      %h2= t("common.payment_fee_info.title_paypal")
+    - else
+      %h2= t("common.payment_fee_info.title")
 
     - if payment_gateway == [:paypal, :stripe]
       %p
@@ -64,27 +71,23 @@
     - if payment_gateway == :stripe || payment_gateway == [:paypal, :stripe] 
       - text_with_line_breaks_html_safe do
         - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
-        - if shape[:shipping_enabled]
-          = t("common.stripe_fee_info.body_with_shipping_text", link_to_stripe: link_to_stripe).html_safe
-        - else
-          = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe).html_safe
+        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: stripe_commission).html_safe
 
-    - if payment_gateway == [:paypal, :stripe]
-      %h4
-        = t("common.payment_fee_info.paypal")
-
-    - if payment_gateway == :paypal || payment_gateway == [:paypal, :stripe] 
+    - if payment_gateway == [:paypal, :stripe] 
+      %h4= t("common.payment_fee_info.paypal")
       - text_with_line_breaks_html_safe do
         - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-        - if shape[:shipping_enabled]
-          = t("common.paypal_fee_info.body_with_shipping_text", link_to_paypal: link_to_paypal).html_safe
-        - else
-          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
+
+    - if payment_gateway == :paypal
+      - text_with_line_breaks_html_safe do
+        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
+        = t("common.paypal_only_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
 
   - if run_js_immediately
     :javascript
-      $('#payment_fee_info_link').click(function() { $('#payment_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+      $('#payment_fee_info_link').click(function() { $('#payment_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); return false});
   - else
     - content_for :extra_javascript do
       :javascript
-        $('#payment_fee_info_link').click(function() { $('#payment_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
+        $('#payment_fee_info_link').click(function() { $('#payment_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); ; return false});
