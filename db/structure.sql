@@ -811,7 +811,6 @@ CREATE TABLE `marketplace_setup_steps` (
   `paypal` tinyint(1) NOT NULL DEFAULT '0',
   `listing` tinyint(1) NOT NULL DEFAULT '0',
   `invitation` tinyint(1) NOT NULL DEFAULT '0',
-  `stripe` tinyint(1) DEFAULT '0',
   `payment` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_marketplace_setup_steps_on_community_id` (`community_id`) USING BTREE
@@ -2194,6 +2193,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170711064018'),
 ('20170728065012'),
 ('20170801125553'),
-('20170814125622');
+('20170814125622'),
+('20170817035830');
 
 

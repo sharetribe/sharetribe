@@ -23,13 +23,13 @@ module FeatureTests
         # Save payment preferences
         payment_preferences.edit_payment_general_preferences(min_price: min_price)
         payment_preferences.click_button("Save settings")
-        onboarding_wizard.dismiss_dialog
 
-        payment_preferences.change_stripe_settings
+        #payment_preferences.change_stripe_settings
         payment_preferences.edit_payment_transaction_fee_preferences(commission: commission, min_commission: min_commission)
         payment_preferences.click_button("Save")
+        onboarding_wizard.dismiss_dialog
 
-        expect(page).to have_content("Payment system preferences updated")
+        expect(page).to have_content("Transaction fee settings updated")
       end
 
       def connect_seller_payment
@@ -70,8 +70,12 @@ module FeatureTests
         listing_book.pay_with_stripe
 
         worker.work_until do
-          page.has_content?("Payment authorized") &&
-            page.has_content?("Snowman ☃ sells: #{title}")
+          begin
+            page.has_content?("Payment authorized") &&
+              page.has_content?("Snowman ☃ sells: #{title}")
+          rescue Selenium::WebDriver::Error::StaleElementReferenceError
+            false
+          end
         end
       end
 
