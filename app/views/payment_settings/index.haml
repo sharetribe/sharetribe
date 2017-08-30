@@ -12,15 +12,16 @@
         %p
           = t("payment_settings.can_accept_stripe_and_paypal")
 
-    .row.paypal-wizard
-      .paypal-wizard-content
+    .row
+      %div
         .col-12
           - if !seller_account.present? || !stripe_account[:stripe_bank_id].present?
             %h3= t("payment_settings.credit_card")
             %p
               = t("payment_settings.credit_card_bank_details")
-            %p
-              = link_to t("payment_settings.add_bank_details"), '#', id: "toggle_stripe_wizard"
+            - unless @stripe_error || seller_account.present?
+              %p
+                = link_to t("payment_settings.add_bank_details"), '#', id: "toggle_stripe_wizard"
 
           #stripe_wizard{class: @stripe_error || seller_account.present? ? "" : "hidden"}
             = render partial: "stripe_wizard", locals: local_assigns
@@ -48,8 +49,8 @@
 
       - content_for :extra_javascript do
         :javascript
-          $("#toggle_stripe_wizard").click(function(){$("#stripe_wizard").show(); return false;});
-          $("#toggle_paypal_wizard").click(function(){$("#paypal_wizard").show(); return false;});
+          $("#toggle_stripe_wizard").click(function(){$("#stripe_wizard").show(); $(this).hide(); return false;});
+          $("#toggle_paypal_wizard").click(function(){$("#paypal_wizard").show(); $(this).hide(); return false;});
 
   - elsif @paypal_enabled
     = render partial: "paypal_wizard", locals: local_assigns

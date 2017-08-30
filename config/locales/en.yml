@@ -2308,7 +2308,7 @@ en:
     paypal_connected: PayPal account connected successfully!
 
     form_new:
-      need_info: We need some information about you to be able to send you money
+      need_info: We need some information about you to be able to send you money.
       select_country: Select country...
       legal_name: Legal name
       country: Country
@@ -2320,14 +2320,16 @@ en:
       address_city: City
       address_postal_code: Postal code
       address_line1: Street address
-      tos_link: "By creating Stripe Account, you agree to %{stripe_link}"
+      tos_link: "By adding your payout details you accept the %{stripe_link}."
       tos_link_title: Stripe Connected Account Agreement
-      save_details: Save Details
+      save_details: Save details
       edit: Edit Details
+      cancel: Cancel
 
     form_bank:
       bank_account_number: Bank account number
       bank_routing_number: Routing number
+      bank_currency: Bank account currency
     form_verification:
       personal_id_number: Personal ID number
       document: Verification document
@@ -2346,5 +2348,5 @@ en:
     to_accept_paypal: To accept PayPal payments, you need to connect your PayPal acclount so we can move money there
     connect_paypal: Connect PayPal account
     wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the marketplace owners."
-
-
+    invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country"
+    invalid_postal_code: "Invalid postal code for %{country}"

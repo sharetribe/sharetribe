@@ -35,9 +35,9 @@
 
 
   %div.hidden#stripe_forms
-    .row.paypal-wizard
+    .row.paypal-wizard.connect-row
       .col-12
-        .paypal-wizard-content
+        .paypal-wizard-content.connect-row
           = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
             = hidden_field_tag "stripe_account_form_address_country", stripe_seller_account[:address_country]
             .row
@@ -47,48 +47,48 @@
             .row
               .col-12
                 = label_tag t("stripe_accounts.form_new.country")
-                = ISO3166::Country[stripe_seller_account[:address_country]].try(:local_name)
+                = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
 
             = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_address_form, available_countries: available_countries}
 
-            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account}
+            = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account, stripe_mode: stripe_mode}
 
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 
-            = button_tag t('stripe_accounts.form_new.save_details')
+            .col-4
+              = link_to t('stripe_accounts.form_new.cancel'), person_payment_settings_path(@current_user), style: 'float: right; margin-top: 1.5em'
+              = button_tag t('stripe_accounts.form_new.save_details')
   - content_for :extra_javascript do
     :javascript
       $(function(){ 
       $("#edit-stripe-info").click(function(){
         $("#stripe_forms").toggleClass("hidden");
+        $("#edit-stripe-info").hide();
         return false;
       });
       if(#{stripe_account[:stripe_bank_id].blank? || flash[:error].present?}) {
+        $("#edit-stripe-info").hide();
         $("#stripe_forms").toggleClass("hidden");
       }})
 - else
-  .row.paypal-wizard
-    .col-12
-      .paypal-wizard-content
-        .row
-          .col-12
-            %p
-              = t("stripe_accounts.form_new.need_info")
-          .col-12
+  %p
+    = t("stripe_accounts.form_new.need_info")
+  .row.paypal-wizard.connect-row
+    %div
+      .paypal-wizard-content.connect-row
+        .col-12
           = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
             = fields_for stripe_account_form do |form|
               .row
-                = form.error_messages
-              
-              .row
                 .col-12
+                  = form.error_messages
                   = form.label :legal_name, t("stripe_accounts.form_new.legal_name")+"*"
                   = form.text_field :legal_name, class: 'required'
 
               .row
                 .col-12
                   = form.label :birth_date, t("stripe_accounts.form_new.birth_date")+"*"
-                  = form.date_select :birth_date, {:start_year => Date.current.year-18, :end_year => 1920, order: [:day, :month, :year]}, class: 'required'
+                  = form.date_select :birth_date, {:start_year => Date.current.year-18, :end_year => 1920, order: [:day, :month, :year], :use_month_names => I18n.t("datepicker.months").values}, class: 'required'
               .row
                 .col-2
                   = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
@@ -97,14 +97,8 @@
             .country-dependent{"data-country-except" => "XXX"}
               = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
 
-            = fields_for stripe_account_form do |form|
-              .row.country-dependent{"data-country-only" => "US"}
-                .col-12
-                  = form.label :ssn_last_4, t("stripe_accounts.form_new.ssn_last_4")+"*"
-                  = form.text_field :ssn_last_4, class: 'required'
-
             .country-dependent{"data-country-except" => "XXX"}
-              = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account}
+              = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account, stripe_mode: stripe_mode}
 
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 

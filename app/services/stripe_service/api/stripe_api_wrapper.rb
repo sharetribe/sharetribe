@@ -127,6 +127,7 @@ class StripeService::API::StripeApiWrapper
         Stripe::Account.create({
           type: 'custom',
           country: account_info[:address_country],
+          email: account_info[:email],
           legal_entity: {
             type: 'individual',
             first_name: account_info[:first_name],
@@ -143,7 +144,6 @@ class StripeService::API::StripeApiWrapper
               month: account_info[:birth_date].month,
               year: account_info[:birth_date].year,
             },
-            ssn_last_4: (account_info[:address_country] == 'US' ? account_info[:ssn_last_4] : nil),
           },
 
           tos_acceptance: {
@@ -294,6 +294,18 @@ class StripeService::API::StripeApiWrapper
 
     def empty_string_as_nil(value)
       value.present? ? value : nil
+    end
+
+    def get_charge(community:, charge_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe::Charge.retrieve charge_id
+      end
+    end
+
+    def get_transfer(community:, transfer_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe::Transfer.retrieve transfer_id
+      end
     end
   end
 end

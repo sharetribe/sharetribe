@@ -53,6 +53,12 @@ module StripeService::API
       Result::Error.new(e.message)
     end
 
+    def destroy(community_id:, person_id:)
+      Result::Success.new(accounts_store.destroy(community_id: community_id, person_id: person_id))
+    rescue => e
+      Result::Error.new(e.message)
+    end
+
     private
 
     def stripe_api

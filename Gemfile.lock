@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/k3rni/ffi-locale.git
+  revision: 2ea4b6511c0024d19e11d476657e2e35864c592f
+  specs:
+    ffi-locale (0.2.2)
+      ffi (>= 1.0.7)
+
+GIT
   remote: https://github.com/ithouse/mercury.git
   revision: 1a9d4ac5a0a5fd0d459ff1986f9f05e617415b16
   ref: 1a9d4ac5a0a5fd0d459ff1986f9f05e617415b16
@@ -593,6 +600,7 @@ DEPENDENCIES
   faraday (~> 0.11.0)
   faraday-encoding (~> 0.0.4)
   faraday_middleware (~> 0.11.0)
+  ffi-locale!
   flying-sphinx (~> 1.2.0)
   guard-rspec (~> 4.7.3)
   haml (~> 5.0.1)

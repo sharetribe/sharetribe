@@ -67,9 +67,4 @@ module StripeHelper
     features = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
     features.include?(:stripe)
   end
-
-  def stripe_country_spec(country)
-    STRIPE_COUNTRY_SPECS["data"].detect{|spec| spec["id"] == country }
-  end
-
 end

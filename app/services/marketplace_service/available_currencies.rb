@@ -119,10 +119,16 @@ module MarketplaceService::AvailableCurrencies
 
   module_function
 
-  def stripe_allows_country_and_currency?(country, currency)
+  def stripe_allows_country_and_currency?(country, currency, stripe_mode)
     rule = VALID_CURRENCIES[currency]
     if rule == :country_sets
-      COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country)
+      if COUNTRY_SET_STRIPE_AND_PAYPAL.include?(country)
+        if [:direct, :separate].include?(stripe_mode)
+          StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES.include?(currency)
+        else
+          true
+        end
+      end
     else
       country == rule
     end

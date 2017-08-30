@@ -30,12 +30,12 @@ module FeatureTests
         payment_settings.fill_in("stripe_account_form[address_city]", with: "New York")
         payment_settings.fill_in("stripe_account_form[address_postal_code]", with: "01001")
         payment_settings.fill_in("stripe_account_form[address_line1]", with: "123 Street")
-        payment_settings.fill_in("stripe_account_form[ssn_last_4]", with: "1234")
 
         payment_settings.fill_in("stripe_bank_form[bank_account_number]", with: "000123456789")
         payment_settings.fill_in("stripe_bank_form[bank_routing_number]", with: "110000000")
+        select_option("stripe_bank_form_bank_currency", "USD")
 
-        payment_settings.click_button("Save Details")
+        payment_settings.click_button("Save details")
       end
 
       def save_settings

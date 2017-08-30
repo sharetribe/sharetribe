@@ -5,32 +5,10 @@ module StripeService::Store::StripeAccount
   StripeAccountModel = ::StripeAccount
 
   # Stripe is available only in some countries https://stripe.com/global, we restrict to US and EU only
-  COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
+  ALL_STRIPE_COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX" ]
+  COUNTRIES = ALL_STRIPE_COUNTRIES & ::MarketplaceService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL
 
-  COUNTRY_NAMES = [
-    ["United States", "US"],
-    ["United Kingdom", "GB"],
-    ["Österreich", "AT"],
-    ["België", "BE"],
-    ["Schweiz", "CH"],
-    ["Deutschland", "DE"],
-    ["Danmark", "DK"],
-    ["España", "ES"],
-    ["Suomi", "FI"],
-    ["France", "FR"],
-    ["Ireland", "IE"],
-    ["Italia", "IT"],
-    ["Luxembourg", "LU"],
-    ["Nederland", "NL"],
-    ["Norge", "NO"],
-    ["Portugal", "PT"],
-    ["Sverige", "SE"],
-    ["Singapore", "SG"],
-    ["Hong Kong", "HK"],
-    ["Japan", "JP"],
-    ["Brazil", "BR"],
-    ["Mexico", "MX"],
-  ]
+  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD"]
 
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
@@ -123,4 +101,10 @@ module StripeService::Store::StripeAccount
       .or_else(nil)
   end
 
+  def destroy(person_id: nil, community_id:)
+    StripeAccountModel.where(
+      person_id: person_id,
+      community_id: community_id
+    ).delete_all
+  end
 end
