@@ -110,7 +110,7 @@ module FeatureTests
         choose("Skip feedback")
         page.click_button("Continue")
 
-        expect(page).to have_content("Offer confirmed")
+        expect(page).to have_content(I18n.t("layouts.notifications.offer_confirmed"))
         expect(page).to have_content("Feedback skipped")
       end
 
