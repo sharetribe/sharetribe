@@ -24,10 +24,7 @@
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
           = payment_gateway == :paypal ? t(".paypal_fee_info_link_text") : t(".payment_fee_info_link_text")
-      - if !seller_commission_in_use 
-        = t(".no_service_fee_you_will_get_payment_text", :payment_fee_info_link => payment_fee_info_link).html_safe
-
-      - elsif seller_commission_in_use
+      - if seller_commission_in_use 
         - content_for :seller_commission_js do
           :javascript
             $(function() {
