@@ -379,7 +379,17 @@ en:
     emails:
       new:
         send_email_to_members: "Send email to users"
-        send_email_to_members_title: "Send email to all your users"
+        send_email_to_members_title: "Send email to your users"
+        recipients: 
+          title: "Who do you want to email"
+          options:
+            all_users: All users
+            admins: All admins
+            with_listing: Users who have posted at least one listing
+            with_listing_no_payment: Users who have posted at least one listing but haven't added their payment details
+            with_payment_no_listing: Users who have added their payment details but haven't posted a listing
+            no_listing_no_payment: User who haven't posted a listing and haven't added their payment details
+            customers: Users who have completed a transaction as a buyer
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to your users?"
