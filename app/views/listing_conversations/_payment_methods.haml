@@ -1,0 +1,17 @@
+- if stripe_in_use && paypal_in_use
+  - pay_logo = 'cc-badge-powevered-by-stripe-and-paypal.png'
+- elsif paypal_in_use
+  - pay_logo = 'cc-badge-powevered-by-paypal.png'
+- elsif stripe_in_use
+  - pay_logo = 'cc-badge-powevered-by-stripe.png'
+- else
+  - pay_logo = nil
+- if pay_logo
+  = link_to '#', class: 'submit-payment-form-link' do
+    = image_tag pay_logo, style: 'max-width: 100%'
+  - content_for :extra_javascript do
+    :javascript
+      $(".submit-payment-form-link").click(function(){
+        $("form#booking-dates").submit();
+        return false;
+      });
