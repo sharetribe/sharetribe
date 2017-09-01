@@ -91,7 +91,7 @@
           %span.conversation-total-label
             = t("conversations.accept.total_label")
           %span.conversation-total-paypal-value
-            = t("conversations.accept.total_value", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
+            = t("conversations.accept.total_value_#{payment_gateway}", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
 
       - else
         .conversation-total-wrapper
@@ -102,31 +102,17 @@
 
     - if payment_gateway == :paypal
       %p
-        = t("conversations.accept.payment_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
+        = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
 
       = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
-        %h2= t("common.payment_fee_info.title")
+        %h2= t("common.paypal_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
+          = t("common.paypal_fee_info.body_text_accept", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
 
       - content_for :extra_javascript do
         :javascript
           $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
-
-    - if payment_gateway == :stripe
-      %p
-        = t("conversations.accept.payment_fee_info", fee_info_link_id: "stripe_fee_info_link").html_safe
-
-      = render layout: "layouts/lightbox", locals: { id: "stripe_fee_info_content"} do
-        %h2= t("common.payment_fee_info.title")
-        - text_with_line_breaks_html_safe do
-          - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
-          = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: stripe_commission).html_safe
-
-      - content_for :extra_javascript do
-        :javascript
-          $('#stripe_fee_info_link').click(function() { $('#stripe_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
 
   = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
