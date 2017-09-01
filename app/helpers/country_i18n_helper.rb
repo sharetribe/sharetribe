@@ -29,4 +29,8 @@ module CountryI18nHelper
     translate_list(ISO3166::Country.codes)
   end
 
+  def translated_shipping_countries
+    translate_list(MarketplaceService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL)
+  end
+
 end
