@@ -251,14 +251,10 @@ class PaymentSettingsController < ApplicationController
   end
 
   def stripe_update_bank_account
-
-    bank_currency = if stripe_api.charges_mode(@current_community.id) == :destination
-                      params[:stripe_bank_form][:bank_currency]
-                    else
-                      @current_community.currency
-                    end
+    bank_country = @parsed_seller_account[:address_country]
+    bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[bank_country]
     bank_params = {
-      bank_country: @parsed_seller_account[:address_country],
+      bank_country: bank_country,
       bank_currency: bank_currency,
       bank_account_holder_name: @parsed_seller_account[:legal_name],
       bank_account_number: params[:stripe_bank_form][:bank_account_number],
