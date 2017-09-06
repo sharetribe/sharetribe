@@ -108,7 +108,9 @@ class Rack::Attack
             request_ip: req.env['action_dispatch.remote_ip'].to_s,
             matched: req.env['rack.attack.matched'],
             match_type: req.env['rack.attack.match_type'],
-            match_data: req.env['rack.attack.match_data']
+            match_data: req.env['rack.attack.match_data'],
+            user_agent: req.env['HTTP_USER_AGENT'],
+            referer: req.env['SERVER_NAME']
     }
     Rails.logger.info(data.to_json)
   end
