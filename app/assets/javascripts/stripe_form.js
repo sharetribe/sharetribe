@@ -17,102 +17,105 @@ window.ST.stripe_form_i18n = {
   'digits_or_chars': 'digits or A-Z chars'
 };
 (function(module) {
+  var TEST_IBAN = '89370400440532013000';
+
   var BANK_RULES = {
     AU: { 
-      account_number: { format: '12345678', regexp: '[0-9]{8}'}, 
-      routing_number: { title: 'bsb',  format: '123456', regexp: '[0-9]{6}' } 
+      account_number: { format: '12345678', regexp: '[0-9]{8}', test_regexp: '[0-9][9]'}, 
+      routing_number: { title: 'bsb',  format: '123456', regexp: '[0-9]{6}', test_regexp: '[0-9]{6}'} 
     },
     AT: { 
-      account_number: { title: 'IBAN', format: 'AT611904300235473201', regexp: 'AT[0-9]{2}[0-9]{16}' } 
+      account_number: { title: 'IBAN', format: 'AT611904300235473201', regexp: 'AT[0-9]{2}[0-9]{16}', test_regexp: 'AT'+TEST_IBAN }
     },
     BE: { 
-      account_number: { title: 'IBAN', format: 'BE12345678912345', regexp: 'BE[0-9]{2}[0-9]{12}' } 
+      account_number: { title: 'IBAN', format: 'BE12345678912345', regexp: 'BE[0-9]{2}[0-9]{12}', test_regexp: 'BE'+TEST_IBAN }
     },
     BR: { 
       account_number: { format: 'format_varies_by_bank' }, 
-      routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}' }, 
-      routing_2: { title: 'branch_code', regexp: '[0-9]{4,5}' }, 
+      routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
+      routing_2: { title: 'branch_code', regexp: '[0-9]{4,5}', test_regexp: '[0-9]{4,5}' }, 
       separator: "-" 
     },
     CA: { 
       account_number: { format: 'format_varies_by_bank' }, 
-      routing_1: { title: 'transit_number', format: '12345', regexp: '[0-9]{5}' }, 
-      routing_2: { title: 'institution_number', format: '123', regexp: '[0-9]{3}' }, 
+      routing_1: { title: 'transit_number', format: '12345', regexp: '[0-9]{5}', test_regexp: '[0-9]{5}'  }, 
+      routing_2: { title: 'institution_number', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
       separator: "-" 
     },
     DK: { 
-      account_number: {title: 'IBAN', format: 'DK5000400440116243', regexp: 'DK[0-9]{2}[0-9]{14}' } 
+      account_number: {title: 'IBAN', format: 'DK5000400440116243', regexp: 'DK[0-9]{2}[0-9]{14}', test_regexp: 'DK'+TEST_IBAN }
     },
     FI: { 
-      account_number: {title: 'IBAN', format: 'FI2112345600000785', regexp: 'FI[0-9]{2}[0-9]{14}' } 
+      account_number: {title: 'IBAN', format: 'FI2112345600000785', regexp: 'FI[0-9]{2}[0-9]{14}', test_regexp: 'FI'+TEST_IBAN }
     },
     FR: { 
-      account_number: {title: 'IBAN', format: 'FR1420041010050500013M02606', regexp: 'FR[0-9]{2}[0-9]{10}[A-Z0-9]{11}[0-9]{2}' } 
+      account_number: {title: 'IBAN', format: 'FR1420041010050500013M02606', regexp: 'FR[0-9]{2}[0-9]{10}[A-Z0-9]{11}[0-9]{2}', test_regexp: 'FR'+TEST_IBAN }
     },
     DE: { 
-      account_number: {title: 'IBAN', format: 'DE89370400440532013000', regexp: 'DE[0-9]{2}[0-9]{18}' } 
+      account_number: {title: 'IBAN', format: 'DE89370400440532013000', regexp: 'DE[0-9]{2}[0-9]{18}', test_regexp: 'DE'+TEST_IBAN }
     },
     GI: { 
-      account_number: { title: 'IBAN', format: 'GI75NWBK000000007099453', regexp: 'GI[0-9]{2}[A-Z]{4}[A-Z0-9]{15}' } 
+      account_number: { title: 'IBAN', format: 'GI75NWBK000000007099453', regexp: 'GI[0-9]{2}[A-Z]{4}[A-Z0-9]{15}', test_regexp: 'GI'+TEST_IBAN }
     },
     HK: { 
-      account_number: { format: '123456-789', regexp: '[0-9]{5,6}-[0-9]{1,3}' }, 
-      routing_1: { title: 'clearing_code', format: '123', regexp: '[0-9]{3}' }, 
-      routing_2: { title: 'branch_code', format: '456', regexp: '[0-9]{3}' }, 
+      account_number: { format: '123456-789', regexp: '[0-9]{5,6}-[0-9]{1,3}', test_regexp: '[0-9]{5,6}-[0-9]{1,3}' }, 
+      routing_1: { title: 'clearing_code', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
+      routing_2: { title: 'branch_code', format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
       separator: "-" 
     },
     IE: { 
-      account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}' } 
+      account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN },
     },
     IT: { 
-      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z][0-9]{10}[A-Z0-9]{12}' } 
+      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z][0-9]{10}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN },
     },
     JP: { 
-      account_number: {format: '1234567', regexp: '[0-9]{6,8}' }, 
-      routing_1: {title: "bank_code", format: '0123', regexp: '[0-9]{4}'}, 
-      routing_2: {title: "branch_code", format: '456', regexp: '[0-9]{3}'}, 
+      account_number: {format: '1234567', regexp: '[0-9]{6,8}', test_regexp: '[0-9]{6,8}' }, 
+      routing_1: {title: "bank_code", format: '0123', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}'}, 
+      routing_2: {title: "branch_code", format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'}, 
       separator: "" 
     },
     LU: { 
-      account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}'} 
+      account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}', test_regexp: 'LU'+TEST_IBAN },
     },
     MX: { 
-      account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}' } 
+      account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' } 
     },
     NL: { 
-      account_number: {title: 'IBAN', format: 'NL39RABO0300065264', regexp: 'NL[0-9]{2}[A-Z]{4}[0-9]{10}' } 
+      account_number: {title: 'IBAN', format: 'NL39RABO0300065264', regexp: 'NL[0-9]{2}[A-Z]{4}[0-9]{10}', test_regexp: 'NL'+TEST_IBAN }
     },
     NZ: { 
-      account_number: {format: '0000000010', regexp: '[0-9]{9,10}' }, routing_number: {title: 'routing_number', format: '110000', regexp: '[0-9]{6}' } 
+      account_number: {format: '0000000010', regexp: '[0-9]{9,10}', test_regexp: '[0-9]{9,10}' }, 
+      routing_number: {title: 'routing_number', format: '110000', regexp: '[0-9]{6}', test_regexp: '[0-9]{6}' } 
     },
     NO: { 
-      account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}' } 
+      account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN },
     },
     PT: { 
-      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{11}' } 
+      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{11}', test_regexp: 'PT'+TEST_IBAN },
     },
     SG: { 
-      account_number: {format: '123456789012', regexp: '[0-9]{6-12}' }, 
-      routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}' }, 
-      routing_2: {title: 'branch_code', format: '567', regexp: '[0-9]{3}'}, 
+      account_number: {format: '123456789012', regexp: '[0-9]{6-12}', test_regexp: '[0-9]{6-12}' }, 
+      routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}' }, 
+      routing_2: {title: 'branch_code', format: '567', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'}, 
       separator: "-" 
     },
     ES: { 
-      account_number: {title: 'IBAN', format: 'ES9121000418450200051332', regexp: 'ES[0-9]{2}[0-9]{20}' } 
+      account_number: {title: 'IBAN', format: 'ES9121000418450200051332', regexp: 'ES[0-9]{2}[0-9]{20}', test_regexp: 'ES'+TEST_IBAN }
     },
     SE: { 
-      account_number: {title: 'IBAN', format: 'SE3550000000054910000003', regexp: 'SE[0-9]{2}[0-9]{20}' } 
+      account_number: {title: 'IBAN', format: 'SE3550000000054910000003', regexp: 'SE[0-9]{2}[0-9]{20}', test_regexp: 'SE'+TEST_IBAN }
     },
     CH: { 
-      account_number: {title: 'IBAN', format: 'CH9300762011623852957', regexp: 'CH[0-9]{2}[0-9]{5}[A-Z0-9]{12}' } 
+      account_number: {title: 'IBAN', format: 'CH9300762011623852957', regexp: 'CH[0-9]{2}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'CH'+TEST_IBAN }
     },
     GB: { 
-      account_number: {format: '01234567', regexp: '[0-9]{8}' }, 
-      routing_number: {title: 'sort_code', format: '12-34-56', regexp: '[0-9]{2}-[0-9]{2}-[0-9]{2}' } 
+      account_number: {format: '01234567', regexp: '[0-9]{8}', test_regexp: '[0-9]{8}' }, 
+      routing_number: {title: 'sort_code', format: '12-34-56', regexp: '[0-9]{2}-[0-9]{2}-[0-9]{2}', test_regexp: '108800' } 
     },
     US: { 
       account_number: {format: 'format_varies_by_bank' }, 
-      routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}' } 
+      routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}', test_regexp: '[0-9]{9}' } 
     }   
   };
 
@@ -212,12 +215,8 @@ window.ST.stripe_form_i18n = {
       var country = $("#stripe_account_form_address_country").val();
       var rule = BANK_RULES[country] || {};
       var re = (rule[field] || {} )['regexp'];
-      var acc_title = (rule[field] || {})['title'];
       if(window.ST.stripe_test_api_mode) {
-        re = ""; 
-      }
-      if(acc_title == 'IBAN' && window.ST.stripe_test_api_mode) {
-        re = '[A-Z]{2}89370400440532013000';
+        re = (rule[field] || {})['test_regexp']; 
       }
       if(re) {
         var rx = new RegExp("^"+re+"$");
@@ -231,10 +230,7 @@ window.ST.stripe_form_i18n = {
       var title = (rule[field] || {} )['title'];
       var regexp = (rule[field] || {} )['regexp'];
       if(window.ST.stripe_test_api_mode) {
-        regexp = ""; 
-      }
-      if(title == 'IBAN' && window.ST.stripe_test_api_mode) {
-        regexp = 'Test IBAN: [A-Z]{2}89370400440532013000';
+        regexp = (rule[field] || {})['test_regexp']; 
       }
       var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
       return i18n_label(title, def_title) + " "+i18n_label("must_match", "must match")+" \""+regexp+"\" ("+explain_regexp(regexp)+")";
