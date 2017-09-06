@@ -119,7 +119,8 @@ class PaymentSettingsController < ApplicationController
       stripe_address_form: StripeAddressForm.new(@parsed_seller_account),
       stripe_bank_form: StripeBankForm.new(@parsed_seller_account),
       stripe_verification_form: StripeVerificationForm.new(@parsed_seller_account),
-      stripe_mode: stripe_api.charges_mode(@current_community.id)
+      stripe_mode: stripe_api.charges_mode(@current_community.id),
+      stripe_test_mode: stripe_api.test_mode?(@current_community.id)
     }
   end
 
@@ -197,7 +198,7 @@ class PaymentSettingsController < ApplicationController
 
     validates_presence_of :address_country, :address_city, :address_line1
     validates_presence_of :address_postal_code, unless: proc { address_country == 'IE'  }
-    validates_presence_of :address_state, if: proc { ['AU', 'IE', 'US', 'CA'].include? address_country }
+    validates_presence_of :address_state, if: proc { ['IE', 'CA', 'US', 'AU'].include? address_country }
     validates_presence_of :personal_id_number, if: proc { address_country == 'CA' }
   end
 
@@ -240,7 +241,9 @@ class PaymentSettingsController < ApplicationController
         :bank_currency,
         :bank_account_holder_name,
         :bank_account_number,
-        :bank_routing_number
+        :bank_routing_number,
+        :bank_routing_1,
+        :bank_routing_2
         ).with_validations do
     validates_presence_of :bank_country,
         :bank_currency,
@@ -253,12 +256,20 @@ class PaymentSettingsController < ApplicationController
   def stripe_update_bank_account
     bank_country = @parsed_seller_account[:address_country]
     bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[bank_country]
+    form_params = params[:stripe_bank_form]
+    routing_number = if form_params[:bank_routing_1].present?
+                [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
+              else
+                form_params[:bank_routing_number]
+              end
     bank_params = {
       bank_country: bank_country,
       bank_currency: bank_currency,
       bank_account_holder_name: @parsed_seller_account[:legal_name],
-      bank_account_number: params[:stripe_bank_form][:bank_account_number],
-      bank_routing_number: params[:stripe_bank_form][:bank_routing_number]
+      bank_account_number: form_params[:bank_account_number],
+      bank_routing_number: routing_number,
+      bank_routing_1: form_params[:bank_routing_1],
+      bank_routing_2: form_params[:bank_routing_2],
     }
 
     bank_form = StripeBankForm.new(bank_params)

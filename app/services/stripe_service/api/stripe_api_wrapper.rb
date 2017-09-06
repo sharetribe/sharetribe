@@ -307,5 +307,11 @@ class StripeService::API::StripeApiWrapper
         Stripe::Transfer.retrieve transfer_id
       end
     end
+
+    def test_mode?(community)
+      with_stripe_payment_config(community) do |payment_settings|
+        Stripe.api_key =~ /^sk_test/
+      end
+    end
   end
 end
