@@ -40,7 +40,7 @@ class Rack::Attack
   # Throttle POST requests to /login by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:session/ip:#{req.ip}"
-  throttle('session/ip', :limit => 5, :period => 1.minute) do |req|
+  throttle('session/ip', :limit => 5, :period => 20.seconds) do |req|
     if req.path.end_with?('/sessions') && req.post?
       req.env['action_dispatch.remote_ip'].to_s
     end
@@ -55,7 +55,7 @@ class Rack::Attack
   # throttle logins for another user and force their login requests to be
   # denied, but that's not very common and shouldn't happen to you. (Knock
   # on wood!)
-  throttle("sessions/login", :limit => 5, :period => 1.minute) do |req|
+  throttle("sessions/login", :limit => 5, :period => 20.seconds) do |req|
     if req.path.end_with?('/sessions') && req.post?
       # return the email if present, nil otherwise
       req.params['person']['login'].presence
@@ -108,7 +108,9 @@ class Rack::Attack
             request_ip: req.env['action_dispatch.remote_ip'].to_s,
             matched: req.env['rack.attack.matched'],
             match_type: req.env['rack.attack.match_type'],
-            match_data: req.env['rack.attack.match_data']
+            match_data: req.env['rack.attack.match_data'],
+            user_agent: req.env['HTTP_USER_AGENT'],
+            referer: req.env['SERVER_NAME']
     }
     Rails.logger.info(data.to_json)
   end
