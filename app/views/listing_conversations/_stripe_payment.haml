@@ -14,6 +14,11 @@
     %h2= t(".address")
     .row
       .col-12
+        %label= t(".address_name")
+        = text_field_tag 'shipping_address[name]', '', class: 'required'
+
+    .row
+      .col-12
         %label= t(".address_street1")
         = text_field_tag 'shipping_address[street1]', '', class: 'required'
     .row
@@ -33,7 +38,7 @@
     .row
       .col-4
         %label= t(".address_country")
-        = select_tag 'shipping_address[country_code]', options_for_select(CountryI18nHelper.all_translated_countries, @current_community.country), {}
+        = select_tag 'shipping_address[country_code]', options_for_select(CountryI18nHelper.translated_shipping_countries, @current_community.country), {}
 
       .col-8
         .us-only.hidden

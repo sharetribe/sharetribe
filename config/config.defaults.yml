@@ -437,8 +437,8 @@ default: &default_settings
   stripe_private_key_pattern: "sk_test_.{24}"
   stripe_publishable_key_pattern: "pk_test_.{24}"
 
-  # Stripe allows to hold funds up to 90 days
-  stripe_max_booking_date: 90
+  # Stripe allows to hold funds up to 60 days
+  stripe_max_booking_date: 60
 
   # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
   #

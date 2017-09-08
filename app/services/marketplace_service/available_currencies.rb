@@ -64,7 +64,8 @@ module MarketplaceService::AvailableCurrencies
       "SK" => "EUR",
       "SI" => "EUR",
       "ES" => "EUR",
-      "VA" => "EUR"
+      "VA" => "EUR",
+      "US" => "USD"
   }
 
   CURRENCIES = [
@@ -78,11 +79,6 @@ module MarketplaceService::AvailableCurrencies
     "SVC", "SZL", "THB", "TJS", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "UYU", "UZS", "VND", "VUV",
     "WST", "XAF", "XCD", "XOF", "XPF", "YER", "ZAR", "ZMW",
   ]
-
-  CURRENCIES_WITH_NAMES = CURRENCIES.map do |currency|
-    info = Money::Currency.table[currency.downcase.to_sym]
-    [[info[:iso_code], info[:symbol], info[:name]].join(", "), currency]
-  end
 
   # Austria, Belgium, Denmark, Finland, France, Germany, Ireland, Luxembourg, Netherlands, Norway, Spain, Sweden, Switzerland, the United Kingdom, the United States
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US']
