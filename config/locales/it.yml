@@ -1140,7 +1140,7 @@ it:
     application:
       join_this_community: ~
       read_more: Continua
-      feedback: ~
+      feedback: "Scrivi il tuo messaggio a %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback

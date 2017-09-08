@@ -2,9 +2,9 @@ sv:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: " "
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -100,10 +100,10 @@ sv:
         favicon: Favicon
         favicon_info_text: "Favicon kommer att ersätta Sharetribes standardlogotyp. Dimensionerna ska vara 32x32 pixlar och den uppladdade bilden kommer att skalas till den dimensionen."
         community_custom_color1: Huvudfärg
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
+        community_slogan_color: "Färgen för marknadsplatsens slogan"
+        community_slogan_color_instructions_text: "Du kan ändra färgen på slogan som syns på hemsidan genom att skriva in ett hex-värde. Slogan visas åt alla som inte är inloggade. %{colorpicker} kan hjälpa dig att välja en färg och kopiera koden här. %{see_how_it_looks_like}"
+        community_description_color: "Färgen för marknadsplatsens beskrivning"
+        community_description_color_instructions_text: "Du kan ändra färgen på beskrivningen som syns på hemsidan genom att skriva in ett hex-värde. Beskrivningen visas åt alla som inte är inloggade. %{colorpicker} kan hjälpa dig att välja en färg och kopiera koden här. %{see_how_it_looks_like}"
         new_listing_button_custom_color: "Skapa en ny annons knapp färg"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
         logo_instructions_text_with_dimensions_no_placing: "Logons storlek skall vara %{height}x%{width}pixlar"
@@ -149,7 +149,7 @@ sv:
         sender_name_placeholder: Avsändarnamn
         sender_email_label: E-postadress
         sender_email_placeholder: dinmail@exempel.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Du kommer få ett email från %{email_sender} för att bekräfta din emailadress. E-postens ämne kommer att vara %{email_subject}. Följ instruktionerna i mejlet för att bekräfta din email."
         this_is_how_it_will_look: "Så här kommer det se ut:"
         send_verification_button: "Skicka verifikationsmail"
         successfully_saved: "Avsändaradress sparades korrekt. Verifikationsmailet kommer att skickas snart."
@@ -237,7 +237,7 @@ sv:
         manage_members: "Hantera användare"
         email: E-post
         name: Namn
-        display_name: ~
+        display_name: "Synligt namn"
         join_date: Anslöt
         admin: Admin
         posting_allowed: "Inlägg tillåtet"
@@ -250,7 +250,7 @@ sv:
         ban_me_error: "Du kan inte bannlysa dig själv."
       new_layout:
         new_layout: "Ny layout"
-        description_roadmap_new: ~
+        description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
         enabled_for_you: "Aktiverad för dig"
         enabled_for_all: "Aktiverad för alla"
         new_topbar: "Nya menyn (synlig på varje sida)"
@@ -336,8 +336,8 @@ sv:
         edit_location_field: "Redigera platsfält"
         this_field_is_required: "Detta fält måste fyllas i"
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Ändra annonsfältet \"Utgångsdatum\""
+        enable: "Aktivera utgångsdatum"
       form:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"
@@ -799,7 +799,7 @@ sv:
       show_thread: "Visa konversation"
     confirmation_instructions:
       confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
-      need_to_confirm: "Du behöver bekräfta din e-postadress."
+      need_to_confirm: "Du behöver bekräfta din email adress genom att klicka på knappen nedan för att gå med i%{service_name}."
       confirmation_link_text: "Bekräfta min e-postadress"
       or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
     common:
@@ -900,8 +900,8 @@ sv:
       subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
       transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
       you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
-      if_you_do_accept: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
+      if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram kommer transaktionen automatiskt att avslås. %{requester} kommer inte att måsta betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -957,7 +957,7 @@ sv:
     error_404:
       if_you_believe: "Om du tror att adressen är korrekt och att det borde fungera, vänligen hjälp oss att hitta felet genom att låta oss veta vilken adress som skapade felmeddelandet."
       page_can_not_be_found: "Sidan hittades inte!"
-      page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
+      page_you_requested_can_not_be_found: "Sidan som du begärde hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
     error_410:
       page_removed: "Sida borttagen"
@@ -1057,7 +1057,7 @@ sv:
       no_offers_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
       no_open_offers_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
       no_open_requests_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
-      no_requests_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
+      no_requests_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningsförfrågan är synliga för icke inloggade användare."
       one_private_offer_exists: "Detta är redan <b>ett erbjudande</b>,"
       one_private_request_exists: "Detta är redan <b>ett erbjudande</b>,"
       ride_offer: "Följa barn till fritidsaktiviteter"
@@ -1253,7 +1253,7 @@ sv:
       invitation_sent: "Inbjudan skickades"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
-      login_failed: "Inloggning misslyckades. Försök igen."
+      login_failed: "Inloggning misslyckades. Vänligen använd rätt upgifter."
       account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
       account_deleted: "Ditt konto är nu borttaget."
       login_successful: "Välkommen, %{person_name}!"
@@ -1699,7 +1699,7 @@ sv:
     paypal_account_connected_title: "PayPal-kontot är anslutet"
     paypal_account_connected: "PayPal-kontot <%{email}> är nu anslutet till %{service_name}."
     change_account: "Byt konto"
-    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
+    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från dina %{settings_link}."
     from_your_payment_settings_link_text: betalningsinställningar
     redirect_message: "Skickar dig vidare till PayPal. Klicka %{redirect_link} om sidan inte öppnas automatiskt."
     redirect_link_text: här
@@ -1874,10 +1874,10 @@ sv:
     notifications:
       email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
-      newsletters: Nyhetsbrev
+      newsletters: "Epost meddelanden från administratörer"
       community_updates: "E-post om uppdateringar"
       email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
-      email_about_new_comments_to_own_listing: "...någon har kommenterat mitt erbjudande eller efterfrågan"
+      email_about_new_comments_to_own_listing: "...någon kommenterar mitt erbjudande eller efterfrågan"
       email_about_new_messages: "...någon skickar mig ett meddelande"
       email_about_new_received_testimonials: "...någon ger mig feedback"
       email_about_testimonial_reminders: "...jag har glömt att ge feedback på en händelse"
@@ -1885,7 +1885,7 @@ sv:
       email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
       do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
       email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
-      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller min efterfrågan"
+      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller efterfrågan"
       email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
       email_about_new_payments: "...jag har fått en ny betalning"
       email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
@@ -1902,8 +1902,8 @@ sv:
       given_name: Förnamn
       first_name_with_initial: "(bara första bokstaven visas för andra användare)"
       first_name_only: "(visas inte för andra användare)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Synligt namn"
+      display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
       location_description: "Du kan antingen ange din exakta position eller t ex bara ditt postnummer. Lägg minst till ditt postnummer. Du kan också välja en plats på kartan nedan."
       phone_number: Telefonnummer
       profile_picture: Profilbild

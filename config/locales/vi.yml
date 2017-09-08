@@ -594,11 +594,11 @@ vi:
       shipping_price_label: "Vận chuyển:"
     confirm:
       confirm_description: ~
-      cancel_description: ~
+      cancel_description: "Nếu đơn hàng của bạn chưa được hoàn thành, bạn có thể đánh dấu \"khiếu nại\" cho nó. Bạn vẫn có thể đánh giá bên còn lại và giải thích về chuyện đã xảy ra."
       cancel_payed_description: "Nếu đề nghị đã được chấp nhận nhưng bạn muốn đổi ý, bạn vẫn có thể hủy đề nghị trước khi thanh toán."
       canceling_payed_transaction: "Hủy giao dịch"
       confirm: "Đánh dấu đã hoàn tất"
-      cancel: ~
+      cancel: "Khiếu nại"
       continue: "Tiếp tục"
       give_feedback_to: "Để lại phải hồi cho %{person_link}"
       do_not_give_feedback: "Bỏ qua thông tin phản hồi"
@@ -719,7 +719,7 @@ vi:
       reject_preauthorized_offer: "Không phải lúc này"
       reject_preauthorized_request: "Không phải lúc này"
       confirm: "Đánh dấu hoàn tất"
-      cancel: ~
+      cancel: "Khiếu nại"
   feedback:
     feedback_subject: "Phản hồi mới từ %{service_name}"
     feedback_body: "%{author_name_and_email} đã gửi phản hồi sau từ %{service_name}"
@@ -871,7 +871,7 @@ vi:
       added_listing: "%{name_link} đã đăng một bài mới :"
       update_mail_title: ~
       title_link_text: "%{community_name}"
-      intro_paragraph: ~
+      intro_paragraph: "Đây là một số sự kiện đã diễn ra trên %{community_link} trong %{time_since_last_update} qua."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
@@ -1408,7 +1408,7 @@ vi:
         best_result: "Để có kết quả tốt nhất, hãy sử dụng các hình ảnh JPG, GIF hoặc PNG %{width} x %{height} pixels"
         no_file_selected: "Không có tập tin được chọn"
         remove_image: "Loại bỏ ảnh"
-        select_file: "Chọ tập tin"
+        select_file: "Chọn tập tin"
         add_more: "+ Thêm"
         removing: "Đang xóa ..."
         processing: "Đang xử lí..."
@@ -1935,7 +1935,7 @@ vi:
       send_feedback: "Gửi ý kiến phản hồi"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
-      textual_feedback: "Mọi thứ đã đi như thế nào"
+      textual_feedback: "Mọi thứ đã diễn ra như thế nào?"
       this_will_be_shown_in_profile: "Thông tin phản hồi mà bạn cung cấp sẽ được hiển thị đối với các người dùng khác trong trang hồ sơ của %{person} . Điều đó giúp các thành viên khác của cộng đồng này đánh giá xem %{person} là người đáng tin cậy không."
       positive: "Tích cực"
       negative: "Tiêu cực"
