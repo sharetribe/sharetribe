@@ -541,6 +541,11 @@ en:
       you_cannot_use_online_payments: "You cannot use online payments in %{country_name} with %{currency}. Please choose a different currency or %{support_link} to change your country. You can read more about supported countries and currencies %{help_link}. In the future we might add more payment providers and support more currencies"
       which_to_choose: "Which one to choose?"
       you_can_use_stripe_or_paypal: "You can use either Stripe, PayPal or both as your payment providers. %{choose_link}"
+      you_can_use_stripe_only: "You can use Stripe as your payment provider. %{read_more_link}"
+      read_more_stripe: "Read more about Stripe payments."
+      you_can_use_paypal_only: "You can use PayPal as your payment provider. %{read_more_link}"
+      read_more_paypal: "Read more about PayPal payments."
+
       read_more_about_paypal_and_stripe: "Read more about online payments, Stripe and PayPal"
       general_settings_updated: Payment system general settings updated
       transaction_fee_settings_updated: Transaction fee settings updated 
@@ -660,8 +665,12 @@ en:
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-
-          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. PayPal's fee are not included in this commission, so in addition to %{service_name} commission, you also need to pay PayPal's fees from each payment processed by PayPal. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you also need to pay PayPal's fees from each payment processed by PayPal. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+      body_text_accept: |-
+          This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+
       link_to_paypal_text: here
     paypal_only_fee_info:
       title: "PayPal's payment processing fee"
@@ -672,7 +681,7 @@ en:
     stripe_fee_info:
       title: "Stripe's payment processing fee"
       body_text: |-
-          For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. Stripe's fee are included in this commission.
+          For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. Stripe's fees are included in this commission.
       link_to_stripe_text: here
 
   conversations:
@@ -695,6 +704,8 @@ en:
       you_will_get_label: "You will get:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
       stripe_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>Stripe's payment processing fee</a>"
       payment_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>payment processing fee</a>"
@@ -1573,10 +1584,10 @@ en:
         mass: "piece, kg, l, m2, ..."
         time: "hour, day, month, ..."
         long_time: "week, month, ..."
-        after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
+        after_service_fee_you_will_get: "After %{service_name} and a payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{payment_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and %{paypal_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_stripe_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) will be deducted from the price."
         payment_fee_info_link_text: "payment processing fee"
         paypal_fee_info_link_text: "PayPal's payment processing fee"
@@ -1755,14 +1766,15 @@ en:
       read_more: View.
     stripe_payment:
       payment: Payment
-      pay_with_card: Pay with credit card
+      pay_with_card: Pay with credit or debit card
       address: Shipping address
-      address_country: Country
-      address_city: City
-      address_state: State
-      address_street1: Street address line 1
-      address_street2: Street address line 2 
-      address_postal_code: ZIP / Postal code
+      address_country: "Country *"
+      address_name: "Name *"
+      address_city: "City *"
+      address_state: "State *"
+      address_street1: "Street address line 1 *"
+      address_street2: "Street address line 2"
+      address_postal_code: "ZIP / Postal code *"
 
   mapview:
     index:
@@ -1854,6 +1866,7 @@ en:
     paypal_permission_granted_summary: "Permission for transaction fees granted"
   paypal:
     pay_with_paypal: "Proceed to payment"
+    checkout_with: "Checkout with"
     or_pay_with_paypal: "or"
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
@@ -2214,6 +2227,8 @@ en:
     quantity: "Quantity: %{quantity}"
     unit_price: "Unit price: %{unit_price}"
     total: "Total:"
+    total_to_pay: "Payment total:"
+
   unit:
     day: day
     days: days
@@ -2306,6 +2321,7 @@ en:
     stripe_credit_card: "Credit card"
     paypal: PayPal
     paypal_connected: PayPal account connected successfully!
+    paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
 
     form_new:
       need_info: We need some information about you to be able to send you money.
@@ -2344,9 +2360,9 @@ en:
     paypal: PayPal
     credit_card_bank_details: To accept credit card payments you need to provide yout bank details so we can move money to your bank account.
     add_bank_details: Add bank details
-    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both
-    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal acclount so we can move money there
+    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both.
+    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal account so we can move money there.
     connect_paypal: Connect PayPal account
     wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the marketplace owners."
-    invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country"
+    invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"

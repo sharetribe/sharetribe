@@ -757,7 +757,14 @@ class ListingsController < ApplicationController
   end
 
   def commission(community, process)
-    payment_type = MarketplaceService::Community::Query.payment_type(community.id)
+    paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
+    stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
+
+    supported = []
+    supported << :paypal if paypal_ready
+    supported << :stripe if stripe_ready
+    payment_type = supported.size > 1 ? supported : supported.first
+
     currency = community.currency
 
     case [payment_type, process]

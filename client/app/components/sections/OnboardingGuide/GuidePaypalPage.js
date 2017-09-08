@@ -48,7 +48,7 @@ const GuidePaypalPage = (props) => {
           },
           t('web.admin.onboarding.guide.paypal.advice.disable_payments_link')),
         stripe_paypal_link: a(
-          { href: 'https://help.sharetribe.com/',
+          { href: 'https://help.sharetribe.com/differences-between-stripe-and-paypal',
             target: '_blank',
             rel: 'noreferrer',
             alt: t('web.admin.onboarding.guide.paypal.advice.stripe_paypal_link'),

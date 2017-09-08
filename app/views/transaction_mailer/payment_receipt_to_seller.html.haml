@@ -46,7 +46,7 @@
               = t("emails.payment_receipt_to_seller.shipping_total")
             %td= shipping_total
 
-        - if payment_gateway_fee.present?
+        - if payment_gateway_fee.present? && gateway.to_s != 'stripe'
           %tr
             %td
               = t("emails.payment_receipt_to_seller.payment_gateway_fee")

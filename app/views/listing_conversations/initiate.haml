@@ -25,7 +25,7 @@
           = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
 
       %li
-        = render partial: "transactions/price_break_down", locals: price_break_down_locals
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: false)
 
   = form_tag form_action, method: :post, id: "transaction-form" do
 
@@ -60,7 +60,7 @@
      
       - if paypal_in_use && !stripe_in_use
         .row
-          .col-12.payment-button-wrapper
+          .col-12.payment-button-wrapper.paypal-payment
             = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
 
         .row
@@ -69,11 +69,14 @@
 
       - if paypal_in_use  && stripe_in_use
         .row
-          .col-12
-            = t("paypal.or_pay_with_paypal")
+          .col-12.paypal-or-stripe
+            %span
+              = t("paypal.or_pay_with_paypal")
         .row
-          .col-12.payment-button-wrapper
-            = image_tag 'checkout_with_paypal.png', alt: t("paypal.pay_with_paypal"), title:  t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button paypal-image"
+          .col-12.payment-button-wrapper.paypal-payment
+            %button.checkout-with-paypal-button.paypal-image{type: 'button'}
+              = t("paypal.checkout_with")
+              = image_tag 'checkout_with_paypal.png'
 
       - if stripe_in_use || paypal_in_use
         .row

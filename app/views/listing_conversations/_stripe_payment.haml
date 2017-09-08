@@ -4,7 +4,6 @@
     .col-12
       %h3
         = t(".pay_with_card")
-
 .form-row
   .row
     .col-12
@@ -13,6 +12,11 @@
 
   - if stripe_shipping_required
     %h2= t(".address")
+    .row
+      .col-12
+        %label= t(".address_name")
+        = text_field_tag 'shipping_address[name]', '', class: 'required'
+
     .row
       .col-12
         %label= t(".address_street1")
@@ -34,16 +38,16 @@
     .row
       .col-4
         %label= t(".address_country")
-        = select_tag 'shipping_address[country_code]', options_for_select(StripeService::Store::StripeAccount::COUNTRY_NAMES), {}
+        = select_tag 'shipping_address[country_code]', options_for_select(CountryI18nHelper.translated_shipping_countries, @current_community.country), {}
 
       .col-8
         .us-only.hidden
           %label= t(".address_state")
-          = select_tag 'shipping_address[state]', options_for_select(us_states), class: 'required', prompt: "Select state"
+          = select_tag 'shipping_address[state_or_province]', options_for_select(us_states), class: 'required', prompt: "Select state"
     .row
       .col-12
 
-  .row
+  .row.stripe-payment
     .col-12.payment-button-wrapper.paypal-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
 

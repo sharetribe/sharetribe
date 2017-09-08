@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class TransactionsController < ApplicationController
 
   before_action only: [:show] do |controller|
@@ -430,6 +431,8 @@ class TransactionsController < ApplicationController
         quantity: quantity,
         subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
         total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
+        seller_gets: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]) - tx[:commission_total],
+        fee: tx[:commission_total],
         shipping_price: tx[:shipping_price],
         total_label: total_label,
         unit_type: tx[:unit_type]
