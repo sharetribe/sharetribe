@@ -169,3 +169,4 @@ gem 'redcarpet', '~> 3.4.0'
 gem 'intercom'
 
 gem 'twitter_cldr'
+gem 'memoist'

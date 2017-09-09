@@ -6,9 +6,8 @@
   %h1
     = t("admin.communities.edit_details.invite_people")
 
-- if local_assigns[:show_onboarding_popup]
-  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
 
+= render partial: 'layouts/onboarding_popup_wrapper'
 #invitation_form.centered-section
   - support_link = link_to(t("homepage.invitation_form.this_article_link"), "https://help.sharetribe.com/configuration-and-how-to/how-to-send-mass-emails-and-invitations", target: "_blank")
   %p= t("homepage.invitation_form.add_email_addresses_description")
