@@ -1,5 +1,5 @@
 /* Update single listing page links */
-$("#listing-message-links").html("<%=raw escape_javascript(render(:partial => 'listings/listing_actions', locals: { form_path: nil, stripe_in_use: stripe_in_use, paypal_in_use: paypal_in_use, process: process, country_code: country_code, availability_enabled: availability_enabled })) %>");
+$("#listing-message-links").html("<%=raw escape_javascript(render(:partial => 'listings/listing_actions')) %>");
 
 /* Highlight action */
 $("#listing-message-links").effect("highlight", {}, 2000);

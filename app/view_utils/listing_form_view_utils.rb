@@ -44,4 +44,109 @@ module ListingFormViewUtils
     end
   end
 
+  def normalize_price_params(listing_params)
+    currency = listing_params[:currency]
+    listing_params.inject({}) do |hash, (k, v)|
+      case k
+      when "price"
+        hash.merge(:price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      when "shipping_price"
+        hash.merge(:shipping_price_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      when "shipping_price_additional"
+        hash.merge(:shipping_price_additional_cents =>  MoneyUtil.parse_str_to_subunits(v, currency))
+      else
+        hash.merge(k.to_sym => v)
+      end
+    end
+  end
+
+  def build_listing_params(shape, listing_uuid, params, current_community)
+    with_currency = params.to_unsafe_hash[:listing].merge({currency: current_community.currency})
+    valid_until_enabled = !current_community.hide_expiration_date
+    listing_params = filter(with_currency, shape, valid_until_enabled)
+    listing_unit = Maybe(params.to_unsafe_hash)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    listing_params = filter_additional_shipping(listing_params, listing_unit)
+    validation_result = validate(
+      params: listing_params,
+      shape: shape,
+      unit: listing_unit,
+      valid_until_enabled: valid_until_enabled
+    )
+
+    return validation_result unless validation_result.success
+
+    listing_params = normalize_price_params(listing_params)
+    m_unit = select_unit(listing_unit, shape)
+
+    listing_params = create_listing_params(listing_params).merge(
+        uuid_object: listing_uuid,
+        community_id: current_community.id,
+        listing_shape_id: shape[:id],
+        transaction_process_id: shape[:transaction_process_id],
+        shape_name_tr_key: shape[:name_tr_key],
+        action_button_tr_key: shape[:action_button_tr_key],
+        availability: shape[:availability]
+    ).merge(unit_to_listing_opts(m_unit)).except(:unit)
+
+    Result::Success.new(listing_params)
+  end
+
+  def select_unit(listing_unit, shape)
+    Maybe(shape)[:units].map { |units|
+      units.length == 1 ? units.first : units.find { |u| u == listing_unit }
+    }
+  end
+
+  def create_listing_params(params)
+    listing_params = params.except(:delivery_methods).merge(
+      require_shipping_address: Maybe(params[:delivery_methods]).map { |d| d.include?("shipping") }.or_else(false),
+      pickup_enabled: Maybe(params[:delivery_methods]).map { |d| d.include?("pickup") }.or_else(false),
+      price_cents: params[:price_cents],
+      shipping_price_cents: params[:shipping_price_cents],
+      shipping_price_additional_cents: params[:shipping_price_additional_cents],
+      currency: params[:currency]
+    )
+
+    add_location_params(listing_params, params)
+  end
+
+  def add_location_params(listing_params, params)
+    if params[:origin_loc_attributes].nil?
+      listing_params
+    else
+      params = ActionController::Parameters.new(params)
+      location_params = permit_location_params(params).merge(location_type: :origin_loc)
+
+      listing_params.merge(
+        origin_loc_attributes: location_params
+      )
+    end
+  end
+
+  def permit_location_params(params)
+    p = if params[:location].present?
+          params.require(:location)
+        elsif params[:origin_loc_attributes].present?
+          params.require(:origin_loc_attributes)
+        elsif params[:listing].present? && params[:listing][:origin_loc_attributes].present?
+          params.require(:listing).require(:origin_loc_attributes)
+        end
+    p.permit(:address, :google_address, :latitude, :longitude) if p.present?
+  end
+
+  def unit_to_listing_opts(m_unit)
+    m_unit.map { |unit|
+      {
+        unit_type: unit[:type],
+        quantity_selector: unit[:quantity_selector],
+        unit_tr_key: unit[:name_tr_key],
+        unit_selector_tr_key: unit[:selector_tr_key]
+      }
+    }.or_else({
+        unit_type: nil,
+        quantity_selector: nil,
+        unit_tr_key: nil,
+        unit_selector_tr_key: nil
+    })
+  end
 end

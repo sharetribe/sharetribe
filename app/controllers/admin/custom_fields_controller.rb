@@ -81,13 +81,8 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
     shapes = listings_api.shapes.get(community_id: @community.id).data
     price_in_use = shapes.any? { |s| s[:price_enabled] }
 
-    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
-      flash[:show_onboarding_popup],
-      admin_getting_started_guide_path,
-      Admin::OnboardingWizard.new(@current_community.id).setup_status)
-
-    render locals: onboarding_popup_locals.merge(
-             { show_price_filter: price_in_use })
+    make_onboarding_popup
+    render locals: { show_price_filter: price_in_use }
   end
 
   def new

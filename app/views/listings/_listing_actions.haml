@@ -1,15 +1,10 @@
-- is_author = current_user?(@listing.author)
-- is_marketplace_admin = Maybe(@current_user).has_admin_rights?(@current_community).or_else(false)
-- is_authorized = is_author || is_marketplace_admin
-- show_manage_availability = is_authorized && availability_enabled
-
 - if @listing.closed?
   .listing-view-admin-links
     .listing-view-admin-link
       .icon-with-text-container
         = icon_tag("lock", ["icon-part"])
         .text-part= t("listings.reply_link.listing_closed")
-    - if is_authorized
+    - if @listing_presenter.is_authorized
       .listing-view-admin-link
         %a.action-link{href: edit_listing_path(@listing)}
           .icon-with-text-container
@@ -17,14 +12,14 @@
             .text-part= t("listings.edit_links.reopen_listing")
 - else
 
-  - if is_author
-    = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
+  - if @listing_presenter.is_author
+    = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
   - else
 
-    = form_tag form_path, :method => :get, :id => "booking-dates" do
+    = form_tag @listing_presenter.form_path, :method => :get, :id => "booking-dates" do
 
       - if [:day, :night].include?(@listing.quantity_selector&.to_sym)
-        - blocked_dates_result.on_success do |blocked_dates|
+        - @listing_presenter.blocked_dates_result.on_success do |blocked_dates|
           - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
           - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
           - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
@@ -102,7 +97,7 @@
                 }
               });
 
-              var endDate = new Date(#{blocked_dates_end_on.to_i * 1000});
+              var endDate = new Date(#{@listing_presenter.blocked_dates_end_on_midnight.to_i * 1000});
               var nightPicker = #{@listing.quantity_selector.to_sym == :night};
 
               window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate, nightPicker: nightPicker });
@@ -117,12 +112,10 @@
               %input.input-sm.form-control.required#end-on{:type => 'text', :name => "end_on", :placeholder => t("datepicker.format"), :data => { :output => "booking-end-output" }}
               %input#booking-end-output{:type => 'hidden', :name => 'end_on'}
 
-        - blocked_dates_result.on_error do
+        - @listing_presenter.blocked_dates_result.on_error do
           = t("listings.listing_actions.unable_load_availability")
 
-      - elsif listing_unit_type.present?
-        - delivery_type = delivery_opts.length > 0 ? delivery_opts.first[:name].to_s : ""
-        - shipping_price_additional = delivery_opts.length > 0 ? delivery_opts.first[:shipping_price_additional] : nil
+      - elsif @listing_presenter.listing_unit_type.present?
         - content_for :extra_javascript do
           :javascript
             $("#booking-dates").validate({
@@ -135,8 +128,8 @@
               }
             });
             window.ST.initializeQuantityValidation({validate: "positiveIntegers", input: "quantity", errorMessage: "#{t("errors.messages.positive_number")}" });
-            if ("#{delivery_type}" == "shipping" && #{shipping_price_additional != nil}) {
-              window.ST.initializeShippingPriceTotal(#{raw currency_opts.to_json}, '#quantity', '.delivery-price-value');
+            if ("#{@listing_presenter.delivery_type}" == "shipping" && #{@listing_presenter.shipping_price_additional != nil}) {
+              window.ST.initializeShippingPriceTotal(#{raw @listing_presenter.currency_opts.to_json}, '#quantity', '.delivery-price-value');
             }
 
         .quantity-wrapper.input-group.clearfix
@@ -146,43 +139,43 @@
           .quantity-input.input-sm.required
             %input#quantity{type: 'number', placeholder: t("listings.quantity_placeholder"), name: 'quantity', value: 1, min: 1, step: 1}
 
-      = render partial: "delivery_opts", locals: { delivery_opts: delivery_opts, is_author: is_author }
+      = render partial: "delivery_opts", locals: { delivery_opts: @listing_presenter.delivery_opts, is_author: @listing_presenter.is_author }
 
       = hidden_field_tag(:listing_id, @listing.id)
 
-      - blocked_dates_result.on_success do
+      - @listing_presenter.blocked_dates_result.on_success do
         %button.enabled-book-button
           .content
             = action_button_label(@listing)
 
-      - blocked_dates_result.on_error do
+      - @listing_presenter.blocked_dates_result.on_error do
         %button.disabled-book-button{disabled: true}
           .content
             = action_button_label(@listing)
 
     .row
       .col-12
-        = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: stripe_in_use, paypal_in_use: paypal_in_use }
+        = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
     
-  - if is_authorized
+  - if @listing_presenter.is_authorized
     .listing-view-admin-links
       .listing-view-admin-link
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
           .text-part= t("listings.edit_links.edit_listing")
-      - if show_manage_availability
+      - if @listing_presenter.show_manage_availability
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
           %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
             = icon_tag("calendar", ["icon-part"])
             .text-part= t("web.listings.edit_listing_availability")
-          = react_component("ManageAvailabilityApp", props: manage_availability_props.merge({ availability_link_id: availability_link_id }), prerender: false)
+          = react_component("ManageAvailabilityApp", props: @listing_presenter.manage_availability_props.merge({ availability_link_id: availability_link_id }), prerender: false)
       .listing-view-admin-link
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
           = icon_tag("lock", ["icon-part"])
           .text-part= t("listings.edit_links.close_listing")
 
-      - if is_marketplace_admin
+      - if @listing_presenter.is_marketplace_admin
         .listing-view-admin-link
           = link_to move_to_top_person_listing_path(@current_user, @listing), data: { method: "put" } do
             .icon-with-text-container

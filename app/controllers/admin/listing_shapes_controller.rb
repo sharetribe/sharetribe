@@ -9,11 +9,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   def index
     category_count = @current_community.categories.count
     template_label_key_list = ListingShapeTemplates.new(process_summary).label_key_list
-
-    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
-      flash[:show_onboarding_popup],
-      getting_started_guide_admin_community_path(@current_community),
-      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+    make_onboarding_popup
 
     render("index",
            locals: {
@@ -23,7 +19,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
              knowledge_base_url: APP_CONFIG.knowledge_base_url,
              category_count: category_count,
              listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)
-             }.merge(onboarding_popup_locals))
+             })
   end
 
   def new

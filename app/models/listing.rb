@@ -237,4 +237,105 @@ class Listing < ApplicationRecord
     Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
   end
 
+  def init_origin_location(location)
+    if location.present?
+      build_origin_loc(location.attributes)
+    else
+      build_origin_loc()
+    end
+  end
+
+  def ensure_origin_loc
+    build_origin_loc unless origin_loc
+  end
+
+  def custom_field_value_factory(custom_field_id, answer_value)
+    question = CustomField.find(custom_field_id)
+
+    answer = question.with_type do |question_type|
+      case question_type
+      when :dropdown
+        option_id = answer_value.to_i
+        answer = DropdownFieldValue.new
+        answer.custom_field_option_selections = [CustomFieldOptionSelection.new(:custom_field_value => answer,
+                                                                                :custom_field_option_id => option_id,
+                                                                                :listing_id => self.id)]
+        answer
+      when :text
+        answer = TextFieldValue.new
+        answer.text_value = answer_value
+        answer
+      when :numeric
+        answer = NumericFieldValue.new
+        answer.numeric_value = ParamsService.parse_float(answer_value)
+        answer
+      when :checkbox
+        answer = CheckboxFieldValue.new
+        answer.custom_field_option_selections = answer_value.map { |value|
+          CustomFieldOptionSelection.new(:custom_field_value => answer, :custom_field_option_id => value, :listing_id => self.id)
+        }
+        answer
+      when :date_field
+        answer = DateFieldValue.new
+        answer.date_value = Time.utc(answer_value["(1i)"].to_i,
+                                     answer_value["(2i)"].to_i,
+                                     answer_value["(3i)"].to_i)
+        answer
+      else
+        raise ArgumentError.new("Unimplemented custom field answer for question #{question_type}")
+      end
+    end
+
+    answer.question = question
+    answer.listing_id = self.id
+    return answer
+  end
+
+  # Note! Requires that parent self is already saved to DB. We
+  # don't use association to link to self but directly connect to
+  # self_id.
+  def upsert_field_values!(custom_field_params)
+    custom_field_params ||= {}
+
+    # Delete all existing
+    custom_field_value_ids = self.custom_field_values.map(&:id)
+    CustomFieldOptionSelection.where(custom_field_value_id: custom_field_value_ids).delete_all
+    CustomFieldValue.where(id: custom_field_value_ids).delete_all
+
+    field_values = custom_field_params.map do |custom_field_id, answer_value|
+      custom_field_value_factory(custom_field_id, answer_value) unless is_answer_value_blank(answer_value)
+    end.compact
+
+    # Insert new custom fields in a single transaction
+    CustomFieldValue.transaction do
+      field_values.each(&:save!)
+    end
+  end
+
+  def is_answer_value_blank(value)
+    if value.is_a?(Hash)
+      value["(3i)"].blank? || value["(2i)"].blank? || value["(1i)"].blank?  # DateFieldValue check
+    else
+      value.blank?
+    end
+  end
+
+  def reorder_listing_images(params, user_id)
+    listing_image_ids =
+      if params[:listing_images]
+        params[:listing_images].collect { |h| h[:id] }.select { |id| id.present? }
+      else
+        logger.error("Listing images array is missing", nil, {params: params})
+        []
+      end
+
+    ListingImage.where(id: listing_image_ids, author_id: user_id).update_all(listing_id: self.id)
+
+    if params[:listing_ordered_images].present?
+      params[:listing_ordered_images].split(",").each_with_index do |image_id, position|
+        ListingImage.where(id: image_id, author_id: user_id).update_all(position: position+1)
+      end
+    end
+  end
+
 end

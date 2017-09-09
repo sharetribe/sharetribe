@@ -1,13 +1,14 @@
+- payment_gateway = @listing_presenter.commission[:payment_gateway]
 .price-container
-  - if shape[:price_enabled]
+  - if @listing_presenter.shape[:price_enabled]
     = form.label :price, t(".price")
     = form.text_field :price, :class => "price-field", :maxlength => "10", :placeholder => "0", :value => (@listing.price ? @listing.price.to_s: 0)
     = render partial: "listings/form/price_currency", locals: {form: form}
 
-    - if unit_options.empty?
+    - if @listing_presenter.unit_options.empty?
       -# No-op
-    - elsif unit_options.length == 1
-      - unit_option = unit_options.first
+    - elsif @listing_presenter.unit_options.length == 1
+      - unit_option = @listing_presenter.unit_options.first
       .quantity-description
         = t(".per")
         = unit_option[:display]
@@ -16,7 +17,7 @@
       .quantity-description
         = t(".per")
       %select.js-listing-unit{name: "listing[unit]"}
-        - unit_options.each do |unit_option|
+        - @listing_presenter.unit_options.each do |unit_option|
           %option{value: unit_option[:value], selected: unit_option[:selected], data: { kind: unit_option[:kind] }}
             = unit_option[:display]
 
@@ -24,16 +25,16 @@
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
           = payment_gateway == :paypal ? t(".paypal_fee_info_link_text") : t(".payment_fee_info_link_text")
-      - if seller_commission_in_use 
+      - if @listing_presenter.commission[:seller_commission_in_use]
         - content_for :seller_commission_js do
           :javascript
             $(function() {
               updateSellerGetsValue(
-                #{raw currency_opts.to_json},
+                #{raw @listing_presenter.currency_opts.to_json},
                 "#listing_price",
                 "#fee_display",
-                #{commission_from_seller},
-                #{minimum_commission.format(decimal_mark: ".", delimiter: "", symbol: false)},
+                #{@listing_presenter.commission[:commission_from_seller]},
+                #{@listing_presenter.commission[:minimum_commission].format(decimal_mark: ".", delimiter: "", symbol: false)},
                 true);
             });
         - if run_js_immediately
@@ -67,18 +68,18 @@
     
     - if payment_gateway == :stripe || payment_gateway == [:paypal, :stripe] 
       - text_with_line_breaks_html_safe do
-        - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), stripe_fees_url, target: "_blank")
-        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: stripe_commission).html_safe
+        - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), @listing_presenter.stripe_fees_url, target: "_blank")
+        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: @listing_presenter.commission[:stripe_commission]).html_safe
 
     - if payment_gateway == [:paypal, :stripe] 
       %h4= t("common.payment_fee_info.paypal")
       - text_with_line_breaks_html_safe do
-        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
+        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
+        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: @listing_presenter.commission[:paypal_commission]).html_safe
 
     - if payment_gateway == :paypal
       - text_with_line_breaks_html_safe do
-        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
+        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"),@listing_presenter.paypal_fees_url, target: "_blank")
         = t("common.paypal_only_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
 
   - if run_js_immediately

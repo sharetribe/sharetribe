@@ -1,6 +1,7 @@
-- required = Maybe(@current_community).listing_location_required.or_else { false }
+- required = @current_community.listing_location_required?
 - title = t(".location") + (required ? "*" : "")
 - required_class = (required ? "required" : "")
+- origin_loc = @listing.origin_loc
 
 = form.label :origin, title, :class => "input"
 = form.text_field :origin, :class => "text_field #{required_class}", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
