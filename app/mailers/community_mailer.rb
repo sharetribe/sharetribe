@@ -60,7 +60,7 @@ class CommunityMailer < ActionMailer::Base
       @url_params[:ref] = "weeklymail"
       @url_params.freeze # to avoid accidental modifications later
 
-      @show_listing_shape_label = shapes.get(community_id: community.id)[:data].length > 1
+      @show_listing_shape_label = community.shapes.present?
       @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
 
       @title_link_text = t("emails.community_updates.title_link_text",
@@ -89,9 +89,5 @@ class CommunityMailer < ActionMailer::Base
 
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
-  end
-
-  def shapes
-    ListingService::API::Api.shapes
   end
 end

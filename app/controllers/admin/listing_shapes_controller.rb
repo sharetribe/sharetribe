@@ -18,7 +18,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
              display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
              knowledge_base_url: APP_CONFIG.knowledge_base_url,
              category_count: category_count,
-             listing_shapes: all_shapes(community_id: @current_community.id, include_categories: true)
+             listing_shapes: @current_community.shapes
              })
   end
 
@@ -36,7 +36,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
   def edit
     shape = ShapeService.new(processes).get(
-      community_id: @current_community.id,
+      community: @current_community,
       name: params[:url_name],
       locales: available_locales.map { |_, locale| locale }
     ).data
@@ -54,7 +54,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
     create_result = validate_shape(shape).and_then { |s|
       ShapeService.new(processes).create(
-        community_id: @current_community.id,
+        community: @current_community,
         default_locale: @current_community.default_locale,
         opts: s
       )
@@ -78,7 +78,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
     update_result = validate_shape(shape).and_then { |s|
       ShapeService.new(processes).update(
-        community_id: @current_community.id,
+        community: @current_community,
         name: params[:url_name],
         opts: s
       )
@@ -110,7 +110,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   def order
     ordered_ids = params[:order].map(&:to_i)
 
-    shapes = all_shapes(community_id: @current_community.id, include_categories: false)
+    shapes = @current_community.shapes
 
     old_shape_order_id_map = shapes.map { |s|
       {
@@ -140,39 +140,39 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     diff = ArrayUtils.diff_by_key(old_shape_order_id_map, new_shape_order_id_map, :id)
 
     diff.select { |d| d[:action] == :changed }.each { |d|
-      opts = { sort_priority: d[:value][:sort_priority]}
-      listing_api.shapes.update(community_id: @current_community.id, listing_shape_id: d[:value][:id], opts: opts)
+      @current_community.shapes.where(id: d[:value][:id]).update_all(sort_priority: d[:value][:sort_priority])
     }
 
     render body: nil, status: 200
   end
 
   def close_listings
-    listing_api.shapes.get(community_id: @current_community.id, name: params[:url_name]).and_then { |shape|
-      listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: shape[:id] }, opts: { open: false })
-    }.on_success {
+    shape = @current_community.shapes.by_name(params[:url_name]).first
+    if shape
+      @current_community.listings.where(listing_shape_id: shape.id).update_all(open: false, updated_at: Time.zone.now)
       flash[:notice] = t("admin.listing_shapes.successfully_closed")
       return redirect_to action: :edit, id: params[:url_name]
-    }.on_error {
+    else
       flash[:error] = t("admin.listing_shapes.can_not_find_name", name: params[:url_name])
       return redirect_to action: :index
-    }
+    end
   end
 
   def destroy
-    can_delete_shape?(params[:url_name], all_shapes(community_id: @current_community.id, include_categories: true)).and_then { |s|
-      listing_api.listings.update_all(community_id: @current_community.id, query: { listing_shape_id: s[:id] }, opts: { open: false, listing_shape_id: nil })
-    }.and_then {
-      listing_api.shapes.delete(
-        community_id: @current_community.id,
-        name: params[:url_name]
-      )
-    }.on_success { |deleted_shape|
-      flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
-    }.on_error { |error_msg|
-      flash[:error] = "Cannot delete order type, error: #{error_msg}"
-    }
-
+    result = can_delete_shape?(params[:url_name], @current_community.shapes)
+    if result.success
+      shape = result.data
+      @current_community.listings.where(listing_shape_id: shape.id).update_all(open: false, listing_shape_id: nil)
+      deleted_shape = @current_community.shapes.by_name(params[:url_name]).first
+      if deleted_shape
+        deleted_shape.update(deleted: true)
+        flash[:notice] = t("admin.listing_shapes.successfully_deleted", order_type: t(deleted_shape[:name_tr_key]))
+      else
+        flash[:error] = "Cannot delete order type"
+      end
+    else
+      flash[:error] = "Cannot delete order type, error: #{result.error_msg}"
+    end
     redirect_to action: :index
   end
 
@@ -200,16 +200,11 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   end
 
   def render_edit_form(url_name:, form:, process_summary:, available_locs:)
-    can_delete_res = can_delete_shape?(url_name, all_shapes(community_id: @current_community.id, include_categories: true))
+    can_delete_res = can_delete_shape?(url_name, @current_community.shapes)
     cant_delete = !can_delete_res.success
     cant_delete_reason = cant_delete ? can_delete_res.error_msg : nil
 
-    count = listing_api.listings.count(
-      community_id: @current_community.id,
-      query: {
-        listing_shape_id: form[:id],
-        open: true
-      }).data
+    count = @current_community.listings.where(listing_shape_id: form[:id], open: true).count
 
     locals = common_locals(form: form,
                            count: count,
@@ -237,7 +232,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
   def can_delete_shape?(current_shape_name, shapes)
     listing_shapes_categories_map = shapes.map { |shape|
-      [shape[:name], shape[:category_ids]]
+      [shape.name, shape.category_ids]
     }
 
     categories_listing_shapes_map = HashUtils.transpose(listing_shapes_categories_map)
@@ -246,14 +241,14 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       shape_names.size == 1 && shape_names.include?(current_shape_name)
     }.keys
 
-    shape = shapes.find { |s| s[:name] == current_shape_name }
+    shape = shapes.find { |s| s.name == current_shape_name }
 
     if !shape
       Result::Error.new(t("admin.listing_shapes.can_not_find_name", name: current_shape_name))
     elsif shapes.length == 1
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_last"))
     elsif !last_in_category_ids.empty?
-      categories = ListingService::API::Api.categories.get_all(community_id: @current_community).data
+      categories = @current_community.categories
       category_names = pick_category_names(categories, last_in_category_ids, I18n.locale)
 
       Result::Error.new(t("admin.listing_shapes.edit.can_not_delete_only_one_in_categories", categories: category_names.join(", ")))
@@ -266,7 +261,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     locale = locale.to_s
 
     pick_categories(categories, ids)
-      .map { |c| Maybe(c[:translations].find { |t| t[:locale] == locale }).or_else(c[:translations].first) }
+      .map { |c| Maybe(c.translations.find { |t| t[:locale] == locale }).or_else(c.translations.first) }
       .map { |t| t[:name] }
   end
 
@@ -276,22 +271,12 @@ class Admin::ListingShapesController < Admin::AdminBaseController
         acc << category
       end
 
-      if category[:children].present?
-        acc.concat(pick_categories(category[:children], ids))
+      if category.children.present?
+        acc.concat(pick_categories(category.children, ids))
       end
 
       acc
     }
-  end
-
-  def listing_api
-    ListingService::API::Api
-  end
-
-  def all_shapes(community_id:, include_categories:)
-    listing_api.shapes.get(community_id: community_id, include_categories: include_categories)
-      .maybe()
-      .or_else([])
   end
 
   def process_summary
@@ -362,7 +347,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       shape.merge(
         availability_unit: units[:availability],
         predefined_units: expand_predefined_units(units[:pricing]),
-        custom_units: encode_custom_units(units[:pricing].select { |unit| unit[:type] == :custom })
+        custom_units: encode_custom_units(units[:pricing].select { |unit| unit[:unit_type] == 'custom' })
       )
     end
 
@@ -376,10 +361,10 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     # we have in the UI
     #
     def split_availability_and_pricing_units(shape)
-      if shape[:availability] == :booking
+      if shape[:availability] == 'booking'
         {
           pricing: [],
-          availability: shape[:units].first[:type]
+          availability: shape[:units].first[:unit_type]
         }
       else
         {
@@ -409,10 +394,10 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     end
 
     def expand_predefined_units(shape_units)
-      shape_units_set = shape_units.map { |t| t[:type] }.to_set
+      shape_units_set = shape_units.map { |t| t[:unit_type] }.to_set
 
       ListingShapeHelper.predefined_unit_types
-        .map { |t| {type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
+        .map { |t| {unit_type: t, enabled: shape_units_set.include?(t), label: I18n.t("admin.listing_shapes.units.#{t}")} }
     end
 
     def encode_custom_units(custom_units)
@@ -425,19 +410,19 @@ class Admin::ListingShapesController < Admin::AdminBaseController
     end
 
     def parse_predefined_units(selected_units)
-      (selected_units || []).map { |type, _| {type: type.to_sym, enabled: true}}
+      (selected_units || []).map { |type, _| {unit_type: type, enabled: true}}
     end
 
     def parse_existing_custom_units(existing_units)
       existing_units.map { |_, unit|
         ListingShapeDataTypes::Unit.deserialize(unit)
-          .merge({type: :custom, enabled: true})
+          .merge({unit_type: 'custom', enabled: true})
       }
     end
 
     def parse_new_custom_units(new_units)
       new_units.map(&:second).map { |u|
-        u.merge(type: :custom, enabled: true)
+        u.merge(unit_type: 'custom', enabled: true)
           .except(:name_tr_key, :selector_tr_key)
       }
     end

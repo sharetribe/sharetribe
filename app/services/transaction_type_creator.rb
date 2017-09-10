@@ -21,9 +21,9 @@ module TransactionTypeCreator
     },
     "Rent" => {
       price_enabled: true,
-      availability: :booking,
+      availability: 'booking',
       units: [
-        {type: :night, quantity_selector: :night}
+        {unit_type: 'night', quantity_selector: 'night', kind: 'time'}
       ]
     },
     "Request" => {
@@ -35,7 +35,7 @@ module TransactionTypeCreator
     "Service" => {
       price_enabled: true,
       units: [
-        {type: :day, quantity_selector: :day}
+        {unit_type: 'day', quantity_selector: 'day', kind: 'time'}
       ]
     },
     "ShareForFree" => {
@@ -131,7 +131,6 @@ module TransactionTypeCreator
     defaults = DEFAULTS[transaction_type_class_name]
 
     # Create
-    listings_api = ListingService::API::Api
 
     translations = community.locales.map do |locale|
       {
@@ -149,15 +148,7 @@ module TransactionTypeCreator
       shipping_enabled: enable_shipping,
       basename: translations.find { |t| t[:locale] == community.default_locale }[:name]
     )
-
-    shape_res = listings_api.shapes.create(
-      community_id: community.id,
-      opts: shape_opts
-    )
-
-    raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
-
-    shape_res.data
+    ListingShape.create_with_opts(community: community, opts: shape_opts)
   end
 
   def available_types

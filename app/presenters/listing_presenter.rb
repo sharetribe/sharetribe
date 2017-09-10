@@ -196,8 +196,8 @@ class ListingPresenter < MemoisticPresenter
 
   def category_tree
     CategoryViewUtils.category_tree(
-      categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
-      shapes: shapes,
+      categories: @current_community.categories,
+      shapes: @current_community.shapes,
       locale: I18n.locale,
       all_locales: @current_community.locales
     )
@@ -274,13 +274,13 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def unit_options
-    unit_options = ListingViewUtils.unit_options(shape[:units], unit_from_listing(@listing))
+    unit_options = ListingViewUtils.unit_options(shape.units, unit_from_listing(@listing))
   end
 
   def unit_from_listing(listing)
     HashUtils.compact({
-      type: Maybe(listing.unit_type).to_sym.or_else(nil),
-      quantity_selector: Maybe(listing.quantity_selector).to_sym.or_else(nil),
+      unit_type: listing.unit_type.present? ? listing.unit_type.to_s : nil,
+      quantity_selector: listing.quantity_selector,
       unit_tr_key: listing.unit_tr_key,
       unit_selector_tr_key: listing.unit_selector_tr_key
     })
@@ -317,7 +317,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def always_show_additional_shipping_price
-    shape && shape[:units].length == 1 && shape[:units].first[:kind] == :quantity
+    shape && shape.units.length == 1 && shape.units.first[:kind] == 'quantity'
   end
 
   def category_id

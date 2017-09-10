@@ -49,7 +49,7 @@ class ListingsController < ApplicationController
       end
 
       format.atom do
-        @feed_presenter = ListingsFeedPresenter.new(@current_community, get_shapes, get_processes, params)
+        @feed_presenter = ListingsFeedPresenter.new(@current_community, @current_community.shapes, @current_community.transaction_processes, params)
         render layout: false
       end
     end
@@ -174,7 +174,7 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.where(community_id: @current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = select_shape(get_shapes, @listing.listing_shape_id)
+    shape = select_shape(@current_community.shapes, @listing.listing_shape_id)
     if shape
       @listing.listing_shape_id = shape[:id]
     end
@@ -431,31 +431,8 @@ class ListingsController < ApplicationController
     end
   end
 
-  def get_shapes
-    @shapes ||= ListingService::API::Api.shapes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |shapes|
-      raise ArgumentError.new("Cannot find any listing shape for community #{@current_community.id}") if shapes.nil?
-    }
-  end
-
-  def get_processes
-    @processes ||= TransactionService::API::Api.processes.get(community_id: @current_community.id).maybe.or_else(nil).tap { |processes|
-      raise ArgumentError.new("Cannot find any transaction process for community #{@current_community.id}") if processes.nil?
-    }
-  end
-
   def get_shape(listing_shape_id)
-    shape_find_opts = {
-      community_id: @current_community.id,
-      listing_shape_id: listing_shape_id
-    }
-
-    shape_res = ListingService::API::Api.shapes.get(shape_find_opts)
-
-    if shape_res.success
-      shape_res.data
-    else
-      raise ArgumentError.new(shape_res.error_msg)
-    end
+    @current_community.shapes.find(listing_shape_id)
   end
 
   # Create image sizes that might be missing
@@ -491,7 +468,7 @@ class ListingsController < ApplicationController
   end
 
   def create_booking(shape, listing_uuid)
-    if shape.present? && shape[:availability] == :booking
+    if shape.present? && shape[:availability] == 'booking'
       create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
     else
       true

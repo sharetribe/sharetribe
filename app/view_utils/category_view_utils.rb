@@ -32,10 +32,10 @@ module CategoryViewUtils
     categories.map { |c|
       {
         id: c[:id],
-        label: pick_category_translation(c[:translations], locale, all_locales),
-        listing_shapes: embed_shape(c[:listing_shape_ids], shapes),
+        label: pick_category_translation(c.translations, locale, all_locales),
+        listing_shapes: embed_shape(c.listing_shape_ids, shapes),
         subcategories: category_tree(
-          categories: c[:children],
+          categories: c.children,
           shapes: shapes,
           locale: locale,
           all_locales: all_locales
