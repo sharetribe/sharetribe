@@ -120,6 +120,9 @@ class Community < ApplicationRecord
   has_many :transactions
 
   has_many :listings
+  has_many :listing_shapes
+
+  has_many :transaction_processes
 
   has_one :paypal_account # Admin paypal account
 
@@ -602,6 +605,10 @@ class Community < ApplicationRecord
     attrs = super(options)
     uuid = UUIDUtils.parse_raw(attrs["uuid"])
     attrs.merge({"uuid" => uuid.to_s})
+  end
+
+  def shapes
+    listing_shapes.not_deleted.includes(:listing_units)
   end
 
   private

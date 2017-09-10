@@ -101,12 +101,7 @@ module TestHelpers
           basename: basename
         )
 
-        shape_res = ListingService::API::Api.shapes.create(
-          community_id: community.id,
-          opts: shape_opts
-        )
-
-        raise ArgumentError.new("Could not create new shape: #{shape_opts}") unless shape_res.success
+        ListingShape.create_with_opts(community: community, opts: shape_opts)
       end
 
       # Community has now new listing shapes, so we must reload it
@@ -134,7 +129,7 @@ module TestHelpers
     end
 
     def self.add_listing_shapes_and_translations_to_category(category, category_name)
-      ListingService::API::Api.shapes.get(community_id: category.community.id)[:data].each do |s|
+      category.community.shapes.each do |s|
         CategoryListingShape.create!(category_id: category.id, listing_shape_id: s[:id])
       end
 

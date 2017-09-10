@@ -28,7 +28,7 @@ module ListingHelpers
 
   def all_shapes(community: nil)
     community ||= @current_community
-    ListingService::API::Api.shapes.get(community_id: community.id)[:data]
+    community.shapes
   end
 
 end

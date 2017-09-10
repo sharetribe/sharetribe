@@ -200,7 +200,7 @@ Given(/^category "(.*?)" should have the following listing shapes:$/) do |catego
   end
 
   shapes = CategoryListingShape.where(category_id: category.id).map { |associations|
-    ListingService::API::Api.shapes.get(community_id: category.community_id, listing_shape_id: associations.listing_shape_id)[:data]
+    category.community.shapes.find(associations.listing_shape_id)
   }.map { |s|
     TranslationService::API::Api.translations.get(category.community_id, translation_keys: [s[:name_tr_key]], locales: ["en"])[:data]
   }.flat_map { |tr|

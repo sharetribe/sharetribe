@@ -78,7 +78,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
     @community = @current_community
     @custom_fields = @current_community.custom_fields
 
-    shapes = listings_api.shapes.get(community_id: @community.id).data
+    shapes = @current_community.shapes
     price_in_use = shapes.any? { |s| s[:price_enabled] }
 
     make_onboarding_popup
@@ -303,10 +303,6 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
 
   def field_type_is_valid
     redirect_to admin_custom_fields_path unless CustomField::VALID_TYPES.include?(params[:field_type])
-  end
-
-  def listings_api
-    ListingService::API::Api
   end
 
 end

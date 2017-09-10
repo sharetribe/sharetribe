@@ -44,7 +44,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
   private
 
   def data(page:)
-    listing_shape_name = ListingService::API::Api.shapes.get(community_id: @current_community.id).data.first[:name]
+    listing_shape_name = @current_community.shapes.first[:name]
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     additional_info = {

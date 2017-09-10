@@ -1,14 +1,6 @@
 module ListingViewUtils
   extend MoneyRails::ActionViewExtension
 
-  Unit = EntityUtils.define_builder(
-    [:type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom]],
-    [:name_tr_key, :string, :optional],
-    [:kind, :mandatory, :to_symbol],
-    [:selector_tr_key, :string, :optional],
-    [:quantity_selector, :to_symbol, one_of: ["".to_sym, :none, :number, :day, :night]] # in the future include :hour, :week:, :month etc.
-  )
-
   module_function
 
   # parameters:
@@ -16,16 +8,15 @@ module ListingViewUtils
   # - selected, symbol of unit type
   #
   def unit_options(units, selected_unit = nil)
-
     units
       .map { |u| HashUtils.compact(u) }
       .map { |unit|
         renamed = HashUtils.rename_keys({name_tr_key: :unit_tr_key, selector_tr_key: :unit_selector_tr_key}, unit)
         {
-          display: translate_unit(unit[:type], unit[:name_tr_key]),
-          value: Unit.serialize(unit),
+          display: translate_unit(unit[:unit_type], unit[:name_tr_key]),
+          value: unit.to_json,
           kind: unit[:kind],
-          selected: selected_unit.present? && HashUtils.sub_eq(renamed, selected_unit, :type, :unit_tr_key, :unit_selector_tr_key)
+          selected: selected_unit.present? && HashUtils.sub_eq(renamed, selected_unit, :unit_type, :unit_tr_key, :unit_selector_tr_key)
         }
       }
   end
@@ -33,18 +24,18 @@ module ListingViewUtils
   def translate_unit(type, tr_key, locale: nil)
     l = (locale || I18n.locale).to_sym
 
-    case type
-    when :hour
+    case type.to_s
+    when 'hour'
       I18n.translate("listings.unit_types.hour", locale: l)
-    when :day
+    when 'day'
       I18n.translate("listings.unit_types.day", locale: l)
-    when :night
+    when 'night'
       I18n.translate("listings.unit_types.night", locale: l)
-    when :week
+    when 'week'
       I18n.translate("listings.unit_types.week", locale: l)
-    when :month
+    when 'month'
       I18n.translate("listings.unit_types.month", locale: l)
-    when :custom
+    when 'custom'
       I18n.translate(tr_key, locale: l)
     else
       raise ArgumentError.new("No translation for unit type: #{type}, translation_key: #{tr_key}")
@@ -55,18 +46,18 @@ module ListingViewUtils
   # Instead of unit type, the first parameter should be selector type (number, day)
   # and that should affect how we should the information
   def translate_quantity(type, tr_key = nil)
-    case type
-    when :hour
+    case type.to_s
+    when 'hour'
       I18n.translate("listings.quantity.hour")
-    when :day
+    when 'day'
       I18n.translate("listings.quantity.day")
-    when :night
+    when 'night'
       I18n.translate("listings.quantity.night")
-    when :week
+    when 'week'
       I18n.translate("listings.quantity.week")
-    when :month
+    when 'month'
       I18n.translate("listings.quantity.month")
-    when :custom
+    when 'custom'
       if (tr_key)
         I18n.translate(tr_key)
       else
