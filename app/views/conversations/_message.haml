@@ -1,12 +1,13 @@
-- avatar_side = message_or_action[:sender][:id] == @current_user.id ? "left" : "right"
+- avatar_side = message_or_action[:sender].id == @current_user.id ? "left" : "right"
 
 .row.message-row
   .col-12.message-container
+    - avatar = message_or_action[:sender].image.present? ? message_or_action[:sender].image.url(:thumb) : missing_avatar(:thumb)
     %div{class: "message-avatar-#{avatar_side}"}
-      = image_tag(message_or_action[:sender][:avatar], :class => "message-avatar-image")
+      = image_tag(avatar, :class => "message-avatar-image")
     %div{class: "message-content-container-#{avatar_side}"}
       %div{class: "message-time-ago-#{avatar_side}"}
-        = link_to_unless message_or_action[:sender][:is_deleted], message_or_action[:sender][:display_name], person_path(username: message_or_action[:sender][:username])
+        = link_to_unless message_or_action[:sender].deleted, PersonViewUtils.person_display_name(message_or_action[:sender], @current_community), person_path(username: message_or_action[:sender].username)
         = time_ago(message_or_action[:created_at])
 
       %div{class: "message-bubble-arrow-to-#{avatar_side} message-type-#{message_or_action[:type]} message-mood-#{message_or_action[:mood]}"}

@@ -31,6 +31,7 @@ class Conversation < ApplicationRecord
     joins(:participations)
     .where( { participations: { person_id: person }} )
   }
+  scope :by_community, -> (community){ where(community: community) }
 
   # Creates a new message to the conversation
   def message_attributes=(attributes)
@@ -123,5 +124,11 @@ class Conversation < ApplicationRecord
         block.call
       end
     end
+  end
+
+  def mark_as_read(person_id)
+    participations
+      .where({ person_id: person_id })
+      .update_all({is_read: true}) # rubocop:disable Rails/SkipsModelValidations
   end
 end

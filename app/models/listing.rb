@@ -338,4 +338,16 @@ class Listing < ApplicationRecord
     end
   end
 
+  def self.delete_by_author(author_id)
+    listings = Listing.where(author_id: author_id)
+    listings.update_all(
+      # Delete listing info
+      description: nil,
+      origin: nil,
+      open: false,
+      deleted: true
+    )
+    ids = listings.pluck(:id)
+    ListingImage.where(listing_id: ids).destroy_all
+  end
 end

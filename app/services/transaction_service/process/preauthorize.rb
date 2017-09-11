@@ -3,14 +3,13 @@ module TransactionService::Process
   Gateway = TransactionService::Gateway
   Worker = TransactionService::Worker
   ProcessStatus = TransactionService::DataTypes::ProcessStatus
-  DataTypes = TransactionService::DataTypes::Transaction
 
   class Preauthorize
 
     TxStore = TransactionService::Store::Transaction
 
     def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
-      Transition.transition_to(tx[:id], :initiated)
+      TransactionService::StateMachine.transition_to(tx[:id], :initiated)
       tx[:current_state] = :initiated
 
       if !force_sync
@@ -91,12 +90,12 @@ module TransactionService::Process
             end
 
           booking_res.on_success {
-            Transition.transition_to(tx[:id], :preauthorized)
+            TransactionService::StateMachine.transition_to(tx[:id], :preauthorized)
           }
         end
 
       res.and_then {
-        Result::Success.new(DataTypes.create_transaction_response(tx))
+        Result::Success.new(TransactionService::Transaction.create_transaction_response(tx))
       }
     end
 
@@ -104,7 +103,7 @@ module TransactionService::Process
       res = Gateway.unwrap_completion(
         gateway_adapter.reject_payment(tx: tx, reason: "")) do
 
-        Transition.transition_to(tx[:id], :rejected)
+        TransactionService::StateMachine.transition_to(tx[:id], :rejected)
       end
 
       if res[:success] && message.present?
@@ -118,7 +117,7 @@ module TransactionService::Process
       res = Gateway.unwrap_completion(
         gateway_adapter.complete_preauthorization(tx: tx)) do
 
-        Transition.transition_to(tx[:id], :paid)
+        TransactionService::StateMachine.transition_to(tx[:id], :paid)
       end
 
       if res[:success] && message.present?
@@ -129,7 +128,7 @@ module TransactionService::Process
     end
 
     def complete(tx:, message:, sender_id:, gateway_adapter:)
-      Transition.transition_to(tx[:id], :confirmed)
+      TransactionService::StateMachine.transition_to(tx[:id], :confirmed)
       TxStore.mark_as_unseen_by_other(community_id: tx[:community_id],
                                       transaction_id: tx[:id],
                                       person_id: tx[:listing_author_id])
@@ -142,7 +141,7 @@ module TransactionService::Process
     end
 
     def cancel(tx:, message:, sender_id:, gateway_adapter:)
-      Transition.transition_to(tx[:id], :canceled)
+      TransactionService::StateMachine.transition_to(tx[:id], :canceled)
       TxStore.mark_as_unseen_by_other(community_id: tx[:community_id],
                                       transaction_id: tx[:id],
                                       person_id: tx[:listing_author_id])
@@ -219,7 +218,7 @@ module TransactionService::Process
     def ensure_can_execute!(tx:, allowed_states:)
       tx_state = tx[:current_state]
 
-      unless allowed_states.include?(tx_state)
+      unless allowed_states.include?(tx_state.to_sym)
         raise TransactionService::Transaction::IllegalTransactionStateException.new(
                "Transaction was in illegal state, expected state: [#{allowed_states.join(',')}], actual state: #{tx_state}")
       end

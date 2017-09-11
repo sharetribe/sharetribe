@@ -58,6 +58,20 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     return redirect_to person_listing_path(person_id: @current_user.id, id: params[:listing_id])
   end
 
+  def paypal_op_status
+    resp = Maybe(params[:process_token])
+      .map { |ptok| PaypalService::API::Api.process.get_status(ptok) }
+      .select(&:success)
+      .data
+      .or_else(nil)
+
+    if resp
+      render :json => resp
+    else
+      head :not_found
+    end
+  end
+
   private
 
   def handle_proc_result(response, listing_id)

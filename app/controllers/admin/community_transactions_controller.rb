@@ -1,66 +1,18 @@
 require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
-  TransactionQuery = MarketplaceService::Transaction::Query
 
   def index
     @selected_left_navi_link = "transactions"
-    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
-
-    conversations = if params[:sort].nil? || params[:sort] == "last_activity"
-      TransactionQuery.transactions_for_community_sorted_by_activity(
-        @current_community.id,
-        sort_direction,
-        pagination_opts[:limit],
-        pagination_opts[:offset])
-    else
-      TransactionQuery.transactions_for_community_sorted_by_column(
-        @current_community.id,
-        simple_sort_column(params[:sort]),
-        sort_direction,
-        pagination_opts[:limit],
-        pagination_opts[:offset])
-    end
-
-    count = TransactionQuery.transactions_count_for_community(@current_community.id)
-
-    # TODO THIS IS COPY-PASTE
-    conversations = conversations.map do |transaction|
-      conversation = transaction[:conversation]
-      # TODO Embed author and starter to the transaction entity
-      # author = conversation[:other_person]
-      author = Maybe(conversation[:other_person]).or_else({is_deleted: true})
-      starter = Maybe(conversation[:starter_person]).or_else({is_deleted: true})
-
-      [author, starter].each { |p|
-        p[:url] = person_path(p[:username]) unless p[:username].nil?
-        p[:display_name] = PersonViewUtils.person_entity_display_name(p, "fullname")
-      }
-
-      if transaction[:listing].present?
-        # This if was added to tolerate cases where listing has been deleted
-        # due the author deleting his/her account completely
-        # UPDATE: December 2014, we did an update which keeps the listing row even if user is deleted.
-        # So, we do not need to tolerate this anymore. However, there are transactions with deleted
-        # listings in DB, so those have to be handled.
-        transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
-      end
-
-      transaction[:last_activity_at] = last_activity_for(transaction)
-
-      transaction.merge({author: author, starter: starter})
-    end
-
-    conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
-      pager.replace(conversations)
-    end
+    transactions, last_activity = load_transactions
 
     respond_to do |format|
       format.html do
         render("index", {
           locals: {
             community: @current_community,
-            conversations: conversations
+            transactions: transactions,
+            last_activity: last_activity
           }
         })
       end
@@ -78,14 +30,14 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
           self.response.headers["Last-Modified"] = Time.now.ctime.to_s
 
           self.response_body = Enumerator.new do |yielder|
-            generate_csv_for(yielder, conversations)
+            generate_csv_for(yielder, transactions, last_activity)
           end
         end
       end
     end
   end
 
-  def generate_csv_for(yielder, conversations)
+  def generate_csv_for(yielder, transactions, last_activity)
     # first line is column names
     yielder << %w{
       transaction_id
@@ -99,34 +51,62 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
       starter_username
       other_party_username
     }.to_csv(force_quotes: true)
-    conversations.each do |conversation|
+    transactions.each do |transaction|
       yielder << [
-        conversation[:id],
-        conversation[:listing] ? conversation[:listing][:id] : "N/A",
-        conversation[:listing_title] || "N/A",
-        conversation[:status],
-        conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
-        conversation[:payment_total],
-        conversation[:created_at],
-        conversation[:last_activity_at],
-        conversation[:starter] ? conversation[:starter][:username] : "DELETED",
-        conversation[:author] ? conversation[:author][:username] : "DELETED"
+        transaction.id,
+        transaction.listing ? transaction.listing.id : "N/A",
+        transaction.listing_title || "N/A",
+        transaction.status,
+        transaction.payment_total.is_a?(Money) ? transaction.payment_total.currency : "N/A",
+        transaction.payment_total,
+        transaction.created_at,
+        last_activity[transaction.id],
+        transaction.starter ? transaction.starter.username : "DELETED",
+        transaction.author ? transaction.author.username : "DELETED"
       ].to_csv(force_quotes: true)
     end
   end
 
   private
 
-  def last_activity_for(conversation)
-    last_activity_at = 0
-    last_activity_at = if conversation[:conversation][:last_message_at].nil?
-      conversation[:last_transition_at]
-    elsif conversation[:last_transition_at].nil?
-      conversation[:conversation][:last_message_at]
+  def load_transactions
+    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
+
+    transactions = if params[:sort].nil? || params[:sort] == "last_activity"
+      transactions_for_community_sorted_by_activity(
+        @current_community.id,
+        sort_direction,
+        pagination_opts[:limit],
+        pagination_opts[:offset])
     else
-      [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
+      transactions_for_community_sorted_by_column(
+        @current_community.id,
+        simple_sort_column(params[:sort]),
+        sort_direction,
+        pagination_opts[:limit],
+        pagination_opts[:offset])
     end
-    last_activity_at
+
+    count = @current_community.transactions.not_deleted.count
+    last_activity_map = {}
+    transactions.each do |tx|
+      last_activity_map[tx.id] = last_activity_for(tx)
+    end
+
+    transactions = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
+      pager.replace(transactions)
+    end
+    [transactions, last_activity_map]
+  end
+
+  def last_activity_for(transaction)
+    if !transaction.conversation || transaction.conversation.last_message_at.nil?
+      transaction.last_transition_at
+    elsif transaction.last_transition_at.nil?
+      transaction.conversation.last_message_at
+    else
+      [transaction.last_transition_at, transaction.conversation.last_message_at].max
+    end
   end
 
   def simple_sort_column(sort_column)
@@ -141,4 +121,34 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
   def sort_direction
     params[:direction] || "desc"
   end
+
+  def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
+    Transaction
+      .where(community_id: community_id, deleted: false)
+      .includes(:listing)
+      .limit(limit)
+      .offset(offset)
+      .order("#{sort_column} #{sort_direction}")
+  end
+
+  def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+    sql = sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+    transactions = Transaction.find_by_sql(sql)
+  end
+
+  def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+    "
+      SELECT transactions.* FROM transactions
+
+      # Get 'last_transition_at'
+      # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
+      LEFT JOIN conversations ON transactions.conversation_id = conversations.id
+      WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
+      ORDER BY
+        GREATEST(COALESCE(transactions.last_transition_at, 0),
+          COALESCE(conversations.last_message_at, 0)) #{sort_direction}
+      LIMIT #{limit} OFFSET #{offset}
+    "
+  end
+
 end

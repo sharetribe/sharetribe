@@ -6,9 +6,9 @@ describe PreauthorizeTransactionsController, type: :controller do
 
 end
 
-describe PreauthorizeTransactionsController::ItemTotal do
+describe TransactionService::Validation::ItemTotal do
 
-  let(:item_total) { PreauthorizeTransactionsController::ItemTotal }
+  let(:item_total) { TransactionService::Validation::ItemTotal }
 
   it "calculates the item total" do
     expect(item_total.new(unit_price: Money.new(2500, "USD"), quantity: 10).total)
@@ -22,9 +22,9 @@ describe PreauthorizeTransactionsController::ItemTotal do
   end
 end
 
-describe PreauthorizeTransactionsController::ShippingTotal do
+describe TransactionService::Validation::ShippingTotal do
 
-  let(:shipping_total) { PreauthorizeTransactionsController::ShippingTotal }
+  let(:shipping_total) { TransactionService::Validation::ShippingTotal }
 
   it "calculates the shipping total" do
     expect(shipping_total.new(initial: Money.new(5000, "EUR"), additional: 0, quantity: 1).total)
@@ -41,11 +41,11 @@ describe PreauthorizeTransactionsController::ShippingTotal do
   end
 end
 
-describe PreauthorizeTransactionsController::OrderTotal do
+describe TransactionService::Validation::OrderTotal do
 
-  let(:item_total) { PreauthorizeTransactionsController::ItemTotal }
-  let(:shipping_total) { PreauthorizeTransactionsController::ShippingTotal }
-  let(:order_total) { PreauthorizeTransactionsController::OrderTotal }
+  let(:item_total) { TransactionService::Validation::ItemTotal }
+  let(:shipping_total) { TransactionService::Validation::ShippingTotal }
+  let(:order_total) { TransactionService::Validation::OrderTotal }
 
   it "calculates the order total (item total + shipping total)" do
     items = item_total.new(unit_price: Money.new(25_000, "EUR"), quantity: 5)
@@ -56,9 +56,9 @@ describe PreauthorizeTransactionsController::OrderTotal do
   end
 end
 
-describe PreauthorizeTransactionsController::Validator do
+describe TransactionService::Validation::Validator do
 
-  let(:validator) { PreauthorizeTransactionsController::Validator }
+  let(:validator) { TransactionService::Validation::Validator }
 
   describe "#validate_delivery_method" do
 

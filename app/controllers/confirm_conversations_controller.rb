@@ -16,9 +16,9 @@ class ConfirmConversationsController < ApplicationController
       return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
     end
 
-    conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
-    can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction, :confirmed)
-    other_person =      query_person_entity(@listing_transaction.other_party(@current_user).id)
+    conversation =      @listing_transaction.conversation
+    can_be_confirmed =  TransactionService::StateMachine.can_transition_to?(@listing_transaction, :confirmed)
+    other_person =      @listing_transaction.other_party(@current_user)
 
     render(locals: {
       action_type: "confirm",
@@ -27,7 +27,7 @@ class ConfirmConversationsController < ApplicationController
       can_be_confirmed: can_be_confirmed,
       other_person: other_person,
       status: @listing_transaction.status,
-      form: @listing_transaction # TODO fix me, don't pass objects
+      form: @listing_transaction
     })
   end
 
@@ -36,9 +36,9 @@ class ConfirmConversationsController < ApplicationController
       return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
     end
 
-    conversation =      MarketplaceService::Conversation::Query.conversation_for_person(@listing_transaction.conversation.id, @current_user.id, @current_community.id)
-    can_be_confirmed =  MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, :confirmed)
-    other_person =      query_person_entity(@listing_transaction.other_party(@current_user).id)
+    conversation =      @listing_transaction.conversation
+    can_be_confirmed =  TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :confirmed)
+    other_person =      @listing_transaction.other_party(@current_user)
 
     render(:confirm, locals: {
       action_type: "cancel",
@@ -47,7 +47,7 @@ class ConfirmConversationsController < ApplicationController
       can_be_confirmed: can_be_confirmed,
       other_person: other_person,
       status: @listing_transaction.status,
-      form: @listing_transaction # TODO fix me, don't pass objects
+      form: @listing_transaction
     })
   end
 
@@ -55,7 +55,7 @@ class ConfirmConversationsController < ApplicationController
   def confirmation
     status = params[:transaction][:status].to_sym
 
-    if !MarketplaceService::Transaction::Query.can_transition_to?(@listing_transaction.id, status)
+    if !TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, status)
       flash[:error] = t("layouts.notifications.something_went_wrong")
       return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
     end
@@ -120,10 +120,4 @@ class ConfirmConversationsController < ApplicationController
     transaction.can_be_confirmed? || transaction.can_be_canceled?
   end
 
-  def query_person_entity(id)
-    person_entity = MarketplaceService::Person::Query.person(id, @current_community.id)
-    person_display_entity = person_entity.merge(
-      display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
-    )
-  end
 end

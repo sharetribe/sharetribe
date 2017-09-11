@@ -1,6 +1,7 @@
 module TransactionService::PaypalEvents
 
   TransactionStore = TransactionService::Store::Transaction
+  TxModel = ::Transaction
 
   module_function
 
@@ -12,7 +13,7 @@ module TransactionService::PaypalEvents
   end
 
   def payment_updated(flow, payment)
-    tx = MarketplaceService::Transaction::Query.transaction(payment[:transaction_id])
+    tx = TxModel.where(id: payment[:transaction_id]).first
     if tx
       transition = transition_type(tx, payment)
 
@@ -82,7 +83,7 @@ module TransactionService::PaypalEvents
   def transition_type(tx, payment)
     payment_status = payment[:payment_status]
     pending_reason = payment[:pending_reason]
-    tx_state = tx[:status].to_sym
+    tx_state = tx.status.to_sym
 
     transition = first_matching_transition(TRANSITIONS, [tx_state, payment_status, pending_reason])
     Maybe(transition).or_else({name: :unknown, actor: :unknown})
@@ -94,16 +95,16 @@ module TransactionService::PaypalEvents
 
   ## Transaction transition handlers
   def preauthorized_to_errored(tx)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "errored")
+    TransactionService::StateMachine.transition_to(tx[:id], "errored")
   end
 
   def preauthorized_to_rejected(tx, payment_status = nil)
     metadata = payment_status ? { paypal_payment_status: payment_status } : nil
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", metadata)
+    TransactionService::StateMachine.transition_to(tx[:id], "rejected", metadata)
   end
 
   def pending_ext_to_denied(tx, payment_status)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
+    TransactionService::StateMachine.transition_to(tx[:id], "rejected", paypal_payment_status: payment_status)
   end
 
   def initiated_to_preauthorized(tx)
@@ -118,11 +119,11 @@ module TransactionService::PaypalEvents
     # transition to paid so that we have the full payment info
     # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    TransactionService::StateMachine.transition_to(tx[:id], :paid)
   end
 
   def preauthorized_to_pending_ext(tx, pending_reason)
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :pending_ext, paypal_pending_reason: pending_reason) if pending_ext?(pending_reason)
+    TransactionService::StateMachine.transition_to(tx[:id], :pending_ext, paypal_pending_reason: pending_reason) if pending_ext?(pending_reason)
   end
 
   def pending_ext?(pending_reason)
@@ -134,7 +135,7 @@ module TransactionService::PaypalEvents
     # transition to paid so that we have the full payment info
     # available at the time we send payment receipts.
     TransactionService::Transaction.charge_commission(tx[:id])
-    MarketplaceService::Transaction::Command.transition_to(tx[:id], :paid)
+    TransactionService::StateMachine.transition_to(tx[:id], :paid)
   end
 
   def delete_transaction(cid:, tx_id:)

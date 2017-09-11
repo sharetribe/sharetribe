@@ -88,11 +88,11 @@ describe TransactionService::PaypalEvents do
     }
 
     @transaction_no_msg = create_test_transaction(@transaction_info)
-    MarketplaceService::Transaction::Command.transition_to(@transaction_no_msg, "initiated")
+    TransactionService::StateMachine.transition_to(@transaction_no_msg, "initiated")
     @conversation_no_msg = @transaction_no_msg.conversation
 
     @transaction_with_msg = create_test_transaction(@transaction_info.merge(content: "A test message"))
-    MarketplaceService::Transaction::Command.transition_to(@transaction_with_msg, "initiated")
+    TransactionService::StateMachine.transition_to(@transaction_with_msg, "initiated")
     @conversation_with_msg = @transaction_with_msg.conversation
 
     token_code_no_msg = SecureRandom.uuid
@@ -163,8 +163,8 @@ describe TransactionService::PaypalEvents do
     it "keeps transaction in initiated state" do
       TransactionService::PaypalEvents.payment_updated(:success, @payment_review_payment)
 
-      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
-      expect(tx[:status]).to eq("initiated")
+      tx = Transaction.find(@transaction_with_msg.id)
+      expect(tx.status).to eq("initiated")
     end
   end
 
@@ -188,16 +188,16 @@ describe TransactionService::PaypalEvents do
       TransactionService::PaypalEvents.payment_updated(:success, @authorized_payment)
       run_worker!
 
-      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
-      expect(tx[:status]).to eq("preauthorized")
+      tx = Transaction.find(@transaction_with_msg.id)
+      expect(tx.status).to eq("preauthorized")
     end
 
     it "is safe to call for non-existent transaction" do
       no_matching_tx = @authorized_payment.merge({transaction_id: 987654321 })
       TransactionService::PaypalEvents.payment_updated(:success, no_matching_tx)
 
-      tx = MarketplaceService::Transaction::Query.transaction(@transaction_with_msg.id)
-      expect(tx[:status]).to eq("initiated")
+      tx = Transaction.find(@transaction_with_msg.id)
+      expect(tx.status).to eq("initiated")
     end
   end
 

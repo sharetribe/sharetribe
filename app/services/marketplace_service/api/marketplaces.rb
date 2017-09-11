@@ -256,7 +256,7 @@ module MarketplaceService::API
       end
 
       def country_currency(country_code)
-        Maybe(MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
+        Maybe(TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[country_code.upcase]).or_else("USD")
       end
 
       def create_category!(category_name, community, locale)

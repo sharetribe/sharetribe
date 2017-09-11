@@ -1,5 +1,5 @@
-describe MarketplaceService::Transaction::Entity do
-  include MarketplaceService::Transaction::Entity
+describe TransactionService::Transaction, "expiration" do
+  include TransactionService::Transaction
 
   it "#preauth_expires_at" do
     three_days = 3.days.from_now

@@ -1,4 +1,4 @@
-module MarketplaceService::AvailableCurrencies
+module TransactionService::AvailableCurrencies
 
   # This list maps country codes to the best guess default currency to use
   # In a marketplace based on that country. For the others, it's USD

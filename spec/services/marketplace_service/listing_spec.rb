@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-describe MarketplaceService::Listing::Entity do
-  include MarketplaceService::Listing::Entity
-  include MarketplaceService::Listing::Command
+describe Listing do
 
   describe "delete_listings" do
     let(:hammer) { FactoryGirl.create(:listing, title: "Hammer", listing_shape_id: 123)}
@@ -12,7 +10,7 @@ describe MarketplaceService::Listing::Entity do
       # Guard
       expect(hammer.deleted?).to eq(false)
 
-      delete_listings(author.id)
+      Listing.delete_by_author(author.id)
       hammer.reload
 
       expect(hammer.description).to be_nil

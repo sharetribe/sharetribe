@@ -34,7 +34,7 @@ class SettingsController < ApplicationController
 
     if target_user && target_user.username == params[:person_id] && params[:email_type].present?
       if params[:email_type] == "community_updates"
-        MarketplaceService::Person::Command.unsubscribe_person_from_community_updates(target_user.id)
+        target_user.unsubscribe_from_community_updates
       elsif [Person::EMAIL_NOTIFICATION_TYPES, Person::EMAIL_NEWSLETTER_TYPES].flatten.include?(params[:email_type])
         target_user.preferences[params[:email_type]] = false
         target_user.save!

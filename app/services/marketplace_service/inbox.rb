@@ -133,10 +133,11 @@ module MarketplaceService
         result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
         people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
-        people_store = MarketplaceService::Person::Query.people(people_ids, community_id)
+        community = Community.find(community_id)
+        people_store = community.members.where(id: people_ids).index_by(&:id)
 
         last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
-        message_store = MarketplaceService::Conversation::Query.latest_messages_for_conversations(last_message_conv_ids)
+        message_store = latest_messages_for_conversations(last_message_conv_ids)
 
         result_set.map do |result|
           if result[:transaction_id].present?
@@ -208,7 +209,7 @@ module MarketplaceService
 
       def extend_transaction(transaction)
         transitions = TransactionTransition.where(transaction_id: transaction[:transaction_id]).map do |transition_model|
-          MarketplaceService::Transaction::Entity.transition(transition_model)
+          EntityUtils.model_to_hash(transition_model)
         end
 
         payment_gateway = transaction[:payment_gateway]
@@ -364,6 +365,29 @@ module MarketplaceService
             OR (transactions.current_state != 'initiated'
                 AND transactions.deleted = 0)
           )
+        "
+      }
+
+      def latest_messages_for_conversations(conversation_ids)
+        return [] if conversation_ids.empty?
+
+        connection = ActiveRecord::Base.connection
+
+        message_sql = SQLUtils.ar_quote(connection, @construct_last_message_content_sql, conversation_ids: conversation_ids)
+        latest_messages = {}
+        connection.execute(message_sql).each do |id, conversation_id, content, created_at|
+          _, memo_id, memo_at = latest_messages[conversation_id]
+          if memo_at.nil? || memo_at < created_at || memo_id < id
+            latest_messages[conversation_id] = [content, id, created_at]
+          end
+        end
+
+        HashUtils.map_values(latest_messages) { |(content, _, at)| [content, at] }
+      end
+
+      @construct_last_message_content_sql = ->(params){
+        "
+          SELECT id, conversation_id, content, created_at FROM messages WHERE conversation_id in (#{params[:conversation_ids].join(',')})
         "
       }
     end
