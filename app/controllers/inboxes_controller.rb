@@ -11,13 +11,13 @@ class InboxesController < ApplicationController
 
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
-    inbox_rows = MarketplaceService::Inbox::Query.inbox_data(
+    inbox_rows = InboxService.inbox_data(
       @current_user.id,
       @current_community.id,
       pagination_opts[:limit],
       pagination_opts[:offset])
 
-    count = MarketplaceService::Inbox::Query.inbox_data_count(@current_user.id, @current_community.id)
+    count = InboxService.inbox_data_count(@current_user.id, @current_community.id)
 
     inbox_rows = inbox_rows.map { |inbox_row|
       extended_inbox = inbox_row.merge(
@@ -57,7 +57,7 @@ class InboxesController < ApplicationController
   private
 
   def inbox_title(inbox_item, payment_sum)
-    title = if MarketplaceService::Inbox::Entity.last_activity_type(inbox_item) == :message
+    title = if InboxService.last_activity_type(inbox_item) == :message
       inbox_item[:last_message_content]
     else
       action_messages = TransactionViewUtils.create_messages_from_actions(

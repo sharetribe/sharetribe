@@ -130,6 +130,8 @@ class Community < ApplicationRecord
   has_many :custom_dropdown_fields, -> { where("type = 'DropdownField'") }, :class_name => "CustomField", :dependent => :destroy
   has_many :custom_numeric_fields, -> { where("type = 'NumericField'") }, :class_name => "NumericField", :dependent => :destroy
 
+  has_one :configuration, class_name: 'MarketplaceConfigurations'
+
   after_create :initialize_settings
 
   monetize :minimum_price_cents, :allow_nil => true, :with_model_currency => :currency

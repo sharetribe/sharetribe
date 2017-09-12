@@ -16,7 +16,7 @@ class IntApi::MarketplacesController < ApplicationController
     # of the just created marketplace's name
     ApplicationHelper.store_community_service_name_to_thread(APP_CONFIG.global_service_name)
 
-    marketplace = MarketplaceService::API::Marketplaces.create(
+    marketplace = MarketplaceService.create(
       params.slice(:marketplace_name,
                    :marketplace_type,
                    :marketplace_country,
