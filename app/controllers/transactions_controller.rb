@@ -21,8 +21,6 @@ class TransactionsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_do_a_transaction")
   end
 
-  MessageForm = Form::Message
-
   TransactionForm = EntityUtils.define_builder(
     [:listing_id, :fixnum, :to_integer, :mandatory],
     [:message, :string],
@@ -104,7 +102,8 @@ class TransactionsController < ApplicationController
               content: form[:message],
               booking_fields: booking_fields,
               payment_gateway: process[:process] == :none ? :none : gateway, # TODO This is a bit awkward
-              payment_process: process[:process]}
+              payment_process: process[:process]
+            }
           })
       }
     ).on_success { |(_, (_, _, _, process), _, _, tx)|
@@ -127,7 +126,14 @@ class TransactionsController < ApplicationController
       return redirect_to search_path
     end
 
-    role = m_admin ? :admin : :participant
+    role = 
+      if m_participant 
+        :participant 
+      elsif m_admin
+        :admin
+      else
+        nil
+      end
 
     @conversation = @transaction.conversation
     @listing = @transaction.listing
@@ -138,15 +144,15 @@ class TransactionsController < ApplicationController
 
     @transaction.mark_as_seen_by_current(@current_user.id)
 
-    is_author = m_admin || listing.author_id == @current_user.id
+    is_author = m_admin || @transaction.listing_author_id == @current_user.id
 
     render "transactions/show", locals: {
       messages: messages_and_actions.reverse,
       conversation_other_party: @conversation.other_party(@current_user),
       is_author: is_author,
       role: role,
-      message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: @transaction.id}),
-      message_form_action: person_message_messages_path(@current_user, :message_id => @transaction.id),
+      message_form: Message.new({sender_id: @current_user.id, conversation_id: @conversation.id}),
+      message_form_action: person_message_messages_path(@current_user, :message_id => @conversation.id),
       price_break_down_locals: price_break_down_locals(@transaction)
     }
   end
@@ -365,7 +371,7 @@ class TransactionsController < ApplicationController
         booking: booking,
         start_on: booking ? tx.booking.start_on : nil,
         end_on: booking ? tx.booking.end_on : nil,
-        duration: booking ? tx.booking.duration : nil,
+        duration: booking ? tx.listing_quantity : nil,
         quantity: quantity,
         subtotal: show_subtotal ? tx.item_total : nil,
         total: Maybe(tx.payment_total).or_else(payment[:total_price]),

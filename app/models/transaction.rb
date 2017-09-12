@@ -66,7 +66,17 @@ class Transaction < ApplicationRecord
 
   accepts_nested_attributes_for :booking
 
-  validates_presence_of :payment_gateway
+  validates :payment_gateway, presence: true
+  validates :community_id, :community_uuid, :listing_id, :listing_uuid, :starter_id, :starter_uuid, presence: true
+  validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true
+  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil]
+  validates :availability, inclusion: ["none", "booking"]
+  validates :delivery_method, inclusion: ["none", "shipping", "pickup"]
+  validates :payment_process, inclusion: [:none, :postpay, :preauthorize]
+  validates :payment_gateway, inclusion: [:paypal, :checkout, :braintree, :stripe, :none]
+  validates :commission_from_seller, numericality: {only_integer: true}
+  validates :automatic_confirmation_after_days, numericality: {only_integer: true}
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
@@ -113,6 +123,26 @@ class Transaction < ApplicationRecord
     else
       UUIDUtils.parse_raw(self[:listing_author_uuid])
     end
+  end
+
+  def starter_uuid=(value)
+    write_attribute(:starter_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def listing_uuid=(value)
+    write_attribute(:listing_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def community_uuid=(value)
+    write_attribute(:community_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def listing_author_uuid=(value)
+    write_attribute(:listing_author_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def booking_uuid=(value)
+    write_attribute(:booking_uuid, UUIDUtils::RAW.call(value))
   end
 
   def status
@@ -165,20 +195,6 @@ class Transaction < ApplicationRecord
 
   def payment_receiver
     author
-  end
-
-  # Return true if the transaction is in a state that it can be confirmed
-  def can_be_confirmed?
-    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
-    # Models should not know anything about services
-    TransactionService::StateMachine.can_transition_to?(self.id, :confirmed)
-  end
-
-  # Return true if the transaction is in a state that it can be canceled
-  def can_be_canceled?
-    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
-    # Models should not know anything about services
-    TransactionService::StateMachine.can_transition_to?(self.id, :canceled)
   end
 
   def with_type(&block)
@@ -243,4 +259,5 @@ class Transaction < ApplicationRecord
     shipping_price   = self.shipping_price || 0
     (unit_price * quantity) + shipping_price
   end
+
 end

@@ -66,21 +66,21 @@ module TransactionService::Transaction
   end
 
   def settings_adapter(payment_gateway)
-    adapter = SETTINGS_ADAPTERS[payment_gateway]
+    adapter = SETTINGS_ADAPTERS[payment_gateway.to_sym]
     raise ArgumentError.new("No matching settings adapter found for payment_gateway type #{payment_gateway}.") if adapter.nil?
 
     adapter
   end
 
   def tx_process(payment_process)
-    tx_process = TX_PROCESSES[payment_process]
+    tx_process = TX_PROCESSES[payment_process.to_sym]
     raise ArgumentError.new("No matching tx process handler found for #{payment_process}.") if tx_process.nil?
 
     tx_process
   end
 
   def gateway_adapter(payment_gateway)
-    adapter = GATEWAY_ADAPTERS[payment_gateway]
+    adapter = GATEWAY_ADAPTERS[payment_gateway.to_sym]
     raise ArgumentError.new("No matching gateway adapter found for payment_gateway type #{payment_gateway}.") if adapter.nil?
 
     adapter
@@ -106,20 +106,21 @@ module TransactionService::Transaction
   end
 
   def create(opts, force_sync: true)
-    opts_tx = opts[:transaction]
+    opts_tx = opts[:transaction].to_hash
 
-    set_adapter = settings_adapter(opts_tx.payment_gateway)
+    set_adapter = settings_adapter(opts_tx[:payment_gateway])
     tx_process_settings = set_adapter.tx_process_settings(opts_tx)
 
     tx = TxStore.create(opts_tx.merge(tx_process_settings))
 
-    tx_process = tx_process(tx.payment_process)
-    gateway_adapter = gateway_adapter(tx.payment_gateway)
+    tx_process = tx_process(tx[:payment_process])
+    gateway_adapter = gateway_adapter(tx[:payment_gateway])
     res = tx_process.create(tx: tx,
                             gateway_fields: opts[:gateway_fields],
                             gateway_adapter: gateway_adapter,
                             force_sync: force_sync)
 
+    tx.reload
     res.maybe()
       .map { |gw_fields| Result::Success.new(create_transaction_response(tx, gw_fields)) }
       .or_else(res)

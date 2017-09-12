@@ -20,7 +20,7 @@
 
 = render :partial => "action_button", :locals => { :text => action_text, :url => action_url}
 
-- if @transaction.can_be_confirmed? && !@recipient.should_pay?(@transaction, @community)
+- if TransactionService::StateMachine.can_transition_to?(@transaction.id, :confirmed) && !@recipient.should_pay?(@transaction, @community)
   %td{:align => "left", :style => "padding-bottom: 25px;"}
     %font{body_font}
       = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @transaction.automatic_confirmation_after_days)

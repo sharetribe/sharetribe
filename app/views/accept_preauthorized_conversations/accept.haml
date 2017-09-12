@@ -46,7 +46,7 @@
             = l @transaction.booking.start_on, format: :long_with_abbr_day_name
             = "-"
             = l @transaction.booking.end_on, format: :long_with_abbr_day_name
-            = "(#{pluralize(@transaction.booking.duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+            = "(#{pluralize(@transaction.listing_quantity, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
 
       - elsif @transaction.listing_quantity > 1
         .conversation-per-unit-wrapper
@@ -100,7 +100,7 @@
           %span.conversation-total-value
             = MoneyViewUtils.to_humanized(seller_gets)
 
-    - if payment_gateway == :paypal
+    - if @transaction.payment_gateway == :paypal
       %p
         = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
 

@@ -152,7 +152,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
       sum: @transaction.item_total + (payment_details[:payment_gateway_fee] || 0),
       fee: @transaction.commission,
       gateway_fee: payment_details[:payment_gateway_fee],
-      seller_gets: payment_details[:checkout_total]- @transaction.commission,
+      seller_gets: payment_details[:total_price]- @transaction.commission,
       form: @transaction,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,

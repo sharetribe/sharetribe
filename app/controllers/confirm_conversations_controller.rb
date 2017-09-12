@@ -9,22 +9,17 @@ class ConfirmConversationsController < ApplicationController
 
   before_action :ensure_is_starter
 
-  MessageForm = Form::Message
-
   def confirm
-    unless in_valid_pre_state(@listing_transaction)
-      return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
-    end
+    return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id) unless in_valid_pre_state?
 
     conversation =      @listing_transaction.conversation
-    can_be_confirmed =  TransactionService::StateMachine.can_transition_to?(@listing_transaction, :confirmed)
     other_person =      @listing_transaction.other_party(@current_user)
 
     render(locals: {
       action_type: "confirm",
-      message_form: MessageForm.new,
+      message_form: Message.new,
       listing_transaction: @listing_transaction,
-      can_be_confirmed: can_be_confirmed,
+      can_be_confirmed: can_be_confirmed?,
       other_person: other_person,
       status: @listing_transaction.status,
       form: @listing_transaction
@@ -37,14 +32,13 @@ class ConfirmConversationsController < ApplicationController
     end
 
     conversation =      @listing_transaction.conversation
-    can_be_confirmed =  TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :confirmed)
     other_person =      @listing_transaction.other_party(@current_user)
 
     render(:confirm, locals: {
       action_type: "cancel",
-      message_form: MessageForm.new,
+      message_form: Message.new,
       listing_transaction: @listing_transaction,
-      can_be_confirmed: can_be_confirmed,
+      can_be_confirmed: can_be_confirmed?,
       other_person: other_person,
       status: @listing_transaction.status,
       form: @listing_transaction
@@ -94,7 +88,7 @@ class ConfirmConversationsController < ApplicationController
 
   def parse_message_param
     if(params[:message])
-      message = MessageForm.new(params.require(:message).permit(:content).merge({ conversation_id: @listing_transaction.conversation.id }))
+      message = Message.new(params.require(:message).permit(:content).merge({ conversation_id: @listing_transaction.conversation.id }))
       if(message.valid?)
         message.content
       end
@@ -116,8 +110,16 @@ class ConfirmConversationsController < ApplicationController
     @listing_transaction = @current_community.transactions.find(params[:id])
   end
 
-  def in_valid_pre_state(transaction)
-    transaction.can_be_confirmed? || transaction.can_be_canceled?
+  def in_valid_pre_state?
+    can_be_confirmed? || can_be_canceled?
+  end
+
+  def can_be_confirmed?
+    TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :confirmed)
+  end
+
+  def can_be_canceled?
+    TransactionService::StateMachine.can_transition_to?(@listing_transaction.id, :canceled)
   end
 
 end

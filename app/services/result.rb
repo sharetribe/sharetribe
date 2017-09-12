@@ -92,12 +92,13 @@ module Result
   Error = Struct.new(
     :success,
     :error_msg,
-    :data
+    :data,
+    :exception
   ) do
 
     def initialize(error_msg, data = nil)
       self.success = false
-
+      self.exception = [error_msg, caller.join(", ")]
       if (error_msg.is_a? StandardError)
         ex = error_msg
         self.error_msg = ex.message

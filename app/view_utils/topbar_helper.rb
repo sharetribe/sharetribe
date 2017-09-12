@@ -42,7 +42,7 @@ module TopbarHelper
       search_path: search_path_string,
       menu: {
         links: links,
-        limit_priority_links: @community.configuration.limit_priority_links
+        limit_priority_links: community.configuration.limit_priority_links
       },
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change, user.present?),
       avatarDropdown: {

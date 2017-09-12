@@ -22,7 +22,6 @@ class InboxesController < ApplicationController
     inbox_rows = inbox_rows.map { |inbox_row|
       extended_inbox = inbox_row.merge(
         path: path_to_conversation_or_transaction(inbox_row),
-        other: person_entity_with_url(inbox_row[:other]),
         last_activity_ago: time_ago(inbox_row[:last_activity_at]),
         title: inbox_title(inbox_row, inbox_payment(inbox_row))
       )
@@ -83,10 +82,4 @@ class InboxesController < ApplicationController
     end
   end
 
-  def person_entity_with_url(person_entity)
-    person_entity.merge({
-                          url: person_path(username: person_entity[:username]),
-                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
-                        })
-  end
 end

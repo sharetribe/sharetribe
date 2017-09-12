@@ -1,8 +1,6 @@
 class ConversationsController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  MessageForm = Form::Message
-
   before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
@@ -26,7 +24,7 @@ class ConversationsController < ApplicationController
       redirect_to person_transaction_url(@current_user, {:id => transaction.id}) and return
     end
 
-    message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
+    message_form = Message.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
     messages = TransactionViewUtils.conversation_messages(conversation.messages, @current_community.name_display_type)
 

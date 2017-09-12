@@ -14,7 +14,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     token = paypal_payments_service.get_request_token(@current_community.id, params[:token])
     return redirect_to error_not_found_path if !token[:success]
 
-    transaction = transaction_service.query(token[:data][:transaction_id])
+    transaction = Transaction.find(token[:data][:transaction_id])
 
     proc_status = paypal_payments_service.create(
       @current_community.id,
@@ -39,7 +39,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     process_token = params[:process_token]
     listing_id = params[:listing_id]
 
-    proc_status = paypal_process_api.get_status(process_token)
+    proc_status = PaypalService::API::Api.process.get_status(process_token)
     unless (proc_status[:success] && proc_status[:data][:completed])
       return redirect_to error_not_found_path
     end
@@ -108,16 +108,8 @@ class PaypalService::CheckoutOrdersController < ApplicationController
     end
   end
 
-  def transaction_service
-    TransactionService::Transaction
-  end
 
   def paypal_payments_service
     PaypalService::API::Api.payments
   end
-
-  def paypal_process_api
-    PaypalService::API::Api.process
-  end
-
 end

@@ -113,7 +113,7 @@ module MarketplaceService
   def set_locales(community, locales)
     default_locale = community.locales[0]
     community_name = community.name(default_locale)
-    locales.each { |locale| Helper.first_or_create_community_customization!(community, community_name, locale) }
+    locales.each { |locale| first_or_create_community_customization!(community, community_name, locale) }
 
     # Replace removed locale with default for users of marketplace
     removed_locales = community.locales - locales

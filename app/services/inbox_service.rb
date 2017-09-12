@@ -77,7 +77,7 @@ module InboxService
 
     [:payment_total, :money, :optional],
 
-    [:author, :hash, :mandatory],
+    [:author, :mandatory],
     [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
     [:transitions, :mandatory] # Could add Array validation
   ]
@@ -203,7 +203,8 @@ module InboxService
         Maybe(paypal_payments.get_payment(transaction[:community_id], transaction[:transaction_id]))[:data][:authorization_total].or_else(nil)
       when :stripe
         stripe_payments = StripeService::API::Api.payments
-        Maybe(stripe_payments.payment_details(transaction))[:payment_total].or_else(nil)
+        tx_model = Transaction.find(transaction[:transaction_id])
+        stripe_payments.payment_details(tx_model)[:payment_total]
       end
 
     should_notify =

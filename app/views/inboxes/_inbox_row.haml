@@ -2,11 +2,12 @@
 
   .col-3
     .conversation-details-container
-      = link_to conversation[:other][:url] do
-        = image_tag conversation[:other][:avatar], :class => "conversation-avatar"
+      - avatar = conversation[:other].image.present? ? conversation[:other].image.url(:thumb) : missing_avatar(:thumb)
+      = link_to person_path(conversation[:other]) do
+        = image_tag avatar, :class => "conversation-avatar"
       .conversation-details
         .conversation-other-party-name
-          = link_to_unless conversation[:other][:is_deleted], conversation[:other][:display_name], conversation[:other][:url]
+          = link_to_unless conversation[:other].deleted, PersonViewUtils.person_display_name(conversation[:other], @current_community), person_path(conversation[:other])
         .conversation-last-message-at
           = conversation[:last_activity_ago]
 
@@ -32,7 +33,7 @@
         - status_meta = conversation[:transitions].last[:metadata]
         - is_author = !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
-        - other_name = conversation[:other][:display_name]
+        - other_name = conversation[:person_display_name]
 
         - icon, status_description = conversation_icon_and_status(status, is_author, other_name, waiting_feedback, status_meta)
 
