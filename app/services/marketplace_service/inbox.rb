@@ -66,9 +66,9 @@ module MarketplaceService
 
         [:should_notify, :mandatory],
 
-        [:starter, :hash, :mandatory],
-        [:current, :hash, :mandatory],
-        [:other, :hash, :mandatory]
+        [:starter, :mandatory],
+        [:current, :mandatory],
+        [:other, :mandatory]
       ]
 
       conversation_spec = [
