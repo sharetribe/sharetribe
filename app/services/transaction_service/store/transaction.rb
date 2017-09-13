@@ -15,7 +15,6 @@ module TransactionService::Store::Transaction
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
-
     tx_model.save!
     tx_model
   end

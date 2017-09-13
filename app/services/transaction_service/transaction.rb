@@ -217,7 +217,7 @@ module TransactionService::Transaction
   # private
 
   def charge_commission(transaction_id)
-    transaction = find_tx_model(transaction_id)
+    transaction = Transaction.find(transaction_id)
     payment = paypal_payment_api.get_payment(transaction.community_id, transaction.id)[:data]
     commission_to_admin = calculate_commission_to_admin(transaction.commission, payment[:payment_total], payment[:fee_total])
 
