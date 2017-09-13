@@ -36,7 +36,7 @@ class ListingCreatedJob < Struct.new(:listing_id, :community_id)
       process_id: listing.transaction_process_id
     }
 
-    process = TransactionService::API::Api.processes.get(opts).maybe[:process].or_else(nil)
+    process = TransactionService::API::Api.processes.get(opts).maybe.process.or_else(nil)
 
     raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
 

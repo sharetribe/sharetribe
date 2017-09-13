@@ -131,7 +131,7 @@ class ShapeService
 
   def select_process(online_payments, author_is_seller, processes)
     process = online_payments ? :preauthorize : :none
-    selected = processes.find { |p| p[:author_is_seller] == author_is_seller && p[:process] == process }
+    selected = processes.find { |p| p.author_is_seller == author_is_seller && p.process == process }
 
     raise ArgumentError.new("Cannot find suitable process") if selected.nil?
 

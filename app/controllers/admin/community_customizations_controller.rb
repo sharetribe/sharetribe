@@ -101,7 +101,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
   end
 
   def has_preauthorize_process?(processes)
-    processes.any? { |p| p[:process] == :preauthorize }
+    processes.any? { |p| p.process == :preauthorize }
   end
 
 end

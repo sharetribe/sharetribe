@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
         "BuyButtonClicked",
         { listing_id: listing_id,
           listing_uuid: listing_model.uuid_object.to_s,
-          payment_process: process[:process],
+          payment_process: process.process,
           user_logged_in: @current_user.present?
         })
     end
@@ -40,7 +40,7 @@ class TransactionsController < ApplicationController
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
       transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery).permit!))
 
-      case [process[:process], gateway]
+      case [process.process, gateway]
       when matches([:none])
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
       when matches([:preauthorize, :paypal]), matches([:preauthorize, :stripe]), matches([:preauthorize, [:paypal, :stripe]])
@@ -101,8 +101,8 @@ class TransactionsController < ApplicationController
               listing_quantity: quantity,
               content: form[:message],
               booking_fields: booking_fields,
-              payment_gateway: process[:process] == :none ? :none : gateway, # TODO This is a bit awkward
-              payment_process: process[:process]
+              payment_gateway: process.process == :none ? :none : gateway, # TODO This is a bit awkward
+              payment_process: process.process
             }
           })
       }
@@ -280,7 +280,7 @@ class TransactionsController < ApplicationController
   end
 
   def after_create_flash(process:)
-    case process[:process]
+    case process.process
     when :none
       t("layouts.notifications.message_sent")
     else
@@ -289,7 +289,7 @@ class TransactionsController < ApplicationController
   end
 
   def after_create_redirect(process:, starter_id:, transaction:)
-    case process[:process]
+    case process.process
     when :none
       person_transaction_path(person_id: starter_id, id: transaction[:id])
     else
@@ -298,7 +298,7 @@ class TransactionsController < ApplicationController
   end
 
   def after_create_actions!(process:, transaction:, community_id:)
-    case process[:process]
+    case process.process
     when :none
       # TODO Do I really have to do the state transition here?
       # Shouldn't it be handled by the TransactionService
@@ -343,7 +343,7 @@ class TransactionsController < ApplicationController
   end
 
   def validate_form(form_params, process)
-    if process[:process] == :none && form_params[:message].blank?
+    if process.process == :none && form_params[:message].blank?
       Result::Error.new("Message cannot be empty")
     else
       Result::Success.new

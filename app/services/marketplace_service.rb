@@ -170,8 +170,8 @@ module MarketplaceService
     ].to_set.map { |p|
       get_or_create_transaction_process(
         community_id: community_id,
-        process: p[:process],
-        author_is_seller: p[:author_is_seller])
+        process: p.process,
+        author_is_seller: p.author_is_seller)
     }
   end
 
