@@ -22,4 +22,11 @@
 class PaypalProcessToken < ApplicationRecord
   validates_presence_of(:process_token, :community_id)
 
+  def process_status
+    {
+      process_token: process_token,
+      completed: op_completed,
+      result: op_output
+    }
+  end
 end

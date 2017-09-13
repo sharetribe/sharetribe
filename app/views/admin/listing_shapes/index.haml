@@ -7,9 +7,9 @@
 - content_for :javascript do
   window.ST.initializeListingShapesOrder();
 
-- if local_assigns[:show_onboarding_popup]
-  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
 
+
+= render partial: 'layouts/onboarding_popup_wrapper'
 = render partial: "admin/left_hand_navigation", locals: { links: admin_links_for(@current_community), selected_left_navi_link: selected_left_navi_link }
 
 .left-navi-section
@@ -32,18 +32,18 @@
     .col-2
   - sort_disabled_class = listing_shapes.size == 1 ? "disabled" : ""
   - listing_shapes.map do |shape|
-    .row.js-listing-shape-row{data: {id: shape[:id]}}
+    .row.js-listing-shape-row{data: {id: shape.id}}
       .col-5
-        = t(shape[:name_tr_key])
+        = t(shape.name_tr_key)
       .col-5
-        - if shape[:category_ids].size == 0
+        - if shape.category_ids.size == 0
           = t("admin.listing_shapes.index.no_categories")
-        - elsif shape[:category_ids].size == category_count
+        - elsif shape.category_ids.size == category_count
           = t("admin.listing_shapes.index.all_categories")
         - else
-          = t("admin.listing_shapes.index.category_count", :category_count => "#{shape[:category_ids].size}/#{category_count}")
+          = t("admin.listing_shapes.index.category_count", :category_count => "#{shape.category_ids.size}/#{category_count}")
       .col-2
-        = link_to edit_admin_listing_shape_path(shape[:name]) do
+        = link_to edit_admin_listing_shape_path(shape.name) do
           = icon_tag("edit", ["icon-fix"])
         = link_to '#', :class => "js-listing-shape-action-up admin-sort-button #{sort_disabled_class}", :tabindex => "-1" do
           = icon_tag("directup", ["icon-fix"])

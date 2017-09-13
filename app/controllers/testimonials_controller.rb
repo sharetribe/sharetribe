@@ -72,7 +72,6 @@ class TestimonialsController < ApplicationController
   def ensure_authorized_to_give_feedback
     # Rails was giving some read-only records. That's why we have to do some manual queries here and use INCLUDES,
     # not joins.
-    # TODO Move this to service
     @transaction = Transaction
       .includes(:listing)
       .where("starter_id = ? OR listings.author_id = ?", @current_user.id, @current_user.id)
@@ -90,10 +89,7 @@ class TestimonialsController < ApplicationController
   end
 
   def ensure_feedback_not_given
-    transaction_entity = MarketplaceService::Transaction::Entity.transaction(@transaction)
-    waiting = MarketplaceService::Transaction::Entity.waiting_testimonial_from?(transaction_entity, @current_user.id)
-
-    unless waiting
+    unless @transaction.waiting_testimonial_from?(@current_user.id)
       flash[:error] = t("layouts.notifications.you_have_already_given_feedback_about_this_event")
       redirect_to search_path and return
     end

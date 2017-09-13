@@ -570,7 +570,7 @@ class ApplicationController < ActionController::Base
   def header_props
     user = Maybe(@current_user).map { |u|
       {
-        unread_count: MarketplaceService::Inbox::Query.notification_count(u.id, @current_community.id),
+        unread_count: InboxService.notification_count(u.id, @current_community.id),
         avatar_url: u.image.present? ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
         current_user_name: PersonViewUtils.person_display_name(u, @current_community),
         inbox_path: person_inbox_path(u),
@@ -629,5 +629,12 @@ class ApplicationController < ActionController::Base
 
   def render_not_found!(msg = "Not found")
     raise ActionController::RoutingError.new(msg)
+  end
+
+  def make_onboarding_popup
+    @onboarding_popup = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      admin_getting_started_guide_path,
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
   end
 end

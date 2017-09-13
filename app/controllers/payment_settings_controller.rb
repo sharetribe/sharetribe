@@ -255,7 +255,7 @@ class PaymentSettingsController < ApplicationController
 
   def stripe_update_bank_account
     bank_country = @parsed_seller_account[:address_country]
-    bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[bank_country]
+    bank_currency = TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[bank_country]
     form_params = params[:stripe_bank_form]
     routing_number = if form_params[:bank_routing_1].present?
                 [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")

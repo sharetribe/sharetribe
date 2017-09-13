@@ -34,7 +34,7 @@ module UserService::API
           user = from_model(person)
 
           # The first member will be made admin
-          MarketplaceService::API::Memberships.make_user_a_member_of_community(user[:id], community_id, invitation_id)
+          make_user_a_member_of_community(user[:id], community_id, invitation_id)
 
           email = Email.find_by_person_id!(user[:id])
           community = Community.find(community_id)
@@ -53,48 +53,21 @@ module UserService::API
       end
     end
 
-    def delete_user(id)
-      person = Person.where(id: id).first
+    def make_user_a_member_of_community(user_id, community_id, invitation_id=nil)
 
-      if person.nil?
-        Result::Error.new("Person with id '#{id}' not found")
-      else
-        # Delete personal information
-        person.update_attributes(
-          given_name: nil,
-          family_name: nil,
-          phone_number: nil,
-          description: nil,
-          facebook_id: nil,
-          # To ensure user can not log in anymore we have to:
-          #
-          # 1. Delete the password (Devise rejects login attempts if the password is empty)
-          # 2. Remove the emails (So that use can not reset the password)
-          encrypted_password: "",
-          deleted: true # Flag deleted
-        )
+      # Fetching the models would not be necessary, but that validates the ids
+      user = Person.find(user_id)
+      community = Community.find(community_id)
 
-        # Delete emails
-        person.emails.destroy_all
+      membership = CommunityMembership.new(:person => user, :community => community, :consent => community.consent)
+      membership.status = "pending_email_confirmation"
+      membership.invitation = Invitation.find(invitation_id) if invitation_id.present?
 
-        # Delete avatar
-        person.image.destroy
-        person.image.clear
-        person.image = nil
-        person.save(validate: false)
-
-        # Delete follower relations, both way
-        person.follower_relationships.destroy_all
-        person.inverse_follower_relationships.destroy_all
-
-        # Delete memberships
-        person.community_membership.update_attributes(status: "deleted_user")
-
-        # Delte auth tokens
-        person.auth_tokens.destroy_all
-
-        Result::Success.new
+      # If the community doesn't have any members, make the first one an admin
+      if community.members.count == 0
+        membership.admin = true
       end
+      membership.save!
     end
 
     def from_model(person)

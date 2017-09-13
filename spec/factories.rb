@@ -129,6 +129,10 @@ FactoryGirl.define do
     community_uuid { community.uuid } # raw UUID
     starter_uuid { starter.uuid } # raw UUID
     listing_author_uuid { listing.author.uuid } # raw UUID
+    payment_process :none
+    delivery_method "none"
+    payment_gateway :none
+    availability "none"
   end
 
   factory :conversation do
@@ -189,6 +193,7 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     currency "EUR"
+    build_association(:marketplace_configurations, as: :configuration)
 
     has_many(:community_customizations) do |community|
       FactoryGirl.build(:community_customization, community: community)

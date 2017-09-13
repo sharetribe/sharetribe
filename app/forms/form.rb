@@ -1,11 +1,4 @@
 module Form
-  Message = FormUtils.define_form("Message",
-    :content,
-    :conversation_id, # TODO Remove this
-  ).with_validations {
-    validates_presence_of :content, :conversation_id
-  }
-
   NewMarketplace = FormUtils.define_form("NewMarketplaceForm",
     :admin_email, :admin_first_name, :admin_last_name, :admin_password,
     :marketplace_country, :marketplace_language, :marketplace_name, :marketplace_type

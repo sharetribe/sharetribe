@@ -5,7 +5,7 @@ module TransactionViewUtils
 
   MessageBubble = EntityUtils.define_builder(
     [:content, :string, :mandatory],
-    [:sender, :hash, :mandatory],
+    [:sender, :mandatory],
     [:created_at, :time, :mandatory],
     [:mood, one_of: [:positive, :negative, :neutral]]
   )
@@ -66,25 +66,22 @@ module TransactionViewUtils
       }
   end
 
-  def conversation_messages(message_entities, name_display_type)
-    message_entities.map { |message_entity|
-      sender = message_entity[:sender].merge(
-        display_name: PersonViewUtils.person_entity_display_name(message_entity[:sender], name_display_type))
-      message_entity.merge(mood: :neutral, sender: sender)
+  def conversation_messages(messages, name_display_type)
+    messages.map { |message|
+      MessageBubble.call(
+        content: message.content,
+        sender: message.sender,
+        created_at: message.created_at,
+        mood: :neutral
+      )
     }
   end
 
   def transition_messages(transaction, conversation, name_display_type)
     if transaction.present?
-      author = conversation[:other_person].merge(
-        display_name: PersonViewUtils.person_entity_display_name(conversation[:other_person], name_display_type))
-      starter = conversation[:starter_person].merge(
-        display_name: PersonViewUtils.person_entity_display_name(conversation[:starter_person], name_display_type))
-
-      transitions = transaction[:transitions]
-      payment_sum = transaction[:payment_total]
-
-      create_messages_from_actions(transitions, author, starter, payment_sum)
+      transitions = transaction.transaction_transitions
+      payment_sum = transaction.payment_total
+      create_messages_from_actions(transitions, transaction.author, transaction.starter, payment_sum)
     else
       []
     end

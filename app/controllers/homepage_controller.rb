@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
 
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
-    all_shapes = shapes.get(community_id: @current_community.id)[:data]
+    all_shapes = @current_community.shapes
     shape_name_map = all_shapes.map { |s| [s[:id], s[:name]]}.to_h
 
     filter_params = {}
@@ -205,7 +205,7 @@ class HomepageController < ApplicationController
   end
 
   def location_search_params(params, keyword_search_in_use)
-    marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+    marketplace_configuration = @current_community.configuration
 
     distance = params[:distance_max].to_f
     distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
@@ -263,10 +263,6 @@ class HomepageController < ApplicationController
         nil
       end
     end
-  end
-
-  def shapes
-    ListingService::API::Api.shapes
   end
 
   def search_coordinates(latlng)

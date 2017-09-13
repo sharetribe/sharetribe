@@ -21,7 +21,7 @@ class CommunitiesController < ApplicationController
 
     if form.valid?
       form_hash = form.to_hash
-      marketplace = MarketplaceService::API::Marketplaces.create(
+      marketplace = MarketplaceService.create(
         form_hash.slice(:marketplace_name,
                         :marketplace_type,
                         :marketplace_country,

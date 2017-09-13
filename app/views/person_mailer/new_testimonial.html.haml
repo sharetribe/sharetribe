@@ -8,8 +8,7 @@
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_testimonial.view_feedback"), :url => view_url}
 
--# TODO Move to Mailer, and pass as locals
-- if MarketplaceService::Transaction::Entity.waiting_testimonial_from?(MarketplaceService::Transaction::Entity.transaction(@testimonial.tx), @testimonial.receiver.id)
+- if @waiting_testimonial
   %tr
     %td{:align => "left"}
       %font{body_font}

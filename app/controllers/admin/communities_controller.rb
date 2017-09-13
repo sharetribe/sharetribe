@@ -6,13 +6,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
-
-    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
-      flash[:show_onboarding_popup],
-      admin_getting_started_guide_path,
-      Admin::OnboardingWizard.new(@current_community.id).setup_status)
-
-    render "edit_look_and_feel", locals: onboarding_popup_locals
+    make_onboarding_popup
+    render "edit_look_and_feel"
   end
 
   def edit_text_instructions
@@ -158,7 +153,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @selected_left_navi_link = "topbar"
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data[:limit_priority_links]
+      limit_priority_links = @current_community.configuration&.limit_priority_links
       all = view_context.t("admin.communities.menu_links.all")
       limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
       limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
@@ -181,12 +176,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
       limit_priority_links = params[:limit_priority_links].to_i
-      MarketplaceService::API::Api.configurations.update({
-        community_id: @current_community.id,
-        configurations: {
-          limit_priority_links: limit_priority_links
-        }
-      })
+      @current_community.configuration.update(limit_priority_links: limit_priority_links)
     end
 
     translations = h_params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
@@ -225,7 +215,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     # When feature flag is removed, make this pretty
     if(FeatureFlagHelper.location_search_available)
-      marketplace_configurations = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+      marketplace_configurations = @current_community.configuration
 
       keyword_and_location =
         if FeatureFlagService::API::Api.features.get_for_community(community_id: @current_community.id).data[:features].include?(:topbar_v1)
@@ -348,15 +338,11 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
 
-    if(FeatureFlagHelper.location_search_available)
-      MarketplaceService::API::Api.configurations.update({
-        community_id: @current_community.id,
-        configurations: {
-          main_search: params[:main_search],
-          distance_unit: params[:distance_unit],
-          limit_search_distance: params[:limit_distance].present?
-        }
-      })
+    if FeatureFlagHelper.location_search_available
+      @current_community.configuration.update(
+        main_search: params[:main_search],
+        distance_unit: params[:distance_unit],
+        limit_search_distance: params[:limit_distance].present?)
     end
 
     update(@current_community,

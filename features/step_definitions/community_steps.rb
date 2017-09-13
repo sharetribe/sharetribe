@@ -108,7 +108,7 @@ Given /^community "(.*?)" has following category structure:$/ do |community, cat
     category.translations.create!(:name => hash['fi'], :locale => 'fi')
     category.translations.create!(:name => hash['en'], :locale => 'en')
 
-    shape = ListingService::API::Api.shapes.get(community_id: current_community.id)[:data].first
+    shape = category.community.shapes.first
     CategoryListingShape.create!(category_id: category.id, listing_shape_id: shape[:id])
 
     if hash['category_type'].eql?("main")
@@ -129,7 +129,6 @@ end
 
 Given /^community "(.*?)" has following listing shapes enabled:$/ do |community, listing_shapes|
   current_community = Community.where(ident: community).first
-  # TODO Add DELETE to Listing shape API
   ListingShape.where(community_id: current_community.id).destroy_all
 
   process_id = TransactionProcess.where(community_id: current_community.id, process: :none).first.id
@@ -140,8 +139,8 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
       {translations: [ {locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')} ]}
     ])
 
-    ListingService::API::Api.shapes.create(
-      community_id: current_community.id,
+    ListingShape.create_with_opts(
+      community: current_community,
       opts: {
         price_enabled: true,
         shipping_enabled: false,
@@ -149,7 +148,7 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
         action_button_tr_key: action_button_tr_key,
         transaction_process_id: process_id,
         basename: hash['en'],
-        units: [ {type: :hour, quantity_selector: :number} ]
+        units: [ {unit_type: 'hour', quantity_selector: 'number', kind: 'time'} ]
       }
     )
   end
