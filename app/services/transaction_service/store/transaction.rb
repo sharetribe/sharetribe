@@ -2,7 +2,7 @@ module TransactionService::Store::Transaction
 
   TransactionModel = ::Transaction
 
-  
+
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person
   # is still safe.
@@ -15,7 +15,7 @@ module TransactionService::Store::Transaction
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
-    
+
     tx_model.save!
     tx_model
   end
@@ -61,7 +61,7 @@ module TransactionService::Store::Transaction
 
   def upsert_shipping_address(community_id:, transaction_id:, addr:)
     tx_model = TransactionModel.where(id: transaction_id, community_id: community_id).first
-    if tx_model 
+    if tx_model
       address = tx_model.shipping_address || tx_model.build_shipping_address
       address.update_attributes!(addr)
     end

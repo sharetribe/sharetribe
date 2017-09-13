@@ -3,7 +3,7 @@ module TransactionService
 
   class BookingStateChangeError < StandardError
   end
-  
+
   TransitionMetadata= EntityUtils.define_builder(
     [:paypal_pending_reason, :symbol],
     [:paypal_payment_status, :symbol]

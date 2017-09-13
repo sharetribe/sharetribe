@@ -1,87 +1,87 @@
 module MarketplaceService
   RESERVED_DOMAINS = [
-      "www",
-      "home",
-      "sharetribe",
-      "login",
-      "blog",
-      "business",
-      "catch",
-      "webhooks",
-      "dashboard",
-      "dashboardtranslate",
-      "translate",
-      "community",
-      "wiki",
-      "mail",
-      "secure",
-      "host",
-      "feed",
-      "feeds",
-      "app",
-      "beta-site",
-      "marketplace",
-      "marketplaces",
-      "masters",
-      "marketplacemasters",
-      "insights",
-      "insight",
-      "tips",
-      "doc",
-      "docs",
-      "support",
-      "support-team",
-      "help",
-      "legal",
-      "org",
-      "net",
-      "web",
-      "intra",
-      "intranet",
-      "internal",
-      "webinar",
-      "local",
-      "marketplace-academy",
-      "academy-proxy",
-      "academy",
-      "proxy",
-      "preproduction",
-      "staging",
-      "demo",
-      "plan",
-      "plans",
-      "customer",
-      "customers",
-      "subscription",
-      "subscriptions",
-      "client",
-      "clients",
-      "assets",
-      "assets-origin",
-      "assets-sharetribecom",
-      "assets0",
-      "assets1",
-      "assets2",
-      "assets3",
-      "assets4",
-      "assets5",
-      "assets6",
-      "assets7",
-      "assets8",
-      "assets9",
-      "cdn",
-      "cdn-origin",
-      "cdn0",
-      "cdn1",
-      "cdn2",
-      "cdn3",
-      "cdn4",
-      "cdn5",
-      "cdn6",
-      "cdn7",
-      "cdn8",
-      "cdn9",
-    ]
+    "www",
+    "home",
+    "sharetribe",
+    "login",
+    "blog",
+    "business",
+    "catch",
+    "webhooks",
+    "dashboard",
+    "dashboardtranslate",
+    "translate",
+    "community",
+    "wiki",
+    "mail",
+    "secure",
+    "host",
+    "feed",
+    "feeds",
+    "app",
+    "beta-site",
+    "marketplace",
+    "marketplaces",
+    "masters",
+    "marketplacemasters",
+    "insights",
+    "insight",
+    "tips",
+    "doc",
+    "docs",
+    "support",
+    "support-team",
+    "help",
+    "legal",
+    "org",
+    "net",
+    "web",
+    "intra",
+    "intranet",
+    "internal",
+    "webinar",
+    "local",
+    "marketplace-academy",
+    "academy-proxy",
+    "academy",
+    "proxy",
+    "preproduction",
+    "staging",
+    "demo",
+    "plan",
+    "plans",
+    "customer",
+    "customers",
+    "subscription",
+    "subscriptions",
+    "client",
+    "clients",
+    "assets",
+    "assets-origin",
+    "assets-sharetribecom",
+    "assets0",
+    "assets1",
+    "assets2",
+    "assets3",
+    "assets4",
+    "assets5",
+    "assets6",
+    "assets7",
+    "assets8",
+    "assets9",
+    "cdn",
+    "cdn-origin",
+    "cdn0",
+    "cdn1",
+    "cdn2",
+    "cdn3",
+    "cdn4",
+    "cdn5",
+    "cdn6",
+    "cdn7",
+    "cdn8",
+    "cdn9",
+  ]
 
   module_function
 
@@ -91,7 +91,7 @@ module MarketplaceService
     locale = p[:marketplace_language].or_else("en")
     marketplace_name = p[:marketplace_name].or_else("Trial Marketplace")
     payment_process = p[:payment_process].or_else(:preauthorize)
-    distance_unit = p[:marketplace_country].map { |country| (country == "US") ? :imperial : :metric }.or_else(:metric)
+    distance_unit = p[:marketplace_country].map { |country| country == "US" ? :imperial : :metric }.or_else(:metric)
     limit_search_distance = false
 
     community = Community.create(community_params(p, marketplace_name, locale))
@@ -137,7 +137,7 @@ module MarketplaceService
       }
     }
   end
-  
+
   def community_params(params, marketplace_name, locale)
     ident = available_ident_based_on(marketplace_name)
     {
@@ -207,17 +207,17 @@ module MarketplaceService
 
   def select_listing_shape_template(type)
    case type.or_else("product")
-    when "rental"
-      "Rent"
-    when "service"
-      "Service"
-    else # also "product" goes to this default
-      "Sell"
-    end
+   when "rental"
+    "Rent"
+   when "service"
+    "Service"
+   else # also "product" goes to this default
+    "Sell"
+   end
   end
 
   def how_to_use_page_default_content(locale, marketplace_name)
-    "<h1>#{I18n.t("infos.how_to_use.default_title", locale: locale)}</h1><div>#{I18n.t("infos.how_to_use.default_content", locale: locale, :marketplace_name => marketplace_name)}</div>"
+    "<h1>#{I18n.t('infos.how_to_use.default_title', locale: locale)}</h1><div>#{I18n.t('infos.how_to_use.default_content', locale: locale, :marketplace_name => marketplace_name)}</div>"
   end
 
   def available_ident_based_on(initial_ident)

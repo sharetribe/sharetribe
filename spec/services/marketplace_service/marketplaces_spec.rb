@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe MarketplaceService::API::Marketplaces do
-  include MarketplaceService::API::Marketplaces
+describe MarketplaceService do
+  include MarketplaceService
 
   describe "#create" do
 
@@ -75,7 +75,7 @@ describe MarketplaceService::API::Marketplaces do
       c = Community.find(community_hash[:id])
       processes = TransactionService::API::Api.processes
                   .get(community_id: c.id).data
-                  .map { |p| p.slice(:author_is_seller, :process) }
+                  .map { |p| p.attributes.slice(:author_is_seller, :process) }
 
       expect(processes.size).to eq 3
       expect(processes.include?({ author_is_seller: true, process: :preauthorize})).to eq true
@@ -88,7 +88,7 @@ describe MarketplaceService::API::Marketplaces do
       c = Community.find(community_hash[:id])
       processes = TransactionService::API::Api.processes
                   .get(community_id: c.id).data
-                  .map { |p| p.slice(:author_is_seller, :process) }
+                  .map { |p| p.attributes.slice(:author_is_seller, :process) }
 
       expect(processes.size).to eq 2
       expect(processes.include?({ author_is_seller: false, process: :none})).to eq true

@@ -114,7 +114,7 @@ module InboxService
 
     result_set = connection.execute(sql).each(as: :hash).map { |row| HashUtils.symbolize_keys(row) }
 
-    people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq
+    people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq # rubocop:disable Rails/UniqBeforePluck
     community = Community.find(community_id)
     people_store = community.members.where(id: people_ids).index_by(&:id)
 

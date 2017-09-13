@@ -17,6 +17,10 @@
 class TransactionProcess < ApplicationRecord
   belongs_to :community
 
+  validates :community_id, presence: true
+  validates :author_is_seller, inclusion: [true, false]
+  validates :process, inclusion: [:none, :preauthorize, :postpay]
+
   def process
     read_attribute(:process).to_sym
   end

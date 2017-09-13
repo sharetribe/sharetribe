@@ -126,13 +126,11 @@ class TransactionsController < ApplicationController
       return redirect_to search_path
     end
 
-    role = 
-      if m_participant 
-        :participant 
+    role =
+      if m_participant
+        :participant
       elsif m_admin
         :admin
-      else
-        nil
       end
 
     @conversation = @transaction.conversation

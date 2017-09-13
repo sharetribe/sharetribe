@@ -119,6 +119,8 @@ FactoryGirl.define do
     build_association(:person, as: :starter)
     build_association(:community)
     build_association(:listing)
+    listing_id { listing.id }
+    community_id { community.id }
     listing_title { listing.title }
     listing_author_id { listing.author.id }
     unit_price { listing.price }
@@ -129,6 +131,10 @@ FactoryGirl.define do
     community_uuid { community.uuid } # raw UUID
     starter_uuid { starter.uuid } # raw UUID
     listing_author_uuid { listing.author.uuid } # raw UUID
+    payment_process :none
+    delivery_method "none"
+    payment_gateway :none
+    availability "none"
   end
 
   factory :conversation do

@@ -66,17 +66,17 @@ class Transaction < ApplicationRecord
 
   accepts_nested_attributes_for :booking
 
-  validates :payment_gateway, presence: true
-  validates :community_id, :community_uuid, :listing_id, :listing_uuid, :starter_id, :starter_uuid, presence: true
-  validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}
-  validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true
-  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil]
-  validates :availability, inclusion: ["none", "booking"]
-  validates :delivery_method, inclusion: ["none", "shipping", "pickup"]
-  validates :payment_process, inclusion: [:none, :postpay, :preauthorize]
-  validates :payment_gateway, inclusion: [:paypal, :checkout, :braintree, :stripe, :none]
-  validates :commission_from_seller, numericality: {only_integer: true}
-  validates :automatic_confirmation_after_days, numericality: {only_integer: true}
+  validates :payment_gateway, presence: true, on: :create
+  validates :community_uuid, :listing_uuid, :starter_id, :starter_uuid, presence: true, on: :create
+  validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}, on: :create
+  validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true, on: :create
+  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil], on: :create
+  validates :availability, inclusion: ["none", "booking"], on: :create
+  validates :delivery_method, inclusion: ["none", "shipping", "pickup"], on: :create
+  validates :payment_process, inclusion: [:none, :postpay, :preauthorize], on: :create
+  validates :payment_gateway, inclusion: [:paypal, :checkout, :braintree, :stripe, :none], on: :create
+  validates :commission_from_seller, numericality: {only_integer: true}, on: :create
+  validates :automatic_confirmation_after_days, numericality: {only_integer: true}, on: :create
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
