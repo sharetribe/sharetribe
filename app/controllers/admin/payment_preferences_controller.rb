@@ -163,7 +163,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         allow_nil: false,
         greater_than_or_equal_to: MIN_COMMISSION_PERCENTAGE,
         less_than_or_equal_to: MAX_COMMISSION_PERCENTAGE,
-        if: proc { mode == 'transaction_fee' }
+        if: proc { mode == 'transaction_fee' || mode == 'paypal' }
       )
 
       available_currencies = MarketplaceService::AvailableCurrencies::CURRENCIES
@@ -199,6 +199,17 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
             minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
             minimum_transaction_fee_currency: currency
           }.compact
+        elsif form.mode == 'paypal'
+          {
+            community_id: @current_community.id,
+            payment_process: :preauthorize,
+            commission_from_seller: form.commission_from_seller,
+            minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
+            minimum_transaction_fee_currency: currency,
+            minimum_price_cents: form.minimum_listing_price.try(:cents),
+            minimum_price_currency: currency
+
+          }.compact
         else
           {
             community_id: @current_community.id,
@@ -217,7 +228,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         end
       end
 
-      if form.mode == 'transaction_fee'
+      if form.mode == 'transaction_fee' || form.mode == 'paypal'
         # Onboarding wizard step recording
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:payment_preferences_updated, @current_community)
