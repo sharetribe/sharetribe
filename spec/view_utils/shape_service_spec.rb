@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe ShapeService do
 
-  let(:shape_service) {ShapeService.new([{:id=>1, :community_id=>1, :author_is_seller=>true, :process=>:none}])}
+  let(:shape_service) {ShapeService.new([ TransactionProcess.new({:id=>1, :community_id=>1, :author_is_seller=>true, :process=>:none})])}
 
   def create_shape(opts = {})
     defaults = {

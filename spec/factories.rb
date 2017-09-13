@@ -193,6 +193,7 @@ FactoryGirl.define do
     slogan "Test slogan"
     description "Test description"
     currency "EUR"
+    build_association(:marketplace_configurations, as: :configuration)
 
     has_many(:community_customizations) do |community|
       FactoryGirl.build(:community_customization, community: community)
