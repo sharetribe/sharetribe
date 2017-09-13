@@ -76,7 +76,6 @@ describe MarketplaceService do
       processes = TransactionService::API::Api.processes
                   .get(community_id: c.id).data
         .map { |p| {:author_is_seller => p.author_is_seller, :process => p.process} }
-      warn processes.inspect
       expect(processes.size).to eq 3
       expect(processes.include?({ author_is_seller: true, process: :preauthorize})).to eq true
       expect(processes.include?({ author_is_seller: false, process: :none})).to eq true
