@@ -159,7 +159,7 @@ module TransactionTypeCreator
     TransactionService::API::Api.processes.get(community_id: community_id)
       .maybe
       .map { |processes|
-        processes.find { |p| p[:process] == process && p[:author_is_seller] == author_is_seller }
+        processes.find { |p| p.process == process && p.author_is_seller == author_is_seller }
       }
       .or_else {
         TransactionService::API::Api.processes.create(

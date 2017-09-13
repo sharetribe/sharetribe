@@ -3,11 +3,11 @@ module TransactionService::API
 
     def get(community_id:, process_id: nil)
       if process_id.nil?
-        Result::Success.new(TransactionProcess.where(community_id: community_id))
+        Result::Success.new(TransactionProcess.where(community_id: community_id).to_a)
       else
         process = TransactionProcess.where(community_id: community_id, id: process_id).first
         if process
-          Result::Success.new(res)
+          Result::Success.new(process)
         else
           Result::Error.new("Cannot find transaction process for community_id: #{community_id} and process_id: #{process_id}")
         end

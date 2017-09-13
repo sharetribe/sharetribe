@@ -119,8 +119,6 @@ FactoryGirl.define do
     build_association(:person, as: :starter)
     build_association(:community)
     build_association(:listing)
-    listing_id { listing.id }
-    community_id { community.id }
     listing_title { listing.title }
     listing_author_id { listing.author.id }
     unit_price { listing.price }

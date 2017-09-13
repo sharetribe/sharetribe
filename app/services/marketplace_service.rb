@@ -176,18 +176,15 @@ module MarketplaceService
   end
 
   def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
-    TransactionService::API::Api.processes.get(community_id: community_id)
-      .maybe
-      .map { |processes|
-      processes.find { |p| p[:process] == process && p[:author_is_seller] == author_is_seller }
-    }
-      .or_else {
+    processes = TransactionService::API::Api.processes.get(community_id: community_id).data
+    existing_process = processes.detect{ |p| p.process == process && p.author_is_seller == author_is_seller }
+    unless existing_process
       TransactionService::API::Api.processes.create(
         community_id: community_id,
         process: process,
         author_is_seller: author_is_seller
-      ).data
-    }
+      )
+    end
   end
 
   def create_listing_shape!(community, marketplace_type, process)
