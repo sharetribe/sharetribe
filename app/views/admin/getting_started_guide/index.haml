@@ -4,10 +4,7 @@
     = "-"
     = t("admin.communities.getting_started.getting_started")
 
-%article.page-content
-  .row
-    .col-3
-      = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
-    .col-9
-      - react_component_cache(name: "onboarding_guide", props: props) do
-        = react_component("OnboardingGuideApp", props: props)
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+.left-navi-section
+  - react_component_cache(name: "onboarding_guide", props: props) do
+    = react_component("OnboardingGuideApp", props: props)
