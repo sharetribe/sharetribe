@@ -15,7 +15,7 @@ Feature: User updates profile information
     When I fill in "First name" with "Test"
     And I fill in "Last name" with "Dude"
     And I fill in "Location" with "Broadway"
-    And wait for 2 seconds
+    And mock googlemap location with "Broadway, 41.111, -73.8583"
     And I fill in "Phone number" with "0700-715517"
     And I fill in "About you" with "Some random text about me"
     And I press "Save information"
