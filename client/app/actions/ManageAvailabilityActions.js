@@ -80,7 +80,7 @@ const removeLoadedMonths = (months, loadedMonths) => ({
 });
 
 const convertBlocksFromUTCMidnightDates = (blocks) =>
-  blocks.map((block) =>
+  blocks.filter((block) => block.getIn([':attributes', ':status']) !== ':rejected').map((block) =>
     block.updateIn([':attributes', ':start'], fromMidnightUTCDate)
          .updateIn([':attributes', ':end'], fromMidnightUTCDate));
 
@@ -110,7 +110,6 @@ export const changeMonth = (day) =>
       })
       .then((response) => {
         const groups = response.get(':included').groupBy((v) => v.get(':type'));
-
         const slots = Immutable.Map({
           blocks: convertBlocksFromUTCMidnightDates(groups.get(':block', Immutable.List())),
           bookings: convertBlocksFromUTCMidnightDates(groups.get(':booking', Immutable.List())),
