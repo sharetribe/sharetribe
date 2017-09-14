@@ -1,11 +1,11 @@
 
-.left-navi-section.payment-settings
+.left-navi-section.payment-settings.has-stripe
 
   .row.paypal-wizard.no-border
     .col-12
       = render partial: 'general_prefs_form', locals: {payment_prefs_form: payment_prefs_form, payment_prefs_valid: payment_prefs_valid, currency: currency, available_currencies: available_currencies, support_email: support_email, payments_connected: stripe_connected || paypal_connected, country_name: country_name}
 
-    .paypal-wizard-content
+    .paypal-wizard-content.no-padding
       .row
         .col-12
           %h2
@@ -64,7 +64,7 @@
                     = link_to t("admin.payment_preferences.configure_paypal"), "#", class: "button", id: "config_paypal_toggle"
 
 
-    .col-12.payment-tabs.hidden.no-float
+    .payment-tabs.hidden.no-float
       .tabs-list
         - if stripe_enabled && stripe_allowed
           = link_to "Stripe", "#", data: {tab: 'stripe_tab'}, class: "tab-link stripe"

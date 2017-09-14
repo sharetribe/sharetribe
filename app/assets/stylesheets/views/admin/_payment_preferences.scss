@@ -50,3 +50,9 @@ td.center {
 .paypal-wizard-content.connect-row {
   padding-top: 0;
 }
+.has-stripe .paypal-wizard-content {
+  padding: 14px ;
+}
+.has-stripe .paypal-wizard-content.no-padding {
+  padding: 0;
+}
