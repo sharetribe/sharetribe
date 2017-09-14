@@ -11,7 +11,7 @@ const GuidePaypalPage = (props) => {
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.paypal.title')),
-    (stripe_enabled ? 
+    (stripe_enabled ?
       p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1_stripe_paypal', {
         not_sure_link: a(
           {
@@ -23,7 +23,7 @@ const GuidePaypalPage = (props) => {
           },
           t('web.admin.onboarding.guide.paypal.not_sure_link')
         ),
-      })) : 
+      })) :
       p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1'))),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p2')),
 
