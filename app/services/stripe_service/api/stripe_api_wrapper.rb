@@ -59,18 +59,9 @@ class StripeService::API::StripeApiWrapper
     def charge(community:, token:, seller_account_id:, amount:, fee:, currency:, description:, metadata: {})
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
-        when :direct
-          Stripe::Charge.create({
-            source: token,
-            amount: amount,
-            description: description,
-            currency: currency,
-            application_fee: fee,
-            capture: false
-          }.merge(metadata: metadata), { stripe_account: seller_account_id })
         when :separate
           Stripe::Charge.create({
-            customer: token,
+            source: token,
             amount: amount,
             description: description,
             currency: currency,
@@ -78,7 +69,7 @@ class StripeService::API::StripeApiWrapper
           }.merge(metadata: metadata))
         when :destination
           Stripe::Charge.create({
-            customer: token,
+            source: token,
             amount: amount,
             description: description,
             currency: currency,
@@ -95,8 +86,6 @@ class StripeService::API::StripeApiWrapper
     def capture_charge(community:, charge_id:, seller_id:)
       with_stripe_payment_config(community) do |payment_settings|
         case charges_mode(community)
-        when :direct
-          charge = Stripe::Charge.retrieve(charge_id, {stripe_account: seller_id})
         when :separate, :destination
           charge = Stripe::Charge.retrieve(charge_id)
         end
@@ -116,7 +105,7 @@ class StripeService::API::StripeApiWrapper
         when :separate
           # platform holds captured funds until completion, up to 90 days, then makes transfer
           payout_mode = {}
-        when :direct, :destination
+        when :destination
           # managed accounts, make payout after completion om funds availability date
           payout_mode = {
             payout_schedule: {
@@ -220,11 +209,10 @@ class StripeService::API::StripeApiWrapper
       return nil
     end
 
-    DESTINATION_TYPES = [:separate, :direct, :destination]
+    DESTINATION_TYPES = [:separate, :destination]
     # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
     #
     # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
-    # :direct      - Direct charges, payment goes to seller account, with application fee to admin account
     # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller
     #
     # By default :destination mode is used
@@ -264,8 +252,6 @@ class StripeService::API::StripeApiWrapper
         case charges_mode(community)
         when :separate, :destination
           Stripe::Refund.create({charge: charge_id}.merge(reason_data).merge(metadata: metadata))
-        when :direct
-          Stripe::Refund.create({charge: charge_id}.merge(reason_data).merge(metadata: metadata), {stripe_account: account_id})
         end
       end
     end
@@ -275,8 +261,6 @@ class StripeService::API::StripeApiWrapper
         case charges_mode(community)
         when :separate, :destination
           Stripe::BalanceTransaction.retrieve(balance_txn_id)
-        when :direct
-          Stripe::BalanceTransaction.retrieve(balance_txn_id, {stripe_account: account_id})
         end
       end
     end
