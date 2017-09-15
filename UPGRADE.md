@@ -35,8 +35,6 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Upgrade from 7.0.0 to 7.1.0
 
-Nothing special. See the [#general-update-instructions].
-
 Ruby version is updated from 2.3.1 to 2.3.4. The update contains fixes for several security vulnerabilities.
 
 Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
