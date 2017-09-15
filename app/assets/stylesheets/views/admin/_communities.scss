@@ -68,3 +68,7 @@ textarea.text_area_code {
 .transaction-agreement-modal.disabled:not(.label) {
   background-color: $highlight;
 }
+
+.member-banned {
+  opacity: 0.5;
+}

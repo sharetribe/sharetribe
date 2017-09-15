@@ -1,7 +1,7 @@
 module AdminManageMembersSteps
   POSTING_ALLOWED_CHECKBOX_SELECTOR = ".admin-members-can-post-listings"
   IS_ADMIN_CHECKBOX_SELECTOR = ".admin-members-is-admin"
-  REMOVE_USER_CHECKBOX_SELECTOR = ".admin-members-remove-user"
+  BAN_USER_CHECKBOX_SELECTOR = ".admin-members-ban-toggle"
 
   def find_row_for_person(full_name)
     expect(page).to have_css(".admin-members-full-name", :text => full_name)
@@ -23,10 +23,9 @@ module AdminManageMembersSteps
     find_element_for_person(full_name, IS_ADMIN_CHECKBOX_SELECTOR)
   end
 
-  def find_remove_link_for_person(full_name)
-    find_element_for_person(full_name, REMOVE_USER_CHECKBOX_SELECTOR)
+  def find_ban_user_checkbox_for_person(full_name)
+    find_element_for_person(full_name, BAN_USER_CHECKBOX_SELECTOR)
   end
-
 end
 
 World(AdminManageMembersSteps)
@@ -82,16 +81,24 @@ Then(/^I should see that "(.*?)" can post new listings$/) do |full_name|
   expect(find_posting_allowed_checkbox_for_person(full_name)['checked']).not_to be_nil
 end
 
-When(/^I remove user "(.*?)"$/) do |full_name|
-  find_remove_link_for_person(full_name).click
+When(/^I (.*?)ban user "(.*?)"$/) do |unban_str, full_name|
+  checkbox = find_ban_user_checkbox_for_person(full_name)
+
+  do_unban = (unban_str == 'un')
+  expect(checkbox.checked?).to eq(do_unban),
+    "incorrect checkbox state for #{unban_str}ban"
+
+  checkbox.click
   steps %Q{
     And I confirm alert popup
   }
 end
 
-Then(/^"(.*?)" should be banned from this community$/) do |username|
+
+Then(/^"(.*?)" should (.*?)be banned from this community$/) do |username, not_banned|
+  not_banned = not_banned.include?('not')
   person = Person.find_by(username: username, community_id: @current_community.id)
-  expect(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status).to eq("banned")
+  expect(CommunityMembership.find_by_person_id_and_community_id(person.id, @current_community.id).status).to eq((not_banned ? "accepted" : "banned"))
 end
 
 Given(/^user "(.*?)" is banned in this community$/) do |username|
