@@ -266,6 +266,7 @@ Rails.application.routes.draw do
         resources :community_memberships do
           member do
             put :ban
+            put :unban
           end
           collection do
             post :promote_admin

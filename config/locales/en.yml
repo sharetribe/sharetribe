@@ -248,12 +248,13 @@ en:
         join_date: Joined
         admin: Admin
         posting_allowed: "Posting allowed"
-        ban_user: "Ban user"
+        ban_user: "Ban"
         saving_user_status: Saving...
         save_user_status_successful: Saved
         export_all_as_csv: "Export all as CSV"
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
+        unban_user_confirmation: "This unbans the user in the marketplace and allows them to access the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot ban yourself."
         search: "Search"
         search_by_name_email: "Search for a name, email or display name"

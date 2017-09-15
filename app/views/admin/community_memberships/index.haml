@@ -58,20 +58,44 @@
         - @memberships.each do |membership|
           - member = membership.person
           - unless member.blank?
-            %tr
+            %tr{class: "member-#{membership.status}"}
               %td.admin-members-full-name
                 = link_to [member.given_name, member.family_name].join(" "), member
               %td
                 = member.display_name
               %td
                 = mail_to member.confirmed_notification_email_addresses.first
-              %td= l(membership.created_at, :format => :short_date)
+              %td
+                %span= l(membership.created_at, format: :short_date)
               - if @current_community.require_verification_to_post_listings
                 %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
-              %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@current_community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user)
               %td{:style => "text-align: center"}
-                = link_to(icon_tag("cross"), ban_admin_community_community_membership_path(@current_community.id, membership.id), method: :put, :data => {:confirm => t("admin.communities.manage_members.ban_user_confirmation")}, :class => "admin-members-remove-user")
+                = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@current_community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || membership.status == 'banned'
+
+              %td{:style => "text-align: center"}
+                = check_box_tag "is_banned[#{member.id}]", member.id, membership.status == 'banned', data: {ban_url: ban_admin_community_community_membership_path(@current_community.id, membership.id), unban_url: unban_admin_community_community_membership_path(@current_community.id, membership.id), confirm_ban: t("admin.communities.manage_members.ban_user_confirmation"), confirm_unban: t("admin.communities.manage_members.unban_user_confirmation")}, class: "admin-members-ban-toggle"
 
   .row
     .col-12
       = will_paginate @memberships
+- content_for :extra_javascript do
+  :javascript
+    $(document).on("click", ".admin-members-ban-toggle", function(){
+      var banned = this.checked;
+      var admin_cb = $(this).parent().prev("td").find("input:checkbox");
+      var row = $(this).parent().parent()[0];
+      if(banned) {
+        if(confirm($(this).data("confirm-ban"))) {
+          $.ajax({type: "PUT", url: $(this).data("ban-url"), dataType: "JSON", success: function(resp) { row.className = "member-"+resp.status; }});
+        } else {
+          this.checked = false;
+        }
+      }
+      if(!banned) {
+        if(confirm($(this).data("confirm-unban"))) {
+          $.ajax({type: "PUT", url: $(this).data("unban-url"), dataType: "JSON", success: function(resp) { row.className = "member-"+resp.status; }});
+        } else {
+          this.checked = true;
+        }
+      }
+    });
