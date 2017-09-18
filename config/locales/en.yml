@@ -384,8 +384,10 @@ en:
         send_email_or: "or"
         send_test_email: "Send a test email to yourself"
         test_sent: "Test email was sent to your inbox"
+        send_email_article_title: "this article"
+        send_email_article_text: "You can learn more about the user segments %{article_link}"
         recipients: 
-          title: "Who do you want to email"
+          title: "Who do you want to email?"
           options:
             all_users: All users
             with_listing: Users who have posted at least one listing

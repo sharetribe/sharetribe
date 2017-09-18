@@ -3,6 +3,8 @@ class Admin::EmailsController < Admin::AdminBaseController
   def new
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "email_members"
+    @display_knowledge_base_articles = APP_CONFIG.display_knowledge_base_articles
+    @knowledge_base_url = APP_CONFIG.knowledge_base_url
   end
 
   def create
