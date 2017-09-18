@@ -1,0 +1,44 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.conversations.conversations")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.conversations.conversations", community_name: community.name(I18n.locale))
+
+  %span#admin_transactions_count= page_entries_info(conversations, :model => "Conversation")
+
+  %table#admin_transactions
+    %thead
+      %tr
+        %th=t("admin.communities.conversations.headers.started_from")
+        %th=t("admin.communities.conversations.headers.status")
+        %th=render partial: "layouts/sort_link", locals: { column: "started", direction: sort_link_direction("started"), title: t("admin.communities.conversations.headers.started") }
+        %th=render partial: "layouts/sort_link", locals: { column: "last_activity", direction: sort_link_direction("last_activity"), title: t("admin.communities.conversations.headers.last_activity") }
+        %th=t("admin.communities.conversations.headers.initiated_by")
+        %th=t("admin.communities.conversations.headers.other_party")
+
+    %tbody
+      - conversations.each do |conversation|
+        %tr
+          - listing = conversation[:listing]
+          - if listing
+            - listing_title = listing.title || t("admin.communities.conversations.not_available")
+            %td=link_to_unless listing.deleted, listing_title, listing_path(listing.id)
+          - else
+            %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], t("admin.communities.conversations.profile", author: p[:display_name]), p[:url]) }.or_else("")
+          %td
+            - if conversation[:transaction] && conversation[:transaction][:payment_process] == 'none'
+              =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
+            - else
+              =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
+          %td=l(conversation[:created_at], format: :short_date)
+          %td=l(conversation[:last_message_at], format: :short_date)
+          %td=Maybe(conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+          %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+  .row
+    .col-12
+      = will_paginate conversations

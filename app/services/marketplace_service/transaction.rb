@@ -281,8 +281,11 @@ module MarketplaceService
       end
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
+        sort_column = "transactions.#{sort_column}" if sort_column.index('.').nil?
         transactions = TransactionModel
           .where(community_id: community_id, deleted: false)
+          .joins('LEFT JOIN conversations c ON transactions.conversation_id = c.id')
+          .where('c.starting_page = ? OR c.starting_page IS NULL', ::Conversation::PAYMENT)
           .includes(:listing)
           .limit(limit)
           .offset(offset)
@@ -303,7 +306,11 @@ module MarketplaceService
       end
 
       def transactions_count_for_community(community_id)
-        TransactionModel.where(community_id: community_id, deleted: false).count
+        TransactionModel
+          .where(community_id: community_id, deleted: false)
+          .joins('LEFT JOIN conversations c ON transactions.conversation_id = c.id')
+          .where('c.starting_page = ? OR c.starting_page IS NULL', ::Conversation::PAYMENT)
+          .count
       end
 
       def can_transition_to?(transaction_id, new_status)
@@ -323,6 +330,7 @@ module MarketplaceService
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN conversations ON transactions.conversation_id = conversations.id
           WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
+            AND conversations.starting_page = '#{::Conversation::PAYMENT}' OR conversations.starting_page IS NULL
           ORDER BY
             GREATEST(COALESCE(transactions.last_transition_at, 0),
               COALESCE(conversations.last_message_at, 0)) #{sort_direction}

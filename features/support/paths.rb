@@ -86,6 +86,8 @@ module NavigationHelpers
       admin_topbar_edit_path
     when /the transactions admin page/
       admin_community_transactions_path(:community_id => @current_community.id)
+    when /the conversations admin page/
+      admin_community_conversations_path(:community_id => @current_community.id)
     when /the getting started guide for admins/
       admin_getting_started_guide_path
     when /^the admin view of payment preferences of community "(.*)"$/i

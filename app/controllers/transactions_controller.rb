@@ -103,6 +103,7 @@ class TransactionsController < ApplicationController
               availability: listing_model.availability,
               listing_quantity: quantity,
               content: form[:message],
+              starting_page: ::Conversation::PAYMENT,
               booking_fields: booking_fields,
               payment_gateway: process[:process] == :none ? :none : gateway, # TODO This is a bit awkward
               payment_process: process[:process]}

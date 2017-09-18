@@ -50,6 +50,7 @@ class PersonMessagesController < ApplicationController
     conversation_params = params.require(:conversation).permit(
       message_attributes: :content
     )
+    conversation_params[:starting_page] = ::Conversation::PROFILE
     conversation_params[:message_attributes][:sender_id] = @current_user.id
 
     conversation = Conversation.new(conversation_params.merge(community: @current_community))
