@@ -322,7 +322,8 @@ en:
           initiated_by: Starter
           other_party: "Other party"
         status:
-          free: Conversation
+          conversation: Conversation
+          free: Free transaction
           pending: Pending
           preauthorized: Preauthorized
           accepted: Accepted
@@ -333,7 +334,7 @@ en:
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
           none:
-            free: Conversation
+            free: Free transaction
           paypal:
             free: Conversation
             pending: Pending
@@ -357,6 +358,17 @@ en:
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
         not_available: "Not available"
+      conversations:
+        conversations: "View conversations"
+        headers:
+          started_from: Started from
+          status: Status
+          started: Started
+          last_activity: Latest Activity
+          initiated_by: Starter
+          other_party: Other party
+        participants: "Conversation: %{starter} with %{author}"
+        profile: "%{author}'s Profile"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
