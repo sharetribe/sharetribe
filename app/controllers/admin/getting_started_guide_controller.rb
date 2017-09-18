@@ -63,6 +63,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
+        stripe_enabled: FeatureFlagHelper.feature_enabled?(:stripe),
       }
     }
   end

@@ -910,9 +910,10 @@ function autoSetMinimalPriceFromCountry() {
     var _min_price = $("#payment_preferences_form_minimum_listing_price");
     $("#payment_preferences_form_marketplace_currency").change(function(){
       var currency = $(this).val();
-      var min_tx = _minimal_commissions[currency];
-      if(min_tx) {
-        _min_price.val((min_tx/100).toFixed(2))
+      var min_tx = _minimal_commissions[currency] / 100;
+      var cur_tx = parseFloat(_min_price.val());
+      if(isNaN(cur_tx) || min_tx > cur_tx) {
+        _min_price.val(min_tx.toFixed(2))
       }
       _min_price.next(".paypal-preferences-currency-label").text(currency);
     }).trigger('change');

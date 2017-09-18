@@ -113,6 +113,6 @@
   :javascript
     $(function() {
       $("#stripe-account-form").validate();
-      window.ST.initStripeBankForm();
+      window.ST.initStripeBankForm(#{!!stripe_test_mode});
     });
 

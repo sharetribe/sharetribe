@@ -4,7 +4,10 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
-  %h2= t("payment_settings.title")
+  - if @stripe_enabled
+    %h2= t("payment_settings.title")
+  - else
+    %h2= t("paypal_accounts.payout_info_title")
 
   - if @paypal_enabled && @stripe_enabled
     .row
