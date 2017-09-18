@@ -325,3 +325,10 @@ end
 When(/^I change field "([^"]*)" to "([^"]*)"$/) do |from, to|
   find_field_with_value(from).set(to)
 end
+
+When(/^mock googlemap location with "([^,]+), ([-.0-9]+),\s*([-.0-9]+)"/) do |address, lat, lon|
+  # sometimes google maps geojs api does not work in phantom or takes too long
+  page.execute_script("document.getElementById('person_location_address').value = '#{address}'")
+  page.execute_script("document.getElementById('person_location_latitude').value = "+lat)
+  page.execute_script("document.getElementById('person_location_longitude').value = "+lon)
+end

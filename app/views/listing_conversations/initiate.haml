@@ -68,9 +68,7 @@
 
         .row
           .col-12
-            - if FeatureFlagHelper.feature_enabled?(:stripe)
-              = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: false, paypal_in_use: true }
-            - else
+            - unless FeatureFlagHelper.feature_enabled?(:stripe)
               = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: country_code }
 
       - if paypal_in_use  && stripe_in_use

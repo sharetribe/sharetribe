@@ -203,7 +203,12 @@ class ListingsController < ApplicationController
 
     availability_enabled = @listing.availability.to_sym == :booking
     blocked_dates_start_on = 1.day.ago.to_date
-    blocked_dates_end_on = 12.months.from_now.to_date
+    blocked_dates_end_on =
+      if stripe_in_use
+        APP_CONFIG.stripe_max_booking_date.days.from_now.to_date
+      else
+        12.months.from_now.to_date
+      end
 
     blocked_dates_result =
       if availability_enabled
