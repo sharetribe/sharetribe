@@ -443,9 +443,9 @@ default: &default_settings
   stripe_max_booking_date: 85
 
   # System supports different payment modes, see https://stripe.com/docs/connect/charges for details
+  # Sharetribe supports only managed accounts, and two payment modes:
   #
   # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
-  # :direct      - Direct charges, payment goes to seller account, with application fee to admin account
   # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller  
   #
   # By default :destination mode is used

@@ -20,7 +20,7 @@ class TransactionConfirmedJob < Struct.new(:conversation_id, :community_id)
       default_available = APP_CONFIG.stripe_payout_delay.to_f.days.from_now
       available_date = (payment[:available_on] || default_available) + 24.hours
       case StripeService::API::Api.wrapper.charges_mode(community_id)
-      when :direct, :destination then Delayed::Job.enqueue(StripePayoutJob.new(transaction.id, community_id), :priority => 9, :run_at => available_date)
+      when :destination then Delayed::Job.enqueue(StripePayoutJob.new(transaction.id, community_id), :priority => 9, :run_at => available_date)
       when :separate then Delayed::Job.enqueue(StripePayoutJob.new(transaction.id, community_id), :priority => 9)
       end
     end
