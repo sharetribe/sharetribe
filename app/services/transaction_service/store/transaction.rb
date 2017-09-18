@@ -27,6 +27,7 @@ module TransactionService::Store::Transaction
     [:automatic_confirmation_after_days, :fixnum, :mandatory],
     [:minimum_commission, :money, :mandatory],
     [:content, :string],
+    [:starting_page, :string],
     [:booking_uuid, :string, transform_with: UUIDUtils::RAW], # :string type for raw bytes
     [:booking_fields, :hash])
 
@@ -87,7 +88,7 @@ module TransactionService::Store::Transaction
 
   def create(opts)
     tx_data = HashUtils.compact(NewTransaction.call(opts))
-    tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields))
+    tx_model = TransactionModel.new(tx_data.except(:content, :starting_page, :booking_fields))
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
@@ -204,7 +205,7 @@ module TransactionService::Store::Transaction
 
   def build_conversation(tx_model, tx_data)
     conversation = tx_model.build_conversation(
-      tx_data.slice(:community_id, :listing_id))
+      tx_data.slice(:community_id, :listing_id, :starting_page))
 
     conversation.participations.build(
       person_id: tx_data[:listing_author_id],
