@@ -1,0 +1,20 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.conversations.conversations")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2
+    - starter = link_to_unless(conversation_data[:starter][:is_deleted], conversation_data[:starter][:display_name], conversation_data[:starter][:url]).html_safe
+    - author = link_to_unless(conversation_data[:author][:is_deleted], conversation_data[:author][:display_name], conversation_data[:author][:url]).html_safe
+    = t("admin.communities.conversations.participants", starter: starter, author: author).html_safe
+    - listing = conversation_data[:listing]
+    - if listing
+      - listing_title = listing.title || t("admin.communities.conversations.not_available")
+      %h2=link_to_unless listing.deleted, listing_title, listing_path(listing.id)
+  #messages
+    = render :partial => "conversations/message", :collection => messages, as: :message_or_action
+

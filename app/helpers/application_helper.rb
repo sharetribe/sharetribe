@@ -377,6 +377,13 @@ module ApplicationHelper
         :name => "transactions"
       },
       {
+        :topic => :manage,
+        :text => t("admin.communities.conversations.conversations"),
+        :icon_class => icon_class("chat_bubble"),
+        :path => admin_community_conversations_path(@current_community, direction: "desc"),
+        :name => "conversations"
+      },
+      {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => icon_class("details"),
