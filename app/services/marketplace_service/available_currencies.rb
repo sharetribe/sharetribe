@@ -67,6 +67,7 @@ module MarketplaceService::AvailableCurrencies
       "VA" => "EUR",
       "US" => "USD"
   }
+  OLD_CURRENCY_SET = SortedSet.new(["USD"].concat(COUNTRY_CURRENCIES.values))
 
   CURRENCIES = [
     "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BIF", "BMD",

@@ -7,23 +7,24 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';
 
 const GuidePaypalPage = (props) => {
-  const { changePage, pageData, infoIcon, routes } = props;
-
+  const { changePage, pageData, infoIcon, routes, stripe_enabled } = props;
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.paypal.title')),
-    p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1_stripe_paypal', {
-      not_sure_link: a(
-        {
-          href: '#',
-          id: 'not_sure_link',
-          target: '_blank',
-          rel: 'noreferrer',
-          alt: t('web.admin.onboarding.guide.paypal.not_sure_link'),
-        },
-        t('web.admin.onboarding.guide.paypal.not_sure_link')
-      ),
-    })),
+    (stripe_enabled ?
+      p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1_stripe_paypal', {
+        not_sure_link: a(
+          {
+            href: '#',
+            id: 'not_sure_link',
+            target: '_blank',
+            rel: 'noreferrer',
+            alt: t('web.admin.onboarding.guide.paypal.not_sure_link'),
+          },
+          t('web.admin.onboarding.guide.paypal.not_sure_link')
+        ),
+      })) :
+      p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p1'))),
     p({ className: css.description }, t('web.admin.onboarding.guide.paypal.description_p2')),
 
     div({ className: css.sloganImageContainer }, [
@@ -39,7 +40,7 @@ const GuidePaypalPage = (props) => {
         className: css.infoTextIcon,
         dangerouslySetInnerHTML: { __html: infoIcon }, // eslint-disable-line react/no-danger
       }),
-      div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content_paypal_stripe', {
+      (stripe_enabled ? div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content_paypal_stripe', {
         disable_payments_link: a(
           { href: 'https://help.sharetribe.com/payment-with-paypal/how-to-disable-payments-or-add-free-listings-to-your-marketplace',
             target: '_blank',
@@ -54,7 +55,15 @@ const GuidePaypalPage = (props) => {
             alt: t('web.admin.onboarding.guide.paypal.advice.stripe_paypal_link'),
           },
           t('web.admin.onboarding.guide.paypal.advice.stripe_paypal_link')),
-      })),
+      })) : div({ className: css.infoTextContent }, t('web.admin.onboarding.guide.paypal.advice.content', {
+        disable_payments_link: a(
+          { href: 'https://help.sharetribe.com/payment-with-paypal/how-to-disable-payments-or-add-free-listings-to-your-marketplace',
+            target: '_blank',
+            rel: 'noreferrer',
+            alt: t('web.admin.onboarding.guide.paypal.advice.disable_payments_alt'),
+          },
+          t('web.admin.onboarding.guide.paypal.advice.disable_payments_link')),
+      }))),
     ]),
 
     div(null, [
