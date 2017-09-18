@@ -12,6 +12,15 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
                                            .includes(person: :emails)
                                            .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
+        if params[:q].present?
+          query = <<-SQL
+          community_memberships.person_id IN
+          (SELECT p.id FROM people p LEFT OUTER JOIN emails e ON e.person_id = p.id
+           WHERE p.given_name like ? OR p.family_name like ? OR p.display_name like ? OR e.address like ?)
+          SQL
+          like_q = "%#{params[:q]}%"
+          @memberships = @memberships.where(query, like_q, like_q, like_q, like_q)
+        end
       end
       format.csv do
         all_memberships = CommunityMembership.where(community_id: @community.id)

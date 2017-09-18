@@ -26,9 +26,21 @@
 .left-navi-section
   %h2= t("admin.communities.manage_members.manage_members", :community_name => @community.name(I18n.locale))
 
-  #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
+  = form_tag '', :method => :get do
+    .row
+      .col-8
+        = text_field_tag :q, params[:q], placeholder: t('admin.communities.manage_members.search_by_name_email')
+      .col-4
+        = submit_tag t("admin.communities.manage_members.search"), class: 'button search-button'
+        = link_to    t("admin.communities.manage_members.reset_search"), admin_community_community_memberships_path(@current_community.id)
 
-  %span#admin_members_count= page_entries_info(@memberships, :model => "Person").html_safe
+  - if params[:q].blank?
+    #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
+
+  %span#admin_members_count
+    = page_entries_info(@memberships, :model => "Person").html_safe
+    - if params[:q].present?
+      = t("admin.communities.manage_members.for_search_terms", terms: "<strong>#{h params[:q]}</strong>".html_safe).html_safe
 
   %form
     %table#admin_members_list
