@@ -129,8 +129,8 @@ vi:
       edit_welcome_email:
         welcome_email_content: "Nội dung thộng điệp chào mừng"
         welcome_email_content_description: ~
-        edit_message: "Thay đổi thông điệp"
-        send_test_message: "Gửi thông điệp thử"
+        edit_message: "Chỉnh sửa tin nhắn"
+        send_test_message: "Gửi tin nhắn thử"
       outgoing_email:
         title: "Địa chỉ email đi"
         info: "Tên và địa chỉ này được sử dụng cho email được gửi từ thị trường của bạn đến các thành viên."
@@ -580,7 +580,7 @@ vi:
       reject_request: "Để lần sau vậy."
       close_listing: "Đóng  %{listing_title_link}"
       update_later: "Khoan đóng tin"
-      optional_message: "Thông điệp"
+      optional_message: "Tin nhắn tùy ý"
       price_to_pay: "Giá tổng cộng"
       accept: "Chấp nhận"
       decline: "Từ chối"
@@ -594,11 +594,11 @@ vi:
       shipping_price_label: "Vận chuyển:"
     confirm:
       confirm_description: ~
-      cancel_description: ~
+      cancel_description: "Nếu đơn hàng của bạn chưa được hoàn thành, bạn có thể đánh dấu \"khiếu nại\" cho nó. Bạn vẫn có thể đánh giá bên còn lại và giải thích về chuyện đã xảy ra."
       cancel_payed_description: "Nếu đề nghị đã được chấp nhận nhưng bạn muốn đổi ý, bạn vẫn có thể hủy đề nghị trước khi thanh toán."
       canceling_payed_transaction: "Hủy giao dịch"
-      confirm: "Đánh dấu hoàn tất"
-      cancel: ~
+      confirm: "Đánh dấu đã hoàn tất"
+      cancel: "Khiếu nại"
       continue: "Tiếp tục"
       give_feedback_to: "Để lại phải hồi cho %{person_link}"
       do_not_give_feedback: "Bỏ qua thông tin phản hồi"
@@ -617,8 +617,8 @@ vi:
       accepted_offer: "Đề nghị được chấp nhận"
       rejected_request: "Yêu cầu đã bị từ chối"
       rejected_offer: "Đề nghị đã bị tự chối."
-      confirmed_request: ~
-      confirmed_offer: "Đề nghị hoàn tất."
+      confirmed_request: "Đơn hàng đã hoàn tất."
+      confirmed_offer: "Đề nghị đã hoàn tất."
       canceled_request: ~
       canceled_offer: "Đề nghị bị hủy."
       message_from: "Tin nhắn từ %{person}"
@@ -636,14 +636,14 @@ vi:
       canceled_request: ~
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
-      payment_preauthorized: "Thanh toán được ủy quyền:%{sum}"
+      payment_preauthorized: "Thanh toán đã được cho phép: %{sum}"
     new:
       message: "Tin nhắn"
       message_to: "Nhắn tin cho %{author_name}"
       optional_message_to: "Tin nhắn tùy chọn tới %{author_name}"
-      send_message: "Gửi thông điệp"
+      send_message: "Gửi tin nhắn"
       send: Gửi
-      this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
+      this_message_is_private: "Tin nhắn này là tin nhắn riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo về tin nhắn này qua email."
       you_will_get_notified_of_acceptance: "Bạn sẽ nhận được thông báo qua email khi %{person} chấp nhận hoặc từ chối đề xuất của bạn."
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
@@ -693,12 +693,12 @@ vi:
       request_confirmed: "Hoàn tất"
       request_canceled: "Bị hủy"
       request_paid: "Giao dịch thành công"
-      request_preauthorized: "Thanh toán được uỷ quyền"
+      request_preauthorized: "Thanh toán đã được cho phép"
       skip_feedback: "Bỏ qua thông tin phản hồi"
       waiting_for_listing_author_to_accept_offer: "Chờ %{listing_author_name} chấp nhận đề nghị"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "Đang chờ %{listing_author_name} chấp nhận yêu cầu này. Ngay khi %{listing_author_name} chấp nhận yêu cầu này, bạn sẽ bị tính phí."
       waiting_for_you_to_accept_request: "Đang đợi bạn chấp nhận yêu cầu"
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "Đang chờ %{requester_name} đánh dấu đơn hàng hoàn tất"
       waiting_confirmation_from_you: ~
       waiting_payment_from_requester: "Chờ %{requester_name} thanh toán"
       waiting_payment_from_you: "Đang chờ bạn trả tiền"
@@ -719,7 +719,7 @@ vi:
       reject_preauthorized_offer: "Không phải lúc này"
       reject_preauthorized_request: "Không phải lúc này"
       confirm: "Đánh dấu hoàn tất"
-      cancel: ~
+      cancel: "Khiếu nại"
   feedback:
     feedback_subject: "Phản hồi mới từ %{service_name}"
     feedback_body: "%{author_name_and_email} đã gửi phản hồi sau từ %{service_name}"
@@ -772,7 +772,7 @@ vi:
       payment_settings_link: "Phương thức thanh toán"
     transaction_confirmed:
       here_is_a_message_from: "Bạn vừa nhận được tin nhắn từ %{other_party_given_name} :"
-      request_marked_as_confirmed: ~
+      request_marked_as_confirmed: "Đơn hàng đã hoàn tất - bạn đừng quên gửi nhận xét"
       request_marked_as_canceled: ~
       has_marked_request_as_confirmed: ~
       has_marked_request_as_canceled: ~
@@ -871,7 +871,7 @@ vi:
       added_listing: "%{name_link} đã đăng một bài mới :"
       update_mail_title: ~
       title_link_text: "%{community_name}"
-      intro_paragraph: ~
+      intro_paragraph: "Đây là một số sự kiện đã diễn ra trên %{community_link} trong %{time_since_last_update} qua."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Quá nhiều email? %{settings_link} hoặc %{unsubscribe_link}."
       settings_link_text: "Chỉnh sửa các thiết lập email của bạn ở đây"
@@ -1092,7 +1092,7 @@ vi:
       this_is_private_community: "Bạn cần phải đăng ký trước khi bạn có thể xem nội dung."
     invitation_form:
       email: "Địa chỉ email bạn của bạn:"
-      message: "Thông điệp cá nhân:"
+      message: "Tin nhắn cá nhân"
       send_invitation: "Gửi lời mời"
       add_email_addresses_description: "Thêm địa chỉ email của những người bạn đang mời vào ô bên dưới. Để thêm nhiều địa chỉ email, hãy phân tách bằng dấu phẩy."
       add_lots_of_email_addresses: "Vì bạn là quản trị viên, đây là một mẹo: nếu bạn định gửi nhiều lời mời, bạn nên sử dụng một công cụ gửi email. Kiểm tra %{this_article_link} để tìm ra các nguồn lực về các dịch vụ email thích hợp."
@@ -1175,7 +1175,7 @@ vi:
       join_without_facebook: "hoặc %{join_without_facebook_link}"
       join_without_facebook_link: "Đăng ký không cần Facebook"
     conversations:
-      messages: "Các thông điệp"
+      messages: "Các tin nhắn"
       notifications: "Các thông báo"
       received: "Đã nhận"
       sent: "Đã gửi"
@@ -1199,7 +1199,7 @@ vi:
       settings: "Các cài đặt"
       sign_up: "Tạo tài khoản"
     logged_in_messages_icon:
-      messages: "Các thông điệp"
+      messages: "Các tin nhắn"
     logged_in_notifications_icon:
       notifications: "Các thông báo"
     mobile_logged_in:
@@ -1309,7 +1309,7 @@ vi:
       you_must_log_in_to_give_feedback: "Bạn phải đăng nhập để đưa ra thông tin phản hồi"
       you_must_log_in_to_invite_new_users: "Bạn phải đăng nhập để mời được người dùng mới vào %{service_name}"
       you_must_log_in_to_send_a_comment: "Bạn phải đăng nhập để gửi bình luận"
-      you_must_log_in_to_send_a_message: "Bạn phải đăng nhập vào %{service_name} để gửi thông điệp đến người dùng khác"
+      you_must_log_in_to_send_a_message: "Bạn phải đăng nhập vào %{service_name} để gửi tin nhắn đến người dùng khác"
       you_must_log_in_to_do_a_transaction: "Bạn phải đăng nhập vào %{service_name} để thực hiện giao dịch."
       you_must_log_in_to_view_this_content: "Bạn phải đăng nhập để xem nội dung này"
       you_must_log_in_to_view_this_page: "Bạn phải đăng nhập để xem trang này"
@@ -1374,12 +1374,12 @@ vi:
       create_failed_to_connect_to_booking_service: "Tạo danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
       update_failed_to_connect_to_booking_service: "Cập nhật danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
     follow_links:
-      follow: "Thực hiện theo các danh sách này"
+      follow: "Nhận e-mail khi có ý kiến mới"
       unfollow: "Ngừng theo danh sách này"
     form:
       custom_field_partials:
         dropdown:
-          select_one___: "Chọn một thứ..."
+          select_one___: "Chọn một..."
       departure_time:
         at: Tại
         departure_time: "Thời gian khởi hành"
@@ -1408,14 +1408,14 @@ vi:
         best_result: "Để có kết quả tốt nhất, hãy sử dụng các hình ảnh JPG, GIF hoặc PNG %{width} x %{height} pixels"
         no_file_selected: "Không có tập tin được chọn"
         remove_image: "Loại bỏ ảnh"
-        select_file: "Chọ tập tin"
+        select_file: "Chọn tập tin"
         add_more: "+ Thêm"
         removing: "Đang xóa ..."
         processing: "Đang xử lí..."
         loading_image: Tải...
         image_uploading_in_progress: "Đang tải lên hình ảnh ..."
         processing_takes_a_while: "Tất cả hình ảnh được tải lên! Việc xử lý chúng sẽ mất một chút thời gian, nhưng tốt hơn là lưu lại danh sách và tiếp tục."
-        this_may_take_a_while: ~
+        this_may_take_a_while: "việc này chỉ mất có vài giây"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Tải hình ảnh không thành công"
         image_processing_failed: "Xử lý hình ảnh không thành công"
@@ -1526,7 +1526,7 @@ vi:
       selected_subcategory: "Danh mục con : %{subcategory}"
       selected_transaction_type: "Loại danh sách: %{transaction_type}"
       select_category: "Chọn chuyên mục"
-      select_subcategory: "Chọn hạng con"
+      select_subcategory: "Chọn danh mục con"
       select_transaction_type: "Chọn loại danh sách"
       you_need_to_fill_payout_details_before_accepting: "Bạn cần phải điền chi tiết thanh toán trước khi bạn có thể đăng danh sách. Truy cập %{payment_settings_link} để điền chi tiết."
       contact_admin_link_text: "Liên hệ với quản trị viên"
@@ -1935,7 +1935,7 @@ vi:
       send_feedback: "Gửi ý kiến phản hồi"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
-      textual_feedback: "Mọi thứ đã đi như thế nào"
+      textual_feedback: "Mọi thứ đã diễn ra như thế nào?"
       this_will_be_shown_in_profile: "Thông tin phản hồi mà bạn cung cấp sẽ được hiển thị đối với các người dùng khác trong trang hồ sơ của %{person} . Điều đó giúp các thành viên khác của cộng đồng này đánh giá xem %{person} là người đáng tin cậy không."
       positive: "Tích cực"
       negative: "Tiêu cực"

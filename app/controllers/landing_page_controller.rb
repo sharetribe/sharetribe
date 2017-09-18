@@ -140,6 +140,24 @@ class LandingPageController < ActionController::Metal
     end
   end
 
+  include ActionView::Helpers::JavaScriptHelper
+
+  def custom_head_scripts
+    @current_community = request.env[:current_marketplace]
+    FeatureFlagHelper.init(community_id: @current_community.id,
+                           user_id: @current_user&.id,
+                           request: request,
+                           is_admin: Maybe(@current_user).is_admin?.or_else(false),
+                           is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?(@current_community).or_else(false))
+
+    if FeatureFlagHelper.feature_enabled?(:landing_scripts)
+      js = @current_community.custom_head_script.to_s
+      render body: "document.write(\"#{escape_javascript js}\")", content_type: 'text/javascript'
+    else
+      render body: "", content_type: 'text/javascript'
+    end
+  end
+
 
   private
 

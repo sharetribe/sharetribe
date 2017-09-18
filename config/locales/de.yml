@@ -2,9 +2,9 @@ de:
   number:
     currency:
       format:
-        separator: "."
-        delimiter: ","
-        format: "%n%u"
+        separator: ","
+        delimiter: "."
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -1901,7 +1901,7 @@ de:
       first_name_with_initial: "(anderen Benutzern wird nur der erste Buchstabe angezeigt)"
       first_name_only: "(wird anderen Benutzern nicht angezeigt)"
       display_name: Anzeigename
-      display_name_description: "Wenn du eine Organisation vertretest, kannst du den Namen deiner Organisation als Anzeigename verwenden. Der Anzeigename wird den anderen Nutzern statt deiner Vor- und Nachnamen angezeigt."
+      display_name_description: "Wenn du eine Organisation vertrittst, kannst du den Namen deiner Organisation als Anzeigename verwenden. Der Anzeigename wird den anderen Nutzern statt deines Vor- und Nachnamens angezeigt."
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
       phone_number: Telefonnummer
       profile_picture: Profilbild

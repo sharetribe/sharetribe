@@ -360,7 +360,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
   $(form_id).validate({
     errorPlacement: function(error, element) {
       if (element.attr("name") == "testimonial[grade]") {
-        error.appendTo(element.parent().parent());
+        error.appendTo($("#testimonial-grade-error"));
       }  else {
         error.insertAfter(element);
       }

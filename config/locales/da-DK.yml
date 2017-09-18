@@ -94,7 +94,7 @@ da-DK:
       edit_look_and_feel:
         edit_community_look_and_feel: "Ret markedspladsens %{community_name} udseende"
         community_logo: "Logo vist på alm. computer"
-        community_logo_icon: Mobillogo
+        community_logo_icon: ~
         community_cover_photo: Coverbillede
         small_community_cover_photo: "Lille coverbillede"
         favicon: Favicon
@@ -1830,7 +1830,7 @@ da-DK:
       your_current_email_is: "Din email er %{email}."
       change_email: Ret
       confirm_your_email: "Bekræft din mail"
-      account_confirmation_instructions: ~
+      account_confirmation_instructions: "Du modtager snart en e-mail med et link til at bekræfte din e-mailadresse. Husk at tjekke din spammappe! Efter at have bekræftet din adresse, kan du tilslutte dig %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplads!"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~

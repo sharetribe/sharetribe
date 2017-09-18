@@ -1140,7 +1140,7 @@ it:
     application:
       join_this_community: ~
       read_more: Continua
-      feedback: ~
+      feedback: "Scrivi il tuo messaggio a %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "forum dei feedback"
       feedback_handle: Feedback
@@ -2050,11 +2050,11 @@ it:
         night: notte
         week: settimana
         month: mese
-      edit_availability_header: ~
+      edit_availability_header: Disponibilità
       save_and_close_availability_editing: ~
       confirm_discarding_unsaved_availability_changes_explanation: "Non hai salvato i cambiamenti alle informazioni sulle disponibilità. Se non lo fai, i cambiamenti verranno persi."
       confirm_discarding_unsaved_availability_changes_question: "Hai la certezza di voler lasciar pedere i tuoi cambiamenti?"
-      edit_listing_availability: ~
+      edit_listing_availability: "Modifica disponibilità"
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."

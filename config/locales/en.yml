@@ -169,7 +169,7 @@ en:
         verification_sent_from: "The verification email was sent from %{verification_sender_name}."
         follow_the_instructions: "Please follow the instructions in the email to verify your address."
       getting_started:
-        getting_started: "Getting started guide"
+        getting_started: "Get started"
       available_languages:
         en: English
         en-AU: "English (Australia)"
@@ -317,7 +317,7 @@ en:
           accepted: Accepted
           rejected: Rejected
           paid: Paid
-          confirmed: Confirmed
+          confirmed: Completed
           canceled: Canceled
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
@@ -796,7 +796,7 @@ en:
     status:
       payment_errored: "Payment failed. Please try again."
       payment_errored_starter: "Payment failed. Please try again. If the problem continues, please contact Sharetribe support."
-      payment_errored_author: "Payment failed. Please contact %{starter_name} and ask him to try the payment again."
+      payment_errored_author: "Payment failed. Please contact %{starter_name} and ask them to try the payment again."
       cancel_payed_transaction: Cancel
       feedback_given: "Feedback given"
       feedback_skipped: "Feedback skipped"
@@ -890,7 +890,7 @@ en:
       create_own: "Want to create your own online marketplace website like %{service_name}? %{learn_more}."
       learn_more: "Learn more"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet completed or canceled the order %{request_link}. If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
       if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}."
       cancel_it_link_text: "cancel it"
@@ -1414,7 +1414,7 @@ en:
       news_item_updated: "Article updated"
       news_item_deleted: "Article removed"
       offer_accepted: "Offer accepted"
-      offer_confirmed: "Offer confirmed"
+      offer_confirmed: "Offer completed"
       offer_closed: "Offer closed"
       listing_created_successfully: "Listing created successfully. %{new_listing_link}."
       offer_rejected: "Offer rejected"

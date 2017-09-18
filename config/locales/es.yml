@@ -2,9 +2,9 @@ es:
   number:
     currency:
       format:
-        separator: " "
+        separator: "."
         delimiter: ","
-        format: "%n%u"
+        format: "%u%n"
   admin:
     categories:
       edit:
@@ -154,7 +154,7 @@ es:
         verification_sent_from: ~
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: "Para empezar bien"
       available_languages:
         en: ~
         en-AU: ~

@@ -4,7 +4,7 @@ nl:
       format:
         separator: ","
         delimiter: " "
-        format: "%u%n"
+        format: "%u %n"
   admin:
     categories:
       edit:
@@ -171,7 +171,7 @@ nl:
         verification_sent_from: "De verificatie email was verzonden vanaf %{verification_sender_name}."
         follow_the_instructions: "Volg de instructies in de email om je adres te verifieren."
       getting_started:
-        getting_started: Startersgids
+        getting_started: "Begin hier"
       available_languages:
         en: Engels
         en-AU: "Engels (Austrialie)"
@@ -318,7 +318,7 @@ nl:
           accepted: Aanvaard
           rejected: Geweigerd
           paid: Betaald
-          confirmed: Bevestigd
+          confirmed: Voltooid
           canceled: Geannuleerd
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
@@ -675,7 +675,7 @@ nl:
     status:
       payment_errored: "Betaling mislukt. Probeer opnieuw a.u.b."
       payment_errored_starter: "Betaling mislukt. Probeer opnieuw a.u.b. Neem contact op met support als dit probleem zich blijft voordoen."
-      payment_errored_author: "Betaling mislukt. Contacteer a.u.b. %{starter_name} en vraag hem om de betaling opnieuw uit te voeren."
+      payment_errored_author: "Betaling mislukt. Contacteer a.u.b. %{starter_name} en vraag hen om de betaling opnieuw uit te voeren."
       cancel_payed_transaction: Annuleer
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
@@ -769,7 +769,7 @@ nl:
       create_own: "Wil je je eigen marktplaats creëren, net als %{service_name}? %{learn_more}."
       learn_more: "Lees verder"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "U heeft het verzoek %{request_link} nog niet geaccepteerd of geannuleerd. Zodra het verzoek is uitgevoerd, dient u dat te bevestigen. Daarna kunt u  feedback geven aan %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "U heeft het verzoek %{request_link} nog niet geaccepteerd of geannuleerd. Als het verzoek is uitgevoerd, dient u dat te bevestigen. Daarna kunt u  feedback geven aan %{other_party_given_name}."
       remember_to_confirm_request: "Herinnering om een verzoek te accepteren of te annuleren"
       if_will_not_happen_you_should_cancel: "Als u denkt dat dit verzoek om welke reden dan ook niet uitgevoerd zal worden, kunt u %{cancel_it_link}."
       cancel_it_link_text: "Annuleer het"
@@ -1262,7 +1262,7 @@ nl:
       news_item_updated: "Artikel bijgewerkt"
       news_item_deleted: "Artikel verwijderd"
       offer_accepted: "Aanbod geaccepteerd"
-      offer_confirmed: "Voorstel bevestigd"
+      offer_confirmed: "Voorstel uitgevoerd"
       offer_closed: "Aanbod gesloten"
       listing_created_successfully: "Uw advertentie is geplaatst. %{new_listing_link}."
       offer_rejected: "Aanbod afgewezen"

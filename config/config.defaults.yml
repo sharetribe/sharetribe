@@ -6,6 +6,17 @@ default: &default_settings
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   domain: "lvh.me:3000"
 
+  # A comma separated string of trusted proxies. If you host your
+  # application behind proxies this configuration allows
+  # Rack::RemoteIP to correctly infer the client ip by removing
+  # trusted proxies from the X-Forwarded-For headers. The
+  # Rack::RemoteIP contains a list of default trusted proxies
+  # http://api.rubyonrails.org/classes/ActionDispatch/RemoteIp.html
+
+  # Example value: "8.8.8.8, 9.9.9.9"
+  #
+  trusted_proxies:
+
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
   # The session cookies will apply for the whole domain. If this is not needed you can leave this empty.

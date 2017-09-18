@@ -169,7 +169,7 @@ es-ES:
         verification_sent_from: "El correo de verificación se envió desde %{verification_sender_name}."
         follow_the_instructions: "Por favor sigue las instrucciones que te enviamos en el correo para verificar tu dirección."
       getting_started:
-        getting_started: "Guía para comenzar"
+        getting_started: "Empieza aquí"
       available_languages:
         en: Inglés
         en-AU: "Inglés (Australia)"
@@ -316,7 +316,7 @@ es-ES:
           accepted: Aceptada
           rejected: Rechazada
           paid: Pagada
-          confirmed: Confirmada
+          confirmed: Completa
           canceled: Cancelada
           initiated: "Esperando al pago de PayPal"
           pending_ext: "Esperando al pago de PayPal"
@@ -500,9 +500,9 @@ es-ES:
       supported_currencies_information_text: "El sistema de pagos en línea de Sharetribe soporta 24 divisas distintas. Si tu divisa no aparece en la lista, por favor %{contact_support_link}. Si cambias la divisa de tu comunidad, los anuncios existentes mantendrán la divisa anterior. Necesitas editar esos anuncios para actualizar su precio a la nueva divisa."
       currency_change_warning_text: "Cuidado: si procedes con el cambio, no olvides pedirle a tus usuarios que actualicen sus anuncios para que la divisa cambie en estos anuncios."
       marketplace_currency_label: "Divisa de la comunidad:"
-      minimum_listing_price_label: "Precio mínimo por transacción:"
+      minimum_listing_price_label: "Precio mínimo de listado:"
       transaction_fee_label: "Comisión por transacción:"
-      minimum_transaction_fee_label: "Cuota mínima por transacción"
+      minimum_transaction_fee_label: "Comisión mínima por transacción:"
       save_settings: "Guardar configuración"
       minimum_listing_price_below_tx_fee: "El tamaño mínimo de transacción tiene que ser mayor o igual a la cuota mínima por transacción: %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "El precio mínimo de transacción debe ser superior a la comisión mínima %{minimum_commission}"
@@ -769,7 +769,7 @@ es-ES:
       create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
       learn_more: "Entérate cómo"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Aún no has confirmado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmarlo. Después de eso podrás dar una valoración a %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Aún no has completado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmar esto. Después de eso podrás dar una valoración a %{other_party_given_name}."
       remember_to_confirm_request: "Recuerda confirmar o cancelar una solicitud"
       if_will_not_happen_you_should_cancel: "Si crees que por alguna razón esta solicitud no se va a completar, puedes %{cancel_it_link}."
       cancel_it_link_text: cancelarla
@@ -1262,7 +1262,7 @@ es-ES:
       news_item_updated: "Artículo actualizado"
       news_item_deleted: "Artículo eliminado"
       offer_accepted: "Oferta aceptada"
-      offer_confirmed: "Oferta confirmada"
+      offer_confirmed: "Oferta completa"
       offer_closed: "Oferta cerrada"
       listing_created_successfully: "Anuncio publicado con éxito. %{new_listing_link}"
       offer_rejected: "Oferta rechazada"

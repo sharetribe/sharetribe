@@ -11,12 +11,12 @@ sv:
   devise:
     failure:
       already_authenticated: "Du är redan inloggad."
-      unauthenticated: "Du måste logga in innan du kan fortsätta."
+      unauthenticated: "Du måste logga in eller gå med innan du kan fortsätta."
       unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
       locked: "Ditt konto är låst."
       invalid: "Ogiltig e-post eller lösenord."
       invalid_token: "Ogiltig identifiering."
-      timeout: "Din session är avslutad, var vänlig logga in igen."
+      timeout: "Din session är avslutad, var vänlig logga in igen för att fortsätta."
       inactive: "Ditt konto är inte aktiverat ännu."
     passwords:
       updated_not_active: "Ditt lösenord ändrades framgångsrikt."
@@ -51,7 +51,7 @@ sv:
       failure: "Det gick inte att auktorisera dig från %{kind} eftersom %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Instruktioner för bekräftelse"
+        subject: "Bekräftelse instruktioner för att gå med i %{service_name}"
       reset_password_instructions:
         subject: "Instruktioner för nollställning av lösenord"
       unlock_instructions:

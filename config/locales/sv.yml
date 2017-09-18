@@ -2,9 +2,9 @@ sv:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: " "
+        delimiter: " "
+        format: "%n %u"
   admin:
     categories:
       edit:
@@ -88,7 +88,7 @@ sv:
         transaction_agreement: Transaktionsavtal
         transaction_agreement_checkbox: "Kräver att användarna accepterar villkoren innan transaktion"
         transaction_agreement_checkbox_header: Avtal
-        transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan i kassan. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
+        transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan vid checkout. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
         transaction_agreement_text_header: Avtalstext
         transaction_agreement_description: "Detta är innehållet av avtalet som användarna måste acceptera. Avtalets innehåll syns när användaren klickar på %{read_more} länken."
       edit_look_and_feel:
@@ -100,15 +100,15 @@ sv:
         favicon: Favicon
         favicon_info_text: "Favicon kommer att ersätta Sharetribes standardlogotyp. Dimensionerna ska vara 32x32 pixlar och den uppladdade bilden kommer att skalas till den dimensionen."
         community_custom_color1: Huvudfärg
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
-        community_description_color_instructions_text: ~
+        community_slogan_color: "Färgen för marknadsplatsens slogan"
+        community_slogan_color_instructions_text: "Du kan ändra färgen på slogan som syns på hemsidan genom att skriva in ett hex-värde. Slogan visas åt alla som inte är inloggade. %{colorpicker} kan hjälpa dig att välja en färg och kopiera koden här. %{see_how_it_looks_like}"
+        community_description_color: "Färgen för marknadsplatsens beskrivning"
+        community_description_color_instructions_text: "Du kan ändra färgen på beskrivningen som syns på hemsidan genom att skriva in ett hex-värde. Beskrivningen visas åt alla som inte är inloggade. %{colorpicker} kan hjälpa dig att välja en färg och kopiera koden här. %{see_how_it_looks_like}"
         new_listing_button_custom_color: "Skapa en ny annons knapp färg"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
-        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_instructions_text_with_dimensions_no_placing: "Logons storlek skall vara %{height}x%{width}pixlar"
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: "Denna fyrkantiga logo kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
@@ -149,7 +149,7 @@ sv:
         sender_name_placeholder: Avsändarnamn
         sender_email_label: E-postadress
         sender_email_placeholder: dinmail@exempel.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Du kommer få ett email från %{email_sender} för att bekräfta din emailadress. E-postens ämne kommer att vara %{email_subject}. Följ instruktionerna i mejlet för att bekräfta din email."
         this_is_how_it_will_look: "Så här kommer det se ut:"
         send_verification_button: "Skicka verifikationsmail"
         successfully_saved: "Avsändaradress sparades korrekt. Verifikationsmailet kommer att skickas snart."
@@ -237,7 +237,7 @@ sv:
         manage_members: "Hantera användare"
         email: E-post
         name: Namn
-        display_name: ~
+        display_name: "Synligt namn"
         join_date: Anslöt
         admin: Admin
         posting_allowed: "Inlägg tillåtet"
@@ -250,7 +250,7 @@ sv:
         ban_me_error: "Du kan inte bannlysa dig själv."
       new_layout:
         new_layout: "Ny layout"
-        description_roadmap_new: ~
+        description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
         enabled_for_you: "Aktiverad för dig"
         enabled_for_all: "Aktiverad för alla"
         new_topbar: "Nya menyn (synlig på varje sida)"
@@ -295,8 +295,8 @@ sv:
         about_page: "\"om\" sidan"
       topbar:
         topbar: Menyn
-        new_listing_button_label: ~
-        invalid_post_listing_button_label: ~
+        new_listing_button_label: "Skapa en ny annons knapptext"
+        invalid_post_listing_button_label: "Vänligen ge en giltig text för \"skapa en ny annons\" knappen"
       transactions:
         export_all_as_csv: "Exportera alla som CSV"
         transactions: "Visa transaktioner"
@@ -336,8 +336,8 @@ sv:
         edit_location_field: "Redigera platsfält"
         this_field_is_required: "Detta fält måste fyllas i"
       edit_expiration:
-        edit_expiration_field: ~
-        enable: ~
+        edit_expiration_field: "Ändra annonsfältet \"Utgångsdatum\""
+        enable: "Aktivera utgångsdatum"
       form:
         field_required:
           this_field_is_required: "Detta fält måste fyllas i"
@@ -396,13 +396,13 @@ sv:
       subscription: Prenumeration
       preview: "Förhandsvisa sida"
     listing_shapes:
-      availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      availability_title: Tillgänglighet
+      read_more: "Läs mer om automatisk tillgänglighetshantering"
+      read_more_availability_management: "Läs mer om tillgänglighetshantering. "
+      allow_providers_to_manage_availability: "Tillåt säljare att hantera sin tillgänglighet i en kalender"
+      per_day_availability: "\"Per dag\" tillgänglighet"
+      per_night_availability: "\"Per natt\" tillgänglighet"
+      pricing_units_disabled_info: "Prissättningsenheter kan inte användas när tillgänglighets kalendern är aktiverad."
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -447,7 +447,7 @@ sv:
         can_not_delete_only_one_in_categories: "Du kan inte ta bort denna ordertyp eftersom det är den enda ordertyp som används i följande kategori: %{categories}"
       listing_shape_name: Namn
       listing_shape_name_placeholder: "T ex sälja"
-      action_button_label: "Kassan namn på knapp"
+      action_button_label: "Utchecknings knapp namn"
       action_button_placeholder: "T ex köpa"
       open_listings_warning:
         one: "Det finns %{count} öppnad annons med denna ordertyp. Om du ändrar något av dessa inställningar nedan så kommer annonsen att ha dom gamla inställningarna. Annonsen kan ändras till de nya inställningarna genom att ändra den manuellt. Om du inte vill ha annonsen med de gamla inställningarna synliga på din sida så kan du välja att stänga den genom att klicka på knappen nedan."
@@ -460,7 +460,7 @@ sv:
         other: "Är du säker på att du vill stänga %{count} annonserna?"
       successfully_closed: "Annonser stängda"
       successfully_deleted: "Ordertyp %{order_type} borttagen"
-      pricing_and_checkout_title: "Priser och kassan"
+      pricing_and_checkout_title: "Priser och utcheckning"
       online_payments_label: "Tillåt att säljare använder onlinebetalningssystem"
       shipping_label: "Låt säljare att definiera en fraktavgift"
       price_label: "Tillåt säljare att lägga till ett pris till deras annonser"
@@ -496,10 +496,10 @@ sv:
       link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Ditt personliga marknadsplats konto"
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Redigera betalnings inställningarna"
+      supported_currencies_information_text: "Sharetribes betalsystem stöder 24 valutor. Om din valuta inte finns med i listan vänligen %{contact_support_link}. Om du ändrar marknadsplatsens valuta kommer aktiva annonser bibehålla den gamla valutan. Du måste redigera alla dessa annonser skilt för att uppdatera valutan."
+      currency_change_warning_text: "OBS: om du slutför ändringen av valuta, glöm inte att be dina säljare att manuellt uppdatera sina annonser för att ändra till den nya valutan"
+      marketplace_currency_label: "Marknadsplatsens valuta:"
       minimum_listing_price_label: "Lägsta annonspris:"
       transaction_fee_label: "Transaktionsavgift:"
       minimum_transaction_fee_label: "Lägsta transaktionskostnad:"
@@ -766,7 +766,7 @@ sv:
       show_thread: "Visa konversation"
     branding:
       powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
-      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
@@ -799,7 +799,7 @@ sv:
       show_thread: "Visa konversation"
     confirmation_instructions:
       confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
-      need_to_confirm: "Du behöver bekräfta din e-postadress."
+      need_to_confirm: "Du behöver bekräfta din email adress genom att klicka på knappen nedan för att gå med i%{service_name}."
       confirmation_link_text: "Bekräfta min e-postadress"
       or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
     common:
@@ -900,8 +900,8 @@ sv:
       subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
       transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
       you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
-      if_you_do_accept: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
+      if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram kommer transaktionen automatiskt att avslås. %{requester} kommer inte att måsta betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -928,8 +928,8 @@ sv:
       person_email: "E-post:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
-      double_booking_payment_voided: ~
+      booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."
+      double_booking_payment_voided: "Tyvärr är de datum du valde inte längre tillgängliga. Vänligen välj andra datum.  You haven't been charged."
     onboarding:
       server_rendering: "Kom igång guiden kunde inte laddas. Vi har blivit informerade om situationen och arbetar med att åtgärda det."
     listings:
@@ -944,7 +944,7 @@ sv:
     transaction_agreement:
       required_error: "Du behöver acceptera avtalet"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transaktionen kan inte slutföras. Detta är antagligen på grund av att kreditkortets bankauktorisation misslyckades. Vänligen försök igen med en annan betalningsmetod."
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
       seller_express_checkout_disabled: "PayPal Express Checkout har blivit avstängd för annonsörens PayPal konto. Vänligen kontakta annonsören och meddela om problemet samt be dem kontakta PayPals kundtjänst."
@@ -957,7 +957,7 @@ sv:
     error_404:
       if_you_believe: "Om du tror att adressen är korrekt och att det borde fungera, vänligen hjälp oss att hitta felet genom att låta oss veta vilken adress som skapade felmeddelandet."
       page_can_not_be_found: "Sidan hittades inte!"
-      page_you_requested_can_not_be_found: "Sidan som du efterfrågade hittades inte. Är du säker på att du skrev adressen korrekt?"
+      page_you_requested_can_not_be_found: "Sidan som du begärde hittades inte. Är du säker på att du skrev adressen korrekt?"
     error_404_title: "sidan hittades inte"
     error_410:
       page_removed: "Sida borttagen"
@@ -1057,7 +1057,7 @@ sv:
       no_offers_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
       no_open_offers_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
       no_open_requests_currently: "Inga öppna objekt, service eller samåknings erbjudanden."
-      no_requests_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningserbjudanden är synliga för icke inloggade användare."
+      no_requests_visible_unless_logged_in: "Ingen produkt, tjänst eller samåkningsförfrågan är synliga för icke inloggade användare."
       one_private_offer_exists: "Detta är redan <b>ett erbjudande</b>,"
       one_private_request_exists: "Detta är redan <b>ett erbjudande</b>,"
       ride_offer: "Följa barn till fritidsaktiviteter"
@@ -1160,7 +1160,7 @@ sv:
       admin: "%{service_name} admin panel"
     branding:
       powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
-      create_own: "Vill du skapa din egna online marknadsplats hemsida som %{service_name}? %{learn_more}."
+      create_own: "Vill du skapa din egen online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     no_tribe:
       inbox: Inkorg
@@ -1253,7 +1253,7 @@ sv:
       invitation_sent: "Inbjudan skickades"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
-      login_failed: "Inloggning misslyckades. Försök igen."
+      login_failed: "Inloggning misslyckades. Vänligen använd rätt upgifter."
       account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
       account_deleted: "Ditt konto är nu borttaget."
       login_successful: "Välkommen, %{person_name}!"
@@ -1270,8 +1270,8 @@ sv:
       offer_rejected: "Erbjudandet nekades"
       offer_canceled: "Erbjudande avbrutet"
       listing_updated_successfully: "Annons uppdaterades"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
+      listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
@@ -1382,9 +1382,9 @@ sv:
       open_in_google_maps: "Öppna i Google Maps"
     error:
       something_went_wrong: "Något gick fel, felmeddelande: %{error_code}"
-      something_went_wrong_plain: ~
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      something_went_wrong_plain: "Något gick fel"
+      create_failed_to_connect_to_booking_service: "Skapande av annons misslyckades: Misslyckades att ansluta till bokningstjänsten. Vänligen försök igen."
+      update_failed_to_connect_to_booking_service: "Uppdatering av annonsen misslyckades: Misslyckades att ansluta till bokningstjänsten. Vänligen försök igen."
     follow_links:
       follow: "Få e-post om nya kommentarer"
       unfollow: "Få inga meddelanden om nya kommentarer"
@@ -1531,7 +1531,7 @@ sv:
       booking_to: Till
       how_paypal_works: "Hur PayPal fungerar"
       payment_help: Betalningshjälp
-      unable_load_availability: ~
+      unable_load_availability: "Kude inte ladda information om tillgänglighet. Vänligen försök igen senare."
     new:
       listing: annons
       selected_category: "Kategori: %{category}"
@@ -1540,9 +1540,9 @@ sv:
       select_category: "Välj kategori"
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
-      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan lägga ut en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
+      you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan skapa en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
       contact_admin_link_text: "kontakta administratören"
-      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
+      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lskapa nya annonser än. Vänligen %{contact_admin_link} för detaljer."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
     quantity:
@@ -1606,8 +1606,8 @@ sv:
       verification_required: "Verifiering krävs"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
-      error_in_checking_availability: ~
+      dates_not_available: "Ditt val innehåller dagar som inte är tillgängliga"
+      error_in_checking_availability: "Kunde inte kontrollera tillgängligheten för de valda dagarna"
       details: Detaljer
       by: "%{listing} av %{author}"
       payment: Betalning
@@ -1615,9 +1615,9 @@ sv:
       you_will_be_charged: "OBS! Du debiteras endast om %{author} accepterar ditt köp. %{author} behöver acceptera köpet inom %{expiration_period} dagar. Om %{author} avvisar eller inte svarar så sker ingen debitering."
       day: dag
       days: dagar
-      night: ~
-      nights: ~
-      invalid_parameters: ~
+      night: natt
+      nights: nätter
+      invalid_parameters: "Ogiltiga värden för en ny transaktion"
     transaction_agreement_checkbox:
       read_more: Visa
   mapview:
@@ -1656,7 +1656,7 @@ sv:
     connected_account: "PayPal-kontot '%{email}' har blivit anslutet."
     paypal_receive_funds_info_label_australia_only: "Ditt PayPal konto måste kunna ta ta emot betalningar. Detta kräver ett Premier eller Business konto hos PayPal."
     paypal_receive_funds_info_label: "Ditt PayPal-konto måste kunna ta emot betalningar. Detta kan kräva att du har ett \"Business account\"."
-    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info_australia_only: "Om du ser ett felmeddelande när du försöker ansluta ditt konto till %{service_name} bör du antingen %{upgrade_paypal_account_link} eller (om du är en privatperson), skapa ett nytt Premier konto. Båda kontotyperna är helt gratis."
     paypal_receive_funds_info: "Om du får ett felmeddelande när du försöker ansluta ditt PayPal-konto to %{service_name} kan du uppgradera ditt konto genom att %{upgrade_paypal_account_link}. Det är gratis och enkelt att uppdatera. Om du är privatperson rekommenderar PayPal att du använder ditt eget namn som \"Business Name\"."
     upgrade_paypal_account_link_text: "logga in och klicka på uppgraderings-länken"
     admin_account_not_connected: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Vänligen %{contact_admin_link} för detaljer."
@@ -1699,7 +1699,7 @@ sv:
     paypal_account_connected_title: "PayPal-kontot är anslutet"
     paypal_account_connected: "PayPal-kontot <%{email}> är nu anslutet till %{service_name}."
     change_account: "Byt konto"
-    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från din %{settings_link}."
+    missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från dina %{settings_link}."
     from_your_payment_settings_link_text: betalningsinställningar
     redirect_message: "Skickar dig vidare till PayPal. Klicka %{redirect_link} om sidan inte öppnas automatiskt."
     redirect_link_text: här
@@ -1709,7 +1709,7 @@ sv:
     paypal_permission_granted_summary: "Villkoren för serviceavgifter har godkänts"
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
-    checkout_with_paypal: "Gå till kassan med PayPal"
+    checkout_with_paypal: "Gå till checkout med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
       commission_payment_name: "Provisionsbetalning för %{listing_title}"
@@ -1836,11 +1836,11 @@ sv:
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
       account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Före vi kan ge dig full tillgång till din marknadsplats är det en sak till du måste göra: bekräfta din email adress."
+      before_confirmation_only_access_admin_dashboard: "Före du bekräftar din email har du enbart tillgång till %{admin_dashboard_link}"
+      admin_dashboard_link_text: "admin panel"
       account_confirmation_instructions_admin: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så ´kan du böja konfigurera din marknadsplats."
-      contact_support_link_text: ~
+      contact_support_link_text: "kontakta Sharetribe support"
   settings:
     account:
       change: Ändra
@@ -1874,10 +1874,10 @@ sv:
     notifications:
       email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
-      newsletters: Nyhetsbrev
+      newsletters: "Epost meddelanden från administratörer"
       community_updates: "E-post om uppdateringar"
       email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
-      email_about_new_comments_to_own_listing: "...någon har kommenterat mitt erbjudande eller efterfrågan"
+      email_about_new_comments_to_own_listing: "...någon kommenterar mitt erbjudande eller efterfrågan"
       email_about_new_messages: "...någon skickar mig ett meddelande"
       email_about_new_received_testimonials: "...någon ger mig feedback"
       email_about_testimonial_reminders: "...jag har glömt att ge feedback på en händelse"
@@ -1885,7 +1885,7 @@ sv:
       email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
       do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
       email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
-      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller min efterfrågan"
+      email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller efterfrågan"
       email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
       email_about_new_payments: "...jag har fått en ny betalning"
       email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
@@ -1902,8 +1902,8 @@ sv:
       given_name: Förnamn
       first_name_with_initial: "(bara första bokstaven visas för andra användare)"
       first_name_only: "(visas inte för andra användare)"
-      display_name: ~
-      display_name_description: ~
+      display_name: "Synligt namn"
+      display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
       location_description: "Du kan antingen ange din exakta position eller t ex bara ditt postnummer. Lägg minst till ditt postnummer. Du kan också välja en plats på kartan nedan."
       phone_number: Telefonnummer
       profile_picture: Profilbild
@@ -2050,9 +2050,15 @@ sv:
   transactions:
     initiate:
       booked_days: "Bokade dagar:"
-      booked_nights: ~
+      booked_nights: "Bokade nätter:"
+      booked_days_label:
+        one: "Bokad dag:"
+        other: "Bokade dagar"
+      booked_nights_label:
+        one: "Bokad natt:"
+        other: "Bokade nätter:"
       price_per_day: "Pris per dag:"
-      price_per_night: ~
+      price_per_night: "Pris per natt:"
       quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
@@ -2068,29 +2074,29 @@ sv:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Vi kan inte visa information om tillgängligheten. Vänligen ladda om sidan."
+          saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+        piece: styck
+        hour: timme
+        day: dag
+        night: natt
+        week: vecka
+        month: månad
+      edit_availability_header: Tillgängliget
+      save_and_close_availability_editing: "Spara och stäng"
+      confirm_discarding_unsaved_availability_changes_explanation: "Du har osparade ändringar i din tillgänglighets information. Om du fortsätter kommer dessa förändringar gå förlorade."
+      confirm_discarding_unsaved_availability_changes_question: "Är du säker du vill kassera dina ändringar?"
+      edit_listing_availability: "Ändra annons tillgänglighet"
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "Vi kunde tyvärr  inte hitta några resultat som matchade dina sökkriterier."
+      try_other_search_terms: "Kanske du kan använda andra ord att söka med?"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "Lägg till bild"
+      no_picture: "Ingen bild"
     search:
-      page: ~
-      page_of_pages: ~
+      page: Sida
+      page_of_pages: "av %{total_number_of_pages}"
     topbar:
       menu: Meny
       more: Mera
@@ -2107,12 +2113,12 @@ sv:
       admin_dashboard: "Admin panel"
       language: Språk
     utils:
-      km: ~
-      mi: ~
+      km: km
+      mi: ml
     branding:
-      powered_by: ~
-      create_own: ~
-      learn_more: ~
+      powered_by: "%{service_name} använder %{sharetribe_link} marknadsplats platform."
+      create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
+      learn_more: "Lär dig mera"
   will_paginate:
     models:
       person:

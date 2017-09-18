@@ -169,7 +169,7 @@ fr:
         verification_sent_from: "L'email de vérification a été envoyé par %{verification_sender_name}."
         follow_the_instructions: "Veuillez suivre les instructions dans cet email pour vérifier votre adresse."
       getting_started:
-        getting_started: "Guide de démarrage"
+        getting_started: "Pour bien commencer"
       available_languages:
         en: Anglais
         en-AU: "Anglais (Australie)"
@@ -316,7 +316,7 @@ fr:
           accepted: Acceptée
           rejected: Rejetée
           paid: Payée
-          confirmed: Confirmée
+          confirmed: Réalisée
           canceled: Annulée
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
@@ -505,7 +505,7 @@ fr:
       minimum_transaction_fee_label: "Frais minimaux de transaction : "
       save_settings: "Sauvegarder les paramètres"
       minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
+      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais minimaux de transaction %{minimum_commission}."
     transaction_types:
       sell: Vente
       rent: Location
@@ -675,7 +675,7 @@ fr:
     status:
       payment_errored: "Le paiement a échoué. Veuillez essayer de nouveau."
       payment_errored_starter: "Le paiement a échoué. Veuillez essayer de nouveau. Si le problème se reproduit, veuillez contacter le support Sharetribe."
-      payment_errored_author: "Le paiement a échoué. Veuillez contacter %{starter_name} et lui demander d'effectuer le paiement de nouveau."
+      payment_errored_author: "Le paiement a échoué. Veuillez contacter %{starter_name} et leur demander d'effectuer le paiement de nouveau."
       cancel_payed_transaction: Annuler
       feedback_given: "Avis donné"
       feedback_skipped: "Pas d'avis donné"
@@ -769,7 +769,7 @@ fr:
       create_own: "Voulez-vous créer votre propre place de marché en ligne, comme %{service_name} ? %{learn_more}."
       learn_more: "Découvrez-en plus"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore confirmé ou annulé la commande %{request_link}. Si la commande a été réalisée, vous devriez la marquer comme terminée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Vous n'avez pas encore réalisé ou annulé la commande %{request_link}. Si la commande a été réalisée, vous devriez la marquer comme terminée. Vous pourrez ensuite donner un avis sur %{other_party_given_name}."
       remember_to_confirm_request: "Rappel de confirmation ou d'annulation d'une demande"
       if_will_not_happen_you_should_cancel: "Si vous pensez que cette commande ne sera pas réalisée pour une raison ou une autre, vous pouvez %{cancel_it_link}."
       cancel_it_link_text: l'annuler
@@ -1262,7 +1262,7 @@ fr:
       news_item_updated: "Article mis à jour"
       news_item_deleted: "Article supprimé"
       offer_accepted: "Offre acceptée"
-      offer_confirmed: "Offre confirmée"
+      offer_confirmed: "Offre réalisée"
       offer_closed: "Offre close"
       listing_created_successfully: "Annonce créée avec succès. %{new_listing_link}."
       offer_rejected: "Offre refusée"

@@ -4,7 +4,7 @@ fi:
       format:
         separator: ","
         delimiter: " "
-        format: "%n %u"
+        format: "%n%u"
   admin:
     categories:
       edit:
@@ -316,7 +316,7 @@ fi:
           accepted: "Ilmoittajan hyväksymä"
           rejected: "Ilmoittajan hylkäämä"
           paid: Maksettu
-          confirmed: Hyväksytty
+          confirmed: Toteutunut
           canceled: Peruutettu
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
