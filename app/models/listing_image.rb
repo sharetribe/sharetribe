@@ -79,7 +79,13 @@ class ListingImage < ApplicationRecord
 
     return true if self.width.present? && self.height.present?
 
-    geometry = extract_dimensions
+    # guard against malformed images or bugs in ImageMagick library
+    begin
+      geometry = extract_dimensions
+    rescue Paperclip::Errors::NotIdentifiedByImageMagickError => error
+      self.error = error.message
+      return false
+    end
 
     if geometry
       self.width = geometry.width.to_i
