@@ -149,10 +149,10 @@ ru:
       outgoing_email:
         title: "Исходящий адрес электронной почты"
         info: "Это имя и адрес будут использоваться для электронных писем, отправляемых с проекта пользователям."
-        read_more: ~
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
+        read_more: "Подробнее об исходящем адресе электронной почты"
+        sender_address: "Адрес отправителя: %{sender_address}"
+        sender_address_default: "Адрес отправителя: не отправлено (использовать адрес по умолчанию %{sender_address})"
+        need_to_change: "Если вам нужно сменить электронный адрес, пожалуйста %{contact_support_link}"
         contact_support_link_text: ~
         set_sender_address: "Установите адрес отправителя"
         sender_name_label: Имя
@@ -235,7 +235,7 @@ ru:
         newsletter_daily: Ежедневно
         newsletter_weekly: Еженедельно
         delete_marketplace_title: "Удалить маркетплейс"
-        type_marketplace_domain: ~
+        type_marketplace_domain: "Введите ваш домен (%{domain}) в поле ниже:"
         type_marketplace_domain_placeholder: "Введите доменное имя своего проекта"
         once_you_delete: "Осторожно, после удаления проекта вы не сможете получить к нему доступ."
         are_you_sure: Уверены?
@@ -337,7 +337,7 @@ ru:
       edit:
         edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
       edit_price:
-        description: ~
+        description: "Минимальная и максимальная цена влияет только на фильтр. Для прейскурантных цен нет ограничений."
         edit_price_field: "Редактировать поле цены"
         show_price_filter_homepage: "Показать фильтр цены на главной странице"
         price_min: "Минимальная цена"
@@ -354,8 +354,8 @@ ru:
           this_field_is_required_checkbox: "Это обязательное поле (пользователь должен выбрать по крайней мере одну опцию)"
         search_filter:
           search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          date_cant_be_filtered: "Нет фильтра для поля с указанием даты."
+          text_cant_be_filtered: "Нет фильтра для поля ввода текста. Основной текстовый поиск осуществляется по текстовым полям."
       index:
         listing_fields: "Поля и фильтры для публикаций"
         listing_fields_help: "Здесь вы можете редактировать поля которые участники должны заполнить когда они создают новую публикацию. Пожалуйста имейте ввиду что некоторые поля предопределены и не не могут быть редактируемые."
@@ -404,7 +404,7 @@ ru:
       configure: Конфигурация
       emails_title: Emails
       subscription: Подписка
-      preview: ~
+      preview: "Предварительный просмотр сайта"
     listing_shapes:
       availability_title: ~
       read_more: ~
@@ -499,7 +499,7 @@ ru:
         unit_type:
           heading: "Тип единицы"
           quantity_label: "Количество (за штуку, за кг, за человека, за 2 часа экскурсии...)"
-          time_label: ~
+          time_label: "Время (за 30 минут, за 2 недели, в год)"
     paypal_accounts:
       marketplace_paypal_integration: "Настройки платежей"
       preferences_updated: "Настройки платежей обновлены."
@@ -645,7 +645,7 @@ ru:
       message_content_not_available: "Содержимое сообщения недоступно"
     message:
       accepted_request: "запрос принят"
-      received_payment: ~
+      received_payment: "запрос принял, получил платеж на сумму %{sum}"
       accepted_offer: "предложение принято"
       rejected_request: "запрос отклонен"
       rejected_offer: "предложение отклонено"
@@ -739,9 +739,9 @@ ru:
       confirm: "Отметить как завершенное"
       cancel: Спорно
   feedback:
-    feedback_subject: ~
-    feedback_body: ~
-    unlogged_user: ~
+    feedback_subject: "Новое сообщение от %{service_name}"
+    feedback_body: "%{author_name_and_email} отправил следующее сообщение от %{service_name}"
+    unlogged_user: "Незарегистрированный пользователь"
     anonymous_user: "Анонимный пользователь"
   community_memberships:
     access_denied:
@@ -938,7 +938,7 @@ ru:
       booking_failed_payment_voided: ~
       double_booking_payment_voided: ~
     onboarding:
-      server_rendering: ~
+      server_rendering: "Руководство для начинающих не удалось загрузить. Мы были проинформированы об ошибке и стараемся ее решить."
     listings:
       departure_time: "Дата выезда должна быть в интервале от сегодняшней даты плюс один год."
       share_type: "Вы должны выбрать как минимум один из пунктов."
@@ -1346,7 +1346,7 @@ ru:
       email_deleted: "E-mail удален"
       listing_author_payment_details_missing: "Создатель публикации не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
       images_are_processing: ~
-      automatically_logged_out_please_sign_in: ~
+      automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
     settings:
       account: "Учётная запись"
       notifications: Оповещения

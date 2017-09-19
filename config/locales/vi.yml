@@ -573,11 +573,11 @@ vi:
   conversations:
     accept:
       details: "Chi tiết đơn đặt hàng"
-      order_by: "Sắp xếp theo %{orderer_link}"
+      order_by: "Đơn hàng bởi %{orderer_link}"
       accept_offer: "Chấp nhận đề nghị"
       accept_request: "Chấp nhận yêu cầu"
-      reject_offer: "Để lần sau vậy."
-      reject_request: "Để lần sau vậy."
+      reject_offer: "Để lần sau"
+      reject_request: "Để lần sau"
       close_listing: "Đóng  %{listing_title_link}"
       update_later: "Khoan đóng tin"
       optional_message: "Tin nhắn tùy ý"
@@ -699,7 +699,7 @@ vi:
       waiting_for_listing_author_to_accept_request: "Đang chờ %{listing_author_name} chấp nhận yêu cầu này. Ngay khi %{listing_author_name} chấp nhận yêu cầu này, bạn sẽ bị tính phí."
       waiting_for_you_to_accept_request: "Đang đợi bạn chấp nhận yêu cầu"
       waiting_confirmation_from_requester: "Đang chờ %{requester_name} đánh dấu đơn hàng hoàn tất"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_you: "Đang chờ bạn xác nhận giao dịch đã hoàn tất"
       waiting_payment_from_requester: "Chờ %{requester_name} thanh toán"
       waiting_payment_from_you: "Đang chờ bạn trả tiền"
       waiting_feedback_from_you: "Đang đợi bạn gửi phản hồi"
@@ -869,7 +869,7 @@ vi:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
       added_request: "%{name_link} đã thêm yêu cầu:"
       added_listing: "%{name_link} đã đăng một bài mới :"
-      update_mail_title: ~
+      update_mail_title: "Cập nhật từ %{title_link}"
       title_link_text: "%{community_name}"
       intro_paragraph: "Đây là một số sự kiện đã diễn ra trên %{community_link} trong %{time_since_last_update} qua."
       intro_paragraph_link_text: "%{community_name}"
@@ -886,7 +886,7 @@ vi:
       reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Tên người dùng của bạn là: %{username}</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
-      you_have_not_given_feedback_yet: "Bạn chưa đưa ra thông tin phản hồi cho %{name} về sự kiện '%{event}'. Hãy nhớ cung cấp thông tin phản hồi về việc làm thế nào %{given_name} được thực hiện trong sự kiện này."
+      you_have_not_given_feedback_yet: "Bạn chưa gửi đánh giá cho %{name} về sự kiện '%{event}'. Hãy nhớ đánh giá cách làm việc của %{given_name} trong sự kiện này."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1066,7 +1066,7 @@ vi:
       no_listings_notification: "Không có sản phẩm nào. %{add_listing_link}"
       add_listing_link_text: "Đăng bài mới"
       open_listing: "bài đăng"
-      open_listings: "bài đăng"
+      open_listings: "bài đăng đang mở"
       private_listing_notification_log_in: ~
       is: là
       are: là
@@ -1773,12 +1773,12 @@ vi:
       listing: "Bài đăng"
       listings: "Bài đăng"
       open_listing: "Mở bài đăng"
-      open_listings: "Các bài đăng đang mở"
+      open_listings: "bài đăng đang mở"
       no_listings: "Ko có sản phẩm nào."
-      no_open_listings: "Hiện không có bài đăng nào đang mở."
+      no_open_listings: "Không có bài đăng nào đang mở."
       no_reviews: "Chưa có đánh giá"
       show_all_listings: "Hiện tất cả sản phẩm/dịch vụ đang bán"
-      show_all_open_listings: "Hiện tất cả các bài đang đăng"
+      show_all_open_listings: "Hiện tất cả các bài đăng đang mở"
       show_all_reviews: "Hiện tất cả phản hồi"
     followed_people:
       you_follow_plural: "Bạn theo dõi %{count} người"
