@@ -385,7 +385,7 @@ en:
         send_test_email: "Send a test email to yourself"
         test_sent: "Test email was sent to your inbox"
         send_email_article_title: "this article"
-        send_email_article_text: "You can learn more about the user segments %{article_link}"
+        send_email_article_text: "You can learn more about the user segments in %{article_link}."
         recipients: 
           title: "Who do you want to email?"
           options:
@@ -400,7 +400,7 @@ en:
         email_language: "Language of the email receivers"
         any_language: "Any language"
         send_email: "Send the email"
-        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the users who are using %{service_name} in the language you choose."
+        message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
     left_hand_navigation:
       general: General
