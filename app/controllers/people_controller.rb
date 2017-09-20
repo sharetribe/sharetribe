@@ -290,7 +290,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     sign_out target_user
-    report_analytics_event('user', "deleted", "by user")
+    Analytics.record_event(flash, 'user', {action: "deleted", opt_label: "by user"})
     flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to search_path
   end

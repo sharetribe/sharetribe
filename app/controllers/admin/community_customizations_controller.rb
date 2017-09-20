@@ -62,7 +62,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:community_customizations_updated, customizations)
       if state_changed
-        report_to_gtm({event: "km_record", km_event: "Onboarding slogan/description created"})
+        Analytics.record_event(flash, "km_record", {km_event: "Onboarding slogan/description created"})
 
         flash[:show_onboarding_popup] = true
       end

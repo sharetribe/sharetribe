@@ -6,7 +6,7 @@
 
 - if session[:fb_join] == "pending_analytics"
   - content_for :javascript do
-    report_analytics_event('user', "signed up", "facebook");
+    window.ST.analytics.logEvent('user', "signed up", "facebook");
   - session[:fb_join] = "analytics_reported"
 
 .centered-section

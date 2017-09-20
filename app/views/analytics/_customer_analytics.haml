@@ -21,3 +21,9 @@
       gaCustomer('send', 'event', category, action, opt_label);
     }
   };
+
+  window.ST.analytics.customer_gat_handler = function(event, args) {
+    ST.customerReportEvent(args.category, args.action, args.opt_label);
+  }
+
+  $(document).on('st-analytics:event', window.ST.analytics.customer_gat_handler);

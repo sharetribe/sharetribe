@@ -187,25 +187,6 @@ function initialize_defaults(locale) {
   });
 }
 
-function report_analytics_event(category, action, opt_label) {
-  if (window.ST != null && typeof window.ST.gtmPush === 'function') {
-    window.ST.gtmPush({
-      'event' : 'GAEvent',
-      'eventCategory' : category,
-      'eventAction' : action,
-      'eventLabel' : opt_label,
-      'eventValue' : undefined
-    });
-  }
-  var params_array = [category, action, opt_label];
-  if (typeof _gaq !== 'undefined' && Array.isArray(_gaq)) {
-    _gaq.push(['_trackEvent'].concat(params_array));
-  }
-  if (typeof ST.customerReportEvent === 'function') {
-    ST.customerReportEvent(category, action, opt_label);
-  }
-}
-
 function initialize_network_defaults(required_message, email_message) {
   enableSamePageScroll();
 }
@@ -274,7 +255,7 @@ function initialize_send_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event("message", "sent");
+      window.ST.analytics.logEvent("message", "sent");
     }
   });
 }
@@ -289,7 +270,7 @@ function initialize_send_person_message_form(locale) {
     },
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event("message", "sent");
+      window.ST.analytics.logEvent("message", "sent");
     }
   });
 }
@@ -314,7 +295,7 @@ function initialize_listing_view(locale) {
   );
 
   $('#send_comment_button').click(function() {
-    report_analytics_event("listing", "commented");
+    window.ST.analytics.logEvent("listing", "commented");
   });
 }
 
@@ -415,7 +396,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
-      report_analytics_event('user', "signed up", "normal form");
+      window.ST.analytics.logEvent('user', "signed up", "normal form");
     }
   });
 }

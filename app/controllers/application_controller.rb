@@ -40,10 +40,6 @@ class ApplicationController < ActionController::Base
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
-  #this shuold be last
-  before_action :push_reported_analytics_event_to_js
-  before_action :push_reported_gtm_data_to_js
-
   helper_method :root, :logged_in?, :current_user?
 
   attr_reader :current_user
@@ -419,36 +415,6 @@ class ApplicationController < ActionController::Base
     unless Maybe(@current_user).is_admin?.or_else(false)
       flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to search_path and return
-    end
-  end
-
-  # Does a push to Google Analytics on next page load
-  # the reason to go via session is that the actions that cause events
-  # often do a redirect.
-  # This is still not fool proof as multiple redirects would lose
-  def report_analytics_event(category, action, opt_label)
-    session[:analytics_event] = [category, action, opt_label]
-  end
-
-  # Does a push to Google Tag Manager on next page load
-  # same disclaimers as before apply
-  def report_to_gtm(map)
-    session[:gtm_datalayer] = map
-  end
-
-  # if session has analytics event
-  # report that and clean session
-  def push_reported_analytics_event_to_js
-    if session[:analytics_event]
-      @analytics_event = session[:analytics_event]
-      session.delete(:analytics_event)
-    end
-  end
-
-  def push_reported_gtm_data_to_js
-    if session[:gtm_datalayer]
-      @gtm_datalayer = session[:gtm_datalayer]
-      session.delete(:gtm_datalayer)
     end
   end
 

@@ -20,3 +20,12 @@
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+
+  window.ST.analytics.google_analytics_handler = function(event, args) {
+    var params_array = [args.category, args.action, args.opt_label];
+    if (typeof _gaq !== 'undefined' && Array.isArray(_gaq)) {
+      _gaq.push(['_trackEvent'].concat(params_array));
+    }
+  }
+ 
+  $(document).on('st-analytics:event', window.ST.analytics.google_analytics_handler);
