@@ -183,7 +183,7 @@ ar:
         access: "قبول التفضيلات"
         join_with_invite_only: "كل المشتركين يحق لهم الإشتراك إذا قام مشتركين مسجلين سابقا بدعوتهم"
         users_can_invite_new_users: "السماح لكل المشتركين بدعوة الآخرين"
-        private: "السماح فقد للمشتركين المسجلين بمشاهدة الإعلانات والملفات الشخصية، اجعل هذا السوق خاص"
+        private: "السماح فقط للمشتركين المسجلين بمشاهدة الإعلانات والملفات الشخصية، اجعل هذا السوق خاص"
         require_verification_to_post_listings: "السماح فقط للمشتركين المؤكدين من المشرف بإضافة إعلانات"
         search_preferences: "تفضيلات البحث"
         default_search_type: "‎%{select_search_type}‎ :نوع البحث"
@@ -1008,7 +1008,7 @@ ar:
       request_partitive: طلب
   header:
     about: "عن الموقع"
-    home: الإعلانات
+    home: الرئيسية
     members: مجتمع
     new_listing: "إعلان جديد"
     mobile_version: "نسخة الجوال"
