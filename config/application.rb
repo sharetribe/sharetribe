@@ -96,8 +96,10 @@ module Kassi
     config.action_dispatch.ip_spoofing_check = false
     config.action_dispatch.trusted_proxies = APP_CONFIG.trusted_proxies&.split(",")&.map(&:strip)
 
-    # Rack attack middleware for throttling and blocking unwanted traffic
-    config.middleware.insert_after ActionDispatch::RemoteIp, Rack::Attack
+    if APP_CONFIG.use_rack_attack.to_s.casecmp("true").zero?
+      # Rack attack middleware for throttling and blocking unwanted traffic
+      config.middleware.insert_after ActionDispatch::RemoteIp, Rack::Attack
+    end
 
     # HealthCheck endpoint
     config.middleware.insert_before Rack::Sendfile, ::HealthCheck

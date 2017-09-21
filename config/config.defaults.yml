@@ -17,6 +17,11 @@ default: &default_settings
   #
   trusted_proxies:
 
+
+  # Enable rack-attack for request throttling by setting this to true
+  # Configuration is in `initializers/rack_attack.rb`
+  use_rack_attack: false
+
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
   # The session cookies will apply for the whole domain. If this is not needed you can leave this empty.

@@ -40,7 +40,7 @@ class Rack::Attack
   # Throttle POST requests to /login by IP address
   #
   # Key: "rack::attack:#{Time.now.to_i/:period}:session/ip:#{req.ip}"
-  throttle('session/ip', :limit => 5, :period => 20.seconds) do |req|
+  throttle('session/ip', :limit => 10, :period => 20.seconds) do |req|
     if req.path.end_with?('/sessions') && req.post?
       req.env['action_dispatch.remote_ip'].to_s
     end
@@ -55,7 +55,7 @@ class Rack::Attack
   # throttle logins for another user and force their login requests to be
   # denied, but that's not very common and shouldn't happen to you. (Knock
   # on wood!)
-  throttle("sessions/login", :limit => 5, :period => 20.seconds) do |req|
+  throttle("sessions/login", :limit => 10, :period => 20.seconds) do |req|
     if req.path.end_with?('/sessions') && req.post?
       # return the email if present, nil otherwise
       req.params['person']['login'].presence
@@ -85,20 +85,6 @@ class Rack::Attack
   #    {},   # headers
   #    ['']] # body
   # end
-
-
-  # TODO: Remove when throttling is put in place.
-  # Monkeypatch throttling checks and prevent action.
-  # First phase is to log only to check the limits. The rules need to
-  # be in place and we hook into instrumentation and log all throttles.
-  class << self
-    def throttled?(req)
-      throttles.any? do |name, throttle|
-        throttle[req]
-        false
-      end
-    end
-  end
 
   ActiveSupport::Notifications.subscribe('rack.attack') do |name, start, finish, request_id, req|
     data = {name: name,

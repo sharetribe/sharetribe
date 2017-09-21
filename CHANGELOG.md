@@ -10,6 +10,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- Added rack-attack for request throttling [#3078](https://github.com/sharetribe/sharetribe/pull/3078)
+
 ### Changed
 
 ### Deprecated
