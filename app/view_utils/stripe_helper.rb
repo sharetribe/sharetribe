@@ -57,7 +57,7 @@ module StripeHelper
   def open_listings_with_missing_payment_info?(user_id, community_id)
     stripe_active?(community_id) &&
       !user_and_community_ready_for_payments?(user_id, community_id) &&
-      PaypalHelper.open_listings_with_payment_process?(community_id, user_id)
+      PaymentHelper.open_listings_with_payment_process?(community_id, user_id)
   end
 
   # We are not using FeatureFlagHelper.feature_enabled?(:stripe) here,

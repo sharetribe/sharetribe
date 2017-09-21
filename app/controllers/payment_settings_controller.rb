@@ -5,6 +5,7 @@ class PaymentSettingsController < ApplicationController
 
   before_action :ensure_payments_enabled
   before_action :load_stripe_account
+  skip_before_action :warn_about_missing_payment_info, only: [:update]
 
   def index
     more_locals = {}
@@ -51,6 +52,7 @@ class PaymentSettingsController < ApplicationController
       stripe_send_verification
     end
 
+    warn_about_missing_payment_info
     index
   end
 
