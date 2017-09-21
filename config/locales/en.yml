@@ -550,11 +550,11 @@ en:
 
       read_more_about_paypal_and_stripe: "Read more about online payments, Stripe and PayPal"
       general_settings_updated: Payment system general settings updated
-      transaction_fee_settings_updated: Transaction fee settings updated 
+      transaction_fee_settings_updated: Transaction fee settings updated
 
       choose_popup_text: |-
         If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
-        You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction. 
+        You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
         What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your providers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your providers to create a PayPal Business Account to accept payments.
         If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the provider separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
 
@@ -581,7 +581,6 @@ en:
         invalid_private: That doesn't look like a correct secret key
         invalid_public: That doesn't look like a correct publishable key
       index:
-        title: Payment Settings
         header: Available Payment Settings
         info: You can configure available payment gateways for use in your marketplace. Currently platform supports PayPal and Stripe gateways.
         active: Active
@@ -2351,7 +2350,7 @@ en:
       tos_link: "By adding your payout details you accept the %{stripe_link}."
       tos_link_title: Stripe Connected Account Agreement
       save_details: Save details
-      edit: Edit Details
+      edit: Edit details
       cancel: Cancel
 
     form_bank:
@@ -2389,7 +2388,7 @@ en:
     paypal_title: Connect your PayPal account
     credit_card: Credit card
     paypal: PayPal
-    credit_card_bank_details: To accept credit card payments you need to provide yout bank details so we can move money to your bank account.
+    credit_card_bank_details: To accept credit card payments you need to provide your bank details so we can move money to your bank account.
     add_bank_details: Add bank details
     can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both.
     to_accept_paypal: To accept PayPal payments, you need to connect your PayPal account so we can move money there.
