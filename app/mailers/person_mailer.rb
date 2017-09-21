@@ -210,13 +210,23 @@ class PersonMailer < ActionMailer::Base
   def community_member_email(sender, recipient, email_subject, email_content, community)
     @email_type = "email_from_admins"
     set_up_layout_variables(recipient, community, @email_type)
+
+    sender_address = EmailService::API::Api.addresses.get_sender(community_id: community.id).data
+    if sender_address[:type] == :default
+      sender_name = sender.name(community)
+      sender_email = sender.confirmed_notification_email_to
+      reply_to = "\"#{sender_name}\"<#{sender_email}>"
+    else
+      reply_to = sender_address[:smtp_format]
+    end
+
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @email_content = email_content
       @no_recipient_name = true
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => email_subject,
-                     :reply_to => "\"#{sender.name(community)}\"<#{sender.confirmed_notification_email_to}>")
+                     :reply_to => reply_to)
     end
   end
 

@@ -12,10 +12,13 @@
 .new-member-email-form.left-navi-section
   %h2= t(".send_email_to_members_title")
   = form_for :email, :url => admin_community_emails_path(:community_id => @current_community.id), :html => { :id => "new_member_email" } do |form|
-    = form.label :subject, t(".email_subject")
-    = form.text_field :subject
-    = form.label :content, t(".email_content")
-    = form.text_area :content, :placeholder => t(".email_content_placeholder"), :class => "email_members_text_area"
+    = form.label :recipients, t(".recipients.title")
+    - if @display_knowledge_base_articles
+      - article_link = link_to(t("admin.emails.new.send_email_article_title"), "#{@knowledge_base_url}/send-email-to-a-part-of-your-users" , target: "_blank")
+      - article_text = t("admin.emails.new.send_email_article_text", article_link: article_link).html_safe
+      = render :partial => "layouts/permanent_notification", :locals => { :text => article_text }
+
+    = form.select :recipients, admin_email_options 
     - if available_locales.size > 1
       = label_tag "email_language", t(".email_language")
       = render :partial => "layouts/permanent_notification", :locals => { :text => t(".message_will_be_sent_only_to_people_with_this_language") }
@@ -24,4 +27,27 @@
         = select_tag "email[locale]", options_for_select(options, "any")
     - else
       = form.hidden_field :locale, :value => "any"
-    = button_tag t(".send_email"), :class => "send_button"
+    = form.label :subject, t(".email_subject")
+    = form.text_field :subject
+    = form.label :content, t(".email_content")
+    = form.text_area :content, :placeholder => t(".email_content_placeholder"), :class => "email_members_text_area"
+    %div
+      %span{style: 'display: inline-block'}
+        = button_tag t(".send_email"), :class => "send_button"
+      %span{style: 'display: inline-block; padding: 0px 20px'}
+        = t(".send_email_or")
+      = link_to  "#", id: "send-test-email" do
+        %span{class:  icon_class("mail") }
+        = t(".send_test_email")
+- content_for :extra_javascript do
+  :javascript
+    $("#send-test-email").click(function(){
+      var form = $("#new_member_email")
+      $.ajax({
+        url: form.attr('action'),
+        type: "POST", data: form.serialize()+"&test_email=1", success: function(resp) {
+          ST.utils.showError(resp, "notice");
+        }
+      });
+      return false;
+    });

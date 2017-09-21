@@ -379,14 +379,28 @@ en:
     emails:
       new:
         send_email_to_members: "Send email to users"
-        send_email_to_members_title: "Send email to all your users"
+        send_email_to_members_title: "Send email to your users"
+        send_email: "Send"
+        send_email_or: "or"
+        send_test_email: "Send a test email to yourself"
+        test_sent: "Test email was sent to your inbox"
+        send_email_article_title: "this article"
+        send_email_article_text: "You can learn more about the user segments in %{article_link}."
+        recipients: 
+          title: "Who do you want to email?"
+          options:
+            all_users: All users
+            with_listing: Users who have posted at least one listing
+            with_listing_no_payment: Users who have posted at least one listing but haven't added their payment details
+            with_payment_no_listing: Users who have added their payment details but haven't posted a listing
+            no_listing_no_payment: User who haven't posted a listing and haven't added their payment details
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to your users?"
         email_language: "Language of the email receivers"
         any_language: "Any language"
         send_email: "Send the email"
-        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the users who are using %{service_name} in the language you choose."
+        message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
     left_hand_navigation:
       general: General
