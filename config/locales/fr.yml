@@ -542,10 +542,10 @@ fr:
       marketplace_currency_label: "Devise de la place de marché : "
       minimum_listing_price_label: "Montant minimal de transaction : "
       transaction_fee_label: "Frais de service : "
-      minimum_transaction_fee_label: "Frais minimaux de transaction : "
+      minimum_transaction_fee_label: "Frais de service minimaux :"
       save_settings: "Sauvegarder les paramètres"
-      minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
-      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais minimaux de transaction %{minimum_commission}."
+      minimum_listing_price_below_tx_fee: "Le montant minimal de transaction doit être au moins égal aux frais de service minimaux %{minimum_transaction_fee}."
+      minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
     payment_preferences:
       title: "Paramètres du système de paiements"
       general_settings: "1. Paramètre généraux"
@@ -554,7 +554,7 @@ fr:
       no_payments_link_text: ici
       your_country: "Votre pays :"
       you_cannot_use_online_payments: "Vous ne pouvez pas utiliser le système de paiements avec le pays %{country_name} et la devise %{currency}. Veuillez choisir une autre devise ou %{support_link} pour changer votre pays. Vous pouvez en apprendre plus sur les pays et devises supportés %{help_link}. Dans le futur d'autres plateformes de paiement seront peut être ajoutées et plus de devises supportées."
-      which_to_choose: "Lequel choisir ?"
+      which_to_choose: "Laquelle choisir ?"
       you_can_use_stripe_or_paypal: "Vous pouvez utiliser Stripe, PayPal ou les deux comme plateforme de paiements. %{choose_link}"
       you_can_use_stripe_only: "Vous pouvez utiliser Stripe comme plateforme de paiement. %{read_more_link}"
       read_more_stripe: "En savoir plus sur les paiements avec Stripe."
@@ -571,14 +571,14 @@ fr:
       invalid_api_keys: "Stripe API keys invalides"
       missing_api_keys: "Stripe API keys manquantes"
       stripe_verified: "Accès à Stripe API vérifié"
-      change_settings: "Sauvegarder les paramètres"
+      change_settings: "Modifier les paramètres"
       configure_stripe: "Configurer Stripe"
       configure_paypal: "Configurer PayPal"
       transaction_fee_settings: "Paramètre des frais de service"
       transaction_fee_save: Sauvegarder
       stripe_fee: "frais Stripe"
       stripe_fee_notice: "Des %{stripe_fee_link} seront déduits des frais de services que vous facturez."
-      fee_should_be_less_than_minimum_price: "Le montant minimal de transaction doit être inférieur aux frais minimaux de transaction"
+      fee_should_be_less_than_minimum_price: "Le montant minimal des frais de service doit être inférieur aux frais minimaux de transaction"
       stripe_connected:
         title: "Stripe connecté"
       paypal_connected:
@@ -1868,7 +1868,7 @@ fr:
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
       account_restricted: "Votre compte PayPal est restreint et ne peut être connecté. Veuillez vous connecter sur paypal.com pour en savoir plus ou contactez le support PayPal pour résoudre le problème."
     paypal_account_connected_title: "Compte PayPal connecté"
-    paypal_account_connected: "The compte PayPal <%{email}> a été connecté à %{service_name}."
+    paypal_account_connected: "Le compte PayPal <%{email}> a été connecté à %{service_name}."
     change_account: "Changer de compte PayPal"
     missing: "Vous avez des annonces actives mais votre compte PayPal n'est pas encore configuré pour recevoir des paiements. Veuillez connecter votre compte PayPal depuis vos %{settings_link} et y autoriser %{service_name} à prélever une commission."
     from_your_payment_settings_link_text: "paramètres de paiement"
