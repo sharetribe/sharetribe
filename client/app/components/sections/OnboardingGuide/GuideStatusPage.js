@@ -81,10 +81,10 @@ const GuideStatusPage = (props) => {
       next_link_title: 'web.admin.onboarding.guide.next_step.filter',
       path: routes.admin_getting_started_guide_filter_path(),
     },
-    paypal: {
+    payment: {
       link_title: 'web.admin.onboarding.guide.status_page.paypal',
       next_link_title: 'web.admin.onboarding.guide.next_step.paypal',
-      path: routes.admin_getting_started_guide_paypal_path(),
+      path: routes.admin_getting_started_guide_payment_path(),
     },
     listing: {
       link_title: 'web.admin.onboarding.guide.status_page.listing',
@@ -148,7 +148,7 @@ GuideStatusPage.propTypes = {
     admin_getting_started_guide_slogan_and_description_path: func.isRequired,
     admin_getting_started_guide_cover_photo_path: func.isRequired,
     admin_getting_started_guide_filter_path: func.isRequired,
-    admin_getting_started_guide_paypal_path: func.isRequired,
+    admin_getting_started_guide_payment_path: func.isRequired,
     admin_getting_started_guide_listing_path: func.isRequired,
     admin_getting_started_guide_invitation_path: func.isRequired,
   }).isRequired,
@@ -157,7 +157,7 @@ GuideStatusPage.propTypes = {
       'slogan_and_description',
       'cover_photo',
       'filter',
-      'paypal',
+      'payment',
       'listing',
       'invitation',
       'all_done',

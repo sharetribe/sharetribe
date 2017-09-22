@@ -1,23 +1,10 @@
 - content_for :extra_javascript do
   :javascript
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
     ST.initializePayPalPreferencesForm(
       "paypal_preferences_form",
       [#{min_commission_percentage}, #{max_commission_percentage}]
     )
-
-- content_for :title_header do
-  %h1
-    = t("layouts.admin.admin")
-    = "-"
-    = t("admin.communities.paypal_account.paypal_admin_account")
-
-- if local_assigns[:show_onboarding_popup]
-  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
-
-= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
-- content_for :extra_javascript do
-  :javascript
-    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
 
 .left-navi-section.payment-settings
   %h1= t("admin.paypal_accounts.marketplace_paypal_integration")
@@ -39,20 +26,22 @@
         personal_payment_preferences_link: link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"),
           paypal_account_settings_payment_path(@current_user.username))).html_safe
 
-  - if paypal_account_email.present? # has linked their PayPal account
+  - if paypal_account.present? # has linked their PayPal account
     .row.paypal-wizard
       .col-12
         .paypal-wizard-content
           - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
-          = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: paypal_account_email,
+          = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: paypal_account[:email],
               paypal_redirect_link: paypal_redirect_link}
         .paypal-wizard-divider
         .paypal-wizard-content
-          = form_for paypal_prefs_form, url: paypal_prefs_form_action, html: { id: "paypal_preferences_form" } do |form|
+          = form_for paypal_prefs_form, url: admin_payment_preferences_path, html: { id: "paypal_preferences_form" }, method: :put do |form|
+            = hidden_field_tag 'payment_preferences_form[mode]', 'paypal'
+            = hidden_field_tag 'gateway', 'paypal'
             .row.paypal-preferences
               .col-12
                 %h3.paypal-wizard-step
-                  - if paypal_prefs_valid
+                  - if payment_prefs_valid
                     =icon_tag("check", ["icon-fix", "paypal-success-mark"])
                   =t("admin.paypal_accounts.edit_payment_settings")
             .row
@@ -67,7 +56,7 @@
               .col-6
                 = form.label :marketplace_currency, t("admin.paypal_accounts.marketplace_currency_label"), class: "paypal-horizontal-input-label"
               .col-6
-                = form.select :marketplace_currency, options_for_select(available_currencies, currency)
+                = form.select :marketplace_currency, options_for_select(MarketplaceService::AvailableCurrencies::OLD_CURRENCY_SET, currency)
 
             .row.paypal-currency-change-warning-text
               .col-12

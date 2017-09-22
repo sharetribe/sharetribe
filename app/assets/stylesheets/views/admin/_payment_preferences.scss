@@ -1,0 +1,61 @@
+@import "mixins/all";
+
+.color-red {
+  color: $red;
+}
+.color-green {
+  color: $green;
+}
+td.center {
+  text-align: center;
+}
+.tab-link {
+  display: inline-block;
+  padding: 8px 20px;
+  margin-bottom: 0px;
+  background: #c3c3c3;
+  border-top: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-top-right-radius: 5px;
+  border-left: 1px solid #c3c3c3;
+  border-top-left-radius: 5px;
+  border-bottom: 1px solid #c3c3c3;
+  margin-left: 2px;
+}
+.tab-link:first-child {
+  margin-left: 20px;
+}
+
+.tab-link.active {
+  border-bottom: 1px solid white;
+  background: white;
+}
+.tab-content {
+  border:  1px solid #c3c3c3;
+  border-radius: 5px;
+  margin: 0px;
+  margin-top: -1px;
+  margin-bottom: 20px;
+  margin-right: 0.75em;
+}
+.connect-row {
+  margin-top: 0.75em;
+}
+.no-border {
+  border: none;
+}
+.no-float {
+  float: none;
+}
+.paypal-wizard-content.connect-row {
+  padding-top: 0;
+}
+.has-stripe .paypal-wizard.no-border {
+  margin-top: 0px;
+}
+.has-stripe .paypal-wizard-content {
+  padding: 14px ;
+}
+.has-stripe .paypal-wizard-content.no-padding {
+  padding: 0;
+}

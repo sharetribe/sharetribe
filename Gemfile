@@ -70,6 +70,7 @@ gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 6.1.2'
+gem 'stripe', '~> 3.0.0'
 
 gem 'jwt', '~> 1.5.6'
 
@@ -144,6 +145,8 @@ group :test do
 
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
+
+  gem 'fake_stripe'
 end
 
 group :development, :test do
@@ -164,3 +167,5 @@ gem 'transit-ruby', '~> 0.8.1'
 gem 'redcarpet', '~> 3.4.0'
 
 gem 'intercom'
+
+gem 'twitter_cldr'

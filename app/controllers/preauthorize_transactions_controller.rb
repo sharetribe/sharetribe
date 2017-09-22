@@ -151,6 +151,8 @@ class PreauthorizeTransactionsController < ApplicationController
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
         elsif start_on == end_on
           Result::Error.new(nil, code: :at_least_one_day_or_night_required, tx_params: tx_params)
+        elsif StripeHelper.stripe_active?(tx_params[:marketplace_id]) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
+          Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
         end
@@ -211,12 +213,15 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
+  # rubocop:disable MethodLength
+  # rubocop:disable AbcSize
   def initiate
     validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
+      tx_params[:marketplace_id] = @current_community.id
 
       Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid_object,
                                          listing_uuid: listing.uuid_object,
@@ -239,10 +244,10 @@ class PreauthorizeTransactionsController < ApplicationController
         quantity: quantity)
 
       shipping_total = calculate_shipping_from_entity(tx_params: tx_params, listing_entity: listing_entity, quantity: quantity)
-
       order_total = OrderTotal.new(
         item_total: item_total,
-        shipping_total: shipping_total)
+        shipping_total: shipping_total
+      )
 
       Analytics.record_event(
         flash.now,
@@ -259,7 +264,11 @@ class PreauthorizeTransactionsController < ApplicationController
                quantity: tx_params[:quantity],
                author: query_person_entity(listing_entity[:author_id]),
                action_button_label: translate(listing_entity[:action_button_tr_key]),
-               expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
+               paypal_in_use: PaypalHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
+               paypal_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
+               stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
+               stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
+               stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
                form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
                country_code: LocalizationUtils.valid_country_code(@current_community.country),
                paypal_analytics_event: [
@@ -281,9 +290,9 @@ class PreauthorizeTransactionsController < ApplicationController
                  subtotal: subtotal_to_show(order_total),
                  shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
                  total: order_total.total,
-                 unit_type: listing.unit_type)
+                 unit_type: listing.unit_type
+                )
              }
-
     }
 
     validation_result.on_error { |msg, data|
@@ -295,6 +304,7 @@ class PreauthorizeTransactionsController < ApplicationController
                :end_cant_be_before_start,
                :delivery_method_missing,
                :at_least_one_day_or_night_required,
+               :date_too_late
               ].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
         elsif data[:code] == :dates_not_available
@@ -334,7 +344,7 @@ class PreauthorizeTransactionsController < ApplicationController
       shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
 
       tx_response = create_preauth_transaction(
-        payment_type: :paypal,
+        payment_type: params[:payment_type].to_sym,
         community: @current_community,
         listing: listing,
         listing_quantity: quantity,
@@ -348,7 +358,7 @@ class PreauthorizeTransactionsController < ApplicationController
           end_on: tx_params[:end_on]
         })
 
-      handle_tx_response(tx_response)
+      handle_tx_response(tx_response, params[:payment_type].to_sym)
     }
 
     validation_result.on_error { |msg, data|
@@ -417,22 +427,26 @@ class PreauthorizeTransactionsController < ApplicationController
     params.merge(default_shipping)
   end
 
-  def handle_tx_response(tx_response)
+  def handle_tx_response(tx_response, gateway)
     if !tx_response[:success]
-      render_error_response(request.xhr?, t("error_messages.paypal.generic_error"), action: :initiate)
+      render_error_response(request.xhr?, t("error_messages.#{gateway}.generic_error"), action: :initiate)
     elsif (tx_response[:data][:gateway_fields][:redirect_url])
-      if request.xhr?
-        render json: {
-                 redirect_url: tx_response[:data][:gateway_fields][:redirect_url]
-               }
-      else
-        redirect_to tx_response[:data][:gateway_fields][:redirect_url]
-      end
+      xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
+    elsif gateway == :stripe
+      xhr_json_redirect person_transaction_path(@current_user, tx_response[:data][:transaction][:id])
     else
       render json: {
-               op_status_url: transaction_op_status_path(tx_response[:data][:gateway_fields][:process_token]),
-               op_error_msg: t("error_messages.paypal.generic_error")
-             }
+        op_status_url: transaction_op_status_path(tx_response[:data][:gateway_fields][:process_token]),
+        op_error_msg: t("error_messages.#{gateway}.generic_error")
+      }
+    end
+  end
+
+  def xhr_json_redirect(redirect_url)
+    if request.xhr?
+      render json: { redirect_url: redirect_url }
+    else
+      redirect_to redirect_url
     end
   end
 
@@ -547,20 +561,30 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def create_preauth_transaction(opts)
+    case opts[:payment_type].to_sym
+    when :paypal
+      # PayPal doesn't like images with cache buster in the URL
+      logo_url = Maybe(opts[:community])
+               .wide_logo
+               .select { |wl| wl.present? }
+               .url(:paypal, timestamp: false)
+               .or_else(nil)
 
-    # PayPal doesn't like images with cache buster in the URL
-    logo_url = Maybe(opts[:community])
-                 .wide_logo
-                 .select { |wl| wl.present? }
-                 .url(:paypal, timestamp: false)
-                 .or_else(nil)
-
-    gateway_fields =
-      {
-        merchant_brand_logo_url: logo_url,
-        success_url: success_paypal_service_checkout_orders_url,
-        cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
-      }
+      gateway_fields =
+        {
+          merchant_brand_logo_url: logo_url,
+          success_url: success_paypal_service_checkout_orders_url,
+          cancel_url: cancel_paypal_service_checkout_orders_url(listing_id: opts[:listing].id)
+        }
+    when :stripe
+      gateway_fields =
+        {
+          stripe_email: @current_user.primary_email.address,
+          stripe_token: params[:stripe_token],
+          shipping_address: params[:shipping_address],
+          service_name: @current_community.name_with_separator(I18n.locale)
+        }
+    end
 
     transaction = {
           community_id: opts[:community].id,
@@ -579,7 +603,7 @@ class PreauthorizeTransactionsController < ApplicationController
           unit_selector_tr_key: opts[:listing].unit_selector_tr_key,
           availability: opts[:listing].availability,
           content: opts[:content],
-          payment_gateway: opts[:payment_type],
+          payment_gateway: opts[:payment_type].to_sym,
           payment_process: :preauthorize,
           booking_fields: opts[:booking_fields],
           delivery_method: opts[:delivery_method]
@@ -588,12 +612,11 @@ class PreauthorizeTransactionsController < ApplicationController
     if(opts[:delivery_method] == :shipping)
       transaction[:shipping_price] = opts[:shipping_price]
     end
-
     TransactionService::Transaction.create({
         transaction: transaction,
         gateway_fields: gateway_fields
       },
-      force_sync: opts[:force_sync])
+      force_sync: opts[:payment_type] == :stripe || opts[:force_sync])
   end
 
   def query_person_entity(id)
@@ -602,4 +625,6 @@ class PreauthorizeTransactionsController < ApplicationController
       display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
     )
   end
+
+
 end

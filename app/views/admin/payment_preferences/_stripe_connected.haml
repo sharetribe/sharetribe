@@ -1,0 +1,25 @@
+.paypal-wizard-content
+  .row
+    .col-12
+      %h3.paypal-account-connected
+        =icon_tag("check", ["icon-fix"])
+        =t("admin.payment_preferences.stripe_connected.title")
+  .row
+    .col-12
+      .paypal-connected-email.paypal-account-connected
+        -# Not a subject of I18n, forced fixed text
+        .col-6
+          Publishable key:
+        .col-6
+          %strong
+            = stripe_account[:api_publishable_key]
+  .row
+    .col-12
+      .paypal-connected-email.paypal-account-connected
+        -# Not a subject of I18n, forced fixed text
+        .col-6
+          Secret key:
+        .col-6
+          %strong
+            = stripe_account[:api_visible_private_key]
+

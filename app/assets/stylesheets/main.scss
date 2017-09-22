@@ -1532,7 +1532,8 @@ input[type=text].delivery-price-field {
   .conversation-sum-wrapper,
   .conversation-service-fee-wrapper,
   .conversation-total-wrapper,
-  .conversation-shipping-price-wrapper {
+  .conversation-shipping-price-wrapper,
+  .conversation-stripe-fee-wrapper {
     @include clearfix;
   }
   .conversation-per-unit-label,
@@ -1541,7 +1542,8 @@ input[type=text].delivery-price-field {
   .conversation-sum-label,
   .conversation-service-fee-label,
   .conversation-total-label,
-  .conversation-shipping-price-label {
+  .conversation-shipping-price-label,
+  .conversation-stripe-fee-label {
     float: left;
   }
 
@@ -1551,7 +1553,8 @@ input[type=text].delivery-price-field {
   .conversation-sum-value,
   .conversation-service-fee-value,
   .conversation-total-value,
-  .conversation-shipping-price-value {
+  .conversation-shipping-price-value,
+  .conversation-stripe-fee-value {
     float: right;
     margin-right: lines(0.25);
   }
@@ -1580,6 +1583,7 @@ input[type=text].delivery-price-field {
 .initiate-transaction-quantity-wrapper,
 .initiate-transaction-sum-wrapper,
 .initiate-transaction-shipping-price-wrapper,
+.initiate-transaction-stripe-fee-wrapper,
 .initiate-transaction-total-wrapper {
     @include clearfix;
 }
@@ -1589,6 +1593,7 @@ input[type=text].delivery-price-field {
 .initiate-transaction-quantity-label,
 .initiate-transaction-sum-label,
 .initiate-transaction-shipping-price-label,
+.initiate-transaction-stripe-fee-label,
 .initiate-transaction-total-label {
     float: left;
 }
@@ -1598,6 +1603,7 @@ input[type=text].delivery-price-field {
 .initiate-transaction-quantity-value,
 .initiate-transaction-sum-value,
 .initiate-transaction-shipping-price-value,
+.initiate-transaction-stripe-fee-value,
 .initiate-transaction-total-value {
     float: right;
     margin-right: lines(0.25);

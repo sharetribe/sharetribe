@@ -26,7 +26,7 @@ const selectChild = function selectChild(data) {
       return { Page: GuideCoverPhotoPage, pageData };
     case 'filter':
       return { Page: GuideFilterPage, pageData };
-    case 'paypal':
+    case 'payment':
       return { Page: GuidePaypalPage, pageData };
     case 'listing':
       return { Page: GuideListingPage, pageData };
@@ -95,6 +95,7 @@ class OnboardingGuide extends React.Component {
       changePage: this.handlePageChange,
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
+      stripe_enabled: this.props.data.stripe_enabled,
       routes: this.props.routes,
       ...opts,
     });
@@ -114,13 +115,14 @@ OnboardingGuide.propTypes = {
     pathHistoryForward: bool,
     name: string.isRequired,
     info_icon: string.isRequired,
+    stripe_enabled: bool,
     onboarding_data: arrayOf(
       shape({
         step: oneOf([
           'slogan_and_description',
           'cover_photo',
           'filter',
-          'paypal',
+          'payment',
           'listing',
           'invitation',
           'all_done',

@@ -1,0 +1,20 @@
+= fields_for stripe_bank_form do |form|
+  .row.bank-routing-1.hidden
+    .col-12
+      = form.label :bank_routing_1, t("stripe_accounts.form_bank.bank_routing_1")+"*"
+      = form.text_field :bank_routing_1, class: 'required'
+  .row.bank-routing-2.hidden
+    .col-12
+      = form.label :bank_routing_2, t("stripe_accounts.form_bank.bank_routing_2")+"*"
+      = form.text_field :bank_routing_2, class: 'required'
+  .row.bank-routing-number.hidden
+    .col-12
+      = form.label :bank_routing_number, t("stripe_accounts.form_bank.bank_routing_number")+"*"
+      = form.text_field :bank_routing_number, class: 'required'
+  .row.bank-account-number
+    .col-12
+      = form.label :bank_account_number, t("stripe_accounts.form_bank.bank_account_number")+"*"
+      = form.text_field :bank_account_number, class: 'required', value: stripe_seller_account[:bank_number_info] || form.object.bank_account_number
+- content_for :extra_javascript do
+  :javascript
+    window.ST.stripe_form_i18n = #{I18n.t("stripe_accounts.form_bank.messages").to_json.html_safe};

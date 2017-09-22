@@ -9,7 +9,7 @@ module PaypalHelper
   # configured the gateway.
   def community_ready_for_payments?(community_id)
     account_prepared_for_community?(community_id) &&
-      Maybe(TransactionService::API::Api.settings.get_active(community_id: community_id))
+      Maybe(TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :paypal))
       .map {|res| res[:success] ? res[:data] : nil}
       .select {|set| set[:payment_gateway] == :paypal && set[:commission_from_seller] && set[:minimum_price_cents]}
       .map {|_| true}
@@ -55,12 +55,12 @@ module PaypalHelper
   # check that the gateway is fully configured. Use
   # community_ready_for_payments? if that's what you need.
   def paypal_active?(community_id)
-    active_settings = Maybe(TxApi.settings.get_active(community_id: community_id))
+    settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :paypal, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
       .or_else(nil)
 
-    return active_settings && active_settings[:payment_gateway] == :paypal
+    return settings && settings[:active] && settings[:payment_gateway] == :paypal
   end
 
 
@@ -85,26 +85,7 @@ module PaypalHelper
   def open_listings_with_missing_payment_info?(user_id, community_id)
     paypal_active?(community_id) &&
     !user_and_community_ready_for_payments?(user_id, community_id) &&
-    open_listings_with_payment_process?(community_id, user_id)
-  end
-
-  def open_listings_with_payment_process?(community_id, user_id)
-    processes = TransactionService::API::Api.processes.get(community_id: community_id)[:data]
-    payment_process_ids = processes.reject { |p| p[:process] == :none }.map { |p| p[:id] }
-
-    if payment_process_ids.empty?
-      false
-    else
-      listing_count = Listing
-                      .where(
-                        community_id: community_id,
-                        author_id: user_id,
-                        open: true,
-                        transaction_process_id: payment_process_ids)
-                      .count
-
-      listing_count > 0
-    end
+    PaymentHelper.open_listings_with_payment_process?(community_id, user_id)
   end
 
   def accounts_api

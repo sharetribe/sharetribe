@@ -1,0 +1,11 @@
+.paypal-wizard-content.paypal-wizard-divider
+  .paypal-connect-second-time-note
+    %strong
+      =t("admin.paypal_accounts.link_paypal_personal_account_label")
+      - settings_link = link_to(t("admin.paypal_accounts.personal_payment_preferences_link_text"), person_payment_settings_path(@current_user.username))
+    - if connected_mode == 'stripe_and_paypal'
+      =t("admin.paypal_accounts.link_paypal_and_stripe_personal_account", personal_payment_preferences_link:  settings_link).html_safe
+    - elsif connected_mode == 'paypal_only'
+      =t("admin.paypal_accounts.link_paypal_personal_account", personal_payment_preferences_link:  settings_link).html_safe
+    - elsif connected_mode == 'stripe_only'
+      =t("admin.paypal_accounts.link_stripe_personal_account", personal_payment_preferences_link:  settings_link).html_safe

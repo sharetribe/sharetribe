@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class TransactionsController < ApplicationController
 
   before_action only: [:show] do |controller|
@@ -45,7 +46,7 @@ class TransactionsController < ApplicationController
       case [process[:process], gateway]
       when matches([:none])
         render_free(listing_model: listing_model, author_model: author_model, community: @current_community, params: transaction_params)
-      when matches([:preauthorize, :paypal])
+      when matches([:preauthorize, :paypal]), matches([:preauthorize, :stripe]), matches([:preauthorize, [:paypal, :stripe]])
         redirect_to initiate_order_path(transaction_params)
       else
         opts = "listing_id: #{listing_id}, payment_gateway: #{gateway}, payment_process: #{process}, booking: #{booking}"
@@ -430,6 +431,8 @@ class TransactionsController < ApplicationController
         quantity: quantity,
         subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
         total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
+        seller_gets: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]) - tx[:commission_total],
+        fee: tx[:commission_total],
         shipping_price: tx[:shipping_price],
         total_label: total_label,
         unit_type: tx[:unit_type]

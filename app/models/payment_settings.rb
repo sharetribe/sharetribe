@@ -15,6 +15,12 @@
 #  confirmation_after_days          :integer          not null
 #  created_at                       :datetime         not null
 #  updated_at                       :datetime         not null
+#  api_client_id                    :string(255)
+#  api_private_key                  :string(255)
+#  api_publishable_key              :string(255)
+#  api_verified                     :boolean
+#  api_visible_private_key          :string(255)
+#  api_country                      :string(255)
 #
 # Indexes
 #

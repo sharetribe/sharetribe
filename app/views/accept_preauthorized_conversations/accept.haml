@@ -78,12 +78,20 @@
           %span.conversation-shipping-price-value
             = MoneyViewUtils.to_humanized(shipping_price)
 
-      - if payment_gateway == :paypal
+      - if payment_gateway == :paypal || payment_gateway == :stripe
+        - if gateway_fee.present? && gateway_fee > 0
+          .conversation-stripe-fee-wrapper
+            %span.conversation-stripe-fee-label
+              = t("conversations.accept.stripe-fee_label")
+            %span.conversation-stripe-fee-value
+              = "-#{MoneyViewUtils.to_humanized(gateway_fee)}"
+
+ 
         .conversation-total-wrapper
           %span.conversation-total-label
             = t("conversations.accept.total_label")
           %span.conversation-total-paypal-value
-            = t("conversations.accept.total_value", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
+            = t("conversations.accept.total_value_#{payment_gateway}", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
 
       - else
         .conversation-total-wrapper
@@ -100,7 +108,10 @@
         %h2= t("common.paypal_fee_info.title")
         - text_with_line_breaks_html_safe do
           - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-          = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+          - if FeatureFlagHelper.feature_enabled?(:stripe)
+            = t("common.paypal_fee_info_new.body_text_accept", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
+          - else
+            = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
 
       - content_for :extra_javascript do
         :javascript

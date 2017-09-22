@@ -22,6 +22,7 @@ module FeatureFlagService::Store
       :searchpage_v1,
       :manage_searchpage,
       :currency_formatting,
+      :stripe,
       :landing_scripts
     ].to_set
 

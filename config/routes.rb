@@ -142,6 +142,8 @@ Rails.application.routes.draw do
     get "/login" => "sessions#new", :as => :login
     get "/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
+    get '/:person_id/settings/payments' => 'payment_settings#index', :as => :person_payment_settings
+    post '/:person_id/settings/payments' => 'payment_settings#update', :as => :update_person_payment_settings
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
 
     # community membership related actions
@@ -152,6 +154,7 @@ Rails.application.routes.draw do
 
     get  '/community_memberships/check_email_availability_and_validity' => 'community_memberships#check_email_availability_and_validity'
     get  '/community_memberships/check_invitation_code'                 => 'community_memberships#check_invitation_code'
+
 
     namespace :paypal_service do
       resources :checkout_orders do
@@ -165,13 +168,15 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '' => "getting_started_guide#index"
-
+      
       # Payments
-      get  "/paypal_preferences"                      => "paypal_preferences#index"
-      post "/paypal_preferences/preferences_update"   => "paypal_preferences#preferences_update"
+      get  "/payment_preferences"                     => "payment_preferences#index"
+      put  "/payment_preferences"                     => "payment_preferences#update"
+      # PayPal Connect
+      get  "/paypal_preferences" => redirect("/%{locale}/admin/payment_preferences")
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
-
+      
       # Settings
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
@@ -181,7 +186,7 @@ Rails.application.routes.draw do
       get "getting_started_guide/slogan_and_description" => "getting_started_guide#slogan_and_description", as: :getting_started_guide_slogan_and_description
       get "getting_started_guide/cover_photo"            => "getting_started_guide#cover_photo",            as: :getting_started_guide_cover_photo
       get "getting_started_guide/filter"                 => "getting_started_guide#filter",                 as: :getting_started_guide_filter
-      get "getting_started_guide/paypal"                 => "getting_started_guide#paypal",                 as: :getting_started_guide_paypal
+      get "getting_started_guide/payment"                => "getting_started_guide#payment",                as: :getting_started_guide_payment
       get "getting_started_guide/listing"                => "getting_started_guide#listing",                as: :getting_started_guide_listing
       get "getting_started_guide/invitation"             => "getting_started_guide#invitation",             as: :getting_started_guide_invitation
 
@@ -438,6 +443,12 @@ Rails.application.routes.draw do
             get :billing_agreement_cancel
           end
         end
+        resource :stripe_account, only: [:show, :update, :create] do
+          member do
+            put :send_verification
+          end
+        end
+
         resources :transactions, only: [:show, :new, :create]
         resource :settings do
           member do

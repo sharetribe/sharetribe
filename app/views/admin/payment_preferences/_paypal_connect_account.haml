@@ -1,0 +1,21 @@
+- content_for :extra_javascript do
+  :javascript
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
+
+.paypal-wizard-content
+  .row
+    .col-12
+      %h3.paypal-wizard-step
+        =t("paypal_accounts.new.connect_paypal_account_title")
+  .row
+    .col-12
+      =t("paypal_accounts.new.connect_paypal_account_instructions")
+  .row.send-button-wrapper.without-margin
+    .col-12
+      %button#ask_paypal_permissions
+        = t("paypal_accounts.new.connect_paypal_account")
+  .row.js-paypal-redirect-order-permission.hidden
+    .col-12
+      .paypal-redirect-message
+        - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
+        = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe

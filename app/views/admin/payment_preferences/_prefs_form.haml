@@ -1,0 +1,32 @@
+.paypal-wizard-content
+  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "transaction_preferences_form_#{pref_mode}", class: "tx_pref_form" }, method: :put do |form|
+    = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
+    = hidden_field_tag 'gateway', pref_mode
+    .row
+      .col-12
+        %h3.paypal-wizard-step
+          = t("admin.payment_preferences.transaction_fee_settings")
+    .row
+      .col-6
+        = form.label :commission_from_seller, t("admin.paypal_accounts.transaction_fee_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :commission_from_seller, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit
+          = "%"
+    .row
+      .col-6
+        = form.label :minimum_transaction_fee, t("admin.paypal_accounts.minimum_transaction_fee_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
+          = currency
+    .row
+      .col-12
+        = form.button t("admin.payment_preferences.transaction_fee_save")
+
+    - if pref_mode == 'stripe'
+      - stripe_fee_link = link_to t("admin.payment_preferences.stripe_fee"), "#{knowledge_base_url}/what-are-stripes-payment-processing-fees" , target: "_blank"
+      .row
+        .col-12
+          %p
+            = t("admin.payment_preferences.stripe_fee_notice", stripe_fee_link: stripe_fee_link).html_safe

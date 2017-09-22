@@ -1,0 +1,41 @@
+.paypal-wizard-content.no-padding
+  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "paypal_preferences_form" }, method: :put do |form|
+    = hidden_field_tag 'payment_preferences_form[mode]', 'general'
+    .row
+      %h2 
+        = t("admin.payment_preferences.general_settings")
+
+    .row
+      .col-6
+        = t("admin.payment_preferences.your_country")
+      .col-6
+        = country_name
+
+    - if payments_connected
+      .row
+        .col-6
+          = t("admin.paypal_accounts.marketplace_currency_label")
+        .col-6
+          = currency
+
+    - else 
+      .row
+        .col-6
+          = form.label :marketplace_currency, t("admin.paypal_accounts.marketplace_currency_label"), class: "paypal-horizontal-input-label"
+        .col-6
+          = form.select :marketplace_currency, options_for_select(available_currencies, currency)
+
+    .row
+      .col-6
+        = form.label :minimum_listing_price, t("admin.paypal_accounts.minimum_listing_price_label"), class: "paypal-horizontal-input-label"
+      .col-6
+        = form.text_field :minimum_listing_price, class: "paypal-preferences-input"
+        %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
+          = currency
+    .row
+      .col-12
+        = form.button t("admin.paypal_accounts.save_settings")
+- content_for :extra_javascript do
+  :javascript
+    autoSetMinimalPriceFromCountry();
+

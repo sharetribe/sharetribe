@@ -2,9 +2,15 @@
 
 .paypal-button-wrapper {
 
-  .checkout-with-paypal-button {
+  .checkout-with-paypal-button, .checkout-with-stripe-button {
     float: left;
     outline: 0;
+  }
+  .checkout-with-stripe-button  {
+    margin: 0;
+  }
+  .paypal-image {
+    margin: 0.75em 0;
   }
   & .paypal-button-loading-img {
     float: left;
@@ -13,5 +19,46 @@
     margin-top: em(18);
     margin-left: lines(0.75);
   }
+  
 }
-
+.paypal-or-stripe {
+  padding: 16px 48px;
+  text-align: center;
+  position: relative;
+  &:before, &:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: #c3c3c3;
+  }
+  &:before {
+    margin-left: -50%;
+    text-align: right;
+  }
+  span {
+    display: inline-block;
+    background: white;
+    padding: 0px 20px; 
+    z-index: 10;
+  }
+}
+button.checkout-with-paypal-button {
+  background: #ffc438;
+  vertical-align: middle;
+  float: left;
+  color: black;
+  font-weight: 600;
+  margin-top: 0em;
+  img {
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+}
+button.checkout-with-paypal-button.blue {
+  background: #4a90e2;
+  color: white;
+  font-weight: 400;
+} 

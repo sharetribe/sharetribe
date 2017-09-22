@@ -1,0 +1,8 @@
+= link_to '#', class: 'submit-payment-form-stripe-link' do
+  = image_tag 'stripe_logo.png', style: 'max-width: 100%'
+- content_for :extra_javascript do
+  :javascript
+    $(".submit-payment-form-stripe-link").click(function(){
+      $("form#booking-dates").submit();
+      return false;
+    });

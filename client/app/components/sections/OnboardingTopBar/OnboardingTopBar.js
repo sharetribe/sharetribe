@@ -21,10 +21,10 @@ const next = function next(nextStep, routes) {
         title: t('web.admin.onboarding.topbar.filter'),
         link: routes.admin_getting_started_guide_filter_path(),
       };
-    case 'paypal':
+    case 'payment':
       return {
         title: t('web.admin.onboarding.topbar.paypal'),
-        link: routes.admin_getting_started_guide_paypal_path(),
+        link: routes.admin_getting_started_guide_payment_path(),
       };
     case 'listing':
       return {
@@ -86,7 +86,7 @@ OnboardingTopBar.propTypes = {
     admin_getting_started_guide_slogan_and_description_path: func.isRequired,
     admin_getting_started_guide_cover_photo_path: func.isRequired,
     admin_getting_started_guide_filter_path: func.isRequired,
-    admin_getting_started_guide_paypal_path: func.isRequired,
+    admin_getting_started_guide_payment_path: func.isRequired,
     admin_getting_started_guide_listing_path: func.isRequired,
     admin_getting_started_guide_invitation_path: func.isRequired,
   }).isRequired,

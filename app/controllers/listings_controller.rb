@@ -181,7 +181,9 @@ class ListingsController < ApplicationController
       [nil, nil]
     end
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    paypal_in_use = PaypalHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+    stripe_in_use = StripeHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
     form_path = new_transaction_path(listing_id: @listing.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
@@ -201,7 +203,12 @@ class ListingsController < ApplicationController
 
     availability_enabled = @listing.availability.to_sym == :booking
     blocked_dates_start_on = 1.day.ago.to_date
-    blocked_dates_end_on = 12.months.from_now.to_date
+    blocked_dates_end_on =
+      if stripe_in_use
+        APP_CONFIG.stripe_max_booking_date.days.from_now.to_date
+      else
+        12.months.from_now.to_date
+      end
 
     blocked_dates_result =
       if availability_enabled
@@ -220,7 +227,8 @@ class ListingsController < ApplicationController
 
     view_locals = {
       form_path: form_path,
-      payment_gateway: payment_gateway,
+      stripe_in_use: stripe_in_use,
+      paypal_in_use: paypal_in_use,
       # TODO I guess we should not need to know the process in order to show the listing
       process: process,
       delivery_opts: delivery_opts,
@@ -515,8 +523,9 @@ class ListingsController < ApplicationController
   def close
     process = get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
 
-    payment_gateway = MarketplaceService::Community::Query.payment_type(@current_community.id)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
+    paypal_in_use = PaypalHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
+    stripe_in_use = StripeHelper.user_and_community_ready_for_payments?(@listing.author_id, @current_community.id)
 
     @listing.update_attribute(:open, false)
     respond_to do |format|
@@ -524,7 +533,13 @@ class ListingsController < ApplicationController
         redirect_to @listing
       }
       format.js {
-        render :layout => false, locals: {payment_gateway: payment_gateway, process: process, country_code: community_country_code, availability_enabled: @listing.availability.to_sym == :booking }
+        render :layout => false, locals: {
+          paypal_in_use: paypal_in_use,
+          stripe_in_use: stripe_in_use,
+          process: process,
+          country_code: community_country_code,
+          availability_enabled: @listing.availability.to_sym == :booking
+        }
       }
     end
   end
@@ -664,6 +679,7 @@ class ListingsController < ApplicationController
         shipping_price_additional: shipping_price_additional,
         always_show_additional_shipping_price: shape[:units].length == 1 && shape[:units].first[:kind] == :quantity,
         paypal_fees_url: PaypalCountryHelper.fee_link(community_country_code),
+        stripe_fees_url: "https://stripe.com/#{community_country_code.downcase}/pricing",
         currency_opts: MoneyViewUtils.currency_opts(I18n.locale, community_currency)
       })
     end
@@ -746,8 +762,14 @@ class ListingsController < ApplicationController
   end
 
   def commission(community, process)
-    payment_type = MarketplaceService::Community::Query.payment_type(community.id)
-    payment_settings = TransactionService::API::Api.settings.get_active(community_id: community.id).maybe
+    paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
+    stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
+
+    supported = []
+    supported << :paypal if paypal_ready
+    supported << :stripe if stripe_ready
+    payment_type = supported.size > 1 ? supported : supported.first
+
     currency = community.currency
 
     case [payment_type, process]
@@ -756,25 +778,36 @@ class ListingsController < ApplicationController
        payment_gateway: nil,
        minimum_commission: Money.new(0, currency),
        commission_from_seller: 0,
-       minimum_price_cents: 0}
-    when matches([:paypal])
-      p_set = Maybe(payment_settings_api.get_active(community_id: community.id))
+       minimum_price_cents: 0,
+       stripe_commission: 0,
+       paypal_commission: 0,
+      }
+    when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
+      p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: payment_type))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
         .or_else({})
 
-      {seller_commission_in_use: payment_settings[:commission_type].or_else(:none) != :none,
+      stripe_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: :stripe))
+        .select {|res| res[:success]}
+        .map {|res| res[:data]}
+        .or_else({})[:commission_from_seller]
+
+      paypal_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: community.id, payment_gateway: :paypal))
+        .select {|res| res[:success]}
+        .map {|res| res[:data]}
+        .or_else({})[:commission_from_seller]
+
+      {seller_commission_in_use: p_set[:commission_type] != :none,
        payment_gateway: payment_type,
        minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
+       stripe_commission: stripe_commission,
+       paypal_commission: paypal_commission,
        minimum_price_cents: p_set[:minimum_price_cents]}
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
     end
-  end
-
-  def paypal_minimum_commissions_api
-    PaypalService::API::Api.minimum_commissions_api
   end
 
   def payment_settings_api
@@ -928,23 +961,34 @@ class ListingsController < ApplicationController
       [true, ""]
     when matches([:paypal])
       can_post = PaypalHelper.community_ready_for_payments?(community.id)
-      error_msg =
-        if user.has_admin_rights?(community)
-          t("listings.new.community_not_configured_for_payments_admin",
-            payment_settings_link: view_context.link_to(
-              t("listings.new.payment_settings_link"),
-              admin_paypal_preferences_path()))
-            .html_safe
-        else
-          t("listings.new.community_not_configured_for_payments",
-            contact_admin_link: view_context.link_to(
-              t("listings.new.contact_admin_link_text"),
-              new_user_feedback_path))
-            .html_safe
-        end
+      error_msg = make_error_msg(user, community)
+      [can_post, error_msg]
+    when matches([:stripe])
+      can_post = StripeHelper.community_ready_for_payments?(community.id)
+      error_msg = make_error_msg(user, community)
+      [can_post, error_msg]
+    when matches([[:paypal, :stripe]])
+      can_post = StripeHelper.community_ready_for_payments?(community.id) || PaypalHelper.community_ready_for_payments?(community.id)
+      error_msg = make_error_msg(user, community)
       [can_post, error_msg]
     else
       [true, ""]
+    end
+  end
+
+  def make_error_msg(user, community)
+    if user.has_admin_rights?(community)
+      t("listings.new.community_not_configured_for_payments_admin",
+        payment_settings_link: view_context.link_to(
+          t("listings.new.payment_settings_link"),
+          admin_payment_preferences_path()))
+        .html_safe
+    else
+      t("listings.new.community_not_configured_for_payments",
+        contact_admin_link: view_context.link_to(
+          t("listings.new.contact_admin_link_text"),
+          new_user_feedback_path))
+        .html_safe
     end
   end
 

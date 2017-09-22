@@ -160,11 +160,13 @@
           .content
             = action_button_label(@listing)
 
-    - if payment_gateway == :paypal && process != :none
-      .row
-        .col-12
+    .row
+      .col-12
+        - if FeatureFlagHelper.feature_enabled?(:stripe)
+          = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: stripe_in_use, paypal_in_use: paypal_in_use }
+        - elsif paypal_in_use 
           = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: country_code }
-
+    
   - if is_authorized
     .listing-view-admin-links
       .listing-view-admin-link

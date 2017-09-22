@@ -1,4 +1,6 @@
 # encoding: utf-8
+
+# rubocop:disable Metrics/ModuleLength
 module ApplicationHelper
 
   # Removes whitespaces from HAML expressions
@@ -442,13 +444,13 @@ module ApplicationHelper
       :name => "listing_shapes"
     }
 
-    if PaypalHelper.paypal_active?(@current_community.id)
+    if PaypalHelper.paypal_active?(@current_community.id) || StripeHelper.stripe_feature_enabled?(@current_community.id)
       links << {
         :topic => :configure,
-        :text => t("admin.communities.paypal_account.paypal_admin_account"),
+        :text => t("admin.communities.settings.payment_preferences"),
         :icon_class => icon_class("payments"),
-        :path => admin_paypal_preferences_path(),
-        :name => "paypal_account"
+        :path => admin_payment_preferences_path(),
+        :name => "payment_preferences"
       }
     end
 
@@ -520,18 +522,17 @@ module ApplicationHelper
       }
     ]
 
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
+    stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
 
-    if payment_type.present?
-
+    if paypal_ready || stripe_ready
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),
         :icon_class => icon_class("payments"),
-        :path => paypal_account_settings_payment_path(@current_user),
+        :path => person_payment_settings_path(@current_user),
         :name => "payments"
       }
-
     end
 
     return links
@@ -660,4 +661,67 @@ module ApplicationHelper
       content_for :extra_javascript do js end
     end
   end
+
+  def format_local_date(value)
+    format = t("datepicker.format").gsub(/([md])[md]+/, '%\1').gsub(/yyyy/, '%Y')
+    value.present? ? value.strftime(format) : nil
+  end
+
+  def us_states
+    [
+      ['Alabama', 'AL'],
+      ['Alaska', 'AK'],
+      ['Arizona', 'AZ'],
+      ['Arkansas', 'AR'],
+      ['California', 'CA'],
+      ['Colorado', 'CO'],
+      ['Connecticut', 'CT'],
+      ['Delaware', 'DE'],
+      ['District of Columbia', 'DC'],
+      ['Florida', 'FL'],
+      ['Georgia', 'GA'],
+      ['Hawaii', 'HI'],
+      ['Idaho', 'ID'],
+      ['Illinois', 'IL'],
+      ['Indiana', 'IN'],
+      ['Iowa', 'IA'],
+      ['Kansas', 'KS'],
+      ['Kentucky', 'KY'],
+      ['Louisiana', 'LA'],
+      ['Maine', 'ME'],
+      ['Maryland', 'MD'],
+      ['Massachusetts', 'MA'],
+      ['Michigan', 'MI'],
+      ['Minnesota', 'MN'],
+      ['Mississippi', 'MS'],
+      ['Missouri', 'MO'],
+      ['Montana', 'MT'],
+      ['Nebraska', 'NE'],
+      ['Nevada', 'NV'],
+      ['New Hampshire', 'NH'],
+      ['New Jersey', 'NJ'],
+      ['New Mexico', 'NM'],
+      ['New York', 'NY'],
+      ['North Carolina', 'NC'],
+      ['North Dakota', 'ND'],
+      ['Ohio', 'OH'],
+      ['Oklahoma', 'OK'],
+      ['Oregon', 'OR'],
+      ['Pennsylvania', 'PA'],
+      ['Puerto Rico', 'PR'],
+      ['Rhode Island', 'RI'],
+      ['South Carolina', 'SC'],
+      ['South Dakota', 'SD'],
+      ['Tennessee', 'TN'],
+      ['Texas', 'TX'],
+      ['Utah', 'UT'],
+      ['Vermont', 'VT'],
+      ['Virginia', 'VA'],
+      ['Washington', 'WA'],
+      ['West Virginia', 'WV'],
+      ['Wisconsin', 'WI'],
+      ['Wyoming', 'WY']
+    ]
+  end
 end
+# rubocop:enable Metrics/ModuleLength

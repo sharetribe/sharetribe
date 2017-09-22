@@ -51,6 +51,19 @@
         = t("transactions.initiate.shipping-price")
       %span.initiate-transaction-shipping-price-value
         = MoneyViewUtils.to_humanized(shipping_price)
+  - if is_author
+    .initiate-transaction-sum-wrapper
+      %span.initiate-transaction-sum-label
+        = t("transactions.total_to_pay")
+      %span.initiate-transaction-sum-value
+        = MoneyViewUtils.to_humanized(total)
+
+    - if fee.present?
+      .initiate-transaction-sum-wrapper
+        %span.initiate-transaction-sum-label
+          = t("conversations.accept.service_fee_label")
+        %span.initiate-transaction-sum-value
+          = "-#{MoneyViewUtils.to_humanized(fee)}"
 
   - if total.present?
     .initiate-transaction-total-wrapper
@@ -60,4 +73,4 @@
         - else
           = t("transactions.total")
       %span.initiate-transaction-total-value
-        = MoneyViewUtils.to_humanized(total)
+        = MoneyViewUtils.to_humanized(is_author ? seller_gets : total)

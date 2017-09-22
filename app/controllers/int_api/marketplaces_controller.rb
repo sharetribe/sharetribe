@@ -36,6 +36,11 @@ class IntApi::MarketplacesController < ApplicationController
         payment_gateway: :paypal,
         payment_process: :preauthorize,
         active: true)
+      TransactionService::API::Api.settings.provision(
+        community_id: marketplace[:id],
+        payment_gateway: :stripe,
+        payment_process: :preauthorize,
+        active: true)
     end
 
     user = UserService::API::Users.create_user({

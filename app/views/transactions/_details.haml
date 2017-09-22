@@ -6,7 +6,7 @@
         = link_to_unless listing[:deleted], listing[:title], listing_path(id: listing[:id])
 
       - if price_break_down_locals.present?
-        = render partial: "transactions/price_break_down", locals: price_break_down_locals
+        = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: is_author)
 
       = render partial: "transactions/shipping_address", locals: { shipping_address: tx[:shipping_address] }
 

@@ -260,3 +260,27 @@
 .paypal-currency-change-warning-text {
   display: none;
 }
+
+/* These styles are required for stripe.js card input form*/
+.StripeElement {
+  background-color: white;
+  padding: 12px 12px;
+  border-radius: 4px;
+  border: 2px solid #c3c3c3;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#stripe_account_form_birth_date_1i, #stripe_account_form_birth_date_2i, #stripe_account_form_birth_date_3i {
+  width: 32.5%;
+}

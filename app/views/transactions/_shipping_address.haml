@@ -1,6 +1,6 @@
 - fields = [:name, :phone, :street1, :street2, :postal_code, :city, :state_or_province, :country]
-
 - if shipping_address && shipping_address.slice(*fields).values.any?
+  - shipping_address[:country] ||= CountryI18nHelper.translate_country(shipping_address[:country_code])
   .shipping-address-container
     %h2= t("shipping_address.shipping_address")
     - fields.map do |field|

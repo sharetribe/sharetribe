@@ -11,6 +11,7 @@ module TransactionService::Process
 
     def create(tx:, gateway_fields:, gateway_adapter:, force_sync:)
       Transition.transition_to(tx[:id], :initiated)
+      tx[:current_state] = :initiated
 
       if !force_sync
         proc_token = Worker.enqueue_preauthorize_op(
@@ -68,7 +69,7 @@ module TransactionService::Process
             else
 
               initiate_booking(tx: tx).on_error { |error_msg, data|
-                logger.error("Failed to initiate booking", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
+                logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 
                 void_res = gateway_adapter.reject_payment(tx: tx, reason: "")[:response]
 

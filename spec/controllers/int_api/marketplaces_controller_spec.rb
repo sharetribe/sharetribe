@@ -53,7 +53,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(s[:price_enabled]).to eql true
       expect(s[:units].empty?).to eql true
 
-      payment_settings = TransactionService::API::Api.settings.get_active(community_id: c.id)
+      payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: :paypal)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
       expect(payment_settings[:data][:payment_process]).to eql :preauthorize
 

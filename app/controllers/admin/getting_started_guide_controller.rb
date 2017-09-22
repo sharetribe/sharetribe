@@ -26,9 +26,9 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
     render :index, locals: { props: data(page: :filter) }
   end
 
-  def paypal
+  def payment
     @selected_left_navi_link = "getting_started_guide"
-    render :index, locals: { props: data(page: :paypal) }
+    render :index, locals: { props: data(page: :payment) }
   end
 
   def listing
@@ -48,7 +48,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
 
     onboarding_status = Admin::OnboardingWizard.new(@current_community.id).setup_status
     additional_info = {
-      paypal: {
+      payment: {
         additional_info: {
           listing_shape_name: listing_shape_name
         }
@@ -63,6 +63,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
         info_icon: icon_tag("information"),
+        stripe_enabled: FeatureFlagHelper.feature_enabled?(:stripe),
       }
     }
   end

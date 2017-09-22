@@ -19,6 +19,9 @@ module FeatureTests
           payment_process: :preauthorize,
           active: true)
       end
+      if payment_gateway == :stripe
+        FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:stripe])
+      end
 
       {
         id: marketplace[:id],
