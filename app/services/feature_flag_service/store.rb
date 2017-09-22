@@ -21,7 +21,6 @@ module FeatureFlagService::Store
       :topbar_v1,
       :searchpage_v1,
       :manage_searchpage,
-      :currency_formatting,
       :stripe,
     ].to_set
 
