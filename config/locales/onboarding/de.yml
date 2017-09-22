@@ -50,6 +50,7 @@ de:
           paypal:
             title: "Schritt 5: Zahlungssystem einrichten"
             description_p1: "Wenn deine Anbieter Zahlungen für ihre Waren oder Dienstleistungen annehmen können sollten, solltest du dein PayPal-konto verbinden (Du bekommst eine Provision für jede Transaktion). Sobald du das Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion und deine Transaktionsgebühr feststellen."
+            description_p1_stripe_paypal: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
             description_p2: "Wenn du willst, kannst du Online-Zahlungen auch fürs Erste deaktivieren."
             info_image_alt: "Ein Screenshot von der 'Zahlungssystem' -Seite"
             disable_payments: "Zahlungen deaktivieren"
@@ -59,6 +60,8 @@ de:
               content: "Du kannst mehr über das Deaktivieren von Zahlungen %{disable_payments_link} lesen. Leider ist dieser Artikel nur auf Englisch vorhanden."
               disable_payments_link: "hier"
               disable_payments_alt: "Wie man Zahlungen deaktiviert oder kostenlose Einträge auf den Marktplatz erstellt (Englisch)"
+              content_paypal_stripe: "Read more about disabling payments from %{disable_payments_link} or read more about %{stripe_paypal_link}."
+              stripe_paypal_link: "online payments, Stripe and Paypal"
           slogan_and_description:
             title: "Schritt 2: Slogan & Beschreibung hinzufügen"
             description: "Der Slogan und die Beschreibung zeigen neue Benutzer, was dein Marktplatz anbietet. Das sehen sie als erstes wenn sie deinen Marktplatz ansehen, also sollten sie kurz aber auch beschreibend sein."
@@ -119,9 +122,10 @@ de:
           title: "Sieht gut aus!"
           body: "Nun, konzentrieren wir uns auf die Funktionalität ein wenig. Eintragsfelder und Filter strukturieren deinen Marktplatz, und helfen deinen Kunden das zu finden, wonach sie suchen."
           button: "Felder & Filter hinzufügen"
-        paypal:
+        payment:
           title: "Gut gemacht!"
           body: "Als nächstes solltest du das Bezahlungssystem für deinen Marktplatz einrichten! Um deinen Benutzern das Annehmen von Online-Zahlungen zu erlauben, solltest du dein PayPal-Konto verbinden. Alternativ kannst du auch Online-Bezahlungen fürs erste deaktivieren."
+          body_stripe: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal or Stripe account. Alternatively, you can disable online payments for now."
           button: "Zahlungssystem einrichten"
         listing:
           title: "Gute Arbeit!"

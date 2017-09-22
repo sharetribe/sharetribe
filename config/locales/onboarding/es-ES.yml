@@ -50,6 +50,7 @@ es-ES:
           paypal:
             title: "Step 5: Configura el sistema de pagos en linea"
             description_p1: "Si quieres permitir que tus usuarios acepten pagos en linea, debes conectar tu cuenta de PayPal (puedes recibir una comisión por cada transacción). Una vez hecha la conexión, necesita escoger un precio mínimo por transacción y la cuota por transacción."
+            description_p1_stripe_paypal: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
             description_p2: "Alternativamente, puedes desactivar el sistema de pagos en linea por ahora."
             info_image_alt: "Una imagen de pantalla de la página de configuración de pagos"
             disable_payments: "Desactivar pagos en linea"
@@ -59,6 +60,8 @@ es-ES:
               content: "Puedes leer más acerca de como desactivar los pagos en linea en %{disable_payments_link}."
               disable_payments_link: "este artículo"
               disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+              content_paypal_stripe: "Read more about disabling payments from %{disable_payments_link} or read more about %{stripe_paypal_link}."
+              stripe_paypal_link: "online payments, Stripe and Paypal"
           slogan_and_description:
             title: "Paso 2: Añade la descripción y el eslogan"
             description: "La descripción y el eslogan ayudan a los nuevos visitantes a entender el porqué de tu comunidad. Son la primera cosa que los usuarios ven al entrar a tu sitio, por eso intenta hacerlos descriptivos, claros y concisos."
@@ -119,9 +122,10 @@ es-ES:
           title: "Excelente!"
           body: "Ahora hay que enfocarnos un poco en la funcionalidad. Los campos en los anuncios y los filtros le dan estructura a tu comunidad y ayudan a los usuarios a encontrar lo que estan buscando."
           button: "Añade campos en los anuncios y filtros"
-        paypal:
+        payment:
           title: "Perfecto!"
           body: "Hay que seguir con la configuración de pagos en linea dentro de tu comunidad! Para permitir que tus usuarios accepten pagos en linea, debes conectar tu cuenta de PayPal. Si lo prefieres, puedes desactivar el sistema de pagos en linea por el momento."
+          body_stripe: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal or Stripe account. Alternatively, you can disable online payments for now."
           button: "Configurar pagos en linea"
         listing:
           title: "Buen trabajo!"
