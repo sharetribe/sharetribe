@@ -11,6 +11,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Added
 
 - Added rack-attack for request throttling [#3078](https://github.com/sharetribe/sharetribe/pull/3078)
+- Stripe integration [#3018](https://github.com/sharetribe/sharetribe/pull/3018)
+- Sending emails from admin to specified subset of users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
 
 ### Changed
 
@@ -19,6 +21,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Removed
 
 ### Fixed
+
+- Outgoing email address is used, if configured, when sending manual emails to users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
 
 ### Security
 
