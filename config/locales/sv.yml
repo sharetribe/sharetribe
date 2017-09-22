@@ -233,6 +233,7 @@ sv:
         last_community_updates: "Vänligen notera att efter borttagning så kan du och dina marknadsplatsanvändare fortfarande få de sista uppdateringsmailen från din marknadsplats."
         you_will_be_redirected_to: "Efter att du har tagit bort din marknadsplats så kommer du skickas vidare till %{destination}. Du kommer inte att kunna komma in på din marknadsplats längre."
         delete_this_marketplace: "Ta bort denna marknadsplats"
+        payment_preferences: ~
       manage_members:
         manage_members: "Hantera användare"
         email: E-post
@@ -320,6 +321,30 @@ sv:
           canceled: Avbruten
           initiated: "Väntar på PayPal betalning"
           pending_ext: "Väntar på PayPal betalning"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Inte tillgänglig"
       paypal_account:
         paypal_admin_account: Betalningar
@@ -380,12 +405,25 @@ sv:
       new:
         send_email_to_members: "Skicka e-post till användare"
         send_email_to_members_title: "Skicka e-post till alla dina användare"
+        send_email: "Skicka e-postmeddelandet"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "E-post ämne"
         email_content: "E-post innehåll"
         email_content_placeholder: "Vad vill du säga till dina användare?"
         email_language: "Språk på e-postmottagarna"
         any_language: "Alla språk"
-        send_email: "Skicka e-postmeddelandet"
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
     left_hand_navigation:
@@ -494,6 +532,8 @@ sv:
       integration_info_text: "Betalningssystemet på %{service_name} drivs av PayPal. Om du vill aktivera så att dina användare kan göra betalningar på din marknadsplats så måste du koppla ditt PayPal-konto och välja minsta annonspriset och avgiften som du ska ta i provision från varje transaktion."
       link_paypal_personal_account_label: "Säljer du produkter eller tjänster?"
       link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "Ditt personliga marknadsplats konto"
       read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
       edit_payment_settings: "Redigera betalnings inställningarna"
@@ -506,6 +546,57 @@ sv:
       save_settings: "Spara inställningar"
       minimum_listing_price_below_tx_fee: "Minsta transaktionsstorlek måste minst vara samma som minsta transaktionsavgift %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "Minsta transaktionsstorlek måste vara större än minsta provision %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Säljer
       rent: "Hyr ut"
@@ -570,6 +661,12 @@ sv:
     username_or_email: "E-postadress eller användarnamn"
     what_is_this: "Vad är detta?"
     removed_user: "Borttagen användare"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
@@ -579,6 +676,19 @@ sv:
           PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: Orderinformation
@@ -599,8 +709,13 @@ sv:
       you_will_get_label: "Du kommer att få:"
       total_label: "Totalt:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Frakt:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
       cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
@@ -846,6 +961,31 @@ sv:
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: Antal
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -865,6 +1005,8 @@ sv:
       total: Totalt
       price: Pris
       service_fee: Serviceavgift
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som klar eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
@@ -901,6 +1043,7 @@ sv:
       transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
       you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
       if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram kommer transaktionen automatiskt att avslås. %{requester} kommer inte att måsta betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
@@ -952,6 +1095,8 @@ sv:
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera PayPal betalningen. Försök igen."
       reject_authorization_error: "Ett fel uppstod vid försök att avbryta PayPal betalningen. Vänligen försök igen."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
@@ -1349,6 +1494,8 @@ sv:
       notifications: Aviseringar
       profile: Profilinfo
       settings: Inställningar
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Betalningar
   listings:
     bubble_listing_not_visible:
@@ -1445,7 +1592,11 @@ sv:
         long_time: "vecka, månad, ..."
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency} när du har sålt produkten. OBS! Om produkten ska skickas, glöm inte att inkludera fraktkostnad i priset."
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name}s avgift %{sum_with_currency} och %{paypal_fee_info_link} kommer att dras av från priset."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "PayPal's betalningshanteringsavgift"
         delivery: Leveransmetod
         shipping: Frakt
@@ -1620,6 +1771,17 @@ sv:
       invalid_parameters: "Ogiltiga värden för en ny transaktion"
     transaction_agreement_checkbox:
       read_more: Visa
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Alla kategorier"
@@ -1663,6 +1825,7 @@ sv:
     contact_admin_link_text: "kontakta marknadsplatsens administratör"
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
@@ -1709,6 +1872,8 @@ sv:
     paypal_permission_granted_summary: "Villkoren för serviceavgifter har godkänts"
   paypal:
     pay_with_paypal: "Fortsätt till betalning"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Gå till checkout med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
@@ -2062,11 +2227,13 @@ sv:
       quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
+      stripe-fee: ~
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antal: %{quantity}"
     unit_price: "Styckpris: %{unit_price}"
     total: "Totalt:"
+    total_to_pay: ~
   unit:
     day: dag
     days: dagar
@@ -2143,3 +2310,78 @@ sv:
         other: "Visar <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Visar %{model} %{from} - %{to} av %{count} totalt"
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

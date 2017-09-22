@@ -228,6 +228,7 @@ th-TH:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
+        payment_preferences: ~
       manage_members:
         manage_members: จัดการผู้ใช้
         email: อีเมล์
@@ -315,6 +316,30 @@ th-TH:
           canceled: ถูกยกเลิก
           initiated: "กำลังรอการชำระเงิน PayPal"
           pending_ext: "กำลังรอการชำระเงิน PayPal"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: ~
       paypal_account:
         paypal_admin_account: ระบบการชำระเงิน
@@ -375,12 +400,25 @@ th-TH:
       new:
         send_email_to_members: ส่งอีเมล์ไปหาผู้ใช้
         send_email_to_members_title: ส่งอีเมล์ไปหาผู้ใช้ทุกคน
+        send_email: ส่งอีเมล์
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: หัวข้ออีเมล์
         email_content: เนื้อหาของอีเมล์
         email_content_placeholder: "คุณต้องการที่จะบอกอะไรกับผู้ใช้ของคุณ ?"
         email_language: ภาษาของผู้รับอีเมล์
         any_language: ภาษาใดก็ได้
-        send_email: ส่งอีเมล์
         message_will_be_sent_only_to_people_with_this_language: "หมายเหตุ: อีเมล์จะถูกส่งไปยังเฉพาะผู้ใช้ที่กำลังใช้ %{service_name} ในภาษาที่คุณ เลือก"
         email_sent: ส่งอีเมล์สำเร็จแล้ว
     left_hand_navigation:
@@ -481,6 +519,8 @@ th-TH:
       integration_info_text: "ระบบการชำระเงินในตลาดของคุณจะถูกขับเคลื่อนโดย PayPal เพื่อให้ผู้ใช้ของคุณ ชำระเงินในตลาดของคุณ ฉะนั้นคุณต้องเชื่อมต่อบัญชี PayPal ของคุณ เมื่อคุณได้เชื่อมต่อบัญชี PayPal ของคุณแล้ว คุณจึงจะสามารถเลือกจำนวนขึ้นต่ำในการชำระเงินและ จำนวนเป็นไปได้ของค่าธรรมเนียมได้"
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
       edit_payment_settings: ~
@@ -493,6 +533,57 @@ th-TH:
       save_settings: ~
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: ขาย
       rent: ให้เช่า
@@ -557,6 +648,12 @@ th-TH:
     username_or_email: "อีเมล์ หรือ ชื่อผู้ใช้"
     what_is_this: นี่คืออะไร?
     removed_user: ~
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "ค่าดำเนินการของ PayPal"
       body_text: |-
@@ -566,6 +663,19 @@ th-TH:
           PayPal คิดค่าธรรมเนียมในการประมวลผลจากการชำระเงินแต่ละครั้ง ค่าธรรมเนียมนี้อยู่ระหว่าง 2% และ 5% ของราคาขายทั้งหมด (รวมค่าจัดส่ง) ขึ้นอยู่กับปริมาณการขายรายเดือนของคุณ และประเทศที่พำนักของผู้ซื้อ โดยทั่วไป การซื้อสินค้าในประเทศมีค่าใช้จ่ายต่ำกว่าต่างประเทศ และยิ่งยอดขายรายเดือนสูงเท่าไหร่ ส่วนลดค่าธรรมเนียมก็จะน้อยลงตามสัดส่วน
           คุณสามารถดูค่าธรรมเนียมที่ถูกต้อง โดยการเข้าสู่บัญชี PayPal ของคุณ และไปยัง %{link_to_paypal} หลังจากการซื้อขายแต่ละครั้ง คุณจะได้รับใบเสร็จรับเงินแสดงค่าธรรมเนียมในแต่ละรายการ
       link_to_paypal_text: ~
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: ~
@@ -586,8 +696,13 @@ th-TH:
       you_will_get_label: ~
       total_label: ~
       total_value: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "*ไม่รวม <a id='%{fee_info_link_id}' href='#'>ค่าธรรมเนียมการชำระเงินของ PayPal</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: จัดส่ง
+      stripe-fee_label: ~
     confirm:
       confirm_description: "หากได้รับสินค้าหรือบริการแล้ว กรุณากดยืนยันว่าได้รับสินค้าหรือบริการเป็นที่เรียบร้อย หลังจากนั้นคุณจะสามารถเขียนรีวิวผู้ขายได้"
       cancel_description: "หากคุณไม่ได้รับหรือไม่พอใจในสินค้า/บริการ คุณสามารถทำเครื่องหมาย 'โต้แย้ง' ได้ และสามารถให้ข้อเสนอแนะไปยังบุคคลอื่น และอธิบายถึงสิ่งที่เกิดขึ้น"
@@ -833,6 +948,31 @@ th-TH:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: "คุณได้รับการชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> จาก %{payer_full_name} นี่คือใบเสร็จรับเงินของคุณ"
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: จัดส่ง
@@ -852,6 +992,8 @@ th-TH:
       total: รวมทั้งหมด
       price: ราคา
       service_fee: "ค่าบริการ "
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "เงินจะถูกโอนไปยัง %{recipient_name} เมื่อ ก.) คุณได้ทำเครื่องหมายให้คำขอเสร็จสมบูรณ์ หรือ ข.) คุณจ่ายเงินมาแล้ว %{automatic_confirmation_days} วัน"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
@@ -888,6 +1030,7 @@ th-TH:
       transaction_requested_by_user: "%{requester} ได้ยื่นคำขอชำระเงินเพื่อซื้อสินค้าหรือบริการ %{listing_title}"
       you_have_time_to_accept: "คุณต้องยอมรับหรือปฏิเสธคำขอภายใน %{payment_expires_in} หากคุณยอมรับ ภายในระยะเวลานี้ การชำระเงินจะผ่านระบบไป แต่ถ้าคุณไม่ยอมรับ คำขอจะถูกปฏิเสธ โดยอัตโนมัติ และคุณจะไม่ได้รับเงิน"
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: คลิกที่นี่เพื่อตอบสนองต่อคำขอ
     transaction_preauthorized_reminder:
@@ -937,6 +1080,8 @@ th-TH:
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: กลับไปหน้าแรก
     error_404:
@@ -1330,6 +1475,8 @@ th-TH:
       notifications: แจ้งเตือน
       profile: ข้อมูลโปรไฟล์
       settings: การตั้งค่า
+      paypal_payments: ~
+      stripe_payments: ~
       payments: การชำระเงิน
   listings:
     bubble_listing_not_visible:
@@ -1426,7 +1573,11 @@ th-TH:
         long_time: "สัปดาห์, เดือน, ..."
         after_service_fee_you_will_get: "หลังจาก %{service_name} และการชำระเงินค่าธรรมเนียมการประมวลผล คุณจะได้รับ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "ค่าบริการของ %{service_name} (%{sum_with_currency}) และ %{paypal_fee_info_link} จะถูกหักออกจากราคานี้"
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "ค่าดำเนินการของ PayPal"
         delivery: วิธีการส่งสินค้า
         shipping: จัดส่ง
@@ -1601,6 +1752,17 @@ th-TH:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: แสดง
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: หมวดหมู่ทั้งหมด
@@ -1644,6 +1806,7 @@ th-TH:
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: คุณพร้อมที่จะยอมรับการชำระเงินแล้ว!
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "ในการรับเงิน คุณจะต้องเชื่อมต่อบัญชี PayPal ของคุณกับ %{service_name}"
       payout_info_text: "โปรดทำตามขั้นตอนดังต่อไปนี้ เพื่อเชื่อมต่อกับบัญชีของคุณ"
@@ -1690,6 +1853,8 @@ th-TH:
     paypal_permission_granted_summary: คุณได้อนุญาตให้มีการหักค่าธรรมเนียมเมื่อขายสินค้าได้แล้ว
   paypal:
     pay_with_paypal: ดำเนินการชำระเงิน
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "เช็คเอาท์ด้วย PayPal"
     cancel_succesful: ~
     transaction:
@@ -2024,11 +2189,13 @@ th-TH:
       quantity: ~
       subtotal: ~
       shipping-price: จัดส่ง
+      stripe-fee: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
     unit_price: ~
     total: ~
+    total_to_pay: ~
   unit:
     day: วัน
     days: วัน
@@ -2101,3 +2268,78 @@ th-TH:
         other: "กำลังแสดง <b>1</b> %{model}"
       multi_page: "กำลังแสดง %{model} %{from} - %{to} จาก %{count} ของทั้งหมด"
       multi_page_html: "กำลังแสดง %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> จาก <b>%{count}</b> ของทั้งหมด"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

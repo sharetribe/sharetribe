@@ -233,6 +233,7 @@ fr-CA:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
+        payment_preferences: ~
       manage_members:
         manage_members: "Gérer les utilisateurs"
         email: Email
@@ -320,6 +321,30 @@ fr-CA:
           canceled: Annulée
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Non disponible"
       paypal_account:
         paypal_admin_account: Paiements
@@ -380,12 +405,25 @@ fr-CA:
       new:
         send_email_to_members: "Envoyer un email aux utilisateurs"
         send_email_to_members_title: "Envoyer un email à tous les utilisateurs"
+        send_email: "Envoyez l'email"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "Objet de l'email"
         email_content: "Contenu de l'email"
         email_content_placeholder: "Que souhaitez-vous dire à vos utilisateurs ?"
         email_language: "Langue des destinataires de l'email"
         any_language: "Toutes les langues"
-        send_email: "Envoyez l'email"
         message_will_be_sent_only_to_people_with_this_language: "Note : cette email ne sera envoyé qu'aux utilisateurs de %{service_name} utilisant la langue que vous avez sélectionnée."
         email_sent: "Email envoyé."
     left_hand_navigation:
@@ -482,6 +520,8 @@ fr-CA:
       integration_info_text: "Le système de paiement de Sharetribe est propulsé par PayPal. Si vous souhaitez permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal et choisir un montant minimum pour les transactions ainsi que la commission que vous souhaitez prélever sur chaque transaction."
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: "En savoir plus sur le système de paiement avec Sharetribe."
       edit_payment_settings: ~
@@ -494,6 +534,57 @@ fr-CA:
       save_settings: "Sauvegarder les paramètres"
       minimum_listing_price_below_tx_fee: "doit être au moins égal aux frais minimaux de transaction %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "doit être supérieur à la commission minimale %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Vente
       rent: Location
@@ -558,6 +649,12 @@ fr-CA:
     username_or_email: "Email ou nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
     removed_user: "Utilisateur supprimé"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
@@ -567,6 +664,19 @@ fr-CA:
           PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction (frais de livraison inclus) et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
           Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
       link_to_paypal_text: ici
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "Détails de la commande"
@@ -587,8 +697,13 @@ fr-CA:
       you_will_get_label: "Vous recevrez : "
       total_label: "Total : "
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'>frais de transaction PayPal</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Frais de livraison : "
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Si votre demande a été satisfaite, vous pouvez la marquer comme réalisée. Vous pourrez alors donner un avis sur l'autre personne."
       cancel_description: "Si votre demande n'a pas été satisfaite, vous pouvez la marquer comme \"non réalisée\". Vous pourrez toujours donner un avis sur l'autre personne et décrire ce qu'il s'est passé."
@@ -834,6 +949,31 @@ fr-CA:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "Frais PayPal : "
       shipping_total: "Frais de livraison : "
@@ -853,6 +993,8 @@ fr-CA:
       total: Total
       price: Prix
       service_fee: Commission
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "L'argent sera transféré à %{recipient_name} quand a) vous aurez marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après votre paiement."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
@@ -889,6 +1031,7 @@ fr-CA:
       transaction_requested_by_user: "%{requester} a demandé et payé pour \"%{listing_title}\""
       you_have_time_to_accept: ~
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
@@ -938,6 +1081,8 @@ fr-CA:
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
       accept_authorization_error: "Une erreur s'est produite lors de la validation de la pré-autorisation du paiement PayPal. Merci d'essayer de nouveau."
       reject_authorization_error: "Une erreur s'est produite lors de la tentative de rejet du paiement PayPal avec pré-autorisation. Veuillez essayer de nouveau."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:
@@ -1331,6 +1476,8 @@ fr-CA:
       notifications: Notifications
       profile: "Info du profil"
       settings: Paramètres
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Paiements
   listings:
     bubble_listing_not_visible:
@@ -1427,7 +1574,11 @@ fr-CA:
         long_time: "semaine, mois..."
         after_service_fee_you_will_get: "Après la commission de %{service_name} et les frais du prestataire de paiement vous recevrez %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} seront déduits du montant."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "Les frais de %{service_name} (%{sum_with_currency}) et %{paypal_fee_info_link} seront déduits du montant."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "les frais de transaction PayPal"
         delivery: Livraison
         shipping: Envoi
@@ -1602,6 +1753,17 @@ fr-CA:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Lire.
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -1645,6 +1807,7 @@ fr-CA:
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}"
       payout_info_text: "Veuillez réaliser les actions suivantes pour connecter votre compte."
@@ -1691,6 +1854,8 @@ fr-CA:
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: "Procéder au paiement"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Payer avec PayPal"
     cancel_succesful: "Paiement PayPal correctement annulé"
     transaction:
@@ -2025,11 +2190,13 @@ fr-CA:
       quantity: ~
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "
+      stripe-fee: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
     unit_price: ~
     total: ~
+    total_to_pay: ~
   unit:
     day: jour
     days: jours
@@ -2106,3 +2273,78 @@ fr-CA:
         other: "Affichage des <b>%{count}</b> %{model}"
       multi_page: "Affichage des %{model} %{from} - %{to} sur un total de %{count}"
       multi_page_html: "Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{count}</b>"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

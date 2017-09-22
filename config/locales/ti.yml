@@ -218,6 +218,7 @@ ti:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
+        payment_preferences: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -305,6 +306,30 @@ ti:
           canceled: ~
           initiated: ~
           pending_ext: ~
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: ~
       paypal_account:
         paypal_admin_account: ~
@@ -365,12 +390,25 @@ ti:
       new:
         send_email_to_members: ~
         send_email_to_members_title: ~
+        send_email: ~
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: ~
         email_content: ~
         email_content_placeholder: ~
         email_language: ~
         any_language: ~
-        send_email: ~
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
     left_hand_navigation:
@@ -467,6 +505,8 @@ ti:
       integration_info_text: ~
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: ~
       edit_payment_settings: ~
@@ -479,6 +519,57 @@ ti:
       save_settings: ~
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: ~
       rent: ~
@@ -543,11 +634,30 @@ ti:
     username_or_email: ~
     what_is_this: ~
     removed_user: ~
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: ~
       body_text: ~
       body_with_shipping_text: ~
       link_to_paypal_text: ~
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: ~
@@ -568,8 +678,13 @@ ti:
       you_will_get_label: ~
       total_label: ~
       total_value: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: ~
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: ~
+      stripe-fee_label: ~
     confirm:
       confirm_description: ~
       cancel_description: ~
@@ -815,6 +930,31 @@ ti:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
       shipping_total: ~
@@ -834,6 +974,8 @@ ti:
       total: ~
       price: ~
       service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: ~
@@ -870,6 +1012,7 @@ ti:
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: ~
     transaction_preauthorized_reminder:
@@ -919,6 +1062,8 @@ ti:
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: ~
     error_404:
@@ -1312,6 +1457,8 @@ ti:
       notifications: ~
       profile: ~
       settings: ~
+      paypal_payments: ~
+      stripe_payments: ~
       payments: ~
   listings:
     bubble_listing_not_visible:
@@ -1408,7 +1555,11 @@ ti:
         long_time: ~
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: ~
         delivery: ~
         shipping: ~
@@ -1583,6 +1734,17 @@ ti:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: ~
@@ -1626,6 +1788,7 @@ ti:
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: ~
     commission: ~
+    not_now: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: ~
@@ -1672,6 +1835,8 @@ ti:
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: ~
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
@@ -2000,11 +2165,13 @@ ti:
       quantity: ~
       subtotal: ~
       shipping-price: ~
+      stripe-fee: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
     unit_price: ~
     total: ~
+    total_to_pay: ~
   unit:
     day: ~
     days: ~
@@ -2064,3 +2231,78 @@ ti:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

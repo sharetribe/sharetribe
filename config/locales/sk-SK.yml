@@ -238,6 +238,7 @@ sk-SK:
         last_community_updates: "Vezmite na vedomie, že po vymazaní vy a Vaši užívatelia budú stále dostávať e-mailové správy s novinkami."
         you_will_be_redirected_to: "Potom, čo zmažete Vaše trhovisko budete presmerovaný do %{destination}. Už nikdy nebudete mať prístup do Vašeho trhoviska."
         delete_this_marketplace: "Zmazať trhovisko"
+        payment_preferences: ~
       manage_members:
         manage_members: "Spravovať užívateľov"
         email: E-mail
@@ -325,6 +326,30 @@ sk-SK:
           canceled: Zrušené
           initiated: "Čaká sa na PayPal platbu"
           pending_ext: "Čaká sa na PayPal platbu"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Teraz k dispozicií"
       paypal_account:
         paypal_admin_account: "Platobný systém"
@@ -385,12 +410,25 @@ sk-SK:
       new:
         send_email_to_members: "Poslať e-mailovú správu užívateľom"
         send_email_to_members_title: "Poslať e-mailovú správu všetkým užívateľom"
+        send_email: "Odoslať e-mailovú správu"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "Predmet e-mailovej správy"
         email_content: "Obsah e-mailovej správy"
         email_content_placeholder: "Čo by ste chceli povedať svojim užívateľom?"
         email_language: "Jazyk príjemcov e-mailových správ"
         any_language: "Akýkoľvek jazyk"
-        send_email: "Odoslať e-mailovú správu"
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mailová správa bude poslaná iba užívateľom, ktorý používajú %{service_name} v jazyku, ktorý vyberiete."
         email_sent: "E-mailová správa bola odoslaná."
     left_hand_navigation:
@@ -503,6 +541,8 @@ sk-SK:
       integration_info_text: "Platobný systém vašeho trhoviska je založený na PayPal. Pokiaľ chcete užívateľom umožniť, aby prevádzali platby cez vaše trhovisko, musíte sa pripojiť k Vašemu PayPal účtu, zadať minimálnu veľkosť transakcie a poplatok z každej prevedenej transakcie."
       link_paypal_personal_account_label: "Ponúkate tovar alebo poskytujete služby?"
       link_paypal_personal_account: "pokiaľ áno, tak sa musíte pripojiť na Váš PayPal účet. %{personal_payment_preferences_link}"
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "Váš osobný účet"
       read_more_about_paypal: "Čítať viac o platobnom systéme"
       edit_payment_settings: "Upraviť nastavenia platieb"
@@ -515,6 +555,57 @@ sk-SK:
       save_settings: "Uložiť nastavenia"
       minimum_listing_price_below_tx_fee: "Minimálna veľkosť transakcie musí byť aspoň rovnaká ako minimálny transakčný poplatok %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Minimálna veľkosť transakcie musí byť väčšia než minimálna prirážka %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Predám
       rent: Prenajmem
@@ -579,6 +670,12 @@ sk-SK:
     username_or_email: "E-mailová adresa alebo užívateľské meno"
     what_is_this: "Čo to je?"
     removed_user: "Odstránený užívateľ"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "Poplatky za PayPal platbu"
       body_text: |-
@@ -588,6 +685,19 @@ sk-SK:
           PayPal si účtuje poplatok za spracovanie z každé platby. Tento poplatok se pohybuje medzi 2% až 5% z celkovej predajnej ceny (doprava zahrnutá) v závislosti na Vašom mesačnom obrate a bydliska. Obecne povedané, tuzemské nákupy majú nižší poplatky než tie medzinárodné a čím vyšší mesačný obrat máte, tým väčšie zľavu budete mať na poplatkoch. 
           Po prihlásení do Vašeho PayPal účtu si môžete nájsť presné poplatky, viď %{link_to_paypal}. Z každého vykonaného nákupu obdržíte potvrdenie s presným poplatkom.
       link_to_paypal_text: tu
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "Podrobnosti o usporiadaní."
@@ -608,8 +718,13 @@ sk-SK:
       you_will_get_label: "Obdržíte:"
       total_label: "Celkovo:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* Nezahrňuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatok za spracovanie</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Doprava:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Pokiaľ bola Vaša objednávka vybavená, mali by ste ju označiť ako hotovú. Potom môžete poskytnúť hodnotenie druhej strane."
       cancel_description: "Pokiaľ Vaša objednávka nebola vybavená, môžete ju označiť ako \"spor\". Stále môžete poskytnúť hodnotenie druhej strane, že čo sa udialo."
@@ -855,6 +970,31 @@ sk-SK:
       price_per_unit_type: "Cena za %{unit_type}"
       quantity: "Množstvo:"
       you_have_received_new_payment: "Obdržali ste čiastku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od užívateľa %{payer_full_name}. Tu je Vaše potvrdenie."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal poplatok:"
       shipping_total: "Doprava:"
@@ -874,6 +1014,8 @@ sk-SK:
       total: Celkovo
       price: Cena
       service_fee: "Poplatok sa službu"
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Peniaze budú prevedené užívateľovi %{recipient_name}, a) pokiaľ označíte žiadosť ako vybavenú nebo b) pokiaľ uplynulo %{automatic_confirmation_days} dní od dňa, kedy ste zaplatili."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vám dal spätnú väzbu %{service_name}"
@@ -910,6 +1052,7 @@ sk-SK:
       transaction_requested_by_user: "Užívateľ %{requester}  zažiadal a potvrdil platbu pre inzerát \"%{listing_title}\""
       you_have_time_to_accept: "Musíte prijať alebo odmietnuť žiadosť do %{payment_expires_in}. Pokiaľ žiadosť do tej doby príjmete, platba bude prevedená. Pokiaľ ju do tej doby neprijmete, žiadosť bude automaticky odmietnutá a nedostanete zaplatené."
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Kliknite sem pre odpoveď na žiadosť"
     transaction_preauthorized_reminder:
@@ -961,6 +1104,8 @@ sk-SK:
       cancel_error: "Nastala chyba pri stornovaní. Zrušenie sa nedá dokončiť."
       accept_authorization_error: "Došlo k chybe pri pokuse o prijatie pred schválenej PayPal platby. Prosíme, skúste to znovu."
       reject_authorization_error: "Došlo k chybe pri pokuse o odmietnutie dopredu schválenej PayPal platby. Prosíme, skúste to znovu."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Späť na titulnú stránku."
     error_404:
@@ -1359,6 +1504,8 @@ sk-SK:
       notifications: Oznámenia
       profile: "Informácie o profile"
       settings: Nastavenia
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Platby
   listings:
     bubble_listing_not_visible:
@@ -1455,7 +1602,11 @@ sk-SK:
         long_time: "týždeň, mesiac, ..."
         after_service_fee_you_will_get: "Po %{service_name} a zaplatení servisných poplatkov dostanete %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odčítaný z ceny."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name} poplatok (%{sum_with_currency}) a %{paypal_fee_info_link} bude odčítaný z ceny."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "PayPal poplatok za spracovanie platby"
         delivery: "Metóda doručenia"
         shipping: Doprava
@@ -1630,6 +1781,17 @@ sk-SK:
       invalid_parameters: "Nesprávne hodnoty pre novú transakciu"
     transaction_agreement_checkbox:
       read_more: Zobraziť.
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Všetky kategórie"
@@ -1673,6 +1835,7 @@ sk-SK:
     contact_admin_link_text: "kontaktujte administrátora"
     you_are_ready_to_accept_payments: "Teraz môžete prijímať platby!"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "Aby ste mohli prijímať platby, musíte se pripojiť k Vašemu PayPal účtu na %{service_name}."
       payout_info_text: "Prosíme, vyplňte následujúce kroky, aby ste sa mohli prihlásiť ku svojmu účtu."
@@ -1719,6 +1882,8 @@ sk-SK:
     paypal_permission_granted_summary: "Povolenie pre transakčné poplatky bolo udelené"
   paypal:
     pay_with_paypal: "Pokračovať k platbe"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Zaplatiť s PayPal"
     cancel_succesful: "Platba cez PayPal bola úspešne zrušená"
     transaction:
@@ -2080,11 +2245,13 @@ sk-SK:
       quantity: "Množstvo:"
       subtotal: "Medzisúčet:"
       shipping-price: "Doprava:"
+      stripe-fee: ~
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množstvo: %{quantity}"
     unit_price: "Cena za kus: %{unit_price}"
     total: "Celkovo:"
+    total_to_pay: ~
   unit:
     day: deň
     days: dni
@@ -2165,3 +2332,78 @@ sk-SK:
         other: "Nájdených <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Nájdený %{model} %{from} - %{to} z %{count} celkovo"
       multi_page_html: "Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b> celkovo"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

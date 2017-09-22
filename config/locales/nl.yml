@@ -235,6 +235,7 @@ nl:
         last_community_updates: "Let op: na verwijdering, kan het zijn dat jij en je marktplaats gebruikers toch nog enkele laatste marktplaats update emails ontvangen."
         you_will_be_redirected_to: "Nadat je jouw marktplaats hebt verwijderd word je doorgelinkt naar %{destination}. Je hebt dan niet langer toegang tot je marktplaats."
         delete_this_marketplace: "Verwijder deze marktplaats"
+        payment_preferences: ~
       manage_members:
         manage_members: "Beheer gebruikers"
         email: E-mail
@@ -322,6 +323,30 @@ nl:
           canceled: Geannuleerd
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Niet beschikbaar"
       paypal_account:
         paypal_admin_account: Betalingsysteem
@@ -381,13 +406,26 @@ nl:
     emails:
       new:
         send_email_to_members: "Stuur e-mail aan gebruikers"
-        send_email_to_members_title: "Stuur e-mail aan al je gebruikers"
+        send_email_to_members_title: "Stuur e-mail aan je gebruikers"
+        send_email: "Verstuur e-mail"
+        send_email_or: of
+        send_test_email: "Zend een test email naar jezelf"
+        test_sent: "Test email verzonden naar je inbox"
+        send_email_article_title: "dit artikel"
+        send_email_article_text: "Lees meer over de gebruikerssegmenten in %{article_link}"
+        recipients:
+          title: "Naar wie wil je een email sturen?"
+          options:
+            all_users: "Alle gebruikers"
+            with_listing: "Gebruikers die ten minste één advertentie hebben geplaatst"
+            with_listing_no_payment: "Gebruikers die ten minste één advertentie hebben geplaatst, maar niet hun betalingsdetails hebben ingevuld"
+            with_payment_no_listing: "Gebruikers die hun gebruikersdetails hebben ingevuld, maar nog geen advertentie hebben geplaatst."
+            no_listing_no_payment: "Gebruikers die geen advertentie hebben geplaatst en geen betalingsdetails hebben ingevuld."
         email_subject: "Onderwerp e-mail"
         email_content: "Inhoud e-mail"
         email_content_placeholder: "Wat wil je aan je leden zeggen?"
         email_language: "Taal van de ontvangers van de e-mail"
         any_language: "Elke taal"
-        send_email: "Verstuur e-mail"
         message_will_be_sent_only_to_people_with_this_language: "Opmerking: het bericht zal enkel naar de gebruikers gestuurd worden die %{service_name} gebruiken in de taal die je kiest."
         email_sent: "E-mail verzonden."
     left_hand_navigation:
@@ -496,6 +534,8 @@ nl:
       integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil ontvangen op elke transactie."
       link_paypal_personal_account_label: "Lever je zelf producten of services?"
       link_paypal_personal_account: "Zo ja, dan moet je ook je PayPal account koppelen aan %{personal_payment_preferences_link}."
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "je persoonlijke marktplaats account"
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
       edit_payment_settings: "Wijzig betaalinstellingen"
@@ -508,6 +548,57 @@ nl:
       save_settings: "Instellingen opslaan"
       minimum_listing_price_below_tx_fee: "De minimal transactie grootte moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "De minimal transactie moet groter zijn dan de minimale commissie %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Verkopen
       rent: Verhuren
@@ -572,6 +663,12 @@ nl:
     username_or_email: "E-mail of gebruikersnaam"
     what_is_this: "Wat is dit?"
     removed_user: "Verwijderde gebruiker"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "PayPal proces kosten"
       body_text: "Paypal berekent transactiekosten voor iedere betaling. Deze kosten zijn tussen 2-5% van het totale verkoopbedrag, afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten."
@@ -579,6 +676,19 @@ nl:
           Paypal berekent transactiekosten voor iedere betaling. Deze kosten zijn tussen 2-5% van het totale verkoopbedrag (inclusief verzendkosten), afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. 
           Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten.
       link_to_paypal_text: hier
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "Order details"
@@ -599,8 +709,13 @@ nl:
       you_will_get_label: "Je krijgt:"
       total_label: "Totaal:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>PayPals betaling verwerkingskosten </a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Verzenden:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Als het verzoek is geleverd, kunt u dat hier markeren als uitgevoerd. Hierna kunt u feedback geven aan de andere partij."
       cancel_description: "Indien uw verzoek niet is uitgevoerd, kunt u het markeren als 'niet uitgevoerd'. U kunt dan nog steeds feedback geven aan de andere partij en omschrijven wat er gebeurd is."
@@ -846,6 +961,31 @@ nl:
       price_per_unit_type: "Prijs per %{unit_type}"
       quantity: "Hoeveelheid:"
       you_have_received_new_payment: "<b> %{payment_sum}</b> heeft betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal kosten:"
       shipping_total: "Verzenden:"
@@ -865,6 +1005,8 @@ nl:
       total: Totaal
       price: Prijs
       service_fee: "Service toeslag"
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
@@ -901,6 +1043,7 @@ nl:
       transaction_requested_by_user: "Goed nieuws! %{requester} heeft interesse in %{listing_title} en heeft betaling hiervoor gemachtigd."
       you_have_time_to_accept: "Je dient het verzoek te accepteren of af te wijzen binnen %{payment_expires_in}. Als je binnen deze termijn accepteert, dan gaat de betaling door. Als je het verzoek niet accepteert, wordt het automatisch afgewezen en krijg je niet betaald."
       if_you_do_accept: "Als je het verzoek binnen deze periode accepteert, ontvang je onmiddelijk het geld in je account."
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Als je het verzoek afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
       click_here_to_reply: "Klik hier om te antwoorden op het verzoek"
     transaction_preauthorized_reminder:
@@ -950,6 +1093,8 @@ nl:
       cancel_error: "Fout tijdens uitvoeren annulering. Annulering is niet afgehandeld."
       accept_authorization_error: "Preautorisatie krijgen van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
       reject_authorization_error: "Het annuleren van de preautorisatie van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:
@@ -1347,6 +1492,8 @@ nl:
       notifications: Notificaties
       profile: "Profiel info"
       settings: Instellingen
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Betalingen
   listings:
     bubble_listing_not_visible:
@@ -1443,7 +1590,11 @@ nl:
         long_time: "week, maand, ..."
         after_service_fee_you_will_get: "Na de commissie aan %{service_name} en kosten voor de financiële transactie, ontvangt u %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wordt ingehouden op de prijs"
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "Wanneer iemand een bestelling maakt, worden de %{service_name} kosten (%{sum_with_currency}) en %{paypal_fee_info_link} van de prijs afgetrokken."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "Paypal's transactiekosten."
         delivery: Levering
         shipping: Verzenden
@@ -1618,6 +1769,17 @@ nl:
       invalid_parameters: "Ongeldige waarden voor nieuwe transactie"
     transaction_agreement_checkbox:
       read_more: Overzicht.
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Alle categorieën"
@@ -1661,6 +1823,7 @@ nl:
     contact_admin_link_text: "neem contact op met de marktplaats beheerder"
     you_are_ready_to_accept_payments: "Je bent klaar om betalingen te ontvangen!"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "Om betalingen te kunnen accepteren moet je jouw PayPal account koppelen aan %{service_name}."
       payout_info_text: "Voer a.u.b. de volgende stappen uit om je account te koppelen."
@@ -1707,6 +1870,8 @@ nl:
     paypal_permission_granted_summary: "Toestemming voor transactiekosten is gegeven"
   paypal:
     pay_with_paypal: "Ga verder naar betalen"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Uitloggen met PayPal"
     cancel_succesful: "PayPal betaling succesvol geannuleerd"
     transaction:
@@ -2060,11 +2225,13 @@ nl:
       quantity: "Hoeveelheid:"
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"
+      stripe-fee: ~
     price_per_quantity: "Prijs per %{unit_type}:"
     price: "Prijs:"
     quantity: "Aantal: %{quantity}"
     unit_price: "Prijs per stuk: %{unit_price}"
     total: "Totaal:"
+    total_to_pay: ~
   unit:
     day: dag
     days: dagen
@@ -2141,3 +2308,78 @@ nl:
         other: "Tonen <b>alle&nbsp;%{count}</b> %{model}"
       multi_page: "Tonen %{model} %{from} - %{to} van %{count} in totaal"
       multi_page_html: "Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b> in totaal"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

@@ -234,6 +234,7 @@ hu:
         last_community_updates: "Kérjük vegye figyelembe, hogy a piactér törlését követően ön és a piactere felhasználói még utoljára kaphatnak tájékoztató e-maileket."
         you_will_be_redirected_to: "A piactere törlését követően önt átirányítjuk %{destination} oldalra. A továbbiakban nem lesz hozzáférése a piacteréhez."
         delete_this_marketplace: "Piactér törlése"
+        payment_preferences: ~
       manage_members:
         manage_members: "Felhasználók kezelése"
         email: E-mail
@@ -321,6 +322,30 @@ hu:
           canceled: Törölve
           initiated: "Várjuk PayPal utalását"
           pending_ext: "Várakozás a PayPal-os kifizetésre"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Nem elérhető"
       paypal_account:
         paypal_admin_account: Fizetések
@@ -381,12 +406,25 @@ hu:
       new:
         send_email_to_members: "E-mail küldése a felhasználóknak"
         send_email_to_members_title: "E-mail küldése az öszes felhasználónak"
+        send_email: "E-mail küldése"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "E-mail tárgya"
         email_content: "E-mail tartalma"
         email_content_placeholder: "Mit szeretne mondani a felhasználóinak?"
         email_language: "Az e-mailt fogadók anyanyelve"
         any_language: "Egyéb nyelvek"
-        send_email: "E-mail küldése"
         message_will_be_sent_only_to_people_with_this_language: "Figyelem: Az e-mail csak azoknak a felhasználóknak lesz elküldve akik az ön által kiválasztott nyelven használják a %{service_name} oldalát."
         email_sent: "E-mail elküldve"
     left_hand_navigation:
@@ -493,6 +531,8 @@ hu:
       integration_info_text: "A Sharetribe-os kifizetéseket a PayPal támogatja. Amennyiben szeretné, hogy felhasználói fizessenek a piactér használatakor kapcsolja össze PayPal fiókjával. Amint csatlakoztatta a PayPal fiókját, kiválaszthatja a minimális tranakciós méretet és a lehetséges jutalékot."
       link_paypal_personal_account_label: "Ön gondoskodik a termékekről illetve szolgáltatásokról személyesen?"
       link_paypal_personal_account: "Abban az esetben A PayPal fiókját is csatlakoztassa fiókjához %{personal_payment_preferences_link}"
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "Az Ön személyes piactéri fiókja"
       read_more_about_paypal: "Leírás a Sharetribe fizetési rendszeréről"
       edit_payment_settings: "Fizetési beállítások megváltoztatása"
@@ -505,6 +545,57 @@ hu:
       save_settings: "Beállítások mentése"
       minimum_listing_price_below_tx_fee: "A minimális tranzakció összegének megegyezőnek vagy nagyobbnak kell lennie a minimális tranzakciós díjnál:%{minimum_transaction_fee}."
       minimum_listing_price_below_min: "A minimális tranzakció összege legyen nagyobb mint a minimális jutalék %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Eladás
       rent: Bérbeadás
@@ -569,11 +660,30 @@ hu:
     username_or_email: "Felhasználónév vagy email"
     what_is_this: "Mi ez?"
     removed_user: "Törölt felhasználó"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "PayPal fizetési folyamat költsége"
       body_text: "A PayPal kezelési költséget számol fel minden utaláskor. Ez az összeg a teljes eladási árnak 2% és 5% körüli része és a havi eladás mértékétől és a vevő lakhelyétől (ország) függ. Általában a hazai vásárlásoknak alacsonyabb a díja mint a nemzetközieknek és a nagyobb mértékű havi eladás kedvezményes díjakat eredményez. A pontos díjakat a PayPal fiókjába belépve tekintheti meg %{link_to_paypal}. Minden vásárlás után egy bizonylatot kap a díj pontos mértékéről."
       body_with_shipping_text: "A PayPal kezelési költséget számol fel minden utaláskor. Ez az összeg a teljes eladási árnak 2% és 5% körüli része és a havi eladás mértékétől és a vevő lakhelyétől (ország) függ. Általában a hazai vásárlásoknak alacsonyabb a díja mint a nemzetközieknek és a nagyobb mértékű havi eladás kedvezményes díjakat eredményez. A pontos díjakat a PayPal fiókjába belépve tekintheti meg %{link_to_paypal}. Minden vásárlás után egy bizonylatot kap a díj pontos mértékéről."
       link_to_paypal_text: itt
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "Rendelés részletei"
@@ -594,8 +704,13 @@ hu:
       you_will_get_label: "Ön kapni fog:"
       total_label: "Összesen:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal tranzakciós díj</a> kizárása"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Szállítás:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Amennyiben az ön rendelése teljesült ezt igazolnia kell. Majd adhat visszajelzést a másik félnek."
       cancel_description: "Amennyiben a rendelés nem teljesült, azt jelölheti 'vitatottnak'. Ezután még mindig adhat visszajelzést a másik fél számára amiben leírhatja hogy mi történt."
@@ -845,6 +960,31 @@ hu:
       price_per_unit_type: "Ár: %{unit_type}"
       quantity: "Mennyiség:"
       you_have_received_new_payment: "%{payer_full_name} fizetett a <b>%{listing_title}</b> hirdetésben szereplő tételért, <b>%{payment_sum}</b> összeget. Itt van róla a bizonylat."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal költségei"
       shipping_total: "Szállítás:"
@@ -864,6 +1004,8 @@ hu:
       total: Összesen
       price: Ár
       service_fee: "Szolgáltatás díja"
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta ön fizetett."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
@@ -900,6 +1042,7 @@ hu:
       transaction_requested_by_user: "%{requester} felhasználó ajánlatot tett és engedélyezte az utalást a \"%{listing_title}\" hirdetésben szereplő tételért."
       you_have_time_to_accept: "Kérjük engedélyezze vagy utasítsa el az ajánlatot a lejárat előtt %{payment_expires_in}. Ha a lejárat előtt megadja az engedélyt, az utalás meg fog valósulni. Amennyiben nem engedélyezi, az ajánlat automatikusan elutasításra kerül és az átutalás meghiúsul."
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Kattintson ide a kérésre válaszoláshoz"
     transaction_preauthorized_reminder:
@@ -951,6 +1094,8 @@ hu:
       cancel_error: "A törlés alatt hiba merült fel. A törlés sikertelen."
       accept_authorization_error: "Hiba történt a PayPal-os utalás elfogadásakor. Kérjem, próbálja újra!"
       reject_authorization_error: "Hiba történt a PayPal-os utalás elutasításakor. Kérem, próbálja újra!"
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: Főoldalra
     error_404:
@@ -1348,6 +1493,8 @@ hu:
       notifications: Megjegyzések
       profile: "Felhasználói profil"
       settings: Beállítások
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Fizetések
   listings:
     bubble_listing_not_visible:
@@ -1444,7 +1591,11 @@ hu:
         long_time: "hét, hónap,..."
         after_service_fee_you_will_get: "A %{service_name} és az utalás díjainak levonása után, ön a számlájára kap %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} levonásra fog kerülni."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name} díja (%{sum_with_currency}) és %{paypal_fee_info_link} levonásra fog kerülni."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
         delivery: "Szállítás módja"
         shipping: Szállítás
@@ -1619,6 +1770,17 @@ hu:
       invalid_parameters: "Helytelen értékek az új tranzakciónál"
     transaction_agreement_checkbox:
       read_more: Nézet
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Összes kategória"
@@ -1664,6 +1826,7 @@ hu:
     contact_admin_link_text: "Kapcsolat a piactér adminisztrátorral"
     you_are_ready_to_accept_payments: "Ön kész fizetések fogadására"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "Az utalások elfogadásához csatlakoztassa PayPal fiókját a %{service_name} oldallal."
       payout_info_text: "A fiókja csatlakoztatásához, kérem teljesítse a következő lépéseket."
@@ -1710,6 +1873,8 @@ hu:
     paypal_permission_granted_summary: "Tranzakciós díj engedélyezve"
   paypal:
     pay_with_paypal: "Tovább a fizetéshez"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Kosár ellenőrzése PayPal-lal"
     cancel_succesful: "PayPal fizetés sikeresen megszakítva"
     transaction:
@@ -2055,11 +2220,13 @@ hu:
       quantity: "Mennyisége:"
       subtotal: "Végösszeg:"
       shipping-price: "Szállítás:"
+      stripe-fee: ~
     price_per_quantity: "Ár %{unit_type}:"
     price: "Ár:"
     quantity: "Mennyiség: %{quantity}"
     unit_price: "Egységár: %{unit_price}"
     total: "Összesen:"
+    total_to_pay: ~
   unit:
     day: nap
     days: napok
@@ -2128,3 +2295,78 @@ hu:
         other: "Az összes megmutatása %{count} %{model}"
       multi_page: "%{model}%{from}-%{to} vagy %{count} végösszeg megjelenítése"
       multi_page_html: "Megjelenítés %{model}<b>%{from}&nbsp-&nbsp;%{to}</b> az összesből amely <b>%{count}</b>"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

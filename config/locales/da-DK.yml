@@ -233,6 +233,7 @@ da-DK:
         last_community_updates: "Bemærk, at efter sletning, kan du og dine markedsplads brugere stadig modtage de sidste markedsplads opdaterings e-mails."
         you_will_be_redirected_to: "Når du har slettet din markedsplads vil du blive omdirigeret til %{destination}. Du vil ikke kunne få adgang til din markedsplads længere."
         delete_this_marketplace: "Slet denne markedsplads"
+        payment_preferences: ~
       manage_members:
         manage_members: "Administrer brugere"
         email: Email
@@ -320,6 +321,30 @@ da-DK:
           canceled: Annulleret
           initiated: "Venter på PayPal betalingen"
           pending_ext: "Venter på PayPal betalingen"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Ikke tilgængelig"
       paypal_account:
         paypal_admin_account: Betalinger
@@ -380,12 +405,25 @@ da-DK:
       new:
         send_email_to_members: "Send email til brugere"
         send_email_to_members_title: "Send email til alle dine brugere"
+        send_email: "Send email"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: Email-emne
         email_content: Email-indhold
         email_content_placeholder: "Hvad vil du gerne sige til dine brugere?"
         email_language: "Sprog for modtageren"
         any_language: "Alle sprog"
-        send_email: "Send email"
         message_will_be_sent_only_to_people_with_this_language: "Bemærk; Emailen bliver kun sendt til de brugere som benytter %{service_name} på det sprog du vælger."
         email_sent: "Email sendt."
     left_hand_navigation:
@@ -494,6 +532,8 @@ da-DK:
       integration_info_text: "Betalingssystemet på %{service_name} kører gennem PayPal. Hvis du vil have mulighed for at tage imod betalinger på din markedsplads, skal du tilknytte din PayPal-konto, og vælge en minimumspris pr. annonce og størrelsen på dit servicegebyr."
       link_paypal_personal_account_label: "Sælger du selv produkter?"
       link_paypal_personal_account: "Hvis ja, vil du også være nødt til at tilslutte din PayPal konto til %{personal_payment_preferences_link}."
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
       edit_payment_settings: ~
@@ -506,6 +546,57 @@ da-DK:
       save_settings: Gem
       minimum_listing_price_below_tx_fee: "skal mindst være det samme som mindste transaktionsafgift %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "skal være større end mindste provision %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Sælger
       rent: Udlejer
@@ -570,11 +661,30 @@ da-DK:
     username_or_email: "Email eller brugernavn"
     what_is_this: "Hvad er dette?"
     removed_user: "Fjernet bruger"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: PayPal-gebyr
       body_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       link_to_paypal_text: her
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: Ordredetaljer
@@ -595,8 +705,13 @@ da-DK:
       you_will_get_label: "Du vil få:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* Eksklusiv <a id='%{fee_info_link_id}' href='#'>PayPal-gebyr</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Levering:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Hvis din ordre er blevet gennemført, bør du markere den som så. Derefter kan du vurdere handlen."
       cancel_description: "Hvis din ordre ikke blev gennemført, kan du markere den som 'ikke gennemført'. Du kan stadig vurdere den anden part."
@@ -842,6 +957,31 @@ da-DK:
       price_per_unit_type: "Pris pr. %{unit_type}"
       quantity: "Mængde:"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-gebyr:"
       shipping_total: "Levering:"
@@ -861,6 +1001,8 @@ da-DK:
       total: Total
       price: Pris
       service_fee: Servicegebyr
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback på %{service_name}"
@@ -897,6 +1039,7 @@ da-DK:
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
       you_have_time_to_accept: "Du skal acceptere eller afvise anmodningen inden for %{payment_expires_in}. Hvis du accepterer inden for denne tidsramme, vil betalingen gå igennem. Hvis du ikke accepterer, vil anmodningen automatisk blive afvist, og du vil ikke blive betalt."
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Klik her for at sende dit svar"
     transaction_preauthorized_reminder:
@@ -948,6 +1091,8 @@ da-DK:
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."
       reject_authorization_error: "Der skete en fejl da vi prøvede at afvise PayPal betalingen. Prøv venligst igen."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Tilbage til forsiden"
     error_404:
@@ -1345,6 +1490,8 @@ da-DK:
       notifications: Notifikationer
       profile: Profilinfo
       settings: Indstillinger
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Betalinger
   listings:
     bubble_listing_not_visible:
@@ -1441,7 +1588,11 @@ da-DK:
         long_time: "uge, måned, ..."
         after_service_fee_you_will_get: "Efter %{service_name}'s servicegebyr, vil du få %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name}-gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: PayPal-gebyr
         delivery: Leveringsform
         shipping: Forsendelse
@@ -1616,6 +1767,17 @@ da-DK:
       invalid_parameters: "Ugyldige værdier for ny transaktion"
     transaction_agreement_checkbox:
       read_more: Vis.
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Alle kategorier"
@@ -1659,6 +1821,7 @@ da-DK:
     contact_admin_link_text: "kontakt markedspladsens administrator"
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal-konto til %{service_name}."
       payout_info_text: "Udfør disse to steps for at tilknytte din konto."
@@ -1705,6 +1868,8 @@ da-DK:
     paypal_permission_granted_summary: "Tilladelse til transaktionsgebyrer bevilget"
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "Betaling annulleret."
     transaction:
@@ -2058,11 +2223,13 @@ da-DK:
       quantity: "Mængde:"
       subtotal: "Subtotal:"
       shipping-price: "Porto:"
+      stripe-fee: ~
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"
     unit_price: "Enhedspris: %{unit_price}"
     total: "Total:"
+    total_to_pay: ~
   unit:
     day: dag
     days: dage
@@ -2139,3 +2306,78 @@ da-DK:
         other: "Viser <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Viser %{model} %{from} - %{to} af %{count} i alt"
       multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> af <b>%{count}</b> i alt"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

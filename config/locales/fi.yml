@@ -233,6 +233,7 @@ fi:
         last_community_updates: "Huomaathan, että poiston jälkeen sinä ja markkinapaikkasi käyttäjät saattavat saada vielä viimeiset sivustosi lähettämät automaattiset uutiskirjeet sähköpostiinsa."
         you_will_be_redirected_to: "Kun olet poistanut markkinapaikkasi, sinut siirretään osoitteeseen %{destination}. Sinulla ei ole enää tämän jälkeen pääsyä markkinapaikkaasi."
         delete_this_marketplace: "Poista tämä markkinapaikka"
+        payment_preferences: ~
       manage_members:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
@@ -320,6 +321,30 @@ fi:
           canceled: Peruutettu
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "Ei saatavilla"
       paypal_account:
         paypal_admin_account: Maksuasetukset
@@ -380,12 +405,25 @@ fi:
       new:
         send_email_to_members: "Lähetä sähköpostiviesti käyttäjille"
         send_email_to_members_title: "Lähetä sähköpostiviesti kaikille palvelun käyttäjille"
+        send_email: "Lähetä viesti"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "Viestin otsikko"
         email_content: "Viestin sisältö"
         email_content_placeholder: "Mitä haluat kertoa jäsenille?"
         email_language: "Viestin saajan kieli"
         any_language: "Kaikki kielet"
-        send_email: "Lähetä viesti"
         message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name}-palvelua valitsemallasi kielellä."
         email_sent: "Viesti lähetetty."
     left_hand_navigation:
@@ -494,6 +532,8 @@ fi:
       integration_info_text: "Markkinapaikkasi maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
       read_more_about_paypal: "Lue lisää maksujärjestelmästä"
       edit_payment_settings: "Muokkaa maksuasetuksia"
@@ -506,6 +546,57 @@ fi:
       save_settings: "Tallenna asetukset"
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin minimipalkkion, eli %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -570,6 +661,12 @@ fi:
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
     removed_user: "Käyttäjä poistettu"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "PayPalin käsittelymaksu"
       body_text: |-
@@ -579,6 +676,19 @@ fi:
           PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta (postikulut mukaanluettuna), riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
           Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla %{link_to_paypal}. Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
       link_to_paypal_text: "tätä linkkiä"
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "Tilauksen tiedot"
@@ -599,8 +709,13 @@ fi:
       you_will_get_label: "Sinä saat:"
       total_label: "Loppusumma:"
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "Postikulut:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -846,6 +961,31 @@ fi:
       price_per_unit_type: "Hinta per %{unit_type}"
       quantity: "Määrä:"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
       shipping_total: "Postitus:"
@@ -865,6 +1005,8 @@ fi:
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
@@ -901,6 +1043,7 @@ fi:
       transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
       you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
       if_you_do_accept: "Jos hyväksyt pyynnön määräajan puitteissa, rahat siirretään tilillesi välittömästi."
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
@@ -950,6 +1093,8 @@ fi:
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -1347,6 +1492,8 @@ fi:
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
+      paypal_payments: ~
+      stripe_payments: ~
       payments: Maksutiedot
   listings:
     bubble_listing_not_visible:
@@ -1443,7 +1590,11 @@ fi:
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vähennetään hinnasta."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "Kun joku tekee tilauksen, %{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
         delivery: Kuljetustapa
         shipping: Postitus
@@ -1618,6 +1769,17 @@ fi:
       invalid_parameters: "Epäpätevät arvot uudelle transaktiolle"
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "Kaikki kategoriat"
@@ -1661,6 +1823,7 @@ fi:
     contact_admin_link_text: "ota yhteys ylläpitoon"
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan maksuja vastaan!"
     commission: "%{commission} %"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: "Ole hyvä ja tee seuraavat asiat yhdistääksesi tilisi."
@@ -1707,6 +1870,8 @@ fi:
     paypal_permission_granted_summary: "Lupa palvelumaksujen veloitukseen myönnetty"
   paypal:
     pay_with_paypal: "Siirry maksamaan"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
     transaction:
@@ -2060,11 +2225,13 @@ fi:
       quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
+      stripe-fee: ~
     price_per_quantity: "Hinta per %{unit_type}:"
     price: "Hinta:"
     quantity: "Määrä: %{quantity}"
     unit_price: "Yksikköhinta: %{unit_price}"
     total: "Loppusumma:"
+    total_to_pay: ~
   unit:
     day: päivä
     days: päivää
@@ -2142,3 +2309,78 @@ fi:
         other: "Näytetään kaikki <b>%{count}</b> %{model}"
       multi_page: "Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count})."
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

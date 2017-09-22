@@ -228,6 +228,7 @@ ja:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: マーケットプレイスを削除
+        payment_preferences: ~
       manage_members:
         manage_members: ユーザを管理
         email: メールアドレス
@@ -315,6 +316,30 @@ ja:
           canceled: キャンセル済
           initiated: PayPalの支払いを待っています
           pending_ext: PayPalの支払いを待っています
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: ご利用できません
       paypal_account:
         paypal_admin_account: お支払い
@@ -375,12 +400,25 @@ ja:
       new:
         send_email_to_members: ユーザーにメールを送信
         send_email_to_members_title: ユーザーに一斉メールを送信する
+        send_email: メールを送信する
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: メール件名
         email_content: メール内容
         email_content_placeholder: ユーザ様に何をお伝えしたいですか。
         email_language: メール受信者の主要言語
         any_language: 全ての言語
-        send_email: メールを送信する
         message_will_be_sent_only_to_people_with_this_language: "注意： メールは、あなたが選択した言語を使用している%{service_name}内のユーザのみに、送信されます。"
         email_sent: メールを送信しました。
     left_hand_navigation:
@@ -483,6 +521,8 @@ ja:
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
       edit_payment_settings: ~
@@ -495,6 +535,57 @@ ja:
       save_settings: 設定を保存する
       minimum_listing_price_below_tx_fee: "最小でも、%{minimum_transaction_fee}と同じ値にしてください。"
       minimum_listing_price_below_min: "最小手数料は、%{minimum_commission}より大きい値にしてください。"
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: 売ります
       rent: 貸します
@@ -559,6 +650,12 @@ ja:
     username_or_email: "メールアドレス or ユーザー名"
     what_is_this: これは何ですか？
     removed_user: ユーザは削除されました
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: PayPal手数料
       body_text: |-
@@ -568,6 +665,19 @@ ja:
           PayPalは各お支払いごとに、ご利用手数料を請求します。この手数料は合計料金（送料を含む）の５－２％になり、これは支払い者の住む地域や、サイト内の月額の総売り上げによります。通常、国内の利用者に対しては低めの手数料に設定されています。
           %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
       link_to_paypal_text: こちら
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: 注文情報
@@ -588,8 +698,13 @@ ja:
       you_will_get_label: 受け取り額：
       total_label: 合計：
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は別途かかります"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: 送料：
+      stripe-fee_label: ~
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -835,6 +950,31 @@ ja:
       price_per_unit_type: "%{unit_type}ごとの料金"
       quantity: 数量：
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPalの手数料：
       shipping_total: 送料：
@@ -854,6 +994,8 @@ ja:
       total: 合計
       price: 価格
       service_fee: ご利用料金
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
@@ -890,6 +1032,7 @@ ja:
       transaction_requested_by_user: "%{requester}さんは「%{listing_title}」に対してリクエストをし、お支払いが完了しました。"
       you_have_time_to_accept: "取引リクエストを%{payment_expires_in}日以内に承認してください。取引リクエストを受諾された場合は支払い手続きが完了しますが、却下された場合には支払われた金額は自動的に購入者に返却されます。"
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: リクエストを確認する
     transaction_preauthorized_reminder:
@@ -939,6 +1082,8 @@ ja:
       cancel_error: キャンセル手続き中にエラーが発生しました。キャンセルが完了できませんでした。
       accept_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: 前のページに戻る
     error_404:
@@ -1335,6 +1480,8 @@ ja:
       notifications: メール通知
       profile: プロフィール
       settings: 設定
+      paypal_payments: ~
+      stripe_payments: ~
       payments: お支払い
   listings:
     bubble_listing_not_visible:
@@ -1431,7 +1578,11 @@ ja:
         long_time: 週、ヶ月、...
         after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金から差し引かれます"
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: PayPalのお支払い手数料
         delivery: 配送
         shipping: 発送する
@@ -1606,6 +1757,17 @@ ja:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: 表示
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: すべてのカテゴリー
@@ -1649,6 +1811,7 @@ ja:
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
     commission: "%{commission}％"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "購入者からのお支払いを受け取るには、あなたのPayPalアカウントを%{service_name}に接続する必要があります。"
       payout_info_text: あなたのアカウントを接続するために次の２つのステップを完了させてください。
@@ -1695,6 +1858,8 @@ ja:
     paypal_permission_granted_summary: 取引手数料の許可が承認されました。
   paypal:
     pay_with_paypal: お支払いへ進む
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: PayPalでお支払い
     cancel_succesful: PayPalのお支払いは正常にキャンセルされました
     transaction:
@@ -2036,11 +2201,13 @@ ja:
       quantity: 数量：
       subtotal: 合計金額：
       shipping-price: 送料：
+      stripe-fee: ~
     price_per_quantity: "%{unit_type}ごとの料金："
     price: 料金：
     quantity: "数量： %{quantity}"
     unit_price: "単体価格： %{unit_price}"
     total: 合計金額：
+    total_to_pay: ~
   unit:
     day: 日
     days: 日
@@ -2110,3 +2277,78 @@ ja:
         other: "<b>すべての&nbsp;%{count}</b>%{model}を表示しています"
       multi_page: "%{from} - %{to} 全体で%{count}件の%{model}を表示しています"
       multi_page_html: "<b>%{from}&nbsp;-&nbsp;%{to}</b> 全体で<b>%{count}</b>件の%{model}を表示しています"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

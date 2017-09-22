@@ -218,6 +218,7 @@ ar:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
+        payment_preferences: ~
       manage_members:
         manage_members: "إدارة المستخدمين"
         email: "بريد إلكتروني"
@@ -301,10 +302,34 @@ ar:
           accepted: مقبول
           rejected: مرفوض
           paid: مدفوع
-          confirmed: مؤكد
+          confirmed: "تم إنجازه"
           canceled: ملغى
           initiated: ~
           pending_ext: ~
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "غير متوفر"
       paypal_account:
         paypal_admin_account: "نظام الدفع"
@@ -313,7 +338,7 @@ ar:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
       edit_price:
         description: "أقل وأكبر قيمة للسعر فقط تؤثر على الفرز. ولا تحدد سعر الإعلان"
-        edit_price_field: "تعديل حقل السعر"
+        edit_price_field: "تعديل حقل 'السعر'"
         show_price_filter_homepage: "أضف فرز بالسعر إلى الصفحة الرئيسية"
         price_min: "أقل قيمة لفرز السعر"
         price_max: "أكبر قيمة لفرز السعر"
@@ -365,13 +390,26 @@ ar:
       new:
         send_email_to_members: "أرسل رسالة إلى مستخدمين"
         send_email_to_members_title: "أرسل رسالة إلى جميع المستخدمين"
+        send_email: "أرسل الرسالة"
+        send_email_or: أو
+        send_test_email: "أرسل رسالة تجريبية لنفسك"
+        test_sent: "تم ارسال الرسالة التجريبية لصندوق البريد الخاص بك"
+        send_email_article_title: "هذا الموضوع"
+        send_email_article_text: "‎%{article_link}‎ لتفاصيل أكثر عن قطاع المستخدم"
+        recipients:
+          title: "لمن تريد أن ترسل الرسالة؟"
+          options:
+            all_users: "كل المستخدمين"
+            with_listing: "االمستخدمون الذين وضعو إعلان واحد على الأقل"
+            with_listing_no_payment: "المستخدمون الذين وضعو إعلان واحد على الأقل ولكن دون تفاصيل طريقة الدفع"
+            with_payment_no_listing: "المستخدمون الذين وضعو تفاصيل طريقة الدفع ولكن دون الإعلان"
+            no_listing_no_payment: "المستخدمون الذين لم يضعوا إعلان ولا تفاصيل طريقة الدفع"
         email_subject: "موضوع الرسالة"
         email_content: "محتوى الرسالة"
         email_content_placeholder: "ماذا تود أن تقول لهذا المستخدم؟"
         email_language: "لغة مستقبلي الرسالة"
         any_language: "أي لغة"
-        send_email: "أرسل الرسالة"
-        message_will_be_sent_only_to_people_with_this_language: "حسب اللغة التي اخترتها ‎%{service_name}‎ ملاحظة سيتم ارسال الرسالة فقط إلى الشخاص الذين سيتعملون"
+        message_will_be_sent_only_to_people_with_this_language: "حسب اللغة التي تختارها سترسل الرسالة لمستخدمي ‎%{service_name}‎"
         email_sent: "تم إرسال الرسالة"
     left_hand_navigation:
       general: عام
@@ -481,6 +519,8 @@ ar:
       integration_info_text: ~
       link_paypal_personal_account_label: "هل تقوم بتقديم خدمات أو منتجات بنفسك؟"
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "حسابك الخاص في السوق الإلكتروني"
       read_more_about_paypal: ~
       edit_payment_settings: "تعديل إعدادات طريقة الدفع"
@@ -493,6 +533,57 @@ ar:
       save_settings: "حفظ الإعدادات"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: بيع
       rent: تأجير
@@ -557,11 +648,30 @@ ar:
     username_or_email: "بريد إلكتروني أو اسم المستخدم"
     what_is_this: "ما هذا؟"
     removed_user: "مستخدم محذوف"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: ~
       body_text: ~
       body_with_shipping_text: ~
       link_to_paypal_text: هنا
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "تفاصيل الطلب"
@@ -582,8 +692,13 @@ ar:
       you_will_get_label: "ستحصل على:"
       total_label: "المجموع:"
       total_value: "*‎%{seller_gets}‎"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: ~
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "الشحن:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: "إذا تم إكمال طلبك يجب عليك تأكيد ذلك بعدها يمكنك إعطاء رأيك"
       cancel_description: "إذا لم يتم إتمام طلبك يمكنك تحديده بـ \"خلاف\" ومازال باستطاعتك إعطاء رأيك في الجهة الأخرى وشرح ما حدث"
@@ -832,6 +947,31 @@ ar:
       price_per_unit_type: "‎%{unit_type}‎ السعر بـ"
       quantity: "الكمية:"
       you_have_received_new_payment: ~
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: ":رسوم باي بال"
       shipping_total: "الشحن:"
@@ -851,6 +991,8 @@ ar:
       total: المجموع
       price: السعر
       service_fee: "رسوم الخدمة"
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ قام بإعطاء رأيه في ‎%{name}‎"
@@ -889,6 +1031,7 @@ ar:
       transaction_requested_by_user: ~
       you_have_time_to_accept: ~
       if_you_do_accept: "إذا قمت بالموافقة على الطلب في هذه الفترة المحددة، ستستلم النقود مباشرة إلى حسابك"
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: |-
           إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
           ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
@@ -943,6 +1086,8 @@ ar:
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "العودة إلى صفحة المقدمة"
     error_404:
@@ -1255,7 +1400,7 @@ ar:
       news_item_updated: "تم تحديث المقال"
       news_item_deleted: "تم حذف المقال"
       offer_accepted: "تم قبول العرض"
-      offer_confirmed: "تم قبول العرض"
+      offer_confirmed: "تم إنجاز العرض"
       offer_closed: "تم إغلاق العرض"
       listing_created_successfully: "‎%{new_listing_link}‎ تم إنشاء الإعلان بنجاح"
       offer_rejected: "تم رفض العرض"
@@ -1336,6 +1481,8 @@ ar:
       notifications: إشعارات
       profile: "معلومات الملف الشخصي"
       settings: إعدادات
+      paypal_payments: ~
+      stripe_payments: ~
       payments: المدفوعات
   listings:
     bubble_listing_not_visible:
@@ -1432,7 +1579,11 @@ ar:
         long_time: "أسبوع، شهر، ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: ~
         delivery: "طريقة التوصيل"
         shipping: الشحن
@@ -1607,6 +1758,17 @@ ar:
       invalid_parameters: "القيمة المدخلة خاطئة للعملية الجديدة"
     transaction_agreement_checkbox:
       read_more: عرض.
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "كل الأقسام"
@@ -1650,6 +1812,7 @@ ar:
     contact_admin_link_text: "اتصل بمشرف السوق"
     you_are_ready_to_accept_payments: "!أنت جاهز لاستقبال الدفعات"
     commission: "%‎%{commission}‎"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: "لربط حسابك، يرجى عمل الآتي."
@@ -1696,6 +1859,8 @@ ar:
     paypal_permission_granted_summary: "تم إعطاء الإذن لاحتساب عمولة على العملية"
   paypal:
     pay_with_paypal: "الإنتقال إلى الدفع"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: ~
     cancel_succesful: ~
     transaction:
@@ -2062,11 +2227,13 @@ ar:
       quantity: "الكمية:"
       subtotal: "المجموع الفرعي:"
       shipping-price: "الشحن:"
+      stripe-fee: ~
     price_per_quantity: ":‎%{unit_type}‎ السعر بـ"
     price: "السعر:"
     quantity: "‎%{quantity}‎ :الكمية"
     unit_price: "‎%{unit_price}‎ :سعر الوحدة"
     total: "المجموع:"
+    total_to_pay: ~
   unit:
     day: يوم
     days: أيام
@@ -2141,3 +2308,78 @@ ar:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

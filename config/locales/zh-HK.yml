@@ -228,6 +228,7 @@ zh-HK:
         last_community_updates: 請注意在刪除後，你和你的集市的用戶可能仍然會收到最後的集市更新郵件。
         you_will_be_redirected_to: "當你刪除了你的集市，你會被重定向到%{destination}。你將再也無法訪問你的集市。"
         delete_this_marketplace: 刪除這個集市。
+        payment_preferences: ~
       manage_members:
         manage_members: ~
         email: 電郵
@@ -315,6 +316,30 @@ zh-HK:
           canceled: 已取消
           initiated: 等待PayPal的款項
           pending_ext: 等待PayPal的款項
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: ~
       paypal_account:
         paypal_admin_account: 款項
@@ -375,12 +400,25 @@ zh-HK:
       new:
         send_email_to_members: 發送通知郵件給用戶
         send_email_to_members_title: 發送電子郵件給所有用戶
+        send_email: 發送電郵
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: 電郵主旨
         email_content: 電郵內容
         email_content_placeholder: 你想和你的用戶說些什麼？
         email_language: 郵件接收者使用的語言
         any_language: 任何語言
-        send_email: 發送電郵
         message_will_be_sent_only_to_people_with_this_language: "注意：電子郵件只會以你選擇的語言發送給使用%{service_name}的用戶。"
         email_sent: 郵件已發送
     left_hand_navigation:
@@ -485,6 +523,8 @@ zh-HK:
       integration_info_text: Sharetribe的付款由PayPal提供。你必需連接至你的PayPal帳戶以允許你用戶使用你的網站。當你連接你的PayPal帳戶後，你可以選擇最少的交易額和一個可行的佣金金額。
       link_paypal_personal_account_label: 你是否親自提供自己的產品或服務？
       link_paypal_personal_account: "假如這樣的話，你仍需要連接你的PayPal帳戶至%{personal_payment_preferences_link}。"
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: 你的個人網站帳戶
       read_more_about_paypal: 了解更多關於Sharetribe的支付系統
       edit_payment_settings: ~
@@ -497,6 +537,57 @@ zh-HK:
       save_settings: 保存設定
       minimum_listing_price_below_tx_fee: "最少的交易額至少等於最低交易費用%{minimum_transaction_fee}。"
       minimum_listing_price_below_min: "最少的交易額必須高於最低佣金%{minimum_commission}。"
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: 出售
       rent: 出租
@@ -561,11 +652,30 @@ zh-HK:
     username_or_email: 電郵或用戶名稱
     what_is_this: 這是什麼？
     removed_user: ~
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: PayPal的款項處理費
       body_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間，取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
       body_with_shipping_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間（包括運費），這取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
       link_to_paypal_text: ~
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: 交易細節
@@ -586,8 +696,13 @@ zh-HK:
       you_will_get_label: ~
       total_label: "總計:"
       total_value: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的款項處理費</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: ~
+      stripe-fee_label: ~
     confirm:
       confirm_description: 如果你的訂購已完成，你應該確認完成。然後你可以給予其他人回應。
       cancel_description: 如果你的訂購未完成，請標記它為「有爭議」。你仍可以給予其它人回應及說明發生的事情。
@@ -833,6 +948,31 @@ zh-HK:
       price_per_unit_type: "每%{unit_type}的價格"
       quantity: 數量：
       you_have_received_new_payment: "你已經為<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>給%{payer_full_name}。這是你的收據。"
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的費用：
       shipping_total: 運費：
@@ -852,6 +992,8 @@ zh-HK:
       total: 總計
       price: 價格
       service_fee: 服務費
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
@@ -888,6 +1030,7 @@ zh-HK:
       transaction_requested_by_user: "%{requester}已請求及授權為「%{listing_title}」付款。"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天內接受或拒絕請求。如果在該期限內接受，你將會收到付款。如果你在該期限內沒有接受，請求將自動被拒絕，你將無法收到款項。"
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: 按此以回應請求
     transaction_preauthorized_reminder:
@@ -937,6 +1080,8 @@ zh-HK:
       cancel_error: ~
       accept_authorization_error: 在接受預先授權的PayPal付款時發生錯誤。請稍後再試。
       reject_authorization_error: 當拒絕預先授權的PayPal付款時癹生錯誤。請稍後再試。
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: 返回到主頁
     error_404:
@@ -1333,6 +1478,8 @@ zh-HK:
       notifications: 通知
       profile: 個人資料
       settings: 設定
+      paypal_payments: ~
+      stripe_payments: ~
       payments: 款項
   listings:
     bubble_listing_not_visible:
@@ -1429,7 +1576,11 @@ zh-HK:
         long_time: 星期，月，……
         after_service_fee_you_will_get: "在支付%{service_name}和付款處理費之後你將得到%{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}會從價格中扣除。"
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name}的費用（%{sum_with_currency}）和%{paypal_fee_info_link}會從價格中扣除。"
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: PayPal的款項處理費
         delivery: 配送方式
         shipping: 郵寄
@@ -1604,6 +1755,17 @@ zh-HK:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: ~
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: 全部類別
@@ -1647,6 +1809,7 @@ zh-HK:
     contact_admin_link_text: 聯絡網站管理員
     you_are_ready_to_accept_payments: 你可隨時接收款項！
     commission: "%{commission}%"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "為接收款項，你需要連接你的PayPal帳戶到%{service_name}。"
       payout_info_text: 請完成下列兩個步驟来連接你的帳號
@@ -1693,6 +1856,8 @@ zh-HK:
     paypal_permission_granted_summary: 已授權收取交易費
   paypal:
     pay_with_paypal: 繼續付款
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: 用PayPal结帳
     cancel_succesful: 已成功取消PayPal付款
     transaction:
@@ -2025,11 +2190,13 @@ zh-HK:
       quantity: ~
       subtotal: ~
       shipping-price: ~
+      stripe-fee: ~
     price_per_quantity: ~
     price: "總共:"
     quantity: ~
     unit_price: ~
     total: "總共:"
+    total_to_pay: ~
   unit:
     day: ~
     days: ~
@@ -2093,3 +2260,78 @@ zh-HK:
     page_entries_info:
       multi_page: "顯示 %{model} %{from} - %{to} 總共 %{count} 个"
       multi_page_html: "顯示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 總共 <b>%{count}</b> 個"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

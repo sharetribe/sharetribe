@@ -228,6 +228,7 @@ zh-TW:
         last_community_updates: 请注意在删除后，你和你的集市的用户可能仍然会收到最后的集市更新邮件。
         you_will_be_redirected_to: "当你删除了你的集市，你会被重定向到%{destination}。你将再也无法访问你的集市。"
         delete_this_marketplace: 删除这个集市。
+        payment_preferences: ~
       manage_members:
         manage_members: 管理用户
         email: 电子邮件
@@ -315,6 +316,30 @@ zh-TW:
           canceled: 已取消
           initiated: 等待PayPal付款
           pending_ext: 等待PayPal付款
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: 无
       paypal_account:
         paypal_admin_account: 付款
@@ -375,12 +400,25 @@ zh-TW:
       new:
         send_email_to_members: 发送电子邮件给用户
         send_email_to_members_title: 发送电子邮件给所有用户
+        send_email: 发送邮件
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: 邮件主题
         email_content: 邮件内容
         email_content_placeholder: 你想和你的用户说些什么？
         email_language: 邮件接收者使用的语言
         any_language: 任何语言
-        send_email: 发送邮件
         message_will_be_sent_only_to_people_with_this_language: "注意：电子邮件只会以你选择的语言发送给使用%{service_name}的用户。"
         email_sent: 邮件已发送。
     left_hand_navigation:
@@ -485,6 +523,8 @@ zh-TW:
       integration_info_text: Sharetribe的支付系统由PayPal提供支持。如果你想使用你的用户名在你的集市上付款，你必须连接你的PayPal帐号及决定最小交易规模以及对每个交易收取的费用。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
       read_more_about_paypal: 了解更多关于Sharetribe的支付系统
       edit_payment_settings: ~
@@ -497,6 +537,57 @@ zh-TW:
       save_settings: 保存设置
       minimum_listing_price_below_tx_fee: "最少的交易额至少等于最低交易费用%{minimum_transaction_fee}。"
       minimum_listing_price_below_min: "最少的交易额必须高于最低佣金%{minimum_commission}。"
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: 出售
       rent: 出租
@@ -561,6 +652,12 @@ zh-TW:
     username_or_email: Email或用户名
     what_is_this: 這是什麼？
     removed_user: 已删除的用户
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: PayPal的支付处理费
       body_text: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
@@ -568,6 +665,19 @@ zh-TW:
           PayPal对每笔付款收取一笔处理费。该费用介于总销售费用（包括运费）的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。
           你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。
       link_to_paypal_text: 这里
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: 订单明细
@@ -588,8 +698,13 @@ zh-TW:
       you_will_get_label: 你将得到：
       total_label: 总计：
       total_value: "%{seller_gets}*"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: "运费:"
+      stripe-fee_label: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
       cancel_description: 如果你的请求没有完成，你可以标记它为“有争议的”。你仍然可以评论给其他交易方描述发生的事情。
@@ -835,6 +950,31 @@ zh-TW:
       price_per_unit_type: "每%{unit_type}的价格"
       quantity: "数量:"
       you_have_received_new_payment: "你已经为<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>给%{payer_full_name}。这是你的收据。"
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: PayPal的费用：
       shipping_total: "运费:"
@@ -854,6 +994,8 @@ zh-TW:
       total: 总共
       price: 价格
       service_fee: 服务费
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}在%{service_name}给你了反馈"
@@ -890,6 +1032,7 @@ zh-TW:
       transaction_requested_by_user: "%{requester}已经请求并授权支付了%{listing_title}"
       you_have_time_to_accept: "你需要在%{payment_expires_in}天内接受或拒绝请求。如果在该期限内接受，你会收到付款。如果你在该期限内没有接受，请求将自动被拒绝，你将无法收到支付款项。"
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: 点击这里回应请求
     transaction_preauthorized_reminder:
@@ -939,6 +1082,8 @@ zh-TW:
       cancel_error: 取消时发生错误。不能完成取消操作。
       accept_authorization_error: 尝试接受预授权的PayPal付款时出错。请重试。
       reject_authorization_error: 在尝试拒绝Paypal支付预授权时发生错误。请重试。
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: 回到主页
     error_404:
@@ -1332,6 +1477,8 @@ zh-TW:
       notifications: 通知
       profile: 个人资料
       settings: 设置
+      paypal_payments: ~
+      stripe_payments: ~
       payments: 付款
   listings:
     bubble_listing_not_visible:
@@ -1428,7 +1575,11 @@ zh-TW:
         long_time: 周，月，……
         after_service_fee_you_will_get: "在%{service_name}和付款处理费之后你将得到%{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}会从价格中扣除"
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name}费用（%{sum_with_currency}）和%{paypal_fee_info_link}会从价格中扣除"
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: PayPal的支付处理费
         delivery: 配送方式
         shipping: 配送
@@ -1603,6 +1754,17 @@ zh-TW:
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: 查看。
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: 全部分类
@@ -1646,6 +1808,7 @@ zh-TW:
     contact_admin_link_text: ~
     you_are_ready_to_accept_payments: 你已准备好接受付款！
     commission: "%{commission}%"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "要接受付款你需要连接你的PayPal帐号和%{service_name}。"
       payout_info_text: 请完成下列两个步骤来连接你的帐号。
@@ -1692,6 +1855,8 @@ zh-TW:
     paypal_permission_granted_summary: ~
   paypal:
     pay_with_paypal: 进行支付
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: 用PayPal结帐
     cancel_succesful: PayPal付款成功取消
     transaction:
@@ -2033,11 +2198,13 @@ zh-TW:
       quantity: "数量:"
       subtotal: "小结:"
       shipping-price: "运费:"
+      stripe-fee: ~
     price_per_quantity: "每%{unit_type}:"
     price: "总共:"
     quantity: "数量:%{quantity}"
     unit_price: "单位价格: %{unit_price}"
     total: "总共:"
+    total_to_pay: ~
   unit:
     day: 日
     days: 天
@@ -2109,3 +2276,78 @@ zh-TW:
         other: "显示 <b>所有&nbsp;%{count}个</b> %{model}"
       multi_page: "显示 %{model} %{from} - %{to} 总共 %{count} 个"
       multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 总共 <b>%{count}</b> 个"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

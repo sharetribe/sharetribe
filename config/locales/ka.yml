@@ -228,6 +228,7 @@ ka:
         last_community_updates: "გთხოვთ დაიმახსოვრეთ, რომ წაშლის შემდეგ თქვენ და თქვენი ბაზარის მომხარებელმა შეიძლება ისევ მიიღოთ ბოლო ბაზრის განახლების წერილები. "
         you_will_be_redirected_to: "თქვენი ბაზრის წაშლის შემდეგ თქვენ გადამისამართდებით %{destination}-ზე. თქვენ აღარ გექნებათ წვდომა ბაზარზე."
         delete_this_marketplace: "წაშალეთ ეს ბაზარი"
+        payment_preferences: ~
       manage_members:
         manage_members: "მართე მომხმარელები"
         email: "ელ. ფოსტა"
@@ -315,6 +316,30 @@ ka:
           canceled: გაუქმებულია
           initiated: "ველოდებით PayPal-ით გადახდას"
           pending_ext: "ველოდებით PayPal-ით გადახდას"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
         not_available: "არ არის ხელმისაწვდომი"
       paypal_account:
         paypal_admin_account: "გადახდების სისტემა"
@@ -375,12 +400,25 @@ ka:
       new:
         send_email_to_members: "გაუგზავნე ელ. ფოსტა მომხმარებლებს"
         send_email_to_members_title: "გაუგზავნე ელ. ფოსტა ყველა მომხმარებელს"
+        send_email: "გააგზავნე ელ. ფოსტა"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
         email_subject: "ელ. ფოსტის სათაური"
         email_content: "ელ. ფოსტის შინაარსი"
         email_content_placeholder: "რა გსურს რომ შენს მომხმარებლებს უთხრა?"
         email_language: "ელ. ფოსტის მიმღების ენა"
         any_language: "ნებისმიერი ენა"
-        send_email: "გააგზავნე ელ. ფოსტა"
         message_will_be_sent_only_to_people_with_this_language: "შენიშვნა: ელ-ფოსტა გადაეგზავნება მხოლოდ იმ წევრებს, რომლებიც იყენებენ %{service_name}-ს იმ ენაზე რომელიც თქვენ აირჩიეთ."
         email_sent: "ელ. ფოსტა გაგზავნილია"
     left_hand_navigation:
@@ -485,6 +523,8 @@ ka:
       integration_info_text: "Sharetribe-ის გადახდები ეფუძნება PayPal-ს. იმისთვის რომ ნება დართო შენ მომხმარებლებს რომ გამოიყენონ შენი ბაზარი შენ უნდა დაუკავშირდე შენს PayPal ანგარიშს. იმის შემდეგ რაც დაუკავშირდები შენს PayPal ანგარიშს შეგიძლია მიუთითო მინიმუმ ტრანზაქციების ზომა და შესაძლო საკომისიო საფასური."
       link_paypal_personal_account_label: "თავად აწარმოებთ სერვისს ან პროდუქტს?"
       link_paypal_personal_account: "თუ კი, თქვენ ასევე დაგჭირდებათ თქვენ PayPal ანგარიშის დაკავშირება %{personal_payment_preferences_link}-სთან."
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "თქვენი პერსონალური ბაზრის ანგარიში"
       read_more_about_paypal: "წაიკითხე მეტი Sharetribe-ის გადახდის სისტემის შესახებ"
       edit_payment_settings: "დაარედაქტირეთ გადახდის პარამეტრები"
@@ -497,6 +537,57 @@ ka:
       save_settings: "დაიმახსოვრე აპრამეტრები"
       minimum_listing_price_below_tx_fee: "ტრანზაქციების მინიმუმი ზომა, უნდა იყოს დიდი ან უდრიდეს მინიმალური ტრანზაქციების საფასურს: %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "ტრანზაქციის მინიმუმ ზომნა უნდა იყოს უფრო დიდი, ვიდრე მინიმუმი საკომისიო %{minimum_commission}."
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      stripe_connected:
+        title: ~
+      paypal_connected:
+        title: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        save_api_keys: ~
+        invalid_private: ~
+        invalid_public: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
     transaction_types:
       sell: გაყიდვა
       rent: ქირავდება
@@ -561,11 +652,30 @@ ka:
     username_or_email: "ელ. ფოსტა ან მომხმარებლის სახელი"
     what_is_this: "ეს რა არის?"
     removed_user: "წაშლილი მომხმარებელი"
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
     paypal_fee_info:
       title: "PayPal-ით გადახდის საფასური"
       body_text: "PayPal არიცხავს გადახდის საფასურს ყოველი გადახდიდან. ეს გადასახადი მერყეობს 2%-დან 5%-მდე მთლიანი გაყიდული ფასიდან, დამოკიდებულია თვიური გაყიდვების მოცულობიდან და გამყიდველის ქვეყნიდან გამომდინარე. ზოგადად, ადგილობრივ გაყიდვებს აქვს უფრო დაბალი გადასახადი ვიდრე საერთაშორისოებს და მაღალი თვიური გაყიდვები გაძლევს ფასდაკლებას გადასახადზე. თქვენ შეგიძლიათ ზუსტი გადასახადი ნახოთ PayPal-ის ანგარიშზე შესვლით და %{link_to_paypal}-ზე გადასვლით. ყოველი გაყიდვის შემდეგ მიიღებთ საფასურს რომელზეც ეწერება ზუსტი რაოდენობა."
       body_with_shipping_text: "PayPal არიცხავს გადახდის საფასურს ყოველი გადახდიდან. ეს გადასახადი მერყეობს 2%-დან 5%-მდე მთლიანი გაყიდული ფასიდან(ტრანპორტირების ჩათვლით), დამოკიდებულია თვიური გაყიდვების მოცულობიდან და გამყიდველის ქვეყნიდან გამომდინარე. ზოგადად, ადგილობრივი გაყიდვებს აქვს უფრო დაბალი გადასახადი ვიდრე საერთაშორისოებს და მაღალი თვიური გაყიდვები გაძლევს ფასდაკლებას გადასახადზე. თქვენ შეგიძლიათ ზუსტი გადასახადი ნახოთ PayPal-ის ანგარიშზე შესვლით და %{link_to_paypal}-ზე გადასვლით. ყოველი გაყიდვის შემდეგ მიიღებთ სსაფასურს რომელზეც ეწერება ზუსტი რაოდენობა."
       link_to_paypal_text: აქ
+    paypal_fee_info_new:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
   conversations:
     accept:
       details: "შეკვეთის დეტალები"
@@ -586,8 +696,13 @@ ka:
       you_will_get_label: "თქვენ მიიღებთ:"
       total_label: ჯამი
       total_value: "%{seller_gets}"
+      total_value_paypal: ~
+      total_value_stripe: ~
       paypal_fee_info: "არ შეიცავს <a id='%{fee_info_link_id}' href='#'> PayPal-ის გადახდის საფასურს </a>"
+      stripe_fee_info: ~
+      payment_fee_info: ~
       shipping_price_label: გაგზავნა
+      stripe-fee_label: ~
     confirm:
       confirm_description: "თუ თქვენი შეკვეთა შესრულდა უნდა მონიშნოთ იგი დასრულებულად. შემდეგ შეგეძლებათ მისცეთ შეფასება სხვა ნაწილს."
       cancel_description: "თუ თქვნეი შეკვეთა არ შესრულდა, თქვენ შეგიძლიათ მონიშნოთ იგი როგორც, \"სადავო\". თქვენ ისევ გაქვთ შესაძლებლობა მისცეთ შეფასება მეორე მხარეს და აღწეროთ რა მოხდა. "
@@ -835,6 +950,31 @@ ka:
       price_per_unit_type: "ფასი ყოველ %{unit_type}"
       quantity: "რაოდენობა:"
       you_have_received_new_payment: "თქვენ გადაგიხადეს <b>%{payment_sum}</b> <b>%{listing_title}</b>-სთვის %{payer_full_name}-ნ. აქ არის თქვენი ქვითარი."
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-ის გადასახადი:"
       shipping_total: "ფოსტით გაგზავნა:"
@@ -854,6 +994,8 @@ ka:
       total: ჯამი
       price: ფასი
       service_fee: "სერვისის ღირებულება"
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
       money_will_be_transferred: "თანხა გადაირიცხება %{recipient_name}-ის ანგარიშზე, როცა ა) მონიშნავ მოთხოვნას დასრულებულად ან ბ) %{automatic_confirmation_days} დღე გავა გადახდიდან."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} მოგცათ შეფასება %{service_name}ში"
@@ -890,6 +1032,7 @@ ka:
       transaction_requested_by_user: "%{requester} მოითხოვა და ავტორიზება გაუკეთა %{listing_title}-ს გადახდას"
       you_have_time_to_accept: "თქვენ უნდა დათანხმდეთ ან უარყოთ მოთხოვნა %{payment_expires_in} განმავლობაში. თუ დათანხმდებით ამ დროის განმავლობაში გადახდა განხორციელდება. თუ არ დათანხმდებით მოთხოვნა ავტომატურად უარყოფილი იქნება და ვერ მიიღებთ გადახდას."
       if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "დააჭირე აქ რომ უპასუხო მოთხოვნას"
     transaction_preauthorized_reminder:
@@ -939,6 +1082,8 @@ ka:
       cancel_error: "შეცდომა მოხდა გაუქმების დროს. გაუქმება ვერ დასრულდა"
       accept_authorization_error: "შეცდომა მოხდა Paypal-ის პრეავტორიზებული გადახდის დადასტურების მცდელობისას. გთხოვთ კიდევ სცადოთ."
       reject_authorization_error: "შეცდომა მოხდა Paypal-ის გადახდის პრეავტორიზაციის მცდელობისას. ცადეთ თავიდან."
+    stripe:
+      generic_error: ~
   error_pages:
     back_to_kassi_front_page: "მთავარ გვერდზე დაბრუნება"
     error_404:
@@ -1335,6 +1480,8 @@ ka:
       notifications: შეტყობინებები
       profile: "პროფილის ინფორმაცია"
       settings: პარამეტრები
+      paypal_payments: ~
+      stripe_payments: ~
       payments: გადახდები
   listings:
     bubble_listing_not_visible:
@@ -1431,7 +1578,11 @@ ka:
         long_time: "კვირა, თვე, ..."
         after_service_fee_you_will_get: "%{service_name}-ს და გადახდის პროცესორის საფასურის შემდგომ თქვენ მიიღებთ %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} დაიქვითება ფასიდან."
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_paypal_text: "%{service_name} საფასური %{sum_with_currency} და %{paypal_fee_info_link} გამოიქვითება ფასიდან."
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "PayPal-ით გადახდის საფასური"
         delivery: "მიტანის მეთოდი"
         shipping: "ფოსტით გაგზავნა:"
@@ -1606,6 +1757,17 @@ ka:
       invalid_parameters: "ახალი ტრანზაქციისთვის ასეთი სახელი არ არსებობს"
     transaction_agreement_checkbox:
       read_more: ნახვა
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
   mapview:
     index:
       all_categories: "ყველა კატეგორია"
@@ -1649,6 +1811,7 @@ ka:
     contact_admin_link_text: "დაუკავშირდით ბაზრის ადმინისტრატორს"
     you_are_ready_to_accept_payments: "თქვენ მზად ხართ რომ მიიღოთ გადახდები!"
     commission: "%{commission}%"
+    not_now: ~
     new:
       payout_info_you_need_to_connect: "გადახდის მისაღებად, თქვენ უნდა დააკავშიროთ თქვენი PayPal-ის ანგარიში %{service_name}-სთან."
       payout_info_text: "იმისთვის რომ დაუკავშირდეთ თქვენ ანგარიშს, გთხოვთ შეასრულოთ შემდეგი ნაბიჯები."
@@ -1695,6 +1858,8 @@ ka:
     paypal_permission_granted_summary: "ტრანზაქციის საფასურზე უფლება მიცემულია"
   paypal:
     pay_with_paypal: "გადახდის გაგრძელება"
+    checkout_with: ~
+    or_pay_with_paypal: ~
     checkout_with_paypal: "PayPal-ით გადახდა"
     cancel_succesful: "PayPal გადახდა წარმატებით გაუქმდა"
     transaction:
@@ -2040,11 +2205,13 @@ ka:
       quantity: რაოდენობა
       subtotal: "ჯამი:"
       shipping-price: "ფოსტით გაგზავნა:"
+      stripe-fee: ~
     price_per_quantity: "ფასი ყოველ %{unit_type}"
     price: "ფასი:"
     quantity: "რაოდენობა: %{quantity}"
     unit_price: "ერთეულის ფასი: %{unit_price}"
     total: "ჯამი:"
+    total_to_pay: ~
   unit:
     day: დღე
     days: დღეები
@@ -2117,3 +2284,78 @@ ka:
         other: "%{model}-ის ჩვენება <b>all&nbsp;%{count}</b>"
       multi_page: "%{model}-ის ჩვენება %{from}-დან - %{to}-მდე %{count}-ის ჯამის"
       multi_page_html: "%{model}-ის ჩვენება <b>%{from}-დან ;-&nbsp; %{to}-მდე</b> <b>%{count}</b>-ის ჯამის"
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_only_hooray_title: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+  payment_settings:
+    title: ~
+    stripe_and_paypal_supported: ~
+    stripe_title: ~
+    paypal_title: ~
+    credit_card: ~
+    paypal: ~
+    credit_card_bank_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~
