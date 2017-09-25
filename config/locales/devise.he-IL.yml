@@ -51,7 +51,7 @@ he-IL:
       failure: "לא הצלחנו לאשר אותך מה‎%{kind}‎ בגלל‎%{reason}‎."
     mailer:
       confirmation_instructions:
-        subject: "הנחיות לאימות"
+        subject: "הנחיות לאימות הצטרפות ל ‎%{service_name}‎"
       reset_password_instructions:
         subject: "הנחיות לאיפוס הסיסמה"
       unlock_instructions:

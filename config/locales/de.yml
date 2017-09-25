@@ -339,9 +339,9 @@ de:
             pending: ~
             preauthorized: ~
             accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
+            rejected: Abgelehnt
+            paid: Bezahlt
+            confirmed: Bestätigt
             canceled: ~
             initiated: ~
             pending_ext: ~
@@ -406,7 +406,7 @@ de:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
         send_email_to_members_title: "Sende eine E-Mail an alle Mitglieder"
         send_email: "E-Mail senden"
-        send_email_or: ~
+        send_email_or: oder
         send_test_email: ~
         test_sent: ~
         send_email_article_title: ~

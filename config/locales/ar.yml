@@ -218,7 +218,7 @@ ar:
         last_community_updates: ~
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
-        payment_preferences: ~
+        payment_preferences: "نظام الدفع"
       manage_members:
         manage_members: "إدارة المستخدمين"
         email: "بريد إلكتروني"
@@ -307,29 +307,29 @@ ar:
           initiated: ~
           pending_ext: ~
           none:
-            free: ~
+            free: المحادثات
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: المحادثات
+            pending: "قيد الانتظار"
+            preauthorized: "مخول مسبقا"
+            accepted: مقبول
+            rejected: مرفوض
+            paid: مدفوع
+            confirmed: مؤكد
+            canceled: ملغي
+            initiated: "انتظار دفع باي بال"
+            pending_ext: "انتظار دفع باي بال"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: محادثات
+            pending: "قيد الانتظار"
+            preauthorized: "مخول مسبقا"
+            accepted: مقبول
+            rejected: مرفوض
+            paid: مدفوع
+            confirmed: مؤكد
+            canceled: ملغي
+            initiated: "انتظار دفع سترب"
+            pending_ext: "انتظار دفع سترب"
         not_available: "غير متوفر"
       paypal_account:
         paypal_admin_account: "نظام الدفع"
@@ -534,7 +534,7 @@ ar:
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     payment_preferences:
-      title: ~
+      title: "تفضيلات نظام الدفع"
       general_settings: ~
       connect_a_payment_provider: ~
       contact_support: ~

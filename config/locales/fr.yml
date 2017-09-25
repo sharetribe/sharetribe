@@ -340,7 +340,7 @@ fr:
             preauthorized: Pré-autorisée
             accepted: Acceptée
             rejected: Rejetée
-            paid: ~
+            paid: Payée
             confirmed: Réalisée
             canceled: Annulée
             initiated: "En attente du paiement Stripe"
@@ -529,7 +529,7 @@ fr:
       marketplace_paypal_integration: "Paramètres du système de paiements"
       preferences_updated: "Préférences du système de paiements mises à jour"
       contact_support_link_text: "contactez le support Sharetribe"
-      integration_info_text: "Le système de paiement de votre place de marché est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal pour les transactions et éventuellement vos frais de service."
+      integration_info_text: "Le système de paiement de votre place de marché est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal de transaction et éventuellement vos frais de service."
       link_paypal_personal_account_label: "Proposez-vous vous aussi vos produits ou services ?"
       link_paypal_personal_account: "Dans ce cas, vous devez également connecter votre compte PayPal depuis %{personal_payment_preferences_link}."
       link_stripe_personal_account: "Dans ce cas, vous devez également connecter votre compte Stripe dans %{personal_payment_preferences_link}."
@@ -548,7 +548,7 @@ fr:
       minimum_listing_price_below_min: "Le montant minimal de transaction doit être supérieur aux frais de service minimaux %{minimum_commission}."
     payment_preferences:
       title: "Paramètres du système de paiements"
-      general_settings: "1. Paramètre généraux"
+      general_settings: "1. Paramètres généraux"
       connect_a_payment_provider: "2. Connecter une plateforme de paiement"
       contact_support: "contacter le support"
       no_payments_link_text: ici
@@ -570,7 +570,7 @@ fr:
           Si vous utilisez Stripe, ses frais seront déduits de vos frais de service, n'oubliez donc pas de définir des frais suffisamment élevés. Si vous utilisez PayPal, ses frais seront facturés au vendeur, en plus de vos frais de service. Stripe et PayPal ont des frais définis de manière assez différente. En général, les frais Stripe sont un peu plus bas.
       invalid_api_keys: "Stripe API keys invalides"
       missing_api_keys: "Stripe API keys manquantes"
-      stripe_verified: "Accès à Stripe API vérifié"
+      stripe_verified: "Accès à l'API Stripe vérifié"
       change_settings: "Modifier les paramètres"
       configure_stripe: "Configurer Stripe"
       configure_paypal: "Configurer PayPal"
@@ -578,7 +578,7 @@ fr:
       transaction_fee_save: Sauvegarder
       stripe_fee: "frais Stripe"
       stripe_fee_notice: "Des %{stripe_fee_link} seront déduits des frais de services que vous facturez."
-      fee_should_be_less_than_minimum_price: "Le montant minimal des frais de service doit être inférieur aux frais minimaux de transaction"
+      fee_should_be_less_than_minimum_price: "Le montant des frais de service minimaux doit être inférieur aux montant minimal de transaction"
       stripe_connected:
         title: "Stripe connecté"
       paypal_connected:
@@ -2369,7 +2369,7 @@ fr:
         error_message: "Format invalide"
         clearing_code: "Code de clearing"
         sort_code: "Code de tri"
-        must_match: "doit correspondre"
+        must_match: "doit être au format"
         a_dash: "un tiret"
         digits: chiffres
         digits_or_chars: "chiffres ou caractères A-Z"
