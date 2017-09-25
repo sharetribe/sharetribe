@@ -413,10 +413,6 @@ class LandingPageController < ActionController::Metal
                            is_admin: Maybe(@current_user).is_admin?.or_else(false),
                            is_marketplace_admin: Maybe(@current_user).is_marketplace_admin?(@current_community).or_else(false))
 
-    if FeatureFlagHelper.feature_enabled?(:landing_scripts)
-      @current_community.custom_head_script.to_s
-    else
-      ""
-    end
+    @current_community.custom_head_script.to_s
   end
 end

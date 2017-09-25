@@ -81,9 +81,7 @@
     <%= yield :listings_css %>
     <%= yield :video_css %>
   </style>
-  <% if FeatureFlagHelper.feature_enabled?(:landing_scripts) %>
-    <%= @current_community.custom_head_script.to_s.html_safe %>
-  <% end %>
+  <%= @current_community.custom_head_script.to_s.html_safe %>
 </head>
 <body>
 
