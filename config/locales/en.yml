@@ -591,9 +591,11 @@ en:
       stripe_form:
         add_your_api_keys: Add your Stripe API keys
         how_to_get_these: How to get these?
+        publishable_key_example: "For example: %{api_publishable_key_example}"
+        secret_key_example: "For example: %{api_secret_key_example}"
         save_api_keys: Save Stripe API keys
-        invalid_private: That doesn't look like a correct secret key
-        invalid_public: That doesn't look like a correct publishable key
+        invalid_secret: "That doesn't look like a correct %{secret_key}"
+        invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       index:
         header: Available Payment Settings
         info: You can configure available payment gateways for use in your marketplace. Currently platform supports PayPal and Stripe gateways.
@@ -2385,7 +2387,7 @@ en:
         error_message: 'Invalid format'
         clearing_code: 'Clearing code'
         sort_code: 'Sort code'
-        must_match: "must match"
+        must_match: "must be in the following format:"
         a_dash: 'a dash'
         digits: 'digits'
         digits_or_chars: 'digits or A-Z chars'
