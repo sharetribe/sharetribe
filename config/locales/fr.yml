@@ -586,9 +586,11 @@ fr:
       stripe_form:
         add_your_api_keys: "Ajouter vos Stripe API keys"
         how_to_get_these: "Comment les obtenir ?"
+        publishable_key_example: "Par exemple : %{api_publishable_key_example}"
+        secret_key_example: "Par exemple : %{api_secret_key_example}"
         save_api_keys: "Sauvegarder les Stripe API keys"
-        invalid_private: "Cela ne semble pas être une secret key correcte"
-        invalid_public: "Cela ne semble pas être une publishable key correcte"
+        invalid_secret: "Cela ne semble pas être une %{secret_key} correcte"
+        invalid_publishable: "Cela ne semble pas être une %{publishable_key} correcte"
       index:
         header: "Paramètres de paiement disponibles"
         info: "Vous pouvez configurer les plateformes de paiements disponibles dans votre place de marché. Actuellement Stripe et PayPal sont disponibles."
@@ -2369,7 +2371,7 @@ fr:
         error_message: "Format invalide"
         clearing_code: "Code de clearing"
         sort_code: "Code de tri"
-        must_match: "doit être au format"
+        must_match: "doit être au format :"
         a_dash: "un tiret"
         digits: chiffres
         digits_or_chars: "chiffres ou caractères A-Z"

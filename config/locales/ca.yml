@@ -555,9 +555,11 @@ ca:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
         save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        invalid_secret: ~
+        invalid_publishable: ~
       index:
         header: ~
         info: ~

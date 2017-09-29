@@ -555,9 +555,11 @@ it:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
         save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        invalid_secret: ~
+        invalid_publishable: ~
       index:
         header: ~
         info: ~
@@ -2041,7 +2043,7 @@ it:
       first_name_with_initial: "(solo la prima lettera visibile ad altri utenti)"
       first_name_only: "(non visibile ad altri utenti)"
       display_name: "Nome da mostrare"
-      display_name_description: "Se rappresenti un'organizzazione, puoi scegliere di visualizzarne il nome. Il nome dell'organizzazione è utilizzato e visualizzato agli altri utenti al posto del tuo nome e cognome ."
+      display_name_description: "Se rappresenti un'organizzazione, puoi scegliere di visualizzarne il nome. Il nome dell'organizzazione è utilizzato e visualizzato dagli altri utenti al posto del tuo nome e cognome ."
       location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
       phone_number: "Numero di telefono"
       profile_picture: "Immagine del profilo"
