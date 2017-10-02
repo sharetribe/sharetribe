@@ -13,11 +13,9 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject
   def perform
     current_community = Community.where(id: community_id).first
 
-    recipient_ids(mode, current_community).in_groups_of(1000, false) do |recipient_id_group|
-      Delayed::Job.transaction do
-        recipient_id_group.each do |recipient_id|
-          Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, subject, content, locale))
-        end
+    Delayed::Job.transaction do
+      recipient_ids(mode, current_community).each do |recipient_id|
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, subject, content, locale))
       end
     end
   end
