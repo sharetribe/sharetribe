@@ -249,6 +249,10 @@ module PaypalService::API
       Result::Success.new(PaypalAccountStore.get_active(person_id: person_id, community_id: community_id))
     end
 
+    def get_active_users(community_id:)
+      PaypalAccountStore.get_active_users(community_id: community_id)
+    end
+
     private
 
     def create_verified_account!(community_id:, person_id: nil, order_permission_request_token:, order_permission_onboarding_id:, payer_id:, opts:)
