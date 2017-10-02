@@ -13,48 +13,51 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject
   def perform
     current_community = Community.where(id: community_id).first
 
-    recipient_scope = if mode == 'admins'
-                        current_community.admins
-                      else
-                        current_community.members
-                      end
-
-    recipient_scope.find_in_batches(batch_size: 1000) do |member_group|
-      Delayed::Job.transaction do
-        member_group.each do |recipient|
-          if mode != 'all' && matches_mode?(mode, current_community, recipient)
-            Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient.id, community_id, subject, content, locale))
-          end
-        end
+    Delayed::Job.transaction do
+      recipient_ids(mode, current_community).each do |recipient_id|
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, subject, content, locale))
       end
     end
   end
 
-  def matches_mode?(mode, community, recipient)
-    has_listings = recipient.listings.exists?
-
-    paypal_ready = PaypalHelper.user_and_community_ready_for_payments?(recipient.id, community.id)
-
-    # TODO: remove rescue after merge with stripe-integration
-    begin
-      stripe_ready = StripeHelper.user_and_community_ready_for_payments?(recipient.id, community.id)
-    rescue
-      stripe_mode = nil
-    end
-
-    case mode
-    when 'with_listing'
-      has_listings
-    when 'with_listing_no_payment'
-      has_listings && !(paypal_ready || stripe_ready)
-    when 'with_payment_no_listing'
-      (paypal_ready || stripe_ready) && !has_listings
-    when 'no_listing_no_payment'
-      !(paypal_ready || stripe_ready) && !has_listings
-    when 'customers'
-      Transaction.where(starter_id: recipient.id, current_state: ['paid', 'confirmed'], community_id: community.id).exists?
+  def recipient_ids(mode, community)
+    mode_options = Admin::EmailsController::ADMIN_EMAIL_OPTIONS
+    mode = mode.to_sym
+    if mode_options.include?(mode)
+      case mode
+      when :all_users
+        community.members.map(&:id)
+      when :with_listing
+        has_listings_person_ids(community)
+      when :with_listing_no_payment
+        has_listings_person_ids(community) - paypal_person_ids(community) - stripe_person_ids(community)
+      when :with_payment_no_listing
+        (paypal_person_ids(community) + stripe_person_ids(community)) - has_listings_person_ids(community)
+      when :no_listing_no_payment
+        has_no_listings_person_ids(community) - paypal_person_ids(community) - stripe_person_ids(community)
+      when :customers
+        community.transactions.where(current_state: ['paid', 'confirmed']).select(:starter_id).distinct.map(&:starter_id)
+      else
+        []
+      end
     else
-      true
+      []
     end
+  end
+
+  def paypal_person_ids(community)
+    PaypalService::API::Api.accounts.get_active_users(community_id: community.id)
+  end
+
+  def stripe_person_ids(community)
+    StripeService::API::Api.accounts.get_active_users(community_id: community.id)
+  end
+
+  def has_listings_person_ids(community)
+    community.members.joins(:listings).distinct.map(&:id)
+  end
+
+  def has_no_listings_person_ids(community)
+    community.members.left_outer_joins(:listings).where(listings: {author_id: nil}).distinct.map(&:id)
   end
 end

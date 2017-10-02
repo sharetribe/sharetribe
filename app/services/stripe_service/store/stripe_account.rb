@@ -94,6 +94,14 @@ module StripeService::Store::StripeAccount
     )
   end
 
+  def get_active_users(community_id:)
+      StripeAccountModel.where(
+        community_id: community_id
+      )
+        .where.not(person_id: nil)
+        .map(&:person_id)
+  end
+
   def from_model(model)
     Maybe(model)
       .map { |m| EntityUtils.model_to_hash(m) }
