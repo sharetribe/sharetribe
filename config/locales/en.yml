@@ -83,7 +83,7 @@ en:
         verification_to_post_listings_info_content: "Info text to non-verified users"
         verification_to_post_listings_info_content_description: "You currently require your users to be verified manually by you before they can post listings. Here you can set the default text that is shown to non-verified users when they try to post a new listing."
         verification_to_post_listings_info_content_default: "%{service_name} requires people to be verified manually by admin before they can post listings. You have not yet been verified. Please %{contact_admin_link} to be verified."
-        contact_admin_link_text: "contact the admin"
+        contact_admin_link_text: "contact the %{service_name} team"
         save: "Save settings"
         transaction_agreement: "Transaction agreement"
         transaction_agreement_checkbox: "Require users to accept an agreement before transaction"
@@ -872,7 +872,7 @@ en:
   community_memberships:
     access_denied:
       access_denied: "Access denied"
-      you_are_banned_in_this_community: "The administrator has prevented you from accessing %{service_name}. If you want to contact the admin, you can %{link_to_contact_page}."
+      you_are_banned_in_this_community: "The team has prevented you from accessing %{service_name}. If you want to contact the %{service_name} team, you can %{link_to_contact_page}."
       contact_page_link: "contact them"
     new:
       welcome_fb_user: "Welcome to %{service_name}, %{name}!"
@@ -1389,7 +1389,7 @@ en:
       sign_up: "Sign up"
     notifications:
       listing_could_not_be_saved: "Listing could not be saved. Please try again. If the problem persists, please %{contact_admin_link}."
-      contact_admin_link_text: "contact the admin"
+      contact_admin_link_text: "contact the %{service_name} team"
       test_welcome_email_delivered_to: "A test email was sent to %{email}."
       something_went_wrong: "Something went wrong"
       community_updated: "Details updated."
@@ -1436,13 +1436,13 @@ en:
       listing_updated_successfully: "Listing updated successfully"
       listing_updated_availability_management_enabled: "Listing updated successfully. Availability management enabled."
       listing_updated_availability_management_disabled: "Listing updated successfully. Availability management disabled."
-      only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
+      only_kassi_administrators_can_access_this_area: "Only the %{service_name} team can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
       payment_successful: "Payment successful"
       payment_canceled: "Payment cancelled"
       error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
-      cannot_receive_payment: "The other party can't receive the payment due some error. Please contact the administrators to clarify the situation"
+      cannot_receive_payment: "The other party can't receive the payment due some error. Please contact the %{service_name} team to clarify the situation"
       payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
@@ -1711,7 +1711,7 @@ en:
       select_subcategory: "Select subcategory"
       select_transaction_type: "Select listing type"
       you_need_to_fill_payout_details_before_accepting: "You need to fill in payout details before you can post a listing. Go to %{payment_settings_link} to fill in the details."
-      contact_admin_link_text: "contact the administrator"
+      contact_admin_link_text: "contact the %{service_name} team"
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
@@ -1842,14 +1842,14 @@ en:
     paypal_receive_funds_info: "If you see an error when trying to connect your account to %{service_name}, %{upgrade_paypal_account_link}. It's free and easy. If you're an individual, PayPal recommends using your name as the Business name."
     upgrade_paypal_account_link_text: "log in and upgrade your PayPal account to a business account"
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
-    contact_admin_link_text: "contact the marketplace administrator"
+    contact_admin_link_text: "contact the %{service_name} team"
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
     commission: "%{commission} %"
     not_now: "I do not want to connect PayPal account now"
     new:
       payout_info_you_need_to_connect: "In order to accept payments, you need to connect your PayPal account with %{service_name}."
       payout_info_text: "To connect your account, please complete the following steps."
-      contact_admin_link_text: "contact the administrator"
+      contact_admin_link_text: "contact the %{service_name} team"
       admin_account_not_connected: "Connecting your PayPal account is not possible since %{service_name} has not set up payments. Please %{contact_admin_link} for details."
       paypal_account_email: "Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
@@ -1876,7 +1876,7 @@ en:
       billing_agreement_canceled: "The billing agreement was canceled"
       billing_agreement_not_accepted: "You did not accept the billing agreement in PayPal."
       billing_agreement_wrong_account: "PayPal accounts did not match. Please use the same PayPal account that you connected in the first step."
-      something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the site administrator."
+      something_went_wrong: "Something went wrong. Please try again. If the problem persists, please contact the %{service_name} team."
       account_not_verified: "You have not verified your PayPal account. You need to go to paypal.com and verify your account before you can continue."
       account_restricted: "Your PayPal account is restricted and cannot be connected. Please log in to paypal.com to find out more or get in touch with PayPal customer support to resolve the issue."
     paypal_account_connected_title: "PayPal account connected"
@@ -1936,7 +1936,7 @@ en:
       terms: "terms of use"
       username_is_in_use: "This username is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
-      visible_only_to_you: "visible only to you and the marketplace admin"
+      visible_only_to_you: "visible only to you and the %{service_name} team"
       visible_to_everybody: "visible to everybody"
       create_account_with_facebook: "Sign up with Facebook"
       OR: OR
@@ -2335,7 +2335,7 @@ en:
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
   stripe_accounts:
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
-    contact_admin_link_text: "contact the marketplace administrator"
+    contact_admin_link_text: "contact the %{service_name} team"
     you_are_ready_to_accept_payments: "You are ready to accept payments!"
     commission: "%{commission} %"
     pay_with_stripe: "Pay with Stripe using %{card}"
@@ -2400,15 +2400,14 @@ en:
   payment_settings:
     title: "Payout preferences"
     stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to pay payments with either payment method.</p>"
-    stripe_title: Create managed Stripe account
     paypal_title: Connect your PayPal account
     credit_card: Credit card
     paypal: PayPal
     credit_card_bank_details: To accept credit card payments you need to provide your bank details so we can move money to your bank account.
     add_bank_details: Add bank details
-    can_accept_stripe_and_paypal: You can accept payment either through credit card, through PayPal or both.
+    can_accept_stripe_and_paypal: You can accept payments either through credit card, through PayPal or both.
     to_accept_paypal: To accept PayPal payments, you need to connect your PayPal account so we can move money there.
     connect_paypal: Connect PayPal account
-    wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the marketplace owners."
+    wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the %{service_name} team."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"
