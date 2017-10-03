@@ -418,7 +418,7 @@ en:
             with_listing: Users who have posted at least one listing
             with_listing_no_payment: Users who have posted at least one listing but haven't added their payment details
             with_payment_no_listing: Users who have added their payment details but haven't posted a listing
-            no_listing_no_payment: User who haven't posted a listing and haven't added their payment details
+            no_listing_no_payment: Users who haven't posted a listing and haven't added their payment details
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to your users?"
@@ -533,7 +533,7 @@ en:
       integration_info_text: "The payment system of your marketplace is powered by PayPal. To allow your users to pay using your marketplace, you must connect your PayPal account. Once you have connected your PayPal account, you can choose a minimum transaction size and a possible commission fee."
       link_paypal_personal_account_label: "Are you providing products or services yourself?"
       link_paypal_personal_account: "If so, you will also need to connect your PayPal account to %{personal_payment_preferences_link}."
-      link_stripe_personal_account: "If so, you will also need to connect your Stripe account to %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "If so, you will also need to add your payout details to %{personal_payment_preferences_link}."
       link_paypal_and_stripe_personal_account: "If so, you will also need to connect your PayPal or Stripe account to %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "your personal marketplace account"
       read_more_about_paypal: "Read more about the payment system"
@@ -575,7 +575,7 @@ en:
       invalid_api_keys: "Invalid Stripe API keys"
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
-      change_settings: "Change settings"
+      change_settings: "Change settings and fees"
       configure_stripe: "Configure Stripe"
       configure_paypal: "Configure PayPal"
       transaction_fee_settings: Transaction fee settings
