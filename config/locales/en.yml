@@ -2401,12 +2401,12 @@ en:
     title: "Payout preferences"
     stripe_and_paypal_supported:  "<p>If you want to accept payments, you need to connect with at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can choose to use both, which means your users will be able to pay payments with either payment method.</p>"
     paypal_title: Connect your PayPal account
-    credit_card: Credit card
+    bank_account: Bank account
     paypal: PayPal
-    credit_card_bank_details: To accept credit card payments you need to provide your bank details so we can move money to your bank account.
+    bank_account_details: To receive money to your bank account, you need to provide your bank details. Your customers will be able to pay with their credit card.
     add_bank_details: Add bank details
-    can_accept_stripe_and_paypal: You can accept payments either through credit card, through PayPal or both.
-    to_accept_paypal: To accept PayPal payments, you need to connect your PayPal account so we can move money there.
+    can_accept_stripe_and_paypal: You can receive money to your bank account or your PayPal account.
+    to_accept_paypal: To receive money to your PayPal account, you need to connect your PayPal account. Your customers will be able to pay with PayPal.
     connect_paypal: Connect PayPal account
     wrong_setup: "There is something wrong with the payment system setup in this marketplace. Please contact the %{service_name} team."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
