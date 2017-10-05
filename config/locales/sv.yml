@@ -563,7 +563,11 @@ sv:
       read_more_about_paypal_and_stripe: "Läs mera om online betalningar, Stripe och PayPal"
       general_settings_updated: "Betalningssystemets inställningar är nu uppdaterade"
       transaction_fee_settings_updated: "Transaktionsavgift inställningar uppdaterade"
-      choose_popup_text: ~
+      choose_popup_text: |-
+          Om du vill låta dina användare ta emot online betalningar måste du först välja valuta för din marknadsplats och sedan koppla minst en av de två betaltjänsterna Sharetribe erbjuder: Stripe och PayPal. Du kan också välja att använda båda vilket betyder att användare kan välja om de använder endera eller båda betaltjänsterna.
+          Du kan skapa ett nytt konto med endera tjänsterna om du inte redan har ett. När du har kopplat ett konto kan du välja om du tar en transaktionsavgift från alla transaktioner.
+          Vad är skillnaden mellan Stripe och PayPal? Stripe tillåter dig att fördröja betalningen i upp till tre månader och erbjuder en typ av betalningsmetod (kredit och debit kort betalningar). Stripe låter dessutom dina säljare få sina inkomster rakt till sina bankkonton genom att lägga till sina bankuppgifter. PayPal erbjuder två betalningsmetoder (kreditkort och PayPal), samt ett "buyer protection" program köpare och säljare. PayPal kräver att dina säljare kopplar sina Business PayPal konton för att ta emot betalningar. 
+          Om du använder Stripe kommer deras avgifter bli avdragna från din transaktionsavgift, kom därför ihåg att sätt en tillräckligt hög lägsta avgift. Om du använder PayPal kommer deras processeringsavgift bli tagen från försäljaren i tillägg till din transaktionsavgift. Stripe och PayPal har en aning olika avgiftsstrukturer. I de flesta fall är stripes avgifter en aning lägre.
       invalid_api_keys: "Ogiltig Stripe API nyckel"
       missing_api_keys: "Saknar Stripe API nyckel"
       stripe_verified: "Stripe API åtkomst verifierad"
@@ -582,11 +586,11 @@ sv:
       stripe_form:
         add_your_api_keys: "Lägg till dina Stripe API nycklar"
         how_to_get_these: "Hur får jag dessa?"
-        publishable_key_example: ~
-        secret_key_example: ~
+        publishable_key_example: "Till exempel: %{api_publishable_key_example}"
+        secret_key_example: "Till exempel: %{api_secret_key_example}"
         save_api_keys: "Spara Stripe API nycklar"
-        invalid_secret: ~
-        invalid_publishable: ~
+        invalid_secret: "Det där ser inte ut som en riktig %{secret_key}"
+        invalid_publishable: "Det där ser inte ut som en riktig %{publishable_key}"
       index:
         header: "Tillgängliga Betal Inställningar"
         info: "Du kan konfigurera tillgängliga betaltjänster för användning i din marknadsplats. Marknadsplatsen stöder PayPal och Stripe."
@@ -680,12 +684,18 @@ sv:
       link_to_paypal_text: här
     paypal_fee_info_new:
       title: "PayPal's betalningshanteringsavgift"
-      body_text: ~
-      body_text_accept: ~
+      body_text: |-
+          %{service_name} tar en serviceavgift på %{paypal_commission} för varje betalning gjord med PayPal. PayPals egna avgifter är inte inkluderade i denna avgift. I tillägg till %{service_name} serviceavgift betalar du även PayPals egna processeringsavgift för varje transaktion gjord via PayPal. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
+      body_text_accept: |-
+          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     paypal_only_fee_info:
       title: "PayPal's betalningshanteringsavgift"
-      body_text: ~
+      body_text: |-
+          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     stripe_fee_info:
       title: "Stripes betalningshanteringsavgift"
@@ -714,7 +724,6 @@ sv:
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's administrationsavgift</a>"
-      stripe_fee_info: "*Utesluter <a id='%{fee_info_link_id}' href='#'>Stripes betalningshanteringsavgift</a>"
       payment_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'> Hanteringsavgift </a>"
       shipping_price_label: "Frakt:"
       stripe-fee_label: Betalningshanteringsavgift
@@ -987,7 +996,7 @@ sv:
       service_fee: Serviceavgift
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som klar eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -1780,7 +1789,7 @@ sv:
       address_country: Land*
       address_name: Namn*
       address_city: Stad*
-      address_state: ~
+      address_state: Tillstånd*
       address_street1: "Gatuadress 1*"
       address_street2: "Gatuadress  2"
       address_postal_code: Postnummer*
@@ -2294,10 +2303,6 @@ sv:
         zero: användare
         one: användare
         other: användare
-      listing_conversation:
-        zero: transaktioner
-        one: transaktion
-        other: transaktioner
     previous_label: "&#8592; Föregående"
     next_label: "Nästa &#8594;"
     page_gap: "&hellip;"
@@ -2317,73 +2322,73 @@ sv:
     contact_admin_link_text: "kontakta marknadsplatsens administratör"
     you_are_ready_to_accept_payments: "Du är redo att ta emot betalningar!"
     commission: "%{commission}%"
-    pay_with_stripe: ~
+    pay_with_stripe: "Betala med Stripe och använd %{card}"
     add_and_pay: "Bekräfta betalning"
+    card_not_stored: ~
     missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalnings inställningar besök %{settings_link}."
     stripe_bank_connected: "Bankkonto detaljer konfigurerades framgångsrikt!"
     stripe_can_accept: "Du är nu redo att ta emot kreditkorts betalningar"
     stripe_only_hooray_title: "Hurra, allting är klart!"
-    stripe_credit_card: ~
+    stripe_credit_card: Kreditkort
     paypal: PayPal
     paypal_connected: "PayPal kontot är nu anslutet!"
     paypal_connected_give_permission: "För att slutföra anslutningen och börja ta emot pengar till ditt PayPal konto <%{email}>, vänligen tillåt att en serviceavgift tas."
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
-      country: ~
-      birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
-      tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
+      select_country: "Välj land...."
+      legal_name: Namn
+      country: Land
+      birth_date: Födelsedatum
+      ssn_last_4: "Personnumrets fyra sista tecken"
+      personal_id_number: "Personligt ID nummer"
+      address_country: Land
+      address_state: Län
+      address_city: Stad
+      address_postal_code: Postnummer
+      address_line1: Gatuadress
+      tos_link: "Genom att lägga till dina betaluppgifter accepterar du %{stripe_link}"
+      tos_link_title: "Stripes Connected Account Agreement"
+      save_details: Spara
+      edit: Redigera
+      cancel: Avbryt
     form_bank:
-      bank_account_number: ~
+      bank_account_number: Bankkontonummer
       bank_routing_number: ~
-      bank_routing_1: ~
+      bank_routing_1: Bankkod
       bank_routing_2: ~
-      bank_currency: ~
+      bank_currency: "Bankkontots valuta"
       messages:
-        account_number: ~
+        account_number: Kontonummer
         routing_number: ~
-        bank_code: ~
+        bank_code: Bankkod
         branch_code: ~
         transit_number: ~
         institution_number: ~
-        format_varies_by_bank: ~
+        format_varies_by_bank: "Format varierar beroende på bank"
         bsb: ~
-        error_message: ~
+        error_message: "Ogiltigt format"
         clearing_code: ~
         sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        must_match: "måste vara i följande format:"
+        a_dash: "ett bindestreck"
+        digits: siffror
+        digits_or_chars: "siffror eller bokstäverna A-Z"
     form_verification:
-      personal_id_number: ~
-      document: ~
-      send_verification: ~
-      need_verification: ~
+      personal_id_number: "Personligt ID nimmer"
+      document: Verifikationsnummer
+      send_verification: "Skicka verifikation"
+      need_verification: "Behöver ytterligare verifiering"
   payment_settings:
-    title: ~
+    title: Utbetalningsinställningar
     stripe_and_paypal_supported: "<p> Om du vill acceptera betalningar måste du ansluta åtminstone en av de två betalsystemen: Stripe och PayPal. Du kan välja att använda båda, vilket betyder att dina användare kan betala med någondera av betalningsmetoderna.</p>"
-    stripe_title: ~
-    paypal_title: ~
-    credit_card: ~
-    paypal: ~
-    credit_card_bank_details: ~
-    add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
+    paypal_title: "Koppla ditt PayPal konto"
+    bank_account: ~
+    paypal: PayPal
+    bank_account_details: ~
+    add_bank_details: "Lägg till bankdetaljer"
+    can_accept_stripe_and_paypal: "Du kan acceptera betalningar antingen via kreditkort, PayPal eller båda."
+    to_accept_paypal: "För att ta emot PayPal betalningar måste du koppla ditt PayPal konto så vi kan föra över pengar dit."
+    connect_paypal: "Koppla ditt PayPal konto"
     wrong_setup: "Det är något fel med marknadsplatsens betalsystem. Vänligen kontakta marknadsplatsens ägare."
-    invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    invalid_bank_account_number: "Vänligen kontrollera att ditt banknummer är skrivet rätt och matchar ditt valda land."
+    invalid_postal_code: "Ogiltig postnummer för %{country}"

@@ -703,7 +703,6 @@ zh:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "运费:"
       stripe-fee_label: ~
@@ -2267,8 +2266,6 @@ zh:
       person:
         zero: 用户
         other: 用戶
-      listing_conversation:
-        other: 交易
     previous_label: "&#8592;上一页"
     next_label: "下一页 &#8594;"
     page_gap: "&hellip;"
@@ -2288,6 +2285,7 @@ zh:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2344,11 +2342,10 @@ zh:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

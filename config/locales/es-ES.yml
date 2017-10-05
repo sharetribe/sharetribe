@@ -410,13 +410,13 @@ es-ES:
         send_test_email: "Mandar un correo de prueba a tu cuenta"
         test_sent: "El correo de prueba ha sido enviado"
         send_email_article_title: "este artículo"
-        send_email_article_text: ~
+        send_email_article_text: "Puedes aprender más acerca de los segmentos de usuarios en %{article_link}."
         recipients:
           title: "¿A quién le quieres enviar el correo?"
           options:
             all_users: "Todos los usuarios"
             with_listing: "Usuarios que han publicado por lo menos un anuncio"
-            with_listing_no_payment: ~
+            with_listing_no_payment: "Usuarios que han publicado por lo menos un anuncio pero que no han añadido sus detalles de pago"
             with_payment_no_listing: ~
             no_listing_no_payment: ~
         email_subject: Asunto
@@ -714,7 +714,6 @@ es-ES:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* No incluye <a id='%{fee_info_link_id}' href='#'> los costos de procesamiento de pago de PayPal</a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Costos de envío:"
       stripe-fee_label: ~
@@ -1590,11 +1589,11 @@ es-ES:
         mass: "pieza, kg, l, m2, ..."
         time: "hora, día, mes, ..."
         long_time: "semana, mes, ..."
-        after_service_fee_you_will_get: "Después de la comisión de servicio de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
+        after_service_fee_you_will_get: "Después de la comisión de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "La comisión de servicio de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio, cuando haya una transacción."
+        after_service_fee_you_will_get_paypal_text: "La comisión de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio."
         after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
         paypal_fee_info_link_text: "comisión de procesamiento de pago de PayPal"
@@ -2292,10 +2291,6 @@ es-ES:
         zero: usuarios
         one: usuario
         other: usuarios
-      listing_conversation:
-        zero: transacciones
-        one: transacción
-        other: transacciones
     previous_label: "&#8592; Anterior"
     next_label: "Siguiente &#8594;"
     page_gap: "&hellip;"
@@ -2317,6 +2312,7 @@ es-ES:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2373,11 +2369,10 @@ es-ES:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

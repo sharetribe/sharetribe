@@ -701,7 +701,6 @@ ka:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "არ შეიცავს <a id='%{fee_info_link_id}' href='#'> PayPal-ის გადახდის საფასურს </a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: გაგზავნა
       stripe-fee_label: ~
@@ -2271,9 +2270,6 @@ ka:
       person:
         zero: მომხმარებლები
         other: მომხმარებელი
-      listing_conversation:
-        zero: ტრანზაქციები
-        other: ტრანზაქცია
     previous_label: "&#8592 წინა"
     next_label: "შემდეგი &#8594"
     page_gap: "&hellip"
@@ -2293,6 +2289,7 @@ ka:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2349,11 +2346,10 @@ ka:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

@@ -340,7 +340,7 @@ vi:
             canceled: ~
             initiated: ~
             pending_ext: ~
-        not_available: "Không có sẵn"
+        not_available: "Lịch bận"
       paypal_account:
         paypal_admin_account: "Hệ thống thanh toán"
     custom_fields:
@@ -430,7 +430,7 @@ vi:
       preview: "Xem trước trang web"
     listing_shapes:
       availability_title: "Khả thi"
-      read_more: "Đọc thêm về quản lý tự động có sẵn."
+      read_more: "Đọc thêm về quản lý lịch làm việng tự động."
       read_more_availability_management: "Đọc thêm về quản lý có sẵn."
       allow_providers_to_manage_availability: "Cho phép các nhà cung cấp quản lý có sẵn từ lịch"
       per_day_availability: "lịch mỗi ngày"
@@ -705,7 +705,6 @@ vi:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* Không bao gồm <a id='%{fee_info_link_id}' href='#'> lệ phí thanh toán của PayPal </a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Vận chuyển:"
       stripe-fee_label: ~
@@ -1406,8 +1405,8 @@ vi:
       offer_rejected: "Hỗ trợ bị từ chối."
       offer_canceled: "Đề nghị bị hủy."
       listing_updated_successfully: "Cập nhật thành công"
-      listing_updated_availability_management_enabled: "Danh sách cập nhật thành công. Quản lý có sẵn đã được bật."
-      listing_updated_availability_management_disabled: "Danh sách cập nhật thành công. Quản lý có sẵn đã được tắt"
+      listing_updated_availability_management_enabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được bật."
+      listing_updated_availability_management_disabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được tắt"
       only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
       only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
@@ -1437,7 +1436,7 @@ vi:
       request_canceled: ~
       message_sent: "Đã gửi tin nhắn"
       message_not_sent: "Lỗi khi gửi tin nhắn. Vui lòng thử lại."
-      this_content_is_not_available_in_this_community: "Nội dung này là không có sẵn trong cộng đồng này."
+      this_content_is_not_available_in_this_community: "Nội dung này không tồn tại."
       unknown_error: "Lỗi không xác định. Xin vui lòng sử dụng liên kết phản hồi để gửi chi tiết những gì đã xảy ra."
       update_error: "Có lỗi xảy ra khi cố cập nhật thông tin của bạn, vui lòng thử lại"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bạn không được phân quyền để đưa ra thông tin phản hồi về sự kiện này"
@@ -1672,7 +1671,7 @@ vi:
       booking_to: Tới
       how_paypal_works: "Cách hoạt động của PayPal"
       payment_help: "Trợ giúp thanh toán"
-      unable_load_availability: "Không thể tải thông tin có sẵn. Vui lòng thử lại sau."
+      unable_load_availability: "Không thể tải lịch làm việc. Vui lòng thử lại sau."
     new:
       listing: "sản phẩm"
       selected_category: "Danh mục : %{category}"
@@ -2230,7 +2229,7 @@ vi:
         night: đêm
         week: tuần
         month: tháng
-      edit_availability_header: "Có sẵn"
+      edit_availability_header: "Lịch làm việc"
       save_and_close_availability_editing: "Lưu và đóng"
       confirm_discarding_unsaved_availability_changes_explanation: "Bạn có các thay đổi chưa lưu cho thông tin về tính khả dụng của bạn. Nếu bạn tiến hành, những thay đổi này sẽ bị mất."
       confirm_discarding_unsaved_availability_changes_question: "Bạn có chắc chắn muốn hủy thay đổi của mình không?"
@@ -2271,9 +2270,6 @@ vi:
       person:
         zero: "Người dùng"
         other: "Người dùng"
-      listing_conversation:
-        zero: "Giao dịch"
-        other: "Giao dịch"
     previous_label: "&#8592; Trước"
     next_label: "Kế tiếp &#8594;"
     page_gap: "&ba chấm;"
@@ -2293,6 +2289,7 @@ vi:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2349,11 +2346,10 @@ vi:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

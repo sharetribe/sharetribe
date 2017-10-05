@@ -689,9 +689,8 @@ he-IL:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: ~
-      stripe_fee_info: ~
       payment_fee_info: ~
-      shipping_price_label: "משלוח:"
+      shipping_price_label: משלוח
       stripe-fee_label: ~
     confirm:
       confirm_description: "אם ההזמנה שלך כבר התבצא אתה צריך לסמן זאת כמבוצע. לאחר מכן אתה יכול לתת משוב לצד השני."
@@ -741,7 +740,7 @@ he-IL:
     new:
       message: הודעה
       message_to: "הודעה ל‎%{author_name}‎"
-      optional_message_to: "הודעה אופציונלית אל ‎%{author_name}‎"
+      optional_message_to: "‎%{author_name}‎ הודעה אופציונלית אל"
       send_message: שלח
       send: שלח
       this_message_is_private: "הודעה זו היא פרטית בינך לבין ‎%{person}‎. ‎%{person}‎ יקבל הודעה על הודעה זו בדוא\"ל."
@@ -965,7 +964,7 @@ he-IL:
       money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: ~
-      shipping_total: "משלוח:"
+      shipping_total: משלוח
     braintree_new_payment:
       product: "מוצר:"
       price_payer_paid: "מחיר ‎%{payer_full_name}‎ שולם:"
@@ -1844,7 +1843,7 @@ he-IL:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: לתשלום
     checkout_with: ~
     or_pay_with_paypal: ~
     checkout_with_paypal: ~
@@ -1949,7 +1948,7 @@ he-IL:
       create_new_account: "צור חשבון חדש"
       i_forgot_my_password: "שכחתי שם משתמש או סיסמה"
       login: כניסה
-      login_to_kassi: "התחבר ל‎%{service_name}‎"
+      login_to_kassi: "התחבר ל‎%{service_name}  ‎"
       connect_your_facebook_to_kassi: "חבר את חשבון הפייסבוק שלך אל ‎%{service_name}‎"
       facebook_account: "חשבון פייסבוק:"
       log_in_to_link_account: "אם כבר יש לך חשבון ‎%{service_name}‎, היכנס כדי לקשר אותו לחשבון פייסבוק שלך."
@@ -2187,7 +2186,7 @@ he-IL:
       price_per_night: "מחיר ללילה:"
       quantity: ~
       subtotal: ~
-      shipping-price: "משלוח:"
+      shipping-price: משלוח
       stripe-fee: ~
     price_per_quantity: "‎%{unit_type}‎ מחיר ל"
     price: "מחיר:"
@@ -2248,11 +2247,6 @@ he-IL:
       create_own: ~
       learn_more: ~
   will_paginate:
-    models:
-      listing_conversation:
-        zero: עסקאות
-        one: עסקאות
-        other: עסקאות
     previous_label: ~
     next_label: ~
     page_gap: ~
@@ -2266,6 +2260,7 @@ he-IL:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2322,11 +2317,10 @@ he-IL:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

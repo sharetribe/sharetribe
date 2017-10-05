@@ -719,7 +719,6 @@ nl:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>PayPals betaling verwerkingskosten </a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Verzenden:"
       stripe-fee_label: ~
@@ -2297,10 +2296,6 @@ nl:
         zero: gebruikers
         one: gebruiker
         other: gebruikers
-      listing_conversation:
-        zero: transacties
-        one: transactie
-        other: transacties
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"
     page_gap: "&hellip;"
@@ -2322,6 +2317,7 @@ nl:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2378,11 +2374,10 @@ nl:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

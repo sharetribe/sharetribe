@@ -710,7 +710,6 @@ da-DK:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* Eksklusiv <a id='%{fee_info_link_id}' href='#'>PayPal-gebyr</a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Levering:"
       stripe-fee_label: ~
@@ -2290,10 +2289,6 @@ da-DK:
         zero: brugere
         one: bruger
         other: brugere
-      listing_conversation:
-        zero: transaktioner
-        one: transaktion
-        other: transaktioner
     previous_label: "&#8592; <- Før"
     next_label: "Næste &#8594;"
     page_gap: "&hellip;"
@@ -2315,6 +2310,7 @@ da-DK:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2371,11 +2367,10 @@ da-DK:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
