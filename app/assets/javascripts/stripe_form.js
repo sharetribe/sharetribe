@@ -21,7 +21,7 @@ window.ST.stripe_form_i18n = {
 
   var BANK_RULES = {
     AU: { 
-      account_number: { format: '12345678', regexp: '[0-9]{8}', test_regexp: '[0-9][9]'}, 
+      account_number: { format: '123456789', regexp: '[0-9]{9}', test_regexp: '[0-9][9]'}, 
       routing_number: { title: 'bsb',  format: '123456', regexp: '[0-9]{6}', test_regexp: '[0-9]{6}'} 
     },
     AT: { 
