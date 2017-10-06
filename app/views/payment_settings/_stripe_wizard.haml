@@ -3,10 +3,6 @@
     - if !paypal_enabled
       .row
         .col-12
-          %h3.paypal-wizard-step-complete
-            = t("stripe_accounts.stripe_only_hooray_title")
-      .row
-        .col-12
           %h3.paypal-account-connected
             =icon_tag("check", ["icon-fix"])
             =t("stripe_accounts.stripe_bank_connected")
@@ -18,9 +14,9 @@
         .col-12
           %h3.paypal-account-connected
             =icon_tag("check", ["icon-fix"])
-            =t("stripe_accounts.stripe_credit_card")
-            %br
             =t("stripe_accounts.stripe_bank_connected")
+          %p
+            =t("stripe_accounts.stripe_can_accept")
 
     .row
       = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
