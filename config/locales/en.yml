@@ -2341,13 +2341,13 @@ en:
     pay_with_stripe: "Pay with Stripe using %{card}"
     add_and_pay: "Confirm payment"
     card_not_stored: "Your payment is securely processed by Stripe. %{service_name} does not store your credit/debit card information."
-    missing_payment: "You have open listings but your account is not set up to receive payments. To configure your payment preferences, visit %{settings_link}"
+    missing_payment: "You have open listings but your account is not set up to receive money. To configure your payment preferences, visit %{settings_link}"
     stripe_bank_connected: "Bank account details configured successfully!"
-    stripe_can_accept: "You're now all set to accept credit card payments"
-    stripe_only_hooray_title: "Hooray, everything is set up!"
+    stripe_can_accept: "You are now all set to receive money to your bank account"
     stripe_credit_card: "Credit card"
     paypal: PayPal
     paypal_connected: PayPal account connected successfully!
+    paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
 
     form_new:
