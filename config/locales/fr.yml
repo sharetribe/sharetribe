@@ -1054,7 +1054,7 @@ fr:
       transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
-      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé %{listing_title} pour %{requester}."
+      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la command \"%{listing_title}\" pour %{requester}."
       if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, %{requester} ne sera facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
@@ -2329,11 +2329,11 @@ fr:
     card_not_stored: "Votre paiement est sécurisé et géré par Stripe. %{service_name} ne collecte pas votre numéro de carte bancaire."
     missing_payment: "Vous avez des annonces actives mais votre compte n'est pas encore configuré pour recevoir des paiements. Veuillez configurer vos paramètres de paiements depuis vos %{settings_link}."
     stripe_bank_connected: "Détails du compte en banque correctement configurés !"
-    stripe_can_accept: "Vous êtes désormais prêt à recevoir des paiements par carte bancaire"
-    stripe_only_hooray_title: "Bravo, tout est configuré !"
+    stripe_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte en banque"
     stripe_credit_card: "Carte bancaire"
     paypal: PayPal
     paypal_connected: "Compte PayPal connecté avec succès"
+    paypal_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte PayPal"
     paypal_connected_give_permission: "Pour terminer la configuration et recevoir des paiements sur votre compte PayPal <%{email}>, veuillez autoriser le prélèvement de frais de service."
     form_new:
       need_info: "Nous avons besoin de quelques informations pour pouvoir vous transférer votre argent."

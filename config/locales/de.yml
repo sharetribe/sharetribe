@@ -2316,10 +2316,10 @@ de:
     missing_payment: "Du hast offene Angebote, aber du hast die Zahlungseinstellungen für dein Konto nicht eingerichtet. Um die Einstellungen einzurichten, gehe zu %{settings_link}"
     stripe_bank_connected: "Kontodetails erfolgreich eingerichtet!"
     stripe_can_accept: "Du bist jetzt bereit, Zahlungen mit Kreditkarten entgegenzunehmen"
-    stripe_only_hooray_title: "Super! Alles ist fertig eingerichtet!"
     stripe_credit_card: Kreditkarte
     paypal: PayPal
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
+    paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
