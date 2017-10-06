@@ -50,6 +50,7 @@ fr:
           paypal:
             title: "Étape 5 : configurer le système de paiement"
             description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal (vous recevrez une commission sur chaque transaction). Une fois connecté, vous devrez choisir un montant minimal de transaction et vos frais de service."
+            description_p1_stripe_paypal: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter une plateforme de paiement (vous recevrez une commission sur chaque transaction). Sharetribe supporte à la fois Stripe et PayPal. Une fois connecté, vous devrez définir vos frais de service (commission)."
             description_p2: "Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
             info_image_alt: "Une copie d'écran de la page de configuration des paiements"
             disable_payments: "Désactiver les paiements"
@@ -58,7 +59,9 @@ fr:
             advice:
               content: "Vous pouvez en apprendre plus sur la désactivation du système de paiement dans %{disable_payments_link}."
               disable_payments_link: "cet article"
-              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+              disable_payments_alt: "Comment désactiver les paiements dans votre place de marché"
+              content_paypal_stripe: "En savoir plus sur comment désactiver les paiement dans %{disable_payments_link} ou lire plus de détails sur %{stripe_paypal_link}."
+              stripe_paypal_link: "le système de paiement en ligne, Stripe et PayPal"
           slogan_and_description:
             title: "Étape 2 : écrire un slogan et une description"
             description: "Le slogan et la description aident les nouveaux visiteurs à comprendre ce qu'est votre place de marché. C'est la première chose que verront vos utilisateurs en arrivant sur votre site, donc essayez de les rendre clairs et percutants."
@@ -119,9 +122,10 @@ fr:
           title: "Magnifique !"
           body: "Maintenant concentrons nous sur une autre fonctionnalité. Les champs d'annonces et les filtres structurent votre place de marché et aident vos utilisateurs à trouver ce qu'ils cherchent."
           button: "Ajouter des champs et des filtres"
-        paypal:
+        payment:
           title: "Parfait !"
           body: "Ensuite, vous pouvez configurer le système de paiement ! Pour permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal. Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
+          body_stripe: "Ensuite, vous pouvez configurer le système de paiement ! Pour permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte Stripe ou PayPal. Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
           button: "Configurer les paiements"
         listing:
           title: "Super travail !"

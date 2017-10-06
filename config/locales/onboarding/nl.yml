@@ -12,11 +12,11 @@ nl:
               content1: "Lees %{link} over waar je goede foto's kunt vinden die je gratis kunt gebruiken."
               content2: "Let op: de afbeelding zal worden aangepast naar %{width}x%{height} pixels. Van te grote afbeeldingen zal de boven- en onderkant worden afgesneden."
               link: "onze gids"
-              alt: "How to get good-looking cover photos, logos, favicon, profiles and listing pictures?"
+              alt: "Hoe krijg ik mooie cover-, logos, favicon, profiel- of advertentieafbeeldingen?"
           filter:
             title: "Stap 4: Voeg item velden en filters toe"
             description:
-              content: "Item velden bepalen de structuur van je marktplaats. Bijvoorbeeld, als je een marktplaats bouwt voor tweedehands schoenen, dan wil je waarschijnlijk wel een filter voor schoenmaat toevoegen. De verkoper zal dan de schoenmaat moeten toevoegen als deze een paar schoenen te koop aanbiedt. Als je de kopers het aanbod op schoenmaat wil laten filteren, tik dan de box %{display_on_homepage} aan, wanneer je het veld creëert."
+              content: "Item velden bepalen de structuur van je marktplaats. Bijvoorbeeld, als je een marktplaats bouwt voor tweedehands schoenen, dan wil je waarschijnlijk wel een filter voor schoenmaat toevoegen. De verkoper zal dan de schoenmaat moeten toevoegen als deze een paar schoenen te koop aanbiedt. Als je de kopers het aanbod op schoenmaat wil laten filteren, tik dan de box %{display_on_homepage} aan, wanneer je het veld creÃ«ert."
               display_on_homepage: "Toon een filter gebaseerd op dit veld, op de home pagina"
             info_image_alt: "Een screenshot van een pagina met item velden en filters"
             add_fields_and_filters: "Voeg item velden en filters toe"
@@ -50,6 +50,7 @@ nl:
           paypal:
             title: "Stap 5: Accepteer betalingen"
             description_p1: "Als je je leveranciers online betalingen wilt laten ontvangen (en jijzelf commissie van iedere transactie wilt ontvangen), dan dien je je PayPal account te koppelen. Eenmaal gekoppeld, dien je een minimale transactie prijs en een commissie kiezen."
+            description_p1_stripe_paypal: "Als je je gebruikers online betalingen wilt laten gebruiken (en als jijzelf commissie wilt ontvangen), dan dien je een betalingsservice te koppelen. Sharetribe ondersteunt zowel Stripe and Paypal (%{not_sure_link}). Na het koppelen van een service, dien je je commissie percentage te kiezen."
             description_p2: "Je kunt ook kiezen om online betalingen voorlopig uit te schakelen."
             info_image_alt: "Een screenshot van de betalingen-pagina"
             disable_payments: "Schakel betalingen uit"
@@ -58,7 +59,9 @@ nl:
             advice:
               content: "Meer over het uitschakelen van betalingen in %{disable_payments_link}."
               disable_payments_link: "dit artikel"
-              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+              disable_payments_alt: "Hoe schakel je online betalingen uit?"
+              content_paypal_stripe: "Lees meer over het uitschakelen van betalingen in %{disable_payments_link} of lees meer over %{stripe_paypal_link}."
+              stripe_paypal_link: "online betalingen, Stripe en Paypal"
           slogan_and_description:
             title: "Stap 2: Slogan & beschrijving"
             description: "De slogan & beschrijving helpen nieuwe bezoekers te begrijpen wat je marktplaats te bieden heeft. Dit zijn de eerste dingen die bezoekers zien als ze je site bezoeken, dus hou het kort en bondig."
@@ -82,12 +85,12 @@ nl:
             congratulation_p2:
               content: "Als je meer wilt leren over hoe je je marktplaats bedrijf opbouwt, raden we je onze %{marketplace_guide_link} aan."
               marketplace_guide_link: "practical guide for building an online marketplace business"
-              marketplace_guide_alt: "link to marketplace academy"
+              marketplace_guide_alt: "link naar de Marketplace Academy"
             congratulation_p3:
               content: "Als je nog vraag hebt, neem dan contact op met %{contact_support_link}, we staan altijd klaar om te helpen."
               contact_support_link: "onze support"
               contact_support_title: "Support"
-            create_your_marketplace: "Creëer je marktplaats"
+            create_your_marketplace: "CreÃ«er je marktplaats"
             slogan_and_description: "Voeg een slogan en beschrijving toe"
             cover_photo: "Upload een cover afbeelding"
             filter: "Voeg velden & filters toe"
@@ -119,9 +122,10 @@ nl:
           title: "Ziet er goed uit!"
           body: "Nu gaan we aan de functionaliteit werken. Item velden en filters geven structuur aan je marktplaats en helpen je bezoekers te vinden waar zij voor komen."
           button: "Voeg velden & filters toe"
-        paypal:
+        payment:
           title: "Super, goed bezig! "
           body: "Hierna: de betalingen van je marktplaats in- of uitschakelen. Om leveranciers online betalingen te laten ontvangen, koppel dan je PayPal account. Je kunt betalingen ook voorlopig uitschakelen."
+          body_stripe: "Als volgende stap, stel je marktplaats in voor online betalingen. Als je je leveranciers online betalingen wilt laten ontvangen, die je een PayPal of Stripe account te koppelen. Als alternatief, kun je ook tijdelijk online betalingen uitschakelen."
           button: "Betalingen instellen"
         listing:
           title: "Goed gedaan!"

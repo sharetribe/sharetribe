@@ -50,6 +50,7 @@ fi:
           paypal:
             title: "Vaihe 5: Aktivoi maksujärjestelmä"
             description_p1: "Mikäli haluat antaa myyjiesi vastaanottaa maksuja verkossa, sinun tulee yhdistää PayPal-tilisi. Saat välityspalkkion jokaisesta kaupasta. Kun olet yhdistänyt tilisi, sinun tulee määritellä maksutapahtuman minimikoko sekä välityspalkkiosi."
+            description_p1_stripe_paypal: "Jos haluat antaa käyttäjiesi maksaa ja vastaanottaa maksuja verkossa ja mahdollisesti veloittaa välityspalkkion myynneistä, sinun pitää valita maksunvälittäjä. Sharetribe tukee kahta maksunvälittäjää, Stripea ja PayPalia (%{not_sure_link}). Valittuasi maksunvälittäjän sinun tulee vielä valita välityspalkkiosi suuruus."
             description_p2: "Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
             info_image_alt: "Kuvankaappaus maksusivulta"
             disable_payments: "Kytke maksujärjestelmä pois päältä"
@@ -59,6 +60,8 @@ fi:
               content: "Voit lukea lisää maksujärjestelmän kytkemisestä pois päältä %{disable_payments_link}."
               disable_payments_link: "tästä ohjeesta"
               disable_payments_alt: "Miten kytken maksujärjestelmän pois päältä tai sallin ilmaisia ilmoituksia markkinapaikallani"
+              content_paypal_stripe: "Lue lisää maksujärjestelmän kytkemisestä pois päältä %{disable_payments_link} tai lue lisää %{stripe_paypal_link}."
+              stripe_paypal_link: "verkkomaksuista, Stripesta ja Paypalista"
           slogan_and_description:
             title: "Vaihe 2: Lisää slogan & kuvaus"
             description: "Slogan sekä kuvaus auttavat uusia vierailijoita saamaan ensivaikutelman siitä, mitä markkinapaikkasi tarjoaa. Ne ovat ensimmäiset asiat, jotka vieraat huomaavat sivullasi, joten pyri tekemään niistä hyvin kuvaavat, mutta silti lyhyet ja ytimekkäät."
@@ -119,9 +122,10 @@ fi:
           title: "Hyvältä näyttää!"
           body: "Nyt voimmekin keskittyä toiminnallisuuteen. Ilmoituskentät ja suodattimet määrittelevät markkinapaikkasi rakenteen ja auttavat asiakkaitasi löytämään tarvitsemansa tuotteet."
           button: "Lisää ilmoituskenttiä & suodattimia"
-        paypal:
+        payment:
           title: "Hyvää työtä!"
-          body: "Seuraavaksi voit aktivoida maksujärjestelmän markkinapaikallasi! Antaaksesi myyjien vastaanottaa maksuja, sinun tulee yhdistää PayPal-tilisi. Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
+          body: "Seuraavaksi voit aktivoida maksujärjestelmän markkinapaikallasi! Antaaksesi myyjien vastaanottaa maksuja sinun tulee yhdistää PayPal-tilisi. Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
+          body_stripe: "Seuraavaksi voit aktivoida maksujärjestelmän markkinapaikallasi! Antaaksesi myyjien vastaanottaa maksuja sinun tulee yhdistää PayPal- tai Stripe-tilisi. Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
           button: "Aktivoi maksujärjestelmä"
         listing:
           title: "Hienosti tehty!"

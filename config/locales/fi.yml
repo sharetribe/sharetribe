@@ -233,7 +233,7 @@ fi:
         last_community_updates: "Huomaathan, että poiston jälkeen sinä ja markkinapaikkasi käyttäjät saattavat saada vielä viimeiset sivustosi lähettämät automaattiset uutiskirjeet sähköpostiinsa."
         you_will_be_redirected_to: "Kun olet poistanut markkinapaikkasi, sinut siirretään osoitteeseen %{destination}. Sinulla ei ole enää tämän jälkeen pääsyä markkinapaikkaasi."
         delete_this_marketplace: "Poista tämä markkinapaikka"
-        payment_preferences: ~
+        payment_preferences: Maksujärjestelmä
       manage_members:
         manage_members: "Hallitse käyttäjiä"
         email: Sähköposti
@@ -322,29 +322,29 @@ fi:
           initiated: "Odottaa maksua"
           pending_ext: "Odottaa maksun hyväksyntää"
           none:
-            free: ~
+            free: Keskustelu
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Keskustelu
+            pending: "Odottaa hyväksyntää"
+            preauthorized: "Katevaraus tehty"
+            accepted: Hyväksytty
+            rejected: Hylätty
+            paid: Maksettu
+            confirmed: Vahvistettu
+            canceled: Peruutettu
+            initiated: "Odottaa PayPal-maksua"
+            pending_ext: "Odottaa PayPal-maksua"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Keskustelu
+            pending: "Odottaa hyväksyntää"
+            preauthorized: "Katevaraus tehty"
+            accepted: Hyväksytty
+            rejected: Hylätty
+            paid: Maksettu
+            confirmed: Vahvistettu
+            canceled: Peruutettu
+            initiated: "Odottaa Stripe-maksua"
+            pending_ext: "Odottaa Stripe-maksua"
         not_available: "Ei saatavilla"
       paypal_account:
         paypal_admin_account: Maksuasetukset
@@ -406,19 +406,19 @@ fi:
         send_email_to_members: "Lähetä sähköpostiviesti käyttäjille"
         send_email_to_members_title: "Lähetä sähköpostiviesti kaikille palvelun käyttäjille"
         send_email: "Lähetä viesti"
-        send_email_or: ~
-        send_test_email: ~
-        test_sent: ~
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_or: tai
+        send_test_email: "Lähetä testisähköposti itsellesi"
+        test_sent: "Testisähköposti lähetetty"
+        send_email_article_title: "tämä artikkeli"
+        send_email_article_text: "Lisätietoa käyttäjäsegmenteistä: %{article_link}"
         recipients:
-          title: ~
+          title: "Kenelle haluat lähettää sähköpostia?"
           options:
-            all_users: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            all_users: "Kaikille käyttäjille"
+            with_listing: "Käyttäjille jotka ovat lisänneet ainakin yhden ilmoituksen"
+            with_listing_no_payment: "Käyttäjille jotka ovat jättäneet ainakin yhden ilmoituksen mutta eivät ole lisänneet maksutietojaan"
+            with_payment_no_listing: "Käyttäjille jotka ovat lisänneet maksutietonsa mutta eivät ole jättäneet yhtään ilmoitusta"
+            no_listing_no_payment: "Käyttäjät jotka eivät ole jättäneet ilmoitusta eivätkä lisänneet maksutietojaan"
         email_subject: "Viestin otsikko"
         email_content: "Viestin sisältö"
         email_content_placeholder: "Mitä haluat kertoa jäsenille?"
@@ -532,8 +532,8 @@ fi:
       integration_info_text: "Markkinapaikkasi maksut toimivat PayPalin kautta. Jos haluat, että käyttäjäsi voivat suorittaa maksun sivustosi kautta, sinun pitää yhdistää PayPal-tilisi ja päättää veloittamasi välityspalkkion suuruus sekä ilmoituksen minimihinta."
       link_paypal_personal_account_label: "Aiotko lisätä tavaroita tai palveluita tarjolle myös itse?"
       link_paypal_personal_account: "Jos aiot, sinun pitää yhdistää PayPal-tiliisi myös %{personal_payment_preferences_link}."
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "Tällöin sinun pitää lisäksi lisätä pankkitietosi %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "Tällöin sinun pitää lisäksi yhdistää PayPal-tilisi tai lisätä pankkitilitietosi %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "omiin käyttäjätietoihisi"
       read_more_about_paypal: "Lue lisää maksujärjestelmästä"
       edit_payment_settings: "Muokkaa maksuasetuksia"
@@ -547,56 +547,62 @@ fi:
       minimum_listing_price_below_tx_fee: "Maksutapahtuman minimikoon tulee olla vähintään minimipalkkio, eli %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Maksutapahtuman minimikoon tulee olla suurempi kuin minimipalkkion, eli %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      title: "Maksujärjestelmän asetukseet"
+      general_settings: "1. Yleiset asetukset"
+      connect_a_payment_provider: "2. Yhdistä maksunvälittäjä"
+      contact_support: "ota yhteys ylläpitoon"
+      no_payments_link_text: täältä
+      your_country: "Maa jossa asut:"
+      you_cannot_use_online_payments: "Et voi käyttää verkkomaksuja maassa %{country_name} valuutalla %{currency}. Ole hyvä ja valitse toinen valuutta tai %{support_link} vaihtaaksesi markkinapaikkasi maan. Voit lukea lisää Sharetriben tukemista maista ja valuutoista %{help_link}. Tulevaisuudessa saatamme lisätä uusia maksunvälittäjiä ja tukea useampia valuuttoja."
+      which_to_choose: "Kumpi kannattaa valita?"
+      you_can_use_stripe_or_paypal: "Voit käyttää joko Stripea, PayPalia tai molempia maksunvälittäjinäsi. %{choose_link}"
+      you_can_use_stripe_only: "Voit käyttää Stripea maksunvälittäjänäsi. %{read_more_link}"
+      read_more_stripe: "Lue lisää Stripe-maksuista."
+      you_can_use_paypal_only: "Voit käyttää PayPalia maksunvälittäjänäsi. %{read_more_link}"
+      read_more_paypal: "Lue lisää PayPal-maksuista"
+      read_more_about_paypal_and_stripe: "Lue lisää verkkomaksuista, Stripesta ja PayPalista"
+      general_settings_updated: "Maksujärjestelmän yleisasetukset tallennettu"
+      transaction_fee_settings_updated: "Välityspalkkioiasetukset tallennettu"
+      choose_popup_text: |-
+          Jos haluat antaa käyttäjiesi hyväksyä verkkomaksuja, sinun pitää valita markkinapaikkasi valuutta ja sen jälkeen kytkeä ainakin yksi kahdesta Sharetriben tukemasta maksunvälittäjästä: Stripe tai PayPal. Voit myös käyttää molempia, mikä tarkoittaa, että käyttäjäsi voivat ottaa vastaan maksuja kummalla tahansa näistä maksunvälittäjistä.
+          Voit luoda uuden käyttäjätilin näihin palveluihin jos sinulla ei sellaista vielä ole. Kun olet yhdistänyt Stripe- tai PayPal-tilisi Sharetribe-sivustoosi, voit valita mahdollisen maksutapahtumasta veloittamasi välityspalkkion.
+          Mitä eroa on Stripella ja PayPalilla? Stripe antaa sinun pitää rahoja tililläsi jopa kolmen kuukauden ajan ennen niiden siirtämistä myyjälle, ja tarjoaa yhden maksutavan (luottokortti). Stripellä käyttäjäsi voivat vastaanottaa rahaa suoraan pankkitililleen antamalla tilinumeronsa, eikä heidän tarvitse luoda erillistä Stripe-tiliä. PayPal tarjoaa kaksi maksutapaa (luottokortti ja PayPal-tili) ja tarjoaa "protection program" -ohjelman, joka auttaa ostajia ja myyjiä ongelmatilanteissa. Jos käytät PayPalia, käyttäjäsi joutuvat luomaan PayPal Business -tilin, jotta voivat vastaanottaa maksuja.
+          Jos käytät Stripeä, sen veloittamat maksut vähennetään välityspalkkiostasi, joten muista asettaa riittävän suuri minimipalkkio. Jos käytät PayPalia, se veloittaa hintansa käyttäjiltäsi, joten voit asettaa oman välityspalkkiosi hieman pienemmäksi. Stripen ja PayPalin hinnastot ovat hieman erilaiset, mutta useimmissa tapauksissa Stripe on hieman halvempi.
+      invalid_api_keys: "Väärät Stripen API-avaimet"
+      missing_api_keys: "Stripen API-avaimet puuttuvat"
+      stripe_verified: "Stripen API-yhteys toiminnassa"
+      change_settings: "Muuta asetuksia"
+      configure_stripe: "Ota Stripe käyttöön"
+      configure_paypal: "Ota PayPal käyttöön"
+      transaction_fee_settings: Välityspalkkioasetukset
+      transaction_fee_save: Tallenna
+      stripe_fee: "Stripen veloittamat maksut"
+      stripe_fee_notice: "%{stripe_fee_link} vähennetään välityspalkkiostasi."
+      fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
       stripe_connected:
-        title: ~
+        title: "Stripe yhdistetty"
       paypal_connected:
-        title: ~
+        title: "PayPal yhdistetty"
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        add_your_api_keys: "Lisää Stripen API-avaimet"
+        how_to_get_these: "Mistä nämä löytyvät?"
+        publishable_key_example: "Esimerkiksi: %{api_publishable_key_example}"
+        secret_key_example: "Esimerkiksi: %{api_secret_key_example}"
+        save_api_keys: "Tallenna Stripen API-avaimet"
+        invalid_secret: "%{secret_key} ei näytä oikeanlaiselta"
+        invalid_publishable: "%{publishable_key} ei näytä oikeanlaiselta"
       index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
+        header: "Tarjolla olevat maksuasetukset"
+        info: "Voit valita, mitä maksunvälittäjiä markkinapaikassasi käytetään. Tällä hetkellä Sharetribe tukee PayPalia ja Stripea."
+        active: Aktiivinen
+        gateway: Maksunvälittäjä
+        process: Prosessi
+        commission: Välityspalkkio
+        minimum_price: Minimihinta
+        minimum_fee: Minimipalkkio
+        api_verified: "API yhdistetty?"
+        actions: Toimenpiteet
+        payments_not_enabled: "Verkkomaksut eivät ole käytössä markkinapaikallasi"
     transaction_types:
       sell: Myydään
       rent: "Annetaan vuokralle"
@@ -662,11 +668,11 @@ fi:
     what_is_this: "Mitä tämä tarkoittaa?"
     removed_user: "Käyttäjä poistettu"
     payment_fee_info:
-      title: ~
-      title_paypal: ~
-      stripe: ~
-      paypal: ~
-      info: ~
+      title: Palvelumaksu
+      title_paypal: "PayPalin välityspalkkio"
+      stripe: Stripe
+      paypal: PayPal
+      info: "%{service_name} käyttää maksunvälittäjänä joka Stripea tai PayPalia. Molemmat veloittavat palvelumaksun jokaisesta maksutapahtumasta."
     paypal_fee_info:
       title: "PayPalin käsittelymaksu"
       body_text: |-
@@ -677,18 +683,24 @@ fi:
           Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla %{link_to_paypal}. Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
       link_to_paypal_text: "tätä linkkiä"
     paypal_fee_info_new:
-      title: ~
-      body_text: ~
-      body_text_accept: ~
-      link_to_paypal_text: ~
+      title: "PayPalin palvelumaksu"
+      body_text: |-
+          PayPal-maksuista %{service_name} veloittaa %{paypal_commission}%:n välityspalkkion. PayPalin palvelumaksu ei ole mukana tässä välityspalkkiossa, eli välityspalkkion lisäksi sinun pitää maksaa myös PayPalin palvelumaksu jokaisesta PayPalin kautta kulkevasta maksusta. PayPalin palvelumaksu on välillä 2%-5% kokonaishinnasta, riippuen myyntivolyymistäsi ja ostajan kotimaasta. Tyypillisesti kotimaiset maksut ovat halvempia kuin kansainväliset, ja suurempi myyntivolyymi tuo sinulle alennuksen palvelumaksusta.
+          Voit nähdä tarkan hinnaston kirjautumalla sisään PayPal-tilillesi ja menemällä %{link_to_paypal}. Jokaisen maksutapahtuman jälkeen saat sähköpostitse kuitin, jossa näytetään palvelumaksun tarkka suuruus.
+      body_text_accept: |-
+          Tämä maksu välitetään PayPalin kautta. PayPal veloittaa palvelumaksun jokaisesta sen kautta kulkevasta maksusta. Palvelumaksun suuruus on 2%-5% kokonaishinnasta, riippuen kuukausittaisesta myyntivolyymistasi sekä ostajan kotimaasta. Tyypillisesti kotimaiset ostot ovat halvempia kuin ulkomaiset, ja suuri myyntivolyymi tuo sinulle alennuksen palvelumaksusta.
+          Voit nähdä tarkan hinnaston kirjautumalla PayPal-tilillesi ja menemällä %{link_to_paypal}.Jokaisen ostotapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään tarkka palvelumaksu.
+      link_to_paypal_text: tänne
     paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
+      title: "PayPalin palvelumaksu"
+      body_text: |-
+          %{service_name} käyttää PayPalia maksunvälittäjänään. PayPal veloittaa palvelumaksun jokaisesta sen kautta kulkevasta maksusta. Palvelumaksun suuruus on 2%-5% kokonaishinnasta, riippuen kuukausittaisesta myyntivolyymistasi sekä ostajan kotimaasta. Tyypillisesti kotimaiset ostot ovat halvempia kuin ulkomaiset, ja suuri myyntivolyymi tuo sinulle alennuksen palvelumaksusta. 
+          Voit nähdä tarkan hinnaston kirjautumalla PayPal-tilillesi ja menemällä %{link_to_paypal}.Jokaisen ostotapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään tarkka palvelumaksu.
+      link_to_paypal_text: tänne
     stripe_fee_info:
-      title: ~
-      body_text: ~
-      link_to_stripe_text: ~
+      title: "Stripen palvelumaksu"
+      body_text: "Stripe-maksuista %{service_name} veloittaa %{stripe_commission}%:n välityspalkkion. Stripen palvelumaksu sisältyy tähän välityspalkkioon."
+      link_to_stripe_text: tänne
   conversations:
     accept:
       details: "Tilauksen tiedot"
@@ -709,13 +721,12 @@ fi:
       you_will_get_label: "Sinä saat:"
       total_label: "Loppusumma:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
-      stripe_fee_info: ~
-      payment_fee_info: ~
+      payment_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>maksunvälittäjän palvelumaksua</a>"
       shipping_price_label: "Postikulut:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Maksunvälittäjän palvelumaksu"
     confirm:
       confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
       cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
@@ -962,30 +973,30 @@ fi:
       quantity: "Määrä:"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      payment_gateway_fee: "Maksunvälittäjän palvelumaksu:"
+      shipping_total: "Toimitus:"
+      product: "Tuote:"
+      price_payer_paid: "Hinta jonka %{payer_full_name} maksoi:"
+      service_fee: "%{service_name} välityspalkkio:"
+      you_will_get: "Loppusumma:"
+      new_payment: "Olet saanut uuden maksusuorituksen"
+      price_per_unit_type: "Hinta per %{unit_type}"
+      quantity: "Määrä:"
+      you_have_received_new_payment: "Käyttäjä %{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuittisi."
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      receipt_of_payment: "Kuitti maksusta"
+      you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuitti maksusta."
+      product: Tuote
+      price_per_unit_type: "Hinta per %{unit_type}"
+      duration: Kesto
+      quantity: Määrä
+      subtotal: Välisumma
+      total: Loppusumma
+      price: Hinta
+      service_fee: Välityspalkkio
+      stripe_gateway_fee: "Stripen palvelumaksu"
+      paypal_gateway_fee: "PayPalin palvelumaksu"
+      money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     paypal_new_payment:
       paypal_gateway_fee: "PayPalin käsittelymaksu:"
       shipping_total: "Postitus:"
@@ -1005,8 +1016,8 @@ fi:
       total: Yhteensä
       price: Hinta
       service_fee: Palvelumaksu
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Stripe palvelumaksu"
+      paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
@@ -1043,7 +1054,7 @@ fi:
       transaction_requested_by_user: "Hyviä uutisia! %{requester} on kiinnostunut ilmoituksesta \"%{listing_title}\" ja tehnyt siitä katevarauksen."
       you_have_time_to_accept: "Sinun pitää hyväksyä tilaus viimeistään %{payment_expires_in} sisällä. Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Muussa tapauksessa tilaus hylätään automaattisesti eikä maksua veloiteta."
       if_you_do_accept: "Jos hyväksyt pyynnön määräajan puitteissa, rahat siirretään tilillesi välittömästi."
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "Jos hyväksyt tilauksen ennen määräaikaa, maksu veloitetaan ostajalta. Saat rahat suoraan pankkitilillesi heti, kun %{listing_title} on toimitettu käyttäjälle %{requester}."
       if_you_do_not_accept: "Jos hylkäät pyynnön tai et hyväksy sitä määräajan puitteissa, tilaus hylätään automaattisesti, käyttäjältä %{requester} ei veloiteta mitään etkä saa rahoja tilillesi."
       click_here_to_reply: "Klikkaa tästä vastaaksesi pyyntöön"
     transaction_preauthorized_reminder:
@@ -1094,7 +1105,7 @@ fi:
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
     stripe:
-      generic_error: ~
+      generic_error: "Maksuprosessissa tapahtui virhe. Stripe-maksua ei voitu käsitellä."
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -1492,8 +1503,8 @@ fi:
       notifications: Tiedotteet
       profile: "Profiilin tiedot"
       settings: Asetukset
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: PayPal-maksut
+      stripe_payments: Stripe-maksut
       payments: Maksutiedot
   listings:
     bubble_listing_not_visible:
@@ -1590,11 +1601,11 @@ fi:
         long_time: "vko, kk, ..."
         after_service_fee_you_will_get: "%{service_name} palvelumaksun ja maksujärjestelmän käsittelymaksun jälkeen sinä saat %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vähennetään hinnasta."
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
+        no_service_fee_you_will_get_payment_text: "Hinnasta vähennetään %{payment_fee_info_link}."
+        after_service_fee_you_will_get_payment_text: "Kun joku tekee uuden tilauksen, %{service_name}-palvelun välityspalkkio (%{sum_with_currency}) sekä %{payment_fee_info_link} vähennetään hinnasta."
         after_service_fee_you_will_get_paypal_text: "Kun joku tekee tilauksen, %{service_name}-palvelun palvelumaksu (%{sum_with_currency}) sekä %{paypal_fee_info_link} vähennetään hinnasta."
-        after_service_fee_you_will_get_stripe_text: ~
-        payment_fee_info_link_text: ~
+        after_service_fee_you_will_get_stripe_text: "Kun joku tekee uuden tilauksen, %{service_name}-palvelun välityspalkkio (%{sum_with_currency}) vähennetään hinnasta."
+        payment_fee_info_link_text: "maksunvälittäjän palvelumaksu"
         paypal_fee_info_link_text: "PayPalin käsittelymaksu"
         delivery: Kuljetustapa
         shipping: Postitus
@@ -1770,16 +1781,16 @@ fi:
     transaction_agreement_checkbox:
       read_more: "Lue lisää."
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Maksu
+      pay_with_card: "Maksa luottokortilla"
+      address: Toimitusosoite
+      address_country: "Maa *"
+      address_name: "Nimi *"
+      address_city: "Kaupunki *"
+      address_state: "Valtio *"
+      address_street1: "Katuosoite, rivi 1 *"
+      address_street2: "Katuosoite, rivi 2"
+      address_postal_code: Postinumero
   mapview:
     index:
       all_categories: "Kaikki kategoriat"
@@ -1823,7 +1834,7 @@ fi:
     contact_admin_link_text: "ota yhteys ylläpitoon"
     you_are_ready_to_accept_payments: "Olet nyt valmis ottamaan maksuja vastaan!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "En halua yhdistää PayPal-tiliä nyt"
     new:
       payout_info_you_need_to_connect: "Vastaanottaaksesi maksuja sinun täytyy yhdistää PayPal-tilisi %{service_name}-palveluun."
       payout_info_text: "Ole hyvä ja tee seuraavat asiat yhdistääksesi tilisi."
@@ -1870,8 +1881,8 @@ fi:
     paypal_permission_granted_summary: "Lupa palvelumaksujen veloitukseen myönnetty"
   paypal:
     pay_with_paypal: "Siirry maksamaan"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: Maksa
+    or_pay_with_paypal: tai
     checkout_with_paypal: "Maksa PayPal-tilillä"
     cancel_succesful: "PayPal maksu onnistuneesti peruttu."
     transaction:
@@ -2225,13 +2236,13 @@ fi:
       quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
-      stripe-fee: ~
+      stripe-fee: "Stripen palvelumaksu (arvio):"
     price_per_quantity: "Hinta per %{unit_type}:"
     price: "Hinta:"
     quantity: "Määrä: %{quantity}"
     unit_price: "Yksikköhinta: %{unit_price}"
     total: "Loppusumma:"
-    total_to_pay: ~
+    total_to_pay: "Kokonaissumma:"
   unit:
     day: päivä
     days: päivää
@@ -2291,10 +2302,6 @@ fi:
         one: käyttäjä
         few: käyttäjää
         other: käyttäjää
-      listing_conversation:
-        zero: tilausta
-        one: tilaus
-        other: tilausta
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
@@ -2310,77 +2317,77 @@ fi:
       multi_page: "Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count})."
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
   stripe_accounts:
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    pay_with_stripe: ~
-    add_and_pay: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_only_hooray_title: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
-    paypal_connected_give_permission: ~
+    admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
+    contact_admin_link_text: "ota yhteyttä ylläpitoon"
+    you_are_ready_to_accept_payments: "Voit nyt vastaanottaa maksuja!"
+    commission: "%{commission} %"
+    pay_with_stripe: "Maksa Stripellä käyttäen %{card}"
+    add_and_pay: "Vahvista maksu"
+    card_not_stored: ~
+    missing_payment: "Sinulla on avoimia ilmoituksia, mutta et ole vielä valinnut maksunvälittäjää, joten et voi ottaa maksuja vastaan. Päivitä maksuasetuksesi %{settings_link}"
+    stripe_bank_connected: "Tilitiedot asetettu onnistuneesti!"
+    stripe_can_accept: "Voit nyt vastaanottaa luottokorttimaksuja"
+    stripe_only_hooray_title: "Hienoa, yhdistäminen onnistui!"
+    stripe_credit_card: Luottokortti
+    paypal: PayPal
+    paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
+    paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
-      country: ~
-      birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
-      tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
+      select_country: "Valitse maa..."
+      legal_name: Nimi
+      country: Maa
+      birth_date: Syntymäaika
+      ssn_last_4: "Henkilötunnuksen 4 viimeistä numeroa"
+      personal_id_number: "Henkilökohtainen ID"
+      address_country: Maa
+      address_state: Valtio
+      address_city: Kaupunki
+      address_postal_code: Postinumero
+      address_line1: Katuosoite
+      tos_link: "Lisäämällä maksutietosi hyväksyt %{stripe_link}"
+      tos_link_title: "Stripe Connected Account Agreement -ehdot"
+      save_details: "Tallenna tiedot"
+      edit: "Muokkaa tietoja"
+      cancel: Peruuta
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_account_number: Tilinumero
+      bank_routing_number: Reititysnumero
+      bank_routing_1: "Pankin koodi"
+      bank_routing_2: "Pankin haaran koodi"
+      bank_currency: "Pankkitilin valuutta"
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
-        format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
-        clearing_code: ~
-        sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        account_number: Tilinumero
+        routing_number: Reititysnumero
+        bank_code: "Pankin koodi"
+        branch_code: "Pankin haaran koodi"
+        transit_number: Transit-numero
+        institution_number: "Insituution numero"
+        format_varies_by_bank: "Muoto vaihtelee pankkikohtaisesti"
+        bsb: BSB
+        error_message: "Väärä muoto"
+        clearing_code: Clearing-koodi
+        sort_code: Sort-koodi
+        must_match: "täytyy olla seuraavassa muodossa:"
+        a_dash: väliviiva
+        digits: numeroa
+        digits_or_chars: "numeroa tai kirjaimia A-Z"
     form_verification:
-      personal_id_number: ~
-      document: ~
-      send_verification: ~
-      need_verification: ~
+      personal_id_number: "Henkilökohtainen ID"
+      document: Vahvistusdokumentti
+      send_verification: "Lähetä vahvistus"
+      need_verification: "Lisävahvistus tarvitaan"
   payment_settings:
-    title: ~
-    stripe_and_paypal_supported: ~
-    stripe_title: ~
-    paypal_title: ~
-    credit_card: ~
-    paypal: ~
-    credit_card_bank_details: ~
-    add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
-    wrong_setup: ~
-    invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    title: Maksuasetukset
+    stripe_and_paypal_supported: "<p>Jos haluat ottaa vastaan verkkomaksuja, sinun pitää yhdistää ainakin toinen kahdesta Sharetriben tukemasta maksupalveluntarjoajasta: Stripe tai Paypal. Voit myös yhdistää molemmat, jolloin käyttäjäsi voivat ottaa vastaan maksuja kummalla tahansa maksutavalla.</p>"
+    paypal_title: "Yhdistä PayPal-tilisi"
+    bank_account: ~
+    paypal: PayPal
+    bank_account_details: ~
+    add_bank_details: "Anna tilitietosi"
+    can_accept_stripe_and_paypal: "Voit ottaa maksuja vastaan joko luottokortilla, PayPalilla tai molemmilla."
+    to_accept_paypal: "Jotta voisit ottaa vastaan PayPal-maksuja, sinun pitää yhdistää PayPal-tilisi, jotta voimme siirtää sille rahaa."
+    connect_paypal: "Yhdistä PayPal-tili"
+    wrong_setup: "Sivuston maksujärjestelmässä on jotain vikaa. Ota yhteys ylläpitoon."
+    invalid_bank_account_number: "Tarkistathan, että tilinumerosi on asetettu oikein."
+    invalid_postal_code: "Postinumero ei ole käytössä maassa %{country}"

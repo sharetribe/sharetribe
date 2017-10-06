@@ -83,7 +83,7 @@ fr:
         verification_to_post_listings_info_content: "Texte affiché aux utilisateurs non validés"
         verification_to_post_listings_info_content_description: "Vous demandez à vos utilisateurs d'être validés manuellement par un administrateur avant qu'ils ne puissent poster une annonce. Ici, vous pouvez définir le texte qui est affiché aux utilisateurs non encore validés lorsqu'ils essaient de poster une nouvelle annonce."
         verification_to_post_listings_info_content_default: "%{service_name} nécessite que les utilisateurs soient validés par un administrateur avant qu'ils ne puissent poster une annonce. Vous n'avez pas encore été validé. Veuillez %{contact_admin_link} pour lui demander."
-        contact_admin_link_text: "contacter l'administrateur"
+        contact_admin_link_text: "contacter l'équipe %{service_name}"
         save: "Sauvegarder les paramètres"
         transaction_agreement: "Accord de transaction"
         transaction_agreement_checkbox: "Les utilisateurs doivent accepter un accord avant une transaction"
@@ -532,7 +532,7 @@ fr:
       integration_info_text: "Le système de paiement de votre place de marché est propulsé par PayPal. Pour permettre à vos utilisateurs de réaliser des paiements au sein de votre place de marché, vous devez connecter votre compte PayPal. Une fois connecté, vous pourrez choisir un montant minimal de transaction et éventuellement vos frais de service."
       link_paypal_personal_account_label: "Proposez-vous vous aussi vos produits ou services ?"
       link_paypal_personal_account: "Dans ce cas, vous devez également connecter votre compte PayPal depuis %{personal_payment_preferences_link}."
-      link_stripe_personal_account: "Dans ce cas, vous devez également connecter votre compte Stripe dans %{personal_payment_preferences_link}."
+      link_stripe_personal_account: "Dans ce cas, vous devez également ajouter vos informations bancaires dans %{personal_payment_preferences_link}."
       link_paypal_and_stripe_personal_account: "Dnas ce cas, vous devrez également connecter votre compte PayPal ou Stripe dans %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "votre compte personnel"
       read_more_about_paypal: "En savoir plus sur le système de paiement."
@@ -571,7 +571,7 @@ fr:
       invalid_api_keys: "Stripe API keys invalides"
       missing_api_keys: "Stripe API keys manquantes"
       stripe_verified: "Accès à l'API Stripe vérifié"
-      change_settings: "Modifier les paramètres"
+      change_settings: "Modifier les paramètres et les frais"
       configure_stripe: "Configurer Stripe"
       configure_paypal: "Configurer PayPal"
       transaction_fee_settings: "Paramètre des frais de service"
@@ -586,9 +586,11 @@ fr:
       stripe_form:
         add_your_api_keys: "Ajouter vos Stripe API keys"
         how_to_get_these: "Comment les obtenir ?"
+        publishable_key_example: "Par exemple : %{api_publishable_key_example}"
+        secret_key_example: "Par exemple : %{api_secret_key_example}"
         save_api_keys: "Sauvegarder les Stripe API keys"
-        invalid_private: "Cela ne semble pas être une secret key correcte"
-        invalid_public: "Cela ne semble pas être une publishable key correcte"
+        invalid_secret: "Cela ne semble pas être une %{secret_key} correcte"
+        invalid_publishable: "Cela ne semble pas être une %{publishable_key} correcte"
       index:
         header: "Paramètres de paiement disponibles"
         info: "Vous pouvez configurer les plateformes de paiements disponibles dans votre place de marché. Actuellement Stripe et PayPal sont disponibles."
@@ -722,7 +724,6 @@ fr:
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'>frais de transaction PayPal</a>"
-      stripe_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'> frais de transaction Stripe</a>"
       payment_fee_info: "* Hors <a id='%{fee_info_link_id}' href='#'>frais de service</a>"
       shipping_price_label: "Frais de livraison : "
       stripe-fee_label: "Frais de service"
@@ -862,7 +863,7 @@ fr:
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
-      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter les administrateurs, vous pouvez %{link_to_contact_page}"
+      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter l'équipe %{service_name}, vous pouvez %{link_to_contact_page}"
       contact_page_link: "les contacter"
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
@@ -1378,7 +1379,7 @@ fr:
       sign_up: S'inscrire
     notifications:
       listing_could_not_be_saved: "L'annonce n'as pas pu être sauvegardée. Veuillez essayer de nouveau. Si le problème persiste, veuillez %{contact_admin_link}."
-      contact_admin_link_text: "contacter l'administrateur"
+      contact_admin_link_text: "contacter l'équipe %{service_name}"
       test_welcome_email_delivered_to: "Un email de test a été envoyé à %{email}."
       something_went_wrong: "Quelque chose s'est mal passé."
       community_updated: "Détails mis à jour."
@@ -1425,13 +1426,13 @@ fr:
       listing_updated_successfully: "Annonce mise à jour avec succès"
       listing_updated_availability_management_enabled: "Annonce mise à jour avec succès. Gestion des disponibilités activée."
       listing_updated_availability_management_disabled: "Annonce mise à jour avec succès. Gestion des disponibilités désactivée."
-      only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ces pages"
+      only_kassi_administrators_can_access_this_area: "Seule l'équipe %{service_name} peuvent accéder à ces pages"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
       payment_successful: "Paiement réussi"
       payment_canceled: "Paiement annulé"
       error_in_payment: "Erreur lors du paiement. Si vous n'avez pas terminé le paiement, essayez de nouveau. Si vous l'aviez terminé, merci de nous contacter."
-      cannot_receive_payment: "L'autre partie ne peut recevoir le paiement à cause d'une erreur. Veuillez contacter les administrateurs pour en savoir plus"
+      cannot_receive_payment: "L'autre partie ne peut recevoir le paiement à cause d'une erreur. Veuillez contacter l'équipe %{service_name} pour en savoir plus"
       payment_waiting_for_later_accomplishment: "Quand vous aurez payé, nous le signalerons au vendeur et vous recevrez une facture par email"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
@@ -1700,7 +1701,7 @@ fr:
       select_subcategory: "Sélectionner une sous-catégorie"
       select_transaction_type: "Sélectionner le type d'annonce"
       you_need_to_fill_payout_details_before_accepting: "Vous devez compléter les détails de paiements avant de pouvoir déposer une annonce. Allez aux %{payment_settings_link} pour compléter les détails."
-      contact_admin_link_text: "contacter l'administrateur"
+      contact_admin_link_text: "contacter l'équipe %{service_name}"
       community_not_configured_for_payments: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       payment_settings_link: "paramètres de paiement"
       community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
@@ -1784,11 +1785,11 @@ fr:
       pay_with_card: "Payer par carte bancaire"
       address: "Adresse de livraison"
       address_country: "Pays *"
-      address_name: "Nom *"
+      address_name: "Nom et prénom *"
       address_city: "Ville *"
       address_state: "Etat *"
       address_street1: "Adresse *"
-      address_street2: Adresse
+      address_street2: "Adresse (suite)"
       address_postal_code: "Code postal"
   mapview:
     index:
@@ -1830,14 +1831,14 @@ fr:
     paypal_receive_funds_info: "Si vous voyez une erreur en essayant de connecter votre compte à %{service_name}, %{upgrade_paypal_account_link}. C'est simple et gratuit. Si vous êtes un particulier, PayPal recommande d'utiliser votre nom comme nom Business ou Entreprise."
     upgrade_paypal_account_link_text: "connectez vous et surclassez votre compte PayPal en un compte Business"
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
-    contact_admin_link_text: "contacter l'administrateur de la place de marché"
+    contact_admin_link_text: "contacter l'équipe %{service_name}"
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
     not_now: "Ne pas connecter de compte PayPal pour le moment"
     new:
       payout_info_you_need_to_connect: "Pour accepter les paiements vous devez connecter votre compte PayPal à %{service_name}."
       payout_info_text: "Pour connecter votre compte, veuillez suivre ces étapes."
-      contact_admin_link_text: "contacter l'administrateur"
+      contact_admin_link_text: "contacter l'équipe %{service_name}"
       admin_account_not_connected: "Connecter votre compte PayPal n'est pas encore possible car %{service_name} n'a pas activé le système de paiement. Veuillez %{contact_admin_link} pour en savoir plus."
       paypal_account_email: "Connecter votre compte PayPal"
       paypal_account_email_placeholder: "Votre adresse email PayPal"
@@ -1864,7 +1865,7 @@ fr:
       billing_agreement_canceled: "L'accord de facturation a été annulé"
       billing_agreement_not_accepted: "Vous n'avez pas accepté l'accord de facturation sur PayPal"
       billing_agreement_wrong_account: "Les comptes PayPal ne correspondent pas. Veuillez utiliser le même compte PayPal que celui utilisé lors de la première étape."
-      something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter l'administrateur du site."
+      something_went_wrong: "Quelque chose s'est mal passé. Veuillez essayer de nouveau. Si le problème persiste, veuillez contacter l'équipe %{service_name}."
       account_not_verified: "Vous n'avez pas vérifié votre compte PayPal. Vous devez vous connecter sur paypal.com et vérifier votre compte avant de pouvoir poursuivre."
       account_restricted: "Votre compte PayPal est restreint et ne peut être connecté. Veuillez vous connecter sur paypal.com pour en savoir plus ou contactez le support PayPal pour résoudre le problème."
     paypal_account_connected_title: "Compte PayPal connecté"
@@ -1924,7 +1925,7 @@ fr:
       terms: "conditions d'utilisation"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
-      visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
+      visible_only_to_you: "visible uniquement par vous et l'équipe %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       create_account_with_facebook: "S'inscrire avec Facebook"
       OR: OU
@@ -2300,7 +2301,7 @@ fr:
         zero: utilisateur
         one: utilisateur
         other: utilisateurs
-      listing_conversation:
+      transaction:
         zero: transaction
         one: transaction
         other: transactions
@@ -2320,13 +2321,14 @@ fr:
       multi_page_html: "Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{count}</b>"
   stripe_accounts:
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
-    contact_admin_link_text: "contacter l'administrateur de la place de marché"
+    contact_admin_link_text: "contacter l'équipe %{service_name}"
     you_are_ready_to_accept_payments: "Vous pouvez désormais recevoir des paiements !"
     commission: "%{commission} %"
     pay_with_stripe: "Payer avec Stripe avec %{card}"
     add_and_pay: "Confirmer le paiement"
+    card_not_stored: "Votre paiement est sécurisé et géré par Stripe. %{service_name} ne collecte pas votre numéro de carte bancaire."
     missing_payment: "Vous avez des annonces actives mais votre compte n'est pas encore configuré pour recevoir des paiements. Veuillez configurer vos paramètres de paiements depuis vos %{settings_link}."
-    stripe_bank_connected: "Détails du compte bancaire correctement configurés !"
+    stripe_bank_connected: "Détails du compte en banque correctement configurés !"
     stripe_can_accept: "Vous êtes désormais prêt à recevoir des paiements par carte bancaire"
     stripe_only_hooray_title: "Bravo, tout est configuré !"
     stripe_credit_card: "Carte bancaire"
@@ -2369,7 +2371,7 @@ fr:
         error_message: "Format invalide"
         clearing_code: "Code de clearing"
         sort_code: "Code de tri"
-        must_match: "doit être au format"
+        must_match: "doit être au format :"
         a_dash: "un tiret"
         digits: chiffres
         digits_or_chars: "chiffres ou caractères A-Z"
@@ -2381,15 +2383,14 @@ fr:
   payment_settings:
     title: "Préférences de paiement"
     stripe_and_paypal_supported: "<p>Si vous souhaitez recevoir des paiements, vous devez connecter au moins l'une des deux plateforme de paiements supportées par Sharetribe : Stripe et PayPal. Vous pouvez choisir d'utiliser les deux, ce qui signifie que vos utilisateurs pourront payer avec l'une des deux méthodes de paiement.</p>"
-    stripe_title: "Créer un compte \"managed\" Stripe"
     paypal_title: "Connecter votre compte PayPal"
-    credit_card: "Carte bancaire"
+    bank_account: "Compte en banque"
     paypal: PayPal
-    credit_card_bank_details: "Pour accepter les paiements par carte bancaire vous devez fournir vos informations bancaires pour que nous puissions transférer votre argent vers votre compte en banque."
+    bank_account_details: "Pour recevoir les paiements sur votre compte en banque, vous devez fournir vos informations bancaires. Vos clients pourront payer par carte bancaire."
     add_bank_details: "Ajouter les informations bancaires"
-    can_accept_stripe_and_paypal: "Vous pouvez recevoir des paiement par carte bancaire, PayPal ou les deux."
-    to_accept_paypal: "Pour recevoir les paiements par PayPal, vous devez connecter votre compte Paypal pour que nous puissions y transférer votre argent."
+    can_accept_stripe_and_paypal: "Vous pouvez recevoir vos paiements sur votre compte bancaire ou votre compte PayPal."
+    to_accept_paypal: "Pour recevoir les paiements sur votre compte PayPal, vous devez connecter votre compte PayPal. Vos clients pourront payer avec PayPal."
     connect_paypal: "Connecter le compte PayPal"
-    wrong_setup: "Quelque chose s'est mal passé avec la configuration du système de paiements dans cette place de marché. Veuillez contacter les administrateurs de la place de marché."
+    wrong_setup: "Quelque chose s'est mal passé avec la configuration du système de paiements dans cette place de marché. Veuillez contacter l'équipe %{service_name}."
     invalid_bank_account_number: "Veuillez vérifier que les informations sur compte en banque sont bien définies et correspondent à votre pays."
     invalid_postal_code: "Code postal invalide pour le pays %{country}"

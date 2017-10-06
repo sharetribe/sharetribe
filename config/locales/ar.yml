@@ -569,9 +569,11 @@ ar:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
+        publishable_key_example: "‎%{api_publishable_key_example}‎ على سبيل المثال:"
+        secret_key_example: "‎%{api_secret_key_example}‎ على سبيل المثال:"
         save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        invalid_secret: "صحيح ‎%{secret_key}‎ هذا لا يظهر بأنه"
+        invalid_publishable: "صحيح ‎%{publishable_key}‎ هذا لا يضهر بأنه"
       index:
         header: ~
         info: ~
@@ -695,7 +697,6 @@ ar:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: ~
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "الشحن:"
       stripe-fee_label: ~
@@ -2295,13 +2296,6 @@ ar:
         few: مستخدمين
         many: مستخدمين
         other: مستخدمين
-      listing_conversation:
-        zero: عملية
-        one: عملية
-        two: عمليات
-        few: عمليات
-        many: عمليات
-        other: عمليات
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
@@ -2315,6 +2309,7 @@ ar:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2371,11 +2366,10 @@ ar:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

@@ -235,7 +235,7 @@ nl:
         last_community_updates: "Let op: na verwijdering, kan het zijn dat jij en je marktplaats gebruikers toch nog enkele laatste marktplaats update emails ontvangen."
         you_will_be_redirected_to: "Nadat je jouw marktplaats hebt verwijderd word je doorgelinkt naar %{destination}. Je hebt dan niet langer toegang tot je marktplaats."
         delete_this_marketplace: "Verwijder deze marktplaats"
-        payment_preferences: ~
+        payment_preferences: Betalingsysteem
       manage_members:
         manage_members: "Beheer gebruikers"
         email: E-mail
@@ -324,29 +324,29 @@ nl:
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
           none:
-            free: ~
+            free: Conversatie
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Conversatie
+            pending: "In afwachting"
+            preauthorized: "Vooraf geauthoriseerd"
+            accepted: Geaccepteerd
+            rejected: Afgewezen
+            paid: Betaald
+            confirmed: Bevestigd
+            canceled: Geannuleerd
+            initiated: "In afwachting van PayPal betaling"
+            pending_ext: "In afwachting van PayPal betaling"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Conversatie
+            pending: "In afwachting"
+            preauthorized: "Vooraf geauthoriseerd"
+            accepted: Geaccepteerd
+            rejected: Afgewezen
+            paid: Betaald
+            confirmed: Bevestigd
+            canceled: Geannuleerd
+            initiated: "In afwachting van Stripe betaling"
+            pending_ext: "In afwachting van Stripe betaling"
         not_available: "Niet beschikbaar"
       paypal_account:
         paypal_admin_account: Betalingsysteem
@@ -534,8 +534,8 @@ nl:
       integration_info_text: "Het betaalsysteem van Sharetribe is PayPal. Als je gebruikers de mogelijkheid wil geven om betalingen te doen via je marktplaats, moet je je PayPal account linken en bepalen wat de minimale marge is die je wil ontvangen op elke transactie."
       link_paypal_personal_account_label: "Lever je zelf producten of services?"
       link_paypal_personal_account: "Zo ja, dan moet je ook je PayPal account koppelen aan %{personal_payment_preferences_link}."
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "In dat geval dien je ook je Stripe account te koppelen in %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "In dat geval dien je ook je Paypal & Stripe account te koppelen in %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "je persoonlijke marktplaats account"
       read_more_about_paypal: "Lees meer over Sharetribe's betalingssysteem"
       edit_payment_settings: "Wijzig betaalinstellingen"
@@ -549,55 +549,62 @@ nl:
       minimum_listing_price_below_tx_fee: "De minimal transactie grootte moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "De minimal transactie moet groter zijn dan de minimale commissie %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      title: Betalingssysteem-voorkeuren
+      general_settings: "1. Algemene instellingen"
+      connect_a_payment_provider: "2. Koppel een betalingssyteem"
+      contact_support: "neem contact op met Support"
+      no_payments_link_text: hier
+      your_country: "Selecteer je land"
+      you_cannot_use_online_payments: "Online betalingen zijn niet mogelijk in %{country_name} met %{currency}. Kies een andere valuta of %{support_link} om je land te wijzigen. Lees meer over ondersteunde landen en valuta %{help_link}. In de toekomst voegen we mogelijk meer landen en valuta toe"
+      which_to_choose: "Welke kiezen?"
+      you_can_use_stripe_or_paypal: "Je kunt Stripe, PayPal of beide gebruiken als betalingssystemen. %{choose_link}"
+      you_can_use_stripe_only: "Je kunt Stripe gebruiken als betalingssysteem. %{read_more_link}"
+      read_more_stripe: "Lees meer over Stripe betalingen."
+      you_can_use_paypal_only: "Je kunt PayPal gebruiken als betalingssysteem. %{read_more_link}"
+      read_more_paypal: "Lees meer over PayPal betalingen."
+      read_more_about_paypal_and_stripe: "Lees meer over online betalingen, Stripe en PayPal."
+      general_settings_updated: "Algemene instellingen voor betalingssysteem is bijgewerkt."
+      transaction_fee_settings_updated: "Transactiekosten instellingen bijgewerkt."
+      choose_popup_text: |-
+          Als je je gebruikers van online betalingen gebruik wilt laten maken, dien je de valuta van je marktplaats te kiezen, en ten minste één van de twee betalingsservices te kiezen die Sharetribe ondersteunt: Stripe en PayPal. Je kunt ze ook allebei kiezen, in welk geval je gebruikers allebei de methoden kunnen gebruiken.
+          Als je nog geen account hebt voor deze services hebt, kun je bij beiden gratis een nieuwe aanmaken. Als je je account eenmaal hebt gekoppeld, dien je transactiekosten/commissie in te stellen die je op iedere betaling heft.
+          Wat is het verschil tussen Stripe & PayPal? Stripe staat toe om de betaling aan de leveranciers van je marktplaats tot 3 maanden uit te stellen, en het biedt een betalingsmethode aan: credit/debit card. Met Stripe kunnen je leveranciers ook het geld direct op hun bankrekening ontvangen, als ze hun bank details instellen. 
+          PayPal dient twee betalingsmethodes aan: PayPal & credit card. PayPal biedt ook een beschermingsprogramma voor kopers en verkopers. Het vereist wel van je leveranciers dat ze een PayPal Business account hebben, anders kunnen ze geen betalingen ontvangen.
+          Als je Stripe gebruikt worden de kosten van jouw commissie afgetrokken, dus denk eraan om je minimale transactiekosten hoog genoeg in te stellen. Als je PayPal gebruikt, worden de kosten van de leverancier hun deel afgetrokken, afzonderlijk van jou commissie. Stripe en PayPal hebben dus een verschillende kostenstructuur. In de meeste gevallen zijn de kosten van Stripe iets lager.
+      invalid_api_keys: "Ongeldige Stripe API keys"
+      missing_api_keys: "Ontbrekende Stripe API keys"
+      stripe_verified: "Stripe API toegang geverifieerd"
+      change_settings: "Verander instellingen"
+      configure_stripe: "Configureer Stripe"
+      configure_paypal: "Configureer PayPal"
+      transaction_fee_settings: "Instellingen transactiekosten"
+      transaction_fee_save: "Sla op"
+      stripe_fee: Stripe-kosten
+      stripe_fee_notice: "%{stripe_fee_link} wordt afgetrokken van de commissie die jij in rekening brengt."
+      fee_should_be_less_than_minimum_price: "Minimale transactiekosten dienen lager te zijn dan de minimale transactieomvang."
       stripe_connected:
-        title: ~
+        title: "Stripe gekoppeld"
       paypal_connected:
-        title: ~
+        title: "PayPal gekoppeld"
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
-        save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        add_your_api_keys: "Voeg je Stripe API keys toe"
+        how_to_get_these: "Hoe krijg ik deze?"
+        publishable_key_example: ~
+        secret_key_example: ~
+        save_api_keys: "Sla Stripe API keys op"
+        invalid_secret: ~
+        invalid_publishable: ~
       index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
+        header: "Beschikbare betalingsinstellingen"
+        info: "Je kunt de beschikbare betalingssystemen instellen voor gebruik in je marktplaats. Momenteel ondersteunt het platform Paypal en Stripe."
+        active: Actief
+        gateway: Systeem
+        process: Proces
+        commission: Commissie
+        minimum_price: "Min. prijs"
+        minimum_fee: "Min. kosten"
+        api_verified: "API geverifieerd?"
+        actions: Acties
         payments_not_enabled: ~
     transaction_types:
       sell: Verkopen
@@ -712,7 +719,6 @@ nl:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>PayPals betaling verwerkingskosten </a>"
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Verzenden:"
       stripe-fee_label: ~
@@ -2290,10 +2296,6 @@ nl:
         zero: gebruikers
         one: gebruiker
         other: gebruikers
-      listing_conversation:
-        zero: transacties
-        one: transactie
-        other: transacties
     previous_label: "&#8592; Vorige"
     next_label: "Volgende &#8594;"
     page_gap: "&hellip;"
@@ -2315,6 +2317,7 @@ nl:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2371,11 +2374,10 @@ nl:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~

@@ -233,7 +233,7 @@ window.ST.stripe_form_i18n = {
         regexp = (rule[field] || {})['test_regexp']; 
       }
       var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
-      return i18n_label(title, def_title) + " "+i18n_label("must_match", "must match")+" \""+regexp+"\" ("+explain_regexp(regexp)+")";
+      return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
     }
   );
 })(window.ST);

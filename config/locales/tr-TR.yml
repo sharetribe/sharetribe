@@ -567,9 +567,11 @@ tr-TR:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
         save_api_keys: ~
-        invalid_private: ~
-        invalid_public: ~
+        invalid_secret: ~
+        invalid_publishable: ~
       index:
         header: ~
         info: ~
@@ -699,7 +701,6 @@ tr-TR:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* <a id='%{fee_info_link_id}' href='#'>PayPal işlem ücreti</a> dahil değildir."
-      stripe_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: "Kargo:"
       stripe-fee_label: ~
@@ -2251,9 +2252,6 @@ tr-TR:
       person:
         zero: kullanıcı
         other: kullanıcılar
-      listing_conversation:
-        zero: işlem
-        other: işlem
     previous_label: "&#8592; Önceki"
     next_label: "Sonraki &#8594;"
     page_gap: "&hellip;"
@@ -2273,6 +2271,7 @@ tr-TR:
     commission: ~
     pay_with_stripe: ~
     add_and_pay: ~
+    card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
@@ -2329,11 +2328,10 @@ tr-TR:
   payment_settings:
     title: ~
     stripe_and_paypal_supported: ~
-    stripe_title: ~
     paypal_title: ~
-    credit_card: ~
+    bank_account: ~
     paypal: ~
-    credit_card_bank_details: ~
+    bank_account_details: ~
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
