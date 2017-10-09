@@ -51,7 +51,8 @@ module CommunitiesHelper
       input_classes: "transaction-agreement-modal",
       info_text: I18n.t("admin.communities.edit_details.transaction_agreement_checkbox_label_description"),
       input_name: "transaction_agreement_label",
-      translations: translations
+      translations: translations,
+      maxlength: 255
     }
   end
 
