@@ -635,7 +635,8 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
      rules: {
        "community[custom_color1]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"},
        "community[description_color]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"},
-       "community[slogan_color]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"}
+       "community[slogan_color]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"},
+       "community[custom_head_script]": {required: false, maxlength: 65535}
      },
      messages: {
        "community[custom_color1]": { regex: invalid_color_code_message },
