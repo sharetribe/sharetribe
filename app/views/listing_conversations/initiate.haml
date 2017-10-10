@@ -61,10 +61,7 @@
       - if paypal_in_use && !stripe_in_use
         .row
           .col-12.payment-button-wrapper.paypal-payment
-            - if FeatureFlagHelper.feature_enabled?(:stripe)
-              = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
-            - else 
-              = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button blue"
+            = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
 
         .row
           .col-12
