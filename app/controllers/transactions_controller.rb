@@ -410,7 +410,7 @@ class TransactionsController < ApplicationController
   end
 
   def price_break_down_locals(tx)
-    if tx[:payment_process] == :none
+    if tx[:payment_process] == :none && tx[:listing_price].cents == 0
         nil
     else
       localized_unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
@@ -431,8 +431,6 @@ class TransactionsController < ApplicationController
         quantity: quantity,
         subtotal: show_subtotal ? tx[:listing_price] * quantity : nil,
         total: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]),
-        seller_gets: Maybe(tx[:payment_total]).or_else(tx[:checkout_total]) - tx[:commission_total],
-        fee: tx[:commission_total],
         shipping_price: tx[:shipping_price],
         total_label: total_label,
         unit_type: tx[:unit_type]
