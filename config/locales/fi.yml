@@ -2327,10 +2327,10 @@ fi:
     missing_payment: "Sinulla on avoimia ilmoituksia, mutta et ole vielä valinnut maksunvälittäjää, joten et voi ottaa maksuja vastaan. Päivitä maksuasetuksesi %{settings_link}"
     stripe_bank_connected: "Tilitiedot asetettu onnistuneesti!"
     stripe_can_accept: "Voit nyt vastaanottaa luottokorttimaksuja"
-    stripe_only_hooray_title: "Hienoa, yhdistäminen onnistui!"
     stripe_credit_card: Luottokortti
     paypal: PayPal
     paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
+    paypal_can_accept: ~
     paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
     form_new:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."

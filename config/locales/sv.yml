@@ -2328,10 +2328,10 @@ sv:
     missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalnings inställningar besök %{settings_link}."
     stripe_bank_connected: "Bankkonto detaljer konfigurerades framgångsrikt!"
     stripe_can_accept: "Du är nu redo att ta emot kreditkorts betalningar"
-    stripe_only_hooray_title: "Hurra, allting är klart!"
     stripe_credit_card: Kreditkort
     paypal: PayPal
     paypal_connected: "PayPal kontot är nu anslutet!"
+    paypal_can_accept: ~
     paypal_connected_give_permission: "För att slutföra anslutningen och börja ta emot pengar till ditt PayPal konto <%{email}>, vänligen tillåt att en serviceavgift tas."
     form_new:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."

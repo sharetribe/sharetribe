@@ -1,7 +1,7 @@
 lv:
   errors:
     messages:
-      expired: ~
+      expired: "beidzies termiņš, lūdzu, pieprasiet jaunu"
       not_found: "nav atrasts"
       already_confirmed: ~
       not_locked: ~
@@ -34,7 +34,7 @@ lv:
       reasons:
         inactive: neaktīvs
         unconfirmed: neapstiprināts
-        locked: ~
+        locked: bloķēts
       update_needs_confirmation: "Jūsu lietotāja izmaiņas ir veiksmīgi saglabātas, bet mums ir jāpārbauda Jūsu jaunā epasta adrese. Lūdzu pārbaudiet Jūsu epastu un uzklikšķiniet uz apstiprinājuma saites, lai pabeigtu Jūsu jaunās epasta adreses apstiprināšanu."
       signed_up: "Laipni lūdzam! Jūs esat veiksmīgi reģistrējies"
       updated: "Jūsu lietotāja izmaiņas ir veiksmīgi saglabātas."
