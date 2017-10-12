@@ -2382,8 +2382,6 @@ fr:
       need_verification: "Vérification supplémentaire nécessaire"
   payment_settings:
     title: "Préférences de paiement"
-    stripe_and_paypal_supported: "<p>Si vous souhaitez recevoir des paiements, vous devez connecter au moins l'une des deux plateforme de paiements supportées par Sharetribe : Stripe et PayPal. Vous pouvez choisir d'utiliser les deux, ce qui signifie que vos utilisateurs pourront payer avec l'une des deux méthodes de paiement.</p>"
-    paypal_title: "Connecter votre compte PayPal"
     bank_account: "Compte en banque"
     paypal: PayPal
     bank_account_details: "Pour recevoir les paiements sur votre compte en banque, vous devez fournir vos informations bancaires. Vos clients pourront payer par carte bancaire."
@@ -2391,6 +2389,6 @@ fr:
     can_accept_stripe_and_paypal: "Vous pouvez recevoir vos paiements sur votre compte bancaire ou votre compte PayPal."
     to_accept_paypal: "Pour recevoir les paiements sur votre compte PayPal, vous devez connecter votre compte PayPal. Vos clients pourront payer avec PayPal."
     connect_paypal: "Connecter le compte PayPal"
-    wrong_setup: "Quelque chose s'est mal passé avec la configuration du système de paiements dans cette place de marché. Veuillez contacter l'équipe %{service_name}."
+    wrong_setup: "Quelque chose n'est pas correct dans la configuration du système de paiements de cette place de marché: \"The platform has not been registered\". Veuillez contacter l'équipe pour leur signaler qu'ils doivent \"register the platform\" dans leur compte Stripe."
     invalid_bank_account_number: "Veuillez vérifier que les informations sur compte en banque sont bien définies et correspondent à votre pays."
     invalid_postal_code: "Code postal invalide pour le pays %{country}"

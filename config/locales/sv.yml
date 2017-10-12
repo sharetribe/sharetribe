@@ -1428,7 +1428,7 @@ sv:
       listing_updated_successfully: "Annons uppdaterades"
       listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
       listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
-      only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna plats"
+      only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna sida"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
       payment_successful: "Betalning lyckad"
@@ -2303,6 +2303,10 @@ sv:
         zero: användare
         one: användare
         other: användare
+      transaction:
+        zero: transaktioner
+        one: transaktion
+        other: transaktioner
     previous_label: "&#8592; Föregående"
     next_label: "Nästa &#8594;"
     page_gap: "&hellip;"
@@ -2324,14 +2328,14 @@ sv:
     commission: "%{commission}%"
     pay_with_stripe: "Betala med Stripe och använd %{card}"
     add_and_pay: "Bekräfta betalning"
-    card_not_stored: ~
+    card_not_stored: "Din betalning är säkert hanterad av Stripe. %{service_name} sparar inte din kortinformation."
     missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalnings inställningar besök %{settings_link}."
     stripe_bank_connected: "Bankkonto detaljer konfigurerades framgångsrikt!"
     stripe_can_accept: "Du är nu redo att ta emot kreditkorts betalningar"
     stripe_credit_card: Kreditkort
     paypal: PayPal
     paypal_connected: "PayPal kontot är nu anslutet!"
-    paypal_can_accept: ~
+    paypal_can_accept: "Du kan nu ta emot pengar till dit PayPal konto"
     paypal_connected_give_permission: "För att slutföra anslutningen och börja ta emot pengar till ditt PayPal konto <%{email}>, vänligen tillåt att en serviceavgift tas."
     form_new:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
@@ -2353,22 +2357,22 @@ sv:
       cancel: Avbryt
     form_bank:
       bank_account_number: Bankkontonummer
-      bank_routing_number: ~
+      bank_routing_number: Clearingnummer
       bank_routing_1: Bankkod
-      bank_routing_2: ~
+      bank_routing_2: "Gren-kod (Branch code)"
       bank_currency: "Bankkontots valuta"
       messages:
         account_number: Kontonummer
-        routing_number: ~
+        routing_number: Clearingnummer
         bank_code: Bankkod
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
+        branch_code: "Gren-kod (Branch code)"
+        transit_number: Transitnummer
+        institution_number: Institutionsnummer
         format_varies_by_bank: "Format varierar beroende på bank"
-        bsb: ~
+        bsb: BSB
         error_message: "Ogiltigt format"
-        clearing_code: ~
-        sort_code: ~
+        clearing_code: "Clearing code"
+        sort_code: "Clearing code"
         must_match: "måste vara i följande format:"
         a_dash: "ett bindestreck"
         digits: siffror
@@ -2380,11 +2384,9 @@ sv:
       need_verification: "Behöver ytterligare verifiering"
   payment_settings:
     title: Utbetalningsinställningar
-    stripe_and_paypal_supported: "<p> Om du vill acceptera betalningar måste du ansluta åtminstone en av de två betalsystemen: Stripe och PayPal. Du kan välja att använda båda, vilket betyder att dina användare kan betala med någondera av betalningsmetoderna.</p>"
-    paypal_title: "Koppla ditt PayPal konto"
-    bank_account: ~
+    bank_account: Bankkonto
     paypal: PayPal
-    bank_account_details: ~
+    bank_account_details: "För att kunna motta pengar till ditt bankkonto måste du först lägga till dina kontouppgifter. Dina kunder kommer kunna betala med kreditkort."
     add_bank_details: "Lägg till bankdetaljer"
     can_accept_stripe_and_paypal: "Du kan acceptera betalningar antingen via kreditkort, PayPal eller båda."
     to_accept_paypal: "För att ta emot PayPal betalningar måste du koppla ditt PayPal konto så vi kan föra över pengar dit."

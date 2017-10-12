@@ -2383,8 +2383,6 @@ nl:
       need_verification: "Aanvullende verificatie nodig"
   payment_settings:
     title: Uitbetalingsvoorkeuren
-    stripe_and_paypal_supported: "<p>Als je betalingen wilt accepteren, dien je ten minste een van de twee betalingssystemen die Sharetribe ondersteunt te koppelen: Stripe en PayPal. Je kunt ook beiden kiezen, dat inhoudt dat je gebruikers met beide methoden kunnen betalen.</p>"
-    paypal_title: "Koppel je PayPal account"
     bank_account: Bankrekeningnummer
     paypal: PayPal
     bank_account_details: "Om geld te ontvangen op je bankrekeningnummer, dien je je bankinformatie te verstrekken. Je klanten kunnen dan met hun credit card betalen."

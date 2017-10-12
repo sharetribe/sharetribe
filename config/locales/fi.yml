@@ -2379,8 +2379,6 @@ fi:
       need_verification: "Lisävahvistus tarvitaan"
   payment_settings:
     title: Maksuasetukset
-    stripe_and_paypal_supported: "<p>Jos haluat ottaa vastaan verkkomaksuja, sinun pitää yhdistää ainakin toinen kahdesta Sharetriben tukemasta maksupalveluntarjoajasta: Stripe tai Paypal. Voit myös yhdistää molemmat, jolloin käyttäjäsi voivat ottaa vastaan maksuja kummalla tahansa maksutavalla.</p>"
-    paypal_title: "Yhdistä PayPal-tilisi"
     bank_account: ~
     paypal: PayPal
     bank_account_details: ~

@@ -961,7 +961,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
-      you_have_received_new_payment: "Du hast eine Zahlung in Höhe von %{payment_sum} für %{listing_title} durch %{payer_full_name} erhalten. Hier ist Deine Quittung."
+      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von  <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
     payment_receipt_to_seller:
       payment_gateway_fee: "Zahlungsbearbeitungsgebühr:"
       shipping_total: "Versand:"
@@ -2368,8 +2368,6 @@ de:
       need_verification: "Zusätzliche Verifizierung benötigt"
   payment_settings:
     title: Auszahlungseinstellungen
-    stripe_and_paypal_supported: ~
-    paypal_title: "Dein PayPal-Konto verbinden"
     bank_account: ~
     paypal: PayPal
     bank_account_details: ~
