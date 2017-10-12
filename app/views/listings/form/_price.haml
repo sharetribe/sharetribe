@@ -84,12 +84,12 @@
     - if payment_gateway == :paypal
       - if FeatureFlagHelper.feature_enabled?(:stripe)
         - text_with_line_breaks_html_safe do
-          - link_to_paypal = link_to(t("common.paypal_fee_info_new.link_to_paypal_text"), paypal_fees_url, target: "_blank")
+          - link_to_paypal = link_to(t("common.paypal_fee_info_new.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
           = t("common.paypal_only_fee_info_new.body_text", link_to_paypal: link_to_paypal).html_safe
       - else
         - text_with_line_breaks_html_safe do
-          - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-          - if shape[:shipping_enabled]
+          - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
+          - if @listing_presenter.shape[:shipping_enabled]
             = t("common.paypal_fee_info.body_with_shipping_text", link_to_paypal: link_to_paypal).html_safe
           - else
             = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
