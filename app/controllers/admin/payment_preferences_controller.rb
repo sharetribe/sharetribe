@@ -125,13 +125,9 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def build_view_locals
     @selected_left_navi_link = "payment_preferences"
+    make_onboarding_popup
 
-    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
-      flash[:show_onboarding_popup],
-      admin_getting_started_guide_path,
-      Admin::OnboardingWizard.new(@current_community.id).setup_status)
-
-    view_locals = {
+    {
       min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
       max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
       available_currencies: MarketplaceService::AvailableCurrencies::CURRENCIES,
@@ -145,8 +141,6 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_account: nil,
       country_name: CountryI18nHelper.translate_country(@current_community.country)
     }
-
-    onboarding_popup_locals.merge(view_locals)
   end
 
   PaymentPreferencesForm = FormUtils.define_form("PaymentPreferencesForm",

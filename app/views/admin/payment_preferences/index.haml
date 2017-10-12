@@ -11,9 +11,8 @@
       = "-"
       = t("admin.communities.paypal_account.paypal_admin_account")
 
-- if local_assigns[:show_onboarding_popup]
-  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
 
+= render partial: 'layouts/onboarding_popup_wrapper'
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 - if FeatureFlagHelper.feature_enabled?(:stripe)
   = render partial: 'stripe_available', locals: local_assigns

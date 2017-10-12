@@ -33,8 +33,7 @@
     %img.listing-image-thumbnail{src: "${url}"}
     .fade
 
-- if local_assigns[:show_onboarding_popup]
-  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(popup_title_key), body: t(popup_body_key), action_label: t(popup_button_key), action_link: popup_action_link, image: asset_path(popup_image), id: "onboarding-popup" }
+= render partial: 'layouts/onboarding_popup_wrapper'
 
 .row
   .col-8.listing-details-container
@@ -45,12 +44,12 @@
             .listing-image-carousel
               #listing-image-frame
 
-              - if @prev_image_id && @next_image_id
-                = link_to params.permit(:id, :locale).merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
+              - if @listing_presenter.prev_image_id && @listing_presenter.next_image_id
+                = link_to params.permit(:id, :locale).merge(image: @listing_presenter.prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
                   .listing-image-navi-arrow-container
                     .listing-image-arrow-icon-container.left
                       = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
-                = link_to params.permit(:id, :locale).merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
+                = link_to params.permit(:id, :locale).merge(image: @listing_presenter.next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
                   .listing-image-navi-arrow-container
                     .listing-image-arrow-icon-container.right
                       = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
@@ -77,8 +76,8 @@
         - if @listing.description && !@listing.description.blank?
           - text_with_line_breaks do
             = @listing.description
-          - if(youtube_link_ids.present?)
-            - youtube_link_ids.each do |youtube_id|
+          - if( @listing_presenter.youtube_link_ids.present?)
+            - @listing_presenter.youtube_link_ids.each do |youtube_id|
               .listing-description-youtube-wrapper
                 %iframe.listing-description-youtube-iframe{ title: t("listings.show.youtube_video_player"), width: 640, height:390, src: "//www.youtube.com/embed/#{ youtube_id }", frameborder: 0, allowfullscreen: true}
 
@@ -140,7 +139,7 @@
     .row-with-divider
       .col-12
         #listing-message-links
-          = render :partial => "listing_actions", locals: { form_path: form_path, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type, country_code: country_code, blocked_dates_end_on: blocked_dates_end_on, blocked_dates_result: blocked_dates_result, manage_availability_props: manage_availability_props, availability_enabled: availability_enabled, currency_opts: currency_opts, paypal_in_use: paypal_in_use, stripe_in_use: stripe_in_use }
+          = render :partial => "listing_actions"
 
     .row-with-divider
       .col-12
@@ -156,16 +155,16 @@
                   .content
                     = t(".contact")
 
-    - if received_testimonials.size > 0
+    - if @listing_presenter.received_testimonials.size > 0
       .row-with-divider.listing-author-activity
         .col-12
           %i.listing-author-activity-icon{:class => icon_class("testimonial")}
           .listing-author-activity-item
             .listing-author-activity-value
-              - if received_testimonials.size > 0
-                = feedback_positive_percentage.to_s + "%"
+              - if @listing_presenter.received_testimonials.size > 0
+                = @listing_presenter.feedback_positive_percentage.to_s + "%"
                 = t("people.show.positive")
-                = "(#{received_positive_testimonials.size}/#{received_testimonials.size})"
+                = "(#{@listing_presenter.received_positive_testimonials.size}/#{@listing_presenter.received_testimonials.size})"
               - else
                 = t(".no_reviews")
             .listing-author-activity-description
