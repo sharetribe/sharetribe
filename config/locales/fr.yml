@@ -1054,7 +1054,7 @@ fr:
       transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
-      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé %{listing_title} pour %{requester}."
+      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la command \"%{listing_title}\" pour %{requester}."
       if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, %{requester} ne sera facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
@@ -2329,11 +2329,11 @@ fr:
     card_not_stored: "Votre paiement est sécurisé et géré par Stripe. %{service_name} ne collecte pas votre numéro de carte bancaire."
     missing_payment: "Vous avez des annonces actives mais votre compte n'est pas encore configuré pour recevoir des paiements. Veuillez configurer vos paramètres de paiements depuis vos %{settings_link}."
     stripe_bank_connected: "Détails du compte en banque correctement configurés !"
-    stripe_can_accept: "Vous êtes désormais prêt à recevoir des paiements par carte bancaire"
-    stripe_only_hooray_title: "Bravo, tout est configuré !"
+    stripe_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte en banque"
     stripe_credit_card: "Carte bancaire"
     paypal: PayPal
     paypal_connected: "Compte PayPal connecté avec succès"
+    paypal_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte PayPal"
     paypal_connected_give_permission: "Pour terminer la configuration et recevoir des paiements sur votre compte PayPal <%{email}>, veuillez autoriser le prélèvement de frais de service."
     form_new:
       need_info: "Nous avons besoin de quelques informations pour pouvoir vous transférer votre argent."
@@ -2382,8 +2382,6 @@ fr:
       need_verification: "Vérification supplémentaire nécessaire"
   payment_settings:
     title: "Préférences de paiement"
-    stripe_and_paypal_supported: "<p>Si vous souhaitez recevoir des paiements, vous devez connecter au moins l'une des deux plateforme de paiements supportées par Sharetribe : Stripe et PayPal. Vous pouvez choisir d'utiliser les deux, ce qui signifie que vos utilisateurs pourront payer avec l'une des deux méthodes de paiement.</p>"
-    paypal_title: "Connecter votre compte PayPal"
     bank_account: "Compte en banque"
     paypal: PayPal
     bank_account_details: "Pour recevoir les paiements sur votre compte en banque, vous devez fournir vos informations bancaires. Vos clients pourront payer par carte bancaire."
@@ -2391,6 +2389,6 @@ fr:
     can_accept_stripe_and_paypal: "Vous pouvez recevoir vos paiements sur votre compte bancaire ou votre compte PayPal."
     to_accept_paypal: "Pour recevoir les paiements sur votre compte PayPal, vous devez connecter votre compte PayPal. Vos clients pourront payer avec PayPal."
     connect_paypal: "Connecter le compte PayPal"
-    wrong_setup: "Quelque chose s'est mal passé avec la configuration du système de paiements dans cette place de marché. Veuillez contacter l'équipe %{service_name}."
+    wrong_setup: "Quelque chose n'est pas correct dans la configuration du système de paiements de cette place de marché: \"The platform has not been registered\". Veuillez contacter l'équipe pour leur signaler qu'ils doivent \"register the platform\" dans leur compte Stripe."
     invalid_bank_account_number: "Veuillez vérifier que les informations sur compte en banque sont bien définies et correspondent à votre pays."
     invalid_postal_code: "Code postal invalide pour le pays %{country}"

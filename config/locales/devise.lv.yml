@@ -1,7 +1,7 @@
 lv:
   errors:
     messages:
-      expired: ~
+      expired: "beidzies termiņš, lūdzu, pieprasiet jaunu"
       not_found: "nav atrasts"
       already_confirmed: ~
       not_locked: ~
@@ -13,38 +13,38 @@ lv:
       locked: "Jūsu profils ir bloķēts."
       invalid: "Nepareizs e-pasts vai parole."
       invalid_token: "Nav pareiza autentifikācijas marķierierīce."
-      timeout: ~
-      inactive: ~
+      timeout: "Jūsu sesijas laiks ir beidzies. Lūdzu pieslēdzieties vēlreiz, lai turpinātu."
+      inactive: "Jūsu profils nebija aktivēts."
     passwords:
       updated_not_active: "Jūsu parole ir veiksmīgi nomainīta."
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      send_paranoid_instructions: "Ja Jūsu lietotājs eksistē mūsu datubāzē, tad jums tiks nosūtīts paroles atjaunošanas apraksts uz epastu."
+      send_instructions: "Pāris minūšu laikā uz Jūsu epastu tiks nosūtīts apraksts, kā nomainīt Jūsu paroli."
+      updated: "Jūsu parole ir veiksmīgi nomainīta. Jūs esat pieslēdzies."
     sessions:
       signed_in: "Veiksmīgi pieslēdzies."
       signed_out: "Veiksmīgi atslēdzies."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Ja Jūsu parole eksistē mūsu datubāzē, tad pāris minūšu laikā uz Jūsu epastu tiks nosūtīts apraksts, kā atbloķēt jūsu lietotāju."
+      send_instructions: "Jums ir nosūtīts epasts ar reģistrācijas apstiprinājuma saiti. Lūdzu atveriet šo saiti, lai aktivizētu Jūsu lietotāju."
+      confirmed: "Jūsu profils bija apstiprināts."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Izziņa ar apstiprināšanas saiti bija nosūtīta uz jūsu e-pastu. Lūdzu atveriet saiti lai aktivizēt Jūsu profilu."
+      signed_up_but_inactive: "Jūs esat veiksmīgi reģistrējies. Tomēr Jūs neesat pieslēdzies, jo Jūsu lietotājs vēl nav aktivizēts."
+      signed_up_but_locked: "Jūs esat veiksmīgi reģistrējies. Tomēr Jūs neesat pieslēdzies, jo Jūsu lietotājs ir nobloķēts."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: neaktīvs
+        unconfirmed: neapstiprināts
+        locked: bloķēts
+      update_needs_confirmation: "Jūsu lietotāja izmaiņas ir veiksmīgi saglabātas, bet mums ir jāpārbauda Jūsu jaunā epasta adrese. Lūdzu pārbaudiet Jūsu epastu un uzklikšķiniet uz apstiprinājuma saites, lai pabeigtu Jūsu jaunās epasta adreses apstiprināšanu."
+      signed_up: "Laipni lūdzam! Jūs esat veiksmīgi reģistrējies"
+      updated: "Jūsu lietotāja izmaiņas ir veiksmīgi saglabātas."
+      destroyed: "Uz redzēšanos! Jūsu lietotājs ir veiksmīgi dzēsts. Ceram Jūs atkal drīzumā redzēt."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Ja Jūsu lietotājs eksistē mūsu datubāzē, tad jums tiks nosūtīts paroles atjaunošanas apraksts uz epastu."
+      send_instructions: "Jūs saņemsiet izziņu ar instrukcijām ka atbloķēt Jūsu profilu pēc dažām minūtēm."
+      unlocked: "Jūsu lietotājs ir veiksmīgi atbloķēts. Jūs esat pieslēdzies."
     omniauth_callbacks:
-      success: ~
+      success: "Veiksmīga autorizācija no %{kind} profila."
       failure: ~
     mailer:
       confirmation_instructions:
@@ -52,4 +52,4 @@ lv:
       reset_password_instructions:
         subject: ~
       unlock_instructions:
-        subject: ~
+        subject: "Atbloķēšanas instrukcijas"

@@ -2112,31 +2112,31 @@ en-AU:
       friday: ~
       saturday: ~
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: January
+      february: February
+      march: March
+      april: April
+      may: May
+      june: June
+      july: July
+      august: August
+      september: September
+      october: October
+      november: November
+      december: December
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: Jan
+      february: Feb
+      march: Mar
+      april: Apr
+      may: May
+      june: Jun
+      july: Jul
+      august: Aug
+      september: Sep
+      october: Oct
+      november: Nov
+      december: Dec
     today: ~
     clear: ~
     format: dd/mm/yyyy
@@ -2243,10 +2243,10 @@ en-AU:
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
-    stripe_only_hooray_title: ~
     stripe_credit_card: ~
     paypal: ~
     paypal_connected: ~
+    paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
@@ -2295,8 +2295,6 @@ en-AU:
       need_verification: ~
   payment_settings:
     title: ~
-    stripe_and_paypal_supported: ~
-    paypal_title: ~
     bank_account: ~
     paypal: ~
     bank_account_details: ~

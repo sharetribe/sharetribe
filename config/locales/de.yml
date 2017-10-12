@@ -961,7 +961,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
-      you_have_received_new_payment: "Du hast eine Zahlung in Höhe von %{payment_sum} für %{listing_title} durch %{payer_full_name} erhalten. Hier ist Deine Quittung."
+      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von  <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
     payment_receipt_to_seller:
       payment_gateway_fee: "Zahlungsbearbeitungsgebühr:"
       shipping_total: "Versand:"
@@ -2316,10 +2316,10 @@ de:
     missing_payment: "Du hast offene Angebote, aber du hast die Zahlungseinstellungen für dein Konto nicht eingerichtet. Um die Einstellungen einzurichten, gehe zu %{settings_link}"
     stripe_bank_connected: "Kontodetails erfolgreich eingerichtet!"
     stripe_can_accept: "Du bist jetzt bereit, Zahlungen mit Kreditkarten entgegenzunehmen"
-    stripe_only_hooray_title: "Super! Alles ist fertig eingerichtet!"
     stripe_credit_card: Kreditkarte
     paypal: PayPal
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
+    paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
@@ -2368,8 +2368,6 @@ de:
       need_verification: "Zusätzliche Verifizierung benötigt"
   payment_settings:
     title: Auszahlungseinstellungen
-    stripe_and_paypal_supported: ~
-    paypal_title: "Dein PayPal-Konto verbinden"
     bank_account: ~
     paypal: PayPal
     bank_account_details: ~

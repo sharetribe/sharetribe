@@ -410,7 +410,7 @@ class TransactionsController < ApplicationController
   end
 
   def price_break_down_locals(tx)
-    if tx[:payment_process] == :none
+    if tx[:payment_process] == :none && tx[:listing_price].cents == 0
         nil
     else
       localized_unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil

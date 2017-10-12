@@ -2281,10 +2281,10 @@ fr-CA:
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
-    stripe_only_hooray_title: ~
     stripe_credit_card: ~
     paypal: ~
     paypal_connected: ~
+    paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
@@ -2333,8 +2333,6 @@ fr-CA:
       need_verification: ~
   payment_settings:
     title: ~
-    stripe_and_paypal_supported: ~
-    paypal_title: ~
     bank_account: ~
     paypal: ~
     bank_account_details: ~
