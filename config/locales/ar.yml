@@ -331,8 +331,6 @@ ar:
             initiated: "انتظار دفع سترب"
             pending_ext: "انتظار دفع سترب"
         not_available: "غير متوفر"
-      paypal_account:
-        paypal_admin_account: "نظام الدفع"
     custom_fields:
       edit:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
@@ -659,13 +657,8 @@ ar:
     paypal_fee_info:
       title: ~
       body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: هنا
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: هنا
     paypal_only_fee_info:
       title: ~
       body_text: ~
@@ -1034,7 +1027,7 @@ ar:
       if_you_do_accept: "إذا قمت بالموافقة على الطلب في هذه الفترة المحددة، ستستلم النقود مباشرة إلى حسابك"
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: |-
-          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
+          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة،
           ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
       click_here_to_reply: "اضغط هنا للرد على الطلب"
     transaction_preauthorized_reminder:

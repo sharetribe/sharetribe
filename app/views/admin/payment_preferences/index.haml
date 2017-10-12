@@ -1,20 +1,9 @@
-- if @stripe_available
-  - content_for :title_header do
-    %h1
-      = t("layouts.admin.admin")
-      = "-"
-      = t("admin.communities.settings.payment_preferences")
-- else
-  - content_for :title_header do
-    %h1
-      = t("layouts.admin.admin")
-      = "-"
-      = t("admin.communities.paypal_account.paypal_admin_account")
-
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.settings.payment_preferences")
 
 = render partial: 'layouts/onboarding_popup_wrapper'
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
-- if FeatureFlagHelper.feature_enabled?(:stripe)
-  = render partial: 'stripe_available', locals: local_assigns
-- else
-  = render partial: 'old_paypal_index', locals: local_assigns
+= render partial: 'payment_settings', locals: local_assigns

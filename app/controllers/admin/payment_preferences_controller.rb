@@ -8,7 +8,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       more_locals.merge!(paypal_index)
     end
 
-    if @stripe_available || @stripe_enabled
+    if @stripe_enabled
       more_locals.merge!(stripe_index)
     end
 
@@ -35,7 +35,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   def update
     if params[:payment_preferences_form].present?
       update_payment_preferences
-    elsif params[:stripe_api_keys_form].present? && @stripe_available
+    elsif params[:stripe_api_keys_form].present?
       update_stripe_keys
     end
 
@@ -49,7 +49,6 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def ensure_payments_enabled
     @paypal_enabled = PaypalHelper.paypal_active?(@current_community.id)
-    @stripe_available = StripeHelper.stripe_feature_enabled?(@current_community.id)
     @stripe_enabled = StripeHelper.stripe_provisioned?(@current_community.id)
     unless @paypal_enabled || @stripe_enabled
       flash[:error] = t("admin.communities.settings.payments_not_enabled")
@@ -135,7 +134,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url,
       support_email: APP_CONFIG.support_email,
-      stripe_enabled: @stripe_enabled || @stripe_available,
+      stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,
       stripe_account: nil,
       paypal_account: nil,

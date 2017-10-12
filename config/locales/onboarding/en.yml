@@ -47,10 +47,9 @@ en:
             paypal: "Accept payments"
             listing: "Post your first listing"
             invitation: "Invite users"
-          paypal:
+          payments:
             title: "Step 5: Set up online payments"
-            description_p1: "If you want to allow your providers to accept online payments, you need to connect your PayPal account (you will receive a fee from each transaction). Once connected, you need to choose a minimum transaction size and your transaction fee."
-            description_p1_stripe_paypal: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
+            description_p1: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
             not_sure_link: "not sure which one to choose?"
             description_p2: "Alternatively, you can disable online payments for now."
             info_image_alt: "A screenshot from payments page"

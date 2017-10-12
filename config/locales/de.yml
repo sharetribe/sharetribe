@@ -346,8 +346,6 @@ de:
             initiated: "Warte auf Stripe-Bezahlung"
             pending_ext: "Warte auf Stripe-Bezahlung"
         not_available: "nicht verfügbar"
-      paypal_account:
-        paypal_admin_account: Zahlungssystem
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -670,17 +668,10 @@ de:
       paypal: PayPal
       info: "Zahlungen auf %{service_name} sind entweder von Stripe oder PayPal verarbeitet. Beide Anbieter verlangen Zahlungsbearbeitungsgebühren von jeder Transaktion."
     paypal_fee_info:
-      title: PayPal-Zahlungsbearbeitungsgebühr
+      title: "Zahlungsbearbeitungsgebühr von PayPal"
       body_text: |-
           PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
           Wenn Du Dich bei Deinem Paypal Account anmeldest, erhältst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
-      body_with_shipping_text: |-
-          PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
-          Wenn Du Dich bei Deinem Paypal Account anmeldest, erhälst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
-      link_to_paypal_text: hier
-    paypal_fee_info_new:
-      title: "Zahlungsbearbeitungsgebühr von PayPal"
-      body_text: ~
       body_text_accept: ~
       link_to_paypal_text: hier
     paypal_only_fee_info:

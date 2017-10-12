@@ -331,8 +331,6 @@ it:
             initiated: ~
             pending_ext: ~
         not_available: "Non disponibile"
-      paypal_account:
-        paypal_admin_account: Pagamenti
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -647,15 +645,8 @@ it:
       body_text: |-
           PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
           Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
-      body_with_shipping_text: |-
-          PayPal applica una tassa di elaborazione ad ogni pagamento. Questa tassa è compresa tra il 2% e il 5% del prezzo totale di vendita, a seconda del volume di vendite mensile e del paese di residenza dell'acquirente (in Italia 3,4%+0,35€). In generale, per gli acquisti nazionali si applicano costi inferiori rispetto a quelli internazionali, e vendite mensili elevati offrono uno sconto sulla tassa di elaborazione.
-          Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
-      link_to_paypal_text: qui
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: qui
     paypal_only_fee_info:
       title: ~
       body_text: ~

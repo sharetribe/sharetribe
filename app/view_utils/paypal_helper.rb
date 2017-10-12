@@ -60,7 +60,7 @@ module PaypalHelper
       .map { |result| result[:data] }
       .or_else(nil)
 
-    return settings && settings[:active] && settings[:payment_gateway] == :paypal
+    return settings && settings[:active]
   end
 
 

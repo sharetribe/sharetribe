@@ -346,8 +346,6 @@ fi:
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
         not_available: "Ei saatavilla"
-      paypal_account:
-        paypal_admin_account: Maksuasetukset
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -674,15 +672,6 @@ fi:
       paypal: PayPal
       info: "%{service_name} käyttää maksunvälittäjänä joka Stripea tai PayPalia. Molemmat veloittavat palvelumaksun jokaisesta maksutapahtumasta."
     paypal_fee_info:
-      title: "PayPalin käsittelymaksu"
-      body_text: |-
-          PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
-          Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla %{link_to_paypal}. Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
-      body_with_shipping_text: |-
-          PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta (postikulut mukaanluettuna), riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
-          Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla %{link_to_paypal}. Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
-      link_to_paypal_text: "tätä linkkiä"
-    paypal_fee_info_new:
       title: "PayPalin palvelumaksu"
       body_text: |-
           PayPal-maksuista %{service_name} veloittaa %{paypal_commission}%:n välityspalkkion. PayPalin palvelumaksu ei ole mukana tässä välityspalkkiossa, eli välityspalkkion lisäksi sinun pitää maksaa myös PayPalin palvelumaksu jokaisesta PayPalin kautta kulkevasta maksusta. PayPalin palvelumaksu on välillä 2%-5% kokonaishinnasta, riippuen myyntivolyymistäsi ja ostajan kotimaasta. Tyypillisesti kotimaiset maksut ovat halvempia kuin kansainväliset, ja suurempi myyntivolyymi tuo sinulle alennuksen palvelumaksusta.
@@ -694,7 +683,7 @@ fi:
     paypal_only_fee_info:
       title: "PayPalin palvelumaksu"
       body_text: |-
-          %{service_name} käyttää PayPalia maksunvälittäjänään. PayPal veloittaa palvelumaksun jokaisesta sen kautta kulkevasta maksusta. Palvelumaksun suuruus on 2%-5% kokonaishinnasta, riippuen kuukausittaisesta myyntivolyymistasi sekä ostajan kotimaasta. Tyypillisesti kotimaiset ostot ovat halvempia kuin ulkomaiset, ja suuri myyntivolyymi tuo sinulle alennuksen palvelumaksusta. 
+          %{service_name} käyttää PayPalia maksunvälittäjänään. PayPal veloittaa palvelumaksun jokaisesta sen kautta kulkevasta maksusta. Palvelumaksun suuruus on 2%-5% kokonaishinnasta, riippuen kuukausittaisesta myyntivolyymistasi sekä ostajan kotimaasta. Tyypillisesti kotimaiset ostot ovat halvempia kuin ulkomaiset, ja suuri myyntivolyymi tuo sinulle alennuksen palvelumaksusta.
           Voit nähdä tarkan hinnaston kirjautumalla PayPal-tilillesi ja menemällä %{link_to_paypal}.Jokaisen ostotapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään tarkka palvelumaksu.
       link_to_paypal_text: tänne
     stripe_fee_info:

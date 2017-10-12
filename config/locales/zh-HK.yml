@@ -341,8 +341,6 @@ zh-HK:
             initiated: ~
             pending_ext: ~
         not_available: ~
-      paypal_account:
-        paypal_admin_account: 款項
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -663,11 +661,6 @@ zh-HK:
     paypal_fee_info:
       title: PayPal的款項處理費
       body_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間，取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
-      body_with_shipping_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間（包括運費），這取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
-      link_to_paypal_text: ~
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
       link_to_paypal_text: ~
     paypal_only_fee_info:

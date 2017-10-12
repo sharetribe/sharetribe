@@ -346,8 +346,6 @@ fr-CA:
             initiated: ~
             pending_ext: ~
         not_available: "Non disponible"
-      paypal_account:
-        paypal_admin_account: Paiements
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -662,15 +660,8 @@ fr-CA:
       body_text: |-
           PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
           Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
-      body_with_shipping_text: |-
-          PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction (frais de livraison inclus) et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
-          Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
-      link_to_paypal_text: ici
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: ici
     paypal_only_fee_info:
       title: ~
       body_text: ~

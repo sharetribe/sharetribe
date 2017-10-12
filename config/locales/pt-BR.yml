@@ -346,8 +346,6 @@ pt-BR:
             initiated: ~
             pending_ext: ~
         not_available: Indisponível
-      paypal_account:
-        paypal_admin_account: Pagamentos
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
@@ -674,15 +672,8 @@ pt-BR:
       body_text: |-
           O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas, dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
           Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
-      body_with_shipping_text: |-
-          O PayPal cobra uma taxa de processamento de cada pagamento. Esta taxa situa-se entre 2% e 5 % do preço total de vendas (incluindo o frete), dependendo do seu volume de vendas mensal e do país de residência do comprador. Em geral, as compras nacionais têm taxas mais baixas do que as compras internacionais, e as vendas mensais mais elevadas pode beneficiar você com um desconto nestas taxas.
-          Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
-      link_to_paypal_text: aqui
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: aqui
     paypal_only_fee_info:
       title: ~
       body_text: ~
