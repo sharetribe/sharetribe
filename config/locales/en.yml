@@ -598,7 +598,7 @@ en:
         invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       index:
         header: Available Payment Settings
-        info: You can configure available payment gateways for use in your marketplace. Currently platform supports PayPal and Stripe gateways.
+        info: You can configure available payment gateways for use in your marketplace. Currently PayPal and Stripe are supported.
         active: Active
         gateway: Gateway
         process: Process

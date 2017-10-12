@@ -59,8 +59,8 @@ class IntApi::MarketplacesController < ApplicationController
     url = URLUtils.append_query_param(url, "auth", auth_token[:token])
 
     # Enable specific features for all new trials
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1, :stripe])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:topbar_v1, :stripe])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:topbar_v1])
 
     # TODO handle error cases with proper response
 
