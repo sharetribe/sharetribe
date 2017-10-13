@@ -1565,8 +1565,8 @@ he-IL:
         after_service_fee_you_will_get: "לאחר‎%{service_name}‎ ודמי עיבוד של תשלומים תקבל ‎%{sum_with_currency}‎"
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_payment_text: "‎(‎‎‎%{sum_with_currency}‎‎)‎ לאחר הזמנה תנכה עמלה בסך ‎‎%{service_name}‎ \"\"\"‎%{payment_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
+        after_service_fee_you_will_get_paypal_text: "‎(‎‎%{sum_with_currency}‎)‎ לאחר הזמנה תנכה עמלה בסך ‎%{service_name}‎ \"\"\"‎%{paypal_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
         after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
         paypal_fee_info_link_text: ~

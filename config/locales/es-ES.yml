@@ -1097,7 +1097,7 @@ es-ES:
     stripe:
       generic_error: ~
   error_pages:
-    back_to_kassi_front_page: "Volver a la página principal de %{service_name}"
+    back_to_kassi_front_page: "Volver a la página principal"
     error_404:
       if_you_believe: "Si crees que la dirección es correcta y debería funcionar, entonces por favor ayúdanos a encontrar el error haciéndonos saber qué dirección ocasionó el error y qué debería aparecer en la página, a través del siguiente formulario."
       page_can_not_be_found: "Página no encontrada!"
