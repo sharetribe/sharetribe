@@ -396,4 +396,12 @@ FactoryGirl.define do
     minimum_transaction_fee_currency  'EUR'
     confirmation_after_days           14
   end
+
+  factory :listing_shape do
+    price_enabled           true
+    shipping_enabled        true
+    name                    'selling'
+    name_tr_key             'abc'
+    action_button_tr_key    'def'
+  end
 end

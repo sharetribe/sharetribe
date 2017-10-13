@@ -19,7 +19,7 @@ module Analytics
   EVENT_KEY = :_analytics_events
   LOGOUT_KEY = :_analytics_logout
 
-  def record_event(flash_or_now, event_name, props = {})
+  def record_event(flash_or_now, event_name, props = {}, alternative_event_name = nil)
     flash_or_now[EVENT_KEY] ||= []
     flash_or_now[EVENT_KEY].push(
       {event: event_name, props: props}
@@ -28,7 +28,7 @@ module Analytics
       person: @current_user,
       community: @current_community,
       event_data: {
-        event_name: event_name,
+        event_name: alternative_event_name || event_name,
         props: props
       }
     )

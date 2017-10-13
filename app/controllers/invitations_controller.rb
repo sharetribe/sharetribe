@@ -48,7 +48,7 @@ class InvitationsController < ApplicationController
         state_changed = Admin::OnboardingWizard.new(@current_community.id)
           .update_from_event(:invitation_created, invitation)
         if state_changed
-          record_event(flash, "km_record", {km_event: "Onboarding invitation created"})
+          record_event(flash, "km_record", {km_event: "Onboarding invitation created"}, AnalyticService::EVENT_USER_INVITED)
 
           flash[:show_onboarding_popup] = true
         end
