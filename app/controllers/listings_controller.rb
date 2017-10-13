@@ -90,7 +90,7 @@ class ListingsController < ApplicationController
     make_listing_presenter
     @listing_presenter.form_path = new_transaction_path(listing_id: @listing.id)
 
-    Analytics.record_event(
+    record_event(
       flash.now,
       "ListingViewed",
       { listing_id: @listing.id,
@@ -485,7 +485,8 @@ class ListingsController < ApplicationController
     state_changed = Admin::OnboardingWizard.new(@current_community.id)
       .update_from_event(:listing_created, @listing)
     if state_changed
-      report_to_gtm({event: "km_record", km_event: "Onboarding listing created"})
+      record_event(flash, "km_record", {km_event: "Onboarding listing created"})
+
       flash[:show_onboarding_popup] = true
     end
   end

@@ -91,8 +91,8 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
         .update_from_event(:listing_shape_updated, [update_result.data])
       if state_changed
-        report_to_gtm([{event: "km_record", km_event: "Onboarding payments setup"},
-                       {event: "km_record", km_event: "Onboarding payment disabled"}])
+        record_event(flash, "km_record", {km_event: "Onboarding payments setup"})
+        record_event(flash, "km_record", {km_event: "Onboarding payment disabled"})
 
         flash[:show_onboarding_popup] = true
       end

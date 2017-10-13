@@ -1,7 +1,6 @@
 window.ST = window.ST || {};
 
 (function(module) {
-  /* global report_analytics_event */
   /* global disable_submit_button */
   /* global set_textarea_maxlength */
   /* global auto_resize_text_areas */
@@ -528,7 +527,7 @@ window.ST = window.ST || {};
 
     // This handler is used when Image uploader is not loading
     validFormSubmitted.filter(isLoading.not()).onValue(function(e) {
-      report_analytics_event("listing", "created");
+      window.ST.analytics.logEvent("listing", "created");
       disable_submit_button(form_id, locale);
     });
 

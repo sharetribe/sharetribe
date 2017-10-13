@@ -35,6 +35,9 @@ class CommunityMembership < ApplicationRecord
   validate :person_can_join_community_only_once, :on => :create
   validates_inclusion_of :status, :in => VALID_STATUSES
 
+  scope :accepted, -> { where(status: 'accepted') }
+  scope :admin, -> { where(admin: true) }
+
   def person_can_join_community_only_once
     if CommunityMembership.find_by_person_id_and_community_id(person_id, community_id)
       errors.add(:base, "You are already a member of this community")

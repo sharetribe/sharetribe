@@ -361,4 +361,39 @@ FactoryGirl.define do
     build_association(:person)
     build_association(:follower)
   end
+
+  factory :marketplace_sender_email do
+    name 'Edna'
+    email 'edna@mail.com'
+  end
+
+  factory :transaction_process do
+    process          'preauthorize'
+    author_is_seller true
+  end
+
+  factory :paypal_account do
+    email         'mildred@example.com'
+    payer_id      '123'
+    active        true
+  end
+
+  factory :order_permission do
+    build_association(:paypal_account)
+    verification_code 'ABC'
+    paypal_username_to 'hether@example.com'
+  end
+
+  factory :payment_settings do
+    community_id                      1
+    active                            true
+    payment_gateway                   'paypal'
+    payment_process                   'preauthorize'
+    commission_from_seller            11
+    minimum_price_cents               100
+    minimum_price_currency            'EUR'
+    minimum_transaction_fee_cents     10
+    minimum_transaction_fee_currency  'EUR'
+    confirmation_after_days           14
+  end
 end
