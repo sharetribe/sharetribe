@@ -47,10 +47,9 @@ fi:
             paypal: "Hyväksy maksuja"
             listing: "Lisää ensimmäinen ilmoituksesi"
             invitation: "Kutsu käyttäjiä"
-          paypal:
+          payments:
             title: "Vaihe 5: Aktivoi maksujärjestelmä"
-            description_p1: "Mikäli haluat antaa myyjiesi vastaanottaa maksuja verkossa, sinun tulee yhdistää PayPal-tilisi. Saat välityspalkkion jokaisesta kaupasta. Kun olet yhdistänyt tilisi, sinun tulee määritellä maksutapahtuman minimikoko sekä välityspalkkiosi."
-            description_p1_stripe_paypal: "Jos haluat antaa käyttäjiesi maksaa ja vastaanottaa maksuja verkossa ja mahdollisesti veloittaa välityspalkkion myynneistä, sinun pitää valita maksunvälittäjä. Sharetribe tukee kahta maksunvälittäjää, Stripea ja PayPalia (%{not_sure_link}). Valittuasi maksunvälittäjän sinun tulee vielä valita välityspalkkiosi suuruus."
+            description_p1: "Jos haluat antaa käyttäjiesi maksaa ja vastaanottaa maksuja verkossa ja mahdollisesti veloittaa välityspalkkion myynneistä, sinun pitää valita maksunvälittäjä. Sharetribe tukee kahta maksunvälittäjää, Stripea ja PayPalia (%{not_sure_link}). Valittuasi maksunvälittäjän sinun tulee vielä valita välityspalkkiosi suuruus."
             description_p2: "Vaihtoehtoisesti voit kytkeä maksut toistaiseksi pois päältä."
             info_image_alt: "Kuvankaappaus maksusivulta"
             disable_payments: "Kytke maksujärjestelmä pois päältä"

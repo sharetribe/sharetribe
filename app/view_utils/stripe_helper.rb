@@ -5,7 +5,6 @@ module StripeHelper
   module_function
 
   def community_ready_for_payments?(community_id)
-    return false unless stripe_feature_enabled?(community_id)
     stripe_active?(community_id) &&
       Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .map {|res| res[:success] ? res[:data] : nil}
@@ -15,17 +14,15 @@ module StripeHelper
   end
 
   def stripe_active?(community_id)
-    return false unless stripe_feature_enabled?(community_id)
-    active_settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
+    settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
       .or_else(nil)
 
-    return active_settings && active_settings[:active] && active_settings[:api_verified]
+    return settings && settings[:active] && settings[:api_verified]
   end
 
   def stripe_provisioned?(community_id)
-    return false unless stripe_feature_enabled?(community_id)
     settings = Maybe(TxApi.settings.get(
                       community_id: community_id,
                       payment_gateway: :stripe,
@@ -58,13 +55,5 @@ module StripeHelper
     stripe_active?(community_id) &&
       !user_and_community_ready_for_payments?(user_id, community_id) &&
       PaymentHelper.open_listings_with_payment_process?(community_id, user_id)
-  end
-
-  # We are not using FeatureFlagHelper.feature_enabled?(:stripe) here,
-  # the reason is that method Community#payments_in_use? uses MarketplaceService::Community::Query.payment_type which calls StripeHelper.stripe_active?
-  # and it can be invoked in context where FeatureFlagHelper is not initialized, like from PersonMailer
-  def stripe_feature_enabled?(community_id)
-    features = FeatureFlagService::API::Api.features.get_for_community(community_id: community_id).maybe[:features].or_else(Set.new)
-    features.include?(:stripe)
   end
 end

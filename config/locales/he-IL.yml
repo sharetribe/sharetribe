@@ -337,8 +337,6 @@ he-IL:
             initiated: ~
             pending_ext: ~
         not_available: ~
-      paypal_account:
-        paypal_admin_account: "מערכת התשלומים"
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -650,11 +648,6 @@ he-IL:
       info: ~
     paypal_fee_info:
       title: "עמלות פייפל"
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
-    paypal_fee_info_new:
-      title: ~
       body_text: ~
       body_text_accept: ~
       link_to_paypal_text: ~

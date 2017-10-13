@@ -47,10 +47,9 @@ nl:
             paypal: "Accepteer betalingen"
             listing: "Voeg je eerste item toe"
             invitation: "Nodig gebruikers uit"
-          paypal:
+          payments:
             title: "Stap 5: Accepteer betalingen"
-            description_p1: "Als je je leveranciers online betalingen wilt laten ontvangen (en jijzelf commissie van iedere transactie wilt ontvangen), dan dien je je PayPal account te koppelen. Eenmaal gekoppeld, dien je een minimale transactie prijs en een commissie kiezen."
-            description_p1_stripe_paypal: "Als je je gebruikers online betalingen wilt laten gebruiken (en als jijzelf commissie wilt ontvangen), dan dien je een betalingsservice te koppelen. Sharetribe ondersteunt zowel Stripe and Paypal (%{not_sure_link}). Na het koppelen van een service, dien je je commissie percentage te kiezen."
+            description_p1: "Als je je gebruikers online betalingen wilt laten gebruiken (en als jijzelf commissie wilt ontvangen), dan dien je een betalingsservice te koppelen. Sharetribe ondersteunt zowel Stripe and Paypal (%{not_sure_link}). Na het koppelen van een service, dien je je commissie percentage te kiezen."
             description_p2: "Je kunt ook kiezen om online betalingen voorlopig uit te schakelen."
             info_image_alt: "Een screenshot van de betalingen-pagina"
             disable_payments: "Schakel betalingen uit"

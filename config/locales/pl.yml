@@ -356,8 +356,6 @@ pl:
             initiated: ~
             pending_ext: ~
         not_available: "Nie dostępne"
-      paypal_account:
-        paypal_admin_account: "System płatności"
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
@@ -692,15 +690,8 @@ pl:
       body_text: |-
           PayPal pobiera opłatę za obsługę każdej płatności. Opłata ta wynosi od 2% do 5% łącznej ceny sprzedaży, zależnie od poziomu wartości Twojego obrotu oraz kraju zamieszkania kupującego. Generalnie transakcje krajowe mają niższą opłatę niż międzynarodowe oraz wyższy poziom obrotu daje Ci zniżkę w opłatach.
           Możesz sprawdzić dokładny poziom opłat logując się na swoje konto PayPal i idąc na %{link_to_paypal}. Po każdej transakcji dostaniesz rachunek pokazujący dokładną wartość opłaty.
-      body_with_shipping_text: |-
-          PayPal pobiera opłatę za obsługę każdej płatności. Opłata ta wynosi od 2% do 5% łącznej ceny sprzedaży (włączając koszt transportu), zależnie od poziomu wartości Twojego obrotu oraz kraju zamieszkania kupującego. Generalnie transakcje krajowe mają niższą opłatę niż międzynarodowe oraz wyższy poziom obrotu daje Ci zniżkę w opłatach.
-          Możesz sprawdzić dokładny poziom opłat logując się na swoje konto PayPal i idąc na %{link_to_paypal}. Po każdej transakcji dostaniesz rachunek pokazujący dokładną wartość opłaty.
-      link_to_paypal_text: tutaj
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: tutaj
     paypal_only_fee_info:
       title: ~
       body_text: ~

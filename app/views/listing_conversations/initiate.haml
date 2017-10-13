@@ -48,7 +48,7 @@
 
       - if delivery_method
         = hidden_field_tag :delivery, delivery_method
-      
+
       = hidden_field_tag :payment_type
 
       - if stripe_in_use
@@ -57,19 +57,11 @@
             %h2
               = t("listing_conversations.stripe_payment.payment")
         = render :partial => "listing_conversations/stripe_payment", locals: {  publishable_key: stripe_publishable_key, stripe_shipping_required: stripe_shipping_required, paypal_in_use: paypal_in_use}
-     
+
       - if paypal_in_use && !stripe_in_use
         .row
           .col-12.payment-button-wrapper.paypal-payment
-            - if FeatureFlagHelper.feature_enabled?(:stripe)
-              = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
-            - else 
-              = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button blue"
-
-        .row
-          .col-12
-            - unless FeatureFlagHelper.feature_enabled?(:stripe)
-              = render :partial => "listing_conversations/paypal_payment_methods", locals: { country_code: country_code }
+            = button_tag t("paypal.pay_with_paypal"), class: "checkout-with-paypal-button"
 
       - if paypal_in_use  && stripe_in_use
         .row
@@ -93,10 +85,10 @@
   - content_for :extra_javascript do
     :javascript
       $(function(){
-        $(".checkout-with-paypal-button").click(function(){ 
+        $(".checkout-with-paypal-button").click(function(){
           $("#payment_type").val("paypal");
         });
-        $(".checkout-with-stripe-button").click(function(){ 
+        $(".checkout-with-stripe-button").click(function(){
           $("#payment_type").val("stripe");
         });
       });

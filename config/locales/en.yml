@@ -346,8 +346,6 @@ en:
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
         not_available: "Not available"
-      paypal_account:
-        paypal_admin_account: "Payment system"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -411,7 +409,7 @@ en:
         test_sent: "Test email was sent to your inbox"
         send_email_article_title: "this article"
         send_email_article_text: "You can learn more about the user segments in %{article_link}."
-        recipients: 
+        recipients:
           title: "Who do you want to email?"
           options:
             all_users: All users
@@ -598,7 +596,7 @@ en:
         invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       index:
         header: Available Payment Settings
-        info: You can configure available payment gateways for use in your marketplace. Currently platform supports PayPal and Stripe gateways.
+        info: You can configure available payment gateways for use in your marketplace. Currently PayPal and Stripe are supported.
         active: Active
         gateway: Gateway
         process: Process
@@ -682,21 +680,11 @@ en:
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-
-          PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      body_with_shipping_text: |-
-          PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price (including shipping), depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      link_to_paypal_text: here
-    paypal_fee_info_new:
-      title: "PayPal's payment processing fee"
-      body_text: |-
           For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you also need to pay PayPal's fees from each payment processed by PayPal. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       body_text_accept: |-
           This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-
       link_to_paypal_text: here
     paypal_only_fee_info:
       title: "PayPal's payment processing fee"

@@ -343,8 +343,6 @@ tr-TR:
             initiated: ~
             pending_ext: ~
         not_available: ~
-      paypal_account:
-        paypal_admin_account: Ödemeler
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -658,18 +656,10 @@ tr-TR:
       title: "PayPal işlem ücreti"
       body_text: |-
           PayPal'i kullanarak ürün ödemelerini almak için geçerli olan standart oran %3,4 + 0,45 TL tutarındadır. PayPal ile aylık 4.500,00 TL tutarından daha fazla satış yapıyorsanız %2,4 + 0,45 TL gibi daha düşük oranlardan yararlanabilirsiniz. PayPal satış ücret oranlarını ve diğer indirimli oran ve ücretleri detaylı olarak incelemek için lütfen %{link_to_paypal} ziyaret ediniz.
-          
+
           PayPal her alışverişten sonra size komisyon oranlarını detaylı gösteren bir eposta göndermektedir.
-      body_with_shipping_text: |-
-          PayPal'i kullanarak ürün ödemelerini almak için geçerli olan standart oran %3,4 + 0,45 TL tutarındadır. PayPal ile aylık 4.500,00 TL tutarından daha fazla satış yapıyorsanız %2,4 + 0,45 TL gibi daha düşük oranlardan yararlanabilirsiniz. PayPal satış ücret oranlarını ve diğer indirimli oran ve ücretleri detaylı olarak incelemek için lütfen %{link_to_paypal} ziyaret ediniz.
-          
-          PayPal her alışverişten sonra size komisyon oranlarını detaylı gösteren bir eposta göndermektedir.
-      link_to_paypal_text: buradan
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: buradan
     paypal_only_fee_info:
       title: ~
       body_text: ~

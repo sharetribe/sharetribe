@@ -341,8 +341,6 @@ zh-TW:
             initiated: ~
             pending_ext: ~
         not_available: 无
-      paypal_account:
-        paypal_admin_account: 付款
     custom_fields:
       edit:
         edit_listing_field: "编辑信息字段“%{field_name}”"
@@ -663,15 +661,8 @@ zh-TW:
     paypal_fee_info:
       title: PayPal的支付处理费
       body_text: "PayPal对每笔付款收取一笔处理费。该费用介于总销售费用的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。"
-      body_with_shipping_text: |-
-          PayPal对每笔付款收取一笔处理费。该费用介于总销售费用（包括运费）的2%到5%之间，取决于你的月销售量和买家所在国家。总的说来，国内的购买比国际的购买的费用低，每月销售额高则可以获得费用折扣。
-          你可以通过登录你的PayPal帐号访问%{link_to_paypal}来查看详细费用。在每次购买之后你将得到一据显示具体费用的收据。
-      link_to_paypal_text: 这里
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: 这里
     paypal_only_fee_info:
       title: ~
       body_text: ~

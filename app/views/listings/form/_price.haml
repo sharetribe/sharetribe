@@ -55,11 +55,7 @@
 - if payment_gateway.present?
   = render layout: "layouts/lightbox", locals: { id: "payment_fee_info_content"} do
     - if payment_gateway == :paypal
-      - if FeatureFlagHelper.feature_enabled?(:stripe)
-        %h2= t("common.payment_fee_info.title_paypal")
-      - else
-        %h2= t("common.paypal_fee_info.title")
-
+      %h2= t("common.payment_fee_info.title_paypal")
     - else
       %h2= t("common.payment_fee_info.title")
 
@@ -82,17 +78,9 @@
         = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: @listing_presenter.commission[:paypal_commission]).html_safe
 
     - if payment_gateway == :paypal
-      - if FeatureFlagHelper.feature_enabled?(:stripe)
-        - text_with_line_breaks_html_safe do
-          - link_to_paypal = link_to(t("common.paypal_fee_info_new.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
-          = t("common.paypal_only_fee_info_new.body_text", link_to_paypal: link_to_paypal).html_safe
-      - else
-        - text_with_line_breaks_html_safe do
-          - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
-          - if @listing_presenter.shape[:shipping_enabled]
-            = t("common.paypal_fee_info.body_with_shipping_text", link_to_paypal: link_to_paypal).html_safe
-          - else
-            = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
+      - text_with_line_breaks_html_safe do
+        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
+        = t("common.paypal_only_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
 
   - if run_js_immediately
     :javascript

@@ -331,8 +331,6 @@ sw:
             initiated: ~
             pending_ext: ~
         not_available: ~
-      paypal_account:
-        paypal_admin_account: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -643,11 +641,6 @@ sw:
       paypal: ~
       info: ~
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_with_shipping_text: ~
-      link_to_paypal_text: ~
-    paypal_fee_info_new:
       title: ~
       body_text: ~
       body_text_accept: ~

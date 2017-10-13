@@ -341,8 +341,6 @@ ja:
             initiated: ~
             pending_ext: ~
         not_available: ご利用できません
-      paypal_account:
-        paypal_admin_account: お支払い
     custom_fields:
       edit:
         edit_listing_field: "「%{field_name}」項目を編集する"
@@ -663,15 +661,8 @@ ja:
       body_text: |-
           PayPalは各お支払いごとに、ご利用手数料を請求します。この手数料は合計料金（送料を含む）の５－２％になり、これは支払い者の住む地域や、サイト内の月額の総売り上げによります。通常、国内の利用者に対しては低めの手数料に設定されています。
           %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
-      body_with_shipping_text: |-
-          PayPalは各お支払いごとに、ご利用手数料を請求します。この手数料は合計料金（送料を含む）の５－２％になり、これは支払い者の住む地域や、サイト内の月額の総売り上げによります。通常、国内の利用者に対しては低めの手数料に設定されています。
-          %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
-      link_to_paypal_text: こちら
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: こちら
     paypal_only_fee_info:
       title: ~
       body_text: ~
