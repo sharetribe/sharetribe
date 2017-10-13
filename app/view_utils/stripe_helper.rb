@@ -17,7 +17,7 @@ module StripeHelper
     settings = Maybe(TxApi.settings.get(community_id: community_id, payment_gateway: :stripe, payment_process: :preauthorize))
       .select { |result| result[:success] }
       .map { |result| result[:data] }
-      .or_else(nil)
+      .or_else(false)
 
     return settings && settings[:active] && settings[:api_verified]
   end

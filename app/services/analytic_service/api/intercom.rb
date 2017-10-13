@@ -5,6 +5,11 @@ module AnalyticService
         EVENT_LOGOUT
       ].freeze
 
+      TRACK_STATUS_CHANGE_EVENTS = [
+        EVENT_LISTING_CREATED,
+        EVENT_USER_INVITED
+      ].freeze
+
       def event(person_id:, event_data:)
         person = Person.find_by(id: person_id)
         if person
@@ -83,16 +88,25 @@ module AnalyticService
 
         def send_event(person:, community:, event_data:)
           event_name = event_data.try(:[], :event_name)
-          if enabled_for_person?(person: person, community: community) && track_event?(event_name)
-            new.event(
-              person_id: person.id,
-              event_data: event_data
-            )
+          if enabled_for_person?(person: person, community: community)
+            if track_event?(event_name)
+              new.event(
+                person_id: person.id,
+                event_data: event_data
+              )
+            end
+            if status_change_event?(event_name)
+              new.create_or_update_user(person_id: person.id, community_id: community.try(:id))
+            end
           end
         end
 
         def track_event?(event_name)
           TRACK_EVENTS.include?(event_name)
+        end
+
+        def status_change_event?(event_name)
+          TRACK_STATUS_CHANGE_EVENTS.include?(event_name)
         end
 
         def setup_person(person:, community:)

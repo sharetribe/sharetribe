@@ -11,14 +11,14 @@ module AnalyticService
       result = {}
       if community
         result[INFO_MARKETPLACE_IDENT] = community.ident
-        result[ADMIN_CREATED_FILTER] =  community.custom_fields.any?
+        result[ADMIN_CREATED_LISTING_FIELD] =  community.custom_fields.any?
         result[ADMIN_CREATED_LISTING] = person.listings.where(community_id: community.id).any?
         result[ADMIN_INVITED_USER] = person.invitations.where(community_id: community.id).any?
         result[ADMIN_CONFIGURED_FACEBOOK_CONNECT] = community.facebook_connect_id.present? &&
                                                     community.facebook_connect_secret.present?
         result[ADMIN_CONFIGURED_OUTGOING_EMAIL] = community.marketplace_sender_emails.verified.any?
-        result[ORDER_TYPE_ONLINE_PAYMENT] = transaction_processes_by_type(community, :preauthorize)
-        result[ORDER_TYPE_NO_ONLINE_PAYMENTS] = transaction_processes_by_type(community, :none)
+        result[ORDER_TYPE_ONLINE_PAYMENT] = listing_shapes_online_payment
+        result[ORDER_TYPE_NO_ONLINE_PAYMENTS] = listing_shapes_no_online_payment
         result[ADMIN_CONFIGURED_PAYPAL_ACOUNT] = configured_paypal_account(community)
         result[ADMIN_CONFIGURED_PAYPAL_FEES] = configured_fees(community, 'paypal')
         result[ADMIN_CONFIGURED_STRIPE_API] = configured_stripe_account(community)
@@ -35,16 +35,45 @@ module AnalyticService
 
     def payment_providers(attrs)
       result = []
-      result.push 'paypal' if attrs[ADMIN_CONFIGURED_PAYPAL_ACOUNT]
-      result.push 'stripe' if attrs[ADMIN_CONFIGURED_STRIPE_API]
+      stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
+      if MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(community.country,
+                                                                                     community.currency,
+                                                                                     stripe_mode)
+        result.push 'stripe'
+      end
+      if MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(community.country,
+                                                                                     community.currency)
+        result.push 'paypal'
+      end
       result.push 'none' if result.empty?
       result.join(',')
     end
 
-    def transaction_processes_by_type(community, process_type)
+    def listing_shapes_online_payment
+      transaction_processes_by_type(community, listing_shapes_transaction_process_ids, :preauthorize)
+    end
+
+    def listing_shapes_no_online_payment
+      transaction_processes_by_type(community, listing_shapes_transaction_process_ids, :none)
+    end
+
+    def listing_shapes_transaction_process_ids
+      shapes = listing_shapes
+      if shapes.data
+        shapes.data.map{|s| s[:transaction_process_id]}
+      else
+        []
+      end
+    end
+
+    def listing_shapes
+      @listing_shapes ||= ListingService::API::Api.shapes.get(community_id: community.id)
+    end
+
+    def transaction_processes_by_type(community, ids, process_type)
       result = transaction_processes(community)
       if result.data
-        result.data.select{|x| x[:process] == process_type}.any?
+        result.data.select{|x| ids.include?(x[:id]) && x[:process] == process_type}.any?
       else
         false
       end
