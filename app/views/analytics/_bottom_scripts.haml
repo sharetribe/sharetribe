@@ -1,0 +1,9 @@
+:javascript
+  (function() {
+    ST.analytics.init({
+      analyticsData: #{analytics_data.to_json.html_safe},
+      events: #{flash[:_analytics_events].to_json.html_safe},
+      logout: #{flash[:_analytics_logout].to_json.html_safe}
+    });
+  })();
+
