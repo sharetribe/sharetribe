@@ -66,7 +66,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     if res[:success]
       flash[:notice] = success_msg(res[:flow])
 
-      Analytics.record_event(
+      record_event(
         flash,
         status == :paid ? "PreauthorizedTransactionAccepted" : "PreauthorizedTransactionRejected",
         { listing_id: tx[:listing_id],

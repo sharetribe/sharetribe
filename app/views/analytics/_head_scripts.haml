@@ -1,0 +1,24 @@
+:javascript
+  function onDocumentReady(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  };
+
+-# Experimental Amplitude support
+= render :partial => "analytics/amplitude",
+  locals: { community: community, user: user, plan: plan }
+
+-# Kissmetrics is deprecated, use Google Tag Manager instead
+= render :partial => "analytics/kissmetrics"
+= render :partial => "analytics/google_analytics_script",
+  locals: {feature_flags: FeatureFlagHelper.feature_flags,
+  community_id: Maybe(community).id.or_else,
+  google_analytics_key: Maybe(community).google_analytics_key.or_else}
+
+-# Intercom for admin area
+- if on_admin? && IntercomHelper.admin_intercom_respond_enabled?
+  = render partial: "analytics/intercom", locals: { app_id: IntercomHelper.admin_intercom_app_id}
+

@@ -94,15 +94,6 @@
     :javascript
       window.ST.jsonTranslations = #{raw JSONTranslations.get(I18n.locale)}
 
-    - if @analytics_event
-      :javascript
-        report_analytics_event.apply(null, #{@analytics_event});
-    - if @gtm_datalayer
-      :javascript
-        if(window.ST != null && typeof window.ST.gtmPush === 'function') {
-          window.ST.gtmPush(#{@gtm_datalayer.to_json.html_safe});
-        }
-
     :javascript
       $(function() {
         if ('touchAction' in document.body.style) {
@@ -123,5 +114,7 @@
 
     :javascript
       $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+    = render :partial => 'analytics/bottom_scripts'
 
     = render :partial => "layouts/noscript"

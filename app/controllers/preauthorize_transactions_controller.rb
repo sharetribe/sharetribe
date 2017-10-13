@@ -249,7 +249,7 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_total: shipping_total
       )
 
-      Analytics.record_event(
+      record_event(
         flash.now,
         "InitiatePreauthorizedTransaction",
         { listing_id: listing.id,
@@ -550,7 +550,7 @@ class PreauthorizeTransactionsController < ApplicationController
     unless ready[:data][:result]
       flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
 
-      Analytics.record_event(
+      record_event(
         flash,
         "ProviderPaymentDetailsMissing",
         { listing_id: listing.id,

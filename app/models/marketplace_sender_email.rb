@@ -18,4 +18,8 @@
 
 class MarketplaceSenderEmail < ApplicationRecord
   # TODO Implementation
+
+  belongs_to :community
+
+  scope :verified, -> { where(verification_status: :verified) }
 end

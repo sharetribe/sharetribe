@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
 
   before_action only: [:new] do |controller|
     fetch_data(params[:listing_id]).on_success do |listing_id, listing_model, _, process|
-      Analytics.record_event(
+      record_event(
         flash,
         "BuyButtonClicked",
         { listing_id: listing_id,
@@ -284,7 +284,7 @@ class TransactionsController < ApplicationController
     if response[:success]
       tx = response_data[:transaction]
 
-      Analytics.record_event(
+      record_event(
         flash,
         "TransactionCreated",
         { listing_id: tx[:listing_id],

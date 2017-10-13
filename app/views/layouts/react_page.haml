@@ -3,8 +3,7 @@
 %head
   %meta{charset: "utf-8"}
 
-  = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
-
+  = render partial: "analytics/head_scripts", locals: { community: @current_community, user: @current_user, plan: @current_plan }
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present?
     = render partial: "layouts/fonts", locals: { font_path: font_path }
@@ -127,15 +126,6 @@
   = javascript_include_tag "i18n/#{I18n.locale}"
 
   = javascript_include_tag 'application_reactpage.js'
-
-  - if @analytics_event
-    :javascript
-      report_analytics_event.apply(null, #{@analytics_event});
-  - if @gtm_datalayer
-    :javascript
-      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
-        window.ST.gtmPush(#{@gtm_datalayer.to_json.html_safe});
-      }
 
   - # FF doesn't support touch-action: manipulation
   :javascript
