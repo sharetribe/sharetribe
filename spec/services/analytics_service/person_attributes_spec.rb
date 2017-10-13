@@ -12,7 +12,7 @@ describe AnalyticService::PersonAttributes do
     it 'not configured community, person' do
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['info_marketplace_ident']).to eq community.ident
-      expect(a['admin_created_filter']).to eq false
+      expect(a['admin_created_listing_field']).to eq false
       expect(a['admin_created_listing']).to eq false
       expect(a['admin_invited_user']).to eq false
       expect(a['admin_configured_facebook_connect']).to eq false
@@ -31,7 +31,7 @@ describe AnalyticService::PersonAttributes do
     it 'admin created filter' do
       FactoryGirl.create(:custom_field, community: community)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
-      expect(a['admin_created_filter']).to eq true
+      expect(a['admin_created_listing_field']).to eq true
     end
 
     it 'admin created listing' do
@@ -61,13 +61,17 @@ describe AnalyticService::PersonAttributes do
     end
 
     it 'order type online payment' do
-      FactoryGirl.create(:transaction_process, community_id: community.id)
+      transaction_process = FactoryGirl.create(:transaction_process, community_id: community.id)
+      FactoryGirl.create(:listing_shape, community_id: community.id,
+                                         transaction_process_id: transaction_process.id)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['order_type_online_payment']).to eq true
     end
 
     it 'order type online payment' do
-      FactoryGirl.create(:transaction_process, community_id: community.id, process: 'none')
+      transaction_process = FactoryGirl.create(:transaction_process, community_id: community.id, process: 'none')
+      FactoryGirl.create(:listing_shape, community_id: community.id,
+                                         transaction_process_id: transaction_process.id)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['order_type_no_online_payments']).to eq true
     end
@@ -88,19 +92,28 @@ describe AnalyticService::PersonAttributes do
       expect(a['admin_configured_stripe_fees']).to eq true
     end
 
-    it 'admin configured paypal acount and fees' do
-      FactoryGirl.create(:order_permission, paypal_account: FactoryGirl.create(:paypal_account, community: community))
-      FactoryGirl.create(:payment_settings, community_id: community.id, payment_gateway: 'paypal')
-      FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe])
-      FactoryGirl.create(:payment_settings, community_id: community.id, payment_gateway: 'stripe', api_verified: true)
+    it 'payment providers available' do
+      country = ISO3166::Country.find_country_by_name('Finland')
+      community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
-      expect(a['payment_providers_available']).to eq 'paypal,stripe'
+      expect(a['payment_providers_available']).to eq 'stripe,paypal'
+      country = ISO3166::Country.find_country_by_name('Brasil')
+      community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
+      a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
+      expect(a['payment_providers_available']).to eq 'paypal'
+      country = ISO3166::Country.find_country_by_name('Burkina Faso')
+      community.update_columns(country: country.alpha2, currency: country.currency.iso_code)
+      a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
+      expect(a['payment_providers_available']).to eq 'none'
     end
 
     it 'admin deleted marketplace' do
       community.update_column(:deleted, true)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_deleted_marketplace']).to eq true
+      community.update_column(:deleted, false)
+      a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
+      expect(a['admin_deleted_marketplace']).to eq false
     end
   end
 end
