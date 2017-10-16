@@ -127,6 +127,10 @@ module PaypalService::Store::PaypalAccount
       query_all(person_id: person_id, community_id: community_id)
     end
 
+    def find_active_users(community_id:)
+      query_all(community_id: community_id, active: true)
+    end
+
     private
 
     def query_all(params)
@@ -247,6 +251,12 @@ module PaypalService::Store::PaypalAccount
         community_id: community_id
       )
     )
+  end
+
+  def get_active_users(community_id:)
+    finder.find_active_users(community_id: community_id).get
+      .where.not(person_id: nil)
+      .map(&:person_id)
   end
 
   ## Privates
