@@ -351,8 +351,6 @@ cs:
             initiated: ~
             pending_ext: ~
         not_available: Nedostupné
-      paypal_account:
-        paypal_admin_account: Platby
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
@@ -683,15 +681,8 @@ cs:
       body_text: |-
           PayPal účtuje poplatek za zpracování z každé platby. Tento poplatek se pohybuje mezi 2% a 5% z celkové prodejní ceny v závislosti na Vašem měsíčním objemu obratu a na zemi bydliště kupujícího. Obecně řečeno, že domácí nákupy mají nižší poplatky než ty mezinárodní a čím vyšší měsíční obrat máte, tím větší slevu budete mít na poplatcích.
           Po přihlášení ke svému PayPal účtu si můžete najít přesné poplatky, viz %{link_to_paypal}. Z každého provedeného nákupu obdržíte stvrzenku s přesným poplatkem.
-      body_with_shipping_text: |-
-          PayPal účtuje poplatek za zpracování z každé platby. Tento poplatek se pohybuje mezi 2% a 5% z celkové prodejní ceny (doprava zahrnuta) v závislosti na Vašem měsíčním objemu obratu a na zemi bydliště kupujícího. Obecně řečeno, že domácí nákupy mají nižší poplatky než ty mezinárodní a čím vyšší měsíční obrat máte, tím větší slevu budete mít na poplatcích.
-          Po přihlášení ke svému PayPal účtu si můžete najít přesné poplatky, viz %{link_to_paypal}. Z každého provedeného nákupu obdržíte stvrzenku s přesným poplatkem.
-      link_to_paypal_text: zde
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: zde
     paypal_only_fee_info:
       title: ~
       body_text: ~

@@ -10,7 +10,7 @@ module FeatureTests
       end
 
       def connect_paypal_account
-        #payment_settings.click_link("Configure PayPal")
+        payment_settings.click_link("Configure PayPal")
         payment_settings.click_button("Connect your PayPal account")
       end
 

@@ -341,8 +341,6 @@ vi:
             initiated: ~
             pending_ext: ~
         not_available: "Lịch bận"
-      paypal_account:
-        paypal_admin_account: "Hệ thống thanh toán"
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
@@ -665,15 +663,8 @@ vi:
       body_text: |-
           PayPal tính phí xử lý từ mỗi khoản thanh toán. Khoản phí này nằm trong khoảng từ 2% đến 5% tổng giá bán, phụ thuộc vào khối lượng bán hàng hàng tháng và quốc gia cư trú của người mua. Nói chung, mua hàng trong nước có mức phí thấp hơn của quốc tế và doanh thu hàng tháng cao hơn sẽ giúp bạn giảm giá.
           Bạn có thể xem lệ phí chính xác bằng cách đăng nhập vào tài khoản PayPal của bạn và đi tới %{link_to_paypal}. Sau mỗi lần mua, bạn sẽ nhận được biên lai hiển thị chính xác chi phí.
-      body_with_shipping_text: |-
-          PayPal tính phí xử lý từ mỗi khoản thanh toán. Mức phí này là từ 2% đến 5% tổng giá bán (bao gồm cả vận chuyển), tùy thuộc vào doanh số hàng tháng của bạn và nước cư trú của người mua. Nói chung, mua hàng trong nước có mức phí thấp hơn của quốc tế và doanh thu hàng tháng cao hơn sẽ giúp bạn giảm giá.
-          Bạn có thể xem lệ phí chính xác bằng cách đăng nhập vào tài khoản PayPal của bạn và đi tới %{link_to_paypal}. Sau mỗi lần mua, bạn sẽ nhận được biên lai hiển thị chính xác chi phí.
-      link_to_paypal_text: đây
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: đây
     paypal_only_fee_info:
       title: ~
       body_text: ~

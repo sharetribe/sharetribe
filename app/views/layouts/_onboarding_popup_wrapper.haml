@@ -1,0 +1,3 @@
+- if @onboarding_popup && @onboarding_popup[:show_onboarding_popup]
+  = render :layout => "layouts/lightbox", :partial => "layouts/onboarding_popup", locals: {title: t(@onboarding_popup[:popup_title_key]), body: t(@onboarding_popup[:popup_body_key]), action_label: t(@onboarding_popup[:popup_button_key]), action_link: @onboarding_popup[:popup_action_link], image: asset_path(@onboarding_popup[:popup_image]), id: "onboarding-popup" }
+

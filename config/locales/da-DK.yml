@@ -346,8 +346,6 @@ da-DK:
             initiated: ~
             pending_ext: ~
         not_available: "Ikke tilgængelig"
-      paypal_account:
-        paypal_admin_account: Betalinger
     custom_fields:
       edit:
         edit_listing_field: "Rediger annoncefelt '%{field_name}'"
@@ -672,13 +670,8 @@ da-DK:
     paypal_fee_info:
       title: PayPal-gebyr
       body_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
-      body_with_shipping_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
-      link_to_paypal_text: her
-    paypal_fee_info_new:
-      title: ~
-      body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: her
     paypal_only_fee_info:
       title: ~
       body_text: ~

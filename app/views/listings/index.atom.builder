@@ -1,10 +1,10 @@
 atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss', 'xmlns:st'  => 'http://www.sharetribe.com/SharetribeFeed' do |feed|
-  feed.title title
-  feed.updated updated
+  feed.title @feed_presenter.title
+  feed.updated @feed_presenter.updated
   feed.icon "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
   feed.logo "https://s3.amazonaws.com/sharetribe/assets/dashboard/sharetribe_logo.png"
 
-  listings.each do |listing|
+  @feed_presenter.listings.each do |listing|
     feed.entry(nil, id: listing[:id], published: listing[:created_at], updated_at: listing[:updated_at], url: listing_url(listing[:url], host: @current_community.full_domain(port: ''))) do |entry|
       entry.title format_listing_title(listing[:shape_name_tr_key], listing[:title])
       entry_content = add_links_and_br_tags(html_escape(listing[:description]))
@@ -19,7 +19,7 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
         entry.cdata!( entry_content )
       end
 
-      entry.st :listing_type, :term => direction_map[listing[:listing_shape_id]], :label => localized_listing_type_label(direction_map[listing[:listing_shape_id]])
+      entry.st :listing_type, :term => @feed_presenter.direction_map[listing[:listing_shape_id]], :label => localized_listing_type_label(@feed_presenter.direction_map[listing[:listing_shape_id]])
 
         # TODO: add scheme link to point to url where that category of that community is shown
       entry.category :term => listing[:category_id], :label => localized_category_from_id(listing[:category_id])

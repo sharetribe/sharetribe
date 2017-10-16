@@ -6,13 +6,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def edit_look_and_feel
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
-
-    onboarding_popup_locals = OnboardingViewUtils.popup_locals(
-      flash[:show_onboarding_popup],
-      admin_getting_started_guide_path,
-      Admin::OnboardingWizard.new(@current_community.id).setup_status)
-
-    render "edit_look_and_feel", locals: onboarding_popup_locals
+    make_onboarding_popup
+    render "edit_look_and_feel"
   end
 
   def edit_text_instructions

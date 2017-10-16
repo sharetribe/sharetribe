@@ -47,10 +47,9 @@ fr:
             paypal: "Configurer les paiements"
             listing: "Déposer votre première annonce"
             invitation: "Inviter des utilisateurs"
-          paypal:
+          payments:
             title: "Étape 5 : configurer le système de paiement"
-            description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter votre compte PayPal (vous recevrez une commission sur chaque transaction). Une fois connecté, vous devrez choisir un montant minimal de transaction et vos frais de service."
-            description_p1_stripe_paypal: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter une plateforme de paiement (vous recevrez une commission sur chaque transaction). Sharetribe supporte à la fois Stripe et PayPal. Une fois connecté, vous devrez définir vos frais de service (commission)."
+            description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter une plateforme de paiement (vous recevrez une commission sur chaque transaction). Sharetribe supporte à la fois Stripe et PayPal. Une fois connecté, vous devrez définir vos frais de service (commission)."
             description_p2: "Si vous préférez, vous pouvez désactiver le système de paiement pour le moment."
             info_image_alt: "Une copie d'écran de la page de configuration des paiements"
             disable_payments: "Désactiver les paiements"

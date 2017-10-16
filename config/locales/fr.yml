@@ -346,8 +346,6 @@ fr:
             initiated: "En attente du paiement Stripe"
             pending_ext: "En attente du paiement Stripe"
         not_available: "Non disponible"
-      paypal_account:
-        paypal_admin_account: "Système de paiements"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -674,15 +672,6 @@ fr:
       paypal: PayPal
       info: "Les paiements sur %{service_name} sont gérés par Stripe ou PayPal. Les deux plateformes facturent des frais pour chaque paiement."
     paypal_fee_info:
-      title: "Frais de transaction PayPal"
-      body_text: |-
-          PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
-          Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
-      body_with_shipping_text: |-
-          PayPal facture des frais de transaction sur chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction (frais de livraison inclus) et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais. 
-          Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
-      link_to_paypal_text: ici
-    paypal_fee_info_new:
       title: "Frais de transaction PayPal"
       body_text: |-
           Pour les paiements PayPal, %{service_name} facture des frais de service de %{paypal_commission}%. Les frais de transaction PayPal ne sont pas inclus dans cette commission donc en plus des frais de %{service_name} vous devez également payer les frais de transaction PayPal pour chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais.

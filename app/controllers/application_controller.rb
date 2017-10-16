@@ -630,4 +630,11 @@ class ApplicationController < ActionController::Base
   def render_not_found!(msg = "Not found")
     raise ActionController::RoutingError.new(msg)
   end
+
+  def make_onboarding_popup
+    @onboarding_popup = OnboardingViewUtils.popup_locals(
+      flash[:show_onboarding_popup],
+      admin_getting_started_guide_path,
+      Admin::OnboardingWizard.new(@current_community.id).setup_status)
+  end
 end

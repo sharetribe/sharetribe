@@ -346,8 +346,6 @@ sv:
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
         not_available: "Inte tillgänglig"
-      paypal_account:
-        paypal_admin_account: "Betalnings system"
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -566,7 +564,7 @@ sv:
       choose_popup_text: |-
           Om du vill låta dina användare ta emot online betalningar måste du först välja valuta för din marknadsplats och sedan koppla minst en av de två betaltjänsterna Sharetribe erbjuder: Stripe och PayPal. Du kan också välja att använda båda vilket betyder att användare kan välja om de använder endera eller båda betaltjänsterna.
           Du kan skapa ett nytt konto med endera tjänsterna om du inte redan har ett. När du har kopplat ett konto kan du välja om du tar en transaktionsavgift från alla transaktioner.
-          Vad är skillnaden mellan Stripe och PayPal? Stripe tillåter dig att fördröja betalningen i upp till tre månader och erbjuder en typ av betalningsmetod (kredit och debit kort betalningar). Stripe låter dessutom dina säljare få sina inkomster rakt till sina bankkonton genom att lägga till sina bankuppgifter. PayPal erbjuder två betalningsmetoder (kreditkort och PayPal), samt ett "buyer protection" program köpare och säljare. PayPal kräver att dina säljare kopplar sina Business PayPal konton för att ta emot betalningar. 
+          Vad är skillnaden mellan Stripe och PayPal? Stripe tillåter dig att fördröja betalningen i upp till tre månader och erbjuder en typ av betalningsmetod (kredit och debit kort betalningar). Stripe låter dessutom dina säljare få sina inkomster rakt till sina bankkonton genom att lägga till sina bankuppgifter. PayPal erbjuder två betalningsmetoder (kreditkort och PayPal), samt ett "buyer protection" program köpare och säljare. PayPal kräver att dina säljare kopplar sina Business PayPal konton för att ta emot betalningar.
           Om du använder Stripe kommer deras avgifter bli avdragna från din transaktionsavgift, kom därför ihåg att sätt en tillräckligt hög lägsta avgift. Om du använder PayPal kommer deras processeringsavgift bli tagen från försäljaren i tillägg till din transaktionsavgift. Stripe och PayPal har en aning olika avgiftsstrukturer. I de flesta fall är stripes avgifter en aning lägre.
       invalid_api_keys: "Ogiltig Stripe API nyckel"
       missing_api_keys: "Saknar Stripe API nyckel"
@@ -674,27 +672,18 @@ sv:
       paypal: PayPal
       info: "Betalningar i %{service_name} hanteras antingen av Stripe eller PayPal. Båda tar en avgift för varje betalning."
     paypal_fee_info:
-      title: "PayPals avgift för betalningshantering"
-      body_text: |-
-          PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
-          Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
-      body_with_shipping_text: |-
-          PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
-          Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
-      link_to_paypal_text: här
-    paypal_fee_info_new:
       title: "PayPal's betalningshanteringsavgift"
       body_text: |-
-          %{service_name} tar en serviceavgift på %{paypal_commission} för varje betalning gjord med PayPal. PayPals egna avgifter är inte inkluderade i denna avgift. I tillägg till %{service_name} serviceavgift betalar du även PayPals egna processeringsavgift för varje transaktion gjord via PayPal. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          %{service_name} tar en serviceavgift på %{paypal_commission} för varje betalning gjord med PayPal. PayPals egna avgifter är inte inkluderade i denna avgift. I tillägg till %{service_name} serviceavgift betalar du även PayPals egna processeringsavgift för varje transaktion gjord via PayPal. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
-          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     paypal_only_fee_info:
       title: "PayPal's betalningshanteringsavgift"
       body_text: |-
-          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     stripe_fee_info:

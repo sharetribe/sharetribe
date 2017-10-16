@@ -47,10 +47,9 @@ es-ES:
             paypal: "Configura los pagos en linea"
             listing: "Publica tu primer anuncio"
             invitation: "Invita usuarios"
-          paypal:
+          payments:
             title: "Step 5: Configura el sistema de pagos en linea"
-            description_p1: "Si quieres permitir que tus usuarios acepten pagos en linea, debes conectar tu cuenta de PayPal (puedes recibir una comisión por cada transacción). Una vez hecha la conexión, necesita escoger un precio mínimo por transacción y la cuota por transacción."
-            description_p1_stripe_paypal: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
+            description_p1: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
             description_p2: "Alternativamente, puedes desactivar el sistema de pagos en linea por ahora."
             info_image_alt: "Una imagen de pantalla de la página de configuración de pagos"
             disable_payments: "Desactivar pagos en linea"

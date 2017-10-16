@@ -35,12 +35,7 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject
 
     paypal_ready = PaypalHelper.user_and_community_ready_for_payments?(recipient.id, community.id)
 
-    # TODO: remove rescue after merge with stripe-integration
-    begin
-      stripe_ready = StripeHelper.user_and_community_ready_for_payments?(recipient.id, community.id)
-    rescue
-      stripe_mode = nil
-    end
+    stripe_ready = StripeHelper.user_and_community_ready_for_payments?(recipient.id, community.id)
 
     case mode
     when 'with_listing'

@@ -47,10 +47,9 @@ de:
             paypal: "Zahlungssystem einrichten"
             listing: "Deinen ersten Eintrag erstellen"
             invitation: "Benutzer einladen"
-          paypal:
+          payments:
             title: "Schritt 5: Zahlungssystem einrichten"
-            description_p1: "Wenn deine Anbieter Zahlungen für ihre Waren oder Dienstleistungen annehmen können sollten, solltest du dein PayPal-konto verbinden (Du bekommst eine Provision für jede Transaktion). Sobald du das Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion und deine Transaktionsgebühr feststellen."
-            description_p1_stripe_paypal: "Willst du, dass die Benutzer deines Marktplatzes online zahlen und Zahlungen annehmen können, und dass du Zahlungsgebühren annehmen kannst, solltest du einen Zahlungsanbieter wählen. Sharetribe unterstützt sowohl Stripe als auch PayPal (%{not_sure_link}). Nachdem du den Zahlungsanbieter verbunden hast, solltest du die Transaktionsgebühr feststellen."
+            description_p1: "Willst du, dass die Benutzer deines Marktplatzes online zahlen und Zahlungen annehmen können, und dass du Zahlungsgebühren annehmen kannst, solltest du einen Zahlungsanbieter wählen. Sharetribe unterstützt sowohl Stripe als auch PayPal (%{not_sure_link}). Nachdem du den Zahlungsanbieter verbunden hast, solltest du die Transaktionsgebühr feststellen."
             description_p2: "Wenn du willst, kannst du Online-Zahlungen auch fürs Erste deaktivieren."
             info_image_alt: "Ein Screenshot von der 'Zahlungssystem' -Seite"
             disable_payments: "Zahlungen deaktivieren"
