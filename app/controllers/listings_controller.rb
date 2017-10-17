@@ -486,6 +486,7 @@ class ListingsController < ApplicationController
       .update_from_event(:listing_created, @listing)
     if state_changed
       record_event(flash, "km_record", {km_event: "Onboarding listing created"}, AnalyticService::EVENT_LISTING_CREATED)
+
       flash[:show_onboarding_popup] = true
     end
   end
