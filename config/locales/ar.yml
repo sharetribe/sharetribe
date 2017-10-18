@@ -68,7 +68,7 @@ ar:
         verification_to_post_listings_info_content: "تعليمات للمستخدمين الغير مؤكدين"
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: "تواصل مع المشرف"
+        contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
         save: "حفظ الإعدادات"
         transaction_agreement: "اتفاق العملية"
         transaction_agreement_checkbox: "اجبار المستخدم على قبول اتفاق قبل العملية"
@@ -657,7 +657,9 @@ ar:
     paypal_fee_info:
       title: ~
       body_text: ~
-      body_text_accept: ~
+      body_text_accept: |-
+          يتم معالجة هذه العملية من خلال باي بال. يقوم باي بال بخصم عمولة معالجة العملية. تتراوح نسبة الخصم من ٢ بالمئة إلى ٥ بالمئة من مجموع البيع الكلي بالاعتماد على حجم مبيعاتك الشهرية وبلد الإقامة للبائع. بشكل عام المبيعات الداخلية لها نسبة خصم عمولة أقل من المبيعات الدولية. وللمبيعات الأعلى شهريا لها خصم على نسبة العمولة.
+          بعد كل عملية بيع سوف يصلك إيصال يعرض لك نسبة العمولة المخصومة بالضبط. يمكنك معرفة عمولة الخصم من خلال الدخول لحسابك في باي بال والذهاب إلى ‎%{link_to_paypal}‎ .
       link_to_paypal_text: هنا
     paypal_only_fee_info:
       title: ~
@@ -1000,11 +1002,11 @@ ar:
       added_offer: ":أضاف إعلان ‎%{name_link}‎"
       added_request: ":أضاف إعلان ‎%{name_link}‎"
       added_listing: "قام بإضافة إعلان: ‎%{name_link}‎"
-      update_mail_title: "‎%{title_link}‎ تم تحديث"
+      update_mail_title: "‎%{title_link}‎ آخر تحديثات"
       title_link_text: "‎%{community_name}‎"
-      intro_paragraph: "‎%{time_since_last_update}‎ التي حدثت خلال ‎%{community_link}‎ هذه بعض المستجدات في السوق"
+      intro_paragraph: "‎%{time_since_last_update}‎ خلال ‎%{community_link}‎ آخر مستجدات"
       intro_paragraph_link_text: "‎%{community_name}‎"
-      reduce_email_footer_text: "‎%{settings_link}‎ أو ‎%{unsubscribe_link}‎ كثير من الرسائل الإلكترونية؟"
+      reduce_email_footer_text: "‎%{settings_link}‎ أو ‎%{unsubscribe_link}‎ كثير من الإشعارات؟"
       settings_link_text: "قم بتعديل إعدادات بريدك الإلكتروني هنا"
       unsubscribe_link_text: "إلغاء الإشتراك"
     newsletter:
@@ -1027,7 +1029,7 @@ ar:
       if_you_do_accept: "إذا قمت بالموافقة على الطلب في هذه الفترة المحددة، ستستلم النقود مباشرة إلى حسابك"
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: |-
-          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة،
+          إذا قمت برفض الطلب أو لم تقم بالموافقة عليه في هذه الفترة الزمنية المحددة، ستلغى العملية مباشرة، 
           ولن يخصم من حساب مقدم الطلب ولن تستلم الدفعة. ‎%{requester}‎
       click_here_to_reply: "اضغط هنا للرد على الطلب"
     transaction_preauthorized_reminder:
@@ -1146,7 +1148,7 @@ ar:
       offer_partitive: عرض
       request_partitive: طلب
   header:
-    about: "عن الموقع"
+    about: "عن السوق"
     home: الرئيسية
     members: مجتمع
     new_listing: "إعلان جديد"
@@ -1155,10 +1157,10 @@ ar:
     requests: طلبات
     search_kassi: "‎%{service_name}‎ بحث"
     create_new_marketplace: "قم بإنشاء سوق إلكتروني جديد"
-    contact_us: "رسالة للمشرف"
+    contact_us: "اتصل بنا"
     profile: "الملف الشخصي"
     manage_listings: "إدارة الإعلانات"
-    invite: "دعوة صديق"
+    invite: "دعوة مشتركين جدد"
     login: "تسجيل الدخول"
     signup: "إنشاء حساب"
     menu: القائمة
@@ -1303,7 +1305,7 @@ ar:
       dont_use_to_contact_support: ~
       feedback_forum: "منتدى الآراء"
       feedback_handle: رأي
-      give_feedback: "إتصل بنا"
+      give_feedback: "اتصل بنا"
       or_check_our: "...أو تفحص"
       send_feedback_to_admin: "أرسل رسالة"
       to_see_what_others_have_suggested: "لمشاهدة ما اقترحه المستخدمين الآخرين، وصوت للأفكار المطروحة هناك"
@@ -1323,7 +1325,7 @@ ar:
     global-header:
       select_language: "اختر اللغة"
     infos:
-      about: "عن الموقع"
+      about: "عن السوق"
       how_to_use: "كيفية العمل"
       info_about_kassi: "‎%{service_name}‎ معلومات عن"
       news: أخبار
@@ -1355,7 +1357,7 @@ ar:
       sign_up: "تسجيل جديد"
     notifications:
       listing_could_not_be_saved: "‎%{contact_admin_link}‎ فشل في حفظ الإعلان قم بالمحاولة مرة أخرى في حال استمرت المشكلة قم بالإتصال بنا"
-      contact_admin_link_text: "تواصل مع المشرف"
+      contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
       test_welcome_email_delivered_to: ~
       something_went_wrong: "حصل خطأ ما"
       community_updated: "تم تحديث البيانات"
@@ -1402,13 +1404,13 @@ ar:
       listing_updated_successfully: "تم تحديث الإعلان بنجاح"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "يستطيعون دخول هذه الصفحة ‎%{service_name}‎ فقط ‎مسؤولي"
+      only_kassi_administrators_can_access_this_area: "يستطيعون دخول هذه الصفحة ‎%{service_name}‎ مسؤولي"
       only_listing_author_can_close_a_listing: "فقط من وضع الاعلان يمكنه إغلاقه"
       only_listing_author_can_edit_a_listing: "فقط من وضع الإعلان يمكنه تعديله"
       payment_successful: "تم الدفع بنجاح"
       payment_canceled: "تم إلغاء عملية الدفع"
       error_in_payment: "خطأ في عملية الدفع. إذا لم تقم بإكمال عملية الدفع، حاول مرة أخرى. إذا قمت باتمام عملية الدفع، رجاء تواصل معنا."
-      cannot_receive_payment: "الجهة الأخرى لا تستطيع استقبال دفعات لخطأ ما، يرجى التواصل مع مشرف السوق وتوضيح الأمر."
+      cannot_receive_payment: "‎%{service_name}‎ الجهة الأخرى لا تستطيع استقبال الدفعة لخطأ ما تواصل مع مشرف"
       payment_waiting_for_later_accomplishment: "عندما تتم عملية الدفع، سيرسل إشعار إلى البائع وستحصل على فاتورة عبر بريدك الإلكتروني."
       password_recovery_sent: "تعليمات تغيير كلمة المرور الخاصة بك تم إرسالها لبريدك الإلكتروني"
       person_activated: "تم تفعيل المستخدم"
@@ -1571,7 +1573,7 @@ ar:
         mass: "حبة، كيلو، لتر، متر مربع، ..."
         time: "ساعة، يوم، شهر، ..."
         long_time: "أسبوع، شهر، ..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "‎%{sum_with_currency}‎ ستحصل على ‎%{service_name}‎ بعد خصم رسوم الدفعة ورسوم"
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
@@ -1673,7 +1675,7 @@ ar:
       select_subcategory: "اختر قسم فرعي"
       select_transaction_type: "اختر نوع الإعلان"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: "تواصل مع المشرف"
+      contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
       community_not_configured_for_payments: ~
       payment_settings_link: "إعدادات طريقة الدفع"
       community_not_configured_for_payments_admin: ~
@@ -1803,14 +1805,14 @@ ar:
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
     admin_account_not_connected: ~
-    contact_admin_link_text: "اتصل بمشرف السوق"
+    contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
     you_are_ready_to_accept_payments: "!أنت جاهز لاستقبال الدفعات"
     commission: "%‎%{commission}‎"
     not_now: ~
     new:
       payout_info_you_need_to_connect: ~
       payout_info_text: "لربط حسابك، يرجى عمل الآتي."
-      contact_admin_link_text: "تواصل مع المشرف"
+      contact_admin_link_text: "‎%{service_name}‎ تواصل مع مشرف"
       admin_account_not_connected: ~
       paypal_account_email: "قم بربط حسابك في باي بال"
       paypal_account_email_placeholder: "بريدك الإلكتروني الخاص بـ باي بال"
@@ -1837,7 +1839,7 @@ ar:
       billing_agreement_canceled: "تم إلغاء إتفاق الفوترة"
       billing_agreement_not_accepted: ~
       billing_agreement_wrong_account: ~
-      something_went_wrong: "حصل خطأ ما، يرجى المحاولة مرة أخرى. وإذا تكررت المشكلة يرجى التواصل مع مشرف الموقع."
+      something_went_wrong: "‎%{service_name}‎ حصل خطأ ما حاول مرة أخرى أو تواصل مع مشرف"
       account_not_verified: ~
       account_restricted: ~
     paypal_account_connected_title: "حساب باي بال متصل"
@@ -1896,7 +1898,7 @@ ar:
       terms: "شروط الاستخدام"
       username_is_in_use: "اسم المستخدم هذا موجود"
       username_is_invalid: "اسم المستخدم غير صحيح، الرموز المسموحة هي الأحرف، الأرقام والشرطة السفلية"
-      visible_only_to_you: "مرئية فقط لك ولمشرف الوقع"
+      visible_only_to_you: "‎%{service_name}‎ مرئية فقط لك ولمشرفي"
       visible_to_everybody: "مرئية للكل"
       create_account_with_facebook: "سجل باستخدام حساب فيسبوك"
       OR: أو
@@ -2162,7 +2164,7 @@ ar:
   time:
     formats:
       short: ~
-      shorter: ~
+      shorter: "%b %e at %H:%M"
       short_date: ~
   timestamps:
     day_ago: "يوم ‎%{count}‎ قبل"
@@ -2177,12 +2179,12 @@ ar:
     year_ago: "سنة ‎%{count}‎ قبل"
     years_ago: "سنوات ‎%{count}‎ قبل"
     days_since:
-      zero: "‎%{count}‎ يوم"
-      one: "‎%{count}‎ يوم"
-      two: "‎%{count}‎ أيام"
-      few: "‎%{count}‎ أيام"
-      many: "‎%{count}‎ أيام"
-      other: "‎%{count}‎ أيام"
+      zero: "يوم ‎%{count}‎"
+      one: "يوم ‎%{count}‎"
+      two: "أيام ‎%{count}‎"
+      few: "أيام ‎%{count}‎"
+      many: "أيام ‎%{count}‎"
+      other: "أيام ‎%{count}‎"
     time_to:
       seconds:
         zero: "‎%{count}‎ ثانية"
@@ -2206,12 +2208,12 @@ ar:
         many: "‎%{count}‎ ساعة"
         other: "‎%{count}‎ ساعة"
       days:
-        zero: "‎%{count}‎ يوم"
-        one: "‎%{count}‎ يوم"
-        two: "‎%{count}‎ يوم"
-        few: "‎%{count}‎ أيام"
-        many: "‎%{count}‎ يوم‎"
-        other: "‎%{count}‎ يوم"
+        zero: "يوم ‎%{count}‎"
+        one: "يوم ‎%{count}‎"
+        two: "يوم ‎%{count}‎"
+        few: "أيام ‎%{count}‎"
+        many: "أيام ‎%{count}‎"
+        other: "أيام ‎%{count}‎"
   transactions:
     initiate:
       booked_days: "أيام الحجز:"

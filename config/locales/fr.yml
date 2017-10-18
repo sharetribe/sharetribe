@@ -674,7 +674,7 @@ fr:
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
-          Pour les paiements PayPal, %{service_name} facture des frais de service de %{paypal_commission}%. Les frais de transaction PayPal ne sont pas inclus dans cette commission donc en plus des frais de %{service_name} vous devez également payer les frais de transaction PayPal pour chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais.
+          Lors du l'utilisation de PayPal, %{service_name} facture une commission de %{paypal_commission}%. Les frais PayPal ne sont pas inclus dans ce montant donc en plus des frais de %{service_name}, vous serez facturé les frais PayPal pour chaque transaction gérée par PayPal. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais.
           Vous pouvez retrouver les frais exacts en vous connectant à votre compte PayPal et en allant %{link_to_paypal}. Après chaque transaction vous recevrez un reçu affichant les frais exacts.
       body_text_accept: |-
           Cette transaction est gérée par PayPal. PayPal facture des frais de transaction pour chaque paiement. Ces frais sont généralement entre 2% et 5% du montant total de la transaction et dépend de votre nombre de transaction mensuel et du pays de résidence de l'acheteur. En général, les transactions au sein d'un même pays ont des frais plus faibles que les transactions internationales et réaliser plus de ventes mensuelles vous permet de bénéficier de réductions sur les frais.
@@ -1522,7 +1522,7 @@ fr:
       show_in_updates_email: "Afficher dans la prochaine newsletter"
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
-      show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyée aux utilisateurs"
+      show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyé aux utilisateurs"
     map:
       open_in_google_maps: "Ouvrir dans Google Maps"
     error:

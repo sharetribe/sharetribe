@@ -403,8 +403,8 @@ en:
       new:
         send_email_to_members: "Send email to users"
         send_email_to_members_title: "Send email to your users"
-        send_email: "Send"
-        send_email_or: "or"
+        send_email: "Send the email"
+        send_email_or: or
         send_test_email: "Send a test email to yourself"
         test_sent: "Test email was sent to your inbox"
         send_email_article_title: "this article"
@@ -412,17 +412,16 @@ en:
         recipients:
           title: "Who do you want to email?"
           options:
-            all_users: All users
-            with_listing: Users who have posted at least one listing
-            with_listing_no_payment: Users who have posted at least one listing but haven't added their payment details
-            with_payment_no_listing: Users who have added their payment details but haven't posted a listing
-            no_listing_no_payment: Users who haven't posted a listing and haven't added their payment details
+            all_users: "All users"
+            with_listing: "Users who have posted at least one listing"
+            with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
+            with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
+            no_listing_no_payment: "Users who haven't posted a listing and haven't added their payment details"
         email_subject: "Email subject"
         email_content: "Email content"
         email_content_placeholder: "What do you want to say to your users?"
         email_language: "Language of the email receivers"
         any_language: "Any language"
-        send_email: "Send the email"
         message_will_be_sent_only_to_people_with_this_language: "The email will be sent only to the users who are using %{service_name} in the language you choose."
         email_sent: "Email sent."
     left_hand_navigation:
@@ -546,11 +545,11 @@ en:
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
     payment_preferences:
-      title: Payment system preferences
+      title: "Payment system preferences"
       general_settings: "1. General settings"
       connect_a_payment_provider: "2. Connect a payment provider"
       contact_support: "contact support"
-      no_payments_link_text: "here"
+      no_payments_link_text: here
       your_country: "Your country:"
       you_cannot_use_online_payments: "You cannot use online payments in %{country_name} with %{currency}. Please choose a different currency or %{support_link} to change your country. You can read more about supported countries and currencies %{help_link}. In the future we might add more payment providers and support more currencies"
       which_to_choose: "Which one to choose?"
@@ -559,24 +558,21 @@ en:
       read_more_stripe: "Read more about Stripe payments."
       you_can_use_paypal_only: "You can use PayPal as your payment provider. %{read_more_link}"
       read_more_paypal: "Read more about PayPal payments."
-
       read_more_about_paypal_and_stripe: "Read more about online payments, Stripe and PayPal"
-      general_settings_updated: Payment system general settings updated
-      transaction_fee_settings_updated: Transaction fee settings updated
-
+      general_settings_updated: "Payment system general settings updated"
+      transaction_fee_settings_updated: "Transaction fee settings updated"
       choose_popup_text: |-
-        If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
-        You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
-        What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your providers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your providers to create a PayPal Business Account to accept payments.
-        If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the provider separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
-
+          If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
+          You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
+          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your providers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your providers to create a PayPal Business Account to accept payments.
+          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the provider separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
       invalid_api_keys: "Invalid Stripe API keys"
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
       change_settings: "Change settings and fees"
       configure_stripe: "Configure Stripe"
       configure_paypal: "Configure PayPal"
-      transaction_fee_settings: Transaction fee settings
+      transaction_fee_settings: "Transaction fee settings"
       transaction_fee_save: Save
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
@@ -585,28 +581,26 @@ en:
         title: "Stripe connected"
       paypal_connected:
         title: "PayPal connected"
-
       stripe_form:
-        add_your_api_keys: Add your Stripe API keys
-        how_to_get_these: How to get these?
+        add_your_api_keys: "Add your Stripe API keys"
+        how_to_get_these: "How to get these?"
         publishable_key_example: "For example: %{api_publishable_key_example}"
         secret_key_example: "For example: %{api_secret_key_example}"
-        save_api_keys: Save Stripe API keys
+        save_api_keys: "Save Stripe API keys"
         invalid_secret: "That doesn't look like a correct %{secret_key}"
         invalid_publishable: "That doesn't look like a correct %{publishable_key}"
       index:
-        header: Available Payment Settings
-        info: You can configure available payment gateways for use in your marketplace. Currently PayPal and Stripe are supported.
+        header: "Available Payment Settings"
+        info: "You can configure available payment gateways for use in your marketplace. Currently PayPal and Stripe are supported."
         active: Active
         gateway: Gateway
         process: Process
         commission: Commission
         minimum_price: Min.price
         minimum_fee: Min.fee
-        api_verified: API verified?
+        api_verified: "API verified?"
         actions: Actions
-        payments_not_enabled: Payments are not enabled for your marketplace
-
+        payments_not_enabled: "Payments are not enabled for your marketplace"
     transaction_types:
       sell: Selling
       rent: "Renting out"
@@ -674,8 +668,8 @@ en:
     payment_fee_info:
       title: "Payment processing fee"
       title_paypal: "PayPal's processing fee"
-      stripe: "Stripe"
-      paypal: "PayPal"
+      stripe: Stripe
+      paypal: PayPal
       info: "Payments in %{service_name} are processed by either Stripe or PayPal. They both charge a fee from each payment."
     paypal_fee_info:
       title: "PayPal's payment processing fee"
@@ -694,10 +688,8 @@ en:
       link_to_paypal_text: here
     stripe_fee_info:
       title: "Stripe's payment processing fee"
-      body_text: |-
-          For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. Stripe's fees are included in this commission.
+      body_text: "For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. Stripe's fees are included in this commission."
       link_to_stripe_text: here
-
   conversations:
     accept:
       details: "Order details"
@@ -994,7 +986,6 @@ en:
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
-
     paypal_new_payment:
       paypal_gateway_fee: "PayPal's fee:"
       shipping_total: "Shipping:"
@@ -1501,8 +1492,8 @@ en:
       notifications: Notifications
       profile: "Profile info"
       settings: Settings
-      paypal_payments: PayPal Payments
-      stripe_payments: Stripe Payments
+      paypal_payments: "PayPal Payments"
+      stripe_payments: "Stripe Payments"
       payments: Payments
   listings:
     bubble_listing_not_visible:
@@ -1780,8 +1771,8 @@ en:
       read_more: View.
     stripe_payment:
       payment: Payment
-      pay_with_card: Pay with credit or debit card
-      address: Shipping address
+      pay_with_card: "Pay with credit or debit card"
+      address: "Shipping address"
       address_country: "Country *"
       address_name: "First and last names *"
       address_city: "City *"
@@ -1789,7 +1780,6 @@ en:
       address_street1: "Street address line 1 *"
       address_street2: "Street address line 2"
       address_postal_code: "ZIP / Postal code *"
-
   mapview:
     index:
       all_categories: "All categories"
@@ -1881,7 +1871,7 @@ en:
   paypal:
     pay_with_paypal: "Proceed to payment"
     checkout_with: "Checkout with"
-    or_pay_with_paypal: "or"
+    or_pay_with_paypal: or
     checkout_with_paypal: "Checkout with PayPal"
     cancel_succesful: "PayPal payment succesfully canceled"
     transaction:
@@ -2242,7 +2232,6 @@ en:
     unit_price: "Unit price: %{unit_price}"
     total: "Total:"
     total_to_pay: "Payment total:"
-
   unit:
     day: day
     days: days
@@ -2334,66 +2323,63 @@ en:
     stripe_can_accept: "You are now all set to receive money to your bank account"
     stripe_credit_card: "Credit card"
     paypal: PayPal
-    paypal_connected: PayPal account connected successfully!
+    paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
-
     form_new:
-      need_info: We need some information about you to be able to send you money.
-      select_country: Select country...
-      legal_name: Legal name
+      need_info: "We need some information about you to be able to send you money."
+      select_country: "Select country..."
+      legal_name: "Legal name"
       country: Country
-      birth_date: Birth date
-      ssn_last_4: SSN Last 4
-      personal_id_number: Personal ID number
+      birth_date: "Birth date"
+      ssn_last_4: "SSN Last 4"
+      personal_id_number: "Personal ID number"
       address_country: Country
       address_state: State
       address_city: City
-      address_postal_code: Postal code
-      address_line1: Street address
+      address_postal_code: "Postal code"
+      address_line1: "Street address"
       tos_link: "By adding your payout details you accept the %{stripe_link}."
-      tos_link_title: Stripe Connected Account Agreement
-      save_details: Save details
-      edit: Edit details
+      tos_link_title: "Stripe Connected Account Agreement"
+      save_details: "Save details"
+      edit: "Edit details"
       cancel: Cancel
-
     form_bank:
-      bank_account_number: Bank account number
-      bank_routing_number: Routing number
-      bank_routing_1: Bank code
-      bank_routing_2: Branch code
-      bank_currency: Bank account currency
+      bank_account_number: "Bank account number"
+      bank_routing_number: "Routing number"
+      bank_routing_1: "Bank code"
+      bank_routing_2: "Branch code"
+      bank_currency: "Bank account currency"
       messages:
-        account_number: 'Account number'
-        routing_number: 'Routing number'
-        bank_code: 'Bank code'
-        branch_code: 'Branch code'
-        transit_number: 'Transit number'
-        institution_number: 'Institution number'
-        format_varies_by_bank: 'Format varies by bank'
-        bsb: 'BSB'
-        error_message: 'Invalid format'
-        clearing_code: 'Clearing code'
-        sort_code: 'Sort code'
+        account_number: "Account number"
+        routing_number: "Routing number"
+        bank_code: "Bank code"
+        branch_code: "Branch code"
+        transit_number: "Transit number"
+        institution_number: "Institution number"
+        format_varies_by_bank: "Format varies by bank"
+        bsb: BSB
+        error_message: "Invalid format"
+        clearing_code: "Clearing code"
+        sort_code: "Sort code"
         must_match: "must be in the following format:"
-        a_dash: 'a dash'
-        digits: 'digits'
-        digits_or_chars: 'digits or A-Z chars'
-
+        a_dash: "a dash"
+        digits: digits
+        digits_or_chars: "digits or A-Z chars"
     form_verification:
-      personal_id_number: Personal ID number
-      document: Verification document
-      send_verification: Send Verification
-      need_verification: Need additional verification
+      personal_id_number: "Personal ID number"
+      document: "Verification document"
+      send_verification: "Send Verification"
+      need_verification: "Need additional verification"
   payment_settings:
     title: "Payout preferences"
-    bank_account: Bank account
+    bank_account: "Bank account"
     paypal: PayPal
-    bank_account_details: To receive money to your bank account, you need to provide your bank details. Your customers will be able to pay with their credit card.
-    add_bank_details: Add bank details
-    can_accept_stripe_and_paypal: You can receive money to your bank account or your PayPal account.
-    to_accept_paypal: To receive money to your PayPal account, you need to connect your PayPal account. Your customers will be able to pay with PayPal.
-    connect_paypal: Connect PayPal account
+    bank_account_details: "To receive money to your bank account, you need to provide your bank details. Your customers will be able to pay with their credit card."
+    add_bank_details: "Add bank details"
+    can_accept_stripe_and_paypal: "You can receive money to your bank account or your PayPal account."
+    to_accept_paypal: "To receive money to your PayPal account, you need to connect your PayPal account. Your customers will be able to pay with PayPal."
+    connect_paypal: "Connect PayPal account"
     wrong_setup: "There is something wrong with the payment system setup in this marketplace: the platform has not been registered. Please contact the team to let them know that they should register their platform at Stripe."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"
