@@ -398,10 +398,13 @@ FactoryGirl.define do
   end
 
   factory :listing_shape do
-    price_enabled           true
-    shipping_enabled        true
-    name                    'selling'
-    name_tr_key             'abc'
-    action_button_tr_key    'def'
+    community_id           123
+    transaction_process_id 1
+    price_enabled          true
+    shipping_enabled       true
+    name                   'selling'
+    name_tr_key            'abc'
+    action_button_tr_key   'def'
+    sort_priority          0
   end
 end
