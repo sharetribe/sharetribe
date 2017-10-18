@@ -208,7 +208,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def shapes
-    ListingShape.where(community_id: @current_community.id).all
+    ListingShape.where(community_id: @current_community.id).for_listing_form.all
   end
 
   def categories
