@@ -1,5 +1,5 @@
 .paypal-wizard-content.no-padding
-  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "paypal_preferences_form" }, method: :put do |form|
+  = form_for payment_prefs_form, url: common_update_admin_payment_preferences_path, html: { id: "paypal_preferences_form" }, method: :put do |form|
     = hidden_field_tag 'payment_preferences_form[mode]', 'general'
     .row
       %h2 
