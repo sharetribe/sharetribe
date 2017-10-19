@@ -679,7 +679,7 @@ sk-SK:
     paypal_fee_info:
       title: "Poplatky za PayPal platbu"
       body_text: |-
-          PayPal si účtuje poplatok za spracovanie z každej platby. Tento poplatok se pohybuje medzi 2% až 5% z celkovej predajnej ceny v závislosti od Vašeho mesačného obratu a bydliska. Obecne povedané, tuzemské nákupy majú nižšie poplatky, než tie medzinárodné a čím vyšší mesačný obrat máte, tým väčšie zľavy budete mať na poplatkoch.
+          PayPal si účtuje poplatok za spracovanie z každej platby. Tento poplatok se pohybuje medzi 2% až 5% z celkovej predajnej ceny v závislosti od Vašeho mesačného obratu a bydliska. Obecne povedané, tuzemské nákupy majú nižšie poplatky, než tie medzinárodné a čím vyšší mesačný obrat máte, tým väčšie zľavy budete mať na poplatkoch. 
           Po prihlásení do Vašeho PayPal účtu si môžete nájsť presné poplatky, viď %{link_to_paypal}. Z každého vykonaného nákupu obdržíte potvrdenie s presným poplatkom.
       body_text_accept: ~
       link_to_paypal_text: tu
@@ -1072,7 +1072,7 @@ sk-SK:
     booking:
       booking_failed_payment_voided: "Rezervácia zlyhala z dôvodu neočakávanej chyby. Skúste to neskôr prosím. Platba neprebehla."
       double_booking_payment_voided: |-
-          Bohužiaľ termín, ktorý ste vybrali už nie je k dispozícii. Vyberte si iný termín.
+          Bohužiaľ termín, ktorý ste vybrali už nie je k dispozícii. Vyberte si iný termín. 
           Platba neprebehla.
     onboarding:
       server_rendering: "Otvorenie začiatočníckej príručky zlyhalo. O chybe vieme a pracujeme na jej odstránení."

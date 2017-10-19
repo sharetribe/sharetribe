@@ -106,9 +106,9 @@ sv:
         community_description_color_instructions_text: "Du kan ändra färgen på beskrivningen som syns på hemsidan genom att skriva in ett hex-värde. Beskrivningen visas åt alla som inte är inloggade. %{colorpicker} kan hjälpa dig att välja en färg och kopiera koden här. %{see_how_it_looks_like}"
         new_listing_button_custom_color: "Skapa en ny annons knapp färg"
         logo_instructions_text_with_dimensions: "Desktoplogotypens storlek ska vara %{width}x%{height}px. Den kommer att visas för användare med större skärm."
-        logo_instructions_text_with_dimensions_no_placing: "Logons storlek skall vara %{height}x%{width}pixlar"
+        logo_instructions_text_with_dimensions_no_placing: "Logotypens storlek skall vara %{height}x%{width}pixlar"
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: "Denna fyrkantiga logo kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         cover_photo_visibility: "Omslagsbild visas på startsidan för ej inloggade användare."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
@@ -564,7 +564,7 @@ sv:
       choose_popup_text: |-
           Om du vill låta dina användare ta emot online betalningar måste du först välja valuta för din marknadsplats och sedan koppla minst en av de två betaltjänsterna Sharetribe erbjuder: Stripe och PayPal. Du kan också välja att använda båda vilket betyder att användare kan välja om de använder endera eller båda betaltjänsterna.
           Du kan skapa ett nytt konto med endera tjänsterna om du inte redan har ett. När du har kopplat ett konto kan du välja om du tar en transaktionsavgift från alla transaktioner.
-          Vad är skillnaden mellan Stripe och PayPal? Stripe tillåter dig att fördröja betalningen i upp till tre månader och erbjuder en typ av betalningsmetod (kredit och debit kort betalningar). Stripe låter dessutom dina säljare få sina inkomster rakt till sina bankkonton genom att lägga till sina bankuppgifter. PayPal erbjuder två betalningsmetoder (kreditkort och PayPal), samt ett "buyer protection" program köpare och säljare. PayPal kräver att dina säljare kopplar sina Business PayPal konton för att ta emot betalningar.
+          Vad är skillnaden mellan Stripe och PayPal? Stripe tillåter dig att fördröja betalningen i upp till tre månader och erbjuder en typ av betalningsmetod (kredit och debit kort betalningar). Stripe låter dessutom dina säljare få sina inkomster rakt till sina bankkonton genom att lägga till sina bankuppgifter. PayPal erbjuder två betalningsmetoder (kreditkort och PayPal), samt ett "buyer protection" program köpare och säljare. PayPal kräver att dina säljare kopplar sina Business PayPal konton för att ta emot betalningar. 
           Om du använder Stripe kommer deras avgifter bli avdragna från din transaktionsavgift, kom därför ihåg att sätt en tillräckligt hög lägsta avgift. Om du använder PayPal kommer deras processeringsavgift bli tagen från försäljaren i tillägg till din transaktionsavgift. Stripe och PayPal har en aning olika avgiftsstrukturer. I de flesta fall är stripes avgifter en aning lägre.
       invalid_api_keys: "Ogiltig Stripe API nyckel"
       missing_api_keys: "Saknar Stripe API nyckel"
@@ -672,18 +672,16 @@ sv:
       paypal: PayPal
       info: "Betalningar i %{service_name} hanteras antingen av Stripe eller PayPal. Båda tar en avgift för varje betalning."
     paypal_fee_info:
-      title: "PayPal's betalningshanteringsavgift"
+      title: "PayPals avgift för betalningshantering"
       body_text: |-
-          %{service_name} tar en serviceavgift på %{paypal_commission} för varje betalning gjord med PayPal. PayPals egna avgifter är inte inkluderade i denna avgift. I tillägg till %{service_name} serviceavgift betalar du även PayPals egna processeringsavgift för varje transaktion gjord via PayPal. Denna avgift är mellan 2% och 5% av totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inlandsbetalningar lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
-          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
-      body_text_accept: |-
-          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
-          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
+          PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
+          Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
+      body_text_accept: ~
       link_to_paypal_text: här
     paypal_only_fee_info:
       title: "PayPal's betalningshanteringsavgift"
       body_text: |-
-          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du.
+          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     stripe_fee_info:
@@ -1463,14 +1461,14 @@ sv:
       you_must_log_in_to_create_new_listing: "Du måste logga in på %{service_name} för att skapa en annons. Om du inte har ett konto så kan du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Din e-postadress är nu bekräftad."
       you_must_log_in_to_give_feedback: "Du måste logga in för att ge feedback"
-      you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}!"
+      you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}"
       you_must_log_in_to_send_a_comment: "Du måste logga in för att skicka en ny kommentar"
       you_must_log_in_to_send_a_message: "Du måste logga in på %{service_name} för att skicka ett meddelande till en annan användare."
       you_must_log_in_to_do_a_transaction: "Du måste logga in på %{service_name} för att göra en transaktion."
       you_must_log_in_to_view_this_content: "Du måste logga in för att se detta innehåll"
       you_must_log_in_to_view_this_page: "Du måste logga in för att visa denna sida"
       you_must_log_in_to_view_your_inbox: "Du måste logga in på %{service_name} för att visa din inkorg."
-      you_must_log_in_to_view_your_settings: "Du måste logga in på %{service_name} för att visa dina inställningar."
+      you_must_log_in_to_view_your_settings: "Du måste logga in på %{service_name} för att se dina inställningar."
       you_must_log_in_to_add_news_item: "Du måste logga in på %{service_name} för att lägga till en ny annons."
       you_must_log_in_to_change_profile_settings: "Du måste logga in på %{service_name} för att göra profilinställningar"
       you_must_log_in_to_accept_or_reject: "Du måste logga in för att acceptera eller avböja transaktionen"
@@ -1693,7 +1691,7 @@ sv:
       select_transaction_type: "Välj annonstyp"
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan skapa en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
       contact_admin_link_text: "kontakta administratören"
-      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lskapa nya annonser än. Vänligen %{contact_admin_link} för detaljer."
+      community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte skapa nya annonser än. Vänligen %{contact_admin_link} för detaljer."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
     quantity:
@@ -1916,7 +1914,7 @@ sv:
       terms: användarvillkoren
       username_is_in_use: "Detta användarnamn används redan."
       username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
-      visible_only_to_you: "bara synlig för dig och markplatsplatsens admin"
+      visible_only_to_you: "endast synlig för dig och %{service_name} admin"
       visible_to_everybody: "synlig för alla"
       create_account_with_facebook: "Registrera dig med Facebook"
       OR: ELLER
@@ -1999,7 +1997,7 @@ sv:
       your_current_email_is: "Din e-post är %{email}."
       change_email: Ändra
       confirm_your_email: "Bekräfta din e-post"
-      account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post så kan du gå med %{service_name}."
+      account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post kan du gå med %{service_name}."
       account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
       before_full_access_you_need_to_confirm_email: "Före vi kan ge dig full tillgång till din marknadsplats är det en sak till du måste göra: bekräfta din email adress."
       before_confirmation_only_access_admin_dashboard: "Före du bekräftar din email har du enbart tillgång till %{admin_dashboard_link}"
@@ -2040,7 +2038,7 @@ sv:
       email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: "Epost meddelanden från administratörer"
-      community_updates: "E-post om uppdateringar"
+      community_updates: Nyhetsbrev
       email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
       email_about_new_comments_to_own_listing: "...någon kommenterar mitt erbjudande eller efterfrågan"
       email_about_new_messages: "...någon skickar mig ett meddelande"
@@ -2048,7 +2046,7 @@ sv:
       email_about_testimonial_reminders: "...jag har glömt att ge feedback på en händelse"
       email_daily_community_updates: "Skicka mig ett nyhetsbrev <b>dagligen</b> om det kommer nya annonser"
       email_weekly_community_updates: "Skicka mig ett nyhetsbrev <b>veckovis</b> om det kommer nya annonser"
-      do_not_email_community_updates: "Skicka inte e-post om uppdateringar"
+      do_not_email_community_updates: "Skicka mig inte nyhetsbrev"
       email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
       email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller efterfrågan"
       email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
@@ -2059,7 +2057,7 @@ sv:
       settings_link: inställningar
       homepage_link: startsidan
       unsubscribe_unsuccesful: "Fel vid avprenumeration"
-      unsuccessful_unsubscribe_info_text: "Orsaken kan vara att avprenumerationslänken var gammal eller trasig. Kontakta oss via feedbackknappen till vänster och vi kan hjälpa dig med avprenumerationen."
+      unsuccessful_unsubscribe_info_text: "Avprenumerationslänken fungerar inte längre. Logga in för att ändra dina email prenumerations inställningar."
     profile:
       about_you: "Om dig själv"
       city: Stad
@@ -2069,7 +2067,7 @@ sv:
       first_name_only: "(visas inte för andra användare)"
       display_name: "Synligt namn"
       display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
-      location_description: "Du kan antingen ange din exakta position eller t ex bara ditt postnummer. Lägg minst till ditt postnummer. Du kan också välja en plats på kartan nedan."
+      location_description: "Du kan antingen ange hela din address eller t ex bara ditt postnummer eller stad. Det är också bra att lägga till ditt land då du väljer en plats. Till exempel: 753 20 Uppsala Sverige\" Eller \"Gustav Adolfsgatan 34,Malmö, Sverige\"."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postnummer

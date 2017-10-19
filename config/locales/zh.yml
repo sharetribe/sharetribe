@@ -1795,8 +1795,8 @@ zh:
     paypal_receive_funds_info_label: "你的 PayPal 账户需要可以接受付款。这可能需要一个商业账户。"
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: |-
-        如果您在与%{service_name} 做付款连结时发生问题，请通过%{upgrade_paypal_account_link}升级您的账户到商业账户。
-
+        如果您在与%{service_name} 做付款连结时发生问题，请通过%{upgrade_paypal_account_link}升级您的账户到商业账户。 
+        
         升级到商业账户是完全免费的。Paypal建议使用您的名字为商业账户里的公司名字。
     upgrade_paypal_account_link_text: 升级至商业账户连接
     admin_account_not_connected: ~

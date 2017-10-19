@@ -668,7 +668,7 @@ de:
       paypal: PayPal
       info: "Zahlungen auf %{service_name} sind entweder von Stripe oder PayPal verarbeitet. Beide Anbieter verlangen Zahlungsbearbeitungsgebühren von jeder Transaktion."
     paypal_fee_info:
-      title: "Zahlungsbearbeitungsgebühr von PayPal"
+      title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
           PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
           Wenn Du Dich bei Deinem Paypal Account anmeldest, erhältst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.

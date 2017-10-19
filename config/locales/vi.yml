@@ -228,7 +228,7 @@ vi:
         last_community_updates: "Xin lưu ý rằng sau khi xóa, bạn và người dùng trên thị trường của bạn vẫn có thể nhận được email cập nhật thị trường cuối cùng."
         you_will_be_redirected_to: "Sau khi bạn đã xóa thị trường của mình, bạn sẽ được chuyển hướng đến %{destination}. Bạn sẽ không thể truy cập vào thị trường của bạn nữa."
         delete_this_marketplace: "Xóa thị trường này"
-        payment_preferences: ~
+        payment_preferences: "Hệ thống thanh toán"
       manage_members:
         manage_members: "Điều hành người dùng"
         email: Email
@@ -317,29 +317,29 @@ vi:
           initiated: "Đang chờ thanh toán PayPal"
           pending_ext: "Đang chờ thanh toán PayPal"
           none:
-            free: ~
+            free: "Hội thoại"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: "Hội thoại"
+            pending: "Đang chờ xử lý"
+            preauthorized: "Được phép"
+            accepted: "Được chấp nhận"
+            rejected: "Bị từ chối"
+            paid: "Đã thanh toán"
+            confirmed: "Đã xác nhận"
+            canceled: "Đã hủy"
+            initiated: "Đang chờ thanh toán PayPal"
+            pending_ext: "Đang chờ thanh toán PayPal"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: "Hội thoại"
+            pending: "Đang chờ xử lý"
+            preauthorized: "Được phép"
+            accepted: "Được chấp nhận"
+            rejected: "Bị từ chối"
+            paid: "Đã thanh toán"
+            confirmed: "Đã xác nhận"
+            canceled: "Đã hủy"
+            initiated: "Đang chờ thanh toán Stripe"
+            pending_ext: "Đang chờ thanh toán Stripe"
         not_available: "Lịch bận"
     custom_fields:
       edit:
@@ -399,19 +399,19 @@ vi:
         send_email_to_members: ~
         send_email_to_members_title: ~
         send_email: "Gửi tin nhắn"
-        send_email_or: ~
-        send_test_email: ~
-        test_sent: ~
-        send_email_article_title: ~
+        send_email_or: hoặc
+        send_test_email: "Gửi thử email cho chính bạn"
+        test_sent: "Email thử đã được gửi đi"
+        send_email_article_title: "bài viết này"
         send_email_article_text: ~
         recipients:
-          title: ~
+          title: "Bạn muốn gửi email cho ai?"
           options:
-            all_users: ~
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            all_users: "Tất cả thành viên"
+            with_listing: "Thành viên đã đăng ít nhất một danh sách"
+            with_listing_no_payment: "Thành viên đã đăng ít nhất một danh sách nhưng chưa nhập thông tin thanh toán"
+            with_payment_no_listing: "Thành viên đã có thông tin thanh toán nhưng chưa đăng danh sách nào"
+            no_listing_no_payment: "Thành viên chưa đăng danh sách và chưa nhập thông tin thanh toán"
         email_subject: "Chủ đề"
         email_content: "Nội dung"
         email_content_placeholder: ~
@@ -521,8 +521,8 @@ vi:
       integration_info_text: "Hệ thống thanh toán của thị trường của bạn được cung cấp bởi PayPal. Để cho phép người dùng thanh toán bằng cách sử dụng thị trường của bạn, bạn phải kết nối tài khoản PayPal. Một khi bạn đã kết nối tài khoản PayPal, bạn có thể chọn một kích thước giao dịch tối thiểu và một khoản phí hoa hồng có thể có."
       link_paypal_personal_account_label: "Bạn có tự cung cấp sản phẩm hoặc dịch vụ không?"
       link_paypal_personal_account: "Nếu có, bạn cũng cần phải kết nối tài khoản PayPal của bạn với %{personal_payment_preferences_link}."
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "Bạn sẽ cần nhập thông tin chi trả tại %{personal_payment_preferences_link}."
+      link_paypal_and_stripe_personal_account: "Bạn sẽ cần kết nối tài khoản PayPal hoặc Stripe tại %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Tài khoản thị trường cá nhân của bạn"
       read_more_about_paypal: "Đọc thêm về hệ thống thanh toán"
       edit_payment_settings: "Chỉnh sửa cài đặt thanh toán"
@@ -536,38 +536,42 @@ vi:
       minimum_listing_price_below_tx_fee: "Kích thước giao dịch tối thiểu phải lớn hơn hoặc bằng với phí giao dịch tối thiểu: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Kích thước giao dịch tối thiểu phải lớn hơn hoa hồng tối thiểu %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
-      contact_support: ~
-      no_payments_link_text: ~
-      your_country: ~
-      you_cannot_use_online_payments: ~
-      which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
-      choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      title: "Lựa chọn hệ thống thanh toán"
+      general_settings: "1. Thiết lập chung"
+      connect_a_payment_provider: "2. Kết nối cổng thanh toán"
+      contact_support: "liên hệ hỗ trợ"
+      no_payments_link_text: "tại đây"
+      your_country: "Quốc gia:"
+      you_cannot_use_online_payments: "Bạn không thể thanh toán trực tuyến bằng %{currency} ở %{country_name}. Vui lòng chọn ngoại tệ khác hoặc %{support_link} để thay đổi quốc gia. Bạn có thể xem thêm về các nước và ngoại tệ được hỗ trợ %{help_link}. Trong tương lai chúng tôi sẽ hỗ trợ thêm cổng thanh toán và các loại tiền tệ"
+      which_to_choose: "Nên sử dụng cồng thanh toán nào?"
+      you_can_use_stripe_or_paypal: "Bạn có thể dùng Stripe, PayPal hoặc cả hai. %{choose_link}"
+      you_can_use_stripe_only: "Bạn có thể dùng cổng thanh toán Stripe. %{read_more_link}"
+      read_more_stripe: "Tìm hiểu thêm về Stripe."
+      you_can_use_paypal_only: "Bạn có thể dùng cổng thanh toán PayPal. %{read_more_link}"
+      read_more_paypal: "Tìm hiểu thêm về PayPal."
+      read_more_about_paypal_and_stripe: "Tìm hiểu thêm về thanh toán trực tuyến, Stripe và PayPal"
+      general_settings_updated: "Đã lưu các thiết lập của cổng thanh toán"
+      transaction_fee_settings_updated: "Đã lưu các thiết lập về phí giao dịch"
+      choose_popup_text: |-
+          Để cho phép người dùng thanh toán trực tuyến, bạn phải chọn một loại tiền tệ cho toàn trang sau đó kết nối ít nhất một trong hai cổng thanh toán mà Sharetribe hỗ trợ: Stripe và PayPal. Nếu cấu hình cả hai thì người dùng sẽ được lựa chọn khi chấp nhận thanh toán.
+          Bạn có thể tạo tại khoản mới với mỗi dịch vụ nếu chưa có sẵn. Sau khi kết nối thành công, bạn sẽ được tuỳ chỉnh mức phí thu trên mỗi giao dịch.
+          Sự khác biệt giữa Stripe và PayPal: Stripe cho phép bạn giữ tiền của người bán tối đa 3 tháng và hỗ trợ một hình thức thanh toán (thẻ ghi nợ/tín dụng). Stripe cũng cho phép người bán nhận tiền trực tiếp vào tài khoản ngân hàng dễ dàng. PayPal hỗ trợ hai hình thức thanh toán (thẻ tín dụng và tài khoản PayPal) đồng thời cung cấp dịch vụ bảo vệ cho cả người mua và người bán. PayPal đòi hỏi người bán phải có tài khoản PayPal Business.
+          Nếu sử dụng Stripe, phí dịch vụ sẽ được trừ vào phí giao dịch bạn thu được, vì vậy cần lưu ý đặt mức phí giao dịch đủ cao. Với PayPal, phí dịch vụ sẽ tính thẳng cho người bán, cộng dồn với phí giao dịch của bạn. Stripe và PayPal có hệ thống tính phí không giống nhau hoàn toàn, trong đa số trường hợp Stripe thu phí ít hơn.
+      invalid_api_keys: "Thông tin API của Stripe chưa đúng"
+      missing_api_keys: "Thiếu thông tin API cho Stripe"
+      stripe_verified: "Đã xác nhận thông tin API của Stripe"
+      change_settings: "Điều chỉnh thiết lập và biểu phí"
+      configure_stripe: "Cấu hình Stripe"
+      configure_paypal: "Cấu hình PayPal"
+      transaction_fee_settings: "Thiết lập phí giao dịch"
+      transaction_fee_save: Lưu
+      stripe_fee: "Phí của Stripe"
+      stripe_fee_notice: "%{stripe_fee_link} sẽ được trích ra từ phí giao dịch bạn thu được."
+      fee_should_be_less_than_minimum_price: "Phí giao dịch tối thiểu phải nhỏ hơn giá trị giao dịch tối thiểu"
       stripe_connected:
-        title: ~
+        title: "Đã kết nối Stripe"
       paypal_connected:
-        title: ~
+        title: "Đã kết nối PayPal"
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~

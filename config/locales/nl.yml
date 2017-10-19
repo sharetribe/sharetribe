@@ -566,7 +566,7 @@ nl:
       choose_popup_text: |-
           Als je je gebruikers van online betalingen gebruik wilt laten maken, dien je de valuta van je marktplaats te kiezen, en ten minste één van de twee betalingsservices te kiezen die Sharetribe ondersteunt: Stripe en PayPal. Je kunt ze ook allebei kiezen, in welk geval je gebruikers allebei de methoden kunnen gebruiken.
           Als je nog geen account hebt voor deze services hebt, kun je bij beiden gratis een nieuwe aanmaken. Als je je account eenmaal hebt gekoppeld, dien je transactiekosten/commissie in te stellen die je op iedere betaling heft.
-          Wat is het verschil tussen Stripe & PayPal? Stripe staat toe om de betaling aan de leveranciers van je marktplaats tot 3 maanden uit te stellen, en het biedt een betalingsmethode aan: credit/debit card. Met Stripe kunnen je leveranciers ook het geld direct op hun bankrekening ontvangen, als ze hun bank details instellen.
+          Wat is het verschil tussen Stripe & PayPal? Stripe staat toe om de betaling aan de leveranciers van je marktplaats tot 3 maanden uit te stellen, en het biedt een betalingsmethode aan: credit/debit card. Met Stripe kunnen je leveranciers ook het geld direct op hun bankrekening ontvangen, als ze hun bank details instellen. 
           PayPal dient twee betalingsmethodes aan: PayPal & credit card. PayPal biedt ook een beschermingsprogramma voor kopers en verkopers. Het vereist wel van je leveranciers dat ze een PayPal Business account hebben, anders kunnen ze geen betalingen ontvangen.
           Als je Stripe gebruikt worden de kosten van jouw commissie afgetrokken, dus denk eraan om je minimale transactiekosten hoog genoeg in te stellen. Als je PayPal gebruikt, worden de kosten van de leverancier hun deel afgetrokken, afzonderlijk van jou commissie. Stripe en PayPal hebben dus een verschillende kostenstructuur. In de meeste gevallen zijn de kosten van Stripe iets lager.
       invalid_api_keys: "Ongeldige Stripe API keys"
@@ -675,18 +675,14 @@ nl:
       paypal: PayPal
       info: "Betalingen in %{service_name} worden verwerkt door Stripe of PayPal. Beiden brengen kosten in rekening voor iedere betaling."
     paypal_fee_info:
-      title: "PayPal's betalingsverwerkingskosten"
-      body_text: |-
-          Voor PayPal betalingen vraagt %{service_name} een commissie van %{paypal_commission}. Dit is exclusief de transactiekosten van PayPal, dus behalve de commissie van %{service_name}, dien je ook PayPal te betalen voor de verwerking van iedere betaling. PayPal's kosten varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten.
-          Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
-      body_text_accept: |-
-          Deze transactie wordt verwerkt door PayPal. PayPal brengt voor iedere betaling transactiekosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten.
-          Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
+      title: "PayPal proces kosten"
+      body_text: "Paypal berekent transactiekosten voor iedere betaling. Deze kosten zijn tussen 2-5% van het totale verkoopbedrag, afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten."
+      body_text_accept: ~
       link_to_paypal_text: hier
     paypal_only_fee_info:
       title: "PayPal's betalingsverwerkingskosten"
       body_text: |-
-          Betalingen in %{service_name} worden verwerkt door PayPal. PayPal brengt voor iedere betaling kosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten.
+          Betalingen in %{service_name} worden verwerkt door PayPal. PayPal brengt voor iedere betaling kosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten. 
           Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
       link_to_paypal_text: hier
     stripe_fee_info:

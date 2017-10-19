@@ -75,8 +75,6 @@ describe ListingsController, type: :controller do
   end
 
   def create_shape(community_id, type, process_id, translations = [], categories = [])
-    listings_api = ListingService::API::Api
-
     defaults = TransactionTypeCreator::DEFAULTS[type]
 
     # Save name to TranslationService
@@ -101,7 +99,7 @@ describe ListingsController, type: :controller do
         basename: Maybe(translations).first[:name].or_else(type)
       })
 
-    listings_api.shapes.create(community_id: community_id, opts: opts).data
+    ListingShape.create_with_opts(community: Community.find(community_id), opts: opts)
   end
 
   before(:each) do

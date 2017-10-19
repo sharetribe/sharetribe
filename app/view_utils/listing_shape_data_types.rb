@@ -20,9 +20,9 @@ module ListingShapeDataTypes
   }
 
   Unit = EntityUtils.define_builder(
-    [:type, :to_symbol, :mandatory],
+    [:unit_type, :string, :mandatory],
     [:name, :hash, validate_with: FORM_TRANSLATION],
-    [:kind, :to_symbol],
+    [:kind, :string],
     [:selector, :hash, validate_with: FORM_TRANSLATION],
     [:name_tr_key, :string],
     [:selector_tr_key, :string]
@@ -31,14 +31,14 @@ module ListingShapeDataTypes
   # Shape datatype is ListingShapeController's internal representation of the listing shape.
   Shape = EntityUtils.define_builder(
     [:id, :fixnum],
-    [:name, :hash, :mandatory, validate_with: FORM_TRANSLATION],
-    [:action_button_label, :hash, :mandatory, validate_with: FORM_TRANSLATION],
+    [:name, :hash, :optional, validate_with: FORM_TRANSLATION],
+    [:action_button_label, :hash, :optional, validate_with: FORM_TRANSLATION],
     [:shipping_enabled, transform_with: CHECKBOX],
     [:price_enabled, transform_with: CHECKBOX],
     [:online_payments, transform_with: CHECKBOX],
     [:units, default: [], collection: Unit],
     [:author_is_seller, :bool],
-    [:availability, :to_symbol, one_of: [:none, :booking], default: :none] # also stock, in the future
+    [:availability, :string, one_of: ['none', 'booking'], default: 'none'] # also stock, in the future
   )
 
   KEY_MAP = {

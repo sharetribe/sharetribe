@@ -3,10 +3,9 @@ module ListingFormViewUtils
 
   def filter(params, shape, valid_until_enabled)
     filter_fields = []
-
     filter_fields << :price unless shape[:price_enabled]
     filter_fields << :currency unless shape[:price_enabled]
-    filter_fields << :unit unless shape[:units].present?
+    filter_fields << :unit unless shape_units(shape).present?
     filter_fields << :shipping_price unless shape[:shipping_enabled]
     filter_fields << :shipping_price_additional unless shape[:shipping_enabled]
     filter_fields << :delivery_methods unless shape[:shipping_enabled]
@@ -16,12 +15,15 @@ module ListingFormViewUtils
   end
 
   def filter_additional_shipping(params, unit)
-    if Maybe(unit)[:kind].or_else(nil) != :quantity
+    if unit[:kind] != 'quantity'
       params.except(:shipping_price_additional)
     else
       params
     end
+  end
 
+  def shape_units(shape)
+    shape.is_a?(Hash) ? shape[:units] : shape.units
   end
 
   def validate(params:, shape:, unit:, valid_until_enabled: false)
@@ -32,8 +34,8 @@ module ListingFormViewUtils
     errors << :delivery_method_required if shape[:shipping_enabled] && params[:delivery_methods].empty?
     errors << :unknown_delivery_method if shape[:shipping_enabled] && params[:delivery_methods].any? { |method| !["shipping", "pickup"].include?(method) }
 
-    errors << :unit_required if shape[:units].present? && unit.blank?
-    errors << :unit_does_not_belong if shape[:units].present? && unit.present? && !shape[:units].any? { |u| u == unit }
+    errors << :unit_required if shape_units(shape).present? && unit.blank?
+    errors << :unit_does_not_belong if shape_units(shape).present? && unit.present? && !shape_units(shape).any? { |u| u.slice(*unit.keys) == unit }
 
     errors << :valid_until_missing if valid_until_enabled && ["valid_until(1i)", "valid_until(2i)", "valid_until(3i)"].any? { |key| params[key].blank? }
 
@@ -60,11 +62,16 @@ module ListingFormViewUtils
     end
   end
 
+  def parse_listing_unit_param(params)
+    unit_string = params.to_unsafe_hash[:listing][:unit]
+    unit_string.present? ? HashUtils.symbolize_keys(JSON.parse(unit_string)) : {}
+  end
+
   def build_listing_params(shape, listing_uuid, params, current_community)
     with_currency = params.to_unsafe_hash[:listing].merge({currency: current_community.currency})
     valid_until_enabled = !current_community.hide_expiration_date
     listing_params = filter(with_currency, shape, valid_until_enabled)
-    listing_unit = Maybe(params.to_unsafe_hash)[:listing][:unit].map { |u| ListingViewUtils::Unit.deserialize(u) }.or_else(nil)
+    listing_unit   = parse_listing_unit_param(params)
     listing_params = filter_additional_shipping(listing_params, listing_unit)
     validation_result = validate(
       params: listing_params,
@@ -92,7 +99,7 @@ module ListingFormViewUtils
   end
 
   def select_unit(listing_unit, shape)
-    Maybe(shape)[:units].map { |units|
+    Maybe(shape).units.map { |units|
       units.length == 1 ? units.first : units.find { |u| u == listing_unit }
     }
   end
@@ -137,7 +144,7 @@ module ListingFormViewUtils
   def unit_to_listing_opts(m_unit)
     m_unit.map { |unit|
       {
-        unit_type: unit[:type],
+        unit_type: unit[:unit_type],
         quantity_selector: unit[:quantity_selector],
         unit_tr_key: unit[:name_tr_key],
         unit_selector_tr_key: unit[:selector_tr_key]
