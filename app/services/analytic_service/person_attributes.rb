@@ -58,16 +58,11 @@ module AnalyticService
     end
 
     def listing_shapes_transaction_process_ids
-      shapes = listing_shapes
-      if shapes.data
-        shapes.data.map{|s| s[:transaction_process_id]}
-      else
-        []
-      end
+      listing_shapes.map{|s| s.transaction_process_id}
     end
 
     def listing_shapes
-      @listing_shapes ||= ListingService::API::Api.shapes.get(community_id: community.id)
+      @listing_shapes ||= community.shapes
     end
 
     def transaction_processes_by_type(community, ids, process_type)
