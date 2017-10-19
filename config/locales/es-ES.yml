@@ -551,7 +551,7 @@ es-ES:
       contact_support: "contacta al equipo de soporte"
       no_payments_link_text: aquí
       your_country: "Tu país:"
-      you_cannot_use_online_payments: ~
+      you_cannot_use_online_payments: "No puedes usar el sistema de pagos en %{country_name} con %{currency}. Por favor escoge una moneda distinta o %{support_link} para cambiar el país. Puedes leer más acerca de los países y las monedas que puedes usar %{help_link}. En el futuro quizás añadiremos nuevos sistemas de pago y soportaremos más divisas."
       which_to_choose: "¿Cuál escoger?"
       you_can_use_stripe_or_paypal: "Puedes usar Stripe, Paypal o ambos como tus proveedores del sistema de pagos. %{choose_link}"
       you_can_use_stripe_only: "Puedes usar Stripe como proveedor del sistema de pagos. %{read_more_link}"
@@ -564,11 +564,11 @@ es-ES:
       choose_popup_text: ~
       invalid_api_keys: "API keys de Stripe invalidas"
       missing_api_keys: "Faltan las API keys de Stripe"
-      stripe_verified: ~
+      stripe_verified: "Acceso a API de Stripe verificado"
       change_settings: "Cambiar la configuración y las cuotas"
       configure_stripe: "Configurar Stripe"
       configure_paypal: "Configurar PayPal"
-      transaction_fee_settings: ~
+      transaction_fee_settings: "Configuración de la cuota de transacción"
       transaction_fee_save: Guardar
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: ~
@@ -662,8 +662,8 @@ es-ES:
     what_is_this: "¿Qué es esto?"
     removed_user: "Usuario eliminado"
     payment_fee_info:
-      title: ~
-      title_paypal: ~
+      title: "Cuota de procesamiento de pago"
+      title_paypal: "Cuota de procesamiento de PayPal"
       stripe: Stripe
       paypal: PayPal
       info: ~
@@ -675,13 +675,13 @@ es-ES:
       body_text_accept: ~
       link_to_paypal_text: aquí
     paypal_only_fee_info:
-      title: ~
+      title: "Cuota de procesamiento de pago de PayPal"
       body_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: aquí
     stripe_fee_info:
-      title: ~
+      title: "Cuota de procesamiento de pago de Stripe"
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: aquí
   conversations:
     accept:
       details: "Detalles de la orden"
@@ -707,7 +707,7 @@ es-ES:
       paypal_fee_info: "* No incluye <a id='%{fee_info_link_id}' href='#'> los costos de procesamiento de pago de PayPal</a>"
       payment_fee_info: ~
       shipping_price_label: "Costos de envío:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Cuota de procesamiento de pago"
     confirm:
       confirm_description: "Si tu solicitud se ha cumplido debes confirmarla como completada. Después podrás dar una valoración al otro usuario."
       cancel_description: "Si tu solicitud no se cumplió, puedes marcarla como 'disputada'. Aún así podrás dar una valoración al otro usuario y describir qué pasó."
@@ -954,29 +954,29 @@ es-ES:
       quantity: "Cantidad:"
       you_have_received_new_payment: "%{payer_full_name} te ha pagado <b>%{payment_sum}<b> por <b>%{listing_title}</b>. Aquí está tu recibo."
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
+      payment_gateway_fee: "Cuota de procesamiento de pago:"
+      shipping_total: "Envío:"
+      product: "Producto:"
       price_payer_paid: ~
       service_fee: ~
-      you_will_get: ~
+      you_will_get: "Total:"
       new_payment: ~
       price_per_unit_type: ~
-      quantity: ~
+      quantity: "Cantidad:"
       you_have_received_new_payment: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
+      receipt_of_payment: "Recibo de pago"
       you_have_made_new_payment: ~
-      product: ~
+      product: Producto
       price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      duration: Duración
+      quantity: Cantidad
+      subtotal: Subtotal
+      total: Total
+      price: Precio
+      service_fee: "Cuota de servicio"
+      stripe_gateway_fee: "Cuota de Stripe:"
+      paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "Tarifa de PayPal:"
@@ -997,8 +997,8 @@ es-ES:
       total: Total
       price: Precio
       service_fee: "Cuota de servicio"
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Cuota de Stripe:"
+      paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
@@ -1484,8 +1484,8 @@ es-ES:
       notifications: Notificaciones
       profile: "Información de perfil"
       settings: Opciones
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "Pagos con PayPal"
+      stripe_payments: "Pagos con Stripe"
       payments: Pagos
   listings:
     bubble_listing_not_visible:
@@ -1762,16 +1762,16 @@ es-ES:
     transaction_agreement_checkbox:
       read_more: Ver
     stripe_payment:
-      payment: ~
+      payment: Pago
       pay_with_card: ~
       address: ~
-      address_country: ~
+      address_country: "País *"
       address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      address_city: "Ciudad *"
+      address_state: "Estado *"
+      address_street1: "Dirección - línea 1"
+      address_street2: "Dirección - línea 2"
+      address_postal_code: "Código postal *"
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1815,7 +1815,7 @@ es-ES:
     contact_admin_link_text: "contacta al administrador de la comunidad"
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "No quiero conecta una cuenta de PayPal por ahora"
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
       payout_info_text: "Por favor, completa estos pasos para conectar tu cuenta."
@@ -2305,37 +2305,37 @@ es-ES:
     add_and_pay: ~
     card_not_stored: ~
     missing_payment: ~
-    stripe_bank_connected: ~
+    stripe_bank_connected: "Detalles de la cuenta de banco configurados con éxito!"
     stripe_can_accept: ~
     stripe_credit_card: ~
-    paypal: ~
+    paypal: PayPal
     paypal_connected: ~
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
-      select_country: ~
-      legal_name: ~
-      country: ~
+      select_country: "Selecciona un país..."
+      legal_name: "Nombre legal"
+      country: País
       birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      ssn_last_4: "Últimos 4 dígitos del SSN"
+      personal_id_number: "Numero personal de ID"
+      address_country: País
+      address_state: Estado
+      address_city: Ciudad
+      address_postal_code: "Código postal"
+      address_line1: Dirección
       tos_link: ~
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      save_details: "Guardar datos"
+      edit: "Editar datos"
+      cancel: Cancelar
     form_bank:
-      bank_account_number: ~
+      bank_account_number: "Número de cuenta de banco"
       bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_routing_1: "Código del banco"
+      bank_routing_2: "Código de la sucursal"
+      bank_currency: "Divisa de la cuenta del banco"
       messages:
         account_number: ~
         routing_number: ~
@@ -2365,7 +2365,7 @@ es-ES:
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
-    connect_paypal: ~
+    connect_paypal: "Conectar cuenta de PayPal"
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~

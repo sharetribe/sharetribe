@@ -561,7 +561,11 @@ de:
       read_more_about_paypal_and_stripe: "Mehr über Online-Zahlungen, Stripe und PayPal lesen"
       general_settings_updated: "Allgemeine Einstellungen des Zahlungssystems aktualisiert"
       transaction_fee_settings_updated: "Einstellungen für Transaktionsgebühre aktualisiert"
-      choose_popup_text: ~
+      choose_popup_text: |-
+          Wenn du es deinen Kunden erlauben willst, Online Zahlungen entgegenzunehmen, musst du die Währung für deinen Marktplatz wählen, und danach entweder Stripe or PayPal verbinden. Du kannst auch beides wählen; damit können deine Kunden die Entscheidung treffen, welches System sie verwenden möchten.
+          Du kannst ein neues Konto mit beiden Systemen eröffnen, falls du noch keins hast. Nachdem du ein Konto verbunden hast, kannst du eine Transaktionsgebühr feststellen.
+          Der Unterschied zwischen PayPal und Stripe? Stripe erlaubt das Verzögern der Zahlung bis zu 3 Monaten, und bietet eine Zahlungsmethode (Kredit/Debitkarte). Mit Stripe können deine Verkäufer auch Geld direkt auf ihre Bankkonten bekommen, wenn sie ihre Kontodetails eingeben. PayPal bietet zwei Zahlungsmethoden (Kreditkarte und PayPal Konto) und bietet Käufer/Verkäuferschutz. Es ist nötig, ein Business Konto auf PayPal einzurichten, um Kreditkartenzahlungen entgegenzunehmen.
+          Wenn du Stripe verwendest, werden die Gebühren von Stripe von deiner Transaktionsgebühr abgezogen, also bitte bestimmen sie eine Transaktionsgebühr, die hoch genug ist. Wenn du PayPal verwendest, werden die Gebühren von PayPal direkt von dem Verkäufer abgezogen, sowie deine Transaktionsgebühr. Stripe und PayPal haben auch verschiedene Gebühren. In der Regel sind die Gebühren von Stripe normalerweise etwas günstiger.
       invalid_api_keys: "Ungültige Stripe API Keys"
       missing_api_keys: "Fehlende Stripe API Keys"
       stripe_verified: "Stripe API Zugang bestätigt"
@@ -672,11 +676,15 @@ de:
       body_text: |-
           PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers.
           Wenn Du Dich bei Deinem Paypal Account anmeldest, erhältst Du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst Du einen Beleg mit der exakten Gebühr.
-      body_text_accept: ~
+      body_text_accept: |-
+          Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
+          Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
     paypal_only_fee_info:
       title: "Zahlungsbearbeitungsgebühr von PayPal"
-      body_text: ~
+      body_text: |-
+          Die Zahlungen auf %{service_name} werden durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
+          Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
     stripe_fee_info:
       title: "Zahlungsbearbeitungsgebühr von Stripe"
@@ -1583,9 +1591,9 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: "Wenn jemand den Auftrag kauft, werden die Gebühr von %{service_name} (%{sum_with_currency}) und %{payment_fee_info_link} vom Betrag abgezogen."
         after_service_fee_you_will_get_paypal_text: "Bei einer erfolgreichen Transaktion werden %{service_name} Gebühr (%{sum_with_currency}) und %{paypal_fee_info_link} vom Preis abgezogen."
-        after_service_fee_you_will_get_stripe_text: ~
+        after_service_fee_you_will_get_stripe_text: "Wenn jemand den Auftrag kauft, wird die Gebühr von %{service_name} (%{sum_with_currency}) vom Betrag abgezogen."
         payment_fee_info_link_text: Zahlungsbearbeitungsgebühr
         paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
         delivery: Lieferart
@@ -2282,6 +2290,10 @@ de:
         zero: Benutzer
         one: Benutzer
         other: Benutzer
+      transaction:
+        zero: Transaktionen
+        one: Transaktion
+        other: Transaktionen
     previous_label: "&#8592; Zurück"
     next_label: "Vor &#8594;"
     page_gap: "&hellip;"
@@ -2297,23 +2309,23 @@ de:
       multi_page: "%{model} %{from} wird dargestellt - %{to} von %{count} gesamt"
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"
   stripe_accounts:
-    admin_account_not_connected: ~
+    admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Marktplatz-Administrator"
     you_are_ready_to_accept_payments: "Du bist bereit, Zahlungen entgegenzunehmen!"
     commission: "%{commission} %"
     pay_with_stripe: "Mit Stripe bezahlen, mit der Karte %{card}"
     add_and_pay: "Zahlung bestätigen"
-    card_not_stored: ~
+    card_not_stored: "Deine Zahlung wird geschützt durch Stripe verarbeitet. %{service_name} speichert keinerlei Informationen über deine Kreditkarte."
     missing_payment: "Du hast offene Angebote, aber du hast die Zahlungseinstellungen für dein Konto nicht eingerichtet. Um die Einstellungen einzurichten, gehe zu %{settings_link}"
     stripe_bank_connected: "Kontodetails erfolgreich eingerichtet!"
     stripe_can_accept: "Du bist jetzt bereit, Zahlungen mit Kreditkarten entgegenzunehmen"
     stripe_credit_card: Kreditkarte
     paypal: PayPal
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
-    paypal_can_accept: ~
-    paypal_connected_give_permission: ~
+    paypal_can_accept: "Du bist nun bereit, Geld auf dein PayPal-Konto zu bekommen!"
+    paypal_connected_give_permission: "Als letztes, bitte erteile eine Genehmigung für das Abheben der Transaktionsgebühr, um Geld auf das PayPal Konto <%{email}> bekommen zu können."
     form_new:
-      need_info: ~
+      need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
       select_country: "Land wählen..."
       legal_name: "Gesetzlicher Name"
       country: Land
@@ -2359,12 +2371,12 @@ de:
       need_verification: "Zusätzliche Verifizierung benötigt"
   payment_settings:
     title: Auszahlungseinstellungen
-    bank_account: ~
+    bank_account: Bankkonto
     paypal: PayPal
-    bank_account_details: ~
+    bank_account_details: "Um Kreditkartenzahlungen von Kunden empfangen zu können, musst du deine Kontodetails hier hinterlegen."
     add_bank_details: "Bankdetails hinzufügen"
-    can_accept_stripe_and_paypal: "Du kannst Zahlungen durch Kreditkarten, durch PayPal, oder beides, entgegennehmen."
-    to_accept_paypal: "Um PayPal-Zahlungen annehmen zu können, musst du dein PayPal-Konto verknüpfen, so dass wir das Geld da überweisen können."
+    can_accept_stripe_and_paypal: "Du kannst Kreditkartenzahlungen, PayPal Zahlungen, oder beides akzeptieren."
+    to_accept_paypal: "Um PayPal Zahlungen von Kunden empfangen zu können, musst du dein PayPal Konto hier verknüpfen."
     connect_paypal: "PayPal-Konto verknüpfen"
     wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes. Bitte kontaktiere die Marktplatz-Administratoren."
     invalid_bank_account_number: "Bitte sicherstellen, dass dein Bankkonto ist richtig eingetragen und mit deinem Land zustimmt."
