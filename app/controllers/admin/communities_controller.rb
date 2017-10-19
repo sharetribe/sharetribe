@@ -47,6 +47,15 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def create_sender_address
+    user_defined_address = EmailService::API::Api.addresses.get_user_defined(community_id: @current_community.id).data
+
+    if user_defined_address && user_defined_address[:email] == params[:email].to_s.downcase.strip
+      EmailService::API::Api.addresses.update(community_id: @current_community.id, id: user_defined_address[:id], name: params[:name])
+      flash[:notice] = t("admin.communities.outgoing_email.successfully_saved_name")
+      redirect_to action: :edit_welcome_email
+      return
+    end
+
     res = EmailService::API::Api.addresses.create(
       community_id: @current_community.id,
       address: {

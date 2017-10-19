@@ -78,6 +78,11 @@ module EmailService::Store::Address
     end
   end
 
+  def update(community_id:, id:, name:)
+    Maybe(MarketplaceSenderEmail.where(community_id: community_id, id: id).first)
+      .update_attributes(name:  name).or_else(nil)
+  end
+
   ## Privates
 
   def from_model(model)

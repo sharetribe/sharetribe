@@ -36,6 +36,10 @@ module EmailService::API
       }
     end
 
+    def update(community_id:, id:, name:)
+      Result::Success.new(AddressStore.update(community_id: community_id, id: id, name: name))
+    end
+
     def create(community_id:, address:)
       lowercase_email = Maybe(address)[:email].downcase.or_else(nil)
 
