@@ -361,4 +361,15 @@ FactoryGirl.define do
     build_association(:person)
     build_association(:follower)
   end
+
+  factory :listing_shape do
+    community_id           123
+    transaction_process_id 1
+    price_enabled          false
+    shipping_enabled       false
+    name                   'Selling'
+    name_tr_key            'abc'
+    action_button_tr_key   'def'
+    sort_priority          0
+  end
 end
