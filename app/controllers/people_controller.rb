@@ -113,23 +113,21 @@ class PeopleController < Devise::RegistrationsController
       end
     end
 
-    # Check that email is not taken
-    unless Email.email_available?(params[:person][:email], @current_community.id)
-      flash[:error] = t("people.new.email_is_in_use")
+    return if email_not_valid(params, error_redirect_path)
+
+    email = nil
+    begin
+      ActiveRecord::Base.transaction do
+        @person, email = new_person(params, @current_community)
+      end
+    rescue => e
+      flash[:error] = t("people.new.invalid_username_or_email")
       redirect_to error_redirect_path and return
     end
-
-    # Check that the email is allowed for current community
-    if @current_community && ! @current_community.email_allowed?(params[:person][:email])
-      flash[:error] = t("people.new.email_not_allowed")
-      redirect_to error_redirect_path and return
-    end
-
-    @person, email = new_person(params, @current_community)
 
     # Make person a member of the current community
     if @current_community
-      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership = CommunityMembership.new(person: @person, community: @current_community, consent: @current_community.consent)
       membership.status = "pending_email_confirmation"
       membership.invitation = invitation if invitation.present?
       # If the community doesn't have any members, make the first one an admin
@@ -302,7 +300,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def check_email_availability_and_validity
-    email = params[:person][:email]
+    email = params[:person][:email].to_s.downcase
 
     allowed_and_available = @current_community.email_allowed?(email) && Email.email_available?(email, @current_community.id)
 
@@ -409,5 +407,26 @@ class PeopleController < Devise::RegistrationsController
           :email_about_new_listings_by_followed_people,
         ] }
       )
+  end
+
+  def email_not_valid(params, error_redirect_path)
+    # strip trailing spaces
+    params[:person][:email] = params[:person][:email].to_s.downcase.strip
+
+    # Check that email is not taken
+    unless Email.email_available?(params[:person][:email], @current_community.id)
+      flash[:error] = t("people.new.email_is_in_use")
+      redirect_to error_redirect_path
+      return true
+    end
+
+    # Check that the email is allowed for current community
+    if @current_community && ! @current_community.email_allowed?(params[:person][:email])
+      flash[:error] = t("people.new.email_not_allowed")
+      redirect_to error_redirect_path
+      return true
+    end
+
+    false
   end
 end
