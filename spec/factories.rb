@@ -407,20 +407,4 @@ FactoryGirl.define do
     action_button_tr_key   'def'
     sort_priority          0
   end
-
-  factory :order_permission do
-    request_token       'ABC'
-    paypal_username_to  'mildred@example.com'
-    scope               "EXPRESS_CHECKOUT,REFUND,AUTH_CAPTURE,TRANSACTION_DETAILS,REFERENCE_TRANSACTION,RECURRING_PAYMENTS,SETTLEMENT_REPORTING,RECURRING_PAYMENT_REPORT,ACCESS_BASIC_PERSONAL_DATA"
-    verification_code   'DEF'
-    build_association(:paypal_account)
-  end
-
-  factory :paypal_account do
-    person_id nil
-    community_id 123
-    email 'mildred@example.com'
-    payer_id 'ABC'
-    active true
-  end
 end
