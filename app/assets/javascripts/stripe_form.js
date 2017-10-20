@@ -67,7 +67,7 @@ window.ST.stripe_form_i18n = {
       account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN },
     },
     IT: { 
-      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z][0-9]{10}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z]{1}[0-9]{5}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN },
     },
     JP: { 
       account_number: {format: '1234567', regexp: '[0-9]{6,8}', test_regexp: '[0-9]{6,8}' }, 
@@ -92,7 +92,7 @@ window.ST.stripe_form_i18n = {
       account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN },
     },
     PT: { 
-      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{11}', test_regexp: 'PT'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN },
     },
     SG: { 
       account_number: {format: '123456789012', regexp: '[0-9]{6-12}', test_regexp: '[0-9]{6-12}' }, 
