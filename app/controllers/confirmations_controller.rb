@@ -45,10 +45,10 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
       flash[:notice] = t("layouts.notifications.additional_email_confirmed")
 
-      Analytics.record_event(flash, "AccountConfirmed")
+      record_event(flash, "AccountConfirmed")
 
       if @current_user && @current_user.has_admin_rights?(@current_community)
-        report_to_gtm({event: "admin_email_confirmed"})
+        record_event(flash, "admin_email_confirmed")
         redirect_to admin_getting_started_guide_path and return
       elsif @current_user # normal logged in user
         if session[:return_to]

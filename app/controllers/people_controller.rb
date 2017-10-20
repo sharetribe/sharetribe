@@ -145,7 +145,7 @@ class PeopleController < Devise::RegistrationsController
 
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
 
-    Analytics.record_event(flash, "SignUp", method: :email)
+    record_event(flash, "SignUp", method: :email)
 
     # send email confirmation
     # (unless disabled for testing environment)
@@ -211,7 +211,7 @@ class PeopleController < Devise::RegistrationsController
 
     session[:fb_join] = "pending_analytics"
 
-    Analytics.record_event(flash, "SignUp", method: :facebook)
+    record_event(flash, "SignUp", method: :facebook)
 
     redirect_to pending_consent_path
   end
@@ -290,7 +290,7 @@ class PeopleController < Devise::RegistrationsController
     end
 
     sign_out target_user
-    report_analytics_event('user', "deleted", "by user")
+    record_event(flash, 'user', {action: "deleted", opt_label: "by user"})
     flash[:notice] = t("layouts.notifications.account_deleted")
     redirect_to search_path
   end

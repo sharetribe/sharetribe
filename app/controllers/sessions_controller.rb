@@ -53,6 +53,8 @@ class SessionsController < ApplicationController
 
     sign_in @current_user
 
+    setup_intercom_user
+
     session[:form_login] = nil
 
     unless @current_user.is_admin? || terms_accepted?(@current_user, @current_community)
@@ -77,13 +79,14 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logged_out_user = @current_user
     sign_out
 
     # Admin Intercom shutdown
     IntercomHelper::ShutdownHelper.intercom_shutdown(session, cookies, request.host_with_port)
 
     flash[:notice] = t("layouts.notifications.logout_successful")
-    Analytics.mark_logged_out(flash)
+    mark_logged_out(flash, logged_out_user)
     redirect_to landing_page_path
   end
 

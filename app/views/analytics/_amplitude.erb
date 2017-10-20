@@ -12,41 +12,13 @@
    function v(e){function t(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
    }}for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){e=(!e||e.length===0?"$default_instance":e).toLowerCase();
      if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
- })(window,document);
+  })(window,document);
 
- (function() {
-   var ampClient = amplitude.getInstance();
-   ampClient.init('<%= APP_CONFIG.amplitude_api_key %>');
+  onDocumentReady(function() {
+    ST.analytics.initAmplitude('<%= APP_CONFIG.amplitude_api_key %>');
+  });
 
-   var userInfo = new amplitude.Identify()
-                               .set('community_id', <%= community.id %>)
-                               .set('marketplace_uuid', '<%= community.uuid_object.to_s %>')
-                               .set('admin', <%= (user&.is_marketplace_admin?(@current_community) || false).to_json %>);
-
-   <% if plan %>
-     userInfo.set('plan_status', '<%= plan[:status] %>');
-   <% end %>
-
-   <% if user %>
-     ampClient.setUserId('<%= user.uuid_object.to_s %>');
-   <% end %>
-
-   ampClient.identify(userInfo);
-
-   <% if flash[:_analytics_events].present? %>
-     <% flash[:_analytics_events].each do |ev| %>
-       ampClient.logEvent(<%= ev[:event]&.to_json&.html_safe %>,
-                          <%= ev[:props]&.to_json&.html_safe %>);
-     <% end %>
-   <% end %>
-
-   <% if flash[:_analytics_logout] %>
-     ampClient.setUserId(null);
-     ampClient.regenerateDeviceid();
-   <% end %>
- })();
 <% end %>
-
  (function(exports) {
    exports.ampClient = {
      logEvent: function(eventType, eventProperties, opt_callback) {

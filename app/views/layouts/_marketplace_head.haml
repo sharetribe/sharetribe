@@ -99,15 +99,3 @@
 
 - unless on_admin?
   = @current_community.custom_head_script.try(:html_safe)
-
-- if on_admin? && IntercomHelper.admin_intercom_respond_enabled?
-  - app_id = IntercomHelper.admin_intercom_app_id
-  - user_uuid = @current_user.uuid_object.to_s
-  - name = PersonViewUtils.person_display_name(@current_user, @current_community)
-  - email = IntercomHelper.email(@current_user)
-  - user_hash = IntercomHelper.user_hash(user_uuid)
-  - plan = @current_plan
-  - feature_flags = FeatureFlagHelper.feature_flags
-  - identity_information = IntercomHelper.identity_information(@current_user)
-
-  = render partial: "layouts/intercom", locals: { app_id: app_id, email: email, user_uuid: user_uuid, name: name, user_hash: user_hash, plan: plan, feature_flags: feature_flags, identity_information: identity_information }

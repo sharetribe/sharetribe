@@ -32,6 +32,8 @@ class Email < ApplicationRecord
   validates_format_of :address,
                        :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
 
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
   before_save do
     #force email to be lower case
     self.address = self.address.downcase
