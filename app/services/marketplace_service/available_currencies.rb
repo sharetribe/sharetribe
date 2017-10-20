@@ -86,8 +86,11 @@ module MarketplaceService::AvailableCurrencies
   COUNTRY_SET_STRIPE_AND_PAYPAL = ['AT', 'BE', 'DK', 'FI', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'ES', 'SE', 'CH', 'GB', 'US',
                                    'AU', 'CA', 'HK', 'NZ']
 
+  # Countries listed by Paypal
   # Brazil, Czech Republic, Hungary, Israel, Italy, Japan, Mexico, Malaysia, Poland, Philippines, Portugal, Russia, Singapore, Taiwan, Thailand
-  COUNTRY_SET_PAYPAL_ONLY = ['BR', 'CZ', 'HU', 'IL', 'IT', 'JP', 'MX', 'MY', 'PL', 'PH', 'PT', 'RU', 'SG', 'TW', 'TH']
+  # COUNTRY_SET_PAYPAL_ONLY = ['BR', 'CZ', 'HU', 'IL', 'IT', 'JP', 'MX', 'MY', 'PL', 'PH', 'PT', 'RU', 'SG', 'TW', 'TH']
+  # All countries around the world
+  COUNTRY_SET_PAYPAL_ONLY = ISO3166::Country.all.map{|c| c.alpha2}
 
   VALID_CURRENCIES = {
     "AUD" => :country_sets,
