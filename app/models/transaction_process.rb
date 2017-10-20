@@ -15,6 +15,7 @@
 #
 
 class TransactionProcess < ApplicationRecord
+  belongs_to :community
 
   def process
     read_attribute(:process).to_sym
