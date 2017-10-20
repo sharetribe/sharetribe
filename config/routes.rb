@@ -168,8 +168,16 @@ Rails.application.routes.draw do
       get '' => "getting_started_guide#index"
       
       # Payments
-      get  "/payment_preferences"                     => "payment_preferences#index"
-      put  "/payment_preferences"                     => "payment_preferences#update"
+      resources :payment_preferences, only: [:index], param: :payment_gateway do
+        collection do
+          put :common_update
+          put :update_stripe_keys
+        end
+        member do
+          get :disable
+          get :enable
+        end
+      end
       # PayPal Connect
       get  "/paypal_preferences" => redirect("/%{locale}/admin/payment_preferences")
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"

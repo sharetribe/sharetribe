@@ -584,10 +584,19 @@ en:
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
+      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, providers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If providers haven't configured another payment method, buyers will not be able to buy from them."
       stripe_connected:
         title: "Stripe connected"
+        disable: "Disable Stripe"
+        disabled: "Stripe disabled"
+        enable: "Enable Stripe again"
       paypal_connected:
         title: "PayPal connected"
+        disable: "Disable PayPal"
+        disabled: "PayPal disabled"
+        enable: "Enable PayPal again"
+      cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
+      cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
       stripe_form:
         add_your_api_keys: "Add your Stripe API keys"
         how_to_get_these: "How to get these?"
