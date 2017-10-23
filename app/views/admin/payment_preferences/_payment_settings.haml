@@ -43,22 +43,53 @@
             .row.connect-row
               - if stripe_enabled && stripe_allowed
                 - if stripe_connected
-                  .col-6
-                    %h3.paypal-account-connected
-                      =icon_tag("check", ["icon-fix"])
-                      =t("admin.payment_preferences.stripe_connected.title")
-                    = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_stripe_toggle"
+                  - if stripe_enabled_by_admin
+                    .col-6
+                      %h3.paypal-account-connected
+                        =icon_tag("check", ["icon-fix"])
+                        =t("admin.payment_preferences.stripe_connected.title")
+                      = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_stripe_toggle"
+                      - if paypal_connected && paypal_enabled_by_admin
+                        %br
+                        = link_to t("admin.payment_preferences.stripe_connected.disable"),
+                          disable_admin_payment_preference_path(payment_gateway: :stripe),
+                          data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'STRIPE')},
+                          id: "disable_stripe"
+                  - else
+                    .col-6
+                      %h3.paypal-account-disabled
+                        =icon_tag("cross", ["icon-fix"])
+                        =t("admin.payment_preferences.stripe_connected.disabled")
+                      = link_to t("admin.payment_preferences.stripe_connected.enable"),
+                        enable_admin_payment_preference_path(payment_gateway: :stripe),
+                        id: "enable_stripe"
                 - else
                   .col-6
                     = link_to t("admin.payment_preferences.configure_stripe"), "#", class: "button", id: "config_stripe_toggle"
 
               - if paypal_enabled && paypal_allowed
                 - if paypal_connected
-                  .col-6
-                    %h3.paypal-account-connected
-                      =icon_tag("check", ["icon-fix"])
-                      =t("admin.payment_preferences.paypal_connected.title")
-                    = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_paypal_toggle"
+                  - if paypal_enabled_by_admin
+                    .col-6
+                      %h3.paypal-account-connected
+                        =icon_tag("check", ["icon-fix"])
+                        =t("admin.payment_preferences.paypal_connected.title")
+                      = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_paypal_toggle"
+                      - if stripe_connected && stripe_enabled_by_admin
+                        %br
+                        = link_to t("admin.payment_preferences.paypal_connected.disable"),
+                          disable_admin_payment_preference_path(payment_gateway: :paypal),
+                          data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'PAYPAL')},
+                          id: "disable_paypal"
+                  - else
+                    .col-6
+                      %h3.paypal-account-disabled
+                        =icon_tag("cross", ["icon-fix"])
+                        =t("admin.payment_preferences.paypal_connected.disabled")
+                      = link_to t("admin.payment_preferences.paypal_connected.enable"),
+                        enable_admin_payment_preference_path(payment_gateway: :paypal),
+                        id: "enable_paypal"
+
                 - else
                   .col-6
                     = link_to t("admin.payment_preferences.configure_paypal"), "#", class: "button", id: "config_paypal_toggle"
@@ -73,7 +104,7 @@
 
       - if stripe_enabled && stripe_allowed
         .tab-content.hidden#stripe_tab
-          - if !stripe_account[:api_verified]
+          - if !stripe_connected
             - stripe_keys_link = "#{knowledge_base_url}/how-to-configure-your-stripe-account-and-get-api-keys-for-your-marketplace"
             = render partial: 'stripe_form', locals: {stripe_account: stripe_account, stripe_api_form: stripe_api_form, stripe_keys_link: stripe_keys_link}
           - else
@@ -83,13 +114,13 @@
 
       - if paypal_enabled && paypal_allowed
         .tab-content.hidden#paypal_tab
-          - if !paypal_account.present?
+          - if !paypal_connected
             = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
           - else
             = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
             .paypal-wizard-divider
             = render partial: 'prefs_form', locals: {payment_prefs_form: paypal_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal', knowledge_base_url: knowledge_base_url}
-    
+
     - if paypal_ready && stripe_ready
       = render partial: 'paypal_connect_own_notice', locals: {connected_mode: 'stripe_and_paypal'}
     - elsif stripe_ready
@@ -101,12 +132,12 @@
       :javascript
         window.ST.initPaymentTabs(#{payment_prefs_form.minimum_listing_price.to_f}, "#{t("admin.payment_preferences.fee_should_be_less_than_minimum_price")}")
 
-    - if stripe_enabled && stripe_allowed && stripe_account[:api_verified] && !stripe_ready
+    - if stripe_enabled && stripe_allowed && stripe_connected && stripe_enabled_by_admin && !stripe_ready
       - content_for :extra_javascript do
         :javascript
           $('#config_stripe_toggle').click();
-    - elsif paypal_enabled && paypal_allowed && paypal_account.present? && !paypal_ready
+    - elsif paypal_enabled && paypal_allowed && paypal_connected && paypal_enabled_by_admin && !paypal_ready
       - content_for :extra_javascript do
         :javascript
           $('#config_paypal_toggle').click();
- 
+

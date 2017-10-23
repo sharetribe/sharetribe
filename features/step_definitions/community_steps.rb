@@ -189,3 +189,51 @@ Given(/^community emails are sent from name "(.*?)" and address "(.*?)"$/) do |n
     }
   )
 end
+
+Given /^community "(.*?)" has country "(.*?)" and currency "(.*?)"$/ do |community, country, currency|
+  community = Community.where(ident: community).first
+  community.country = country
+  community.currency = currency
+  community.save
+end
+
+Given /^community "(.*?)" has payment method "(.*?)" provisioned$/ do |community, payment_gateway|
+  community = Community.where(ident: community).first
+  if payment_gateway
+    TransactionService::API::Api.settings.provision(
+      community_id: community.id,
+      payment_gateway: payment_gateway,
+      payment_process: :preauthorize,
+      active: true)
+  end
+  if payment_gateway == 'stripe'
+    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe])
+  end
+end
+
+Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |community, payment_gateway|
+  community = Community.where(ident: community).first
+  tx_settings_api = TransactionService::API::Api.settings
+  if payment_gateway == 'paypal'
+    FactoryGirl.create(:paypal_account,
+                       community_id: community.id,
+                       order_permission: FactoryGirl.build(:order_permission))
+  end
+  data = {
+    community_id: community.id,
+    payment_process: :preauthorize,
+    payment_gateway: payment_gateway
+  }
+  tx_settings_api.activate(data)
+  tx_settings_api.update(data.merge(
+    commission_from_seller: 10,
+    minimum_price_cents: 100
+  ))
+  if payment_gateway == 'stripe'
+    tx_settings_api.update(data.merge(
+      api_private_key: 'sk_test_123456789012345678901234',
+      api_publishable_key: 'pk_test_123456789012345678901234'
+    ))
+    tx_settings_api.api_verified(data)
+  end
+end

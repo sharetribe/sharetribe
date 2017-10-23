@@ -1,5 +1,6 @@
 class Admin::PaymentPreferencesController < Admin::AdminBaseController
   before_action :ensure_payments_enabled
+  before_action :ensure_params_payment_gateway, only: [:enable, :disable]
 
   def index
     more_locals = {}
@@ -27,19 +28,35 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_allowed:  MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
       stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
+      paypal_enabled_by_admin: !!paypal_tx_settings[:active],
+      stripe_enabled_by_admin: !!stripe_tx_settings[:active],
     }
 
     render 'index', locals: view_locals.merge(payment_locals)
   end
 
-  def update
-    if params[:payment_preferences_form].present?
-      update_payment_preferences
-    elsif params[:stripe_api_keys_form].present?
-      update_stripe_keys
-    end
+  def common_update
+    update_payment_preferences
 
     redirect_to action: :index
+  end
+
+  def update_stripe_keys
+    process_update_stripe_keys
+
+    redirect_to action: :index
+  end
+
+  def enable
+    result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
+    error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway])
+    redirect_to admin_payment_preferences_path, error: error_message
+  end
+
+  def disable
+    result = tx_settings_api.disable(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
+    error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_disable_gateway", gateway: params[:payment_gateway])
+    redirect_to admin_payment_preferences_path, error: error_message
   end
 
   private
@@ -48,7 +65,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   MAX_COMMISSION_PERCENTAGE = 100
 
   def ensure_payments_enabled
-    @paypal_enabled = PaypalHelper.paypal_active?(@current_community.id)
+    @paypal_enabled = PaypalHelper.paypal_provisioned?(@current_community.id)
     @stripe_enabled = StripeHelper.stripe_provisioned?(@current_community.id)
     unless @paypal_enabled || @stripe_enabled
       flash[:error] = t("admin.communities.settings.payments_not_enabled")
@@ -73,15 +90,19 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     }
   end
 
+  def tx_settings_by_gateway(gateway)
+    tx_settings_api.get(community_id: @current_community.id, payment_gateway: gateway, payment_process: :preauthorize)
+  end
+
   def paypal_tx_settings
-    Maybe(tx_settings_api.get(community_id: @current_community.id, payment_gateway: :paypal, payment_process: :preauthorize))
+    Maybe(tx_settings_by_gateway(:paypal))
     .select { |result| result[:success] }
     .map { |result| result[:data] }
     .or_else({})
   end
 
   def stripe_tx_settings
-    Maybe(tx_settings_api.get(community_id: @current_community.id, payment_gateway: :stripe, payment_process: :preauthorize))
+    Maybe(tx_settings_by_gateway(:stripe))
     .select { |result| result[:success] }
     .map { |result| result[:data] }
     .or_else({})
@@ -283,7 +304,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     validates_format_of :api_publishable_key, with: Regexp.new(APP_CONFIG.stripe_publishable_key_pattern)
   end
 
-  def update_stripe_keys
+  def process_update_stripe_keys
     api_form = StripeApiKeysForm.new(params[:stripe_api_keys_form])
     if api_form.valid? && api_form.api_private_key.present?
       if !@stripe_enabled
@@ -316,5 +337,9 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def stripe_api
     StripeService::API::Api.wrapper
+  end
+
+  def ensure_params_payment_gateway
+    ['stripe', 'paypal'].include?(params[:payment_gateway])
   end
 end

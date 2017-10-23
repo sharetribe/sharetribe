@@ -1,5 +1,5 @@
 .paypal-wizard-content
-  = form_for payment_prefs_form, url: admin_payment_preferences_path, html: { id: "transaction_preferences_form_#{pref_mode}", class: "tx_pref_form" }, method: :put do |form|
+  = form_for payment_prefs_form, url: common_update_admin_payment_preferences_path, html: { id: "transaction_preferences_form_#{pref_mode}", class: "tx_pref_form" }, method: :put do |form|
     = hidden_field_tag 'payment_preferences_form[mode]', 'transaction_fee'
     = hidden_field_tag 'gateway', pref_mode
     .row
