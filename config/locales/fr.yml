@@ -852,7 +852,7 @@ fr:
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
-      you_are_banned_in_this_community: "L'administrateur vous a interdit de rejoindre %{service_name}. Si vous voulez contacter l'équipe %{service_name}, vous pouvez %{link_to_contact_page}"
+      you_are_banned_in_this_community: "L'équipe vous a supprimé l'accès à %{service_name}. Si vous voulez en discuter avec l'équipe %{service_name}, vous pouvez %{link_to_contact_page}."
       contact_page_link: "les contacter"
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
