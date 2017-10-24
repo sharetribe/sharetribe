@@ -407,8 +407,8 @@ FactoryGirl.define do
     price_enabled          false
     shipping_enabled       false
     name                   'Selling'
-    name_tr_key            'abc'
-    action_button_tr_key   'def'
+    name_tr_key            'unit.day'
+    action_button_tr_key   'unit.days'
     sort_priority          0
   end
 

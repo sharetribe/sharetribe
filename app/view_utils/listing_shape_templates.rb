@@ -57,7 +57,7 @@ class ListingShapeTemplates
         online_payments: true,
         template: :renting_products,
         author_is_seller: true,
-        availability: :booking,
+        availability: 'booking',
         units: [{unit_type: 'night', quantity_selector: :night}]
       },
       {
