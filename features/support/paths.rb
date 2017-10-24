@@ -86,6 +86,10 @@ module NavigationHelpers
       admin_community_transactions_path(:community_id => @current_community.id)
     when /the getting started guide for admins/
       admin_getting_started_guide_path
+    when /the order types admin page/
+      admin_listing_shapes_path
+    when /the edit "(.*)" order type admin page/
+      edit_admin_listing_shape_path(id: $1)
     else
       begin
         page_name =~ /the (.*) page/
