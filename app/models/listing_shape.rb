@@ -30,9 +30,8 @@ class ListingShape < ApplicationRecord
   has_and_belongs_to_many :categories, -> { order("sort_priority") }, join_table: "category_listing_shapes"
   has_many :listing_units
 
-  scope :exsist, -> { where(deleted: false) }
-  scope :for_listing_form, -> { exsist.includes(:listing_units).order("listing_shapes.sort_priority") }
-  scope :not_deleted, -> { where(deleted: false).order('sort_priority') }
+  scope :exist, -> { where(deleted: false) }
+  scope :exist_ordered, -> { exist.includes(:listing_units).order("listing_shapes.sort_priority") }
   scope :by_name, ->(name){ where(name: name) }
 
   validates :name_tr_key, :action_button_tr_key, :transaction_process_id, presence: true
