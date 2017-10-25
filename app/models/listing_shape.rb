@@ -65,8 +65,8 @@ class ListingShape < ApplicationRecord
   def update_with_opts(opts)
     ListingShape.transaction do
       new_units = opts.delete(:units)
+      self.listing_units.destroy_all
       if new_units.present?
-        self.listing_units.destroy_all
         new_units.each{ |unit| self.listing_units.build(ListingUnit.permitted_attributes(unit)) }
       end
       self.update_attributes!(ListingShape.permitted_attributes(opts))
