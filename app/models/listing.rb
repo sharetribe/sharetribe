@@ -338,4 +338,13 @@ class Listing < ApplicationRecord
     end
   end
 
+  def logger
+    @logger ||= SharetribeLogger.new(:listing, logger_metadata.keys).tap { |logger|
+      logger.add_metadata(logger_metadata)
+    }
+  end
+
+  def logger_metadata
+    { listing_id: id }
+  end
 end
