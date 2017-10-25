@@ -57,8 +57,8 @@ class ListingShapeTemplates
         online_payments: true,
         template: :renting_products,
         author_is_seller: true,
-        availability: :booking,
-        units: [{type: :night, quantity_selector: :night}]
+        availability: 'booking',
+        units: [{unit_type: 'night', quantity_selector: :night}]
       },
       {
         label: "admin.listing_shapes.templates.offering_services",
@@ -69,7 +69,7 @@ class ListingShapeTemplates
         online_payments: true,
         template: :offering_services,
         author_is_seller: true,
-        units: [{type: :hour, quantity_selector: :number}]
+        units: [{unit_type: 'hour', quantity_selector: :number}]
       },
       {
         label: "admin.listing_shapes.templates.giving_things_away",

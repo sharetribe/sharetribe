@@ -121,6 +121,7 @@ class Community < ApplicationRecord
 
   has_many :listings
   has_many :listing_shapes
+  has_many :shapes, ->{ exist_ordered }, class_name: 'ListingShape'
 
   has_many :transaction_processes
 
@@ -606,10 +607,6 @@ class Community < ApplicationRecord
     attrs = super(options)
     uuid = UUIDUtils.parse_raw(attrs["uuid"])
     attrs.merge({"uuid" => uuid.to_s})
-  end
-
-  def shapes
-    listing_shapes.not_deleted.includes(:listing_units)
   end
 
   private

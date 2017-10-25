@@ -88,6 +88,10 @@ module NavigationHelpers
       admin_getting_started_guide_path
     when /^the admin view of payment preferences of community "(.*)"$/i
       admin_payment_preferences_path(locale: "en")
+    when /the order types admin page/
+      admin_listing_shapes_path
+    when /the edit "(.*)" order type admin page/
+      edit_admin_listing_shape_path(id: $1)
     else
       begin
         page_name =~ /the (.*) page/
