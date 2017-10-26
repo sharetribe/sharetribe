@@ -113,7 +113,7 @@ class StripeService::API::StripeApiWrapper
             }
           }
         end
-        Stripe::Account.create({
+        data = {
           type: 'custom',
           country: account_info[:address_country],
           email: account_info[:email],
@@ -133,13 +133,16 @@ class StripeService::API::StripeApiWrapper
               month: account_info[:birth_date].month,
               year: account_info[:birth_date].year,
             },
+            personal_id_number: ['US', 'CA', 'HK', 'SG'].include?(account_info[:address_country]) ? account_info[:personal_id_number] : nil
           },
 
           tos_acceptance: {
             date: account_info[:tos_date].to_i,
             ip: account_info[:tos_ip],
           }
-        }.merge(payout_mode).merge(metadata: metadata))
+        }
+        data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
+        Stripe::Account.create(data)
       end
     end
 

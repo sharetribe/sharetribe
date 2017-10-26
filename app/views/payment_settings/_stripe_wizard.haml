@@ -1,22 +1,12 @@
 - if stripe_account[:stripe_seller_id].present? 
   - if stripe_account[:stripe_bank_id].present?
-    - if !paypal_enabled
-      .row
-        .col-12
-          %h3.paypal-account-connected
-            =icon_tag("check", ["icon-fix"])
-            =t("stripe_accounts.stripe_bank_connected")
-          %p
-            =t("stripe_accounts.stripe_can_accept")
-
-    - else 
-      .row
-        .col-12
-          %h3.paypal-account-connected
-            =icon_tag("check", ["icon-fix"])
-            =t("stripe_accounts.stripe_bank_connected")
-          %p
-            =t("stripe_accounts.stripe_can_accept")
+    .row
+      .col-12
+        %h3.paypal-account-connected
+          =icon_tag("check", ["icon-fix"])
+          =t("stripe_accounts.stripe_bank_connected")
+        %p
+          =t("stripe_accounts.stripe_can_accept")
 
     .row
       = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
@@ -95,6 +85,8 @@
 
             .country-dependent{"data-country-except" => "XXX"}
               = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account, stripe_mode: stripe_mode}
+
+            = render 'personal_id_number', stripe_account_form: stripe_account_form
 
             = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
 

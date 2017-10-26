@@ -1,0 +1,19 @@
+= fields_for stripe_account_form do |form|
+  .row.country-dependent{"data-country-only" => "CA"}
+    .col-12
+      = label_tag :personal_id_number, t("stripe_accounts.form_pin.social_insurance_number")+"*"
+      = form.text_field :personal_id_number, placeholder: '123456789', 'ca-social-insurance-number': true,
+        data: {'msg-ca-social-insurance-number': t('stripe_accounts.form_pin.messages.social_insurance_number')}
+  .row.country-dependent{"data-country-only" => "US"}
+    .col-12
+      = label_tag :personal_id_number, t("stripe_accounts.form_pin.social_security_number")+"*"
+      = form.text_field :personal_id_number, placeholder: '123456789', required: true
+  .row.country-dependent{"data-country-only" => "HK"}
+    .col-12
+      = label_tag :personal_id_number, t("stripe_accounts.form_pin.hong_kong_identity_card")+"*"
+      = form.text_field :personal_id_number, placeholder: 'XY123456', required: true
+  .row.country-dependent{"data-country-only" => "SG"}
+    .col-12
+      = label_tag :personal_id_number, t("stripe_accounts.form_pin.singapore_identity_card")+"*"
+      = form.text_field :personal_id_number, placeholder: 'X1234567Y', required: true
+

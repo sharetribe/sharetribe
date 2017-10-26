@@ -160,6 +160,15 @@ window.ST.stripe_form_i18n = {
   module.initStripeBankForm = function(stripe_test_api_mode) {
     window.ST.stripe_test_api_mode = stripe_test_api_mode;
     $("#stripe_account_form_address_country").change(function(){
+      var showElement = function (el, show) {
+        if (show) {
+          $(el).find('input').prop('disabled', false);
+          $(el).show();
+        } else {
+          $(el).find('input').prop('disabled', true);
+          $(el).hide();
+        }
+      };
       var country = $(this).val();
       if(country) {
         if($("#stripe-terms-link").size() > 0 ) {
@@ -170,18 +179,10 @@ window.ST.stripe_form_i18n = {
           var only = $(this).data("country-only");
           var except = $(this).data("country-except");
           if(only) {
-            if (only.indexOf(country) >= 0) {
-              $(this).show(); 
-            } else {
-              $(this).hide();
-            }
+            showElement(this, only.indexOf(country) >= 0)
           }
           if(except) {
-            if (except.indexOf(country) < 0) {
-              $(this).show(); 
-            } else {
-              $(this).hide();
-            }
+            showElement(this, except.indexOf(country) < 0)
           }
         });
         $("label.error").hide();
@@ -234,6 +235,14 @@ window.ST.stripe_form_i18n = {
       }
       var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
       return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
+    }
+  );
+  // Canada
+  $.validator.addMethod(
+    "ca-social-insurance-number",
+    function(value, element, field) {
+      var sin = new SocialInsuranceNumber(value);
+      return sin.isValid();
     }
   );
 })(window.ST);
