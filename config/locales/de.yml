@@ -577,10 +577,19 @@ de:
       stripe_fee: Stripe-Gebühren
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
       fee_should_be_less_than_minimum_price: "Der Mindestgebühr muss weniger als der Mindestbetrag einer Transaktion sein"
+      confirm_disable: "Bist du sicher, dass du %{gateway} deaktivieren willst? Wenn du es deaktivierst, können Verkäufer und Käufer es nicht mehr verwenden, um Geld zu empfangen oder zu bezahlen. Wenn ein Verkäufer keine alternative Bezahlungsmethode eingerichtet hat, können Käufer nicht mehr von ihnen kaufen."
       stripe_connected:
         title: "Stripe verbunden"
+        disable: "Stripe deaktivieren"
+        disabled: "Stripe deaktiviert"
+        enable: "Stripe erneut aktivieren"
       paypal_connected:
         title: "PayPal verbunden"
+        disable: "PayPal deaktivieren"
+        disabled: "PayPal deaktiviert"
+        enable: "PayPal erneut aktivieren"
+      cannot_enable_gateway: "Das Aktivieren von %{gateway} ist fehlgeschlagen."
+      cannot_disable_gateway: "Das Deaktivieren von %{gateway} ist fehlgeschlagen."
       stripe_form:
         add_your_api_keys: "Deine Stripe API Keys hinzufügen"
         how_to_get_these: "Wie bekomme ich sie?"
@@ -1898,6 +1907,7 @@ de:
       email_is_in_use: "Die angegebene E-Mail-Adresse wird bereits genutzt."
       email_is_in_use_or_not_allowed: "Diese E-Mail-Adresse ist nicht erlaubt oder bereits in Verwendung. Wenn Du Dich nicht anmelden kannst, kontaktiere uns bitte."
       email_not_allowed: "Diese E-Mail-Adresse ist für %{service_name} nicht gültig. Bitte verwende eine erlaubte Adresse. Wenn du dann immer noch keinen Zugang haben solltest, schicke uns eine Nachricht."
+      invalid_username_or_email: "Der Benutzername oder die E-Mail-Adresse ist ungültig oder wird bereits verwendet"
       email_restriction_instructions:
         one: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine '%{allowed_emails}' E-Mail-Adresse. "
         other: "Der Zugang zu %{service_name} ist beschränkt. Um beitreten zu können, brauchst du eine E-Mail-Adresse, die belegt, dass deine Teilnahme erlaubt ist."
@@ -2318,11 +2328,11 @@ de:
     card_not_stored: "Deine Zahlung wird geschützt durch Stripe verarbeitet. %{service_name} speichert keinerlei Informationen über deine Kreditkarte."
     missing_payment: "Du hast offene Angebote, aber du hast die Zahlungseinstellungen für dein Konto nicht eingerichtet. Um die Einstellungen einzurichten, gehe zu %{settings_link}"
     stripe_bank_connected: "Kontodetails erfolgreich eingerichtet!"
-    stripe_can_accept: "Du bist jetzt bereit, Zahlungen mit Kreditkarten entgegenzunehmen"
+    stripe_can_accept: "Du bist bereit, Zahlungen mit Kreditkarten entgegenzunehmen"
     stripe_credit_card: Kreditkarte
     paypal: PayPal
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
-    paypal_can_accept: "Du bist nun bereit, Geld auf dein PayPal-Konto zu bekommen!"
+    paypal_can_accept: "Du bist bereit, PayPal-Zahlungen entgegenzunehmen"
     paypal_connected_give_permission: "Als letztes, bitte erteile eine Genehmigung für das Abheben der Transaktionsgebühr, um Geld auf das PayPal Konto <%{email}> bekommen zu können."
     form_new:
       need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
@@ -2375,7 +2385,7 @@ de:
     paypal: PayPal
     bank_account_details: "Um Kreditkartenzahlungen von Kunden empfangen zu können, musst du deine Kontodetails hier hinterlegen."
     add_bank_details: "Bankdetails hinzufügen"
-    can_accept_stripe_and_paypal: "Du kannst Kreditkartenzahlungen, PayPal Zahlungen, oder beides akzeptieren."
+    can_accept_stripe_and_paypal: "Du kannst deinen Kunden Kreditkartenzahlungen, PayPal-Zahlungen oder beides anbieten."
     to_accept_paypal: "Um PayPal Zahlungen von Kunden empfangen zu können, musst du dein PayPal Konto hier verknüpfen."
     connect_paypal: "PayPal-Konto verknüpfen"
     wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes. Bitte kontaktiere die Marktplatz-Administratoren."

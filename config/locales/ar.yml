@@ -560,10 +560,19 @@ ar:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: "تعطيل سترب"
+        disabled: "سترب غير مفعل"
+        enable: "إعادة تفعيل سترب"
       paypal_connected:
         title: ~
+        disable: "تعطيل باي بال"
+        disabled: "باي بال غير مفعل"
+        enable: "إعادة تفعيل باي بال"
+      cannot_enable_gateway: "‎%{gateway}‎ لا يمكنك تفعيل طريقة الدفع ."
+      cannot_disable_gateway: "‎%{gateway}‎ لا يمكنك تعطيل طريقة الدفع ."
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1885,6 +1894,7 @@ ar:
       email_not_allowed: |-
           .رجاء استخدم بريد إلكتروني مسموح به في هذه الخدمة. إذا لم تستطع الدخول، رجاء قم بالإتصال بنا
           ‎%{service_name}‎ هذا البريد الإلكتروني غير مسموح به في
+      invalid_username_or_email: "اسم المستخدم أو البريد الإلكتروني غير صحيح أو مستخدم مسبقا"
       family_name: "إسم العائلة"
       given_name: "الإسم الأول"
       i_accept_the: "أوافق على"

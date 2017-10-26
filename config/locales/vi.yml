@@ -568,10 +568,19 @@ vi:
       stripe_fee: "Phí của Stripe"
       stripe_fee_notice: "%{stripe_fee_link} sẽ được trích ra từ phí giao dịch bạn thu được."
       fee_should_be_less_than_minimum_price: "Phí giao dịch tối thiểu phải nhỏ hơn giá trị giao dịch tối thiểu"
+      confirm_disable: ~
       stripe_connected:
         title: "Đã kết nối Stripe"
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: "Đã kết nối PayPal"
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1884,6 +1893,7 @@ vi:
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
+      invalid_username_or_email: "Tên người dùng hoặc e-mail không hợp lệ hoặc đã được sử dụng"
       family_name: "Họ:"
       given_name: "Tên:"
       i_accept_the: "Tôi chấp nhận"

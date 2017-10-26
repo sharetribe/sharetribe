@@ -564,10 +564,19 @@ zh-HK:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1878,6 +1887,7 @@ zh-HK:
       email_is_in_use: 你所提供的電郵已被使用。
       email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
       email_not_allowed: "這電郵地址不被允許於%{service_name}中使用。請使用一個允許的電郵地址。若你預到什麼問題，請聯繫我們。"
+      invalid_username_or_email: ~
       email_restriction_instructions:
         other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
       family_name: 姓

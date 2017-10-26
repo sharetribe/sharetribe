@@ -577,10 +577,19 @@ sv:
       stripe_fee: "Stripes avgifter"
       stripe_fee_notice: "%{stripe_fee_link} kommer dras av från transaktionsavgiften du tar."
       fee_should_be_less_than_minimum_price: "Lägsta annonspriset måste vara lägre än lägsta transaktionsavgiften"
+      confirm_disable: ~
       stripe_connected:
         title: "Stripe är kopplat"
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: "PayPal är kopplat"
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: "Lägg till dina Stripe API nycklar"
         how_to_get_these: "Hur får jag dessa?"
@@ -1898,6 +1907,7 @@ sv:
       email_is_in_use: "E-postadressen du angav används redan."
       email_is_in_use_or_not_allowed: "Denna e-postadress är inte tillåten eller används redan. Om du inte kommer in, kontakta oss."
       email_not_allowed: "Denna e-postadress är inte godkänd på %{service_name}. Vänligen använd en annan e-postadress som är godkänd. Om du ändå inte kommer in, vänligen meddela oss."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: "Access till %{service_name} är begränsad. För att gå med så behöver du en '%{allowed_emails}' e-postadress."
         other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."

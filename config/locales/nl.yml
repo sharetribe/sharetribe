@@ -580,10 +580,19 @@ nl:
       stripe_fee: Stripe-kosten
       stripe_fee_notice: "%{stripe_fee_link} wordt afgetrokken van de commissie die jij in rekening brengt."
       fee_should_be_less_than_minimum_price: "Minimale transactiekosten dienen lager te zijn dan de minimale transactieomvang."
+      confirm_disable: "Weet je zeker dat je %{gateway} wilt uitschakelen? Als je dit uitschakelt, zijn leveranciers niet meer in staat geld te ontvangen en kopers niet meer in staat te betalen met deze methode. Als leveranciers nog geen andere methoden hebben geconfigureerd, kan er van hen niet gekocht worden."
       stripe_connected:
         title: "Stripe gekoppeld"
+        disable: "Schakel Stripe uit"
+        disabled: "Stripe uitgeschakeld"
+        enable: "Schakel Stripe weer in"
       paypal_connected:
         title: "PayPal gekoppeld"
+        disable: "Schakel PayPal uit"
+        disabled: "PayPal uitgeschakeld"
+        enable: "Schakel PayPal weer in"
+      cannot_enable_gateway: "Kan betaalmethode %{gateway} niet inschakelen."
+      cannot_disable_gateway: "Kan betaalmethode %{gateway} niet uitschakelen."
       stripe_form:
         add_your_api_keys: "Voeg je Stripe API keys toe"
         how_to_get_these: "Hoe krijg ik deze?"
@@ -677,7 +686,9 @@ nl:
     paypal_fee_info:
       title: "PayPal proces kosten"
       body_text: "Paypal berekent transactiekosten voor iedere betaling. Deze kosten zijn tussen 2-5% van het totale verkoopbedrag, afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten."
-      body_text_accept: ~
+      body_text_accept: |-
+          Deze transactie wordt verwerkt door PayPal. PayPal brengt voor iedere betaling transactiekosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten. 
+          Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
       link_to_paypal_text: hier
     paypal_only_fee_info:
       title: "PayPal's betalingsverwerkingskosten"
@@ -1897,6 +1908,7 @@ nl:
       email_is_in_use: "Het e-mail adres is al in gebruik."
       email_is_in_use_or_not_allowed: "Dit e-mail adres is niet toegestaan of al in gebruik. Neem contact met ons op als u niet kunt inloggen."
       email_not_allowed: "Deze e-mail is niet toegestaan in %{service_name}. Gebruik aub een toegestaan adres. Mocht het alsnog niet lukken, neem dan contact met ons op."
+      invalid_username_or_email: "Gebruikersnaam of email is ongeldig of al in gebruik"
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."

@@ -572,10 +572,19 @@ hu:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1895,6 +1904,7 @@ hu:
       email_is_in_use: "Az e-mail cím amit megadott már foglalt"
       email_is_in_use_or_not_allowed: "Ez az e-mailcím nem megengedett vagy már használatban van. Ha nem tud belépni, lépjen velünk kapcsolatba."
       email_not_allowed: "Ez az e-mail nem engedélyezett a %{service_name} oldalán. Kérjük használjon egy olyan e-mailcímet ami megengedett. Ha még mindig nem tud belépni, lépjen velünk kapcsolatba."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         other: "A hozzáférés korlátozott a %{service_name}-hez. Az e-mail címe megadásával igazolhatja a csatlakozáshoz való jogosultságát."
       family_name: Családnév

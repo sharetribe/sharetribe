@@ -573,10 +573,19 @@ nb:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1892,6 +1901,7 @@ nb:
       email_is_in_use: "E-posten du oppga er allerede i bruk."
       email_is_in_use_or_not_allowed: "Denne e-posten er ikke godkjent eller er allerede i bruk. Kontakt oss dersom du ikke får logget inn."
       email_not_allowed: "Denne e-posten er ikke godkjent på %{service_name}. Vennligst bruk en e-postadresse som er godkjent. Om du fremdeles opplever problemer, gi oss tilbakemelding."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: " %{service_name} har restriksjoner. For å bli medlem trenger du en  '%{allowed_emails}' e-postaddresse."
         other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."

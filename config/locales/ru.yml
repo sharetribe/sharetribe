@@ -591,10 +591,19 @@ ru:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1908,6 +1917,7 @@ ru:
       email_is_in_use: "Этот адрес электронной почты уже используется."
       email_is_in_use_or_not_allowed: "Этот адрес электронной почты недопустим, либо уже используется. Пожалуйста, используйте адрес электронной почты, ассоциированный с этим сообществом, если таковой у вас есть. Если вы всё равно не можете осуществить вход, свяжитесь с нами, используя форму обратной связи слева."
       email_not_allowed: "Данный email недопустим для регистрации в %{service_name}. Используйте почтовый адрес, ассоциированный с данным сообществом. Если у вас всё равно не получается авторизоваться, свяжитесь с нами."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: "Доступ к %{service_name} ограничен. Для того, чтобы присоединиться к нему, адрес вашей электронной почты должен быть вида «%{allowed_emails}»."
         few: "Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий что вы имеете право на участие."

@@ -546,10 +546,19 @@ it:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1863,6 +1872,7 @@ it:
       email_is_in_use: "L'email che hai fornito è già utilizzata."
       email_is_in_use_or_not_allowed: "Questa email non è valida o è già in uso. Se ancora non ti è possibile accedere, inviaci un'email."
       email_not_allowed: ~
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: "L'accesso a %{service_name} è ristretto. per unirti hai bisogno di un %{allowed_emails}"
         other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
