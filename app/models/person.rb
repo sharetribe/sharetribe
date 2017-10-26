@@ -629,4 +629,13 @@ class Person < ApplicationRecord
     ::Digest::SHA256.hexdigest(str)
   end
 
+  def logger
+    @logger ||= SharetribeLogger.new(:person, logger_metadata.keys).tap { |logger|
+      logger.add_metadata(logger_metadata)
+    }
+  end
+
+  def logger_metadata
+    { person_uuid: uuid }
+  end
 end
