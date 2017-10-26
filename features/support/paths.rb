@@ -62,6 +62,8 @@ module NavigationHelpers
       "#{person_path(@logged_in_user, :locale => "en")}/settings"
     when /the account settings page/
       "#{person_path(@logged_in_user, :locale => "en")}/settings/account"
+    when /the notifications settings page/
+      notifications_person_settings_path(person_id: @logged_in_user.username)
     when /the about page$/
       about_infos_path(:locale => "en")
     when /the feedback page$/
