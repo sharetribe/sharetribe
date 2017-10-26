@@ -2388,10 +2388,17 @@ en:
         digits: digits
         digits_or_chars: "digits or A-Z chars"
     form_verification:
-      personal_id_number: "Personal ID number"
+      personal_id_number: "Personal ID Number"
       document: "Verification document"
       send_verification: "Send Verification"
       need_verification: "Need additional verification"
+    form_pin:
+      social_insurance_number: "Social Insurance Number (SIN)"
+      social_security_number: "Social Security Number (SSN)"
+      hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
+      singapore_identity_card: "National Registration Identity Card (NRIC) or Foreign Identification Number (FIN)"
+      messages:
+        social_insurance_number: "must be valid Social Insurance Number (SIN)"
   payment_settings:
     title: "Payout preferences"
     bank_account: "Bank account"
