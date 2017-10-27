@@ -16,19 +16,19 @@
 
   #selected-groups
 
-    - if @listing_presenter.categories.size > 1
+    - if @listing_presenter.categories.size >= 1
       .selected-group{:name => "category"}
         - @listing_presenter.categories.each do |value|
           %a.select.selected.hidden{:data => {:id => value.id}}
             .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
 
-    - if @listing_presenter.subcategories.size > 1
+    - if @listing_presenter.subcategories.size >= 1
       .selected-group{:name => "subcategory"}
         - @listing_presenter.subcategories.each do |value|
           %a.select.selected.hidden{:data => {:id => value.id}}
             .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
 
-    - if @listing_presenter.shapes.size > 1
+    - if @listing_presenter.shapes.size >= 1
       .selected-group{:name => "listing_shape"}
         - @listing_presenter.shapes.each do |value|
           %a.select.selected.hidden{:data => {:id => value[:id]}}
@@ -38,19 +38,19 @@
 
   #option-groups
 
-    - if @listing_presenter.categories.size > 1
+    - if @listing_presenter.categories.size >= 1
       .option-group{:name => "category"}
         - @listing_presenter.categories.each do |value|
           %a.select.option.hidden{:data => {:id => value.id}}
             .link-text= value.display_name(I18n.locale)
 
-    - if @listing_presenter.subcategories.size > 1
+    - if @listing_presenter.subcategories.size >= 1
       .option-group{:name => "subcategory"}
         - @listing_presenter.subcategories.each do |value|
           %a.select.option.hidden{:data => {:id => value.id}}
             .link-text= value.display_name(I18n.locale)
 
-    - if @listing_presenter.shapes.size > 1
+    - if @listing_presenter.shapes.size >= 1
       .option-group{:name => "listing_shape"}
         - @listing_presenter.shapes.each do |value|
           %a.select.option.hidden{:data => {:id => value[:id]}}
