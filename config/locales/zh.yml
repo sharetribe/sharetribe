@@ -2217,29 +2217,29 @@ zh:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "发生未知错误。请点击”联系我们“向我们报告问题。"
+          saving_failed: "保存失败。请刷新页面后重试。"
       pricing_units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      edit_availability_header: ~
-      save_and_close_availability_editing: ~
+        piece: "件数"
+        hour: 小时
+        day: 天
+        night: 晚
+        week: 周
+        month: 月
+      edit_availability_header: "有可用的"
+      save_and_close_availability_editing: "保存并关闭"
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
     no_listings:
-      sorry: ~
-      try_other_search_terms: ~
+      sorry: "对不起"
+      try_other_search_terms: "请尝试其他关键词。"
     listing_card:
-      add_picture: ~
-      no_picture: ~
+      add_picture: "添加照片"
+      no_picture: "无照片"
     search:
-      page: ~
-      page_of_pages: ~
+      page: "页数"
+      page_of_pages: "/%{total_number_of_pages}"
     topbar:
       menu: 菜单
       more: 更多
