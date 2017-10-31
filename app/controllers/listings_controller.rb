@@ -310,7 +310,7 @@ class ListingsController < ApplicationController
   end
 
   def form_locals(shape)
-    @listing_presenter.set_listing_shape(shape)
+    @listing_presenter.listing_shape = shape
     {shape: shape}
   end
 

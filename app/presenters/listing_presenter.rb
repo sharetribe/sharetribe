@@ -10,7 +10,7 @@ class ListingPresenter < MemoisticPresenter
     set_current_image
   end
 
-  def set_listing_shape(listing_shape)
+  def listing_shape=(listing_shape)
     @shape = listing_shape
   end
 
