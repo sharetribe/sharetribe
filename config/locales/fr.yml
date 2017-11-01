@@ -577,10 +577,19 @@ fr:
       stripe_fee: "frais Stripe"
       stripe_fee_notice: "Des %{stripe_fee_link} seront déduits des frais de services que vous facturez."
       fee_should_be_less_than_minimum_price: "Le montant des frais de service minimaux doit être inférieur aux montant minimal de transaction"
+      confirm_disable: "Voulez-vous vraiment désactiver %{gateway} ? Si vous le désactiver, les vendeurs ne pourront plus recevoir de nouveaux paiements et les acheteurs ne pourront plus payer avec ce système de paiement. Si les vendeurs n'ont pas configuré d'autres méthodes de paiements, les vendeurs ne pourront pas les payer."
       stripe_connected:
         title: "Stripe connecté"
+        disable: "Désactiver Stripe"
+        disabled: "Stripe désactivé"
+        enable: "Réactiver Stripe"
       paypal_connected:
         title: "PayPal connecté"
+        disable: "Désactiver PayPal"
+        disabled: "PayPal désactivé"
+        enable: "Réactiver PayPal"
+      cannot_enable_gateway: "Impossible d'activer %{gateway}."
+      cannot_disable_gateway: "Impossible de désactiver %{gateway}."
       stripe_form:
         add_your_api_keys: "Ajouter vos Stripe API keys"
         how_to_get_these: "Comment les obtenir ?"
@@ -892,7 +901,7 @@ fr:
     payment_settings_reminder:
       remember_to_add_payment_details: "N'oubliez pas d'ajouter vos informations de paiements pour recevoir les paiements"
       you_have_added_listing_with_payment: "Vous avez ajouté une annonce %{listing_link} avec un paiement. Cependant, vous n'avez pas ajouté vos informations de paiement. Pour en recevoir, vous devez ajouter vos informations de paiement."
-      please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y complétez les informations nécessaires."
+      please_go_to_payment_settings: "Veuillez vous rendre dans vos %{payment_settings_link} et y compléter les informations nécessaires."
       payment_settings_link: "paramètres de paiement"
     transaction_confirmed:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
@@ -1043,8 +1052,8 @@ fr:
       transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
-      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la command \"%{listing_title}\" pour %{requester}."
-      if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, %{requester} ne sera facturé et vous ne serez pas payé."
+      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la commande \"%{listing_title}\" pour %{requester}."
+      if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, l'acheteur %{requester} ne sera pas facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
       subject: "N'oubliez pas d'accepter la demande de %{requester} à propos de l'annonce %{listing_title}"
@@ -1898,6 +1907,7 @@ fr:
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas autorisée ou est déjà utilisée. Si vous n'arrivez pas à vous connecter, contactez-nous."
       email_not_allowed: "Cette email n'est pas autorisé sur %{service_name}. Veuillez utiliser une adresse autorisée. Si vous n'arrivez toujours pas à vous connecter, contactez-nous."
+      invalid_username_or_email: "Ce nom d'utilisateur ou cette adresse email sont invalides ou déjà utilisé"
       email_restriction_instructions:
         one: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email du type %{allowed_emails}."
         other: "L'accès à %{service_name} est limité. Pour en être membre, vous devez avoir une adresse email autorisée."

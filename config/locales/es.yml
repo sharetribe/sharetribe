@@ -546,10 +546,19 @@ es:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1864,6 +1873,7 @@ es:
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
       email_not_allowed: "Este e-mail no esta habilitado para esta comunidad. Por favor usa una dirección que esté asociada con esta comunidad. Si todavía no puedes ingresar, envíanos un comentario haciendo clic en el botón de la izquierda."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
         other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."

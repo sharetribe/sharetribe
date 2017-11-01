@@ -560,10 +560,19 @@ th-TH:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1873,6 +1882,7 @@ th-TH:
       email_is_in_use: อีเมล์ที่คุณให้ได้ถูกใช้ไปแล้ว
       email_is_in_use_or_not_allowed: "อีเมล์นี้ไม่ได้รับอนุญาต หรือถูกใช้ไปแล้ว หากคุณไม่สามารถเข้าระบบได้ กรุณาติดต่อเรา"
       email_not_allowed: "อีเมล์นี้ไม่ได้รับอนุญาตใน %{service_name} โปรดใช้ที่อยู่อีเมลที่ได้รับอนุญาต หากคุณยังเข้าระบบไม่ได้ กรุณาติดต่อเรา"
+      invalid_username_or_email: ~
       email_restriction_instructions:
         other: "การเข้าถึงไปยัง %{service_name} ถูกจำกัด  คุณจำเป็นต้องมีที่อยู่อีเมล '%{allowed_emails}' เพื่อที่จะเข้าร่วม"
       family_name: นามสกุล

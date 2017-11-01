@@ -558,10 +558,19 @@ tr-TR:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1872,6 +1881,7 @@ tr-TR:
       email_is_in_use: "Girdiğiniz e-posta adresi kullanımda."
       email_is_in_use_or_not_allowed: "E-posta adresi tanınmıyor veya kullanımda. Giriş yapamıyorsanız, bize ulaşın."
       email_not_allowed: "%{service_name}: Bu email adresine izin verilmemektedir. Lütfen izin verilen bir email adresi kullanın. Yine de giriş yapamıyorsanız, bize ulaşın."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       family_name: Soyad

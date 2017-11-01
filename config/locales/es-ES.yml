@@ -83,7 +83,7 @@ es-ES:
         verification_to_post_listings_info_content: "Texto de información para usuarios no verificados"
         verification_to_post_listings_info_content_description: "Actualmente requieres que tus usuarios sean validados por ti antes de que puedan publicar sus anuncios. Aquí puedes poner el texto que se muestra a los usuarios que no han sido verificados cuando tratan de publicar un anuncio."
         verification_to_post_listings_info_content_default: "Antes de poder publicar un anuncio en %{service_name} necesitamos verificar tu cuenta. Tu cuenta no ha sido verificada. Por favor, %{contact_admin_link} para verificar tu cuenta."
-        contact_admin_link_text: "contacta al administrador"
+        contact_admin_link_text: "contacta al equipo de %{service_name}"
         save: "Guardar configuración"
         transaction_agreement: "Acuerdo de transacción"
         transaction_agreement_checkbox: "Pedir a los usuarios que acepten el acuerdo antes de realizar una transacción."
@@ -561,7 +561,11 @@ es-ES:
       read_more_about_paypal_and_stripe: "Lee más acerca de pagos en linea con Stripe y PayPal"
       general_settings_updated: "Configuración general del sistema de pagos modificada"
       transaction_fee_settings_updated: "Configuración de la cuota de servicio modificada"
-      choose_popup_text: ~
+      choose_popup_text: |-
+          Si quieres permitir que tus usuarios acepten pagos en línea, primero debes elegir una moneda para tu comunidad y luego conectar por lo menos uno de los dos sistemas de pago disponibles en Sharetribe: Stripe y PayPal. Puedes usar ambos, lo que significaría que tus usuarios pueden aceptar pagos con cualquiera de los dos métodos de pago.
+          Si no tienes una cuenta con ninguno de los dos servicios, puedes crear una totalmente nueva. Una vez que hayas conectado una cuenta, puedes elegir la cuota/comisión que vas a cobrar por cada transacción.
+          ¿Cuál es la diferencia entre Stripe y PayPal? Stripe te permite retrasar pagos al vendedor hasta por 3 meses y ofrece un método de pago (tarjeta de crédito o débito). Stripe también permite a los vendedores recibir dinero directamente en su cuenta bancaria. Simplemente tienen que proveer su información de cuenta bancaria. PayPal ofrece dos métodos de pago (tarjeta de crédito/débito y cuenta de PayPal) y ofrece un programa de protección para compradores y vendedores. Tus vendedores necesitan crear una cuenta Business de PayPal para poder recibir pagos.
+          Si usas Stripe, las cuotas que Stripe cobra serán deducidas de tus cuotas de transacción, así que recuerda poner una cuota/comisión mínima de transacción lo suficientemente alta. Si usas PayPal, las cuotas que PayPal cobra serán cargadas al proveedor de manera separada de tu cuota o comisión de transacción. Stripe y PayPal tienen cuotas distintas. In la mayoría de los casos las cuotas de Stripe son un poco más bajas.
       invalid_api_keys: "API keys de Stripe invalidas"
       missing_api_keys: "Faltan las API keys de Stripe"
       stripe_verified: "Acceso a API de Stripe verificado"
@@ -573,10 +577,19 @@ es-ES:
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
+      confirm_disable: ~
       stripe_connected:
         title: "Stripe conectado"
+        disable: "Deshabilitar Stripe"
+        disabled: "Stripe Deshabilitado"
+        enable: "Habilitar Stripe nuevamente"
       paypal_connected:
         title: "PayPal conectado"
+        disable: "Deshabilitar PayPal"
+        disabled: "PayPal deshabilitado"
+        enable: "Habilitar PayPal nuevamente"
+      cannot_enable_gateway: "No es posible habilitar %{gateway}"
+      cannot_disable_gateway: "No es posible habilitar %{gateway}"
       stripe_form:
         add_your_api_keys: "Añado tus API keys de Stripe"
         how_to_get_these: "¿Cómo obtenerlas?"
@@ -676,7 +689,9 @@ es-ES:
       link_to_paypal_text: aquí
     paypal_only_fee_info:
       title: "Cuota de procesamiento de pago de PayPal"
-      body_text: ~
+      body_text: |-
+          Los pagos en %{service_name} son procesados por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
+          Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       link_to_paypal_text: aquí
     stripe_fee_info:
       title: "Cuota de procesamiento de pago de Stripe"
@@ -1035,7 +1050,7 @@ es-ES:
       transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
       you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}. Si aceptas dentro de este periodo, el pago será procesado. Si no aceptas, la solicitud se rechazará automáticamente y no recibirás el pago."
       if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "Si aceptas la solicitud dentro de este periodo, el pago será completado. Recibirás el dinero directamente en tu cuenta de banco después de que hayas completado %{listing_title} para %{requester}."
       if_you_do_not_accept: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago."
       click_here_to_reply: "Haz clic aquí para responder a la solicitud"
     transaction_preauthorized_reminder:
@@ -1360,7 +1375,7 @@ es-ES:
       sign_up: Registrarse
     notifications:
       listing_could_not_be_saved: "El anuncio no se ha podido publicar. Por favor, inténtalo de nuevo y si vuelve a fallar, contacta con el administrador %{contact_admin_link}."
-      contact_admin_link_text: "Contactar al administrador"
+      contact_admin_link_text: "contacta al equipo de %{service_name}"
       test_welcome_email_delivered_to: "El mensaje de prueba ha sido enviado a %{email}"
       something_went_wrong: "Algo salió mal"
       community_updated: "Información de la comunidad ha sido actualizada."
@@ -1582,10 +1597,10 @@ es-ES:
         long_time: "semana, mes, ..."
         after_service_fee_you_will_get: "Después de la comisión de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} se reducirá del precio."
+        after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la comisión de %{service_name} (%{sum_with_currency}) y una %{payment_fee_info_link} se deducirán del precio."
         after_service_fee_you_will_get_paypal_text: "La comisión de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio."
-        after_service_fee_you_will_get_stripe_text: ~
+        after_service_fee_you_will_get_stripe_text: "Cuando alguien haga una orden, la comisión de %{service_name} (%{sum_with_currency}) se deducirá del precio."
         payment_fee_info_link_text: "cuota de procesamiento de pago"
         paypal_fee_info_link_text: "comisión de procesamiento de pago de PayPal"
         delivery: "Método de envío"
@@ -1682,7 +1697,7 @@ es-ES:
       select_subcategory: "Selecciona una subcategoría"
       select_transaction_type: "Seleccionar tipo de anuncio"
       you_need_to_fill_payout_details_before_accepting: "Debes completar tus datos de pago antes de publicar un anuncio. Ve a la %{payment_settings_link} para proporcionar los detalles necesarios."
-      contact_admin_link_text: "contactar con el administrador"
+      contact_admin_link_text: "contacta al equipo de %{service_name}"
       community_not_configured_for_payments: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Por favor %{contact_admin_link} para más detalles."
       payment_settings_link: "configuración de pagos"
       community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a la %{payment_settings_link} para proporcionar los detalles necesarios."
@@ -1812,14 +1827,14 @@ es-ES:
     paypal_receive_funds_info: "Si ves un error al intentar conectar tu cuenta a %{service_name}, actualiza tu cuenta PayPal %{upgrade_paypal_account_link}. Es fácil y gratis. Si eres un persona física, PayPal recomienda que utilices tu nombre como el nombre de la empresa."
     upgrade_paypal_account_link_text: "iniciando sesión y haciendo clic en el enlace de actualización"
     admin_account_not_connected: "No es posible usar el sistema de pagos de %{service_name} para recibir pagos, ya que los pagos no se han configurado. Por favor %{contact_admin_link} para más información."
-    contact_admin_link_text: "contacta al administrador de la comunidad"
+    contact_admin_link_text: "contacta al equipo de %{service_name}"
     you_are_ready_to_accept_payments: "¡Estás listo para aceptar pagos!"
     commission: "%{commission} %"
     not_now: "No quiero conecta una cuenta de PayPal por ahora"
     new:
       payout_info_you_need_to_connect: "Para aceptar pagos necesitar conectar tu cuenta de PayPal con %{service_name}."
       payout_info_text: "Por favor, completa estos pasos para conectar tu cuenta."
-      contact_admin_link_text: "contactar al administrador"
+      contact_admin_link_text: "contacta al equipo de %{service_name}"
       admin_account_not_connected: "No puedes conectar tu cuenta de PayPal porque el administrador de %{service_name} no ha finalizado las configuraciones necesarias. Por favor, %{contact_admin_link} para más detalles."
       paypal_account_email: "Conecta tu cuenta de PayPal"
       paypal_account_email_placeholder: "Tu dirección de email en Paypal"
@@ -1890,6 +1905,7 @@ es-ES:
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Si no puedes ingresar a esta comunidad, por favor contáctanos."
       email_not_allowed: "Este correo electrónico no está permitido en %{service_name}. Por favor usa una dirección que esté permitida. Si aún así no puedes ingresar, contáctanos."
+      invalid_username_or_email: "El nombre de usuario o email son inválidos o ya están siendo usados"
       email_restriction_instructions:
         one: "El acceso a %{service_name} está restringido. Para unirte necesitas una dirección de correo electrónico con la siguiente terminación: '%{allowed_emails}'."
         other: "El acceso a %{service_name} está restringido. Para unirte necesitas una dirección de correo electrónico que sea válida en esta comunidad."
@@ -2301,21 +2317,21 @@ es-ES:
       multi_page: "Mostrando %{model} %{from} - %{to} de %{count}"
       multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> en total"
   stripe_accounts:
-    admin_account_not_connected: ~
+    admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"
     you_are_ready_to_accept_payments: "¡Estas listo para aceptar pagos!"
     commission: "%{commission} %"
     pay_with_stripe: "Pagar con Stripe usando %{card}"
     add_and_pay: "Confirmar el pago"
     card_not_stored: "Tu pago es procesado de manera segura por Stripe. %{service_name} no guarda ninguna información de tarjetas de crédito o débito."
-    missing_payment: ~
+    missing_payment: "Tienes anuncios abiertos, sin embargo, tu cuenta no está configurada para recibir dinero. Para realizar la configuración de pagos, visita %{settings_link}"
     stripe_bank_connected: "Detalles de la cuenta de banco configurados con éxito!"
     stripe_can_accept: "Ya estás listo para recibir dinero en tu cuenta de banco"
     stripe_credit_card: "Tarjeta de crédito"
     paypal: PayPal
     paypal_connected: "¡Cuenta de PayPal conectada con éxito!"
     paypal_can_accept: "Estás listo para recibir dinero en tu cuenta de PayPal"
-    paypal_connected_give_permission: ~
+    paypal_connected_give_permission: "Para completar la configuración y empezar a recibir fondos en tu cuenta de PayPal <%{email}>, por favor da permiso para cargar una comisión o cuota."
     form_new:
       need_info: "Necesitamos un poco de información sobre ti para poder enviarte dinero."
       select_country: "Selecciona un país..."
@@ -2370,6 +2386,6 @@ es-ES:
     can_accept_stripe_and_paypal: "Puedes recibir dinero en tu cuenta de banco o en tu cuenta de PayPal."
     to_accept_paypal: "Para recibir dinero en tu cuenta de PayPal, necesitas conectar tu cuenta de PayPal. Tus clientes podrán pagar con PayPal."
     connect_paypal: "Conectar cuenta de PayPal"
-    wrong_setup: ~
+    wrong_setup: "Hay un error con la configuración del sistema de pagos en esta comunidad. La plataforma no ha sido registrada. Por favor contacta al equipo para dejarles saber que deben registrar la plataforma en Stripe."
     invalid_bank_account_number: "Por favor verifica que tu cuenta bancaria es correcta y que concuerda con tu país."
     invalid_postal_code: "Código postal invalido para %{country}"

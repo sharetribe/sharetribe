@@ -1,4 +1,5 @@
 <script>
+if (typeof onDocumentReady === 'undefined') { onDocumentReady = function() {}; }
 - if APP_CONFIG.use_google_tag_manager.to_s == "true"
   = render partial: "analytics/google_tag_manager"
 

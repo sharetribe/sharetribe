@@ -562,10 +562,19 @@ ja:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1878,6 +1887,7 @@ ja:
       email_is_in_use: そのメールアドレスはすでに使用されています。
       email_is_in_use_or_not_allowed: このメールアドレスは有効でないか、既に使用されています。もし理由不明の場合はお問い合わせください。
       email_not_allowed: "このメールアドレスは%{service_name}での使用を認められていません。他のメールアドレを使用してください。もしまだ入れないようでしたら、サイト管理者にお問い合わせください。"
+      invalid_username_or_email: ユーザー名またはメールは無効でありまたはすでに利用されている
       email_restriction_instructions:
         other: "%{service_name}へのアクセスが制限されました。参加しなおすには、ご登録時のメールアドレスが必要です。"
       family_name: 姓

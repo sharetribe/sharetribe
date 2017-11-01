@@ -546,10 +546,19 @@ el:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
       stripe_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
       paypal_connected:
         title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1857,6 +1866,7 @@ el:
       email_is_in_use: "Το email που δώσατε χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποιήστε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δείτε τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείτε να συνδεθείτε επικοινωνήστε μαζί μας."
       email_not_allowed: "Αυτή η διεύθυνση email δεν επιτρέπεται σε αυτή την κοινότητα. Παρακαλούμε, χρησιμοποιήστε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείτε να γραφτείτε, παρακαλούμε επικοινωνήστε μαζί μας."
+      invalid_username_or_email: ~
       email_restriction_instructions:
         one: "Αυτή η κοινότητα αφορά το %{community_name}. Για να συμμετέχετε πρέπει να έχετε διεύθυνση email της μορφής '%{allowed_emails}'."
         other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
