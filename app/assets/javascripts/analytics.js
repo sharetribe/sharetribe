@@ -5,8 +5,8 @@ window.ST.analytics = (function(){
     $(document).ready(function() {
       $(document).trigger('st-analytics:setup', options.analyticsData);
       if (options.events) {
-        for(var i = 0; i < data.length; i++) {
-          var _event = data[i];
+        for(var i = 0; i < options.events.length; i++) {
+          var _event = options.events[i];
           logEvent( _event.event, _event.action, null, _event.props);
         }
       }
