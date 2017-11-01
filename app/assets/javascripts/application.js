@@ -93,4 +93,5 @@
 //= require new_layout
 //= require stripe_form
 //= require analytics
+//= require social-insurance-number
 //= require_self

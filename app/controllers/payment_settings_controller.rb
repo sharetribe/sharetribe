@@ -286,6 +286,8 @@ class PaymentSettingsController < ApplicationController
         @stripe_error = true
         flash.now[:error] = result[:error_msg]
       end
+    else
+      flash.now[:error] = bank_form.errors.messages.flatten.join(' ')
     end
   end
 
