@@ -174,8 +174,8 @@ class ListingsController < ApplicationController
     @custom_field_questions = @listing.category.custom_fields.where(community_id: @current_community.id)
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 
-    shape = select_shape(@current_community.shapes, @listing.listing_shape_id)
-    if shape
+    shape = select_shape(@current_community.shapes, @listing)
+    if shape[:id]
       @listing.listing_shape_id = shape[:id]
     end
     render locals: { form_content: form_locals(shape) }
@@ -299,16 +299,18 @@ class ListingsController < ApplicationController
     end
   end
 
-  def select_shape(shapes, id)
-    if shapes.size == 1
+  def select_shape(shapes, listing)
+    if listing.listing_shape_id.nil?
+      ListingShape.new(transaction_process_id: listing.transaction_process_id)
+    elsif shapes.size == 1
       shapes.first
     else
-      shapes.find { |shape| shape[:id] == id }
+      shapes.find { |shape| shape[:id] == listing.listing_shape_id }
     end
   end
 
   def form_locals(shape)
-    @listing_presenter.shape = shape
+    @listing_presenter.listing_shape = shape
     {shape: shape}
   end
 

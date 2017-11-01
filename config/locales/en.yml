@@ -439,6 +439,7 @@ en:
       per_day_availability: "\"Per day\" availability"
       per_night_availability: "\"Per night\" availability"
       pricing_units_disabled_info: "Pricing units cannot be used when availability calendar is enabled."
+      can_not_find_name: "Can not find order type with given name: %{name}"
       index:
         listing_shapes: "Order types"
         description: "Order types determine how the order process works in your site. You can decide whether your users are renting or selling, or perhaps just posting announcements and communicating via direct messages."

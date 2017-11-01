@@ -1,5 +1,6 @@
 class ListingPresenter < MemoisticPresenter
-  attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id, :shape
+  attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
+  attr_reader :shape
 
   def initialize(listing, current_community, params, current_user)
     @listing = listing
@@ -7,6 +8,10 @@ class ListingPresenter < MemoisticPresenter
     @current_user = current_user
     @params = params
     set_current_image
+  end
+
+  def listing_shape=(listing_shape)
+    @shape = listing_shape
   end
 
   def is_author
