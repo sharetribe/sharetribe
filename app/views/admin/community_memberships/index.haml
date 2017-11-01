@@ -65,7 +65,8 @@
                 = member.display_name
               %td
                 = mail_to member.confirmed_notification_email_addresses.first
-              %td= l(membership.created_at, :format => :short_date)
+              %td
+                %span= l(membership.created_at, format: :short_date)
               - if @current_community.require_verification_to_post_listings
                 %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
               %td{:style => "text-align: center"}
