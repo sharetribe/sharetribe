@@ -44,7 +44,7 @@
   - content_for(:resend_link) do
     = link_to(t("admin.communities.outgoing_email.resend_link"), nil, class: "js-sender-address-resend-verification")
 
-  - if user_defined_address.nil? || !ses_in_use
+  - if user_defined_address.nil? || (!ses_in_use && !Rails.env.test?)
     -# SES not in use, or the marketplace uses default sender address
     .row
       .col-12
@@ -108,10 +108,71 @@
           %span.status-verified
             = t("admin.communities.outgoing_email.status_verified");
         = t("admin.communities.outgoing_email.status", status: content_for(:status_verified)).html_safe
+        - if can_set_sender_address && user_defined_address.present?
+          - change_name_link = link_to  t("admin.communities.outgoing_email.change_sender_name"), '#', id: 'show-change-sender-name-form'
+          - change_email_link = link_to  t("admin.communities.outgoing_email.change_sender_email"), '#', id: 'show-change-sender-email-form'
+          =t("admin.communities.outgoing_email.change_sender_prompt", change_name_link: change_name_link, change_email_link: change_email_link).html_safe
+          - content_for :extra_javascript do
+            :javascript
+              $("#show-change-sender-name-form").click(function(){
+                $("#change-sender-name-form").show();
+                return false;
+              });
+              $("#show-change-sender-email-form").click(function(){
+                $("#change-sender-email-form").show();
+                return false;
+              });
 
-    .row
-      .col-12
-        = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
+    - if can_set_sender_address && user_defined_address.present?
+      #change-sender-name-form.hidden
+        .row
+          .col-12
+            %h3= t("admin.communities.outgoing_email.set_sender_name")
+
+        = form_tag(post_sender_address_url, method: :post) do
+          .row
+            .col-12
+              %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
+              %input.js-sender-name-input{name: "name", type: :text, value: user_defined_address[:name], placeholder: t("admin.communities.outgoing_email.sender_name_placeholder")}
+              = hidden_field_tag :email, user_defined_address[:email]
+          .row
+            %button= t("admin.communities.outgoing_email.set_sender_name")
+
+      #change-sender-email-form.hidden
+        .row
+          .col-12
+            %h3= t("admin.communities.outgoing_email.set_sender_address")
+
+        = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
+          .row
+            .col-6
+              %label.sender-address-label= t("admin.communities.outgoing_email.sender_name_label")
+              %input.js-sender-name-input{name: "name", type: :text, value: user_defined_address[:name], placeholder: t("admin.communities.outgoing_email.sender_name_placeholder")}
+            .col-6
+              %label.sender-address-label= t("admin.communities.outgoing_email.sender_email_label")
+              %input.js-sender-email-input{name: "email", type: :text, value: user_defined_address[:email], placeholder: t("admin.communities.outgoing_email.sender_email_placeholder")}
+
+          .js-sender-address-preview-container.sender-address-preview-container.hidden
+            .row
+              .col-12
+                .sender-address-preview
+                  = t("admin.communities.outgoing_email.this_is_how_it_will_look")
+                  %span.js-sender-address-preview-values
+            .row.js-sender-address-preview-container.sender-address-preview-container.hidden
+              .col-12
+                .alert-box-warning
+                  %p
+                    %span.alert-box-icon<>
+                      = icon_tag("alert", ["icon-fix"])
+                    %span
+                      = t("admin.communities.outgoing_email.amazon_ses_notification", email_sender: "Amazon Web Services", email_subject: "Amazon SES Address Verification Request")
+          .row
+            %button= t("admin.communities.outgoing_email.send_verification_button")
+
+    - else
+      .row
+        .col-12
+          = t("admin.communities.outgoing_email.need_to_change", contact_support_link: contact_support_link).html_safe
 
   - if user_defined_address.nil?
     .row
