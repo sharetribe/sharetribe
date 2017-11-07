@@ -3,7 +3,7 @@ module AdminCommunityMembershipsViewUtils
   module_function
 
   # Displaying X accepted users and Y banned users
-  def community_members_entries_info(collection, options = {})
+  def community_members_entries_info(community_id, collection, options = {})
     model_key = 'person'
     if options.fetch(:html, true)
       b = '<b>'
@@ -21,9 +21,9 @@ module AdminCommunityMembershipsViewUtils
       opts[:count] == 1 ? name : name.pluralize
     }
 
-    accepted_count = CommunityMembership.where(person_id: collection.map(&:person_id), status: "accepted").count
+    accepted_count = CommunityMembership.where(community_id: community_id, status: "accepted").count
     accepted_model = will_paginate_translate defaults, :count => accepted_count
-    banned_count = CommunityMembership.where(person_id: collection.map(&:person_id), status: "banned").count
+    banned_count = CommunityMembership.where(community_id: community_id, status: "banned").count
     banned_model = will_paginate_translate defaults, :count => banned_count
 
     model_count = collection.total_pages > 1 ? 5 : collection.size
