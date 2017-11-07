@@ -947,6 +947,7 @@ en:
       view_it_in_your_browser: "View it in your browser"
       or: or
       unsubscribe_from_these_emails: "unsubscribe from these emails"
+      unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{marketplace_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -1412,8 +1413,10 @@ en:
       feedback_sent_to: "Feedback sent to %{target_person}."
       feedback_skipped: "Feedback skipped"
       invitation_cannot_be_sent: "Invitation could not be sent"
+      invitation_cannot_unsubscribe: "Cannot unsubscribe from invitation emails"
       invitation_limit_reached: "You were trying to send too many invitations. Daily limit reached."
       invitation_sent: "Invitation sent successfully"
+      invitation_successfully_unsubscribed: "Successfully unsubscribed from invitation emails"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed."
       login_again: "Please log in again."
       login_failed: "Login failed. Please enter the correct credentials."

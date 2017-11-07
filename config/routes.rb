@@ -317,7 +317,11 @@ Rails.application.routes.draw do
       resource :plan, only: [:show]
     end
 
-    resources :invitations
+    resources :invitations, only: [:new, :create ] do
+      collection do
+        get :unsubscribe
+      end
+    end
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
       collection do

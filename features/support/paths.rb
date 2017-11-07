@@ -94,6 +94,8 @@ module NavigationHelpers
       admin_listing_shapes_path
     when /the edit "(.*)" order type admin page/
       edit_admin_listing_shape_path(id: $1)
+    when /the unsubscribe link with code "(.*)" from invitation email to join community/
+      unsubscribe_invitations_path(code: $1)
     else
       begin
         page_name =~ /the (.*) page/
