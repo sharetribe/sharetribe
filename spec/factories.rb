@@ -412,4 +412,9 @@ FactoryGirl.define do
     sort_priority          0
   end
 
+  factory :invitation_unsubscribe, class: 'Invitation::Unsubscribe' do
+    build_association(:community)
+    email 'sherry@example.com'
+  end
+
 end

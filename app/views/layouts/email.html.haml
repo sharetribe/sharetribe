@@ -38,3 +38,11 @@
                         - if @email_type
                           = t("emails.common.or")
                           = link_to(t("emails.common.unsubscribe_from_these_emails"), unsubscribe_person_settings_url(@recipient, @url_params.merge({email_type: @email_type, auth: @unsubscribe_token}))) + "."
+
+                - if @invitation
+                  %tr
+                    %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
+                      %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
+                        = link_to(t("emails.common.unsubscribe_from_invitation_emails", marketplace_name: @invitation_community),
+                          unsubscribe_invitations_url(@url_params)) + "."
+
