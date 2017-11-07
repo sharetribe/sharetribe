@@ -152,7 +152,12 @@ nb:
         amazon_ses_notification: "Du vil motta en e-post fra %{email_sender} for å bekrefte e-postadressen din. I emnefeltet vi det stå '%{email_subject}'. Følg instruksjonen i e-posten for å bekrefte e-postadressen din."
         this_is_how_it_will_look: "Slik vil det se ut:"
         send_verification_button: "Send bekreftelses-epost"
+        change_sender_email: ~
         successfully_saved: "Avsender lagret. Bekreftelses-epost vil bli sendt snart."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Status: %{status}"
         status_verified: "Bekreftet - i bruk"
         status_error: "En feil oppstod. Vennligst last siden på nytt."
@@ -249,6 +254,10 @@ nb:
         save_user_status_error: "Lagring feilet. Vennligst oppdater siden på nytt og prøv igjen."
         ban_user_confirmation: "Dette fjerner bruker fra denne markedsplassen og hindrer vedkommende tilgang med denne bruker kontoen igjen. Er du sikker på at du ønsker å fortsette?"
         ban_me_error: "Du kan ikke forby deg selv."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "Når nye layout-komponenter er tilgjengelige for markedsplassen din, kan du velge om du vil begynne å bruke de nye komponentene eller fortsette å bruke de gamle. Du kan aktivere valgene dine når som helst på denne siden. Det er anbefalt å alltid bruke nyeste versjon, siden de gamle komponentene kan bli faset ut etter hvert. Hvis en komponent som du bruker vil bli faset ut, vil du bli kontaktet i forkant."
@@ -439,6 +448,7 @@ nb:
       per_day_availability: "\"Per dag\"-tilgjengelighet"
       per_night_availability: "\"Per natt\"-tilgjengelighet"
       pricing_units_disabled_info: "Pris-enheter kan ikke brukes når tilgjengelighetskalenderen er aktivert."
+      can_not_find_name: ~
       index:
         listing_shapes: Annonsetype
         description: "Annonsetypene bestemmer hvordan bestillingsprosessen fungerer på din markedsplass. Du kan velge om dine brukere skal kunne leie eller selge, eller kanskje bare legge ut annonser og kommunisere via meldinger."
@@ -2369,6 +2379,13 @@ nb:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

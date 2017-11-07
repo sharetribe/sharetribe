@@ -152,7 +152,12 @@ nl:
         amazon_ses_notification: "Je ontvangt een email van %{email_sender} om je emailadres te bevestigen. Het email onderwerp is '%{email_subject}'. Volg de instructies om je email te bevestigen."
         this_is_how_it_will_look: "Zo zal het eruit zien:"
         send_verification_button: "Verzend verificatie email"
+        change_sender_email: "Verander afzender email"
         successfully_saved: "Verzender adres succesvol ingesteld. De verificatie email zal spoedig verzonden worden."
+        successfully_saved_name: "Afzender naam succesvol bijgewerkt."
+        set_sender_name: "Verander afzender naam"
+        change_sender_name: "Verander afzender naam"
+        change_sender_prompt: "%{change_email_link} of %{change_name_link}"
         status: "Status: %{status}"
         status_verified: "Geverifieerd - In gebruik"
         status_error: "Er is een fout opgetreden. Ververs de pagina."
@@ -251,6 +256,10 @@ nl:
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
         ban_me_error: "Je kunt jezelf niet uitsluiten."
+        search: Zoek
+        search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
+        reset_search: "Toon alles"
+        for_search_terms: ~
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -441,6 +450,7 @@ nl:
       per_day_availability: "\"Per dag\" beschikbaarheid"
       per_night_availability: "\"Per nacht\" beschikbaarheid"
       pricing_units_disabled_info: "Prijseenheden kunnen niet worden gebruikt als de beschikbaarheidskalender is ingeschakeld."
+      can_not_find_name: "Kan geen order type vinden met de gegeven naam: %{name}"
       index:
         listing_shapes: "Order types"
         description: "Order types bepalen hoe het orderproces werkt in je site. Je kunt kiezen of je gebruikers kunnen huren of verkopen, of misschien slechts aankondigingen kunnen plaatsen en kunnen communiceren via gratis berichten."
@@ -2380,6 +2390,13 @@ nl:
       document: Verificatiedocument
       send_verification: "Verstuur Verificatie"
       need_verification: "Aanvullende verificatie nodig"
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: Uitbetalingsvoorkeuren
     bank_account: Bankrekeningnummer

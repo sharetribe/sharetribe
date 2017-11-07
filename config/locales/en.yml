@@ -152,13 +152,12 @@ en:
         amazon_ses_notification: "You will receive an email from %{email_sender} to confirm your e-mail address. The email subject is '%{email_subject}'. Follow the instructions to verify your email."
         this_is_how_it_will_look: "This is how it will look:"
         send_verification_button: "Send verification email"
-        change_sender_email: "Change sender email"
+        change_sender_email: "change sender email"
         successfully_saved: "Sender address saved successfully. The verification email will be sent soon."
         successfully_saved_name: "Sender name updated successfully."
-        set_sender_name: Change sender name
-        change_sender_name: Change sender name
-        change_sender_email: change sender email
-        change_sender_prompt: '%{change_name_link} or %{change_email_link}'
+        set_sender_name: "Change sender name"
+        change_sender_name: "Change sender name"
+        change_sender_prompt: "%{change_name_link} or %{change_email_link}"
         status: "Status: %{status}"
         status_verified: "Verified - in use"
         status_error: "An error occurred. Please refresh the page."
@@ -255,10 +254,10 @@ en:
         save_user_status_error: "Saving failed. Please refresh the page and try again."
         ban_user_confirmation: "This removes the user from the marketplace and prevents them from accessing the site again with this account. Are you sure you want to proceed?"
         ban_me_error: "You cannot ban yourself."
-        search: "Search"
+        search: Search
         search_by_name_email: "Search for a name, email or display name"
-        reset_search: 'Show all'
-        for_search_terms: "for: %{terms}"
+        reset_search: "Show all"
+        for_search_terms: "for &laquo;%{terms}&raquo;"
       new_layout:
         new_layout: "New layout"
         description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."

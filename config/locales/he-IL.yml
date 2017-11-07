@@ -143,7 +143,12 @@ he-IL:
         amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: ~
+        change_sender_email: ~
         successfully_saved: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: ~
         status_verified: ~
         status_error: ~
@@ -240,6 +245,10 @@ he-IL:
         save_user_status_error: "שמירהנכשלה. רענן את הדף ונסה שוב."
         ban_user_confirmation: "פעולה זו מסירה את המשתמש מהשוק ומונעת מהם לגשת שוב לאתר באמצעות חשבון זה. האם אתה בטוח שברצונך להמשיך?"
         ban_me_error: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -430,6 +439,7 @@ he-IL:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
+      can_not_find_name: ~
       index:
         listing_shapes: ~
         description: ~
@@ -724,7 +734,7 @@ he-IL:
       canceled_request: "ההזמנה בוטלה."
       canceled_offer: "ההזמנה בוטלה."
       message_from: "‎%{person}‎ הודעה מ‎"
-      about_listing: "לגבי ‎%{listing_title}‎"
+      about_listing: "‎%{listing_title}‎ לגבי"
       free_message: "הודעה ישירה"
       message_content_not_available: ~
     message:
@@ -750,7 +760,7 @@ he-IL:
       you_will_get_notified: "עונה לך ‎%{person}‎ תקבל הודעת אימייל כאשר"
       title: כותרת
       send_message_to_user: "‎%{person}‎ שלח הודעה ל"
-      about_listing: "לגבי ‎%{listing_title}‎"
+      about_listing: "‎%{listing_title}‎ לגבי"
       author_has_to_accept_request: "‎%{author_name}‎ צריך לקבל את הבקשה לפני שתוכל לשלם"
     show:
       in_response_to_listing: לגבי
@@ -1097,7 +1107,7 @@ he-IL:
       kassi_does_not_currently_work_without_javascript: "‎ אינו פועל כשורה ללא ג'בהסקריפט נסה להפעיל ג'בהסקריפט ‎%{service_name}‎ דרך מאפייני הדפדפן שלך ולטעון דף זה מחדש"
       contact_us: "צור קשר"
       send_feedback: שלח
-      your_feedback_to_admins: ":‎%{service_name}‎ ההודעה שלך לצוות ‎"
+      your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
     send: שלח
     your_email_address: "כתובת הדואר האלקטרוני שלך"
   errors:
@@ -1195,9 +1205,7 @@ he-IL:
       processing_uploaded_image: "(מעבד תמונה שהועלתה ...)"
     index:
       no_listings_with_your_search_criteria: "מצטערים, לא נמצאו פריטים או שירותים."
-      no_listings_notification: |-
-          אייייזה כיף! אתה הראשון לפתוח את הקהילה בעיר שלך (-:
-          ‎%{add_listing_link}‎ שירותים בעברית, עסקים ישראלים או פריטים למכירה/מסירה ואל תשכח להזמין את הקהילה הישראלית המקומית לאתר!
+      no_listings_notification: "‎%{add_listing_link}‎ לא קיימים פרסומים. להוספה"
       add_listing_link_text: "הוסף +"
       open_listing: "מודעה פתוחה"
       open_listings: "מודעות פתוחות"
@@ -1292,7 +1300,7 @@ he-IL:
     application:
       join_this_community: "הצטרף לאתר"
       read_more: "קרא עוד"
-      feedback: "ההודעה שלך לצוות ‎%{service_name}‎"
+      feedback: "‎%{service_name}‎ ההודעה שלך לצוות"
       dont_use_to_contact_support: ~
       feedback_forum: "פורום משובים, הערות והארות."
       feedback_handle: משוב
@@ -1714,7 +1722,7 @@ he-IL:
         per_quantity_unit: "ל‎%{quantity_unit}‎"
         per_day: ליום
       delivery: "סוג משלוח"
-      shipping: "(+{‎%{price}) דמי משלוח"
+      shipping: "(+‎%{price}‎) דמי משלוח"
       shipping_no_price: משלוח
       shipping_price_additional: ~
       pickup: "איסוף עצמי"
@@ -1737,7 +1745,7 @@ he-IL:
       by: "‎‎%{author}‎ ע\"י ‎%{listing}‎‎"
       payment: תשלום
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "למוכר יש 3 ימים לאשר את העברה, אחרת לא תחוייב. \"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\" ‎%{author}‎ ‎%{author}‎ ‎%{author}‎ ‎%{expiration_period}‎ \"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\""
       day: יום
       days: ימים
       night: ~
@@ -2317,6 +2325,13 @@ he-IL:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

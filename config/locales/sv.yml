@@ -152,7 +152,12 @@ sv:
         amazon_ses_notification: "Du kommer få ett email från %{email_sender} för att bekräfta din emailadress. E-postens ämne kommer att vara %{email_subject}. Följ instruktionerna i mejlet för att bekräfta din email."
         this_is_how_it_will_look: "Så här kommer det se ut:"
         send_verification_button: "Skicka verifikationsmail"
+        change_sender_email: ~
         successfully_saved: "Avsändaradress sparades korrekt. Verifikationsmailet kommer att skickas snart."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Status: %{status}"
         status_verified: "Verifierad - används"
         status_error: "Ett fel inträffade. Vänligen ladda om sidan."
@@ -249,6 +254,10 @@ sv:
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -439,6 +448,7 @@ sv:
       per_day_availability: "\"Per dag\" tillgänglighet"
       per_night_availability: "\"Per natt\" tillgänglighet"
       pricing_units_disabled_info: "Prissättningsenheter kan inte användas när tillgänglighets kalendern är aktiverad."
+      can_not_find_name: ~
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -577,19 +587,19 @@ sv:
       stripe_fee: "Stripes avgifter"
       stripe_fee_notice: "%{stripe_fee_link} kommer dras av från transaktionsavgiften du tar."
       fee_should_be_less_than_minimum_price: "Lägsta annonspriset måste vara lägre än lägsta transaktionsavgiften"
-      confirm_disable: ~
+      confirm_disable: "Är du säker du vill inaktivera %{gateway}? Om du inaktiverar detta betalningssystem kommer dina försäljare inte kunna ta emot pengar och köpare kommer inte kunna göra köp via detta betalningssystem. Om dina försäljare inte har aktiverat det andra betalsystemet kommer användare inte kunna köpa från dem."
       stripe_connected:
         title: "Stripe är kopplat"
-        disable: ~
-        disabled: ~
-        enable: ~
+        disable: "Inaktivera Stripe"
+        disabled: "Stripe är inaktiverat"
+        enable: "Aktivera Stripe igen"
       paypal_connected:
         title: "PayPal är kopplat"
-        disable: ~
-        disabled: ~
-        enable: ~
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
+        disable: "Inaktivera PayPal"
+        disabled: "PayPal är inaktiverat"
+        enable: "Aktivera PayPal igen"
+      cannot_enable_gateway: "Kan inte aktivera betalningssystemet %{gateway}"
+      cannot_disable_gateway: "Kan inte inaktivera betalningssystemet %{gateway}"
       stripe_form:
         add_your_api_keys: "Lägg till dina Stripe API nycklar"
         how_to_get_these: "Hur får jag dessa?"
@@ -685,7 +695,9 @@ sv:
       body_text: |-
           PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
-      body_text_accept: ~
+      body_text_accept: |-
+          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     paypal_only_fee_info:
       title: "PayPal's betalningshanteringsavgift"
@@ -1907,7 +1919,7 @@ sv:
       email_is_in_use: "E-postadressen du angav används redan."
       email_is_in_use_or_not_allowed: "Denna e-postadress är inte tillåten eller används redan. Om du inte kommer in, kontakta oss."
       email_not_allowed: "Denna e-postadress är inte godkänd på %{service_name}. Vänligen använd en annan e-postadress som är godkänd. Om du ändå inte kommer in, vänligen meddela oss."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Användarnamnet eller email adressen är antingen ogiltig eller redan i användning"
       email_restriction_instructions:
         one: "Access till %{service_name} är begränsad. För att gå med så behöver du en '%{allowed_emails}' e-postadress."
         other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."
@@ -2379,6 +2391,13 @@ sv:
       document: Verifikationsnummer
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: Utbetalningsinställningar
     bank_account: Bankkonto

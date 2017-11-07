@@ -152,7 +152,12 @@ fi:
         amazon_ses_notification: "Saat sähköpostin lähettäjältä %{email_sender} vahvistaaksesi sähköpostiosoitteesi. Sähköpostin aiherivi on '%{email_subject}'. Seuraa sähköpostissa annettuja ohjeita vahvistaaksesi sähköpostiosoitteesi."
         this_is_how_it_will_look: "Tältä osoite tulee näyttämään:"
         send_verification_button: "Lähetä vahvistusviesti"
+        change_sender_email: "vaihda lähettäjän sähköpostiosoite"
         successfully_saved: "Lähettäjän osoite tallennettu onnistuneesti. Saat pian vahvistussähköpostin."
+        successfully_saved_name: "Lähettäjän nimi vaihdettu onnistuneesti."
+        set_sender_name: "Vaihda lähettäjän nimeä"
+        change_sender_name: "Vaihda lähettäjän nimeä"
+        change_sender_prompt: "%{change_name_link} tai %{change_email_link}"
         status: "Status: %{status}"
         status_verified: "Vahvistettu - käytössä"
         status_error: "Tapahtui virhe. Ole hyvä ja päivitä sivu."
@@ -249,6 +254,10 @@ fi:
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
         ban_me_error: "Et voi poistaa itseäsi."
+        search: Hae
+        search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
+        reset_search: "Näytä kaikki"
+        for_search_terms: "hakutermille &laquo;%{terms}&raquo;"
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -439,6 +448,7 @@ fi:
       per_day_availability: "\"Per päivä\" -saatavuus"
       per_night_availability: "\"Per yö\" -saatavuus"
       pricing_units_disabled_info: "Hinnan yksiköitä ei voi käyttää mikäli saatavuuskalenteri (availability calendar) on kytketty päälle."
+      can_not_find_name: "Ei voitu löytää tilaustyyppiä nimeltä: %{name}"
       index:
         listing_shapes: Tilaustyypit
         description: "Tilaustyypit määrittelevät, kuinka tilaaminen toimii sivustollasi. Voit päättää, voivatko käyttäjäsi esimerkiksi myydä tai vuokrata asioita toisiltaan, tai kenties vain jättää ilmoituksia ja kommunikoida keskenään viestien kautta."
@@ -577,19 +587,19 @@ fi:
       stripe_fee: "Stripen veloittamat maksut"
       stripe_fee_notice: "%{stripe_fee_link} vähennetään välityspalkkiostasi."
       fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
-      confirm_disable: ~
+      confirm_disable: "Oletko varma että haluat ottaa alustan %{gateway} pois käytöstä? Jos otat sen pois käytöstä, myyjät eivät voi enää vastaanottaa sillä rahaa, eivätkä asiakkaat enää voi maksaa sen kautta. Mikäli myyjät eivät ole ottaneet käyttöön jotain toista maksualustaa, asiakkaat eivät voi ostaa heiltä mitään."
       stripe_connected:
         title: "Stripe yhdistetty"
-        disable: ~
-        disabled: ~
-        enable: ~
+        disable: "Poista Stripe käytöstä"
+        disabled: "Stripe otettu pois käytöstä"
+        enable: "Ota Stripe uudelleen käyttöön"
       paypal_connected:
         title: "PayPal yhdistetty"
-        disable: ~
-        disabled: ~
-        enable: ~
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
+        disable: "Ota PayPal pois käytöstä"
+        disabled: "PayPal otettu pois käytöstä"
+        enable: "Ota PayPal uudelleen käyttöön"
+      cannot_enable_gateway: "Ei voitu ottaa seuraavaa maksualustaa käyttöön: %{gateway}."
+      cannot_disable_gateway: "Ei voitu ottaa seuraavaa maksualustaa pois käytöstä: %{gateway}."
       stripe_form:
         add_your_api_keys: "Lisää Stripen API-avaimet"
         how_to_get_these: "Mistä nämä löytyvät?"
@@ -685,7 +695,9 @@ fi:
       body_text: |-
           PayPal veloittaa jokaisesta maksutapahtumasta käsittelymaksun. Maksun suuruus on 2% - 5% kokonaishinnasta, riippuen kuukausittaisesta myyntimäärästäsi sekä ostajan kotimaasta. Maksu on yleensä halvempi kotimaan ostoissa kuin ulkomaan ostoissa, ja suuria määriä myyvät saavat alennusta maksuista.
           Voit nähdä tarkan hinnan kirjautumalla PayPal-tilillesi ja klikkaamalla %{link_to_paypal}. Jokaisen myyntitapahtuman jälkeen saat sähköpostiisi kuitin, jossa näytetään kyseisestä tapahtumasta veloitettu käsittelymaksu.
-      body_text_accept: ~
+      body_text_accept: |-
+          PayPal prosessoi tämän maksutapahtuman. PayPal veloittaa jokaisesta maksutapahtumasta prosessointikulun. Tämä kulu on noin 2% - 5%, riippuen kuinka paljon tililtä myydään kuukausittain ja siitä, mikä on myyjän asuinmaa. Yleisesti ottaen kotimaan sisällä tapahtuvista maksuista veloitetaan vähemmän kuin kansainvälisistä, ja suurempi myyntivoluumi alentaa veloitusprosenttia.
+          Näet tarkat kulut kirjautumalla PayPal-tilillesi ja menemällä kohteeseen %{link_to_paypal}.Jokaisen oston jälkeen saat kuitin, jossa listataan maksukulut tarkasti.
       link_to_paypal_text: "tätä linkkiä"
     paypal_only_fee_info:
       title: "PayPalin palvelumaksu"
@@ -1905,7 +1917,7 @@ fi:
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Antamasi osoite ei ole sallittu tässä palvelussa, tai se on jo käytössä. Jos et pääse sisään, ole yhteydessä ylläpitoon."
       email_not_allowed: "Antamasi sähköpostiosoite ei kelpaa palvelussa %{service_name}. Ole hyvä ja anna sallittu osoite. Jos et pääse sisään, lähetä palautetta ylälaidan valikon kautta."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Käyttäjänimi tai sähköposti on viallinen, tai jo käytössä"
       email_restriction_instructions:
         one: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
@@ -1922,7 +1934,7 @@ fi:
       terms: käyttöehdot
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
-      visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
+      visible_only_to_you: "näkyy vain sinulle ja %{service_name}-palvelun ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
       create_account_with_facebook: "Rekisteröidy Facebook-tunnuksesi avulla"
       OR: TAI
@@ -2299,6 +2311,10 @@ fi:
         one: käyttäjä
         few: käyttäjää
         other: käyttäjää
+      transaction:
+        zero: tilausta
+        one: tilaus
+        other: tilausta
     previous_label: "&#8592; Edellinen"
     next_label: "Seuraava &#8594;"
     page_gap: "&hellip;"
@@ -2320,14 +2336,14 @@ fi:
     commission: "%{commission} %"
     pay_with_stripe: "Maksa Stripellä käyttäen %{card}"
     add_and_pay: "Vahvista maksu"
-    card_not_stored: ~
+    card_not_stored: "Stripe prosessoi maksutapahtuman turvallisesti. %{service_name} ei saa luotto- tai debitkorttisi tietoja."
     missing_payment: "Sinulla on avoimia ilmoituksia, mutta et ole vielä valinnut maksunvälittäjää, joten et voi ottaa maksuja vastaan. Päivitä maksuasetuksesi %{settings_link}"
     stripe_bank_connected: "Tilitiedot asetettu onnistuneesti!"
     stripe_can_accept: "Voit nyt vastaanottaa luottokorttimaksuja"
     stripe_credit_card: Luottokortti
     paypal: PayPal
     paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
-    paypal_can_accept: ~
+    paypal_can_accept: "Olet nyt valmis vastaanottamaan rahaa PayPal-tilillesi"
     paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
     form_new:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
@@ -2374,11 +2390,18 @@ fi:
       document: Vahvistusdokumentti
       send_verification: "Lähetä vahvistus"
       need_verification: "Lisävahvistus tarvitaan"
+    form_pin:
+      social_insurance_number: "Social Insurance Number (SIN; Sosiaaliturvanumero)"
+      social_security_number: "Social Security Number (SSN; Sosiaaliturvanumero)"
+      hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kongin henkilökorttinumero)"
+      singapore_identity_card: "National Registration Identity Card (NRIC; Kansallinen identiteettirekisterikorttinumero) tai Foreign Identification Number (FIN; Ulkomaalainen henkilötunnus)"
+      messages:
+        social_insurance_number: "täytyy olla pätevä Social Insurance Number (SIN; Sosiaaliturvatunnus)"
   payment_settings:
     title: Maksuasetukset
-    bank_account: ~
+    bank_account: Pankkitili
     paypal: PayPal
-    bank_account_details: ~
+    bank_account_details: "Saadaksesi rahaa pankkitilillesi, sinun tulee täyttää pankkitilisi tiedot. Asiakkaasi voivat maksaa luottokortilla."
     add_bank_details: "Anna tilitietosi"
     can_accept_stripe_and_paypal: "Voit ottaa maksuja vastaan joko luottokortilla, PayPalilla tai molemmilla."
     to_accept_paypal: "Jotta voisit ottaa vastaan PayPal-maksuja, sinun pitää yhdistää PayPal-tilisi, jotta voimme siirtää sille rahaa."

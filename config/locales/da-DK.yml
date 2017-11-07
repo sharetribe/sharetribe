@@ -152,7 +152,12 @@ da-DK:
         amazon_ses_notification: ~
         this_is_how_it_will_look: "Dette er, hvordan det vil se ud:"
         send_verification_button: "Send bekræftelsesmail"
+        change_sender_email: ~
         successfully_saved: "Afsender e-mail er gemt med succes. Bekræftelsesmail vil blive afsendt snarest."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Status: %{status}"
         status_verified: "Bekræftet - i brug"
         status_error: "En fejl opstod. Opdater venligst siden."
@@ -249,6 +254,10 @@ da-DK:
         save_user_status_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
         ban_user_confirmation: "Dette sletter brugeren fra markedspladsen og hindrer ham/hende i at logge ind på markedspladsen igen med denne bruger. Er du sikker på at du vil fortsætte?"
         ban_me_error: "Du kan ikke forbyde dig selv."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Nyt layout"
         description_roadmap_new: ~
@@ -439,6 +448,7 @@ da-DK:
       per_day_availability: "\"Pr. dag\" tilgængelighed"
       per_night_availability: "\"Pr. nat\" tilgængelighed"
       pricing_units_disabled_info: ~
+      can_not_find_name: ~
       index:
         listing_shapes: "Ordre typer"
         description: "Ordre typer bestemmer hvordan ordreprocessen fungerer på dit site. Du kan beslutte om dine brugere lejer, sælger - eller måske blot poster opslag og kommunikerer via meddelelser."
@@ -2367,6 +2377,13 @@ da-DK:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

@@ -157,7 +157,12 @@ sk-SK:
         amazon_ses_notification: ~
         this_is_how_it_will_look: "Takto to bude vyzerať:"
         send_verification_button: "Poslať overovací e-mail"
+        change_sender_email: ~
         successfully_saved: "Adresa odosielateľa bola úspešne uložená. Overovací e-mail bude o chvíľu odoslaný."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Stav: %{status}"
         status_verified: "Overený - používa sa"
         status_error: "Nastala chyba. Prosím obnovte stránku."
@@ -254,6 +259,10 @@ sk-SK:
         save_user_status_error: "Pri ukladaní nastala chyba. Prosím obnovte stránku a skúste to znova."
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         ban_me_error: "Nemôžete seba samého vylúčiť."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Nový vzhľad"
         description_roadmap_new: ~
@@ -444,6 +453,7 @@ sk-SK:
       per_day_availability: "\"za deň\" dostupnosť"
       per_night_availability: "\"za noc\" dostupnosť"
       pricing_units_disabled_info: "Cena jednotky je nedostupná, pokiaľ je zapnutý kalendár dostupnosti."
+      can_not_find_name: ~
       index:
         listing_shapes: "Typy objednávok"
         description: "Tu si môžete nastaviť, ako bude Vaše stránka fungovať. Môžete sa rozhodnúť, či Vaši užívatelia budú prenajímať, predávať, alebo iba pridávať príspevky a komunikovať cez správy."
@@ -2390,6 +2400,13 @@ sk-SK:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

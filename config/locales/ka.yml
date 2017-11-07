@@ -147,7 +147,12 @@ ka:
         amazon_ses_notification: "თქვენ მიიღებთ იმეილს %{email_sender}სგან რომ დაადასტუროთ თქვენ ელ-ფოსტის მისამართი. იმეილის სახელი იქნება %{email_subject}. გთხოვთ მიყვეთ ინსტრუქციას რომ დაადასტუროთ ელ. ფოსტის მისამართი."
         this_is_how_it_will_look: "აი როგორ გამოჩნდება:"
         send_verification_button: "გააგზავნე დამდადასტურებელი მეილი"
+        change_sender_email: ~
         successfully_saved: "გამომგზავნის მისამართი წარმატებით იქნა შენახული. ეს დადასტურების მეილი მალე გაიგზავნება"
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "სტატუსი: %{status}"
         status_verified: "დადასტურებულია - ხმარებაშია"
         status_error: "შეცდომა. გთხოვთ გადატვირთოთ გვერდი. "
@@ -244,6 +249,10 @@ ka:
         save_user_status_error: "კატეგორიის დამახსოვრების დროს მოხდა შეცდომა. გთხოვთ გადატვირთეთ გვერდი და ცადეთ თავიდან."
         ban_user_confirmation: "ეს წაშლის მომხმარებელს ბაზრიდან და შეუზრუდავს თავისი ანგარიშით საიტზე შემოსვლის უფლებას. დარწმუნებული ხარ რომ გსურს გაგრძელება?"
         ban_me_error: "თქვენ ვერ დაბლოკავთ საკუთარ თავს."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "ახალი განლაგება"
         description_roadmap_new: ~
@@ -434,6 +443,7 @@ ka:
       per_day_availability: "დღიური ხელმისაწვდომობა"
       per_night_availability: "ხელმისაწვდომობა ღამე"
       pricing_units_disabled_info: "ფასი ვერ იქნება გამოყენებული როცა ხელმისაწვდომობის კალენდარი გააქტიურებულია"
+      can_not_find_name: ~
       index:
         listing_shapes: "შეკვეთის ტიპები"
         description: "შეკვეთის ტიპი განსაზღვრავს როგორ მუშაობს შეკვეთის პროცესი შენ გვერდზე, შენ შეგიძლია გადაწყვიტო შენს მომხარებელს შეეძლება თუა არა გაყიდვა, გაქირავება ან თუნდაც განცხადებების დაპოსტვა და მესიჯებით კომუნიკაცია"
@@ -2346,6 +2356,13 @@ ka:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

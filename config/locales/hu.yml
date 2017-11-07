@@ -153,7 +153,12 @@ hu:
         amazon_ses_notification: ~
         this_is_how_it_will_look: "Így fog kinézni:"
         send_verification_button: "Igazoló e-mail küldése"
+        change_sender_email: ~
         successfully_saved: "A feladó címe sikeresen elmentve. Az igazoló e-mailt hamarosan küldjük."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Állapot: %{status}"
         status_verified: "Ellenőrzött - használatban"
         status_error: "Hiba történt. Kérem frissítse ezt az oldalt."
@@ -250,6 +255,10 @@ hu:
         save_user_status_error: "Hiba történt a mentés közben. Kérlek, frissítsd az oldalt s próbáld újra!"
         ban_user_confirmation: "Ez törli a felhasználót a piactérről és megakadályozza az oldalhoz való hozzáférésben ezzel a fiókkal. Biztos benne hogy folytatja?"
         ban_me_error: "Nem tilthatja le önmagát"
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Új megjelenés"
         description_roadmap_new: ~
@@ -440,6 +449,7 @@ hu:
       per_day_availability: "Naponta elérhető"
       per_night_availability: "Éjszakánként elérhető"
       pricing_units_disabled_info: "A Pricing unit nem használható ha a naptár funkció aktiválva van"
+      can_not_find_name: ~
       index:
         listing_shapes: Ajánlattípusok
         description: |-
@@ -2357,6 +2367,13 @@ hu:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

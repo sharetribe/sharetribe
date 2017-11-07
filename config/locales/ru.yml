@@ -162,7 +162,12 @@ ru:
         amazon_ses_notification: "Вы получите письмо с целью подтверждения вашего электронного адреса от %{email_sender}. Тема письма - '%{email_subject}'. Следуйте инструкциям для подтверждения вашего электронного адреса."
         this_is_how_it_will_look: "Образец:"
         send_verification_button: "Отправить письмо с подтверждением"
+        change_sender_email: ~
         successfully_saved: "Адрес отправителя успешно сохранен. Письмо с подтверждением будет скоро отправлено."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Состояние: %{status}"
         status_verified: "Подтверждено - используется"
         status_error: ~
@@ -259,6 +264,10 @@ ru:
         save_user_status_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         ban_me_error: "Вы не можете заблокировать сами себя"
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Новй макет"
         description_roadmap_new: "Когда для вашего маркетплейса будут доступны новые компоненты макета, вы сможите выбрать, использовать новые или старые компоненты. Вы сможете переключать свои настройки в любое время с этой страницы. Рекомендуется всегда использовать новую версию, поскольку старые компоненты со временем могут быть отключены. В случае, если компонент, который вы используете в настоящее время, будет планироваться отключить, вам сообщат заранее."
@@ -449,6 +458,7 @@ ru:
       per_day_availability: "Доступность \"на день\""
       per_night_availability: "Доступность \"на ночь\""
       pricing_units_disabled_info: "Параметры цены не могут быть использованы при активированном календаре доступности."
+      can_not_find_name: ~
       index:
         listing_shapes: "Типы заказов"
         description: "Типы заказов определяют, каким образом процесс заказа работает на вашем сайте. Вы можете решить, будут ли пользователи арендовать или продавать, или просто публиковать объявления и общаться с помощью бесплатных сообщений."
@@ -2407,6 +2417,13 @@ ru:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

@@ -145,14 +145,19 @@ fr:
         need_to_change: "Si vous souhaitez changer l'adresse email, veuillez %{contact_support_link}."
         contact_support_link_text: "contacter le support Sharetribe"
         set_sender_address: "Définir l'adresse d'expéditeur"
-        sender_name_label: Nom
+        sender_name_label: "Nom de l'expéditeur"
         sender_name_placeholder: "Nom de l'expéditeur"
         sender_email_label: "Adresse email"
         sender_email_placeholder: expediteur@exemple.fr
         amazon_ses_notification: "Vous recevrez un message de %{email_sender} pour confirmer votre adresse email. Le sujet de cet email sera \"%{email_subject}\". Veuillez suivre les instructions qu'il contient pour vérifier votre adresse."
         this_is_how_it_will_look: "Voici un aperçu du résultat : "
         send_verification_button: "Envoyer l'email de vérification"
+        change_sender_email: "changer l'adresse email"
         successfully_saved: "Adresse de l'expéditeur sauvegardée avec succès. L'email de vérification va être envoyé très prochainement."
+        successfully_saved_name: "Nom de l'expéditeur mis à jour avec succès."
+        set_sender_name: "Change le nom de l'expéditeur"
+        change_sender_name: "Changer le nom de l'expéditeur"
+        change_sender_prompt: "%{change_email_link} ou %{change_name_link}"
         status: "État : %{status}"
         status_verified: "Vérifiée - en cours d'utilisation"
         status_error: "Une erreur s'est produite. Veuillez actualiser la page et essayer de nouveau."
@@ -249,6 +254,10 @@ fr:
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment faire cela ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
+        search: Rechercher
+        search_by_name_email: "Rechercher un nom, un email ou un nom d'affichage"
+        reset_search: "Voir tous"
+        for_search_terms: "pour &laquo;%{terms}&raquo;"
       new_layout:
         new_layout: "Nouveau design"
         description_roadmap_new: "Lorsque de nouveaux éléments de design sont disponibles pour votre place de marché, vous pouvez choisir de les utiliser sans attendre ou bien de continuer à utiliser les anciens. Vous pouvez modifier votre choix à tout moment depuis cette page. Il est préférable de toujours utiliser les versions les plus récentes, puisque les anciens éléments seront rendus obsolètes à un moment. Si un élément que vous utilisez devenait obsolète, vous serez contacté au préalable."
@@ -439,6 +448,7 @@ fr:
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
+      can_not_find_name: "Le type de transaction %{name} n'a pas pu être trouvé"
       index:
         listing_shapes: "Types de transaction"
         description: "Les types de transaction déterminent comment le processus de transaction fonctionne sur votre site. Vous pouvez choisir de permettre à vos utilisateurs de louer ou vendre, ou même de simplement publier des informations et de communiquer directement."
@@ -831,7 +841,7 @@ fr:
       waiting_for_listing_author_to_accept_offer: "En attente d'acceptation de l'offre par %{listing_author_name}"
       waiting_for_listing_author_to_accept_request: "En attente d'acceptation de la demande par %{listing_author_name}. Dès que %{listing_author_name} acceptera, le montant sera prélevé."
       waiting_for_you_to_accept_request: "En attente de votre acceptation de la demande"
-      waiting_confirmation_from_requester: "En attente de %{requester_name} de la réalisation de la commande"
+      waiting_confirmation_from_requester: "En attente de %{requester_name} de la confirmation de réalisation de la commande"
       waiting_confirmation_from_you: "En attente de votre confirmation de réalisation de la commande"
       waiting_payment_from_requester: "En attente du paiement par %{requester_name}"
       waiting_payment_from_you: "En attente de votre paiement"
@@ -907,16 +917,16 @@ fr:
       here_is_a_message_from: "Voici un message de %{other_party_given_name} : "
       request_marked_as_confirmed: "Commande réalisée - n'oubliez pas de déposer un avis"
       request_marked_as_canceled: "Commande annulée"
-      has_marked_request_as_confirmed: "%{other_party_full_name} a marqué la commande à propos de '%{request}' comme réalisée. Vous pouvez désormais donner un avis sur %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} a annulé la commande à propos de '%{request}'. Vous pouvez malgré tout donner un avis sur %{other_party_given_name}."
+      has_marked_request_as_confirmed: "%{other_party_full_name} a marqué la commande de '%{request}' comme réalisée. Vous pouvez désormais donner un avis sur %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} a annulé la commande de '%{request}'. Vous pouvez malgré tout donner un avis sur %{other_party_given_name}."
       giving_feedback_is_good_idea: "Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
-      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme terminée. La commande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
+      we_have_marked_request_as_confirmed: "Nous avons signalé la commande de '%{request}' comme terminée. La commande a été terminée automatiquement car %{days_passed} se sont écoulés depuis que la demande a été acceptée."
     booking_transaction_automatically_confirmed:
       subject: "Commande automatiquement signalée comme terminée - n'oubliez pas de donner un avis"
-      we_have_marked_request_as_confirmed: "Nous avons signalé la commande à propos de '%{request}' comme réalisée. La demande a été automatiquement réalisée car une journée s'est écoulée depuis la fin de la période de réservation."
+      we_have_marked_request_as_confirmed: "Nous avons signalé la commande de '%{request}' comme réalisée. La demande a été automatiquement réalisée car une journée s'est écoulée depuis la fin de la période de réservation."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Vous pouvez désormais donner un avis sur %{other_party_given_name}. Donner un avis est toujours une bonne idée. Si tout s'est bien passé, vous devriez signaler aux autres que %{other_party_given_name} est quelqu'un de confiance. S'il y a eu un problème, c'est aussi une bonne chose de le mentionner."
       give_feedback_to: "Donner un avis sur %{other_party_given_name}"
@@ -1052,7 +1062,7 @@ fr:
       transaction_requested_by_user: "Bonne nouvelle ! %{requester} est intéressé(e) par \"%{listing_title}\" et a autorisé un paiement pour cette annonce."
       you_have_time_to_accept: "Vous devez accepter ou refuser la demande sous %{payment_expires_in}. Si vous acceptez durant ce délai, le paiement sera réalisé. Si vous n'acceptez pas, la demande sera automatiquement refusée et vous ne recevrez pas le paiement."
       if_you_do_accept: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte."
-      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, vous recevrez immédiatement l'argent sur votre compte. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la commande \"%{listing_title}\" pour %{requester}."
+      if_you_do_accept_stripe: "Si vous acceptez la demande sous ce délai, le paiement sera confirmé. Vous recevrez l'argent directement sur votre compte en banque après que vous ayez réalisé la commande \"%{listing_title}\" pour %{requester}."
       if_you_do_not_accept: "Si vous rejetez la demande ou ne l'acceptez pas sous ce délai, la transaction sera automatiquement annulée, l'acheteur %{requester} ne sera pas facturé et vous ne serez pas payé."
       click_here_to_reply: "Cliquez ici pour répondre à la demande"
     transaction_preauthorized_reminder:
@@ -2379,6 +2389,13 @@ fr:
       document: "Document de vérification"
       send_verification: "Envoyer la vérification"
       need_verification: "Vérification supplémentaire nécessaire"
+    form_pin:
+      social_insurance_number: "Numéro d'Assurance Sociale (NAS)"
+      social_security_number: "Numéro de Sécurité Sociale (SSN)"
+      hong_kong_identity_card: "Numéro de carte d'identité de Hong Kong (HKID)"
+      singapore_identity_card: "National Registration Identity Card (NRIC) ou Foreign Identification Number (FIN)"
+      messages:
+        social_insurance_number: "doit être un Numéro d'Assurance Sociale (NAS) valide"
   payment_settings:
     title: "Préférences de paiement"
     bank_account: "Compte en banque"

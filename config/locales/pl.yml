@@ -162,7 +162,12 @@ pl:
         amazon_ses_notification: "Otrzymasz e-maila od %{email_sender} w celu potwierdzenia twojego adresu e-mailowego. Temat e-maila brzmi %{email_subject}. Postępuj zgodnie z instrukcjami w celu potwierdzenia adresu e-mailowego."
         this_is_how_it_will_look: "Tak to będzie wyglądało:"
         send_verification_button: "Wyślij e-mail weryfikacyjny"
+        change_sender_email: ~
         successfully_saved: "Adres nadawcy zachowany. E-mail weryfikacyjny będzie wysłany wkrótce."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Status: %{status}"
         status_verified: "Zweryfikowane - w użyciu"
         status_error: "Wystąpił błąd. Proszę odświeżyć stronę."
@@ -259,6 +264,10 @@ pl:
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
         ban_me_error: "Nie możesz wyrzucić samego siebie."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Nowy układ"
         description_roadmap_new: "Kiedy nowy elementy układu graficznego będą dostępne dla Twojej platformy, możesz wybrać czy chcesz zacząć używać nowego elementu, czy pozostać przy starym. Możesz zmienić ten wybór zawsze na tej stronie. Rekomenduje się zawsze używanie nowych wersji, gdyż stare mogą stać się niepasujące w pewnym momencie. W przypadku gdy element, którego używasz stanie się niepasujący zostaniesz powiadomiony z wyprzedzeniem."
@@ -449,6 +458,7 @@ pl:
       per_day_availability: "Dostępność \"per dzień\""
       per_night_availability: "Dostępność \"per noc\""
       pricing_units_disabled_info: "Jednostki nie mogą być wykorzystywane gdy włączono kalendarz dostępności."
+      can_not_find_name: ~
       index:
         listing_shapes: "Rodzaje zamówień"
         description: "Rodzaje zleceń określają jak przetwarzanie zamówień działa na Twojej platformie. Możesz zdecydować, czy użytkownicy wypożyczają, sprzedają, czy tylko umieszczają ogłoszenia i komunikują się za pomocą darmowych wiadomości."
@@ -2409,6 +2419,13 @@ pl:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

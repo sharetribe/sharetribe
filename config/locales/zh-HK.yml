@@ -147,7 +147,12 @@ zh-HK:
         amazon_ses_notification: ~
         this_is_how_it_will_look: 這是預覽：
         send_verification_button: 發送驗証電郵
+        change_sender_email: ~
         successfully_saved: 已成功儲存發送者的地址。驗証電郵將很快寄出。
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "狀態：%{status}"
         status_verified: "已認証 – 使用中"
         status_error: 發生錯誤。請刷新這個頁面。
@@ -244,6 +249,10 @@ zh-HK:
         save_user_status_error: ~
         ban_user_confirmation: 這將會把用戶從集市中刪除並阻止他們使用這個帳號再次訪問該站點。你確認要繼續嗎？
         ban_me_error: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -434,6 +443,7 @@ zh-HK:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
+      can_not_find_name: ~
       index:
         listing_shapes: 交易類別
         description: 交易類型決定了網站上訂單如何處理。通過交易類型可以決定用戶可以出租或者出售，或者只是讓用戶發布一些公告然後通過免費的消息進行溝通。
@@ -2325,6 +2335,13 @@ zh-HK:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

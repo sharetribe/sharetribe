@@ -152,7 +152,12 @@ es-ES:
         amazon_ses_notification: "Recibirás un correo de %{email_sender} para confirmar esta dirección de correo electrónico. El título del correo es %{email_subject}. Sigue las instrucciones en el correo para verificar tu dirección."
         this_is_how_it_will_look: "Así es como se verá:"
         send_verification_button: "Enviar correo de verificación"
+        change_sender_email: ~
         successfully_saved: "Dirección de remitente guardada correctamente. El correo de verificación se enviará pronto."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Estado: %{status}"
         status_verified: "Verificado - En uso"
         status_error: "Ocurrió un error. Por favor actualiza la página."
@@ -212,7 +217,7 @@ es-ES:
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
         show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
-        show_category_in_listing_list: "Mostrar el tipo de anuncio en el formato de lista"
+        show_category_in_listing_list: "Mostrar el tipo de orden en el formato de lista"
         listing_comments_in_use: "Todos los usuarios pueden publicar comentarios en los anuncios (visibles para el resto de los usuarios)"
         email_preferences: "Preferencias de correo"
         automatic_newsletters: "Enviar el newsletter diario/semanal a todos los usuarios (excepto si no han aceptado el envío de mensajes automáticos)"
@@ -249,6 +254,10 @@ es-ES:
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
         ban_me_error: "No te puedes rechazar a ti mismo."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Nuevo diseño"
         description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
@@ -326,23 +335,23 @@ es-ES:
           paypal:
             free: Conversación
             pending: Pendiente
-            preauthorized: Preautorizado
-            accepted: Aceptado
-            rejected: Rechazado
-            paid: Pagado
-            confirmed: Confirmado
-            canceled: Cancelado
+            preauthorized: Preautorizada
+            accepted: Aceptada
+            rejected: Rechazada
+            paid: Pagada
+            confirmed: Confirmada
+            canceled: Cancelada
             initiated: "Esperando el pago de PayPal"
             pending_ext: "Esperando el pago de PayPal"
           stripe:
             free: Conversación
             pending: Pendiente
-            preauthorized: Preautorizado
-            accepted: Aceptado
-            rejected: Rechazado
-            paid: Pagado
-            confirmed: Confirmado
-            canceled: Cancelado
+            preauthorized: Preautorizada
+            accepted: Aceptada
+            rejected: Rechazada
+            paid: Pagada
+            confirmed: Confirmada
+            canceled: Cancelada
             initiated: "Esperando el pago de Stripe"
             pending_ext: "Esperando el pago de Stripe"
         not_available: "No disponible"
@@ -439,6 +448,7 @@ es-ES:
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
+      can_not_find_name: ~
       index:
         listing_shapes: "Tipos de Orden"
         description: "Los tipos de orden determinan cómo funciona el proceso en tu comunidad. Puedes decidir si tus usuarios van a alquilar o vender, o incluso si sólo van a publicar anuncios y comunicarse por medio de mensajes directos."
@@ -577,7 +587,7 @@ es-ES:
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
-      confirm_disable: ~
+      confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus proveedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los proveedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
       stripe_connected:
         title: "Stripe conectado"
         disable: "Deshabilitar Stripe"
@@ -683,9 +693,11 @@ es-ES:
     paypal_fee_info:
       title: "Comisión de procesamiento de pago de PayPal"
       body_text: |-
-          PayPal cobra una tarifa de procesamiento de cada pago realizado. Esta tarifa está entre 2% y 5% del precio total de venta, dependiendo de su volumen mensual de ventas y del país de residencia del comprador. En general, las compras domésticas tienen tarifas más bajas que las internacionales, y las mayores ventas mensuales le dan un descuento en estas tarifas.
-          Puedes ver las tarifas exactas accediendo a su cuenta de PayPal %{link_to_paypal}. Después de cada compra recibirá un recibo en el que se muestra la tarifa exacta.
-      body_text_accept: ~
+          Para pagos con PayPal, %{service_name} cobra una comisión de %{paypal_commission}%. Las cuotas adicionales de PayPal no están incluidas en esta comisión, así que además de la comisión de %{service_name}, también deberás pagar las cuota de PayPal por cada pago procesado por PayPal. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
+          Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
+      body_text_accept: |-
+          Esta transacción será procesada por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
+          Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       link_to_paypal_text: aquí
     paypal_only_fee_info:
       title: "Cuota de procesamiento de pago de PayPal"
@@ -859,7 +871,7 @@ es-ES:
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
-      you_are_banned_in_this_community: "El administrador de %{service_name} te ha impedido la entrada al sitio. Si quieres contactar al administrador, puedes %{link_to_contact_page} aquí."
+      you_are_banned_in_this_community: "El equipo de %{service_name} te ha impedido la entrada al sitio. Si quieres contactar al equipo de %{service_name}, puedes %{link_to_contact_page} aquí."
       contact_page_link: contactarlo
     new:
       welcome_fb_user: "Bienvenido a %{service_name}, %{name}!"
@@ -1428,7 +1440,7 @@ es-ES:
       payment_successful: "Pago existoso"
       payment_canceled: "Pago cancelado."
       error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
-      cannot_receive_payment: "Hay algún error que está provocando que la otra persona no pueda recibir el pago. Por favor, contacta con los administradores para aclarar el motivo."
+      cannot_receive_payment: "Hay algún error que está provocando que la otra persona no pueda recibir el pago. Por favor, contacta con el equipo de %{service_name} para aclarar el motivo."
       payment_waiting_for_later_accomplishment: "Cuando hayas pagado, se lo notificaremos al vendedor y recibirás un recibo por correo electrónico"
       password_recovery_sent: "Instrucciones para cambiar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
@@ -1861,7 +1873,7 @@ es-ES:
       billing_agreement_canceled: "El acuerdo de facturación ha sido cancelado"
       billing_agreement_not_accepted: "No has aceptado el acuerdo de facturación de Paypal"
       billing_agreement_wrong_account: "Las cuentas de Paypal no coinciden. Por favor, usa la misma cuenta de Paypal con la que te has conectado en el primer paso."
-      something_went_wrong: "Ocurrió algún error. Por favor, intenta de nuevo. Si el problema persiste, ponte en contacto con el administrador del sitio."
+      something_went_wrong: "Ocurrió algún error. Por favor intenta de nuevo. Si el problema persiste, ponte en contacto con el equipo de %{service_name}."
       account_not_verified: "No has verificado tu cuenta de PayPal. Necesitas ir a paypal.com y verificar tu cuenta antes de continuar."
       account_restricted: "Tu cuenta de Paypal está restringida y no es posible conectarla. Por favor inicia sesión en paypal.com para obtener más información o contacta al servicio de atención al cliente de PayPal para resolver este problema."
     paypal_account_connected_title: "Cuenta PayPal conectada"
@@ -2377,6 +2389,13 @@ es-ES:
       document: "Documento de verificación"
       send_verification: "Envias verificación"
       need_verification: "Necesita verificación adicional"
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: "Preferencias de pago"
     bank_account: "Cuenta bancaria"

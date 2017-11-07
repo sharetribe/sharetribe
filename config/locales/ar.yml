@@ -137,7 +137,12 @@ ar:
         amazon_ses_notification: ~
         this_is_how_it_will_look: "هكذا تبدو:"
         send_verification_button: "أرسل رسالة التأكيد"
+        change_sender_email: "تغيير البريد الإلكتروني للمرسل"
         successfully_saved: "تم حفظ بريد المرسل بنجاح، سيتم إرسال رسالة التأكيد حالا"
+        successfully_saved_name: "تم تحديث اسم المرسل بنجاح"
+        set_sender_name: "تغيير اسم المرسل"
+        change_sender_name: "تغيير اسم المرسل"
+        change_sender_prompt: "‎%{change_email_link}‎ أو ‎%{change_name_link}‎"
         status: "‎%{status}‎ :الحالة"
         status_verified: مؤكد-مستخدم
         status_error: "حصل خطأ ما. يرجى إعادة تهيئة الصفحة."
@@ -234,6 +239,10 @@ ar:
         save_user_status_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
         ban_user_confirmation: ~
         ban_me_error: "لا يمكنك حظر نفسك"
+        search: بحث
+        search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
+        reset_search: "أظهر الكل"
+        for_search_terms: ~
       new_layout:
         new_layout: "تصميم جديد"
         description_roadmap_new: ~
@@ -424,6 +433,7 @@ ar:
       per_day_availability: "متاح باليوم"
       per_night_availability: "متاح بالليلة"
       pricing_units_disabled_info: "لا يمكن استخدام وحدات الأسعار عندما يكون التقويم مفعل."
+      can_not_find_name: ~
       index:
         listing_shapes: "أنواع الطلب"
         description: ~
@@ -1538,7 +1548,7 @@ ar:
         repeated: "مكرر (قم بإضافة تواريخ وأيام في \"الشرح المفصل\")"
       description:
         detailed_description: "شرح مفصل"
-        youtube_info: "إذا كان شرحك يحتوي على رابط فيديو من اليوتيوب، سيظهر مقطع الفيديو سيظهر أسفل من الشرح"
+        youtube_info: "إذا كان شرحك يحتوي على رابط فيديو من اليوتيوب، سوف يظهر مقطع الفيديو في آخر الشرح."
       destination:
         destination: "مكان الوصول"
       form_content:
@@ -2368,6 +2378,13 @@ ar:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

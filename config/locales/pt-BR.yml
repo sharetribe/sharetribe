@@ -152,7 +152,12 @@ pt-BR:
         amazon_ses_notification: "Você receberá um e-mail de %{email_sender} para confirmar seu endereço de e-mail. O assunto do e-mail será %{email_subject}. Siga as instruções para verificar seu endereço de e-mail."
         this_is_how_it_will_look: "Vai ficar assim:"
         send_verification_button: "Envie e-mail de verificação"
+        change_sender_email: ~
         successfully_saved: "Endereço de e-mail do remetente salvo com sucesso. O e-mail de verificação será enviado em breve."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Estado: %{status}"
         status_verified: "Verificado - em uso"
         status_error: "Aconteceu um erro. Por favor carregue a página novamente."
@@ -249,6 +254,10 @@ pt-BR:
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Isso remove o usuário do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
         ban_me_error: "Você não pode se banir."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Novo layout"
         description_roadmap_new: ~
@@ -439,6 +448,7 @@ pt-BR:
       per_day_availability: "Disponibilidade \"por dia\""
       per_night_availability: "Disponibilidade \"por noite\""
       pricing_units_disabled_info: "As unidades de preço não podem ser usadas quando o calendário de disponibilidade está ativado."
+      can_not_find_name: ~
       index:
         listing_shapes: "Pedidos por tipos"
         description: "O tipo da ordem define a forma como a ordem é processada no seu site. Você pode decidir se seus usuário poderão alugar ou vender ou talvez apenas criar anúncios e se comunicar através de mensagens gratuitas."
@@ -1043,9 +1053,9 @@ pt-BR:
       subject: "%{requester} solicitou e autorizou o pagamento de %{listing_title}"
       transaction_requested_by_user: "%{requester} solicitou e pagou por \"%{listing_title}\""
       you_have_time_to_accept: "Você precisa aceitar ou rejeitar o pedido no prazo de %{payment_expires_in}. Se você aceita vender, dentro deste prazo, o pagamento vai ser enviado para sua conta. Se você não aceitar, o pedido será rejeitado automaticamente e você não vai ser pago."
-      if_you_do_accept: ~
+      if_you_do_accept: "Se você aceitar o pedido, dentro deste prazo, o pagamento vserá enviado para sua conta."
       if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
+      if_you_do_not_accept: "Se você rejeitar o pedido ou não o aceitar nesse prazo, a transação será automaticamente cancelada, %{requester} não será cobrado e você não receberá o pagamento."
       click_here_to_reply: "Clique aqui para responder ao pedido"
     transaction_preauthorized_reminder:
       subject: "Não esqueça de aceitar o pedido de %{requester} sobre o anúncio %{listing_title}"
@@ -2369,6 +2379,13 @@ pt-BR:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

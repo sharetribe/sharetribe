@@ -147,7 +147,12 @@ ja:
         amazon_ses_notification: ~
         this_is_how_it_will_look: ~
         send_verification_button: 認証メールを送信
+        change_sender_email: ~
         successfully_saved: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "ステータス: %{status}"
         status_verified: "認証済 - 利用中"
         status_error: エラーが発生しました。ページを更新してください。
@@ -244,6 +249,10 @@ ja:
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
         ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -434,6 +443,7 @@ ja:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
+      can_not_find_name: ~
       index:
         listing_shapes: 課金タイプ
         description: 注文タイプとは、注文がどのように処理されるかを定義するものです。ユーザーが貸そうとしているのか売ろうとしているのか、あるいは単に広告を載せてダイレクトメッセージを通してやりとりをしようとしているのか、決める事ができます。
@@ -2338,6 +2348,13 @@ ja:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~

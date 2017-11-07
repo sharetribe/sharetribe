@@ -8,47 +8,47 @@ vi:
   admin:
     categories:
       edit:
-        edit_listing_category: "Chỉnh sửa chủng loại %{category}"
+        edit_listing_category: "Sửa mục %{category}"
       index:
-        listing_categories: "Các hạng mục tin đăng"
-        create_a_new_category: "+ Tạo một hạng mục mới"
-        remove_category_confirmation: "Bạn có chắc là bạn muốn gỡ bỏ hạng mục %{category_name}"
-        saving_order: "Đang lưu thứ tự hạng mục"
-        save_order_successful: "thành công lưu dữ thứ tự hạng mục"
-        save_order_error: ~
+        listing_categories: "Các danh mục đăng bài"
+        create_a_new_category: "+ Tạo mục mới"
+        remove_category_confirmation: "Bạn có chắc là bạn muốn xoá mục %{category_name}"
+        saving_order: "Đang lưu thứ tự danh mục"
+        save_order_successful: "Thứ tự danh mục đã được lưu thành công"
+        save_order_error: "Đã xảy ra lỗi khi lưu thứ tự danh mục. Xin vui lòng tải lại trang và thử lại."
       new:
-        new_listing_category: "Danh mục chủng loại mới"
+        new_listing_category: "Danh mục đăng bài mới"
       form:
         category_name:
-          category_title: "Tiêu đề hạng mục"
+          category_title: "Tiêu đề"
         category_parent:
-          category_parent: "Hạng mục chủ"
+          category_parent: "Danh mục cha"
           no_parent: "Không có"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "Các loại đơn hàng"
+          transaction_types_description: "Thiếu lập các loại đơn hàng để giới hạn các loại bài có thể đăng trong danh mục này. Ví dụ, chỉ cho phép rao bán, hoặc hỗ trợ cả cho thuê / tặng miễn phí."
           select_all: "Chọn tất cả"
-          clear_all: "Làm sạch tất cả"
+          clear_all: "Huỷ chọn"
         buttons:
           save: Lưu
-          cancel: Thôi
+          cancel: Huỷ
       remove:
-        remove_category: "Gỡ bỏ hạng mục"
-        remove_category_name: "Gỡ bỏ hạng mục %{category_name}"
-        warning_remove_effects: "Cảnh báo! Loại bỏ hạng mục %{category_name} sẽ có những tác động sau:"
+        remove_category: "Xoá danh mục"
+        remove_category_name: "Xoá mục %{category_name}"
+        warning_remove_effects: "Cảnh báo! Việc xoá mục %{category_name} sẽ có những tác động sau:"
         warning_listing_will_be_moved:
-          other: "Có những tin đăng %{count} ở trong hạng mục. Chúng sẽ được chuyển đến các hạng mục đã được chọn."
+          other: "Có %{count} bài đăng trong danh mục này. Tất cả sẽ được chuyển qua danh mục được chọn."
         warning_custom_field_will_be_moved:
-          other: "Có %{count} trường tùy chỉnh trong chủng loại. Nó sẽ được di chuyển đến các chủng loại đã chọn."
+          other: "Có %{count} ô nhập liệu trong danh mục này. Tất cả sẽ được chuyển qua danh mục được chọn."
         warning_subcategory_will_be_removed:
-          other: "Có %{count} hạng mục con trong hạng mục. Xóa tất cả hạng mục con"
+          other: "Có %{count} danh mục con. Tất cả sẽ bị xoá."
         warning_with_subcategories_listing_will_be_moved:
-          other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
+          other: "Có %{count} bài đăng trong danh mục này và các danh mục con. Tất cả sẽ được chuyển qua danh mục được chọn."
         warning_with_subcategories_custom_field_will_be_moved:
-          other: "Có %{count} danh sách trong danh mục và tiểu thể loại. Nó sẽ được di chuyển đến các thể loại đã chọn."
-        select_new_category: "Chọn hạng mục mới để các sản phẩm được chọn được di chuyển đến đó"
+          other: "Có %{count} ô nhập liệu trong danh mục này và các danh mục con. Tất cả sẽ được chuyển qua danh mục được chọn."
+        select_new_category: "Chọn danh mục mới để di chuyển các thành phần đã nêu ở trên:"
         buttons:
-          remove: "Loại bỏ"
+          remove: Xoá
           cancel: Hủy
     communities:
       edit_details:
@@ -99,7 +99,7 @@ vi:
         community_slogan_color_instructions_text: "Bạn có thể thay đổi màu sắc của slogan trên trang chủ bằng cách nhập một giá trị màu hex. Khẩu hiệu được hiển thị cho người dùng không đăng nhập %{colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây. %{see_how_it_looks_like}."
         community_description_color: "Màu mô tả của thị trường"
         community_description_color_instructions_text: "Bạn có thể thay đổi màu sắc của slogan trên trang chủ bằng cách nhập một giá trị màu hex. Khẩu hiệu được hiển thị cho người dùng không đăng nhập %{colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây. %{see_how_it_looks_like}."
-        new_listing_button_custom_color: "Đăng màu nút danh sách mới"
+        new_listing_button_custom_color: "Màu nút Đăng bài mới"
         logo_instructions_text_with_dimensions: "Logo phải có kích thước %{width}x%{height}."
         logo_instructions_text_with_dimensions_no_placing: "Kích thước logo phải là %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: ~
@@ -110,9 +110,9 @@ vi:
         small_cover_photo_instructions_text_with_dimensions: "Hình ảnh sẽ được thu nhỏ lại thành thành kích thước %{height}x%{width} và những hình ảnh cao hơn sẽ được cắt ở giữa."
         main_content_width: "Khi chọn ảnh bìa xin lưu ý rằng nội dung trang chính là %{main_width} pixel rộng nhất. Hãy nhớ cũng kiểm tra ảnh bìa của bạn trông như thế nào trên màn hình nhỏ hơn (ví dụ bằng cách sử dụng một cửa sổ trình duyệt hẹp hơn)."
         custom_color1_instructions_text: "Bạn có thể thay đổi màu của giao diện người dùng bằng cách nhập một mã hex vào đây. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> sẽ đưa ra mã hex tương ứng vớ  màu bạn chọn."
-        new_listing_button_instructions_text: "Bạn có thể thay đổi màu của nút Đăng một danh sách mới bằng cách nhập một giá trị màu hex. %{link_to_colorpicker} có thể giúp bạn chọn màu sắc và cung cấp cho bạn mã màu hex. Sau đó bạn có thể sao chép mã ở đây."
+        new_listing_button_instructions_text: "Bạn có thể thay đổi màu của nút Đăng bài mới bằng cách nhập giá trị màu hex. %{link_to_colorpicker} có thể giúp bạn chọn màu sắc và cung cấp mã hex tương ứng."
         default_browse_view: "Chế độ duyệt mặc định"
-        default_browse_view_instructions_text: "Chế độ xem duyệt mặc định được sử dụng trên trang chủ để đặt cách danh sách được hiển thị theo mặc định."
+        default_browse_view_instructions_text: "Chế độ mặc định hiển thị các bài đăng trên trang chủ."
         grid: Lưới
         list: "Danh sách"
         map: "Bản đồ"
@@ -147,7 +147,12 @@ vi:
         amazon_ses_notification: "Bạn sẽ nhận được email từ %{email_sender} để xác nhận địa chỉ e-mail của bạn. Chủ đề email là '%{email_subject}'. Làm theo hướng dẫn để xác minh email của bạn."
         this_is_how_it_will_look: "Đây là cách nó sẽ trông:"
         send_verification_button: "Gửi email xác minh"
+        change_sender_email: ~
         successfully_saved: "Đã lưu địa chỉ người gửi thành công. Email xác minh sẽ sớm được gửi."
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
         status: "Trạng thái: %{status}"
         status_verified: "Đã được xác minh khi sử dụng"
         status_error: "Đã xảy ra lỗi. Vui lòng làm mới trang."
@@ -203,17 +208,17 @@ vi:
         select_distance_unit: "Hiển thị khoảng cách trong %{distance_units_selector}"
         km: km
         miles: dặm
-        show_only_nearby: "Chỉ hiển thị các danh sách gần đó với tìm kiếm vị trí"
+        show_only_nearby: "Chỉ hiển thị các bài đăng xung quanh vị trí tìm kiếm"
         listing_preferences: "Danh mục yêu thích"
         transaction_preferences: ~
         show_listing_publishing_date: "Hiển thị ngày đăng trên bài đăng"
-        show_category_in_listing_list: "Hiển thi thể loại bài đăng trên danh sách"
-        listing_comments_in_use: "Cho phép người dùng đăng nhận xét lên danh sách (có thể xem được với tất cả người dùng khác)"
+        show_category_in_listing_list: "Hiển thi loại bài đăng trong danh sách"
+        listing_comments_in_use: "Cho phép người dùng nhận xét bài đăng (ai cũng xem được)"
         email_preferences: "Email yêu thích"
         automatic_newsletters: "Gửi bản tin hàng ngày / hàng tuần tự động cho tất cả người dùng (trừ khi họ chọn không tham gia)"
         email_admins_about_new_members: "Gửi quản trị viên email mỗi khi người dùng mới đăng ký"
         google_analytics_key: "ID theo dõi Google Analytics"
-        twitter_handle: "Twitter xử lý (được sử dụng với nút tweet trong trang danh sách)"
+        twitter_handle: "Tên tài khoản Twitter (dùng cho nút tweet trong trang bài đăng)"
         update_settings: "Lưu thiết lập"
         automatically_confirmed_no_escrow: "Đơn đặt hàng sẽ được tự động đánh dấu là %{days_dropdown} ngày hoàn thành sau khi thanh toán đã được thực hiện"
         automatic_newsletter_frequency: "Gửi bản tin tự động: %{frequency_dropdown}"
@@ -244,6 +249,10 @@ vi:
         save_user_status_error: "Lưu dữ không thành công. Hãy làm mới trang và thử lại."
         ban_user_confirmation: ~
         ban_me_error: "Bạn không thể tự cấm mình."
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
       new_layout:
         new_layout: "Bố cục mới"
         description_roadmap_new: "Khi các thành phần bố cục mới được tạo sẵn cho thị trường của bạn, bạn có thể chọn xem bạn muốn bắt đầu sử dụng thành phần mới hay tiếp tục sử dụng thành phần mới. Bạn có thể bật / tắt vùng chọn ở bất kỳ điểm nào từ trang này. Bạn nên luôn luôn sử dụng phiên bản mới vì các thành phần cũ có thể được loại bỏ tại một số điểm. Trong trường hợp một thành phần mà bạn hiện đang sử dụng sẽ được loại bỏ, bạn sẽ được liên hệ trước."
@@ -254,8 +263,8 @@ vi:
       social_media:
         social_media: "Mạng xã hội"
         twitter_handle: "Tài khoản Twitter"
-        twitter_handle_info_text: "Tên đăng nhập của tài khoản Twitter trên thị trường của bạn (nếu bạn có). Nó sẽ được đề cập khi mọi người sử dụng nút tweet trên trang danh sách."
-        twitter_handle_info_text_with_instructions: "Tên đăng nhập của tài khoản Twitter trên thị trường của bạn (nếu bạn có). Nó sẽ được đề cập khi mọi người sử dụng nút tweet trên trang danh sách. %{instructions_link}."
+        twitter_handle_info_text: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng."
+        twitter_handle_info_text_with_instructions: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng. %{instructions_link}."
         twitter_instructions_link_text: "Đọc thêm"
         twitter_handle_placeholder: "tên đăng nhập"
         invalid_twitter_handle: "Tài khoản Twitter nên chỉ chứa tối đa 15 ký tự chữ và số (ký tự A-Z và số 0-9)."
@@ -291,14 +300,14 @@ vi:
         about_page: "giới thiệu trang"
       topbar:
         topbar: "Thanh trên cùng"
-        new_listing_button_label: "Đăng văn bản nút danh sách mới"
+        new_listing_button_label: "Nội dung nút Đăng bài mới"
         invalid_post_listing_button_label: "Vui lòng cung cấp văn bản hợp lệ cho nút \"Đăng niêm yết mới\""
       transactions:
         export_all_as_csv: "Xuất tất cả dưới dạng CSV"
         transactions: "Xem giao dịch"
         headers:
           conversation: "Chủ đề đối thoại"
-          listing: "Danh sách"
+          listing: "Bài đăng"
           status: "Trạng thái"
           sum: Tổng
           started: "Bắt đầu"
@@ -373,7 +382,7 @@ vi:
         save: Lưu
         field_title: "Tựa của trường"
         field_type: "Loại trường"
-        categories: "Bảng liệt kê hạng mục nơi mà các trường được sử dụng"
+        categories: "Các danh mục mà ô nhập liệu được sử dụng"
         select_all: "Chọn tất cả"
         clear_all: "Làm sạch tất cả"
         options: "Các lựa chọn"
@@ -408,10 +417,10 @@ vi:
           title: "Bạn muốn gửi email cho ai?"
           options:
             all_users: "Tất cả thành viên"
-            with_listing: "Thành viên đã đăng ít nhất một danh sách"
-            with_listing_no_payment: "Thành viên đã đăng ít nhất một danh sách nhưng chưa nhập thông tin thanh toán"
-            with_payment_no_listing: "Thành viên đã có thông tin thanh toán nhưng chưa đăng danh sách nào"
-            no_listing_no_payment: "Thành viên chưa đăng danh sách và chưa nhập thông tin thanh toán"
+            with_listing: "Thành viên đã đăng ít nhất một bài"
+            with_listing_no_payment: "Thành viên đã đăng ít nhất một bài nhưng chưa nhập thông tin thanh toán"
+            with_payment_no_listing: "Thành viên đã có thông tin thanh toán nhưng chưa đăng bài nào"
+            no_listing_no_payment: "Thành viên chưa đăng bài và chưa nhập thông tin thanh toán"
         email_subject: "Chủ đề"
         email_content: "Nội dung"
         email_content_placeholder: ~
@@ -434,21 +443,22 @@ vi:
       per_day_availability: "lịch mỗi ngày"
       per_night_availability: "Có \"mỗi đêm\""
       pricing_units_disabled_info: "Không thể sử dụng đơn vị giá khi lịch tính khả dụng được bật."
+      can_not_find_name: "Không tìm thấy loại đơn hàng có tên: %{name}"
       index:
-        listing_shapes: "Kiểu đơn hàng"
-        description: "Các loại đơn đặt hàng xác định cách trình tự của quy trình làm việc trong trang web của bạn. Bạn có thể quyết định xem người dùng của bạn đang thuê hoặc bán, hoặc có thể chỉ đăng thông báo và giao tiếp thông qua các tin nhắn trực tiếp."
-        read_more_about_order_types: "Đọc thêm về các đơn đặt hàng"
-        add_new_shape: "Thêm loại đơn đặt hàng mới: "
+        listing_shapes: "Các loại đơn hàng"
+        description: "Các loại đơn hàng giới hạn các loại bài có thể đăng trong trang của bạn. Bạn có thể quyết định xem người dùng được đăng bài thuê hay bán, hoặc có thể chỉ đăng thông báo và trao đổi qua tin nhắn trực tiếp."
+        read_more_about_order_types: "Đọc thêm về các loại đơn hàng"
+        add_new_shape: "Thêm loại đơn hàng mới: "
         select_template: "Chọn mẫu ..."
         all_categories: "Tất cả danh mục"
         no_categories: "Không có danh mục"
-        category_count: "%{category_count} thể loại"
+        category_count: "%{category_count} danh mục"
         header:
-          listing_shape_name: "Tên loại đặt hàng"
+          listing_shape_name: "Tên loại đơn hàng"
           listing_shape_categories: "Danh mục nơi nó được sử dụng"
         order:
           saving_order: "Lưu đơn hàng"
-          save_order_successful: "Đã lưu lệnh đơn đặt hàng thành công"
+          save_order_successful: "Đã lưu loại đơn hàng"
           save_order_error: "Đã xảy ra lỗi khi lưu đơn hàng. Hãy làm mới trang và thử lại."
       templates:
         selling_products: "Bán sản phẩm"
@@ -459,38 +469,38 @@ vi:
         announcement: "Đăng thông báo"
         custom: "Tự chọn"
       new:
-        create_listing_shape: "Tạo loại đơn đặt hàng"
+        create_listing_shape: "Tạo loại đơn hàng"
         create: Tạo
         cancel: Hủy
-        create_success: "Đã tạo loại đơn đặt hàng mới '%{shape}'"
-        create_failure: "Không thể tạo loại đơn đặt hàng mới. Lỗi: %{error_msg}"
+        create_success: "Đã tạo loại đơn hàng mới '%{shape}'"
+        create_failure: "Có lỗi khi tạo loại đơn hàng mới: %{error_msg}"
       edit:
-        edit_listing_shape: "Chỉnh sửa loại đơn đặt hàng '%{shape}'"
+        edit_listing_shape: "Sửa loại đơn hàng '%{shape}'"
         update: Lưu
         cancel: Hủy
-        update_success: "Thay đổi kiểu đơn đặt hàng '%{shape}' đã lưu"
+        update_success: "Đã lưu loại đơn hàng '%{shape}'"
         update_failure: "Không thể lưu thay đổi. Lỗi: %{error_msg}"
-        delete: "Xóa loại đơn đặt hàng"
+        delete: "Xóa loại đơn hàng"
         confirm_delete_order_type:
-          other: "Có %{count} danh sách có loại đơn đặt hàng này. Nếu bạn xóa loại đơn đặt hàng, danh sách này sẽ bị đóng. Bạn có chắc chắn muốn xóa loại đơn hàng?"
+          other: "Có %{count} bài đăng sử dụng loại đơn hàng này. Nếu bạn xóa nó, tất cả các bài đăng này sẽ bị đóng. Bạn có chắc chắn muốn xóa loại đơn hàng?"
         can_not_delete_last: "Bạn không thể xóa loại đơn hàng này vì đây là loại duy nhất trong thị trường của bạn."
-        can_not_delete_only_one_in_categories: "Bạn không thể xóa loại đơn hàng này vì trong các loại sau đây loại đơn đặt hàng này là loại chỉ sử dụng: %{categories}"
+        can_not_delete_only_one_in_categories: "Bạn không thể xóa loại đơn hàng này vì trong các danh mục sau đây nó là loại duy nhất được sử dụng: %{categories}"
       listing_shape_name: Tên
       listing_shape_name_placeholder: "Ví dụ. Bán"
       action_button_label: "Nhãn nút thanh toán"
       action_button_placeholder: "Ví dụ. Mua"
       open_listings_warning:
-        other: "Có %{count} danh sách mở với loại đơn đặt hàng này. Nếu bạn thay đổi bất kỳ cài đặt nào dưới đây, danh sách đó sẽ giữ lại các cài đặt cũ. Danh sách có thể được thay đổi để cài đặt mới bằng cách chỉnh sửa nó theo cách thủ công. Nếu bạn không muốn có danh sách với cài đặt cũ hiển thị trên trang web của mình, bạn có thể đóng nó bằng cách nhấp vào nút bên dưới."
+        other: "Có %{count} bài đăng còn đang mở với loại đơn hàng này. Nếu bạn thay đổi bất kỳ cài đặt nào dưới đây, các bài đăng đó sẽ vẫn giữ lại các cài đặt cũ. Bài đăng có thể được cập nhật cài đặt mới bằng cách sửa thủ công từng cái một. Nếu bạn không muốn có bài đăng với cài đặt cũ hiển thị trên trang web của mình, bạn có thể đóng nó bằng cách nhấp vào nút bên dưới."
       close_listings_action:
-        other: "Đóng %{count} danh sách"
+        other: "Đóng %{count} bài đăng"
       confirm_close_listings_action:
-        other: "Bạn có chắc chắn muốn đóng %{count} danh sách?"
-      successfully_closed: "Đóng danh sách thành công"
-      successfully_deleted: "Đã xoá thành công loại đơn đặt hàng '%{order_type}'"
+        other: "Bạn có chắc chắn muốn đóng %{count} bài đăng?"
+      successfully_closed: "Các bài đăng đã đóng thành công"
+      successfully_deleted: "Đã xoá loại đơn hàng '%{order_type}'"
       pricing_and_checkout_title: "Giá cả và thanh toán"
       online_payments_label: "Cho phép người bán chấp nhận thanh toán trực tuyến"
       shipping_label: "Cho phép người bán xác định phí vận chuyển"
-      price_label: "Cho phép người bán thêm giá vào danh sách của họ"
+      price_label: "Cho phép người bán thêm giá tiền cho bài đăng của họ"
       units_title: "Đơn giá"
       units_desc: "Nếu bạn đã bật các đơn vị đặt giá, giá niêm yết được hiển thị là \"giá cho mỗi đơn vị giá\". Ví dụ: \"39 đô la một giờ\"."
       units:
@@ -500,7 +510,7 @@ vi:
         night: "Mỗi đêm"
         week: "Mỗi tuần"
         month: "Mỗi tháng"
-      can_not_find: "Không thể tìm thấy loại đơn đặt hàng có id: %{id}"
+      can_not_find: "Không tìm thấy loại đơn hàng có mã: %{id}"
       add_custom_unit: "+ Thêm đơn vị đặt giá tùy chỉnh…"
       delete_custom_unit: xóa
       custom_unit_form:
@@ -526,8 +536,8 @@ vi:
       personal_payment_preferences_link_text: "Tài khoản thị trường cá nhân của bạn"
       read_more_about_paypal: "Đọc thêm về hệ thống thanh toán"
       edit_payment_settings: "Chỉnh sửa cài đặt thanh toán"
-      supported_currencies_information_text: "Hệ thống thanh toán trực tuyến của Sharetribe hỗ trợ 24 loại tiền tệ. Nếu đơn vị tiền tệ của bạn không có trong danh sách, vui lòng %{contact_support_link}. Nếu bạn thay đổi đơn vị tiền tệ trên thị trường, các danh sách hiện tại sẽ giữ nguyên tiền tệ cũ. Bạn cần phải chỉnh sửa các danh sách riêng lẻ để chuyển đổi chúng sang đơn vị tiền tệ mới."
-      currency_change_warning_text: "Báo trước: nếu bạn tiến lên phía trước với thay đổi tiền tệ này, đừng quên yêu cầu người bán của bạn tự chỉnh sửa danh sách hiện tại của họ để có được cập nhật tiền tệ."
+      supported_currencies_information_text: "Hệ thống thanh toán trực tuyến của Sharetribe hỗ trợ 24 loại tiền tệ. Nếu đơn vị tiền tệ của bạn không có trong danh sách, vui lòng %{contact_support_link}. Nếu bạn thay đổi thiết lập này của chợ, các bài đăng hiện tại sẽ giữ nguyên đơn vị cũ. Bạn phải sửa thủ công từng bài để chuyển sang đơn vị mới."
+      currency_change_warning_text: "Lưu ý: nếu bạn tiếp tục, đừng quên yêu cầu người bán tự điều chỉnh các bài đăng hiện tại để sử dụng đơn vị tiền tệ mới."
       marketplace_currency_label: "Loại tiền tệ trong thị trường:"
       minimum_listing_price_label: "Kích thước giao dịch tối thiểu:"
       transaction_fee_label: "Phí giao dịch:"
@@ -582,17 +592,17 @@ vi:
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
-        add_your_api_keys: ~
-        how_to_get_these: ~
+        add_your_api_keys: "Nhập API keys của Stripe"
+        how_to_get_these: "Lấy các thông tin này ở đâu?"
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
+        save_api_keys: "Lưu cấu hình Stripe"
         invalid_secret: ~
         invalid_publishable: ~
       index:
-        header: ~
-        info: ~
-        active: ~
+        header: "Các Thiết lập Thanh toán Khả dụng"
+        info: "Bạn có thể cấu hình các cồng thanh toán để sử dụng trong chợ điện tử. Hiện tại hệ thống hỗ trợ PayPal và Stripe."
+        active: Bật
         gateway: ~
         process: ~
         commission: ~
@@ -603,13 +613,13 @@ vi:
         payments_not_enabled: ~
     transaction_types:
       sell: Bán
-      rent: "cho thuê"
+      rent: "Cho thuê"
       give: Tặng
       lend: "Cho mượn"
       swap: "Trao đổi"
       service: "Chào bán"
       request: "Yêu cầu"
-      inquiry: ~
+      inquiry: "Thông báo"
       share_for_free: "Chia sẻ miễn phí"
       default_action_button_labels:
         sell: Mua
@@ -640,7 +650,7 @@ vi:
       offer_to_swap: đổi
       request_to_swap: đổi
       share_for_free: "chia sẻ miễn phí"
-      accept_for_free: "Sử dụng miễn phí."
+      accept_for_free: "muốn dùng miễn phí"
     categories:
       item: "Sản phẩm"
       favor: "Dịch vụ"
@@ -666,10 +676,10 @@ vi:
     what_is_this: "Đây là gì?"
     removed_user: "Đã loại bỏ người dùng"
     payment_fee_info:
-      title: ~
-      title_paypal: ~
-      stripe: ~
-      paypal: ~
+      title: "Phí xử lý giao dịch"
+      title_paypal: "Phí xử lý của PayPal"
+      stripe: Stripe
+      paypal: PayPal
       info: ~
     paypal_fee_info:
       title: "Phí xử lý thanh toán của PayPal"
@@ -679,11 +689,13 @@ vi:
       body_text_accept: ~
       link_to_paypal_text: đây
     paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
+      title: "Phí xử lý của PayPal"
+      body_text: |-
+          %{service_name} chấp nhận thanh toán qua PayPal. PayPal thu phí xử lý trên mỗi giao dịch. Mức phí này ở khoảng 2% đến 5% giá trị giao dịch, tuỳ vào tổng lượng giao dịch hàng tháng của bạn và quốc gia của người bán. Thông thường thì giao dịch nội địa bị tính phí thấp hơn giao dịch quốc tế, lượng giao dịch càng lớn thì phí càng ít.
+          Bạn có thể xem chi tiết tiền phí bằng cách đăng nhập vào tài khoản PayPal và tới %{link_to_paypal}. Sau mỗi giao dịch bạn sẽ nhận được một hoá đơn với mức phí cụ thể.
+      link_to_paypal_text: "trang này"
     stripe_fee_info:
-      title: ~
+      title: "Phí xử lý của Stripe"
       body_text: ~
       link_to_stripe_text: ~
   conversations:
@@ -742,7 +754,7 @@ vi:
       canceled_request: ~
       canceled_offer: "Đề nghị bị hủy."
       message_from: "Tin nhắn từ %{person}"
-      about_listing: "Giới thiệu danh sách %{listing_title}"
+      about_listing: "Về bài đăng %{listing_title}"
       free_message: ~
       message_content_not_available: "Nội dung tin nhắn không thể hiển thị"
     message:
@@ -768,7 +780,7 @@ vi:
       you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
       send_message_to_user: "Gửi tin nhắn đến %{person}"
-      about_listing: "Giới thiệu danh sách %{listing_title}"
+      about_listing: "Về bài đăng %{listing_title}"
       author_has_to_accept_request: "%{author_name} cần chấp nhận yêu cầu trước khi bạn có thể trả tiền"
     show:
       in_response_to_listing: "về sản phẩm"
@@ -945,8 +957,8 @@ vi:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} đã nhận xét %{listing} của bạn."
       view_comment: "Xem phản hồi"
-      you_have_a_new_comment: "%{author} đã nhận xét danh sách của bạn tại %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} đã nhận xét về danh sách mà bạn làm theo %{service_name}"
+      you_have_a_new_comment: "%{author} đã nhận xét bài đăng của bạn tại %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} đã bình luận vào bài đăng mà bạn đang theo dõi %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} đã nhận xét về tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
     new_message:
       view_message: "Xem tin nhắn"
@@ -1009,7 +1021,7 @@ vi:
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
       view_feedback: "Xem thông tin phản hồi"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Danh sách các bạn theo đã được cập nhật"
+      listing_you_follow_has_been_updated: "Bài đăng bạn theo dõi đã được cập nhật"
       has_updated_listing_you_follow_in_kassi: "%{author} đã cập nhật tin đăng '%{listing}' bạn đang theo dõi trong %{service_name}"
       view_changes: "Xem các thay đổi"
     community_updates:
@@ -1043,8 +1055,8 @@ vi:
       if_you_do_not_accept: "Nếu bạn từ chối yêu cầu hoặc không chấp nhận yêu cầu trong khung thời gian này, giao dịch sẽ tự động bị hủy, %{requester} sẽ không bị tính phí và bạn sẽ không được trả tiền."
       click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
     transaction_preauthorized_reminder:
-      subject: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về danh sách %{listing_title}"
-      remember_to_accept: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về danh sách \"%{listing_title}\". %{requester} đã trả tiền cho việc mặt hàng. Bạn phải chấp nhận yêu cầu để nhận khoản thanh toán."
+      subject: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về bài đăng %{listing_title}"
+      remember_to_accept: "Hãy nhớ chấp nhận yêu cầu từ %{requester} về bài đăng \"%{listing_title}\". %{requester} đã trả tiền cho việc mặt hàng. Bạn phải chấp nhận yêu cầu để nhận khoản thanh toán."
       one_day_left: "Nếu bạn không chấp nhận yêu cầu trong một ngày thì yêu cầu sẽ tự động bị từ chối và bạn sẽ không được trả tiền."
       click_here_to_reply: "Nhấp vào đây để đáp ứng yêu cầu"
     welcome_email:
@@ -1054,10 +1066,10 @@ vi:
       welcome_email_footer_text: "Bạn muốn nhận thông báo nào từ %{service_name} ? %{settings_link}"
       settings_link_text: "Kiểm tra các thiết lập của bạn"
     new_listing_by_followed_person:
-      subject: "%{author_name} đã đăng một danh sách mới trong %{service_name}"
-      has_posted_a_new_listing: "%{author_name} đã đăng một danh sách mới:"
+      subject: "%{author_name} đã đăng một bài đăng mới trong %{service_name}"
+      has_posted_a_new_listing: "%{author_name} đã đăng một bài đăng mới:"
       you_are_receiving_this_because: "Bạn nhận được thông báo này vì bạn theo dõi %{author_name}."
-      view_listing: "Xem danh sách"
+      view_listing: "Xem bài đăng"
     new_member_notification:
       new_member_has_joined: "Một thành viên mới đã gia nhập %{community}. Họ vẫn có thể phải xác nhận địa chỉ email của họ."
       this_is_automatic_message: "Đây là một thư tự động được gửi tới các quản trị viên của %{community}."
@@ -1084,7 +1096,7 @@ vi:
       transaction_cannot_complete: "Giao dịch không thể hoàn tất. Điều này có thể xảy ra do thẻ tín dụng không ủy quyền ngân hàng. Vui lòng thử mua lại bằng phương thức thanh toán thay thế."
       buyer_cannot_pay_error: "Thanh toán đã bị PayPal từ chối. Vui lòng liên hệ với Dịch vụ Khách hàng của họ để biết thêm thông tin:%{customer_service_link}"
       pending_review_error: "Thanh toán đã được gửi nhưng bị PayPal gắn cờ là 'yêu cầu xem xét lại'. Khi PayPal hoàn tất việc xem xét, thanh toán sẽ tự động được ủy quyền."
-      seller_express_checkout_disabled: "PayPal Express Checkout đã bị tắt đối với tài khoản PayPal của tác giả danh sách. Vui lòng liên hệ với tác giả và cho họ biết rằng có vấn đề với tài khoản PayPal của họ và khuyên họ liên hệ với Dịch vụ Khách hàng PayPal"
+      seller_express_checkout_disabled: "PayPal Express Checkout đã bị tắt đối với tài khoản PayPal của người đăng bài. Vui lòng liên hệ và báo cho họ biết có vấn đề với việc thanh toán đồng thời khuyên họ làm việc với Dịch vụ Khách hàng PayPal."
       generic_error: "Đã xảy ra lỗi trong quá trình thanh toán. Không thể hoàn tất thanh toán qua PayPal của bạn."
       cancel_error: "Đã xảy ra lỗi khi hủy. Không thể hoàn tất huỷ bỏ."
       accept_authorization_error: "Đã xảy ra lỗi khi cố gắng chấp nhận thanh toán của Paypal. Vui lòng thử lại."
@@ -1101,7 +1113,7 @@ vi:
     error_410:
       page_removed: "Đã xóa trang"
       page_you_requested_has_been_removed: "Trang bạn yêu cầu đã bị xóa."
-      page_removed_reason: "Có một vài lý do cho điều này. Ví dụ: người dùng có thể đã xóa tài khoản của họ hoặc danh sách có thể đã bị xóa."
+      page_removed_reason: "Có một vài lý do cho điều này. Ví dụ: người dùng có thể đã xóa tài khoản hoặc bài viết của họ."
     error_410_title: "Xóa trang"
     error_500:
       temporary_unavailable: "Thị trường tạm thời không hoạt động"
@@ -1166,7 +1178,7 @@ vi:
     create_new_marketplace: "Tạo một chợ điện tử mới"
     contact_us: "Liên hệ"
     profile: "Thông tin tài khoản"
-    manage_listings: "Quản lý danh sách"
+    manage_listings: "Quản lý bài đăng"
     invite: "Mời bạn bè"
     login: ~
     signup: "Đăng kí"
@@ -1274,8 +1286,8 @@ vi:
       map_button: "Bản đồ"
       grid_button: "Hiển thị theo lưới"
       list_button: "Hiển thị theo danh sách"
-      all_listing_types: "Các thể loại"
-      all_categories: "Tất cả các mục"
+      all_listing_types: "Tất cả các loại bài đăng"
+      all_categories: "Tất cả danh mục"
     errors:
       search_engine_not_responding: "Tìm kiếm hiện không khả dụng. Thử tìm lại sớm."
   infos:
@@ -1363,7 +1375,7 @@ vi:
       settings: "Cài đặt"
       sign_up: "Đăng kí"
     notifications:
-      listing_could_not_be_saved: "Không thể lưu danh sách. Vui lòng thử lại. Nếu sự cố vẫn tiếp diễn, vui lòng %{contact_admin_link}."
+      listing_could_not_be_saved: "Không thể lưu bài đăng. Vui lòng thử lại. Nếu vẫn tiếp tục gặp sự cố, xin vui lòng %{contact_admin_link}."
       contact_admin_link_text: "liên hệ quản lí"
       test_welcome_email_delivered_to: "Email thử nghiệm đã được gửi tới %{email}"
       something_went_wrong: "Có lỗi xảy ra"
@@ -1391,12 +1403,12 @@ vi:
       invitation_limit_reached: "Bạn đã cố gửi quá nhiều lời mời. Đã đạt đến giới hạn hàng ngày."
       invitation_sent: "Lời mời đã gửi thành công"
       inviting_new_users_is_not_allowed_in_this_community: "Không được phép mời người dùng mới trong cộng đồng %{service_name}"
-      login_again: "Vui lòng đăng nhập lại."
+      login_again: "Xin vui lòng đăng nhập lại."
       login_failed: "Đăng nhập thất bại. Hãy nhập chính xác thông tin."
       account_creation_successful: "Chào mừng %{person_name} đến với %{service_name} !"
       account_deleted: "Tài khoản của bạn được xóa ngay lập tức."
-      login_successful: "Chào mừng đến với %{service_name}, "
-      logout_successful: "Bây giờ bạn đã đăng xuất khỏi %{service_name}. Chào mừng bạn lần nữa!"
+      login_successful: "Xin chào, %{person_name}!"
+      logout_successful: "Bạn đã đăng xuất khỏi %{service_name}. Hẹn gặp lại!"
       news_item_created: "Bài viết đã được tạo"
       news_item_creation_failed: "Tạo bài viết thất bại"
       news_item_update_failed: "Cập nhật bài viết thất bại"
@@ -1411,9 +1423,9 @@ vi:
       listing_updated_successfully: "Cập nhật thành công"
       listing_updated_availability_management_enabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được bật."
       listing_updated_availability_management_disabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được tắt"
-      only_kassi_administrators_can_access_this_area: "Chỉ những người quản trị viên %{service_name} có thể truy cập khu vực này"
-      only_listing_author_can_close_a_listing: "Chỉ tác giả của danh sách mới có thể đóng danh sách"
-      only_listing_author_can_edit_a_listing: "Chỉ tác giả của danh sách mới có thể chỉnh sửa danh sách"
+      only_kassi_administrators_can_access_this_area: "Chỉ ban quản trị của %{service_name} mới có thể truy cập khu vực này"
+      only_listing_author_can_close_a_listing: "Chỉ tác giả của bài đăng mới có thể đóng bài đăng"
+      only_listing_author_can_edit_a_listing: "Chỉ tác giả của bài đăng mới có thể chỉnh sửa bài đăng"
       payment_successful: "Thanh toán thành công"
       payment_canceled: "Thanh toán bị hủy"
       error_in_payment: "Có lỗi phát sinh trong quá trình thanh toán. Nếu bạn chưa hoàn thành quá trình thanh toán, hãy thử lại, Nếu rồi, vui lòng liên hệ với chúng tôi."
@@ -1446,7 +1458,7 @@ vi:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bạn không được phân quyền để đưa ra thông tin phản hồi về sự kiện này"
       you_are_not_authorized_to_do_this: "Bạn không được phân quyền để làm việc này"
       you_are_not_authorized_to_view_this_content: "Bạn không được phân quyền để xem nội dung này"
-      listing_closed: "Danh sách này đã bị đóng"
+      listing_closed: "Bài đăng này đã được đóng"
       send_instructions: "Bạn sẽ nhận được một email với các hướng dẫn làm thế nào để đặt lại mật khẩu của bạn trong một vài phút."
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
@@ -1471,7 +1483,7 @@ vi:
       you_must_log_in_to_confirm_or_cancel: ~
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_must_fill_all_the_fields: "Mọi thông tin đều phải được điền đầy đủ"
-      you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
+      you_unfollowed_listing: "Bạn không còn theo dõi bài đăng này"
       joining_community_failed: "Tham gia cộng đồng này thất bại"
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: "Địa chỉ mail mà bạn đang xóa không tồn tại."
@@ -1492,7 +1504,7 @@ vi:
       payments: "Thanh toán"
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Bạn không có quyền xem danh sách này."
+      listing_not_visible: "Bạn không có quyền xem bài đăng này."
     comment:
       wrote: "đã viết"
       send_private_message: "Gửi tin nhắn riêng tư đến %{person}"
@@ -1506,7 +1518,7 @@ vi:
       write_comment: "Viết bình luận mới:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới bài đăng này đã đóng."
       you_must: "Bạn phải"
-      subscribe_to_comments: "Thông báo cho tôi những ý kiến mới và những cập nhật"
+      subscribe_to_comments: "Thông báo cho tôi khi có bình luận và cập nhật mới"
     edit:
       edit_listing: "Thay đổi bài đăng"
     edit_links:
@@ -1523,11 +1535,11 @@ vi:
     error:
       something_went_wrong: "Đã xảy ra lỗi, mã lỗi: %{error_code}"
       something_went_wrong_plain: "Đã xảy ra sự cố"
-      create_failed_to_connect_to_booking_service: "Tạo danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
-      update_failed_to_connect_to_booking_service: "Cập nhật danh sách không thành công: Không thể kết nối với dịch vụ đặt chỗ. Vui lòng thử lại."
+      create_failed_to_connect_to_booking_service: "Tạo bài đăng không thành công: Không thể kết nối với dịch vụ đặt chỗ. Xin vui lòng thử lại."
+      update_failed_to_connect_to_booking_service: "Cập nhật bài đăng không thành công: Không thể kết nối với dịch vụ đặt chỗ. Xin vui lòng thử lại."
     follow_links:
-      follow: "Nhận e-mail khi có ý kiến mới"
-      unfollow: "Ngừng theo danh sách này"
+      follow: "Nhận email khi có bình luận mới"
+      unfollow: "Ngừng nhận email về bài đăng này"
     form:
       custom_field_partials:
         dropdown:
@@ -1566,7 +1578,7 @@ vi:
         processing: "Đang xử lí..."
         loading_image: Tải...
         image_uploading_in_progress: "Đang tải lên hình ảnh ..."
-        processing_takes_a_while: "Tất cả hình ảnh được tải lên! Việc xử lý chúng sẽ mất một chút thời gian, nhưng tốt hơn là lưu lại danh sách và tiếp tục."
+        processing_takes_a_while: "Tất cả hình ảnh đã được tải lên! Cần thêm một vài phút để xử lý nhưng giờ bạn có thể lưu bài và làm việc khác được rồi."
         this_may_take_a_while: "việc này chỉ mất có vài giây"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Tải hình ảnh không thành công"
@@ -1634,10 +1646,10 @@ vi:
       help_tags_title: Thẻ
       help_valid_until_title: "Ngày hết hạn"
     index:
-      all_categories: "Tất cả các chuyên mục"
+      all_categories: "Tất cả danh mục"
       all_offer_types: "Tất cả các loại hỗ trợ"
       all_request_types: "Tất cả các loại yêu cầu"
-      category: "Chuyên mục"
+      category: "Danh mục"
       did_not_found_what_you_were_looking_for: "Bạn đã không tìm thấy những gì bạn cần?"
       favors: "Các dịch vụ"
       housing: "Các không gian"
@@ -1679,16 +1691,16 @@ vi:
     new:
       listing: "sản phẩm"
       selected_category: "Danh mục : %{category}"
-      selected_subcategory: "Danh mục con : %{subcategory}"
-      selected_transaction_type: "Loại danh sách: %{transaction_type}"
-      select_category: "Chọn chuyên mục"
+      selected_subcategory: "Danh mục con: %{subcategory}"
+      selected_transaction_type: "Loại: %{transaction_type}"
+      select_category: "Chọn danh mục"
       select_subcategory: "Chọn danh mục con"
-      select_transaction_type: "Chọn loại danh sách"
-      you_need_to_fill_payout_details_before_accepting: "Bạn cần phải điền chi tiết thanh toán trước khi bạn có thể đăng danh sách. Truy cập %{payment_settings_link} để điền chi tiết."
+      select_transaction_type: "Chọn loại bài đăng"
+      you_need_to_fill_payout_details_before_accepting: "Bạn cần phải điền chi tiết thanh toán trước khi bạn có thể đăng bài đăng. Truy cập %{payment_settings_link} để điền chi tiết."
       contact_admin_link_text: "Liên hệ với quản trị viên"
-      community_not_configured_for_payments: "%{service_name} chưa được định cấu hình cho thanh toán, vì vậy bạn không thể đăng danh sách mới. Vui lòng %{contact_admin_link} để biết chi tiết."
+      community_not_configured_for_payments: "%{service_name} chưa được định cấu hình nhận thanh toán, vì vậy bạn không thể đăng bài mới. Vui lòng %{contact_admin_link} để được hỗ trợ."
       payment_settings_link: "Cài đặt thanh toán"
-      community_not_configured_for_payments_admin: "%{service_name} chưa được định cấu hình cho thanh toán, vì vậy bạn không thể đăng danh sách mới. Truy cập %{payment_settings_link} để điền vào các chi tiết thanh toán."
+      community_not_configured_for_payments_admin: "%{service_name} chưa được cấu hình thanh toán vì vậy bạn không thể đăng bài mới. Truy cập %{payment_settings_link} để điền các thông tin cần thiết."
     quantity:
       hour: "Số giờ:"
       day: "Số ngày"
@@ -1777,10 +1789,10 @@ vi:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: "Tất cả các chuyên mục"
+      all_categories: "Tất cả danh mục"
       all_offer_types: "Tất cả các loại giao dịch"
       all_request_types: "Tất cả các loại yêu cầu"
-      category: "Chuyên mục"
+      category: "Danh mục"
       did_not_found_what_you_were_looking_for: "Bạn đã không tìm thấy những gì bạn cần?"
       favors: "Dịch vụ"
       housing: "Không gian"
@@ -1804,7 +1816,7 @@ vi:
   paypal_accounts:
     payout_info_title: "Đang nhận tiền"
     paypal_account_email_connected: "<del>Kết nối tài khoản PayPal</del> Hoàn tất!"
-    payout_info_paypal: "%{service_name} sử dụng PayPal làm nhà cung cấp thanh toán. %{create_paypal_account_link} là bắt buộc để chấp nhận thanh toán cho danh sách của bạn và phải được kết nối với %{service_name}."
+    payout_info_paypal: "%{service_name} sử dụng PayPal làm nhà cung cấp thanh toán. %{create_paypal_account_link} và kết nối với %{service_name} là yêu cầu bắt buộc để có thể nhận thanh toán."
     paypal_billing_agreement_made: "<del>Cho phép %{service_name} quyền đánh phí giao dịch</del> Hoàn thành!"
     commission_permission_needed: "Bạn cũng cần phải cấp phép %{service_name} để tính lệ phí giao dịch."
     create_paypal_account_link_text: "Tài khoản Paypal"
@@ -1855,12 +1867,12 @@ vi:
     paypal_account_connected_title: "Đã kết nối tài khoản PayPal"
     paypal_account_connected: "Tài khoản PayPal <%{email}> đã được kết nối với %{service_name}."
     change_account: "Thay đổi tài khoản PayPal"
-    missing: "Bạn có danh sách mở nhưng tài khoản Paypal của bạn không được thiết lập để nhận thanh toán. Kết nối tài khoản Paypal của bạn và cấp %{service_name} quyền để tính lệ phí giao dịch từ %{settings_link} của bạn."
+    missing: "Bạn có bài đăng nhưng tài khoản Paypal của bạn không được thiết lập để nhận thanh toán. Kết nối tài khoản Paypal và cho phép %{service_name} thu lệ phí giao dịch ở trang %{settings_link}."
     from_your_payment_settings_link_text: "Cài đặt thanh toán"
     redirect_message: "Chuyển hướng bạn đến PayPal. Nếu không có gì xảy ra, hãy nhấp vào %{redirect_link}."
     redirect_link_text: đây
     paypal_account_all_set_up: "Hoan hô, mọi thứ đã được thiết lập!"
-    can_receive_payments: "Bây giờ bạn có thể nhận thanh toán cho danh sách của bạn."
+    can_receive_payments: "Bây giờ bạn có thể nhận thanh toán cho các bài đăng của bạn."
     paypal_account_connected_summary: "Tài khoản PayPal <%{email}> đã kết nối thành công"
     paypal_permission_granted_summary: "Cho phép cấp phí giao dịch"
   paypal:
@@ -1886,16 +1898,16 @@ vi:
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
-      inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
+      inactive_description: "Người dùng này đã ngừng sử dụng %{service_name} . Bạn không thể liên lạc, phản hồi hoặc gửi bình luận vào bài đăng của họ."
     new:
       create_new_account: "Tạo tài khoản"
-      email: "Địa chỉ email:"
+      email: "Địa chỉ email"
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
       invalid_username_or_email: "Tên người dùng hoặc e-mail không hợp lệ hoặc đã được sử dụng"
-      family_name: "Họ:"
-      given_name: "Tên:"
+      family_name: Họ
+      given_name: Tên
       i_accept_the: "Tôi chấp nhận"
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
@@ -2006,7 +2018,7 @@ vi:
       delete_account_confirmation_popup: ~
       email_addresses: "Địa chỉ email"
       new_email: "Địa chỉ email mới"
-      delete_personal_information: "Nếu bạn xoá tài khoản của mình, thông tin cá nhân của bạn (tên, số điện thoại, địa chỉ, email, ảnh tiểu sử, v.v.) sẽ bị xóa vĩnh viễn và không thể phục hồi được. Tất cả danh sách bạn đã tạo sẽ bị xóa. Bạn sẽ không thể kích hoạt lại tài khoản của mình."
+      delete_personal_information: "Nếu bạn xoá tài khoản của mình, thông tin cá nhân (tên, số điện thoại, địa chỉ, email, ảnh đại diện, v.v.) sẽ bị xóa vĩnh viễn và không phục hồi lại được. Tất cả các bài đăng của bạn sẽ bị xóa. Bạn sẽ không thể kích hoạt lại tài khoản của mình."
       delete_information_others_involved: "Thông tin mà các thành viên khác tham gia (cuộc trò chuyện với người khác, giao dịch bạn thực hiện, nhận xét bạn đưa cho người khác, v.v ...) sẽ không bị xóa khi bạn xóa tài khoản của mình. Tuy nhiên, tên của bạn sẽ không còn được hiển thị bên cạnh thông tin này."
       unfinished_transactions: "Bạn không thể xóa tài khoản của mình vì bạn có các giao dịch đang diễn ra. Vui lòng hoàn tất tất cả giao dịch trước khi xóa tài khoản của bạn."
       new_password: "Mật khẩu mới"
@@ -2037,8 +2049,8 @@ vi:
       email_about_new_messages: ".. .người nào đó gửi cho tôi một tin nhắn"
       email_about_new_received_testimonials: ".. .người nào đó cho tôi thông tin phản hồi"
       email_about_testimonial_reminders: "...Tôi đã quên để đưa ra thông tin phản hồi về một sự kiện"
-      email_daily_community_updates: "Gửi tôi email cập nhật <b> hàng ngày</b> nếu có danh sách mới"
-      email_weekly_community_updates: "Gửi tôi một email cập nhật <b>hàng tuần</b> nêu có danh sách mới"
+      email_daily_community_updates: "Gửi email tổng hợp <b> hàng ngày</b> nếu có bài đăng mới"
+      email_weekly_community_updates: "Gửi email tổng hợp <b>hàng tuần</b> nêu có bài đăng mới"
       do_not_email_community_updates: "Không gửi email cập nhật mới cho tôi"
       email_when_conversation_accepted: ".. .người nào đó chấp nhận sự hỗ trợ hoặc yêu cầu của tôi"
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"
@@ -2070,7 +2082,7 @@ vi:
       these_fields_are_shown_in_your: "Thông tin này được hiển thị cho tất cả các người sử dụng %{service_name}"
       visible_to_everybody: "hiển thị đối với mọi người"
       visible_to_registered_users: "hiển thị cho người dùng đã đăng nhập"
-      default_in_listing: "(Chỉ được sử dụng làm mặc định khi tạo danh sách mới)"
+      default_in_listing: "(chỉ sử dụng làm mặc định khi đăng bài mới)"
       invisible: "(Không hiển thị cho người dùng khác)"
       image_is_processing: "Xin chờ. Chúng tôi đang xử lý ảnh tiểu sử của bạn. Nó sẽ được sẵn sàng trong một hoặc hai phút."
     save_information: "Lưu thông tin"
@@ -2240,7 +2252,7 @@ vi:
       confirm_discarding_unsaved_availability_changes_question: "Bạn có chắc chắn muốn hủy thay đổi của mình không?"
       edit_listing_availability: "Chỉnh sửa lịch của bài đăng"
     no_listings:
-      sorry: "Xin lỗi, không có danh sách nào có thể được tìm thấy cho các tiêu chí tìm kiếm của bạn."
+      sorry: "Xin lỗi, không tìm thấy bài đăng nào với các tiêu chí tìm kiếm của bạn."
       try_other_search_terms: "Có thể thử các cụm từ tìm kiếm khác?"
     listing_card:
       add_picture: "Thêm ảnh"
@@ -2256,7 +2268,7 @@ vi:
       user: "Người dùng"
       inbox: "Hộp thư đến"
       profile: "Hồ sơ"
-      manage_listings: "Quản lý danh sách"
+      manage_listings: "Quản lý bài đăng"
       settings: "Cài đặt"
       logout: "Đăng xuất"
       login: "Đăng nhập"
@@ -2348,6 +2360,13 @@ vi:
       document: ~
       send_verification: ~
       need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
   payment_settings:
     title: ~
     bank_account: ~
