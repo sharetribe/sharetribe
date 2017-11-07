@@ -38,7 +38,7 @@
     #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
 
   %span#admin_members_count
-    = page_entries_info(@memberships, :model => "Person").html_safe
+    = AdminCommunityMembershipsViewUtils.community_members_entries_info(@current_community.id, @memberships).html_safe
     - if params[:q].present?
       = t("admin.communities.manage_members.for_search_terms", terms: "<strong>#{h params[:q]}</strong>".html_safe).html_safe
 

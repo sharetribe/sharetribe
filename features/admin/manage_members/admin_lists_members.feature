@@ -46,7 +46,7 @@ Feature: Admin lists members
   Scenario: Admin views member count
     Given there are 50 users with name prefix "User" "Number"
     And I go to the manage members admin page
-    Then I should see a range from 1 to 50 with total user count of 53
+    Then I should see a range from 1 to 50 with total 53 accepted and 0 banned users
 
   Scenario: Admin views multiple users with pagination
     Given there are 50 users with name prefix "User" "Number"
