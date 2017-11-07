@@ -257,7 +257,7 @@ en:
         search: Search
         search_by_name_email: "Search for a name, email or display name"
         reset_search: "Show all"
-        for_search_terms: "for &laquo;%{terms}&raquo;"
+        for_search_terms: "for: {terms}"
       new_layout:
         new_layout: "New layout"
         description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
