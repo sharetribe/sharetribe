@@ -33,10 +33,10 @@ class AuthToken < ApplicationRecord
   end
 
   def self.delete_expired
-    where("expires_at < ?", 1.week.ago).delete_all
+    where("expires_at < ?", 4.week.ago).delete_all
   end
 
-  def self.create_unsubscribe_token(person_id:, expires_at: 1.week.from_now)
+  def self.create_unsubscribe_token(person_id:, expires_at: 4.week.from_now)
     create(
       person_id: person_id,
       expires_at: expires_at,
