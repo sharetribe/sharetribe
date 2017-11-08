@@ -340,4 +340,3 @@ end
 Then /^I should see "([^"]*)" count of symbols in the "([^"]*)" input$/ do |count_of_symbols, field|
   expect(find_field(field).value.size).to eq(count_of_symbols.to_i)
 end
-

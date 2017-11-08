@@ -21,4 +21,6 @@ class MenuLinkTranslation < ApplicationRecord
   validates_presence_of :url
   validates_presence_of :title
   validates_presence_of :locale
+  validates_length_of :url, maximum: 255
+  validates_length_of :title, maximum: 255
 end
