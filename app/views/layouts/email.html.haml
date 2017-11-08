@@ -34,6 +34,8 @@
                   %tr
                     %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
                       %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
+                        - if @community
+                          = t("emails.common.unsubscribe_from_these_emails_info", service_name: @community.full_name(I18n.locale))
                         = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(@recipient, @url_params))).html_safe
                         - if @email_type
                           = t("emails.common.or")
@@ -43,6 +45,7 @@
                   %tr
                     %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
                       %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
-                        = link_to(t("emails.common.unsubscribe_from_invitation_emails", marketplace_name: @invitation_community),
+                        = t("emails.common.unsubscribe_from_invitation_emails_info", service_name: @invitation_community)
+                        = link_to(t("emails.common.unsubscribe_from_invitation_emails", service_name: @invitation_community),
                           unsubscribe_invitations_url(@url_params)) + "."
 

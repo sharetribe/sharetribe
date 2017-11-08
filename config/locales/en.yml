@@ -946,8 +946,10 @@ en:
       message_not_displaying_correctly: "Is this email not displaying correctly?"
       view_it_in_your_browser: "View it in your browser"
       or: or
+      unsubscribe_from_these_emails_info: "You have received this email because you are a member of %{service_name}."
       unsubscribe_from_these_emails: "unsubscribe from these emails"
-      unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{marketplace_name}"
+      unsubscribe_from_invitation_emails_info: "You have received this email because a member of %{service_name} has invited you to join them."
+      unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
