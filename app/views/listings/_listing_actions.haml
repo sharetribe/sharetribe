@@ -166,10 +166,16 @@
       - if @listing_presenter.show_manage_availability && APP_CONFIG.harmony_api_in_use
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
-          %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
-            = icon_tag("calendar", ["icon-part"])
-            .text-part= t("web.listings.edit_listing_availability")
-          = react_component("ManageAvailabilityApp", props: @listing_presenter.manage_availability_props.merge({ availability_link_id: availability_link_id }), prerender: false)
+          - if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+            %a.icon-with-text-container{id: availability_link_id, href: "#manage-working-hours"}
+              = icon_tag("calendar", ["icon-part"])
+              .text-part= t("web.listings.edit_listing_availability")
+            = react_component("ListingWorkingHoursApp", props: @listing_presenter.working_hours_props.merge({ availability_link_id: availability_link_id }), prerender: false)
+          - else
+            %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
+              = icon_tag("calendar", ["icon-part"])
+              .text-part= t("web.listings.edit_listing_availability")
+            = react_component("ManageAvailabilityApp", props: @listing_presenter.manage_availability_props.merge({ availability_link_id: availability_link_id }), prerender: false)
       .listing-view-admin-link
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
           = icon_tag("lock", ["icon-part"])

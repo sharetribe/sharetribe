@@ -73,7 +73,9 @@
     "style-loader": "0.13.1",
     "transit-js": "0.8.846",
     "webpack": "1.13.3",
-    "whatwg-fetch": "2.0.1"
+    "whatwg-fetch": "2.0.1",
+    "form-serialize": "0.7.2",
+    "axios": "0.17.0"
   },
   "devDependencies": {
     "@kadira/storybook": "2.32.1",

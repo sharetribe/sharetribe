@@ -69,6 +69,7 @@ class ListingShapeTemplates
         online_payments: true,
         template: :offering_services,
         author_is_seller: true,
+        availability: 'booking',
         units: [{unit_type: 'hour', quantity_selector: :number}]
       },
       {
