@@ -14,7 +14,12 @@
   %h2= t(".edit_listing_shape", shape: name)
   = form_tag(admin_listing_shape_path(url_name), method: :put, id: "listing_shape_form") do
 
-    = render partial: "shape_form_content", locals: { name: name, shape: shape, count: count, locale_name_mapping: locale_name_mapping, uneditable_fields: uneditable_fields, harmony_in_use: harmony_in_use, display_knowledge_base_articles: display_knowledge_base_articles, knowledge_base_url: knowledge_base_url }
+    = render partial: "shape_form_content", locals: { name: name, shape: shape,
+      count: count, locale_name_mapping: locale_name_mapping,
+      uneditable_fields: uneditable_fields, harmony_in_use: harmony_in_use,
+      display_knowledge_base_articles: display_knowledge_base_articles,
+      knowledge_base_url: knowledge_base_url,
+      availability_per_hour: availability_per_hour }
 
     .row
       .col-12
