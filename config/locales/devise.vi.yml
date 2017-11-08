@@ -15,7 +15,7 @@ vi:
       locked: "Tài khoản của bạn đã bị khoá."
       invalid: "Email hoặc mật khẩu không hợp lệ."
       invalid_token: "Khóa xác thực không hợp lệ."
-      timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
+      timeout: "Phiên làm việc đã hết hạn. Xin vui lòng đăng nhập lại để tiếp tục."
       inactive: "Tài khoản của bạn chưa được kích hoạt."
     passwords:
       updated_not_active: "Mật khẩu của bạn đã đổi thành công."
@@ -50,7 +50,7 @@ vi:
       failure: "Có thể không cấp quyền cho bạn từ %{kind} vì \"%{reason} \"."
     mailer:
       confirmation_instructions:
-        subject: "Chỉ dẫn xác nhận"
+        subject: "Thông tin xác nhận tài khoản tại %{service_name}"
       reset_password_instructions:
         subject: "Chỉ dẫn khôi phục mật khẩu"
       unlock_instructions:
