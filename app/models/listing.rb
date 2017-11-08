@@ -67,6 +67,7 @@ class Listing < ApplicationRecord
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
   include Rails.application.routes.url_helpers
+  include ManageAvailabilityPerHour
 
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
@@ -86,6 +87,8 @@ class Listing < ApplicationRecord
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
+  has_many :working_time_slots, ->{ order_by_week_day },  dependent: :destroy
+  accepts_nested_attributes_for :working_time_slots, reject_if: :all_blank, allow_destroy: true
 
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
