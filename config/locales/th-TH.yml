@@ -248,6 +248,7 @@ th-TH:
         export_all_as_csv: ~
         save_user_status_error: "การบันทึกล้มเหลว โปรดรีเฟรชหน้าเว็บ และลองอีกครั้ง"
         ban_user_confirmation: "การกระทำเช่นนี้จะย้ายผู้ใช้ออกจากตลาด และป้องกันไม่ให้พวกเขาเข้าถึงเว็บไซต์ได้อีกครั้ง กับบัญชีนี้ คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?"
+        unban_user_confirmation: ~
         ban_me_error: ~
         search: ~
         search_by_name_email: ~
@@ -2277,6 +2278,10 @@ th-TH:
         other: "กำลังแสดง <b>1</b> %{model}"
       multi_page: "กำลังแสดง %{model} %{from} - %{to} จาก %{count} ของทั้งหมด"
       multi_page_html: "กำลังแสดง %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> จาก <b>%{count}</b> ของทั้งหมด"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

@@ -263,6 +263,7 @@ pl:
         export_all_as_csv: "Wyeksportuj wszystko do CSV"
         save_user_status_error: "Zapis nie udał się. Proszę odśwież stronę i spróbuj ponownie."
         ban_user_confirmation: "Ta akcja spowoduje usunięcie użytkownika z platformy i nie pozwoli mu na ponowne używanie tego konta. Czy jesteś pewien/pewna, że chcesz kontynuować?"
+        unban_user_confirmation: ~
         ban_me_error: "Nie możesz wyrzucić samego siebie."
         search: ~
         search_by_name_email: ~
@@ -2358,6 +2359,10 @@ pl:
         other: "Wyświetlanie <b>wszystkich&nbsp;%{count}</b>%{model}"
       multi_page: "Wyświetlanie %{from} - %{to} %{model} z %{count} łącznie."
       multi_page_html: "Wyświetlanie <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} z <b>%{count}</b> łącznie"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

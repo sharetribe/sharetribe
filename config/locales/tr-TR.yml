@@ -250,6 +250,7 @@ tr-TR:
         export_all_as_csv: ~
         save_user_status_error: "Kayıt başarısız oldu. Sayfayı yenileyin ve tekrar deneyin."
         ban_user_confirmation: "Bu, kullanıcıyı pazar yerinden engeller ve bu hesapla siteye tekrar giriş yapmalarını önler. Devam etmek istediğinizden emin misiniz?"
+        unban_user_confirmation: ~
         ban_me_error: "Kendinizi banlayamazsınız."
         search: ~
         search_by_name_email: ~
@@ -2274,6 +2275,10 @@ tr-TR:
         other: "%{count} %{model} görüntüleniyor"
       multi_page: "Toplam %{count} %{model}'den %{from} - %{to} arası görüntüleniyor"
       multi_page_html: "Toplam %{count} %{model}'den %{from}&nbsp;-&nbsp;%{to} arası görüntüleniyor"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

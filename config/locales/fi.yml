@@ -253,6 +253,7 @@ fi:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
+        unban_user_confirmation: ~
         ban_me_error: "Et voi poistaa itseäsi."
         search: Hae
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
@@ -2329,6 +2330,10 @@ fi:
         other: "Näytetään kaikki <b>%{count}</b> %{model}"
       multi_page: "Näytetään %{from} - %{to} %{model} (kokonaismäärä %{count})."
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä ylläpitoon"

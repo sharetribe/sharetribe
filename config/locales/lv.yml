@@ -238,6 +238,7 @@ lv:
         export_all_as_csv: ~
         save_user_status_error: ~
         ban_user_confirmation: ~
+        unban_user_confirmation: ~
         ban_me_error: ~
         search: ~
         search_by_name_email: ~
@@ -2249,6 +2250,10 @@ lv:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

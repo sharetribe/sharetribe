@@ -253,6 +253,7 @@ da-DK:
         export_all_as_csv: "Eksporter alle som CSV"
         save_user_status_error: "Der opstod en fejl da vi forsøgte at gemme dit valg. Venligst genindlæs siden og prøv igen."
         ban_user_confirmation: "Dette sletter brugeren fra markedspladsen og hindrer ham/hende i at logge ind på markedspladsen igen med denne bruger. Er du sikker på at du vil fortsætte?"
+        unban_user_confirmation: ~
         ban_me_error: "Du kan ikke forbyde dig selv."
         search: ~
         search_by_name_email: ~
@@ -2316,6 +2317,10 @@ da-DK:
         other: "Viser <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Viser %{model} %{from} - %{to} af %{count} i alt"
       multi_page_html: "Viser %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> af <b>%{count}</b> i alt"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

@@ -253,6 +253,7 @@ es-ES:
         export_all_as_csv: "Exportar todos en formato CSV"
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
         ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
+        unban_user_confirmation: ~
         ban_me_error: "No te puedes rechazar a ti mismo."
         search: ~
         search_by_name_email: ~
@@ -2328,6 +2329,10 @@ es-ES:
         other: "Mostrando todo: %{count} %{model}"
       multi_page: "Mostrando %{model} %{from} - %{to} de %{count}"
       multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> en total"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"

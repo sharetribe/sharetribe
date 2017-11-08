@@ -238,6 +238,7 @@ ar:
         export_all_as_csv: "استخرج الكل في ملف إكسل"
         save_user_status_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
         ban_user_confirmation: ~
+        unban_user_confirmation: ~
         ban_me_error: "لا يمكنك حظر نفسك"
         search: بحث
         search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
@@ -2317,6 +2318,10 @@ ar:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

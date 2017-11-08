@@ -263,6 +263,7 @@ ru:
         export_all_as_csv: "Экспортировать все как CSV"
         save_user_status_error: "Во время сохранения поля произошла ошибка Обновите страницу и попробуйте еще раз."
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
+        unban_user_confirmation: ~
         ban_me_error: "Вы не можете заблокировать сами себя"
         search: ~
         search_by_name_email: ~
@@ -2356,6 +2357,10 @@ ru:
         other: "Показываем <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Отображается %{model} %{from}-%{to} из %{count} в общем"
       multi_page_html: "Показываем %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b> в общем"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

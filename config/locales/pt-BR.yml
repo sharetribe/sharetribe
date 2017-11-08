@@ -253,6 +253,7 @@ pt-BR:
         export_all_as_csv: "Exporte tudo como CSV"
         save_user_status_error: "Erro ao gravar. Por favor, atualize a página e tente novamente"
         ban_user_confirmation: "Isso remove o usuário do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
+        unban_user_confirmation: ~
         ban_me_error: "Você não pode se banir."
         search: ~
         search_by_name_email: ~
@@ -2318,6 +2319,10 @@ pt-BR:
         other: "Visualização dos <b>%{count}</b> %{model}"
       multi_page: "Visualização dos {model} %{from} - %{to} por um total de %{count}"
       multi_page_html: "Visualização dos %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> por um total de <b>%{count}</b>\n"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

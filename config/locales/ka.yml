@@ -248,6 +248,7 @@ ka:
         export_all_as_csv: "დააექსპორტე ყველა CSV-დ"
         save_user_status_error: "კატეგორიის დამახსოვრების დროს მოხდა შეცდომა. გთხოვთ გადატვირთეთ გვერდი და ცადეთ თავიდან."
         ban_user_confirmation: "ეს წაშლის მომხმარებელს ბაზრიდან და შეუზრუდავს თავისი ანგარიშით საიტზე შემოსვლის უფლებას. დარწმუნებული ხარ რომ გსურს გაგრძელება?"
+        unban_user_confirmation: ~
         ban_me_error: "თქვენ ვერ დაბლოკავთ საკუთარ თავს."
         search: ~
         search_by_name_email: ~
@@ -2295,6 +2296,10 @@ ka:
         other: "%{model}-ის ჩვენება <b>all&nbsp;%{count}</b>"
       multi_page: "%{model}-ის ჩვენება %{from}-დან - %{to}-მდე %{count}-ის ჯამის"
       multi_page_html: "%{model}-ის ჩვენება <b>%{from}-დან ;-&nbsp; %{to}-მდე</b> <b>%{count}</b>-ის ჯამის"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

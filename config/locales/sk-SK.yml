@@ -258,6 +258,7 @@ sk-SK:
         export_all_as_csv: "Exportovať všetko do CSV"
         save_user_status_error: "Pri ukladaní nastala chyba. Prosím obnovte stránku a skúste to znova."
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
+        unban_user_confirmation: ~
         ban_me_error: "Nemôžete seba samého vylúčiť."
         search: ~
         search_by_name_email: ~
@@ -2339,6 +2340,10 @@ sk-SK:
         other: "Nájdených <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Nájdený %{model} %{from} - %{to} z %{count} celkovo"
       multi_page_html: "Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b> celkovo"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

@@ -244,6 +244,7 @@ pt-PT:
         export_all_as_csv: ~
         save_user_status_error: ~
         ban_user_confirmation: "Isso remove o utilizador do mercado virtual e o impede de acessar o site novamente com esta conta. Tem certeza de que deseja continuar?"
+        unban_user_confirmation: ~
         ban_me_error: ~
         search: ~
         search_by_name_email: ~
@@ -2274,6 +2275,10 @@ pt-PT:
     page_entries_info:
       multi_page: ~
       multi_page_html: ~
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

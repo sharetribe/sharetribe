@@ -253,6 +253,7 @@ sv:
         export_all_as_csv: "Exportera alla som CSV"
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
+        unban_user_confirmation: ~
         ban_me_error: "Du kan inte bannlysa dig själv."
         search: ~
         search_by_name_email: ~
@@ -2330,6 +2331,10 @@ sv:
         other: "Visar <b>all&nbsp;%{count}</b> %{model}"
       multi_page: "Visar %{model} %{from} - %{to} av %{count} totalt"
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Att använda %{service_name} betalningssystem för att ta emot betalningar är inte möjligt på grund av att online betalningar har inte blivit aktivetar för marknadsplatsen. Vänligen kontakta %{contact_admin_link} för information."
     contact_admin_link_text: "kontakta marknadsplatsens administratör"

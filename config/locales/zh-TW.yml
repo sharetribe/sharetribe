@@ -248,6 +248,7 @@ zh-TW:
         export_all_as_csv: ~
         save_user_status_error: 保存失败。请刷新页面后重试。
         ban_user_confirmation: 这将会把用户从集市中删除并阻止他们使用这个帐号再次访问该站点。你确认要继续吗？
+        unban_user_confirmation: ~
         ban_me_error: 你不能禁止自己。
         search: ~
         search_by_name_email: ~
@@ -2286,6 +2287,10 @@ zh-TW:
         other: "显示 <b>所有&nbsp;%{count}个</b> %{model}"
       multi_page: "显示 %{model} %{from} - %{to} 总共 %{count} 个"
       multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 总共 <b>%{count}</b> 个"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

@@ -253,6 +253,7 @@ de:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
+        unban_user_confirmation: ~
         ban_me_error: "Du kannst dich nicht selber sperren."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
@@ -707,7 +708,7 @@ de:
       link_to_paypal_text: hier
     stripe_fee_info:
       title: "Zahlungsbearbeitungsgebühr von Stripe"
-      body_text: "Für Stripe-Zahlungen gibt es eine Transaktionsgebühr im Höhe von %{stripe_commission}% auf %{service_name}. Hierzu gehören auch die Zahlungsbearbeitungsgebühren von Stripe."
+      body_text: "Bei Zahlungen auf %{service_name}, die über Stripe abgewickelt werden, entstehen neben den Vermittlungsprovisionen (%{stripe_commission}%) keine zusätzlichen Transaktionskosten für dich."
       link_to_stripe_text: hier
   conversations:
     accept:
@@ -1610,8 +1611,8 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr und der Gebühren des Zahlungssystems, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Transaktionsgebühr (%{sum_with_currency}) und %{payment_fee_info_link} mit dem Kaufpreis verrechnet."
-        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Transaktionsgebühr (%{sum_with_currency}) und %{paypal_fee_info_link} mit dem Kaufpreis verrechnet."
+        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls %{payment_fee_info_link} von dem Preis abgezogen."
+        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls %{paypal_fee_info_link} von dem Preis abgezogen."
         after_service_fee_you_will_get_stripe_text: "Wenn jemand den Auftrag kauft, wird die Gebühr von %{service_name} (%{sum_with_currency}) vom Betrag abgezogen."
         payment_fee_info_link_text: Zahlungsbearbeitungsgebühr
         paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
@@ -2328,6 +2329,10 @@ de:
         other: "<b>all&nbsp;%{count}</b> %{model} werden angezeigt"
       multi_page: "%{model} %{from} wird dargestellt - %{to} von %{count} gesamt"
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"

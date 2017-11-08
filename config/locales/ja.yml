@@ -248,6 +248,7 @@ ja:
         export_all_as_csv: CSVで全て出力
         save_user_status_error: 保存に失敗しました。ページを再読込してもう一度試してください
         ban_user_confirmation: これはマーケットプレイスのユーザを削除するものであり、今後二度とこのアカウントに戻れないようになります。本当にこの削除手続きを実行してもよろしいですか。
+        unban_user_confirmation: ~
         ban_me_error: 自分自身をアカウント停止ユーザに出来ません。
         search: ~
         search_by_name_email: ~
@@ -2287,6 +2288,10 @@ ja:
         other: "<b>すべての&nbsp;%{count}</b>%{model}を表示しています"
       multi_page: "%{from} - %{to} 全体で%{count}件の%{model}を表示しています"
       multi_page_html: "<b>%{from}&nbsp;-&nbsp;%{to}</b> 全体で<b>%{count}</b>件の%{model}を表示しています"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

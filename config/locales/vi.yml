@@ -248,6 +248,7 @@ vi:
         export_all_as_csv: "Xuất tất cả dưới dạng CSV"
         save_user_status_error: "Lưu dữ không thành công. Hãy làm mới trang và thử lại."
         ban_user_confirmation: ~
+        unban_user_confirmation: ~
         ban_me_error: "Bạn không thể tự cấm mình."
         search: ~
         search_by_name_email: ~
@@ -2299,6 +2300,10 @@ vi:
         other: "Hiển thị <b>;%{count}</b> %{model}"
       multi_page: "Đang hiển thị %{model} %{from} - %{to} của tổng số %{count}"
       multi_page_html: "Đang hiển thi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> của tổng số <b>%{count}</b>"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~

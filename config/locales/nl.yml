@@ -255,11 +255,12 @@ nl:
         export_all_as_csv: "Exporteer alles als CSV"
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
+        unban_user_confirmation: ~
         ban_me_error: "Je kunt jezelf niet uitsluiten."
         search: Zoek
         search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
         reset_search: "Toon alles"
-        for_search_terms: ~
+        for_search_terms: "voor: %{terms}"
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -2329,6 +2330,10 @@ nl:
         other: "Tonen <b>alle&nbsp;%{count}</b> %{model}"
       multi_page: "Tonen %{model} %{from} - %{to} van %{count} in totaal"
       multi_page_html: "Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b> in totaal"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Het gebruiken van het betalingsysteem van %{service_name} is niet mogelijk om dat online betalingen nog niet zijn ingesteld. Gelieve%{contact_admin_link} voor details."
     contact_admin_link_text: "neem contact op met het %{service_name} team"
@@ -2337,7 +2342,7 @@ nl:
     pay_with_stripe: "Betaal met Stripe met %{card}"
     add_and_pay: "Bevestig betaling"
     card_not_stored: "Je betaling wordt veilig verwerkt door Stripe. %{service_name} slaat je credit/debit card informatie niet op."
-    missing_payment: "You hebt open advertenties, maar je account is niet ingesteld om betalingen te ontvangen. Om je betalingsinstellingen aan te passen, ga naar %{settings_link}"
+    missing_payment: "Je hebt open advertenties, maar je account is niet ingesteld om betalingen te ontvangen. Om je betalingsinstellingen aan te passen, ga naar %{settings_link}"
     stripe_bank_connected: "Bankrekening informatie succesvol ingesteld!"
     stripe_can_accept: "Je bent nu klaar om betalingen op je bankrekening te ontvangen"
     stripe_credit_card: "Credit card"
@@ -2391,12 +2396,12 @@ nl:
       send_verification: "Verstuur Verificatie"
       need_verification: "Aanvullende verificatie nodig"
     form_pin:
-      social_insurance_number: ~
-      social_security_number: ~
-      hong_kong_identity_card: ~
-      singapore_identity_card: ~
+      social_insurance_number: "Social Insurance Number (SIN)"
+      social_security_number: "Social Security Number (SSN)"
+      hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
+      singapore_identity_card: "National Registration Identity Card (NRIC) of Foreign Identification Number (FIN)"
       messages:
-        social_insurance_number: ~
+        social_insurance_number: "moet een geldig Social Insurance Number (SIN) zijn"
   payment_settings:
     title: Uitbetalingsvoorkeuren
     bank_account: Bankrekeningnummer
@@ -2406,6 +2411,6 @@ nl:
     can_accept_stripe_and_paypal: "Je kunt geld ontvangen op je bankrekening of op je PayPal account."
     to_accept_paypal: "Om geld te ontvangen op je PayPal account, dien je je PayPal account te koppelen. Je klanten kunnen dan met PayPal betalen."
     connect_paypal: "Koppel PayPal-account"
-    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats. Neem contact op met het %{service_name} team."
+    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: het platform is niet geregistreerd. Neem contact op met het team om ze te laten weten dat ze hun platform bij Stripe moeten registreren."
     invalid_bank_account_number: "Controleer aub of je bankrekeningnummer correct is ingevoerd en met je land overeenkomt."
     invalid_postal_code: "Ongeldige postcode voor %{country}"

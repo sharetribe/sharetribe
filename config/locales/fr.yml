@@ -247,17 +247,18 @@ fr:
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
-        ban_user: "Bannir l'utilisateur"
+        ban_user: Bannissement
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         export_all_as_csv: "Exporter au format CSV"
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
         ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment faire cela ?"
+        unban_user_confirmation: "Cela stoppe le bannissement de l'utilisateur dans la place de marché et lui permet d'accéder au site de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
         ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
         search: Rechercher
         search_by_name_email: "Rechercher un nom, un email ou un nom d'affichage"
         reset_search: "Voir tous"
-        for_search_terms: "pour &laquo;%{terms}&raquo;"
+        for_search_terms: "pour : %{terms}"
       new_layout:
         new_layout: "Nouveau design"
         description_roadmap_new: "Lorsque de nouveaux éléments de design sont disponibles pour votre place de marché, vous pouvez choisir de les utiliser sans attendre ou bien de continuer à utiliser les anciens. Vous pouvez modifier votre choix à tout moment depuis cette page. Il est préférable de toujours utiliser les versions les plus récentes, puisque les anciens éléments seront rendus obsolètes à un moment. Si un élément que vous utilisez devenait obsolète, vous serez contacté au préalable."
@@ -961,7 +962,7 @@ fr:
       remember_to_confirm: "Quand la commande est réalisée, n'oubliez pas de la signaler comme terminée. Si la commande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme réalisée."
     invitation_to_kassi:
       hi: "Bonjour !"
-      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}."
+      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}"
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
       join_now: Rejoindre
       invitation_code: "Code d'invitation : %{code}"
@@ -2328,6 +2329,18 @@ fr:
         other: "Affichage des <b>%{count}</b> %{model}"
       multi_page: "Affichage des %{model} %{from} - %{to} sur un total de %{count}"
       multi_page_html: "Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{count}</b>"
+    person:
+      community_members_entries_info:
+        multi_page: "Affichage des %{model} %{from} - %{to} des %{accepted_count} %{accepted_model} et %{banned_count} %{banned_model} banni"
+        multi_page_html: ~
+        single_page:
+          zero: "Aucun %{model} trouvé"
+          one: "Affichage de %{accepted_count} %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
+          other: "Affichage de %{accepted_count} %{accepted_model} confirmés et de %{banned_count} %{banned_model} bannis"
+        single_page_html:
+          zero: "Aucun %{model} trouvé"
+          one: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
+          other: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmés et de %{banned_count} %{banned_model} bannis"
   stripe_accounts:
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
     contact_admin_link_text: "contacter l'équipe %{service_name}"
