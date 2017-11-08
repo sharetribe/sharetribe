@@ -349,6 +349,16 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  def transactions_exported(user, community, content)
+    marketplace_name = community.use_domain ? community.domain : community.ident 
+    attachments["#{marketplace_name}-transactions-#{Date.today}.csv"] = content
+    with_locale(user.locale, community.locales.map(&:to_sym), community.id) do
+      mail(to: user.emails.last.address, 
+           subject: t("emails.transactions_exported.subject", community: community.name(user.locale)), 
+           body: t("emails.transactions_exported.body", community: community.name(user.locale)))
+    end
+  end
+
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
   end
