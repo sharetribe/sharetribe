@@ -138,8 +138,8 @@ module MarketplaceService
 
       def conversations_for_community(community_id, sort_field, sort_direction, limit, offset)
         query = <<-SQL
-        SELECT c.* FROM conversations c  
-        WHERE c.community_id = #{community_id} AND c.id NOT IN 
+        SELECT c.* FROM conversations c
+        WHERE c.community_id = #{community_id} AND c.id NOT IN
         (SELECT conversation_id FROM transactions WHERE transactions.community_id = #{community_id} AND transactions.current_state <> 'free')
         ORDER BY #{sort_field} #{sort_direction}
         LIMIT #{limit} OFFSET #{offset}
@@ -150,8 +150,8 @@ module MarketplaceService
 
       def count_for_community(community_id)
         query = <<-SQL
-        SELECT count(*) FROM conversations c 
-        WHERE c.community_id = #{community_id} AND c.id NOT IN 
+        SELECT count(*) FROM conversations c
+        WHERE c.community_id = #{community_id} AND c.id NOT IN
         (SELECT conversation_id FROM transactions WHERE transactions.community_id = #{community_id} AND transactions.current_state <> 'free')
         SQL
         ActiveRecord::Base.connection.select_value(query)
