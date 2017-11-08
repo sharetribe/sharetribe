@@ -46,7 +46,7 @@ Feature: Admin lists members
   Scenario: Admin views member count
     Given there are 50 users with name prefix "User" "Number"
     And I go to the manage members admin page
-    Then I should see a range from 1 to 50 with total user count of 53
+    Then I should see a range from 1 to 50 with total 53 accepted and 0 banned users
 
   Scenario: Admin views multiple users with pagination
     Given there are 50 users with name prefix "User" "Number"
@@ -66,21 +66,28 @@ Feature: Admin lists members
     When I refresh the page
     Then I should see that "john doe" can post new listings
 
-  Scenario: Admin removes a user
+  Scenario: Admin bans and unbans a user
     Given there is a listing with title "Sledgehammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
-
      When I am on the home page
      Then I should see "Sledgehammer"
 
     Given I am on the manage members admin page
       And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
-     When I remove user "john doe"
-     Then I should not see "john doe"
+     When I ban user "john doe"
+     Then I should see "john doe"
+     # Identifying is easier when using username
+     And "kassi_testperson1" should be banned from this community
 
-      # Identifying is easier when using username
-      And "kassi_testperson1" should be banned from this community
+    Given I am on the home page
+     Then I should not see "Sledgehammer"
 
-     When I am on the home page
+    Given I am on the manage members admin page
+      And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
+     When I unban user "john doe"
+     Then I should see "john doe"
+     And "kassi_testperson1" should not be banned from this community
+
+    Given I am on the home page
      Then I should not see "Sledgehammer"
 
   Scenario: Admin promotes user to admin

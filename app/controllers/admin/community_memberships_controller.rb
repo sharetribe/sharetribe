@@ -8,7 +8,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
     respond_to do |format|
       format.html do
-        @memberships = CommunityMembership.where(community_id: @current_community.id, status: "accepted")
+        @memberships = CommunityMembership.where(community_id: @current_community.id, status: ["accepted", "banned"])
                                            .includes(person: :emails)
                                            .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
@@ -57,7 +57,21 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
     @current_community.close_listings_by_author(membership.person)
 
-    redirect_to admin_community_community_memberships_path(@current_community)
+    if request.xhr?
+      render json: {status: membership.status}
+    else
+      redirect_to admin_community_community_memberships_path(@current_community)
+    end
+  end
+
+  def unban
+    membership = CommunityMembership.find_by(id: params[:id], community_id: @current_community.id)
+    membership.update_attributes(status: "accepted")
+    if request.xhr?
+      render json: {status: membership.status}
+    else
+      redirect_to admin_community_community_memberships_path(@current_community)
+    end
   end
 
   def promote_admin
