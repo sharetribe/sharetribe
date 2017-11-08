@@ -149,8 +149,9 @@ class ListingsController < ApplicationController
         @listing.reorder_listing_images(params, @current_user.id)
         notify_about_new_listing
 
-        if shape[:availability] == :booking
-          redirect_to listing_path(@listing, anchor: 'manage-availability'), status: 303
+        if shape.booking?
+          anchor = availability_per_hour && shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
+          redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
         else
           redirect_to @listing, status: 303
         end
@@ -471,10 +472,20 @@ class ListingsController < ApplicationController
   end
 
   def create_booking(shape, listing_uuid)
-    if APP_CONFIG.harmony_api_in_use && shape.present? && shape[:availability] == 'booking'
-      create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
+    if shape.present?
+      if availability_per_hour && shape.booking_per_hour?
+        true
+      elsif APP_CONFIG.harmony_api_in_use && shape.booking?
+        create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
+      else
+        true
+      end
     else
       true
     end
+  end
+
+  def availability_per_hour
+    FeatureFlagHelper.feature_enabled?(:availability_per_hour)
   end
 end

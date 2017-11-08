@@ -22,6 +22,7 @@ module FeatureFlagService::Store
       :searchpage_v1,
       :manage_searchpage,
       :stripe,
+      :availability_per_hour,
     ].to_set
 
     def initialize(additional_flags:)

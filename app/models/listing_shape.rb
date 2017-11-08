@@ -24,6 +24,12 @@
 #
 
 class ListingShape < ApplicationRecord
+  DEFAULT_BASENAME = 'order_type'.freeze
+  AVAILABILITIES = [
+    AVAILABILITY_NONE = 'none'.freeze,
+    AVAILABILITY_BOOKING = 'booking'.freeze
+  ].freeze
+
 
   belongs_to :community
   belongs_to :transaction_process
@@ -36,13 +42,11 @@ class ListingShape < ApplicationRecord
 
   validates :name_tr_key, :action_button_tr_key, :transaction_process_id, presence: true
   validates :price_enabled, :shipping_enabled, inclusion: [true, false]
-  validates :availability, inclusion: ['none', 'booking'] # Possibly :stock in the future
+  validates :availability, inclusion: AVAILABILITIES # Possibly :stock in the future
 
   def units
     @_hash_units ||= listing_units.map(&:to_unit_hash)
   end
-
-  DEFAULT_BASENAME = 'order_type'
 
   def self.create_with_opts(community:, opts:)
     shape = ListingShape.new(ListingShape.permitted_attributes(opts))
@@ -100,5 +104,17 @@ class ListingShape < ApplicationRecord
     community.category_ids.each do |category_id|
       CategoryListingShape.create!(category_id: category_id, listing_shape_id: self.id)
     end
+  end
+
+  def booking_per_hour?
+    booking? && listing_units.unit_type_hour.any?
+  end
+
+  def booking_per_day_or_night?
+    booking? && listing_units.unit_type_day_or_night.any?
+  end
+
+  def booking?
+    availability == AVAILABILITY_BOOKING
   end
 end
