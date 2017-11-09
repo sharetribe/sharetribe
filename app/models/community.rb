@@ -144,6 +144,7 @@ class Community < ApplicationRecord
   validates_format_of :custom_color2, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :slogan_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
   validates_format_of :description_color, :with => /\A[A-F0-9_-]{6}\z/i, :allow_nil => true
+  validates_length_of :custom_head_script, maximum: 65535
 
   VALID_BROWSE_TYPES = %w{grid map list}
   validates_inclusion_of :default_browse_view, :in => VALID_BROWSE_TYPES
