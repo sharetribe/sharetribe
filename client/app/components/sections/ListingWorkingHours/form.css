@@ -6,6 +6,7 @@
   & a {
     cursor: pointer;
   }
+
   & :global(.title) {
     & span {
       margin-left: 10px;
@@ -20,14 +21,17 @@
       margin-right: 10px;
       padding: 0.5em 0;
     }
+
     & :global(.starTime) {
       margin-right: 10px;
     }
+
     & :global(.endTime) {
       margin-right: 10px;
     }
+
     & :global(.remove) {
-      color: #ffffff;
+      color: #fff;
       background-color: #4a90e2;
       border-radius: 50%;
       display: inline-block;
@@ -36,6 +40,7 @@
       padding-left: 3.5px;
     }
   }
+
   & :global(.addMore) {
     margin-bottom: 10px;
   }

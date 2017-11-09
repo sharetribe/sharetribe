@@ -116,9 +116,9 @@ class Day extends Component {
     });
 
     return (
-      <div className={css.weekDay}>
+      <div className={css.weekDay} id={`week-day-${this.props.day}`}>
         <label className="title">
-          <input type="checkbox" defaultValue='1' checked={this.state.enabled} onChange={this.handleEnabled} />
+          <input type="checkbox" id={`enable-${this.props.day}`} defaultValue='1' checked={this.state.enabled} onChange={this.handleEnabled} />
           <span>{this.props.dayName}</span>
         </label>
         {timeSlots}
@@ -157,8 +157,10 @@ class SaveButton extends Component {
     }
     html = { __html: html };
 
+    const buttonClass = `${css.saveButton} save-button ${this.props.saveFinished ? 'save-finished' : ''}`;
+
     return (
-      <button className={css.saveButton} disabled={this.props.saveInProgress || this.props.saveFinished}
+      <button className={buttonClass} disabled={this.props.saveInProgress || this.props.saveFinished}
         dangerouslySetInnerHTML={html} /> // eslint-disable-line react/no-danger
     );
   }
@@ -219,13 +221,14 @@ class ListingWorkingHoursForm extends Component {
   }
 
   render() {
+    const formClass = `working-hours-form ${this.props.hasChanges ? 'has-changes' : 'no-changes'}`;
     return (
       <div className="col-12">
         <div className={css.workingHoursTitle}>
           <h2>{t('web.listings.working_hours.default_schedule')}</h2>
           <h3>{t('web.listings.working_hours.i_am_available_on')}</h3>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form className={formClass} onSubmit={this.handleSubmit}>
           <div className="row">
             {this.renderWeekDays()}
           </div>
@@ -246,6 +249,7 @@ ListingWorkingHoursForm.propTypes = {
     saveChanges: PropTypes.func.isRequired,
     dataChanged: PropTypes.func.isRequired,
   }).isRequired,
+  hasChanges: PropTypes.bool,
 };
 
 export default ListingWorkingHoursForm;
