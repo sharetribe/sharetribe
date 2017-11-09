@@ -237,3 +237,8 @@ Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |comm
     tx_settings_api.api_verified(data)
   end
 end
+
+Given /^community "(.*?)" has feature flag "(.*?)" enabled$/ do |community, feature_flag|
+  community = Community.where(ident: community).first
+  FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [feature_flag.to_sym])
+end

@@ -332,3 +332,8 @@ When(/^mock googlemap location with "([^,]+), ([-.0-9]+),\s*([-.0-9]+)"/) do |ad
   page.execute_script("document.getElementById('person_location_latitude').value = "+lat)
   page.execute_script("document.getElementById('person_location_longitude').value = "+lon)
 end
+
+Then(/^I should see selected "([^"]*)" in the "([^"]*)" dropdown$/) do |content, field|
+   expect(page).to have_select(field, selected: content)
+end
+
