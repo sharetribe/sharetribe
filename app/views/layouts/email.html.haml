@@ -43,6 +43,7 @@
                   %tr
                     %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
                       %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}
+                        = t("emails.common.unsubscribe_from_invitation_emails_info", service_name: @invitation_community)
                         = link_to(t("emails.common.unsubscribe_from_invitation_emails", service_name: @invitation_community),
                           unsubscribe_invitations_url(@url_params)) + "."
 
