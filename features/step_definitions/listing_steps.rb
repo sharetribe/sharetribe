@@ -184,3 +184,22 @@ When(/^I set location to be New York/) do
     "
   )
 end
+
+Then(/^I should see working hours form with changes$/) do
+  expect(page).to have_css('.working-hours-form.has-changes')
+end
+
+Then(/^I should see working hours form without changes$/) do
+  expect(page).to have_css('.working-hours-form.no-changes')
+end
+
+When(/^I add new working hours time slot for day "(.*?)"$/) do |day|
+  within "#week-day-#{day}" do
+    find('.addMore a').click
+  end
+end
+
+Then(/^I should see working hours save button finished$/) do
+  expect(page).to have_css('.working-hours-form .save-button.save-finished')
+end
+

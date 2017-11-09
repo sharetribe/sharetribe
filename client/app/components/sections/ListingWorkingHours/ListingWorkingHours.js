@@ -15,24 +15,6 @@ import ListingWorkingHoursForm from './form.js';
 
 import css from './ListingWorkingHours.css';
 
-/**
-   Return `true` if component should load initial data.
-*/
-const shouldLoad = (isOpen, prevIsOpen) => isOpen && !prevIsOpen;
-
-/**
-   Load initial data if needed. This should happen only once when
-   component `isOpen` becomes `true`
-*/
-const loadInitialDataIfNeeded = (props, prevProps = null) => {
-  const isOpen = props.isOpen;
-  const prevIsOpen = prevProps && prevProps.isOpen;
-
-  if (shouldLoad(isOpen, prevIsOpen)) {
-    true; // eslint-disable-line no-unused-expressions
-  }
-};
-
 const setPushState = (state, title, path) => {
   if (canUseDOM && canUsePushState) {
     window.history.pushState(state, title, path);
@@ -60,8 +42,6 @@ class ListingWorkingHours extends Component {
       this.props.availability_link.addEventListener('click', this.clickHandler);
     }
 
-    loadInitialDataIfNeeded(this.props);
-
     this.setState({ viewportHeight: window.innerHeight }); // eslint-disable-line react/no-set-state
     window.addEventListener('resize', this.resizeHandler);
   }
@@ -79,10 +59,6 @@ class ListingWorkingHours extends Component {
     } else if (!nextProps.isOpen && containsHash) {
       setPushState(null, 'Listing working hours is closed', `${window.location.pathname}${searchPart}`);
     }
-  }
-
-  componentDidUpdate(prevProps) {
-    loadInitialDataIfNeeded(this.props, prevProps);
   }
 
   componentWillUnmount() {
@@ -145,6 +121,7 @@ class ListingWorkingHours extends Component {
             actions: this.props.actions,
             saveInProgress: this.props.saveInProgress,
             saveFinished: this.props.saveFinished,
+            hasChanges: this.props.hasChanges,
           }) : null,
         ]),
       ]),

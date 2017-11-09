@@ -242,3 +242,8 @@ Given /^this community has transaction agreement in use$/ do
   @current_community.transaction_agreement_in_use = true
   @current_community.save!
 end
+
+Given /^community "(.*?)" has feature flag "(.*?)" enabled$/ do |community, feature_flag|
+  community = Community.where(ident: community).first
+  FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [feature_flag.to_sym])
+end

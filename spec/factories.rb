@@ -417,4 +417,12 @@ FactoryGirl.define do
     email 'sherry@example.com'
   end
 
+  factory :listing_unit do
+    unit_type           'hour'
+    quantity_selector   'number'
+    kind                'time'
+    name_tr_key         nil
+    selector_tr_key     nil
+    listing_shape_id    123
+  end
 end
