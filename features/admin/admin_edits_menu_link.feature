@@ -45,3 +45,10 @@ Feature: Admin edits menu link
 
     When I open the menu
     Then I should not see "Blog link" on the menu
+
+  Scenario: Admin edits menu link and tries to overfill url, title
+    When I fill in menu link field "url" with locale "en" with "300" count of symbols
+    When I fill in menu link field "title" with locale "en" with "300" count of symbols
+    And I press submit
+    Then I should see "255" count of symbols in the "url" menu link field with locale "en"
+    Then I should see "255" count of symbols in the "title" menu link field with locale "en"

@@ -332,3 +332,11 @@ When(/^mock googlemap location with "([^,]+), ([-.0-9]+),\s*([-.0-9]+)"/) do |ad
   page.execute_script("document.getElementById('person_location_latitude').value = "+lat)
   page.execute_script("document.getElementById('person_location_longitude').value = "+lon)
 end
+
+When /^(?:|I )fill in "([^"]*)" with "([^"]*)" count of symbols$/ do |field, count_of_symbols|
+  fill_in(field, :with => 'x' * count_of_symbols.to_i)
+end
+
+Then /^I should see "([^"]*)" count of symbols in the "([^"]*)" input$/ do |count_of_symbols, field|
+  expect(find_field(field).value.size).to eq(count_of_symbols.to_i)
+end
