@@ -42,6 +42,7 @@ class CommunityCustomization < ApplicationRecord
   validates_length_of :signup_info_content, maximum: 65535
   validates_length_of :private_community_homepage_content, maximum: 262140
   validates_length_of :verification_to_post_listings_info_content, maximum: 262140
+  validates_length_of :transaction_agreement_label, maximum: 255
   validates_length_of :transaction_agreement_content, maximum: 262140
 
   belongs_to :community

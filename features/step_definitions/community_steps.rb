@@ -237,3 +237,8 @@ Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |comm
     tx_settings_api.api_verified(data)
   end
 end
+
+Given /^this community has transaction agreement in use$/ do
+  @current_community.transaction_agreement_in_use = true
+  @current_community.save!
+end
