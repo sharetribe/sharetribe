@@ -25,8 +25,8 @@ sv:
           category_parent: Moderkategori
           no_parent: "Ingen moderkategori"
         category_transaction_types:
-          transaction_types: Transaktionstyp
-          transaction_types_description: "Transaktionstyper avgör vilka typ av transaktioner som tillåts med annonser i denna kategori. T ex är det bara försäljning, eller är det uthyrning och ge bort också tillåtet."
+          transaction_types: Ordertyper
+          transaction_types_description: "Ordertyper avgör vilka typ av transaktioner som tillåts med annonser i denna kategori. T ex är det bara försäljning, eller är det uthyrning och ge bort också tillåtet."
           select_all: "Välj alla"
           clear_all: "Rensa allt"
         buttons:
@@ -152,12 +152,12 @@ sv:
         amazon_ses_notification: "Du kommer få ett email från %{email_sender} för att bekräfta din emailadress. E-postens ämne kommer att vara %{email_subject}. Följ instruktionerna i mejlet för att bekräfta din email."
         this_is_how_it_will_look: "Så här kommer det se ut:"
         send_verification_button: "Skicka verifikationsmail"
-        change_sender_email: ~
+        change_sender_email: "ändra avsändaradress"
         successfully_saved: "Avsändaradress sparades korrekt. Verifikationsmailet kommer att skickas snart."
-        successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
+        successfully_saved_name: "Avsändar namn uppdaterat."
+        set_sender_name: "Ändra avsändarnamn"
+        change_sender_name: "Ändra avsändarnamn"
+        change_sender_prompt: "%{change_name_link} eller %{change_email_link}"
         status: "Status: %{status}"
         status_verified: "Verifierad - används"
         status_error: "Ett fel inträffade. Vänligen ladda om sidan."
@@ -253,12 +253,12 @@ sv:
         export_all_as_csv: "Exportera alla som CSV"
         save_user_status_error: "Ett fel inträffade när sidan sparades. Försök igen eller ladda om sidan."
         ban_user_confirmation: "Detta tar bort medlemmen från marknadsplatsen och förhindrar att dem ska komma åt sidan igen med deras konto. Är du säker att du vill fortsätta?"
-        unban_user_confirmation: ~
+        unban_user_confirmation: "Detta tar bort spärrningen av användaren och ger dem igen tillgång till din marknadsplats. Är du säker du vill fortsätta?"
         ban_me_error: "Du kan inte bannlysa dig själv."
-        search: ~
-        search_by_name_email: ~
-        reset_search: ~
-        for_search_terms: ~
+        search: Sök
+        search_by_name_email: "Sök efter namn, epostadress eller synligt namn"
+        reset_search: "Visa alla"
+        for_search_terms: "för: %{terms}"
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -449,7 +449,7 @@ sv:
       per_day_availability: "\"Per dag\" tillgänglighet"
       per_night_availability: "\"Per natt\" tillgänglighet"
       pricing_units_disabled_info: "Prissättningsenheter kan inte användas när tillgänglighets kalendern är aktiverad."
-      can_not_find_name: ~
+      can_not_find_name: "Kan inte hitta ordertyp med namnet: %{name}"
       index:
         listing_shapes: Ordertyper
         description: "Ordertyper bestämmer hur orderprocessen fungerar på din sida. Du kan välja om dina användare ska hyra, sälja eller kanske bara skicka meddelanden och kommunicera via gratismeddelanden."
@@ -2398,11 +2398,11 @@ sv:
       need_verification: "Behöver ytterligare verifiering"
     form_pin:
       social_insurance_number: ~
-      social_security_number: ~
-      hong_kong_identity_card: ~
-      singapore_identity_card: ~
+      social_security_number: "Personnummer (SSN)"
+      hong_kong_identity_card: "Hong Kong Identitetskortsnummer (HKID)"
+      singapore_identity_card: "National Registration Identity Card (NRIC) eller Foreign Identification Number (FIN)"
       messages:
-        social_insurance_number: ~
+        social_insurance_number: "måste vara ett giltigt personnummer (SIN)"
   payment_settings:
     title: Utbetalningsinställningar
     bank_account: Bankkonto

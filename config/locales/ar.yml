@@ -232,13 +232,13 @@ ar:
         join_date: "تم الإنضمام"
         admin: المشرف
         posting_allowed: "النشر مسموح"
-        ban_user: "حظر المستخدم"
+        ban_user: حظر
         saving_user_status: "جاري الحفظ..."
         save_user_status_successful: "تم الحفظ"
         export_all_as_csv: "استخرج الكل في ملف إكسل"
         save_user_status_error: "فشل في الحفظ. رجاء قم بإعادة تهيئة الصفحة وأعد المحاولة مرة أخرى."
         ban_user_confirmation: ~
-        unban_user_confirmation: ~
+        unban_user_confirmation: "سوف يلغى الحظر عن هذا الحساب وسيتمكن من التسجيل مرة أخرى في السوق عبر نفس الحساب. هل أنت متأكد من ذلك؟"
         ban_me_error: "لا يمكنك حظر نفسك"
         search: بحث
         search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
@@ -844,7 +844,7 @@ ar:
       confirm: مكتملة
       cancel: خلاف
   feedback:
-    feedback_subject: "‎%{service_name}‎ لا يوجد أي ردود أفعال من"
+    feedback_subject: "‎%{service_name}‎ رسالة جديدة لـ"
     feedback_body: ~
     unlogged_user: "مستخدم غير مسجل"
     anonymous_user: "مستخدم مجهول"
