@@ -40,8 +40,8 @@ const GuideCoverPhotoPage = (props) => {
               target: '_blank',
               rel: 'noreferrer',
               alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) },
-            { link_images: a({
+            }, t('web.admin.onboarding.guide.cover_photo.advice.link')),
+              link_images: a({
               href: 'https://help.sharetribe.com/look-and-feel/design-and-customisation/6-great-cover-photos-ready-to-use-and-where-to-find-more',
               target: '_blank',
               rel: 'noreferrer',
