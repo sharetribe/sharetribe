@@ -224,3 +224,24 @@ Scenario: User creates a new listing with date field
     When I log out
     And I go to the home page
     Then I should not see "Sledgehammer"
+
+  @javascript
+  Scenario: Creating a new item request with unit week
+    Given community "test" has a listing shape offering services per hour, day, night, week, month
+    Given community "test" has payment method "paypal" provisioned
+    Given community "test" has payment method "paypal" enabled by admin
+    Given I am logged in
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Offering Services" from listing type menu
+    And I fill in "listing_title" with "Sledgehammer"
+    And I fill in "listing_description" with "My description"
+    When I fill in "10" for "listing_price"
+    When I select "week" from "listing[unit]"
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+    When I follow "Edit listing"
+    Then I should see selected "week" in the "listing[unit]" dropdown
+
