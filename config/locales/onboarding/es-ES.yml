@@ -9,9 +9,11 @@ es-ES:
             info_image_alt: "Una imagen de pantalla de una página con foto de portada"
             add_your_own: "Añade una foto de portada"
             advice:
-              content1: "Checa %{link} para encontrar buenas imágenes que se pueden usar de forma gratuita."
+              content1: "Use %{link_images} or check out %{link} on where to find good-looking images that are free to use."
               content2: "Nota: el tamaño de la imagen será modificado a %{width}x%{height} pixeles. Las partes superior e inferior de imágenes más altas serán recortadas."
-              link: "nuestra guía"
+              link_images: "one of our ready-made images"
+              link: "our guide"
+              alt_images: "6 great cover photos ready to use and where to find more"
               alt: "Como hacer que las fotos de portada, los logos, las imagenes favicon, las imagenes de perfil y las de los anuncios se vean increiblemente bien?"
           filter:
             title: "Paso 4: Añade campos en los anuncios y filtros"

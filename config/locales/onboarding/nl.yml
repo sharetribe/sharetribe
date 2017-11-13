@@ -9,9 +9,11 @@ nl:
             info_image_alt: "Een screenshot van een pagina met een cover afbeelding"
             add_your_own: "Voeg cover afbeelding toe"
             advice:
-              content1: "Lees %{link} over waar je goede foto's kunt vinden die je gratis kunt gebruiken."
+              content1: "Use %{link_images} or check out %{link} on where to find good-looking images that are free to use."
               content2: "Let op: de afbeelding zal worden aangepast naar %{width}x%{height} pixels. Van te grote afbeeldingen zal de boven- en onderkant worden afgesneden."
-              link: "onze gids"
+              link_images: "one of our ready-made images"
+              link: "our guide"
+              alt_images: "6 great cover photos ready to use and where to find more"
               alt: "Hoe krijg ik mooie cover-, logos, favicon, profiel- of advertentieafbeeldingen?"
           filter:
             title: "Stap 4: Voeg item velden en filters toe"
