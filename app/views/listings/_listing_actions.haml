@@ -171,7 +171,7 @@
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")
             = react_component("ListingWorkingHoursApp", props: @listing_presenter.working_hours_props.merge({ availability_link_id: availability_link_id }), prerender: false)
-          - else
+          - elsif APP_CONFIG.harmony_api_in_use
             %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")

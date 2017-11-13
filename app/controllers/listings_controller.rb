@@ -475,7 +475,7 @@ class ListingsController < ApplicationController
     if shape.present?
       if availability_per_hour && shape.booking_per_hour?
         true
-      elsif shape.booking?
+      elsif APP_CONFIG.harmony_api_in_use && shape.booking?
         create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
       else
         true
