@@ -163,7 +163,7 @@
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
           .text-part= t("listings.edit_links.edit_listing")
-      - if @listing_presenter.show_manage_availability
+      - if @listing_presenter.show_manage_availability && APP_CONFIG.harmony_api_in_use
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
           %a.icon-with-text-container{id: availability_link_id, href: "#manage-availability"}

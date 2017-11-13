@@ -471,7 +471,7 @@ class ListingsController < ApplicationController
   end
 
   def create_booking(shape, listing_uuid)
-    if shape.present? && shape[:availability] == 'booking'
+    if APP_CONFIG.harmony_api_in_use && shape.present? && shape[:availability] == 'booking'
       create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
     else
       true
