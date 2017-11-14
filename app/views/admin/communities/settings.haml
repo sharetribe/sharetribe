@@ -64,6 +64,11 @@
               - max_days = StripeHelper.stripe_active?(@current_community.id) ? 90 : 100
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..max_days), {}, :class => "inline-select"
               = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
+            - if StripeHelper.stripe_available?(@current_community)
+              - learn_more = link_to(t('layouts.branding.learn_more'), ' https://help.sharetribe.com/how-to-delay-payments-and-hold-funds-with-stripe')
+              - help_text = t('.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
+              = render partial: 'layouts/info_text', locals: { text: help_text }
+              .info-text-container
 
     .row
       .col-12

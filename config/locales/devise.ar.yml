@@ -17,7 +17,7 @@ ar:
       inactive: "لم يتم تفعيل حسابك بعد"
     passwords:
       updated_not_active: "لقد تم تغير كلمة المرور الخاصة بحسابك بنجاح."
-      send_paranoid_instructions: "قي حال كان بريدك الإلكتروني مخزن لدينا سيتم إرسال بريد إلكتروني يحتوي على رابط لإسترجاع كلمة المرور الخاصة بك"
+      send_paranoid_instructions: "قي حال كان بريدك الإلكتروني مخزن لدينا سيتم إرسال رسالة إليه تحتوي على رابط لإسترجاع كلمة المرور الخاصة بك"
       send_instructions: "سوف يتم ارسال تعليمات إعادة تعيين كلمة المرور إلى بريدك الإلكتروني في دقائق"
       updated: "لقد تم تغير كلمة المرور الخاصة بحسابك بنجاح. لقد تم تسجيل دخولك إلى حسابك الآن."
     sessions:
@@ -48,7 +48,7 @@ ar:
       failure: ".\"‎%{reason}‎\" بسبب ‎%{kind}‎ نأسف. لم يتم تفعيلك من قبل"
     mailer:
       confirmation_instructions:
-        subject: "‎%{service_name}‎ تعليمات التأكيد للإنضمام إلى"
+        subject: "‎%{service_name}‎ تعليمات التأكيد للإنضمام لـ"
       reset_password_instructions:
         subject: "تعليمات إعادة إنشاء كلمة المرور"
       unlock_instructions:

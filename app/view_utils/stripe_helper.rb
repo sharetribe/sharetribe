@@ -34,6 +34,15 @@ module StripeHelper
     return !!settings
   end
 
+  def stripe_available?(community)
+    stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
+    MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(
+      community.country,
+      community.currency,
+      stripe_mode
+    )
+  end
+
   def user_and_community_ready_for_payments?(person_id, community_id)
     stripe_active?(community_id) && user_stripe_active?(community_id, person_id)
   end

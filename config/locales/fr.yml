@@ -2331,8 +2331,6 @@ fr:
       multi_page_html: "Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{count}</b>"
     person:
       community_members_entries_info:
-        multi_page: "Affichage des %{model} %{from} - %{to} des %{accepted_count} %{accepted_model} et %{banned_count} %{banned_model} banni"
-        multi_page_html: ~
         single_page:
           zero: "Aucun %{model} trouvé"
           one: "Affichage de %{accepted_count} %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
@@ -2341,6 +2339,8 @@ fr:
           zero: "Aucun %{model} trouvé"
           one: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
           other: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmés et de %{banned_count} %{banned_model} bannis"
+        multi_page: "Affichage des %{model} %{from} - %{to} des %{accepted_count} %{accepted_model} et %{banned_count} %{banned_model} banni"
+        multi_page_html: "Affichage des %{model} <b>%{from} - %{to}</b> des <b>%{accepted_count}</b> %{accepted_model} et %{banned_count} %{banned_model} banni"
   stripe_accounts:
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
     contact_admin_link_text: "contacter l'équipe %{service_name}"
