@@ -1,0 +1,2332 @@
+ko:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
+  admin:
+    categories:
+      edit:
+        edit_listing_category: ~
+      index:
+        listing_categories: ~
+        create_a_new_category: ~
+        remove_category_confirmation: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+      new:
+        new_listing_category: ~
+      form:
+        category_name:
+          category_title: ~
+        category_parent:
+          category_parent: ~
+          no_parent: ~
+        category_transaction_types:
+          transaction_types: ~
+          transaction_types_description: ~
+          select_all: ~
+          clear_all: ~
+        buttons:
+          save: ~
+          cancel: ~
+      remove:
+        remove_category: ~
+        remove_category_name: ~
+        warning_remove_effects: ~
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: ~
+        community_name: ~
+        edit_community_name_description: ~
+        community_slogan: ~
+        edit_community_slogan_description: ~
+        community_description: ~
+        edit_community_description_description: ~
+        community_search_placeholder: ~
+        edit_community_search_placeholder_description: ~
+        private_community_homepage_content: ~
+        edit_private_community_homepage_content_description: ~
+        update_information: ~
+        invite_people: ~
+        edit_signup_info: ~
+        edit_signup_info_description: ~
+        edit_info: ~
+        see_how_it_looks_like: ~
+        verification_to_post_listings_info_content: ~
+        verification_to_post_listings_info_content_description: ~
+        verification_to_post_listings_info_content_default: ~
+        contact_admin_link_text: ~
+        save: ~
+        transaction_agreement: ~
+        transaction_agreement_checkbox: ~
+        transaction_agreement_checkbox_header: ~
+        transaction_agreement_checkbox_label_description: ~
+        transaction_agreement_text_header: ~
+        transaction_agreement_description: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_logo_icon: ~
+        community_cover_photo: ~
+        small_community_cover_photo: ~
+        favicon: ~
+        favicon_info_text: ~
+        community_custom_color1: ~
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: ~
+        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        cover_photo_visibility: ~
+        cover_photo_instructions_text_with_dimensions: ~
+        small_cover_photo_visibility: ~
+        small_cover_photo_instructions_text_with_dimensions: ~
+        main_content_width: ~
+        custom_color1_instructions_text: ~
+        new_listing_button_instructions_text: ~
+        default_browse_view: ~
+        default_browse_view_instructions_text: ~
+        grid: ~
+        list: ~
+        map: ~
+        name_display_type: ~
+        name_display_type_instructions_text: ~
+        full_name: ~
+        first_name_with_initial: ~
+        first_name_only: ~
+        invalid_color_code: ~
+        custom_head_script: ~
+        custom_head_script_instructions_text: ~
+      edit_text_instructions:
+        edit_text_instructions: ~
+      edit_welcome_email:
+        welcome_email_content: ~
+        welcome_email_content_description: ~
+        edit_message: ~
+        send_test_message: ~
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        amazon_ses_notification: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        change_sender_email: ~
+        successfully_saved: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: ~
+        invalid_email_error: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
+        unknown_error: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
+      getting_started:
+        getting_started: ~
+      available_languages:
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        fr: ~
+        fr-CA: ~
+        es: ~
+        es-ES: ~
+        pt-PT: ~
+        pt-BR: ~
+        nb: ~
+        sv: ~
+        da-DK: ~
+        fi: ~
+        ru: ~
+        de: ~
+        el: ~
+        nl: ~
+        tr-TR: ~
+        zh: ~
+        ja: ~
+        it: ~
+      settings:
+        settings: ~
+        general: ~
+        access: ~
+        join_with_invite_only: ~
+        users_can_invite_new_users: ~
+        private: ~
+        require_verification_to_post_listings: ~
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        keyword_and_location_search: ~
+        location_search: ~
+        select_distance_unit: ~
+        km: ~
+        miles: ~
+        show_only_nearby: ~
+        listing_preferences: ~
+        transaction_preferences: ~
+        show_listing_publishing_date: ~
+        show_category_in_listing_list: ~
+        listing_comments_in_use: ~
+        email_preferences: ~
+        automatic_newsletters: ~
+        email_admins_about_new_members: ~
+        google_analytics_key: ~
+        twitter_handle: ~
+        update_settings: ~
+        automatically_confirmed_no_escrow: ~
+        automatic_newsletter_frequency: ~
+        newsletter_daily: ~
+        newsletter_weekly: ~
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
+        payment_preferences: ~
+      manage_members:
+        manage_members: ~
+        email: ~
+        name: ~
+        display_name: ~
+        join_date: ~
+        admin: ~
+        posting_allowed: ~
+        ban_user: ~
+        saving_user_status: ~
+        save_user_status_successful: ~
+        export_all_as_csv: ~
+        save_user_status_error: ~
+        ban_user_confirmation: ~
+        unban_user_confirmation: ~
+        ban_me_error: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap_new: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
+        searchpage: ~
+      social_media:
+        social_media: ~
+        twitter_handle: ~
+        twitter_handle_info_text: ~
+        twitter_handle_info_text_with_instructions: ~
+        twitter_instructions_link_text: ~
+        twitter_handle_placeholder: ~
+        invalid_twitter_handle: ~
+        facebook_connect: ~
+        facebook_connect_info_text: ~
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: ~
+        invalid_facebook_connect_id: ~
+        facebook_connect_secret: ~
+        invalid_facebook_connect_secret: ~
+        save: ~
+      analytics:
+        analytics: ~
+        google_analytics_key: ~
+        google_analytics_key_info_text: ~
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        save: ~
+      menu_links:
+        menu_links: ~
+        save: ~
+        add_menu_link: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        title: ~
+        language: ~
+        url: ~
+        empty: ~
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
+      transactions:
+        export_all_as_csv: ~
+        transactions: ~
+        headers:
+          conversation: ~
+          listing: ~
+          status: ~
+          sum: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        status:
+          free: ~
+          pending: ~
+          preauthorized: ~
+          accepted: ~
+          rejected: ~
+          paid: ~
+          confirmed: ~
+          canceled: ~
+          initiated: ~
+          pending_ext: ~
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+        not_available: ~
+    custom_fields:
+      edit:
+        edit_listing_field: ~
+      edit_price:
+        description: ~
+        edit_price_field: ~
+        show_price_filter_homepage: ~
+        price_min: ~
+        price_max: ~
+      edit_location:
+        edit_location_field: ~
+        this_field_is_required: ~
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
+      index:
+        listing_fields: ~
+        listing_fields_help: ~
+        add_new_field: ~
+        remove_field_confirmation: ~
+        cancel: ~
+        save: ~
+        field_title: ~
+        field_type: ~
+        categories: ~
+        select_all: ~
+        clear_all: ~
+        options: ~
+        add_option: ~
+        saving_order: ~
+        save_order_successful: ~
+        save_order_error: ~
+        select_one: ~
+        continue: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+      new:
+        new_listing_field: ~
+      field_types:
+        text: ~
+        number: ~
+        dropdown: ~
+        checkbox_group: ~
+        date: ~
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        send_email: ~
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
+    left_hand_navigation:
+      general: ~
+      users_and_transactions: ~
+      configure: ~
+      emails_title: ~
+      subscription: ~
+      preview: ~
+    listing_shapes:
+      availability_title: ~
+      read_more: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
+      can_not_find_name: ~
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      can_not_find: ~
+      add_custom_unit: ~
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
+    paypal_accounts:
+      marketplace_paypal_integration: ~
+      preferences_updated: ~
+      contact_support_link_text: ~
+      integration_info_text: ~
+      link_paypal_personal_account_label: ~
+      link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+      personal_payment_preferences_link_text: ~
+      read_more_about_paypal: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
+      minimum_listing_price_label: ~
+      transaction_fee_label: ~
+      minimum_transaction_fee_label: ~
+      save_settings: ~
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
+      stripe_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      paypal_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
+        save_api_keys: ~
+        invalid_secret: ~
+        invalid_publishable: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+    transaction_types:
+      sell: ~
+      rent: ~
+      give: ~
+      lend: ~
+      swap: ~
+      service: ~
+      request: ~
+      inquiry: ~
+      share_for_free: ~
+      default_action_button_labels:
+        sell: ~
+        rent: ~
+        request: ~
+        offer: ~
+        inquiry: ~
+  common:
+    edit_page: ~
+    default_community_slogan: ~
+    default_community_description: ~
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
+    password: ~
+    service_name: ~
+    share_types:
+      request: ~
+      offer: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      offer_to_swap: ~
+      request_to_swap: ~
+      share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+    username: ~
+    username_or_email: ~
+    what_is_this: ~
+    removed_user: ~
+    payment_fee_info:
+      title: ~
+      title_paypal: ~
+      stripe: ~
+      paypal: ~
+      info: ~
+    paypal_fee_info:
+      title: ~
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: ~
+    paypal_only_fee_info:
+      title: ~
+      body_text: ~
+      link_to_paypal_text: ~
+    stripe_fee_info:
+      title: ~
+      body_text: ~
+      link_to_stripe_text: ~
+  conversations:
+    accept:
+      details: ~
+      order_by: ~
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
+      accept: ~
+      decline: ~
+      quantity_label: ~
+      sum_label: ~
+      service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
+      paypal_fee_info: ~
+      payment_fee_info: ~
+      shipping_price_label: ~
+      stripe-fee_label: ~
+    confirm:
+      confirm_description: ~
+      cancel_description: ~
+      cancel_payed_description: ~
+      canceling_payed_transaction: ~
+      confirm: ~
+      cancel: ~
+      continue: ~
+      give_feedback_to: ~
+      do_not_give_feedback: ~
+    details:
+      day: ~
+      days: ~
+      price_per_day: ~
+    index:
+      loading_more_messages: ~
+      message_partitive: ~
+      messages_partitive: ~
+      no_received_messages: ~
+      no_sent_messages: ~
+    conversation:
+      accepted_request: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      message_from: ~
+      about_listing: ~
+      free_message: ~
+      message_content_not_available: ~
+    message:
+      accepted_request: ~
+      received_payment: ~
+      accepted_offer: ~
+      rejected_request: ~
+      rejected_offer: ~
+      confirmed_request: ~
+      confirmed_offer: ~
+      canceled_request: ~
+      canceled_offer: ~
+      paid: ~
+      payment_preauthorized: ~
+    new:
+      message: ~
+      message_to: ~
+      optional_message_to: ~
+      send_message: ~
+      send: ~
+      this_message_is_private: ~
+      you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: ~
+      send_message_to_user: ~
+      about_listing: ~
+      author_has_to_accept_request: ~
+    show:
+      in_response_to_listing: ~
+      message_sent_by: ~
+      message_sent_to: ~
+      send_reply: ~
+      write_a_reply: ~
+      conversation_about_listing: ~
+      conversation_with_user: ~
+      conversation_with: ~
+      last_message_at: ~
+      price: ~
+      sum: ~
+      total: ~
+    status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
+      cancel_payed_transaction: ~
+      feedback_given: ~
+      feedback_skipped: ~
+      give_feedback: ~
+      offer_accepted: ~
+      offer_rejected: ~
+      offer_canceled: ~
+      offer_confirmed: ~
+      offer_paid: ~
+      offer_preauthorized: ~
+      offer_waiting_for_payment: ~
+      pay: ~
+      preauthorized: ~
+      paid: ~
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
+      request_accepted: ~
+      request_rejected: ~
+      request_confirmed: ~
+      request_canceled: ~
+      request_paid: ~
+      request_preauthorized: ~
+      skip_feedback: ~
+      waiting_for_listing_author_to_accept_offer: ~
+      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_you_to_accept_request: ~
+      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_you: ~
+      waiting_payment_from_requester: ~
+      waiting_payment_from_you: ~
+      waiting_feedback_from_you: ~
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          unknown_reason: ~
+          verify: ~
+    status_link:
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      accept_preauthorized_offer: ~
+      accept_preauthorized_request: ~
+      reject_preauthorized_offer: ~
+      reject_preauthorized_request: ~
+      confirm: ~
+      cancel: ~
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
+  community_memberships:
+    access_denied:
+      access_denied: ~
+      you_are_banned_in_this_community: ~
+      contact_page_link: ~
+    new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
+      join_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
+  emails:
+    accept_reminder:
+      remember_to_accept_offer: ~
+      remember_to_accept_request: ~
+      you_can_accept_or_reject_offer_at: ~
+      you_can_accept_or_reject_request_at: ~
+      you_have_not_yet_accepted_or_rejected_offer: ~
+      you_have_not_yet_accepted_or_rejected_request: ~
+      show_thread: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: ~
+      remember_to_confirm_request: ~
+      if_will_not_happen_you_should_cancel: ~
+      cancel_it_link_text: ~
+      automatic_confirmation: ~
+    payment_settings_reminder:
+      remember_to_add_payment_details: ~
+      you_have_added_listing_with_payment: ~
+      please_go_to_payment_settings: ~
+      payment_settings_link: ~
+    transaction_confirmed:
+      here_is_a_message_from: ~
+      request_marked_as_confirmed: ~
+      request_marked_as_canceled: ~
+      has_marked_request_as_confirmed: ~
+      has_marked_request_as_canceled: ~
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+    transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    booking_transaction_automatically_confirmed:
+      subject: ~
+      we_have_marked_request_as_confirmed: ~
+    automatically_confirmed_footer:
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: ~
+      show_thread: ~
+    confirmation_instructions:
+      confirmation_instructions_signature: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      or_paste_link: ~
+    common:
+      hey: ~
+      kassi_team: ~
+      thanks: ~
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
+    conversation_status_changed:
+      has_accepted_your_offer: ~
+      has_accepted_your_request: ~
+      has_rejected_your_offer: ~
+      has_rejected_your_request: ~
+      view_thread: ~
+      your_offer_was_accepted: ~
+      your_offer_was_rejected: ~
+      your_request_was_accepted: ~
+      your_request_was_rejected: ~
+      you_can_now_pay_to: ~
+      pay_now: ~
+      remember_to_confirm: ~
+    invitation_to_kassi:
+      hi: ~
+      you_have_been_invited_to_kassi: ~
+      here_is_a_message_from: ~
+      join_now: ~
+      invitation_code: ~
+    new_comment:
+      has_commented_your_listing_in_kassi: ~
+      view_comment: ~
+      you_have_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: ~
+      has_commented_listing_you_follow_in_kassi: ~
+    new_message:
+      view_message: ~
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
+    new_payment:
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
+      shipping_total: ~
+    braintree_new_payment:
+      product: ~
+      price_payer_paid: ~
+      service_fee: ~
+      you_will_get: ~
+    receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
+    new_testimonial:
+      has_given_you_feedback_in_kassi: ~
+      you_can_give_feedback_to: ~
+      view_feedback: ~
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: ~
+      has_updated_listing_you_follow_in_kassi: ~
+      view_changes: ~
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      added_listing: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      reduce_email_footer_text: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+    newsletter:
+      hi: ~
+      newest_offers: ~
+      newest_requests: ~
+      text_version_text: ~
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
+    testimonial_reminder:
+      remember_to_give_feedback_to: ~
+      you_have_not_given_feedback_yet: ~
+    transaction_preauthorized:
+      subject: ~
+      transaction_requested_by_user: ~
+      you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
+      if_you_do_not_accept: ~
+      click_here_to_reply: ~
+    transaction_preauthorized_reminder:
+      subject: ~
+      remember_to_accept: ~
+      one_day_left: ~
+      click_here_to_reply: ~
+    welcome_email:
+      welcome_email_subject: ~
+      welcome_to_marketplace: ~
+      love_marketplace_crew: ~
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+    new_listing_by_followed_person:
+      subject: ~
+      has_posted_a_new_listing: ~
+      you_are_receiving_this_because: ~
+      view_listing: ~
+    new_member_notification:
+      new_member_has_joined: ~
+      this_is_automatic_message: ~
+      person_name: ~
+      person_email: ~
+  error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
+    onboarding:
+      server_rendering: ~
+    listings:
+      departure_time: ~
+      share_type: ~
+      valid_until: ~
+      price: ~
+      minimum_price: ~
+    testimonials:
+      you_must_explain_not_neutral_feedback: ~
+      you_must_select_a_grade: ~
+    transaction_agreement:
+      required_error: ~
+    paypal:
+      transaction_cannot_complete: ~
+      buyer_cannot_pay_error: ~
+      pending_review_error: ~
+      seller_express_checkout_disabled: ~
+      generic_error: ~
+      cancel_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
+    stripe:
+      generic_error: ~
+  error_pages:
+    back_to_kassi_front_page: ~
+    error_404:
+      if_you_believe: ~
+      page_can_not_be_found: ~
+      page_you_requested_can_not_be_found: ~
+    error_404_title: ~
+    error_410:
+      page_removed: ~
+      page_you_requested_has_been_removed: ~
+      page_removed_reason: ~
+    error_410_title: ~
+    error_500:
+      temporary_unavailable: ~
+      unable_to_process: ~
+      we_hate_this: ~
+      refer_to_error_id: ~
+    error_500_title: ~
+    error_description: ~
+    no_javascript:
+      javascript_is_disabled_in_your_browser: ~
+      kassi_does_not_currently_work_without_javascript: ~
+      contact_us: ~
+      send_feedback: ~
+      your_feedback_to_admins: ~
+    send: ~
+    your_email_address: ~
+  errors:
+    messages:
+      invalid_date: ~
+      invalid_time: ~
+      invalid_datetime: ~
+      is_at: ~
+      before: ~
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
+      positive_number: ~
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
+  header:
+    about: ~
+    home: ~
+    members: ~
+    new_listing: ~
+    mobile_version: ~
+    offers: ~
+    requests: ~
+    search_kassi: ~
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
+    manage_listings: ~
+    invite: ~
+    login: ~
+    signup: ~
+    menu: ~
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: ~
+      additionally_one_private_request_exists: ~
+      additionally_some_private_offers_exist: ~
+      additionally_some_private_requests_exist: ~
+    blank_slate:
+      add_first: ~
+      but_that_is_visible_only_to_registered_members: ~
+      but_those_are_visible_only_to_registered_members: ~
+      create_new_account_for_yourself: ~
+      examples_of_what_you_could_offer_to_others: ~
+      examples_of_what_you_could_request_to_others: ~
+      favor_offer_list: ~
+      favor_request_list: ~
+      favors_to_offer: ~
+      favors_to_request: ~
+      item_offer_list: ~
+      item_request_list: ~
+      items_to_offer: ~
+      items_to_request: ~
+      log_in: ~
+      no_offers_visible_unless_logged_in: ~
+      no_open_offers_currently: ~
+      no_open_requests_currently: ~
+      no_requests_visible_unless_logged_in: ~
+      one_private_offer_exists: ~
+      one_private_request_exists: ~
+      ride_offer: ~
+      ride_request: ~
+      some_private_offers_exist: ~
+      some_private_requests_exist: ~
+    custom_filters:
+      update_view: ~
+      min: ~
+      max: ~
+    event_feed:
+      latest_events: ~
+    grid_item:
+      processing_uploaded_image: ~
+    index:
+      no_listings_with_your_search_criteria: ~
+      no_listings_notification: ~
+      add_listing_link_text: ~
+      open_listing: ~
+      open_listings: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
+      what_do_you_need: ~
+      post_new_listing: ~
+      are_offering: ~
+      add_news_item: ~
+      lend_rent_help_carpool: ~
+      loading_more_content: ~
+      more_events: ~
+      news: ~
+      no_news: ~
+      more_news: ~
+      or: ~
+      or_see_what_the_others: ~
+      recent_events: ~
+      requesting: ~
+      tell_it_here: ~
+      welcome_to_new_kassi: ~
+      no_reviews: ~
+      no_image: ~
+      filter: ~
+      this_is_private_community: ~
+    invitation_form:
+      email: ~
+      message: ~
+      send_invitation: ~
+      add_email_addresses_description: ~
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
+      errors_in_emails: ~
+    list_item:
+      review: ~
+      reviews: ~
+      distance_away: ~
+    news_item:
+      show_less: ~
+      show_more: ~
+    profile_info_empty_notification:
+      add_your_info: ~
+      add_a_profile_picture: ~
+      you_have_not_added_your_info: ~
+      add_your_info_link: ~
+    recent_listing:
+      please_offer: ~
+      comment: ~
+      comments: ~
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      map_button: ~
+      grid_button: ~
+      list_button: ~
+      all_listing_types: ~
+      all_categories: ~
+    errors:
+      search_engine_not_responding: ~
+  infos:
+    about:
+      default_about_text_title: ~
+      default_about_text: ~
+      click_here_link_text: ~
+    how_to_use:
+      default_title: ~
+      default_content: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
+    listings:
+      no_listing_image: ~
+  layouts:
+    admin:
+      admin: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    no_tribe:
+      inbox: ~
+      settings: ~
+      feedback: ~
+    application:
+      join_this_community: ~
+      read_more: ~
+      feedback: ~
+      dont_use_to_contact_support: ~
+      feedback_forum: ~
+      feedback_handle: ~
+      give_feedback: ~
+      or_check_our: ~
+      send_feedback_to_admin: ~
+      to_see_what_others_have_suggested: ~
+      your_email_address: ~
+      connect: ~
+      invite_your_friends: ~
+      invite_your_neighbors: ~
+      invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
+    conversations:
+      messages: ~
+      notifications: ~
+      received: ~
+      sent: ~
+    global-header:
+      select_language: ~
+    infos:
+      about: ~
+      how_to_use: ~
+      info_about_kassi: ~
+      news: ~
+      register_details: ~
+      terms: ~
+    logged_in:
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
+      settings: ~
+      sign_up: ~
+    logged_in_messages_icon:
+      messages: ~
+    logged_in_notifications_icon:
+      notifications: ~
+    mobile_logged_in:
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
+      settings: ~
+      sign_up: ~
+    notifications:
+      listing_could_not_be_saved: ~
+      contact_admin_link_text: ~
+      test_welcome_email_delivered_to: ~
+      something_went_wrong: ~
+      community_updated: ~
+      community_update_failed: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      comment_cannot_be_empty: ~
+      comment_sent: ~
+      confirmation_link_is_wrong_or_used: ~
+      additional_email_confirmed: ~
+      could_not_get_email_from_facebook: ~
+      facebook_email_unconfirmed: ~
+      create_new_listing: ~
+      create_one_here: ~
+      email_confirmation_sent_to_new_address: ~
+      email_not_found: ~
+      error_with_session: ~
+      feedback_considered_spam: ~
+      feedback_not_saved: ~
+      feedback_saved: ~
+      feedback_sent_to: ~
+      feedback_skipped: ~
+      invitation_cannot_be_sent: ~
+      invitation_limit_reached: ~
+      invitation_sent: ~
+      inviting_new_users_is_not_allowed_in_this_community: ~
+      login_again: ~
+      login_failed: ~
+      account_creation_successful: ~
+      account_deleted: ~
+      login_successful: ~
+      logout_successful: ~
+      news_item_created: ~
+      news_item_creation_failed: ~
+      news_item_update_failed: ~
+      news_item_updated: ~
+      news_item_deleted: ~
+      offer_accepted: ~
+      offer_confirmed: ~
+      offer_closed: ~
+      listing_created_successfully: ~
+      offer_rejected: ~
+      offer_canceled: ~
+      listing_updated_successfully: ~
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
+      only_kassi_administrators_can_access_this_area: ~
+      only_listing_author_can_close_a_listing: ~
+      only_listing_author_can_edit_a_listing: ~
+      payment_successful: ~
+      payment_canceled: ~
+      error_in_payment: ~
+      cannot_receive_payment: ~
+      payment_waiting_for_later_accomplishment: ~
+      password_recovery_sent: ~
+      person_activated: ~
+      person_deactivated: ~
+      person_updated_successfully: ~
+      poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
+      poll_update_failed: ~
+      poll_updated: ~
+      poll_deleted: ~
+      read_more: ~
+      registration_considered_spam: ~
+      reply_cannot_be_empty: ~
+      reply_sent: ~
+      request_accepted: ~
+      request_confirmed: ~
+      request_rejected: ~
+      request_canceled: ~
+      message_sent: ~
+      message_not_sent: ~
+      this_content_is_not_available_in_this_community: ~
+      unknown_error: ~
+      update_error: ~
+      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
+      you_are_not_authorized_to_do_this: ~
+      you_are_not_authorized_to_view_this_content: ~
+      listing_closed: ~
+      send_instructions: ~
+      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_send_message_to_yourself: ~
+      you_followed_listing: ~
+      you_have_already_given_feedback_about_this_event: ~
+      you_are_now_member: ~
+      you_are_already_member: ~
+      you_must_log_in_to_create_new_listing: ~
+      additional_email_confirmed_dashboard: ~
+      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_send_a_comment: ~
+      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_your_inbox: ~
+      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_change_profile_settings: ~
+      you_must_log_in_to_accept_or_reject: ~
+      you_must_log_in_to_confirm_or_cancel: ~
+      you_need_to_confirm_your_account_first: ~
+      you_must_fill_all_the_fields: ~
+      you_unfollowed_listing: ~
+      joining_community_failed: ~
+      can_not_delete_email: ~
+      user_does_not_have_email_to_delete: ~
+      email_deleted: ~
+      listing_author_payment_details_missing: ~
+      images_are_processing: ~
+      automatically_logged_out_please_sign_in: ~
+    settings:
+      account: ~
+      notifications: ~
+      profile: ~
+      settings: ~
+      paypal_payments: ~
+      stripe_payments: ~
+      payments: ~
+  listings:
+    bubble_listing_not_visible:
+      listing_not_visible: ~
+    comment:
+      wrote: ~
+      send_private_message: ~
+      delete: ~
+      are_you_sure: ~
+    comment_form:
+      ask_a_question: ~
+      log_in: ~
+      send_comment: ~
+      to_send_a_comment: ~
+      write_comment: ~
+      you_cannot_send_a_new_comment_because_listing_is_closed: ~
+      you_must: ~
+      subscribe_to_comments: ~
+    edit:
+      edit_listing: ~
+    edit_links:
+      close_listing: ~
+      edit_listing: ~
+      reopen_listing: ~
+      move_to_top: ~
+      show_in_updates_email: ~
+      show_in_updates_email_loading: ~
+      show_in_updates_email_error: ~
+      show_in_updates_email_success: ~
+    map:
+      open_in_google_maps: ~
+    error:
+      something_went_wrong: ~
+      something_went_wrong_plain: ~
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
+    follow_links:
+      follow: ~
+      unfollow: ~
+    form:
+      custom_field_partials:
+        dropdown:
+          select_one___: ~
+      departure_time:
+        at: ~
+        departure_time: ~
+      departure_time_radio_buttons:
+        repeated: ~
+      description:
+        detailed_description: ~
+        youtube_info: ~
+      destination:
+        destination: ~
+      form_content:
+        favor: ~
+        housing: ~
+        item: ~
+        offer_something: ~
+        request_something: ~
+        rideshare: ~
+        i_want_to_offer: ~
+        i_want_to_request: ~
+      googlemap:
+        googlemap_copy: ~
+        googlemap_description: ~
+        googlemap_updatemap: ~
+      images:
+        image: ~
+        best_result: ~
+        no_file_selected: ~
+        remove_image: ~
+        select_file: ~
+        add_more: ~
+        removing: ~
+        processing: ~
+        loading_image: ~
+        image_uploading_in_progress: ~
+        processing_takes_a_while: ~
+        this_may_take_a_while: ~
+        percentage_loaded: ~
+        uploading_failed: ~
+        image_processing_failed: ~
+        file_too_large: ~
+        accepted_formats: ~
+        images_not_uploaded_confirm: ~
+      location:
+        location: ~
+      price:
+        price: ~
+        per: ~
+        per_day: ~
+        mass: ~
+        time: ~
+        long_time: ~
+        after_service_fee_you_will_get: ~
+        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_paypal_text: ~
+        after_service_fee_you_will_get_stripe_text: ~
+        payment_fee_info_link_text: ~
+        paypal_fee_info_link_text: ~
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        shipping_price_additional: ~
+        pickup: ~
+      origin:
+        location: ~
+        origin: ~
+      send_button:
+        save_listing: ~
+      share_type:
+        select: ~
+        borrow: ~
+        buy: ~
+        give_away: ~
+        lend: ~
+        offer_type: ~
+        receive: ~
+        rent: ~
+        rent_out: ~
+        request_type: ~
+        sell: ~
+        share_for_free: ~
+        accept_for_free: ~
+        trade: ~
+      tag_list:
+        comma_separate: ~
+        tags: ~
+      title:
+        listing_title: ~
+      valid_until:
+        valid_until: ~
+      valid_until_radio_buttons:
+        for_the_time_being: ~
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
+    help_texts:
+      help_share_type_title: ~
+      help_tags_title: ~
+      help_valid_until_title: ~
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      listings: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      you_have_something_others_do_not: ~
+      feed_title: ~
+    left_panel_link:
+      borrows: ~
+      buys: ~
+      favors: ~
+      give_aways: ~
+      housings: ~
+      items: ~
+      lends: ~
+      receives: ~
+      rent_outs: ~
+      rents: ~
+      rideshares: ~
+      sells: ~
+      share_for_frees: ~
+      accept_for_frees: ~
+      trades: ~
+    listing_actions:
+      booking_from: ~
+      booking_to: ~
+      how_paypal_works: ~
+      payment_help: ~
+      unable_load_availability: ~
+    new:
+      listing: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_transaction_type: ~
+      select_category: ~
+      select_subcategory: ~
+      select_transaction_type: ~
+      you_need_to_fill_payout_details_before_accepting: ~
+      contact_admin_link_text: ~
+      community_not_configured_for_payments: ~
+      payment_settings_link: ~
+      community_not_configured_for_payments_admin: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      custom: ~
+    quantity_placeholder: ~
+    please_comment: ~
+    reply_link:
+      listing_closed: ~
+    show:
+      add_your_phone_number: ~
+      add_profile_picture: ~
+      comments: ~
+      contact_by_phone: ~
+      contact: ~
+      favor_offer: ~
+      favor_request: ~
+      inquiry: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      no_description: ~
+      no_image: ~
+      no_reviews: ~
+      offer: ~
+      listing_created: ~
+      open_until: ~
+      feedback: ~
+      qr_code: ~
+      request: ~
+      rideshare_offer: ~
+      rideshare_request: ~
+      send_private_message: ~
+      tags: ~
+      time: ~
+      times: ~
+      times_viewed: ~
+      processing_uploaded_image: ~
+      listing_created_at: ~
+      price:
+        per_quantity_unit: ~
+        per_day: ~
+      delivery: ~
+      shipping: ~
+      shipping_no_price: ~
+      shipping_price_additional: ~
+      pickup: ~
+      pickup_no_price: ~
+      youtube_video_player: ~
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+    verification_required:
+      verification_required: ~
+  listing_conversations:
+    preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
+      details: ~
+      by: ~
+      payment: ~
+      exp: ~
+      you_will_be_charged: ~
+      day: ~
+      days: ~
+      night: ~
+      nights: ~
+      invalid_parameters: ~
+    transaction_agreement_checkbox:
+      read_more: ~
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
+  mapview:
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
+  mercury:
+    content_too_long: ~
+  okl:
+    member_id: ~
+    member_id_or_email: ~
+  paypal_accounts:
+    payout_info_title: ~
+    paypal_account_email_connected: ~
+    payout_info_paypal: ~
+    paypal_billing_agreement_made: ~
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: ~
+    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    not_now: ~
+    new:
+      payout_info_you_need_to_connect: ~
+      payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
+      paypal_account_email: ~
+      paypal_account_email_placeholder: ~
+      paypal_account_email_info_text: ~
+      create_paypal_account: ~
+      upgrade_paypal_account: ~
+      paypal_account_billing_agreement: ~
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_none: ~
+      paypal_info_link_text: ~
+      billing_agreement_description: ~
+      billing_agreement: ~
+      permissions_not_granted: ~
+      could_not_fetch_redirect_url: ~
+      paypal_not_enabled: ~
+      billing_agreement_canceled: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
+      something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
+  paypal:
+    pay_with_paypal: ~
+    checkout_with: ~
+    or_pay_with_paypal: ~
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
+  people:
+    edit_links:
+      activate: ~
+      deactivate: ~
+    help_texts:
+      feedback_description_title: ~
+      help_invitation_code_title: ~
+      terms_title: ~
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
+    new:
+      create_new_account: ~
+      email: ~
+      email_is_in_use: ~
+      email_is_in_use_or_not_allowed: ~
+      email_not_allowed: ~
+      invalid_username_or_email: ~
+      family_name: ~
+      given_name: ~
+      i_accept_the: ~
+      invalid_invitation_code: ~
+      invitation_code: ~
+      not_required: ~
+      notification_is_mandatory: ~
+      password_again: ~
+      show_my_name_to_others: ~
+      sign_up: ~
+      terms: ~
+      username_is_in_use: ~
+      username_is_invalid: ~
+      visible_only_to_you: ~
+      visible_to_everybody: ~
+      create_account_with_facebook: ~
+      OR: ~
+      signup_with_email: ~
+    profile_feedback:
+      grade: ~
+      and_gave_following_feedback: ~
+    profile_listings:
+      show_also_closed: ~
+      show_only_open: ~
+      no_image: ~
+    show:
+      contact: ~
+      about_me: ~
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: ~
+      as_expected: ~
+      edit_profile_info: ~
+      exceeded_expectations: ~
+      positive: ~
+      hide_description: ~
+      less_than_expected: ~
+      phone_number: ~
+      show_all_feedback: ~
+      show_all_testimonials: ~
+      show_full_description: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      what_are_these: ~
+      review: ~
+      reviews: ~
+      listing: ~
+      listings: ~
+      open_listing: ~
+      open_listings: ~
+      no_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      show_all_listings: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
+    followed_people:
+      you_follow_plural: ~
+      you_follow_singular: ~
+      they_follow_plural: ~
+      they_follow_singular: ~
+      show_all_followed_people: ~
+      no_followed_people: ~
+    follow_button:
+      following: ~
+      follow: ~
+      unfollow: ~
+  sessions:
+    new:
+      create_new_account: ~
+      i_forgot_my_password: ~
+      login: ~
+      login_to_kassi: ~
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
+    password_forgotten:
+      email: ~
+      password_recovery_instructions: ~
+      request_new_password: ~
+      change_your_password: ~
+    confirmation_pending:
+      welcome_to_kassi: ~
+      check_your_email: ~
+      resend_confirmation_instructions: ~
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_title_admin: ~
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
+      account_confirmation_instructions_admin: ~
+      contact_support_link_text: ~
+  settings:
+    account:
+      change: ~
+      confirm_new_password: ~
+      delete_account: ~
+      delete_account_button: ~
+      delete_account_confirmation_popup: ~
+      email_addresses: ~
+      new_email: ~
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
+      new_password: ~
+      save: ~
+      these_fields_are_shown_only_to_you: ~
+      email_already_confirmed: ~
+      email:
+        address_title: ~
+        remove_title: ~
+        remove_confirmation: ~
+        receive_notifications_title_desktop: ~
+        receive_notifications_title_mobile: ~
+        receive_notifications_new_title_mobile: ~
+        add_new_with_plus: ~
+        add_new_cancel: ~
+        confirmation_title_mobile: ~
+        confirmation_title_desktop: ~
+        confirmation_resend: ~
+        status_confirmed: ~
+        status_pending: ~
+    notifications:
+      email_from_admins: ~
+      i_want_to_get_email_notification_when: ~
+      newsletters: ~
+      community_updates: ~
+      email_about_confirm_reminders: ~
+      email_about_new_comments_to_own_listing: ~
+      email_about_new_messages: ~
+      email_about_new_received_testimonials: ~
+      email_about_testimonial_reminders: ~
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
+      email_when_conversation_accepted: ~
+      email_when_conversation_rejected: ~
+      email_about_completed_transactions: ~
+      email_about_new_payments: ~
+      email_about_new_listings_by_followed_people: ~
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
+    profile:
+      about_you: ~
+      city: ~
+      family_name: ~
+      given_name: ~
+      first_name_with_initial: ~
+      first_name_only: ~
+      display_name: ~
+      display_name_description: ~
+      location_description: ~
+      phone_number: ~
+      profile_picture: ~
+      postal_code: ~
+      profile_page: ~
+      profilemap: ~
+      street_address: ~
+      these_fields_are_shown_in_your: ~
+      visible_to_everybody: ~
+      visible_to_registered_users: ~
+      default_in_listing: ~
+      invisible: ~
+      image_is_processing: ~
+    save_information: ~
+  shipping_address:
+    shipping_address: ~
+  tag_cloud:
+    tag_used:
+      with_tag: ~
+      without_tag: ~
+  terms:
+    show:
+      accept_terms: ~
+      here: ~
+      i_accept_new_terms: ~
+      i_accept_terms: ~
+      terms: ~
+      terms_have_changed: ~
+      you_can_view_the_new_terms: ~
+      you_need_to_accept: ~
+      you_need_to_accept_new_terms: ~
+  testimonials:
+    index:
+      all_testimonials: ~
+      feedback_altogether: ~
+      loading_more_testimonials: ~
+      no_testimonials: ~
+    new:
+      as_expected: ~
+      exceeded_expectations: ~
+      give_feedback_to: ~
+      grade: ~
+      less_than_expected: ~
+      send_feedback: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      textual_feedback: ~
+      this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
+    testimonial:
+      about_listing: ~
+  date:
+    formats:
+      long_with_abbr_day_name: ~
+  datepicker:
+    days:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_short:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    days_min:
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
+    months:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    months_short:
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    today: ~
+    clear: ~
+    format: ~
+  time:
+    formats:
+      short: ~
+      shorter: ~
+      short_date: ~
+  timestamps:
+    day_ago: ~
+    days_ago: ~
+    hour_ago: ~
+    hours_ago: ~
+    minute_ago: ~
+    minutes_ago: ~
+    month_ago: ~
+    months_ago: ~
+    seconds_ago: ~
+    year_ago: ~
+    years_ago: ~
+  transactions:
+    initiate:
+      booked_days: ~
+      booked_nights: ~
+      price_per_day: ~
+      price_per_night: ~
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
+      stripe-fee: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
+    total_to_pay: ~
+  unit:
+    day: ~
+    days: ~
+  web:
+    listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
+    listing_card:
+      add_picture: ~
+      no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
+    topbar:
+      menu: ~
+      more: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
+      user: ~
+      inbox: ~
+      profile: ~
+      manage_listings: ~
+      settings: ~
+      logout: ~
+      login: ~
+      signup: ~
+      admin_dashboard: ~
+      language: ~
+    utils:
+      km: ~
+      mi: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+  will_paginate:
+    previous_label: ~
+    next_label: ~
+    page_gap: ~
+    page_entries_info:
+      multi_page: ~
+      multi_page_html: ~
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    card_not_stored: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_can_accept: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
+  payment_settings:
+    title: ~
+    bank_account: ~
+    paypal: ~
+    bank_account_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~

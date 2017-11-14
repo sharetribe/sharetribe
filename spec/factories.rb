@@ -420,4 +420,9 @@ FactoryGirl.define do
     selector_tr_key     nil
     listing_shape_id    123
   end
+
+  factory :invitation_unsubscribe, class: 'Invitation::Unsubscribe' do
+    build_association(:community)
+    email 'sherry@example.com'
+  end
 end

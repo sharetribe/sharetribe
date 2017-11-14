@@ -253,7 +253,7 @@ de:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
-        unban_user_confirmation: ~
+        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest Du fortfahren?"
         ban_me_error: "Du kannst dich nicht selber sperren."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
@@ -538,7 +538,7 @@ de:
       marketplace_paypal_integration: Zahlungseinstellungen
       preferences_updated: "Zahlungseinstellungen aktualisiert"
       contact_support_link_text: "kontaktiere Support"
-      integration_info_text: "Bezahlungen auf Sharetribe sind durch PayPal durchgeleitet. Um deinen Kunden die Bezahlung auf Ihrem Marktplatz zu ermöglichen musst du dein PayPal-Konto verbinden. Nachdem du dein PayPal-Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
+      integration_info_text: "Bezahlungen auf deinem Marktplatz werden über PayPal durchgeführt. Um deinen Kunden die Bezahlung auf deinem Marktplatz zu ermöglichen musst du dein PayPal-Konto verbinden. Nachdem du dein PayPal-Konto verbunden hast, kannst du den Mindestbetrag einer Transaktion einrichten sowie eine mögliche Vermittlungsgebühr."
       link_paypal_personal_account_label: "Bietest du selbst Produkte oder Dienstleistungen an?"
       link_paypal_personal_account: "Wenn ja, dann musst Du auch Dein PayPal Konto mit %{personal_payment_preferences_link} verbinden."
       link_stripe_personal_account: "Wenn ja, dann musst du auch dein Stripe-Konto mit %{personal_payment_preferences_link} verbinden."
@@ -611,7 +611,7 @@ de:
         invalid_publishable: "Das sieht nicht aus wie eine richtige %{publishable_key}"
       index:
         header: "Verfügbare Zahlungseinstellungen"
-        info: "Du kannst bestimmen, welche Zahlungssysteme auf deinem Marktplatz verfügbar sind. Zur Zeit sind PayPal und Stripe unterstützt."
+        info: "Du kannst bestimmen, welche Zahlungssysteme auf deinem Marktplatz verfügbar sind. Zur Zeit werden PayPal und Stripe unterstützt."
         active: Aktiv
         gateway: Zahlungssystem
         process: Prozess
@@ -694,7 +694,7 @@ de:
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede Zahlung durch PayPal erhebt %{service_name} eine Transaktionsgebühr im Höhe von %{paypal_commission}%. Die Gebühren von PayPal sind nicht inklusive in diesem Gebühr, also müssen sie die PayPal-Gebühren für jede PayPal-Zahlung auch zahlen, zusätzlich zu den Transaktionsgebühren von %{service_name}.
+          Für jede Zahlung durch PayPal erhebt %{service_name} eine Transaktionsgebühr im Höhe von %{paypal_commission}%. Die Gebühren von PayPal sind nicht inklusive in dieser Gebühr, also musst du die PayPal-Gebühren für jede PayPal-Zahlung auch zahlen, zusätzlich zu den Transaktionsgebühren von %{service_name}.
           Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
@@ -2331,8 +2331,16 @@ de:
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Keine %{model} gefunden"
+          one: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
+          other: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
+        single_page_html:
+          zero: "Keine %{model} gefunden"
+          one: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
+          other: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
+        multi_page: "%{model} %{from} - %{to} von %{accepted_count} aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
+        multi_page_html: "%{model} <b>%{from}&nbsp;-%nbsp;%{to}</b> von <b>%{accepted_count}</b> aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
   stripe_accounts:
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"
