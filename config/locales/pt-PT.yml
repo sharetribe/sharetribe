@@ -927,7 +927,10 @@ pt-PT:
       message_not_displaying_correctly: "Este email não está a ser corretamente mostrado?"
       view_it_in_your_browser: "Visualizar no seu browser."
       or: ~
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "cancele a recepção destes emails"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aceitou a sua oferta %{listing}"
       has_accepted_your_request: "%{accepter} aceitou o seu pedido %{listing}"
@@ -1393,8 +1396,10 @@ pt-PT:
       feedback_sent_to: "Opinião enviada a %{target_person}."
       feedback_skipped: ~
       invitation_cannot_be_sent: "O convite não pôde ser enviado"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "Convite enviado com sucesso"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Não é permitido convidar novos utilizadores."
       login_again: "Por favor, faça novamente login"
       login_failed: "Falha no acesso à sua conta. Por favor entre com os dados correctos."

@@ -946,7 +946,10 @@ sv:
       message_not_displaying_correctly: "Syns inte e-postmeddelandet korrekt?"
       view_it_in_your_browser: "Se den i din webbläsare."
       or: eller
+      unsubscribe_from_these_emails_info: "Du har fått detta email för du är en medlem av %{service_name}."
       unsubscribe_from_these_emails: "avsluta prenumeration från dessa e-postmeddelanden"
+      unsubscribe_from_invitation_emails_info: "Du har fått detta email för att en medlem av %{service_name} har bjudit in dig."
+      unsubscribe_from_invitation_emails: "Sluta prenumerera på inbjudningsemail att gå med i %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har antagit ditt erbjudande angående %{listing}"
       has_accepted_your_request: "%{accepter} har antagit din förfrågan %{listing}."
@@ -1414,8 +1417,10 @@ sv:
       feedback_sent_to: "Feedback skickades till %{target_person}."
       feedback_skipped: "Feedback skippades"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
+      invitation_cannot_unsubscribe: "Kan inte avprenumerera från inbjudningsemail"
       invitation_limit_reached: "Du försökte skicka för många inbjudningar. Dagliga gränsen är nådd."
       invitation_sent: "Inbjudan skickades"
+      invitation_successfully_unsubscribed: "Avslutade prenumerationen av inbjudningsemail framgångsrikt"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
       login_failed: "Inloggning misslyckades. Vänligen använd rätt upgifter."
@@ -2333,8 +2338,16 @@ sv:
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Ingen %{model} hittad"
+          one: "Visar %{accepted_count} accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
+          other: "Visar %{accepted_count} accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
+        single_page_html:
+          zero: "Ingen %{model} hittad"
+          one: "Visar <b> %{accepted_count} </b> accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
+          other: "Visar <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
+        multi_page: "Visar %{model} %{from} till %{to} av %{accepted_count} accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
+        multi_page_html: "Visar %{model} <b>%{from} till %{to} </b> av <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: "Att använda %{service_name} betalningssystem för att ta emot betalningar är inte möjligt på grund av att online betalningar har inte blivit aktivetar för marknadsplatsen. Vänligen kontakta %{contact_admin_link} för information."
     contact_admin_link_text: "kontakta marknadsplatsens administratör"
@@ -2397,7 +2410,7 @@ sv:
       send_verification: "Skicka verifikation"
       need_verification: "Behöver ytterligare verifiering"
     form_pin:
-      social_insurance_number: ~
+      social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"
       hong_kong_identity_card: "Hong Kong Identitetskortsnummer (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) eller Foreign Identification Number (FIN)"

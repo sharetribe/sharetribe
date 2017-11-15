@@ -58,7 +58,7 @@ tr-TR:
         enabled_languages: "Aktif diller"
         enabled_languages_description: ~
         default_language: ~
-        language_selection_disabled: ~
+        language_selection_disabled: "Pazarınızda dil seçimi mümkün değildir; çünkü resmi olmayan bir dil kullanıyorsunuz:%{languages}. Eğer dil ayarlarını değiştirmek istiyorsanız lütfen Sharetribe destek ekibiyle iletişime geçin."
         community_name: "Pazar adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
         community_slogan: "Pazar sloganı"
@@ -142,22 +142,22 @@ tr-TR:
         need_to_change: ~
         contact_support_link_text: ~
         set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
+        sender_name_label: İsim
+        sender_name_placeholder: "Gönderen ismi"
+        sender_email_label: "E-posta adresi"
+        sender_email_placeholder: gonderen-epostasi@ornek.com
         amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
+        this_is_how_it_will_look: "Böyle gözükecek:"
         send_verification_button: "Onaylama mailini gönder"
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: "Gönderen adresi başarıyla kaydedildi. Onay emaili kısa zamanda gönderilecektir."
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
         change_sender_prompt: ~
-        status: ~
+        status: "Durum: %{status}"
         status_verified: ~
-        status_error: ~
+        status_error: "Bir hata oldu. Lütfen sayfayı yenileyin."
         status_requested: ~
         status_expired: ~
         status_resent: ~
@@ -173,23 +173,23 @@ tr-TR:
       getting_started:
         getting_started: "Hızlı Başlangıç"
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
+        en: İngilizce
+        en-AU: "İngilizce (Avustralya)"
+        en-GB: "İngilizce (Birleşik Krallık)"
+        fr: Fransızca
+        fr-CA: "Fransızca (Kanada)"
+        es: "İspanyolca (Şili)"
+        es-ES: İspanyolca
+        pt-PT: Portekizce
+        pt-BR: "Portekizce (Brezilya)"
+        nb: "Norveççe Bokmål"
+        sv: İsveççe
+        da-DK: Danca
+        fi: Fince
         ru: Rusça
         de: Almanca
-        el: ~
-        nl: ~
+        el: Yunanca
+        nl: Flamanca
         tr-TR: Türkçe
         zh: Çince
         ja: Japonca
@@ -231,10 +231,10 @@ tr-TR:
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
         are_you_sure: "Emin misiniz?"
-        i_understand_button: ~
+        i_understand_button: "Bu butona tıklayınca pazarımın silineceğini kabul ediyorum."
         last_community_updates: ~
         you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        delete_this_marketplace: "Bu pazarı sil"
         payment_preferences: ~
       manage_members:
         manage_members: "Kullanıcıları yönet"
@@ -267,13 +267,13 @@ tr-TR:
         social_media: "Sosyal medya"
         twitter_handle: "Twitter aracı"
         twitter_handle_info_text: "Pazarınızın Twitter hesabının kullanıcı adı (mevcutsa). Kişiler listeleme sayfasındaki tweet butonunu kullandığında bahsedilecek."
-        twitter_handle_info_text_with_instructions: ~
+        twitter_handle_info_text_with_instructions: "(Varsa) pazarınızın Twitter hesabının kullanıcı adı. Misafirler ilan sayfasındaki Twitter butonunu kullanınca görüntülenecektir. %{instructions_link}."
         twitter_instructions_link_text: "Devamını oku"
         twitter_handle_placeholder: "kullanıcı adı"
         invalid_twitter_handle: "Twitter aracı maksimum 15 alfanumerik karakter içerebilir (A-Z harfler ve 0-9 rakamlar)."
         facebook_connect: Facebook
         facebook_connect_info_text: "Facebook'la giriş yapmayı etkinleştirebilmek için, <a href='https://developers.facebook.com/'>Facebook geliştiricileri panosunda</a> pazar yeriniz için bir uygulama oluşturun. Uygulamanın oluşturduğu kimlik ve gizli anahtarı buraya ekleyin."
-        facebook_connect_info_text_with_instructions: ~
+        facebook_connect_info_text_with_instructions: "Facebook ile giriş yapılabilmesi için pazarınız adına<a href='https://developers.facebook.com/'>Facebook Programcılar sayfasındaki panelden</a>başvuru yapın. Oluşturulan ID numarası ve gizli anahtarı ekleyin.%{instructions_link}"
         facebook_instructions_link_text: "Facebook'a bağlanma talimatlarına bakın."
         facebook_connect_id: "Facebook müşteri kimliği"
         invalid_facebook_connect_id: "Müşteri kimliği sadece rakam içerebilir."
@@ -352,7 +352,7 @@ tr-TR:
             canceled: ~
             initiated: ~
             pending_ext: ~
-        not_available: ~
+        not_available: "Mevcut değil"
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -373,9 +373,9 @@ tr-TR:
           this_field_is_required: "Bu alanı doldurmak zorunludur"
           this_field_is_required_checkbox: "Bu alanı doldurmak zorunludur (Kullanıcı en az birini tercih etmelidir)"
         search_filter:
-          search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          search_filter: "Ana ekranda bu alan için filtre göster."
+          date_cant_be_filtered: "Tarih alanı için filtre bulunmuyor."
+          text_cant_be_filtered: "Yazı alanı için filtre bulunmuyor. Yazı arama özelliği yazı alanlarını tarıyor."
       index:
         listing_fields: "Listelenen alan & filtreleri"
         listing_fields_help: "Buradan kullanıcıların yeni listeleme oluştururken doldurmaları gereken alanları düzenleyebilirsiniz. Lütfen bazı alanların önceden belirlenmiş ve değiştirilemez olduğunu unutmayın."
@@ -436,7 +436,7 @@ tr-TR:
       users_and_transactions: "Kullanıcılar & işlemler"
       configure: Ayarlar
       emails_title: E-postalar
-      subscription: ~
+      subscription: Üyelik
       preview: ~
     listing_shapes:
       availability_title: ~
@@ -450,19 +450,19 @@ tr-TR:
       index:
         listing_shapes: "İşlem türü"
         description: ~
-        read_more_about_order_types: ~
+        read_more_about_order_types: "Sipariş tipleriyle ilgili daha fazla bilgi al"
         add_new_shape: ~
         select_template: ~
-        all_categories: ~
+        all_categories: "Tüm kategoriler"
         no_categories: "Kategori yok"
-        category_count: ~
+        category_count: "%{category_count} kategoriler"
         header:
           listing_shape_name: "İşlem türü adı"
-          listing_shape_categories: ~
+          listing_shape_categories: "Kullanıldığı kategoriler"
         order:
-          saving_order: ~
+          saving_order: "Sipariş kaydediliyor"
           save_order_successful: ~
-          save_order_error: ~
+          save_order_error: "Sipariş kaydedilirken hata yaşandı. Lütfen sayfayı yenileyip tekrar deneyiniz."
       templates:
         selling_products: ~
         renting_products: ~
@@ -479,22 +479,22 @@ tr-TR:
         create_failure: ~
       edit:
         edit_listing_shape: ~
-        update: ~
+        update: Kaydet
         cancel: İptal
-        update_success: ~
-        update_failure: ~
+        update_success: "%{shape}"
+        update_failure: "Değişiklikler kaydedilemedi. Hata: %{error_msg}"
         delete: ~
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
+      listing_shape_name: İsim
+      listing_shape_name_placeholder: "Ör. Sat"
       action_button_label: ~
-      action_button_placeholder: ~
+      action_button_placeholder: "Ör. Sil"
       successfully_closed: ~
       successfully_deleted: ~
       pricing_and_checkout_title: ~
       online_payments_label: ~
-      shipping_label: ~
+      shipping_label: "Kargo ücretini satıcı belirlesin"
       price_label: ~
       units_title: ~
       units_desc: ~
@@ -507,7 +507,7 @@ tr-TR:
         month: ~
       can_not_find: ~
       add_custom_unit: ~
-      delete_custom_unit: ~
+      delete_custom_unit: Sil
       custom_unit_form:
         title: ~
         label_heading: ~
@@ -522,13 +522,13 @@ tr-TR:
     paypal_accounts:
       marketplace_paypal_integration: "Ödeme tercihleri"
       preferences_updated: "Ödeme referansları güncellendi"
-      contact_support_link_text: ~
+      contact_support_link_text: "destek ekibiyle iletişime geç"
       integration_info_text: "%{service_name}'in ödeme sistemi PayPal altyapısını kullanmaktadır. Eğer kullanıcılarınızın ödemelerini pazar aracılığıyla yapmasına izin vermek istiyorsanız, PayPal hesabınızı eklemeli, minimum listeleme ücreti ve her işlemden keseceğiniz ücreti belirlemelisiniz."
-      link_paypal_personal_account_label: ~
+      link_paypal_personal_account_label: "Ürün ve hizmetleri siz mi sağlıyorsunuz?"
       link_paypal_personal_account: ~
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
-      personal_payment_preferences_link_text: ~
+      personal_payment_preferences_link_text: "kişisel pazar hesabınız"
       read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
       edit_payment_settings: ~
       supported_currencies_information_text: ~
@@ -538,8 +538,8 @@ tr-TR:
       transaction_fee_label: "İşlem ücreti:"
       minimum_transaction_fee_label: "Minumum işlem ücreti:"
       save_settings: "Ayarları kaydet"
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "Minimum işlem miktarının minimum işlem ücretine eşit veya daha fazla olması gerekmektedir:%{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "Minimum işlem miktarının minimum komisyondan daha fazla olması gerekmektedir%{minimum_commission}"
     payment_preferences:
       title: ~
       general_settings: ~
@@ -707,7 +707,7 @@ tr-TR:
       service_fee_label: "%{service_name} ücreti:"
       you_will_get_label: "Alacağınız:"
       total_label: "Toplam:"
-      total_value: ~
+      total_value: "%{seller_gets}"
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* <a id='%{fee_info_link_id}' href='#'>PayPal işlem ücreti</a> dahil değildir."
@@ -732,7 +732,7 @@ tr-TR:
       loading_more_messages: "Daha fazla mesaj yükleniyor"
       message_partitive: mesaj
       messages_partitive: mesajlar
-      no_received_messages: "Alınan mesaj yok"
+      no_received_messages: "Mesaj yok"
       no_sent_messages: "Gönderilen mesaj yok"
     conversation:
       accepted_request: "Talep kabul edildi."
@@ -924,7 +924,10 @@ tr-TR:
       message_not_displaying_correctly: "Bu e-posta düzgün şekilde görüntülenemedi mi?"
       view_it_in_your_browser: "Tarayıcınızda görüntüleyin"
       or: "ya da"
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "bu e-posta aboneliklerini sonlandır"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}, %{listing} teklifini kabul etti."
       has_accepted_your_request: "%{accepter}, %{listing} talebini kabul etti."
@@ -1390,8 +1393,10 @@ tr-TR:
       feedback_sent_to: "Geri bildirim %{target_person} kişisine gönderildi."
       feedback_skipped: "Geri bildirim atlandı."
       invitation_cannot_be_sent: "Davetiye gönderilemedi"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "Davet başarıyla gönderildi"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Yeni kullanıcı davet etmeye izin verilnenektedir."
       login_again: "Lütfen tekrar giriş yapın."
       login_failed: "Oturum açma başarısız. Lütfen doğru bilgilerle deneyin."
@@ -1520,7 +1525,7 @@ tr-TR:
     map:
       open_in_google_maps: "Google Maps üzerinde aç."
     error:
-      something_went_wrong: ~
+      something_went_wrong: "Bir sorun yaşandı; hata kodu: %{error_code}"
       something_went_wrong_plain: ~
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -1691,9 +1696,9 @@ tr-TR:
     quantity:
       hour: "Aylık saat:"
       day: ~
-      night: ~
-      week: ~
-      month: ~
+      night: "Gece sayısı:"
+      week: "Hafta sayısı:"
+      month: "Ay sayısı:"
       custom: ~
     quantity_placeholder: Adet
     please_comment: Yorum
@@ -1806,10 +1811,10 @@ tr-TR:
     payout_info_paypal: ~
     paypal_billing_agreement_made: "<del>2. %{service_name} pazar yerine işletim ücreti kesme izni ver</del> Tamamlandı!"
     commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    create_paypal_account_link_text: "PayPal hesabı"
     connected_account: "'%{email}' PayPal hesabı başarıyla eklendi."
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "PayPal hesabınızın ödeme kabul edebilmesi gerekmektedir. PayPal Şirket hesabı gerekebilir."
     paypal_receive_funds_info_australia_only: ~
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: ~
@@ -1830,7 +1835,7 @@ tr-TR:
       upgrade_paypal_account: "Hesabınızı buradan yükseltebilirsiniz."
       paypal_account_billing_agreement: "2. %{service_name} pazar yerine işletim ücreti kesme izni verin"
       follow_steps: ~
-      connect_paypal_account_title: ~
+      connect_paypal_account_title: "PayPal hesabınızı bağlayın"
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: ~
       connect_paypal_account: "PayPal hesabınızı bağlayın"
@@ -2190,6 +2195,15 @@ tr-TR:
     years_ago: "%{count} yıl önce"
     days_since:
       other: "%{count} gün"
+    time_to:
+      seconds:
+        other: "%{count} saniye"
+      minutes:
+        other: "%{count} dakika"
+      hours:
+        other: "%{count} saat"
+      days:
+        other: "%{count} gün"
   transactions:
     initiate:
       booked_days: ~

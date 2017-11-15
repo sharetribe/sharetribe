@@ -927,7 +927,10 @@ ja:
       message_not_displaying_correctly: このメールアドレスは正しく表示されていませんか。
       view_it_in_your_browser: あなたのブラウザで表示する
       or: or
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: これらのメールを購読解除する
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter}さんはあなたの%{listing}のオファーを受け入れました"
       has_accepted_your_request: "%{accepter}さんはあなたの%{listing}のリクエストを受け入れました"
@@ -1393,8 +1396,10 @@ ja:
       feedback_sent_to: "%{target_person}さんにレビューを送信しました。"
       feedback_skipped: レビューを残しませんでした
       invitation_cannot_be_sent: 招待状は送られませんでした
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: 招待状は正常に送信されました
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: 新しいユーザを招待することは許可されていません。
       login_again: もう一度ログインしてください。
       login_failed: ログインに失敗しました。正確にご入力願います。

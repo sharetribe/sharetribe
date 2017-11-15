@@ -1,55 +1,58 @@
 ko:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "만료되었습니다. 새로 요청하세요."
+      not_found: "찾을 수 없습니다."
+      already_confirmed: "이미 처리되었습니다. 로그인하세요."
+      not_locked: "잠기지 않았습니다."
+      not_saved:
+        zero: "오류가 발생하여 %{resource}이/가 저장되지 않았습니다."
+        other: "%{count}건의 오류가 발생하여 %{resource}이/가 저장되지 않았습니다."
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "이미 로그인하셨습니다."
+      unauthenticated: "계속  진행하시려면 로그인하셔야 합니다."
+      unconfirmed: "먼저 계정을 확인하시고 진행해주세요."
+      locked: "계정이 잠겼습니다."
+      invalid: "올바르지 않은 이메일 또는 비밀번호입니다."
+      invalid_token: "올바르지 않은 인증 토큰입니다."
+      timeout: "세션이 만료되었습니다. 계속 진행하시려면 다시 로그인해주세요."
+      inactive: "계정이 활성화되지 않았습니다."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "비밀번호 변경이 완료되었습니다."
+      send_paranoid_instructions: "등록된 이메일 주소로 비밀번호 복구 링크가 발송되었습니다."
+      send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
+      updated: "비밀번호 변경이 완료되었고, 변경된 비밀번호로 로그인하셨습니다."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: 로그인되었습니다.
+      signed_out: 로그아웃되었습니다.
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "등록된 이메일로 계정 등록 확인을 위한 이메일이 발송되었습니다."
+      send_instructions: "계정 등록 확인을 위한 이메일이 발송되었습니다."
+      confirmed: "계정 등록이 완료되었습니다."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "이메일이 발송되었습니다. 계정 활성화를 위해 이메일에 첨부된 링크를 눌러주세요."
+      signed_up_but_inactive: "로그인하시려면 먼저 계정을 활성화시켜주세요."
+      signed_up_but_locked: "계정이 잠겨있어 로그인하실 수 없습니다."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: 비활성화
+        unconfirmed: 확인필요
+        locked: 잠김
+      update_needs_confirmation: "이메일 주소가 변경되었습니다. 새로운 이메일 주소로 발송된 변경 확인 링크를 눌러 계정 정보 수정을 완료해주세요."
+      signed_up: "가입이 완료되었습니다."
+      updated: "계정 정보 변경이 완료되었습니다."
+      destroyed: "계정이 삭제되었습니다. 다시 뵙기를 바랍니다."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "등록된 이메일로 계정 잠금 해제 안내 메일이 발송되었습니다."
+      send_instructions: "계정 잠금 해제 안내 메일이 발송되었습니다."
+      unlocked: "계정 잠금이 해제되었습니다. 계속 진행하시려면 로그인해주세요."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "%{kind} 계정이 확인되었습니다."
+      failure: "\"%{reason}\" 로 인해 %{kind} 계정 확인에 실패하였습니다."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "%{service_name} 에 가입하기 위한 확인 안내"
       reset_password_instructions:
-        subject: ~
+        subject: "비밀번호 초기화 안내"
       unlock_instructions:
-        subject: ~
+        subject: "잠금 해제 안내"

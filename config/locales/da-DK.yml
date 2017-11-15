@@ -936,7 +936,10 @@ da-DK:
       message_not_displaying_correctly: "Vises denne email ikke korrekt?"
       view_it_in_your_browser: "Vis i din browser"
       or: eller
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "afmeld disse emails"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -1404,8 +1407,10 @@ da-DK:
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: "Du prøvede at sende invitationer, men har sendt for mange. Den daglige grænse er nået."
       invitation_sent: "Invitation sendt"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke tilladt at invitere nye brugere."
       login_again: "Log venligst ind igen"
       login_failed: "Login mislykkedes. Indtast de korrekte oplysninger."

@@ -610,22 +610,22 @@ ko:
     edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: 취소
+    fields_that_are_mandatory: "별표(?)로 표시된 항목은 필수 입력 항목입니다."
+    or: 또는
     password: ~
     service_name: ~
     share_types:
       request: ~
       offer: ~
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
+      borrow: "대여 중"
+      buy: "구매 중"
+      give_away: "증정 중"
+      lend: "대출 중"
+      receive: "무료 증정 중"
+      rent: "대여 중"
+      rent_out: "대여 중"
+      sell: "판매 중"
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -652,7 +652,7 @@ ko:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "이것은 무엇인가요?"
     removed_user: ~
     payment_fee_info:
       title: ~
@@ -714,11 +714,11 @@ ko:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "메시지 로딩 중"
+      message_partitive: 메세지
+      messages_partitive: 메세지들
+      no_received_messages: "메세지 없음"
+      no_sent_messages: "보낸 메세지 없음"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -745,7 +745,7 @@ ko:
       paid: ~
       payment_preauthorized: ~
     new:
-      message: ~
+      message: 메세지
       message_to: ~
       optional_message_to: ~
       send_message: ~
@@ -753,7 +753,7 @@ ko:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: 제목
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -761,8 +761,8 @@ ko:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "회신 보내기"
+      write_a_reply: "회신 작성하기:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -775,11 +775,11 @@ ko:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "피드백 제공"
+      feedback_skipped: "피드백 생략"
+      give_feedback: "피드백 제공하기"
+      offer_accepted: 수락
+      offer_rejected: 거부
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -795,13 +795,13 @@ ko:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: 수락
+      request_rejected: 거부
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "피드백 생략"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -817,10 +817,10 @@ ko:
           unknown_reason: ~
           verify: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "제안 승인"
+      accept_request: "요청 승인"
+      reject_offer: "이번엔 안되겠습니다."
+      reject_request: "이번엔 안되겠습니다."
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -855,12 +855,12 @@ ko:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "%{sender_name}로부터 받은 제안을 승인 또는 거부하는걸 잊지마세요."
+      remember_to_accept_request: "%{sender_name}로부터 받은 요청을 승인 또는 거부하는걸 잊지마세요."
+      you_can_accept_or_reject_offer_at: "제안을 승인 또는 거부하실 수 있습니다."
+      you_can_accept_or_reject_request_at: "요청을 승인 또는 거부하실 수 있습니다."
+      you_have_not_yet_accepted_or_rejected_offer: "%{date}에 받은 제안 %{title}을 아직 승인 / 거부하지 않으셨습니다."
+      you_have_not_yet_accepted_or_rejected_request: "%{date}에 받은 요청 %{title}을 아직 승인 / 거부하지 않으셨습니다."
       show_thread: ~
     branding:
       powered_by: ~
@@ -901,25 +901,28 @@ ko:
       confirmation_link_text: ~
       or_paste_link: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "%{name}님 안녕하세요,"
+      kassi_team: "%{service_name}팀"
+      thanks: "고맙습니다,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: ~
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter}가 당신의 제안 %{listing}을 승인하였습니다."
+      has_accepted_your_request: "%{accepter}가 당신의 요청 %{listing}을 승인하였습니다."
+      has_rejected_your_offer: "%{accepter}가 당신의 제안 %{listing}을 거부하였습니다."
+      has_rejected_your_request: "%{accepter}가 당신의 요청 %{listing}을 거부하였습니다."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "당신의 제안이 승인되었습니다."
+      your_offer_was_rejected: "당신의 제안이 거부되었습니다."
+      your_request_was_accepted: "당신의 요청이 승인되었습니다."
+      your_request_was_rejected: "당신의 요청이 거부되었습니다."
       you_can_now_pay_to: ~
       pay_now: ~
       remember_to_confirm: ~
@@ -1375,8 +1378,10 @@ ko:
       feedback_sent_to: ~
       feedback_skipped: ~
       invitation_cannot_be_sent: ~
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ~
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: ~
       login_failed: ~

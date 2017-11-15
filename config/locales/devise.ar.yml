@@ -48,7 +48,7 @@ ar:
       failure: ".\"‎%{reason}‎\" بسبب ‎%{kind}‎ نأسف. لم يتم تفعيلك من قبل"
     mailer:
       confirmation_instructions:
-        subject: "‎%{service_name}‎ تعليمات التأكيد للإنضمام لـ"
+        subject: "‎%{service_name}‎ تأكيد الإنضمام لـ"
       reset_password_instructions:
         subject: "تعليمات إعادة إنشاء كلمة المرور"
       unlock_instructions:

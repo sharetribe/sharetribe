@@ -929,7 +929,10 @@ ka:
       message_not_displaying_correctly: "ეს ელ. ფოსტა არ არის ნაჩვენები სწორად?"
       view_it_in_your_browser: "ნახეთ ეს თქვენ ბრაუზერში"
       or: ან
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "ამ ელ. ფოსტისგან გამოწერის გაუქმება"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} დაეთანხმა თქვენ შემოთავაზებას %{listing}."
       has_accepted_your_request: "%{accepter} დაეთანხმა თქვენ მოთხოვნას %{listing}."
@@ -1395,8 +1398,10 @@ ka:
       feedback_sent_to: "შეფასება გაგზავნილია %{target_person}სთვის"
       feedback_skipped: "შეფასება გამოტოვებულია"
       invitation_cannot_be_sent: "მოწვევა ვერ გაიგზავნა"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: "თქვენ ცდილობთ რომ გააგზავნოთ ძალიან ბევრი მოსაწვევი. დღიური ლიმიტი შევსებულია."
       invitation_sent: "მოწვევა წარმატებით გაიგზავნა"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "ახალი მომხმარებლების მოწვევა არ არის ნებადართული"
       login_again: "გთხოვთ შეხვიდეთ კიდევ ერთხელ"
       login_failed: "შესვლა ვერ მოხერხდა. გთხოვთ შეიყვანეთ სწორი მონაცემები."

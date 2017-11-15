@@ -247,7 +247,7 @@ de:
         join_date: Beigetreten
         admin: Administrator
         posting_allowed: "Veröffentlichen von Einträgen erlaubt"
-        ban_user: "Nutzer sperren"
+        ban_user: Sperren
         saving_user_status: Speichern...
         save_user_status_successful: Gespeichert
         export_all_as_csv: "Exportiere Alles als CSV Datei"
@@ -258,7 +258,7 @@ de:
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
         reset_search: "Alle anzeigen"
-        for_search_terms: "für &laquo;%{terms}&raquo;"
+        for_search_terms: "für: %{terms}"
       new_layout:
         new_layout: "Neues Layout"
         description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
@@ -690,11 +690,11 @@ de:
       title_paypal: PayPal-Zahlungsbearbeitungsgebühr
       stripe: Stripe
       paypal: PayPal
-      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe oder PayPal verarbeitet. Beide Dienstleister verlangen Zahlungsbearbeitungsgebühren von jeder Transaktion."
+      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe oder PayPal verarbeitet. Beide Dienstleister erheben Zahlungsbearbeitungsgebühren bei jeder Transaktion."
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede Zahlung durch PayPal erhebt %{service_name} eine Transaktionsgebühr im Höhe von %{paypal_commission}%. Die Gebühren von PayPal sind nicht inklusive in dieser Gebühr, also musst du die PayPal-Gebühren für jede PayPal-Zahlung auch zahlen, zusätzlich zu den Transaktionsgebühren von %{service_name}.
+          Für jede Zahlung über PayPal erhebt %{service_name} eine Vermittlungsprovision im Höhe von %{paypal_commission}%. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen.
           Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
@@ -946,7 +946,10 @@ de:
       message_not_displaying_correctly: "Wird diese E-Mail nicht richtig dargestellt?"
       view_it_in_your_browser: "Sieh es dir in deinem Browser an"
       or: oder
+      unsubscribe_from_these_emails_info: "Du erhältst diese Email, weil Du ein Mitglied von %{service_name} bist."
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
+      unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} Dich eingeladen hat beizutreten."
+      unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -962,7 +965,7 @@ de:
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als erledigt markiert."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat Dich eingeladen, %{service_name} zu benutzen."
+      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen"
       here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
@@ -1083,7 +1086,7 @@ de:
       you_are_receiving_this_because: "Du hast diese Benachrichtigung erhalten, weil du %{author_name} folgst."
       view_listing: "Eintrag ansehen"
     new_member_notification:
-      new_member_has_joined: "Ein neuer Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
+      new_member_has_joined: "Ein neues Mitglied ist %{community} beigetreten. Es kann sein, dass sie noch ihre E-Mail-Adresse bestätigen müssen."
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
       person_email: "E-mail:"
@@ -1412,8 +1415,10 @@ de:
       feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
+      invitation_cannot_unsubscribe: "Abbestellung der Email-Einladungen nicht möglich."
       invitation_limit_reached: "Du hast zu viele Einladungen verschickt. Das Tageslimit ist erreicht."
       invitation_sent: "Einladung erfolgreich gesendet"
+      invitation_successfully_unsubscribed: "Email-Einladungen erfolgreich abbestellt."
       inviting_new_users_is_not_allowed_in_this_community: "Neue Benutzer einzuladen, ist nicht gestattet."
       login_again: "Bitte melde Dich erneut an."
       login_failed: "Anmeldung fehlgeschlagen. Bitte gib die korrekten Anmeldedaten ein."
@@ -1611,8 +1616,8 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr und der Gebühren des Zahlungssystems, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls %{payment_fee_info_link} von dem Preis abgezogen."
-        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls %{paypal_fee_info_link} von dem Preis abgezogen."
+        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{payment_fee_info_link} von dem Preis abgezogen."
+        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{paypal_fee_info_link} von dem Preis abgezogen."
         after_service_fee_you_will_get_stripe_text: "Wenn jemand den Auftrag kauft, wird die Gebühr von %{service_name} (%{sum_with_currency}) vom Betrag abgezogen."
         payment_fee_info_link_text: Zahlungsbearbeitungsgebühr
         paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
