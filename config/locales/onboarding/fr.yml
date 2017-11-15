@@ -9,9 +9,11 @@ fr:
             info_image_alt: "Copie d'écran d'une page d'accueil avec une photo de couverture"
             add_your_own: "Télécharger une photo de couverture"
             advice:
-              content1: "Jetez un oeil à %{link} pour trouver de superbes images libres de droits."
+              content1: "Téléchargez %{link_images} ou jetez un oeil à %{link} pour trouver de superbes images libres de droits."
               content2: "Note : la photo sera redimensionnée en %{width}x%{height} pixels. Si elle est trop grande, les parties hautes et basses de l'image seront coupées."
+              link_images: "une des images déjà optimisées"
               link: "notre guide"
+              alt_images: "6 photos de couverture prêtes à l'emploi et comment en trouver encore plus"
               alt: "Comment obtenir de belles photos de couvertures, des logos, des favicon, des images de profil et d'annonces?"
           filter:
             title: "Étape 4 : ajouter des champs d'annonces et des filtres"

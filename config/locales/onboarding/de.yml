@@ -9,9 +9,11 @@ de:
             info_image_alt: "Ein Screenshot von einem Homepage mit einem großen Titelbild"
             add_your_own: "Titelbild hinzufügen"
             advice:
-              content1: "Du solltest %{link} lesen, wo wir erzählen wo du gute, frei wendbare Bilder finden kannst. Leider ist die Anleitung zur Zeit nur auf Englisch vorhanden."
+              content1: "Du kannst %{link_images} verwenden oder einen Blick auf %{link} werfen um herauszufinden, wo man gute und kostenlose Bilder finden kann."
               content2: "Achtung: Das Foto wird auf die Größe von %{width}x%{height} Pixel geändert. Wenn das Foto höher ist, werden die Ober- und Unterteile abgeschnitten."
+              link_images: "eins von unseren gebrauchsfertigen Bildern"
               link: "unsere Anleitung"
+              alt_images: "6 tolle Titelbilder, die du sofort verwenden kannst, und wo man mehr finden kann"
               alt: "Wie bekomme ich gut aussehende Titelbilder, Logos, Favicons, Profil- und Eintragsbilder? (Englisch)"
           filter:
             title: "Schritt 4: Eintragsfelder und Filter hinzufügen"
