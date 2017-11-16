@@ -925,7 +925,10 @@ th-TH:
       message_not_displaying_correctly: อีเมลนี้แสดงอย่างถูกต้องหรือไม่?
       view_it_in_your_browser: แสดงในเบาว์เซอร์ของคุณ
       or: หรือ
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: ยกเลิกการรับอีเมล์เหล่านี้
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ได้ยอมรับข้อเสนอ %{listing} ของคุณแล้ว"
       has_accepted_your_request: "%{accepter} ได้ตอบรับออเดอร์ %{listing} ของคุณแล้ว"
@@ -1391,8 +1394,10 @@ th-TH:
       feedback_sent_to: "ข้อเสนอแนะได้ถูกส่งไปยัง%{target_person}"
       feedback_skipped: ความคิดเห็นที่ถูกข้าม
       invitation_cannot_be_sent: การเชิญไม่สามารถจัดส่งได้
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ส่งการเชิญเรียบร้อยแล้ว
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "ไม่ได้รับอนุญาตให้เชิญผู้ใช้ใหม่ "
       login_again: กรุณาเข้าสู่ระบบอีกครั้ง
       login_failed: "การเข้าสู่ระบบล้มเหลว กรุณากรอกข้อมูลประจำตัวที่ถูกต้อง"

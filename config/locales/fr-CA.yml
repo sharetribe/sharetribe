@@ -926,7 +926,10 @@ fr-CA:
       message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
       view_it_in_your_browser: "Voir dans votre navigateur."
       or: ou
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "désabonnez-vous de ces emails"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande %{listing}"
@@ -1392,8 +1395,10 @@ fr-CA:
       feedback_sent_to: "Avis envoyé à %{target_person}."
       feedback_skipped: "Pas d'avis donné"
       invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé."
       login_again: "Merci de vous reconnecter."
       login_failed: "La connexion a échoué. Veuillez saisir vos identifiants."

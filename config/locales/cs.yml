@@ -947,7 +947,10 @@ cs:
       message_not_displaying_correctly: "Nezobrazuje se Vám tento e-mail správně?"
       view_it_in_your_browser: "Zobrazte si jej ve svém prohlížeči."
       or: nebo
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "odhlásit se z přijímaní těchto e-mailů"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "Uživatel %{accepter} přijal/a Vaši nabídku %{listing}."
       has_accepted_your_request: "Uživatel %{accepter} přijal/a Vaši žádost %{listing}."
@@ -1413,8 +1416,10 @@ cs:
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: "Snažíte se poslat příliš mnoho pozvánek. Dosáhli jste již denního limitu."
       invitation_sent: "Pozvánka byla úspěšně odeslána"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Není povoleno pozvat nové uživatele."
       login_again: "Prosíme, přihlaste se znovu."
       login_failed: "Přihlášení selhalo. Prosíme, ověřte, zda vše bylo správně zadáno."

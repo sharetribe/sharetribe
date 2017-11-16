@@ -255,7 +255,7 @@ nl:
         export_all_as_csv: "Exporteer alles als CSV"
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
         ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
-        unban_user_confirmation: ~
+        unban_user_confirmation: "Dit heft de verbanning van de gebruiker van de marktplaats op, en herstelt de toegang tot de site voor dit account. Weet je zeker dat je wilt doorgaan?"
         ban_me_error: "Je kunt jezelf niet uitsluiten."
         search: Zoek
         search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
@@ -947,7 +947,10 @@ nl:
       message_not_displaying_correctly: "Wordt deze e-mail correct weergegeven?"
       view_it_in_your_browser: "Bekijk in uw browser"
       or: of
+      unsubscribe_from_these_emails_info: "Je ontvangt deze email omdat je lid bent van %{service_name}."
       unsubscribe_from_these_emails: "Uitschrijven van deze e-mails"
+      unsubscribe_from_invitation_emails_info: "Je ontvangt deze email omdat een lid van %{service_name} jou heeft uitgenodigd om ook lid te worden."
+      unsubscribe_from_invitation_emails: "Afmelden van het ontvangen van uitnodigingsverzoeken van %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod betreffende %{listing} geaccepteerd."
       has_accepted_your_request: "%{accepter} heeft uw verzoek betreffende %{listing} geaccepteerd"
@@ -1413,8 +1416,10 @@ nl:
       feedback_sent_to: "Feedback gestuurd naar %{target_person}."
       feedback_skipped: "Feedback overgeslagen"
       invitation_cannot_be_sent: "Uitnodiging kon niet verstuurd worden"
+      invitation_cannot_unsubscribe: "Kan niet worden afgemeld van het ontvangen van uitnodigingsverzoeken"
       invitation_limit_reached: "Je probeerde teveel uitnodigingen te versturen. Je dagelijkse limiet is bereikt."
       invitation_sent: "Uitnodiging verzonden"
+      invitation_successfully_unsubscribed: "Succesvol afgemeld van uitnodigingsverzoeken"
       inviting_new_users_is_not_allowed_in_this_community: "Nieuwe gebruikers uitnodigen is niet toegestaan."
       login_again: "Log opnieuw in."
       login_failed: "Login mislukt. Vul de juiste gegevens in."
@@ -2332,8 +2337,16 @@ nl:
       multi_page_html: "Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b> in totaal"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Geen %{model} gevonden"
+          one: "Geeft weer %{accepted_count} geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+          other: "Geeft weer %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+        single_page_html:
+          zero: "Geen %{model} gevonden"
+          one: "Geeft weer <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+          other: "Geeft weer <b>%{accepted_count}</b> geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+        multi_page: "Geeft weer %{model}%{from} - %{to} van %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen%{banned_model}"
+        multi_page_html: "Geeft weer %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: "Het gebruiken van het betalingsysteem van %{service_name} is niet mogelijk om dat online betalingen nog niet zijn ingesteld. Gelieve%{contact_admin_link} voor details."
     contact_admin_link_text: "neem contact op met het %{service_name} team"

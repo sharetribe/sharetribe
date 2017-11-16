@@ -9,9 +9,11 @@ fi:
             info_image_alt: "Kuvakaappaus sivulta jossa on suuri kansikuva"
             add_your_own: "Lisää kansikuva"
             advice:
-              content1: "Katso %{link} mistä voit löytää hienoja kuvia, joita saat käyttää vapaasti."
+              content1: "Käytä yhtä %{link_images} tai tutustu %{link} siitä, mistä voit löytää laadukkaita ilmaisia kuvia."
               content2: "Huomio: Kuva muokataan vastaamaan kokoa %{width}x%{height} pikseliä. Tätä korkeampien kuvien ylä- ja alaosat leikkaantuvat pois."
-              link: "oppaastamme"
+              link_images: "valmiista kuvatiedostoistamme"
+              link: "ohjeisiimme"
+              alt_images: "6 laadukasta kansikuvaa valmiina käytettäväksi, sekä mistä löytää lisää kuvia"
               alt: "Mistä saan hienoja kansikuvia, logoja, faviconeja, profiili- ja ilmoituskuvia?"
           filter:
             title: "Vaihe 4: Lisää ilmoituskenttiä sekä suodattimia"

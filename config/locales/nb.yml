@@ -940,7 +940,10 @@ nb:
       message_not_displaying_correctly: "Vises ikke denne e-post korrekt?"
       view_it_in_your_browser: "Se den i nettleseren din"
       or: eller
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "meld deg av slike e-poster"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har godtatt ditt tilbud %{listing}."
       has_accepted_your_request: "%{accepter} har godtatt din forespørsel %{listing}."
@@ -1406,8 +1409,10 @@ nb:
       feedback_sent_to: "Tilbakemelding sent til %{target_person}."
       feedback_skipped: "Hoppet over tilbakemelding"
       invitation_cannot_be_sent: "Invitasjonen kunne ikke sendes"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: "Du forsøkte å sende for mange invitasjoner. Daglig kvote oppbrukt."
       invitation_sent: "Invitasjonen er sendt"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke lov å invitere nye brukere."
       login_again: "Vennligst logg inn igjen."
       login_failed: "Innlogging feilet. Vennligst prøv på nytt."

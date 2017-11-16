@@ -412,11 +412,6 @@ FactoryGirl.define do
     sort_priority          0
   end
 
-  factory :invitation_unsubscribe, class: 'Invitation::Unsubscribe' do
-    build_association(:community)
-    email 'sherry@example.com'
-  end
-
   factory :listing_unit do
     unit_type           'hour'
     quantity_selector   'number'
@@ -424,5 +419,10 @@ FactoryGirl.define do
     name_tr_key         nil
     selector_tr_key     nil
     listing_shape_id    123
+  end
+
+  factory :invitation_unsubscribe, class: 'Invitation::Unsubscribe' do
+    build_association(:community)
+    email 'sherry@example.com'
   end
 end

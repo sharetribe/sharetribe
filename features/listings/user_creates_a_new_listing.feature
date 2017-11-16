@@ -227,7 +227,7 @@ Scenario: User creates a new listing with date field
 
   @javascript
   Scenario: Creating a new item request with unit week
-    Given community "test" has a listing shape offering services per hour, day, night, week, month
+    Given community "test" has a listing shape offering services per hour, day, night, week, month, person, kg
     Given community "test" has payment method "paypal" provisioned
     Given community "test" has payment method "paypal" enabled by admin
     Given I am logged in
@@ -244,4 +244,14 @@ Scenario: User creates a new listing with date field
     Then I should see "Sledgehammer" within "#listing-title"
     When I follow "Edit listing"
     Then I should see selected "week" in the "listing[unit]" dropdown
+    When I select "person" from "listing[unit]"
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+    When I follow "Edit listing"
+    Then I should see selected "person" in the "listing[unit]" dropdown
+    When I select "kg" from "listing[unit]"
+    And I press "Save listing"
+    Then I should see "Sledgehammer" within "#listing-title"
+    When I follow "Edit listing"
+    Then I should see selected "kg" in the "listing[unit]" dropdown
 

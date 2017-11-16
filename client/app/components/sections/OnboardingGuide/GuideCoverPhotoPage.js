@@ -35,12 +35,28 @@ const GuideCoverPhotoPage = (props) => {
       }, [
         span(
           t('web.admin.onboarding.guide.cover_photo.advice.content1',
-            { link: a({
-              href: 'https://help.sharetribe.com/configuration-and-how-to/how-to-get-good-looking-cover-photos-logos-favicon-profiles-and-listing-pictures',
-              target: '_blank',
-              rel: 'noreferrer',
-              alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
-            }, t('web.admin.onboarding.guide.cover_photo.advice.link')) })),
+            {
+              link: a(
+                {
+                  href: 'https://help.sharetribe.com/configuration-and-how-to/how-to-get-good-looking-cover-photos-logos-favicon-profiles-and-listing-pictures',
+                  target: '_blank',
+                  rel: 'noreferrer',
+                  alt: t('web.admin.onboarding.guide.cover_photo.advice.alt'),
+                },
+                t('web.admin.onboarding.guide.cover_photo.advice.link')
+              ),
+              link_images: a(
+                {
+                  href: 'https://help.sharetribe.com/look-and-feel/design-and-customisation/6-great-cover-photos-ready-to-use-and-where-to-find-more',
+                  target: '_blank',
+                  rel: 'noreferrer',
+                  alt: t('web.admin.onboarding.guide.cover_photo.advice.alt_images'),
+                },
+                t('web.admin.onboarding.guide.cover_photo.advice.link_images')
+              ),
+            }
+          )
+        ),
         br(),
         t('web.admin.onboarding.guide.cover_photo.advice.content2', { width: COVER_PHOTO_WIDTH, height: COVER_PHOTO_HEIGHT }),
       ]),

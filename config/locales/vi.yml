@@ -935,7 +935,10 @@ vi:
       message_not_displaying_correctly: "Email này không được hiển thị đúng?"
       view_it_in_your_browser: "Xem trong trình duyệt của bạn"
       or: hoặc
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "Không muốn nhận những email này?"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} đã chấp nhận sự hỗ trợ của bạn xem xét yêu cầu %{listing}"
       has_accepted_your_request: "%{accepter} đã chấp nhận yêu cầu của bạn xem xét hỗ trợ %{listing}"
@@ -1401,8 +1404,10 @@ vi:
       feedback_sent_to: "Thông tin phản hồi đã gửi đến"
       feedback_skipped: "Thông tin phản hổi đã bị bỏ qua"
       invitation_cannot_be_sent: "Không thể gửi lời mời"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: "Bạn đã cố gửi quá nhiều lời mời. Đã đạt đến giới hạn hàng ngày."
       invitation_sent: "Lời mời đã gửi thành công"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "Không được phép mời người dùng mới trong cộng đồng %{service_name}"
       login_again: "Xin vui lòng đăng nhập lại."
       login_failed: "Đăng nhập thất bại. Hãy nhập chính xác thông tin."

@@ -9,9 +9,11 @@ en:
             info_image_alt: "A screenshot of homepage with big cover photo"
             add_your_own: "Add cover photo"
             advice:
-              content1: "Check out %{link} on where to find good-looking images that are free to use."
+              content1: "Use %{link_images} or check out %{link} on where to find good-looking images that are free to use."
               content2: "Note: the photo will be resized to %{width}x%{height} pixels. The top and bottom sections of images that are taller will be cropped."
+              link_images: "one of our ready-made images"
               link: "our guide"
+              alt_images: "6 great cover photos ready to use and where to find more"
               alt: "How to get good-looking cover photos, logos, favicon, profiles and listing pictures?"
           filter:
             title: "Step 4: Add listing fields & filters"

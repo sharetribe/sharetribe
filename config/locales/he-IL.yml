@@ -880,7 +880,7 @@ he-IL:
       automatic_confirmation: ~
     payment_settings_reminder:
       remember_to_add_payment_details: "אל תשכח להגדיר פרטי תשלום לקבלת הזמנות"
-      you_have_added_listing_with_payment: "הוספת מודעה ‎%{listing_link}‎ עם תשלום. עם זאת, עדיין לא הוספת את פרטי התשלום שלך. כדי לקבל את התשלום עליך להוסיף את פרטי התשלום שלך."
+      you_have_added_listing_with_payment: "נוסף/ה בהצלחה,כול מה שנשאר זה לחבר את החשבון פייפל שלך ‎%{listing_link}‎"
       please_go_to_payment_settings: "עבור אל‎%{payment_settings_link}‎ ומלא את פרטי התשלום הדרושים."
       payment_settings_link: "הגדרות תשלום"
     transaction_confirmed:
@@ -915,7 +915,10 @@ he-IL:
       message_not_displaying_correctly: "האם אימייל זה אינו מוצג כהלכה?"
       view_it_in_your_browser: "הצג בדפדפן שלך"
       or: או
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "לבטל את המנוי של הודעות דוא\"ל אלה"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "‎%{listing}‎ קיבל את ההצעה שלך ‎‎%{accepter}‎"
       has_accepted_your_request: "‎‎%{listing}‎ קיבל את בקשתך ‎%{accepter}‎‎"
@@ -1381,8 +1384,10 @@ he-IL:
       feedback_sent_to: "‎%{target_person}‎ הביקורת נשלחה ל"
       feedback_skipped: "לא נכתב משוב"
       invitation_cannot_be_sent: "לא ניתן לשלוח את ההזמנה"
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: "ההזמנה נשלחה בהצלחה"
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "לא ניתן להזמין משתמשים חדשים."
       login_again: "אנא התחבר שוב."
       login_failed: "התחברות נכשלה. אנא בדוק שוב את הזנת הנתונים."
@@ -1447,7 +1452,7 @@ he-IL:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event‎ך"
       you_are_now_member: "‎%{service_name}‎ ברוכים הבאים ל"
       you_are_already_member: "ברוך שובך ‎%{service_name}‎ אתה כבר חבר ב"
-      you_must_log_in_to_create_new_listing: "אתה צריך להתחבר קודם ל‎%{service_name}‎, במידה ואין לך חשבון, אתה יכול ‎%{sign_up_link}‎"
+      you_must_log_in_to_create_new_listing: "‎‎%{sign_up_link}‎ מבקשת להיתחבר . אם עדיין אין לך חשבון ‎%{service_name}‎"
       additional_email_confirmed_dashboard: "כתובת האימייל שלך מאושרת כעת."
       you_must_log_in_to_give_feedback: "אנא התחבר לכתיבת ביקורת"
       you_must_log_in_to_invite_new_users: "‎%{service_name}‎ אנא התחבר על מנת להזמין את החברים ל‎"
@@ -1845,7 +1850,7 @@ he-IL:
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: ~
+    missing: "‎%{settings_link}‎ תוכל להעביר תשלום רק לאחר חיבור חשבון פייפל בהגדרות ‎%{service_name}‎"
     from_your_payment_settings_link_text: ~
     redirect_message: ~
     redirect_link_text: ~
@@ -2277,7 +2282,7 @@ he-IL:
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
-    missing_payment: ~
+    missing_payment: "‎%{settings_link}‎ יש לך מודעה פתוחה, כול מה שנשאר זה לחבר את החשבון פייפל"
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~

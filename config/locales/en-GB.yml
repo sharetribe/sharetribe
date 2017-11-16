@@ -909,7 +909,10 @@ en-GB:
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
+      unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: ~
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -1375,8 +1378,10 @@ en-GB:
       feedback_sent_to: ~
       feedback_skipped: ~
       invitation_cannot_be_sent: ~
+      invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ~
+      invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: ~
       login_failed: ~

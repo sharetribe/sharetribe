@@ -103,9 +103,7 @@ module ListingFormViewUtils
       if units.length == 1
         units.first
       else
-        units.find do |u|
-          u[:unit_type] == listing_unit[:unit_type] && u[:kind] == listing_unit[:kind] && u[:quantity_selector] == listing_unit[:quantity_selector]
-        end
+        units.find { |u| u.compact == listing_unit }
       end
     }
   end
