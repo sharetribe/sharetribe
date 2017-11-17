@@ -18,89 +18,11 @@
 
     = form_tag @listing_presenter.form_path, :method => :get, :id => "booking-dates" do
 
-      - if [:day, :night].include?(@listing.quantity_selector&.to_sym)
+      - if @listing_presenter.quantity_per_day_or_night?
         - @listing_presenter.blocked_dates_result.on_success do |blocked_dates|
-          - days = [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
-          - months = [:january, :february, :march, :april, :may, :june, :july, :august, :september, :october, :november, :december]
-          - translated_days = days.map { |day_symbol| t("datepicker.days.#{day_symbol}") }.to_json
-          - translated_days_short = days.map { |day_symbol| t("datepicker.days_short.#{day_symbol}") }.to_json
-          - translated_days_min = days.map { |day_symbol| t("datepicker.days_min.#{day_symbol}") }.to_json
-          - translated_months = months.map { |day_symbol| t("datepicker.months.#{day_symbol}") }.to_json
-          - translated_months_short = months.map { |day_symbol| t("datepicker.months_short.#{day_symbol}") }.to_json
-
           - content_for :extra_javascript do
             :javascript
-
-              var disabledDates = [
-                #{blocked_dates.map { |d| "new Date(#{d.to_i * 1000})" }.join(",")}
-              ];
-
-              $.fn.datepicker.dates['#{I18n.locale}'] = {
-                days: #{raw translated_days},
-                daysShort: #{raw translated_days_short},
-                daysMin: #{raw translated_days_min},
-                months: #{raw translated_months},
-                monthsShort: #{raw translated_months_short},
-                today: "#{t("datepicker.today")}",
-                weekStart: #{t("datepicker.week_start", default: 0)},
-                clear: "#{t("datepicker.clear")}",
-                format: "#{t("datepicker.format")}"
-              }
-              $.validator.addMethod("night_selected",
-                function(value, element, params) {
-                  var startVal = $(params.startOnSelector).val()
-                  if (!!startVal == false) {
-                    return true;
-                  } else {
-                    return startVal !== value
-                  }
-                });
-              $.validator.addMethod("availability_range",
-                function(value, element, params) {
-                  var startVal = $(params.startOnSelector).datepicker('getDates');
-                  var endVal = $(element).datepicker('getDates');
-
-                  if (!startVal || startVal.length !== 1 || !endVal || endVal.length !== 1) {
-                    return false;
-                  }
-
-                  var startDate = startVal[0].getTime();
-                  var endDate = endVal[0].getTime();
-
-                  // Validate that all booked dates are outside the selected range
-                  return disabledDates.every(function(d) {
-                    var date = d.getTime();
-                    if (startDate === endDate) {
-                      return date !== startDate;
-                    }
-                    return date < startDate || date >= endDate;
-                  });
-                });
-              var rules = #{@listing.quantity_selector&.to_sym == :night} ? {
-                "end_on": {
-                  night_selected: {startOnSelector: "#start-on"},
-                  availability_range: {startOnSelector: "#start-on"}
-                }
-              } : {
-                "end_on": {
-                  availability_range: {startOnSelector: "#start-on"}
-                }
-              };
-              $("#booking-dates").validate({
-                rules: rules,
-                submitHandler: function(form) {
-                  var $form = $(form);
-                  $form.find("#start-on").attr("name", "");
-                  $form.find("#end-on").attr("name", "");
-
-                  form.submit();
-                }
-              });
-
-              var endDate = new Date(#{@listing_presenter.blocked_dates_end_on_midnight.to_i * 1000});
-              var nightPicker = #{@listing.quantity_selector.to_sym == :night};
-
-              window.ST.initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate, nightPicker: nightPicker });
+              window.ST.FromToDatePicker.setupPerDayOrNight(#{raw @listing_presenter.datepicker_per_day_or_night_setup(blocked_dates).to_json});
           .input-daterange.input-group.clearfix#datepicker{:data => {:locale => I18n.locale, :dateformat => t("datepicker.format")}}
             .datepicker-start-wrapper
               = label_tag t(".booking_from")
@@ -114,6 +36,22 @@
 
         - @listing_presenter.blocked_dates_result.on_error do
           = t("listings.listing_actions.unable_load_availability")
+
+      - if FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
+        .input-daterange.input-group.clearfix
+          .datepicker-start-wrapper
+            = label_tag t(".booking_date")
+            %input.input-sm.form-control.required#start-on{ :type => 'text',
+              :name => "start_on", :placeholder => t("datepicker.format"),
+              :data => { :locale => I18n.locale, :dateformat => t("datepicker.format") },
+              :required => true }
+          .col-12
+            = select_tag 'start_time', options_for_select([]), id: 'start_time', :required => true
+          .col-12
+            = select_tag 'end_time', options_for_select([]), id: 'end_time', :required => true
+        - content_for :extra_javascript do
+          :javascript
+            window.ST.FromToDatePicker.setupPerHour(#{raw @listing_presenter.datepicker_per_hour_setup.to_json});
 
       - elsif @listing_presenter.listing_unit_type.present?
         - content_for :extra_javascript do
@@ -143,15 +81,22 @@
 
       = hidden_field_tag(:listing_id, @listing.id)
 
-      - @listing_presenter.blocked_dates_result.on_success do
+      - if @listing_presenter.quantity_per_day_or_night?
+        - @listing_presenter.blocked_dates_result.on_success do
+          %button.enabled-book-button
+            .content
+              = action_button_label(@listing)
+
+        - @listing_presenter.blocked_dates_result.on_error do
+          %button.disabled-book-button{disabled: true}
+            .content
+              = action_button_label(@listing)
+      - else
         %button.enabled-book-button
           .content
             = action_button_label(@listing)
 
-      - @listing_presenter.blocked_dates_result.on_error do
-        %button.disabled-book-button{disabled: true}
-          .content
-            = action_button_label(@listing)
+
 
     .row
       .col-12
@@ -166,7 +111,7 @@
       - if @listing_presenter.show_manage_availability
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
-          - if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+          - if FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
             %a.icon-with-text-container{id: availability_link_id, href: "#manage-working-hours"}
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")
