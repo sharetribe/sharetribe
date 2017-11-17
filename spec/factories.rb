@@ -425,4 +425,8 @@ FactoryGirl.define do
     build_association(:community)
     email 'sherry@example.com'
   end
+
+  factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
+    listing_id 123
+  end
 end

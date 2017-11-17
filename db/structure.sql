@@ -78,8 +78,14 @@ CREATE TABLE `bookings` (
   `end_on` date DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `start_time` datetime DEFAULT NULL,
+  `end_time` datetime DEFAULT NULL,
+  `per_hour` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE
+  KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE,
+  KEY `index_bookings_on_per_hour` (`per_hour`),
+  KEY `index_bookings_on_start_time` (`start_time`),
+  KEY `index_bookings_on_end_time` (`end_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `categories`;
@@ -555,7 +561,7 @@ DROP TABLE IF EXISTS `invitation_unsubscribes`;
 CREATE TABLE `invitation_unsubscribes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
