@@ -1,4 +1,5 @@
 class ListingPresenter < MemoisticPresenter
+  include ListingAvailabilityManage
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
   attr_reader :shape
 
@@ -85,39 +86,6 @@ class ListingPresenter < MemoisticPresenter
     delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
   end
 
-  def availability_enabled
-    @listing.availability.to_sym == :booking
-  end
-
-  def blocked_dates_start_on
-    1.day.ago.to_date
-  end
-
-  def blocked_dates_end_on
-    if stripe_in_use
-      APP_CONFIG.stripe_max_booking_date.days.from_now.to_date
-    else
-      12.months.from_now.to_date
-    end
-  end
-
-  def blocked_dates_result
-    if availability_enabled
-
-      get_blocked_dates(
-        start_on: blocked_dates_start_on,
-        end_on: blocked_dates_end_on,
-        community: @current_community,
-        user: @current_user,
-        listing: @listing)
-    else
-      Result::Success.new([])
-    end
-  end
-
-  def blocked_dates_end_on_midnight
-    DateUtils.to_midnight_utc(blocked_dates_end_on)
-  end
 
   def listing_unit_type
     @listing.unit_type
@@ -159,31 +127,6 @@ class ListingPresenter < MemoisticPresenter
       .tap { |process|
         raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
       }
-  end
-
-  def get_blocked_dates(start_on:, end_on:, community:, user:, listing:)
-    HarmonyClient.get(
-      :query_timeslots,
-      params: {
-        marketplaceId: community.uuid_object,
-        refId: listing.uuid_object,
-        start: start_on,
-        end: end_on
-      }
-    ).rescue {
-      Result::Error.new(nil, code: :harmony_api_error)
-    }.and_then { |res|
-      available_slots = dates_to_ts_set(
-        res[:body][:data].map { |timeslot| timeslot[:attributes][:start].to_date }
-      )
-      Result::Success.new(
-        dates_to_ts_set(start_on..end_on).subtract(available_slots)
-      )
-    }
-  end
-
-  def dates_to_ts_set(dates)
-    Set.new(dates.map { |d| DateUtils.to_midnight_utc(d) })
   end
 
   def delivery_type
@@ -335,41 +278,6 @@ class ListingPresenter < MemoisticPresenter
 
   def subcategory_id
     @listing.category.parent_id ?  @listing.category.id : nil
-  end
-
-  def working_hours_props
-    {
-      i18n: {
-        locale: I18n.locale,
-        default_locale: I18n.default_locale,
-        locale_info: I18nHelper.locale_info(Sharetribe::AVAILABLE_LOCALES, I18n.locale)
-      },
-      marketplace: {
-        uuid: @current_community.uuid_object.to_s,
-        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],
-      },
-      listing: working_time_slots,
-      time_slot_options: time_slot_options,
-      day_names: I18n.t('date.day_names'),
-      listing_just_created: !!params[:listing_just_created]
-    }
-  end
-
-  private
-
-  def working_time_slots
-    listing.working_hours_new_set
-    listing.working_hours_as_json
-  end
-
-  def time_slot_options
-    result = []
-    (0..23).each do |x|
-      value = format("%02d:00", x)
-      name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value # rubocop:disable Rails/TimeZone
-      result.push(value: value, name: name)
-    end
-    result
   end
 
   memoize_all_reader_methods
