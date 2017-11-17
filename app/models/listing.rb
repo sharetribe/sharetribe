@@ -90,6 +90,12 @@ class Listing < ApplicationRecord
   has_many :working_time_slots, ->{ ordered },  dependent: :destroy
   accepts_nested_attributes_for :working_time_slots, reject_if: :all_blank, allow_destroy: true
 
+  belongs_to :listing_shape
+
+  has_many :tx, class_name: 'Transaction'
+  has_many :bookings, through: :tx
+  has_many :bookings_per_hour, ->{ hourly_basis }, through: :tx, source: :booking
+
   monetize :price_cents, :allow_nil => true, with_model_currency: :currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :currency
   monetize :shipping_price_additional_cents, allow_nil: true, with_model_currency: :currency
