@@ -441,4 +441,8 @@ FactoryGirl.define do
     payment_status    'pending'
     commission_status 'pending'
   end
+
+  factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
+    listing_id 123
+  end
 end

@@ -1,4 +1,5 @@
 class ListingPresenter < MemoisticPresenter
+  include ListingAvailabilityManage
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
   attr_reader :shape
 
@@ -335,51 +336,6 @@ class ListingPresenter < MemoisticPresenter
 
   def subcategory_id
     @listing.category.parent_id ?  @listing.category.id : nil
-  end
-
-  def working_hours_props
-    {
-      i18n: {
-        locale: I18n.locale,
-        default_locale: I18n.default_locale,
-        locale_info: I18nHelper.locale_info(Sharetribe::AVAILABLE_LOCALES, I18n.locale)
-      },
-      marketplace: {
-        uuid: @current_community.uuid_object.to_s,
-        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],
-      },
-      listing: working_time_slots,
-      time_slot_options: time_slot_options,
-      day_names: day_names,
-      listing_just_created: !!params[:listing_just_created],
-      first_day_of_week: I18n.t('date.first_day_of_week')
-    }
-  end
-
-  private
-
-  def working_time_slots
-    listing.working_hours_new_set if params[:listing_just_created].present?
-    listing.working_hours_as_json
-  end
-
-  def time_slot_options
-    result = []
-    (0..24).each do |x|
-      value = format("%02d:00", x)
-      name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value # rubocop:disable Rails/TimeZone
-      result.push(value: value, label: name)
-    end
-    result
-  end
-
-  def day_names
-    result = {}
-    i18n_day_names = I18n.t('date.day_names').map(&:capitalize)
-    ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].each_with_index do |day, index|
-      result[day] = i18n_day_names[index]
-    end
-    result
   end
 
   memoize_all_reader_methods
