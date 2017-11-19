@@ -47,67 +47,67 @@ RSpec.describe ListingPresenter, type: :presenter do
 
     it '#working_hours_blocked_days 2017-11-14 is busy full day.
         2017-11-13, 2017-11-15 no working hours' do
-      time_slot1
-      time_slot2
-      booking1
-      booking2
-      booking3
-      blocked_days = ListingPresenter.new(listing, community, {}, person)
-        .availability_per_hour_blocked_dates(
-          start_time: Time.zone.parse('2017-11-13'),
-          end_time: Time.zone.parse('2017-11-15')
-        )
-      expect(blocked_days).to eq [Date.parse('2017-11-13'), Date.parse('2017-11-14'), Date.parse('2017-11-15')]
+      Timecop.freeze(Time.local(2017, 11, 13)) do
+        time_slot1
+        time_slot2
+        booking1
+        booking2
+        booking3
+        blocked_days = ListingPresenter.new(listing, community, {}, person)
+          .availability_per_hour_blocked_dates
+        expect(blocked_days.include?(Date.parse('2017-11-13'))).to eq true
+        expect(blocked_days.include?(Date.parse('2017-11-14'))).to eq true
+        expect(blocked_days.include?(Date.parse('2017-11-15'))).to eq true
+      end
     end
 
     it '#working_hours_blocked_days 2017-11-14 is busy part day.
         2017-11-13, 2017-11-15 no working hours' do
-      time_slot1
-      time_slot2
-      booking1
-      booking2
-      blocked_days = ListingPresenter.new(listing, community, {}, person)
-        .availability_per_hour_blocked_dates(
-          start_time: Time.zone.parse('2017-11-13'),
-          end_time: Time.zone.parse('2017-11-15')
-        )
-      expect(blocked_days).to eq [Date.parse('2017-11-13'), Date.parse('2017-11-15')]
+      Timecop.freeze(Time.local(2017, 11, 13)) do
+        time_slot1
+        time_slot2
+        booking1
+        booking2
+        blocked_days = ListingPresenter.new(listing, community, {}, person)
+          .availability_per_hour_blocked_dates
+        expect(blocked_days.include?(Date.parse('2017-11-13'))).to eq true
+        expect(blocked_days.include?(Date.parse('2017-11-14'))).to eq false
+        expect(blocked_days.include?(Date.parse('2017-11-15'))).to eq true
+      end
     end
 
     it '#availability_per_hour_options_for_select_grouped_by_day' do
-      time_slot1
-      time_slot2
-      options = ListingPresenter.new(listing, community, {}, person)
-        .availability_per_hour_options_for_select_grouped_by_day(
-          start_time: Time.zone.parse('2017-11-13'),
-          end_time: Time.zone.parse('2017-11-15')
+      Timecop.freeze(Time.local(2017, 11, 13)) do
+        time_slot1
+        time_slot2
+        options = ListingPresenter.new(listing, community, {}, person)
+          .availability_per_hour_options_for_select_grouped_by_day
+        expect(options["2017-11-14"]).to eq(
+          [
+            {:value=>"09:00", :name=>" 9:00 am"},
+            {:value=>"10:00", :name=>"10:00 am"},
+            {:value=>"14:00", :name=>" 2:00 pm"}
+          ]
         )
-      expect(options).to eq({
-        "2017-11-14"=>[
-          {:value=>"09:00", :name=>" 9:00 am"},
-          {:value=>"10:00", :name=>"10:00 am"},
-          {:value=>"14:00", :name=>" 2:00 pm"}
-        ]
-      })
+      end
     end
 
     it '#availability_per_hour_options_for_select_grouped_by_day is busy part day.' do
-      time_slot1
-      time_slot2
-      booking1
-      booking2
-      options = ListingPresenter.new(listing, community, {}, person)
-        .availability_per_hour_options_for_select_grouped_by_day(
-          start_time: Time.zone.parse('2017-11-13'),
-          end_time: Time.zone.parse('2017-11-15')
+      Timecop.freeze(Time.local(2017, 11, 13)) do
+        time_slot1
+        time_slot2
+        booking1
+        booking2
+        options = ListingPresenter.new(listing, community, {}, person)
+          .availability_per_hour_options_for_select_grouped_by_day
+        expect(options["2017-11-14"]).to eq(
+          [
+            {:value=>"09:00", :name=>" 9:00 am", :disabled=>true},
+            {:value=>"10:00", :name=>"10:00 am", :disabled=>true},
+            {:value=>"14:00", :name=>" 2:00 pm"}
+          ]
         )
-      expect(options).to eq({
-        "2017-11-14"=>[
-          {:value=>"09:00", :name=>" 9:00 am", :disabled=>true},
-          {:value=>"10:00", :name=>"10:00 am", :disabled=>true},
-          {:value=>"14:00", :name=>" 2:00 pm"}
-        ]
-      })
+      end
     end
   end
 end
