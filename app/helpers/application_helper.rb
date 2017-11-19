@@ -365,7 +365,7 @@ module ApplicationHelper
       {
         :topic => :manage,
         :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => "ss-adduser",
+        :icon_class => icon_class("invite"),
         :path => new_invitation_path,
         :name => "invite_people"
       },
@@ -379,14 +379,14 @@ module ApplicationHelper
       {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_details"),
-        :icon_class => "ss-page",
+        :icon_class => icon_class("details"),
         :path => admin_details_edit_path,
         :name => "tribe_details"
       },
       {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_look_and_feel"),
-        :icon_class => "ss-paintroller",
+        :icon_class => icon_class("looknfeel"),
         :path => admin_look_and_feel_edit_path,
         :name => "tribe_look_and_feel"
       },
