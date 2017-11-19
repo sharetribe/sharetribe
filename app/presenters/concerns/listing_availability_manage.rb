@@ -97,68 +97,83 @@ module ListingAvailabilityManage
     date_to_time_utc(booking_dates_end + 1.day)
   end
 
-  def availability_per_hour_options_for_select_grouped_by_day(start_time:, end_time:)
-    return @availability_per_hour_options_for_select if defined?(@availability_per_hour_options_for_select)
+  def availability_per_hour_calculate_options_for_select
+    return @availability_per_hour_raw_options_for_select if defined?(@availability_per_hour_raw_options_for_select)
     result = {}
-    working_periods = listing.working_hours_periods_grouped_by_day(start_time, end_time)
-    bookings = listing.working_hours_bookings_grouped_by_day(start_time, end_time)
-    working_periods.each do |period_date, day_working_entries|
-      start = nil
-      day_result = []
-      day_bookings = bookings[period_date]
-      day_working_entries.each do |working_period|
-        start = working_period.start_time
-        while start < working_period.end_time do # rubocop:disable Style/WhileUntilDo
-          hour_is_booked = day_bookings && day_bookings.select{ |booking| booking.start_time <= start && booking.end_time > start }.any?
-          value = start.strftime('%H:%M')
-          format = I18n.locale == :en ? '%l:%M %P' : '%H:%M'
-          name = start.strftime(format)
-          if !hour_is_booked
-            day_result.push(value: value, name: name)
-          else
-            day_result.push(value: value, name: name, disabled: true)
-          end
-          start += 1.hour
+    current_day = nil
+    start = nil
+    day_result = []
+    listing.working_hours_periods(booking_per_hour_start_time, booking_per_hour_end_time).each do |working_period|
+      period_day = working_period.start_time.to_date.to_s
+      start = working_period.start_time
+      while start < working_period.end_time do # rubocop:disable Style/WhileUntilDo
+        if current_day.nil?
+          current_day = period_day
+        elsif current_day != period_day
+          result[current_day] = day_result
+          day_result = []
+          current_day = period_day
         end
+        value = start.strftime('%H:%M')
+        format = I18n.locale == :en ? '%l:%M %P' : '%H:%M'
+        name = start.strftime(format)
+        day_result.push(value: value, name: name)
+        start += 1.hour
       end
-      result[period_date] = day_result
+      result[current_day] = day_result
     end
-    @availability_per_hour_options_for_select = result
+    @availability_per_hour_raw_options_for_select = result
   end
 
-  def availability_per_hour_blocked_dates(start_time:, end_time:)
+  def availability_per_hour_calculate_blocked_dates
+    return @availability_per_hour_raw_blocked_dates if defined?(@availability_per_hour_raw_blocked_dates)
+    all_options = availability_per_hour_calculate_options_for_select
     result = []
-    bookings_per_day_summary = listing.bookings_per_hour.in_period(start_time, end_time).per_day_summary
-    periods = listing.working_hours_periods_grouped_by_day(start_time, end_time.at_end_of_day)
-    index_day = start_time.to_date
-    end_day = end_time.to_date
-    while index_day <= end_day do # rubocop:disable Style/WhileUntilDo
-      period_date = index_day.to_s
-      period_time_slots = periods[period_date]
-      working_time_in_seconds = period_time_slots ? period_time_slots.map{|t| t.end_time - t.start_time}.sum.to_i : 0
-      if working_time_in_seconds == 0
-        result.push index_day
-      else
-        day_summary = bookings_per_day_summary.to_a.select do |summary|
-          summary.start_date == index_day
-        end.first
-        if day_summary && day_summary.day_summary_time == working_time_in_seconds
-          result.push index_day
+    start = nil
+    day_options = nil
+    listing.bookings_per_hour.in_period(booking_per_hour_start_time, booking_per_hour_end_time).find_each do |booking|
+      booking_day = booking.start_time.to_date.to_s
+      day_options = all_options[booking_day]
+      start = booking.start_time
+      while start < booking.end_time do # rubocop:disable Style/WhileUntilDo
+        value = start.strftime('%H:%M')
+        if day_options
+          option = day_options.select{ |x| x[:value] == value }.first
+          option[:disabled] = true if option
+          if day_options.all?{ |x| x.key?(:disabled) }
+            result.push start.to_date
+          end
         end
+        start += 1.hour
       end
-      index_day += 1.day
     end
-    result
+    start = booking_per_hour_start_time
+    while start < booking_per_hour_end_time do # rubocop:disable Style/WhileUntilDo
+      day = start.to_date.to_s
+      result.push start.to_date unless all_options.key?(day)
+      start += 1.day
+    end
+    @availability_per_hour_raw_blocked_dates = result
   end
 
-  def datepicker_per_hour_setup(start_time: booking_per_hour_start_time, end_time: booking_per_hour_end_time)
+  def availability_per_hour_options_for_select_grouped_by_day
+    availability_per_hour_calculate_blocked_dates
+    availability_per_hour_calculate_options_for_select
+  end
+
+  def availability_per_hour_blocked_dates
+    availability_per_hour_calculate_options_for_select
+    availability_per_hour_calculate_blocked_dates
+  end
+
+  def datepicker_per_hour_setup
     {
       locale: I18n.locale,
       localized_dates: datepicker_localized_dates,
       listing_quantity_selector: listing.quantity_selector,
-      blocked_dates: availability_per_hour_blocked_dates(start_time: start_time, end_time: end_time).map { |d| date_to_time_utc(d).to_i },
+      blocked_dates: availability_per_hour_blocked_dates.map { |d| date_to_time_utc(d).to_i },
       end_date: booking_dates_end_midnight.to_i,
-      options_for_select: availability_per_hour_options_for_select_grouped_by_day(start_time: start_time, end_time: end_time),
+      options_for_select: availability_per_hour_options_for_select_grouped_by_day,
     }
   end
 
