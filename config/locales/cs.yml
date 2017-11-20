@@ -231,6 +231,7 @@ cs:
         twitter_handle: "Twitter (používá se tweet tlačítkem na straně)"
         update_settings: "Uložit nastavení"
         automatically_confirmed_no_escrow: "Transakce bude automaticky označena jako vyřízená za %{days_dropdown} dní od doby, kdy byla platba provedena."
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Automaticky posílat newsletter: %{frequency_dropdown}"
         newsletter_daily: Denně
         newsletter_weekly: Týdně

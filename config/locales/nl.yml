@@ -228,6 +228,7 @@ nl:
         twitter_handle: "Twitter account (gebruikt met de tweet knop in de advertentie pagina)"
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks

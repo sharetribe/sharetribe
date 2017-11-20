@@ -27,7 +27,7 @@ tr-TR:
         category_transaction_types:
           transaction_types: "İşlem türleri"
           transaction_types_description: "İşlem türleri bu kategorideki listelemelerde izin verilen işlemleri belirler. Örneğin, sadece satışa ya da kiralama ve hediye etme türlerine izin verilebilir."
-          select_all: ~
+          select_all: "Hepsini seç"
           clear_all: ~
         buttons:
           save: Kaydet
@@ -57,7 +57,7 @@ tr-TR:
         edit_community: "Temel detaylar"
         enabled_languages: "Aktif diller"
         enabled_languages_description: ~
-        default_language: ~
+        default_language: "Varsayılan Dil"
         language_selection_disabled: "Pazarınızda dil seçimi mümkün değildir; çünkü resmi olmayan bir dil kullanıyorsunuz:%{languages}. Eğer dil ayarlarını değiştirmek istiyorsanız lütfen Sharetribe destek ekibiyle iletişime geçin."
         community_name: "Pazar adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
@@ -139,9 +139,9 @@ tr-TR:
         read_more: ~
         sender_address: ~
         sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
+        need_to_change: "Eğer e-posta adresini değiştirmek isterseniz, lütfen %{contact_support_link}."
+        contact_support_link_text: "Sharetribe destek ekibine ulaşın"
+        set_sender_address: "Alıcı adresini girin"
         sender_name_label: İsim
         sender_name_placeholder: "Gönderen ismi"
         sender_email_label: "E-posta adresi"
@@ -156,16 +156,16 @@ tr-TR:
         change_sender_name: ~
         change_sender_prompt: ~
         status: "Durum: %{status}"
-        status_verified: ~
+        status_verified: "Doğrulandı - kullanımda"
         status_error: "Bir hata oldu. Lütfen sayfayı yenileyin."
-        status_requested: ~
+        status_requested: "Doğrulanmadı - doğrulama e-postası %{email}adresine%{time_ago}.%{resend_link}"
         status_expired: ~
-        status_resent: ~
+        status_resent: "Doğrulama emaili %{email} adresine gönderildi.%{resend_link}"
         resend_link: "Yeniden gönder"
         invalid_email_error: ~
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: "Bir sorun oluştu"
         white_label_offer: ~
         upgrade_plan_link: ~
         verification_sent_from: ~
@@ -202,15 +202,15 @@ tr-TR:
         users_can_invite_new_users: "Tüm kullanıcılar yeni kullanıcıları bu pazara davet edebilir"
         private: "Bu pazar özeldir (içeriği sadece kayıtlı kullanıcılar görüntüleyebilir)"
         require_verification_to_post_listings: "Sadece yönetici onaylı kullanıcılar yeni ilan ekleyebilir"
-        search_preferences: ~
+        search_preferences: "Arama seçenekleri"
         default_search_type: ~
-        keyword_search: ~
+        keyword_search: "Anahtar kelime arama"
         keyword_and_location_search: "Anahtar kelime ve lokasyon araması"
         location_search: Şehir/Konum
         select_distance_unit: ~
-        km: ~
-        miles: ~
-        show_only_nearby: ~
+        km: km
+        miles: mil
+        show_only_nearby: "Konum arama ile yalnızca yakındaki ilanları göster"
         listing_preferences: "Listeleme tercihleri"
         transaction_preferences: "İşlem tercihleri"
         show_listing_publishing_date: "Listeleme sayfasında listelemenin gönderilme tarihini göster"
@@ -223,10 +223,11 @@ tr-TR:
         twitter_handle: "Twitter aracı (listeleme sayfasında tweet at butonuyla)"
         update_settings: "Ayarları kaydet"
         automatically_confirmed_no_escrow: "Ödemenin üzerinden %{days_dropdown} gün geçtikten sonra, işlem otomatik olarak tamamlandı olarak işaretlenecektir."
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Otomatik bülten gönder: %{frequency_dropdown}"
         newsletter_daily: Günlük
         newsletter_weekly: Haftalık
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Pazarı sil"
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
@@ -300,7 +301,7 @@ tr-TR:
         max_number_of_links: ~
         all: ~
         max_number_of_links_info: ~
-        about_page: ~
+        about_page: "hakkında sayfası"
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -357,7 +358,7 @@ tr-TR:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
       edit_price:
-        description: ~
+        description: "Minimum ve maksimum ücretler yalnızca filtreyi etkiler. İlanlar için limit belirlemez."
         edit_price_field: "Fiyat alanını düzenle"
         show_price_filter_homepage: "Ana sayfada fiyat filtresi göster"
         price_min: "Minimum fiyat"
@@ -386,7 +387,7 @@ tr-TR:
         field_title: "Alan adı"
         field_type: "Alan türü"
         categories: "Alanın kullanıldığı listeleme kategorileri"
-        select_all: ~
+        select_all: "Hepsini seç"
         clear_all: ~
         options: Tercihler
         add_option: "+ Seçenek ekle"
@@ -452,7 +453,7 @@ tr-TR:
         description: ~
         read_more_about_order_types: "Sipariş tipleriyle ilgili daha fazla bilgi al"
         add_new_shape: ~
-        select_template: ~
+        select_template: "Şablon seç"
         all_categories: "Tüm kategoriler"
         no_categories: "Kategori yok"
         category_count: "%{category_count} kategoriler"
@@ -468,22 +469,22 @@ tr-TR:
         renting_products: ~
         offering_services: ~
         giving_things_away: ~
-        requesting: ~
-        announcement: ~
+        requesting: "Talep ediliyor"
+        announcement: "Duyuru yayınlanılıyor"
         custom: ~
       new:
         create_listing_shape: ~
-        create: ~
-        cancel: ~
+        create: Oluştur
+        cancel: İptal
         create_success: ~
-        create_failure: ~
+        create_failure: "Yeni sipariş türü oluşturulamadı. Hata: %{error_msg}"
       edit:
         edit_listing_shape: ~
         update: Kaydet
         cancel: İptal
         update_success: "%{shape}"
         update_failure: "Değişiklikler kaydedilemedi. Hata: %{error_msg}"
-        delete: ~
+        delete: "Sipariş türünü sil"
         can_not_delete_last: ~
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: İsim
@@ -491,17 +492,17 @@ tr-TR:
       action_button_label: ~
       action_button_placeholder: "Ör. Sil"
       successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      successfully_deleted: "Sipariş türü %{order_type} başarıyla silindi"
+      pricing_and_checkout_title: "Fiyatlar & Alışveriş Sepeti"
+      online_payments_label: "Satıcıların internet üzerinden ödeme almasına izin ver"
       shipping_label: "Kargo ücretini satıcı belirlesin"
-      price_label: ~
+      price_label: "Satıcıların ilanlarına fiyat eklemesine izin ver"
       units_title: ~
       units_desc: ~
       units:
         piece: ~
         hour: ~
-        day: ~
+        day: günde
         night: ~
         week: ~
         month: ~
@@ -530,10 +531,10 @@ tr-TR:
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "kişisel pazar hesabınız"
       read_more_about_paypal: "Sharetribe'nin ödeme sistemi hakkında daha fazla bilgi edinin"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Ödeme ayarlarını güncelle"
+      supported_currencies_information_text: "Sharetribe'ın online ödeme sistemi 24 farklı para birimini destekliyor. Para biriminiz listede bulunmuyorsa, lütfen %{contact_support_link}. Eğer pazarın para birimini değiştirirseniz, mevcut ilanlar eski para biriminde kalacaktır. Her bir ilanı birer birer düzenleyip yeni para birimine geçirmeniz gerekmektedir."
+      currency_change_warning_text: "Dikkat: Eğer bu para birimiyle devam edecekseniz, satıcılarınızdan mevcut ilanlarının para birimlerini değiştirmelerini istemeyi unutmayın."
+      marketplace_currency_label: "Pazar para birimi:"
       minimum_listing_price_label: "Minimum listeleme fiyatı:"
       transaction_fee_label: "İşlem ücreti:"
       minimum_transaction_fee_label: "Minumum işlem ücreti:"
@@ -1064,8 +1065,8 @@ tr-TR:
       you_are_receiving_this_because: "Bu bildiriyi %{author_name}'i takip ettiğiniz için aldınız."
       view_listing: "Listelemeyi görüntüle"
     new_member_notification:
-      new_member_has_joined: ~
-      this_is_automatic_message: ~
+      new_member_has_joined: "%{community} topluluğuna yeni bir üye katıldı. Hala e-posta adreslerini doğrulamaları gerekebilir."
+      this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
       person_name: Ad
       person_email: ~
   error_messages:
@@ -1258,7 +1259,7 @@ tr-TR:
     list_item:
       review: yorum
       reviews: yorumlar
-      distance_away: ~
+      distance_away: "%{distance}%{distance_unit}mesafede"
     news_item:
       show_less: "Daha azını göster"
       show_more: "Daha fazlasını göster"
@@ -1305,7 +1306,7 @@ tr-TR:
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: ~
+      learn_more: "Daha fazla bilgi"
     no_tribe:
       inbox: "Gelen Kutusu"
       settings: Ayarlar
@@ -1678,7 +1679,7 @@ tr-TR:
       booking_from: "'dan"
       booking_to: "'a"
       how_paypal_works: "PayPal Nasıl Çalışır"
-      payment_help: ~
+      payment_help: "Ödeme yardımı"
       unable_load_availability: ~
     new:
       listing: ilan
@@ -1742,7 +1743,7 @@ tr-TR:
       shipping_price_additional: ~
       pickup: "Elden teslim alma"
       pickup_no_price: "Elden teslim alma"
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video oynatıcısı"
     unit_types:
       piece: "adet başına"
       hour: saatlik
@@ -1754,7 +1755,7 @@ tr-TR:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
+      dates_not_available: "Seçilen tarihler müsait değil."
       error_in_checking_availability: ~
       details: Ayrıntılar
       by: "%{author} tarafından %{listing}"
@@ -1861,12 +1862,12 @@ tr-TR:
     change_account: "Hesabı Değiştir"
     missing: "Aktif listeniz bulunmakta fakat PayPal hesabınızı sitemize bağlamadığınız için ödeme alamayacaksınız. Lütfen %{settings_link} kısmından PayPal hesabınızı en kısa zamanda bağlayın."
     from_your_payment_settings_link_text: "ödeme ayarları"
-    redirect_message: ~
-    redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
+    redirect_message: "PayPal'e yönlendiriliyorsunuz. Eğer hiç bir şey olmazsa %{redirect_link} tıklayın."
+    redirect_link_text: buraya
+    paypal_account_all_set_up: "Yaşasın, her şey hazır!"
+    can_receive_payments: "Artık ilanlarınız için ödeme kabul edebilirsiniz."
     paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: "İşlem ücreti için izin verilmiştir"
   paypal:
     pay_with_paypal: "Ödeme yap"
     checkout_with: ~
@@ -1998,11 +1999,11 @@ tr-TR:
       confirm_your_email: "Email adresinizi doğrulayın"
       account_confirmation_instructions: "Birkaç dakika içinde girdiğiniz email adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, %{service_name} pazar yerine katılabilirsiniz."
       account_confirmation_instructions_title_admin: "Pazar yerinize hoş geldiniz!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
-      admin_dashboard_link_text: ~
+      before_full_access_you_need_to_confirm_email: "Pazarınıza bütünüyle erişim sağlamadan önce tamamlamanız gereken bir adım daha bulunuyor: e-posta adresinizi doğrulamanız."
+      before_confirmation_only_access_admin_dashboard: "Doğrulamadan önce yalnızca %{admin_dashboard_link} kısmına erişebilirsiniz."
+      admin_dashboard_link_text: "yönetici paneli"
       account_confirmation_instructions_admin: "Birkaç dakika içinde girdiğiniz e-posta adresini doğrulamak için tıklamanız gereken linki içeren bir e-posta alacaksınız. E-posta adresinizi doğruladıktan sonra, pazarınızı düzenlemeye başlayabilirsiniz."
-      contact_support_link_text: ~
+      contact_support_link_text: "Sharetribe destek ekibine ulaşın"
   settings:
     account:
       change: Değiştir
@@ -2237,7 +2238,7 @@ tr-TR:
         week: ~
         month: ~
       edit_availability_header: ~
-      save_and_close_availability_editing: ~
+      save_and_close_availability_editing: "Kaydet ve kapat"
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
@@ -2245,26 +2246,26 @@ tr-TR:
       sorry: ~
       try_other_search_terms: ~
     listing_card:
-      add_picture: ~
+      add_picture: "Fotoğraf ekle"
       no_picture: ~
     search:
       page: ~
       page_of_pages: ~
     topbar:
-      menu: ~
+      menu: Menü
       more: Menü
-      search_placeholder: ~
+      search_placeholder: Ara...
       search_location_placeholder: Lokasyon
-      user: ~
-      inbox: ~
-      profile: ~
-      manage_listings: ~
-      settings: ~
+      user: Kullanıcı
+      inbox: "Gelen Kutusu"
+      profile: Profil
+      manage_listings: "İlanları Yönet"
+      settings: Ayarlar
       logout: "Çıkış yap"
       login: "Giriş yap"
       signup: "Kayıt ol"
-      admin_dashboard: ~
-      language: ~
+      admin_dashboard: "Yönetim paneli"
+      language: Dil
     utils:
       km: ~
       mi: ~

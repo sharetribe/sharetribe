@@ -221,6 +221,7 @@ zh-HK:
         twitter_handle: Twitter用戶名（使用在信息頁面的tweet按鈕）
         update_settings: 保存設定
         automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周

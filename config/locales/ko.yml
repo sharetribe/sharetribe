@@ -211,6 +211,7 @@ ko:
         twitter_handle: ~
         update_settings: ~
         automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow_stripe_info: "결제 수단으로 Stripe을 선택하신 경우 대금 지급은 구매가 완료될 때까지 보류됩니다. %{learn_more}"
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -935,13 +936,13 @@ ko:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: ~
+      you_have_a_new_comment: "%{author}이/가 당신의 목록 중 %{service_name}에 의견을 추가했습니다."
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: ~
-      you_have_a_new_message: ~
+      has_sent_you_a_message_in_kassi: "%{sender}가 %{service_name}에 대해 당신에게 메세지를 보냈습니다."
+      you_have_a_new_message: "%{sender_name}에게서 %{service_name}에 대한 새로운 메세지"
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -995,8 +996,8 @@ ko:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: ~
-      you_can_give_feedback_to: ~
+      has_given_you_feedback_in_kassi: "%{name}이/가 %{service_name}에 대한 피드백을 남겼습니다."
+      you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -1022,8 +1023,8 @@ ko:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: ~
-      you_have_not_given_feedback_yet: ~
+      remember_to_give_feedback_to: "알림: %{name}에게 피드백을 남겨주세요."
+      you_have_not_given_feedback_yet: "아직 %{name}에게 '%{event}' 이벤트에 대한 피드백을 남기지 않았습니다. %{given_name}이/가 이벤트에서 해야할 일에 대해 피드백을 남겨주세요."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1060,14 +1061,14 @@ ko:
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: ~
-      share_type: ~
-      valid_until: ~
+      departure_time: "출발 시간은 지금부터 1년 이내이어야 합니다."
+      share_type: "하나만 선택하실 수 있습니다."
+      valid_until: "이 날짜는 지금부터 6개월 이내이어야 합니다."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "일반적이지 않은 피드백을 남기길 원하시면 사유를 적어주셔야 합니다."
+      you_must_select_a_grade: "당신의 경험이 긍정적 또는 부정적이었는지 알려주세요."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1082,12 +1083,12 @@ ko:
     stripe:
       generic_error: ~
   error_pages:
-    back_to_kassi_front_page: ~
+    back_to_kassi_front_page: "앞 페이지로 돌아가기"
     error_404:
-      if_you_believe: ~
-      page_can_not_be_found: ~
-      page_you_requested_can_not_be_found: ~
-    error_404_title: ~
+      if_you_believe: "해당 주소가 올바르다고 생각하시면 어떤 주소가 오류의 원인이며 아래 페이지의 양식에서 어떻게 보여져야 하는지 알려주세요."
+      page_can_not_be_found: "페이지를 찾을 수 없습니다!"
+      page_you_requested_can_not_be_found: "요청하신 페이지를 찾을 수 없습니다. 웹 페이지 주소를 올바르게 입력하셨습니까?"
+    error_404_title: "페이지를 찾을 수 없습니다."
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1098,16 +1099,16 @@ ko:
       unable_to_process: ~
       we_hate_this: ~
       refer_to_error_id: ~
-    error_500_title: ~
-    error_description: ~
+    error_500_title: "페이지을 열지 못했습니다."
+    error_description: "오류 설명"
     no_javascript:
-      javascript_is_disabled_in_your_browser: ~
-      kassi_does_not_currently_work_without_javascript: ~
+      javascript_is_disabled_in_your_browser: "브라우저에서 자바스크립트가 비활성화 되어 있습니다."
+      kassi_does_not_currently_work_without_javascript: "%{service_name}은/는 자바스크립트가 없으면 동작하지 않습니다. 브라우저 설정에서 자바스크립트 허용으로 변경하신 후 이 페이지를 다시 로딩해주세요."
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "메세지 발송"
+      your_feedback_to_admins: "%{service_name}팀에게 보내는 메세지"
+    send: 발송
+    your_email_address: "당신의 이메일 주소"
   errors:
     messages:
       invalid_date: ~
@@ -1145,14 +1146,14 @@ ko:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: ~
-    home: ~
+    about: 소개
+    home: 홈
     members: ~
     new_listing: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
-    search_kassi: ~
+    mobile_version: "모바일 버전"
+    offers: 제안
+    requests: 요청
+    search_kassi: "%{service_name} 검색"
     create_new_marketplace: ~
     contact_us: ~
     profile: ~
@@ -1163,36 +1164,36 @@ ko:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "<b>추가 제안 1건</b>이 있습니다,"
+      additionally_one_private_request_exists: "<b>추가 요청 1건</b>이 있습니다,"
+      additionally_some_private_offers_exist: "<b>추가 제안 %{number_of_listings}건</b>이 있습니다,"
+      additionally_some_private_requests_exist: "<b>추가 요청 %{number_of_listings}건</b>이 있습니다,"
     blank_slate:
-      add_first: ~
-      but_that_is_visible_only_to_registered_members: ~
-      but_those_are_visible_only_to_registered_members: ~
-      create_new_account_for_yourself: ~
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: ~
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
-      one_private_offer_exists: ~
-      one_private_request_exists: ~
-      ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      add_first: 추가
+      but_that_is_visible_only_to_registered_members: "등록된 멤버들에게만 보여집니다."
+      but_those_are_visible_only_to_registered_members: "등록된 멤버들에게만 보여집니다."
+      create_new_account_for_yourself: "새로운 계정 생성"
+      examples_of_what_you_could_offer_to_others: "어떤 제안을 할 수 있습니까"
+      examples_of_what_you_could_request_to_others: "어떤 요청을 할 수 있습니까"
+      favor_offer_list: "컴퓨터 보조, 의류 수선, 베이킹, 자전거 수리"
+      favor_request_list: "아이 돌보는 일, 피아노 레슨, 반려견 산책, 잔디 깎기"
+      favors_to_offer: "도우미: "
+      favors_to_request: "도우미: "
+      item_offer_list: "도구, 스포츠 용품, 코스튬, 캠핑 용품"
+      item_request_list: "도구, 스포츠 용품, 코스튬, 캠핑 용품"
+      items_to_offer: "대여 상품: "
+      items_to_request: "대여 상품: "
+      log_in: 로그인!
+      no_offers_visible_unless_logged_in: "상품, 서비스, 카 쉐어링 제안은 로그인 한 사용자에게만 보여집니다."
+      no_open_offers_currently: "상품, 서비스, 카 쉐어링 제안 없음."
+      no_open_requests_currently: "상품, ,서비스, 카 쉐어링 요청 없음."
+      no_requests_visible_unless_logged_in: "상품, 서비스, 카 쉐어링 제안은 로그인 한 사용자에게만 보여집니다."
+      one_private_offer_exists: "<b>제안 1건</b>이 이미 있습니다,"
+      one_private_request_exists: "<b>요청 1건</b>이 이미 있습니다,"
+      ride_offer: "아이들을 취미 활동 장소로 데려다 주세요."
+      ride_request: "카 쉐어링 - 출근"
+      some_private_offers_exist: "<b>제안 %{number_of_listings}건</b>이 이미 있습니다,"
+      some_private_requests_exist: "<b>요청 %{number_of_listings}건</b>이 이미 있습니다,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1212,20 +1213,20 @@ ko:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: 제안
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
-      more_events: ~
-      news: ~
+      lend_rent_help_carpool: "매매, 대여, 도우미, 카 쉐어링"
+      loading_more_content: "로딩 중"
+      more_events: "더 많은 이벤트들..."
+      news: 뉴스
       no_news: ~
       more_news: ~
-      or: ~
-      or_see_what_the_others: ~
-      recent_events: ~
-      requesting: ~
-      tell_it_here: ~
-      welcome_to_new_kassi: ~
+      or: 그리고
+      or_see_what_the_others: "또는 다른 내용 보기"
+      recent_events: "최근 이벤트"
+      requesting: 필요
+      tell_it_here: "여기에 말씀하세요!"
+      welcome_to_new_kassi: "%{service_name}에 가입하신 것을 환영합니다."
       no_reviews: ~
       no_image: ~
       filter: ~
@@ -1253,7 +1254,7 @@ ko:
       you_have_not_added_your_info: ~
       add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: 제안
       comment: ~
       comments: ~
     filters:
@@ -1286,7 +1287,7 @@ ko:
       no_listing_image: ~
   layouts:
     admin:
-      admin: ~
+      admin: "%{service_name} 관리자 패널"
     branding:
       powered_by: ~
       create_own: ~
@@ -1298,15 +1299,15 @@ ko:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "%{service_name}팀에게 보내는 메세지"
       dont_use_to_contact_support: ~
-      feedback_forum: ~
-      feedback_handle: ~
-      give_feedback: ~
-      or_check_our: ~
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
-      your_email_address: ~
+      feedback_forum: "피드백 포럼"
+      feedback_handle: 피드백
+      give_feedback: 연락처
+      or_check_our: "또는 검토"
+      send_feedback_to_admin: "메세지 발송"
+      to_see_what_others_have_suggested: "다른 사용자들의 제안과 아이디어에 대한 투표 결과를 보려면"
+      your_email_address: "연락을 위한 이메일 주소"
       connect: ~
       invite_your_friends: ~
       invite_your_neighbors: ~
@@ -1315,43 +1316,43 @@ ko:
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: 메세지
+      notifications: 알림
+      received: 수신
+      sent: 발송
     global-header:
       select_language: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: 소개
+      how_to_use: "사용 예제"
+      info_about_kassi: "%{service_name} 정보"
       news: ~
-      register_details: ~
-      terms: ~
+      register_details: 프라이버시
+      terms: "이용 약관"
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
-      settings: ~
-      sign_up: ~
+      admin: 관리
+      go_to_your_profile_page: 프로필
+      hi: 안녕하세요
+      login: 로그인
+      logout: 로그아웃
+      notifications: 공지
+      requests: "친구 요청"
+      settings: 설정
+      sign_up: "계정 생성"
     logged_in_messages_icon:
-      messages: ~
+      messages: 메세지
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: 알림
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: 관리
+      go_to_your_profile_page: 프로필
+      hi: 안녕하세요
+      login: 로그인
+      logout: 로그아웃
+      notifications: 알림
+      requests: "친구 요청"
       settings: ~
-      sign_up: ~
+      sign_up: 가입
     notifications:
       listing_could_not_be_saved: ~
       contact_admin_link_text: ~
@@ -1361,14 +1362,14 @@ ko:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "의견을 작성하셔야 합니다"
+      comment_sent: "의견 발송"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "신규 작성"
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
       error_with_session: ~

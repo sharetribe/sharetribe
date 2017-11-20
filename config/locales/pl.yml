@@ -236,6 +236,7 @@ pl:
         twitter_handle: "Nick z Twittera (używany przez guzik twitnięcia na stronie oferty)"
         update_settings: "Zapisz ustawienia"
         automatically_confirmed_no_escrow: "Zlecenie zostanie automatycznie oznaczone jako zrealizowane %{days_dropdown} dni po dokonaniu płatności"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
         newsletter_daily: Codziennie
         newsletter_weekly: Tygodniowo
