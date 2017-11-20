@@ -14,6 +14,13 @@ To enable the landing page, change the `clp_static_enabled` to `true`
 clp_static_enabled: true
 ```
 
+Run the following rake task to copy the default landing page template
+```sh
+bundle exec rake sharetribe:landing_page:install_static
+```
+
+The landing page template should now be available under `config/initializers/landing_page.rb`
+
 Restart the server and go to the marketplace root URL. You should now see the landing page with the example content.
 
 ## Advanced configuration
@@ -107,7 +114,7 @@ font_proximanovasoft_url: `https://your-cdn-service.com/landing_page/fonts/`
 
 After you have succesfully enabled and configured the landing page, it's time to edit the landing page content!
 
-The content for the landing page is defined in [CustomLandingPage::ExampleData::DATA_STR](../app/services/custom_landing_page/example_data.rb). To modify the landing page content, you need the [app/services/custom\_landing\_page/example\_data.rb](../app/services/custom_landing_page/example_data.rb) file.
+The content for the landing page is defined in [CustomLandingPage::ExampleData::DATA_STR](../app/services/custom_landing_page/example_data.rb). This template is copied over to `config/initializers/landing_page.rb` upon running the `sharetribe:landing_pages:install_static` task. To modify the landing page content, you should modify the initializer.
 
 See [Landing page JSON structure](landing-page-structure.md) for documentation about the landing page data structure format.
 

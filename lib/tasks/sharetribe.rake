@@ -7,6 +7,15 @@ namespace :sharetribe do
     end
   end
 
+  namespace :landing_pages do
+    desc "Install sample landing page into initializers/landing_page.rb"
+    task :install_static => :environment do
+      source = File.join(Rails.root, "app", "services", "custom_landing_page", "landing_page.rb.template")
+      dest = File.join(Rails.root, "config", "initializers", "landing_page.rb")
+      FileUtils.cp_r source, dest
+    end
+  end
+
   desc "Cleans the auth_tokens table in the DB by deleting expired ones"
   task :delete_expired_auth_tokens => :environment do
     AuthToken.delete_expired

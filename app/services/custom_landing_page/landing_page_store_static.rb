@@ -10,8 +10,15 @@ module CustomLandingPage
     end
 
     def load_structure(*)
-      LandingPageStoreDefaults.add_defaults(
+      structure = LandingPageStoreDefaults.add_defaults(
         JSON.parse(CustomLandingPage::ExampleData::DATA_STR))
+      
+      begin
+        structure = JSON.parse(CustomLandingPage::StaticData::DATA_STR)
+      rescue NameError
+      end
+
+      structure
     end
 
     def enabled?(cid)
