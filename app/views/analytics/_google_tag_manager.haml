@@ -1,13 +1,17 @@
 :plain
   var dataLayer = dataLayer || [];
-  function _gtm_identify(dl, community_id, feature_flags){
-    if (community_id) {
-      dl.push({"event": "identify", "id": "mp-"+community_id+"-admin" });
+  function _gtm_identify(dl, info ){
+    if (info.community_id) {
+      dl.push({
+        event: "identify",
+        id: "mp-" + info.community_id + "-admin",
+        communityAdminEmail: info.community_admin_email,
+      });
     }
 
     dl.push({
       event: 'feature flags',
-      featureFlags: feature_flags
+      featureFlags: info.feature_flags
     });
 
   };
