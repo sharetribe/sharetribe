@@ -105,7 +105,7 @@ window.ST.analytics = (function(){
     });
 
     $(document).on('st-analytics:setup', function(event, info) {
-      _gtm_identify(dataLayer, info.community_id, info.feature_flags);
+      _gtm_identify(dataLayer, info);
     });
   };
 
