@@ -450,8 +450,8 @@ default: &default_settings
   stripe_payout_delay: 7.5
 
   # Key pattern to ensure production keys
-  stripe_private_key_pattern: "sk_test_.{24}"
-  stripe_publishable_key_pattern: "pk_test_.{24}"
+  stripe_private_key_pattern: "\\Ask_test_.{24}\\z"
+  stripe_publishable_key_pattern: "\\Apk_test_.{24}\\z"
 
   # Stripe allows to hold funds up to 90 days
   # (85 and not 90 or 89 as a security, also because timezones are not 
@@ -476,16 +476,16 @@ production: &production_settings
   eager_load: true
 
   log_level: INFO
-  stripe_private_key_pattern: "sk_live_.{24}"
-  stripe_publishable_key_pattern: "pk_live_.{24}"
+  stripe_private_key_pattern: "\\Ask_live_.{24}\\z"
+  stripe_publishable_key_pattern: "\\Apk_live_.{24}\\z"
 
 staging:
   <<: *production_settings
   # By default staging has same settings as production, but those can be overridden here.
 
   log_level: INFO
-  stripe_private_key_pattern: "sk_(test|live)_.{24}"
-  stripe_publishable_key_pattern: "pk_(test|live)_.{24}"
+  stripe_private_key_pattern: "\\Ask_(test|live)_.{24}\\z"
+  stripe_publishable_key_pattern: "\\Apk_(test|live)_.{24}\\z"
 
 development:
   <<: *default_settings
