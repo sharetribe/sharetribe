@@ -16,7 +16,6 @@ Would you like to set up your marketplace in one minute without touching code? [
 - [Upgrade](#upgrade)
 - [Contribute](#contribute)
 - [Release](#release)
-- [Technical roadmap](#technical-roadmap)
 - [Translation](#translation)
 - [Bug tracker](#bug-tracker)
 - [Documentation](#documentation)
@@ -387,7 +386,18 @@ If you have installation instructions that you would like to share, don't hesita
 
 ## Payments
 
+PayPal and Stripe are the two available payment gateways integrated.
+
 PayPal payments are only available on marketplaces hosted at [Sharetribe.com](https://www.sharetribe.com) due to special permissions needed from PayPal. We hope to add support for PayPal payments to the open source version of Sharetribe in the future.
+
+Stripe can be used in the open-source alternative, as long as your country and currency are supported.
+
+### Enable Stripe
+
+Starting from release 7.2.0, Stripe is enabled. 
+
+Stripe API keys are encrypted and you should the `app_encryption_key` variable from the `config/config.yml` file.
+Stripe can be configured from the admin panel, in the "Payment settings" section.
 
 
 ## Versioning
@@ -422,11 +432,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
 ## Release
 
 See [RELEASE.md](RELEASE.md) for information about how to make a new release.
-
-
-## Technical roadmap
-
-For a better high-level understanding of what the Sharetribe core team is working on currently and what it plans to work on next, read the [technical roadmap](TECHNICAL_ROADMAP.md).
 
 
 ## Translation
