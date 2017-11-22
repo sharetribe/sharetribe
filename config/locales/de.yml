@@ -558,7 +558,7 @@ de:
       minimum_listing_price_below_min: "Die Mindestmenge der Transaktion muss größer als die Mindestprovision %{minimum_commission} sein."
     payment_preferences:
       title: Zahlungseinstellungen
-      general_settings: "1. Allgeimeine Einstellungen"
+      general_settings: "1. Allgemeine Einstellungen"
       connect_a_payment_provider: "2. Ein Zahlungssystem verbinden"
       contact_support: "Support kontaktieren"
       no_payments_link_text: hier
@@ -695,7 +695,7 @@ de:
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede Zahlung über PayPal erhebt %{service_name} eine Vermittlungsprovision im Höhe von %{paypal_commission}%. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen.
+          Für jede Zahlung über PayPal erhebt %{service_name} eine Vermittlungsprovision in Höhe von %{paypal_commission}%. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen.
           Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.

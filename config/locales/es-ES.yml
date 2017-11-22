@@ -226,7 +226,7 @@ es-ES:
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
-        automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los proveedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente

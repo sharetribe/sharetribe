@@ -612,7 +612,7 @@ ko:
     default_community_slogan: ~
     default_community_description: ~
     cancel: 취소
-    fields_that_are_mandatory: "별표(?)로 표시된 항목은 필수 입력 항목입니다."
+    fields_that_are_mandatory: "별표(*)가 있는 항목은 필수 입력 항목입니다."
     or: 또는
     password: ~
     service_name: ~
@@ -1067,8 +1067,8 @@ ko:
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: "일반적이지 않은 피드백을 남기길 원하시면 사유를 적어주셔야 합니다."
-      you_must_select_a_grade: "당신의 경험이 긍정적 또는 부정적이었는지 알려주세요."
+      you_must_explain_not_neutral_feedback: "\"보통\"이외의 응답, 즉 기대 이상 또는 기대 이하였던 경우에 대한 설명을 부탁드립니다."
+      you_must_select_a_grade: "당신의 경험이 긍정적이었는지 아니면 부정적이었는지 알려주세요."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1085,7 +1085,7 @@ ko:
   error_pages:
     back_to_kassi_front_page: "앞 페이지로 돌아가기"
     error_404:
-      if_you_believe: "해당 주소가 올바르다고 생각하시면 어떤 주소가 오류의 원인이며 아래 페이지의 양식에서 어떻게 보여져야 하는지 알려주세요."
+      if_you_believe: "해당 페이지의 URL이 올바르다고 생각하시면 저희가 오류 원인을 찾을 수 있도록 아래의 양식에 오류가 발생한 URL과 해당 페이지가 어떻게 보여져야 하는지 입력하여 저희에게 알려주세요."
       page_can_not_be_found: "페이지를 찾을 수 없습니다!"
       page_you_requested_can_not_be_found: "요청하신 페이지를 찾을 수 없습니다. 웹 페이지 주소를 올바르게 입력하셨습니까?"
     error_404_title: "페이지를 찾을 수 없습니다."
