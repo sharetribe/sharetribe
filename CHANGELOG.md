@@ -464,7 +464,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...HEAD
+[7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/sharetribe/sharetribe/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...v7.1.0
 [6.4.0]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...v6.4.0
