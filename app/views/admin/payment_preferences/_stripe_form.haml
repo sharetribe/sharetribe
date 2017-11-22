@@ -11,13 +11,20 @@
             -# Not a subject of I18n, forced fixed text
             = form.label :api_publishable_key, "Publishable key:"
           .col-8
-            = form.text_field :api_publishable_key, class: 'required', placeholder: t("admin.payment_preferences.stripe_form.publishable_key_example", api_publishable_key_example: 'pk_live_67c9SwGQtbsaPkx3JeJKS&mM4')
+            = form.text_field :api_publishable_key, class: 'required',
+              placeholder: t("admin.payment_preferences.stripe_form.publishable_key_example", api_publishable_key_example: 'pk_live_67c9SwGQtbsaPkx3JeJKS&mM4'),
+              regex: regex_definition_to_js(APP_CONFIG.stripe_publishable_key_pattern),
+              data: {'msg-regex': t("admin.payment_preferences.stripe_form.invalid_publishable", publishable_key: 'publishable key')}
         .row
           .col-4
             -# Not a subject of I18n, forced fixed text
             = form.label :api_private_key, "Secret key:"
           .col-8
-            = form.text_field :api_private_key, class: 'required', placeholder: t("admin.payment_preferences.stripe_form.secret_key_example", api_secret_key_example: 'sk_live_c7VffYB8AwSchkxe5RfjtS7e')
+            = form.text_field :api_private_key, class: 'required',
+              placeholder: t("admin.payment_preferences.stripe_form.secret_key_example", api_secret_key_example: 'sk_live_c7VffYB8AwSchkxe5RfjtS7e'),
+              regex: regex_definition_to_js(APP_CONFIG.stripe_private_key_pattern),
+              data: {'msg-regex': t("admin.payment_preferences.stripe_form.invalid_secret", secret_key: 'secret key')}
+
         .row
           = button_tag t(".save_api_keys")
 
@@ -32,5 +39,3 @@
       "Please check your input."
     );
     $("#new_stripe_api_keys_form").validate();
-    $("#stripe_api_keys_form_api_private_key").rules("add", { regex: "#{APP_CONFIG.stripe_private_key_pattern}", messages: {regex: "#{t("admin.payment_preferences.stripe_form.invalid_secret", secret_key: 'secret key')}"} });
-    $("#stripe_api_keys_form_api_publishable_key").rules("add", { regex: "#{APP_CONFIG.stripe_publishable_key_pattern}", messages: {regex: "#{t("admin.payment_preferences.stripe_form..invalid_publishable", publishable_key: 'publishable key')}"} });

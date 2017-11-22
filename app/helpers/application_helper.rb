@@ -723,5 +723,9 @@ module ApplicationHelper
       ['Wyoming', 'WY']
     ]
   end
+
+  def regex_definition_to_js(string)
+    string.gsub('\A', '^').gsub('\z', '$').gsub('\\', '\\\\')
+  end
 end
 # rubocop:enable Metrics/ModuleLength
