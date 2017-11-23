@@ -100,7 +100,6 @@
 - content_for :extra_javascript do
   :javascript
     $(function() {
-      $("#stripe-account-form").validate();
       window.ST.initStripeBankForm(#{!!stripe_test_mode});
     });
 

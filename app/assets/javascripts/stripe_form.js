@@ -193,11 +193,23 @@ window.ST.stripe_form_i18n = {
       update_bank_number_form(country);
     });
     $("#stripe_account_form_address_country").trigger('change');
-    $(".bank-account-number input").rules("add", { country_regexp: 'account_number' } ); 
-    $(".bank-routing-number input").rules("add", { country_regexp: 'routing_number' } ); 
-    $(".bank-routing-1 input").rules("add", { country_regexp: 'routing_1' } ); 
-    $(".bank-routing-2 input").rules("add", { country_regexp: 'routing_2' } ); 
-  }
+    $("#stripe-account-form").validate({
+      submitHandler: function(form) {
+        var removeSpacesInputs = [".bank-account-number input", ".bank-routing-number input",
+          ".bank-routing-1 input", ".bank-routing-2 input"];
+        for (var index in removeSpacesInputs) {
+          var input = $(removeSpacesInputs[index]);
+          var value = input.val().replace(/\s+/g, '');
+          input.val(value);
+        }
+        form.submit();
+      }
+    });
+    $(".bank-account-number input").rules("add", { country_regexp: 'account_number' } );
+    $(".bank-routing-number input").rules("add", { country_regexp: 'routing_number' } );
+    $(".bank-routing-1 input").rules("add", { country_regexp: 'routing_1' } );
+    $(".bank-routing-2 input").rules("add", { country_regexp: 'routing_2' } );
+  };
 
   function explain_regexp(value) {
     var t = value;
@@ -221,7 +233,8 @@ window.ST.stripe_form_i18n = {
       }
       if(re) {
         var rx = new RegExp("^"+re+"$");
-        return rx.test(value);
+        var testValue = value.replace(/\s+/g, '');
+        return rx.test(testValue);
       }
       return this.optional(element) || $(element).val();
     },
