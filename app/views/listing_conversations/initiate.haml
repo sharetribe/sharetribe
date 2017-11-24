@@ -31,6 +31,10 @@
 
     = hidden_field_tag(:start_on, start_on&.iso8601 )
     = hidden_field_tag(:end_on, end_on&.iso8601 )
+    - if per_hour
+      = hidden_field_tag(:start_time, start_time&.iso8601 )
+      = hidden_field_tag(:end_time, end_time&.iso8601 )
+      = hidden_field_tag(:per_hour, '1' )
 
     .preauthorize-section
       %h2

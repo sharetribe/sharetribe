@@ -37,18 +37,19 @@
         - @listing_presenter.blocked_dates_result.on_error do
           = t("listings.listing_actions.unable_load_availability")
 
-      - if FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
+      - elsif FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
         .input-daterange.input-group.clearfix
           .datepicker-start-wrapper
             = label_tag t(".booking_date")
             %input.input-sm.form-control.required#start-on{ :type => 'text',
-              :name => "start_on", :placeholder => t("datepicker.format"),
+              :name => "start_on_show", :placeholder => t("datepicker.format"),
               :data => { :locale => I18n.locale, :dateformat => t("datepicker.format") },
               :required => true }
           .col-12
             = select_tag 'start_time', options_for_select([]), id: 'start_time', :required => true
           .col-12
             = select_tag 'end_time', options_for_select([]), id: 'end_time', :required => true
+          = hidden_field_tag 'per_hour', '1'
         - content_for :extra_javascript do
           :javascript
             window.ST.FromToDatePicker.setupPerHour(#{raw @listing_presenter.datepicker_per_hour_setup.to_json});
