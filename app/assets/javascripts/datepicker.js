@@ -178,21 +178,31 @@ window.ST = window.ST || {};
       $('#booking-dates').validate();
     };
 
-    var setUpSelectOptions = function(date_options) {
+    var setUpSelectOptions = function(date, start, selectSelector) {
+      var date_options = options.options_for_select[date];
       var options_for_select = ['<option value="" disabled selected>Select one</option>'];
+      var prevDisabled = false;
       for(var index in date_options) {
-        var option = date_options[index];
-        var disabled = option.disabled ? ' disabled ' : '';
-        options_for_select.push('<option value="' + option.value + '" ' + disabled + '>' + option.name + '</option>');
+        var disabled, option = date_options[index],
+          value = date + ' ' + option.value;
+        if (!start && option.slot_end && !prevDisabled) {
+          disabled = '';
+        } else {
+          disabled = option.disabled ? ' disabled ' : '';
+        }
+        if (!(start && option.slot_end)) {
+          options_for_select.push('<option value="' + value + '" ' + disabled + '>' + option.name + '</option>');
+        }
+        prevDisabled = option.disabled;
       }
-      $('#start_time').html($(options_for_select.join('')));
-      $('#end_time').html($(options_for_select.join('')));
+      $(selectSelector).html($(options_for_select.join('')));
     };
 
     picker.on('changeDate', function(e) {
       var date = dateToString(e.date);
       console.log('change to ' + date);
-      setUpSelectOptions(options.options_for_select[date]);
+      setUpSelectOptions(date, true, '#start_time');
+      setUpSelectOptions(date, false, '#end_time');
     });
     validateForm();
   };

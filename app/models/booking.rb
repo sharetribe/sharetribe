@@ -23,13 +23,12 @@
 class Booking < ApplicationRecord
   belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
 
-  scope :group_by_start_date, -> { group('DATE(bookings.start_time)') }
   scope :in_period, ->(start_time, end_time) { where(['start_time >= ? AND end_time <= ?', start_time, end_time]) }
-  scope :per_day_summary, -> do
-    select('DATE(bookings.start_time) AS start_date, SUM(TIMESTAMPDIFF(SECOND, start_time, end_time)) AS day_summary_time')
-    .group_by_start_date
-  end
   scope :hourly_basis, -> { where(per_hour: true) }
+  scope :covers_another_booking, ->(booking) do
+    hourly_basis.where(['(start_time <= ? AND end_time > ?) OR (start_time < ? AND end_time >= ?)',
+                        booking.start_time, booking.start_time, booking.end_time, booking.end_time])
+  end
 
   def week_day
     Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym

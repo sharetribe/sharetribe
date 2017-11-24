@@ -41,7 +41,10 @@ class TransactionsController < ApplicationController
         ensure_can_start_transactions(listing_model: listing_model, current_user: @current_user, current_community: @current_community)
       }
     ).on_success { |((listing_id, listing_model, author_model, process, gateway))|
-      transaction_params = HashUtils.symbolize_keys({listing_id: listing_model.id}.merge(params.slice(:start_on, :end_on, :quantity, :delivery).permit!))
+      transaction_params = HashUtils.symbolize_keys(
+        {listing_id: listing_model.id}
+        .merge(params.slice(:start_on, :end_on, :quantity, :delivery, :start_time, :end_time, :per_hour).permit!)
+      )
 
       case [process[:process], gateway]
       when matches([:none])
@@ -417,6 +420,7 @@ class TransactionsController < ApplicationController
       localized_unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
       localized_selector_label = tx[:unit_type].present? ? ListingViewUtils.translate_quantity(tx[:unit_type], tx[:unit_selector_tr_key]) : nil
       booking = !!tx[:booking]
+      booking_per_hour = tx[:booking] && tx[:booking][:per_hour]
       quantity = tx[:listing_quantity]
       show_subtotal = !!tx[:booking] || quantity.present? && quantity > 1 || tx[:shipping_price].present?
       total_label = (tx[:payment_process] != :preauthorize) ? t("transactions.price") : t("transactions.total")
@@ -436,7 +440,10 @@ class TransactionsController < ApplicationController
         fee: tx[:commission_total],
         shipping_price: tx[:shipping_price],
         total_label: total_label,
-        unit_type: tx[:unit_type]
+        unit_type: tx[:unit_type],
+        per_hour: booking_per_hour,
+        start_time: booking_per_hour ? tx[:booking][:start_time] : nil,
+        end_time: booking_per_hour ? tx[:booking][:end_time] : nil,
       })
     end
   end

@@ -86,7 +86,9 @@ RSpec.describe ListingPresenter, type: :presenter do
           [
             {:value=>"09:00", :name=>" 9:00 am"},
             {:value=>"10:00", :name=>"10:00 am"},
-            {:value=>"14:00", :name=>" 2:00 pm"}
+            {:value=>"11:00", :name=>"11:00 am", :disabled=>true, :slot_end=>true},
+            {:value=>"14:00", :name=>" 2:00 pm"},
+            {:value=>"15:00", :name=>" 3:00 pm", :disabled=>true, :slot_end=>true}
           ]
         )
       end
@@ -104,7 +106,9 @@ RSpec.describe ListingPresenter, type: :presenter do
           [
             {:value=>"09:00", :name=>" 9:00 am", :disabled=>true},
             {:value=>"10:00", :name=>"10:00 am", :disabled=>true},
-            {:value=>"14:00", :name=>" 2:00 pm"}
+            {:value=>"11:00", :name=>"11:00 am", :disabled=>true, :slot_end=>true},
+            {:value=>"14:00", :name=>" 2:00 pm"},
+            {:value=>"15:00", :name=>" 3:00 pm", :disabled=>true, :slot_end=>true}
           ]
         )
       end

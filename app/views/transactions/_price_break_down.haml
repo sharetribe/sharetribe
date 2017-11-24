@@ -4,26 +4,41 @@
       %span.initiate-transaction-per-unit-label
         - if unit_type == :day
           = t("transactions.initiate.price_per_day")
-        - else
+        - elsif unit_type == :night
           = t("transactions.initiate.price_per_night")
+        - elsif unit_type == :hour
+          = t("transactions.initiate.price_per_hour")
+        - else
+          = t("transactions.initiate.price_per_unit")
       %span.initiate-transaction-per-unit-value
         = MoneyViewUtils.to_humanized(listing_price)
 
     .initiate-transaction-booking-wrapper
-      %span.initiate-transaction-booking-label
-        - if unit_type == :day
-          = use_new_translation("transactions.initiate.booked_days_label", count: duration).or_fallback_to("transactions.initiate.booked_days")
-        - else
-          = use_new_translation("transactions.initiate.booked_nights_label", count: duration).or_fallback_to("transactions.initiate.booked_nights")
-      %span.initiate-transaction-booking-value
-        = l start_on, format: :long_with_abbr_day_name
-        = "-"
-        - if unit_type == :day
-          = l (end_on - 1.day), format: :long_with_abbr_day_name
-          = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
-        - else
-          = l end_on, format: :long_with_abbr_day_name
-          = "(#{pluralize(duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
+      - if per_hour
+        %span.initiate-transaction-booking-label
+          = t('transactions.initiate.booked_hours_label', count: duration)
+        %span.initiate-transaction-booking-value
+          = l start_time.to_date, format: :long_with_abbr_day_name
+          = '-'
+          = t("transactions.initiate.start_end_time",
+            start_time: l(start_time, format: :hours_only),
+            end_time: l(end_time, format: :hours_only))
+          = t("transactions.initiate.duration_in_hours", count: duration)
+      - else
+        %span.initiate-transaction-booking-label
+          - if unit_type == :day
+            = use_new_translation("transactions.initiate.booked_days_label", count: duration).or_fallback_to("transactions.initiate.booked_days")
+          - else
+            = use_new_translation("transactions.initiate.booked_nights_label", count: duration).or_fallback_to("transactions.initiate.booked_nights")
+        %span.initiate-transaction-booking-value
+          = l start_on, format: :long_with_abbr_day_name
+          = "-"
+          - if unit_type == :day
+            = l (end_on - 1.day), format: :long_with_abbr_day_name
+            = "(#{pluralize(duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+          - else
+            = l end_on, format: :long_with_abbr_day_name
+            = "(#{pluralize(duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
 
   - elsif quantity.present? && localized_unit_type.present?
     .initiate-transaction-per-unit-wrapper

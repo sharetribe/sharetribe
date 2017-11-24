@@ -2224,6 +2224,7 @@ en:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
       short_date: "%b %e, %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} day ago"
     days_ago: "%{count} days ago"
@@ -2262,12 +2263,21 @@ en:
       booked_nights_label:
         one: "Booked night:"
         other: "Booked nights:"
+      booked_hours_label:
+        one: "Booked hour:"
+        other: "Booked hours:"
       price_per_day: "Price per day:"
       price_per_night: "Price per night:"
+      price_per_hour: "Price per hour:"
+      price_per_unit: "Price per unit:"
       quantity: "Quantity:"
       subtotal: "Subtotal:"
       shipping-price: "Shipping:"
       stripe-fee: "Stripe Fee (estimated):"
+      duration_in_hours:
+        one: "(1 hour)"
+        other: "(%{count} hours)"
+      start_end_time: "%{start_time} to %{end_time}"
     price_per_quantity: "Price per %{unit_type}:"
     price: "Price:"
     quantity: "Quantity: %{quantity}"
