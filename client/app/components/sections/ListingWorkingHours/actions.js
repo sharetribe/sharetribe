@@ -24,14 +24,30 @@ const dataLoaded = (data) => ({
 
 export const dataChanged = () => ({ type: actionTypes.DATA_CHANGED });
 
+const csrfToken = () => {
+  if (typeof document != 'undefined') {
+    const metaTag = document.querySelector('meta[name=csrf-token]');
+
+    if (metaTag) {
+      return metaTag.getAttribute('content');
+    }
+  }
+
+  return null;
+};
+
 export const saveChanges = (formData) =>
   (dispatch, getState) => {
     dispatch(startSaving());
     const state = getState().listingWorkingHours;
     const listingId = state.get('listing').id; // eslint-disable-line no-unused-vars
     console.log('save Listing Working Hours Changes'); // eslint-disable-line
-    axios.post(`/int_api/listings/${listingId}/update_working_time_slots`, formData)
-    .then((response) => {
+    axios(`/int_api/listings/${listingId}/update_working_time_slots`, {
+      method: 'post',
+      data: formData,
+      withCredentials: true,
+      headers: { 'X-CSRF-Token': csrfToken() },
+    }).then((response) => {
       dispatch(changesSaved());
       dispatch(dataLoaded(response.data));
       console.log(response); // eslint-disable-line no-console
