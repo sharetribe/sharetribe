@@ -33,20 +33,38 @@
   .conversation-price-info
     .conversation-totals
       - if booking
-        .conversation-per-unit-wrapper
-          %span.conversation-per-unit-label
-            = t("transactions.initiate.price_per_day")
-          %span.conversation-per-unit-value
-            = MoneyViewUtils.to_humanized(listing.price)
+        - if booking[:per_hour]
+          .conversation-per-unit-wrapper
+            %span.conversation-per-unit-label
+              = t("transactions.initiate.price_per_hour")
+            %span.conversation-per-unit-value
+              = MoneyViewUtils.to_humanized(listing.price)
 
-        .conversation-booking-wrapper
-          %span.conversation-booking-label
-            = t("transactions.initiate.booked_days")
-          %span.conversation-booking-value
-            = l booking[:start_on], format: :long_with_abbr_day_name
-            = "-"
-            = l booking[:end_on], format: :long_with_abbr_day_name
-            = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+          .conversation-booking-wrapper
+            %span.conversation-booking-label
+              = t('transactions.initiate.booked_hours_label', count: booking[:duration])
+            %span.conversation-booking-value
+              = l booking[:start_time].to_date, format: :long_with_abbr_day_name
+              = '-'
+              = t("transactions.initiate.start_end_time",
+                start_time: l(booking[:start_time], format: :hours_only),
+                end_time: l(booking[:end_time], format: :hours_only))
+              = t("transactions.initiate.duration_in_hours", count: booking[:duration])
+        - else
+          .conversation-per-unit-wrapper
+            %span.conversation-per-unit-label
+              = t("transactions.initiate.price_per_day")
+            %span.conversation-per-unit-value
+              = MoneyViewUtils.to_humanized(listing.price)
+
+          .conversation-booking-wrapper
+            %span.conversation-booking-label
+              = t("transactions.initiate.booked_days")
+            %span.conversation-booking-value
+              = l booking[:start_on], format: :long_with_abbr_day_name
+              = "-"
+              = l booking[:end_on], format: :long_with_abbr_day_name
+              = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
 
       - elsif listing_quantity > 1
         .conversation-per-unit-wrapper

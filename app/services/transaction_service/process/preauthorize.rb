@@ -64,9 +64,9 @@ module TransactionService::Process
           Result::Success.new()
         else
           booking_res =
-            if tx[:availability] != :booking
+            if tx[:availability] == :booking && tx[:booking][:per_hour]
               Result::Success.new()
-            else
+            elsif tx[:availability] == :booking
 
               initiate_booking(tx: tx).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
@@ -88,6 +88,8 @@ module TransactionService::Process
                   booking_uuid: booking[:id]
                 )
               }
+            else
+              Result::Success.new()
             end
 
           booking_res.on_success {
