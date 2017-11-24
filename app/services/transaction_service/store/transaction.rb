@@ -78,6 +78,11 @@ module TransactionService::Store::Transaction
     [:end_on, :date, :mandatory],
     [:duration, :fixnum, :mandatory])
 
+  BookingPerHour = EntityUtils.define_builder(
+    [:start_time, :time, :mandatory],
+    [:end_time, :time, :mandatory],
+    [:per_hour, :bool, :mandatory],
+    [:duration, :fixnum, :mandatory])
 
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person
@@ -193,7 +198,8 @@ module TransactionService::Store::Transaction
   def add_opt_booking(hash, m)
     if m.booking
       booking_data = EntityUtils.model_to_hash(m.booking)
-      hash.merge(booking: Booking.call(booking_data.merge(duration: m.listing_quantity)))
+      booking_entity = booking_data[:per_hour] ? BookingPerHour : Booking
+      hash.merge(booking: booking_entity.call(booking_data.merge(duration: m.listing_quantity)))
     else
       hash
     end
@@ -226,16 +232,25 @@ module TransactionService::Store::Transaction
 
   def build_booking(tx_model, tx_data)
     if is_booking?(tx_data)
-      start_on, end_on = tx_data[:booking_fields].values_at(:start_on, :end_on)
+      if tx_data[:booking_fields][:per_hour]
+        start_time, end_time, per_hour = tx_data[:booking_fields].values_at(:start_time, :end_time, :per_hour)
+        tx_model.build_booking(
+          start_time: start_time,
+          end_time: end_time,
+          per_hour: per_hour)
+      else
+        start_on, end_on = tx_data[:booking_fields].values_at(:start_on, :end_on)
 
-      tx_model.build_booking(
-        start_on: start_on,
-        end_on: end_on)
+        tx_model.build_booking(
+          start_on: start_on,
+          end_on: end_on)
+      end
     end
   end
 
   def is_booking?(tx_data)
-    tx_data[:booking_fields] && tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]
+    tx_data[:booking_fields] && ((tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]) ||
+                                 (tx_data[:booking_fields][:start_time] && tx_data[:booking_fields][:end_time]))
   end
 
   def do_mark_as_unseen_by_other(tx_model, person_id)
