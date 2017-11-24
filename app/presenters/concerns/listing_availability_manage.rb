@@ -106,7 +106,7 @@ module ListingAvailabilityManage
     listing.working_hours_periods(booking_per_hour_start_time, booking_per_hour_end_time).each do |working_period|
       period_day = working_period.start_time.to_date.to_s
       start = working_period.start_time
-      while start < working_period.end_time do # rubocop:disable Style/WhileUntilDo
+      while start <= working_period.end_time do # rubocop:disable Style/WhileUntilDo
         if current_day.nil?
           current_day = period_day
         elsif current_day != period_day
@@ -117,7 +117,12 @@ module ListingAvailabilityManage
         value = start.strftime('%H:%M')
         format = I18n.locale == :en ? '%l:%M %P' : '%H:%M'
         name = start.strftime(format)
-        day_result.push(value: value, name: name)
+        hour_hash = {value: value, name: name}
+        if start == working_period.end_time
+          hour_hash[:disabled] = true
+          hour_hash[:slot_end] = true
+        end
+        day_result.push(hour_hash)
         start += 1.hour
       end
       result[current_day] = day_result
