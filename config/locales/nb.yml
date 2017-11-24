@@ -226,6 +226,7 @@ nb:
         twitter_handle: "Twitternavn (brukt med tweet-knapp på annonsesiden)"
         update_settings: "Lagre innstillinger"
         automatically_confirmed_no_escrow: "Transaksjoner vil automatisk bli satt som utført %{days_dropdown} dager etter at betaling er utført"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Send automatisk nyhetsbrev:%{frequency_dropdown}"
         newsletter_daily: Daglig
         newsletter_weekly: Ukentlig

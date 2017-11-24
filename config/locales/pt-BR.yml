@@ -226,6 +226,7 @@ pt-BR:
         twitter_handle: "Twitter handle (usado com o botão de tweet na página de anúncio)"
         update_settings: "Salvar configurações"
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal

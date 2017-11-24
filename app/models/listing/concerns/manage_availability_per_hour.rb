@@ -22,10 +22,6 @@ module ManageAvailabilityPerHour
     false
   end
 
-  def working_hours_bookings_grouped_by_day(start_time, end_time)
-    bookings_per_hour.in_period(start_time, end_time).group_by{ |booking| booking.start_time.to_date.to_s }
-  end
-
   def working_hours_periods_grouped_by_day(start_time, end_time)
     working_hours_periods(start_time, end_time).group_by{ |x| x.start_time.to_date.to_s }
   end

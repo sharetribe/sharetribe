@@ -10,11 +10,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
-- Added rack-attack for request throttling [#3078](https://github.com/sharetribe/sharetribe/pull/3078)
-- Stripe integration [#3018](https://github.com/sharetribe/sharetribe/pull/3018)
-- Sending emails from admin to specified subset of users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
-- Custom Scripts are now also enabled in Custom Landing Page [#3080](https://github.com/sharetribe/sharetribe/pull/3080/files)
-
 ### Changed
 
 ### Deprecated
@@ -23,7 +18,40 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
-- Outgoing email address is used, if configured, when sending manual emails to users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
+### Security
+
+## [7.1.0] - 2017-11-22
+
+### Added
+
+- Add rack-attack for request throttling [#3078](https://github.com/sharetribe/sharetribe/pull/3078)
+- Stripe integration [#3018](https://github.com/sharetribe/sharetribe/pull/3018)
+- Sending emails from admin to specified subset of users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
+- Custom Scripts are now also enabled in Custom Landing Page [#3080](https://github.com/sharetribe/sharetribe/pull/3080/files)
+- Allow admins to edit their Custom Outgoing Email and Sender Name [#3106](https://github.com/sharetribe/sharetribe/pull/3106)
+- Allow admins to unban users [3108](https://github.com/sharetribe/sharetribe/pull/3108)
+- Ability to disable Stripe and PayPal [3112](https://github.com/sharetribe/sharetribe/pull/3112)
+- Allow admins to search users by name or email [3113](https://github.com/sharetribe/sharetribe/pull/3113)
+- Add an unsubscribe link to invitation emails [3136](https://github.com/sharetribe/sharetribe/pull/3136)
+- Add more information texts about holding funds with Stripe [3150](https://github.com/sharetribe/sharetribe/pull/3150)
+
+### Changed
+
+- Lowered daily limits for invitations from 50 to 10 [3134](https://github.com/sharetribe/sharetribe/pull/3134)
+- Increased unsubscribe auth token validity from 1 week to 4 weeks [3138](https://github.com/sharetribe/sharetribe/pull/3138)
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- Fixed correct use of outgoing email address, if configured, when sending manual emails to users [#3058](https://github.com/sharetribe/sharetribe/pull/3058)
+- Fixed sounds of videos in Custom Landing Pages not working [#3101](https://github.com/sharetribe/sharetribe/pull/3101)
+- Fixed listing image reordering when some images were deleted [#3107](https://github.com/sharetribe/sharetribe/pull/3107)
+- Fixed incorrect use of name of receipt email [3127](https://github.com/sharetribe/sharetribe/pull/3127)
+- Fixed many bugs related to Stripe integration
+- Fixed many bugs related to code refactoring
 
 ### Security
 
@@ -436,7 +464,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...HEAD
+[7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/sharetribe/sharetribe/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...v7.1.0
 [6.4.0]: https://github.com/sharetribe/sharetribe/compare/v6.3.0...v6.4.0

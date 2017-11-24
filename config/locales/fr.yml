@@ -226,6 +226,7 @@ fr:
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed_no_escrow: "Les commandes seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
+        automatically_confirmed_no_escrow_stripe_info: "Pour les transactions gérées par Stripe, le transfert du paiement au vendeur est différé jusqu'à ce que la commande ait été marquée comme réalisée. %{learn_more}."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire

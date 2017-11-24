@@ -221,6 +221,7 @@ vi:
         twitter_handle: "Tên tài khoản Twitter (dùng cho nút tweet trong trang bài đăng)"
         update_settings: "Lưu thiết lập"
         automatically_confirmed_no_escrow: "Đơn đặt hàng sẽ được tự động đánh dấu là %{days_dropdown} ngày hoàn thành sau khi thanh toán đã được thực hiện"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Gửi bản tin tự động: %{frequency_dropdown}"
         newsletter_daily: "Hằng ngày"
         newsletter_weekly: "Hằng tuần"

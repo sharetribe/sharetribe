@@ -226,6 +226,7 @@ sv:
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
         automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen gjorts"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis

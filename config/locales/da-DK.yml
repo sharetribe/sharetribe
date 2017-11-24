@@ -226,6 +226,7 @@ da-DK:
         twitter_handle: "Twitter brugernavn (bruges ved tweet knappen på annonce siderne)"
         update_settings: "Gem indstillinger"
         automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Dagligt
         newsletter_weekly: Ugentligt

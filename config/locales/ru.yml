@@ -236,6 +236,7 @@ ru:
         twitter_handle: "Ваш имя в Twitter (используется вместе с кнопкой tweet на странице размещения)"
         update_settings: "Сохранить настройки"
         automatically_confirmed_no_escrow: "Транзакция будет автоматически отмечена как завешенная через %{days_dropdown} дней после осуществления платежа"
+        automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "Отправлять автоматически новости: %{frequency_dropdown}"
         newsletter_daily: Ежедневно
         newsletter_weekly: Еженедельно
