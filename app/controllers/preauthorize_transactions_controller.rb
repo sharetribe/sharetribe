@@ -29,6 +29,15 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   }
 
+  PARSE_DATETIME = ->(v) {
+    return if v.nil?
+    begin
+      TransactionViewUtils.parse_booking_datetime(v)
+    rescue ArgumentError => e
+      e
+    end
+  }
+
   NewTransactionParams = EntityUtils.define_builder(
     [:delivery, :to_symbol, one_of: [nil, :shipping, :pickup]],
     [:start_on, :date, transform_with: PARSE_DATE],
@@ -36,6 +45,12 @@ class PreauthorizeTransactionsController < ApplicationController
     [:message, :string],
     [:quantity, :to_integer, validate_with: IS_POSITIVE],
     [:contract_agreed, transform_with: ->(v) { v == "1" }]
+  )
+
+  NewPerHourTransactionParams = EntityUtils.define_builder(
+    [:start_time, :time, transform_with: PARSE_DATETIME],
+    [:end_time, :time, transform_with: PARSE_DATETIME],
+    [:per_hour, transform_with: ->(v) { v == "1" }]
   )
 
   ListingQuery = MarketplaceService::Listing::Query
@@ -96,12 +111,16 @@ class PreauthorizeTransactionsController < ApplicationController
                                  quantity_selector:,
                                  shipping_enabled:,
                                  pickup_enabled:,
-                                 availability_enabled:)
+                                 availability_enabled:,
+                                 listing:,
+                                 availability_per_hour_enabled:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
         .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
         .and_then { |result|
-          if availability_enabled
+          if availability_per_hour_enabled && tx_params[:per_hour]
+            validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
+          elsif availability_enabled
             validate_booking_timeslots(tx_params: tx_params,
                                        marketplace_uuid: marketplace_uuid,
                                        listing_uuid: listing_uuid,
@@ -142,15 +161,17 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     def validate_booking(tx_params:, quantity_selector:)
-      if [:day, :night].include?(quantity_selector)
-        start_on, end_on = tx_params.values_at(:start_on, :end_on)
+      per_hour = tx_params[:per_hour]
+      if per_hour || [:day, :night].include?(quantity_selector)
+        start_on, end_on = per_hour ? tx_params.values_at(:start_time, :end_time)  : tx_params.values_at(:start_on, :end_on)
 
         if start_on.nil? || end_on.nil?
           Result::Error.new(nil, code: :dates_missing, tx_params: tx_params)
         elsif start_on > end_on
           Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
         elsif start_on == end_on
-          Result::Error.new(nil, code: :at_least_one_day_or_night_required, tx_params: tx_params)
+          code = per_hour ? :at_least_one_hour_required : :at_least_one_day_or_night_required
+          Result::Error.new(nil, code: code, tx_params: tx_params)
         elsif StripeHelper.stripe_active?(tx_params[:marketplace_id]) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
           Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
         else
@@ -198,6 +219,16 @@ class PreauthorizeTransactionsController < ApplicationController
       }
     end
 
+    def validate_booking_per_hour_timeslots(listing:, tx_params:)
+      return Result::Success.new(tx_params) unless tx_params[:per_hour]
+      booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
+      if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
+        Result::Success.new(tx_params)
+      else
+        Result::Error.new(nil, code: :dates_not_available)
+      end
+    end
+
     def validate_transaction_agreement(tx_params:, transaction_agreement_in_use:)
       contract_agreed = tx_params[:contract_agreed]
 
@@ -216,7 +247,8 @@ class PreauthorizeTransactionsController < ApplicationController
   # rubocop:disable MethodLength
   # rubocop:disable AbcSize
   def initiate
-    validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
+    params_validator = params_per_hour? ? NewPerHourTransactionParams : NewTransactionParams
+    validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
@@ -229,11 +261,13 @@ class PreauthorizeTransactionsController < ApplicationController
                                          quantity_selector: listing.quantity_selector&.to_sym,
                                          shipping_enabled: listing.require_shipping_address,
                                          pickup_enabled: listing.pickup_enabled,
-                                         availability_enabled: listing.availability.to_sym == :booking)
+                                         availability_enabled: listing.availability.to_sym == :booking,
+                                         listing: listing,
+                                         availability_per_hour_enabled: availability_per_hour_enabled)
     }
 
     validation_result.on_success { |tx_params|
-      is_booking = date_selector?(listing)
+      is_booking = is_booking?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
 
@@ -259,6 +293,9 @@ class PreauthorizeTransactionsController < ApplicationController
              locals: {
                start_on: tx_params[:start_on],
                end_on: tx_params[:end_on],
+               start_time: tx_params[:start_time],
+               end_time:   tx_params[:end_time],
+               per_hour:   tx_params[:per_hour],
                listing: listing_entity,
                delivery_method: tx_params[:delivery],
                quantity: tx_params[:quantity],
@@ -290,7 +327,10 @@ class PreauthorizeTransactionsController < ApplicationController
                  subtotal: subtotal_to_show(order_total),
                  shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
                  total: order_total.total,
-                 unit_type: listing.unit_type
+                 unit_type: listing.unit_type,
+                 start_time: tx_params[:start_time],
+                 end_time:   tx_params[:end_time],
+                 per_hour:   tx_params[:per_hour]
                 )
              }
     }
@@ -304,6 +344,7 @@ class PreauthorizeTransactionsController < ApplicationController
                :end_cant_be_before_start,
                :delivery_method_missing,
                :at_least_one_day_or_night_required,
+               :at_least_one_hour_required,
                :date_too_late
               ].include?(data[:code])
           t("listing_conversations.preauthorize.invalid_parameters")
@@ -322,13 +363,14 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def initiated
-    validation_result = NewTransactionParams.validate(params).and_then { |params_entity|
+    params_validator = params_per_hour? ? NewPerHourTransactionParams : NewTransactionParams
+    validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
 
-      is_booking = date_selector?(listing)
+      is_booking = is_booking?(listing)
 
       Validator.validate_initiated_params(tx_params: tx_params,
                                           quantity_selector: listing.quantity_selector&.to_sym,
@@ -338,7 +380,7 @@ class PreauthorizeTransactionsController < ApplicationController
     }
 
     validation_result.on_success { |tx_params|
-      is_booking = date_selector?(listing)
+      is_booking = is_booking?(listing)
 
       quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
       shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
@@ -355,7 +397,10 @@ class PreauthorizeTransactionsController < ApplicationController
         shipping_price: shipping_total.total,
         booking_fields: {
           start_on: tx_params[:start_on],
-          end_on: tx_params[:end_on]
+          end_on: tx_params[:end_on],
+          start_time: tx_params[:start_time],
+          end_time:   tx_params[:end_time],
+          per_hour:   tx_params[:per_hour],
         })
 
       handle_tx_response(tx_response, params[:payment_type].to_sym)
@@ -368,7 +413,7 @@ class PreauthorizeTransactionsController < ApplicationController
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
 
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_day_or_night_required].include?(data[:code])
+        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_day_or_night_required, :at_least_one_hour_required].include?(data[:code])
           logger.error(msg, :transaction_initiated_error, data)
           [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
         elsif data[:code] == :agreement_missing
@@ -452,7 +497,11 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def calculate_quantity(tx_params:, is_booking:, unit:)
     if is_booking
-      DateUtils.duration(tx_params[:start_on], tx_params[:end_on])
+      if tx_params[:per_hour]
+        DateUtils.duration_in_hours(tx_params[:start_time], tx_params[:end_time])
+      else
+        DateUtils.duration(tx_params[:start_on], tx_params[:end_on])
+      end
     else
       tx_params[:quantity] || 1
     end
@@ -498,8 +547,9 @@ class PreauthorizeTransactionsController < ApplicationController
     delivery_method == :shipping
   end
 
-  def date_selector?(listing)
-    [:day, :night].include?(listing.quantity_selector&.to_sym)
+  def is_booking?(listing)
+    [ListingUnit::DAY, ListingUnit::NIGHT].include?(listing.quantity_selector) ||
+      (availability_per_hour_enabled && listing.unit_type.to_s == ListingUnit::HOUR && listing.availability == 'booking')
   end
 
   def render_error_response(is_xhr, error_msg, redirect_params)
@@ -626,5 +676,11 @@ class PreauthorizeTransactionsController < ApplicationController
     )
   end
 
+  def params_per_hour?
+    params[:per_hour] == '1'
+  end
 
+  def availability_per_hour_enabled
+    FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+  end
 end

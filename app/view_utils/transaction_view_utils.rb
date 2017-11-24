@@ -26,7 +26,10 @@ module TransactionViewUtils
     [:unit_type, :symbol],
     [:sum, :money],
     [:fee, :money],
-    [:seller_gets, :money]
+    [:seller_gets, :money],
+    [:start_time, :time],
+    [:end_time, :time],
+    [:per_hour, :to_bool, default: false]
   )
 
 
@@ -182,6 +185,10 @@ module TransactionViewUtils
 
   def parse_booking_date(str)
     Date.parse(str) unless str.blank?
+  end
+
+  def parse_booking_datetime(str)
+    Time.zone.parse(str) unless str.blank?
   end
 
   def stringify_booking_date(date)
