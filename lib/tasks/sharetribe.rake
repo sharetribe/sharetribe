@@ -13,6 +13,8 @@ namespace :sharetribe do
       source = File.join(Rails.root, "app", "services", "custom_landing_page", "landing_page.rb.template")
       dest = File.join(Rails.root, "config", "initializers", "landing_page.rb")
       FileUtils.cp_r source, dest
+      puts "Created config/initializers/landing_page.rb with static template."
+      puts "This needs clp_static_enabled: true in config.yml for it to take effect."
     end
   end
 
