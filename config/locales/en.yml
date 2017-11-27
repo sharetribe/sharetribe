@@ -998,6 +998,7 @@ en:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Payment processing fee:"
       shipping_total: "Shipping:"
@@ -1045,6 +1046,7 @@ en:
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
