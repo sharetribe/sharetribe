@@ -85,7 +85,7 @@ window.ST.stripe_form_i18n = {
       account_number: {title: 'IBAN', format: 'NL39RABO0300065264', regexp: 'NL[0-9]{2}[A-Z]{4}[0-9]{10}', test_regexp: 'NL'+TEST_IBAN }
     },
     NZ: { 
-      account_number: {format: '110000-0000000-010', regexp: '[0-9]{6}\-[0-9]{7}\-[0-9]{3}', test_regexp: '[0-9]{6}\-[0-9]{7}\-[0-9]{3}' }, 
+      account_number: {format: '110000-0000000-010', regexp: '[0-9]{6}\-[0-9]{7}\-[0-9]{2,3}', test_regexp: '[0-9]{6}\-[0-9]{7}\-[0-9]{2,3}' }, 
     },
     NO: { 
       account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN },
