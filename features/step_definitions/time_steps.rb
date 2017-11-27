@@ -17,3 +17,8 @@ end
 When /^return to current time$/ do
   Timecop.return
 end
+
+Given(/^it is currently "(.+)"$/) do |time_str|
+  time = Time.zone.parse(time_str)
+  Timecop.travel(time)
+end
