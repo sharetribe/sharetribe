@@ -13,9 +13,8 @@ module CustomLandingPage
       structure = LandingPageStoreDefaults.add_defaults(
         JSON.parse(CustomLandingPage::ExampleData::DATA_STR))
       
-      begin
+      if CustomLandingPage.const_defined?("StaticData")
         structure = JSON.parse(CustomLandingPage::StaticData::DATA_STR)
-      rescue NameError
       end
 
       structure

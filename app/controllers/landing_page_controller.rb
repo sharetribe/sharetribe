@@ -125,9 +125,9 @@ class LandingPageController < ActionController::Metal
 
       # if static landing page enabled, load data from config/initializers/landing_page.rb
       if (APP_CONFIG.clp_static_enabled)
-        begin
+        if CustomLandingPage.const_defined?("StaticData")
           structure = JSON.parse(CustomLandingPage::StaticData::DATA_STR)
-        rescue
+        else
           structure = JSON.parse(CustomLandingPage::ExampleData::DATA_STR)
         end
       end
