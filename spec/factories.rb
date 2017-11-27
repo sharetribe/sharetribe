@@ -445,4 +445,11 @@ FactoryGirl.define do
   factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
     listing_id 123
   end
+
+  factory :billing_agreement do
+    build_association(:paypal_account)
+    billing_agreement_id  'zzz'
+    paypal_username_to    'eloise.smith'
+    request_token         'ddd'
+  end
 end

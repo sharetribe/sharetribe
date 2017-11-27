@@ -226,6 +226,8 @@ Given /^I have confirmed paypal account(?: as "([^"]*)")?(?: for community "([^"
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
   community = Community.where(ident: community_name || "test").first
-  FactoryGirl.create(:paypal_account, person_id: person.id, community_id: community.id)
+  paypal_account = FactoryGirl.create(:paypal_account, person_id: person.id, community_id: community.id)
+  FactoryGirl.create(:order_permission, paypal_account: paypal_account)
+  FactoryGirl.create(:billing_agreement, paypal_account: paypal_account)
 end
 

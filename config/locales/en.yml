@@ -2224,7 +2224,7 @@ en:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
       short_date: "%b %e, %Y"
-      hours_only: "%H:%M"
+      hours_only: "%l:%M %P"
   timestamps:
     day_ago: "%{count} day ago"
     days_ago: "%{count} days ago"
