@@ -163,6 +163,8 @@ window.ST = window.ST || {};
     });
     var today = dateAtBeginningOfDay(new Date());
     var endDate = new Date(options.end_date * 1000);
+    var currentDate = null;
+    var selectOne = ST.t('listings.listing_actions.select_one');
 
     $.fn.datepicker.dates[options.locale] = options.localized_dates;
 
@@ -178,9 +180,26 @@ window.ST = window.ST || {};
       $('#booking-dates').validate();
     };
 
+    $('#start_time').on('change', function() {
+      var startTimeindex = $(this).find('option:selected').data('index'),
+        endTime = $('#end_time');
+      if (endTime.prop('disabled') != true) {
+        setUpSelectOptions(currentDate, false, '#end_time');
+      }
+      endTime.find('option').each(function () {
+        var option = $(this), endTimeIndex = option.data('index');
+        if (endTimeIndex > startTimeindex) {
+          option.removeAttr('disabled');
+        } else {
+          option.prop('disabled', true);
+        }
+      });
+      endTime.removeAttr('disabled');
+    });
+
     var setUpSelectOptions = function(date, start, selectSelector) {
       var date_options = options.options_for_select[date];
-      var options_for_select = ['<option value="" disabled selected>Select one</option>'];
+      var options_for_select = ['<option value="" disabled selected>' + selectOne + '</option>'];
       var prevDisabled = false;
       for(var index in date_options) {
         var disabled, option = date_options[index],
@@ -191,18 +210,20 @@ window.ST = window.ST || {};
           disabled = option.disabled ? ' disabled ' : '';
         }
         if (!(start && option.slot_end)) {
-          options_for_select.push('<option value="' + value + '" ' + disabled + '>' + option.name + '</option>');
+          options_for_select.push('<option value="' + value + '" ' + disabled + ' data-index="' + index + '">' + option.name + '</option>');
         }
         prevDisabled = option.disabled;
       }
       $(selectSelector).html($(options_for_select.join('')));
+      if (!start) {
+        $(selectSelector).prop('disabled', true);
+      }
     };
 
     picker.on('changeDate', function(e) {
-      var date = dateToString(e.date);
-      console.log('change to ' + date);
-      setUpSelectOptions(date, true, '#start_time');
-      setUpSelectOptions(date, false, '#end_time');
+      currentDate = dateToString(e.date);
+      setUpSelectOptions(currentDate, true, '#start_time');
+      setUpSelectOptions(currentDate, false, '#end_time');
     });
     validateForm();
   };
