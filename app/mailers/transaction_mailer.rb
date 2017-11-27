@@ -83,6 +83,11 @@ class TransactionMailer < ActionMailer::Base
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
+      listing_title = if transaction[:booking].try(:[], :per_hour)
+        t("emails.new_payment.listing_per_unit_title", title: transaction[:listing_title], unit_type: unit_type)
+      else
+        transaction[:listing_title]
+      end
 
       premailer_mail(:to => seller_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
@@ -90,7 +95,7 @@ class TransactionMailer < ActionMailer::Base
         format.html {
           render "payment_receipt_to_seller", locals: {
                    conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
-                   listing_title: transaction[:listing_title],
+                   listing_title: listing_title,
                    price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
                    quantity_selector_label: quantity_selector_label,
                    listing_price: MoneyViewUtils.to_humanized(transaction[:listing_price]),
@@ -122,6 +127,11 @@ class TransactionMailer < ActionMailer::Base
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
+      listing_title = if transaction[:booking].try(:[], :per_hour)
+        t("emails.receipt_to_payer.listing_per_unit_title", title: transaction[:listing_title], unit_type: unit_type)
+      else
+        transaction[:listing_title]
+      end
 
       premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
@@ -129,7 +139,7 @@ class TransactionMailer < ActionMailer::Base
         format.html {
           render "payment_receipt_to_buyer", locals: {
                    conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
-                   listing_title: transaction[:listing_title],
+                   listing_title: listing_title,
                    price_per_unit_title: t("emails.receipt_to_payer.price_per_unit_type", unit_type: unit_type),
                    quantity_selector_label: quantity_selector_label,
                    listing_price: MoneyViewUtils.to_humanized(transaction[:listing_price]),
