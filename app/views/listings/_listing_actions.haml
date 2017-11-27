@@ -51,6 +51,7 @@
             = select_tag 'end_time', options_for_select([]), id: 'end_time', :required => true
           = hidden_field_tag 'per_hour', '1'
         - content_for :extra_javascript do
+          = js_t ["listings.listing_actions.select_one"], true
           :javascript
             window.ST.FromToDatePicker.setupPerHour(#{raw @listing_presenter.datepicker_per_hour_setup.to_json});
 
@@ -139,3 +140,4 @@
             .icon-with-text-container
               = icon_tag("mail", ["icon-part"])
               .text-part#add-to-updates-email-text{data: {:"action-loading" => t("listings.edit_links.show_in_updates_email_loading"), :"action-error" => t("listings.edit_links.show_in_updates_email_error"), :"action-success"=> t("listings.edit_links.show_in_updates_email_success")}}= t("listings.edit_links.show_in_updates_email")
+
