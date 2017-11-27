@@ -203,3 +203,12 @@ Then(/^I should see working hours save button finished$/) do
   expect(page).to have_css('.working-hours-form .save-button.save-finished')
 end
 
+Given(/^that listing availability is booking$/) do
+  @listing.update_attribute(:availability, :booking)
+end
+
+Given(/^that listing has default working hours$/) do
+  @listing.working_hours_new_set
+  @listing.save
+end
+
