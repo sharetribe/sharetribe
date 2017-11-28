@@ -76,6 +76,9 @@ class Transaction < ApplicationRecord
     joins(:listing)
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
   }
+  scope :availability_blocking, -> do
+    where(current_state: ['preauthorized', 'paid', 'confirmed', 'canceled'])
+  end
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
