@@ -1,14 +1,15 @@
 module AnalyticsHelper
   def analytics_data
+    user_is_admin = @current_user.try(:is_marketplace_admin?, @current_community)
     {
       community_ident:  @current_community.try(:ident),
       community_uuid:   @current_community.try(:uuid_object).to_s,
       community_id:     @current_community.try(:id),
-      community_admin_email: @current_community.try(:admin_emails).try(:join, ','),
+      community_admin_email: (user_is_admin ? IntercomHelper.email(@current_user) : nil),
 
       user_id:          @current_user.try(:id),
       user_uuid:        @current_user.try(:uuid_object).to_s,
-      user_is_admin:    @current_user.try(:is_marketplace_admin?, @current_community),
+      user_is_admin:    user_is_admin,
       user_email:       @current_user && IntercomHelper.email(@current_user) || 'null',
       user_name:        @current_user && @current_community && PersonViewUtils.person_display_name(@current_user, @current_community) || 'null',
       user_hash:        @current_user && IntercomHelper.user_hash(@current_user.uuid_object.to_s) || 'null',
