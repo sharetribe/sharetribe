@@ -256,24 +256,7 @@ class PaymentSettingsController < ApplicationController
   end
 
   def stripe_update_bank_account
-    bank_country = @parsed_seller_account[:address_country]
-    bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[bank_country]
-    form_params = params[:stripe_bank_form]
-    routing_number = if form_params[:bank_routing_1].present?
-                [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
-              else
-                form_params[:bank_routing_number]
-              end
-    bank_params = {
-      bank_country: bank_country,
-      bank_currency: bank_currency,
-      bank_account_holder_name: @parsed_seller_account[:legal_name],
-      bank_account_number: form_params[:bank_account_number],
-      bank_routing_number: routing_number,
-      bank_routing_1: form_params[:bank_routing_1],
-      bank_routing_2: form_params[:bank_routing_2],
-    }
-
+    bank_params = StripeParseBankParams.new(parsed_seller_account: @parsed_seller_account, params: params).parse
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
     return false unless @stripe_account[:stripe_seller_id].present?
@@ -288,6 +271,48 @@ class PaymentSettingsController < ApplicationController
       end
     else
       flash.now[:error] = bank_form.errors.messages.flatten.join(' ')
+    end
+  end
+
+  class StripeParseBankParams
+    attr_reader :bank_country, :bank_currency, :form_params, :parsed_seller_account
+    def initialize(parsed_seller_account:, params:)
+      @parsed_seller_account = parsed_seller_account
+      @bank_country = parsed_seller_account[:address_country]
+      @bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[@bank_country]
+      @form_params = params[:stripe_bank_form]
+    end
+
+    def parse
+      {
+        bank_country: bank_country,
+        bank_currency: bank_currency,
+        bank_account_holder_name: parsed_seller_account[:legal_name],
+        bank_account_number: parse_bank_account_number,
+        bank_routing_number: parse_bank_routing_number,
+        bank_routing_1: form_params[:bank_routing_1],
+        bank_routing_2: form_params[:bank_routing_2],
+      }
+    end
+
+    def parse_bank_routing_number
+      if bank_country == 'NZ'
+        bank_branch, = form_params[:bank_account_number].split('-')
+        bank_branch
+      elsif form_params[:bank_routing_1].present?
+        [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
+      else
+        form_params[:bank_routing_number]
+      end
+    end
+
+    def parse_bank_account_number
+      if bank_country == 'NZ'
+        _, account, sufix = form_params[:bank_account_number].split('-')
+        "#{account}#{sufix}"
+      else
+        form_params[:bank_account_number]
+      end
     end
   end
 
