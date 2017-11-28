@@ -26,9 +26,12 @@ class Booking < ApplicationRecord
   scope :in_period, ->(start_time, end_time) { where(['start_time >= ? AND end_time <= ?', start_time, end_time]) }
   scope :hourly_basis, -> { where(per_hour: true) }
   scope :covers_another_booking, ->(booking) do
-    hourly_basis.where(['(start_time <= ? AND end_time > ?) OR (start_time < ? AND end_time >= ?)',
-                        booking.start_time, booking.start_time, booking.end_time, booking.end_time])
+    joins(:tx).per_hour_blocked
+    .where(['(start_time <= ? AND end_time > ?) OR (start_time < ? AND end_time >= ?)',
+            booking.start_time, booking.start_time, booking.end_time, booking.end_time])
   end
+  scope :availability_blocking, -> { merge(Transaction.availability_blocking) }
+  scope :per_hour_blocked, -> { hourly_basis.availability_blocking }
 
   def week_day
     Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym

@@ -6,6 +6,8 @@
 
 %head
   %meta{charset: "utf-8"}
+  - if Rails.env == 'test'
+    = render 'layouts/test/timecop_js'
 
   = render :partial => 'analytics/head_scripts', locals: { community: @current_community, user: @current_user, plan: @current_plan }
 
