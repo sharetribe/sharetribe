@@ -529,7 +529,7 @@ CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text,
   `author_id` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `url` varchar(2048) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_handled` int(11) DEFAULT '0',
@@ -2233,5 +2233,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170817035830'),
 ('20171023070523'),
 ('20171107063241'),
-('20171117062422');
+('20171117062422'),
+('20171128122539');
 

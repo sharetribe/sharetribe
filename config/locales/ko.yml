@@ -1371,51 +1371,51 @@ ko:
       create_new_listing: ~
       create_one_here: "신규 작성"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "입력하신 이메을 주소를 %{service_name} 데이터베이스에서 찾을 수 없습니다."
+      error_with_session: "세션 중 오류가 발생했습니다."
+      feedback_considered_spam: "의심스러운 입력 형식때문에 피드백이 저장되지 않았습니다. 다시 시도하시거나 피드백 포럼을 이용하세요."
+      feedback_not_saved: "피드백이 보내지지 않았습니다."
+      feedback_saved: "피드백을 보내주셔서 감사합니다. 가능한 빨리 연락드리겠습니다."
+      feedback_sent_to: "피드백을 %{target_person}에게 발송했습니다."
+      feedback_skipped: "피드백이 생략되었습니다."
       invitation_cannot_be_sent: ~
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "다시 로그인해주세요."
+      login_failed: "로그인에 실패하였습니다. 로그인정보를 올바르게 입력해주세요."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "%{person_name}님 환영합니다,"
+      logout_successful: "%{service_name}에서 로그아웃하셨습니다. 다시 뵙기를 바랍니다."
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "제안을 받아들였습니다."
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "제안을 종료하였습니다."
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "제안을 거절했습니다."
       offer_canceled: ~
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "%{service_name}팀에서만 이 영역을 접근할 수 있습니다."
+      only_listing_author_can_close_a_listing: "게시자만 편집할 수 있습니다."
+      only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "비밀번호 변경 안내 이메일을 발송하였습니다."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "정보가 변경되었습니다."
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1423,38 +1423,38 @@ ko:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "더 보기"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "메세지가 작성되지 않아 보내실 수 없습니다."
+      reply_sent: "답장을 보냈습니다."
+      request_accepted: "요청을 받아들였습니다."
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: "요청을 거절했습니다."
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "알 수 없는 오류입니다. \"고객센터\" 링크를 이용하여 해당 오류의 상세 내역을 보내주세요."
+      update_error: "회원 정보 수정 중 오류가 발생했습니다. 다시 시도해주세요."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "이 거래에는 피드백을 남기실 수 없습니다."
+      you_are_not_authorized_to_do_this: "실행 권한이 없습니다."
+      you_are_not_authorized_to_view_this_content: "내용 보기 권한이 없습니다."
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: "종료된 제안에는 답장을 보내실 수 없습니다."
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "이미 피드백을 보내셨습니다."
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "피드백을 보내시려면 로그인하셔야 합니다."
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_comment: "의견을 보내시려면 로그인하셔야 합니다."
+      you_must_log_in_to_send_a_message: "다른 가입자에게 메세지를 보내시려면 %{service_name}에 로그인하셔야 합니다."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "내용을 확인하시려면 로그인하셔야 합니다."
       you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: ~
       you_must_log_in_to_view_your_settings: ~

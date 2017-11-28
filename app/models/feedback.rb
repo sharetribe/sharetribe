@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  content      :text(65535)
 #  author_id    :string(255)
-#  url          :string(255)
+#  url          :string(2048)
 #  created_at   :datetime
 #  updated_at   :datetime
 #  is_handled   :integer          default(0)
