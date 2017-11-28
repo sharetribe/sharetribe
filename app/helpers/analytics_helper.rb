@@ -1,9 +1,10 @@
 module AnalyticsHelper
   def analytics_data
     {
-      community_ident:  @current_commnunity.try(:ident),
+      community_ident:  @current_community.try(:ident),
       community_uuid:   @current_community.try(:uuid_object).to_s,
       community_id:     @current_community.try(:id),
+      community_admin_email: @current_community.try(:admin_emails).try(:join, ','),
 
       user_id:          @current_user.try(:id),
       user_uuid:        @current_user.try(:uuid_object).to_s,
