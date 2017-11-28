@@ -1,0 +1,9 @@
+= javascript_include_tag 'test/timecop'
+- now = lambda{ Time.current }
+:javascript
+  (function(){
+    var timeNow = new Date(#{ now.call.to_i * 1000 });
+    Timecop.install();
+    Timecop.travel(timeNow);
+  }).call(this);
+
