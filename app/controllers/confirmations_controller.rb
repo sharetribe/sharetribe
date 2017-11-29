@@ -5,6 +5,10 @@ class ConfirmationsController < Devise::ConfirmationsController
               :ensure_consent_given,
               :ensure_user_belongs_to_community
 
+  before_action(only: [:create]) do |controller|
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
+  end
+
   # This is overridden from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
   # confirmation attemt with wrong token.
