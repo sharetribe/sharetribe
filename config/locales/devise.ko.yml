@@ -3,7 +3,7 @@ ko:
     messages:
       expired: "만료되었습니다. 새로 요청하세요."
       not_found: "찾을 수 없습니다."
-      already_confirmed: "이미 처리되었습니다. 로그인하세요."
+      already_confirmed: "인증되었습니다. 로그인하세요."
       not_locked: "잠기지 않았습니다."
       not_saved:
         zero: "오류가 발생하여 %{resource}이/가 저장되지 않았습니다."
