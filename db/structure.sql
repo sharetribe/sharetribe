@@ -360,10 +360,12 @@ CREATE TABLE `conversations` (
   `updated_at` datetime DEFAULT NULL,
   `last_message_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `starting_page` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_community_id` (`community_id`) USING BTREE,
   KEY `index_conversations_on_last_message_at` (`last_message_at`) USING BTREE,
-  KEY `index_conversations_on_listing_id` (`listing_id`) USING BTREE
+  KEY `index_conversations_on_listing_id` (`listing_id`) USING BTREE,
+  KEY `index_conversations_on_starting_page` (`starting_page`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_names`;
@@ -2234,5 +2236,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20171023070523'),
 ('20171107063241'),
 ('20171117062422'),
-('20171128122539');
-
+('20171128122539'),
+('20171129152027');

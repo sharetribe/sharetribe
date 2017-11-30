@@ -379,7 +379,7 @@ module ApplicationHelper
       {
         :topic => :manage,
         :text => t("admin.communities.conversations.conversations"),
-        :icon_class => icon_class("item"),
+        :icon_class => icon_class("chat_bubble"),
         :path => admin_community_conversations_path(@current_community, direction: "desc"),
         :name => "conversations"
       },
