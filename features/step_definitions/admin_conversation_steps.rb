@@ -1,7 +1,7 @@
 module AdminConversationSteps
 
   def to_title(name)
-    name.gsub("_", " ").capitalize
+    name.tr("_", " ").capitalize
   end
 
   def find_column(column)
