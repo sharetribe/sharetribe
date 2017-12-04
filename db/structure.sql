@@ -523,7 +523,7 @@ CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text,
   `author_id` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `url` varchar(2048) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_handled` int(11) DEFAULT '0',
@@ -553,13 +553,13 @@ DROP TABLE IF EXISTS `invitation_unsubscribes`;
 CREATE TABLE `invitation_unsubscribes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_invitation_unsubscribes_on_community_id` (`community_id`),
   KEY `index_invitation_unsubscribes_on_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `invitations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -2210,6 +2210,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170801125553'),
 ('20170814125622'),
 ('20170817035830'),
-('20171107063241');
+('20171107063241'),
+('20171128122539');
 
 
