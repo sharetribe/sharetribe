@@ -281,6 +281,7 @@ module MarketplaceService
       end
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
+        sort_column = "transactions.#{sort_column}" if sort_column.index('.').nil?
         transactions = TransactionModel
           .where(community_id: community_id, deleted: false)
           .joins('LEFT JOIN conversations c ON transactions.conversation_id = c.id')
