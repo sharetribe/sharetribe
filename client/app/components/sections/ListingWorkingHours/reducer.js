@@ -1,5 +1,6 @@
 import Immutable from 'immutable';
 import * as actionTypes from './constants';
+import * as convert from './convert';
 
 const initialState = Immutable.Map({
   isOpen: true,
@@ -8,7 +9,8 @@ const initialState = Immutable.Map({
   saveInProgress: false,
   saveFinished: false,
 
-  listing: null,
+  listing_id: null,
+  workingTimeSlots: null,
 });
 
 const clearState = (state) =>
@@ -17,6 +19,14 @@ const clearState = (state) =>
       .set('changes', false)
       .set('saveInProgress', false)
       .set('saveFinished', false);
+
+const dataChanged = (state) =>
+  state.set('saveFinished', false).set('changes', true);
+
+const dataLoaded = (state, payload) => {
+  const workingTimeSlots = convert.convertFromApi(payload);
+  return state.set('workingTimeSlots', workingTimeSlots);
+};
 
 const listingWorkingHoursReducer = (state = initialState, action) => {
   const { type, payload } = action;
@@ -31,9 +41,9 @@ const listingWorkingHoursReducer = (state = initialState, action) => {
     case actionTypes.SAVING_FAILED:
       return state.set('saveInProgress', false);
     case actionTypes.DATA_CHANGED:
-      return state.set('saveFinished', false).set('changes', true);
+      return dataChanged(state);
     case actionTypes.DATA_LOADED:
-      return state.set('listing', payload);
+      return dataLoaded(state, payload);
     case actionTypes.OPEN_EDIT_VIEW:
       return state.set('isOpen', true);
     case actionTypes.CLOSE_EDIT_VIEW:

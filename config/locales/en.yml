@@ -2163,6 +2163,7 @@ en:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Sunday
@@ -2281,6 +2282,8 @@ en:
         availability:
           something_went_wrong: "We're not able to display availability information. Try to reload the page."
           saving_failed: "We're not able to save availability changes. Try to reload the page."
+        working_hours:
+          required: required
       pricing_units:
         piece: piece
         hour: hour

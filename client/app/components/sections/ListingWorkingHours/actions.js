@@ -40,7 +40,7 @@ export const saveChanges = (formData) =>
   (dispatch, getState) => {
     dispatch(startSaving());
     const state = getState().listingWorkingHours;
-    const listingId = state.get('listing').id; // eslint-disable-line no-unused-vars
+    const listingId = state.get('listing_id');
     console.log('save Listing Working Hours Changes'); // eslint-disable-line
     axios(`/int_api/listings/${listingId}/update_working_time_slots`, {
       method: 'post',
@@ -51,14 +51,6 @@ export const saveChanges = (formData) =>
       dispatch(changesSaved());
       dispatch(dataLoaded(response.data));
       console.log(response); // eslint-disable-line no-console
-
-      /*
-      this.setState({ // eslint-disable-line react/no-set-state
-        timeSlots: response.data.working_time_slots,
-        saveInProgress: false,
-        saveFinished: true,
-      });
-      */
     })
     .catch((error) => {
       savingFailed(error);
