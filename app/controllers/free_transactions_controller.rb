@@ -42,6 +42,7 @@ class FreeTransactionsController < ApplicationController
             availability: :none, # Always none for free transactions and contacts
             listing_quantity: 1,
             content: contact_form.content,
+            starting_page: ::Conversation::LISTING,
             payment_gateway: :none,
             payment_process: :none}
         })

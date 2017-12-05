@@ -20,7 +20,7 @@ I want to see see all the transactions happening in my community
     And I am on the transactions admin page
 
   Scenario: Admin views all transactions
-    Then I should see 3 transaction with status "Conversation"
+    Then I should see 3 transaction with status "Free transaction"
 
   Scenario: Admin sorts transactions by listing
     When I sort by "listing"
