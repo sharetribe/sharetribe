@@ -19,13 +19,6 @@ module AdminConversationSteps
 end
 
 World AdminConversationSteps
-Given(/^there are following transactions$/) do |table|
-  # table is a Cucumber::Ast::Table
-  table.hashes.each do |transaction|
-    listing_conversation = build_transaction(transaction)
-    listing_conversation.save!
-  end
-end
 
 Then(/^I should see a conversation started from "(.*?)" with status "(.*?)"$/) do |starting_page, status_text|
   expect(page.all("td", :text => status_text).length).to eq 1
