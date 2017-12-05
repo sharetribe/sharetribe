@@ -1,74 +1,130 @@
 import React, { Component, PropTypes } from 'react';
-import serialize from 'form-serialize';
+import { Form, StyledSelect, FormField, Checkbox } from 'react-form';
 import { t } from '../../../utils/i18n';
+import * as convert from './convert';
 
 import css from './form.css';
 import loadingImage from './images/loading.svg';
 import checkmarkImage from './images/checkmark.svg';
+import minusCircle from './images/minus-circle.svg';
 
-class TimeSlot extends Component {
+const RemoveIcon = () => (<span dangerouslySetInnerHTML={{ __html: minusCircle }} />); // eslint-disable-line react/no-danger
+
+class TimeSlotWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
       remove: false,
     };
+    this.dayField = ['days', this.props.dayIndex];
+    this.slotField = ['days', this.props.dayIndex, 'working_time_slots', this.props.index];
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleChanges = this.handleChanges.bind(this);
+    this.timeSlotOptions = this.timeSlotOptions.bind(this);
+  }
+
+  getValue() {
+    return this.props.formApi.getValue(this.slotField);
   }
 
   handleRemove(event) {
     event.preventDefault();
-    this.props.onChange();
     this.setState({ remove: true }); // eslint-disable-line react/no-set-state
+    const day = this.props.formApi.getValue(this.dayField);
+    const slot = day.working_time_slots[this.props.index];
+    if (slot.id) {
+      slot._destroy = '1';  // eslint-disable-line no-underscore-dangle
+    } else {
+      day.working_time_slots.splice(this.props.index, 1);
+    }
+    if (day.working_time_slots.filter((x) => !x._destroy).length === 0) { // eslint-disable-line no-underscore-dangle
+      day.enabled = false;
+    }
+    this.props.formApi.setValue(this.dayField, day);
+    this.props.actions.dataChanged();
+  }
+
+  handleChanges(elem) {
+    if (elem === 'from') {
+      const slot = this.getValue();
+      if (slot.from) {
+        slot.till = null;
+        this.props.formApi.setValue(this.slotField, slot);
+      }
+    }
+    this.props.actions.dataChanged();
+  }
+
+  timeSlotOptions(elem) {
+    if (elem === 'from') {
+      const fromOptions = JSON.parse(JSON.stringify(this.props.time_slot_options));
+      fromOptions.splice(-1, 1);
+      return fromOptions;
+    } else {
+      const slot = this.getValue();
+      const from = slot.from;
+      let disable = true;
+      if (slot.from) {
+        const tillOptions = JSON.parse(JSON.stringify(this.props.time_slot_options));
+        return tillOptions.map((o) => {
+          o.disabled = disable; // eslint-disable-line no-param-reassign
+          if (o.value === from) {
+            disable = null;
+          }
+          return o;
+        });
+      } else {
+        return [];
+      }
+    }
   }
 
   render() {
-    const timeSlot = this.props.timeSlot;
-    const index = this.props.index;
-    const timeSlotId = timeSlot.id || '';
-    const timeOptions = this.props.time_slot_options.map((option, optionIndex) =>
-      <option key={optionIndex} value={option.value}>{option.name}</option>
-    );
+    const idPrefix = `days-${this.props.dayIndex}-working_time_slots-${this.props.index}`;
+
     return (
       <div>
         <div className={`timeSlot ${this.state.remove || this.context.remove ? 'hidden' : ''}`}>
           <span className="starTime">{t('web.listings.working_hours.start_time')}</span>
-          <select defaultValue={timeSlot.from} name={`listing[working_time_slots_attributes][${index}][from]`} onChange={this.props.onChange}>
-            {timeOptions}
-          </select>
+          <div className="timeSelect">
+            <StyledSelect field={this.slotField.concat('from')}
+              id={`${idPrefix}-from`} onChange={() => (this.handleChanges('from'))}
+              options={this.timeSlotOptions('from')} placeholder={' '} />
+          </div>
           <span className="endTime">{t('web.listings.working_hours.end_time')}</span>
-          <select defaultValue={timeSlot.till} name={`listing[working_time_slots_attributes][${index}][till]`} onChange={this.props.onChange}>
-            {timeOptions}
-          </select>
-          <input type="hidden" name={`listing[working_time_slots_attributes][${index}][week_day]`}
-            defaultValue={timeSlot.week_day} />
-          <a className="remove" onClick={this.handleRemove}>
-            <i className="icon-minus icon-part" />
-          </a>
+          <div className="timeSelect">
+            <StyledSelect field={this.slotField.concat('till')}
+              id={`${idPrefix}-till`} onChange={() => (this.handleChanges('till'))}
+              options={this.timeSlotOptions('till')} placeholder={' '} />
+          </div>
+          <a className="remove" onClick={this.handleRemove}><RemoveIcon /></a>
         </div>
-        <input type="hidden" name={`listing[working_time_slots_attributes][${index}][id]`}
-          defaultValue={timeSlotId} />
-        <input type="hidden" name={`listing[working_time_slots_attributes][${index}][_destroy]`}
-          defaultValue='1' disabled={!(this.state.remove || this.context.remove)} />
       </div>
     );
   }
 }
-TimeSlot.propTypes = {
+TimeSlotWrapper.propTypes = {
   timeSlot: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   index: PropTypes.number.isRequired,
+  dayIndex: PropTypes.number.isRequired,
   time_slot_options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  onChange: PropTypes.func.isRequired,
+  actions: PropTypes.shape({
+    dataChanged: PropTypes.func.isRequired,
+  }).isRequired,
+  formApi: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
-TimeSlot.contextTypes = {
+TimeSlotWrapper.contextTypes = {
   remove: PropTypes.bool,
 };
 
-class Day extends Component {
+const TimeSlot = FormField(TimeSlotWrapper); // eslint-disable-line babel/new-cap
+
+class DayWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
       timeSlots: props.timeSlots,
-      enabled: props.timeSlots.length > 0,
+      enabled: props.enabled,
     };
     this.handleAddMore = this.handleAddMore.bind(this);
     this.handleEnabled = this.handleEnabled.bind(this);
@@ -81,44 +137,50 @@ class Day extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ // eslint-disable-line react/no-set-state
       timeSlots: nextProps.timeSlots,
+      enabled: nextProps.enabled, // eslint-disable-line no-underscore-dangle
     });
   }
 
   newTimeSlot() {
-    return {
-      week_day: this.props.day,
-      from: '09:00',
-      till: '17:00',
-    };
+    return { week_day: this.props.day, from: '09:00', till: '17:00' };
+  }
+
+  addSlot(timeSlot) {
+    this.props.formApi.addValue(['days', this.props.index, 'working_time_slots'], timeSlot);
+    this.props.actions.dataChanged();
   }
 
   handleAddMore(event) {
     event.preventDefault();
-    this.props.addMore(this.newTimeSlot());
+    this.addSlot({ week_day: this.props.day });
+  }
+
+  addDefaultTimeSlot() {
+    if (this.state.timeSlots.length === 0) {
+      this.addSlot(this.newTimeSlot());
+    }
   }
 
   handleEnabled() {
-    this.props.onChange();
-    this.setState((prevState) => ({ // eslint-disable-line react/no-set-state
-      enabled: !prevState.enabled,
-    }));
+    this.addDefaultTimeSlot();
+    this.props.actions.dataChanged();
   }
 
   render() {
-    const TIME_SLOTS_PER_DAY = 100;
-    const startIndex = this.props.index * TIME_SLOTS_PER_DAY;
+    const dayIndex = this.props.index;
     const remove = !this.state.enabled;
     const options = this.props.time_slot_options;
-    const timeSlots = this.state.timeSlots.map((timeSlot, index) => {
-      const timeSlotIndex = startIndex + index;
-      return <TimeSlot timeSlot={timeSlot} index={timeSlotIndex} remove={remove}
-        time_slot_options={options} key={timeSlotIndex} onChange={this.props.onChange} />;
-    });
+    const timeSlots = this.props.timeSlots.map((timeSlot, index) => (
+      <TimeSlot timeSlot={timeSlot} index={index} remove={remove}
+        time_slot_options={options} key={index} actions={this.props.actions}
+        dayIndex={dayIndex} formApi={this.props.formApi} />)
+    );
+    const fieldPrefix = ['days', dayIndex];
 
     return (
       <div className={css.weekDay} id={`week-day-${this.props.day}`}>
         <label className="title">
-          <input type="checkbox" id={`enable-${this.props.day}`} defaultValue='1' checked={this.state.enabled} onChange={this.handleEnabled} />
+          <Checkbox field={fieldPrefix.concat('enabled')} id={`enable-${this.props.day}`} defaultValue='1' onChange={this.handleEnabled} />
           <span>{this.props.dayName}</span>
         </label>
         {timeSlots}
@@ -131,18 +193,23 @@ class Day extends Component {
     );
   }
 }
-Day.propTypes = {
+DayWrapper.propTypes = {
   timeSlots: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  enabled: PropTypes.bool,
   day: PropTypes.string.isRequired,
   dayName: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   time_slot_options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  onChange: PropTypes.func.isRequired,
-  addMore: PropTypes.func.isRequired,
+  actions: PropTypes.shape({
+    dataChanged: PropTypes.func.isRequired,
+  }).isRequired,
+  formApi: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
-Day.childContextTypes = {
+DayWrapper.childContextTypes = {
   remove: PropTypes.bool,
 };
+
+const Day = FormField(DayWrapper); // eslint-disable-line babel/new-cap
 
 class SaveButton extends Component {
   render() {
@@ -171,78 +238,84 @@ SaveButton.propTypes = {
 };
 
 class ListingWorkingHoursForm extends Component {
-  static days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-
   constructor(props) {
     super(props);
-    this.state = {
-      timeSlots: props.listing.working_time_slots,
-    };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChanges = this.handleChanges.bind(this);
-    this.addMore = this.addMore.bind(this);
+    this.formApi = null;
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ // eslint-disable-line react/no-set-state
-      timeSlots: nextProps.listing.working_time_slots,
-    });
+    if (this.formApi && nextProps.saveFinished) {
+      this.formApi.setAllValues(nextProps.workingTimeSlots);
+    }
   }
 
-  handleChanges() {
-    this.props.actions.dataChanged();
-  }
-
-  addMore(timeSlot) {
-    this.handleChanges();
-    this.setState((prevState) => { // eslint-disable-line react/no-set-state
-      prevState.timeSlots.push(timeSlot);
-      return { timeSlots: prevState.timeSlots };
-    });
-  }
-
-  renderWeekDays() {
-    return ListingWorkingHoursForm.days.map((day, index) => {
-      const timeSlots = this.state.timeSlots.filter((x) => x.week_day === day);
-      const dayName = this.props.day_names[index];
+  renderWeekDays(formApi) {
+    this.formApi = formApi;
+    return formApi.values.days.map((dayData, index) => {
+      const timeSlots = dayData.working_time_slots;
+      const day = convert.weekDays()[index];
+      const dayName = this.props.day_names[day];
       return (
         <div className="row" key={index}>
-          <Day timeSlots={timeSlots} day={day} dayName={dayName} onChange={this.handleChanges}
-            time_slot_options={this.props.time_slot_options} index={index} addMore={this.addMore} />
+          <Day timeSlots={timeSlots} day={day} dayName={dayName} actions={this.props.actions}
+            time_slot_options={this.props.time_slot_options} index={index} formApi={formApi}
+            enabled={dayData.enabled} />
         </div>
       );
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const formData = serialize(event.target, { hash: true });
-    this.props.actions.saveChanges(formData);
+  handleSubmit(formData) {
+    const dataToRails = convert.convertToApi(formData);
+    this.props.actions.saveChanges(dataToRails);
+  }
+
+  errorValidator(values) {
+    const days = [];
+    values.days.forEach((day) => {
+      const message = t('web.listings.errors.working_hours.required');
+      const slots = day.working_time_slots.map((slot) => ({
+        from: !slot.from ? message : null,
+        till: !slot.till ? message : null,
+      }));
+      days.push({ working_time_slots: slots });
+    });
+    return { days: days }; // eslint-disable-line babel/object-shorthand
   }
 
   render() {
     const formClass = `working-hours-form ${this.props.hasChanges ? 'has-changes' : 'no-changes'}`;
+    const defaultValues = this.props.workingTimeSlots;
     return (
       <div className="col-12">
         <div className={css.workingHoursTitle}>
           <h2>{t('web.listings.working_hours.default_schedule')}</h2>
           <h3>{t('web.listings.working_hours.i_am_available_on')}</h3>
         </div>
-        <form className={formClass} onSubmit={this.handleSubmit}>
-          <div className="row">
-            {this.renderWeekDays()}
-          </div>
-          <SaveButton saveInProgress={this.props.saveInProgress}
-            saveFinished={this.props.saveFinished} />
-        </form>
+        <Form onSubmit={(submittedValues) => this.handleSubmit(submittedValues)}
+          validateError={this.errorValidator} defaultValues={defaultValues}>
+          { (formApi) => (
+            <div>
+              <form className={formClass} onSubmit={formApi.submitForm}>
+                <div className="row">
+                  {this.renderWeekDays(formApi)}
+                </div>
+                <SaveButton saveInProgress={this.props.saveInProgress}
+                  saveFinished={this.props.saveFinished} />
+              </form>
+            </div>
+          )}
+        </Form>
       </div>
     );
   }
 }
+
 ListingWorkingHoursForm.propTypes = {
-  listing: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  workingTimeSlots: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   time_slot_options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  day_names: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  day_names: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   saveInProgress: PropTypes.bool,
   saveFinished: PropTypes.bool,
   actions: PropTypes.shape({

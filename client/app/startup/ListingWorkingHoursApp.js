@@ -7,8 +7,10 @@ import { initialize as initializeI18n } from '../utils/i18n';
 import moment from 'moment';
 import Immutable from 'immutable';
 import ListingWorkingHours from '../components/sections/ListingWorkingHours/ListingWorkingHours';
+import * as convert from '../components/sections/ListingWorkingHours/convert';
 import { EDIT_VIEW_OPEN_HASH } from '../components/sections/ListingWorkingHours/actions';
 import * as cssVariables from '../assets/styles/variables';
+
 
 export default (props) => {
   const locale = props.i18n.locale;
@@ -17,6 +19,8 @@ export default (props) => {
   initializeI18n(locale, defaultLocale, process.env.NODE_ENV);
   moment.locale(locale);
 
+  convert.setFirstDayOfWeek(props.first_day_of_week);
+  const workingTimeSlots = convert.convertFromApi(props.listing);
   const combinedReducer = combineReducers(reducers);
   const initialStoreState = {
     flashNotifications: Immutable.List(),
@@ -25,7 +29,8 @@ export default (props) => {
       changes: props.listing_just_created,
       saveInProgress: false,
       saveFinished: false,
-      listing: props.listing,
+      listing_id: props.listing.id,
+      workingTimeSlots: workingTimeSlots, // eslint-disable-line babel/object-shorthand
     }),
   };
 
@@ -43,6 +48,7 @@ export default (props) => {
     sideWinderWrapper: document.querySelector('#sidewinder-wrapper'),
     time_slot_options: props.time_slot_options,
     day_names: props.day_names,
+    first_day_of_week: props.first_day_of_week,
   };
 
   return r(Provider, { store }, [
