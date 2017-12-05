@@ -11,6 +11,7 @@ import SideWinder from '../../composites/SideWinder/SideWinder';
 import ManageAvailabilityHeader from '../../composites/ManageAvailabilityHeader/ManageAvailabilityHeader';
 import FlashNotification from '../../composites/FlashNotification/FlashNotification';
 import * as cssVariables from '../../../assets/styles/variables';
+
 import ListingWorkingHoursForm from './form.js';
 
 import css from './ListingWorkingHours.css';
@@ -115,7 +116,7 @@ class ListingWorkingHours extends Component {
         div({ className: css.content }, [
           r(ManageAvailabilityHeader, this.props.header),
           r(ListingWorkingHoursForm, {
-            listing: this.props.listing,
+            workingTimeSlots: this.props.workingTimeSlots,
             time_slot_options: this.props.time_slot_options,
             day_names: this.props.day_names,
             actions: this.props.actions,
@@ -150,9 +151,9 @@ ListingWorkingHours.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   header: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   sideWinderWrapper: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  listing: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  workingTimeSlots: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   time_slot_options: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
-  day_names: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
+  day_names: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };
 
 // export default ListingWorkingHours;
@@ -163,7 +164,7 @@ const mapStateToProps = ({ flashNotifications, listingWorkingHours }) => ({
   hasChanges: listingWorkingHours.get('changes'),
   saveInProgress: listingWorkingHours.get('saveInProgress'),
   saveFinished: listingWorkingHours.get('saveFinished'),
-  listing: listingWorkingHours.get('listing'),
+  workingTimeSlots: listingWorkingHours.get('workingTimeSlots'),
 });
 
 const mapDispatchToProps = (dispatch) => ({

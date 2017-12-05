@@ -15,11 +15,28 @@
 
   & :global(.timeSlot) {
     margin-bottom: 10px;
+    margin-left: 23px;
+
+    & :global(.timeSelect) {
+      display: inline-block;
+      position: relative;
+
+      /* stylelint-disable */
+      & :global(.react-form-message-error) {
+        position: absolute;
+        color: white;
+        background-color: red;
+        width: 100%;
+        padding: 5px 5px;
+      }
+      /* stylelint-enable */
+    }
 
     & select {
       min-height: auto;
       margin-right: 10px;
       padding: 0.5em 0;
+      min-width: 100px;
     }
 
     & :global(.starTime) {
@@ -31,18 +48,21 @@
     }
 
     & :global(.remove) {
-      color: #fff;
-      background-color: #4a90e2;
-      border-radius: 50%;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      padding-left: 3.5px;
+      position: relative;
+
+      & svg {
+        fill: #4a90e2;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+      }
     }
   }
 
   & :global(.addMore) {
     margin-bottom: 10px;
+    margin-left: 23px;
   }
 }
 
