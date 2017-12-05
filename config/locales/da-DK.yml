@@ -338,13 +338,13 @@ da-DK:
             free: ~
             pending: ~
             preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            accepted: Accepteret
+            rejected: Afvist
+            paid: Betalt
+            confirmed: Bekræftet
+            canceled: Annulleret
+            initiated: "Afventer PayPal betaling"
+            pending_ext: "Afventer PayPal betaling"
           stripe:
             free: ~
             pending: ~
@@ -570,7 +570,7 @@ da-DK:
       read_more_stripe: ~
       you_can_use_paypal_only: ~
       read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
+      read_more_about_paypal_and_stripe: "Læs mere om online betalinger, Stripe og PayPal"
       general_settings_updated: ~
       transaction_fee_settings_updated: ~
       choose_popup_text: ~
@@ -579,7 +579,7 @@ da-DK:
       stripe_verified: ~
       change_settings: ~
       configure_stripe: ~
-      configure_paypal: ~
+      configure_paypal: "Konfigurér PayPal"
       transaction_fee_settings: ~
       transaction_fee_save: ~
       stripe_fee: ~
@@ -592,7 +592,7 @@ da-DK:
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "PayPal tilknyttet"
         disable: ~
         disabled: ~
         enable: ~
@@ -686,7 +686,7 @@ da-DK:
       title: ~
       title_paypal: ~
       stripe: ~
-      paypal: ~
+      paypal: PayPal
       info: ~
     paypal_fee_info:
       title: PayPal-gebyr
@@ -696,7 +696,7 @@ da-DK:
     paypal_only_fee_info:
       title: ~
       body_text: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: her
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -1510,7 +1510,7 @@ da-DK:
       notifications: Notifikationer
       profile: Profilinfo
       settings: Indstillinger
-      paypal_payments: ~
+      paypal_payments: "PayPal betalinger"
       stripe_payments: ~
       payments: Betalinger
   listings:
@@ -1791,7 +1791,7 @@ da-DK:
       payment: ~
       pay_with_card: ~
       address: ~
-      address_country: ~
+      address_country: Land
       address_name: ~
       address_city: ~
       address_state: ~
@@ -1841,7 +1841,7 @@ da-DK:
     contact_admin_link_text: "kontakt markedspladsens administrator"
     you_are_ready_to_accept_payments: "Du er nu klar til at modtage betalinger!"
     commission: "%{commission}%"
-    not_now: ~
+    not_now: "Jeg ønsker ikke at tilknytte min PayPal-konto nu"
     new:
       payout_info_you_need_to_connect: "For at acceptere betalinger skal du tilknytte din PayPal-konto til %{service_name}."
       payout_info_text: "Udfør disse to steps for at tilknytte din konto."
@@ -1888,8 +1888,8 @@ da-DK:
     paypal_permission_granted_summary: "Tilladelse til transaktionsgebyrer bevilget"
   paypal:
     pay_with_paypal: "Fortsæt til betaling"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: "Check ud med"
+    or_pay_with_paypal: eller
     checkout_with_paypal: "Betal med PayPal"
     cancel_succesful: "Betaling annulleret."
     transaction:
@@ -2085,7 +2085,7 @@ da-DK:
       first_name_with_initial: "(kun forbogstavet vil blive vist til andre brugere)"
       first_name_only: "(vises ikke til andre brugere)"
       display_name: "Vist navn"
-      display_name_description: ~
+      display_name_description: "Hvis du repræsenterer en virksomhed eller organisation, kan du benytte dennes navn som brugernavn. Brugernavnet vises til andre brugere i stedet for dit for- og efternavn."
       location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
@@ -2339,16 +2339,16 @@ da-DK:
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
-    paypal_can_accept: ~
+    paypal: PayPal
+    paypal_connected: "PayPal-kontoen blev tilknyttet."
+    paypal_can_accept: "Du er nu klar til at modtage betaling på din PayPal konto"
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
-      select_country: ~
-      legal_name: ~
+      select_country: "Vælg land"
+      legal_name: "Kontohavers navn"
       country: ~
-      birth_date: ~
+      birth_date: Fødselsdato
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
@@ -2396,14 +2396,14 @@ da-DK:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
-    bank_account: ~
-    paypal: ~
-    bank_account_details: ~
-    add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
+    title: Betalingspræferencer
+    bank_account: Bankkonto
+    paypal: PayPal
+    bank_account_details: "For at kunne modtage betaling direkte til din bankkonto, skal du udfylde dine bankoplysninger. Dine kunder vil kunne betale med deres kreditkort."
+    add_bank_details: "Tilføj bankoplysninger"
+    can_accept_stripe_and_paypal: "Du kan modtage betaling til din bankkonto eller din PayPal-konto."
+    to_accept_paypal: "For at modtage betaling på din PayPal-konto, er det nødvendigt, at du tilknytter din PayPal-konto. Dine kunder vil kunne betale med Pay-Pal."
+    connect_paypal: "Tilknyt PayPal-konto"
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~

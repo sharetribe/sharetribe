@@ -29,10 +29,10 @@
             - listing_title = listing.title || t("admin.communities.conversations.not_available")
             %td=link_to_unless listing.deleted, listing_title, listing_path(listing.id)
           - else
-            %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+            %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], t("admin.communities.conversations.profile", author: p[:display_name]), p[:url]) }.or_else("")
           %td
-            - if conversation[:transaction]
-              =link_to t("admin.communities.transactions.status.free"), admin_community_conversation_path(@current_community.id, conversation[:id])
+            - if conversation[:transaction] && conversation[:transaction][:payment_process] == 'none'
+              =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
             - else
               =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
           %td=l(conversation[:created_at], format: :short_date)

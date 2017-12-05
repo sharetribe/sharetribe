@@ -608,8 +608,8 @@ fr:
         publishable_key_example: "Par exemple : %{api_publishable_key_example}"
         secret_key_example: "Par exemple : %{api_secret_key_example}"
         save_api_keys: "Sauvegarder les Stripe API keys"
-        invalid_secret: "Cela ne semble pas être une %{secret_key} correcte"
-        invalid_publishable: "Cela ne semble pas être une %{publishable_key} correcte"
+        invalid_secret: "Cela ne semble pas être une \"%{secret_key}\" correcte"
+        invalid_publishable: "Cela ne semble pas être une \"%{publishable_key}\" correcte"
       index:
         header: "Paramètres de paiement disponibles"
         info: "Vous pouvez configurer les plateformes de paiements disponibles dans votre place de marché. Actuellement Stripe et PayPal sont disponibles."

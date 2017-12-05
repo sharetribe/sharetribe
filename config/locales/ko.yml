@@ -42,27 +42,27 @@ ko:
           cancel: ~
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
+        community_details: "기본 정보"
+        community_look_and_feel: 디자인
+        edit_community: "기본 정보"
         enabled_languages: ~
         enabled_languages_description: ~
         default_language: ~
         language_selection_disabled: ~
-        community_name: ~
+        community_name: "마켓플레이스 이름"
         edit_community_name_description: ~
-        community_slogan: ~
+        community_slogan: "마켓플레이스 슬로건"
         edit_community_slogan_description: ~
-        community_description: ~
+        community_description: "마켓플레이스 설명"
         edit_community_description_description: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
         edit_private_community_homepage_content_description: ~
-        update_information: ~
-        invite_people: ~
-        edit_signup_info: ~
-        edit_signup_info_description: ~
+        update_information: "설정 저장"
+        invite_people: "%{service_name}로 친구 초대"
+        edit_signup_info: "등록 정보"
+        edit_signup_info_description: "사용자가 신규 가입할 때 보여지는 내용입니다. 사용자에게 가입 안내와 초청장을 어디서 받을 수 있는가와 같은 정보를 제공합니다. 기본 설정에는 가입 안내가 제공되지 않습니다."
         edit_info: ~
         see_how_it_looks_like: ~
         verification_to_post_listings_info_content: ~
@@ -77,29 +77,29 @@ ko:
         transaction_agreement_text_header: ~
         transaction_agreement_description: ~
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_logo_icon: ~
-        community_cover_photo: ~
-        small_community_cover_photo: ~
+        edit_community_look_and_feel: "마켓플레이스 %{community_name} 꾸미기"
+        community_logo: 로고
+        community_logo_icon: "모바일용 로고"
+        community_cover_photo: "표지 이미지"
+        small_community_cover_photo: "작은 표지 이미지"
         favicon: ~
         favicon_info_text: ~
-        community_custom_color1: ~
+        community_custom_color1: "메인 컬러"
         community_slogan_color: ~
         community_slogan_color_instructions_text: ~
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "로고는 %{width} x %{height} 픽셀로 제공해주세요. 큰 화면을 사용하는 사용자에게 보여집니다."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         cover_photo_visibility: ~
-        cover_photo_instructions_text_with_dimensions: ~
+        cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
         main_content_width: ~
-        custom_color1_instructions_text: ~
+        custom_color1_instructions_text: "사용자 인터페이스의 메인 컬러를 컬러 코드를 입력하여 변경하실 수 있습니다. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>에서 컬러 코드를 확인하신 후 코드를 복사하여 사용하세요."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
         default_browse_view_instructions_text: ~
@@ -111,16 +111,16 @@ ko:
         full_name: ~
         first_name_with_initial: ~
         first_name_only: ~
-        invalid_color_code: ~
+        invalid_color_code: "컬러 코드는 6자리의 숫자 또는 알파벳 A-F로 구성됩니다 (예: D96E21)."
         custom_head_script: ~
         custom_head_script_instructions_text: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
-        welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        welcome_email_content: "환영 이메일 내용"
+        welcome_email_content_description: "아래의 메시지는 모든 신규 가입자에게 발송됩니다. 당신의 마켓 플레이스에 맞게 커스터마이즈 해보세요. %{send_test_message_link}을 클릭하면 메시지가 당신의 이메일로 보내지고, 고객에게 어떻게 보여지는지 확인하실 수 있습니다."
+        edit_message: "메세지 편집"
+        send_test_message: "테스트 메세지 발송"
       outgoing_email:
         title: ~
         info: ~
@@ -397,9 +397,9 @@ ko:
         date: ~
     emails:
       new:
-        send_email_to_members: ~
-        send_email_to_members_title: ~
-        send_email: ~
+        send_email_to_members: "사용자에게 이메일 발송"
+        send_email_to_members_title: "사용자에게 전체 이메일 발송"
+        send_email: "이메일 발송"
         send_email_or: ~
         send_test_email: ~
         test_sent: ~
@@ -413,13 +413,13 @@ ko:
             with_listing_no_payment: ~
             with_payment_no_listing: ~
             no_listing_no_payment: ~
-        email_subject: ~
-        email_content: ~
-        email_content_placeholder: ~
-        email_language: ~
-        any_language: ~
-        message_will_be_sent_only_to_people_with_this_language: ~
-        email_sent: ~
+        email_subject: "이메일 제목"
+        email_content: "이메일 본문"
+        email_content_placeholder: "사용자에게 발송할 내용"
+        email_language: "이메일 수신자의 주요 언어"
+        any_language: "모든 언어"
+        message_will_be_sent_only_to_people_with_this_language: "이 이메일은 선택한 언어로 %{service_name}를 이용 중인 사용자들에게만 발송됩니다."
+        email_sent: "이메일을 보냈습니다."
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -608,84 +608,90 @@ ko:
         offer: ~
         inquiry: ~
   common:
-    edit_page: ~
-    default_community_slogan: ~
-    default_community_description: ~
+    edit_page: "페이지 편집"
+    default_community_slogan: "커뮤니티 마켓플레이스"
+    default_community_description: "커뮤니티 마켓플레이스는 다른 사용자들에게 제품 및 서비스를 판매, 대여, 교환, 공유하는 장소입니다."
     cancel: 취소
     fields_that_are_mandatory: "별표(*)가 있는 항목은 필수 입력 항목입니다."
     or: 또는
-    password: ~
-    service_name: ~
+    password: 비밀번호
+    service_name: "%{service_name}"
     share_types:
-      request: ~
-      offer: ~
-      borrow: "대여 중"
-      buy: "구매 중"
-      give_away: "증정 중"
-      lend: "대출 중"
-      receive: "무료 증정 중"
-      rent: "대여 중"
-      rent_out: "대여 중"
-      sell: "판매 중"
-      offer_to_swap: ~
-      request_to_swap: ~
-      share_for_free: ~
-      accept_for_free: ~
+      request: 요청
+      offer: 제안
+      borrow: "무상 대여"
+      buy: 구매
+      give_away: 증정
+      lend: 대여
+      receive: "자유 이용"
+      rent: 대여
+      rent_out: 대여
+      sell: 판매
+      offer_to_swap: 교환
+      request_to_swap: 교환
+      share_for_free: "무료 공유"
+      accept_for_free: "무료 사용 요청"
     categories:
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
-    username: ~
-    username_or_email: ~
+      item: 상품
+      favor: 서비스
+      rideshare: "카 쉐어링"
+      housing: "공간 제공"
+      tools: 도구
+      sports: 스포츠
+      music: 음악
+      books: "책 & 잡지"
+      games: "게임 & 장난감"
+      furniture: 가구
+      outdoors: "캠핑 & 아웃도어"
+      food: "요리 & 주방"
+      electronics: 전자기기
+      pets: "애완 동물"
+      film: 영화
+      clothes: "의류 & 악세사리"
+      garden: 정원
+      travel: 여행
+      other: 기타
+    username: "사용자 이름"
+    username_or_email: "이메일 또는 사용자 이름"
     what_is_this: "이것은 무엇인가요?"
-    removed_user: ~
+    removed_user: "삭제된 사용자"
     payment_fee_info:
-      title: ~
-      title_paypal: ~
-      stripe: ~
-      paypal: ~
-      info: ~
+      title: "페이팔 수수료"
+      title_paypal: "페이팔 수수료"
+      stripe: 스트라이프
+      paypal: 페이팔
+      info: "%{service_name}의 결제 방식은 스트라이프 또는 페이팔 중에서 선택하실 수 있습니다. 각 결제 방식마다 이용 수수료가 부과됩니다."
     paypal_fee_info:
-      title: ~
-      body_text: ~
-      body_text_accept: ~
-      link_to_paypal_text: ~
+      title: "페이팔 수수료"
+      body_text: |-
+          %{service_name}은 수수료 %{paypal_commission}를 부과합니다. 여기에는 페이팔이 결제 처리 건마다 부과하는 이용 수수료는 포함되어 있지 않습니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
+          %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
+      body_text_accept: |-
+          이 결제는 페이팔을 통해 처리됩니다. 페이팔은 결제 처리 건마다 이용 수수료를 부과합니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
+          %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
+      link_to_paypal_text: 여기
     paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
+      title: "페이팔 수수료"
+      body_text: |-
+          %{service_name}의 결제는 페이팔을 통해 처리됩니다. 페이팔은 결제 처리 건마다 이용 수수료를 부과합니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
+          %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
+      link_to_paypal_text: 여기
     stripe_fee_info:
-      title: ~
-      body_text: ~
-      link_to_stripe_text: ~
+      title: "스트라이프 수수료"
+      body_text: "%{service_name}은 수수료 %{stripe_commission}를 부과합니다. 여기에는 스트라이프 이용 수수료가 포함되어 있습니다."
+      link_to_stripe_text: 여기
   conversations:
     accept:
       details: ~
       order_by: ~
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
-      close_listing: ~
-      update_later: ~
-      optional_message: ~
-      price_to_pay: ~
+      accept_offer: "제안 승인"
+      accept_request: "요청 승인"
+      reject_offer: "다음 기회에"
+      reject_request: "다음 기회에"
+      close_listing: "%{listing_title_link}를 비공개로 전환합니다."
+      update_later: "목록을 공개 상태로 유지합니다."
+      optional_message: "추가 메세지"
+      price_to_pay: "총 지불 금액"
       accept: ~
       decline: ~
       quantity_label: ~
@@ -701,8 +707,8 @@ ko:
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:
-      confirm_description: ~
-      cancel_description: ~
+      confirm_description: "피드백을 작성하시려면 거래 완료 여부를 확인해주세요."
+      cancel_description: "거래가 정상적으로 진행되지 않은 경우 '부적합'을 입력해주세요. 이 경우 피드백을 작성하실 수 있으며 불만 내용을 보내실 수 있습니다."
       cancel_payed_description: ~
       canceling_payed_transaction: ~
       confirm: ~
@@ -749,13 +755,13 @@ ko:
       message: 메세지
       message_to: ~
       optional_message_to: ~
-      send_message: ~
+      send_message: "메세지 발송"
       send: ~
-      this_message_is_private: ~
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      this_message_is_private: "%{person}님에게 보내는 비밀 메세지입니다. %{person}님에게 알림 이메일이 발송됩니다."
+      you_will_get_notified_of_acceptance: "제안에 대한 %{person}님의 승인 또는 거부 여부는 이메일 알림으로 도착합니다."
+      you_will_get_notified: "%{person}님이 답변하시면 이메일 알림이 도착합니다."
       title: 제목
-      send_message_to_user: ~
+      send_message_to_user: "%{person}님에게 메세지 발송"
       about_listing: ~
       author_has_to_accept_request: ~
     show:
@@ -764,10 +770,10 @@ ko:
       message_sent_to: ~
       send_reply: "회신 보내기"
       write_a_reply: "회신 작성하기:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "%{person}님과 %{listing}에 관한"
+      conversation_with_user: "%{person}님과"
       conversation_with: ~
-      last_message_at: ~
+      last_message_at: "(최근 메세지 %{time})"
       price: ~
       sum: ~
       total: ~
@@ -820,8 +826,8 @@ ko:
     status_link:
       accept_offer: "제안 승인"
       accept_request: "요청 승인"
-      reject_offer: "이번엔 안되겠습니다."
-      reject_request: "이번엔 안되겠습니다."
+      reject_offer: "다음 기회에"
+      reject_request: "다음 기회에"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -835,25 +841,25 @@ ko:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: ~
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      access_denied: "접근이 거부되었습니다."
+      you_are_banned_in_this_community: "%{service_name} 관리자가 당신의 접근을 제한하였습니다. %{link_to_contact_page}를 통해 %{service_name} 관리자에게 문의해주세요."
+      contact_page_link: "사용 문의"
     new:
-      welcome_fb_user: ~
-      fb_join_accept_terms: ~
-      join_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      welcome_fb_user: "%{name}님, %{service_name}에 오신 것을 환영합니다."
+      fb_join_accept_terms: "%{service_name} 가입 절차를 마치기 위해 이용 약관에 동의해주세요."
+      join_community: "%{service_name} 가입"
+      you_can_join: "아래의 %{service_name} 이용 약관에 동의하시면 %{service_name}에 가입하실 수 있습니다."
+      you_can_join_email_confirmation: "%{service_name}에 가입하시려면 %{email_ending}로 끝나는 이메일 주소가 필요합니다. 이메일 주소를 입력하시고 이용 약관에 동의하신 후 '%{service_name} 가입'을 클릭하시고 메일 인증까지 완료하시면 가입하실 수 있습니다."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name}은 허용된 이메일 주소가 있어야만 가입하실 수 있습니다. 이메일 주소를 입력하시고 %{service_name} 이용 약관에 동의하신 후 '%{service_name} 가입'을 클릭하여 가입해주세요."
+      you_can_join_with_invite_only: "%{service_name}에 가입하시려면 기존 사용자에게서 초대를 받아야 합니다. 아래 양식에 초대 코드를 입력하시고 이용 약관에 동의 하신 후 '%{service_name} 가입'을 클릭하여 가입해주세요."
+      if_want_to_view_content: "%{service_name}에 가입하지 않고 내용을 보고 싶으신 경우"
+      log_out: 로그아웃
+      join_community_button: "%{service_name} 가입"
     give_consent:
-      invitation_code_invalid_or_used: ~
-      email_not_allowed: ~
-      email_not_available: ~
-      consent_not_given: ~
+      invitation_code_invalid_or_used: "잘못되었거나 이미 사용된 초대 코드입니다."
+      email_not_allowed: "입력하신 이메일은 %{service_name}에서 사용하실 수 없습니다."
+      email_not_available: "입력하신 이메일은 이미 사용 중입니다."
+      consent_not_given: "이용 약관에 동의하지 않으셨습니다."
   emails:
     accept_reminder:
       remember_to_accept_offer: "%{sender_name}로부터 받은 제안을 승인 또는 거부하는걸 잊지마세요."

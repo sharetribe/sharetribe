@@ -9,15 +9,22 @@
 #  updated_at      :datetime
 #  last_message_at :datetime
 #  community_id    :integer
+#  starting_page   :string(255)
 #
 # Indexes
 #
 #  index_conversations_on_community_id     (community_id)
 #  index_conversations_on_last_message_at  (last_message_at)
 #  index_conversations_on_listing_id       (listing_id)
+#  index_conversations_on_starting_page    (starting_page)
 #
 
 class Conversation < ApplicationRecord
+  STARTING_PAGES = [
+    PROFILE = 'profile',
+    LISTING = 'listing',
+    PAYMENT = 'payment'
+  ]
 
   has_many :messages, :dependent => :destroy
 
@@ -26,6 +33,8 @@ class Conversation < ApplicationRecord
   belongs_to :listing
   has_one :tx, class_name: "Transaction", foreign_key: "conversation_id"
   belongs_to :community
+
+  validates :starting_page, inclusion: { in: STARTING_PAGES }, allow_nil: true
 
   scope :for_person, -> (person){
     joins(:participations)
