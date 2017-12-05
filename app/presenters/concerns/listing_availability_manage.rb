@@ -195,8 +195,9 @@ module ListingAvailabilityManage
       },
       listing: working_time_slots,
       time_slot_options: time_slot_options,
-      day_names: I18n.t('date.day_names'),
-      listing_just_created: !!params[:listing_just_created]
+      day_names: day_names,
+      listing_just_created: !!params[:listing_just_created],
+      first_day_of_week: I18n.t('date.first_day_of_week')
     }
   end
 
@@ -217,7 +218,7 @@ module ListingAvailabilityManage
 
   def time_slot_options
     result = []
-    (0..23).each do |x|
+    (0..24).each do |x|
       value = format("%02d:00", x)
       name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value # rubocop:disable Rails/TimeZone
       result.push(value: value, name: name)
@@ -227,5 +228,14 @@ module ListingAvailabilityManage
 
   def date_to_time_utc(d)
     Time.utc(d.year, d.month, d.day)
+  end
+
+  def day_names
+    result = {}
+    i18n_day_names = I18n.t('date.day_names').map(&:capitalize)
+    ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].each_with_index do |day, index|
+      result[day] = i18n_day_names[index]
+    end
+    result
   end
 end
