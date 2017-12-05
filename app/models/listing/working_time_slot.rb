@@ -21,5 +21,5 @@ class Listing::WorkingTimeSlot < ApplicationRecord
   enum week_day: {sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6}
 
   scope :by_week_day, ->(day) { where(week_day: day) }
-  scope :order_by_week_day, -> { order('listing_working_time_slots.week_day ASC') }
+  scope :ordered, -> { order('listing_working_time_slots.week_day ASC, listing_working_time_slots.from ASC') }
 end
