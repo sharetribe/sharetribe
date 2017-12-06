@@ -48,8 +48,7 @@ class TimeSlotWrapper extends Component {
     if (elem === 'from') {
       const slot = this.getValue();
       if (slot.from) {
-        slot.till = null;
-        this.props.formApi.setValue(this.slotField, slot);
+        this.props.formApi.setValue(this.slotField.concat('till'), null);
       }
     }
     this.props.actions.dataChanged();
