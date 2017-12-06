@@ -2161,7 +2161,8 @@ en-NZ:
       about_listing: "about listing"
   date:
     formats:
-      long_with_abbr_day_name: "%a, %b %d, %Y"
+      long_with_abbr_day_name: ~
+    first_day_of_week: 6
   datepicker:
     days:
       sunday: Sunday
@@ -2221,6 +2222,7 @@ en-NZ:
       short: "%b %e, %Y at %H:%M"
       shorter: "%b %e at %H:%M"
       short_date: "%b %e, %Y"
+      hours_only: "%l:%M %P"
   timestamps:
     day_ago: "%{count} day ago"
     days_ago: "%{count} days ago"

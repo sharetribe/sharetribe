@@ -2164,6 +2164,7 @@ sv:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Söndag
@@ -2223,6 +2224,7 @@ sv:
       short: "%e %b %Y vid %H:%M"
       shorter: "%e %b vid %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag sedan"
     days_ago: "%{count} dagar sedan"

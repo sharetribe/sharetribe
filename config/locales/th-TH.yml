@@ -2138,6 +2138,7 @@ th-TH:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: วันอาทิตย์
@@ -2197,6 +2198,7 @@ th-TH:
       short: "%b %e, %Y เวลา %H:%M"
       shorter: "%b %e เวลา %H:%M"
       short_date: "%b %e, %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} วันที่แล้ว"
     days_ago: "%{count} วันที่แล้ว"

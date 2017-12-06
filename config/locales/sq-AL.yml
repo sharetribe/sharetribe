@@ -2118,6 +2118,7 @@ sq-AL:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: ~
@@ -2177,6 +2178,7 @@ sq-AL:
       short: ~
       shorter: ~
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: ~
     days_ago: ~

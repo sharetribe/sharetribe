@@ -2162,6 +2162,7 @@ fi:
   date:
     formats:
       long_with_abbr_day_name: "%a %-d.%-m.%Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: sunnuntai
@@ -2221,6 +2222,7 @@ fi:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
       short_date: "%d.%m.%Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} päivä sitten"
     days_ago: "%{count} päivää sitten"

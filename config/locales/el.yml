@@ -2121,6 +2121,7 @@ el:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Κυριακή
@@ -2180,6 +2181,7 @@ el:
       short: "%e %b %Y στις %H:%M"
       shorter: "%e %b στις %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "πριν από %{count} μέρα"
     days_ago: "πριν από %{count} μέρες"

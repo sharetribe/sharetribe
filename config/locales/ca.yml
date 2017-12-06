@@ -2118,6 +2118,7 @@ ca:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Diumenge
@@ -2177,6 +2178,7 @@ ca:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "fa un dia"
     days_ago: "%{count} dies enrere"

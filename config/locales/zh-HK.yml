@@ -2141,6 +2141,7 @@ zh-HK:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: ~
@@ -2200,6 +2201,7 @@ zh-HK:
       short: "%e %b %Y %I:%M%p"
       shorter: "%e %b %Ｈ:%M"
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} 天前"
     days_ago: "%{count} 天前"

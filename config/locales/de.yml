@@ -2162,6 +2162,7 @@ de:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Sonntag
@@ -2221,6 +2222,7 @@ de:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"
     days_ago: "Vor %{count} Tagen"

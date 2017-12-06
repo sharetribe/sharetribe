@@ -2160,6 +2160,7 @@ cs:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Neděle
@@ -2219,6 +2220,7 @@ cs:
       short: "%e %b %Y v %H:%M"
       shorter: "%e %b v %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "před %{count} dnem"
     days_ago: "před %{count} dny"

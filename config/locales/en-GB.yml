@@ -2118,6 +2118,7 @@ en-GB:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: ~
@@ -2177,6 +2178,7 @@ en-GB:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%l:%M %P"
   timestamps:
     day_ago: ~
     days_ago: ~

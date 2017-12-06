@@ -2118,6 +2118,7 @@ lv:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Svētdiena
@@ -2177,6 +2178,7 @@ lv:
       short: ~
       shorter: ~
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} diena atpakaļ"
     days_ago: "%{count} dienas atpakaļ"

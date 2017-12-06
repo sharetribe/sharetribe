@@ -2138,6 +2138,7 @@ fr-CA:
   date:
     formats:
       long_with_abbr_day_name: "%a %d %b %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Dimanche
@@ -2197,6 +2198,7 @@ fr-CA:
       short: "%e. %b %Y heure %H:%M"
       shorter: "%e. %b h %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "il y a %{count} jour"
     days_ago: "il y a %{count} jours"

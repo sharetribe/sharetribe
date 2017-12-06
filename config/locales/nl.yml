@@ -2163,6 +2163,7 @@ nl:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Zondag
@@ -2222,6 +2223,7 @@ nl:
       short: "%e %b %Y om %H:%M"
       shorter: "%e %b om %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag geleden"
     days_ago: "%{count} dagen geleden"
