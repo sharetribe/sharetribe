@@ -2135,6 +2135,7 @@ vi:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: "Chủ nhật"
@@ -2194,6 +2195,7 @@ vi:
       short: "%e %b %Y lúc % H: % M"
       shorter: "%e %b lúc %H:% M"
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} ngày trước"
     days_ago: "%{count} ngày trước"
