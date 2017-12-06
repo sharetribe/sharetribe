@@ -181,14 +181,17 @@ window.ST = window.ST || {};
     };
 
     $('#start_time').on('change', function() {
-      var startTimeindex = $(this).find('option:selected').data('index'),
+      var selected = $(this).find('option:selected'),
+        startTimeindex = selected.data('index'),
+        startTimeSlot = selected.data('slot'),
         endTime = $('#end_time');
       if (endTime.prop('disabled') != true) {
         setUpSelectOptions(currentDate, false, '#end_time');
       }
       endTime.find('option').each(function () {
-        var option = $(this), endTimeIndex = option.data('index');
-        if (endTimeIndex > startTimeindex) {
+        var option = $(this), endTimeIndex = option.data('index'),
+          endTimeSlot = option.data('slot');
+        if (endTimeIndex > startTimeindex && startTimeSlot === endTimeSlot) {
           option.removeAttr('disabled');
         } else {
           option.prop('disabled', true);
@@ -210,7 +213,7 @@ window.ST = window.ST || {};
           disabled = option.disabled ? ' disabled ' : '';
         }
         if (!(start && option.slot_end)) {
-          options_for_select.push('<option value="' + value + '" ' + disabled + ' data-index="' + index + '">' + option.name + '</option>');
+          options_for_select.push('<option value="' + value + '" ' + disabled + ' data-index="' + index + '" data-slot="' + option.slot + '" >' + option.name + '</option>');
         }
         prevDisabled = option.disabled;
       }
