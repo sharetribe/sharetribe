@@ -3,6 +3,8 @@
 }
 
 .weekDay {
+  position: relative;
+
   & a {
     cursor: pointer;
   }
@@ -28,6 +30,7 @@
         background-color: red;
         width: 100%;
         padding: 5px 5px;
+        z-index: 1;
       }
       /* stylelint-enable */
     }
