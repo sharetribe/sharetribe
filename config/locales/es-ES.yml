@@ -2150,6 +2150,7 @@ es-ES:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Domingo
@@ -2209,6 +2210,7 @@ es-ES:
       short: "%e %b %Y a las %H:%M"
       shorter: "%e %b a las %H:%M"
       short_date: "%e %b  %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} día atrás"
     days_ago: "%{count} días atrás"
