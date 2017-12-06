@@ -1724,6 +1724,8 @@ en:
       unable_load_availability: "Could not load availability information. Please try again later."
       booking_date: Booking date
       select_one: Select one
+      start_time: Start time
+      end_time: End time
     new:
       listing: listing
       selected_category: "Category: %{category}"
