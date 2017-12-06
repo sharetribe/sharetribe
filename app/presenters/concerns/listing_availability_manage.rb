@@ -103,6 +103,7 @@ module ListingAvailabilityManage
     current_day = nil
     start = nil
     day_result = []
+    day_slot_number = 0
     listing.working_hours_periods(booking_per_hour_start_time, booking_per_hour_end_time).each do |working_period|
       period_day = working_period.start_time.to_date.to_s
       start = working_period.start_time
@@ -113,11 +114,12 @@ module ListingAvailabilityManage
           result[current_day] = day_result
           day_result = []
           current_day = period_day
+          day_slot_number = 0
         end
         value = start.strftime('%H:%M')
         format = I18n.locale == :en ? '%l:%M %P' : '%H:%M'
         name = start.strftime(format)
-        hour_hash = {value: value, name: name}
+        hour_hash = {value: value, name: name, slot: day_slot_number}
         if start == working_period.end_time
           hour_hash[:disabled] = true
           hour_hash[:slot_end] = true
@@ -125,6 +127,7 @@ module ListingAvailabilityManage
         day_result.push(hour_hash)
         start += 1.hour
       end
+      day_slot_number += 1
       result[current_day] = day_result
     end
     @availability_per_hour_raw_options_for_select = result
