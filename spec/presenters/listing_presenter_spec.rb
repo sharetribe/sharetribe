@@ -87,11 +87,11 @@ RSpec.describe ListingPresenter, type: :presenter do
           .availability_per_hour_options_for_select_grouped_by_day
         expect(options["2017-11-14"]).to eq(
           [
-            {:value=>"09:00", :name=>" 9:00 am"},
-            {:value=>"10:00", :name=>"10:00 am"},
-            {:value=>"11:00", :name=>"11:00 am", :disabled=>true, :slot_end=>true},
-            {:value=>"14:00", :name=>" 2:00 pm"},
-            {:value=>"15:00", :name=>" 3:00 pm", :disabled=>true, :slot_end=>true}
+            {:value=>"09:00", :name=>" 9:00 am", :slot=>0},
+            {:value=>"10:00", :name=>"10:00 am", :slot=>0},
+            {:value=>"11:00", :name=>"11:00 am", :slot=>0, :disabled=>true, :slot_end=>true},
+            {:value=>"14:00", :name=>" 2:00 pm", :slot=>1},
+            {:value=>"15:00", :name=>" 3:00 pm", :slot=>1, :disabled=>true, :slot_end=>true}
           ]
         )
       end
@@ -107,11 +107,11 @@ RSpec.describe ListingPresenter, type: :presenter do
           .availability_per_hour_options_for_select_grouped_by_day
         expect(options["2017-11-14"]).to eq(
           [
-            {:value=>"09:00", :name=>" 9:00 am", :disabled=>true},
-            {:value=>"10:00", :name=>"10:00 am", :disabled=>true},
-            {:value=>"11:00", :name=>"11:00 am", :disabled=>true, :slot_end=>true},
-            {:value=>"14:00", :name=>" 2:00 pm"},
-            {:value=>"15:00", :name=>" 3:00 pm", :disabled=>true, :slot_end=>true}
+            {:value=>"09:00", :name=>" 9:00 am", :slot=>0, :disabled=>true},
+            {:value=>"10:00", :name=>"10:00 am", :slot=>0, :disabled=>true},
+            {:value=>"11:00", :name=>"11:00 am", :slot=>0, :disabled=>true, :slot_end=>true},
+            {:value=>"14:00", :name=>" 2:00 pm", :slot=>1},
+            {:value=>"15:00", :name=>" 3:00 pm", :slot=>1, :disabled=>true, :slot_end=>true}
           ]
         )
       end
@@ -126,11 +126,11 @@ RSpec.describe ListingPresenter, type: :presenter do
           .availability_per_hour_options_for_select_grouped_by_day
         expect(options["2017-11-14"]).to eq(
           [
-            {:value=>"09:00", :name=>" 9:00 am"},
-            {:value=>"10:00", :name=>"10:00 am"},
-            {:value=>"11:00", :name=>"11:00 am", :disabled=>true, :slot_end=>true},
-            {:value=>"14:00", :name=>" 2:00 pm"},
-            {:value=>"15:00", :name=>" 3:00 pm", :disabled=>true, :slot_end=>true}
+            {:value=>"09:00", :name=>" 9:00 am", :slot=>0},
+            {:value=>"10:00", :name=>"10:00 am", :slot=>0},
+            {:value=>"11:00", :name=>"11:00 am", :slot=>0, :disabled=>true, :slot_end=>true},
+            {:value=>"14:00", :name=>" 2:00 pm", :slot=>1},
+            {:value=>"15:00", :name=>" 3:00 pm", :slot=>1, :disabled=>true, :slot_end=>true}
           ]
         )
       end
