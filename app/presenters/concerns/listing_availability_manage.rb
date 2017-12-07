@@ -103,6 +103,7 @@ module ListingAvailabilityManage
     current_day = nil
     start = nil
     day_result = []
+    day_slot_number = 0
     listing.working_hours_periods(booking_per_hour_start_time, booking_per_hour_end_time).each do |working_period|
       period_day = working_period.start_time.to_date.to_s
       start = working_period.start_time
@@ -113,11 +114,12 @@ module ListingAvailabilityManage
           result[current_day] = day_result
           day_result = []
           current_day = period_day
+          day_slot_number = 0
         end
         value = start.strftime('%H:%M')
         format = I18n.locale == :en ? '%l:%M %P' : '%H:%M'
         name = start.strftime(format)
-        hour_hash = {value: value, name: name}
+        hour_hash = {value: value, name: name, slot: day_slot_number}
         if start == working_period.end_time
           hour_hash[:disabled] = true
           hour_hash[:slot_end] = true
@@ -125,6 +127,7 @@ module ListingAvailabilityManage
         day_result.push(hour_hash)
         start += 1.hour
       end
+      day_slot_number += 1
       result[current_day] = day_result
     end
     @availability_per_hour_raw_options_for_select = result
@@ -195,8 +198,9 @@ module ListingAvailabilityManage
       },
       listing: working_time_slots,
       time_slot_options: time_slot_options,
-      day_names: I18n.t('date.day_names'),
-      listing_just_created: !!params[:listing_just_created]
+      day_names: day_names,
+      listing_just_created: !!params[:listing_just_created],
+      first_day_of_week: I18n.t('date.first_day_of_week')
     }
   end
 
@@ -217,15 +221,24 @@ module ListingAvailabilityManage
 
   def time_slot_options
     result = []
-    (0..23).each do |x|
+    (0..24).each do |x|
       value = format("%02d:00", x)
       name = I18n.locale == :en ? Time.parse("#{x}:00").strftime("%l:00 %P") : value # rubocop:disable Rails/TimeZone
-      result.push(value: value, name: name)
+      result.push(value: value, label: name)
     end
     result
   end
 
   def date_to_time_utc(d)
     Time.utc(d.year, d.month, d.day)
+  end
+
+  def day_names
+    result = {}
+    i18n_day_names = I18n.t('date.day_names').map(&:capitalize)
+    ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'].each_with_index do |day, index|
+      result[day] = i18n_day_names[index]
+    end
+    result
   end
 end

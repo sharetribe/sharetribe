@@ -20,7 +20,8 @@ module TransactionService::Gateway
 
       {minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
        commission_from_seller: p_set[:commission_from_seller],
-       automatic_confirmation_after_days: p_set[:confirmation_after_days]}
+       automatic_confirmation_after_days: p_set[:confirmation_after_days],
+       automatic_confirmation_after_days_after_end_time: p_set[:confirmation_after_days_after_end_time]}
     end
 
     private
