@@ -22,7 +22,7 @@ describe TransactionService::Store::PaymentSettings do
             {community_id: 10, payment_gateway: :paypal, payment_process: :preauthorize, active: true,
              confirmation_after_days: 14, commission_from_seller: 12, minimum_transaction_fee_cents: 50,
              minimum_transaction_fee_currency: "EUR", minimum_price_cents: nil, minimum_price_currency: nil,
-             commission_type: :both}.merge(empty_api_data))
+             commission_type: :both, confirmation_after_days_after_end_time: 2}.merge(empty_api_data))
 
     expect(
       payment_settings.create(
@@ -33,7 +33,7 @@ describe TransactionService::Store::PaymentSettings do
             {community_id: 10, payment_gateway: :paypal, payment_process: :preauthorize, active: true,
              confirmation_after_days: 14, commission_from_seller: 12, minimum_transaction_fee_cents: 0,
              minimum_transaction_fee_currency: "USD", minimum_price_cents: nil, minimum_price_currency: nil,
-             commission_type: :relative}.merge(empty_api_data))
+             commission_type: :relative, confirmation_after_days_after_end_time: 2}.merge(empty_api_data))
 
     expect(
       payment_settings.create(
@@ -44,7 +44,7 @@ describe TransactionService::Store::PaymentSettings do
             {community_id: 10, payment_gateway: :paypal, payment_process: :preauthorize, active: true,
              confirmation_after_days: 14, commission_from_seller: 0, minimum_transaction_fee_cents: 50,
              minimum_transaction_fee_currency: "EUR", minimum_price_cents: nil, minimum_price_currency: nil,
-             commission_type: :fixed}.merge(empty_api_data))
+             commission_type: :fixed, confirmation_after_days_after_end_time: 2}.merge(empty_api_data))
 
     expect(
       payment_settings.create(
@@ -54,6 +54,6 @@ describe TransactionService::Store::PaymentSettings do
             {community_id: 10, payment_gateway: :paypal, payment_process: :preauthorize, active: true,
              confirmation_after_days: 14, commission_from_seller: nil, minimum_transaction_fee_cents: nil,
              minimum_transaction_fee_currency: nil, minimum_price_cents: nil, minimum_price_currency: nil,
-             commission_type: :none}.merge(empty_api_data))
+             commission_type: :none, confirmation_after_days_after_end_time: 2}.merge(empty_api_data))
   end
 end

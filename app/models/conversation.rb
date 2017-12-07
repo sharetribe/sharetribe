@@ -9,12 +9,14 @@
 #  updated_at      :datetime
 #  last_message_at :datetime
 #  community_id    :integer
+#  starting_page   :string(255)
 #
 # Indexes
 #
 #  index_conversations_on_community_id     (community_id)
 #  index_conversations_on_last_message_at  (last_message_at)
 #  index_conversations_on_listing_id       (listing_id)
+#  index_conversations_on_starting_page    (starting_page)
 #
 
 class Conversation < ApplicationRecord
