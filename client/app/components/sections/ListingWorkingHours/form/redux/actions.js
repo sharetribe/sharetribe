@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const SET_FORM_STATE = 'SET_FORM_STATE';
 export function setFormState( formState ) {
   return { type: SET_FORM_STATE, formState };
