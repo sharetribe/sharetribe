@@ -266,6 +266,7 @@ CREATE TABLE `communities` (
   `small_cover_photo_processing` tinyint(1) DEFAULT NULL,
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
+  `automatic_confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -360,10 +361,12 @@ CREATE TABLE `conversations` (
   `updated_at` datetime DEFAULT NULL,
   `last_message_at` datetime DEFAULT NULL,
   `community_id` int(11) DEFAULT NULL,
+  `starting_page` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_conversations_on_community_id` (`community_id`) USING BTREE,
   KEY `index_conversations_on_last_message_at` (`last_message_at`) USING BTREE,
-  KEY `index_conversations_on_listing_id` (`listing_id`) USING BTREE
+  KEY `index_conversations_on_listing_id` (`listing_id`) USING BTREE,
+  KEY `index_conversations_on_starting_page` (`starting_page`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_field_names`;
@@ -529,7 +532,7 @@ CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` text,
   `author_id` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
+  `url` varchar(2048) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `is_handled` int(11) DEFAULT '0',
@@ -982,6 +985,7 @@ CREATE TABLE `payment_settings` (
   `api_verified` tinyint(1) DEFAULT NULL,
   `api_visible_private_key` varchar(255) DEFAULT NULL,
   `api_country` varchar(255) DEFAULT NULL,
+  `confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2233,6 +2237,10 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170817035830'),
 ('20171023070523'),
 ('20171107063241'),
-('20171117062422');
+('20171117062422'),
+('20171128122539'),
+('20171129152027'),
+('20171207073027'),
+('20171207075640');
 
 
