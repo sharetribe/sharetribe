@@ -266,6 +266,7 @@ CREATE TABLE `communities` (
   `small_cover_photo_processing` tinyint(1) DEFAULT NULL,
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
+  `automatic_confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -969,6 +970,7 @@ CREATE TABLE `payment_settings` (
   `api_verified` tinyint(1) DEFAULT NULL,
   `api_visible_private_key` varchar(255) DEFAULT NULL,
   `api_country` varchar(255) DEFAULT NULL,
+  `confirmation_after_days_after_end_time` int(11) DEFAULT '2',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
