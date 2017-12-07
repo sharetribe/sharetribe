@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   SET_FORM_STATE,
   SET_VALUE,

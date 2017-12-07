@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* ---------- Imports ---------- */
 import regeneratorRuntime from  'regenerator-runtime';
 
