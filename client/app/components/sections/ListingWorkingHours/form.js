@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Form, StyledSelect, FormField, Checkbox } from 'react-form';
+import { StyledSelect, FormField, Checkbox } from 'react-form';
+import Form from './form/ReduxForm';
 import { t } from '../../../utils/i18n';
 import * as convert from './convert';
 
@@ -145,7 +146,7 @@ class DayWrapper extends Component {
   }
 
   addSlot(timeSlot) {
-    this.props.formApi.addValue(['days', this.props.index, 'working_time_slots'], timeSlot);
+    this.props.formApi.addValue(['days', this.props.index, 'working_time_slots'], timeSlot, false);
     this.props.actions.dataChanged();
   }
 
