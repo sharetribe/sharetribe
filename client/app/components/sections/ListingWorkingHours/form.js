@@ -131,7 +131,7 @@ class DayWrapper extends Component {
   }
 
   getChildContext() {
-    return { remove: !this.state.enabled };
+    return { remove: !this.props.enabled };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -163,6 +163,7 @@ class DayWrapper extends Component {
 
   handleEnabled() {
     this.addDefaultTimeSlot();
+    this.props.formApi.setValue(this.dayField, 'enabled', !this.props.enabled);
     this.props.actions.dataChanged();
   }
 

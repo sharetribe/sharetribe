@@ -29,6 +29,11 @@ export const convertFromApi = (listing) => {
 export const convertToApi = (formData) => {
   let slots = [];
   formData.days.forEach((dayData) => {
+    if (!dayData.enabled) {
+      dayData.working_time_slots.forEach((timeSlot) => {
+        timeSlot._destroy = '1';  // eslint-disable-line no-underscore-dangle, no-param-reassign
+      });
+    }
     slots = slots.concat(dayData.working_time_slots);
   });
   return { listing: { working_time_slots_attributes: slots } };
