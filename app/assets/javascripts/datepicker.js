@@ -184,36 +184,48 @@ window.ST = window.ST || {};
       var selected = $(this).find('option:selected'),
         startTimeindex = selected.data('index'),
         startTimeSlot = selected.data('slot'),
-        endTime = $('#end_time');
+        endTime = $('#end_time'),
+        prevBlocked = false;
       if (endTime.prop('disabled') != true) {
         setUpSelectOptions(currentDate, false, '#end_time');
       }
       endTime.find('option').each(function () {
         var option = $(this), endTimeIndex = option.data('index'),
-          endTimeSlot = option.data('slot');
-        if (endTimeIndex > startTimeindex && startTimeSlot === endTimeSlot) {
+          endTimeSlot = option.data('slot'), blocked  = option.data('blocked'),
+          bookingStart = option.data('bookingStart');
+        if (endTimeIndex > startTimeindex && startTimeSlot === endTimeSlot &&
+          (!blocked || (!prevBlocked && bookingStart))) {
           option.removeAttr('disabled');
         } else {
           option.prop('disabled', true);
         }
+        prevBlocked = blocked;
       });
       endTime.removeAttr('disabled');
     });
 
     var setUpSelectOptions = function(date, start, selectSelector) {
-      var date_options = options.options_for_select[date];
-      var options_for_select = ['<option value="" disabled selected>' + selectOne + '</option>'];
-      var prevDisabled = false;
+      var date_options = options.options_for_select[date],
+        options_for_select = ['<option value="" disabled selected>' + selectOne + '</option>'],
+        prevDisabled = false,
+        blocked = '';
       for(var index in date_options) {
         var disabled, option = date_options[index],
           value = date + ' ' + option.value;
         if (!start && option.slot_end && !prevDisabled) {
           disabled = '';
+          blocked = '';
+          if (option.next_day) {
+            value = option.next_day + ' ' + option.value;
+          }
         } else {
           disabled = option.disabled ? ' disabled ' : '';
+          blocked = option.disabled ? 'true' : '';
         }
         if (!(start && option.slot_end)) {
-          options_for_select.push('<option value="' + value + '" ' + disabled + ' data-index="' + index + '" data-slot="' + option.slot + '" >' + option.name + '</option>');
+          options_for_select.push('<option value="' + value + '" ' + disabled +
+            ' data-index="' + index + '" data-slot="' + option.slot +
+            '" data-blocked="' + blocked + '" data-booking-start="' + !!option.booking_start + '" >' + option.name + '</option>');
         }
         prevDisabled = option.disabled;
       }

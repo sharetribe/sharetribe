@@ -106,6 +106,7 @@ module ListingAvailabilityManage
     day_slot_number = 0
     listing.working_hours_periods(booking_per_hour_start_time, booking_per_hour_end_time).each do |working_period|
       period_day = working_period.start_time.to_date.to_s
+      period_end_day = working_period.end_time.to_date.to_s
       start = working_period.start_time
       while start <= working_period.end_time do # rubocop:disable Style/WhileUntilDo
         if current_day.nil?
@@ -123,6 +124,9 @@ module ListingAvailabilityManage
         if start == working_period.end_time
           hour_hash[:disabled] = true
           hour_hash[:slot_end] = true
+          if value == '00:00' && period_day != period_end_day
+            hour_hash[:next_day] = period_end_day
+          end
         end
         day_result.push(hour_hash)
         start += 1.hour
@@ -147,7 +151,10 @@ module ListingAvailabilityManage
         value = start.strftime('%H:%M')
         if day_options
           option = day_options.select{ |x| x[:value] == value }.first
-          option[:disabled] = true if option
+          if option
+            option[:disabled] = true
+            option[:booking_start] = true if start == booking.start_time # rubocop:disable Metrics/BlockNesting
+          end
           if day_options.all?{ |x| x.key?(:disabled) }
             result.push start.to_date
           end
