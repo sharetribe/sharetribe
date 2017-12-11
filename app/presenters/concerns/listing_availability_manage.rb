@@ -151,8 +151,10 @@ module ListingAvailabilityManage
         value = start.strftime('%H:%M')
         if day_options
           option = day_options.select{ |x| x[:value] == value }.first
-          option[:disabled] = true if option
-          option[:booking_start] = true if start == booking.start_time
+          if option
+            option[:disabled] = true
+            option[:booking_start] = true if start == booking.start_time
+          end
           if day_options.all?{ |x| x.key?(:disabled) }
             result.push start.to_date
           end
