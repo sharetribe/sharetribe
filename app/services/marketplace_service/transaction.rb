@@ -289,7 +289,7 @@ module MarketplaceService
           .includes(:listing)
           .limit(limit)
           .offset(offset)
-          .order("transactions.#{sort_column} #{sort_direction}")
+          .order("#{sort_column} #{sort_direction}")
 
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
