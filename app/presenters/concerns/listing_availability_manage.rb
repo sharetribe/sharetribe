@@ -153,7 +153,7 @@ module ListingAvailabilityManage
           option = day_options.select{ |x| x[:value] == value }.first
           if option
             option[:disabled] = true
-            option[:booking_start] = true if start == booking.start_time
+            option[:booking_start] = true if start == booking.start_time # rubocop:disable Metrics/BlockNesting
           end
           if day_options.all?{ |x| x.key?(:disabled) }
             result.push start.to_date
