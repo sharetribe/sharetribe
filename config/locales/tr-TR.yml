@@ -319,6 +319,7 @@ tr-TR:
           initiated_by: Başlatan
           other_party: "Diğer taraf"
         status:
+          conversation: ~
           free: Konuşma
           pending: Bekleyen
           preauthorized: "İzin verilmiş"
@@ -354,6 +355,17 @@ tr-TR:
             initiated: ~
             pending_ext: ~
         not_available: "Mevcut değil"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"

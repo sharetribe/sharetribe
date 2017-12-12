@@ -322,6 +322,7 @@ de:
           initiated_by: Starter
           other_party: "Anderer Beteiligter"
         status:
+          conversation: Unterhaltung
           free: Unterhaltung
           pending: Ausstehend
           preauthorized: Vorautorisiert
@@ -357,6 +358,17 @@ de:
             initiated: "Warte auf Stripe-Bezahlung"
             pending_ext: "Warte auf Stripe-Bezahlung"
         not_available: "nicht verfügbar"
+      conversations:
+        conversations: "Unterhaltungen ansehen"
+        headers:
+          started_from: "Gestartet von"
+          status: Status
+          started: Gestartet
+          last_activity: "Neueste Aktivität"
+          initiated_by: "Begonnen von"
+          other_party: "Anderer Beteiligter"
+        participants: "Unterhaltung: %{starter} mit %{author}"
+        profile: "%{author}s Profil"
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"

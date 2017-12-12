@@ -322,7 +322,8 @@ fr:
           initiated_by: Initiateur
           other_party: "Autre participant"
         status:
-          free: Conversation
+          conversation: Conversation
+          free: "Transaction gratuite"
           pending: "En attente"
           preauthorized: Pré-autorisée
           accepted: Acceptée
@@ -333,7 +334,7 @@ fr:
           initiated: "En attente du paiement PayPal"
           pending_ext: "En attente du paiement PayPal"
           none:
-            free: Conversation
+            free: "Transaction gratuite"
           paypal:
             free: Conversation
             pending: "En attente"
@@ -357,6 +358,17 @@ fr:
             initiated: "En attente du paiement Stripe"
             pending_ext: "En attente du paiement Stripe"
         not_available: "Non disponible"
+      conversations:
+        conversations: "Voir les conversations"
+        headers:
+          started_from: "Commencée le"
+          status: Statut
+          started: Commencée
+          last_activity: "Dernière activité"
+          initiated_by: Initiateur
+          other_party: "Autre participant"
+        participants: "Conversation : %{starter} avec %{author}"
+        profile: "Profil de %{author}"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"

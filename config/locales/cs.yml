@@ -327,6 +327,7 @@ cs:
           initiated_by: Spouštěč
           other_party: "Další strana"
         status:
+          conversation: ~
           free: Konverzace
           pending: "Čeká na vyřízení"
           preauthorized: Předschváleno
@@ -362,6 +363,17 @@ cs:
             initiated: ~
             pending_ext: ~
         not_available: Nedostupné
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"

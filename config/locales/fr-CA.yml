@@ -322,6 +322,7 @@ fr-CA:
           initiated_by: Initiateur
           other_party: "Autre participant"
         status:
+          conversation: ~
           free: Conversation
           pending: "En attente"
           preauthorized: Pré-autorisée
@@ -357,6 +358,17 @@ fr-CA:
             initiated: ~
             pending_ext: ~
         not_available: "Non disponible"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"

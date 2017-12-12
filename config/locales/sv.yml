@@ -75,7 +75,7 @@ sv:
         private_community_homepage_content: "Privat marknadsplats startsidans innehåll"
         edit_private_community_homepage_content_description: "Detta visas på startsidan av den privata marknadsplatsen för användarna som inte är inloggade. Här kan du beskriva din marknadsplats och processen hur man går med. Du kan även lägga till bilder, videos och HTML-innehåll här. %{see_how_it_looks_like}"
         update_information: "Spara inställningar"
-        invite_people: "Bjud in nya användare"
+        invite_people: "Bjud in nya användare till %{service_name}"
         edit_signup_info: Registreringsinformation
         edit_signup_info_description: "Detta är en infotext som kan visas till användarna på registreringssidan. Där kan du ge användarna instruktioner för hur man registrerar sig, information hur du får en inbjudan osv. Som standard så finns det inga instruktioner."
         edit_info: "Redigera information"
@@ -114,7 +114,7 @@ sv:
         small_cover_photo_visibility: "Liten omslagsbild visas på alla sidor förutom på startsidan för ej inloggade användare."
         small_cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten."
         main_content_width: "När du väljer en omslagsbild så notera att huvudsidans innehåll är %{main_width} pixlar brett som mest. Kom även ihåg att se hur omslagsbilden ser ut på mindre skärmar (t ex så kan du göra din webbläsares fönster mindre)."
-        custom_color1_instructions_text: "Du kan ändra huvudfärgen på användargränssnittet genom att skriva in ett hex-värde. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjälpa dig att välja en färg och kopiera koden här."
+        custom_color1_instructions_text: "Du kan ändra huvudfärgen på användargränssnittet genom att skriva in ett hex-värde. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan hjälpa dig att välja en färg och du kan sendan kopiera koden här."
         new_listing_button_instructions_text: "Du kan ändra färgen på \"Skapa ny annons\" knappen genom att sätta in ett hex färgvärde. %{link_to_colorpicker} kan hjälpa dig att välja färg och ge dig hexvärdet. Du kan sedan kopiera koden hit."
         default_browse_view: "Standard bläddervy"
         default_browse_view_instructions_text: "Standard visningsläge används på startsidan för att se hur annonserna visas som standard."
@@ -225,8 +225,8 @@ sv:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
-        automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som klar %{days_dropdown} dagar efter att betalningen gjorts"
-        automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till säljarna fördröjd tills förfrågan har marketats som klar. %{learn_more}"
+        automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen gjorts"
+        automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till säljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -322,6 +322,7 @@ sv:
           initiated_by: Startar
           other_party: Motpart
         status:
+          conversation: ~
           free: Konversation
           pending: Väntar
           preauthorized: Auktoriserad
@@ -357,6 +358,17 @@ sv:
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
         not_available: "Inte tillgänglig"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -738,11 +750,11 @@ sv:
       shipping_price_label: "Frakt:"
       stripe-fee_label: Betalningshanteringsavgift
     confirm:
-      confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som klar. Då kan du ge din feedback till den andra parten."
-      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"hände inte\". Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
+      confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som slutförd. Då kan du ge din feedback till den andra parten."
+      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"Avbryten\" och kontakta den andra partern. Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
       cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
       canceling_payed_transaction: "Avbryt transaktion"
-      confirm: "Markera klar"
+      confirm: "Markera som slutförd"
       cancel: Avbryt
       continue: Forsätt
       give_feedback_to: "Lämna feedback till %{person_link}"
@@ -762,8 +774,8 @@ sv:
       accepted_offer: "Erbjudande accepterades."
       rejected_request: "Förfrågan avslagen."
       rejected_offer: "Erbjudande nekades."
-      confirmed_request: "Förfrågan klar."
-      confirmed_offer: "Erbjudande klar."
+      confirmed_request: "Förfrågan är slutförd"
+      confirmed_offer: "Erbjudandet avslutat."
       canceled_request: "Förfrågan avbruten."
       canceled_offer: "Erbjudande avbrutet."
       message_from: "Meddelande från %{person}"
@@ -776,8 +788,8 @@ sv:
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan"
       rejected_offer: "avslagit erbjudandet"
-      confirmed_request: "Markerat förfrågan som klar"
-      confirmed_offer: "markerat erbjudandet som klar"
+      confirmed_request: "markerat förfrågan som slutförd"
+      confirmed_offer: "markerat erbjudandet som avklarat"
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
@@ -819,7 +831,7 @@ sv:
       offer_accepted: Godkänt
       offer_rejected: Avslagen
       offer_canceled: Avbruten
-      offer_confirmed: Klar
+      offer_confirmed: Slutfört
       offer_paid: "Betalning lyckad"
       offer_preauthorized: "Betalning lyckad"
       offer_waiting_for_payment: "Väntar på att %{requester_name} ska betala"
@@ -835,7 +847,7 @@ sv:
       waiting_for_listing_author_to_deliver_listing: "Väntar på att %{listing_author_name} ska skicka %{listing_title}"
       request_accepted: Godkänt
       request_rejected: Avslagen
-      request_confirmed: Klar
+      request_confirmed: Slutfört
       request_canceled: Avbruten
       request_paid: "Betalning lyckad"
       request_preauthorized: "Betalning lyckad"
@@ -843,8 +855,8 @@ sv:
       waiting_for_listing_author_to_accept_offer: "Väntar på att %{listing_author_name} ska acceptera erbjudandet"
       waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan. Så snart %{listing_author_name} accepterar så kommer du att bli debiterad."
       waiting_for_you_to_accept_request: "Väntar på att du ska acceptera förfrågan"
-      waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan klar"
-      waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som klar"
+      waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan slutförd"
+      waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som slutförd"
       waiting_payment_from_requester: "Väntar på att %{requester_name} ska betala"
       waiting_payment_from_you: "Väntar på att du ska betala"
       waiting_feedback_from_you: "Väntar på att du ska ge feedback"
@@ -863,7 +875,7 @@ sv:
       accept_preauthorized_request: "Acceptera förfrågan"
       reject_preauthorized_offer: "Inte den här gången"
       reject_preauthorized_request: "Inte den här gången"
-      confirm: "Markera klar"
+      confirm: "Markera slutförd"
       cancel: Avbryt
   feedback:
     feedback_subject: "Ny feedback från %{service_name}"
@@ -905,11 +917,11 @@ sv:
       create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du har inte än bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är klar så måste du bekräfta det. Efter det så kan du lämna feedback till %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Du har inte ännu bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är uppfylld så måste du bekräfta den. Efter det så kan du lämna feedback till %{other_party_given_name}."
       remember_to_confirm_request: "Kom ihåg att godkänna eller avbryta din förfrågan"
-      if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte skulle bli klar för någon anledning så kan du %{cancel_it_link}."
+      if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte kommer uppfyllas för någon anledning så kan du %{cancel_it_link}."
       cancel_it_link_text: "avbryt den"
-      automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan var accepterad så kommer den automatiskt markeras som klar."
+      automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan var accepterad så kommer den automatiskt markeras som slutförd."
     payment_settings_reminder:
       remember_to_add_payment_details: "Kom ihåg att ange betalningsdetaljer för att få betalt."
       you_have_added_listing_with_payment: "Du har skapat annons %{listing_link} med betalning. Men du har inte angett dina betalningsdetaljer. För att du ska kunna få betalt så måste du lägga till betalningsinformationen."
@@ -917,18 +929,18 @@ sv:
       payment_settings_link: betalningsinställningar
     transaction_confirmed:
       here_is_a_message_from: "Här är ett meddelande från %{other_party_given_name}:"
-      request_marked_as_confirmed: "Förfrågan klar - kom ihåg att ge feedback"
+      request_marked_as_confirmed: "Förfrågan slutförd - kom ihåg att ge feedback"
       request_marked_as_canceled: "Förfrågan avbruten"
-      has_marked_request_as_confirmed: "%{other_party_full_name} har markerat denna förfrågan om %{request} som klar. Du kan nu ge feedback till %{other_party_given_name}."
+      has_marked_request_as_confirmed: "%{other_party_full_name} har markerat denna förfrågan om %{request} som slutförd. Du kan nu ge feedback till %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutit förfrågan om %{request}. Du kan fortfarande ge feedback till %{other_party_given_name}."
       giving_feedback_is_good_idea: "Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
     transaction_automatically_confirmed:
-      subject: "Förfrågan är klar - kom ihåg att ge feedback"
-      we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} klar. Förfrågan blev automatisk klar eftersom %{days_passed} har passerat sedan förfrågan accepterades."
+      subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
+      we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
     booking_transaction_automatically_confirmed:
-      subject: "Förfrågan är klar - kom ihåg att ge feedback"
-      we_have_marked_request_as_confirmed: "Du har markerat förfrågan om %{request} som klar. Förfrågan blev automatiskt klar eftersom en dag har passerat sen bokningsperioden slutade."
+      subject: "Förfrågan var automatiskt markerad som slutförd - kom ihåg att ge feedback"
+      we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatiskt markerad som slutförd eftersom en dag har passerat sen bokningsperioden slutade."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
@@ -963,7 +975,7 @@ sv:
       your_request_was_rejected: "Din förfrågan avslogs"
       you_can_now_pay_to: "Du kan nu betala det begärda beloppet till %{payment_receiver}."
       pay_now: "Betala nu"
-      remember_to_confirm: "När förfrågan är uppfylld, kom ihåg att markera den som klar. Om förfrågan inte är uppfylld så har du %{days_to_automatic_confirmation} dagar som du kan avbryta den. Annars vill den automatiskt markeras som klar."
+      remember_to_confirm: "När förfrågan är uppfylld, kom ihåg att markera den som slutförd. Om förfrågan inte är uppfylld så har du %{days_to_automatic_confirmation} dagar på dig att avbryta den. Annars kommer den att automatiskt markeras som slutförd."
     invitation_to_kassi:
       hi: Hej!
       you_have_been_invited_to_kassi: "%{inviter} har bjudit in dig till %{service_name}."
@@ -1009,7 +1021,7 @@ sv:
       service_fee: Serviceavgift
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
-      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som klar eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
+      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     paypal_new_payment:
       paypal_gateway_fee: "PayPals avgift:"
       shipping_total: "Frakt:"
@@ -1031,7 +1043,7 @@ sv:
       service_fee: Serviceavgift
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
-      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som klar eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
+      money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
@@ -1279,7 +1291,7 @@ sv:
       this_article_link: "denna artikel"
       invitation_emails_field_placeholder: "kompis1@exempel.com, kompis2@exempel.com, ..."
       invitation_message_field_placeholder: "Jag gick med denna fantastiska marknadsplats. Det borde du också göra!"
-      errors_in_emails: "Kontrollera att e-postadresserna som du la till är giltiga. Om du la till flera adresser, kontrollera så att de är separerade med kommatecken."
+      errors_in_emails: "Kontrollera att e-postadresserna som du lade till är giltiga och inte innehåller några otillåtna tecken. Om du lade till flera adresser, kontrollera så att de är separerade med kommatecken."
     list_item:
       review: granska
       reviews: recensioner
@@ -1435,7 +1447,7 @@ sv:
       news_item_updated: "Artikel uppdaterad"
       news_item_deleted: "Artikel borttagen"
       offer_accepted: "Erbjudande accepterades"
-      offer_confirmed: "Erbjudande bekräftat"
+      offer_confirmed: "Erbjudandet bekräftat"
       offer_closed: "Erbjudande stängt"
       listing_created_successfully: "Annonsen skapades. %{new_listing_link}."
       offer_rejected: "Erbjudandet nekades"
@@ -1467,7 +1479,7 @@ sv:
       reply_cannot_be_empty: "Du kan inte skicka ett tomt meddelande"
       reply_sent: "Svar skickades"
       request_accepted: "Förfrågan accepterad"
-      request_confirmed: "Förfrågan klar"
+      request_confirmed: "Förfrågan slutförd"
       request_rejected: "Förfrågan avslagen"
       request_canceled: "Förfrågan avbruten"
       message_sent: "Meddelande skickat"
@@ -1661,7 +1673,7 @@ sv:
       privacy:
         privacy: Sekretess
         private: "Privat (bara synlig för inloggade användare)"
-        public: "Publik (synlig för ej inloggade användare)"
+        public: "Publik (synlig för icke inloggade användare)"
     help_texts:
       help_share_type_title: "Typ av erbjudande eller förfrågan"
       help_tags_title: Taggar
@@ -2064,11 +2076,11 @@ sv:
         status_confirmed: Bekräftad
         status_pending: Väntar
     notifications:
-      email_from_admins: "Jag är villig att ta emot sporadiska uppdateringar från administratören."
+      email_from_admins: "Jag är villig att ta emot enstaka uppdateringar från administratören.n"
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: "Epost meddelanden från administratörer"
       community_updates: Nyhetsbrev
-      email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som avslutad"
+      email_about_confirm_reminders: "...jag har glömt att bekräfta en förfrågan som slutförd"
       email_about_new_comments_to_own_listing: "...någon kommenterar mitt erbjudande eller efterfrågan"
       email_about_new_messages: "...någon skickar mig ett meddelande"
       email_about_new_received_testimonials: "...någon ger mig feedback"
@@ -2078,7 +2090,7 @@ sv:
       do_not_email_community_updates: "Skicka mig inte nyhetsbrev"
       email_when_conversation_accepted: "...någon accepterar mitt erbjudande eller efterfrågan"
       email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller efterfrågan"
-      email_about_completed_transactions: "...när någon markerat mitt erbjudande som klar"
+      email_about_completed_transactions: "...någon markerar min förfrågan som slutförd"
       email_about_new_payments: "...jag har fått en ny betalning"
       email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
       unsubscribe_succesful: "Avprenumeration lyckades"

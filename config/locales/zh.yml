@@ -317,6 +317,7 @@ zh:
           initiated_by: 发起者
           other_party: 其他参与方
         status:
+          conversation: ~
           free: 会话
           pending: 待定
           preauthorized: 预授权的
@@ -352,6 +353,17 @@ zh:
             initiated: ~
             pending_ext: ~
         not_available: 无
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "编辑信息字段“%{field_name}”"

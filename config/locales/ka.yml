@@ -317,6 +317,7 @@ ka:
           initiated_by: დამწყები
           other_party: "სხვა მხარე"
         status:
+          conversation: ~
           free: მიმოწერა
           pending: "მოლოდინის რეჟიმში"
           preauthorized: "პრე ავტორიზებული"
@@ -352,6 +353,17 @@ ka:
             initiated: ~
             pending_ext: ~
         not_available: "არ არის ხელმისაწვდომი"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "დაარედაქტირე ჩამონათვალის დარგი %{field_name}"

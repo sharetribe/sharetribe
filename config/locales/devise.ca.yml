@@ -3,55 +3,55 @@ ca:
     messages:
       expired: "ha caducat, demana'n un de nou"
       not_found: "no s'ha trobat"
-      already_confirmed: "ja està confirmat"
-      not_locked: "no està bloquejat"
+      already_confirmed: "ja estava confirmat, intenta iniciar la sessió"
+      not_locked: "no estava bloquejat"
       not_saved:
-        one: "1 error ha evitat que %{resource} es pugui desar:"
-        other: "%{count} errors han evitat que %{resource} es pugui desar:"
+        one: "1 error ha impedit que es desi aquest(a) %{resource}:"
+        other: "%{count} errors han impedit desar %{resource}:"
   devise:
     failure:
-      already_authenticated: "Ja estàs identificat."
-      unauthenticated: "Has d'iniciar sessió o bé registrar-te abans de continuar."
+      already_authenticated: "Ja estàs connectat."
+      unauthenticated: "Has d'iniciar una sessió o bé registrar-te abans de continuar."
       unconfirmed: "Has de confirmar el teu compte abans de continuar."
       locked: "El teu compte està bloquejat."
-      invalid: "Correu electrònic o contrasenya invàlids."
+      invalid: "Correu electrònic o contrasenya invàlid."
       invalid_token: "Codi d'autenticació invàlid."
-      timeout: "La teva sessió ha caducat. Si us plau, torna a iniciar sessió per a continuar."
-      inactive: "El teu compte encara no ha estat activat."
+      timeout: "La teva sessió ha caducat. Si us plau, torna a iniciar una sessió per continuar."
+      inactive: "El teu compte encara no està activat."
     passwords:
       updated_not_active: "La teva contrasenya ha estat canviada correctament."
-      send_paranoid_instructions: "Si la teva adreça electrònica existeix a la base de dades, rebràs un correu electrònic amb un enllaç per reestablir la contrasenya."
-      send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya."
+      send_paranoid_instructions: "Si la teva adreça electrònica existeix en la nostra base de dades, rebràs un correu electrònic amb un enllaç per reestablir la contrasenya."
+      send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com reinicialitzar la teva contrasenya."
       updated: "La teva contrasenya ha estat canviada correctament. S'ha iniciat la sessió."
     sessions:
       signed_in: "Sessió iniciada correctament."
       signed_out: "Sessió tancada correctament."
     confirmations:
-      send_paranoid_instructions: "Si la teva adreça electrònica existeix a la base de dades, rebràs un correu electrònic amb instruccions sobre com confirmar el teu compte."
+      send_paranoid_instructions: "Si la teva adreça electrònica existeix en la base de dades, rebràs un correu electrònic amb instruccions sobre com confirmar el teu compte."
       send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com confirmar el teu compte."
-      confirmed: "El teu compte ha estat confirmat correctament.  S'ha iniciat la sessió."
+      confirmed: "El teu compte s'ha confirmat correctament."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Un missatge amb un enllaç de confirmació s'ha enviat al teu correu electrònic. Si us plau, segueix l'enllaç per activar el teu compte."
+      signed_up_but_inactive: "T'has registrat amb èxit però no s'ha iniciat la sessió perquè el teu compte encara no està activat."
+      signed_up_but_locked: "T'has registrat amb èxit però no s'ha iniciat la sessió perquè el teu compte està bloquejat."
       reasons:
         inactive: inactiu
-        unconfirmed: "no confirmat"
+        unconfirmed: "sense confirmar"
         locked: bloquejat
-      update_needs_confirmation: ~
-      signed_up: "Has estat registrat correctament."
+      update_needs_confirmation: "Has actualitzat el teu compte correctament, però has de comprovar la teva nova direcció de correu electrònic. Si us plau, consulta el teu correu i segueix l'enllaç per acabar de confirmar-la."
+      signed_up: "Benvingut! T'has registrat correctament."
       updated: "Has actualitzat el teu compte correctament."
-      destroyed: "Adéu! El teu compte ha estat cancel·lat correctament. Esperem tornar-te a veure!"
+      destroyed: "Adéu! El teu compte ha estat cancel·lat correctament. Esperem tornar a veure't aviat!"
     unlocks:
-      send_paranoid_instructions: "Si el teu compte existeix, rebràs un correu electrònic amb instruccions sobre com desbloquejar-lo."
+      send_paranoid_instructions: "Si el teu compte existeix, en breu rebràs un correu electrònic amb instruccions sobre com desbloquejar-lo."
       send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com desbloquejar el teu compte."
-      unlocked: "El teu compte ha estat desbloquejat correctament. S'ha iniciat la sessió."
+      unlocked: "El teu compte ha estat desbloquejat correctament. Si us plau, inicia la sessió per continuar."
     omniauth_callbacks:
-      success: "Autoritzat satisfactoriament el compte des de %{kind}."
+      success: "Autoritzat satisfactòriament des del compte %{kind}."
       failure: "No hem pogut autoritzar el compte des de %{kind} perquè \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Instruccions de confirmació"
+        subject: "Instruccions de confirmació per unir-se a %{service_name}."
       reset_password_instructions:
         subject: "Instruccions de regeneració de contrasenya"
       unlock_instructions:

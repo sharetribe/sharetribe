@@ -322,6 +322,7 @@ da-DK:
           initiated_by: Starter
           other_party: "Tredje part"
         status:
+          conversation: ~
           free: ~
           pending: Venter
           preauthorized: Preauthorized
@@ -357,6 +358,17 @@ da-DK:
             initiated: ~
             pending_ext: ~
         not_available: "Ikke tilgængelig"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annoncefelt '%{field_name}'"

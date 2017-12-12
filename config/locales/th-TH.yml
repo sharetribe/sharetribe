@@ -317,6 +317,7 @@ th-TH:
           initiated_by: ตัวเริ่ม
           other_party: กลุ่มอื่น
         status:
+          conversation: ~
           free: การสนทนา
           pending: กำลังรอดำเนินการ
           preauthorized: ให้อนุญาตมาก่อนแล้ว
@@ -352,6 +353,17 @@ th-TH:
             initiated: ~
             pending_ext: ~
         not_available: ~
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "แก้ไขข้อมูลรายการ '%{field_name}'"

@@ -324,6 +324,7 @@ nl:
           initiated_by: Door
           other_party: "Andere partij"
         status:
+          conversation: ~
           free: Conversatie
           pending: Hangende
           preauthorized: "Vooraf geauthoriseerd"
@@ -359,6 +360,17 @@ nl:
             initiated: "In afwachting van Stripe betaling"
             pending_ext: "In afwachting van Stripe betaling"
         not_available: "Niet beschikbaar"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"

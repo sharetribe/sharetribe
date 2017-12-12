@@ -8,38 +8,48 @@ ko:
   admin:
     categories:
       edit:
-        edit_listing_category: ~
+        edit_listing_category: "분류 '%{category}' 편집"
       index:
-        listing_categories: ~
-        create_a_new_category: ~
-        remove_category_confirmation: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
+        listing_categories: "목록 분류"
+        create_a_new_category: "+ 새로운 분류 추가"
+        remove_category_confirmation: "분류 '%{category_name}'을/를 정말로 삭제하시겠습니까?"
+        saving_order: "분류 순서 저장"
+        save_order_successful: "분류 순서가 저장되었습니다."
+        save_order_error: "분류 순서 저장 중 오류가 발생하였습니다. 페이지를 새로고침하신 후에 다시 시도하세요."
       new:
-        new_listing_category: ~
+        new_listing_category: "새로운 분류"
       form:
         category_name:
-          category_title: ~
+          category_title: "분류 이름"
         category_parent:
-          category_parent: ~
-          no_parent: ~
+          category_parent: "상위 분류"
+          no_parent: "상위 분류 없음"
         category_transaction_types:
-          transaction_types: ~
-          transaction_types_description: ~
+          transaction_types: "구매 종류"
+          transaction_types_description: "구매 종류는 이 분류의 목록들이 어떤 구매 절차를 따를 것인지 정합니다. 예를 들면, 판매만인지 아니면 대여 포함인지."
           select_all: ~
           clear_all: ~
         buttons:
-          save: ~
-          cancel: ~
+          save: 저장
+          cancel: 취소
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
-        select_new_category: ~
+        remove_category: "분류 삭제"
+        remove_category_name: "분류 '%{category_name}' 삭제"
+        warning_remove_effects: "주의: 분류 '%{category_name}'를 삭제하시면 다음과 같은 영향이 있습니다:"
+        warning_listing_will_be_moved:
+          other: "해당 분류에 %{count}개의 목록이 있습니다. 해당 목록은 선택하신 분류로 옮겨집니다."
+        warning_custom_field_will_be_moved:
+          other: "해당 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
+        warning_subcategory_will_be_removed:
+          other: "해당 분류에 %{count}개의 하위 분류가 있습니다. 해당 하위 분류도 삭제됩니다."
+        warning_with_subcategories_listing_will_be_moved:
+          other: "해당 분류와 하위 분류에 %{count}개의 목록이 있습니다. 해당 목록은 선택하신 분류로 옮겨집니다."
+        warning_with_subcategories_custom_field_will_be_moved:
+          other: "해당 분류와 하위 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
+        select_new_category: "옮겨질 새로운 분류를 선택하세요:"
         buttons:
-          remove: ~
-          cancel: ~
+          remove: 삭제
+          cancel: 취소
     communities:
       edit_details:
         community_details: "기본 정보"
@@ -50,21 +60,21 @@ ko:
         default_language: ~
         language_selection_disabled: ~
         community_name: "마켓플레이스 이름"
-        edit_community_name_description: ~
+        edit_community_name_description: "마켓플레이스 이름입니다. 이메일 및 다양한 페이지에서 사용자에게 보여집니다."
         community_slogan: "마켓플레이스 슬로건"
-        edit_community_slogan_description: ~
+        edit_community_slogan_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
         community_description: "마켓플레이스 설명"
-        edit_community_description_description: ~
+        edit_community_description_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
-        edit_private_community_homepage_content_description: ~
+        private_community_homepage_content: "개인 마켓플레이스 홈페이지 컨텐츠"
+        edit_private_community_homepage_content_description: "이 컨텐츠는 개인 마켓플레이스에 로그인하지 않은 사용자에게 보여집니다. 당신의 마켓플레이스 및 가입 절차를 설명하실 수 있습니다. 이미지, 비디오, HTML 등의 컨턴츠를 추가하실 수 있습니다. %{see_how_it_looks_like}."
         update_information: "설정 저장"
         invite_people: "%{service_name}로 친구 초대"
         edit_signup_info: "등록 정보"
         edit_signup_info_description: "사용자가 신규 가입할 때 보여지는 내용입니다. 사용자에게 가입 안내와 초청장을 어디서 받을 수 있는가와 같은 정보를 제공합니다. 기본 설정에는 가입 안내가 제공되지 않습니다."
-        edit_info: ~
-        see_how_it_looks_like: ~
+        edit_info: "정보 변경"
+        see_how_it_looks_like: 미리보기
         verification_to_post_listings_info_content: ~
         verification_to_post_listings_info_content_description: ~
         verification_to_post_listings_info_content_default: ~
@@ -94,11 +104,11 @@ ko:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지에 나타납니다."
         cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
-        small_cover_photo_visibility: ~
-        small_cover_photo_instructions_text_with_dimensions: ~
-        main_content_width: ~
+        small_cover_photo_visibility: "작은 표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지 이외의 모든 페이지에 나타납니다."
+        small_cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다."
+        main_content_width: "표지 사진은 가로 최대 %{main_width} 픽셀까지 허용됩니다. 또한, 작은 화면에서 표지 사진이 어떻게 보여지는지 확인하세요 (브라우저 창의 크기를 줄여서 확인 가능합니다)."
         custom_color1_instructions_text: "사용자 인터페이스의 메인 컬러를 컬러 코드를 입력하여 변경하실 수 있습니다. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>에서 컬러 코드를 확인하신 후 코드를 복사하여 사용하세요."
         new_listing_button_instructions_text: ~
         default_browse_view: ~
@@ -307,6 +317,7 @@ ko:
           initiated_by: ~
           other_party: ~
         status:
+          conversation: ~
           free: ~
           pending: ~
           preauthorized: ~
@@ -342,9 +353,20 @@ ko:
             initiated: ~
             pending_ext: ~
         not_available: ~
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
-        edit_listing_field: ~
+        edit_listing_field: "항목 '%{field_name}' 편집"
       edit_price:
         description: ~
         edit_price_field: ~
@@ -359,40 +381,40 @@ ko:
         enable: ~
       form:
         field_required:
-          this_field_is_required: ~
+          this_field_is_required: "새로운 목록 작성 시 필수 입력 항목으로 지정"
           this_field_is_required_checkbox: ~
         search_filter:
           search_filter: ~
           date_cant_be_filtered: ~
           text_cant_be_filtered: ~
       index:
-        listing_fields: ~
+        listing_fields: "목록의 항목과 검색조건 설정"
         listing_fields_help: ~
-        add_new_field: ~
-        remove_field_confirmation: ~
-        cancel: ~
-        save: ~
-        field_title: ~
-        field_type: ~
-        categories: ~
+        add_new_field: "새로운 항목 추가"
+        remove_field_confirmation: "항목 %{field_name}을/를 정말 삭제하시겠습니까?"
+        cancel: 취소
+        save: 저장
+        field_title: "항목 이름"
+        field_type: "항목 종류"
+        categories: "해당 항목이 사용되는 목록의 분류"
         select_all: ~
         clear_all: ~
         options: ~
-        add_option: ~
-        saving_order: ~
-        save_order_successful: ~
-        save_order_error: ~
-        select_one: ~
-        continue: ~
+        add_option: "+ 옵션 추가"
+        saving_order: "항목 순서 저장"
+        save_order_successful: "항목 순서를  저장하였습니다."
+        save_order_error: "항목 순서 저장 중 오류가 발생하였습니다. 페이지를 새로고침하신 후에 다시 시도하세요."
+        select_one: "항목 유형 선택"
+        continue: 계속하기
         minimum_value: ~
         maximum_value: ~
         allow_decimals: ~
       new:
-        new_listing_field: ~
+        new_listing_field: "새로운 항목"
       field_types:
         text: ~
         number: ~
-        dropdown: ~
+        dropdown: 드롭다운
         checkbox_group: ~
         date: ~
     emails:
@@ -592,15 +614,15 @@ ko:
         actions: ~
         payments_not_enabled: ~
     transaction_types:
-      sell: ~
-      rent: ~
-      give: ~
-      lend: ~
-      swap: ~
-      service: ~
-      request: ~
+      sell: 판매
+      rent: 대여
+      give: 증정
+      lend: 대여
+      swap: 교환
+      service: 제안
+      request: 요청
       inquiry: ~
-      share_for_free: ~
+      share_for_free: "무료 공유"
       default_action_button_labels:
         sell: ~
         rent: ~

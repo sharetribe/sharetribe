@@ -317,6 +317,7 @@ vi:
           initiated_by: "Người khởi xướng"
           other_party: "Bên thứ 3"
         status:
+          conversation: ~
           free: ~
           pending: "Đang chờ xử lý"
           preauthorized: "Được phép"
@@ -352,6 +353,17 @@ vi:
             initiated: "Đang chờ thanh toán Stripe"
             pending_ext: "Đang chờ thanh toán Stripe"
         not_available: "Lịch bận"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"

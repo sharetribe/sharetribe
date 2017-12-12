@@ -322,6 +322,7 @@ nb:
           initiated_by: "Startet av"
           other_party: "Andre part"
         status:
+          conversation: ~
           free: Samtale
           pending: Venter
           preauthorized: Forhåndsautorisert
@@ -357,6 +358,17 @@ nb:
             initiated: ~
             pending_ext: ~
         not_available: "Ikke tilgjengelig"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annonse felt'%{field_name}'"

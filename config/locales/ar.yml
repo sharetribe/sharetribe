@@ -307,6 +307,7 @@ ar:
           initiated_by: البداية
           other_party: "جهة أخرى"
         status:
+          conversation: محادثه
           free: محادثة
           pending: "قيد الإنتظار"
           preauthorized: مخول
@@ -342,6 +343,17 @@ ar:
             initiated: "انتظار دفع سترب"
             pending_ext: "انتظار دفع سترب"
         not_available: "غير متوفر"
+      conversations:
+        conversations: "أظهر المحادثات"
+        headers:
+          started_from: "بدأت من"
+          status: الحاله
+          started: بدأت
+          last_activity: "آخر نشاط"
+          initiated_by: البداية
+          other_party: "الجهة الأخرى"
+        participants: "‎%{author}‎ مع ‎%{starter}‎ :المحادثه"
+        profile: "الشخصي ‎%{author}‎‎ ملف"
     custom_fields:
       edit:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"

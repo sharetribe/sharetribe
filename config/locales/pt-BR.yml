@@ -322,6 +322,7 @@ pt-BR:
           initiated_by: Iniciante
           other_party: "Outra parte"
         status:
+          conversation: ~
           free: "Mensagem livre"
           pending: Pendente
           preauthorized: "Pagamento efetuado com sucesso"
@@ -357,6 +358,17 @@ pt-BR:
             initiated: ~
             pending_ext: ~
         not_available: Indisponível
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
