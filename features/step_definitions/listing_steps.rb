@@ -212,3 +212,10 @@ Given(/^that listing has default working hours$/) do
   @listing.save
 end
 
+Given(/^that listing have booking at "(.*?)" from "(.*?)" till "(.*?)"$/) do |date, from, till|
+  start_time = "#{date} #{from}"
+  end_time = "#{date} #{till}"
+  community = Community.find(@listing.community_id)
+  transaction = FactoryGirl.create(:transaction, community: community, listing: @listing, current_state: 'paid')
+  FactoryGirl.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
+end
