@@ -330,7 +330,7 @@ module MarketplaceService
           # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
           LEFT JOIN conversations ON transactions.conversation_id = conversations.id
           WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
-            AND conversations.starting_page = '#{::Conversation::PAYMENT}' OR conversations.starting_page IS NULL
+            AND (conversations.starting_page = '#{::Conversation::PAYMENT}' OR conversations.starting_page IS NULL)
           ORDER BY
             GREATEST(COALESCE(transactions.last_transition_at, 0),
               COALESCE(conversations.last_message_at, 0)) #{sort_direction}
