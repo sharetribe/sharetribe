@@ -425,4 +425,20 @@ FactoryGirl.define do
     build_association(:community)
     email 'sherry@example.com'
   end
+
+  factory :paypal_ipn_message do
+    body       {}
+    status     nil
+  end
+
+  factory :paypal_payment do
+    community_id      123
+    transaction_id    321
+    payer_id          'ABC'
+    receiver_id       'DEF'
+    merchant_id       'ZZZ'
+    currency          'EUR'
+    payment_status    'pending'
+    commission_status 'pending'
+  end
 end

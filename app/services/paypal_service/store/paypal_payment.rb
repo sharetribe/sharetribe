@@ -124,13 +124,18 @@ module PaypalService::Store::PaypalPayment
   end
 
   def find_payment(opts)
-    PaypalPaymentModel.where(
-      "(community_id = ? and transaction_id = ?) or authorization_id = ? or order_id = ?",
-      opts[:community_id],
-      opts[:transaction_id],
-      opts[:authorization_id],
-      opts[:order_id]
-    ).first
+    commission_payment_id = opts[:data].try(:[], :commission_payment_id)
+    if commission_payment_id
+      PaypalPaymentModel.where(commission_payment_id: commission_payment_id).first
+    else
+      PaypalPaymentModel.where(
+        "(community_id = ? and transaction_id = ?) or authorization_id = ? or order_id = ?",
+        opts[:community_id],
+        opts[:transaction_id],
+        opts[:authorization_id],
+        opts[:order_id]
+      ).first
+    end
   end
 
   def data_changed?(old_data, new_data)

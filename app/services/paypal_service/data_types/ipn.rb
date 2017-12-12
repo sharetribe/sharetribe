@@ -158,6 +158,15 @@ module PaypalService
         [:invnum, :string, :mandatory]
         )
 
+      CommissionDenied = EntityUtils.define_builder(
+        [:type, const_value: :commission_denied],
+        [:commission_status, :string, :mandatory],
+        [:commission_payment_id, :string, :mandatory],
+        [:commission_total, :money, :mandatory],
+        [:commission_fee_total, :money, :mandatory],
+        [:invnum, :string, :mandatory]
+        )
+
       CommissionPendingExt = EntityUtils.define_builder(
         [:type, const_value: :commission_pending_ext],
         [:commission_status, :string, :mandatory],
@@ -181,6 +190,7 @@ module PaypalService
       def create_payment_voided(opts); PaymentVoided.call(opts) end
       def create_payment_denied(opts); PaymentDenied.call(opts) end
       def create_commission_paid(opts); CommissionPaid.call(opts) end
+      def create_commission_denied(opts); CommissionDenied.call(opts) end
       def create_commission_pending_ext(opts); CommissionPendingExt.call(opts) end
 
       def from_params(params)
@@ -200,6 +210,8 @@ module PaypalService
           to_commission_pending_ext(p)
         when :commission_paid
           to_commission_paid(p)
+        when :commission_denied
+          to_commission_denied(p)
         when :payment_completed
           to_payment_completed(p)
         when :payment_refunded
@@ -250,6 +262,8 @@ module PaypalService
           return :payment_refunded
         elsif status == "voided"
           return :payment_voided
+        elsif status == "denied" && inv_type == :commission
+          return :commission_denied
         elsif status == "denied"
           return :payment_denied
         else
@@ -423,6 +437,25 @@ module PaypalService
           }))
       end
       private_class_method :to_commission_paid
+
+      def to_commission_denied(params)
+        p = HashUtils.rename_keys(
+          {
+            invoice: :invnum,
+            txn_id: :commission_payment_id,
+            payment_status: :commission_status
+          },
+          params
+        )
+
+        mc_fee = params[:mc_fee] ? params[:mc_fee] : 0
+        create_commission_denied(
+          p.merge({
+            commission_total: to_money(params[:mc_gross], params[:mc_currency]),
+            commission_fee_total: to_money(mc_fee, params[:mc_currency])
+          }))
+      end
+      private_class_method :to_commission_denied
 
       def to_commission_pending_ext(params)
         p = HashUtils.rename_keys(
