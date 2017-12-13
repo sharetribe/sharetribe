@@ -125,16 +125,16 @@ module PaypalService::Store::PaypalPayment
 
   def find_payment(opts)
     commission_payment_id = opts[:data].try(:[], :commission_payment_id)
-    if commission_payment_id
+    payment_id = opts[:data].try(:[], :payment_id)
+    if opts[:community_id] && opts[:transaction_id]
+      PaypalPaymentModel.where(community_id: opts[:community_id], transaction_id: opts[:transaction_id]).first
+    elsif opts[:authorization_id] || opts[:order_id]
+      PaypalPaymentModel.where(authorization_id: opts[:authorization_id]).or(
+        PaypalPaymentModel.where(order_id: opts[:order_id])).first
+    elsif payment_id
+      PaypalPaymentModel.where(payment_id: payment_id).first
+    elsif commission_payment_id
       PaypalPaymentModel.where(commission_payment_id: commission_payment_id).first
-    else
-      PaypalPaymentModel.where(
-        "(community_id = ? and transaction_id = ?) or authorization_id = ? or order_id = ?",
-        opts[:community_id],
-        opts[:transaction_id],
-        opts[:authorization_id],
-        opts[:order_id]
-      ).first
     end
   end
 
@@ -155,12 +155,17 @@ module PaypalService::Store::PaypalPayment
     InitialPaymentData.call(order.merge(total))
   end
 
-  def create_payment_update(update, current_state)
+  def create_payment_update(payment, update, current_state)
     cent_totals = [:order_total, :authorization_total, :fee_total, :payment_total, :commission_total, :commission_fee_total]
       .reduce({}) do |cent_totals, m_key|
       m = update[m_key]
       cent_totals["#{m_key}_cents".to_sym] = m.cents unless m.nil?
       cent_totals
+    end
+
+    adjustment_total = update[:adjustment_total]
+    if adjustment_total && payment.payment_total.currency == adjustment_total.currency
+      cent_totals[:payment_total_cents] = (payment.payment_total + adjustment_total).cents
     end
 
     payment_update = {}
@@ -206,7 +211,7 @@ module PaypalService::Store::PaypalPayment
 
   def update_payment!(payment, data)
     current_state = to_state(payment.payment_status.to_sym, payment.pending_reason.to_sym)
-    payment_update = create_payment_update(data, current_state)
+    payment_update = create_payment_update(payment, data, current_state)
 
     if payment.nil?
       raise ArgumentError.new("No matching payment to update.")

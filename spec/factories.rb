@@ -427,7 +427,7 @@ FactoryGirl.define do
   end
 
   factory :paypal_ipn_message do
-    body       {}
+    body       { { abc: 123 } }
     status     nil
   end
 

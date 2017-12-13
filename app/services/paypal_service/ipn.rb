@@ -18,7 +18,8 @@ module PaypalService
       :payment_denied,
       :commission_paid,
       :commission_denied,
-      :commission_pending_ext
+      :commission_pending_ext,
+      :payment_adjustment
     ]
 
     def handle_msg(ipn_msg)

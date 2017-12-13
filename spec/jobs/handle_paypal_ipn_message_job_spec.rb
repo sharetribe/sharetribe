@@ -11,7 +11,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
   let(:transaction) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
 
   context '#perform' do
-    it 'performs errored IPN message - commission denied' do
+    it 'IPN message - commission denied' do
       body = {
         "mp_custom"=>"",
         "mc_gross"=>"50",
@@ -72,6 +72,49 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
       paypal_payment.reload
       expect(paypal_payment.payment_status).to eq 'completed'
       expect(paypal_payment.commission_status).to eq 'denied'
+    end
+
+    it 'IPN message - adjustment' do
+      body = {
+        "txn_type"=>"adjustment",
+        "payment_date"=>"22:41:28 Nov 20, 2017 PST",
+        "payment_gross"=>"-400.00",
+        "mc_currency"=>"USD",
+        "verify_sign"=>"Asm02AZo2GgXAq5vuJQw4xf2prDoA1AFaUqo9ytiIepWaLb.XyPciM1q",
+        "payer_status"=>"verified",
+        "payer_email"=>"thesubmarine@example.com",
+        "txn_id"=>"4JJ10040D4671ZZZZ",
+        "parent_txn_id"=>"1SS87354FT252ZZZZ",
+        "payer_id"=>"LCLFGUWLCZZZZ",
+        "invoice"=>"#{community.id}-#{transaction.id}-payment",
+        "reason_code"=>"chargeback_settlement",
+        "payment_status"=>"Completed",
+        "payment_fee"=>"-20.00",
+        "mc_gross"=>"-400.00",
+        "charset"=>"windows-1252",
+        "notify_version"=>"3.8",
+        "ipn_track_id"=>"efc01da41aaaa",
+        "controller"=>"paypal_ipn",
+        "action"=>"ipn_hook",
+      }
+      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
+      paypal_payment = FactoryGirl.create(:paypal_payment,
+                                          community_id: community.id,
+                                          transaction_id: transaction.id,
+                                          payment_status: 'completed',
+                                          pending_reason: 'none',
+                                          payment_id: body["parent_txn_id"],
+                                          currency: 'USD',
+                                          payment_total_cents: 40000,
+                                          fee_total_cents: 1190,
+                                          commission_status: 'completed',
+                                          commission_pending_reason: 'none',
+                                          commission_total_cents: 1200,
+                                          commission_fee_total_cents: 65)
+
+      HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform
+      paypal_payment.reload
+      expect(paypal_payment.payment_total.cents).to eq 0
     end
   end
 end
