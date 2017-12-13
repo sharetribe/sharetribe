@@ -80,7 +80,7 @@ namespace :sharetribe do
           if run?(definition, stage)
             puts "Running migration #{migration.version}"
 
-            ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, migration.version)
+            ActiveRecord::Migrator.up(ActiveRecord::Migrator.migrations_paths, migration.version)
           else
             puts "Automatic migration for #{stage} execution stage stopping at migration version #{migration.version}."
             break
