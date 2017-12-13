@@ -1892,7 +1892,7 @@ pt-BR:
     paypal_account_connected_title: "Conta PayPal conectada"
     paypal_account_connected: "A conta PayPal <%{email}> foi conectada com o %{service_name}."
     change_account: "Mudar conta"
-    missing: "Você têm anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
+    missing: "Você tem anúncios ativos mas não pode receber pagamentos porque sua conta no PayPal ainda não foi configurada. Por favor conecte sua conta do PayPal em %{settings_link}, você também também precisa dar permissão para que %{service_name} cobre taxa de transação."
     from_your_payment_settings_link_text: "configurações de pagamento"
     redirect_message: "Estamos redirecionando você para o PayPal. Se nada acontecer, clique %{redirect_link}"
     redirect_link_text: aqui
@@ -2349,7 +2349,7 @@ pt-BR:
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
-    missing_payment: ~
+    missing_payment: "Você tem anúncios ativos mas sua conta ainda não foi configurada para receber pagamentos. Para configurar o recebimento de pagamentos, visite %{settings_link}"
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~

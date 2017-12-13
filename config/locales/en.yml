@@ -323,7 +323,7 @@ en:
           other_party: "Other party"
         status:
           conversation: Conversation
-          free: Free transaction
+          free: "Free transaction"
           pending: Pending
           preauthorized: Preauthorized
           accepted: Accepted
@@ -334,7 +334,7 @@ en:
           initiated: "Waiting PayPal payment"
           pending_ext: "Waiting PayPal payment"
           none:
-            free: Free transaction
+            free: "Free transaction"
           paypal:
             free: Conversation
             pending: Pending
@@ -361,12 +361,12 @@ en:
       conversations:
         conversations: "View conversations"
         headers:
-          started_from: Started from
+          started_from: "Started from"
           status: Status
           started: Started
-          last_activity: Latest Activity
+          last_activity: "Latest Activity"
           initiated_by: Starter
-          other_party: Other party
+          other_party: "Other party"
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
     custom_fields:
