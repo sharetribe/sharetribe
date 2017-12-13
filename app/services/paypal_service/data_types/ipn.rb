@@ -256,14 +256,14 @@ module PaypalService
           return :payment_adjustment
         elsif status == "pending" && reason == "order"
           return :order_created
+        elsif status == "pending" && txn_type == "merch_pmt" && inv_type == :commission
+          return :commission_pending_ext
         elsif status == "pending" && (reason == "paymentreview" || reason == "payment-review")
           return :payment_review
         elsif status == "pending" && reason == "authorization"
           return :authorization_created
         elsif status == "expired"
           return :authorization_expired
-        elsif status == "pending" && txn_type == "merch_pmt"
-          return :commission_pending_ext
         elsif status == "pending"
           return :payment_pending_ext
         elsif status == "completed" && inv_type == :payment

@@ -116,5 +116,73 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
       paypal_payment.reload
       expect(paypal_payment.payment_total.cents).to eq 0
     end
+
+    it 'IPN message - commission pending' do
+      body = {
+        "mp_custom"=>"",
+        "mc_gross"=>"14.24",
+        "invoice"=>"#{community.id}-#{transaction.id}-commission",
+        "mp_currency"=>"EUR",
+        "protection_eligibility"=>"Ineligible",
+        "item_number1"=>"0",
+        "tax"=>"0.00",
+        "payer_id"=>"VRQ77S93WZZZZ",
+        "payment_date"=>"04:55:19 Nov 22, 2017 PST",
+        "mp_id"=>"B-92E30987Y6745ZZZZ",
+        "payment_status"=>"Pending",
+        "charset"=>"windows-1252",
+        "mc_shipping"=>"0.00",
+        "mc_handling"=>"0.00",
+        "first_name"=>"Christophe",
+        "mp_status"=>"0",
+        "mc_fee"=>"0.73",
+        "notify_version"=>"3.8",
+        "custom"=>"",
+        "payer_status"=>"unverified",
+        "business"=>"morgane.regnier@example.com",
+        "num_cart_items"=>"1",
+        "mc_handling1"=>"0.00",
+        "verify_sign"=>"AxGBlNtIj4ayGxxruDHIY.uLHHMXAyRZ-MtRqGDHKdl-ZMsWaxlb.qz0",
+        "payer_email"=>"contact@example.com",
+        "mc_shipping1"=>"0.00",
+        "tax1"=>"0.00",
+        "txn_id"=>"7B0631626J114ZZZZ",
+        "payment_type"=>"instant",
+        "payer_business_name"=>"chris-creation",
+        "last_name"=>"Boury",
+        "mp_desc"=>"Autoriser Experiences cours photo à prélever des frais de service.",
+        "item_name1"=>"Paiement des frais de service pour Cours Lightroom - les bases - Bordeaux ou en ligne",
+        "receiver_email"=>"morgane.regnier@photosqware.com",
+        "payment_fee"=>"",
+        "mp_cycle_start"=>"21",
+        "quantity1"=>"1",
+        "receiver_id"=>"K9D9EQZCWZZZZ",
+        "pending_reason"=>"paymentreview",
+        "txn_type"=>"merch_pmt",
+        "mc_gross_1"=>"14.24",
+        "mc_currency"=>"EUR",
+        "residence_country"=>"FR",
+        "transaction_subject"=>"La place de marché Experiences cours photo a prélevéces frais de service sur une transaction de Cours Lightroom - les bases",
+        "payment_gross"=>"",
+        "ipn_track_id"=>"84212dcfffff",
+        "controller"=>"paypal_ipn",
+        "action"=>"ipn_hook",
+      }
+      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
+      paypal_payment = FactoryGirl.create(:paypal_payment,
+                                          community_id: community.id,
+                                          transaction_id: transaction.id,
+                                          payment_status: 'completed',
+                                          pending_reason: 'none',
+                                          commission_payment_id: body["txn_id"],
+                                          commission_status: 'completed',
+                                          commission_pending_reason: 'none')
+
+      expect(paypal_payment.commission_pending_reason).to eq 'none'
+      HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform
+      paypal_payment.reload
+      expect(paypal_payment.commission_status).to eq 'pending'
+      expect(paypal_payment.commission_pending_reason).to eq 'paymentreview'
+    end
   end
 end
