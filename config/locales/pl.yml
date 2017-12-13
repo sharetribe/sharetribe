@@ -332,6 +332,7 @@ pl:
           initiated_by: Starter
           other_party: "Inna strona"
         status:
+          conversation: ~
           free: Konwersacja
           pending: "W trakcie"
           preauthorized: Pre-autoryzacja
@@ -367,6 +368,17 @@ pl:
             initiated: ~
             pending_ext: ~
         not_available: "Nie dostępne"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"

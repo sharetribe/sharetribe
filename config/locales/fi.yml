@@ -322,6 +322,7 @@ fi:
           initiated_by: Aloittaja
           other_party: "Toinen osapuoli"
         status:
+          conversation: ~
           free: Keskustelu
           pending: Odottaa
           preauthorized: "Katevaraus tehty"
@@ -357,6 +358,17 @@ fi:
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
         not_available: "Ei saatavilla"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"

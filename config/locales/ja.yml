@@ -317,6 +317,7 @@ ja:
           initiated_by: 買い手
           other_party: 相手
         status:
+          conversation: ~
           free: 会話
           pending: 保留中
           preauthorized: 仮承認済み
@@ -352,6 +353,17 @@ ja:
             initiated: ~
             pending_ext: ~
         not_available: ご利用できません
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "「%{field_name}」項目を編集する"

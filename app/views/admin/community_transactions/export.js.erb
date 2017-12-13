@@ -1,0 +1,4 @@
+<%- if @export_result -%>
+    window.ST.initializeExportPolling("<%= export_status_admin_community_transactions_path(token: @export_result.token) %>", 
+ $("#export-as-csv"), <%= t("admin.communities.transactions.processing_export").to_json.html_safe %>);
+<%- end -%>

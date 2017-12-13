@@ -510,6 +510,22 @@ CREATE TABLE `emails` (
   KEY `index_emails_on_confirmation_token` (`confirmation_token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `export_task_results`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `export_task_results` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(255) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `file_file_name` varchar(255) DEFAULT NULL,
+  `file_content_type` varchar(255) DEFAULT NULL,
+  `file_file_size` int(11) DEFAULT NULL,
+  `file_updated_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `feature_flags`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2217,6 +2233,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170613153960'),
 ('20170613153961'),
 ('20170613153965'),
+('20170616114938'),
 ('20170626065542'),
 ('20170629113013'),
 ('20170630085303'),

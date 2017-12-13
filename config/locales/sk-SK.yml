@@ -327,6 +327,7 @@ sk-SK:
           initiated_by: Zahájené
           other_party: "Ďalšia strana"
         status:
+          conversation: ~
           free: Konverzácia
           pending: "Čaká na vybavenie"
           preauthorized: Predschválené
@@ -362,6 +363,17 @@ sk-SK:
             initiated: ~
             pending_ext: ~
         not_available: "Teraz k dispozicií"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Upraviť pole inzerátu '%{field_name}'"

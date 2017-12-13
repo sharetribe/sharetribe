@@ -323,6 +323,7 @@ hu:
           initiated_by: Kezdő
           other_party: "Egyéb party"
         status:
+          conversation: ~
           free: Üzenetváltás
           pending: Folyamatban
           preauthorized: "Előzetesen engedélyezett"
@@ -358,6 +359,17 @@ hu:
             initiated: ~
             pending_ext: ~
         not_available: "Nem elérhető"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Mező szerkesztése %{field_name}"

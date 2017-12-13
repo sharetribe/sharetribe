@@ -317,6 +317,7 @@ zh-HK:
           initiated_by: 發起人
           other_party: 其他參與者
         status:
+          conversation: ~
           free: 對話
           pending: 等待中
           preauthorized: 已預先授權
@@ -352,6 +353,17 @@ zh-HK:
             initiated: ~
             pending_ext: ~
         not_available: ~
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: ~

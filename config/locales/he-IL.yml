@@ -313,6 +313,7 @@ he-IL:
           initiated_by: ~
           other_party: ~
         status:
+          conversation: שיחה
           free: שיחה
           pending: ממתין
           preauthorized: "מורשה מראש"
@@ -348,6 +349,17 @@ he-IL:
             initiated: ~
             pending_ext: ~
         not_available: ~
+      conversations:
+        conversations: "בדוק שיחות"
+        headers:
+          started_from: "התחיל מ"
+          status: סטאטוס
+          started: התחיל
+          last_activity: "פעילות אחרונה"
+          initiated_by: התחלה
+          other_party: "צד אחר"
+        participants: שיחה
+        profile: "‎%{author}‎ פרופיל"
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"

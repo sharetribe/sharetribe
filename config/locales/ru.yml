@@ -332,6 +332,7 @@ ru:
           initiated_by: Создатель
           other_party: "Другая сторона"
         status:
+          conversation: ~
           free: Диалог
           pending: Ожидание
           preauthorized: Предавторизация
@@ -367,6 +368,17 @@ ru:
             initiated: ~
             pending_ext: ~
         not_available: "Не доступно"
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
     custom_fields:
       edit:
         edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
