@@ -436,4 +436,20 @@ FactoryGirl.define do
     paypal_username_to    'eloise.smith'
     request_token         'ddd'
   end
+
+  factory :paypal_ipn_message do
+    body       { { abc: 123 } }
+    status     nil
+  end
+
+  factory :paypal_payment do
+    community_id      123
+    transaction_id    321
+    payer_id          'ABC'
+    receiver_id       'DEF'
+    merchant_id       'ZZZ'
+    currency          'EUR'
+    payment_status    'pending'
+    commission_status 'pending'
+  end
 end

@@ -158,6 +158,15 @@ module PaypalService
         [:invnum, :string, :mandatory]
         )
 
+      CommissionDenied = EntityUtils.define_builder(
+        [:type, const_value: :commission_denied],
+        [:commission_status, :string, :mandatory],
+        [:commission_payment_id, :string, :mandatory],
+        [:commission_total, :money, :mandatory],
+        [:commission_fee_total, :money, :mandatory],
+        [:invnum, :string, :mandatory]
+        )
+
       CommissionPendingExt = EntityUtils.define_builder(
         [:type, const_value: :commission_pending_ext],
         [:commission_status, :string, :mandatory],
@@ -165,6 +174,12 @@ module PaypalService
         [:commission_payment_id, :string, :mandatory],
         [:commission_total, :money, :mandatory],
         [:invnum, :string, :mandatory]
+      )
+
+      PaymentAdjustment = EntityUtils.define_builder(
+        [:type, const_value: :payment_adjustment],
+        [:payment_id, :string, :mandatory],
+        [:adjustment_total, :money, :mandatory]
       )
 
       module_function
@@ -181,7 +196,9 @@ module PaypalService
       def create_payment_voided(opts); PaymentVoided.call(opts) end
       def create_payment_denied(opts); PaymentDenied.call(opts) end
       def create_commission_paid(opts); CommissionPaid.call(opts) end
+      def create_commission_denied(opts); CommissionDenied.call(opts) end
       def create_commission_pending_ext(opts); CommissionPendingExt.call(opts) end
+      def create_payment_adjustment(opts); PaymentAdjustment.call(opts) end
 
       def from_params(params)
         p = HashUtils.symbolize_keys(params)
@@ -200,6 +217,8 @@ module PaypalService
           to_commission_pending_ext(p)
         when :commission_paid
           to_commission_paid(p)
+        when :commission_denied
+          to_commission_denied(p)
         when :payment_completed
           to_payment_completed(p)
         when :payment_refunded
@@ -214,6 +233,8 @@ module PaypalService
           to_payment_voided(p)
         when :payment_denied
           to_payment_denied(p)
+        when :payment_adjustment
+          to_payment_adjustment(p)
         else
           { type: type }
         end
@@ -221,6 +242,7 @@ module PaypalService
 
       ## Privates
       #
+      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def msg_type(txn_type, payment_status, pending_reason, invoice_num)
         txn_type = txn_type.to_s.downcase
         status, reason = payment_status.to_s.downcase, pending_reason.to_s.downcase
@@ -230,16 +252,18 @@ module PaypalService
           return :billing_agreement_cancelled
         elsif txn_type == "mp_signup"
           return :billing_agreement_created
+        elsif txn_type == "adjustment"
+          return :payment_adjustment
         elsif status == "pending" && reason == "order"
           return :order_created
+        elsif status == "pending" && txn_type == "merch_pmt" && inv_type == :commission
+          return :commission_pending_ext
         elsif status == "pending" && (reason == "paymentreview" || reason == "payment-review")
           return :payment_review
         elsif status == "pending" && reason == "authorization"
           return :authorization_created
         elsif status == "expired"
           return :authorization_expired
-        elsif status == "pending" && txn_type == "merch_pmt"
-          return :commission_pending_ext
         elsif status == "pending"
           return :payment_pending_ext
         elsif status == "completed" && inv_type == :payment
@@ -250,6 +274,8 @@ module PaypalService
           return :payment_refunded
         elsif status == "voided"
           return :payment_voided
+        elsif status == "denied" && inv_type == :commission
+          return :commission_denied
         elsif status == "denied"
           return :payment_denied
         else
@@ -257,6 +283,7 @@ module PaypalService
         end
       end
       private_class_method :msg_type
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
       def to_money(sum, currency)
         sum.to_money(currency)
@@ -424,6 +451,25 @@ module PaypalService
       end
       private_class_method :to_commission_paid
 
+      def to_commission_denied(params)
+        p = HashUtils.rename_keys(
+          {
+            invoice: :invnum,
+            txn_id: :commission_payment_id,
+            payment_status: :commission_status
+          },
+          params
+        )
+
+        mc_fee = params[:mc_fee] ? params[:mc_fee] : 0
+        create_commission_denied(
+          p.merge({
+            commission_total: to_money(params[:mc_gross], params[:mc_currency]),
+            commission_fee_total: to_money(mc_fee, params[:mc_currency])
+          }))
+      end
+      private_class_method :to_commission_denied
+
       def to_commission_pending_ext(params)
         p = HashUtils.rename_keys(
           {
@@ -468,6 +514,20 @@ module PaypalService
         create_authorization_expired(p)
       end
       private_class_method :to_authorization_expired
+
+      def to_payment_adjustment(params)
+        p = HashUtils.rename_keys(
+          {
+            parent_txn_id: :payment_id,
+          },
+          params)
+
+        create_payment_adjustment(
+          p.merge({
+              adjustment_total: to_money(p[:mc_gross], p[:mc_currency])
+          }))
+      end
+      private_class_method :to_payment_adjustment
 
     end
   end
