@@ -1,3 +1,5 @@
+require "spec_helper"
+
 # See https://github.com/thoughtbot/factory_girl/wiki/Testing-all-Factories-(with-RSpec)
 
 describe "Factory Girl", type: :model do

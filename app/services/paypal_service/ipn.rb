@@ -17,7 +17,9 @@ module PaypalService
       :payment_voided,
       :payment_denied,
       :commission_paid,
-      :commission_pending_ext
+      :commission_denied,
+      :commission_pending_ext,
+      :payment_adjustment
     ]
 
     def handle_msg(ipn_msg)
@@ -63,7 +65,7 @@ module PaypalService
     end
 
     def identity_opts(ipn_msg)
-      if [:commission_paid, :commission_pending_ext].include?(ipn_msg[:type])
+      if [:commission_paid, :commission_pending_ext, :commission_denied].include?(ipn_msg[:type])
         { community_id: Invnum.community_id(ipn_msg[:invnum]), transaction_id: Invnum.transaction_id(ipn_msg[:invnum]) }
       else
         { authorization_id: ipn_msg[:authorization_id], order_id: ipn_msg[:order_id] }
