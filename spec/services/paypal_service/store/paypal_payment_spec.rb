@@ -1,3 +1,5 @@
+require "spec_helper"
+
 describe PaypalService::Store::PaypalPayment do
   order = {
     community_id: 1,
