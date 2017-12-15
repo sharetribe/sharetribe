@@ -359,7 +359,7 @@ class ListingPresenter < MemoisticPresenter
   private
 
   def working_time_slots
-    listing.working_hours_new_set
+    listing.working_hours_new_set if params[:listing_just_created].present?
     listing.working_hours_as_json
   end
 
