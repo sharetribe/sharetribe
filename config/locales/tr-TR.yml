@@ -456,9 +456,9 @@ tr-TR:
       read_more: "Otomatik kullanılabilirlik yönetimi hakkında daha fazla bilgi edinin"
       read_more_availability_management: "Kullanılabilirlik yönetimi hakkında daha fazla bilgi edinin"
       allow_providers_to_manage_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
-      pricing_units_disabled_info: ~
+      per_day_availability: "\"Günlük\" kullanılabilirlik"
+      per_night_availability: "\"Gecelik\" kullanılabilirlik"
+      pricing_units_disabled_info: "Takvim kullanılabirliği etkinleştirildiğinde fiyatlandırma tablosu kullanılamaz."
       can_not_find_name: ~
       index:
         listing_shapes: "İşlem türü"
@@ -509,15 +509,15 @@ tr-TR:
       online_payments_label: "Satıcıların internet üzerinden ödeme almasına izin ver"
       shipping_label: "Kargo ücretini satıcı belirlesin"
       price_label: "Satıcıların ilanlarına fiyat eklemesine izin ver"
-      units_title: ~
-      units_desc: ~
+      units_title: "Fiyatlandırma tablosu"
+      units_desc: "Fiyatlandırma birimlerini etkinleştirdiyseniz, liste fiyatı \"fiyatlandırma birimi başına fiyat\" olarak görüntülenir. Buna bir örnek: \"saatte 39 dolar\"."
       units:
         piece: ~
-        hour: ~
-        day: günde
-        night: ~
-        week: ~
-        month: ~
+        hour: Saatlik
+        day: Günlük
+        night: Gecelik
+        week: Haftalık
+        month: Aylık
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: Sil
@@ -1595,8 +1595,8 @@ tr-TR:
         location: Konum
       price:
         price: Fiyat
-        per: başına
-        per_day: günde
+        per: ~
+        per_day: günlük
         mass: "parça, kg, l, m2, ..."
         time: "saat, gün, ay, ..."
         long_time: "hafta, ay, ..."
@@ -1748,7 +1748,7 @@ tr-TR:
       listing_created_at: "İlan oluşturuldu"
       price:
         per_quantity_unit: "%{quantity_unit} başına"
-        per_day: günde
+        per_day: günlük
       delivery: "Teslim Yöntemi"
       shipping: "Kargo (+%{price})"
       shipping_no_price: Kargo
@@ -2222,7 +2222,7 @@ tr-TR:
       booked_days: ~
       booked_nights: ~
       price_per_day: "Günlük ücret:"
-      price_per_night: ~
+      price_per_night: "Gecelik fiyat"
       quantity: "Adet:"
       subtotal: "Ara Toplam:"
       shipping-price: "Kargo:"

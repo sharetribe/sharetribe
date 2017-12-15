@@ -226,7 +226,7 @@ fi:
         twitter_handle: "Twitter-tili (käytetään ilmoitussivulla olevan twitter-napin yhteydessä)"
         update_settings: Tallenna
         automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
-        automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_no_escrow_stripe_info: "Stripe-alustalla tehdyt maksut siirtyvät myyjälle vasta kun tilaus merkitään toteutuneeksi. %{learn_more}"
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -254,7 +254,7 @@ fi:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         save_user_status_error: "Tallennus epäonnistui. Päivitä sivu ja yritä uudelleen."
         ban_user_confirmation: "Olet poistamassa käyttäjää palvelusta ja estämästä häntä liittymästä uudelleen samalla käyttäjätunnuksella. Oletko varma?"
-        unban_user_confirmation: ~
+        unban_user_confirmation: "Tämä poistaa eston käyttäjältä ja antaa hänelle taas pääsyn markkinapaikalle. Oletko varma että haluat tehdä tämän?"
         ban_me_error: "Et voi poistaa itseäsi."
         search: Hae
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
@@ -322,7 +322,7 @@ fi:
           initiated_by: Aloittaja
           other_party: "Toinen osapuoli"
         status:
-          conversation: ~
+          conversation: Keskustelu
           free: Keskustelu
           pending: Odottaa
           preauthorized: "Katevaraus tehty"
@@ -359,16 +359,16 @@ fi:
             pending_ext: "Odottaa Stripe-maksua"
         not_available: "Ei saatavilla"
       conversations:
-        conversations: ~
+        conversations: "Näytä keskustelut"
         headers:
-          started_from: ~
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
+          started_from: "Alkanut sivulta"
+          status: Tila
+          started: Alkanut
+          last_activity: "Aktiivinen viimeksi"
+          initiated_by: Aloittaja
+          other_party: "Toinen osapuoli"
+        participants: "Keskustelu: %{starter} sekä %{author}"
+        profile: "Käyttäjän %{author} profiili"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -959,10 +959,10 @@ fi:
       message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
       view_it_in_your_browser: "Katso internet-selaimellasi"
       or: tai
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "Vastaanotit tämän sähköpostin koska olet palvelun %{service_name} jäsen."
       unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
-      unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails_info: "Vastaanotit tämän sähköpostin, koska palvelun %{service_name} jäsen kutsui sinut palvelun käyttäjäksi."
+      unsubscribe_from_invitation_emails: "Lopeta markkinapaikan %{service_name} kutsujen vastaanottaminen sähköpostitse"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
@@ -1428,10 +1428,10 @@ fi:
       feedback_sent_to: "Palaute lähetetty käyttäjälle %{target_person}."
       feedback_skipped: "Palaute ohitettu"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
-      invitation_cannot_unsubscribe: ~
+      invitation_cannot_unsubscribe: "Sähköpostikutsujen tilauksen lopettaminen epäonnistui"
       invitation_limit_reached: "Yritit lähettää liian monta kutsua. Päivittäinen raja saavutettu."
       invitation_sent: "Kutsu lähetetty"
-      invitation_successfully_unsubscribed: ~
+      invitation_successfully_unsubscribed: "Sähköpostikutsujen tilauksen lopettaminen onnistui"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua."
       login_again: "Kirjaudu uudestaan."
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
@@ -2350,8 +2350,16 @@ fi:
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Näytetään %{model} %{from} - %{to} yhteensä %{accepted_count} hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
+        multi_page_html: "Näytetään %{model} <b>%{from}&nbsp;-%{to}</b> yhteensä <b>%{accepted_count}</b> hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
+        single_page:
+          zero: "Ei %{model}"
+          one: "Näytetään %{accepted_count} hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
+          other: "Näytetään %{accepted_count} hyväksyttyä %{accepted_model}ä ja %{banned_count} estettyä %{banned_model}ä"
+        single_page_html:
+          zero: "Ei %{model}"
+          one: "Näytetään <b>%{accepted_count}</b> hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
+          other: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model}ä ja %{banned_count} estettyä %{banned_model}ä"
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä ylläpitoon"
