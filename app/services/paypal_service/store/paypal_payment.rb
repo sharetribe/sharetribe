@@ -128,9 +128,10 @@ module PaypalService::Store::PaypalPayment
     payment_id = opts[:data].try(:[], :payment_id)
     if opts[:community_id] && opts[:transaction_id]
       PaypalPaymentModel.where(community_id: opts[:community_id], transaction_id: opts[:transaction_id]).first
-    elsif opts[:authorization_id] || opts[:order_id]
-      PaypalPaymentModel.where(authorization_id: opts[:authorization_id]).or(
-        PaypalPaymentModel.where(order_id: opts[:order_id])).first
+    elsif opts[:order_id]
+      PaypalPaymentModel.where(order_id: opts[:order_id]).first
+    elsif opts[:authorization_id]
+      PaypalPaymentModel.where(authorization_id: opts[:authorization_id]).first
     elsif payment_id
       PaypalPaymentModel.where(payment_id: payment_id).first
     elsif commission_payment_id

@@ -324,8 +324,8 @@ nl:
           initiated_by: Door
           other_party: "Andere partij"
         status:
-          conversation: ~
-          free: Conversatie
+          conversation: Conversaties
+          free: "Vrije transactie"
           pending: Hangende
           preauthorized: "Vooraf geauthoriseerd"
           accepted: Aanvaard
@@ -336,7 +336,7 @@ nl:
           initiated: "Wachten op PayPal betaling"
           pending_ext: "Wachten PayPal betaling"
           none:
-            free: Conversatie
+            free: "Vrije transactie"
           paypal:
             free: Conversatie
             pending: "In afwachting"
@@ -361,16 +361,16 @@ nl:
             pending_ext: "In afwachting van Stripe betaling"
         not_available: "Niet beschikbaar"
       conversations:
-        conversations: ~
+        conversations: "Bekijk conversaties"
         headers:
-          started_from: ~
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
+          started_from: "Begonnen van"
+          status: Status
+          started: Begonnen
+          last_activity: "Laatste Activiteit"
+          initiated_by: Starter
+          other_party: "Andere partij"
+        participants: "Conversatie: %{starter} met %{author}"
+        profile: "Profiel van %{author}"
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
