@@ -45,3 +45,11 @@ Feature: User views a single listing
     When listing publishing date is shown in community "test"
     And I go to the listing page
     Then I should see "Listing created"
+
+  Scenario: User views listing price not enabled
+    And there is a listing with title "Lecture" from "kassi_testperson1" with category "Services" and with listing shape "Lending"
+    And I am on the home page
+    When I follow "Lecture"
+    Then I should see "Borrow this item"
+    Then I should not see payment logos
+
