@@ -184,3 +184,8 @@ When(/^I set location to be New York/) do
     "
   )
 end
+
+Then(/^(?:|I )should not see payment logos$/) do
+  expect(page).not_to have_css('.submit-payment-form-link')
+end
+

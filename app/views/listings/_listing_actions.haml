@@ -153,9 +153,10 @@
           .content
             = action_button_label(@listing)
 
-    .row
-      .col-12
-        = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
+    - if @listing_presenter.price_enabled?
+      .row
+        .col-12
+          = render :partial => "listing_conversations/payment_methods", locals: { stripe_in_use: @listing_presenter.stripe_in_use, paypal_in_use: @listing_presenter.paypal_in_use }
 
   - if @listing_presenter.is_authorized
     .listing-view-admin-links
