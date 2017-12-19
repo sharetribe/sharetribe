@@ -1,4 +1,5 @@
 class ListingPresenter < MemoisticPresenter
+  include ListingAvailabilityManage
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
   attr_reader :shape
 

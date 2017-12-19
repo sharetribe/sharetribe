@@ -2141,6 +2141,7 @@ ja:
   date:
     formats:
       long_with_abbr_day_name: "%Y/%m/%d （%a）"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: 日曜日
@@ -2200,6 +2201,7 @@ ja:
       short: "%Y年 %H:%M"
       shorter: "%m/%e %H:%M"
       short_date: "%Y/%m/%e"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count}日前"
     days_ago: "%{count}日前"

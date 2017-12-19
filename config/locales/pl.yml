@@ -2176,6 +2176,7 @@ pl:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Niedziela
@@ -2235,6 +2236,7 @@ pl:
       short: "%b %e, %Y na %H:%M"
       shorter: "%b %e na %H:%M"
       short_date: "%b %e, %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dzień temu"
     days_ago: "%{count} dni temu"

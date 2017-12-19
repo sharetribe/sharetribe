@@ -2129,6 +2129,7 @@ he-IL:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: ראשון
@@ -2188,6 +2189,7 @@ he-IL:
       short: ~
       shorter: ~
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "יום ‎%{count}‎ לפני"
     days_ago: "ימים ‎%{count}‎ לפני"

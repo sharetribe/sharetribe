@@ -2158,6 +2158,7 @@ hu:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Vasárnap
@@ -2217,6 +2218,7 @@ hu:
       short: "hónap nap, év %H:%perc-kor"
       shorter: "hónap nap %H:%perc-kor"
       short_date: "%b %e, %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} napja"
     days_ago: "%{count} napja"

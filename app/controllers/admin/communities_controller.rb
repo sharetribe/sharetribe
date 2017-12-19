@@ -348,11 +348,13 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       :automatic_confirmation_after_days,
       :automatic_newsletters,
       :default_min_days_between_community_updates,
-      :email_admins_about_new_members
+      :email_admins_about_new_members,
+      :automatic_confirmation_after_days_after_end_time
     ]
     settings_params = params.require(:community).permit(*permitted_params)
 
-    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
+    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days],
+                                 params[:community][:automatic_confirmation_after_days_after_end_time])
 
     if(FeatureFlagHelper.location_search_available)
       MarketplaceService::API::Api.configurations.update({
@@ -418,8 +420,8 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   # those are only used with paypal for now. During the transition
   # period we simply mirror community setting to payment settings in
   # case of paypal.
-  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
-    return unless automatic_confirmation_after_days
+  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days, automatic_confirmation_after_days_after_end_time)
+    return unless (automatic_confirmation_after_days && automatic_confirmation_after_days_after_end_time)
 
     p_set = Maybe(payment_settings_api.get(
                    community_id: community_id,
@@ -428,7 +430,10 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .map {|res| res[:success] ? res[:data] : nil}
             .or_else(nil)
 
-    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+    if p_set
+      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
+                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+    end
 
     p_set = Maybe(payment_settings_api.get(
                    community_id: community_id,
@@ -437,7 +442,10 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .map {|res| res[:success] ? res[:data] : nil}
             .or_else(nil)
 
-    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
+    if p_set
+      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
+                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+    end
   end
 
   def payment_settings_api

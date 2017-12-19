@@ -2156,6 +2156,7 @@ pt-BR:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d de %b de %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Domingo
@@ -2215,6 +2216,7 @@ pt-BR:
       short: "%e. %b %Y hora %H:%M"
       shorter: "%e %b as %H:%M"
       short_date: "%b %e  %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dia atrás"
     days_ago: "%{count} dias atrás"

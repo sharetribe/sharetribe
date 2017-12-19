@@ -381,4 +381,5 @@ module.exports = {
   '--ManageAvailabilityCalendar_fontFamily': proximaNovaFontFamily,
   '--ManageAvailabilityCalendar_fontSize': fontSize,
   '--ManageAvailabilityCalendar_width': '318px',
+  '--ManageAvailabilityWorkingHours_maxWidth': 440,
 };

@@ -2143,6 +2143,7 @@ ar:
   date:
     formats:
       long_with_abbr_day_name: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: الأحد
@@ -2202,6 +2203,7 @@ ar:
       short: ~
       shorter: "%b %e at %H:%M"
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "يوم ‎%{count}‎ قبل"
     days_ago: "أيام ‎%{count}‎ قبل"

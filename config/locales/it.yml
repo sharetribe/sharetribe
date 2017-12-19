@@ -2129,6 +2129,7 @@ it:
   date:
     formats:
       long_with_abbr_day_name: "%a %d %b %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Domenica
@@ -2188,6 +2189,7 @@ it:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} giorno fa"
     days_ago: "%{count} giorni fa"

@@ -91,6 +91,11 @@ When /^I remove the focus"?$/ do
   page.execute_script("$('input').blur();")
 end
 
+When(/^I focus on "(.*?)"$/) do |element_id|
+  page.execute_script("$('#{element_id}').focus();");
+  page.execute_script("$('#{element_id}').click();");
+end
+
 When /^ajax requests are completed$/ do
   expect { page.evaluate_script("$.active") == 0 }.to become_true
 end

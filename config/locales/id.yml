@@ -2118,6 +2118,7 @@ id:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b %Y %H.%M.%S %z"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Minggu
@@ -2177,6 +2178,7 @@ id:
       short: ~
       shorter: ~
       short_date: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: ~
     days_ago: ~

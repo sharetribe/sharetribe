@@ -2174,6 +2174,7 @@ ru:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Воскресенье
@@ -2233,6 +2234,7 @@ ru:
       short: "%e %b %Y в %H:%M"
       shorter: "%e %b в %H:%M"
       short_date: "%e. %b %Y"
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} день назад"
     days_ago: "%{count} дней назад"
