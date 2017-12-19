@@ -195,4 +195,33 @@ describe PersonMailer, type: :mailer do
 
   end
 
+  describe "#community_member_email_from_admin" do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:sender) do
+      person = FactoryGirl.create(:person)
+      FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+      person
+    end
+    let(:recipient) do
+      person = FactoryGirl.create(:person)
+      FactoryGirl.create(:community_membership, community: community, person: person)
+      person
+    end
+
+    it 'works ordinary user as recipient' do
+      content = 'Have nice day!'
+      email = PersonMailer.community_member_email_from_admin(sender, recipient, community, content, 'any')
+      expect(email).to have_subject("A new message from the #{community.name('en')} team")
+      expect(email).to have_body_text("Hello #{PersonViewUtils.person_display_name_for_type(recipient, 'first_name_only')},")
+      expect(email).to have_body_text('Have nice day!')
+    end
+
+    it 'works yourself as recipient' do
+      content = 'Have nice day!'
+      email = PersonMailer.community_member_email_from_admin(sender, sender, community, content, 'any')
+      expect(email).to have_subject("A new message from the #{community.name('en')} team")
+      expect(email).to have_body_text("Hello #{PersonViewUtils.person_display_name_for_type(sender, 'first_name_only')},")
+      expect(email).to have_body_text('Have nice day!')
+    end
+  end
 end

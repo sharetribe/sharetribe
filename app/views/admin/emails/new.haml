@@ -28,8 +28,13 @@
     - else
       = form.hidden_field :locale, :value => "any"
     = form.label :subject, t(".email_subject")
-    = form.text_field :subject
+    = render :partial => "layouts/permanent_notification", :locals => { :text => t(".to_improve_email_deliverability") }
+    .col-12
+      = t('.email_subject_text', :service_name => @current_community.name(I18n.locale))
     = form.label :content, t(".email_content")
+    = render :partial => "layouts/permanent_notification", :locals => { :text => t(".firstname_cannot_be_removed") }
+    .col-12
+      = t('.hello_firstname')
     = form.text_area :content, :placeholder => t(".email_content_placeholder"), :class => "email_members_text_area"
     %div
       %span{style: 'display: inline-block'}
