@@ -88,15 +88,7 @@
     = "For security reasons JavaScript has to be enabled"
   - content_for :extra_javascript do
     :javascript
-      $(function(){
-        $(".checkout-with-paypal-button").click(function(){
-          $("#payment_type").val("paypal");
-        });
-        $(".checkout-with-stripe-button").click(function(){
-          $("#payment_type").val("stripe");
-        });
-      });
-      $(".paypal-image").click(function(){
+      $(".checkout-with-paypal-button").click(function(){
         $("#payment_type").val("paypal");
         $("#transaction-form").trigger("submit");
       });

@@ -49,7 +49,7 @@
 
   .row.stripe-payment
     .col-12.payment-button-wrapper.paypal-button-wrapper
-      = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
+      = button_tag t("stripe_accounts.add_and_pay"), id: "stripe-send-card", class: 'checkout-with-stripe-button'
 
   .row
     .col-12
@@ -97,7 +97,7 @@
       }
     });
 
-    $("#send-add-card").on('click', function(event) {
+    $("#stripe-send-card").on('click', function(event) {
       event.preventDefault();
 
       stripe.createToken(card).then(function(result) {
@@ -109,6 +109,7 @@
           errorElement.className = 'hidden';
           var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
           $("#transaction-form").append(input);
+          $("#payment_type").val("stripe");
           if($("#transaction-form").valid()) {
             $("#transaction-form").submit();
           }
