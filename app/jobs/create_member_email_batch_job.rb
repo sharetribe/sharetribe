@@ -1,4 +1,4 @@
-class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject, :content, :locale, :mode)
+class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content, :locale, :mode)
 
   include DelayedAirbrakeNotification
 
@@ -15,7 +15,7 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :subject
 
     Delayed::Job.transaction do
       recipient_ids(mode, current_community).each do |recipient_id|
-        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, subject, content, locale))
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, content, locale))
       end
     end
   end
