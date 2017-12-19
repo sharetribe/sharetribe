@@ -69,9 +69,10 @@
               - help_text = t('.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
               = render partial: 'layouts/info_text', locals: { text: help_text }
               .info-text-container
-            .settings-checkbox-label.label
-              - day_dropdown = form.select :automatic_confirmation_after_days_after_end_time, (1..max_days), {}, :class => "inline-select"
-              = t(".automatically_confirmed_after_end_time", :days_dropdown => day_dropdown).html_safe
+            - if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+              .settings-checkbox-label.label
+                - day_dropdown = form.select :automatic_confirmation_after_days_after_end_time, (1..max_days), {}, :class => "inline-select"
+                = t(".automatically_confirmed_after_end_time", :days_dropdown => day_dropdown).html_safe
 
     .row
       .col-12
