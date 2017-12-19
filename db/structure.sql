@@ -562,7 +562,7 @@ DROP TABLE IF EXISTS `invitation_unsubscribes`;
 CREATE TABLE `invitation_unsubscribes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `community_id` int(11) DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -689,6 +689,21 @@ CREATE TABLE `listing_units` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_listing_units_on_listing_shape_id` (`listing_shape_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `listing_working_time_slots`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `listing_working_time_slots` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `listing_id` int(11) DEFAULT NULL,
+  `week_day` int(11) DEFAULT NULL,
+  `from` varchar(255) DEFAULT NULL,
+  `till` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_listing_working_time_slots_on_listing_id` (`listing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `listings`;
@@ -2220,7 +2235,12 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20170801125553'),
 ('20170814125622'),
 ('20170817035830'),
+('20171023070523'),
 ('20171107063241'),
+('20171117062422'),
 ('20171128122539'),
-('20171129152027');
+('20171129152027'),
+('20171207073027'),
+('20171207075640');
+
 
