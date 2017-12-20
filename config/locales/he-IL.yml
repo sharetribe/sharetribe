@@ -218,6 +218,7 @@ he-IL:
         update_settings: "שמור הגדרות"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "שלח עלון אוטומטי: ‎%{frequency_dropdown}‎"
         newsletter_daily: יומי
         newsletter_weekly: שבועי
@@ -450,6 +451,7 @@ he-IL:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -966,6 +968,7 @@ he-IL:
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
       quantity: ~
       you_have_received_new_payment: ~
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1013,6 +1016,7 @@ he-IL:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ נתן לך משוב ב ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ עדיין לא נתת משוב ל"
@@ -1686,6 +1690,10 @@ he-IL:
       how_paypal_works: ~
       payment_help: עזרה
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: מודעה
       selected_category: "‎%{category}‎"
@@ -2129,7 +2137,7 @@ he-IL:
   date:
     formats:
       long_with_abbr_day_name: ~
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: ראשון
@@ -2189,7 +2197,7 @@ he-IL:
       short: ~
       shorter: ~
       short_date: ~
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "יום ‎%{count}‎ לפני"
     days_ago: "ימים ‎%{count}‎ לפני"
@@ -2218,10 +2226,13 @@ he-IL:
       booked_nights: ~
       price_per_day: "מחיר ליום"
       price_per_night: "מחיר ללילה:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: ~
       subtotal: ~
       shipping-price: משלוח
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "‎%{unit_type}‎ מחיר ל"
     price: מחיר
     quantity: ~
@@ -2237,6 +2248,8 @@ he-IL:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: ~
         hour: שעה
@@ -2249,6 +2262,13 @@ he-IL:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: "עדכן תפוסה"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

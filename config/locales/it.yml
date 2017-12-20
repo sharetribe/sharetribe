@@ -212,6 +212,7 @@ it:
         update_settings: "Salva le impostazioni"
         automatically_confirmed_no_escrow: "L'ordine sarà automaticamente segnato come completo %{days_dropdown} giorni dopo che il pagamento è stato eseguito."
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -444,6 +445,7 @@ it:
       read_more: "Leggi di più sulla gestione automatica delle disponibilità"
       read_more_availability_management: "Leggi di più sulla gestione delle disponibilità"
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: "disponibilità \"Per giorno\""
       per_night_availability: "Disponibilità \"Per notte\""
       pricing_units_disabled_info: ""
@@ -962,6 +964,7 @@ it:
       price_per_unit_type: "Prezzo per %{unit_type}"
       quantity: "Quantità:"
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1009,6 +1012,7 @@ it:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
@@ -1684,6 +1688,10 @@ it:
       how_paypal_works: "Come funziona PayPal"
       payment_help: "Aiuto per i pagamenti con PayPal"
       unable_load_availability: "Non si possono avere informazioni disponibili. Per favore riprova più tardi."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"
@@ -2129,7 +2137,7 @@ it:
   date:
     formats:
       long_with_abbr_day_name: "%a %d %b %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Domenica
@@ -2189,7 +2197,7 @@ it:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} giorno fa"
     days_ago: "%{count} giorni fa"
@@ -2224,10 +2232,13 @@ it:
         other: "Notti prenotate:"
       price_per_day: "Prezzo al giorno:"
       price_per_night: "Prezzo per notte"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Quantità:"
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Prezzo per %{unit_type}"
     price: "Prezzo:"
     quantity: "Quantità: %{quantity}"
@@ -2243,6 +2254,8 @@ it:
         availability:
           something_went_wrong: "Non è possibile mostrare l'informazione. Prova a ricaricare la pagina."
           saving_failed: "Non è possibile salvare i cambiamenti alle disponibilità. Prova a ricaricare la pagina."
+        working_hours:
+          required: ~
       pricing_units:
         piece: unità
         hour: ora
@@ -2255,6 +2268,13 @@ it:
       confirm_discarding_unsaved_availability_changes_explanation: "Non hai salvato i cambiamenti alle informazioni sulle disponibilità. Se non lo fai, i cambiamenti verranno persi."
       confirm_discarding_unsaved_availability_changes_question: "Hai la certezza di voler lasciar pedere i tuoi cambiamenti?"
       edit_listing_availability: "Modifica disponibilità"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."

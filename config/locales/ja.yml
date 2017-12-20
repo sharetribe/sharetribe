@@ -222,6 +222,7 @@ ja:
         update_settings: 設定を保存する
         automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
@@ -454,6 +455,7 @@ ja:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -978,6 +980,7 @@ ja:
       price_per_unit_type: "%{unit_type}ごとの料金"
       quantity: 数量：
       you_have_received_new_payment: "%{payer_full_name}さんより<b>%{listing_title}</b>の件で、<b>%{payment_sum}</b>支払われました。こちらはその領収書です。"
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1025,6 +1028,7 @@ ja:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
@@ -1699,6 +1703,10 @@ ja:
       how_paypal_works: PayPalの仕組み
       payment_help: お支払いについて
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: 投稿
       selected_category: "カテゴリー： %{category}"
@@ -2141,7 +2149,7 @@ ja:
   date:
     formats:
       long_with_abbr_day_name: "%Y/%m/%d （%a）"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: 日曜日
@@ -2201,7 +2209,7 @@ ja:
       short: "%Y年 %H:%M"
       shorter: "%m/%e %H:%M"
       short_date: "%Y/%m/%e"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count}日前"
     days_ago: "%{count}日前"
@@ -2231,10 +2239,13 @@ ja:
       booked_nights: ~
       price_per_day: 日割り料金
       price_per_night: ~
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: 数量：
       subtotal: 合計金額：
       shipping-price: 送料：
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "%{unit_type}ごとの料金："
     price: 料金：
     quantity: "数量： %{quantity}"
@@ -2250,6 +2261,8 @@ ja:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: 点
         hour: 時間
@@ -2262,6 +2275,13 @@ ja:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: 投稿の利用可能日を編集する
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: 申し訳ございません、お探しの条件の商品がみつかりませんでした。
       try_other_search_terms: 他のキーワード検索をしてみてください

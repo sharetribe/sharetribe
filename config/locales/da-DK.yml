@@ -227,6 +227,7 @@ da-DK:
         update_settings: "Gem indstillinger"
         automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Dagligt
         newsletter_weekly: Ugentligt
@@ -459,6 +460,7 @@ da-DK:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: "\"Pr. dag\" tilgængelighed"
       per_night_availability: "\"Pr. nat\" tilgængelighed"
       pricing_units_disabled_info: ~
@@ -987,6 +989,7 @@ da-DK:
       price_per_unit_type: "Pris pr. %{unit_type}"
       quantity: "Mængde:"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1034,6 +1037,7 @@ da-DK:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har endnu ikke givet feedback til %{name}"
@@ -1711,6 +1715,10 @@ da-DK:
       how_paypal_works: "Sådan virker PayPal"
       payment_help: Betalingshjælp
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: annonce
       selected_category: "Kategori: %{category}"
@@ -2154,7 +2162,7 @@ da-DK:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Søndag
@@ -2214,7 +2222,7 @@ da-DK:
       short: "%e %b %Y på %H:%M"
       shorter: "%e %b %Y på %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dage siden"
@@ -2255,10 +2263,13 @@ da-DK:
         other: "Reserverede nætter:"
       price_per_day: "Pris pr. dag:"
       price_per_night: "Pris per nat:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Mængde:"
       subtotal: "Subtotal:"
       shipping-price: "Porto:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"
@@ -2274,6 +2285,8 @@ da-DK:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: styk
         hour: time
@@ -2286,6 +2299,13 @@ da-DK:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Beklager, ingen annoncer blev fundet til dine søgekriterier."
       try_other_search_terms: ~

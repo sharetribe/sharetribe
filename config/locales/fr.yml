@@ -227,6 +227,7 @@ fr:
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed_no_escrow: "Les commandes seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
         automatically_confirmed_no_escrow_stripe_info: "Pour les transactions gérées par Stripe, le transfert du paiement au vendeur est différé jusqu'à ce que la commande ait été marquée comme réalisée. %{learn_more}."
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -459,6 +460,7 @@ fr:
       read_more: "En savoir plus sur la gestion automatique des disponibilités."
       read_more_availability_management: "En savoir plus sur la gestion des disponibilités."
       allow_providers_to_manage_availability: "Autoriser les fournisseurs à gérer leur disponibilité depuis un calendrier"
+      per_hour_availability: "Disponibilité \"par heure\""
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
       pricing_units_disabled_info: "Les unités de prix ne peuvent être utilisées lorsque le calendrier de disponibilité est activé."
@@ -997,6 +999,7 @@ fr:
       price_per_unit_type: "Prix par %{unit_type}"
       quantity: "Quantité : "
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+      listing_per_unit_title: "%{title}, par %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Frais de service :"
       shipping_total: "Frais de livraison :"
@@ -1044,6 +1047,7 @@ fr:
       stripe_gateway_fee: "Frais Stripe :"
       paypal_gateway_fee: "Frais PayPal :"
       money_will_be_transferred: "L'argent sera transféré à %{recipient_name} quand a) vous aurez marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après votre paiement."
+      listing_per_unit_title: "%{title}, %{unit_type}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
@@ -1719,6 +1723,10 @@ fr:
       how_paypal_works: "Comment fonctionne PayPal"
       payment_help: "Aide à propos du paiement"
       unable_load_availability: "Impossible de charger les informations de disponibilités. Veuillez essayer de nouveau dans quelques instants."
+      booking_date: Date
+      select_one: Choisissez...
+      start_time: "Heure de début"
+      end_time: "Heure de fin"
     new:
       listing: annonce
       selected_category: "Catégorie : %{category}"
@@ -2261,12 +2269,21 @@ fr:
       booked_nights_label:
         one: "Nuit réservée : "
         other: "Nuits réservées : "
+      booked_hours_label:
+        one: "Horaire :"
+        other: "Horaire :"
       price_per_day: "Prix par jour : "
       price_per_night: "Prix par nuit :"
+      price_per_hour: "Prix par heure :"
+      price_per_unit: "Prix par unité :"
       quantity: "Quantité : "
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "
       stripe-fee: "Frais de service Stripe (estimation) :"
+      duration_in_hours:
+        one: "(1 heure)"
+        other: "(%{count} heures)"
+      start_end_time: "%{start_time} à %{end_time}"
     price_per_quantity: "Prix par %{unit_type} : "
     price: "Prix : "
     quantity: "Qantité : %{quantity}"
@@ -2282,6 +2299,8 @@ fr:
         availability:
           something_went_wrong: "Nous ne sommes pas en mesure d'afficher les informations de disponibilités. Essayez de recharger la page."
           saving_failed: "Nous ne sommes pas en mesure de sauvegarder les changements de disponibilités. Essayez de recharger la page."
+        working_hours:
+          required: Obligatoire
       pricing_units:
         piece: unité
         hour: heure
@@ -2294,6 +2313,13 @@ fr:
       confirm_discarding_unsaved_availability_changes_explanation: "Vous avez des modifications non sauvegardées pour vos informations de disponibilités. Si vous continuez, ces changements seront perdus."
       confirm_discarding_unsaved_availability_changes_question: "Etes-vous sûr de vouloir annuler vos modifications ?"
       edit_listing_availability: "Editer la disponibilité de l'annonce"
+      working_hours:
+        default_schedule: "Disponibilité par défaut"
+        i_am_available_on: "Je suis disponible..."
+        start_time: "Heure de début"
+        end_time: "Heure de fin"
+        add_another_time_slot: "+ Ajouter un autre créneau horaire"
+        save: Sauvegarder
     no_listings:
       sorry: "Désolé, aucune annonce n'a pu être trouvée avec vos critères de recherche."
       try_other_search_terms: "Essayez peut-être avec d'autres termes ?"

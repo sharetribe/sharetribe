@@ -227,6 +227,7 @@ nb:
         update_settings: "Lagre innstillinger"
         automatically_confirmed_no_escrow: "Transaksjoner vil automatisk bli satt som utført %{days_dropdown} dager etter at betaling er utført"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Send automatisk nyhetsbrev:%{frequency_dropdown}"
         newsletter_daily: Daglig
         newsletter_weekly: Ukentlig
@@ -459,6 +460,7 @@ nb:
       read_more: "Les mer om automatisert tilgjengelighets-administrasjon."
       read_more_availability_management: "Les mer om tilgjengelighets-håndtering."
       allow_providers_to_manage_availability: "Tillat tilbyderne å endre tilgjengeligheten fra en kalender."
+      per_hour_availability: ~
       per_day_availability: "\"Per dag\"-tilgjengelighet"
       per_night_availability: "\"Per natt\"-tilgjengelighet"
       pricing_units_disabled_info: "Pris-enheter kan ikke brukes når tilgjengelighetskalenderen er aktivert."
@@ -991,6 +993,7 @@ nb:
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: "Antall:"
       you_have_received_new_payment: "Du har mottatt betaling <b>%{payment_sum}</b> for <b>%{listing_title}</b> av  %{payer_full_name}. Her er din kvittering."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1038,6 +1041,7 @@ nb:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemelding på %{service_name}"
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} ennå."
@@ -1713,6 +1717,10 @@ nb:
       how_paypal_works: "Hvordan PayPal virker"
       payment_help: "Hjelp til betaling"
       unable_load_availability: "Kunne ikke laste inn tilgjengelighetsinformasjon. Vennligst prøv igjen senere."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: annonse
       selected_category: "Kategori: %{category}"
@@ -2156,7 +2164,7 @@ nb:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Søndag
@@ -2216,7 +2224,7 @@ nb:
       short: "%e %b %Y klokken %H:%M"
       shorter: "%e %b klokken %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dager siden"
@@ -2257,10 +2265,13 @@ nb:
         other: "Reserverte netter:"
       price_per_day: "Pris per dag:"
       price_per_night: "Pris per natt:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Antall:"
       subtotal: "Delsum:"
       shipping-price: "Frakt:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antall: %{quantity}"
@@ -2276,6 +2287,8 @@ nb:
         availability:
           something_went_wrong: "Vi klarer ikke vise tilgjengeligheten. Prøv å laste inn siden på nytt."
           saving_failed: "Vi klarer ikke lagre endringene for tilgjengelighet. Prøv å laste inn siden på nytt."
+        working_hours:
+          required: ~
       pricing_units:
         piece: stykk
         hour: time
@@ -2288,6 +2301,13 @@ nb:
       confirm_discarding_unsaved_availability_changes_explanation: "Du har ulagrede endringer i tilgjengelighets-informasjonen. Hvis du fortsetter, vil disse endringene gå tapt."
       confirm_discarding_unsaved_availability_changes_question: "Er du sikker på at du vil forkaste endringene dine?"
       edit_listing_availability: "Endre annonse-tilgjengelighet"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Beklager, vi finner ingen resultater som matcher dine søkekriterier."
       try_other_search_terms: "Kanskje du kan prøve noen andre søkeord?"

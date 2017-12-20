@@ -222,6 +222,7 @@ zh-HK:
         update_settings: 保存設定
         automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -454,6 +455,7 @@ zh-HK:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -978,6 +980,7 @@ zh-HK:
       price_per_unit_type: "每%{unit_type}的價格"
       quantity: 數量：
       you_have_received_new_payment: "你已經為<b>%{listing_title}</b>支付了<b>%{payment_sum}</b>給%{payer_full_name}。這是你的收據。"
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1025,6 +1028,7 @@ zh-HK:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
       you_can_give_feedback_to: "您還未對%{name}作出評價。"
@@ -1699,6 +1703,10 @@ zh-HK:
       how_paypal_works: PayPal如何運作
       payment_help: 付款說明
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: 訊息
       selected_category: "類別：%{category}"
@@ -2141,7 +2149,7 @@ zh-HK:
   date:
     formats:
       long_with_abbr_day_name: ~
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: ~
@@ -2201,7 +2209,7 @@ zh-HK:
       short: "%e %b %Y %I:%M%p"
       shorter: "%e %b %Ｈ:%M"
       short_date: ~
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} 天前"
     days_ago: "%{count} 天前"
@@ -2222,10 +2230,13 @@ zh-HK:
       booked_nights: ~
       price_per_day: ~
       price_per_night: ~
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: ~
       subtotal: ~
       shipping-price: ~
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: ~
     price: "總共:"
     quantity: ~
@@ -2241,6 +2252,8 @@ zh-HK:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2253,6 +2266,13 @@ zh-HK:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

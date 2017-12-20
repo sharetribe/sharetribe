@@ -222,6 +222,7 @@ ko:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: "결제 수단으로 Stripe을 선택하신 경우 대금 지급은 구매가 완료될 때까지 보류됩니다. %{learn_more}"
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -454,6 +455,7 @@ ko:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -732,10 +734,10 @@ ko:
       confirm_description: "피드백을 작성하시려면 거래 완료 여부를 확인해주세요."
       cancel_description: "거래가 정상적으로 진행되지 않은 경우 '부적합'을 입력해주세요. 이 경우 피드백을 작성하실 수 있으며 불만 내용을 보내실 수 있습니다."
       cancel_payed_description: ~
-      canceling_payed_transaction: ~
-      confirm: ~
-      cancel: ~
-      continue: ~
+      canceling_payed_transaction: "거래 취소"
+      confirm: "표시 완료"
+      cancel: "조정 중"
+      continue: 계속
       give_feedback_to: ~
       do_not_give_feedback: ~
     details:
@@ -976,6 +978,7 @@ ko:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1023,6 +1026,7 @@ ko:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}이/가 %{service_name}에 대한 피드백을 남겼습니다."
       you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
@@ -1694,6 +1698,10 @@ ko:
       how_paypal_works: ~
       payment_help: ~
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: ~
       selected_category: ~
@@ -2134,26 +2142,26 @@ ko:
   date:
     formats:
       long_with_abbr_day_name: ~
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: 일요일
+      monday: 월요일
+      tuesday: 화요일
+      wednesday: 수요일
+      thursday: 목요일
+      friday: 금요일
+      saturday: 토요일
     days_short:
-      sunday: ~
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      sunday: 일
+      monday: 월
+      tuesday: 화
+      wednesday: 수
+      thursday: 목
+      friday: 금
+      saturday: 토
     days_min:
-      sunday: ~
+      sunday: 일
       monday: ~
       tuesday: ~
       wednesday: ~
@@ -2194,7 +2202,7 @@ ko:
       short: ~
       shorter: ~
       short_date: ~
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: ~
     days_ago: ~
@@ -2213,10 +2221,13 @@ ko:
       booked_nights: ~
       price_per_day: ~
       price_per_night: ~
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: ~
       subtotal: ~
       shipping-price: ~
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
@@ -2232,6 +2243,8 @@ ko:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2244,6 +2257,13 @@ ko:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

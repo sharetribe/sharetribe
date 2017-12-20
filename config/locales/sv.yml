@@ -227,6 +227,7 @@ sv:
         update_settings: "Spara inställningar"
         automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen gjorts"
         automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till säljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -459,6 +460,7 @@ sv:
       read_more: "Läs mer om automatisk tillgänglighetshantering"
       read_more_availability_management: "Läs mer om tillgänglighetshantering. "
       allow_providers_to_manage_availability: "Tillåt säljare att hantera sin tillgänglighet i en kalender"
+      per_hour_availability: ~
       per_day_availability: "\"Per dag\" tillgänglighet"
       per_night_availability: "\"Per natt\" tillgänglighet"
       pricing_units_disabled_info: "Prissättningsenheter kan inte användas när tillgänglighets kalendern är aktiverad."
@@ -997,6 +999,7 @@ sv:
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: Antal
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: Betalningshanteringsavgift
       shipping_total: "Leverans:"
@@ -1044,6 +1047,7 @@ sv:
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
@@ -1721,6 +1725,10 @@ sv:
       how_paypal_works: "Hur PayPal fungerar"
       payment_help: Betalningshjälp
       unable_load_availability: "Kude inte ladda information om tillgänglighet. Vänligen försök igen senare."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: annons
       selected_category: "Kategori: %{category}"
@@ -2164,7 +2172,7 @@ sv:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Söndag
@@ -2224,7 +2232,7 @@ sv:
       short: "%e %b %Y vid %H:%M"
       shorter: "%e %b vid %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dag sedan"
     days_ago: "%{count} dagar sedan"
@@ -2265,10 +2273,13 @@ sv:
         other: "Bokade nätter:"
       price_per_day: "Pris per dag:"
       price_per_night: "Pris per natt:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Antal:"
       subtotal: "Delsumma:"
       shipping-price: "Frakt:"
       stripe-fee: "Stripe avgift (uppskattad):"
+      start_end_time: ~
     price_per_quantity: "Pris per %{unit_type}:"
     price: "Pris:"
     quantity: "Antal: %{quantity}"
@@ -2284,6 +2295,8 @@ sv:
         availability:
           something_went_wrong: "Vi kan inte visa information om tillgängligheten. Vänligen ladda om sidan."
           saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
+        working_hours:
+          required: ~
       pricing_units:
         piece: styck
         hour: timme
@@ -2296,6 +2309,13 @@ sv:
       confirm_discarding_unsaved_availability_changes_explanation: "Du har osparade ändringar i din tillgänglighets information. Om du fortsätter kommer dessa förändringar gå förlorade."
       confirm_discarding_unsaved_availability_changes_question: "Är du säker du vill kassera dina ändringar?"
       edit_listing_availability: "Ändra annons tillgänglighet"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Vi kunde tyvärr  inte hitta några resultat som matchade dina sökkriterier."
       try_other_search_terms: "Kanske du kan använda andra ord att söka med?"

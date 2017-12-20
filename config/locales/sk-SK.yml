@@ -232,6 +232,7 @@ sk-SK:
         update_settings: "Uložiť nastavenia"
         automatically_confirmed_no_escrow: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, kedy bola platba prevedená."
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Automaticky posielať novinky: %{frequency_dropdown}"
         newsletter_daily: Denne
         newsletter_weekly: Týždenne
@@ -464,6 +465,7 @@ sk-SK:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: "\"za deň\" dostupnosť"
       per_night_availability: "\"za noc\" dostupnosť"
       pricing_units_disabled_info: "Cena jednotky je nedostupná, pokiaľ je zapnutý kalendár dostupnosti."
@@ -998,6 +1000,7 @@ sk-SK:
       price_per_unit_type: "Cena za %{unit_type}"
       quantity: "Množstvo:"
       you_have_received_new_payment: "Obdržali ste čiastku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od užívateľa %{payer_full_name}. Tu je Vaše potvrdenie."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1045,6 +1048,7 @@ sk-SK:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Peniaze budú prevedené užívateľovi %{recipient_name}, a) pokiaľ označíte žiadosť ako vybavenú nebo b) pokiaľ uplynulo %{automatic_confirmation_days} dní od dňa, kedy ste zaplatili."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vám dal spätnú väzbu %{service_name}"
       you_can_give_feedback_to: "Ešte ste nedali spätnú väzbu %{name}"
@@ -1723,6 +1727,10 @@ sk-SK:
       how_paypal_works: "Ako funguje PayPal"
       payment_help: "Pomoc k platbe"
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: inzerát
       selected_category: "Kategória: %{category}"
@@ -2167,7 +2175,7 @@ sk-SK:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d, %b, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Nedeľa
@@ -2227,7 +2235,7 @@ sk-SK:
       short: "%b %e, %Y o %H:%M"
       shorter: "%b %e o %H:%M"
       short_date: "%e %b, %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} včera"
     days_ago: "%{count} dní dozadu"
@@ -2275,10 +2283,13 @@ sk-SK:
         other: "Rezervovaných nocí:"
       price_per_day: "Cena za deň:"
       price_per_night: "Cena za noc:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Množstvo:"
       subtotal: "Medzisúčet:"
       shipping-price: "Doprava:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množstvo: %{quantity}"
@@ -2294,6 +2305,8 @@ sk-SK:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: kus
         hour: hodina
@@ -2306,6 +2319,13 @@ sk-SK:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~
