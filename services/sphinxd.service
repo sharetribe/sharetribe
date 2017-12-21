@@ -1,0 +1,20 @@
+# sudo cp ./*.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl restart sphinxd
+
+[Unit]
+Description=Start Sphinx Daemon
+
+[Service]
+ExecStart=/bin/bash -lc '/usr/bin/bundle exec rake ts:start'
+SyslogIdentifier=sphinxd
+# user with permissions to sharetribe installation directory
+User=web
+Group=web
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=RAILS_ENV=production
+# path to sharetribe
+WorkingDirectory=/var/rails/sharetribe
+
+[Install]
+WantedBy=multi-user.target

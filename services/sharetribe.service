@@ -1,0 +1,23 @@
+# sudo cp ./*.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl restart sharetribe
+
+[Unit]
+Description=E-Com Plus Addons Marketplace
+After=raked.service
+
+[Service]
+ExecStart=/bin/bash -lc '/usr/bin/bundle exec rails server -e production'
+Restart=always
+RestartSec=30s
+SyslogIdentifier=sharetribe
+# user with permissions to sharetribe installation directory
+User=web
+Group=web
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=RAILS_ENV=production
+# path to sharetribe
+WorkingDirectory=/var/rails/sharetribe
+
+[Install]
+WantedBy=multi-user.target
