@@ -56,7 +56,7 @@
       = check_box_tag(:shipping_enabled, "true", shape[:shipping_enabled], class: "checkbox-row-checkbox js-shipping-enabled")
       = label_tag(:shipping_enabled, t("admin.listing_shapes.shipping_label"), class: "checkbox-row-label js-shipping-enabled-label")
 
-- if harmony_in_use
+- if harmony_in_use || availability_per_hour
   - unless uneditable_fields[:availability]
 
     .row
@@ -71,15 +71,22 @@
         = check_box_tag(:availability, "booking", shape[:availability] == 'booking', class: "checkbox-row-checkbox js-availability")
         = label_tag(:availability, t("admin.listing_shapes.allow_providers_to_manage_availability"), class: "checkbox-row-label js-availability-label")
 
-    .row
-      .col-12
-        = radio_button_tag(:availability_unit, "night", shape[:availability] == 'booking' && shape[:availability_unit] == 'night', class: "checkbox-row-checkbox js-availability-unit", style: "margin-left: 1em")
-        = label_tag(:availability, t("admin.listing_shapes.per_night_availability"), class: "checkbox-row-label js-availability-unit-label")
+    - if availability_per_hour
+      .row
+        .col-12
+          = radio_button_tag(:availability_unit, "hour", shape[:availability] == 'booking' && shape[:availability_unit] == 'hour', class: "checkbox-row-checkbox js-availability-unit", style: "margin-left: 1em")
+          = label_tag(:availability_unit_hour, t("admin.listing_shapes.per_hour_availability"), class: "checkbox-row-label js-availability-unit-label")
 
-    .row
-      .col-12
-        = radio_button_tag(:availability_unit, "day", shape[:availability] == 'booking' && shape[:availability_unit] == 'day', class: "checkbox-row-checkbox js-availability-unit", style: "margin-left: 1em")
-        = label_tag(:availability, t("admin.listing_shapes.per_day_availability"), class: "checkbox-row-label js-availability-unit-label")
+    - if harmony_in_use
+      .row
+        .col-12
+          = radio_button_tag(:availability_unit, "day", shape[:availability] == 'booking' && shape[:availability_unit] == 'day', class: "checkbox-row-checkbox js-availability-unit", style: "margin-left: 1em")
+          = label_tag(:availability_unit_day, t("admin.listing_shapes.per_day_availability"), class: "checkbox-row-label js-availability-unit-label")
+
+      .row
+        .col-12
+          = radio_button_tag(:availability_unit, "night", shape[:availability] == 'booking' && shape[:availability_unit] == 'night', class: "checkbox-row-checkbox js-availability-unit", style: "margin-left: 1em")
+          = label_tag(:availability_unit_night, t("admin.listing_shapes.per_night_availability"), class: "checkbox-row-label js-availability-unit-label")
 
 .row
   .col-12

@@ -222,6 +222,7 @@ ka:
         update_settings: "პარამეტრების დამახსოვრება"
         automatically_confirmed_no_escrow: "შეკვეთა ავტომატურად მოინიშნება შესრულებულად გადახდის შესრულებიდან %{days_dropdown} დღის მერე"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "გააგზავნე ავტომატური სიახლეები: %{frequency_dropdown}"
         newsletter_daily: დღიური
         newsletter_weekly: კვირეული
@@ -454,6 +455,7 @@ ka:
       read_more: "წაიკითხეთ მეტი ავტომატური ხელმისაწვდომობის მართვაზე."
       read_more_availability_management: "წაიკითხეთ მეტი ხელმისაწვდომობის შესახებ"
       allow_providers_to_manage_availability: "მიეცი უფლება პროვაიდერებს რათა მართონ მათი თავისუფალი დრო კალენდრიდან."
+      per_hour_availability: ~
       per_day_availability: "დღიური ხელმისაწვდომობა"
       per_night_availability: "ხელმისაწვდომობა ღამე"
       pricing_units_disabled_info: "ფასი ვერ იქნება გამოყენებული როცა ხელმისაწვდომობის კალენდარი გააქტიურებულია"
@@ -980,6 +982,7 @@ ka:
       price_per_unit_type: "ფასი ყოველ %{unit_type}"
       quantity: "რაოდენობა:"
       you_have_received_new_payment: "თქვენ გადაგიხადეს <b>%{payment_sum}</b> <b>%{listing_title}</b>-სთვის %{payer_full_name}-ნ. აქ არის თქვენი ქვითარი."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1027,6 +1030,7 @@ ka:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "თანხა გადაირიცხება %{recipient_name}-ის ანგარიშზე, როცა ა) მონიშნავ მოთხოვნას დასრულებულად ან ბ) %{automatic_confirmation_days} დღე გავა გადახდიდან."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} მოგცათ შეფასება %{service_name}ში"
       you_can_give_feedback_to: "თქვენ ჯერ არ მიგიციათ შეფასება %{name}სთვის."
@@ -1701,6 +1705,10 @@ ka:
       how_paypal_works: "როგორ მუშაობს PayPal"
       payment_help: "გადახდის დახმარება"
       unable_load_availability: "ვერ მოხდა ჩატვირთვა ხელმისაწვდომობაზე. გთხოვთ თავიდან სცადოთ."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: სია
       selected_category: "კატეგორია: %{category}"
@@ -2143,6 +2151,7 @@ ka:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: კვირა
@@ -2202,6 +2211,7 @@ ka:
       short: "%b %e, %წ %ს.%თ ზე"
       shorter: "%b %e %ს.%თ ზე"
       short_date: "%b %e, %Y"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} დღის წინ"
     days_ago: "%{count} დღის წინ"
@@ -2235,10 +2245,13 @@ ka:
         other: "დაჯავშნილი ღამე"
       price_per_day: "ფასი დღიურად"
       price_per_night: "ერთი ღამის ფასი:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: რაოდენობა
       subtotal: "ჯამი:"
       shipping-price: "ფოსტით გაგზავნა:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "ფასი ყოველ %{unit_type}"
     price: "ფასი:"
     quantity: "რაოდენობა: %{quantity}"
@@ -2254,6 +2267,8 @@ ka:
         availability:
           something_went_wrong: "ჩვენ ვერ შევძელით გვეჩვენებინა ხელმისაწვდომობის ინფორმაცია. გთხოვთ სცადოთ გვერდის გადატვირთვა."
           saving_failed: "ცვლილებების შენახვა ვერ მოხერხდა. გთხოვთ სცადოთ გვერდის გადატვირთვა."
+        working_hours:
+          required: ~
       pricing_units:
         piece: ""
         hour: საათი
@@ -2266,6 +2281,13 @@ ka:
       confirm_discarding_unsaved_availability_changes_explanation: "თქვენ არ დაგისრულებიათ ცვლილებების შეტანა. თუ გააგრძელებთ, ეს ცვლილებები დაიკარგება."
       confirm_discarding_unsaved_availability_changes_question: "დარწმუნებული ხართ რომ გსურთ უარყოთ ცვლილებები?"
       edit_listing_availability: "დაარედაქტირე ჩამონათვალის ხელმისაწვდომობა"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "სამწუხაროდ თქვენი ძებნის კატეგორიით ვერ მოიძებნა ჩამონათვალი. იქნებ სხვა ძებნის პირობები ცადოთ?"
       try_other_search_terms: "იქნებ სცადოთ სხვა ძებნის პირობები."

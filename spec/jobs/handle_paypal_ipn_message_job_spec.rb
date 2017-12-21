@@ -9,6 +9,7 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
                                  transaction_process_id: transaction_process.id)
   }
   let(:transaction) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
+  let(:transaction2) { FactoryGirl.create(:transaction, community: community, listing: listing, current_state: 'initiated') }
 
   context '#perform' do
     it 'IPN message - commission denied' do
@@ -183,6 +184,86 @@ RSpec.describe HandlePaypalIpnMessageJob, type: :job do
       paypal_payment.reload
       expect(paypal_payment.commission_status).to eq 'pending'
       expect(paypal_payment.commission_pending_reason).to eq 'paymentreview'
+    end
+
+    it 'IPN message - fixed find paypal payment' do
+      body = {
+        "mc_gross"=>"40.50",
+        "invoice"=>"31089-262964-payment",
+        "auth_exp"=>"01:52:09 Jan 09, 2018 PST",
+        "protection_eligibility"=>"Eligible",
+        "address_status"=>"confirmed",
+        "item_number1"=>"",
+        "payer_id"=>"SMVUWVZCWZZZZ",
+        "tax"=>"0.00",
+        "address_street"=>"Alba Diagnostics Ltd 1 Bankhead Ave, Bankhead Ind Est",
+        "payment_date"=>"01:52:09 Dec 11, 2017 PST",
+        "payment_status"=>"Voided",
+        "charset"=>"windows-1252",
+        "address_zip"=>"KY7 6JG",
+        "mc_shipping"=>"5.50",
+        "mc_handling"=>"0.00",
+        "first_name"=>"Stewart",
+        "transaction_entity"=>"auth",
+        "address_country_code"=>"GB",
+        "address_name"=>"Stewart Whitton",
+        "notify_version"=>"3.8",
+        "custom"=>"",
+        "payer_status"=>"unverified",
+        "business"=>"info@peek-a-boo-signs.co.uk",
+        "address_country"=>"United Kingdom",
+        "num_cart_items"=>"1",
+        "mc_handling1"=>"0.00",
+        "address_city"=>"Glenrothes, Fife",
+        "verify_sign"=>"AGXT66oAmwth6Mv574mMl8vl9PeuAJ8SBM.xnUQ4vETFvdkiEyxn18jL",
+        "payer_email"=>"stewart@example.com",
+        "mc_shipping1"=>"0.00",
+        "tax1"=>"0.00",
+        "parent_txn_id"=>"",
+        "txn_id"=>"17834969M2791ZZZZ",
+        "payment_type"=>"instant",
+        "remaining_settle"=>"0",
+        "auth_id"=>"17834969M2791ZZZZ",
+        "last_name"=>"Whitton",
+        "address_state"=>"Fife",
+        "item_name1"=>"Wooden Sign \"How to tell time\"",
+        "receiver_email"=>"info@example.com",
+        "auth_amount"=>"40.50",
+        "shipping_discount"=>"0.00",
+        "quantity1"=>"1",
+        "insurance_amount"=>"0.00",
+        "receiver_id"=>"SRVAF3PNHZZZZ",
+        "txn_type"=>"cart",
+        "discount"=>"0.00",
+        "mc_gross_1"=>"35.00",
+        "mc_currency"=>"GBP",
+        "residence_country"=>"GB",
+        "shipping_method"=>"Default",
+        "transaction_subject"=>"",
+        "payment_gross"=>"",
+        "auth_status"=>"Voided",
+        "ipn_track_id"=>"7cc0a09bbbbbb",
+        "controller"=>"paypal_ipn",
+        "action"=>"ipn_hook"
+      }
+      paypal_ipn_message = FactoryGirl.create(:paypal_ipn_message, body: body, status: 'errored')
+      FactoryGirl.create(:paypal_payment,
+                                          community_id: community.id,
+                                          transaction_id: transaction2.id,
+                                          payment_status: 'voided',
+                                          pending_reason: 'none',
+                                          authorization_id: '111',
+                                          commission_status: 'not_charged',
+                                          commission_pending_reason: 'none')
+      FactoryGirl.create(:paypal_payment,
+                                          community_id: community.id,
+                                          transaction_id: transaction.id,
+                                          payment_status: 'voided',
+                                          pending_reason: 'none',
+                                          authorization_id: body["txn_id"],
+                                          commission_status: 'not_charged',
+                                          commission_pending_reason: 'none')
+      expect{HandlePaypalIpnMessageJob.new(paypal_ipn_message.id).perform}.to_not raise_error
     end
   end
 end

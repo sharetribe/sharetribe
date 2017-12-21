@@ -82,3 +82,22 @@
     }
   }
 }
+
+.datepicker-per-hour {
+  .field {
+    margin-bottom: 5px;
+
+    label {
+      width: 50%;
+      float: left;
+      margin: 0.5em 0;
+    }
+    input {
+      width: 50%;
+    }
+    select {
+      margin: 0.5em 0;
+      width: 50%;
+    }
+  }
+}

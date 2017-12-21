@@ -184,3 +184,38 @@ When(/^I set location to be New York/) do
     "
   )
 end
+
+Then(/^I should see working hours form with changes$/) do
+  expect(page).to have_css('.working-hours-form.has-changes')
+end
+
+Then(/^I should see working hours form without changes$/) do
+  expect(page).to have_css('.working-hours-form.no-changes')
+end
+
+When(/^I add new working hours time slot for day "(.*?)"$/) do |day|
+  within "#week-day-#{day}" do
+    find('.addMore a').click
+  end
+end
+
+Then(/^I should see working hours save button finished$/) do
+  expect(page).to have_css('.working-hours-form .save-button.save-finished')
+end
+
+Given(/^that listing availability is booking$/) do
+  @listing.update_attribute(:availability, :booking)
+end
+
+Given(/^that listing has default working hours$/) do
+  @listing.working_hours_new_set
+  @listing.save
+end
+
+Given(/^that listing have booking at "(.*?)" from "(.*?)" till "(.*?)"$/) do |date, from, till|
+  start_time = "#{date} #{from}"
+  end_time = "#{date} #{till}"
+  community = Community.find(@listing.community_id)
+  transaction = FactoryGirl.create(:transaction, community: community, listing: @listing, current_state: 'paid')
+  FactoryGirl.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
+end
