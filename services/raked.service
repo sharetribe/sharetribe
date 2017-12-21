@@ -1,0 +1,23 @@
+# sudo cp ./*.service /etc/systemd/system/
+# sudo systemctl daemon-reload
+# sudo systemctl restart raked
+
+[Unit]
+Description=Invoke The Delayed Job Worker To Start Rails Server
+After=sphinxd.service
+
+[Service]
+ExecStart=/bin/bash -lc '/usr/bin/bundle exec rake jobs:work'
+Restart=always
+RestartSec=30s
+SyslogIdentifier=raked
+# user with permissions to sharetribe installation files
+User=web
+Group=web
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=RAILS_ENV=production
+# path to sharetribe
+WorkingDirectory=/var/rails/sharetribe
+
+[Install]
+WantedBy=multi-user.target
