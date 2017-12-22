@@ -261,9 +261,8 @@ module MarketplaceService
       end
 
       def transaction_with_conversation(transaction_id:, person_id: nil, community_id:)
-        rel = TransactionModel.joins(:listing)
-          .where(id: transaction_id, deleted: false)
-          .where(community_id: community_id)
+        rel = TransactionModel.exist.by_community(community_id).joins(:listing)
+          .where(id: transaction_id)
           .includes(:booking)
 
         with_person = Maybe(person_id)
@@ -282,35 +281,29 @@ module MarketplaceService
 
       def transactions_for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
         sort_column = "transactions.#{sort_column}" if sort_column.index('.').nil?
-        transactions = TransactionModel
-          .where(community_id: community_id, deleted: false)
-          .joins('LEFT JOIN conversations c ON transactions.conversation_id = c.id')
-          .where('c.starting_page = ? OR c.starting_page IS NULL', ::Conversation::PAYMENT)
+        transactions = TransactionModel.exist.by_community(community_id)
+          .with_payment_conversation
           .includes(:listing)
           .limit(limit)
           .offset(offset)
           .order("#{sort_column} #{sort_direction}")
-
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
       def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
-        sql = sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
-        transactions = TransactionModel.find_by_sql(sql)
-
+        transactions = TransactionModel.exist.by_community(community_id)
+          .with_payment_conversation_latest(sort_direction)
+          .limit(limit)
+          .offset(offset)
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
         }
       end
 
       def transactions_count_for_community(community_id)
-        TransactionModel
-          .where(community_id: community_id, deleted: false)
-          .joins('LEFT JOIN conversations c ON transactions.conversation_id = c.id')
-          .where('c.starting_page = ? OR c.starting_page IS NULL', ::Conversation::PAYMENT)
-          .count
+        TransactionModel.exist.by_community(community_id).with_payment_conversation.count
       end
 
       def can_transition_to?(transaction_id, new_status)
@@ -320,29 +313,6 @@ module MarketplaceService
           state_machine.can_transition_to?(new_status)
         end
       end
-
-      # TODO Consider removing to inbox service, since this is more like inbox than transaction stuff.
-      def sql_for_transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
-        "
-          SELECT transactions.* FROM transactions
-
-          # Get 'last_transition_at'
-          # (this is done by joining the transitions table to itself where created_at < created_at OR sort_key < sort_key, if created_at equals)
-          LEFT JOIN conversations ON transactions.conversation_id = conversations.id
-          WHERE transactions.community_id = #{community_id} AND transactions.deleted = 0
-            AND (conversations.starting_page = '#{::Conversation::PAYMENT}' OR conversations.starting_page IS NULL)
-          ORDER BY
-            GREATEST(COALESCE(transactions.last_transition_at, 0),
-              COALESCE(conversations.last_message_at, 0)) #{sort_direction}
-          LIMIT #{limit} OFFSET #{offset}
-        "
-      end
-
-      @construct_last_transition_to_sql = ->(params){
-      "
-        SELECT id, transaction_id, to_state, created_at FROM transaction_transitions WHERE transaction_id in (#{params[:transaction_ids].join(',')})
-      "
-      }
     end
 
     module Events
