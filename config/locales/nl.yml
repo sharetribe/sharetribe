@@ -229,6 +229,7 @@ nl:
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatically_confirmed_no_escrow_stripe_info: "Voor transacties die worden verwerkt met Stripe wordt de betaling aan de leveranciers uitgesteld totdat de bestelling als voltooid is gemarkeerd. %{learn_more}"
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
@@ -461,6 +462,7 @@ nl:
       read_more: "Lees meer over automatische beschikbaarheidsmanagement."
       read_more_availability_management: "Lees meer over beschikbaarheids management."
       allow_providers_to_manage_availability: "Sta leveranciers toe om hun beschikbaarheid te beheren vanuit een kalender."
+      per_hour_availability: ~
       per_day_availability: "\"Per dag\" beschikbaarheid"
       per_night_availability: "\"Per nacht\" beschikbaarheid"
       pricing_units_disabled_info: "Prijseenheden kunnen niet worden gebruikt als de beschikbaarheidskalender is ingeschakeld."
@@ -998,6 +1000,7 @@ nl:
       price_per_unit_type: "Prijs per %{unit_type}"
       quantity: "Hoeveelheid:"
       you_have_received_new_payment: "<b> %{payment_sum}</b> heeft betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: Betalingsverwerkingskosten
       shipping_total: "Verzenden:"
@@ -1045,6 +1048,7 @@ nl:
       stripe_gateway_fee: "toeslag Stripe"
       paypal_gateway_fee: "toeslag Stripe"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
@@ -1720,6 +1724,10 @@ nl:
       how_paypal_works: "Hoe PayPal werkt"
       payment_help: "Help met betaling"
       unable_load_availability: "Kon beschikbaarheidsinformatie niet laden. Probeer het later opnieuw."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: advertentie
       selected_category: "Categorie: %{category}"
@@ -2163,7 +2171,7 @@ nl:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Zondag
@@ -2223,7 +2231,7 @@ nl:
       short: "%e %b %Y om %H:%M"
       shorter: "%e %b om %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dag geleden"
     days_ago: "%{count} dagen geleden"
@@ -2264,10 +2272,13 @@ nl:
         other: "Geboekte nachten:"
       price_per_day: "Prijs per dag:"
       price_per_night: "Prijs per nacht:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Hoeveelheid:"
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"
       stripe-fee: "Stripe kosten (geschat):"
+      start_end_time: ~
     price_per_quantity: "Prijs per %{unit_type}:"
     price: "Prijs:"
     quantity: "Aantal: %{quantity}"
@@ -2283,6 +2294,8 @@ nl:
         availability:
           something_went_wrong: "Het lukt niet om beschikbaarheidsinformatie weer te geven. Probeer de pagina te herladen."
           saving_failed: "Het lukt niet om de wijzigingen in beschikbaarheid op te slaan. Probeer de pagina te herladen."
+        working_hours:
+          required: ~
       pricing_units:
         piece: stuk
         hour: uur
@@ -2295,6 +2308,13 @@ nl:
       confirm_discarding_unsaved_availability_changes_explanation: "Je hebt niet-opgeslagen wijzigingen in je beschikbaarheid. Als je doorgaat zullen deze veranderingen verloren gaan."
       confirm_discarding_unsaved_availability_changes_question: "Weet je zeker dat je je veranderingen ongedaan wilt maken?"
       edit_listing_availability: "Wijzig beschikbaarheid advertentie"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Sorry, er konden geen advertenties gevonden worden met deze zoekcriteria."
       try_other_search_terms: "Probeer andere zoek termen?"

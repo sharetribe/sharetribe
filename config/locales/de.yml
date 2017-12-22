@@ -227,6 +227,7 @@ de:
         update_settings: "Einstellungen speichern"
         automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"erledigt\" %{days_dropdown} Tage nach der Bezahlung markiert."
         automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Anbieter-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
+        automatically_confirmed_after_end_time: "Die Transaktion wird durch den Käufer oder nach %{days_dropdown} Tagen nach Erfüllung als als erledigt klassifiziert."
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -459,6 +460,7 @@ de:
       read_more: "Mehr über automatische Verfügbarkeitsverwaltung lesen."
       read_more_availability_management: "Mehr über Verfügbarkeitsverwaltung lesen."
       allow_providers_to_manage_availability: "Erlaube den Verkäufern, ihre Verfügbarkeit mit Hilfe eines Kalenders zu verwalten"
+      per_hour_availability: "\"Pro Stunde\" Verfügbarkeit"
       per_day_availability: "\"Pro Tag\" Verfügbarkeit"
       per_night_availability: "\"Pro Nacht\" Verfügbarkeit"
       pricing_units_disabled_info: "Preiseinheiten können nicht verwendet werden wenn der Terminkalender eingeschaltet ist."
@@ -997,6 +999,7 @@ de:
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
       you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von  <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
+      listing_per_unit_title: "%{title}, pro %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Zahlungsbearbeitungsgebühr:"
       shipping_total: "Versand:"
@@ -1044,6 +1047,7 @@ de:
       stripe_gateway_fee: "Gebühr von Stripe:"
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
+      listing_per_unit_title: "%{title}, pro %{unit_type}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat dich auf %{service_name} bewertet"
       you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
@@ -1373,7 +1377,7 @@ de:
       select_language: "Sprache auswählen"
     infos:
       about: Info
-      how_to_use: "Wie es funktioniert"
+      how_to_use: "So funktioniert's"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
       register_details: "Impressum & Datenschutz"
@@ -1719,6 +1723,10 @@ de:
       how_paypal_works: "Wie PayPal funktioniert"
       payment_help: "Hilfe beim Bezahlen"
       unable_load_availability: "Verfügbarkeitsinformationen konnte nicht geladen werden. Bitte versuche es nochmal später erneut."
+      booking_date: Buchungsdatum
+      select_one: "Bitte auswählen"
+      start_time: Startzeit
+      end_time: Endzeit
     new:
       listing: Eintrag
       selected_category: "Kategorie: %{category}"
@@ -2222,7 +2230,7 @@ de:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "Vor %{count} Tag"
     days_ago: "Vor %{count} Tagen"
@@ -2263,10 +2271,19 @@ de:
         other: "Gebuchte Nächte:"
       price_per_day: "Preis pro Tag:"
       price_per_night: "Preis pro Nacht:"
+      price_per_hour: "Preis pro Stunde:"
+      price_per_unit: "Preis pro Einheit:"
       quantity: "Anzahl:"
       subtotal: "Zwischensumme:"
       shipping-price: "Versandkosten:"
       stripe-fee: "Stripe Gebühr (geschätzt):"
+      start_end_time: "%{start_time} bis %{end_time}"
+      booked_hours_label:
+        one: "Gebuchte Stunde:"
+        other: "Gebuchte Stunden:"
+      duration_in_hours:
+        one: "(Eine Stunde)"
+        other: "(%{count} Stunden)"
     price_per_quantity: "Preis pro %{unit_type}"
     price: "Preis:"
     quantity: "Anzahl: %{quantity}"
@@ -2282,6 +2299,8 @@ de:
         availability:
           something_went_wrong: "Wir können die Verfügbarkeitsinformationen nicht anzeigen. Bitte versuche, die Seite erneut zu laden."
           saving_failed: "Wir können die Änderungen an der Verfügbarkeit nicht speichern. Bitte versuche, die Seite erneut zu laden."
+        working_hours:
+          required: Pflichteingabe
       pricing_units:
         piece: Stück
         hour: Stunde
@@ -2294,6 +2313,13 @@ de:
       confirm_discarding_unsaved_availability_changes_explanation: "Einige Änderungen zu der Verfügbarkeit wurden noch nicht gespeichert. Beim Fortsetzen gehen diese Änderungen verloren."
       confirm_discarding_unsaved_availability_changes_question: "Bist du sicher, dass du diese Änderungen verwerfen willst?"
       edit_listing_availability: "Verfügbarkeit der Anzeige bearbeiten"
+      working_hours:
+        default_schedule: Standardplan
+        i_am_available_on: "Ich bin verfügbar am..."
+        start_time: Startzeit
+        end_time: Endzeit
+        add_another_time_slot: "+ Weitere Zeitfenster hinzufügen"
+        save: Speichern
     no_listings:
       sorry: "Verzeihung, aber wir konnten keine Anzeigen mit deinen Suchkriterien finden."
       try_other_search_terms: "Vielleicht könntest du andere Suchkriterien verwenden?"

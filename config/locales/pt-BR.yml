@@ -227,6 +227,7 @@ pt-BR:
         update_settings: "Salvar configurações"
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
@@ -459,6 +460,7 @@ pt-BR:
       read_more: "Leia mais sobre o gerenciamento automático de disponibilidade."
       read_more_availability_management: "Leia mais sobre gerenciamento de disponibilidade."
       allow_providers_to_manage_availability: "Permitir que os seus fornecedores gerenciem sua disponibilidade a partir de um calendário"
+      per_hour_availability: ~
       per_day_availability: "Disponibilidade \"por dia\""
       per_night_availability: "Disponibilidade \"por noite\""
       pricing_units_disabled_info: "As unidades de preço não podem ser usadas quando o calendário de disponibilidade está ativado."
@@ -989,6 +991,7 @@ pt-BR:
       price_per_unit_type: "Preço por %{unit_type}"
       quantity: "Quantidade:"
       you_have_received_new_payment: "Você recebeu <b>%{payment_sum}</b> por <b>%{listing_title}</b> de %{payer_full_name}. Veja o recibo."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1036,6 +1039,7 @@ pt-BR:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te avaliou %{service_name}"
       you_can_give_feedback_to: "Você ainda não avaliou %{name}"
@@ -1711,6 +1715,10 @@ pt-BR:
       how_paypal_works: "Como o Paypal Trabalha"
       payment_help: "Ajuda com o pagamento"
       unable_load_availability: "Não foi possível carregar as informações de disponibilidade. Por favor, tente novamente mais tarde."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: anúncio
       selected_category: "Categoria: %{category}"
@@ -2156,7 +2164,7 @@ pt-BR:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d de %b de %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Domingo
@@ -2216,7 +2224,7 @@ pt-BR:
       short: "%e. %b %Y hora %H:%M"
       shorter: "%e %b as %H:%M"
       short_date: "%b %e  %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dia atrás"
     days_ago: "%{count} dias atrás"
@@ -2257,10 +2265,13 @@ pt-BR:
         other: "Noites reservadas:"
       price_per_day: "Preço por dia:"
       price_per_night: "Preço por noite:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Quantidade:"
       subtotal: "Sub-total:"
       shipping-price: "Envio:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Preço por %{unit_type}:"
     price: "Preço:"
     quantity: "Quantidade: %{quantity}"
@@ -2276,6 +2287,8 @@ pt-BR:
         availability:
           something_went_wrong: "Não é possível exibir informações de disponibilidade. Tente recarregar a página."
           saving_failed: "Não é possível salvar as alterações de disponibilidade. Tente recarregar a página."
+        working_hours:
+          required: ~
       pricing_units:
         piece: fração
         hour: hora
@@ -2288,6 +2301,13 @@ pt-BR:
       confirm_discarding_unsaved_availability_changes_explanation: "Você tem alterações ainda não salvas nas suas informações de disponibilidade. Se você continuar, essas alterações serão perdidas."
       confirm_discarding_unsaved_availability_changes_question: "Tem certeza de que deseja descartar suas alterações?"
       edit_listing_availability: "Editar a disponibilidade do anúncio"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Lamentamos, mas não foi possível encontrar nenhum anúncio para a sua pesquisa."
       try_other_search_terms: "Que tal tentar outras expressões em sua busca?"

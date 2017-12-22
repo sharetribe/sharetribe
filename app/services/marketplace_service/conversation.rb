@@ -14,7 +14,8 @@ module MarketplaceService
         :created_at,
         :last_message_at,
         :starter_person,
-        :other_person
+        :other_person,
+        :starting_page
       )
 
       Message = EntityUtils.define_entity(
@@ -39,7 +40,8 @@ module MarketplaceService
           created_at: conversation_model.created_at,
           last_message_at: conversation_model.last_message_at,
           starter_person: PersonEntity.person(conversation_model.starter, community_id),
-          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter), community_id)
+          other_person: PersonEntity.person(conversation_model.other_party(conversation_model.starter), community_id),
+          starting_page: conversation_model.starting_page
         }]
       end
 

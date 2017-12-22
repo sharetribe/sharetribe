@@ -227,6 +227,7 @@ fr-CA:
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed_no_escrow: "Les transactions seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -459,6 +460,7 @@ fr-CA:
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
@@ -977,6 +979,7 @@ fr-CA:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: "Vous avez été payé <b>%{payment_sum}</b> pour <b>%{listing_title}</b> par %{payer_full_name}. Voici votre reçu."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1024,6 +1027,7 @@ fr-CA:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "L'argent sera transféré à %{recipient_name} quand a) vous aurez marqué la demande comme réalisée ou quand b) %{automatic_confirmation_days} jours auront passé après votre paiement."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur %{service_name}"
       you_can_give_feedback_to: "Vous n'avez pas encore donné un avis sur %{name}."
@@ -1695,6 +1699,10 @@ fr-CA:
       how_paypal_works: "Comment fonctionne PayPal"
       payment_help: ~
       unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: annonce
       selected_category: "Catégorie : %{category}"
@@ -2138,7 +2146,7 @@ fr-CA:
   date:
     formats:
       long_with_abbr_day_name: "%a %d %b %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Dimanche
@@ -2198,7 +2206,7 @@ fr-CA:
       short: "%e. %b %Y heure %H:%M"
       shorter: "%e. %b h %H:%M"
       short_date: "%e %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "il y a %{count} jour"
     days_ago: "il y a %{count} jours"
@@ -2220,10 +2228,13 @@ fr-CA:
       booked_nights: ~
       price_per_day: ~
       price_per_night: ~
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: ~
       subtotal: "Sous-total : "
       shipping-price: "Frais de livraison : "
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: ~
     price: ~
     quantity: ~
@@ -2239,6 +2250,8 @@ fr-CA:
         availability:
           something_went_wrong: ~
           saving_failed: ~
+        working_hours:
+          required: ~
       pricing_units:
         piece: ~
         hour: ~
@@ -2251,6 +2264,13 @@ fr-CA:
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
       edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: ~
       try_other_search_terms: ~

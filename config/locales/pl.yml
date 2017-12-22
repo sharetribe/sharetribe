@@ -237,6 +237,7 @@ pl:
         update_settings: "Zapisz ustawienia"
         automatically_confirmed_no_escrow: "Zlecenie zostanie automatycznie oznaczone jako zrealizowane %{days_dropdown} dni po dokonaniu płatności"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
         newsletter_daily: Codziennie
         newsletter_weekly: Tygodniowo
@@ -469,6 +470,7 @@ pl:
       read_more: "Czytaj więcej na temat automatycznego zarządzania dostępnością."
       read_more_availability_management: "Czytaj więcej na temat zarządzania dostępnością."
       allow_providers_to_manage_availability: "Pozwól dostawcom na zarządzanie dostępnością z kalendarza"
+      per_hour_availability: ~
       per_day_availability: "Dostępność \"per dzień\""
       per_night_availability: "Dostępność \"per noc\""
       pricing_units_disabled_info: "Jednostki nie mogą być wykorzystywane gdy włączono kalendarz dostępności."
@@ -1007,6 +1009,7 @@ pl:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Ilość:"
       you_have_received_new_payment: "Opłaciłeś <b>%{payment_sum}</b> za <b>%{listing_title}</b> od %{payer_full_name}. Tutaj jest Twój rachunek."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1054,6 +1057,7 @@ pl:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pieniądze zostaną przesłane do %{recipient_name} kiedy: a) zaznaczysz zlecenie jako zrealizowane lub b) minie %{automatic_confirmation_days} dni od kiedy dokonałeś płatności."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
       you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
@@ -1731,6 +1735,10 @@ pl:
       how_paypal_works: "Jak działa PayPal"
       payment_help: "Pomoc w sprawie płatności"
       unable_load_availability: "Nie można załadować informacji o dostępności. Proszę spróbować ponownie później."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: oferta
       selected_category: "Kategoria: %{category}"
@@ -2176,7 +2184,7 @@ pl:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Niedziela
@@ -2236,7 +2244,7 @@ pl:
       short: "%b %e, %Y na %H:%M"
       shorter: "%b %e na %H:%M"
       short_date: "%b %e, %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} dzień temu"
     days_ago: "%{count} dni temu"
@@ -2291,10 +2299,13 @@ pl:
         other: "Zarezerwowanych nocy:"
       price_per_day: "Cena za dzień:"
       price_per_night: "Cena za noc:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Ilość:"
       subtotal: "Suma częściowa:"
       shipping-price: "Transport:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Ilość: %{quantity}"
@@ -2310,6 +2321,8 @@ pl:
         availability:
           something_went_wrong: "Nie jesteśmy w stanie wyświetlić informacji o dostępności. Spróbuj odświeżyć stronę."
           saving_failed: "Nie jesteśmy w stanie zapisać zmian w dostępności. Spróbuj odświeżyć stronę."
+        working_hours:
+          required: ~
       pricing_units:
         piece: sztuka
         hour: godzina
@@ -2322,6 +2335,13 @@ pl:
       confirm_discarding_unsaved_availability_changes_explanation: "Masz niezapisane zmiany w informacjach dotyczących dostępności. Jeśli będziesz kontynuować, utracisz te zmiany."
       confirm_discarding_unsaved_availability_changes_question: "Czy jesteś pewien, że chcesz odrzucić swoje zmiany?"
       edit_listing_availability: "Edytuj dostępność oferty"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Przykro nam, ale nie można znaleźć ofert spełniających kryteria Twojego wyszukiwania."
       try_other_search_terms: "Może spróbuj innych warunków wyszukiwania?"

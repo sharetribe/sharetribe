@@ -227,6 +227,7 @@ fi:
         update_settings: Tallenna
         automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatically_confirmed_no_escrow_stripe_info: "Stripe-alustalla tehdyt maksut siirtyvät myyjälle vasta kun tilaus merkitään toteutuneeksi. %{learn_more}"
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -459,6 +460,7 @@ fi:
       read_more: "Lue lisää automaattisesta saatavuuden hallinnasta."
       read_more_availability_management: "Lue lisää saatavuuden hallinnasta."
       allow_providers_to_manage_availability: "Salli myyjien hallita saatavuustietojaan kalenterin avulla"
+      per_hour_availability: ~
       per_day_availability: "\"Per päivä\" -saatavuus"
       per_night_availability: "\"Per yö\" -saatavuus"
       pricing_units_disabled_info: "Hinnan yksiköitä ei voi käyttää mikäli saatavuuskalenteri (availability calendar) on kytketty päälle."
@@ -997,6 +999,7 @@ fi:
       price_per_unit_type: "Hinta per %{unit_type}"
       quantity: "Määrä:"
       you_have_received_new_payment: "%{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> liittyen ilmoitukseen <b>%{listing_title}</b>. Tämä on kuitti maksusta."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: "Maksunvälittäjän palvelumaksu:"
       shipping_total: "Toimitus:"
@@ -1044,6 +1047,7 @@ fi:
       stripe_gateway_fee: "Stripe palvelumaksu"
       paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
       you_can_give_feedback_to: "Et ole vielä antanut palautetta käyttäjälle %{name}."
@@ -1719,6 +1723,10 @@ fi:
       how_paypal_works: "Miten PayPal toimii"
       payment_help: "Apua maksujen kanssa"
       unable_load_availability: "Saatavuustietoja ei voitu ladata. Ole hyvä ja yritä myöhemmin uudelleen."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"
@@ -2162,7 +2170,7 @@ fi:
   date:
     formats:
       long_with_abbr_day_name: "%a %-d.%-m.%Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: sunnuntai
@@ -2222,7 +2230,7 @@ fi:
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
       short_date: "%d.%m.%Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} päivä sitten"
     days_ago: "%{count} päivää sitten"
@@ -2263,10 +2271,13 @@ fi:
         other: "Valitut yöt:"
       price_per_day: "Päivähinta:"
       price_per_night: "Hinta per yö:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Määrä:"
       subtotal: "Välisumma:"
       shipping-price: "Postikulut:"
       stripe-fee: "Stripen palvelumaksu (arvio):"
+      start_end_time: ~
     price_per_quantity: "Hinta per %{unit_type}:"
     price: "Hinta:"
     quantity: "Määrä: %{quantity}"
@@ -2282,6 +2293,8 @@ fi:
         availability:
           something_went_wrong: "Saatavuustietoja ei voida näyttää. Ole hyvä ja kokeile päivittää sivu."
           saving_failed: "Saatavuustietojen muutoksia ei voitu tallentaa. Ole hyvä ja kokeile päivittää sivu."
+        working_hours:
+          required: ~
       pricing_units:
         piece: kappale
         hour: tunti
@@ -2294,6 +2307,13 @@ fi:
       confirm_discarding_unsaved_availability_changes_explanation: "Sinulla on tallentamattomia muutoksia saatavuustietoihin. Jos jatkat, muutokset eivät tallennu."
       confirm_discarding_unsaved_availability_changes_question: "Oletko varma että haluat hylätä muutokset?"
       edit_listing_availability: "Muokkaa ilmoituksen saatavuutta"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Valitettavasti antamillasi hakuehdoilla ei löytynyt ilmoituksia."
       try_other_search_terms: "Ehkä voisit kokeilla muita hakutermejä?"
@@ -2352,8 +2372,6 @@ fi:
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
     person:
       community_members_entries_info:
-        multi_page: "Näytetään %{model} %{from} - %{to} yhteensä %{accepted_count} hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
-        multi_page_html: "Näytetään %{model} <b>%{from}&nbsp;-%{to}</b> yhteensä <b>%{accepted_count}</b> hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
         single_page:
           zero: "Ei %{model}"
           one: "Näytetään %{accepted_count} hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
@@ -2362,6 +2380,8 @@ fi:
           zero: "Ei %{model}"
           one: "Näytetään <b>%{accepted_count}</b> hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
           other: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model}ä ja %{banned_count} estettyä %{banned_model}ä"
+        multi_page: "Näytetään %{model} %{from} - %{to} yhteensä %{accepted_count} hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
+        multi_page_html: "Näytetään %{model} <b>%{from}&nbsp;-%{to}</b> yhteensä <b>%{accepted_count}</b> hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä ylläpitoon"

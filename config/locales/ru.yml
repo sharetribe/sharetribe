@@ -237,6 +237,7 @@ ru:
         update_settings: "Сохранить настройки"
         automatically_confirmed_no_escrow: "Транзакция будет автоматически отмечена как завешенная через %{days_dropdown} дней после осуществления платежа"
         automatically_confirmed_no_escrow_stripe_info: ~
+        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Отправлять автоматически новости: %{frequency_dropdown}"
         newsletter_daily: Ежедневно
         newsletter_weekly: Еженедельно
@@ -469,6 +470,7 @@ ru:
       read_more: "Узнать болше об автоматическом управлении доступностью."
       read_more_availability_management: "Узнать больше об управлении доступностью."
       allow_providers_to_manage_availability: "Разрешить поставщикам управлять своей доступностью из календаря"
+      per_hour_availability: ~
       per_day_availability: "Доступность \"на день\""
       per_night_availability: "Доступность \"на ночь\""
       pricing_units_disabled_info: "Параметры цены не могут быть использованы при активированном календаре доступности."
@@ -1005,6 +1007,7 @@ ru:
       price_per_unit_type: "Цена за %{unit_type}"
       quantity: "Количество:"
       you_have_received_new_payment: "Вам оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Здесь ваша квитанция."
+      listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
       shipping_total: ~
@@ -1052,6 +1055,7 @@ ru:
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Деньги будут переведены к %{recipient_name} когда а) вы отметите этот запрос завершенным или б) %{automatic_confirmation_days} дней пройдет после вашей оплаты."
+      listing_per_unit_title: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в %{service_name}"
       you_can_give_feedback_to: "Вы еще не создали отзыв о %{name}"
@@ -1729,6 +1733,10 @@ ru:
       how_paypal_works: "Как функционирует PayPal"
       payment_help: "Информация о платежах"
       unable_load_availability: "Не удалось загрузить информацию о доступности. Пожалуйста, попробуйте еще раз."
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
     new:
       listing: список
       selected_category: "Категория: %{category}"
@@ -2174,7 +2182,7 @@ ru:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: 0
+    first_day_of_week: ~
   datepicker:
     days:
       sunday: Воскресенье
@@ -2234,7 +2242,7 @@ ru:
       short: "%e %b %Y в %H:%M"
       shorter: "%e %b в %H:%M"
       short_date: "%e. %b %Y"
-      hours_only: "%H:%M"
+      hours_only: ~
   timestamps:
     day_ago: "%{count} день назад"
     days_ago: "%{count} дней назад"
@@ -2289,10 +2297,13 @@ ru:
         other: "Забронированные ночи:"
       price_per_day: "Цена за день:"
       price_per_night: "Стоимость за сутки:"
+      price_per_hour: ~
+      price_per_unit: ~
       quantity: "Количество:"
       subtotal: "Предварительный итог:"
       shipping-price: "Доставка:"
       stripe-fee: ~
+      start_end_time: ~
     price_per_quantity: "Цена за %{unit_type}:"
     price: "Цена:"
     quantity: "Количество: %{quantity}"
@@ -2308,6 +2319,8 @@ ru:
         availability:
           something_went_wrong: "Невозможно отобразить информацию о доступности. Попробуйте обновить страницу."
           saving_failed: "Не удалось сохранить изменения в доступности. Попробуйте перезагрузить страницу."
+        working_hours:
+          required: ~
       pricing_units:
         piece: шт.
         hour: час
@@ -2320,6 +2333,13 @@ ru:
       confirm_discarding_unsaved_availability_changes_explanation: "Вы не сохранили изменения в информации о доступности. Если вы продолжите, данные изменения будут потеряны."
       confirm_discarding_unsaved_availability_changes_question: "Вы действительно хотите отменить изменения?"
       edit_listing_availability: "Редактировать доступность каталогов"
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: ~
+        save: ~
     no_listings:
       sorry: "Не найдено результатов, совпдающих с вашим запросом."
       try_other_search_terms: "Изменить условия поиска?"
