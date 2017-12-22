@@ -24,6 +24,13 @@ class Message < ApplicationRecord
   validates_presence_of :sender_id
   validates_presence_of :content
 
+  scope :latest_for_conversation, -> {
+    joins('LEFT JOIN messages m2 ON
+          (messages.conversation_id = m2.conversation_id AND messages.created_at < m2.created_at)')
+    .where('m2.created_at IS NULL')
+  }
+  scope :by_converation_ids, -> (converation_ids) { where(conversation_id: converation_ids) }
+
   def update_conversation_read_status
     conversation.update_attribute(:last_message_at, created_at)
     conversation.participations.each do |p|
