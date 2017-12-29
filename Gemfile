@@ -171,3 +171,5 @@ gem 'intercom'
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
+#Mailjet
+gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
