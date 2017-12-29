@@ -7,7 +7,7 @@ require 'mailjet'
 Mailjet.configure do |config|
   config.api_key = APP_CONFIG.mailjet_user
   config.secret_key = APP_CONFIG.mailjet_password
-  config.default_from = APP_CONFIG.mailjet_from_email
+  config.default_from = APP_CONFIG.mailjet_default_from
 end
 
 module MailCarrier
