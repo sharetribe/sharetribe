@@ -1,9 +1,9 @@
 # These needed to load the config.yml
-require File.expand_path('/var/rails/sharetribe/config/config_loader', __FILE__)
+require File.expand_path('../../config/config_loader', __FILE__)
 # Read the config from the config.yml
 APP_CONFIG = ConfigLoader.load_app_config
 # settings MailJet
-require '/usr/local/lib/ruby/gems/2.3.0/gems/mailjet-1.5.4/lib/mailjet.rb'
+require 'mailjet'
 Mailjet.configure do |config|
   config.api_key = APP_CONFIG.mailjet_user
   config.secret_key = APP_CONFIG.mailjet_password
