@@ -107,7 +107,7 @@ FactoryGirl.define do
     description("test")
     build_association(:author)
     category { TestHelpers::find_or_build_category("item") }
-    valid_until 3.months.from_now
+    valid_until { Time.current + 3.months }
     times_viewed 0
     privacy "public"
     listing_shape_id 123
