@@ -292,11 +292,15 @@ module MarketplaceService
         }
       end
 
-      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
+      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset, eager_includes = false)
         transactions = TransactionModel.exist.by_community(community_id)
           .with_payment_conversation_latest(sort_direction)
           .limit(limit)
           .offset(offset)
+        if eager_includes
+          transactions = transactions
+            .includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
+        end
         transactions = transactions.map { |txn|
           Entity.transaction_with_conversation(txn, community_id)
         }
