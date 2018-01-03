@@ -2,7 +2,7 @@ module TransactionService::Store::PaymentSettings
 
   PaymentSettingsModel = ::PaymentSettings
 
-  PaymentSettingsUpdate = EntityUtils.define_builder(
+  PaymentSettingsCreate = EntityUtils.define_builder(
     [:active, :to_bool, default: false],
     [:community_id, :mandatory, :fixnum],
     [:payment_gateway, :to_symbol, one_of: [:paypal, :braintree, :checkout, :stripe, :none], default: :none],
@@ -16,6 +16,23 @@ module TransactionService::Store::PaymentSettings
     [:api_client_id, :string],
     [:api_private_key, :string],
     [:api_publishable_key, :string]
+  )
+
+  PaymentSettingsUpdate = EntityUtils.define_builder(
+    [:active, :to_bool, default: false],
+    [:community_id, :mandatory, :fixnum],
+    [:payment_gateway, :to_symbol, one_of: [:paypal, :braintree, :checkout, :stripe, :none], default: :none],
+    [:payment_process, :to_symbol, one_of: [:preauthorize, :postpay, :free], default: :free],
+    [:commission_from_seller, :fixnum],
+    [:minimum_price_cents, :fixnum],
+    [:minimum_price_currency, :string],
+    [:minimum_transaction_fee_cents, :fixnum],
+    [:minimum_transaction_fee_currency, :string],
+    [:confirmation_after_days, :fixnum],
+    [:api_client_id, :string],
+    [:api_private_key, :string],
+    [:api_publishable_key, :string],
+    [:confirmation_after_days_after_end_time, :fixnum]
   )
 
   PaymentSettings = EntityUtils.define_builder(
@@ -41,7 +58,7 @@ module TransactionService::Store::PaymentSettings
   module_function
 
   def create(opts)
-    settings = HashUtils.compact(PaymentSettingsUpdate.call(opts))
+    settings = HashUtils.compact(PaymentSettingsCreate.call(opts))
     encrypt_api_keys(settings)
     model = PaymentSettingsModel.create!(settings)
     from_model(model)
