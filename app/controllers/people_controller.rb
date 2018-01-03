@@ -93,7 +93,7 @@ class PeopleController < Devise::RegistrationsController
 
     if params[:person].blank? || params[:person][:input_again].present? # Honey pot for spammerbots
       flash[:error] = t("layouts.notifications.registration_considered_spam")
-      ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
+      Rails.logger.error "Honey pot: Registration Honey Pot is hit."
       redirect_to error_redirect_path and return
     end
 
