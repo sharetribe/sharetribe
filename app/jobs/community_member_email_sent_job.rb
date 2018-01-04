@@ -1,4 +1,4 @@
-class CommunityMemberEmailSentJob < Struct.new(:sender_id, :recipient_id, :community_id, :subject, :content, :locale)
+class CommunityMemberEmailSentJob < Struct.new(:sender_id, :recipient_id, :community_id, :content, :locale, :test_to_yourself)
 
   include DelayedAirbrakeNotification
 
@@ -14,7 +14,7 @@ class CommunityMemberEmailSentJob < Struct.new(:sender_id, :recipient_id, :commu
     sender = Person.where(id: sender_id).first
     recipient = Person.where(id: recipient_id).first
     community = Community.where(id: community_id).first
-    PersonMailer.community_member_email_from_admin(sender, recipient, community, subject, content, locale)
+    PersonMailer.community_member_email_from_admin(sender, recipient, community, content, locale, test_to_yourself)
   end
 
 end
