@@ -228,7 +228,6 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
           {
             community_id: @current_community.id,
             payment_process: :preauthorize,
-            commission_from_seller: form.commission_from_seller,
             minimum_price_cents: form.minimum_listing_price.try(:cents),
             minimum_price_currency: currency
           }.compact
