@@ -40,6 +40,13 @@ class Conversation < ApplicationRecord
     joins(:participations)
     .where( { participations: { person_id: person }} )
   }
+  scope :non_payment, -> { where(starting_page: nil).or(Conversation.where.not(starting_page: PAYMENT)) }
+  scope :payment, -> { where(starting_page: nil).or(Conversation.where(starting_page: PAYMENT)) }
+  scope :by_community, -> (community_id) { where(community_id: community_id) }
+  scope :non_payment_or_free, -> (community_id) do
+    subquery = Transaction.non_free.by_community(community_id).select('conversation_id').to_sql
+    by_community(community_id).where("id NOT IN (#{subquery})").non_payment
+  end
 
   # Creates a new message to the conversation
   def message_attributes=(attributes)

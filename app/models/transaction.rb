@@ -72,6 +72,7 @@ class Transaction < ApplicationRecord
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
 
+  scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
     joins(:listing)
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
@@ -79,6 +80,16 @@ class Transaction < ApplicationRecord
   scope :availability_blocking, -> do
     where(current_state: ['preauthorized', 'paid', 'confirmed', 'canceled'])
   end
+  scope :non_free, -> { where('current_state <> ?', ['free']) }
+  scope :by_community, -> (community_id) { where(community_id: community_id) }
+  scope :with_payment_conversation, -> {
+    left_outer_joins(:conversation).merge(Conversation.payment)
+  }
+  scope :with_payment_conversation_latest, -> (sort_direction) {
+    with_payment_conversation.order(
+      "GREATEST(COALESCE(transactions.last_transition_at, 0),
+        COALESCE(conversations.last_message_at, 0)) #{sort_direction}")
+  }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
