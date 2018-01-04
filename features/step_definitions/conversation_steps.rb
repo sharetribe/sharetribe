@@ -68,3 +68,13 @@ end
 Then /^I should see "(.*?)" in the message list$/ do |msg|
   expect(page.find("#messages")).to have_content(msg)
 end
+
+Then(/^I should see price box on top of the message list$/) do
+  visit_transaction_of_listing(@listing)
+  expect(page).to have_css('.initiate-transaction-totals')
+end
+
+Then(/^I should not see price box on top of the message list$/) do
+  visit_transaction_of_listing(@listing)
+  expect(page).to have_no_css('.initiate-transaction-totals')
+end

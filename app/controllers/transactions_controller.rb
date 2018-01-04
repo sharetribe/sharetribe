@@ -179,7 +179,7 @@ class TransactionsController < ApplicationController
       role: role,
       message_form: MessageForm.new({sender_id: @current_user.id, conversation_id: conversation[:id]}),
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id]),
-      price_break_down_locals: price_break_down_locals(tx)
+      price_break_down_locals: price_break_down_locals(tx, conversation)
     }
   end
 
@@ -413,8 +413,9 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def price_break_down_locals(tx)
-    if tx[:payment_process] == :none && tx[:listing_price].cents == 0
+  def price_break_down_locals(tx, conversation)
+    if (tx[:payment_process] == :none && tx[:listing_price].cents == 0) ||
+       conversation[:starting_page] == Conversation::LISTING
         nil
     else
       localized_unit_type = tx[:unit_type].present? ? ListingViewUtils.translate_unit(tx[:unit_type], tx[:unit_tr_key]) : nil
