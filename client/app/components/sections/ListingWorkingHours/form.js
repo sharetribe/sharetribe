@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Form, StyledSelect, FormField, Checkbox } from 'react-form';
+import { StyledSelect, FormField, Checkbox } from 'react-form';
+import Form from './form/ReduxForm';
 import { t } from '../../../utils/i18n';
 import * as convert from './convert';
 
@@ -294,8 +295,7 @@ class ListingWorkingHoursForm extends Component {
           <h3>{t('web.listings.working_hours.i_am_available_on')}</h3>
         </div>
         <Form onSubmit={(submittedValues) => this.handleSubmit(submittedValues)}
-          validateError={this.errorValidator} defaultValues={defaultValues}
-          validateOnSubmit>
+          validateError={this.errorValidator} defaultValues={defaultValues}>
           { (formApi) => (
             <div>
               <form className={formClass} onSubmit={formApi.submitForm}>
