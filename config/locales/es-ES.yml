@@ -448,11 +448,11 @@ es-ES:
         any_language: "Cualquier idioma"
         message_will_be_sent_only_to_people_with_this_language: "El correo sólo va a ser enviado a los usuarios que están usando %{service_name} en el idioma que escojas."
         email_sent: "Mensaje enviado."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "Para mejorar el envío y recepción de correos, el asunto del correo es generado automáticamente y no puede ser cambiado."
+        email_subject_text: "Un nuevo mensaje de parte del equipo de %{service_name}"
+        firstname_cannot_be_removed: "Nombre no se puede remove y será reemplazado por el nombre de cada usuario"
+        hello_firstname: "Hola Nombre,"
+        hello_firstname_text: "Hola %{person},"
     left_hand_navigation:
       general: General
       users_and_transactions: "Usuarios y transacciones"
