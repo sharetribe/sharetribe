@@ -22,10 +22,10 @@
     & :global(.timeSelect) {
       display: inline-block;
       position: relative;
+      vertical-align: top;
 
       /* stylelint-disable */
       & :global(.react-form-message-error) {
-        position: absolute;
         color: white;
         background-color: red;
         width: 100%;
@@ -44,14 +44,17 @@
 
     & :global(.starTime) {
       margin-right: 10px;
+      vertical-align: top;
     }
 
     & :global(.endTime) {
       margin-right: 10px;
+      vertical-align: top;
     }
 
     & :global(.remove) {
       position: relative;
+      vertical-align: top;
 
       & svg {
         fill: #4a90e2;

@@ -49,6 +49,7 @@
     "json-loader": "https://registry.npmjs.org/json-loader/-/json-loader-0.5.4.tgz",
     "loader-utils": "0.2.16",
     "lodash": "4.17.2",
+    "lodash.merge": "4.6.0",
     "moment": "2.17.0",
     "node-libs-browser": "2.0.0",
     "node-sass": "3.13.0",
@@ -75,7 +76,7 @@
     "webpack": "1.13.3",
     "whatwg-fetch": "2.0.1",
     "axios": "0.17.0",
-    "react-form": "2.15.0"
+    "react-form": "github:ithouse/react-form"
   },
   "devDependencies": {
     "@kadira/storybook": "2.32.1",
