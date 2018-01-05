@@ -443,6 +443,11 @@ ka:
         any_language: "ნებისმიერი ენა"
         message_will_be_sent_only_to_people_with_this_language: "შენიშვნა: ელ-ფოსტა გადაეგზავნება მხოლოდ იმ წევრებს, რომლებიც იყენებენ %{service_name}-ს იმ ენაზე რომელიც თქვენ აირჩიეთ."
         email_sent: "ელ. ფოსტა გაგზავნილია"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: გენერალური
       users_and_transactions: "მომხმარებლები & ტრანზაქციები"
@@ -2211,7 +2216,7 @@ ka:
       short: "%b %e, %წ %ს.%თ ზე"
       shorter: "%b %e %ს.%თ ზე"
       short_date: "%b %e, %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} დღის წინ"
     days_ago: "%{count} დღის წინ"

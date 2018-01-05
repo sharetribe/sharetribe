@@ -229,7 +229,7 @@ nl:
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatically_confirmed_no_escrow_stripe_info: "Voor transacties die worden verwerkt met Stripe wordt de betaling aan de leveranciers uitgesteld totdat de bestelling als voltooid is gemarkeerd. %{learn_more}"
-        automatically_confirmed_after_end_time: ~
+        automatically_confirmed_after_end_time: "Transactie wordt voltooid door koper of na %{days_dropdown} dagen na de eindtijd."
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
@@ -450,6 +450,11 @@ nl:
         any_language: "Elke taal"
         message_will_be_sent_only_to_people_with_this_language: "Opmerking: het bericht zal enkel naar de gebruikers gestuurd worden die %{service_name} gebruiken in de taal die je kiest."
         email_sent: "E-mail verzonden."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Algemeen
       users_and_transactions: "Gebruikers en transacties"
@@ -462,7 +467,7 @@ nl:
       read_more: "Lees meer over automatische beschikbaarheidsmanagement."
       read_more_availability_management: "Lees meer over beschikbaarheids management."
       allow_providers_to_manage_availability: "Sta leveranciers toe om hun beschikbaarheid te beheren vanuit een kalender."
-      per_hour_availability: ~
+      per_hour_availability: "\"Per uur\" beschikbaarheid"
       per_day_availability: "\"Per dag\" beschikbaarheid"
       per_night_availability: "\"Per nacht\" beschikbaarheid"
       pricing_units_disabled_info: "Prijseenheden kunnen niet worden gebruikt als de beschikbaarheidskalender is ingeschakeld."
@@ -1000,7 +1005,7 @@ nl:
       price_per_unit_type: "Prijs per %{unit_type}"
       quantity: "Hoeveelheid:"
       you_have_received_new_payment: "<b> %{payment_sum}</b> heeft betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Hier is het betalingsbewijs."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: Betalingsverwerkingskosten
       shipping_total: "Verzenden:"
@@ -1048,7 +1053,7 @@ nl:
       stripe_gateway_fee: "toeslag Stripe"
       paypal_gateway_fee: "toeslag Stripe"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
@@ -1724,10 +1729,10 @@ nl:
       how_paypal_works: "Hoe PayPal werkt"
       payment_help: "Help met betaling"
       unable_load_availability: "Kon beschikbaarheidsinformatie niet laden. Probeer het later opnieuw."
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      booking_date: Boekdatum
+      select_one: "Selecteer er een"
+      start_time: Starttijd
+      end_time: Eindtijd
     new:
       listing: advertentie
       selected_category: "Categorie: %{category}"
@@ -2171,7 +2176,7 @@ nl:
   date:
     formats:
       long_with_abbr_day_name: "%a, %d %b, %Y"
-    first_day_of_week: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Zondag
@@ -2231,7 +2236,7 @@ nl:
       short: "%e %b %Y om %H:%M"
       shorter: "%e %b om %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag geleden"
     days_ago: "%{count} dagen geleden"
@@ -2270,15 +2275,21 @@ nl:
       booked_nights_label:
         one: "Geboekte nacht:"
         other: "Geboekte nachten:"
+      booked_hours_label:
+        one: "Geboekt uur:"
+        other: "Geboekte uren:"
       price_per_day: "Prijs per dag:"
       price_per_night: "Prijs per nacht:"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Prijs per uur:"
+      price_per_unit: "Prijs per eenheid:"
       quantity: "Hoeveelheid:"
       subtotal: "Subtotaal:"
       shipping-price: "Verzenden:"
       stripe-fee: "Stripe kosten (geschat):"
-      start_end_time: ~
+      duration_in_hours:
+        one: "(1 uur)"
+        other: "(%{count} uren)"
+      start_end_time: "%{start_time} tot %{end_time}"
     price_per_quantity: "Prijs per %{unit_type}:"
     price: "Prijs:"
     quantity: "Aantal: %{quantity}"
@@ -2295,7 +2306,7 @@ nl:
           something_went_wrong: "Het lukt niet om beschikbaarheidsinformatie weer te geven. Probeer de pagina te herladen."
           saving_failed: "Het lukt niet om de wijzigingen in beschikbaarheid op te slaan. Probeer de pagina te herladen."
         working_hours:
-          required: ~
+          required: verplicht
       pricing_units:
         piece: stuk
         hour: uur
@@ -2309,12 +2320,12 @@ nl:
       confirm_discarding_unsaved_availability_changes_question: "Weet je zeker dat je je veranderingen ongedaan wilt maken?"
       edit_listing_availability: "Wijzig beschikbaarheid advertentie"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Standaard planning"
+        i_am_available_on: "Ik ben beschikbaar op..."
+        start_time: Starttijd
+        end_time: Eindtijd
+        add_another_time_slot: "+ Voeg een tijdslot toe"
+        save: "Sla op"
     no_listings:
       sorry: "Sorry, er konden geen advertenties gevonden worden met deze zoekcriteria."
       try_other_search_terms: "Probeer andere zoek termen?"

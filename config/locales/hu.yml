@@ -449,6 +449,11 @@ hu:
         any_language: "Egyéb nyelvek"
         message_will_be_sent_only_to_people_with_this_language: "Figyelem: Az e-mail csak azoknak a felhasználóknak lesz elküldve akik az ön által kiválasztott nyelven használják a %{service_name} oldalát."
         email_sent: "E-mail elküldve"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Általános
       users_and_transactions: "Felhasználók & tranzakciók"
@@ -2226,7 +2231,7 @@ hu:
       short: "hónap nap, év %H:%perc-kor"
       shorter: "hónap nap %H:%perc-kor"
       short_date: "%b %e, %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} napja"
     days_ago: "%{count} napja"

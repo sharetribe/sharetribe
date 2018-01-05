@@ -453,6 +453,11 @@ cs:
         any_language: "Jakýkoliv jazyk"
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude poslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
         email_sent: "E-mail byl odeslán."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Všeobecné
       users_and_transactions: "Uživatelé & transakce"
@@ -2228,7 +2233,7 @@ cs:
       short: "%e %b %Y v %H:%M"
       shorter: "%e %b v %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "před %{count} dnem"
     days_ago: "před %{count} dny"

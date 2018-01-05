@@ -443,6 +443,11 @@ zh-HK:
         any_language: 任何語言
         message_will_be_sent_only_to_people_with_this_language: "注意：電子郵件只會以你選擇的語言發送給使用%{service_name}的用戶。"
         email_sent: 郵件已發送
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -2209,7 +2214,7 @@ zh-HK:
       short: "%e %b %Y %I:%M%p"
       shorter: "%e %b %Ｈ:%M"
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} 天前"
     days_ago: "%{count} 天前"

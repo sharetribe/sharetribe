@@ -453,6 +453,11 @@ sk-SK:
         any_language: "Akýkoľvek jazyk"
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mailová správa bude poslaná iba užívateľom, ktorý používajú %{service_name} v jazyku, ktorý vyberiete."
         email_sent: "E-mailová správa bola odoslaná."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Všeobecné
       users_and_transactions: "Užívatelia a platby"
@@ -2235,7 +2240,7 @@ sk-SK:
       short: "%b %e, %Y o %H:%M"
       shorter: "%b %e o %H:%M"
       short_date: "%e %b, %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} včera"
     days_ago: "%{count} dní dozadu"

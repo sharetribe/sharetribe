@@ -433,6 +433,11 @@ it:
         any_language: "Qualsiasi lingua"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "Email inviata."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: "Utenti & transazioni"
@@ -2197,7 +2202,7 @@ it:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} giorno fa"
     days_ago: "%{count} giorni fa"

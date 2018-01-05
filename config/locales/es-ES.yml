@@ -227,7 +227,7 @@ es-ES:
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los proveedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
-        automatically_confirmed_after_end_time: ~
+        automatically_confirmed_after_end_time: "La transacción es completada manualmente por el comprador o %{days_dropdown} días después de la fecha final."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -448,6 +448,11 @@ es-ES:
         any_language: "Cualquier idioma"
         message_will_be_sent_only_to_people_with_this_language: "El correo sólo va a ser enviado a los usuarios que están usando %{service_name} en el idioma que escojas."
         email_sent: "Mensaje enviado."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: General
       users_and_transactions: "Usuarios y transacciones"
@@ -460,7 +465,7 @@ es-ES:
       read_more: "Lee más acercad de la administración automática de disponibilidad."
       read_more_availability_management: "Lee más acerca del manejo de la disponibilidad."
       allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad."
-      per_hour_availability: ~
+      per_hour_availability: "Disponibilidad \"Por hora\""
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
       pricing_units_disabled_info: "Las unidades de precio no pueden ser usadas cuando el calendario de disponibilidad está habilitado."
@@ -617,7 +622,7 @@ es-ES:
       cannot_enable_gateway: "No es posible habilitar %{gateway}"
       cannot_disable_gateway: "No es posible habilitar %{gateway}"
       stripe_form:
-        add_your_api_keys: "Añado tus API keys de Stripe"
+        add_your_api_keys: "Añade tus API keys de Stripe"
         how_to_get_these: "¿Cómo obtenerlas?"
         publishable_key_example: "Por ejemplo: %{api_publishable_key_example}"
         secret_key_example: "Por ejemplo: %{api_secret_key_example}"
@@ -890,7 +895,7 @@ es-ES:
       you_are_banned_in_this_community: "El equipo de %{service_name} te ha impedido la entrada al sitio. Si quieres contactar al equipo de %{service_name}, puedes %{link_to_contact_page} aquí."
       contact_page_link: contactarlo
     new:
-      welcome_fb_user: "Bienvenido a %{service_name}, %{name}!"
+      welcome_fb_user: "¡Bienvenido a %{service_name}, %{name}!"
       fb_join_accept_terms: "Hay un paso más antes de unirte a %{service_name}: necesitas aceptar los términos de uso."
       join_community: "Únete a %{service_name}"
       you_can_join: "Puedes unirte a %{service_name} aceptando los términos de uso y haciendo click en 'Únete a %{service_name}', más abajo."
@@ -979,7 +984,7 @@ es-ES:
       pay_now: "Pagar ahora"
       remember_to_confirm: "Cuando la transacción sea completada, recuerda marcarla como completada. Si la transacción no es completada, dispones de %{days_to_automatic_confirmation} días para cancelarla o será marcada como completada automáticamente."
     invitation_to_kassi:
-      hi: Hola!
+      hi: ¡Hola!
       you_have_been_invited_to_kassi: "%{inviter} te ha invitado a %{service_name}"
       here_is_a_message_from: "Tienes un mensaje personal de %{inviter}:"
       join_now: "Unirse ahora"
@@ -999,7 +1004,7 @@ es-ES:
       price_per_unit_type: "Precio por %{unit_type}"
       quantity: "Cantidad:"
       you_have_received_new_payment: "%{payer_full_name} te ha pagado <b>%{payment_sum}<b> por <b>%{listing_title}</b>. Aquí está tu recibo."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, por %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Cuota de procesamiento de pago:"
       shipping_total: "Envío:"
@@ -1047,7 +1052,7 @@ es-ES:
       stripe_gateway_fee: "Cuota de Stripe:"
       paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, por %{unit_type}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
       you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
@@ -1139,7 +1144,7 @@ es-ES:
     back_to_kassi_front_page: "Volver a la página principal"
     error_404:
       if_you_believe: "Si crees que la dirección es correcta y debería funcionar, entonces por favor ayúdanos a encontrar el error haciéndonos saber qué dirección ocasionó el error y qué debería aparecer en la página, a través del siguiente formulario."
-      page_can_not_be_found: "Página no encontrada!"
+      page_can_not_be_found: "¡Página no encontrada!"
       page_you_requested_can_not_be_found: "La página solicitada no existe. Estás seguro que la dirección es correcta?"
     error_404_title: "Página no encontrada"
     error_410:
@@ -1222,7 +1227,7 @@ es-ES:
       additionally_some_private_offers_exist: "Adicionalmente existen <b> otras %{number_of_listings} ofertas</b>,"
       additionally_some_private_requests_exist: "Adicionalmente existen otras <b>%{number_of_listings} solicitudes</b>,"
     blank_slate:
-      add_first: "Agregar uno!"
+      add_first: "¡Agregar uno!"
       but_that_is_visible_only_to_registered_members: "Sólo está disponible para usuarios registrados."
       but_those_are_visible_only_to_registered_members: "Sólo están disponibles para usuarios registrados."
       create_new_account_for_yourself: "Crea una nueva cuenta"
@@ -1236,7 +1241,7 @@ es-ES:
       item_request_list: "Herramientas, equipo deportivo, disfraces, equipo de camping"
       items_to_offer: "Bienes para prestar: "
       items_to_request: "Cosas para prestar: "
-      log_in: "Inicia sesión!"
+      log_in: "¡Inicia sesión!"
       no_offers_visible_unless_logged_in: "Las ofertas de artículos, servicios o traslados compartidos no son visibles para usuarios no registrados."
       no_open_offers_currently: "No hay ofertas abiertas de productos, servicios o traslados compartidos."
       no_open_requests_currently: "No hay solicitudes abiertas de productos, servicios o traslados compartidos."
@@ -1278,8 +1283,8 @@ es-ES:
       or_see_what_the_others: "...o revisa lo de los demás"
       recent_events: "Eventos recientes"
       requesting: Necesidad
-      tell_it_here: "Dilo aquí!"
-      welcome_to_new_kassi: "Bienvenido al nuevo %{service_name}!"
+      tell_it_here: "¡Dilo aquí!"
+      welcome_to_new_kassi: "¡Bienvenido al nuevo %{service_name}!"
       no_reviews: "Sin opiniones"
       no_image: "Sin imagen"
       filter: Filtrar
@@ -1292,7 +1297,7 @@ es-ES:
       add_lots_of_email_addresses: "He aquí un consejo para administradores: si planeas enviar muchas invitaciones, deberías considerar usar una herramienta para enviar correos electrónicos. Lee %{this_article_link} para encontrar recursos sobre servicios de envío de correo electrónico que se adapten a tus necesidades."
       this_article_link: "este artículo"
       invitation_emails_field_placeholder: "amigo1@ejemplo.com, amigo2@ejemplo.com, ..."
-      invitation_message_field_placeholder: "Me uní a este fantástica comunidad. Deberías hacer lo mismo!"
+      invitation_message_field_placeholder: "Me uní a este fantástica comunidad. ¡Deberías hacer lo mismo!"
       errors_in_emails: "Revisa que los correos que añadiste sean válidos y no contengan caracteres inusuales. Si añadiste varios correos, asegúrate de que estén separados por una coma."
     list_item:
       review: opinión
@@ -1428,7 +1433,7 @@ es-ES:
       error_with_session: "Error con la sesión."
       feedback_considered_spam: "Sugerencia no enviada debido a su formato. Inténtalo de nuevo o utiliza el foro para sugerencias."
       feedback_not_saved: "La sugerencia no puedo ser enviada."
-      feedback_saved: "Gracias por tu mensaje! Nos pondremos en contacto tan pronto nos sea posible."
+      feedback_saved: "¡Gracias por tu mensaje! Nos pondremos en contacto tan pronto nos sea posible."
       feedback_sent_to: "Valoración enviada a %{target_person}."
       feedback_skipped: "Valoración omitida"
       invitation_cannot_be_sent: "No se pudo enviar la invitación"
@@ -1439,10 +1444,10 @@ es-ES:
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido."
       login_again: "Por favor, vuelve a iniciar sesión"
       login_failed: "Falló el inicio de sesión. Por favor ingresa las credenciales correctamente."
-      account_creation_successful: "Bienvenido a %{service_name}, %{person_name}!"
+      account_creation_successful: "¡Bienvenido a %{service_name}, %{person_name}!"
       account_deleted: "Tu cuenta ha sido eliminada."
-      login_successful: "Bienvenido, %{person_name}!"
-      logout_successful: "Has cerrado la sesión. Gracias por utilizar %{service_name}. Hasta pronto!"
+      login_successful: "¡Bienvenido, %{person_name}!"
+      logout_successful: "Has cerrado la sesión. Gracias por utilizar %{service_name}. ¡Hasta pronto!"
       news_item_created: "Artículo creado"
       news_item_creation_failed: "Error en la creación del artículo"
       news_item_update_failed: "Error en la actualización del artículo"
@@ -1476,7 +1481,7 @@ es-ES:
       poll_update_failed: "Error en la actualización de la encuesta"
       poll_updated: "Encuesta actualizada"
       poll_deleted: "Encuesta eliminada"
-      read_more: "Leer más!"
+      read_more: "¡Leer más!"
       registration_considered_spam: "Error en el registro, por favor envíanos tu comentario y menciona \"email2 error\"."
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       reply_sent: "Respuesta enviada satisfactoriamente"
@@ -1498,8 +1503,8 @@ es-ES:
       you_cannot_send_message_to_yourself: "No puedes enviarte un mensaje"
       you_followed_listing: "Ahora estás siguiendo este anuncio"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una valoración sobre este evento"
-      you_are_now_member: "Bienvenido a %{service_name}!"
-      you_are_already_member: "Ya eres miembro de la comunidad de %{service_name} . Bienvenido otra vez!"
+      you_are_now_member: "¡Bienvenido a %{service_name}!"
+      you_are_already_member: "Ya eres miembro de la comunidad de %{service_name}. ¡Bienvenido otra vez!"
       you_must_log_in_to_create_new_listing: "Tienes que iniciar sesión en %{service_name} para crear un nuevo anuncio. Si no tienes una cuenta, puedes %{sign_up_link}."
       additional_email_confirmed_dashboard: "Tu correo electrónico ha sido confirmado."
       you_must_log_in_to_give_feedback: "Debes iniciar sesión para dar una valoración"
@@ -1692,10 +1697,10 @@ es-ES:
       list_view: "Ver lista"
       listings: Anuncios
       map_view: "Vista de mapa"
-      offer_something: "Hazlo saber a los demás!"
+      offer_something: "¡Hazlo saber a los demás!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
-      request_something: "Solicitar algo!"
+      request_something: "¡Solicita algo!"
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
@@ -1723,10 +1728,10 @@ es-ES:
       how_paypal_works: "Cómo funciona PayPal"
       payment_help: "Ayuda de pagos"
       unable_load_availability: "No se ha podido cargar la información sobre disponibilidad. Intenta de nuevo más tarde."
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      booking_date: "Fecha de reserva"
+      select_one: Selecciona...
+      start_time: "Hora de inicio"
+      end_time: "Hora de fin"
     new:
       listing: anuncio
       selected_category: "Categoría: %{category}"
@@ -1838,10 +1843,10 @@ es-ES:
       items: Artículos
       list_view: "Vista de lista"
       map_view: "Vista de mapa"
-      offer_something: "Hazlo saber a los demás!"
+      offer_something: "¡Hazlo saber a los demás!"
       offer_type: "Tipo de oferta"
       offers: Ofertas
-      request_something: "Solicita algo!"
+      request_something: "¡Solicita algo!"
       request_type: "Tipo de solicitud"
       requests: Solicitudes
       rideshare: "Traslado compartido"
@@ -1910,7 +1915,7 @@ es-ES:
     from_your_payment_settings_link_text: "configuración de pagos"
     redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
     redirect_link_text: aquí
-    paypal_account_all_set_up: "Muy bien! todo está listo!"
+    paypal_account_all_set_up: "¡Muy bien! Todo está listo."
     can_receive_payments: "Ahora puedes empezar a recibir pagos por tus anuncios en línea."
     paypal_account_connected_summary: "Cuenta PayPal <%{email}> conectada con éxito"
     paypal_permission_granted_summary: "permiso otorgado para cobrar las comisiones de transacción"
@@ -2038,13 +2043,13 @@ es-ES:
       request_new_password: "Solicitar nueva contraseña"
       change_your_password: "Cambia tu contraseña"
     confirmation_pending:
-      welcome_to_kassi: "Bienvenido a %{service_name}!"
+      welcome_to_kassi: "¡Bienvenido a %{service_name}!"
       check_your_email: "Revise su bandeja de entrada"
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: "Tu e-mail es %{email}."
       change_email: Cambiar
       confirm_your_email: "Confirma tu correo electrónico"
-      account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
+      account_confirmation_instructions: "Pronto recibirás un correo electrónico con un vínculo para confirmar tu cuenta de correo. ¡No olvides revisar la carpeta de correo no deseado! Una vez lo hayas hecho, podrás comenzar a usar %{service_name}."
       account_confirmation_instructions_title_admin: "Confirma tu dirección de correo electrónico"
       before_full_access_you_need_to_confirm_email: "Antes de darte acceso total a tu comunidad, es necesario que hagas sólo una cosa más: confirmar tu cuenta de correo electrónico."
       before_confirmation_only_access_admin_dashboard: "Antes de confirmar to correo electrónico sólo puedes tener acceso al %{admin_dashboard_link}."
@@ -2143,7 +2148,7 @@ es-ES:
       terms: "Términos de uso de %{service_name}"
       terms_have_changed: "Los términos de uso han cambiado"
       you_can_view_the_new_terms: "Puedes ver los nuevos términos"
-      you_need_to_accept: "Bienvenido a %{service_name}! Al parecer es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
+      you_need_to_accept: "¡Bienvenido a %{service_name}! Al parecer es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
       you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}. Los nuevos términos son necesarios para mantener el servicio después de que el proyecto de investigación ha terminado."
   testimonials:
     index:
@@ -2170,7 +2175,7 @@ es-ES:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Domingo
@@ -2230,7 +2235,7 @@ es-ES:
       short: "%e %b %Y a las %H:%M"
       shorter: "%e %b a las %H:%M"
       short_date: "%e %b  %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} día atrás"
     days_ago: "%{count} días atrás"
@@ -2269,15 +2274,21 @@ es-ES:
       booked_nights_label:
         one: "Noche reservada:"
         other: "Noches reservadas:"
+      booked_hours_label:
+        one: "Hora reservada:"
+        other: "Horas reservadas:"
       price_per_day: "Precio por día:"
       price_per_night: "Precio por noche:"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Precio por hora:"
+      price_per_unit: "Precio por unidad:"
       quantity: "Cantidad:"
       subtotal: "Subtotal:"
       shipping-price: "Envío:"
       stripe-fee: "Cuota (estimada) de Stripe:"
-      start_end_time: ~
+      duration_in_hours:
+        one: "(1 hora)"
+        other: "(%{count} horas)"
+      start_end_time: "%{start_time} a %{end_time}"
     price_per_quantity: "Precio por %{unit_type}:"
     price: "Precio:"
     quantity: "Cantidad: %{quantity}"
@@ -2294,7 +2305,7 @@ es-ES:
           something_went_wrong: "No hemos podido cargar información sobre disponibilidad. Intenta cargar la página nuevamente."
           saving_failed: "No hemos podido guardar los cambios sobre disponibilidad. Intenta cargar la página nuevamente."
         working_hours:
-          required: ~
+          required: obligatorio
       pricing_units:
         piece: pieza
         hour: hora
@@ -2308,12 +2319,12 @@ es-ES:
       confirm_discarding_unsaved_availability_changes_question: "¿Estás seguro que quieres desechar los cambios?"
       edit_listing_availability: "Editar la disponibilidad del anuncio"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Horario por defecto"
+        i_am_available_on: "Estoy disponible..."
+        start_time: "Hora de inicio"
+        end_time: "Hora de fin"
+        add_another_time_slot: "+ Añade otro intervalo de tiempo"
+        save: Guardar
     no_listings:
       sorry: "Perdón, no hemos encontrado ningún anuncio que satisfaga tus criterios de búsqueda."
       try_other_search_terms: "Intenta la búsqueda con términos distintos"
@@ -2390,7 +2401,7 @@ es-ES:
     add_and_pay: "Confirmar el pago"
     card_not_stored: "Tu pago es procesado de manera segura por Stripe. %{service_name} no guarda ninguna información de tarjetas de crédito o débito."
     missing_payment: "Tienes anuncios abiertos, sin embargo, tu cuenta no está configurada para recibir dinero. Para realizar la configuración de pagos, visita %{settings_link}"
-    stripe_bank_connected: "Detalles de la cuenta de banco configurados con éxito!"
+    stripe_bank_connected: "¡Detalles de la cuenta de banco configurados con éxito!"
     stripe_can_accept: "Ya estás listo para recibir dinero en tu cuenta de banco"
     stripe_credit_card: "Tarjeta de crédito"
     paypal: PayPal

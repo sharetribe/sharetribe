@@ -448,6 +448,11 @@ pt-BR:
         any_language: "Qualquer idioma"
         message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos usuários que utilizam a %{service_name} no idioma que você escolheu."
         email_sent: "E-mail enviado."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Geral
       users_and_transactions: "Usuários & transações"
@@ -2224,7 +2229,7 @@ pt-BR:
       short: "%e. %b %Y hora %H:%M"
       shorter: "%e %b as %H:%M"
       short_date: "%b %e  %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dia atrás"
     days_ago: "%{count} dias atrás"

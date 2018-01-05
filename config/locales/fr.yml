@@ -227,7 +227,7 @@ fr:
         update_settings: "Sauvegarder les paramètres"
         automatically_confirmed_no_escrow: "Les commandes seront automatiquement marquées comme réalisées %{days_dropdown} jours après le paiement"
         automatically_confirmed_no_escrow_stripe_info: "Pour les transactions gérées par Stripe, le transfert du paiement au vendeur est différé jusqu'à ce que la commande ait été marquée comme réalisée. %{learn_more}."
-        automatically_confirmed_after_end_time: ~
+        automatically_confirmed_after_end_time: "Les commandes seront automatiquement marquées comme réalisées  %{days_dropdown} jours après la date de fin."
         automatic_newsletter_frequency: "Fréquence d'envoi de la newsletter : %{frequency_dropdown}"
         newsletter_daily: Quotidienne
         newsletter_weekly: Hebdomadaire
@@ -448,6 +448,11 @@ fr:
         any_language: "Toutes les langues"
         message_will_be_sent_only_to_people_with_this_language: "Cet email ne sera envoyé qu'aux utilisateurs de %{service_name} utilisant la langue que vous avez sélectionnée."
         email_sent: "Email envoyé."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Général
       users_and_transactions: "Utilisateurs et transactions"
