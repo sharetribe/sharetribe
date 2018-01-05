@@ -421,7 +421,9 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   # period we simply mirror community setting to payment settings in
   # case of paypal.
   def maybe_update_payment_settings(community_id, automatic_confirmation_after_days, automatic_confirmation_after_days_after_end_time)
-    return unless (automatic_confirmation_after_days && automatic_confirmation_after_days_after_end_time)
+    per_hour = FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+    return unless automatic_confirmation_after_days
+    return if per_hour && !automatic_confirmation_after_days_after_end_time
 
     p_set = Maybe(payment_settings_api.get(
                    community_id: community_id,
@@ -431,8 +433,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .or_else(nil)
 
     if p_set
-      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
-                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+      if per_hour
+        payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
+                                                 confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+      else
+        payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i}))
+      end
     end
 
     p_set = Maybe(payment_settings_api.get(
@@ -443,8 +449,12 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             .or_else(nil)
 
     if p_set
-      payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
-                                               confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+      if per_hour
+        payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i,
+                                                 confirmation_after_days_after_end_time: automatic_confirmation_after_days_after_end_time.to_i}))
+      else
+        payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i}))
+      end
     end
   end
 
