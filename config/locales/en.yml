@@ -2305,6 +2305,8 @@ en:
           saving_failed: "We're not able to save availability changes. Try to reload the page."
         working_hours:
           required: required
+          overlaps: overlaps
+          covers: covers
       pricing_units:
         piece: piece
         hour: hour
