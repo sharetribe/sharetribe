@@ -445,11 +445,11 @@ tr-TR:
         any_language: "Herhangi bir dilde"
         message_will_be_sent_only_to_people_with_this_language: "Not: E-posta sadece %{service_name}'i seçtiğiniz dilde kullanan kullanıcılara gönderilecektir."
         email_sent: "E-posta gönderildi."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "E-posta teslim edilebilirliğini artırmak için e-posta konusu otomatik olarak oluşturulur ve değiştirilemez."
+        email_subject_text: "Yeni bir mesaj %{service_name}  takımından"
+        firstname_cannot_be_removed: "İsim kaldırılamaz ve her alıcının gerçek adı ile değiştirilecektir"
+        hello_firstname: "Merhaba Adınız,"
+        hello_firstname_text: "Merhaba %{person},"
     left_hand_navigation:
       general: Genel
       users_and_transactions: "Kullanıcılar & işlemler"

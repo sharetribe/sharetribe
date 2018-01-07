@@ -448,11 +448,11 @@ sv:
         any_language: "Alla språk"
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "För att förbättra e-postleveransen är e-post ämnet automatiskt framtaget och kan inte ändras."
+        email_subject_text: "Ett nytt meddelande från %{service_name}"
+        firstname_cannot_be_removed: "Förnamnet kan inte tas bort, det bli ersatt av motagarens egna förnamn."
+        hello_firstname: "Hej Förnamn,"
+        hello_firstname_text: "Hej %{person},"
     left_hand_navigation:
       general: Allmänt
       users_and_transactions: "Användare & transaktioner"
