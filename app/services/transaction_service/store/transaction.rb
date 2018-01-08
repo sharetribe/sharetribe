@@ -92,7 +92,6 @@ module TransactionService::Store::Transaction
   module_function
 
   def create(opts)
-    apply_automatic_confirmation_after_days(opts)
     tx_data = HashUtils.compact(NewTransaction.call(opts))
     tx_model = TransactionModel.new(tx_data.except(:content, :starting_page, :booking_fields))
 
@@ -250,15 +249,8 @@ module TransactionService::Store::Transaction
   end
 
   def is_booking?(tx_data)
-    is_booking_per_day?(tx_data) || is_booking_per_hour?(tx_data)
-  end
-
-  def is_booking_per_day?(tx_data)
-    tx_data[:booking_fields] && tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]
-  end
-
-  def is_booking_per_hour?(tx_data)
-    tx_data[:booking_fields] && tx_data[:booking_fields][:start_time] && tx_data[:booking_fields][:end_time]
+    tx_data[:booking_fields] && ((tx_data[:booking_fields][:start_on] && tx_data[:booking_fields][:end_on]) ||
+                                 (tx_data[:booking_fields][:start_time] && tx_data[:booking_fields][:end_time]))
   end
 
   def do_mark_as_unseen_by_other(tx_model, person_id)
@@ -267,13 +259,6 @@ module TransactionService::Store::Transaction
       .participations
       .where("person_id != '#{person_id}'")
       .update_all(is_read: false)
-  end
-
-  def apply_automatic_confirmation_after_days(tx_data)
-    if is_booking_per_hour?(tx_data)
-      tx_data[:automatic_confirmation_after_days] = tx_data[:automatic_confirmation_after_days_after_end_time]
-    end
-    tx_data.delete(:automatic_confirmation_after_days_after_end_time)
   end
 
 end

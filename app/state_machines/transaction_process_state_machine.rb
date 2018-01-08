@@ -26,7 +26,7 @@ class TransactionProcessStateMachine
 
     if transaction.booking.present?
       booking = transaction.booking
-      automatic_booking_confirmation_at = (booking.per_hour ? booking.end_time : booking.end_on) + transaction.automatic_confirmation_after_days.days
+      automatic_booking_confirmation_at = (booking.per_hour ? booking.end_time : booking.end_on) + 2.days
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_booking_confirmation_at!(automatic_booking_confirmation_at)
     else
       ConfirmConversation.new(transaction, payer, current_community).activate_automatic_confirmation!
