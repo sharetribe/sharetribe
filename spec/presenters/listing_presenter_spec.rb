@@ -135,5 +135,22 @@ RSpec.describe ListingPresenter, type: :presenter do
         )
       end
     end
+
+    it '#working_hours_props listing is old w/o working time slots.
+      Listing has 5 default time slots' do
+      working_hours_props = ListingPresenter.new(listing, community, {}, person)
+        .working_hours_props
+      expect(working_hours_props[:listing_just_created]).to eq true
+      expect(working_hours_props[:listing]['working_time_slots'].count).to eq 5
+    end
+
+    it '#working_hours_props listing with working time slots saved.
+      Listing has no default time slots' do
+      listing.update_column(:per_hour_ready, true)
+      working_hours_props = ListingPresenter.new(listing, community, {}, person)
+        .working_hours_props
+      expect(working_hours_props[:listing_just_created]).to eq false
+      expect(working_hours_props[:listing]['working_time_slots'].count).to eq 0
+    end
   end
 end

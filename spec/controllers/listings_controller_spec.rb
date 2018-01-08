@@ -47,6 +47,7 @@
 #  shipping_price_cents            :integer
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
+#  per_hour_ready                  :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -61,7 +62,6 @@
 #  person_listings                     (community_id,author_id)
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
-
 
 #Tests LisingControllers atom feed feature
 
