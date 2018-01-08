@@ -1,52 +1,52 @@
 ro:
   errors:
     messages:
-      expired: "a expirat, te rog cere una noua"
+      expired: "a expirat, va rugam cereti una noua"
       not_found: inexistent
-      already_confirmed: "a fost deja confirmat, te rog logeaza-te"
+      already_confirmed: "a fost deja confirmat(a), va rugam sa va conectati"
       not_locked: "nu a fost blocat"
       not_saved:
-        one: "1 eroare nu a permis acestei %{resource} să fie salvate:"
-        few: "%{count} erori nu au permis acestei %{resource} să fie salvate:"
-        other: "%{count} erori nu au permis acestei %{resource} să fie salvate:"
+        one: "1 eroare nu a permis acestei %{resource} sa fie salvate:"
+        few: "%{count} erori nu au permis acestei %{resource} sa fie salvate:"
+        other: "%{count} erori nu au permis acestei %{resource} sa fie salvate:"
   devise:
     failure:
-      already_authenticated: "Eşti deja înregistrat şi conectat."
-      unauthenticated: "Pentru a continua, înregistrați-vă."
-      unconfirmed: "Pentru a continua, confirmați contul dvs."
+      already_authenticated: "Sunteti deja conectat(a)."
+      unauthenticated: "Inainte de a continua trebuie sa va conectati sau sa va inregistrati."
+      unconfirmed: "Trebuie sa confirmati contul dvs. inainte de a putea continua."
       locked: "Contul dvs. este blocat."
       invalid: "Adresă de email sau parolă invalidă"
       invalid_token: "Cheie de autentificare invalidă."
-      timeout: "Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua."
-      inactive: "Contul dvs. încă nu a fost activat."
+      timeout: "Sesiunea dvs. a expirat. Conectati-va din nou pentru a continua."
+      inactive: "Contul dvs. inca nu a fost activat."
     passwords:
       updated_not_active: "Parolă schimbată cu success."
       send_paranoid_instructions: "Dacă e-mail-ul dvs. există in baza noastră de date, veți primi un link prin care vă veți putea schimba parola."
       send_instructions: "Veți primi un e-mail cu instrucțiunile necesare pentru a reseta parola în cateva minute."
-      updated: "Parolă schimbată cu success. Sunteți autentificat(ă) acum."
+      updated: "Parola dvs. a fost schimbata cu success. Sunteti conectat(a) acum."
     sessions:
-      signed_in: "Autentificare cu succes."
+      signed_in: "Conectare cu succes."
       signed_out: "Deconectare cu succes."
     confirmations:
-      send_paranoid_instructions: "Dacă e-mail-ul dvs. există in baza noastra de date, veti primi un e-mail cu instructiunile necesare pentru a vă confirma contul in cateva minute."
-      send_instructions: "Veți primi un e-mail cu instrucțiunile referitoare la metoda prin care vă puteți confirma contul in cateva minute."
+      send_paranoid_instructions: "Dacă email-ul dvs. exista in baza noastra de date, veti primi un email cu instructiunile necesare pentru a va confirma contul in cateva minute."
+      send_instructions: "Veti primi un email cu instructiunile referitoare la metoda prin care va puteti confirma contul in cateva minute."
       confirmed: "Contul dvs. a fost confirmat cu succes."
     registrations:
-      signed_up_but_unconfirmed: "Un mesaj cu un link de confirmare v-a fost trimis pe e-mail. Va rugăm să-l deschideti pentru a vă activa contul."
-      signed_up_but_inactive: "Sunteți autentificat(ă). Cu toate acestea, nu va puteti loga deoarece contul dvs. nu a fost activat."
-      signed_up_but_locked: "Sunteți autentificat(ă). Cu toate acestea, nu va puteti loga deoarece contul dvs. este blocat."
+      signed_up_but_unconfirmed: "Un mesaj cu un link de confirmare v-a fost trimis pe email. Va rugam sa-l deschideti pentru a va activa contul."
+      signed_up_but_inactive: "V-ati inregistrat cu succes. Cu toate acestea, nu va puteti conecta deoarece contul dvs. nu a fost activat."
+      signed_up_but_locked: "V-ati inregistrat cu succes. Cu toate acestea, nu va puteti conecta deoarece contul dvs. este blocat."
       reasons:
         inactive: inactiv
         unconfirmed: neconfirmat
         locked: blocat
-      update_needs_confirmation: "V-ați updatat cu succes contul, dar trebuie să vă verificăm noua adresă de e-mail. Vă rugăm să vă verificati adresa, dand click pe link-ul de confirmare."
-      signed_up: "Bine ati venit! V-ati autentificat cu succes."
+      update_needs_confirmation: "V-ati actualizat cu succes contul, dar trebuie sa va verificam noua adresa de email. Va rugam sa va verificati adresa, dand click pe link-ul de confirmare."
+      signed_up: "Bine ati venit! V-ati inregistrat cu succes."
       updated: "Cont actualizat cu succes."
-      destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând."
+      destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Speram sa va revedem in curand."
     unlocks:
-      send_paranoid_instructions: "În cazul in care contul există, veți primi un email cu instrucțiuni pentru deblocarea contului."
-      send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
-      unlocked: "Contul dvs. a fost deblocat. Autentificați-vă pentru a continua."
+      send_paranoid_instructions: "In cazul in care contul exista, veti primi un email cu instructiuni pentru deblocarea contului."
+      send_instructions: "In scurt timp veti primi un email cu instructiuni pentru deblocarea contului."
+      unlocked: "Contul dvs. a fost deblocat cu succes. Conectati-va pentru a continua."
     omniauth_callbacks:
       success: "Autorizat cu succes prin contul %{kind}."
       failure: "Nu ați putut fi autorizat prin %{kind} pentru că \"%{reason}\"."

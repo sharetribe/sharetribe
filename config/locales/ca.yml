@@ -433,6 +433,11 @@ ca:
         any_language: "Qualsevol idioma"
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: ~
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: General
       users_and_transactions: ~
@@ -2186,7 +2191,7 @@ ca:
       short: "%e %b %Y al %H:%M"
       shorter: "%e %b al %H:%M"
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "fa un dia"
     days_ago: "%{count} dies enrere"

@@ -15,8 +15,24 @@ module TransactionService::Store::PaymentSettings
     [:confirmation_after_days, :fixnum, default: 14],
     [:api_client_id, :string],
     [:api_private_key, :string],
+    [:api_publishable_key, :string]
+  )
+
+  PaymentSettingsUpdate = EntityUtils.define_builder(
+    [:active, :to_bool, default: false],
+    [:community_id, :mandatory, :fixnum],
+    [:payment_gateway, :to_symbol, one_of: [:paypal, :braintree, :checkout, :stripe, :none], default: :none],
+    [:payment_process, :to_symbol, one_of: [:preauthorize, :postpay, :free], default: :free],
+    [:commission_from_seller, :fixnum],
+    [:minimum_price_cents, :fixnum],
+    [:minimum_price_currency, :string],
+    [:minimum_transaction_fee_cents, :fixnum],
+    [:minimum_transaction_fee_currency, :string],
+    [:confirmation_after_days, :fixnum],
+    [:api_client_id, :string],
+    [:api_private_key, :string],
     [:api_publishable_key, :string],
-    [:confirmation_after_days_after_end_time, :fixnum, default: 2]
+    [:confirmation_after_days_after_end_time, :fixnum]
   )
 
   PaymentSettingsUpdate = EntityUtils.define_builder(
@@ -53,8 +69,7 @@ module TransactionService::Store::PaymentSettings
     [:api_publishable_key, :string],
     [:api_visible_private_key, :string],
     [:api_verified, :to_bool],
-    [:api_country, :string],
-    [:confirmation_after_days_after_end_time, :fixnum, default: 2]
+    [:api_country, :string]
   )
 
   module_function

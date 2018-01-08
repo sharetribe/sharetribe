@@ -458,6 +458,11 @@ ru:
         any_language: "Любой язык"
         message_will_be_sent_only_to_people_with_this_language: "Примечание: письмо будет отправлено только тем членам сообщества, которые пользуются %{service_name} на выбранном вами языке"
         email_sent: "Письмо отправлено"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Основные
       users_and_transactions: "Участники и транзакции"
@@ -2242,7 +2247,7 @@ ru:
       short: "%e %b %Y в %H:%M"
       shorter: "%e %b в %H:%M"
       short_date: "%e. %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} день назад"
     days_ago: "%{count} дней назад"

@@ -448,6 +448,11 @@ nb:
         any_language: "Alle språk"
         message_will_be_sent_only_to_people_with_this_language: "Ps: e-posten sendes kun til brukere av %{service_name} i det språket du har valgt."
         email_sent: "Epost sendt."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Generelt
       users_and_transactions: "Brukere og transaksjoner"
@@ -2224,7 +2229,7 @@ nb:
       short: "%e %b %Y klokken %H:%M"
       shorter: "%e %b klokken %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dager siden"

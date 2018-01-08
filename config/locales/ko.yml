@@ -443,6 +443,11 @@ ko:
         any_language: "모든 언어"
         message_will_be_sent_only_to_people_with_this_language: "이 이메일은 선택한 언어로 %{service_name}를 이용 중인 사용자들에게만 발송됩니다."
         email_sent: "이메일을 보냈습니다."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -927,16 +932,16 @@ ko:
       give_feedback_to: ~
       show_thread: ~
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
+      confirmation_instructions_signature: "고맙습니다, <br/> %{service_name}팀"
+      need_to_confirm: "%{service_name}에 가입하시려면 아래의 버튼을 눌러 이메일 주소를 확인해주세요."
+      confirmation_link_text: "주소 확인"
       or_paste_link: ~
     common:
       hey: "%{name}님 안녕하세요,"
       kassi_team: "%{service_name}팀"
       thanks: "고맙습니다,"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
+      dont_want_to_receive_these_emails: "더이상 이 이메일을 받길 원하지 않으세요?"
+      edit_your_email_settings_here: "이메일 설정 수정"
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
       or: ~
@@ -958,16 +963,16 @@ ko:
       pay_now: ~
       remember_to_confirm: ~
     invitation_to_kassi:
-      hi: ~
-      you_have_been_invited_to_kassi: ~
-      here_is_a_message_from: ~
+      hi: 안녕하세요!
+      you_have_been_invited_to_kassi: "%{inviter}님이 당신을 %{service_name}에 초대하였습니다"
+      here_is_a_message_from: "%{inviter}님으로부터 메세지가 도착했습니다:"
       join_now: ~
       invitation_code: ~
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
       you_have_a_new_comment: "%{author}이/가 당신의 목록 중 %{service_name}에 의견을 추가했습니다."
-      listing_you_follow_has_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: "%{service_name}의 관심항목에 %{author}님이 새로운 의견을 추가하였습니다."
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
@@ -1032,7 +1037,7 @@ ko:
       you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
       view_feedback: ~
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
+      listing_you_follow_has_been_updated: "관심항목에 변경 사항이 생겼습니다."
       has_updated_listing_you_follow_in_kassi: ~
       view_changes: ~
     community_updates:
@@ -1047,13 +1052,13 @@ ko:
       settings_link_text: ~
       unsubscribe_link_text: ~
     newsletter:
-      hi: ~
-      newest_offers: ~
-      newest_requests: ~
-      text_version_text: ~
+      hi: "%{name}님 안녕하세요,"
+      newest_offers: "진행 중인 제안"
+      newest_requests: "요청 중인 상품"
+      text_version_text: "다른 사람들이 필요로 하는 것을 공유해보시겠어요? 다른 사람들의 물건들 중 필요한 것이 있으세요? 제안이나 요청을 해보시거나 %{url}에서 다른 사람들이 제안 또는 요청 중인 물건들을 확인해보세요."
     reset_password_instructions:
-      change_my_password: ~
-      reset_password_instructions: ~
+      change_my_password: "비밀번호 변경"
+      reset_password_instructions: "<p>%{service_name} 서비스의 사용자 이름 또는 비밀번호가 올바르지 않습니다</p><p>사용자 이름은 %{username}입니다</p><p>비밀번호를 초기화하길 원하시면 %{password_reset_link}를 클릭하세요</p><br/><p>만약 비밀번호 초기화 요청을 하신 적이 없으시면 이 이메일은 무시하세요. 상기 링크를 클릭하지 않는 한 비밀번호는 변경되지 않습니다.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "알림: %{name}에게 피드백을 남겨주세요."
       you_have_not_given_feedback_yet: "아직 %{name}에게 '%{event}' 이벤트에 대한 피드백을 남기지 않았습니다. %{given_name}이/가 이벤트에서 해야할 일에 대해 피드백을 남겨주세요."
@@ -2141,8 +2146,8 @@ ko:
       about_listing: ~
   date:
     formats:
-      long_with_abbr_day_name: ~
-    first_day_of_week: ~
+      long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: 일요일
@@ -2162,47 +2167,47 @@ ko:
       saturday: 토
     days_min:
       sunday: 일
-      monday: ~
-      tuesday: ~
-      wednesday: ~
-      thursday: ~
-      friday: ~
-      saturday: ~
+      monday: 월
+      tuesday: 화
+      wednesday: 수
+      thursday: 목
+      friday: 금
+      saturday: 토
     months:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
+      january: 1월
+      february: 2월
+      march: 3월
+      april: 4월
+      may: 5월
+      june: 6월
+      july: 7월
+      august: 8월
+      september: 9월
+      october: 10월
+      november: 11월
+      december: 12월
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
-    format: ~
+      january: 1월
+      february: 2월
+      march: 3월
+      april: 4월
+      may: 5월
+      june: 6월
+      july: 7월
+      august: 8월
+      september: 9월
+      october: 10월
+      november: 11월
+      december: 12월
+    today: 오늘
+    clear: 초기화
+    format: 월(mm)/일(dd)/년도(yyyy)
   time:
     formats:
       short: ~
       shorter: ~
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: ~
     days_ago: ~

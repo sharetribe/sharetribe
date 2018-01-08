@@ -60,8 +60,8 @@
         .col-12
           %h3= t(".transaction_preferences")
           .checkbox-container
-            - max_days = StripeHelper.stripe_active?(@current_community.id) ? 90 : 100
             .settings-checkbox-label.label
+              - max_days = StripeHelper.stripe_active?(@current_community.id) ? 90 : 100
               - day_dropdown = form.select :automatic_confirmation_after_days, (1..max_days), {}, :class => "inline-select"
               = t(".automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
             - if StripeHelper.stripe_available?(@current_community)
@@ -69,10 +69,6 @@
               - help_text = t('.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
               = render partial: 'layouts/info_text', locals: { text: help_text }
               .info-text-container
-            - if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
-              .settings-checkbox-label.label
-                - day_dropdown = form.select :automatic_confirmation_after_days_after_end_time, (1..max_days), {}, :class => "inline-select"
-                = t(".automatically_confirmed_after_end_time", :days_dropdown => day_dropdown).html_safe
 
     .row
       .col-12

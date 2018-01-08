@@ -448,6 +448,11 @@ da-DK:
         any_language: "Alle sprog"
         message_will_be_sent_only_to_people_with_this_language: "Bemærk; Emailen bliver kun sendt til de brugere som benytter %{service_name} på det sprog du vælger."
         email_sent: "Email sendt."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Generelt
       users_and_transactions: "Brugere og transaktioner"
@@ -2222,7 +2227,7 @@ da-DK:
       short: "%e %b %Y på %H:%M"
       shorter: "%e %b %Y på %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dag siden"
     days_ago: "%{count} dage siden"

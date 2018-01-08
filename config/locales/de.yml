@@ -448,6 +448,11 @@ de:
         any_language: "Beliebige Sprache"
         message_will_be_sent_only_to_people_with_this_language: "Die E-Mail wird nur an Mitglieder von %{service_name} verschickt, die auch die Sprache, die du gewählt hast, gewählt haben."
         email_sent: "E-Mail gesendet."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Allgemein
       users_and_transactions: "Benutzer & Transaktionen"
@@ -2230,7 +2235,7 @@ de:
       short: "%e %b %Y at %H:%M"
       shorter: "%e %b at %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "Vor %{count} Tag"
     days_ago: "Vor %{count} Tagen"
@@ -2269,6 +2274,9 @@ de:
       booked_nights_label:
         one: "Gebuchte Nacht:"
         other: "Gebuchte Nächte:"
+      booked_hours_label:
+        one: "Gebuchte Stunde:"
+        other: "Gebuchte Stunden:"
       price_per_day: "Preis pro Tag:"
       price_per_night: "Preis pro Nacht:"
       price_per_hour: "Preis pro Stunde:"
@@ -2277,13 +2285,10 @@ de:
       subtotal: "Zwischensumme:"
       shipping-price: "Versandkosten:"
       stripe-fee: "Stripe Gebühr (geschätzt):"
-      start_end_time: "%{start_time} bis %{end_time}"
-      booked_hours_label:
-        one: "Gebuchte Stunde:"
-        other: "Gebuchte Stunden:"
       duration_in_hours:
         one: "(Eine Stunde)"
         other: "(%{count} Stunden)"
+      start_end_time: "%{start_time} bis %{end_time}"
     price_per_quantity: "Preis pro %{unit_type}"
     price: "Preis:"
     quantity: "Anzahl: %{quantity}"

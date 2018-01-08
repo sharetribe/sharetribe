@@ -227,7 +227,6 @@ en:
         update_settings: "Save settings"
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
         automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to providers are delayed until the order is marked as completed. %{learn_more}."
-        automatically_confirmed_after_end_time: "Transaction is completed by buyer or after %{days_dropdown} days after end time."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -1733,10 +1732,10 @@ en:
       how_paypal_works: "How PayPal Works"
       payment_help: "Payment help"
       unable_load_availability: "Could not load availability information. Please try again later."
-      booking_date: Booking date
-      select_one: Select one
-      start_time: Start time
-      end_time: End time
+      booking_date: "Booking date"
+      select_one: "Select one"
+      start_time: "Start time"
+      end_time: "End time"
     new:
       listing: listing
       selected_category: "Category: %{category}"
@@ -2326,11 +2325,11 @@ en:
       confirm_discarding_unsaved_availability_changes_question: "Are you sure you want to discard your changes?"
       edit_listing_availability: "Edit listing availability"
       working_hours:
-        default_schedule: Default schedule
-        i_am_available_on: I'm available on...
-        start_time: Start time
-        end_time: End time
-        add_another_time_slot: + Add another time slot
+        default_schedule: "Default schedule"
+        i_am_available_on: "I'm available on..."
+        start_time: "Start time"
+        end_time: "End time"
+        add_another_time_slot: "+ Add another time slot"
         save: Save
     no_listings:
       sorry: "Sorry, no listings could be found for your search criteria."

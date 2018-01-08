@@ -433,6 +433,11 @@ ar:
         any_language: "أي لغة"
         message_will_be_sent_only_to_people_with_this_language: "حسب اللغة التي تختارها سترسل الرسالة لمستخدمي ‎%{service_name}‎"
         email_sent: "تم إرسال الرسالة"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: عام
       users_and_transactions: "المستخدمين والعمليات"
@@ -2211,7 +2216,7 @@ ar:
       short: ~
       shorter: "%b %e at %H:%M"
       short_date: ~
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "يوم ‎%{count}‎ قبل"
     days_ago: "أيام ‎%{count}‎ قبل"

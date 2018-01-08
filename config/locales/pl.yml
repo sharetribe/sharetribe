@@ -458,6 +458,11 @@ pl:
         any_language: "Dowolny język"
         message_will_be_sent_only_to_people_with_this_language: "Uwaga: ta wiadomość email zostanie wysłana tylko do użytkowników platformy %{service_name}, którzy używają jej w języku, który wskazałeś."
         email_sent: "Wiadomość email wysłana"
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: Ogólne
       users_and_transactions: "Użytkownicy i transakcje"
@@ -2244,7 +2249,7 @@ pl:
       short: "%b %e, %Y na %H:%M"
       shorter: "%b %e na %H:%M"
       short_date: "%b %e, %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} dzień temu"
     days_ago: "%{count} dni temu"

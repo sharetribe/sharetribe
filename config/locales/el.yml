@@ -433,6 +433,11 @@ el:
         any_language: "Οποιαδήποτε γλώσσα"
         message_will_be_sent_only_to_people_with_this_language: "Σημείωση: Το μήνυμα θα σταλεί μόνο στα μηνύματα που χρησιμοποιούν το %{service_name} στη γλώσσα που επιλέξατε."
         email_sent: "Το μήνυμα στάλθηκε."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
     left_hand_navigation:
       general: ~
       users_and_transactions: ~
@@ -2189,7 +2194,7 @@ el:
       short: "%e %b %Y στις %H:%M"
       shorter: "%e %b στις %H:%M"
       short_date: "%e %b %Y"
-      hours_only: ~
+      hours_only: "%H:%M"
   timestamps:
     day_ago: "πριν από %{count} μέρα"
     days_ago: "πριν από %{count} μέρες"
