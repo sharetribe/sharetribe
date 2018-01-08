@@ -208,7 +208,7 @@ Then(/^I should see working hours save button finished$/) do
 end
 
 Given(/^that listing availability is booking$/) do
-  @listing.update_attribute(:availability, :booking)
+  @listing.update_attributes(availability: :booking, quantity_selector: 'number')
 end
 
 Given(/^that listing has default working hours$/) do
