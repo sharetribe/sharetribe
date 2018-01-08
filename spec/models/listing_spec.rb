@@ -46,6 +46,7 @@
 #  shipping_price_cents            :integer
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
+#  per_hour_ready                  :boolean          default(FALSE)
 #
 # Indexes
 #
