@@ -212,7 +212,8 @@ module ListingAvailabilityManage
   end
 
   def booking_per_hour?
-    listing.listing_shape&.booking_per_hour?
+    listing.unit_type.to_s == ListingUnit::HOUR && listing.quantity_selector == 'number' &&
+      listing.availability == ListingShape::AVAILABILITY_BOOKING
   end
 
   def quantity_per_day_or_night?
