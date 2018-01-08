@@ -452,7 +452,7 @@ de:
         email_subject_text: "Eine neue Nachricht vom %{service_name} Team"
         firstname_cannot_be_removed: "Vorname kann nicht entfernt werden. Es wird der tatsächliche Vorname des jeweiligen Empfängers eingesetzt."
         hello_firstname: "Hallo Vorname,"
-        hello_firstname_text: "Hallo %{person}"
+        hello_firstname_text: "Hallo %{person},"
     left_hand_navigation:
       general: Allgemein
       users_and_transactions: "Benutzer & Transaktionen"

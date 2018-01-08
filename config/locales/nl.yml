@@ -450,11 +450,11 @@ nl:
         any_language: "Elke taal"
         message_will_be_sent_only_to_people_with_this_language: "Opmerking: het bericht zal enkel naar de gebruikers gestuurd worden die %{service_name} gebruiken in de taal die je kiest."
         email_sent: "E-mail verzonden."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "Om de bezorging van de emails te verbeteren, wordt het onderwerp van de email automatisch gegenereerd. Deze kan niet worden veranderd."
+        email_subject_text: "Een nieuw bericht van het %{service_name} team"
+        firstname_cannot_be_removed: "\"Voornaam\" kan niet worden verwijderd, maar zal worden vervangen door de daadwerkelijke voornaam van iedere ontvanger."
+        hello_firstname: "Hallo Voornaam,"
+        hello_firstname_text: "Hallo %{person},"
     left_hand_navigation:
       general: Algemeen
       users_and_transactions: "Gebruikers en transacties"

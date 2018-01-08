@@ -448,11 +448,11 @@ fi:
         any_language: "Kaikki kielet"
         message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name}-palvelua valitsemallasi kielellä."
         email_sent: "Viesti lähetetty."
-        to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        to_improve_email_deliverability: "Sähköpostin toimitettavuuden parantamiseksi viestin otsikko luodaan automaattisesti, eikä sitä voi muuttaa."
+        email_subject_text: "Uusi viesti palvelun %{service_name} ylläpidolta"
+        firstname_cannot_be_removed: "Etunimeä ei voi poistaa, ja sen tilalla lähetetyissä viesteissä on vastaanottajan oikea etunimi"
+        hello_firstname: "Hei Etunimi,"
+        hello_firstname_text: "Hei %{person},"
     left_hand_navigation:
       general: Yleistä
       users_and_transactions: "Käyttäjät ja tilaukset"
