@@ -297,8 +297,8 @@ class PaymentSettingsController < ApplicationController
 
     def parse_bank_routing_number
       if bank_country == 'NZ'
-        bank_branch, = form_params[:bank_account_number].split('-')
-        bank_branch
+        bank_number, bank_branch, = form_params[:bank_account_number].split('-')
+        "#{bank_number}#{bank_branch}"
       elsif form_params[:bank_routing_1].present?
         [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
       else
@@ -308,7 +308,7 @@ class PaymentSettingsController < ApplicationController
 
     def parse_bank_account_number
       if bank_country == 'NZ'
-        _, account, sufix = form_params[:bank_account_number].split('-')
+        _, _, account, sufix = form_params[:bank_account_number].split('-')
         "#{account}#{sufix}"
       else
         form_params[:bank_account_number]
