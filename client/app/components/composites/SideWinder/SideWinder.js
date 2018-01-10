@@ -39,6 +39,7 @@ import closeIcon from './images/close.svg';
 
 const KEYCODE_ESC = 27;
 const ORIENTATION_TIMEOUT = 400;
+const SCROLL_TIMEOUT = cssVariables['--SideWinder_animationDurationMs'] + 50; // eslint-disable-line no-magic-numbers
 
 const currentScrollOffset = () => {
   if (!window || !document) {
@@ -80,6 +81,7 @@ class SideWinder extends Component {
     super(props);
     this.onWindowKeyUp = this.onWindowKeyUp.bind(this);
     this.onWindowResize = this.onWindowResize.bind(this);
+    this.scrollOffset = null;
   }
   componentDidMount() {
     if (this.props.wrapper.classList.contains(css.wrapper)) {
@@ -108,6 +110,7 @@ class SideWinder extends Component {
     window.removeEventListener('resize', this.onWindowResize);
     window.removeEventListener('orientationchange', this.onOrientationChange);
     window.clearTimeout(this.orientationTimeout);
+    window.clearTimeout(this.scrollTimeout);
   }
   onWindowKeyUp(e) {
     if (this.props.isOpen && e.keyCode === KEYCODE_ESC) {
@@ -128,7 +131,6 @@ class SideWinder extends Component {
 
   render() {
     const isOpen = this.props.isOpen;
-    const scrollOffset = currentScrollOffset();
 
     const height = this.props.height ? { height: this.props.height } : {};
     const width = calculateWidth({
@@ -138,8 +140,14 @@ class SideWinder extends Component {
 
     if (isOpen) {
       this.props.wrapper.style.right = `${width}px`;
+      this.scrollOffset = currentScrollOffset();
     } else {
       this.props.wrapper.style.removeProperty('right');
+      if (this.scrollOffset !== null) {
+        this.scrollTimeout = window.setTimeout(() => {
+          window.scrollTo(0, this.scrollOffset);
+        }, SCROLL_TIMEOUT);
+      }
     }
 
     return r(Portal, {
@@ -149,7 +157,7 @@ class SideWinder extends Component {
         div({
           className: classNames(css.orientationHook, css.overlay),
           style: {
-            top: scrollOffset,
+            top: 0,
           },
           onClick: this.props.onClose,
           onTouchMove: (e) => {
@@ -167,11 +175,7 @@ class SideWinder extends Component {
                 ...height,
                 width,
                 right: -1 * width,
-                top: scrollOffset,
-                overflow: 'scroll',
-              },
-              onTouchMove: (e) => {
-                e.preventDefault();
+                top: 0,
               },
             }, [
               this.props.children,
