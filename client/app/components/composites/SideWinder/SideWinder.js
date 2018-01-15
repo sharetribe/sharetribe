@@ -168,6 +168,7 @@ class SideWinder extends Component {
                 width,
                 right: -1 * width,
                 top: scrollOffset,
+                overflow: 'scroll',
               },
               onTouchMove: (e) => {
                 e.preventDefault();
