@@ -615,4 +615,9 @@ class ApplicationController < ActionController::Base
   def admin_controller?
     self.class.name =~ /^Admin/
   end
+
+  def current_plan_trial_and_expired?
+    @current_plan_trial_and_expired ||= @current_plan ? (@current_plan[:status] == :trial && @current_plan[:expired]) : false
+  end
+  helper_method :current_plan_trial_and_expired?
 end
