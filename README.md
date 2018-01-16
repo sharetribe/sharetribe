@@ -322,6 +322,8 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 
 **For production use we recommend you to upgrade only when new version is released and not to follow the master branch.**
 
+[Deploy with Systemd service](https://github.com/ecomclub/sharetribe/tree/master/services).
+
 #### Setting your domain
 
 1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
