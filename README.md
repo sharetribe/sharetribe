@@ -402,11 +402,9 @@ You should fill the `app_encryption_key` variable in the `config/config.yml` fil
 Stripe can be configured from the admin panel, in the "Payment settings" section. Instructions on how to get Stripe API keys can be found there.
 
 If Stripe isn't automatically enabled in the admin panel after upgrading to 7.2.0, you should run the following commands in your Rails console, where `<ID>` is your marketplace ID (probably `1`):
-
-    ```bash
-    TransactionService::API::Api.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)
-    TransactionService::API::Api.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)
-    ```
+`TransactionService::API::Api.processes.create(community_id: <ID>, process: :preauthorize, author_is_seller: true)`
+and
+`TransactionService::API::Api.settings.provision(community_id: <ID>, payment_gateway: :stripe, payment_process: :preauthorize, active: true)`.
 
 ## Versioning
 
