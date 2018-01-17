@@ -51,8 +51,8 @@ module Sharetribe
     {ident: "th-TH", name: "Thai", language: "th", region: "TH", fallback: nil}, # Thai (Thailand)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
-    {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh"}, # Chinese (Taiwan)
-    {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh-TW"}, # Chinese (Hong Kong)
+    {ident: "zh-TW", name: "繁體中文(台灣)", language: "zh", region: "TW", fallback: "zh-HK"}, # Chinese (Taiwan)
+    {ident: "zh-HK", name: "繁體中文(香港澳門)", language: "zh", region: "HK", fallback: "zh"}, # Chinese (Hong Kong)
     {ident: "ka", name: "ქართული", language: "ka", region: "GE", fallback: nil}, # Georgian
     {ident: "sl", name: "Slovenščina", language: "sl", region: "SI", fallback: nil}, # Slovenian
     {ident: "sk-SK", name: "Slovenčina", language: "sk-SK", region: "SK", fallback: nil}, # Slovak
