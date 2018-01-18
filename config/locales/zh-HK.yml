@@ -222,7 +222,6 @@ zh-HK:
         update_settings: 保存設定
         automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -1428,7 +1427,7 @@ zh-HK:
       account_creation_successful: "%{person_name}，歡迎來到%{service_name}！"
       account_deleted: 你的帳戶已被删除
       login_successful: "歡迎您,%{person_name}！"
-      logout_successful: "您已退出了%{service_name}，歡迎電次使用我們的服務！"
+      logout_successful: "您已退出了%{service_name}，歡迎再次使用我們的服務！"
       news_item_created: 已建立的文章
       news_item_creation_failed: 文章建立失敗
       news_item_update_failed: 文章更新失敗

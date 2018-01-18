@@ -1,16 +1,16 @@
 zh-TW:
   errors:
     messages:
-      expired: 已过期，请重新申请
+      expired: 已經過期，請重新申請
       not_found: 没有找到
       already_confirmed: "已经确认,请重新登录"
       not_locked: 未锁定
       not_saved:
-        other: "有%{count}個錯誤導致此%{resource}保存失敗："
+        other: "有%{count}個錯誤導致%{resource}保存失敗："
   devise:
     failure:
-      already_authenticated: 你已经登录。
-      unauthenticated: 继续操作前请注册或者登录
+      already_authenticated: 你已經登入
+      unauthenticated: 繼續操作前請註冊或登入
       unconfirmed: 继续操作前请先确认你的帐号
       locked: 你的帐号已被锁定
       invalid: 邮箱或密码错误

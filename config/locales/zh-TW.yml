@@ -58,7 +58,7 @@ zh-TW:
         enabled_languages: 启用的语言
         enabled_languages_description: 这组语言可以给用户使用。默认使用第一个。
         default_language: 默认语言
-        language_selection_disabled: "语言的选择项无法启动，因为你正在使用下面这些非官方的语言：%{languages}。请联系Sharetribe的支持团队来修改你的语言设置。"
+        language_selection_disabled: "語言的選擇項無法啟動，因為你正在使用下面這些非官方的語言：%{languages}。請聯系Sharetribe的客服團隊來修改你的設定語言。"
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
@@ -69,7 +69,7 @@ zh-TW:
         edit_community_search_placeholder_description: "这将在集市主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
         private_community_homepage_content: 私有集市主页内容
         edit_private_community_homepage_content_description: "这个内容在私有的主页显示给未登录用户。你可以在这里描述你的集市及加入的流程。你也可以在这里新增图片，视频和HTML内容。%{see_how_it_looks_like}"
-        update_information: 保存设置
+        update_information: 保存設定
         invite_people: 邀请新用户
         edit_signup_info: 注册信息
         edit_signup_info_description: 这段信息文字将显示在用户的注册页面。在那儿你可以提供用户注册说明，比如：在哪儿得到邀请的信息等。默认那里没有任何说明。
@@ -88,7 +88,7 @@ zh-TW:
         transaction_agreement_description: "这是用户需要接受的实际协议的内容。该协议内容会在用户点击协议标签旁边的“%{read_more}”链接时展现。"
       edit_look_and_feel:
         edit_community_look_and_feel: "编辑集市”%{community_name}“的外观"
-        community_logo: 页面展示Logo
+        community_logo: 桌面標示
         community_logo_icon: 社交网络和移动设备的Logo
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
@@ -138,7 +138,7 @@ zh-TW:
         sender_address: "发送者邮件地址：%{sender_address}"
         sender_address_default: "发送者邮件地址：没有设置（使用默认地址%{sender_address}）"
         need_to_change: "如果你需要修改邮箱地址，请%{contact_support_link}"
-        contact_support_link_text: 联系我们的支持人员
+        contact_support_link_text: 聯絡我們的服務人員
         set_sender_address: 设置发送者邮件地址
         sender_name_label: 名称
         sender_name_placeholder: 发送者名称
@@ -193,7 +193,7 @@ zh-TW:
         ja: 日文
         it: 意大利文
       settings:
-        settings: 设置
+        settings: 設定
         general: 常规
         access: 访问
         join_with_invite_only: 用户只能通过其他用户的邀请才能加入这个集市
@@ -222,7 +222,6 @@ zh-TW:
         update_settings: 保存设置
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -810,7 +809,7 @@ zh-TW:
       total: "总共：%{total}"
     status:
       payment_errored: 付款失败。请重试。
-      payment_errored_starter: 支付失败。请重试。如果问题依然存在，请联系我们的支持人员。
+      payment_errored_starter: 付款失敗，請稍後再試。若問題持續發生，請聯絡我們以得到支援。
       payment_errored_author: "支付失败。请联系%{starter_name}并要求他再次尝试支付。"
       cancel_payed_transaction: 取消
       feedback_given: 已发送反馈
@@ -914,7 +913,7 @@ zh-TW:
       remember_to_add_payment_details: 记得添加你的付款明细以接收付款。
       you_have_added_listing_with_payment: "你添加了一个需要付款的信息%{listing_link}。然而，你还没有添加你的付款详情。为了接受付款你必须添加你的付款信息。"
       please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
-      payment_settings_link: 付款设置
+      payment_settings_link: 付款設定
     transaction_confirmed:
       here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
       request_marked_as_confirmed: 请求已完成——记得给予评价
@@ -934,13 +933,13 @@ zh-TW:
       give_feedback_to: "给予%{other_party_given_name}反馈"
       show_thread: 显示对话
     confirmation_instructions:
-      confirmation_instructions_signature: "此致敬礼，<br/>%{service_name}团队"
+      confirmation_instructions_signature: "<br/>%{service_name}團隊問候你"
       need_to_confirm: 请确认你的Email地址。
       confirmation_link_text: 确认我的电子邮件
       or_paste_link: 或者你可以复制以下链接到你浏览器的地址栏：
     common:
       hey: "你好 %{name},"
-      kassi_team: "%{service_name} 团队"
+      kassi_team: "%{service_name} 團隊"
       thanks: 谢谢！
       dont_want_to_receive_these_emails: 不想收到这些邮件？
       edit_your_email_settings_here: 编辑你的邮箱设定
@@ -1080,9 +1079,9 @@ zh-TW:
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
       welcome_to_marketplace: "欢迎来到%{service_name}！恭喜你注册成功。"
-      love_marketplace_crew: "爱你的，<br /><i>%{service_name}团队</i>"
+      love_marketplace_crew: "親愛的，<br /><i>%{service_name}團隊</i>"
       welcome_email_footer_text: "你希望从%{service_name}接收哪种类型的邮件？%{settings_link}"
-      settings_link_text: 查看你的设置
+      settings_link_text: 查看你的設定
     new_listing_by_followed_person:
       subject: "%{author_name}在%{service_name}发布了一则新的信息"
       has_posted_a_new_listing: "%{author_name}发布了一则新的信息："
@@ -1143,7 +1142,7 @@ zh-TW:
     no_javascript:
       javascript_is_disabled_in_your_browser: 你的浏览器已禁用Javascript
       kassi_does_not_currently_work_without_javascript: "抱歉，%{service_name}目前不能在无javascript环境下工作。请在浏览器首选项中打开javascript，然后刷新页面。"
-      contact_us: 联系我们
+      contact_us: 聯絡我們
       send_feedback: ~
       your_feedback_to_admins: ~
     send: 发送
@@ -1194,7 +1193,7 @@ zh-TW:
     requests: 请求
     search_kassi: "搜索%{service_name}"
     create_new_marketplace: 创建一个新的集市
-    contact_us: 联系我们
+    contact_us: 聯繫我們
     profile: 个人主页
     manage_listings: ~
     invite: 邀请新成员
@@ -1333,7 +1332,7 @@ zh-TW:
       learn_more: ~
     no_tribe:
       inbox: 收件箱
-      settings: 设置
+      settings: 設定
       feedback: ~
     application:
       join_this_community: 加入集市
@@ -1342,7 +1341,7 @@ zh-TW:
       dont_use_to_contact_support: ~
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
-      give_feedback: 联系我们
+      give_feedback: 聯絡我們
       or_check_our: ……或者查看我们的
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: 看看其他用户的推荐，给那些主意投票。
@@ -1390,7 +1389,7 @@ zh-TW:
       logout: 退出
       notifications: 通知
       requests: 加好友请求
-      settings: 设置
+      settings: 設定
       sign_up: 注册
     notifications:
       listing_could_not_be_saved: "信息不能保存。请重试。如果问题依旧存在，请%{contact_admin_link}。"
@@ -1428,7 +1427,7 @@ zh-TW:
       account_creation_successful: "%{person_name}，欢迎使用%{service_name}！"
       account_deleted: 你的帐号已被删除。
       login_successful: "欢迎你，%{person_name}！"
-      logout_successful: "你已退出%{service_name}，欢迎再次使用！"
+      logout_successful: "你已退出%{service_name}，歡迎再次使用！"
       news_item_created: 创建文章
       news_item_creation_failed: "文章创立失败\n"
       news_item_update_failed: 文章更新失败
@@ -1448,7 +1447,7 @@ zh-TW:
       only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
       payment_successful: 付款成功
       payment_canceled: 付款已取消
-      error_in_payment: 付款错误。如果你还没有完成付款，请重试。如果已完成，请联系我们。
+      error_in_payment: 發生付款錯誤。如果你還沒有完成付款，請重試。如果已完成，請聯繫我們。
       cannot_receive_payment: 由于某些错误，另一交易方无法收款。请联系管理员并说明情况。
       payment_waiting_for_later_accomplishment: 当你完成支付后，我们会通知卖家，同时你会在电子邮件中收到收据。
       password_recovery_sent: 更改密码的说明已发送至你的电子邮箱。
@@ -1473,7 +1472,7 @@ zh-TW:
       message_sent: 消息已发出
       message_not_sent: ~
       this_content_is_not_available_in_this_community: 此内容不可用。
-      unknown_error: 发生未知错误。请点击”联系我们“向我们报告问题。
+      unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們提交問題。
       update_error: 更新你的信息时发生错误，请重试
       you_are_not_allowed_to_give_feedback_on_this_transaction: 你没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 你没有权限进行此操作
@@ -1496,7 +1495,7 @@ zh-TW:
       you_must_log_in_to_view_this_content: 你必须登录以查看内容
       you_must_log_in_to_view_this_page: 你必须登录才能查看此页面
       you_must_log_in_to_view_your_inbox: "你必须登录%{service_name}以查看你的收件箱。"
-      you_must_log_in_to_view_your_settings: "你必须登录%{service_name}以查看你的设置。"
+      you_must_log_in_to_view_your_settings: "你必需登入%{service_name}以查看你的設定。"
       you_must_log_in_to_add_news_item: "你必须登录%{service_name}才能添加新宝贝。"
       you_must_log_in_to_change_profile_settings: "你必须登录%{service_name}以修改资料设定"
       you_must_log_in_to_accept_or_reject: 你必须登录才能接受或拒绝交易
@@ -1515,7 +1514,7 @@ zh-TW:
       account: 帐号
       notifications: 通知
       profile: 个人资料
-      settings: 设置
+      settings: 設定
       paypal_payments: ~
       stripe_payments: ~
       payments: 付款
@@ -1656,7 +1655,7 @@ zh-TW:
         for_the_time_being: 一直有效
       privacy:
         privacy: 隐私
-        private: 私密的（只对登录用户可见）
+        private: 私密的（只有登入用戶可見）
         public: 公共的（对所有用户可见）
     help_texts:
       help_share_type_title: 宝贝或者请求的信息的类型
@@ -1924,7 +1923,7 @@ zh-TW:
       create_new_account: 创建新用户
       email: 电子邮件地址
       email_is_in_use: 此邮箱已使用。
-      email_is_in_use_or_not_allowed: 此Email不允许使用或已被注册。如果你无法注册，请联系我们。
+      email_is_in_use_or_not_allowed: 此電郵地址不允許使用或已被註冊。如果你無法註冊，請聯絡我們。
       email_not_allowed: "该电子邮件不允许在%{service_name}中使用。请使用允许的电子邮件地址。如果你还是不能进入，发送反馈给我们。"
       invalid_username_or_email: ~
       email_restriction_instructions:
@@ -2082,10 +2081,10 @@ zh-TW:
       email_about_new_listings_by_followed_people: ……我关注的人发布了一则新的信息
       unsubscribe_succesful: 退订成功
       unsubscribe_info_text: "你将不会再接收到这些邮件。检查你的%{settings_link}来选择你想从%{service_name}接收的邮件类型，或者回到%{homepage_link}。"
-      settings_link: 设置
+      settings_link: 設定
       homepage_link: 主页
       unsubscribe_unsuccesful: 取消订阅出错
-      unsuccessful_unsubscribe_info_text: 原因可能是你点击的退订链接过久或已经失效。通过左边的反馈按钮联系我们进行退订或者登录并修改你的电子邮件配置。
+      unsuccessful_unsubscribe_info_text: 取消訂閱的連結已失效。請登入以更改你的訂閱電郵設置。
     profile:
       about_you: 关于你
       city: 城市
