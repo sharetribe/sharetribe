@@ -89,7 +89,7 @@ class EmailService
     allowed_array.each do |allowed_domain_or_address|
       if allowed_domain_or_address =~ /^\/.+/
         # treat as if this is meant to be a regular expression
-        if address =~ Regexp.new(allowed_domain_or_address.gsub("/",""))
+        if address =~ Regexp.new(allowed_domain_or_address.delete("/"))
           allowed = true
           break
         end
