@@ -9,7 +9,7 @@
   - if @community_customization && @community_customization.signup_info_content
     %p
       = @community_customization.signup_info_content.html_safe
-  - elsif @current_community.allowed_emails
+  - elsif @current_community.allowed_emails && @current_community.allowed_emails[0] != "/" 
     %p
       = t('.email_restriction_instructions',
             :community_name => @current_community.name(I18n.locale),
