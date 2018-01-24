@@ -227,7 +227,6 @@ pt-BR:
         update_settings: "Salvar configurações"
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
@@ -1497,7 +1496,7 @@ pt-BR:
       you_have_already_given_feedback_about_this_event: "Você já deixou sua opinião sobre este evento"
       you_are_now_member: "Seja bem-vindo ao %{service_name}!"
       you_are_already_member: "Você já é membro da %{service_name}. Bem-vindo(a) de volta!"
-      you_must_log_in_to_create_new_listing: "Você deve conectar a sua conta para %{service_name} para criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Você deve estar conectado à plataforma %{service_name} para poder criar um novo anúncio. Se você não tem uma conta, você pode %{sign_up_link}."
       additional_email_confirmed_dashboard: "Seu e-mail está confirmado."
       you_must_log_in_to_give_feedback: "Você deve conectar para escrever uma avaliação"
       you_must_log_in_to_invite_new_users: "Você deve se conectar para convidar novos usuários a %{service_name}"

@@ -190,12 +190,12 @@ sl:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
-        search_preferences: ~
-        default_search_type: ~
-        keyword_search: ~
+        search_preferences: "Nastavitve iskanja"
+        default_search_type: "Vrsta iskanja: %{select_search_type}"
+        keyword_search: "Iskanje po ključnih besedah:"
         keyword_and_location_search: ~
-        location_search: ~
-        select_distance_unit: ~
+        location_search: "Iskanje lokacije"
+        select_distance_unit: "Pokaži v razdalji %{distance_units_selector}"
         km: ~
         miles: ~
         show_only_nearby: ~
@@ -212,7 +212,6 @@ sl:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
-        automatically_confirmed_after_end_time: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -376,8 +375,8 @@ sl:
           this_field_is_required_checkbox: ~
         search_filter:
           search_filter: ~
-          date_cant_be_filtered: ~
-          text_cant_be_filtered: ~
+          date_cant_be_filtered: "Za datumsko polje ni na voljo nobenega filtra."
+          text_cant_be_filtered: "Filter besedila ni na voljo. Glavno iskanje besedila išče iz besedilnih polj."
       index:
         listing_fields: "Polja & filtri objav"
         listing_fields_help: ~
@@ -630,8 +629,8 @@ sl:
     edit_page: "Uredi to stran"
     default_community_slogan: ~
     default_community_description: ~
-    cancel: ~
-    fields_that_are_mandatory: ~
+    cancel: Prekliči
+    fields_that_are_mandatory: "Polja označena z zvezdico (*) so obvezna."
     or: ali
     password: Geslo
     service_name: ~
@@ -639,7 +638,7 @@ sl:
       request: ~
       offer: ~
       borrow: ~
-      buy: ~
+      buy: Nakup
       give_away: ~
       lend: ~
       receive: ~
@@ -734,7 +733,7 @@ sl:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
+      loading_more_messages: "Naloži več sporočil."
       message_partitive: ~
       messages_partitive: sporočila
       no_received_messages: "Ni sporočil"
@@ -754,7 +753,7 @@ sl:
       message_content_not_available: ~
     message:
       accepted_request: ~
-      received_payment: ~
+      received_payment: "sprejeta zahteva, prejeto plačilo za %{sum}"
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -765,7 +764,7 @@ sl:
       paid: ~
       payment_preauthorized: ~
     new:
-      message: ~
+      message: Sporočilo
       message_to: ~
       optional_message_to: ~
       send_message: "Pošlji sporočilo"
@@ -773,7 +772,7 @@ sl:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Naslov
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -781,7 +780,7 @@ sl:
       in_response_to_listing: "o objavi"
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
+      send_reply: "Pošlji odgovor"
       write_a_reply: ~
       conversation_about_listing: ~
       conversation_with_user: ~
@@ -816,7 +815,7 @@ sl:
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
       request_accepted: ~
-      request_rejected: ~
+      request_rejected: Zavrnjeno
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
@@ -1178,7 +1177,7 @@ sl:
     create_new_marketplace: ~
     contact_us: Kontakt
     profile: Profil
-    manage_listings: "Uredi svoje objave"
+    manage_listings: "Upravljanje seznamov"
     invite: "Povabi nove člane"
     login: Prijava
     signup: Registracija
@@ -1265,7 +1264,7 @@ sl:
     list_item:
       review: ~
       reviews: ~
-      distance_away: ~
+      distance_away: "%{distance} %{distance_unit} stran"
     news_item:
       show_less: ~
       show_more: ~
@@ -1300,7 +1299,7 @@ sl:
       default_content: "Tukaj lahko najdeš informacije, kako deluje %{marketplace_name}."
   landing_page:
     hero:
-      search: ~
+      search: Išči
       signup: Registracija
       search_placeholder: ~
       search_location_placeholder: ~
@@ -1753,7 +1752,7 @@ sl:
       shipping_price_additional: ~
       pickup: ~
       pickup_no_price: ~
-      youtube_video_player: ~
+      youtube_video_player: "YouTube video predvajalnik"
     unit_types:
       piece: ~
       hour: ~
