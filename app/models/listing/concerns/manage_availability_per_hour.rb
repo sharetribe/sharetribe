@@ -1,11 +1,16 @@
 module ManageAvailabilityPerHour
   extend ActiveSupport::Concern
 
-  def working_hours_new_set
-    return if working_time_slots.any?
+  def working_hours_new_set(force_create: false)
+    return if per_hour_ready
     Listing::WorkingTimeSlot.week_days.keys.each do |week_day|
       next if ['sun', 'sat'].include?(week_day)
-      working_time_slots.build(week_day: week_day, from: '09:00', till: '17:00')
+      if force_create
+        working_time_slots.create(week_day: week_day, from: '09:00', till: '17:00')
+        update_column(:per_hour_ready, true) # rubocop:disable Rails/SkipsModelValidations
+      else
+        working_time_slots.build(week_day: week_day, from: '09:00', till: '17:00')
+      end
     end
   end
 
