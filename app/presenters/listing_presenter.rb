@@ -86,7 +86,6 @@ class ListingPresenter < MemoisticPresenter
     delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
   end
 
-
   def listing_unit_type
     @listing.unit_type
   end
