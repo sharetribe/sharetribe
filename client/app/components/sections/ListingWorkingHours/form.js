@@ -85,19 +85,23 @@ class TimeSlotWrapper extends Component {
     return (
       <div>
         <div className={`timeSlot ${this.state.remove || this.context.remove ? 'hidden' : ''}`}>
-          <span className="starTime">{t('web.listings.working_hours.start_time')}</span>
-          <div className="timeSelect">
-            <StyledSelect field={this.slotField.concat('from')}
-              id={`${idPrefix}-from`} onChange={() => (this.handleChanges('from'))}
-              options={this.timeSlotOptions('from')} placeholder={' '} />
+          <div className="starTime">
+            <span className="starTimeLabel">{t('web.listings.working_hours.start_time')}</span>
+            <div className="timeSelect">
+              <StyledSelect field={this.slotField.concat('from')}
+                id={`${idPrefix}-from`} onChange={() => (this.handleChanges('from'))}
+                options={this.timeSlotOptions('from')} placeholder={' '} />
+            </div>
           </div>
-          <span className="endTime">{t('web.listings.working_hours.end_time')}</span>
-          <div className="timeSelect">
-            <StyledSelect field={this.slotField.concat('till')}
-              id={`${idPrefix}-till`} onChange={() => (this.handleChanges('till'))}
-              options={this.timeSlotOptions('till')} placeholder={' '} />
+          <div className="endTime">
+            <span className="endTimeLabel">{t('web.listings.working_hours.end_time')}</span>
+            <div className="timeSelect">
+              <StyledSelect field={this.slotField.concat('till')}
+                id={`${idPrefix}-till`} onChange={() => (this.handleChanges('till'))}
+                options={this.timeSlotOptions('till')} placeholder={' '} />
+            </div>
+            <a className="remove" onClick={this.handleRemove}><RemoveIcon /></a>
           </div>
-          <a className="remove" onClick={this.handleRemove}><RemoveIcon /></a>
         </div>
       </div>
     );
@@ -289,7 +293,9 @@ class ListingWorkingHoursForm extends Component {
       const message = t('web.listings.errors.working_hours.required');
       return !value ? message : null;
     };
-    const crossOtherSlot = (dayIndex, daySlots, slotIndex, fieldValue) => {
+
+    // Continuous slots are allowed. Start time can equal with end time of other slot.
+    const crossOtherSlot = (dayIndex, daySlots, slotIndex, fieldValue, prop) => {
       if (currentSlot && currentDayIndex === dayIndex && currentSlotIndex !== slotIndex) {
         return null;
       }
@@ -303,7 +309,10 @@ class ListingWorkingHoursForm extends Component {
         const otherTill = hourToInt(otherSlot.till);
         const value = hourToInt(fieldValue);
         if (otherFrom !== null && otherTill !== null) {
-          if (value && otherFrom <= value && otherTill >= value) {
+          if (value &&
+              ((prop === 'from' && otherFrom <= value && otherTill > value) ||
+              (prop === 'till' && otherFrom < value && otherTill >= value))
+            ) {
             intersection = true;
           }
         }
@@ -336,11 +345,11 @@ class ListingWorkingHoursForm extends Component {
       const daySlots = day.working_time_slots;
       const slots = daySlots.map((slot, index) => {
         const slotErrors = {};
-        if (currentSlotProp === null || currentSlotProp === 'from') {
-          slotErrors.from = isEmpty(slot.from) || crossOtherSlot(dayIndex, daySlots, index, slot.from);
-        }
+        slotErrors.from = isEmpty(slot.from) ||
+          crossOtherSlot(dayIndex, daySlots, index, slot.from, 'from');
         if (currentSlotProp === null || currentSlotProp === 'till') {
-          slotErrors.till = isEmpty(slot.till) || crossOtherSlot(dayIndex, daySlots, index, slot.till);
+          slotErrors.till = isEmpty(slot.till) ||
+            crossOtherSlot(dayIndex, daySlots, index, slot.till, 'till');
         }
         const covers = coversOtherSlot(dayIndex, daySlots, index, slot);
         if (covers) {
