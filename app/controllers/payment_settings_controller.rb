@@ -8,18 +8,7 @@ class PaymentSettingsController < ApplicationController
   skip_before_action :warn_about_missing_payment_info, only: [:update]
 
   def index
-    more_locals = {}
-    @extra_forms ||= {}
-
-    if @stripe_enabled
-      more_locals.merge!(stripe_index)
-    end
-
-    if @paypal_enabled
-      more_locals.merge!(paypal_index)
-    end
-
-    render 'index', locals: build_view_locals.merge(more_locals).merge(@extra_forms)
+    render 'index', locals: index_view_locals
   end
 
   def update
@@ -39,7 +28,7 @@ class PaymentSettingsController < ApplicationController
       if @stripe_error && @just_created && @stripe_account[:stripe_seller_id].present?
         stripe_accounts_api.destroy(community_id: @current_community.id, person_id: @current_user.id)
         @stripe_account[:stripe_seller_id] = nil
-        index
+        render 'index', locals: index_view_locals
         return
       end
     end
@@ -53,7 +42,7 @@ class PaymentSettingsController < ApplicationController
     end
 
     warn_about_missing_payment_info
-    index
+    render 'index', locals: index_view_locals
   end
 
   private
@@ -245,7 +234,8 @@ class PaymentSettingsController < ApplicationController
         :bank_account_number,
         :bank_routing_number,
         :bank_routing_1,
-        :bank_routing_2
+        :bank_routing_2,
+        :bank_account_number_common
         ).with_validations do
     validates_presence_of :bank_country,
         :bank_currency,
@@ -268,6 +258,7 @@ class PaymentSettingsController < ApplicationController
       else
         @stripe_error = true
         flash.now[:error] = result[:error_msg]
+        @parsed_seller_account[:bank_number_info] ||= params[:stripe_bank_form].try(:[], :bank_account_number_common)
       end
     else
       flash.now[:error] = bank_form.errors.messages.flatten.join(' ')
@@ -297,7 +288,7 @@ class PaymentSettingsController < ApplicationController
 
     def parse_bank_routing_number
       if bank_country == 'NZ'
-        bank_number, bank_branch, = form_params[:bank_account_number].split('-')
+        bank_number, bank_branch, = form_params[:bank_account_number_common].split('-')
         "#{bank_number}#{bank_branch}"
       elsif form_params[:bank_routing_1].present?
         [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
@@ -308,7 +299,7 @@ class PaymentSettingsController < ApplicationController
 
     def parse_bank_account_number
       if bank_country == 'NZ'
-        _, _, account, sufix = form_params[:bank_account_number].split('-')
+        _, _, account, sufix = form_params[:bank_account_number_common].split('-')
         "#{account}#{sufix}"
       else
         form_params[:bank_account_number]
@@ -375,5 +366,20 @@ class PaymentSettingsController < ApplicationController
       bank_number_info: bank_number,
       bank_currency: bank_record ? bank_record["currency"] : nil
     }
+  end
+
+  def index_view_locals
+    more_locals = {}
+    @extra_forms ||= {}
+
+    if @stripe_enabled
+      more_locals.merge!(stripe_index)
+    end
+
+    if @paypal_enabled
+      more_locals.merge!(paypal_index)
+    end
+
+    build_view_locals.merge(more_locals).merge(@extra_forms)
   end
 end
