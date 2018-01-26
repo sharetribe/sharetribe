@@ -448,10 +448,10 @@ pt-BR:
         message_will_be_sent_only_to_people_with_this_language: "Nota: o e-mail será enviado apenas aos usuários que utilizam a %{service_name} no idioma que você escolheu."
         email_sent: "E-mail enviado."
         to_improve_email_deliverability: ~
-        email_subject_text: ~
+        email_subject_text: "Nova mensagem da Equipe %{service_name}"
         firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        hello_firstname: "Oi Firstname,"
+        hello_firstname_text: "Oi %{person},"
     left_hand_navigation:
       general: Geral
       users_and_transactions: "Usuários & transações"

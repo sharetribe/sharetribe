@@ -1250,13 +1250,13 @@ ko:
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: 제안
-      add_news_item: ~
+      add_news_item: "내용을 추가하세요"
       lend_rent_help_carpool: "매매, 대여, 도우미, 카 쉐어링"
       loading_more_content: "로딩 중"
       more_events: "더 많은 이벤트들..."
       news: 뉴스
-      no_news: ~
-      more_news: ~
+      no_news: 무소식
+      more_news: "더 많은 소식"
       or: 그리고
       or_see_what_the_others: "또는 다른 내용 보기"
       recent_events: "최근 이벤트"
@@ -1268,9 +1268,9 @@ ko:
       filter: ~
       this_is_private_community: ~
     invitation_form:
-      email: ~
-      message: ~
-      send_invitation: ~
+      email: "이메일 주소(들)"
+      message: "개인 쪽지"
+      send_invitation: 초청하기
       add_email_addresses_description: ~
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1282,13 +1282,13 @@ ko:
       reviews: ~
       distance_away: ~
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: "덜 보여주기"
+      show_more: "더 보여주기"
     profile_info_empty_notification:
-      add_your_info: ~
-      add_a_profile_picture: ~
-      you_have_not_added_your_info: ~
-      add_your_info_link: ~
+      add_your_info: "당신의 연락처 추가하세요"
+      add_a_profile_picture: "프로필 사진을 추가하세요"
+      you_have_not_added_your_info: "귀하의 연락처 정보를 추가하지 않았습니다. 연락처를 추가하여 다른 사람들이 당신과 더 쉽게 연락 할 수 있도록 하십시오. 다른 사람들이 당신을 신뢰할 수 있도록 프로필 사진을 추가하십시요"
+      add_your_info_link: "지금 당신의 정보 추가하세요"
     recent_listing:
       please_offer: 제안
       comment: ~
@@ -1362,7 +1362,7 @@ ko:
       about: 소개
       how_to_use: "사용 예제"
       info_about_kassi: "%{service_name} 정보"
-      news: ~
+      news: 소식들
       register_details: 프라이버시
       terms: "이용 약관"
     logged_in:
@@ -1387,7 +1387,7 @@ ko:
       logout: 로그아웃
       notifications: 알림
       requests: "친구 요청"
-      settings: ~
+      settings: 설정
       sign_up: 가입
     notifications:
       listing_could_not_be_saved: ~
@@ -1396,11 +1396,11 @@ ko:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "계정이 성공적으로 생성되었습니다. 이제 이메일 주소를 확인해주십시요"
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "의견을 작성하셔야 합니다"
       comment_sent: "의견 발송"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "확인 링크가 이미 사용되었거나 그렇지 않으면 깨졌습니다. 문제가 계속되면 로그인하거나 피드백을 보내십시오."
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
@@ -1414,23 +1414,23 @@ ko:
       feedback_saved: "피드백을 보내주셔서 감사합니다. 가능한 빨리 연락드리겠습니다."
       feedback_sent_to: "피드백을 %{target_person}에게 발송했습니다."
       feedback_skipped: "피드백이 생략되었습니다."
-      invitation_cannot_be_sent: ~
+      invitation_cannot_be_sent: "초청이 보내어지지 않습니다"
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
-      invitation_sent: ~
+      invitation_sent: "성공적으로 초청장이 발송되었습니다"
       invitation_successfully_unsubscribed: ~
-      inviting_new_users_is_not_allowed_in_this_community: ~
+      inviting_new_users_is_not_allowed_in_this_community: "새 사용자를 초청하는 것은 허용되지 않습니다."
       login_again: "다시 로그인해주세요."
       login_failed: "로그인에 실패하였습니다. 로그인정보를 올바르게 입력해주세요."
       account_creation_successful: ~
       account_deleted: ~
       login_successful: "%{person_name}님 환영합니다,"
       logout_successful: "%{service_name}에서 로그아웃하셨습니다. 다시 뵙기를 바랍니다."
-      news_item_created: ~
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
+      news_item_created: "작성된 내용"
+      news_item_creation_failed: "내용 작성 실패"
+      news_item_update_failed: "내용 업데이트 실패"
+      news_item_updated: "업데이트된 내용"
+      news_item_deleted: "지워진 내용"
       offer_accepted: "제안을 받아들였습니다."
       offer_confirmed: ~
       offer_closed: "제안을 종료하였습니다."
@@ -1449,18 +1449,18 @@ ko:
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
       password_recovery_sent: "비밀번호 변경 안내 이메일을 발송하였습니다."
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: "사용자가 활성되어짐"
+      person_deactivated: "사용자가 비활성되어짐"
       person_updated_successfully: "정보가 변경되었습니다."
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_answered: "답변된 설문조사"
+      poll_could_not_be_answered: "답변할 수 없는 설문조사"
+      poll_created: "생성된 설문조사"
+      poll_creation_failed: "생성에 실패한 설문조사"
+      poll_update_failed: "업데이트에 실패한 설문조사"
+      poll_updated: "업데이트된 설문조사"
+      poll_deleted: "지워진 설문조사"
       read_more: "더 보기"
-      registration_considered_spam: ~
+      registration_considered_spam: "등록이 되지 않았습니다. 상위 메뉴에서 고객문의를 선택하셔서 \"email2 오류\"를 언급하여 주십시요"
       reply_cannot_be_empty: "메세지가 작성되지 않아 보내실 수 없습니다."
       reply_sent: "답장을 보냈습니다."
       request_accepted: "요청을 받아들였습니다."
@@ -1469,7 +1469,7 @@ ko:
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: "이 콘텐츠를 사용할 수 없습니다."
       unknown_error: "알 수 없는 오류입니다. \"고객센터\" 링크를 이용하여 해당 오류의 상세 내역을 보내주세요."
       update_error: "회원 정보 수정 중 오류가 발생했습니다. 다시 시도해주세요."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "이 거래에는 피드백을 남기실 수 없습니다."
@@ -1479,28 +1479,28 @@ ko:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "종료된 제안에는 답장을 보내실 수 없습니다."
       you_cannot_send_message_to_yourself: ~
-      you_followed_listing: ~
+      you_followed_listing: "당신은 지금 이 상품을 팔로우하고 있습니다"
       you_have_already_given_feedback_about_this_event: "이미 피드백을 보내셨습니다."
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
       you_must_log_in_to_give_feedback: "피드백을 보내시려면 로그인하셔야 합니다."
-      you_must_log_in_to_invite_new_users: ~
+      you_must_log_in_to_invite_new_users: "새 사용자를 %{service_name}로 초대하려면 로그인해야합니다"
       you_must_log_in_to_send_a_comment: "의견을 보내시려면 로그인하셔야 합니다."
       you_must_log_in_to_send_a_message: "다른 가입자에게 메세지를 보내시려면 %{service_name}에 로그인하셔야 합니다."
       you_must_log_in_to_do_a_transaction: ~
       you_must_log_in_to_view_this_content: "내용을 확인하시려면 로그인하셔야 합니다."
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_view_your_inbox: "받은 편지함을 보려면 %{service_name}에 로그인해야합니다."
+      you_must_log_in_to_view_your_settings: "설정을 보려면 %{service_name}에 로그인해야합니다."
+      you_must_log_in_to_add_news_item: "새로운 내용을 추가하려면 %{service_name}에 로그인해야합니다."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
       you_must_log_in_to_confirm_or_cancel: ~
-      you_need_to_confirm_your_account_first: ~
+      you_need_to_confirm_your_account_first: "이메일을 확인해야합니다."
       you_must_fill_all_the_fields: ~
-      you_unfollowed_listing: ~
+      you_unfollowed_listing: "당신은 더이상 이 목록을 좋아하지 않습니다"
       joining_community_failed: ~
       can_not_delete_email: ~
       user_does_not_have_email_to_delete: ~
@@ -1509,16 +1509,16 @@ ko:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: 계정
+      notifications: 공지
+      profile: "프로필 정보"
+      settings: 설정
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: "이 목록을 볼 수있는 권한이 없습니다."
     comment:
       wrote: ~
       send_private_message: ~
@@ -1526,13 +1526,13 @@ ko:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: 로그인
+      send_comment: "의견 보내기"
+      to_send_a_comment: "새 의견을 보내려면"
+      write_comment: "새 의견 쓰기 :"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
-      subscribe_to_comments: ~
+      you_must: 해야합니다
+      subscribe_to_comments: "새로운 의견 및 업데이트 알림"
     edit:
       edit_listing: ~
     edit_links:
@@ -1552,41 +1552,41 @@ ko:
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
     follow_links:
-      follow: ~
-      unfollow: ~
+      follow: "새로운 댓글에 대한 이메일 받기"
+      unfollow: "새로운 댓글에 대한 이메일을 받지 마세요."
     form:
       custom_field_partials:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: 에
+        departure_time: 출발시간
       departure_time_radio_buttons:
-        repeated: ~
+        repeated: "반복 ( '상세 설명'필드에 시간과 요일을 추가)"
       description:
-        detailed_description: ~
+        detailed_description: 상세설명
         youtube_info: ~
       destination:
-        destination: ~
+        destination: 목적지
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        favor: 서비스
+        housing: 공간
+        item: 품목
+        offer_something: 제안
+        request_something: 요청
+        rideshare: 타다
+        i_want_to_offer: "나는 ...을 제안하기를 원합니다"
+        i_want_to_request: "나는 ...이 필요합니다"
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "지도에서 끝점"
+        googlemap_description: 지도보기
+        googlemap_updatemap: "지도를 갱신하십시요"
       images:
-        image: ~
+        image: 이미지
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "파일이 선택되지 않았습니다"
+        remove_image: "이미지를 제거해주세요"
+        select_file: "파일을 선택하세요"
         add_more: ~
         removing: ~
         processing: ~
@@ -1601,7 +1601,7 @@ ko:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: 위치
       price:
         price: ~
         per: ~
@@ -1623,79 +1623,79 @@ ko:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: 위치
+        origin: 원산지
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: 차용
+        buy: 구매
+        give_away: 양보하기
+        lend: 대출
+        offer_type: 제안유형
+        receive: "무료로 수락"
+        rent: 대여
+        rent_out: 대여
+        request_type: "요청 유형"
+        sell: 판매
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: 교환
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(콤마로 분리하세요)"
+        tags: 태그
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: 만기일
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: 당분가
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "제안 또는 요청의 유형"
+      help_tags_title: 태그
+      help_valid_until_title: 만기일
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "모든 카테고리"
+      all_offer_types: "모든 제안 유형들"
+      all_request_types: "모든 요청 유형들"
+      category: 카테고리
+      did_not_found_what_you_were_looking_for: "원하는 것을 찾지 못하셨나요?"
+      favors: 서비스
+      housing: 공간
+      items: 상품
+      list_view: "목록에서 보기"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
+      map_view: "지도로 보기"
+      offer_something: "다른 분들에게 알려주세요"
+      offer_type: 제안유형
+      offers: 제안
+      request_something: 요청하세요
+      request_type: "요청 유형"
+      requests: 요청
+      rideshare: "카 쉐어링"
+      you_have_something_others_do_not: "제안할 것이 있나요?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: 차용
+      buys: 구매
+      favors: 서비스
+      give_aways: 양보하기
+      housings: 공간
+      items: 상품들
+      lends: 대여
+      receives: 무료이용
+      rent_outs: 대여됨
+      rents: 대여
+      rideshares: "카 쉐어링"
+      sells: 판매
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: 교환
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1727,36 +1727,36 @@ ko:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: 설명
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: 공개토론
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "서비스 제안"
+      favor_request: "서비스 요청"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "이 상품리스팅에는 상품에 대한 설명이 없습니다."
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: 제안
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: 요청
+      rideshare_offer: "카셰워링 제안"
+      rideshare_request: "카 쉐어링 요청"
       send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      tags: 태그
+      time: 시간
+      times: 번
+      times_viewed: 열람된
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -1807,29 +1807,29 @@ ko:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "모든 카테고리"
+      all_offer_types: "모든 제안 유형들"
+      all_request_types: "모든 요청 유형들"
+      category: 카테고리
+      did_not_found_what_you_were_looking_for: "원하는 것을 찾지 못하셨나요?"
+      favors: 서비스들
+      housing: 공간들
+      items: 상품들
+      list_view: "목록에서 보기"
+      map_view: "지도로 보기"
+      offer_something: "다른 분들에게 알려주세요"
+      offer_type: 제안유형
+      offers: 제안
+      request_something: 요청하세요
+      request_type: "요청 유형"
+      requests: 요청
+      rideshare: "카 쉐어링"
+      you_have_something_others_do_not: "제안할 것이 있나요?"
+    please_comment: 설명
   mercury:
     content_too_long: ~
   okl:
-    member_id: ~
+    member_id: "회원 ID"
     member_id_or_email: ~
   paypal_accounts:
     payout_info_title: ~
@@ -1906,69 +1906,69 @@ ko:
     chatting_with_paypal: ~
   people:
     edit_links:
-      activate: ~
-      deactivate: ~
+      activate: 활성화
+      deactivate: 비활성화
     help_texts:
-      feedback_description_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
+      feedback_description_title: 피드백
+      help_invitation_code_title: "가입하려면 초청이 필요합니다."
+      terms_title: "%{service_name} 이용 약관"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      this_person_is_not_active_in_kassi: "이 사용자는 더 이상 %{service_name}에서 활성화되어 있지 않습니다."
+      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 목록에 의견을 남길 수 없습니다."
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
-      email_is_in_use_or_not_allowed: ~
+      create_new_account: "계정을 만들어주세요"
+      email: "이메일 주소"
+      email_is_in_use: "입력하신 이메일은 이미 사용 중입니다."
+      email_is_in_use_or_not_allowed: "이 이메일은 허용되지 않았거나 이미 사용 중입니다. 들어올 수없는 경우 우리에 문의해 주세요"
       email_not_allowed: ~
       invalid_username_or_email: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
+      family_name: 성
+      given_name: 이름
+      i_accept_the: "나는 동의합니다"
+      invalid_invitation_code: "초청 코드가 유효하지 않습니다."
+      invitation_code: 초청코드
+      not_required: ", 필요하지 않습니다"
       notification_is_mandatory: ~
-      password_again: ~
-      show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      password_again: "비밀번호를 다시 확인해주세요"
+      show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
+      sign_up: "새 %{service_name} 계정을 만드세요"
+      terms: 이용약관
+      username_is_in_use: "이 사용자명은 이미 존재합니다"
+      username_is_invalid: "사용자 이름이 잘못되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
+      visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
+      visible_to_everybody: "모든사람에게 보여집니다"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
     profile_feedback:
-      grade: ~
+      grade: "등급:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "또한 폐쇄되어졌다고 보여줍니다"
+      show_only_open: "단지 개방되어졌다고 보여줍니다"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      about_me: "내 소개:"
+      add_description: "자신에 대해 공유하십시오."
+      add_location: "위치 추가하기"
+      add_phone_number: "전화번호 추가하기"
+      address: 위치
+      as_expected: 예상되어진대로
+      edit_profile_info: "프로필 수정하기"
+      exceeded_expectations: "예상을 초과하다"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "덜 보이기"
+      less_than_expected: "예상보다 저조하다"
+      phone_number: "전화번호:"
+      show_all_feedback: "모든 피드백 보여주기"
+      show_all_testimonials: "모든 피드백 보여주기"
+      show_full_description: "더 보기"
+      slightly_better_than_expected: "예상을 초과하다"
+      slightly_less_than_expected: "예상보다 저조하다"
+      what_are_these: "이게 무엇이죠?"
       review: ~
       reviews: ~
       listing: ~
@@ -1994,10 +1994,10 @@ ko:
       unfollow: ~
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: "새로운 계정 만들기"
+      i_forgot_my_password: "아이디 또는 비밀번호를 잊으셨습니까?"
+      login: 로그인
+      login_to_kassi: "%{service_name}에 로그인하십시오."
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -2009,14 +2009,14 @@ ko:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: 이메일
+      password_recovery_instructions: "사용자 이름을 수신하고 비밀번호를 재설정 할 이메일 주소를 입력하십시오."
+      request_new_password: "새 비밀번호 요청"
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      resend_confirmation_instructions: ~
+      welcome_to_kassi: "%{service_name}에 오신 것을 환영합니다."
+      check_your_email: "귀하의 수신함을 확인해 주십시요"
+      resend_confirmation_instructions: "확인 지침 다시 보내기"
       your_current_email_is: ~
       change_email: ~
       confirm_your_email: ~
@@ -2029,19 +2029,19 @@ ko:
       contact_support_link_text: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: 변경
+      confirm_new_password: "새로운 비밀번호 확인"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "새로운 이메일 주소"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "새로운 비밀번호"
+      save: 저장
+      these_fields_are_shown_only_to_you: "사용자의 성과 이름을 넣지 않으면 사용자 계정이 프로필에 보여집니다. 다른 정보는 오로지 사용자에게만 표시됩니다."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -2059,19 +2059,19 @@ ko:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: "다음과 같은 경우 이메일 알림을 받고 싶습니다"
+      newsletters: "관리자로부터 온 이메일들"
       community_updates: ~
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...누군가 내 제안이나 요청에 대해 의견을 답니다"
+      email_about_new_messages: "...누군가 나에게 메세지를 보냅니다"
+      email_about_new_received_testimonials: "...누군가 나에게 피드백을 줍니다"
+      email_about_testimonial_reminders: "...나는 이벤트에 대해 피드백 주는 것을 잊어버렸습니다"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...누군가 나의 제안 또는 요청을 받아들입니다"
+      email_when_conversation_rejected: "...누군가 나의 제안 또는 요청을 거절합니다"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: ~
@@ -2082,61 +2082,61 @@ ko:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "당신에 대해"
+      city: 도시
+      family_name: 성
+      given_name: 이름
       first_name_with_initial: ~
       first_name_only: ~
       display_name: ~
       display_name_description: ~
-      location_description: ~
-      phone_number: ~
+      location_description: "당신은 번지 또는시 / 우편 번호만 제공 할 수 있습니다. 위치를 추가 할 때 국가를 추가하는 것도 좋습니다. 예 : \"10117 Berlin, Germany\"또는 \"2000 Sand Hill Road, CA, USA\"."
+      phone_number: 전화번호
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: 우편번호
+      profile_page: "당신의 프로필 페이지에서"
+      profilemap: 지도보기
+      street_address: 위치
+      these_fields_are_shown_in_your: "이 정보는 모든 %{service_name} 사용자에게 표시됩니다."
+      visible_to_everybody: "모든사람에게 보여집니다"
+      visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
-    save_information: ~
+    save_information: "정보 저장하기"
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "태그와 함께"
+      without_tag: 태그없이
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "%{service_name} 이용 약관 수락"
+      here: "여기를 클릭하여"
+      i_accept_new_terms: "나는 새약관을 받아들입니다"
+      i_accept_terms: "나는 새약관을 받아들입니다"
+      terms: "%{service_name} 이용 약관"
+      terms_have_changed: "이용약관이 변경되어졌습니다"
+      you_can_view_the_new_terms: "새로운 조항을 볼수있습니다"
+      you_need_to_accept: "%{service_name}에 오신 것을 환영합니다! 처음으로 이 서비스를 사용하는 것 같군요. 시작하기 전에 먼저 받아들여야 합니다"
+      you_need_to_accept_new_terms: "%{service_name} 이용 약관이 변경되었습니다. %{service_name}를 계속 사용하려면 새 이용 약관에 동의해야합니다. 새로운 조항은 연구 프로젝트가 끝난 후 서비스 유지를 가능하게 하기 위한 것입니다."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "모든 피드백"
+      feedback_altogether: "모든 피드백: "
+      loading_more_testimonials: "더 많은 사용 후기 로딩중"
+      no_testimonials: "받은 피드백이 없음"
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: 예상되어진대로
+      exceeded_expectations: "예상보다 훨씬 좋음"
+      give_feedback_to: "%{person}에게 피드백 보내기"
+      grade: "당신의 전반적인 느낌은 어떻습니까?"
+      less_than_expected: "예상보다 저조함"
+      send_feedback: "피드백 보내기"
+      slightly_better_than_expected: "예상보다 약간 나은"
+      slightly_less_than_expected: "예상보다 약간 좋지않은"
+      textual_feedback: "어떻게 된일인가요?"
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
@@ -2203,22 +2203,22 @@ ko:
     format: 월(mm)/일(dd)/년도(yyyy)
   time:
     formats:
-      short: ~
-      shorter: ~
+      short: "at 시:분 월 일, 연도"
+      shorter: "at 시:분 월 일"
       short_date: ~
       hours_only: "%H:%M"
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: "%{count} 일 전"
+    days_ago: "%{count} 일 전"
+    hour_ago: "%{count} 시간 전"
+    hours_ago: "%{count} 시간 전"
+    minute_ago: "%{count} 분 전"
+    minutes_ago: "%{count} 분 전"
+    month_ago: "%{count} 달 전"
+    months_ago: "%{count} 달 전"
+    seconds_ago: "%{count} 초 전"
+    year_ago: "%{count} 년 전"
+    years_ago: "%{count} 년 전"
   transactions:
     initiate:
       booked_days: ~
