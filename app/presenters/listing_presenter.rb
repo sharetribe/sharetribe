@@ -338,5 +338,9 @@ class ListingPresenter < MemoisticPresenter
     @listing.category.parent_id ?  @listing.category.id : nil
   end
 
+  def payments_enabled?
+    process == :preauthorize
+  end
+
   memoize_all_reader_methods
 end
