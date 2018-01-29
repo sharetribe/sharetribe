@@ -3,8 +3,12 @@ lv:
     messages:
       expired: "beidzies termiņš, lūdzu, pieprasiet jaunu"
       not_found: "nav atrasts"
-      already_confirmed: ~
+      already_confirmed: "jau apstiprināts, lūdzu mēģiniet vēlreiz"
       not_locked: ~
+      not_saved:
+        zero: "dēļ vienas kļūdas šis %{resource} nevar būt saglabāts"
+        one: "dēļ %{count} kļūdas šis %{resource} nevar būt saglabāts "
+        other: "Dažādas %{count} %{resource}  "
   devise:
     failure:
       already_authenticated: "Jūs jau esat pieslēdzies."

@@ -1,10 +1,10 @@
 hr:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "je istekla, molimo zatražite novu"
+      not_found: "nije pronađeno"
+      already_confirmed: "već je potvrđeno, probajte se ponovno ulogirati"
+      not_locked: "nije zaključano"
       not_saved:
         one: "1 greška je onemogućila da ovaj %{resource} bude spremljen"
         few: "%{count} greške su onemogućile da ovaj %{resource} bude spremljen"
@@ -13,7 +13,7 @@ hr:
   devise:
     failure:
       already_authenticated: "Već ste prijavljeni"
-      unauthenticated: "Potrebno je prijaviti se prije nego nastavite"
+      unauthenticated: "Potrebno je prijaviti se ili registrirati prije nego nastavite"
       unconfirmed: "Trebate potvrditi vaš korisnički račun prije nastavka."
       locked: "Vaš korisnički račun je zaključan."
       invalid: "Neispravna e-mail adresa ili lozinka."

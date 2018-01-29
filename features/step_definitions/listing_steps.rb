@@ -228,3 +228,7 @@ Then(/^(?:|I )should not see payment logos$/) do
   expect(page).not_to have_css('.submit-payment-form-link')
 end
 
+Then(/^(?:|I )should see payment logos$/) do
+  expect(page).to have_css('.submit-payment-form-link')
+end
+
