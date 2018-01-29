@@ -21,7 +21,7 @@ class IntApi::ListingsController < ApplicationController
   end
 
   def ensure_current_user_is_listing_author
-    return true if current_user?(listing.author)
+    return true if current_user?(listing.author) || @current_user.has_admin_rights?(@current_community)
     head(403)
   end
 end
