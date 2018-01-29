@@ -51,6 +51,7 @@ class PreauthorizeTransactionsController < ApplicationController
     [:start_time, :time, transform_with: PARSE_DATETIME],
     [:end_time, :time, transform_with: PARSE_DATETIME],
     [:per_hour, transform_with: ->(v) { v == "1" }],
+    [:message, :string],
     [:contract_agreed, transform_with: ->(v) { v == "1" }]
   )
 
