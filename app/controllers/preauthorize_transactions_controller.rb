@@ -50,7 +50,8 @@ class PreauthorizeTransactionsController < ApplicationController
   NewPerHourTransactionParams = EntityUtils.define_builder(
     [:start_time, :time, transform_with: PARSE_DATETIME],
     [:end_time, :time, transform_with: PARSE_DATETIME],
-    [:per_hour, transform_with: ->(v) { v == "1" }]
+    [:per_hour, transform_with: ->(v) { v == "1" }],
+    [:contract_agreed, transform_with: ->(v) { v == "1" }]
   )
 
   ListingQuery = MarketplaceService::Listing::Query
