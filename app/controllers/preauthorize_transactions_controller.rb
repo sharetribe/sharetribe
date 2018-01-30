@@ -115,10 +115,11 @@ class PreauthorizeTransactionsController < ApplicationController
                                  pickup_enabled:,
                                  availability_enabled:,
                                  listing:,
-                                 availability_per_hour_enabled:)
+                                 availability_per_hour_enabled:,
+                                 stripe_in_use:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
+        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
         .and_then { |result|
           if availability_per_hour_enabled && tx_params[:per_hour]
             validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
@@ -137,10 +138,11 @@ class PreauthorizeTransactionsController < ApplicationController
                                   quantity_selector:,
                                   shipping_enabled:,
                                   pickup_enabled:,
-                                  transaction_agreement_in_use:)
+                                  transaction_agreement_in_use:,
+                                  stripe_in_use:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
+        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
         .and_then {
           validate_transaction_agreement(tx_params: tx_params,
                                          transaction_agreement_in_use: transaction_agreement_in_use)
@@ -162,10 +164,11 @@ class PreauthorizeTransactionsController < ApplicationController
       end
     end
 
-    def validate_booking(tx_params:, quantity_selector:)
+    def validate_booking(tx_params:, quantity_selector:, stripe_in_use:)
       per_hour = tx_params[:per_hour]
       if per_hour || [:day, :night].include?(quantity_selector)
         start_on, end_on = per_hour ? tx_params.values_at(:start_time, :end_time)  : tx_params.values_at(:start_on, :end_on)
+        max_end_date = stripe_in_use ? APP_CONFIG.stripe_max_booking_date.days.from_now : 12.months.from_now
 
         if start_on.nil? || end_on.nil?
           Result::Error.new(nil, code: :dates_missing, tx_params: tx_params)
@@ -174,7 +177,7 @@ class PreauthorizeTransactionsController < ApplicationController
         elsif start_on == end_on
           code = per_hour ? :at_least_one_hour_required : :at_least_one_day_or_night_required
           Result::Error.new(nil, code: code, tx_params: tx_params)
-        elsif StripeHelper.stripe_active?(tx_params[:marketplace_id]) && end_on > APP_CONFIG.stripe_max_booking_date.days.from_now
+        elsif end_on > max_end_date
           Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
         else
           Result::Success.new(tx_params)
@@ -265,7 +268,8 @@ class PreauthorizeTransactionsController < ApplicationController
                                          pickup_enabled: listing.pickup_enabled,
                                          availability_enabled: listing.availability.to_sym == :booking,
                                          listing: listing,
-                                         availability_per_hour_enabled: availability_per_hour_enabled)
+                                         availability_per_hour_enabled: availability_per_hour_enabled,
+                                         stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
     validation_result.on_success { |tx_params|
@@ -378,7 +382,8 @@ class PreauthorizeTransactionsController < ApplicationController
                                           quantity_selector: listing.quantity_selector&.to_sym,
                                           shipping_enabled: listing.require_shipping_address,
                                           pickup_enabled: listing.pickup_enabled,
-                                          transaction_agreement_in_use: @current_community.transaction_agreement_in_use?)
+                                          transaction_agreement_in_use: @current_community.transaction_agreement_in_use?,
+                                          stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
     validation_result.on_success { |tx_params|
