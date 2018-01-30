@@ -113,7 +113,8 @@ describe PreauthorizeTransactionsController::Validator do
             start_on: 1.day.from_now.to_date,
             end_on: 2.days.from_now.to_date
           },
-          quantity_selector: :day
+          quantity_selector: :day,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).success).to eq(true)
@@ -122,7 +123,8 @@ describe PreauthorizeTransactionsController::Validator do
       it "passes if booking is not in use" do
         params = {
           tx_params: {},
-          quantity_selector: :number
+          quantity_selector: :number,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).success).to eq(true)
@@ -136,7 +138,8 @@ describe PreauthorizeTransactionsController::Validator do
             start_on: 1.day.from_now.to_date,
             end_on: 2.days.ago.to_date
           },
-          quantity_selector: :day
+          quantity_selector: :day,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:end_cant_be_before_start)
@@ -148,7 +151,8 @@ describe PreauthorizeTransactionsController::Validator do
             start_on: 1.day.from_now.to_date,
             end_on: 1.day.from_now.to_date
           },
-          quantity_selector: :night
+          quantity_selector: :night,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:at_least_one_day_or_night_required)
@@ -157,7 +161,8 @@ describe PreauthorizeTransactionsController::Validator do
       it "fails if start date or end date is missing for day selector" do
         params = {
           tx_params: {},
-          quantity_selector: :day
+          quantity_selector: :day,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:dates_missing)
@@ -166,10 +171,37 @@ describe PreauthorizeTransactionsController::Validator do
       it "fails if start date or end date is missing for night selector" do
         params = {
           tx_params: {},
-          quantity_selector: :night
+          quantity_selector: :night,
+          stripe_in_use: false
         }
 
         expect(validator.validate_booking(params).data[:code]).to eq(:dates_missing)
+      end
+
+      it "fails if start date is to late" do
+        params = {
+          tx_params: {
+            start_on: 366.days.from_now.to_date,
+            end_on: 367.days.from_now.to_date
+          },
+          quantity_selector: :day,
+          stripe_in_use: false
+        }
+
+        expect(validator.validate_booking(params).data[:code]).to eq(:date_too_late)
+      end
+
+      it "fails if start date is to late. stripe in use" do
+        params = {
+          tx_params: {
+            start_on: 86.days.from_now.to_date,
+            end_on: 87.days.from_now.to_date
+          },
+          quantity_selector: :day,
+          stripe_in_use: true
+        }
+
+        expect(validator.validate_booking(params).data[:code]).to eq(:date_too_late)
       end
     end
   end
