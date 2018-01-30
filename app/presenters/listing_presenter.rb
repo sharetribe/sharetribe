@@ -86,40 +86,6 @@ class ListingPresenter < MemoisticPresenter
     delivery_config(@listing.require_shipping_address, @listing.pickup_enabled, @listing.shipping_price, @listing.shipping_price_additional, @listing.currency)
   end
 
-  def availability_enabled
-    @listing.availability.to_sym == :booking
-  end
-
-  def blocked_dates_start_on
-    1.day.ago.to_date
-  end
-
-  def blocked_dates_end_on
-    if stripe_in_use
-      APP_CONFIG.stripe_max_booking_date.days.from_now.to_date
-    else
-      12.months.from_now.to_date
-    end
-  end
-
-  def blocked_dates_result
-    if availability_enabled
-
-      get_blocked_dates(
-        start_on: blocked_dates_start_on,
-        end_on: blocked_dates_end_on,
-        community: @current_community,
-        user: @current_user,
-        listing: @listing)
-    else
-      Result::Success.new([])
-    end
-  end
-
-  def blocked_dates_end_on_midnight
-    DateUtils.to_midnight_utc(blocked_dates_end_on)
-  end
-
   def listing_unit_type
     @listing.unit_type
   end
@@ -160,31 +126,6 @@ class ListingPresenter < MemoisticPresenter
       .tap { |process|
         raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
       }
-  end
-
-  def get_blocked_dates(start_on:, end_on:, community:, user:, listing:)
-    HarmonyClient.get(
-      :query_timeslots,
-      params: {
-        marketplaceId: community.uuid_object,
-        refId: listing.uuid_object,
-        start: start_on,
-        end: end_on
-      }
-    ).rescue {
-      Result::Error.new(nil, code: :harmony_api_error)
-    }.and_then { |res|
-      available_slots = dates_to_ts_set(
-        res[:body][:data].map { |timeslot| timeslot[:attributes][:start].to_date }
-      )
-      Result::Success.new(
-        dates_to_ts_set(start_on..end_on).subtract(available_slots)
-      )
-    }
-  end
-
-  def dates_to_ts_set(dates)
-    Set.new(dates.map { |d| DateUtils.to_midnight_utc(d) })
   end
 
   def delivery_type
