@@ -150,6 +150,12 @@ window.ST = window.ST || {};
         // End date should be excluded
         newDate.setDate(newDate.getDate() + 1);
       }
+
+      if (outputElementId === "booking-start-output") {
+        $("#start-on").datepicker('hide')
+        $("#end-on").focus().datepicker('show')
+      }
+
       outputElement.val(module.utils.toISODate(newDate));
       setTimeout(function() { $("#end-on").valid(); }, 360);
     });
