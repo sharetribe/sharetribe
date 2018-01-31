@@ -254,7 +254,7 @@ de:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         save_user_status_error: "Speichern fehlgeschlagen. Bitte erneuere die Seite und versuch es noch einmal."
         ban_user_confirmation: "Dies entfernt den Benutzer von der Community und wird einen erneuten Zugriff mit diesem Account auf die Seite verhindern. Bist du sicher, dass du fortfahren möchtest?"
-        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest Du fortfahren?"
+        unban_user_confirmation: "Damit wird der Benutzer des Marktplatzes entsperrt und erhält wieder Zugang zu seinem Konto. Möchtest du fortfahren?"
         ban_me_error: "Du kannst dich nicht selber sperren."
         search: Suchen
         search_by_name_email: "Nach einem Nahmen, einer E-Mail Adresse, oder einem Anzeigenamen suchen"
@@ -425,7 +425,7 @@ de:
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
-        send_email_to_members_title: "Sende eine E-Mail an alle Mitglieder"
+        send_email_to_members_title: "Sende E-Mail an alle Mitglieder"
         send_email: "E-Mail senden"
         send_email_or: oder
         send_test_email: "Eine Test-E-Mail zu dir selber schicken"
@@ -829,7 +829,7 @@ de:
     status:
       payment_errored: "Zahlung nicht erfolgreich. Bitte versuche es erneut!"
       payment_errored_starter: "Zahlung nicht erfolgreich. Bitte versuche es erneut. Wenn das Problem weiter besteht, wende dich bitte an unseren Kundenservice."
-      payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn die Zahlung erneut zu versuchen."
+      payment_errored_author: "Zahlung nicht erfolgreich. Bitte kontaktiere %{starter_name} und bitte ihn/sie die Zahlung erneut zu versuchen."
       cancel_payed_transaction: Abbruch
       feedback_given: "Bewertung abgegeben"
       feedback_skipped: "Keine Bewertung abgegeben"
@@ -965,10 +965,10 @@ de:
       message_not_displaying_correctly: "Wird diese E-Mail nicht richtig dargestellt?"
       view_it_in_your_browser: "Sieh es dir in deinem Browser an"
       or: oder
-      unsubscribe_from_these_emails_info: "Du erhältst diese Email, weil Du ein Mitglied von %{service_name} bist."
+      unsubscribe_from_these_emails_info: "Du erhältst diese Email, weil du ein Mitglied von %{service_name} bist."
       unsubscribe_from_these_emails: "bestelle diese E-Mails ab"
-      unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} Dich eingeladen hat beizutreten."
-      unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen."
+      unsubscribe_from_invitation_emails_info: "Du erhältst diese Email, weil ein Mitglied von %{service_name} dich eingeladen hat beizutreten."
+      unsubscribe_from_invitation_emails: "Email-Einladungen von %{service_name} abbestellen"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat dein Angebot %{listing} akzeptiert."
       has_accepted_your_request: "%{accepter} hat deine Anfrage %{listing} akzeptiert."
@@ -1002,7 +1002,7 @@ de:
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
-      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von  <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
+      you_have_received_new_payment: "Für die Buchung von %{payer_full_name} für <b>%{listing_title}</b> von <b>%{payment_sum}</b> hast du eine Zahlung erhalten. Hier ist die Quittung dazu."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Zahlungsbearbeitungsgebühr:"
@@ -1436,7 +1436,7 @@ de:
       feedback_sent_to: "Feedback an %{target_person} gesendet."
       feedback_skipped: "Bewertung übersprungen"
       invitation_cannot_be_sent: "Einladung konnte nicht gesendet werden"
-      invitation_cannot_unsubscribe: "Abbestellung der Email-Einladungen nicht möglich."
+      invitation_cannot_unsubscribe: "Abbestellung der Email-Einladungen nicht möglich"
       invitation_limit_reached: "Du hast zu viele Einladungen verschickt. Das Tageslimit ist erreicht."
       invitation_sent: "Einladung erfolgreich gesendet"
       invitation_successfully_unsubscribed: "Email-Einladungen erfolgreich abbestellt."
