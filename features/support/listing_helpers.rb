@@ -28,7 +28,7 @@ module ListingHelpers
 
   def all_shapes(community: nil)
     community ||= @current_community
-    community.shapes
+    community.reload.shapes
   end
 
 end

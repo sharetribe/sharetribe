@@ -223,3 +223,12 @@ Given(/^that listing have booking at "(.*?)" from "(.*?)" till "(.*?)"$/) do |da
   transaction = FactoryGirl.create(:transaction, community: community, listing: @listing, current_state: 'paid')
   FactoryGirl.create(:booking, tx: transaction, start_time: start_time, end_time: end_time, per_hour: true)
 end
+
+Then(/^(?:|I )should not see payment logos$/) do
+  expect(page).not_to have_css('.submit-payment-form-link')
+end
+
+Then(/^(?:|I )should see payment logos$/) do
+  expect(page).to have_css('.submit-payment-form-link')
+end
+

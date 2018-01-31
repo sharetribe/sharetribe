@@ -45,3 +45,23 @@ Feature: User views a single listing
     When listing publishing date is shown in community "test"
     And I go to the listing page
     Then I should see "Listing created"
+
+  Scenario: User views listing and payments are not enabled
+    And there is a listing with title "Lecture" from "kassi_testperson1" with category "Services" and with listing shape "Lending"
+    And I am on the home page
+    When I follow "Lecture"
+    Then I should see "Borrow this item"
+    Then I should not see payment logos
+
+  Scenario: User views listing and payments are enabled
+    Given community "test" has a listing shape offering services per hour
+    And community "test" has payment method "paypal" provisioned
+    And community "test" has payment method "paypal" enabled by admin
+    And I have confirmed paypal account as "kassi_testperson1"
+    And there is a listing with title "Lecture" from "kassi_testperson1" with category "Services" and with listing shape "Offering Services"
+    And I am on the home page
+    When I follow "Lecture"
+    Then I should see "Request Services"
+    Then I should see payment logos
+
+
