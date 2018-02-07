@@ -740,7 +740,7 @@ sv:
       close_listing: "Stäng annonsen %{listing_title_link}"
       update_later: "Lämna annonsen öppen"
       optional_message: "Valfritt meddelande"
-      price_to_pay: "Totalt pris att betala"
+      price_to_pay: "Totala priset att betala"
       accept: Acceptera
       decline: Avböj
       quantity_label: "Antal:"
@@ -757,11 +757,11 @@ sv:
       stripe-fee_label: Betalningshanteringsavgift
     confirm:
       confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som slutförd. Då kan du ge din feedback till den andra parten."
-      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"Avbryten\" och kontakta den andra partern. Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
+      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"Bestridd\" och kontakta den andra partern. Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
       cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
       canceling_payed_transaction: "Avbryt transaktion"
       confirm: "Markera som slutförd"
-      cancel: Avbryt
+      cancel: Bestrid
       continue: Forsätt
       give_feedback_to: "Lämna feedback till %{person_link}"
       do_not_give_feedback: "Hoppa över feedback"
@@ -783,7 +783,7 @@ sv:
       confirmed_request: "Förfrågan är slutförd"
       confirmed_offer: "Erbjudandet avslutat."
       canceled_request: "Förfrågan är avbruten."
-      canceled_offer: "Erbjudande avbrutet."
+      canceled_offer: "Erbjudandet blev avbrutet."
       message_from: "Meddelande från %{person}"
       about_listing: "Angående annons %{listing_title}"
       free_message: "Gratis meddelande"
@@ -794,12 +794,12 @@ sv:
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan, betalningen är avbruten"
       rejected_offer: "avslagit erbjudandet"
-      confirmed_request: "markerat förfrågan som slutförd"
+      confirmed_request: "markerade förfrågan som slutförd"
       confirmed_offer: "markerat erbjudandet som avklarat"
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
-      payment_preauthorized: "Betalning godkänd: %{sum}"
+      payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
     new:
       message: Meddelande
       message_to: "Meddelande till %{author_name}"
@@ -837,31 +837,31 @@ sv:
       offer_accepted: Godkänt
       offer_rejected: Avslagen
       offer_canceled: Avbruten
-      offer_confirmed: Slutfört
-      offer_paid: "Betalning lyckad"
-      offer_preauthorized: "Betalning lyckad"
+      offer_confirmed: Slutförd
+      offer_paid: "Betalningen lyckades"
+      offer_preauthorized: "Betalningen lyckades"
       offer_waiting_for_payment: "Väntar på att %{requester_name} ska betala"
       pay: Betala
-      preauthorized: "Betalning lyckad"
-      paid: "Betalning lyckad"
+      preauthorized: "Betalningen lyckades"
+      paid: "Betalningen lyckades"
       pending_external:
         paypal:
           multicurrency: "Vi kunde inte genomföra PayPal betalningen eftersom ditt PayPal konto inte har ställts in för att ta emot betalning med %{currency}. Gå till %{paypal_url} och logga in på ditt konto för att manuellt acceptera eller avböja betalningen."
           verify: "Det gick inte att acceptera transaktionen eftersom du inte har verifierat ditt PayPal konto. gå till %{paypal_url} och verifiera ditt konto."
           intl: "Vi kunde inte genomföra PayPal betalningen eftersom ditt PayPal konto inte har uttagningsförfarande. Gå till %{paypal_url} och logga in på ditt konto för att manuellt acceptera eller avböja betalningen."
-      waiting_for_current_user_to_deliver_listing: "Väntar på att du ska skicka %{listing_title}"
+      waiting_for_current_user_to_deliver_listing: "Väntar på att du skall fullfölja förfrågan för %{listing_title}"
       waiting_for_listing_author_to_deliver_listing: "Väntar på att %{listing_author_name} ska skicka %{listing_title}"
       request_accepted: Godkänt
       request_rejected: Avslagen
-      request_confirmed: Slutfört
+      request_confirmed: Slutförd
       request_canceled: Avbruten
-      request_paid: "Betalning lyckad"
-      request_preauthorized: "Betalning lyckad"
+      request_paid: "Betalningen lyckades"
+      request_preauthorized: "Betalningen lyckades"
       skip_feedback: "Hoppa över feedback"
       waiting_for_listing_author_to_accept_offer: "Väntar på att %{listing_author_name} ska acceptera erbjudandet"
       waiting_for_listing_author_to_accept_request: "Väntar på att %{listing_author_name} ska acceptera förfrågan. Så snart %{listing_author_name} accepterar så kommer du att bli debiterad."
       waiting_for_you_to_accept_request: "Väntar på att du ska acceptera förfrågan"
-      waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan slutförd"
+      waiting_confirmation_from_requester: "Väntar på att %{requester_name} ska markera förfrågan som slutförd"
       waiting_confirmation_from_you: "Väntar på att du ska markera förfrågan som slutförd"
       waiting_payment_from_requester: "Väntar på att %{requester_name} ska betala"
       waiting_payment_from_you: "Väntar på att du ska betala"
@@ -881,8 +881,8 @@ sv:
       accept_preauthorized_request: "Acceptera förfrågan"
       reject_preauthorized_offer: "Inte den här gången"
       reject_preauthorized_request: "Inte den här gången"
-      confirm: "Markera slutförd"
-      cancel: Avbryt
+      confirm: "Markera som slutförd"
+      cancel: Bestrid
   feedback:
     feedback_subject: "Ny feedback från %{service_name}"
     feedback_body: "%{author_name_and_email} har skickat följande feedback från %{service_name}"
@@ -1008,7 +1008,7 @@ sv:
       payment_gateway_fee: Betalningshanteringsavgift
       shipping_total: "Leverans:"
       product: "Produkt:"
-      price_payer_paid: "Pris %{payer_full_name} betald:"
+      price_payer_paid: "Pris som %{payer_full_name} har betalat:"
       service_fee: "%{service_name} serviceavgift:"
       you_will_get: "Totalt:"
       new_payment: "Du har fått en ny inbetalning"
@@ -1038,7 +1038,7 @@ sv:
       service_fee: "%{service_name} serviceavgift:"
       you_will_get: "Totalt:"
     receipt_to_payer:
-      receipt_of_payment: "Kvitto för betalning"
+      receipt_of_payment: "Kvitto för betalningen"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
       product: Produkt
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1083,12 +1083,12 @@ sv:
       remember_to_give_feedback_to: "Kom ihåg att lämna feedback till %{name}"
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     transaction_preauthorized:
-      subject: "%{requester} har efterfrågat och betalat för %{listing_title}"
-      transaction_requested_by_user: "%{requester} har efterfrågat och betalat för \"%{listing_title}\""
-      you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in} dagar. Om du inte accepterar detta inom tidsramen så kommer automatiskt förfrågan att avböjas och du kommer inte att få någon betalning."
+      subject: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_title} som finns på %{service_name}"
+      transaction_requested_by_user: "Goda nyhteter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
+      you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in}. Om du inte accepterar förfrågan inom tidsramen så kommer förfrågan automatiskt att avböjas och du kommer inte att få någon betalning"
       if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
-      if_you_do_accept_stripe: "Om du accepterar förfrågan innom denna tidsram kommer betalningen gå igenom. Du kommer att få pengarna direkt till ditt bank konto efter att du har levererat %{listing_title} till %{requester}."
-      if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram kommer transaktionen automatiskt att avslås. %{requester} kommer inte att måsta betala och du kommer inte få betalt."
+      if_you_do_accept_stripe: "Om du accepterar förfrågan inom denna tidsram så kommer betalningen gå igenom. Du kommer att få pengarna direkt till ditt bankkonto efter att du har uppfyllt förfrågan för %{listing_title} åt %{requester}."
+      if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram så kommer transaktionen automatiskt att avslås. %{requester} kommer inte att behöva betala och du kommer inte få betalt."
       click_here_to_reply: "Klicka här för att svara på förfrågan"
     transaction_preauthorized_reminder:
       subject: "Kom ihåg att acceptera förfrågan från %{requester} angående annonsen %{listing_title}"
@@ -1123,7 +1123,7 @@ sv:
       departure_time: "Avgångstid måste vara mellan nuvarande tid och ett år från nu."
       share_type: "Du måste välja en:"
       valid_until: "Detta datum måste vara mellan aktuell tid och 6 månader från nu."
-      price: "Pris måste vara ett helttal."
+      price: "Priset måste vara ett helttal."
       minimum_price: "Minimum pris är %{minimum_price} %{currency}."
     testimonials:
       you_must_explain_not_neutral_feedback: "Om du vill ge en icke-neutral feedback, måste du förklara varför."
@@ -1466,8 +1466,8 @@ sv:
       only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna sida"
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
-      payment_successful: "Betalning lyckad"
-      payment_canceled: "Avbruten betalning"
+      payment_successful: "Betalningen lyckades"
+      payment_canceled: "Betalningen är avbryten"
       error_in_payment: "Fel på betalning. Om du inte har slutfört betalningen ännu så försök igen. Om du slutförde, vänligen skicka oss ett meddelande."
       cannot_receive_payment: "Den andra parten kan inte ta emot betalningen på grund av något fel. Vänligen kontakta %{service_name} för att reda ut situationen"
       payment_waiting_for_later_accomplishment: "När du har betalt så kommer vi att meddela säljaren och du kommer att få ett kvitto via e-post."
