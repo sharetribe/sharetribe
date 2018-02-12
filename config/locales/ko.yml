@@ -398,7 +398,7 @@ ko:
         field_type: "항목 종류"
         categories: "해당 항목이 사용되는 목록의 분류"
         select_all: "전체 선택"
-        clear_all: "전체 삭제"
+        clear_all: "전체 해제"
         options: 옵션
         add_option: "+ 옵션 추가"
         saving_order: "항목 순서 저장"
@@ -501,14 +501,20 @@ ko:
         update_success: "주문 유형 '%{shape}'에 대한 변경 사항이 저장되었습니다."
         update_failure: "변경 사항을 저장할 수 없습니다. 오류 : %{error_msg}"
         delete: "주문 유형 삭제"
-        can_not_delete_last: "이 주문 유형은 마켓 플레이스에서 유일한 유형이므로 삭제할 수 없습니다."
-        can_not_delete_only_one_in_categories: "다음과 같은 주문 유형이 사용중인 유일한 주문 유형이므로 이 주문 유형을 삭제할 수 없습니다 : %{categories}"
         confirm_delete_order_type:
           other: "이 주문 유형에는 %{count}개의 목록이 있습니다. 주문 유형을 삭제하면이 목록이 닫힙니다. 주문 유형을 삭제 하시겠습니까?"
+        can_not_delete_last: "이 주문 유형은 마켓 플레이스에서 유일한 유형이므로 삭제할 수 없습니다."
+        can_not_delete_only_one_in_categories: "다음과 같은 주문 유형이 사용중인 유일한 주문 유형이므로 이 주문 유형을 삭제할 수 없습니다 : %{categories}"
       listing_shape_name: 이름
       listing_shape_name_placeholder: "예 : 팔다"
       action_button_label: "체크아웃 버튼 라벨"
       action_button_placeholder: "예 : 사다"
+      open_listings_warning:
+        other: "이 주문 유형에는 %{count}개 목록이 있습니다. 아래 설정 중 하나를 변경하면 해당 목록에는 이전 설정이 유지됩니다. 목록을 수동으로 편집하여 새 설정으로 변경할 수 있습니다. 사이트에 이전 설정이 표시된 목록을 원하지 않으면 아래 버튼을 클릭하여 닫을 수 있습니다."
+      close_listings_action:
+        other: "%{count}개 목록 닫기"
+      confirm_close_listings_action:
+        other: "%{count}개의 목록을 닫으시겠습니까?"
       successfully_closed: "목록을 성공적으로 폐쇄"
       successfully_deleted: "주문 유형 '%{order_type}'을(를) 삭제했습니다."
       pricing_and_checkout_title: "가격 및 결제"
@@ -538,12 +544,6 @@ ko:
           heading: "단위 유형"
           quantity_label: "수량 (1 인당, kg 당, 1 인당, 2 시간 투어 당 ...)"
           time_label: "시간 (30분당, 2 주당, 연간 ...)"
-      open_listings_warning:
-        other: "이 주문 유형에는 %{count}개 목록이 있습니다. 아래 설정 중 하나를 변경하면 해당 목록에는 이전 설정이 유지됩니다. 목록을 수동으로 편집하여 새 설정으로 변경할 수 있습니다. 사이트에 이전 설정이 표시된 목록을 원하지 않으면 아래 버튼을 클릭하여 닫을 수 있습니다."
-      close_listings_action:
-        other: "%{count}개 목록 닫기"
-      confirm_close_listings_action:
-        other: "%{count}개의 목록을 닫으시겠습니까?"
     paypal_accounts:
       marketplace_paypal_integration: "결제 시스템 환경 설정"
       preferences_updated: "결제 시스템 환경 설정이 업데이트되었습니다."
@@ -1113,7 +1113,7 @@ ko:
       share_type: "하나만 선택하실 수 있습니다."
       valid_until: "이 날짜는 지금부터 6개월 이내이어야 합니다."
       price: "가격은 모두 숫자여야만 합니다"
-      minimum_price: "최저 가격은 %{minimum_price} %{통화}입니다."
+      minimum_price: "최저 가격은 %{minimum_price} %{currency}입니다."
     testimonials:
       you_must_explain_not_neutral_feedback: "\"보통\"이외의 응답, 즉 기대 이상 또는 기대 이하였던 경우에 대한 설명을 부탁드립니다."
       you_must_select_a_grade: "당신의 경험이 긍정적이었는지 아니면 부정적이었는지 알려주세요."
@@ -1519,10 +1519,10 @@ ko:
       email_deleted: "이메일이 삭제되었습니다"
       listing_author_payment_details_missing: "아래의 '문의하기'버튼을 눌러 저자에게 연락하십시오. 결제를 받으려면 결제 세부 사항을 업데이트해야 합니다."
       images_are_processing: "이미지를 처리 중입니다. 1 ~ 2 분만 기다려주세요."
-      automatically_logged_out_please_sign_in: "자동으로 로그 아웃되었습니다. 다시 로그인하십시오."
       maintenance_mode:
         zero: "유지 보수를 위해 웹 사이트가 오프라인 상태가됩니다."
         other: "%{count} 분 후에 웹 사이트가 유지 관리를 위해 오프라인 상태가됩니다."
+      automatically_logged_out_please_sign_in: "자동으로 로그 아웃되었습니다. 다시 로그인하십시오."
     settings:
       account: 계정
       notifications: 공지
@@ -1775,8 +1775,8 @@ ko:
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
       listing_created_at: "목록이 생성되었습니다."
       price:
-        per_quantity_unit: "%{수량 _ 단위}마다"
-        per_day: 일일
+        per_quantity_unit: "%{quantity_unit}마다"
+        per_day: 일당
       delivery: "배송 방법"
       shipping: "배송 (+%{price})"
       shipping_no_price: 배송
@@ -2252,6 +2252,12 @@ ko:
     initiate:
       booked_days: "예약된 날짜들 :"
       booked_nights: "숙박 일수:"
+      booked_days_label:
+        other: "예약일:"
+      booked_nights_label:
+        other: "숙박 일수:"
+      booked_hours_label:
+        other: "예약된 시간"
       price_per_day: "일일 가격 :"
       price_per_night: "1박 가격"
       price_per_hour: "시간당 가격 :"
@@ -2260,15 +2266,9 @@ ko:
       subtotal: "소계 :"
       shipping-price: "배송:"
       stripe-fee: "스트라이프 수수료(예상치)"
-      start_end_time: "%{start_time} 에서 %{end_time}"
-      booked_days_label:
-        other: "예약일:"
-      booked_nights_label:
-        other: "숙박 일수:"
-      booked_hours_label:
-        other: "예약된 시간"
       duration_in_hours:
         other: (1시간)
+      start_end_time: "%{start_time} 에서 %{end_time}"
     price_per_quantity: "%{unit_type} 당 가격 :"
     price: "가격:"
     quantity: "수량 : %{quantity}"
@@ -2337,28 +2337,6 @@ ko:
       create_own: "%{service_name} 같은 온라인 마켓 플레이스 웹 사이트를 만들고 싶습니까? %{learn_more}."
       learn_more: "자세히 배우기"
   will_paginate:
-    previous_label: "&#8592; 이전"
-    next_label: "다음 &#8594;"
-    page_gap: "&hellip;"
-    page_entries_info:
-      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
-      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
-      single_page:
-        zero: "%{model}이 (가) 없습니다."
-        other: "{model} 1 %표시"
-      single_page_html:
-        zero: "%{model}이(가) 없습니다."
-        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
-    person:
-      community_members_entries_info:
-        multi_page: "%{accepted_model} 및 {banned_count} %{banned_model}을 (를) 허용한 %{accept_count}의 % {to}"
-        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        single_page:
-          zero: "% {model}이(가) 없습니다."
-          other: "표시되는 %{accepted_count} %{accepted_model} 및 %{banned_count} 님은 %{banned_model}을(를) 금지했습니다."
-        single_page_html:
-          zero: "%{model}이(가) 없습니다."
-          other: "허용된 %{accepted_model} 및 %{banned_count} 개의 %{banned_model}을(를) 허용한 <b> % {accepted_count} </ b>"
     models:
       person:
         zero: 사용자들
@@ -2366,6 +2344,28 @@ ko:
       transaction:
         zero: 거래들
         other: 거래
+    previous_label: "&#8592; 이전"
+    next_label: "다음 &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "%{model}이 (가) 없습니다."
+        other: "{model} 1 %표시"
+      single_page_html:
+        zero: "%{model}이(가) 없습니다."
+        other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
+      multi_page: "Displaying %{model} %{from} - %{to} of %{count} in total"
+      multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
+    person:
+      community_members_entries_info:
+        single_page:
+          zero: "% {model}이(가) 없습니다."
+          other: "표시되는 %{accepted_count} %{accepted_model} 및 %{banned_count} 님은 %{banned_model}을(를) 금지했습니다."
+        single_page_html:
+          zero: "%{model}이(가) 없습니다."
+          other: "허용된 %{accepted_model} 및 %{banned_count} 개의 %{banned_model}을(를) 허용한 <b> % {accepted_count} </ b>"
+        multi_page: "%{accepted_model} 및 {banned_count} %{banned_model}을 (를) 허용한 %{accept_count}의 % {to}"
+        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: "결제가 설정되지 않았기 때문에 %{service_name}의 결제 시스템을 사용하여 결제를 받을 수 없습니다. 자세한 내용은 %{contact_admin_link}를 눌로 문의하시기 바랍니다."
     contact_admin_link_text: "%{service_name} 팀에 문의하십시오."

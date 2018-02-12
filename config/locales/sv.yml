@@ -67,7 +67,7 @@ sv:
         community_name: Marknadsplatsnamn
         edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
         community_slogan: "Marknadsplats slogan"
-        edit_community_slogan_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}."
+        edit_community_slogan_description: "Detta visas på startsidan av marknadsplatsen för användare som inte är inloggade. %{see_how_it_looks_like}."
         community_description: "Marknadsplats beskrivning"
         edit_community_description_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}."
         community_search_placeholder: "Sök hjälp text"
@@ -143,7 +143,7 @@ sv:
         sender_address: "Avsändaradress: %{sender_address}"
         sender_address_default: "Avsändaradress: inte inställd (använd standardadress %{sender_address})"
         need_to_change: "Om du behöver ändra e-postadressen vänligen %{contact_support_link}."
-        contact_support_link_text: "kontakta vår support"
+        contact_support_link_text: "kontakta Sharetribe support"
         set_sender_address: "Ställ in avsändaradress"
         sender_name_label: Namn
         sender_name_placeholder: Avsändarnamn
@@ -174,7 +174,7 @@ sv:
         verification_sent_from: "Verifikationsmailet skickades från %{verification_sender_name}."
         follow_the_instructions: "Vänligen följ instruktionerna i mailet för att verifiera din adress."
       getting_started:
-        getting_started: Kom-igång-guide
+        getting_started: "Kom igång"
       available_languages:
         en: Engelska
         en-AU: "Engelska (Australien)"
@@ -200,11 +200,11 @@ sv:
       settings:
         settings: Inställningar
         general: Allmänt
-        access: Åtkomst
+        access: Åtkomstpreferenser
         join_with_invite_only: "Användare kan bara gå med denna marknadsplats med en inbjudan från en annan användare"
-        users_can_invite_new_users: "Alla användare kan bjuda in nya användare till denna marknadsplats"
-        private: "Denna marknadsplats är privat (bara registrerade medlemmar kan se innehållet)"
-        require_verification_to_post_listings: "Bara användare som är verifierade av admin kan skapa nya annonser"
+        users_can_invite_new_users: "Tillåt alla användare att bjuda in nya användare"
+        private: "Tillåt endast registrerade användare att se annonser och användarprofiler (gör marknadsplatsen privat)"
+        require_verification_to_post_listings: "Tillåt endast användare som har verifierats av admin att skapa nya annonser"
         search_preferences: "Sök inställningar"
         default_search_type: "Söktyp:%{select_search_type}"
         keyword_search: Nyckelordssökning
@@ -225,8 +225,8 @@ sv:
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Twitter handtag (används med twitterknappen på annonssidan)"
         update_settings: "Spara inställningar"
-        automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen gjorts"
-        automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till säljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
+        automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen har gjorts"
+        automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till försäljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -277,7 +277,7 @@ sv:
         invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
         facebook_connect: Facebook
         facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
-        facebook_connect_info_text_with_instructions: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här.%{instructions_link}"
+        facebook_connect_info_text_with_instructions: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till det genererade ID och säkerhetsnyckeln för applikationen här. %{instructions_link}"
         facebook_instructions_link_text: "Se instruktioner för att konfigurera Facebook Connect."
         facebook_connect_id: "Facebook klient ID"
         invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
@@ -365,7 +365,7 @@ sv:
           status: Status
           started: Påbörjad
           last_activity: "Senaste aktivitet"
-          initiated_by: Initiativtagande
+          initiated_by: Initiativtagare
           other_party: Motpart
         participants: "Konversation: %{starter} med %{author}"
         profile: "%{author}s profil"
@@ -374,12 +374,12 @@ sv:
         edit_listing_field: "Redigera annonsfält %{field_name}"
       edit_price:
         description: "Det minimala och maximala priset inverkar bara på filtret. De sätter inte en gräns för annonspriserna"
-        edit_price_field: "Redigera prisfält"
+        edit_price_field: "Redigera annonsfältet \"pris\""
         show_price_filter_homepage: "Visa prisfilter på startsidan"
-        price_min: Minimipris
-        price_max: Maxpris
+        price_min: "Filtrera enligt minimipris"
+        price_max: "Filtrera enligt maxpris"
       edit_location:
-        edit_location_field: "Redigera platsfält"
+        edit_location_field: "Redigera annonsfältet \"plats\""
         this_field_is_required: "Detta fält måste fyllas i"
       edit_expiration:
         edit_expiration_field: "Ändra annonsfältet \"Utgångsdatum\""
@@ -387,14 +387,14 @@ sv:
       form:
         field_required:
           this_field_is_required: "Gör det obligatoriskt att fylla i detta fält när en ny annons skapas."
-          this_field_is_required_checkbox: "Detta fält krävs (användaren måste välja minst ett alternativ)"
+          this_field_is_required_checkbox: "Gör detta fält obligatoriskt för nya annonser (användaren måste välja minst ett alternativ)"
         search_filter:
           search_filter: "Visa ett filter baserat på detta fält på första sidan"
           date_cant_be_filtered: "Det finns inget filter tillgängligt för datumfältet."
           text_cant_be_filtered: "Det finns inget skilt filter för textfältet. Det vanliga sökfältet söker även igenom textfält."
       index:
         listing_fields: "Annonsfält och filter"
-        listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att det är några fält som är fördefinierade och inte går att ändra."
+        listing_fields_help: "Här kan du redigera fälten som användarna behöver fylla i när de skapar en ny annons. Notera att några fält är fördefinierade och inte går att ändra."
         add_new_field: "Lägg till ett nytt fält:"
         remove_field_confirmation: "Är du säker på att du vill ta bort fält %{field_name}?"
         cancel: Avbryt
@@ -447,7 +447,7 @@ sv:
         any_language: "Alla språk"
         message_will_be_sent_only_to_people_with_this_language: "Notera: e-postameddelandet skickas bara till de användare som använder %{service_name} på det språk du valt."
         email_sent: "Meddelandet skickat."
-        to_improve_email_deliverability: "För att förbättra e-postleveransen är e-post ämnet automatiskt framtaget och kan inte ändras."
+        to_improve_email_deliverability: "För att förbättra e-postleveransen är e-post ämnet automatiskt genererat och kan inte ändras."
         email_subject_text: "Ett nytt meddelande från %{service_name}"
         firstname_cannot_be_removed: "Förnamnet kan inte tas bort, det bli ersatt av motagarens egna förnamn."
         hello_firstname: "Hej Förnamn,"
@@ -555,16 +555,16 @@ sv:
           time_label: "Tid (per 30 minuter, per 2 veckor, per år...)"
     paypal_accounts:
       marketplace_paypal_integration: "Betalningssystem inställningar"
-      preferences_updated: "Betalningsinställningarna uppdaterade"
-      contact_support_link_text: "Kontakta support"
+      preferences_updated: "Betalningsinställningarna uppdaterades"
+      contact_support_link_text: "kontakta supporten"
       integration_info_text: "Betalningssystemet på din marknadsplats drivs av PayPal. Om du vill att dina användare skall kunna göra betalningar på din marknadsplats måste du koppla ditt PayPal-konto. När du har kopplat ditt PayPal konto kan du välja lägsta annonspriset och avgiften som du ska ta i transaktionsavgift från varje transaktion."
       link_paypal_personal_account_label: "Säljer du produkter eller tjänster?"
       link_paypal_personal_account: "Om du gör det måste du ansluta ditt PayPal konto till %{personal_payment_preferences_link}."
       link_stripe_personal_account: "Isåfall behöver du även ansluta ditt Stripe konto till %{personal_payment_preferences_link}"
       link_paypal_and_stripe_personal_account: "Isåfall behöver du även ansluta ditt PayPal konto till %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "Ditt personliga marknadsplats konto"
-      read_more_about_paypal: "Läs mer om Sharetribes betalningssystem"
-      edit_payment_settings: "Redigera betalnings inställningarna"
+      read_more_about_paypal: "Läs mer om betalningssystemet"
+      edit_payment_settings: "Redigera betalningsinställningarna"
       supported_currencies_information_text: "Sharetribes betalsystem stöder 24 valutor. Om din valuta inte finns med i listan vänligen %{contact_support_link}. Om du ändrar marknadsplatsens valuta kommer aktiva annonser bibehålla den gamla valutan. Du måste redigera alla dessa annonser skilt för att uppdatera valutan."
       currency_change_warning_text: "OBS: om du slutför ändringen av valuta, glöm inte att be dina säljare att manuellt uppdatera sina annonser för att ändra till den nya valutan"
       marketplace_currency_label: "Marknadsplatsens valuta:"
@@ -713,10 +713,10 @@ sv:
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
-          PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset (inklusive frakten), beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet, inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig en rabatt på avgifterna.
+          För PayPal betalningar tar %{service_name} en provissionsavgift på %{paypal_commission}%. PayPals egna avgifter är inte inkluderade i denna provissionsavgift, så i tillägg till %{service_name} provissionsavgift betalar du även PayPals egna avgifter för varje transaktion processerad av PayPal. PayPals avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp har lägre avgifter än de internationella, och ju högre månatlig försäljning ger dig rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
-          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
+          Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och köparens hemland. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     paypal_only_fee_info:
@@ -756,8 +756,8 @@ sv:
       shipping_price_label: "Frakt:"
       stripe-fee_label: Betalningshanteringsavgift
     confirm:
-      confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som slutförd. Då kan du ge din feedback till den andra parten."
-      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"Bestridd\" och kontakta den andra partern. Du kan ändå ge feedback till den andra parten och beskriva vad som hände."
+      confirm_description: "Om din förfrågan har uppfyllts ska du bekräfta den som slutförd. Då kan du ge feedback till den andra parten."
+      cancel_description: "Om din förfrågan inte har uppfyllts så kan du markera som \"bestridd\" och kontakta den andra partern. Du kan även ge feedback till den andra parten och beskriva vad som hände."
       cancel_payed_description: "Om din förfrågan var accepterad men du har några andra funderingar, så kan du fortfarande avbryta förfrågan innan betalning."
       canceling_payed_transaction: "Avbryt transaktion"
       confirm: "Markera som slutförd"
@@ -786,7 +786,7 @@ sv:
       canceled_offer: "Erbjudandet blev avbrutet."
       message_from: "Meddelande från %{person}"
       about_listing: "Angående annons %{listing_title}"
-      free_message: "Gratis meddelande"
+      free_message: Direktmeddelande
       message_content_not_available: "Meddelandets innehåll är inte tillgängligt"
     message:
       accepted_request: "accepterade förfrågan"
@@ -795,7 +795,7 @@ sv:
       rejected_request: "avslagit förfrågan, betalningen är avbruten"
       rejected_offer: "avslagit erbjudandet"
       confirmed_request: "markerade förfrågan som slutförd"
-      confirmed_offer: "markerat erbjudandet som avklarat"
+      confirmed_offer: "markerade erbjudandet som slutfört"
       canceled_request: "avbröt förfrågan"
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
@@ -815,7 +815,7 @@ sv:
       author_has_to_accept_request: "%{author_name} måste acceptera förfrågan innan du kan betala"
     show:
       in_response_to_listing: "angående annonsen"
-      message_sent_by: "Meddelande skickades av"
+      message_sent_by: "Meddelandet skickades av"
       message_sent_to: "Meddelandet har skickats till"
       send_reply: "Skicka svar"
       write_a_reply: "Skriv ett svar"
@@ -828,13 +828,13 @@ sv:
       total: "Totalt: %{total}"
     status:
       payment_errored: "Betalning misslyckades. Vänligen försök igen."
-      payment_errored_starter: "Betalning misslyckades. Vänligen försök igen. Om problemet kvarstår, vänligen kontakta vår support."
-      payment_errored_author: "Betalningen misslyckades. Vänligen kontakta %{starter_name} och be honom att försöka betala igen."
+      payment_errored_starter: "Betalning misslyckades. Vänligen försök igen. Om problemet kvarstår, vänligen kontakta Sharetribe support."
+      payment_errored_author: "Betalningen misslyckades. Vänligen kontakta %{starter_name} och be dem att försöka betala igen."
       cancel_payed_transaction: Avbryt
       feedback_given: "Feedback skickat"
       feedback_skipped: "Ingen feedback"
       give_feedback: "Ge feedback"
-      offer_accepted: Godkänt
+      offer_accepted: Godkänd
       offer_rejected: Avslagen
       offer_canceled: Avbruten
       offer_confirmed: Slutförd
@@ -850,7 +850,7 @@ sv:
           verify: "Det gick inte att acceptera transaktionen eftersom du inte har verifierat ditt PayPal konto. gå till %{paypal_url} och verifiera ditt konto."
           intl: "Vi kunde inte genomföra PayPal betalningen eftersom ditt PayPal konto inte har uttagningsförfarande. Gå till %{paypal_url} och logga in på ditt konto för att manuellt acceptera eller avböja betalningen."
       waiting_for_current_user_to_deliver_listing: "Väntar på att du skall fullfölja förfrågan för %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: "Väntar på att %{listing_author_name} ska skicka %{listing_title}"
+      waiting_for_listing_author_to_deliver_listing: "Väntar på att %{listing_author_name} skall uppfylla förfrågan för %{listing_title}"
       request_accepted: Godkänt
       request_rejected: Avslagen
       request_confirmed: Slutförd
@@ -870,7 +870,7 @@ sv:
         paypal:
           multicurrency: "Väntar på att du ska acceptera PayPal betalningen"
           intl: "Väntar på att du ska acceptera PayPal betalningen"
-          unknown_reason: "Betalning väntar. Logga in till ditt PayPal-konto för att se mer information."
+          unknown_reason: "Betalningen väntar. Logga in till ditt PayPal-konto för att se mer information."
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
     status_link:
       accept_offer: "Acceptera erbjudande"
@@ -891,8 +891,8 @@ sv:
   community_memberships:
     access_denied:
       access_denied: "Åtkomst nekad"
-      you_are_banned_in_this_community: "Administratören har hindrat dig från att komma åt %{service_name}. Om du vill så kan du skicka ett meddelande till admin %{link_to_contact_page}."
-      contact_page_link: feedback
+      you_are_banned_in_this_community: "Administratören har hindrat dig från att få tillgång till%{service_name}. Om du vill så kan kontakta %{service_name}, du kan %{link_to_contact_page}."
+      contact_page_link: "kontakta dem"
     new:
       welcome_fb_user: "Välkommen till %{service_name}, %{name}!"
       fb_join_accept_terms: "Det är ett mer steg för att gå med i %{service_name}: du behöver godkänna användarvillkoren."
@@ -923,11 +923,11 @@ sv:
       create_own: "Vill du skapa din egeb online marknadsplats som %{service_name}? %{learn_more}."
       learn_more: "Lär dig mera"
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "Du har inte ännu bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är uppfylld så måste du bekräfta den. Efter det så kan du lämna feedback till %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "Du har inte ännu bekräftat eller avbrutit förfrågan %{request_link}. Om förfrågan är uppfylld så bör du bekräfta den. Efter det kan du lämna feedback till %{other_party_given_name}."
       remember_to_confirm_request: "Kom ihåg att godkänna eller avbryta din förfrågan"
       if_will_not_happen_you_should_cancel: "Om du tror att förfrågan inte kommer uppfyllas för någon anledning så kan du %{cancel_it_link}."
       cancel_it_link_text: "avbryt den"
-      automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan var accepterad så kommer den automatiskt markeras som slutförd."
+      automatic_confirmation: "Om du inte accepterar eller avbryter förfrågan inom %{days_to_automatic_confirmation} dagar efter förfrågan blev accepterad så kommer den automatiskt markeras som slutförd."
     payment_settings_reminder:
       remember_to_add_payment_details: "Kom ihåg att ange betalningsdetaljer för att få betalt."
       you_have_added_listing_with_payment: "Du har skapat annons %{listing_link} med betalning. Men du har inte angett dina betalningsdetaljer. För att du ska kunna få betalt så måste du lägga till betalningsinformationen."
@@ -935,7 +935,7 @@ sv:
       payment_settings_link: betalningsinställningar
     transaction_confirmed:
       here_is_a_message_from: "Här är ett meddelande från %{other_party_given_name}:"
-      request_marked_as_confirmed: "Förfrågan slutförd - kom ihåg att ge feedback"
+      request_marked_as_confirmed: "Förfrågan har slutförts - kom ihåg att ge feedback"
       request_marked_as_canceled: "Förfrågan avbruten"
       has_marked_request_as_confirmed: "%{other_party_full_name} har markerat denna förfrågan om %{request} som slutförd. Du kan nu ge feedback till %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutit förfrågan om %{request}. Du kan fortfarande ge feedback till %{other_party_given_name}."
@@ -945,7 +945,7 @@ sv:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
     booking_transaction_automatically_confirmed:
-      subject: "Förfrågan var automatiskt markerad som slutförd - kom ihåg att ge feedback"
+      subject: "Förfrågan markerads automatiskt som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatiskt markerad som slutförd eftersom en dag har passerat sen bokningsperioden slutade."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Du kan nu ge feedback till %{other_party_given_name}. Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
@@ -1085,7 +1085,7 @@ sv:
     transaction_preauthorized:
       subject: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_title} som finns på %{service_name}"
       transaction_requested_by_user: "Goda nyhteter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
-      you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in}. Om du inte accepterar förfrågan inom tidsramen så kommer förfrågan automatiskt att avböjas och du kommer inte att få någon betalning"
+      you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in}. Om du inte accepterar förfrågan inom tidsramen så kommer förfrågan automatiskt att avböjas och du kommer inte att få betalt."
       if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
       if_you_do_accept_stripe: "Om du accepterar förfrågan inom denna tidsram så kommer betalningen gå igenom. Du kommer att få pengarna direkt till ditt bankkonto efter att du har uppfyllt förfrågan för %{listing_title} åt %{requester}."
       if_you_do_not_accept: "Om du avslår förfrågan eller inte accepterar den inom denna tidsram så kommer transaktionen automatiskt att avslås. %{requester} kommer inte att behöva betala och du kommer inte få betalt."
@@ -1414,7 +1414,7 @@ sv:
       sign_up: "Gå med"
     notifications:
       listing_could_not_be_saved: "Annonsen kunde inte sparas. Vänligen försök igen. Om problemet kvarstår, vänligen %{contact_admin_link}."
-      contact_admin_link_text: "kontakta admin"
+      contact_admin_link_text: "kontakta %{service_name}"
       test_welcome_email_delivered_to: "Ett testmeddelande skickades till %{email}."
       something_went_wrong: "Någonting gick snett"
       community_updated: "Detaljer uppdaterade."
@@ -1459,7 +1459,7 @@ sv:
       offer_closed: "Erbjudande stängt"
       listing_created_successfully: "Annonsen skapades. %{new_listing_link}."
       offer_rejected: "Erbjudandet nekades"
-      offer_canceled: "Erbjudande avbrutet"
+      offer_canceled: "Erbjudandet avbröts"
       listing_updated_successfully: "Annons uppdaterades"
       listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
       listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
@@ -1487,7 +1487,7 @@ sv:
       reply_cannot_be_empty: "Du kan inte skicka ett tomt meddelande"
       reply_sent: "Svar skickades"
       request_accepted: "Förfrågan accepterad"
-      request_confirmed: "Förfrågan slutförd"
+      request_confirmed: "Förfrågan är slutförd"
       request_rejected: "Förfrågan avslagen"
       request_canceled: "Förfrågan avbruten"
       message_sent: "Meddelande skickat"
@@ -1506,7 +1506,7 @@ sv:
       you_have_already_given_feedback_about_this_event: "Du har redan lämnat feedback om denna händelse"
       you_are_now_member: "Välkommen till %{service_name}!"
       you_are_already_member: "Du är redan en medlem på %{service_name}. Välkommen tillbaka!"
-      you_must_log_in_to_create_new_listing: "Du måste logga in på %{service_name} för att skapa en annons. Om du inte har ett konto så kan du %{sign_up_link}."
+      you_must_log_in_to_create_new_listing: "Du måste logga in till %{service_name} för att skapa en annons. Om du inte har ett konto så kan du %{sign_up_link}."
       additional_email_confirmed_dashboard: "Din e-postadress är nu bekräftad."
       you_must_log_in_to_give_feedback: "Du måste logga in för att ge feedback"
       you_must_log_in_to_invite_new_users: "Du måste logga in för att bjuda in nya medlemmar till %{service_name}"
@@ -1566,8 +1566,8 @@ sv:
       close_listing: "Stäng annons"
       edit_listing: "Redigera annons"
       reopen_listing: "Återuppta annons"
-      move_to_top: "Gå till toppen av startsidan"
-      show_in_updates_email: "Visa i nästa automatiska e-postmeddelande"
+      move_to_top: "Flytta högst upp på startsidan"
+      show_in_updates_email: "Visa i nästa nyhetsbrev"
       show_in_updates_email_loading: Laddar...
       show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
       show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
@@ -1620,7 +1620,7 @@ sv:
         loading_image: Laddar...
         image_uploading_in_progress: "Bilden laddas upp..."
         processing_takes_a_while: "Alla bilder är nu uppladdade! Det kommer ta en stund att bearbeta dem men du kan redan spara annonsen och fortsätta"
-        this_may_take_a_while: "(detta kan ta ett tag)"
+        this_may_take_a_while: "detta tar bara en liten stund"
         percentage_loaded: "%{percentage}%"
         uploading_failed: "Uppladdning av bild misslyckades"
         image_processing_failed: "Bild bearbetningen misslyckades"
@@ -1742,7 +1742,7 @@ sv:
       select_subcategory: "Välj underkategori"
       select_transaction_type: "Välj annonstyp"
       you_need_to_fill_payout_details_before_accepting: "Du måste fylla i dina utbetalningsdetaljer innan du kan skapa en annons. Gå till %{payment_settings_link} för att fylla i detaljerna."
-      contact_admin_link_text: "kontakta administratören"
+      contact_admin_link_text: "kontakta %{service_name} administratör"
       community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte skapa nya annonser än. Vänligen %{contact_admin_link} för mer information."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
@@ -1879,8 +1879,8 @@ sv:
     new:
       payout_info_you_need_to_connect: "För att kunna ta emot betalningar så måste du koppla ditt PayPal-konto med %{service_name}."
       payout_info_text: "Vänligen slutför dessa två steg för att koppla ditt konto."
-      contact_admin_link_text: "kontakta administratören"
-      admin_account_not_connected: "%{service_name} har inte blivit konfigurerat för betalning så du kan inte koppla ditt PayPalkonto än. Vänligen %{contact_admin_link} för detaljer."
+      contact_admin_link_text: "kontakta  %{service_name} administratör"
+      admin_account_not_connected: "%{service_name} har inte blivit konfigurerat för betalning så du kan inte koppla ditt PayPalkonto ännu. Vänligen %{contact_admin_link} för mer information."
       paypal_account_email: "1. Koppla ditt PayPal konto"
       paypal_account_email_placeholder: "Din PayPal e-postadress"
       paypal_account_email_info_text: "Om du inte har ett PayPalkonto, så kan du skapa ett %{create_paypal_account}. Om du får ett felmeddelande när du kopplar ditt PayPalkonto så måste du uppgradera till företagskonto. Uppgradera går fort och kostar ingenting. Om du är privatperson så skriver du bara förnamn och efternamn där det står \"företagsnamn\" när PayPal frågar efter det. För att uppgradera ditt konto, %{upgrade_paypal_account} och hitta uppgraderingslänken."
@@ -1900,18 +1900,18 @@ sv:
       paypal_info_link_text: "PayPal's betalningshanteringsavgift"
       billing_agreement_description: "Ge %{service_name} behörighet att ta ut en transaktionsavgift."
       billing_agreement: "Bevilja behörighet"
-      permissions_not_granted: "Behörighet att ansluta med PayPalkonto beviljades inte."
+      permissions_not_granted: "Tillstånd att ansluta med PayPalkonto beviljades inte."
       could_not_fetch_redirect_url: "Det gick inte att hämta omdirigerings-URL för att ansluta till PayPal."
       paypal_not_enabled: "PayPal betalningar är inte aktiverad."
-      billing_agreement_canceled: "Betalningen avbröts"
+      billing_agreement_canceled: "Faktureringsavtalet avbröts"
       billing_agreement_not_accepted: "Du accepterade inte PayPals faktureringsavtal."
       billing_agreement_wrong_account: "PayPal-konton matchade inte. Vänligen använd samma PayPal-konto som du anslöt i första steget."
-      something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta sidans administratör."
+      something_went_wrong: "Något gick fel. Vänligen försök igen. Om problemet kvarstår kontakta %{service_name} administratör."
       account_not_verified: "Du har inte verifierat ditt PayPal-konto. Du behöver gå till www.paypal.com och verifiera ditt konto innan du kan gå vidare."
       account_restricted: "Ditt PayPalkonto är begränsat och kan inte kopplas. Vänligen logga in på PayPal.com och hitta vad detta beror på eller kontakta PayPals användarsupport för att lösa detta."
     paypal_account_connected_title: "PayPal-kontot är anslutet"
     paypal_account_connected: "PayPal-kontot <%{email}> är nu anslutet till %{service_name}."
-    change_account: "Byt konto"
+    change_account: "Byt PayPal konto"
     missing: "Du har öppna annonser, men ditt PayPal-konto är inte inställt för att ta emot betalningar. Koppla ditt PayPal-konto och ge %{service_name} tillåtelse at ta en transaktionsavgift från dina %{settings_link}."
     from_your_payment_settings_link_text: betalningsinställningar
     redirect_message: "Skickar dig vidare till PayPal. Klicka %{redirect_link} om sidan inte öppnas automatiskt."
@@ -2051,7 +2051,7 @@ sv:
       change_email: Ändra
       confirm_your_email: "Bekräfta din e-post"
       account_confirmation_instructions: "Du kommer snart att få ett e-postmeddelande med en länk som du behöver klicka på för att bekräfta din e-postadress du angav. Efter du har bekräftat din e-post kan du gå med %{service_name}."
-      account_confirmation_instructions_title_admin: "Välkommen till din marknadsplats!"
+      account_confirmation_instructions_title_admin: "Bekräfta din e-postadress"
       before_full_access_you_need_to_confirm_email: "Före vi kan ge dig full tillgång till din marknadsplats är det en sak till du måste göra: bekräfta din email adress."
       before_confirmation_only_access_admin_dashboard: "Före du bekräftar din email har du enbart tillgång till %{admin_dashboard_link}"
       admin_dashboard_link_text: "admin panel"
@@ -2104,7 +2104,7 @@ sv:
       email_when_conversation_rejected: "...någon avböjer mitt erbjudande eller efterfrågan"
       email_about_completed_transactions: "...någon markerar min förfrågan som slutförd"
       email_about_new_payments: "...jag har fått en ny betalning"
-      email_about_new_listings_by_followed_people: "...någon jag följer har skapat en annons"
+      email_about_new_listings_by_followed_people: "...någon jag följer skapar en annons"
       unsubscribe_succesful: "Avprenumeration lyckades"
       unsubscribe_info_text: "Du kommer inte längre att få dessa e-post. Kontrollera dina %{settings_link} för att välja vilka e-postmeddelanden du vill ha från %{service_name} eller gå tillbaka till %{homepage_link}."
       settings_link: inställningar
@@ -2287,7 +2287,7 @@ sv:
       shipping-price: "Frakt:"
       stripe-fee: "Stripe avgift (uppskattad):"
       duration_in_hours:
-        one: "(1%{count} timme)"
+        one: "(1 timme)"
         other: "(%{count} timmar)"
       start_end_time: "%{start_time} till %{end_time}"
     price_per_quantity: "Pris per %{unit_type}:"
@@ -2306,7 +2306,7 @@ sv:
           something_went_wrong: "Vi kan inte visa information om tillgängligheten. Vänligen ladda om sidan."
           saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
         working_hours:
-          required: obligatoriskt
+          required: obligatorisk
       pricing_units:
         piece: styck
         hour: timme
@@ -2401,7 +2401,7 @@ sv:
     pay_with_stripe: "Betala med Stripe och använd %{card}"
     add_and_pay: "Bekräfta betalning"
     card_not_stored: "Din betalning är säkert hanterad av Stripe. %{service_name} sparar inte din kortinformation."
-    missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalnings inställningar besök %{settings_link}."
+    missing_payment: "Du har öppna annonser, men ditt konto är inte inställt för att ta emot betalningar. För att ställa in dina betalningsinställningar besök %{settings_link}."
     stripe_bank_connected: "Bankkonto detaljer konfigurerades framgångsrikt!"
     stripe_can_accept: "Du är nu redo att ta emot kreditkorts betalningar"
     stripe_credit_card: Kreditkort
@@ -2443,8 +2443,8 @@ sv:
         format_varies_by_bank: "Format varierar beroende på bank"
         bsb: BSB
         error_message: "Ogiltigt format"
-        clearing_code: "Clearing code"
-        sort_code: "Clearing code"
+        clearing_code: Clearingkod
+        sort_code: "Sort code"
         must_match: "måste vara i följande format:"
         a_dash: "ett bindestreck"
         digits: siffror

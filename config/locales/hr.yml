@@ -1491,13 +1491,13 @@ hr:
       email_deleted: "Email uklonjen"
       listing_author_payment_details_missing: "Molimo kontaktirajte autora klikom na \"Kontakt\" gumb ispod. On treba ažurirati detalje plaćanja kako bi mogao dobiti uplatu."
       images_are_processing: "Obrađujemo vaše fotografije. Molimo pričekajte minutu ili dvije kada će biti vidljive."
-      automatically_logged_out_please_sign_in: "Automatski ste odjavljeni. Molimo ponovno se prijavite."
       maintenance_mode:
         zero: "Web stranica će od sada biti nedostupna zbog održavanja"
         one: "Web stranica će biti nedostupna zbog održavanja u roku od %{count} minute"
         few: "Web stranica ce biti nedostupna zbog održavanja u roku od %{count} minuta"
         many: "Web stranica ce biti nedostupna zbog održavanja u roku od %{count}minuta"
         other: "Web stranica ce biti nedostupna zbog održavanja u roku od %{count} minuta"
+      automatically_logged_out_please_sign_in: "Automatski ste odjavljeni. Molimo ponovno se prijavite."
     settings:
       account: "Korisnički račun"
       notifications: Obavijesti
