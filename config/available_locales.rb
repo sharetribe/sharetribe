@@ -59,7 +59,8 @@ module Sharetribe
     {ident: "ti", name: "Tigrinya", language: "ti", region: "ER", fallback: nil}, # Tigrinya
     {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil}, # Arabic (Saudi Arabia)
     {ident: "he-IL", name: "עברית‎", language: "he", region: "IL", fallback: nil}, # Hebrew (Israel)
-    {ident: "lv", name: "Latviešu valoda", language: "lv", region: "LV", fallback: nil} # Latvian
+    {ident: "lv", name: "Latviešu valoda", language: "lv", region: "LV", fallback: nil}, # Latvian
+    {ident: "ko", name: "한국어", language: "ko", region: "KR", fallback: nil} # Korean
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES

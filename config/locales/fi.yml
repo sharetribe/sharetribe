@@ -248,7 +248,7 @@ fi:
         join_date: Liittynyt
         admin: Ylläpito
         posting_allowed: "Hyväksytty ilmoittaja"
-        ban_user: Poista
+        ban_user: Estä
         saving_user_status: Tallennetaan...
         save_user_status_successful: "Tallennus onnistui"
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
@@ -449,7 +449,7 @@ fi:
         email_sent: "Viesti lähetetty."
         to_improve_email_deliverability: "Sähköpostin toimitettavuuden parantamiseksi viestin otsikko luodaan automaattisesti, eikä sitä voi muuttaa."
         email_subject_text: "Uusi viesti palvelun %{service_name} ylläpidolta"
-        firstname_cannot_be_removed: "Etunimeä ei voi poistaa, ja sen tilalla lähetetyissä viesteissä on vastaanottajan oikea etunimi"
+        firstname_cannot_be_removed: "Etunimeä ei voi poistaa, ja sen tilalla lähetetyissä viesteissä on vastaanottajan oikea etunimi."
         hello_firstname: "Hei Etunimi,"
         hello_firstname_text: "Hei %{person},"
     left_hand_navigation:
@@ -2391,7 +2391,7 @@ fi:
           one: "Näytetään <b>%{accepted_count}</b> hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
           other: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model} ja %{banned_count} estettyä %{banned_model}"
         multi_page: "Näytetään %{model} %{from} - %{to} yhteensä %{accepted_count} hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
-        multi_page_html: "Näytetään %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> yhteensä <b>%{accepted_count}</b> hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
+        multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> käyttäjää yhteensä <b>%{accepted_count}</b> hyväksytystä ja %{banned_count} estetystä käyttäjästä"
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"
