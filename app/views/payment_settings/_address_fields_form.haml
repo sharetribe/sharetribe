@@ -1,4 +1,5 @@
 = fields_for stripe_account_form do |form|
+  = form.hidden_field :token
   .row
     .col-12
       = form.label :address_line1, t("stripe_accounts.form_new.address_line1")+"*", class: 'required'

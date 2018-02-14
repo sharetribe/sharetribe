@@ -117,6 +117,7 @@ window.ST.stripe_form_i18n = {
       routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}', test_regexp: '[0-9]{9}' } 
     }   
   };
+  var stripeApi, stripeFormData;
 
   function i18n_label(key, default_value) {
     var translated = window.ST.stripe_form_i18n[key];
@@ -156,8 +157,46 @@ window.ST.stripe_form_i18n = {
     show_if($(".bank-routing-2"), rule_routing_2);
   }
 
-  module.initStripeBankForm = function(stripe_test_api_mode) {
-    window.ST.stripe_test_api_mode = stripe_test_api_mode;
+  var getValue = function(name, valueType) {
+    var value,
+      item = stripeFormData.find(function(x) {
+      return x.name === 'stripe_account_form[' + name + ']';
+    });
+    if (item) {
+      if (valueType === 'int') {
+        value = parseInt(item.value);
+      } else {
+        value = item.value;
+      }
+    }
+    return item ? value : null;
+  };
+
+  var omitNullDeep = function(obj) {
+    return _.reduce(obj, function(result, value, key) {
+      if (_.isObject(value)) {
+        result[key] = omitNullDeep(value);
+      }
+      else if (!_.isNull(value)) {
+        result[key] = value;
+      }
+      return result;
+    }, {});
+  };
+
+  var removeSpaces = function() {
+    var removeSpacesInputs = [".bank-account-number input:enabled", ".bank-routing-number input",
+      ".bank-routing-1 input", ".bank-routing-2 input"];
+    for (var index in removeSpacesInputs) {
+      var input = $(removeSpacesInputs[index]);
+      var value = input.val().replace(/\s+/g, '');
+      input.val(value);
+    }
+  };
+
+  module.initStripeBankForm = function(options) {
+    window.ST.stripe_test_api_mode = options.stripe_test_mode;
+    stripeApi = Stripe(options.api_publishable_key);
     $("#stripe_account_form_address_country").change(function(){
       var showElement = function (el, show) {
         if (show) {
@@ -194,14 +233,11 @@ window.ST.stripe_form_i18n = {
     $("#stripe_account_form_address_country").trigger('change');
     $("#stripe-account-form").validate({
       submitHandler: function(form) {
-        var removeSpacesInputs = [".bank-account-number input:enabled", ".bank-routing-number input",
-          ".bank-routing-1 input", ".bank-routing-2 input"];
-        for (var index in removeSpacesInputs) {
-          var input = $(removeSpacesInputs[index]);
-          var value = input.val().replace(/\s+/g, '');
-          input.val(value);
-        }
-        form.submit();
+        removeSpaces();
+        stripeFormData = $(form).serializeArray();
+        stripeToken(options, function() {
+          form.submit();
+        });
       }
     });
   };
@@ -253,5 +289,170 @@ window.ST.stripe_form_i18n = {
       return sin.isValid();
     }
   );
+
+//////////////////////////////////////////////////////////////////////
+// compiled by http://babeljs.io/repl/ from stripe_token_original.js
+//////////////////////////////////////////////////////////////////////
+function _asyncToGenerator(fn) {
+  return function() {
+    var gen = fn.apply(this, arguments);
+    return new Promise(function(resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+        if (info.done) {
+          resolve(value);
+        } else {
+          return Promise.resolve(value).then(
+            function(value) {
+              step("next", value);
+            },
+            function(err) {
+              step("throw", err);
+            }
+          );
+        }
+      }
+      return step("next");
+    });
+  };
+}
+
+// contains async-await
+var stripeToken = (function() {
+  var _ref = _asyncToGenerator(
+    /*#__PURE__*/ regeneratorRuntime.mark(function _callee(options, callback) {
+      var country,
+        names,
+        space,
+        legalNames,
+        firstName,
+        lastName,
+        data,
+        address,
+        person,
+        verificationEl,
+        verify,
+        verification,
+        fileForm,
+        fileResult,
+        fileData,
+        result;
+      return regeneratorRuntime.wrap(
+        function _callee$(_context) {
+          while (1) {
+            switch ((_context.prev = _context.next)) {
+              case 0:
+                (country = getValue("address_country")),
+                  (names = getValue("legal_name")),
+                  (space = /\s+/),
+                  (legalNames = names ? names.split(space) : []),
+                  (firstName = legalNames[0]),
+                  (lastName = legalNames[1]);
+                data = {
+                  legal_entity: {
+                    type: "individual"
+                  },
+
+                  tos_shown_and_accepted: true
+                };
+                address = {
+                  address: {
+                    city: getValue("address_city"),
+                    state: getValue("address_state"),
+                    country: getValue("address_country"),
+                    postal_code: getValue("address_postal_code"),
+                    line1: getValue("address_line1")
+                  }
+                };
+                person = {
+                  first_name: firstName,
+                  last_name: lastName,
+                  dob: {
+                    day: getValue("birth_date(3i)", "int"),
+                    month: getValue("birth_date(2i)", "int"),
+                    year: getValue("birth_date(1i)", "int")
+                  },
+                  personal_id_number: ["US", "CA", "HK", "SG"].includes(country)
+                    ? getValue("personal_id_number")
+                    : null
+                };
+
+                if (options.update) {
+                  $.extend(data.legal_entity, address);
+                } else {
+                  $.extend(data.legal_entity, address, person);
+                }
+
+                (verificationEl = $("#stripe_account_form_document")),
+                  (verify = verificationEl.length > 0),
+                  (verification = null);
+
+                if (!verify) {
+                  _context.next = 17;
+                  break;
+                }
+
+                fileForm = new FormData();
+
+                fileForm.append("file", verificationEl[0].files[0]);
+                fileForm.append("purpose", "identity_document");
+                _context.next = 12;
+                return fetch("https://uploads.stripe.com/v1/files", {
+                  method: "POST",
+                  headers: { Authorization: "Bearer " + stripeApi._apiKey },
+                  body: fileForm
+                });
+
+              case 12:
+                fileResult = _context.sent;
+                _context.next = 15;
+                return fileResult.json();
+
+              case 15:
+                fileData = _context.sent;
+
+                if (fileData.id) {
+                  verification = {
+                    verification: {
+                      document: fileData.id
+                    }
+                  };
+                  $.extend(data.legal_entity, verification);
+                }
+
+              case 17:
+                _context.next = 19;
+                return stripeApi.createToken("account", omitNullDeep(data));
+
+              case 19:
+                result = _context.sent;
+
+                if (result.token) {
+                  $("#stripe_account_form_token").val(result.token.id);
+                  callback();
+                }
+
+              case 21:
+              case "end":
+                return _context.stop();
+            }
+          }
+        },
+        _callee,
+        this
+      );
+    })
+  );
+
+  return function stripeToken(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+})();
 })(window.ST);
 

@@ -34,10 +34,10 @@ module StripeService::API
       Result::Error.new(e.message)
     end
 
-    def update_address(community_id:, person_id:, body:)
+    def update_account(community_id:, person_id:, token:)
       data = { community_id: community_id, person_id: person_id}
       account = stripe_accounts_store.get(person_id: person_id, community_id: community_id).to_hash
-      stripe_api.update_address(community: community_id, account_id: account[:stripe_seller_id], address: body)
+      stripe_api.update_account(community: community_id, account_id: account[:stripe_seller_id], token: token)
       Result::Success.new(account)
     rescue => e
       Result::Error.new(e.message)
