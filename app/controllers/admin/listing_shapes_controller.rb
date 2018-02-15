@@ -227,7 +227,6 @@ class Admin::ListingShapesController < Admin::AdminBaseController
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles.to_s == "true",
       knowledge_base_url: APP_CONFIG.knowledge_base_url,
       locale_name_mapping: available_locs.map { |name, l| [l, name] }.to_h,
-      availability_per_hour: FeatureFlagHelper.feature_enabled?(:availability_per_hour)
     }
   end
 
