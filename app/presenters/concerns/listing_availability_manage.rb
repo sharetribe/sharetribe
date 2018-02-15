@@ -206,7 +206,7 @@ module ListingAvailabilityManage
       listing: working_time_slots,
       time_slot_options: time_slot_options,
       day_names: day_names,
-      listing_just_created: !!params[:listing_just_created],
+      listing_just_created: !!params[:listing_just_created] || !listing.per_hour_ready,
       first_day_of_week: I18n.t('date.first_day_of_week')
     }
   end
@@ -223,7 +223,7 @@ module ListingAvailabilityManage
   private
 
   def working_time_slots
-    listing.working_hours_new_set if params[:listing_just_created]
+    listing.working_hours_new_set if params[:listing_just_created] || !listing.per_hour_ready
     listing.working_hours_as_json
   end
 

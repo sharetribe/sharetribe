@@ -151,6 +151,7 @@ class ListingsController < ApplicationController
 
         if shape.booking?
           anchor = availability_per_hour_enabled && shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
+          @listing.working_hours_new_set(force_create: true) if availability_per_hour_enabled && shape.booking_per_hour?
           redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
         else
           redirect_to @listing, status: 303
@@ -211,6 +212,9 @@ class ListingsController < ApplicationController
     @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
 
     if update_successful
+      if availability_per_hour_enabled && shape.booking_per_hour? && !@listing.per_hour_ready
+        @listing.working_hours_new_set(force_create: true)
+      end
       if @listing.location
         location_params = ListingFormViewUtils.permit_location_params(params)
         @listing.location.update_attributes(location_params)
