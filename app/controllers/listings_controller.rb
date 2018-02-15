@@ -150,7 +150,7 @@ class ListingsController < ApplicationController
         notify_about_new_listing
 
         if shape.booking?
-          anchor = availability_per_hour_enabled && shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
+          anchor = shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
           @listing.working_hours_new_set(force_create: true) if availability_per_hour_enabled && shape.booking_per_hour?
           redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
         else
@@ -477,7 +477,7 @@ class ListingsController < ApplicationController
 
   def create_booking(shape, listing_uuid)
     if shape.present?
-      if availability_per_hour_enabled && shape.booking_per_hour?
+      if shape.booking_per_hour?
         true
       elsif APP_CONFIG.harmony_api_in_use && shape.booking?
         create_bookable(@current_community.uuid_object, listing_uuid, @current_user.uuid_object).success
@@ -487,9 +487,5 @@ class ListingsController < ApplicationController
     else
       true
     end
-  end
-
-  def availability_per_hour_enabled
-    FeatureFlagHelper.feature_enabled?(:availability_per_hour)
   end
 end

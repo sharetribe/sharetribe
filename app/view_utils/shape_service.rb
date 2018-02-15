@@ -152,8 +152,7 @@ class ShapeService
   end
 
   def enabled_units
-    units = ['day', 'night']
-    units.push('hour') if FeatureFlagHelper.feature_enabled?(:availability_per_hour)
+    units = ['day', 'night', 'hour']
     units
   end
 end
