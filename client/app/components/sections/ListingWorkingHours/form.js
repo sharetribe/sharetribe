@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Form, StyledSelect, FormField, Checkbox } from 'react-form';
+import merge from 'lodash.merge';
 import { t } from '../../../utils/i18n';
 import * as convert from './convert';
 
@@ -48,7 +49,7 @@ class TimeSlotWrapper extends Component {
     if (elem === 'from') {
       const slot = this.getValue();
       if (slot.from) {
-        this.props.formApi.setValue(this.slotField.concat('till'), null);
+        this.props.formApi.setValue(this.slotField.concat('till'), null, false);
       }
     }
     this.props.actions.dataChanged();
@@ -84,19 +85,23 @@ class TimeSlotWrapper extends Component {
     return (
       <div>
         <div className={`timeSlot ${this.state.remove || this.context.remove ? 'hidden' : ''}`}>
-          <span className="starTime">{t('web.listings.working_hours.start_time')}</span>
-          <div className="timeSelect">
-            <StyledSelect field={this.slotField.concat('from')}
-              id={`${idPrefix}-from`} onChange={() => (this.handleChanges('from'))}
-              options={this.timeSlotOptions('from')} placeholder={' '} />
+          <div className="starTime">
+            <span className="starTimeLabel">{t('web.listings.working_hours.start_time')}</span>
+            <div className="timeSelect">
+              <StyledSelect field={this.slotField.concat('from')}
+                id={`${idPrefix}-from`} onChange={() => (this.handleChanges('from'))}
+                options={this.timeSlotOptions('from')} placeholder={' '} />
+            </div>
           </div>
-          <span className="endTime">{t('web.listings.working_hours.end_time')}</span>
-          <div className="timeSelect">
-            <StyledSelect field={this.slotField.concat('till')}
-              id={`${idPrefix}-till`} onChange={() => (this.handleChanges('till'))}
-              options={this.timeSlotOptions('till')} placeholder={' '} />
+          <div className="endTime">
+            <span className="endTimeLabel">{t('web.listings.working_hours.end_time')}</span>
+            <div className="timeSelect">
+              <StyledSelect field={this.slotField.concat('till')}
+                id={`${idPrefix}-till`} onChange={() => (this.handleChanges('till'))}
+                options={this.timeSlotOptions('till')} placeholder={' '} />
+            </div>
+            <a className="remove" onClick={this.handleRemove}><RemoveIcon /></a>
           </div>
-          <a className="remove" onClick={this.handleRemove}><RemoveIcon /></a>
         </div>
       </div>
     );
@@ -241,6 +246,7 @@ class ListingWorkingHoursForm extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.errorValidator = this.errorValidator.bind(this);
     this.formApi = null;
   }
 
@@ -271,17 +277,105 @@ class ListingWorkingHoursForm extends Component {
     this.props.actions.saveChanges(dataToRails);
   }
 
-  errorValidator(values) {
-    const days = [];
-    values.days.forEach((day) => {
+  errorValidator(values, field) {
+    const currentDayIndex = field ? field[1] : null;
+    const currentSlotIndex = field ? field[3] : null;
+    const currentSlotProp = field ? field[4] : null;
+    const currentSlot = field ? values.days[currentDayIndex].working_time_slots[currentSlotIndex] : null;
+    const hourToInt = (hour) => {
+      if (typeof hour === 'string') {
+        const parsed = parseInt(hour.substr(0, 2), 10); // eslint-disable-line no-magic-numbers
+        return isNaN(parsed) ? null : parsed;
+      }
+      return null;
+    };
+    const isEmpty = (value) => {
       const message = t('web.listings.errors.working_hours.required');
-      const slots = day.working_time_slots.map((slot) => ({
-        from: !slot.from ? message : null,
-        till: !slot.till ? message : null,
-      }));
-      days.push({ working_time_slots: slots });
+      return !value ? message : null;
+    };
+
+    // Continuous slots are allowed. Start time can equal with end time of other slot.
+    const crossOtherSlot = (dayIndex, daySlots, slotIndex, fieldValue, prop) => {
+      if (currentSlot && currentDayIndex === dayIndex && currentSlotIndex !== slotIndex) {
+        return null;
+      }
+      const message = t('web.listings.errors.working_hours.overlaps');
+      let intersection = false;
+      daySlots.forEach((otherSlot, index) => {
+        if (index === slotIndex) {
+          return;
+        }
+        const otherFrom = hourToInt(otherSlot.from);
+        const otherTill = hourToInt(otherSlot.till);
+        const value = hourToInt(fieldValue);
+        if (otherFrom !== null && otherTill !== null) {
+          if (value &&
+              ((prop === 'from' && otherFrom <= value && otherTill > value) ||
+              (prop === 'till' && otherFrom < value && otherTill >= value))
+            ) {
+            intersection = true;
+          }
+        }
+      });
+      return intersection ? message : null;
+    };
+    const coversOtherSlot = (dayIndex, daySlots, slotIndex, slot) => {
+      if (currentSlot && currentDayIndex === dayIndex && currentSlotIndex !== slotIndex) {
+        return null;
+      }
+      const message = t('web.listings.errors.working_hours.covers');
+      let covers = false;
+      daySlots.forEach((otherSlot, index) => {
+        if (index === slotIndex) {
+          return;
+        }
+        const otherFrom = hourToInt(otherSlot.from);
+        const otherTill = hourToInt(otherSlot.till);
+        const from = hourToInt(slot.from);
+        const till = hourToInt(slot.till);
+        if (otherFrom !== null && otherTill !== null && from !== null && till !== null) {
+          if (otherFrom >= from && otherTill <= till) {
+            covers = true;
+          }
+        }
+      });
+      return covers ? message : null;
+    };
+    const validateDay = (day, dayIndex) => {
+      const daySlots = day.working_time_slots;
+      const slots = daySlots.map((slot, index) => {
+        const slotErrors = {};
+        slotErrors.from = isEmpty(slot.from) ||
+          crossOtherSlot(dayIndex, daySlots, index, slot.from, 'from');
+        if (currentSlotProp === null || currentSlotProp === 'till') {
+          slotErrors.till = isEmpty(slot.till) ||
+            crossOtherSlot(dayIndex, daySlots, index, slot.till, 'till');
+        }
+        const covers = coversOtherSlot(dayIndex, daySlots, index, slot);
+        if (covers) {
+          slotErrors.from = covers;
+          slotErrors.till = covers;
+        }
+        return slotErrors;
+      });
+      return { working_time_slots: slots };
+    };
+    const days = [];
+    values.days.forEach((day, index) => {
+      days.push(validateDay(day, index));
     });
-    return { days: days }; // eslint-disable-line babel/object-shorthand
+    const errors = { days: days }; // eslint-disable-line babel/object-shorthand
+    if (currentSlot) {
+      const prevErrors = JSON.parse(JSON.stringify(this.formApi.errors));
+      const error = prevErrors.days[currentDayIndex].working_time_slots[currentSlotIndex];
+      if (error) {
+        error.from = null;
+        error.till = null;
+      }
+      return merge(prevErrors, errors);
+    } else {
+      return errors;
+    }
   }
 
   render() {
@@ -294,8 +388,7 @@ class ListingWorkingHoursForm extends Component {
           <h3>{t('web.listings.working_hours.i_am_available_on')}</h3>
         </div>
         <Form onSubmit={(submittedValues) => this.handleSubmit(submittedValues)}
-          validateError={this.errorValidator} defaultValues={defaultValues}
-          validateOnSubmit>
+          validateError={this.errorValidator} defaultValues={defaultValues}>
           { (formApi) => (
             <div>
               <form className={formClass} onSubmit={formApi.submitForm}>
