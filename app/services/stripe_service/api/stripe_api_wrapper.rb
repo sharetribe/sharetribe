@@ -117,29 +117,7 @@ class StripeService::API::StripeApiWrapper
           type: 'custom',
           country: account_info[:address_country],
           email: account_info[:email],
-          legal_entity: {
-            type: 'individual',
-            first_name: account_info[:first_name],
-            last_name: account_info[:last_name],
-            address: {
-              city: account_info[:address_city],
-              state: account_info[:address_state],
-              country: account_info[:address_country],
-              postal_code: account_info[:address_postal_code],
-              line1: account_info[:address_line1],
-            },
-            dob: {
-              day: account_info[:birth_date].day,
-              month: account_info[:birth_date].month,
-              year: account_info[:birth_date].year,
-            },
-            personal_id_number: ['US', 'CA', 'HK', 'SG'].include?(account_info[:address_country]) ? account_info[:personal_id_number] : nil
-          },
-
-          tos_acceptance: {
-            date: account_info[:tos_date].to_i,
-            ip: account_info[:tos_ip],
-          }
+          account_token: account_info[:token],
         }
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
@@ -268,13 +246,10 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def update_address(community:, account_id:, address:)
+    def update_account(community:, account_id:, token:)
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
-        account.legal_entity.address.city = address[:address_city]
-        account.legal_entity.address.state = empty_string_as_nil(address[:address_state])
-        account.legal_entity.address.postal_code = empty_string_as_nil(address[:address_postal_code])
-        account.legal_entity.address.line1 = address[:address_line1]
+        account.account_token = token
         account.save
       end
     end

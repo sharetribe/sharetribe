@@ -1,4 +1,6 @@
-- if stripe_account[:stripe_seller_id].present? 
+= javascript_include_tag "#{STRIPE_JS_HOST}/v3/"
+- stripe_seller_ready = stripe_account[:stripe_seller_id].present?
+- if stripe_seller_ready
   - if stripe_account[:stripe_bank_id].present?
     .row
       .col-12
@@ -24,7 +26,8 @@
     .row.paypal-wizard.connect-row
       .col-12
         .paypal-wizard-content.connect-row
-          = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+          = form_tag update_person_payment_settings_path(@current_user),
+            id: "stripe-account-form", multipart: true, method: :put do
             = hidden_field_tag "stripe_account_form_address_country", stripe_seller_account[:address_country]
             .row
               .col-12
@@ -35,11 +38,11 @@
                 = label_tag t("stripe_accounts.form_new.country")
                 = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
 
-            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_address_form, available_countries: available_countries}
+            = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
 
             = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account, stripe_mode: stripe_mode}
 
-            = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
+            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_needs_verification: seller_needs_verification}
 
             .col-4
               = link_to t('stripe_accounts.form_new.cancel'), person_payment_settings_path(@current_user), style: 'float: right; margin-top: 1.5em'
@@ -63,7 +66,7 @@
     %div
       .paypal-wizard-content.connect-row
         .col-12
-          = form_tag person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
+          = form_tag create_person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
             = fields_for stripe_account_form do |form|
               .row
                 .col-12
@@ -88,7 +91,7 @@
 
             = render 'personal_id_number', stripe_account_form: stripe_account_form
 
-            = render partial: 'verification_fields_form', locals: {stripe_verification_form: stripe_verification_form, seller_needs_verification: seller_needs_verification}
+            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_needs_verification: seller_needs_verification}
 
             .country-dependent{"data-country-except" => "XXX"}
               - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
@@ -97,9 +100,11 @@
 
               = button_tag t('stripe_accounts.form_new.save_details')
 
+- stripe_data = stripe_default_data
+- stripe_data = stripe_data.merge(update: true) if stripe_seller_ready
 - content_for :extra_javascript do
   :javascript
     $(function() {
-      window.ST.initStripeBankForm(#{!!stripe_test_mode});
+      window.ST.initStripeBankForm(#{stripe_data.to_json.html_safe});
     });
 
