@@ -146,7 +146,7 @@ group :test do
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
 
-  gem 'fake_stripe'
+  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '6848daab104333b2c0c493ab069731d4a0b87f6f'
 end
 
 group :development, :test do
