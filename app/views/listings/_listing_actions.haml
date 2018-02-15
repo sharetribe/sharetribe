@@ -37,7 +37,7 @@
         - @listing_presenter.blocked_dates_result.on_error do
           = t("listings.listing_actions.unable_load_availability")
 
-      - elsif FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
+      - elsif @listing_presenter.booking_per_hour?
         .input-daterange.input-group.clearfix
           .datepicker-per-hour
             .field
@@ -117,7 +117,7 @@
       - if @listing_presenter.show_manage_availability
         - availability_link_id = "edit-listing-availability-#{SecureRandom.urlsafe_base64(5)}"
         .listing-view-admin-link
-          - if FeatureFlagHelper.feature_enabled?(:availability_per_hour) && @listing_presenter.booking_per_hour?
+          - if @listing_presenter.booking_per_hour?
             %a.icon-with-text-container{id: availability_link_id, href: "#manage-working-hours"}
               = icon_tag("calendar", ["icon-part"])
               .text-part= t("web.listings.edit_listing_availability")

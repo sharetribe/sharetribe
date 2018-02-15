@@ -8,7 +8,6 @@ Feature: User books listing per hour
       | kassi_testperson2 |
     # If tests failed then set current time in the furure!
     And it is currently "2050-11-28 05:00:00"
-    Given community "test" has feature flag "availability_per_hour" enabled
     Given community "test" has payment method "paypal" provisioned
     Given community "test" has payment method "paypal" enabled by admin
     Given community "test" has a listing shape offering services per hour

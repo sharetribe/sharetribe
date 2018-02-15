@@ -4,7 +4,6 @@ Feature: User creates a new listing
   @javascript
   Scenario: Creating a new item "offering services" successfully
     Given skip this scenario as phantomjs crashes
-    Given community "test" has feature flag "availability_per_hour" enabled
     Given community "test" has payment method "paypal" provisioned
     Given community "test" has payment method "paypal" enabled by admin
     Given community "test" has a listing shape offering services per hour

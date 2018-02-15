@@ -114,13 +114,12 @@ class PreauthorizeTransactionsController < ApplicationController
                                  shipping_enabled:,
                                  pickup_enabled:,
                                  availability_enabled:,
-                                 listing:,
-                                 availability_per_hour_enabled:)
+                                 listing:)
 
       validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
         .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector) }
         .and_then { |result|
-          if availability_per_hour_enabled && tx_params[:per_hour]
+          if tx_params[:per_hour]
             validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
           elsif availability_enabled
             validate_booking_timeslots(tx_params: tx_params,
@@ -264,8 +263,7 @@ class PreauthorizeTransactionsController < ApplicationController
                                          shipping_enabled: listing.require_shipping_address,
                                          pickup_enabled: listing.pickup_enabled,
                                          availability_enabled: listing.availability.to_sym == :booking,
-                                         listing: listing,
-                                         availability_per_hour_enabled: availability_per_hour_enabled)
+                                         listing: listing)
     }
 
     validation_result.on_success { |tx_params|
@@ -551,7 +549,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def is_booking?(listing)
     [ListingUnit::DAY, ListingUnit::NIGHT].include?(listing.quantity_selector) ||
-      (availability_per_hour_enabled && listing.unit_type.to_s == ListingUnit::HOUR && listing.availability == 'booking')
+      (listing.unit_type.to_s == ListingUnit::HOUR && listing.availability == 'booking')
   end
 
   def render_error_response(is_xhr, error_msg, redirect_params)
@@ -680,9 +678,5 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def params_per_hour?
     params[:per_hour] == '1'
-  end
-
-  def availability_per_hour_enabled
-    FeatureFlagHelper.feature_enabled?(:availability_per_hour)
   end
 end
