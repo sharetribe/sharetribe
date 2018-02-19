@@ -95,7 +95,10 @@ module MarketplaceService
 
         [:author, :hash, :mandatory],
         [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
-        [:transitions, :mandatory] # Could add Array validation
+        [:transitions, :mandatory], # Could add Array validation
+
+        [:payment_gateway, :string, :optional],
+        [:community_id, :fixnum, :mandatory],
       ]
 
       InboxConversation = EntityUtils.define_builder(*inbox_row_common_spec, *conversation_spec)

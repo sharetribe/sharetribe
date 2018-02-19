@@ -64,7 +64,9 @@ class InboxesController < ApplicationController
         inbox_item[:transitions],
         inbox_item[:other],
         inbox_item[:starter],
-        payment_sum
+        payment_sum,
+        inbox_item[:payment_gateway],
+        inbox_item[:community_id]
       )
 
       action_messages.last[:content]

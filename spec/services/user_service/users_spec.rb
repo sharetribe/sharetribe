@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-class TransactionMailer; end
-
 describe UserService::API::Users do
 
   include UserService::API::Users
