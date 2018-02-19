@@ -85,6 +85,11 @@ FactoryGirl.define do
   end
 
   factory :person, aliases: [:author, :receiver, :recipient, :payer, :sender, :follower] do
+    transient do
+      member_of nil
+      member_is_admin false
+    end
+
     id
     is_admin 0
     community_id 1
@@ -98,6 +103,13 @@ FactoryGirl.define do
 
     has_many :emails do |person|
       FactoryGirl.build(:email, person: person)
+    end
+
+    after(:create) do |person, evaluator|
+      if evaluator.member_of
+        person.create_community_membership(community: evaluator.member_of,
+                                           admin: evaluator.member_is_admin)
+      end
     end
   end
 
@@ -451,5 +463,21 @@ FactoryGirl.define do
     billing_agreement_id  'zzz'
     paypal_username_to    'eloise.smith'
     request_token         'ddd'
+  end
+
+  factory :stripe_payment do
+    community_id      123
+    transaction_id    321
+    payer_id          "AAA"
+    receiver_id       "BBB"
+    status            "paid"
+    sum_cents         200
+    commission_cents  100
+    currency          "EUR"
+    stripe_charge_id  "CCC"
+    stripe_transfer_id nil
+    fee_cents         0
+    real_fee_cents    31
+    subtotal_cents    200
   end
 end

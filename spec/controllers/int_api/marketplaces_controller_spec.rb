@@ -5,8 +5,6 @@ require 'spec_helper'
 # Override the API with test API
 require_relative '../../services/plan_service/api/api'
 
-class TransactionMailer; end
-
 describe IntApi::MarketplacesController, type: :controller do
 
   before(:each) do

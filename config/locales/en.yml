@@ -800,6 +800,9 @@ en:
       canceled_offer: "canceled the offer"
       paid: "paid %{sum}"
       payment_preauthorized: "Payment authorized: %{sum}"
+      stripe:
+        held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
+        confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred within 7-10 days of the request acceptance."
     new:
       message: Message
       message_to: "Message to %{author_name}"
@@ -872,6 +875,8 @@ en:
           intl: "Waiting for you to accept the PayPal payment"
           unknown_reason: "Payment is pending. Log in to your PayPal account to see more details."
           verify: "Waiting for you to verify your PayPal account"
+      stripe:
+        waiting_confirmation_from_requester: "Waiting for %{requester_name} to mark the order completed. Once the order is marked as completed, the money will be released to your bank account."
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -941,6 +946,8 @@ en:
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The money for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
@@ -1015,6 +1022,8 @@ en:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+      stripe:
+        you_have_received_new_payment: "The amount of <b>%{payment_sum}</b> has been paid for <b>%{listing_title}</b> by %{payer_full_name}. The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
@@ -1052,6 +1061,8 @@ en:
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
       listing_per_unit_title: "%{title}, per %{unit_type}"
+      stripe:
+        you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{service_name}. The money will be released to %{recipient_full_name} once you mark the order as completed. Here is a receipt of the payment."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
