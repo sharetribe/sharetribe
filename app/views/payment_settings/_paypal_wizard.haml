@@ -103,7 +103,9 @@
           %h2= t("common.paypal_fee_info.title")
           - text_with_line_breaks_html_safe do
             - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
-            = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: paypal_commission).html_safe
+            = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal,
+              paypal_commission: paypal_commission,
+              minimum_transaction_fee: MoneyViewUtils.to_humanized(minimum_commission)).html_safe
 
         - content_for :extra_javascript do
           :javascript

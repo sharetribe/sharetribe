@@ -299,41 +299,6 @@ function initialize_listing_view(locale) {
   });
 }
 
-function updateSellerGetsValue(currencyOpts, priceInputSelector, displayTargetSelector, communityCommissionPercentage, minCommission, showReversed) {
-  // true == Show the fee instead of what's left after the fee
-  showReversed = showReversed || false;
-
-  $display = $(displayTargetSelector);
-  $input = $(priceInputSelector);
-
-  function updateYouWillGet() {
-    var sum = ST.paymentMath.parseFloatFromFieldValue($input.val());
-
-    var displaySum;
-    if (showReversed) {
-      displaySum = ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
-    } else {
-      displaySum = sum - ST.paymentMath.totalCommission(sum, communityCommissionPercentage, minCommission);
-    }
-
-    displaySumInCents = displaySum * Math.pow(10, currencyOpts.digits);
-
-    $display.text(
-      ST.paymentMath.displayMoney(Math.max(0, displaySumInCents),
-                                  currencyOpts.symbol,
-                                  currencyOpts.digits,
-                                  currencyOpts.format,
-                                  currencyOpts.separator,
-                                  currencyOpts.delimiter)
-    );
-  }
-
-  $input.keyup(updateYouWillGet);
-
-  // Run once immediately
-  updateYouWillGet();
-}
-
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
   auto_resize_text_areas("text_area");
   $('textarea').focus();
