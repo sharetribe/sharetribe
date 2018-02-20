@@ -24,63 +24,35 @@
     %small
       - payment_fee_info_link = capture do
         %a.listing-payment-fee-info-link#payment_fee_info_link{href: '#'}
-          = payment_gateway == :paypal ? t(".paypal_fee_info_link_text") : t(".payment_fee_info_link_text")
+          = t(".payment_fee_info_link_text")
       - if @listing_presenter.commission[:seller_commission_in_use]
-        - content_for :seller_commission_js do
-          :javascript
-            $(function() {
-              updateSellerGetsValue(
-                #{raw @listing_presenter.currency_opts.to_json},
-                "#listing_price",
-                "#fee_display",
-                #{@listing_presenter.commission[:commission_from_seller]},
-                #{@listing_presenter.commission[:minimum_commission].format(decimal_mark: ".", delimiter: "", symbol: false)},
-                true);
-            });
-        - if run_js_immediately
-          = yield :seller_commission_js
-        - else
-          - content_for :extra_javascript do
-            = yield :seller_commission_js
         - if payment_gateway.present?
-          - if payment_gateway == [:paypal, :stripe]
-            = t(".after_service_fee_you_will_get_payment_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
-          - if payment_gateway == :paypal
-            = t(".after_service_fee_you_will_get_paypal_text", :sum_with_currency => '<span id="fee_display"></span>', :paypal_fee_info_link => payment_fee_info_link).html_safe
-          - if payment_gateway == :stripe
-            = t(".after_service_fee_you_will_get_stripe_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
+          = t(".after_service_fee_you_will_get_payment_text", :sum_with_currency => '<span id="fee_display"></span>', :payment_fee_info_link => payment_fee_info_link).html_safe
         - else
           = t(".after_service_fee_you_will_get", :sum_with_currency => '<span id="fee_display"></span>').html_safe
 
 - if payment_gateway.present?
   = render layout: "layouts/lightbox", locals: { id: "payment_fee_info_content"} do
-    - if payment_gateway == :paypal
-      %h2= t("common.payment_fee_info.title_paypal")
-    - else
-      %h2= t("common.payment_fee_info.title")
+    %h2= t("common.payment_fee_info.title")
 
-    - if payment_gateway == [:paypal, :stripe]
-      %p
-        = t("common.payment_fee_info.info")
-      %h4
-        = t("common.payment_fee_info.stripe")
-
+    %p= t("common.payment_fee_info.info")
 
     - if payment_gateway == :stripe || payment_gateway == [:paypal, :stripe]
+      %h4= t("common.payment_fee_info.stripe")
       - text_with_line_breaks_html_safe do
         - link_to_stripe = link_to(t("common.stripe_fee_info.link_to_stripe_text"), @listing_presenter.stripe_fees_url, target: "_blank")
-        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe, stripe_commission: @listing_presenter.commission[:stripe_commission]).html_safe
+        = t("common.stripe_fee_info.body_text", link_to_stripe: link_to_stripe,
+          stripe_commission: @listing_presenter.commission[:stripe_commission],
+          minimum_transaction_fee: MoneyViewUtils.to_humanized(@listing_presenter.commission[:minimum_commission])).html_safe
 
-    - if payment_gateway == [:paypal, :stripe]
+    - if payment_gateway == :paypal || payment_gateway == [:paypal, :stripe]
       %h4= t("common.payment_fee_info.paypal")
       - text_with_line_breaks_html_safe do
         - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
-        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal, paypal_commission: @listing_presenter.commission[:paypal_commission]).html_safe
+        = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal,
+          paypal_commission: @listing_presenter.commission[:paypal_commission],
+          minimum_transaction_fee: MoneyViewUtils.to_humanized(@listing_presenter.commission[:minimum_commission])).html_safe
 
-    - if payment_gateway == :paypal
-      - text_with_line_breaks_html_safe do
-        - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), @listing_presenter.paypal_fees_url, target: "_blank")
-        = t("common.paypal_only_fee_info.body_text", link_to_paypal: link_to_paypal).html_safe
 
   - if run_js_immediately
     :javascript
