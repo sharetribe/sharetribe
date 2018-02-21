@@ -2277,6 +2277,8 @@ vi:
           saving_failed: "Chúng tôi không thể lưu thay đổi tính khả dụng. Hãy thử tải lại trang."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: cái
         hour: giờ

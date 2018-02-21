@@ -2293,6 +2293,8 @@ nb:
           saving_failed: "Vi klarer ikke lagre endringene for tilgjengelighet. Prøv å laste inn siden på nytt."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: stykk
         hour: time

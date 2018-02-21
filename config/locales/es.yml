@@ -2246,6 +2246,8 @@ es:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: ~
         hour: ~

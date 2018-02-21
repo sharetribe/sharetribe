@@ -2327,6 +2327,8 @@ pl:
           saving_failed: "Nie jesteśmy w stanie zapisać zmian w dostępności. Spróbuj odświeżyć stronę."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: sztuka
         hour: godzina

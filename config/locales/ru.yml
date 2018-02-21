@@ -2325,6 +2325,8 @@ ru:
           saving_failed: "Не удалось сохранить изменения в доступности. Попробуйте перезагрузить страницу."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: шт.
         hour: час

@@ -2305,6 +2305,8 @@ fi:
           saving_failed: "Saatavuustietojen muutoksia ei voitu tallentaa. Ole hyvä ja kokeile päivittää sivu."
         working_hours:
           required: tarvitaan
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: kappale
         hour: tunti

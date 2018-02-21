@@ -2294,6 +2294,8 @@ ar:
           saving_failed: "لم نستطع حفظ تغييرات التوفر حاليا يرجى إعادة تهيئة الصفحة مرة أخرى"
         working_hours:
           required: ~
+          overlaps: متداخله
+          covers: تغطي
       pricing_units:
         piece: قطعة
         hour: ساعة
