@@ -2249,7 +2249,7 @@ de:
     years_ago: "Vor %{count} Jahren"
     days_since:
       one: "%{count} Tag"
-      other: "%{count} Tage"
+      other: "%{count} Tagen"
     time_to:
       seconds:
         one: "%{count} Sekunde"
@@ -2305,6 +2305,8 @@ de:
           saving_failed: "Wir können die Änderungen an der Verfügbarkeit nicht speichern. Bitte versuche, die Seite erneut zu laden."
         working_hours:
           required: Pflichteingabe
+          overlaps: überschneidet
+          covers: beinhaltet
       pricing_units:
         piece: Stück
         hour: Stunde

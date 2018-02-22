@@ -2293,6 +2293,8 @@ pt-BR:
           saving_failed: "Não é possível salvar as alterações de disponibilidade. Tente recarregar a página."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: fração
         hour: hora

@@ -2305,6 +2305,8 @@ es-ES:
           saving_failed: "No hemos podido guardar los cambios sobre disponibilidad. Intenta cargar la página nuevamente."
         working_hours:
           required: obligatorio
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: pieza
         hour: hora
@@ -2450,7 +2452,7 @@ es-ES:
     form_verification:
       personal_id_number: "Numero de Identificación Personal"
       document: "Documento de verificación"
-      send_verification: "Envias verificación"
+      send_verification: "Enviar verificación"
       need_verification: "Necesita verificación adicional"
     form_pin:
       social_insurance_number: "Número de seguridad social (Social Insurance Number)"

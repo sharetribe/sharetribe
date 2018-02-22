@@ -14,7 +14,13 @@
 #
 
 class ExportTaskResult < ApplicationRecord
-  has_attached_file :file
+  attr_accessor :original_filename, :original_extname
+  has_attached_file :file, s3_headers: lambda { |record|
+    {
+      'Content-Type' => "text/#{record.original_extname}",
+      'Content-Disposition' => "attachment; filename=#{record.original_filename}",
+    }
+  }
   do_not_validate_attachment_file_type :file
 
   STATUSES = ['pending', 'started', 'finished']

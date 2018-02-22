@@ -620,7 +620,7 @@ hr:
       inquiry: ~
       share_for_free: "Besplatno dijeljenje"
       default_action_button_labels:
-        sell: Kupite
+        sell: Kontaktirati
         rent: Iznajmite
         request: Ponudite
         offer: Zatražite
@@ -1530,7 +1530,7 @@ hr:
       edit_listing: "Uredi oglas"
       reopen_listing: "Ponovno otvori oglas"
       move_to_top: "Pomaknuti na vrh početne stranice"
-      show_in_updates_email: ~
+      show_in_updates_email: "Prikaži u sljedećem newsletteru"
       show_in_updates_email_loading: Učitavanje...
       show_in_updates_email_error: "Greška sa serverom. Molimo osvježite stranicu i probajte ponovno."
       show_in_updates_email_success: ~
@@ -1725,7 +1725,7 @@ hr:
       add_profile_picture: "Dodaj profilnu sliku"
       comments: "Javna rasprava"
       contact_by_phone: "Kontakt telefonom:"
-      contact: Kontakt
+      contact: "Dodatne informacije"
       favor_offer: "Ponuda usluga"
       favor_request: "Potražnja usluga"
       inquiry: ~
@@ -2239,6 +2239,8 @@ hr:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: ~
         hour: ~

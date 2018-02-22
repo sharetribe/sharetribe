@@ -2288,6 +2288,8 @@ hu:
           saving_failed: "Nem tudtuk elmenti az elérhetőséggel kapcsolatos változtatásokat. Kérem próbálja meg frissíteni az oldalt."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: darab
         hour: óra

@@ -90,6 +90,9 @@ class Transaction < ApplicationRecord
       "GREATEST(COALESCE(transactions.last_transition_at, 0),
         COALESCE(conversations.last_message_at, 0)) #{sort_direction}")
   }
+  scope :for_csv_export, -> {
+    includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
+  }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?

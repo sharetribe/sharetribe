@@ -2305,6 +2305,8 @@ fr:
           saving_failed: "Nous ne sommes pas en mesure de sauvegarder les changements de disponibilités. Essayez de recharger la page."
         working_hours:
           required: Obligatoire
+          overlaps: recouvre
+          covers: recouvre
       pricing_units:
         piece: unité
         hour: heure

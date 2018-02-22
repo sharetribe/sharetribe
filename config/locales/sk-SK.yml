@@ -2311,6 +2311,8 @@ sk-SK:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: kus
         hour: hodina

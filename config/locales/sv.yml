@@ -2307,6 +2307,8 @@ sv:
           saving_failed: "Vi kunde inte spara ändringarna i tillgängligheten. Vänligen ladda om sidan."
         working_hours:
           required: obligatorisk
+          overlaps: överlappar
+          covers: ~
       pricing_units:
         piece: styck
         hour: timme

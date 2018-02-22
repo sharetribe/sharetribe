@@ -2260,6 +2260,8 @@ it:
           saving_failed: "Non è possibile salvare i cambiamenti alle disponibilità. Prova a ricaricare la pagina."
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: unità
         hour: ora

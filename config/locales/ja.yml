@@ -2267,6 +2267,8 @@ ja:
           saving_failed: ~
         working_hours:
           required: ~
+          overlaps: ~
+          covers: ~
       pricing_units:
         piece: 点
         hour: 時間

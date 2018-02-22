@@ -33,6 +33,8 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
     csv_content = csv_rows.join("")
     marketplace_name = community.use_domain ? community.domain : community.ident
     filename = "#{marketplace_name}-transactions-#{Time.zone.today}-#{export_task.token}.csv"
+    export_task.original_filename = filename
+    export_task.original_extname = File.extname(filename).delete('.')
     export_task.update_attributes(status: 'finished', file: FakeFileIO.new(filename, csv_content))
   end
 

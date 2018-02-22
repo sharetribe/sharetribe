@@ -2306,6 +2306,8 @@ nl:
           saving_failed: "Het lukt niet om de wijzigingen in beschikbaarheid op te slaan. Probeer de pagina te herladen."
         working_hours:
           required: verplicht
+          overlaps: overlapt
+          covers: ~
       pricing_units:
         piece: stuk
         hour: uur
