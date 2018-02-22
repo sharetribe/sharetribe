@@ -292,8 +292,10 @@ module MarketplaceService
         }
       end
 
-      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset)
-        transactions = TransactionModel.exist.by_community(community_id)
+      def transactions_for_community_sorted_by_activity(community_id, sort_direction, limit, offset, eager_includes = false)
+        tx_scope = TransactionModel
+        tx_scope = tx_scope.for_csv_export if eager_includes
+        transactions = tx_scope.exist.by_community(community_id)
           .with_payment_conversation_latest(sort_direction)
           .limit(limit)
           .offset(offset)

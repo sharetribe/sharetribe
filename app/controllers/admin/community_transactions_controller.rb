@@ -12,7 +12,8 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         @current_community.id,
         sort_direction,
         pagination_opts[:limit],
-        pagination_opts[:offset])
+        pagination_opts[:offset],
+        request.format == :csv)
     else
       TransactionQuery.transactions_for_community_sorted_by_column(
         @current_community.id,
@@ -46,7 +47,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
       end
 
-      transaction[:last_activity_at] = last_activity_for(transaction)
+      transaction[:last_activity_at] = ExportTransactionsJob.last_activity_for(transaction)
 
       transaction.merge({author: author, starter: starter})
     end
@@ -78,56 +79,34 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
           self.response.headers["Last-Modified"] = Time.now.ctime.to_s
 
           self.response_body = Enumerator.new do |yielder|
-            generate_csv_for(yielder, conversations)
+            ExportTransactionsJob.generate_csv_for(yielder, conversations)
           end
         end
       end
     end
   end
 
-  def generate_csv_for(yielder, conversations)
-    # first line is column names
-    yielder << %w{
-      transaction_id
-      listing_id
-      listing_title
-      status
-      currency
-      sum
-      started_at
-      last_activity_at
-      starter_username
-      other_party_username
-    }.to_csv(force_quotes: true)
-    conversations.each do |conversation|
-      yielder << [
-        conversation[:id],
-        conversation[:listing] ? conversation[:listing][:id] : "N/A",
-        conversation[:listing_title] || "N/A",
-        conversation[:status],
-        conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
-        conversation[:payment_total],
-        conversation[:created_at],
-        conversation[:last_activity_at],
-        conversation[:starter] ? conversation[:starter][:username] : "DELETED",
-        conversation[:author] ? conversation[:author][:username] : "DELETED"
-      ].to_csv(force_quotes: true)
+  def export
+    if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv)
+      @export_result = ExportTaskResult.create
+      Delayed::Job.enqueue(ExportTransactionsJob.new(@current_user.id, @current_community.id, @export_result.id))
+    end
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def export_status
+    export_result = ExportTaskResult.where(:token => params[:token]).first
+    if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv) && export_result
+      file_url = export_result.file.present? ? export_result.file.url : nil
+      render json: {token: export_result.token, status: export_result.status, url: file_url}
+    else
+      render json: {status: 'error'}
     end
   end
 
   private
-
-  def last_activity_for(conversation)
-    last_activity_at = 0
-    last_activity_at = if conversation[:conversation][:last_message_at].nil?
-      conversation[:last_transition_at]
-    elsif conversation[:last_transition_at].nil?
-      conversation[:conversation][:last_message_at]
-    else
-      [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
-    end
-    last_activity_at
-  end
 
   def simple_sort_column(sort_column)
     case sort_column

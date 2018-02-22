@@ -172,7 +172,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '' => "getting_started_guide#index"
-      
+
       # Payments
       resources :payment_preferences, only: [:index], param: :payment_gateway do
         collection do
@@ -188,7 +188,7 @@ Rails.application.routes.draw do
       get  "/paypal_preferences" => redirect("/%{locale}/admin/payment_preferences")
       get  "/paypal_preferences/account_create"       => "paypal_preferences#account_create"
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
-      
+
       # Settings
       get   "/settings" => "communities#settings",        as: :settings
       patch "/settings" => "communities#update_settings", as: :update_settings
@@ -267,7 +267,12 @@ Rails.application.routes.draw do
           get "getting_started_guide/invitation",             to: redirect("/admin/getting_started_guide/invitation")
 
         end
-        resources :transactions, controller: :community_transactions, only: :index
+        resources :transactions, controller: :community_transactions, only: :index do
+          collection do
+            get 'export'
+            get 'export_status'
+          end
+        end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
         resources :emails
         resources :community_memberships do
