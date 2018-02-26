@@ -67,8 +67,8 @@ module MarketplaceService
       # - gateway_expires_at (how long the payment authorization is valid)
       # - max_date_at (max date, e.g. booking ending)
       def preauth_expires_at(gateway_expires_at, max_date_at=nil)
-        [gateway_expires_at,
-         Maybe(max_date_at).map {|d| (d + 2.days).to_time(:utc)}.or_else(nil)
+        [gateway_expires_at.in_time_zone,
+         Maybe(max_date_at).map {|d| (d + 2.days).in_time_zone}.or_else(nil)
         ].compact.min
       end
 
