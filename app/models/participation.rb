@@ -22,4 +22,9 @@
 class Participation < ApplicationRecord
   belongs_to :conversation, :dependent => :destroy, inverse_of: :participations, touch: true
   belongs_to :person
+
+  scope :by_person, -> (person) { where(person: person) }
+  scope :starter, -> { where(is_starter: true) }
+  scope :recipient, -> { where(is_starter: false) }
+  scope :other_party, -> (person) { where.not(person: person) }
 end

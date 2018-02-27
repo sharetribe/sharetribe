@@ -8,10 +8,14 @@
 
 .left-navi-section
   %h2
-    - starter = link_to_unless(conversation_data[:starter][:is_deleted], conversation_data[:starter][:display_name], conversation_data[:starter][:url]).html_safe
-    - author = link_to_unless(conversation_data[:author][:is_deleted], conversation_data[:author][:display_name], conversation_data[:author][:url]).html_safe
-    = t("admin.communities.conversations.participants", starter: starter, author: author).html_safe
-    - listing = conversation_data[:listing]
+    - starter = conversation.starter
+    - starter_name = PersonViewUtils.person_display_name_for_type(starter, 'first_name_with_initial')
+    - starter_link = starter ? link_to(starter_name, person_path(starter.username)) : ''
+    - recipient = conversation.recipient
+    - recipient_name = PersonViewUtils.person_display_name_for_type(recipient, 'first_name_with_initial')
+    - recipient_link = recipient ? link_to(recipient_name, person_path(recipient.username)) : ''
+    = t("admin.communities.conversations.participants", starter: starter_link, author: recipient_link).html_safe
+    - listing = conversation.listing
     - if listing
       - listing_title = listing.title || t("admin.communities.conversations.not_available")
       %h2=link_to_unless listing.deleted, listing_title, listing_path(listing.id)

@@ -58,7 +58,7 @@
 
       .checkbox-container
         = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
-        = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(other_person[:display_name], person_path(other_person[:username]))).html_safe, :class => "radio"
+        = label_tag "do_give_feedback", t("conversations.confirm.give_feedback_to", :person_link => link_to(PersonViewUtils.person_display_name(other_person, @current_community), person_path(other_person.username))).html_safe, :class => "radio"
 
       .checkbox-container
         = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
