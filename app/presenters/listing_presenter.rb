@@ -121,7 +121,8 @@ class ListingPresenter < MemoisticPresenter
     }
 
     TransactionService::API::Api.processes.get(opts)
-      .maybe[:process]
+      .maybe
+      .process
       .or_else(nil)
       .tap { |process|
         raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?

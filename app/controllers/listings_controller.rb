@@ -332,7 +332,7 @@ class ListingsController < ApplicationController
     @listing.transaction_process_id = shape[:transaction_process_id]
     @listing.listing_shape_id = shape[:id]
 
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id)
+    payment_type = @current_community.active_payment_types
     allow_posting, error_msg = payment_setup_status(
                      community: @current_community,
                      user: @current_user,

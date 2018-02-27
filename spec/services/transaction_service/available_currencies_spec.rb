@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MarketplaceService::AvailableCurrencies do
+describe TransactionService::AvailableCurrencies do
   context '#paypal_allows_country_and_currency?' do
     it 'works for all countries with valid currency' do
       country = ISO3166::Country.find_country_by_name('Finland')
@@ -13,7 +13,7 @@ describe MarketplaceService::AvailableCurrencies do
     end
 
     def paypal(country, currency)
-      MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(country, currency)
+      TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(country, currency)
     end
   end
 
@@ -28,7 +28,7 @@ describe MarketplaceService::AvailableCurrencies do
     end
 
     def stripe(country, currency)
-      MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(country, currency, :destination)
+      TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(country, currency, :destination)
     end
   end
 end

@@ -30,7 +30,6 @@ class ListingShape < ApplicationRecord
     AVAILABILITY_BOOKING = 'booking'.freeze
   ].freeze
 
-
   belongs_to :community
   belongs_to :transaction_process
   has_and_belongs_to_many :categories, -> { order("sort_priority") }, join_table: "category_listing_shapes"
