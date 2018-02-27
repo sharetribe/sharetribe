@@ -15,8 +15,8 @@ class AutomaticBookingConfirmationJob < Struct.new(:conversation_id, :current_us
     community = Community.find(community_id)
     transaction = Transaction.find(conversation_id)
 
-    if MarketplaceService::Transaction::Query.can_transition_to?(transaction.id, :confirmed)
-      MarketplaceService::Transaction::Command.transition_to(transaction.id, :confirmed)
+    if TransactionService::StateMachine.can_transition_to?(transaction.id, :confirmed)
+      TransactionService::StateMachine.transition_to(transaction.id, :confirmed)
       MailCarrier.deliver_now(PersonMailer.booking_transaction_automatically_confirmed(transaction, community))
     end
   end

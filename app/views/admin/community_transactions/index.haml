@@ -12,7 +12,7 @@
   - if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv)
     #export-as-csv.right= link_to(" " + t("admin.communities.transactions.export_all_as_csv"), {action: :export}, {remote: true, class: icon_class("download")})
 
-  %span#admin_transactions_count= page_entries_info(conversations, :model => "Transaction").html_safe
+  %span#admin_transactions_count= page_entries_info(transactions, :model => "Transaction").html_safe
 
   %table#admin_transactions
     %thead
@@ -26,18 +26,18 @@
         %th=t("admin.communities.transactions.headers.other_party")
 
     %tbody
-      - conversations.each do |conversation|
+      - transactions.each do |transaction|
         %tr
-          - listing_title = conversation[:listing_title] || t("admin.communities.transactions.not_available")
-          %td=Maybe(conversation[:listing]).map { |listing| link_to_unless(listing[:deleted], listing_title, conversation[:listing_url]) }.or_else(listing_title)
+          - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
+          %td=Maybe(transaction.listing).map { |listing| link_to_unless(listing.deleted, listing_title, listing_path(transaction.listing_id)) }.or_else(listing_title)
           %td
-            = link_to person_transaction_path(person_id: @current_user.id, id: conversation[:id]) do
-              = t("admin.communities.transactions.status.#{conversation[:payment_gateway]}.#{conversation[:status]}")
-          %td=conversation[:payment_total] ? MoneyViewUtils.to_humanized(conversation[:payment_total]) : ""
-          %td=l(conversation[:created_at], format: :short_date)
-          %td=l(conversation[:last_activity_at], format: :short_date)
-          %td=Maybe(conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
-          %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+            = link_to person_transaction_path(person_id: @current_user.id, id: transaction.id) do
+              = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+          %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
+          %td=l(transaction.created_at, format: :short_date)
+          %td=l(transaction.last_activity, format: :short_date)
+          %td=Maybe(transaction.starter).map { |p| link_to_unless(p.deleted, PersonViewUtils.person_display_name(p, @current_community),person_path(p.username)) }.or_else("")
+          %td=Maybe(transaction.author).map { |p| link_to_unless(p.deleted, PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)) }.or_else("")
   .row
     .col-12
-      = will_paginate conversations
+      = will_paginate transactions

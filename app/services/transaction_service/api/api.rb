@@ -4,15 +4,9 @@ module TransactionService::API
     class << self
       attr_accessor(
         :settings_api,
-        :transactions_api,
         :processes_api,
         :process_tokens_api
       )
-    end
-
-    def self.transactions
-      # TODO Move to TransactionService::API::Transactions
-      self.transactions_api ||= TransactionService::Transaction
     end
 
     def self.settings

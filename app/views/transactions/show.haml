@@ -1,6 +1,6 @@
 = render :partial => "conversations/conversation_header", locals: {other_party: conversation_other_party}
 
 .centered-section-wide
-  = render :partial => "transactions/details", locals: {role: role, tx: transaction, transaction_model: transaction_model, listing: listing, is_author: is_author, price_break_down_locals: price_break_down_locals}
+  = render :partial => "transactions/details", locals: {role: role, is_author: is_author, price_break_down_locals: price_break_down_locals}
 
   = render :partial => "conversations/messages_and_form", locals: {role: role, message_form: message_form, message_form_action: message_form_action, messages: messages}
