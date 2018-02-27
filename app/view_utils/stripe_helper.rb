@@ -36,7 +36,7 @@ module StripeHelper
 
   def stripe_available?(community)
     stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
-    MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(
+    TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(
       community.country,
       community.currency,
       stripe_mode

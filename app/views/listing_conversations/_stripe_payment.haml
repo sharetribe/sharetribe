@@ -43,7 +43,7 @@
       .col-8
         .us-only.hidden
           %label= t(".address_state")
-          = select_tag 'shipping_address[state_or_province]', options_for_select(us_states), class: 'required', prompt: "Select state"
+          = select_tag 'shipping_address[state_or_province]', options_for_select(CountryI18nHelper.us_states), class: 'required', prompt: "Select state"
     .row
       .col-12
 

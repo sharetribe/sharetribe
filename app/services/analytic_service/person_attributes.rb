@@ -36,12 +36,12 @@ module AnalyticService
     def payment_providers(attrs)
       result = []
       stripe_mode = StripeService::API::Api.wrapper.charges_mode(community.id)
-      if MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(community.country,
+      if TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(community.country,
                                                                                      community.currency,
                                                                                      stripe_mode)
         result.push 'stripe'
       end
-      if MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(community.country,
+      if TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(community.country,
                                                                                      community.currency)
         result.push 'paypal'
       end
@@ -68,7 +68,7 @@ module AnalyticService
     def transaction_processes_by_type(community, ids, process_type)
       result = transaction_processes(community)
       if result.data
-        result.data.select{|x| ids.include?(x[:id]) && x[:process] == process_type}.any?
+        result.data.select{|x| ids.include?(x.id) && x.process == process_type}.any?
       else
         false
       end
