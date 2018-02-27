@@ -1,8 +1,6 @@
 class ConversationsController < ApplicationController
   include MoneyRails::ActionViewExtension
 
-  MessageForm = Form::Message
-
   before_action do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
@@ -10,17 +8,14 @@ class ConversationsController < ApplicationController
   def show
     conversation_id = params[:id]
 
-    conversation = MarketplaceService::Conversation::Query.conversation_for_person(
-      conversation_id,
-      @current_user.id,
-      @current_community.id)
+    conversation = Conversation.by_community(@current_community).for_person(@current_user).where(id: conversation_id).first
 
     if conversation.blank?
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       return redirect_to search_path
     end
 
-    transaction = Transaction.find_by_conversation_id(conversation[:id])
+    transaction = conversation.tx
 
     if transaction.present?
       # We do not want to use this controller to show conversations with transactions
@@ -29,26 +24,18 @@ class ConversationsController < ApplicationController
       redirect_to person_transaction_url(@current_user, {:id => transaction.id}) and return
     end
 
-    message_form = MessageForm.new({sender_id: @current_user.id, conversation_id: conversation_id})
+    message_form = Message.new({sender_id: @current_user.id, conversation_id: conversation_id})
 
-    conversation[:other_person] = person_entity_with_url(conversation[:other_person])
+    messages = TransactionViewUtils.conversation_messages(conversation.messages.latest, @current_community.name_display_type)
 
-    messages = TransactionViewUtils.conversation_messages(conversation[:messages], @current_community.name_display_type)
-
-    MarketplaceService::Conversation::Command.mark_as_read(conversation[:id], @current_user.id)
+    conversation.mark_as_read(@current_user.id)
 
     render locals: {
-      messages: messages.reverse,
+      messages: messages,
       conversation_data: conversation,
       message_form: message_form,
       message_form_action: person_message_messages_path(@current_user, :message_id => conversation[:id])
     }
   end
 
-  def person_entity_with_url(person_entity)
-    person_entity.merge({
-                          url: person_path(username: person_entity[:username]),
-                          display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
-                        })
-  end
 end

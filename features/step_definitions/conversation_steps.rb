@@ -38,7 +38,7 @@ end
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   @transaction = create_transaction(@current_community, @listing, @people[sender], message)
   @conversation = @transaction.conversation
-  MarketplaceService::Transaction::Command.transition_to(@transaction.id, "free")
+  TransactionService::StateMachine.transition_to(@transaction.id, "free")
   @transaction.reload
 end
 

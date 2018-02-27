@@ -104,7 +104,7 @@ module FeatureTests
 
         # Transaction conversation page
         expect(page).to have_content("Waiting for you to mark the order completed")
-        page.find(:xpath, '//a[contains(., "Accepted the request")]').click
+        page.find(:xpath, '//a[contains(., "accepted the request")]').click
 
         page.click_link("Mark completed")
 
@@ -122,7 +122,7 @@ module FeatureTests
 
         # Transaction conversation page
         expect(page).to have_content("Waiting for you to give feedback")
-        page.find(:xpath, '//a[contains(., "Marked the order as completed")]').click
+        page.find(:xpath, '//a[contains(., "marked the order as completed")]').click
         page.click_link("Skip feedback")
         expect(page).to have_content("Feedback skipped")
       end

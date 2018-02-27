@@ -30,6 +30,7 @@ class Message < ApplicationRecord
     .where('m2.created_at IS NULL')
   }
   scope :by_converation_ids, -> (converation_ids) { where(conversation_id: converation_ids) }
+  scope :latest, -> { order('messages.created_at DESC') }
 
   def update_conversation_read_status
     conversation.update_attribute(:last_message_at, created_at)
