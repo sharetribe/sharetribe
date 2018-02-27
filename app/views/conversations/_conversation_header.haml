@@ -3,4 +3,4 @@
     = link_to person_inbox_path(@current_user) do
       = t("layouts.no_tribe.inbox")
     |
-    = t("conversations.show.conversation_with", person: link_to_unless(other_party[:is_deleted], other_party[:display_name], other_party[:url])).html_safe
+    = t("conversations.show.conversation_with", person: link_to_unless(other_party.deleted, PersonViewUtils.person_display_name(other_party, @current_community),person_path(other_party))).html_safe

@@ -205,7 +205,7 @@ class HomepageController < ApplicationController
   end
 
   def location_search_params(params, keyword_search_in_use)
-    marketplace_configuration = MarketplaceService::API::Api.configurations.get(community_id: @current_community.id).data
+    marketplace_configuration = @current_community.configuration
 
     distance = params[:distance_max].to_f
     distance_system = marketplace_configuration ? marketplace_configuration[:distance_unit] : nil
