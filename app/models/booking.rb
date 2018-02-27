@@ -37,6 +37,18 @@ class Booking < ApplicationRecord
     Listing::WorkingTimeSlot.week_days.keys[start_time.wday].to_sym
   end
 
+  def final_end
+    per_hour ? end_time : end_on
+  end
+
+  def duration
+    if per_hour
+      ((end_time - start_time) / 1.hour).to_i
+    else
+      (end_on - start_on).to_i
+    end
+  end
+
   def self.columns
     super.reject { |c| c.name == "end_on_exclusive" }
   end

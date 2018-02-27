@@ -119,7 +119,7 @@ module Admin
       if !setup_status[:payment] && listing_shapes.present? &&
         listing_shapes.any? {|shape|
           Maybe(TransactionProcess.where(id: shape[:transaction_process_id]).first)
-            .map { |p| p[:process] == "none" }
+            .map { |p| p.process == :none }
             .or_else(false)
         }
         :payment

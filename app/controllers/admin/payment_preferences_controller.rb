@@ -24,8 +24,8 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       stripe_connected: stripe_connected,
       paypal_connected: paypal_connected,
       payments_connected: stripe_connected || paypal_connected,
-      stripe_allowed:  MarketplaceService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode),
-      paypal_allowed:  MarketplaceService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      stripe_allowed:  TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode),
+      paypal_allowed:  TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
       stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
       paypal_enabled_by_admin: !!paypal_tx_settings[:active],
@@ -150,7 +150,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     {
       min_commission_percentage: MIN_COMMISSION_PERCENTAGE,
       max_commission_percentage: MAX_COMMISSION_PERCENTAGE,
-      available_currencies: MarketplaceService::AvailableCurrencies::CURRENCIES,
+      available_currencies: TransactionService::AvailableCurrencies::CURRENCIES,
       currency: @current_community.currency,
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url,
@@ -180,7 +180,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
         if: proc { mode == 'transaction_fee' || mode == 'paypal' }
       )
 
-      available_currencies = MarketplaceService::AvailableCurrencies::CURRENCIES
+      available_currencies = TransactionService::AvailableCurrencies::CURRENCIES
       validates_inclusion_of(:marketplace_currency, in: available_currencies)
 
       validate do |prefs|
