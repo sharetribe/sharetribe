@@ -50,14 +50,16 @@
 #
 
 class Transaction < ApplicationRecord
+  include ExportTransaction
+
   attr_accessor :contract_agreed
 
   belongs_to :community
   belongs_to :listing
   has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
-  has_one :booking, :dependent => :destroy
+  has_one :booking, dependent: :destroy
   has_one :shipping_address, dependent: :destroy
-  belongs_to :starter, :class_name => "Person", :foreign_key => "starter_id"
+  belongs_to :starter, class_name: "Person", foreign_key: :starter_id
   belongs_to :conversation
   has_many :testimonials
 
@@ -66,7 +68,17 @@ class Transaction < ApplicationRecord
 
   accepts_nested_attributes_for :booking
 
-  validates_presence_of :payment_gateway
+  validates :payment_gateway, presence: true, on: :create
+  validates :community_uuid, :listing_uuid, :starter_id, :starter_uuid, presence: true, on: :create
+  validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}, on: :create
+  validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true, on: :create
+  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil, :hour, :day, :night, :week, :month, :custom], on: :create
+  validates :availability, inclusion: ["none", "booking", :none, :booking], on: :create
+  validates :delivery_method, inclusion: ["none", "shipping", "pickup", nil, :none, :shipping, :pickup], on: :create
+  validates :payment_process, inclusion: [:none, :postpay, :preauthorize], on: :create
+  validates :payment_gateway, inclusion: [:paypal, :checkout, :braintree, :stripe, :none], on: :create
+  validates :commission_from_seller, numericality: {only_integer: true}, on: :create
+  validates :automatic_confirmation_after_days, numericality: {only_integer: true}, on: :create
 
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
@@ -130,6 +142,26 @@ class Transaction < ApplicationRecord
     end
   end
 
+  def starter_uuid=(value)
+    write_attribute(:starter_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def listing_uuid=(value)
+    write_attribute(:listing_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def community_uuid=(value)
+    write_attribute(:community_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def listing_author_uuid=(value)
+    write_attribute(:listing_author_uuid, UUIDUtils::RAW.call(value))
+  end
+
+  def booking_uuid=(value)
+    write_attribute(:booking_uuid, UUIDUtils::RAW.call(value))
+  end
+
   def status
     current_state
   end
@@ -182,20 +214,6 @@ class Transaction < ApplicationRecord
     author
   end
 
-  # Return true if the transaction is in a state that it can be confirmed
-  def can_be_confirmed?
-    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
-    # Models should not know anything about services
-    MarketplaceService::Transaction::Query.can_transition_to?(self.id, :confirmed)
-  end
-
-  # Return true if the transaction is in a state that it can be canceled
-  def can_be_canceled?
-    # TODO This is a lazy fix. Remove this method, and make the caller to use the service directly
-    # Models should not know anything about services
-    MarketplaceService::Transaction::Query.can_transition_to?(self.id, :canceled)
-  end
-
   def with_type(&block)
     block.call(:listing_conversation)
   end
@@ -213,6 +231,50 @@ class Transaction < ApplicationRecord
 
   def unit_type
     Maybe(read_attribute(:unit_type)).to_sym.or_else(nil)
+  end
+
+  def item_total
+    unit_price * listing_quantity
+  end
+
+  def payment_gateway
+    read_attribute(:payment_gateway)&.to_sym
+  end
+
+  def payment_process
+    read_attribute(:payment_process)&.to_sym
+  end
+
+  def commission
+    [(item_total * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
+     (minimum_commission unless minimum_commission.nil? || minimum_commission.zero?),
+     Money.new(0, item_total.currency)]
+      .compact
+      .max
+  end
+
+  def waiting_testimonial_from?(person_id)
+    if starter_id == person_id && starter_skipped_feedback
+      false
+    elsif listing_author_id == person_id && author_skipped_feedback
+      false
+    else
+      testimonials.detect{|t| t.author_id == person_id}.nil?
+    end
+  end
+
+  def mark_as_seen_by_current(person_id)
+    self.conversation
+      .participations
+      .where("person_id = '#{person_id}'")
+      .update_all(is_read: true) # rubocop:disable Rails/SkipsModelValidations
+  end
+
+  def payment_total
+    unit_price       = self.unit_price || 0
+    quantity         = self.listing_quantity || 1
+    shipping_price   = self.shipping_price || 0
+    (unit_price * quantity) + shipping_price
   end
 
 end

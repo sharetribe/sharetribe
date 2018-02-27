@@ -100,7 +100,7 @@ describe UserService::API::Users do
       # flag
       expect(new_user.deleted).not_to eql(true)
 
-      delete_user(user.id)
+      Person.delete_user(user.id)
 
       deleted_user = Person.find(user.id)
       expect(deleted_user.given_name).to be_nil

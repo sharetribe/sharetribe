@@ -23,22 +23,28 @@
 
     %tbody
       - conversations.each do |conversation|
+        - starter = conversation.starter
+        - starter_name = PersonViewUtils.person_display_name_for_type(starter, 'first_name_with_initial')
+        - recipient = conversation.recipient
+        - recipient_name = PersonViewUtils.person_display_name_for_type(recipient, 'first_name_with_initial')
         %tr
-          - listing = conversation[:listing]
-          - if listing
-            - listing_title = listing.title || t("admin.communities.conversations.not_available")
-            %td=link_to_unless listing.deleted, listing_title, listing_path(listing.id)
-          - else
-            %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], t("admin.communities.conversations.profile", author: p[:display_name]), p[:url]) }.or_else("")
           %td
-            - if conversation[:transaction] && conversation[:transaction][:payment_process] == 'none'
-              =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
-            - else
-              =link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation[:id])
-          %td=l(conversation[:created_at], format: :short_date)
-          %td=l(conversation[:last_message_at], format: :short_date)
-          %td=Maybe(conversation[:starter]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
-          %td=Maybe(conversation[:author]).map { |p| link_to_unless(p[:is_deleted], p[:display_name], p[:url]) }.or_else("")
+            - listing = conversation.listing
+            - if listing
+              - listing_title = listing.title || t("admin.communities.conversations.not_available")
+              = link_to_unless listing.deleted, listing_title, listing_path(listing.id)
+            - elsif recipient
+              = link_to t("admin.communities.conversations.profile", author: recipient_name), person_path(recipient.username)
+          %td
+            = link_to t("admin.communities.transactions.status.conversation"), admin_community_conversation_path(@current_community.id, conversation.id)
+          %td=l(conversation.created_at, format: :short_date)
+          %td=l(conversation.last_message_at, format: :short_date)
+          %td
+            - if starter
+              = link_to starter_name, person_path(starter.username)
+          %td
+            - if recipient
+              = link_to recipient_name, person_path(recipient.username)
   .row
     .col-12
       = will_paginate conversations

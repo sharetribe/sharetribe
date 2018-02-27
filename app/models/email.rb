@@ -64,4 +64,8 @@ class Email < ApplicationRecord
       .joins("INNER JOIN community_memberships ON community_memberships.person_id = emails.person_id")
       .find_by(address: address, community_memberships: { community_id: community_id })
   end
+
+  def self.unsubscribe_email_from_community_updates(email_address)
+    Email.where(address: email_address).map(&:person).each(&:unsubscribe_from_community_updates)
+  end
 end

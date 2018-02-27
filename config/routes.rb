@@ -116,7 +116,7 @@ Rails.application.routes.draw do
 
     put '/mercury_update' => "mercury_update#update", :as => :mercury_update
 
-    get "/transactions/op_status/:process_token" => "transactions#paypal_op_status", as: :paypal_op_status
+    get "/transactions/op_status/:process_token" => "paypal_service/checkout_orders#paypal_op_status", as: :paypal_op_status
     get "/transactions/transaction_op_status/:process_token" => "transactions#transaction_op_status", :as => :transaction_op_status
     get "/transactions/created/:transaction_id" => "transactions#created", as: :transaction_created
     get "/transactions/finalize_processed/:process_token" => "transactions#finalize_processed", as: :transaction_finalize_processed

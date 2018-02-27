@@ -8,7 +8,7 @@ class MailPreview < MailView
   end
 
   def paypal_receipt_to_payer
-    transaction = TransactionService::DataTypes::Transaction.create_transaction({
+    transaction = Transaction.new({
         id: 999,
         payment_process: :preauthorize,
         payment_gateway: :paypal,
@@ -33,7 +33,7 @@ class MailPreview < MailView
   end
 
   def paypal_new_payment
-    transaction = TransactionService::DataTypes::Transaction.create_transaction({
+    transaction = Transaction.new({
         id: 999,
         payment_process: :preauthorize,
         payment_gateway: :paypal,

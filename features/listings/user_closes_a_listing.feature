@@ -19,7 +19,7 @@ Feature: User closes a listing
     And I follow "Reopen listing"
     And I select subcategory "Tools"
     And I press "Save listing"
-    And I should see "Listing updated successfully" within ".flash-notifications"
+    And I should see "Listing updated successfully"
     And I should not see "Reopen listing" within "#listing-message-links"
     And I should see "Edit listing" within "#listing-message-links"
     And I should see "Close listing" within "#listing-message-links"

@@ -10,21 +10,21 @@ module TransactionService::Gateway
     def create_payment(tx:, gateway_fields:, force_sync:)
       create_payment_info = DataTypes.create_create_payment_request(
         {
-         transaction_id: tx[:id],
+         transaction_id: tx.id,
          payment_action: :authorization,
-         item_name: tx[:listing_title],
-         item_quantity: tx[:listing_quantity],
-         item_price: tx[:unit_price],
-         merchant_id: tx[:listing_author_id],
-         require_shipping_address: tx[:delivery_method] == :shipping,
-         shipping_total: tx[:shipping_price],
+         item_name: tx.listing_title,
+         item_quantity: tx.listing_quantity,
+         item_price: tx.unit_price,
+         merchant_id: tx.listing_author_id,
+         require_shipping_address: tx.delivery_method == 'shipping',
+         shipping_total: tx.shipping_price,
          order_total: order_total(tx),
          success: gateway_fields[:success_url],
          cancel: gateway_fields[:cancel_url],
          merchant_brand_logo_url: gateway_fields[:merchant_brand_logo_url]})
 
       result = paypal_api.payments.request(
-        tx[:community_id],
+        tx.community_id,
         create_payment_info,
         force_sync: force_sync)
 
@@ -42,22 +42,22 @@ module TransactionService::Gateway
     end
 
     def reject_payment(tx:, reason: "")
-      AsyncCompletion.new(paypal_api.payments.void(tx[:community_id], tx[:id], {note: reason}))
+      AsyncCompletion.new(paypal_api.payments.void(tx.community_id, tx.id, {note: reason}))
     end
 
     def complete_preauthorization(tx:)
       AsyncCompletion.new(
-        paypal_api.payments.get_payment(tx[:community_id], tx[:id])
+        paypal_api.payments.get_payment(tx.community_id, tx.id)
         .and_then { |payment|
           paypal_api.payments.full_capture(
-            tx[:community_id],
-            tx[:id],
+            tx.community_id,
+            tx.id,
             DataTypes.create_payment_info({ payment_total: payment[:authorization_total] }))
         })
     end
 
     def get_payment_details(tx:)
-      payment = paypal_api.payments.get_payment(tx[:community_id], tx[:id]).maybe
+      payment = paypal_api.payments.get_payment(tx.community_id, tx.id).maybe
 
       payment_total = payment[:payment_total].or_else(nil)
       total_price = Maybe(payment[:payment_total].or_else(payment[:authorization_total].or_else(nil)))
@@ -80,8 +80,8 @@ module TransactionService::Gateway
       # we don't use separated unit price and quantity, only the total
       # price for now.
 
-      shipping_total = Maybe(tx[:shipping_price]).or_else(0)
-      tx[:unit_price] * tx[:listing_quantity] + shipping_total
+      shipping_total = Maybe(tx.shipping_price).or_else(0)
+      tx.unit_price * tx.listing_quantity + shipping_total
     end
   end
 

@@ -16,7 +16,7 @@ class IntApi::MarketplacesController < ApplicationController
     # of the just created marketplace's name
     ApplicationHelper.store_community_service_name_to_thread(APP_CONFIG.global_service_name)
 
-    marketplace = MarketplaceService::API::Marketplaces.create(
+    marketplace = MarketplaceService.create(
       params.slice(:marketplace_name,
                    :marketplace_type,
                    :marketplace_country,
@@ -28,16 +28,16 @@ class IntApi::MarketplacesController < ApplicationController
     plan = {
       expires_at: Time.now.change({ hour: 9, min: 0, sec: 0 }) + 31.days
     }
-    PlanService::API::Api.plans.create_initial_trial(community_id: marketplace[:id], plan: plan)
+    PlanService::API::Api.plans.create_initial_trial(community_id: marketplace.id, plan: plan)
 
     if marketplace
       TransactionService::API::Api.settings.provision(
-        community_id: marketplace[:id],
+        community_id: marketplace.id,
         payment_gateway: :paypal,
         payment_process: :preauthorize,
         active: true)
       TransactionService::API::Api.settings.provision(
-        community_id: marketplace[:id],
+        community_id: marketplace.id,
         payment_gateway: :stripe,
         payment_process: :preauthorize,
         active: true)
@@ -49,9 +49,9 @@ class IntApi::MarketplacesController < ApplicationController
         email: params[:admin_email],
         password: params[:admin_password],
         locale: params[:marketplace_language]},
-        marketplace[:id]).data
+        marketplace.id).data
 
-    base_url = URI(marketplace[:url])
+    base_url = URI(marketplace.full_url)
     url = admin_getting_started_guide_url(host: base_url.host, port: base_url.port)
 
     # make the marketplace creator be logged in via Auth Token
@@ -59,12 +59,12 @@ class IntApi::MarketplacesController < ApplicationController
     url = URLUtils.append_query_param(url, "auth", auth_token[:token])
 
     # Enable specific features for all new trials
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], person_id: user[:id], features: [:topbar_v1])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:topbar_v1])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:topbar_v1])
 
     # TODO handle error cases with proper response
 
-    render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace[:id]}
+    render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace.id}
   end
 
   def create_prospect_email

@@ -1,21 +1,20 @@
 require 'csv'
 
 class Admin::CommunityTransactionsController < Admin::AdminBaseController
-  TransactionQuery = MarketplaceService::Transaction::Query
 
   def index
     @selected_left_navi_link = "transactions"
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
-    conversations = if params[:sort].nil? || params[:sort] == "last_activity"
-      TransactionQuery.transactions_for_community_sorted_by_activity(
+    transactions = if params[:sort].nil? || params[:sort] == "last_activity"
+      Transaction.for_community_sorted_by_activity(
         @current_community.id,
         sort_direction,
         pagination_opts[:limit],
         pagination_opts[:offset],
         request.format == :csv)
     else
-      TransactionQuery.transactions_for_community_sorted_by_column(
+      Transaction.for_community_sorted_by_column(
         @current_community.id,
         simple_sort_column(params[:sort]),
         sort_direction,
@@ -23,37 +22,9 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         pagination_opts[:offset])
     end
 
-    count = TransactionQuery.transactions_count_for_community(@current_community.id)
-
-    # TODO THIS IS COPY-PASTE
-    conversations = conversations.map do |transaction|
-      conversation = transaction[:conversation]
-      # TODO Embed author and starter to the transaction entity
-      # author = conversation[:other_person]
-      author = Maybe(conversation[:other_person]).or_else({is_deleted: true})
-      starter = Maybe(conversation[:starter_person]).or_else({is_deleted: true})
-
-      [author, starter].each { |p|
-        p[:url] = person_path(p[:username]) unless p[:username].nil?
-        p[:display_name] = PersonViewUtils.person_entity_display_name(p, "fullname")
-      }
-
-      if transaction[:listing].present?
-        # This if was added to tolerate cases where listing has been deleted
-        # due the author deleting his/her account completely
-        # UPDATE: December 2014, we did an update which keeps the listing row even if user is deleted.
-        # So, we do not need to tolerate this anymore. However, there are transactions with deleted
-        # listings in DB, so those have to be handled.
-        transaction[:listing_url] = listing_path(id: transaction[:listing][:id])
-      end
-
-      transaction[:last_activity_at] = ExportTransactionsJob.last_activity_for(transaction)
-
-      transaction.merge({author: author, starter: starter})
-    end
-
-    conversations = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
-      pager.replace(conversations)
+    count = Transaction.exist.by_community(@current_community.id).with_payment_conversation.count
+    transactions = WillPaginate::Collection.create(pagination_opts[:page], pagination_opts[:per_page], count) do |pager|
+      pager.replace(transactions)
     end
 
     respond_to do |format|
@@ -61,7 +32,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
         render("index", {
           locals: {
             community: @current_community,
-            conversations: conversations
+            transactions: transactions,
           }
         })
       end
@@ -79,7 +50,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
           self.response.headers["Last-Modified"] = Time.now.ctime.to_s
 
           self.response_body = Enumerator.new do |yielder|
-            ExportTransactionsJob.generate_csv_for(yielder, conversations)
+            ExportTransactionsJob.generate_csv_for(yielder, transactions)
           end
         end
       end
