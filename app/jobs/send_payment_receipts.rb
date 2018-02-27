@@ -3,7 +3,7 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
   include DelayedAirbrakeNotification
 
   def perform
-    transaction = TransactionService::Transaction.query(transaction_id)
+    transaction = Transaction.find(transaction_id)
     set_service_name!(transaction[:community_id])
     receipt_to_seller = seller_should_receive_receipt(transaction[:listing_author_id])
 
