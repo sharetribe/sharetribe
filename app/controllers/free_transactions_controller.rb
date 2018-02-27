@@ -53,9 +53,8 @@ class FreeTransactionsController < ApplicationController
       end
 
       transaction_id = transaction_response[:data][:transaction][:id]
-      MarketplaceService::Transaction::Command.transition_to(transaction_id, "free")
+      TransactionService::StateMachine.transition_to(transaction_id, "free")
 
-      # TODO: remove references to transaction model
       transaction = Transaction.find(transaction_id)
 
       flash[:notice] = t("layouts.notifications.message_sent")

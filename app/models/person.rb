@@ -67,6 +67,7 @@ class Person < ApplicationRecord
 
   include ErrorsHelper
   include ApplicationHelper
+  include DeletePerson
 
   self.primary_key = "id"
 
@@ -620,6 +621,11 @@ class Person < ApplicationRecord
     self.legacy_encrypted_password = nil
     self.password_salt = nil
     super
+  end
+
+  def unsubscribe_from_community_updates
+    self.min_days_between_community_updates = 100000
+    self.save!
   end
 
   private

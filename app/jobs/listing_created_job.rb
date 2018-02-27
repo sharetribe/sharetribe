@@ -14,9 +14,33 @@ class ListingCreatedJob < Struct.new(:listing_id, :community_id)
     listing = Listing.find(listing_id)
     community = Community.find(community_id)
     # Send reminder about missing payment information
-    if MarketplaceService::Listing::Entity.send_payment_settings_reminder?(listing_id, community_id)
+    if send_payment_settings_reminder?(listing_id, community)
       MailCarrier.deliver_now(PersonMailer.payment_settings_reminder(listing, listing.author, community))
     end
   end
 
+  def send_payment_settings_reminder?(listing_id, community)
+    listing = Listing.find(listing_id)
+    payment_type = community.active_payment_types
+
+    query_info = {
+      transaction: {
+        payment_gateway: payment_type,
+        listing_author_id: listing.author.id,
+        community_id: community.id
+      }
+    }
+
+    opts = {
+      community_id: community.id,
+      process_id: listing.transaction_process_id
+    }
+
+    process = TransactionService::API::Api.processes.get(opts).maybe.process.or_else(nil)
+
+    raise ArgumentError.new("Cannot find transaction process: #{opts}") if process.nil?
+
+    payment_type && process == :preauthorize &&
+      !TransactionService::Transaction.can_start_transaction(query_info).data[:result]
+  end
 end
