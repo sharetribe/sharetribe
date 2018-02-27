@@ -38,5 +38,5 @@ Feature: Admin create, update, destroy listing shapes
     Then I should not see "Requesting"
     When I select "Selling" from listing type menu
      And I press "Save listing"
-    Then I should see "Listing updated successfully" within ".flash-notifications"
+    Then I should see "Listing updated successfully"
      And I should see "Edit listing" within "#listing-message-links"

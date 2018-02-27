@@ -17,18 +17,16 @@ describe TransactionMailer, type: :mailer do
       FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
                                           payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
                                           commission_total_cents: 0, commission_fee_total_cents: 0)
-      serviced_transaction = TransactionService::Transaction.query(transaction.id)
-      service_name(serviced_transaction[:community_id])
-      serviced_transaction
+      service_name(transaction.community_id)
+      transaction
     end
     let(:stripe_transaction) do
       transaction = FactoryGirl.create(:transaction, starter: buyer,
                                                      community: community, listing: listing,
                                                      current_state: 'paid', payment_gateway: 'stripe')
       FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction)
-      serviced_transaction = TransactionService::Transaction.query(transaction.id)
-      service_name(serviced_transaction[:community_id])
-      serviced_transaction
+      service_name(transaction.community_id)
+      transaction
     end
 
     describe '#payment_receipt_to_seller' do

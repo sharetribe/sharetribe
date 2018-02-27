@@ -26,10 +26,10 @@ class TransactionMailer < ActionMailer::Base
     with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
       payment_type = transaction.payment_gateway.to_sym
-      gateway_expires = MarketplaceService::Transaction::Entity.authorization_expiration_period(payment_type)
+      gateway_expires = TransactionService::Transaction.authorization_expiration_period(payment_type)
 
       expires = Maybe(transaction).booking.end_on.map { |booking_end|
-        MarketplaceService::Transaction::Entity.preauth_expires_at(gateway_expires.days.from_now, booking_end)
+        TransactionService::Transaction.preauth_expires_at(gateway_expires.days.from_now, booking_end)
       }.or_else(gateway_expires.days.from_now)
 
       buffer = 1.minute # Add a small buffer (it might take a couple seconds until the email is sent)
@@ -68,13 +68,14 @@ class TransactionMailer < ActionMailer::Base
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
   def payment_receipt_to_seller(transaction, seller_model = nil, buyer_model = nil, community = nil)
-    seller_model ||= Person.find(transaction[:listing_author_id])
-    buyer_model ||= Person.find(transaction[:starter_id])
-    community ||= Community.find(transaction[:community_id])
+    seller_model ||= Person.find(transaction.listing_author_id)
+    buyer_model ||= Person.find(transaction.starter_id)
+    community ||= Community.find(transaction.community_id)
 
-    payment_total = transaction[:payment_total]
-    service_fee = Maybe(transaction[:charged_commission]).or_else(Money.new(0, payment_total.currency))
-    gateway_fee = transaction[:payment_gateway_fee]
+    payment = TransactionService::Transaction.payment_details(transaction)
+    payment_total = payment[:payment_total]
+    service_fee = Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
+    gateway_fee = payment[:payment_gateway_fee]
 
     prepare_template(community, seller_model, "email_about_new_payments")
     with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
@@ -83,10 +84,10 @@ class TransactionMailer < ActionMailer::Base
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
-      listing_title = if transaction[:booking].try(:[], :per_hour)
-        t("emails.new_payment.listing_per_unit_title", title: transaction[:listing_title], unit_type: unit_type)
+      listing_title = if transaction.booking.try(:per_hour?)
+        t("emails.new_payment.listing_per_unit_title", title: transaction.listing_title, unit_type: unit_type)
       else
-        transaction[:listing_title]
+        transaction.listing_title
       end
 
       premailer_mail(:to => seller_model.confirmed_notification_emails_to,
@@ -94,22 +95,22 @@ class TransactionMailer < ActionMailer::Base
                      :subject => t("emails.new_payment.new_payment")) do |format|
         format.html {
           render "payment_receipt_to_seller", locals: {
-                   conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction[:id])),
+                   conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction.id)),
                    listing_title: listing_title,
                    price_per_unit_title: t("emails.new_payment.price_per_unit_type", unit_type: unit_type),
                    quantity_selector_label: quantity_selector_label,
-                   listing_price: MoneyViewUtils.to_humanized(transaction[:listing_price]),
-                   listing_quantity: transaction[:listing_quantity],
-                   duration: transaction[:booking].present? ? transaction[:booking][:duration] : nil,
-                   subtotal: MoneyViewUtils.to_humanized(transaction[:item_total]),
+                   listing_price: MoneyViewUtils.to_humanized(transaction.unit_price),
+                   listing_quantity: transaction.listing_quantity,
+                   duration: transaction.booking.present? ? transaction.listing_quantity: nil,
+                   subtotal: MoneyViewUtils.to_humanized(transaction.item_total),
                    payment_total: MoneyViewUtils.to_humanized(payment_total),
-                   shipping_total: MoneyViewUtils.to_humanized(transaction[:shipping_price]),
+                   shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),
                    payment_gateway_fee: MoneyViewUtils.to_humanized(-gateway_fee),
                    payment_seller_gets: MoneyViewUtils.to_humanized(you_get),
                    payer_full_name: buyer_model.name(community),
                    payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
-                   gateway: transaction[:payment_gateway],
+                   gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(seller_model.locale),
                  }
         }
@@ -119,19 +120,20 @@ class TransactionMailer < ActionMailer::Base
 
   # seller_model, buyer_model and community can be passed as params for testing purposes
   def payment_receipt_to_buyer(transaction, seller_model = nil, buyer_model = nil, community = nil)
-    seller_model ||= Person.find(transaction[:listing_author_id])
-    buyer_model ||= Person.find(transaction[:starter_id])
-    community ||= Community.find(transaction[:community_id])
+    seller_model ||= Person.find(transaction.listing_author_id)
+    buyer_model ||= Person.find(transaction.starter_id)
+    community ||= Community.find(transaction.community_id)
+    payment = TransactionService::Transaction.payment_details(transaction)
 
     prepare_template(community, buyer_model, "email_about_new_payments")
     with_locale(buyer_model.locale, community.locales.map(&:to_sym), community.id) do
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
-      listing_title = if transaction[:booking].try(:[], :per_hour)
-        t("emails.receipt_to_payer.listing_per_unit_title", title: transaction[:listing_title], unit_type: unit_type)
+      listing_title = if transaction.booking.try(:per_hour?)
+        t("emails.receipt_to_payer.listing_per_unit_title", title: transaction.listing_title, unit_type: unit_type)
       else
-        transaction[:listing_title]
+        transaction.listing_title
       end
 
       premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
@@ -139,21 +141,21 @@ class TransactionMailer < ActionMailer::Base
                      :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
         format.html {
           render "payment_receipt_to_buyer", locals: {
-                   conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction[:id]})),
+                   conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction.id})),
                    listing_title: listing_title,
                    price_per_unit_title: t("emails.receipt_to_payer.price_per_unit_type", unit_type: unit_type),
                    quantity_selector_label: quantity_selector_label,
-                   listing_price: MoneyViewUtils.to_humanized(transaction[:listing_price]),
-                   listing_quantity: transaction[:listing_quantity],
-                   duration: transaction[:booking].present? ? transaction[:booking][:duration] : nil,
-                   subtotal: MoneyViewUtils.to_humanized(transaction[:item_total]),
-                   shipping_total: MoneyViewUtils.to_humanized(transaction[:shipping_price]),
-                   payment_total: MoneyViewUtils.to_humanized(transaction[:payment_total]),
+                   listing_price: MoneyViewUtils.to_humanized(transaction.unit_price),
+                   listing_quantity: transaction.listing_quantity,
+                   duration: transaction.booking.present? ? transaction.listing_quantity : nil,
+                   subtotal: MoneyViewUtils.to_humanized(transaction.item_total),
+                   shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
+                   payment_total: MoneyViewUtils.to_humanized(payment[:payment_total]),
                    recipient_full_name: seller_model.name(community),
                    recipient_given_name: PersonViewUtils.person_display_name_for_type(seller_model, "first_name_only"),
                    automatic_confirmation_days: nil,
                    show_money_will_be_transferred_note: false,
-                   gateway: transaction[:payment_gateway],
+                   gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(buyer_model.locale),
                  }
         }

@@ -14,7 +14,7 @@ class InfosController < ApplicationController
     content = if @community_customization && !@community_customization.how_to_use_page_content.nil?
       @community_customization.how_to_use_page_content.html_safe
     else
-      MarketplaceService::API::Marketplaces::Helper.how_to_use_page_default_content(I18n.locale, @current_community.name(I18n.locale))
+      MarketplaceService.how_to_use_page_default_content(I18n.locale, @current_community.name(I18n.locale))
     end
     render locals: { how_to_use_content: content }
   end

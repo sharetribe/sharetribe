@@ -1,6 +1,5 @@
 require 'csv'
 class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :export_task_id)
-  TransactionQuery = MarketplaceService::Transaction::Query
   include DelayedAirbrakeNotification
 
   # This before hook should be included in all Jobs to make sure that the service_name is
@@ -13,21 +12,10 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
 
   def perform
     community = Community.find(community_id)
-    user = Person.find(current_user_id)
     export_task = ExportTaskResult.find(export_task_id)
     export_task.update_attributes(status: 'started')
 
-    conversations = TransactionQuery.transactions_for_community_sorted_by_activity(community.id, 'desc', nil, nil, true)
-    conversations = conversations.map do |transaction|
-      conversation = transaction[:conversation]
-      author = Maybe(conversation[:other_person]).or_else({is_deleted: true})
-      starter = Maybe(conversation[:starter_person]).or_else({is_deleted: true})
-      transaction[:last_activity_at] = ExportTransactionsJob.last_activity_for(transaction)
-
-      transaction.merge({author: author, starter: starter})
-    end
-
-
+    conversations = Transaction.for_community_sorted_by_activity(community.id, 'desc', nil, nil, true)
     csv_rows = []
     ExportTransactionsJob.generate_csv_for(csv_rows, conversations)
     csv_content = csv_rows.join("")
@@ -49,46 +37,35 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
     end
   end
 
-  def self.generate_csv_for(yielder, conversations)
-    # first line is column names
-    yielder << %w{
-      transaction_id
-      listing_id
-      listing_title
-      status
-      currency
-      sum
-      started_at
-      last_activity_at
-      starter_username
-      other_party_username
-    }.to_csv(force_quotes: true)
-    conversations.each do |conversation|
-      yielder << [
-        conversation[:id],
-        conversation[:listing] ? conversation[:listing][:id] : "N/A",
-        conversation[:listing_title] || "N/A",
-        conversation[:status],
-        conversation[:payment_total].is_a?(Money) ? conversation[:payment_total].currency : "N/A",
-        conversation[:payment_total],
-        conversation[:created_at],
-        conversation[:last_activity_at],
-        conversation[:starter] ? conversation[:starter][:username] : "DELETED",
-        conversation[:author] ? conversation[:author][:username] : "DELETED"
-      ].to_csv(force_quotes: true)
+  class << self
+    def generate_csv_for(yielder, transactions)
+     # first line is column names
+     yielder << %w{
+       transaction_id
+       listing_id
+       listing_title
+       status
+       currency
+       sum
+       started_at
+       last_activity_at
+       starter_username
+       other_party_username
+     }.to_csv(force_quotes: true)
+     transactions.each do |transaction|
+       yielder << [
+         transaction.id,
+         transaction.listing ? transaction.listing.id : "N/A",
+         transaction.listing_title || "N/A",
+         transaction.status,
+         transaction.payment_total.is_a?(Money) ? transaction.payment_total.currency : "N/A",
+         transaction.payment_total,
+         transaction.created_at,
+         transaction.last_activity,
+         transaction.starter ? transaction.starter.username : "DELETED",
+         transaction.author ? transaction.author.username : "DELETED"
+       ].to_csv(force_quotes: true)
+     end
     end
   end
-
-  def self.last_activity_for(conversation)
-    last_activity_at = 0
-    last_activity_at = if conversation[:conversation][:last_message_at].nil?
-      conversation[:last_transition_at]
-    elsif conversation[:last_transition_at].nil?
-      conversation[:conversation][:last_message_at]
-    else
-      [conversation[:last_transition_at], conversation[:conversation][:last_message_at]].max
-    end
-    last_activity_at
-  end
-
 end
