@@ -710,6 +710,8 @@ en:
       stripe: Stripe
       paypal: PayPal
       info: "Payments in %{service_name} are processed by either Stripe (credit/debit card) or PayPal. %{service_name} will charge a commission depending on the payment gateway. The payment gateway also charges a fee for each payment."
+      info_paypal: "Payment in %{service_name} are processed by PayPal."
+      info_stripe: "Payment in %{service_name} are processed by Stripe."
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-

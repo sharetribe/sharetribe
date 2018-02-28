@@ -35,7 +35,12 @@
   = render layout: "layouts/lightbox", locals: { id: "payment_fee_info_content"} do
     %h2= t("common.payment_fee_info.title")
 
-    %p= t("common.payment_fee_info.info")
+    - if payment_gateway == :stripe
+      %p= t("common.payment_fee_info.info_stripe")
+    - elsif payment_gateway == :paypal
+      %p= t("common.payment_fee_info.info_paypal")
+    - else
+      %p= t("common.payment_fee_info.info")
 
     - if payment_gateway == :stripe || payment_gateway == [:paypal, :stripe]
       %h4= t("common.payment_fee_info.stripe")
