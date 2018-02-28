@@ -23,27 +23,24 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ## [7.3.0] - 2018-02-23
 
 ### Added
+
 - Per hour availability [3166](https://github.com/sharetribe/sharetribe/pull/3166)
 - Support for NZ bank account with Stripe [3165](https://github.com/sharetribe/sharetribe/pull/3165)
 - "View conversations" section in admin panel [3173](https://github.com/sharetribe/sharetribe/pull/3173)
 - Account tokens for Stripe bank account connections [3234](https://github.com/sharetribe/sharetribe/pull/3234)
 
-
 ### Changed
+
 - Made user confirmation form more secure [3170](https://github.com/sharetribe/sharetribe/pull/3170)
 
-
-### Deprecated
-
 ### Removed
+
 - Confirmation days x after end time of the transaction [3205](https://github.com/sharetribe/sharetribe/pull/3205)
 
 ### Fixed
 
 - Improvements to PayPal workflow (IPNs) [3176](https://github.com/sharetribe/sharetribe/pull/3176)
 - Some bugs related to sending emails from admin[#3183](https://github.com/sharetribe/sharetribe/pull/3183)
-
-### Security
 
 ## [7.2.0] - 2017-11-22
 
