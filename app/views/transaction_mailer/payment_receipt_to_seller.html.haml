@@ -1,7 +1,10 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      = t("emails.payment_receipt_to_seller.you_have_received_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :payer_full_name => payer_given_name).html_safe
+      - if gateway == :stripe
+        = t("emails.payment_receipt_to_seller.stripe.you_have_received_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :payer_full_name => payer_given_name, :service_name => community_name).html_safe
+      - else
+        = t("emails.payment_receipt_to_seller.you_have_received_new_payment", :listing_title => listing_title, :payment_sum => payment_total, :payer_full_name => payer_given_name).html_safe
 
 %tr
   %td{:align => "left", :style => "padding: 20px 0;"}

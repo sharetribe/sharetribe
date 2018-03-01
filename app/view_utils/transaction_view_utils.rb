@@ -42,7 +42,7 @@ module TransactionViewUtils
     (messages + transitions).sort_by { |hash| hash[:created_at] }
   end
 
-  def create_messages_from_actions(transitions, author, starter, payment_sum)
+  def create_messages_from_actions(transitions, author, starter, payment_sum, payment_gateway, community_id)
     return [] if transitions.blank?
 
     ignored_transitions = [
@@ -65,7 +65,7 @@ module TransactionViewUtils
         ignored_transitions.include? transition[:to_state]
       }
       .map { |(transition, previous_state)|
-        create_message_from_action(transition, previous_state, author, starter, payment_sum)
+        create_message_from_action(transition, previous_state, author, starter, payment_sum, payment_gateway, community_id)
       }
   end
 
@@ -86,14 +86,16 @@ module TransactionViewUtils
 
       transitions = transaction[:transitions]
       payment_sum = transaction[:payment_total]
+      payment_gateway = transaction[:payment_gateway]
+      community_id = transaction[:community_id]
 
-      create_messages_from_actions(transitions, author, starter, payment_sum)
+      create_messages_from_actions(transitions, author, starter, payment_sum, payment_gateway, community_id)
     else
       []
     end
   end
 
-  def create_message_from_action(transition, old_state, author, starter, payment_sum)
+  def create_message_from_action(transition, old_state, author, starter, payment_sum, payment_gateway, community_id)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
@@ -145,35 +147,45 @@ module TransactionViewUtils
 
     MessageBubble[message.merge(
       created_at: transition[:created_at],
-      content: create_content_from_action(transition[:to_state], old_state, payment_sum)
+      content: create_content_from_action(transition[:to_state], old_state, payment_sum, payment_gateway, community_id, author)
     )]
   end
 
-  def create_content_from_action(state, old_state, payment_sum)
+  def create_content_from_action(state, old_state, payment_sum, payment_gateway, community_id, author)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
       # transitions in "paid" state without previous state.
       new_state == "paid"
     }
+    amount = MoneyViewUtils.to_humanized(payment_sum)
+    community_name = community_id.present? ? Community.find(community_id).name_with_separator(I18n.locale) : ''
 
     message = case state
     when "preauthorized"
-      t("conversations.message.payment_preauthorized", sum: MoneyViewUtils.to_humanized(payment_sum))
+      t("conversations.message.payment_preauthorized", sum: amount)
     when "accepted"
       ActiveSupport::Deprecation.warn("Transaction state 'accepted' is deprecated and will be removed in the future.")
       t("conversations.message.accepted_request")
     when "rejected"
       t("conversations.message.rejected_request")
     when preauthorize_accepted
-      t("conversations.message.received_payment", sum: MoneyViewUtils.to_humanized(payment_sum))
+      if payment_gateway == 'stripe'
+        t("conversations.message.stripe.held_payment", sum: amount, service_name: community_name)
+      else
+        t("conversations.message.received_payment", sum: amount)
+      end
     when post_pay_accepted
       ActiveSupport::Deprecation.warn("Transaction state 'paid' without previous state is deprecated and will be removed in the future.")
-      t("conversations.message.paid", sum: MoneyViewUtils.to_humanized(payment_sum))
+      t("conversations.message.paid", sum: amount)
     when "canceled"
       t("conversations.message.canceled_request")
     when "confirmed"
-      t("conversations.message.confirmed_request")
+      if payment_gateway == 'stripe'
+        t("conversations.message.stripe.confirmed_request", author_name: author[:display_name])
+      else
+        t("conversations.message.confirmed_request")
+      end
     else
       raise("Unknown transition to state: #{state}")
     end

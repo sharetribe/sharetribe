@@ -110,6 +110,7 @@ class TransactionMailer < ActionMailer::Base
                    payer_full_name: buyer_model.name(community),
                    payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
                    gateway: transaction[:payment_gateway],
+                   community_name: community.name_with_separator(seller_model.locale),
                  }
         }
       end
@@ -153,7 +154,7 @@ class TransactionMailer < ActionMailer::Base
                    automatic_confirmation_days: nil,
                    show_money_will_be_transferred_note: false,
                    gateway: transaction[:payment_gateway],
-
+                   community_name: community.name_with_separator(buyer_model.locale),
                  }
         }
       }

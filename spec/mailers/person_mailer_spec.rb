@@ -197,16 +197,8 @@ describe PersonMailer, type: :mailer do
 
   describe "#community_member_email_from_admin" do
     let(:community) { FactoryGirl.create(:community) }
-    let(:sender) do
-      person = FactoryGirl.create(:person)
-      FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
-      person
-    end
-    let(:recipient) do
-      person = FactoryGirl.create(:person)
-      FactoryGirl.create(:community_membership, community: community, person: person)
-      person
-    end
+    let(:sender) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
+    let(:recipient) { FactoryGirl.create(:person, member_of: community) }
 
     it 'works ordinary user as recipient' do
       content = 'Have nice day!'
@@ -222,6 +214,33 @@ describe PersonMailer, type: :mailer do
       expect(email).to have_subject("A new message from the #{community.name('en')} team")
       expect(email).to have_body_text("Hello #{PersonViewUtils.person_display_name_for_type(sender, 'first_name_only')},")
       expect(email).to have_body_text('Have nice day!')
+    end
+  end
+
+  describe "#transaction_confirmed" do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:seller) {
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: "Joan", family_name: "Smith")
+    }
+    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, author: seller) }
+    let(:confirmed_transaction) {
+      FactoryGirl.create(:transaction, starter: buyer,
+                                       community: community, listing: listing,
+                                       current_state: 'confirmed')
+    }
+
+    it 'works with default payment gateway' do
+      email = PersonMailer.transaction_confirmed(confirmed_transaction, community)
+      expect(email.body).to have_text("Proto T has marked the order about 'Sledgehammer' completed. You can now give feedback to Proto.")
+    end
+
+    it 'works with stripe payment gateway' do
+      confirmed_transaction.update_column(:payment_gateway, 'stripe')
+      confirmed_transaction.reload
+      email = PersonMailer.transaction_confirmed(confirmed_transaction, community)
+      expect(email.body).to have_text("Proto T has marked the order about 'Sledgehammer' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to Proto.")
     end
   end
 end
