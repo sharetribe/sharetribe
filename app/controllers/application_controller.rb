@@ -607,7 +607,7 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_intercom_user
-    if admin_controller?
+    if admin_controller? && !request.xhr?
       AnalyticService::API::Intercom.setup_person(person: @current_user, community: @current_community)
     end
   end
