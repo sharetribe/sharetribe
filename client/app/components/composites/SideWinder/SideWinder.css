@@ -8,8 +8,10 @@
 
 .transitionVisible {
   /* Prevent scrolling and hide scrollbars */
+  position: fixed;
   overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 
 .wrapper {

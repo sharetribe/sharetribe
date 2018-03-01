@@ -82,6 +82,8 @@
 }
 
 .saveButton {
+  margin-bottom: 50px;
+
   & :global(.availability_checkmark) {
     width: 30px;
     height: 30px;
