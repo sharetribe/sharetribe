@@ -706,29 +706,22 @@ en:
     what_is_this: "What's this?"
     removed_user: "Removed user"
     payment_fee_info:
-      title: "Payment processing fee"
-      title_paypal: "PayPal's processing fee"
+      title: "Commission and Payment processing fee"
       stripe: Stripe
       paypal: PayPal
-      info: "Payments in %{service_name} are processed by either Stripe or PayPal. They both charge a fee from each payment."
+      info: "Payments in %{service_name} are processed by either Stripe (credit/debit card) or PayPal. %{service_name} will charge a commission depending on the payment gateway. The payment gateway also charges a fee for each payment."
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-
-          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you also need to pay PayPal's fees from each payment processed by PayPal. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. The minimum transaction fee per transaction is %{minimum_transaction_fee}. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you will also pay PayPal's fees for each. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       body_text_accept: |-
           This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       link_to_paypal_text: here
-    paypal_only_fee_info:
-      title: "PayPal's payment processing fee"
-      body_text: |-
-          Payments in %{service_name} are processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      link_to_paypal_text: here
     stripe_fee_info:
       title: "Stripe's payment processing fee"
-      body_text: "For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. Stripe's fees are included in this commission."
+      body_text: "For Stripe payments, %{service_name} charges a commission of %{stripe_commission}%. The minimum commission per transaction is %{minimum_transaction_fee}. Stripe's fees are included in this commission."
       link_to_stripe_text: here
   conversations:
     accept:
@@ -1638,11 +1631,8 @@ en:
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and a %{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and a %{paypal_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_stripe_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) will be deducted from the price."
-        payment_fee_info_link_text: "payment processing fee"
-        paypal_fee_info_link_text: "PayPal's payment processing fee"
+        after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{payment_fee_info_link} will be deducted from the price."
+        payment_fee_info_link_text: "%{service_name} fee and a payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"
