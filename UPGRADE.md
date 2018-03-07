@@ -6,14 +6,21 @@ Upgrade notes will be documented in this file.
 
 First things first, take a backup of your database before updating.
 
-When updating, always run the following commands to update gem set, database structure and recompile custom stylesheet:
+To fetch the latest code, run:
+
+```bash
+git fetch --tags
+git checkout latest
+```
+
+After updating the code, run the following commands to update gem set, npm packages and database structure:
 
 ```bash
 bundle install
 npm install
 RAILS_ENV=production rake db:migrate
 
-# if running on local instance (localhost), you need to precompile assets using once update is done:
+# If you're running on local instance (localhost), you also need to precompile assets:
 rake assets:precompile
 ```
 
