@@ -104,6 +104,7 @@ module MarketplaceService::API
       "custom",
       "core",
       "turnkey",
+      "admin",
     ]
 
     module_function
