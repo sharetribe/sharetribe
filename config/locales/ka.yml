@@ -306,6 +306,7 @@ ka:
         invalid_post_listing_button_label: "დაარქვი შესაბამისი სახელი \"განცხადების დამატების\" ღილაკს"
       transactions:
         export_all_as_csv: "დააექსპორტე ყველა CSV-დ"
+        processing_export: ~
         transactions: "ტრანზაქციების ნახვა"
         headers:
           conversation: "მიმოწერის ნაკრები"
@@ -693,7 +694,6 @@ ka:
     removed_user: "წაშლილი მომხმარებელი"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -702,10 +702,6 @@ ka:
       body_text: "PayPal არიცხავს გადახდის საფასურს ყოველი გადახდიდან. ეს გადასახადი მერყეობს 2%-დან 5%-მდე მთლიანი გაყიდული ფასიდან, დამოკიდებულია თვიური გაყიდვების მოცულობიდან და გამყიდველის ქვეყნიდან გამომდინარე. ზოგადად, ადგილობრივ გაყიდვებს აქვს უფრო დაბალი გადასახადი ვიდრე საერთაშორისოებს და მაღალი თვიური გაყიდვები გაძლევს ფასდაკლებას გადასახადზე. თქვენ შეგიძლიათ ზუსტი გადასახადი ნახოთ PayPal-ის ანგარიშზე შესვლით და %{link_to_paypal}-ზე გადასვლით. ყოველი გაყიდვის შემდეგ მიიღებთ საფასურს რომელზეც ეწერება ზუსტი რაოდენობა."
       body_text_accept: ~
       link_to_paypal_text: აქ
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -781,6 +777,9 @@ ka:
       canceled_offer: "გააუქმა შეთავაზება"
       paid: "გადახდილია %{sum}"
       payment_preauthorized: "ავტორიზებული გადახდა: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: შეტყობინება
       message_to: "წერილი %{author_name}ს"
@@ -853,6 +852,8 @@ ka:
           intl: "გელოდებით რომ დაადასტუროთ PayPal-ის გადახდა"
           unknown_reason: "გადახდა პროცესშია. შედი PayPal-ის ანგარიშზე რომ ნახო დეტალები."
           verify: "გელოდებით რომ დაადასტუროთ PayPal-ს ანგარიში"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "შემოთავაზების მიღება"
       accept_request: "მოთხოვნის მიღება"
@@ -922,6 +923,8 @@ ka:
       has_marked_request_as_canceled: "%{other_party_full_name} გააუქმა შეკვეთა %{request} ამის შესახებ. თქვენ ისევ შეგიძლიათ შეფასების მიცემა %{other_party_given_name}-ზე."
       giving_feedback_is_good_idea: "შეფასების მიცემა ყოველთვის კარგი იდეაა. თუ ყველაფერმა კარგად ჩაიარა შენ უნდა შეგვატყობინო, რომ %{other_party_given_name}-ს ნდობა შეიძლება. თუ რაიმე პრობლემა იყო, კარგი იქნებოდა მათი აღნიშვნაც."
       give_feedback_to: "მიეცი შეფასება %{other_party_given_name}ს"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "შეკვეთა ავტომატურად დასრულდა - არ დაგავიწყდთ შეფასების მიცემა"
       we_have_marked_request_as_confirmed: "ჩვენ მოვნიშნეთ შეკვეთა %{request}-ს შესახებ დასრულებულად. შეკვეთა ავტომატურად დასრულდა, იმის გამო, რომ %{days_passed} დღე გავიდა იმის შემდეგ, რაც მოთხოვნა დადასტურდა."
@@ -998,6 +1001,8 @@ ka:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1035,6 +1040,8 @@ ka:
       paypal_gateway_fee: ~
       money_will_be_transferred: "თანხა გადაირიცხება %{recipient_name}-ის ანგარიშზე, როცა ა) მონიშნავ მოთხოვნას დასრულებულად ან ბ) %{automatic_confirmation_days} დღე გავა გადახდიდან."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} მოგცათ შეფასება %{service_name}ში"
       you_can_give_feedback_to: "თქვენ ჯერ არ მიგიციათ შეფასება %{name}სთვის."
@@ -1620,10 +1627,7 @@ ka:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} დაიქვითება ფასიდან."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} საფასური %{sum_with_currency} და %{paypal_fee_info_link} გამოიქვითება ფასიდან."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal-ით გადახდის საფასური"
         delivery: "მიტანის მეთოდი"
         shipping: "ფოსტით გაგზავნა:"
         shipping_price: "ტრანსპორტირების გადასახადი"

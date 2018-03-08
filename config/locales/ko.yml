@@ -306,6 +306,7 @@ ko:
         invalid_post_listing_button_label: "'새 목록 게시' 버튼에 유효한 텍스트를 입력하십시오."
       transactions:
         export_all_as_csv: "CSV로 모두 내보내기"
+        processing_export: ~
         transactions: 거래보기
         headers:
           conversation: "대화 목록"
@@ -697,7 +698,6 @@ ko:
     removed_user: "삭제된 사용자"
     payment_fee_info:
       title: "페이팔 수수료"
-      title_paypal: "페이팔 수수료"
       stripe: 스트라이프
       paypal: 페이팔
       info: "%{service_name}의 결제 방식은 스트라이프 또는 페이팔 중에서 선택하실 수 있습니다. 각 결제 방식마다 이용 수수료가 부과됩니다."
@@ -708,12 +708,6 @@ ko:
           %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
       body_text_accept: |-
           이 결제는 페이팔을 통해 처리됩니다. 페이팔은 결제 처리 건마다 이용 수수료를 부과합니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
-          %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
-      link_to_paypal_text: 여기
-    paypal_only_fee_info:
-      title: "페이팔 수수료"
-      body_text: |-
-          %{service_name}의 결제는 페이팔을 통해 처리됩니다. 페이팔은 결제 처리 건마다 이용 수수료를 부과합니다. 페이팔 이용 수수료는 보통 전체 결제 금액의 2 ~ 5%이며, 월간 매출 규모와 구매자의 거주 지역에 따라 달라집니다. 일반적으로 내국인 구매이거나 매출 규모가 클수록 낮은 수수료율이 적용됩니다.
           %{link_to_paypal}에서 수수료 세부 내역을 확인하실 수 있습니다. 결제 처리 후 수수료가 포함된 영수증이 발행됩니다.
       link_to_paypal_text: 여기
     stripe_fee_info:
@@ -791,6 +785,9 @@ ko:
       canceled_offer: "제안이 취소되어졌습니다"
       paid: "%{sum}이 결제되었습니다"
       payment_preauthorized: "승인된 결제 : %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: 메세지
       message_to: "%{author_name}에게 보내는 메시지"
@@ -863,6 +860,8 @@ ko:
           intl: "PayPal 결제를 수락하기를 기다리는 중입니다."
           unknown_reason: "결제 대기 중입니다. 자세한 내용을 보려면 PayPal 계정에 로그인하십시오."
           verify: "PayPal 계정을 확인할 때까지 기다리는 중입니다."
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "제안 승인"
       accept_request: "요청 승인"
@@ -932,6 +931,8 @@ ko:
       has_marked_request_as_canceled: "%{other_party_full_name}이 '%{request}'에 대한 주문을 취소했습니다. 여전히 %{other_party_given_name}에게 피드백을 줄 수 있습니다."
       giving_feedback_is_good_idea: "항상 피드백을 주는 것이 좋습니다. 모든 것이 잘 진행되면 %{other_party_given_name}가 신뢰할 수 있음을 다른 사람에게 알려주어야 합니다. 문제가 발생하면 해당 문제도 언급하는 것이 좋습니다."
       give_feedback_to: "%{other_party_given_name}에게 피드백 보내기"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "주문 자동 완성 - 피드백을 해주세요"
       we_have_marked_request_as_confirmed: "'%{request}'에 대한 주문을 완료했습니다. 요청이 수락된 후 %{days_passed} 일이 지났으므로 주문이 자동으로 완료되었습니다."
@@ -1006,6 +1007,8 @@ ko:
       price_per_unit_type: "%{unit_type} 당 가격 :"
       quantity: "수량:"
       you_have_received_new_payment: "%{payer_full_name} 님이 <b> %{listing_title} </ b>에 대해 <b> %{payment_sum} </ b>을(를) 지불하셨습니다. 여기에 영수증이 있습니다."
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: "결제 영수증"
       you_have_made_new_payment: "<b> %{listing_title} </ b>에 대해 %{recipient_full_name}에 <b> %{payment_sum} </ b>을 지불했습니다. 여기에 지불 영수증이 있습니다."
@@ -1043,6 +1046,8 @@ ko:
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
       listing_per_unit_title: "%{unit_type}당 %{title}"
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}이/가 %{service_name}에 대한 피드백을 남겼습니다."
       you_can_give_feedback_to: "아직 %{name}에게 피드백을 남기지 않았습니다."
@@ -1628,10 +1633,7 @@ ko:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}는 가격에서 공제됩니다."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link}는 가격에서 공제됩니다."
         after_service_fee_you_will_get_payment_text: "누군가가 주문을하면 %{service_name} 수수료 (%{sum_with_currency})와 %{payment_fee_info_link}가 가격에서 공제됩니다."
-        after_service_fee_you_will_get_paypal_text: "누군가가 주문을하면 %{service_name} 수수료 (%{sum_with_currency})와 %{paypal_fee_info_link}가 가격에서 공제됩니다."
-        after_service_fee_you_will_get_stripe_text: "누군가가 주문을하면, %{service_name} 수수료 (%{sum_with_currency})가 가격에서 공제됩니다."
         payment_fee_info_link_text: "결제 처리 수수료"
-        paypal_fee_info_link_text: "페이팔 결제 수수료"
         delivery: "배송 방법"
         shipping: 배송
         shipping_price: 배송비

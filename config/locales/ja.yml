@@ -306,6 +306,7 @@ ja:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: CSVで全て出力
+        processing_export: ~
         transactions: お支払い履歴の表示
         headers:
           conversation: 会話のスレッド
@@ -691,7 +692,6 @@ ja:
     removed_user: ユーザは削除されました
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -702,10 +702,6 @@ ja:
           %{link_to_paypal}から、具体的な手数料についてご確認いただけます。各お支払い後お支払い手数料が記載された領収書が発行されます。
       body_text_accept: ~
       link_to_paypal_text: こちら
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -781,6 +777,9 @@ ja:
       canceled_offer: キャンセルされたオファー
       paid: "%{sum}をお支払いしました"
       payment_preauthorized: "%{sum}のお支払い手続きが完了しました"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: メッセージ
       message_to: "%{author_name}さんへメッセージ"
@@ -853,6 +852,8 @@ ja:
           intl: あなたのPayPalのお支払い承認待ち
           unknown_reason: お支払いは承認待ちの状態です。今一度、PayPalアカウントにログインして詳細をご確認ください。
           verify: あなたのPayPalアカウントの確認待ち
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: オファーを承認する
       accept_request: リクエストを受け入れる
@@ -922,6 +923,8 @@ ja:
       has_marked_request_as_canceled: "%{other_party_full_name}さんは%{request}についてのリクエストをキャンセルしました。%{other_party_given_name}さんにご意見・ご提案を出すことが出来ます。"
       giving_feedback_is_good_idea: "レビューを書くことは、いつでもポジティブな面があります。もし全体的に満足できたサービスであった場合は、%{other_party_given_name}さんが信頼できる方であると、他の皆さんにお知らせするのが良いでしょう。仮に問題が発生していた場合であっても、その情報はきっと、今後その方のサービス向上のために役立つでしょう。"
       give_feedback_to: "%{other_party_given_name}さんへレビューを書く"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "リクエストは自動的に完了しました - レビューを書くのを忘れないでください"
       we_have_marked_request_as_confirmed: "%{request}のリクエストが承認されてから%{days_passed}日経過しましたので、自動的に取引完了の処理が行われました。"
@@ -996,6 +999,8 @@ ja:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1033,6 +1038,8 @@ ja:
       paypal_gateway_fee: ~
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
@@ -1618,10 +1625,7 @@ ja:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name}のご利用手数料 %{sum_with_currency}と%{paypal_fee_info_link}が料金から差し引かれます"
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: PayPalのお支払い手数料
         delivery: 配送
         shipping: 発送する
         shipping_price: 送料

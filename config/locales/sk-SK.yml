@@ -316,6 +316,7 @@ sk-SK:
         invalid_post_listing_button_label: "Prosím zadajte platný text pre tlačítko \"Pridať nový inzerát\""
       transactions:
         export_all_as_csv: "Exportovať všetko do CSV"
+        processing_export: ~
         transactions: "Zobraziť platby"
         headers:
           conversation: "Vlákno konverzácie"
@@ -711,7 +712,6 @@ sk-SK:
     removed_user: "Odstránený užívateľ"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -722,10 +722,6 @@ sk-SK:
           Po prihlásení do Vašeho PayPal účtu si môžete nájsť presné poplatky, viď %{link_to_paypal}. Z každého vykonaného nákupu obdržíte potvrdenie s presným poplatkom.
       body_text_accept: ~
       link_to_paypal_text: tu
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -801,6 +797,9 @@ sk-SK:
       canceled_offer: "zrušil ponuku"
       paid: "zaplatil %{sum}"
       payment_preauthorized: "Platba schválená: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Správa
       message_to: "Správa užívateľovi %{author_name}"
@@ -873,6 +872,8 @@ sk-SK:
           intl: "Čaká sa, kým prijmete Paypal platbu"
           unknown_reason: "Platba sa vykonáva. Prihláste sa prosím do Vašeho PayPal účtu pre viac informácií."
           verify: "Čaká sa až overíte svoj PayPal účet"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Akceptovať ponuku."
       accept_request: "Akceptovať žiadosť."
@@ -942,6 +943,8 @@ sk-SK:
       has_marked_request_as_canceled: "Užívateľ %{other_party_full_name} zrušil objednávku %{request}. Stále môžete ohodnotiť užívateľa %{other_party_given_name}."
       giving_feedback_is_good_idea: "Hodnotenie je vždy užitočné. Pokiaľ všetko prebehlo v poriadku, mali by ste ostatným dať vedieť, že užívateľ %{other_party_given_name} je dôveryhodný. Je dobré zanechať hodnotenie aj v prípade zlej skúsenosti."
       give_feedback_to: "Zanechať hodnotenie pre %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Objednávka bola automaticky vybavená - nezabudnite poskytnúť spätnú väzbu"
       we_have_marked_request_as_confirmed: "Žiadosť %{request} bola označená ako vybavená. Žiadosť bola automaticky dokončená pretože uplynulo %{days_passed} dní od doby, keď bola žiadosť prijatá."
@@ -1016,6 +1019,8 @@ sk-SK:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1053,6 +1058,8 @@ sk-SK:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Peniaze budú prevedené užívateľovi %{recipient_name}, a) pokiaľ označíte žiadosť ako vybavenú nebo b) pokiaľ uplynulo %{automatic_confirmation_days} dní od dňa, kedy ste zaplatili."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vám dal spätnú väzbu %{service_name}"
       you_can_give_feedback_to: "Ešte ste nedali spätnú väzbu %{name}"
@@ -1642,10 +1649,7 @@ sk-SK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odčítaný z ceny."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} poplatok (%{sum_with_currency}) a %{paypal_fee_info_link} bude odčítaný z ceny."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal poplatok za spracovanie platby"
         delivery: "Metóda doručenia"
         shipping: Doprava
         shipping_price: "Poplatok za dopravu"

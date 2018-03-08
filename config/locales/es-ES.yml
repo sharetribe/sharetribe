@@ -311,6 +311,7 @@ es-ES:
         invalid_post_listing_button_label: "Proporciona un texto válido para el botón de \"Publicar Anuncio\""
       transactions:
         export_all_as_csv: "Exportar todos en formato CSV"
+        processing_export: ~
         transactions: "Ver transacciones"
         headers:
           conversation: Conversación
@@ -706,7 +707,6 @@ es-ES:
     removed_user: "Usuario eliminado"
     payment_fee_info:
       title: "Cuota de procesamiento de pago"
-      title_paypal: "Cuota de procesamiento de PayPal"
       stripe: Stripe
       paypal: PayPal
       info: "Los pagos en %{service_name} son procesados por Stripe o PayPal. Cualquiera de los dos sistemas cobra una cuota por cada pago."
@@ -717,12 +717,6 @@ es-ES:
           Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       body_text_accept: |-
           Esta transacción será procesada por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
-          Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
-      link_to_paypal_text: aquí
-    paypal_only_fee_info:
-      title: "Cuota de procesamiento de pago de PayPal"
-      body_text: |-
-          Los pagos en %{service_name} son procesados por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
           Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       link_to_paypal_text: aquí
     stripe_fee_info:
@@ -800,6 +794,9 @@ es-ES:
       canceled_offer: "canceló la oferta"
       paid: "pagó %{sum}"
       payment_preauthorized: "Pago autorizado: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Mensaje
       message_to: "Mensaje para %{author_name}"
@@ -872,6 +869,8 @@ es-ES:
           intl: "Estamos esperando a que aceptes el pago de PayPal"
           unknown_reason: "El pago está pendiente. Conéctate a tu cuenta de PayPal para ver más detalles."
           verify: "Estamos esperando a que verifiques tu cuenta de PayPal"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -941,6 +940,8 @@ es-ES:
       has_marked_request_as_canceled: "%{other_party_full_name} canceló la solicitud sobre '%{request}'. Aún así puedes dar una valoración a %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dar una valoración es siempre una buena idea. Si todo salió bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       give_feedback_to: "Dar valoración a %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Solicitud completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
@@ -1015,6 +1016,8 @@ es-ES:
       price_per_unit_type: "Precio por %{unit_type}"
       quantity: "Cantidad:"
       you_have_received_new_payment: "Has recibido un pago de <b>%{payment_sum}</b> por <b>%{listing_title}</b> de parte de %{payer_full_name}. Aquí está tu recibo."
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Recibo de pago"
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí tienes el recibo de pago."
@@ -1052,6 +1055,8 @@ es-ES:
       paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
       listing_per_unit_title: "%{title}, por %{unit_type}"
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
       you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
@@ -1638,10 +1643,7 @@ es-ES:
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} se reducirá del precio."
         after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la comisión de %{service_name} (%{sum_with_currency}) y una %{payment_fee_info_link} se deducirán del precio."
-        after_service_fee_you_will_get_paypal_text: "La comisión de %{service_name} (%{sum_with_currency}) y la %{paypal_fee_info_link} serán deducidas del precio."
-        after_service_fee_you_will_get_stripe_text: "Cuando alguien haga una orden, la comisión de %{service_name} (%{sum_with_currency}) se deducirá del precio."
         payment_fee_info_link_text: "cuota de procesamiento de pago"
-        paypal_fee_info_link_text: "comisión de procesamiento de pago de PayPal"
         delivery: "Método de envío"
         shipping: Envío
         shipping_price: "Costos de envío"
@@ -2305,8 +2307,8 @@ es-ES:
           saving_failed: "No hemos podido guardar los cambios sobre disponibilidad. Intenta cargar la página nuevamente."
         working_hours:
           required: obligatorio
-          overlaps: ~
-          covers: ~
+          overlaps: interpone
+          covers: cubre
       pricing_units:
         piece: pieza
         hour: hora

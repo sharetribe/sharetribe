@@ -311,6 +311,7 @@ pt-BR:
         invalid_post_listing_button_label: "Forneça um texto válido para o botão \"Publicar um novo anúncio\""
       transactions:
         export_all_as_csv: "Exporte tudo como CSV"
+        processing_export: ~
         transactions: "Ver transações"
         headers:
           conversation: "Criou a conversa"
@@ -702,7 +703,6 @@ pt-BR:
     removed_user: "Usuário removido"
     payment_fee_info:
       title: "Taxa de processamento do pagamento"
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -713,10 +713,6 @@ pt-BR:
           Você pode ver as taxas exatas fazendo login em sua conta do PayPal e indo para %{link_to_paypal}. Após cada compra você receberá um recibo exibindo a taxa exata.
       body_text_accept: ~
       link_to_paypal_text: aqui
-    paypal_only_fee_info:
-      title: "Taxa de processamento do pagamento do PayPal"
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: "Taxa de processamento do pagamento do Stripe"
       body_text: ~
@@ -792,6 +788,9 @@ pt-BR:
       canceled_offer: "cancelou a oferta"
       paid: "pago %{sum}"
       payment_preauthorized: "Pagamento autorizado: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Mensagem
       message_to: "Mensagem para %{author_name}"
@@ -864,6 +863,8 @@ pt-BR:
           intl: "Aguardando você aceitar o pagamento PayPal"
           unknown_reason: "O pagamento está pendente. Conecte-se na sua conta PayPal para ver mais detalhes."
           verify: "Aguardando você verificar sua conta PayPal"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Aceitar oferta"
       accept_request: "Aceitar solicitação"
@@ -933,6 +934,8 @@ pt-BR:
       has_marked_request_as_canceled: "%{other_party_full_name} cancelou o pedido '%{request}'. Você ainda pode dar um feedback para %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dar feedback é sempre uma boa ideia. Se tudo correu bem, você deve deixar que os outros saibam que %{other_party_given_name} pode ser confiável. Se houve algum problema, é bom mencioná-lo também."
       give_feedback_to: "Dar uma opinião sobre %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Pedido concluído automaticamente - lembre-se de dar feedback"
       we_have_marked_request_as_confirmed: "Marcamos o pedido '%{request}' concluído. O pedido foi concluído automaticamente porque %{days_passed} dias se passaram desde que foi aceito."
@@ -1007,6 +1010,8 @@ pt-BR:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: "Você recebeu <b>%{payment_sum}</b> por <b>%{listing_title}</b> de %{payer_full_name}. Veja o recibo."
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1044,6 +1049,8 @@ pt-BR:
       paypal_gateway_fee: ~
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te avaliou %{service_name}"
       you_can_give_feedback_to: "Você ainda não avaliou %{name}"
@@ -1630,10 +1637,7 @@ pt-BR:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "Desse valor será deduzida uma taxa de (%{sum_with_currency}) cobrada pelo %{service_name} e a %{paypal_fee_info_link}."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: "taxa de processamento do pagamento"
-        paypal_fee_info_link_text: "Taxa de processamento do pagamento do PayPal"
         delivery: "Forma de entrega"
         shipping: Envio
         shipping_price: "Taxa de envio"

@@ -296,6 +296,7 @@ hr:
         invalid_post_listing_button_label: "Molimo predajte ispravan tekst za \"Kreiraj novi oglas\" gumb"
       transactions:
         export_all_as_csv: "Izvezi kao CSV"
+        processing_export: ~
         transactions: "Pogledati transakcije"
         headers:
           conversation: "Tema razgovora"
@@ -675,7 +676,6 @@ hr:
     removed_user: "Uklonjeni korisnik"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -684,10 +684,6 @@ hr:
       body_text: ~
       body_text_accept: ~
       link_to_paypal_text: ovdje
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -763,6 +759,9 @@ hr:
       canceled_offer: "otkazali ponudu"
       paid: "plaćeno %{sum}"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Poruka
       message_to: "Poruka za %{author_name}"
@@ -835,6 +834,8 @@ hr:
           intl: "Čekamo da odobrite PayPal plaćanje"
           unknown_reason: "Plaćanje je u tijeku. Ulogirjate se u vaš PayPal račun kako bi vidjeli više detalja."
           verify: "Čekamo da verificirate vaš PayPal korisnički račun"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Prihvati ponudu"
       accept_request: "Prihvati zahtjev"
@@ -904,6 +905,8 @@ hr:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: "Pružanje povratne informacije je uvijek dobra ideja. Ako je sve dobro prošlo, obznanite i ostalima da je %{other_party_given_name} pouzdan partner. Ako je bilo problema u procesu, bilo bi dobro spomenuti i njih."
       give_feedback_to: "Pružite povratnu informaciju %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -978,6 +981,8 @@ hr:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1015,6 +1020,8 @@ hr:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Novac će biti prebačen na %{recipient_name} kada a) označite zahtjev kao dovršen ili b) %{automatic_confirmation_days} dana je prošlo otkad ste platili."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} vam je ostavio povratnu informaciju u %{service_name}"
       you_can_give_feedback_to: "Niste još ocijenili %{name}."
@@ -1603,10 +1610,7 @@ hr:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: "Način dostave"
         shipping: Isporuka
         shipping_price: "Naknada za isporuku"

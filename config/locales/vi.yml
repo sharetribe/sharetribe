@@ -306,6 +306,7 @@ vi:
         invalid_post_listing_button_label: "Vui lòng cung cấp văn bản hợp lệ cho nút \"Đăng niêm yết mới\""
       transactions:
         export_all_as_csv: "Xuất tất cả dưới dạng CSV"
+        processing_export: ~
         transactions: "Xem giao dịch"
         headers:
           conversation: "Chủ đề đối thoại"
@@ -697,7 +698,6 @@ vi:
     removed_user: "Đã loại bỏ người dùng"
     payment_fee_info:
       title: "Phí xử lý giao dịch"
-      title_paypal: "Phí xử lý của PayPal"
       stripe: Stripe
       paypal: PayPal
       info: ~
@@ -708,12 +708,6 @@ vi:
           Bạn có thể xem lệ phí chính xác bằng cách đăng nhập vào tài khoản PayPal của bạn và đi tới %{link_to_paypal}. Sau mỗi lần mua, bạn sẽ nhận được biên lai hiển thị chính xác chi phí.
       body_text_accept: ~
       link_to_paypal_text: đây
-    paypal_only_fee_info:
-      title: "Phí xử lý của PayPal"
-      body_text: |-
-          %{service_name} chấp nhận thanh toán qua PayPal. PayPal thu phí xử lý trên mỗi giao dịch. Mức phí này ở khoảng 2% đến 5% giá trị giao dịch, tuỳ vào tổng lượng giao dịch hàng tháng của bạn và quốc gia của người bán. Thông thường thì giao dịch nội địa bị tính phí thấp hơn giao dịch quốc tế, lượng giao dịch càng lớn thì phí càng ít.
-          Bạn có thể xem chi tiết tiền phí bằng cách đăng nhập vào tài khoản PayPal và tới %{link_to_paypal}. Sau mỗi giao dịch bạn sẽ nhận được một hoá đơn với mức phí cụ thể.
-      link_to_paypal_text: "trang này"
     stripe_fee_info:
       title: "Phí xử lý của Stripe"
       body_text: ~
@@ -789,6 +783,9 @@ vi:
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
       payment_preauthorized: "Thanh toán đã được cho phép: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: "Tin nhắn"
       message_to: "Nhắn tin cho %{author_name}"
@@ -861,6 +858,8 @@ vi:
           intl: "Đang chờ bạn chấp nhận thanh toán qua PayPal"
           unknown_reason: "Thanh toán đang chờ xử lý. Đăng nhập vào tài khoản PayPal của bạn để xem thêm chi tiết."
           verify: "Đang đợi bạn xác minh tài khoản PayPal"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Chấp nhận hỗ trợ"
       accept_request: "Chấp nhận yêu cầu"
@@ -930,6 +929,8 @@ vi:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: "Để lại phản hồi luôn là một ý tốt. Nếu mọi chuyện suôn sẻ, hãy giúp cho mọi người biết có thể tin tưởng %{other_party_given_name}. Nếu có trục trặc gì thì bạn cũng có thể chia sẻ cho mọi người biết."
       give_feedback_to: "Để lại phản hồi cho %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -1004,6 +1005,8 @@ vi:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1041,6 +1044,8 @@ vi:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Số tiền này sẽ được chuyển đến %{recipient_name} khi a) bạn đã đánh dấu yêu cầu hoàn thành hoặc b) %{automatic_confirmation_days} ngày đã trôi qua kể từ khi bạn trả tiền."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} đã gửi bạn thông tin phản hồi tại %{service_name}"
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
@@ -1626,10 +1631,7 @@ vi:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sẽ được khấu trừ khỏi giá."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "Khi ai đó làm đơn đặt hàng, %{service_name} lệ phí (%{sum_with_currency}) và %{paypal_fee_info_link} sẽ được khấu trừ khỏi giá."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "Phí xử lý thanh toán của PayPal"
         delivery: "Phương thức vận chuyển:"
         shipping: "Vận chuyển:"
         shipping_price: "Phí vận chuyển:"

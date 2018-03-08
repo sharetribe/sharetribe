@@ -316,6 +316,7 @@ cs:
         invalid_post_listing_button_label: "Vyplň, prosím, validní text pro tlačítko \"Přidej novou položku\""
       transactions:
         export_all_as_csv: "Exportovat vše do formátu CSV"
+        processing_export: ~
         transactions: Transakce
         headers:
           conversation: "Vlákno konverzace"
@@ -711,7 +712,6 @@ cs:
     removed_user: "Odstraněný uživatel"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -722,10 +722,6 @@ cs:
           Po přihlášení ke svému PayPal účtu si můžete najít přesné poplatky, viz %{link_to_paypal}. Z každého provedeného nákupu obdržíte stvrzenku s přesným poplatkem.
       body_text_accept: ~
       link_to_paypal_text: zde
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -801,6 +797,9 @@ cs:
       canceled_offer: "zrušená nabídka"
       paid: "zaplaceno %{sum}"
       payment_preauthorized: "Platba schválena: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Zpráva
       message_to: "Zpráva uživateli %{author_name}"
@@ -873,6 +872,8 @@ cs:
           intl: "Čeká se, až přijmete PayPal platbu"
           unknown_reason: "Platba se vyřizuje. Přihlaste s k Vašemu PayPal účtu, abyste zjistili více detailů."
           verify: "Čeká se, až ověříte Váš PayPal účet"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Přijmout nabídku"
       accept_request: "Přijmout žádost"
@@ -942,6 +943,8 @@ cs:
       has_marked_request_as_canceled: "Uživatel %{other_party_full_name} zrušil žádost %{request}. Stále můžete ohodnotit uživatele %{other_party_given_name}."
       giving_feedback_is_good_idea: "Hodnocení je vždy užitečné. Pokud vše probíhalo dobře, měli byste dát ostatním vědět, že uživatel %{other_party_given_name} je důvěryhodný. V případě, že se vyskytly jakékoliv problémy, je dobré to také zmínit."
       give_feedback_to: "Ohodnotit uživatele %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Žádost byla automaticky vyřízena - nezapomeňte poskytnout zpětnou vazbu"
       we_have_marked_request_as_confirmed: "Žádost %{request} byla označena jako vyřízená. Žádost byla automaticky dokončena protože uplynulo %{days_passed} dní od doby, kdy byla žádost přijata."
@@ -1016,6 +1019,8 @@ cs:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1053,6 +1058,8 @@ cs:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name}, a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní ode dne, kdy jste zaplatili."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} Vás ohodnotil/a na %{service_name}."
       you_can_give_feedback_to: "Stále jste neohodnotil/a uživatele %{name}."
@@ -1635,10 +1642,7 @@ cs:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odečten z ceny."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} poplatek (%{sum_with_currency}) a %{paypal_fee_info_link} bude odečten z ceny."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal poplatek za zpracování platby"
         delivery: "Způsob doručení"
         shipping: Doprava
         shipping_price: "Poplatek za dopravu"

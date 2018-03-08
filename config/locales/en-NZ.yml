@@ -311,6 +311,7 @@ en-NZ:
         invalid_post_listing_button_label: "Please provide a valid text for \"Post a new listing\" button"
       transactions:
         export_all_as_csv: "Export all as CSV"
+        processing_export: ~
         transactions: "View transactions"
         headers:
           conversation: "Conversation thread"
@@ -706,7 +707,6 @@ en-NZ:
     removed_user: "Removed user"
     payment_fee_info:
       title: "Payment processing fee"
-      title_paypal: "PayPal's processing fee"
       stripe: Stripe
       paypal: PayPal
       info: "Payments in %{service_name} are processed by either Stripe or PayPal. They both charge a fee from each payment."
@@ -717,12 +717,6 @@ en-NZ:
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       body_text_accept: |-
           This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
-      link_to_paypal_text: here
-    paypal_only_fee_info:
-      title: "PayPal's payment processing fee"
-      body_text: |-
-          Payments in %{service_name} are processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
           You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       link_to_paypal_text: here
     stripe_fee_info:
@@ -800,6 +794,9 @@ en-NZ:
       canceled_offer: "cancelled the offer"
       paid: "paid %{sum}"
       payment_preauthorized: "Payment authorized: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Message
       message_to: "Message to %{author_name}"
@@ -872,6 +869,8 @@ en-NZ:
           intl: "Waiting for you to accept the PayPal payment"
           unknown_reason: "Payment is pending. Log in to your PayPal account to see more details."
           verify: "Waiting for you to verify your PayPal account"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
@@ -941,6 +940,8 @@ en-NZ:
       has_marked_request_as_canceled: "%{other_party_full_name} has cancelled the order about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
@@ -1015,6 +1016,8 @@ en-NZ:
       price_per_unit_type: "Price per %{unit_type}"
       quantity: "Quantity:"
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
@@ -1052,6 +1055,8 @@ en-NZ:
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
@@ -1638,10 +1643,7 @@ en-NZ:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} will be deducted from the price."
         after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and a %{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_paypal_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and a %{paypal_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_stripe_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) will be deducted from the price."
         payment_fee_info_link_text: "payment processing fee"
-        paypal_fee_info_link_text: "PayPal's payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
         shipping_price: "Shipping fee"

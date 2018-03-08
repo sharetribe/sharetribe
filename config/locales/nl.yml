@@ -313,6 +313,7 @@ nl:
         invalid_post_listing_button_label: "Gelieve een geldige tekst te geven voor de \"Plaats een nieuwe advertentie\"-button."
       transactions:
         export_all_as_csv: "Exporteer alles als CSV"
+        processing_export: "Export naar CSV wordt verwerkt."
         transactions: "Bekijk transacties"
         headers:
           conversation: Conversatie
@@ -708,27 +709,22 @@ nl:
     what_is_this: "Wat is dit?"
     removed_user: "Verwijderde gebruiker"
     payment_fee_info:
-      title: Betalingverwerkingskosten
-      title_paypal: "Paypal's verwerkingskosten"
+      title: "Commissie en betalingverwerkingskosten"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalingen in %{service_name} worden verwerkt door Stripe of PayPal. Beiden brengen kosten in rekening voor iedere betaling."
+      info: "Betalingen in %{service_name} worden verwerkt door Stripe (credit/debit card) of PayPal. %{service_name} brengt een commissie in rekening, afhankelijk van welke betalingssysteem wordt gekozen. Het betalingssysteem zelf brengt ook kosten in rekening voor iedere betaling."
     paypal_fee_info:
       title: "PayPal proces kosten"
-      body_text: "Paypal berekent transactiekosten voor iedere betaling. Deze kosten zijn tussen 2-5% van het totale verkoopbedrag, afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten."
+      body_text: |-
+          Voor betaling met PayPal rekent %{service_name} een commissie van %{paypal_commission}%. De minimum transactie kosten zijn %{minimum_transaction_fee}. PayPal's eigen kosten zijn hier niet bij inbegrepen, dus naast %{service_name}'s commissie, betaal je ook PayPal een vergoeding. Deze vergoeding is tussen 2-5% van het totale verkoopbedrag, afhankelijk van het maandelijkse verkoopvolume en het land van herkomst van de koper. In het algemeen hebben binnenlandse transacties lagere kosten dan internationale, en een hoger maandelijkse verkoopvolume geeft een korting op de kosten. 
+          Je kunt de exacte kosten zien door in te loggen op je PayPal account %{link_to_paypal}. Na iedere transactie krijg je een kwitantie met de exacte kosten.
       body_text_accept: |-
           Deze transactie wordt verwerkt door PayPal. PayPal brengt voor iedere betaling transactiekosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten. 
           Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
       link_to_paypal_text: hier
-    paypal_only_fee_info:
-      title: "PayPal's betalingsverwerkingskosten"
-      body_text: |-
-          Betalingen in %{service_name} worden verwerkt door PayPal. PayPal brengt voor iedere betaling kosten in rekening. Deze varieren tussen de 2% en 5% van het totaalbedrag, afhankelijk van jouw maandelijkse volume en het land van herkomst van de betaler. In het algemeen hebben binnenlandse betalingen lagere kosten en geeft een hoger maandelijks verkoopvolume je een korting op de kosten. 
-          Je kunt de exacte kosten zien, door in te loggen op je PayPal account en naar %{link_to_paypal} te gaan. Na iedere betaling ontvang je een kwitantie waarop de exacte kosten staan aangegeven.
-      link_to_paypal_text: hier
     stripe_fee_info:
       title: "Stripe's betalingsverwerkingskosten"
-      body_text: "Voor betalingen met Stripe vraagt %{service_name} een commissie van %{stripe_commission}. Stripe's kosten zijn in deze commissie inbegrepen."
+      body_text: "Voor betalingen met Stripe vraagt %{service_name} een commissie van %{stripe_commission}. De minimum kosten per transactie zijn %{minimum_transaction_fee}. Stripe's kosten zijn in deze commissie inbegrepen."
       link_to_stripe_text: hier
   conversations:
     accept:
@@ -801,6 +797,9 @@ nl:
       canceled_offer: "heeft het voorstel geannuleerd"
       paid: "betaald %{sum}"
       payment_preauthorized: "Betaling gemachtigd: %{sum}"
+      stripe:
+        held_payment: "Verzoek geaccepteerd. De betaling voor %{sum} wordt vastgehouden door %{service_name} totdat de bestelling als voltooid wordt gemarkeerd."
+        confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
     new:
       message: Bericht
       message_to: "Bericht aan %{author_name}"
@@ -873,6 +872,8 @@ nl:
           intl: "Wachten op jou om de PayPal betaling te accepteren"
           unknown_reason: "Betaling in in behandeling. Log in op je PayPal account om meer details te zien."
           verify: "Wachten op jou om je PayPal account te verifiëren"
+      stripe:
+        waiting_confirmation_from_requester: "In afwachting van %{requester_name}, die de bestelling als voltooid dient te markeren. Eenmaal voltooid, zal de betaling naar je bankrekening worden overgemaakt."
     status_link:
       accept_offer: "Accepteer aanbod"
       accept_request: "Accepteer verzoek"
@@ -942,6 +943,8 @@ nl:
       has_marked_request_as_canceled: "%{other_party_full_name} heeft het verzoek betreft '%{request}' geannuleerd. U kunt nog steeds feedback geven aan %{other_party_given_name}."
       giving_feedback_is_good_idea: "Feedback geven is altijd een goed idee. Indien alles goed ging, kunt u anderen laten weten dat %{other_party_given_name} betrouwbaar is. Als er problemen waren is het zinvol om deze ook te vermelden."
       give_feedback_to: "Geef feedback aan %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} heeft de bestelling %{request} als voltooid gemarkeerd. De betaling voor deze transactie is nu naar je bankrekening overgemaakt. Je kunt nu feedback geven aan %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Verzoek automatisch uitgevoerd - vergeet niet om feedback te geven"
       we_have_marked_request_as_confirmed: "We hebben het verzoek betreft %{request} als afgehandeld gemarkeerd. Dit is automatisch uitgevoerd omdat %{days_passed} dagen zijn verlopen sinds het verzoek is geaccepteerd."
@@ -1016,6 +1019,8 @@ nl:
       price_per_unit_type: "Prijs per %{unit_type}"
       quantity: "Aantal:"
       you_have_received_new_payment: "Je hebt een betaling ontvangen van %{payer_full_name}, ter waarde van <b>%{payment_sum}</b> voor <b>%{listing_title}</b>. Hier is je kwitantie."
+      stripe:
+        you_have_received_new_payment: "Het bedrag van <b>%{payment_sum}</b> is betaald voor <b>%{listing_title}</b> door %{payer_full_name}. Het bedrag wordt vastgehouden door %{service_name} totdat de bestelling als voltooid is gemarkeerd. Hier is je bewijs."
     payment_receipt_to_payer:
       receipt_of_payment: Betalingsbewijs.
       you_have_made_new_payment: "Je hebt  <b>%{payment_sum}</b> betaald aan %{recipient_full_name}, voor <b>%{listing_title}</b>. Hier is een betalingsbewijs."
@@ -1053,6 +1058,8 @@ nl:
       paypal_gateway_fee: "toeslag Stripe"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
       listing_per_unit_title: "%{title}, per %{unit_type}"
+      stripe:
+        you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{service_name}. Het geld zal worden overgemaakt aan %{recipient_full_name} wanneer je de bestelling als voltooid hebt gemarkeerd."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
@@ -1086,7 +1093,7 @@ nl:
     transaction_preauthorized:
       subject: "%{requester} is geinteresseerd en heeft betaling gemachtigd voor %{listing_title}, gepubliceerd op %{service_name}."
       transaction_requested_by_user: "Goed nieuws! %{requester} heeft interesse in %{listing_title} en heeft betaling hiervoor gemachtigd."
-      you_have_time_to_accept: "Je dient het verzoek te accepteren of af te wijzen binnen %{payment_expires_in}. Als je binnen deze termijn accepteert, dan gaat de betaling door. Als je het verzoek niet accepteert, wordt het automatisch afgewezen en krijg je niet betaald."
+      you_have_time_to_accept: "Je dient het verzoek te accepteren of af te wijzen binnen %{payment_expires_in}."
       if_you_do_accept: "Als je het verzoek binnen deze periode accepteert, ontvang je onmiddelijk het geld in je account."
       if_you_do_accept_stripe: "Als je het verzoek binnen deze periode accepteert, dan wordt de betaling verwerkt. Je ontvangt het geld direct op je bankrekening, nadat je %{listing_title} hebt geleverd aan %{requester}."
       if_you_do_not_accept: "Als je het verzoek afwijst, of niet binnen deze tijdsperiode accepteert, dan wordt de transactie automatisch geannuleerd. %{requester} wordt dan niets in rekening gebracht, en jij ontvangt geen betaling."
@@ -1638,11 +1645,8 @@ nl:
         after_service_fee_you_will_get: "Na de commissie aan %{service_name} en kosten voor de transactie, ontvangt u %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wordt ingehouden op de prijs"
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} zal van de prijs worden afgetrokken."
-        after_service_fee_you_will_get_payment_text: "Als iemand een bestelling plaatst, zullen de %{service_name} commissie (%{sum_with_currency}) en een %{payment_fee_info_link} van de totaalprijs worden afgetrokken."
-        after_service_fee_you_will_get_paypal_text: "Wanneer iemand een bestelling maakt, worden de %{service_name} kosten (%{sum_with_currency}) en %{paypal_fee_info_link} van de prijs afgetrokken."
-        after_service_fee_you_will_get_stripe_text: "Als iemand een bestelling plaatst, zal de %{service_name} commissie (%{sum_with_currency}) worden afgetrokken van de prijs."
-        payment_fee_info_link_text: betalingsverwerkingskosten
-        paypal_fee_info_link_text: "Paypal's transactiekosten."
+        after_service_fee_you_will_get_payment_text: "Als iemand een bestelling plaatst, zal %{payment_fee_info_link} van de totaalprijs worden afgetrokken."
+        payment_fee_info_link_text: "%{service_name}'s commissie en betalingsverwerkingskosten"
         delivery: Levering
         shipping: Verzenden
         shipping_price: Verzendkosten
@@ -2307,7 +2311,7 @@ nl:
         working_hours:
           required: verplicht
           overlaps: overlapt
-          covers: ~
+          covers: beslaat
       pricing_units:
         piece: stuk
         hour: uur

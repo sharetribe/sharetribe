@@ -321,6 +321,7 @@ ru:
         invalid_post_listing_button_label: "Пожалуйста, введите актуальный текст для кнопки \"Опубликовать новый каталог\""
       transactions:
         export_all_as_csv: "Экспортировать все как CSV"
+        processing_export: ~
         transactions: "Посмотреть транзакции"
         headers:
           conversation: Обсуждение
@@ -720,7 +721,6 @@ ru:
     removed_user: "Удаленный пользователь"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -729,10 +729,6 @@ ru:
       body_text: "PayPal удерживает комиссию с каждого платежа. Эта комиссия находится в пределах от 2% до 5% от общей суммы, и зависит от ваших ежемесячных продаж и страны резиденции покупателя. В общем, локальные покупки имеют меньшую комиссию чем международные, и увеличение ежемесячных продаж дает вам возможность уменьшить комиссию. Вы можете увидеть точную сумму комиссии зайдя в ваш PayPal аккаунт %{link_to_paypal}. После каждой покупки вы будете получать квитанцию отображающую точную сумму комиссии."
       body_text_accept: ~
       link_to_paypal_text: здесь
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -808,6 +804,9 @@ ru:
       canceled_offer: "отмененное предложение"
       paid: "оплачено %{sum}"
       payment_preauthorized: "Оплата авторизована: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Сообщение
       message_to: "Сообщение %{author_name}"
@@ -880,6 +879,8 @@ ru:
           intl: "Ожидание вашего принятия платежа PayPal."
           unknown_reason: "Платеж отложен. Войдите в ваш PayPal аккаунт чтобы получить детали."
           verify: "Ожидание подтверждения вашего PayPal аккаунта."
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Принять предложение"
       accept_request: "Принять запрос"
@@ -949,6 +950,8 @@ ru:
       has_marked_request_as_canceled: "%{other_party_full_name} отменил запрос %{request}. Вы все еще можете оставить отзыв о %{other_party_given_name}."
       giving_feedback_is_good_idea: "Оставлять отзыв это всегда хорошо. Если все прошло правильно, вы должны поделиться с другими пользователями что %{other_party_given_name} можно доверять. Либо если были сложности, об этом тоже можно сообщить."
       give_feedback_to: "Оставить отзыв %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Запрос завершен автоматически - не забудьте оставить отзыв"
       we_have_marked_request_as_confirmed: "Мы отметили запрос о \"%{request}\" выполненным. Данный запрос был завершен автоматически так как прошло %{days_passed} дней после того как запрос был принят."
@@ -1023,6 +1026,8 @@ ru:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1060,6 +1065,8 @@ ru:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Деньги будут переведены к %{recipient_name} когда а) вы отметите этот запрос завершенным или б) %{automatic_confirmation_days} дней пройдет после вашей оплаты."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в %{service_name}"
       you_can_give_feedback_to: "Вы еще не создали отзыв о %{name}"
@@ -1648,10 +1655,7 @@ ru:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} будет удержано от стоимости."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} оплата (%{sum_with_currency}) и %{paypal_fee_info_link} будут удержаны из этой стоимости."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal комиссия за обработку платежа"
         delivery: "Способ доставки"
         shipping: Доставка
         shipping_price: "Стоимость доставки"
