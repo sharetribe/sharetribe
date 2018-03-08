@@ -74,7 +74,7 @@ he-IL:
         verification_to_post_listings_info_content: "טקסט מידע למשתמשים לא מאומתים"
         verification_to_post_listings_info_content_description: "בשלב זה אתה דורש שהמשתמשים שלך יאומתו באופן ידני על ידך לפני שהם יוכלו לפרסם רישומים. כאן תוכל להגדיר את טקסט ברירת המחדל שמוצג למשתמשים שאינם מאומתים כאשר הם מנסים לפרסם רישום חדש."
         verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: "שלח הודעה לצוות האתר"
+        contact_admin_link_text: "שלח/י הודעה לצוות האתר"
         save: "שמור הגדרות"
         transaction_agreement: "הסכם עסקה"
         transaction_agreement_checkbox: "דרוש מהמשתמשים לקבל הסכם לפני העסקה"
@@ -125,8 +125,8 @@ he-IL:
       edit_welcome_email:
         welcome_email_content: "ברוכים הבאים תוכן הדוא\"ל"
         welcome_email_content_description: "ההודעה הבאה תישלח לכל משתמש חדש כאשר הם יצטרפו. באפשרותך להתאים אישית את ההודעה כך שתתאים לשוק שלך. על ידי לחיצה על '‎%{send_test_message_link}‎' תוכל לשלוח הודעת תצוגה מקדימה לכתובת הדוא\"ל שלך, כך שתוכל לראות כיצד היא נראית בדוא\"ל אצל הלקוח ."
-        edit_message: "ערוך הודעה"
-        send_test_message: "ערוך הודעה"
+        edit_message: "עריכת הודעה"
+        send_test_message: "עריכת הודעה"
       outgoing_email:
         title: ~
         info: ~
@@ -302,6 +302,7 @@ he-IL:
         invalid_post_listing_button_label: "אנא הכנס טקסט תקין לכפתור \"צור שירות חדש\""
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: "הצג עסקאות"
         headers:
           conversation: ~
@@ -630,7 +631,7 @@ he-IL:
         rent: להשכיר
         request: הצעה
         offer: בקשה
-        inquiry: "שלח הודעה"
+        inquiry: "שלח/י הודעה"
   common:
     edit_page: "ערוך דף"
     default_community_slogan: ~
@@ -681,7 +682,6 @@ he-IL:
     removed_user: "משתמש שנמחק"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -689,10 +689,6 @@ he-IL:
       title: "עמלות פייפל"
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -769,17 +765,20 @@ he-IL:
       canceled_offer: "ביטל את ההזמנה"
       paid: "שולם ‎%{sum}‎"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: הודעה
       message_to: "‎%{author_name}‎ הודעה ל‎"
       optional_message_to: "‎%{author_name}‎ הודעה אופציונלית אל"
-      send_message: שלח
+      send_message: שלח/י
       send: שלח
       this_message_is_private: "‎%{person}‎ יקבל הודעה על הודעה זו בדוא\"ל. התכתבות פרטית עם %{person}"
       you_will_get_notified_of_acceptance: "מקבל או דוחה את ההצעה שלך ‎%{person}‎ תקבל הודעת אימייל כאשר"
       you_will_get_notified: "עונה לך ‎%{person}‎ תקבל הודעת אימייל כאשר"
       title: כותרת
-      send_message_to_user: "‎%{person}‎ שלח הודעה ל"
+      send_message_to_user: "‎%{person}‎ שלח/י הודעה ל"
       about_listing: "‎%{listing_title}‎ לגבי"
       author_has_to_accept_request: "‎%{author_name}‎ צריך לקבל את הבקשה לפני שתוכל לשלם"
     show:
@@ -841,6 +840,8 @@ he-IL:
           intl: ~
           unknown_reason: ~
           verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "קבל/י הצעה"
       accept_request: "קבל/י בקשה"
@@ -910,6 +911,8 @@ he-IL:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: "לתת משוב ל ‎%{other_party_given_name}‎"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "ההזמנה הושלמה באופן אוטומטי - זכור לתת משוב"
       we_have_marked_request_as_confirmed: ~
@@ -984,6 +987,8 @@ he-IL:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1021,6 +1026,8 @@ he-IL:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ נתן לך משוב ב ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ עדיין לא נתת משוב ל"
@@ -1135,7 +1142,7 @@ he-IL:
       contact_us: "צור קשר"
       send_feedback: שלח
       your_feedback_to_admins: "‎%{service_name}‎ ההודעה שלך לצוות"
-    send: שלח
+    send: שלח/י
     your_email_address: "כתובת הדואר האלקטרוני שלך"
   errors:
     messages:
@@ -1184,7 +1191,7 @@ he-IL:
     search_kassi: "חיפוש ‎%{service_name}‎"
     create_new_marketplace: "צור אתר חדש"
     contact_us: "צור קשר"
-    profile: "החשבון שלי"
+    profile: פרופיל
     manage_listings: ניהול
     invite: "הזמנת חברים"
     login: כניסה
@@ -1262,7 +1269,7 @@ he-IL:
     invitation_form:
       email: "הכניסו את המיילים של החברים"
       message: "הודעה אישית"
-      send_invitation: שלח
+      send_invitation: שלח/י
       add_email_addresses_description: "עזרו לנו לבנות הקהילה! שתפו עם החברים."
       add_lots_of_email_addresses: ~
       this_article_link: ~
@@ -1333,7 +1340,7 @@ he-IL:
       feedback_handle: משוב
       give_feedback: "צור קשר"
       or_check_our: "... או בדוק את ה"
-      send_feedback_to_admin: שלח
+      send_feedback_to_admin: שלח/י
       to_see_what_others_have_suggested: "ראה והצביע מה משתמשים אחרים הציעו."
       your_email_address: "כתובת הדואר האלקטרוני שלך ( ליצור קשר איתך)"
       connect: "הרשמו עכשיו"
@@ -1383,7 +1390,7 @@ he-IL:
       sign_up: "הרשמו עכשיו"
     notifications:
       listing_could_not_be_saved: ~
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       test_welcome_email_delivered_to: "נשלח הודעת דוא\"ל לבדיקה אל ‎%{email}‎"
       something_went_wrong: "משהוא השתבש"
       community_updated: "הפרטים עודכנו."
@@ -1513,7 +1520,7 @@ he-IL:
       listing_not_visible: "אין לך הרשאה לראות את המודעה."
     comment:
       wrote: כתבתי
-      send_private_message: "‎%{person}‎ שלח הודעה פרטית אל"
+      send_private_message: "‎%{person}‎ שלח/י הודעה פרטית ל"
       delete: ~
       are_you_sure: ~
     comment_form:
@@ -1526,10 +1533,10 @@ he-IL:
       you_must: אנא
       subscribe_to_comments: "עדכן אותי על תגובות חדשות"
     edit:
-      edit_listing: ערוך
+      edit_listing: עריכה
     edit_links:
       close_listing: סגור
-      edit_listing: ערוך
+      edit_listing: עריכה
       reopen_listing: "פרסם את המודעה מחדש"
       move_to_top: הקפץ
       show_in_updates_email: "הצג בעלון הבא"
@@ -1605,10 +1612,7 @@ he-IL:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: "‎(‎‎‎%{sum_with_currency}‎‎)‎ לאחר הזמנה תנכה עמלה בסך ‎‎%{service_name}‎ \"\"\"‎%{payment_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
-        after_service_fee_you_will_get_paypal_text: "‎(‎‎%{sum_with_currency}‎)‎ לאחר הזמנה תנכה עמלה בסך ‎%{service_name}‎ \"\"\"‎%{paypal_fee_info_link}‎\"\"\" בנוסף לעמלות פייפל"
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: "סוג משלוח"
         shipping: משלוח
         shipping_price: "דמי משלוח"
@@ -1707,7 +1711,7 @@ he-IL:
       select_subcategory: "בחר תת קטגוריה"
       select_transaction_type: "בחר סוג המודעה"
       you_need_to_fill_payout_details_before_accepting: ~
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       community_not_configured_for_payments: ~
       payment_settings_link: "הגדרות תשלום"
       community_not_configured_for_payments_admin: ~
@@ -1727,7 +1731,7 @@ he-IL:
       add_profile_picture: "הוסף תמונת פרופיל"
       comments: תגובות
       contact_by_phone: "צור קשר טלפוני:"
-      contact: "שלח הודעה"
+      contact: "שלח/י הודעה"
       favor_offer: "סוג הצעה"
       favor_request: "בקשה לשירות"
       inquiry: הַכרָזָה
@@ -1744,7 +1748,7 @@ he-IL:
       request: בקשה
       rideshare_offer: ~
       rideshare_request: ~
-      send_private_message: "שלח הודעה פרטית"
+      send_private_message: "שלח/י הודעה פרטית"
       tags: תוויות
       time: זמן
       times: זמנים
@@ -1844,7 +1848,7 @@ he-IL:
     new:
       payout_info_you_need_to_connect: "‎%{service_name}‎ מבקש לחבר את חשבונך בפייפל על מנת לקבל תשלומים."
       payout_info_text: "כדי לחבר את חשבונך, בצע את השלבים הבאים."
-      contact_admin_link_text: "שלח הודעה לצוות האתר"
+      contact_admin_link_text: "שלח/י הודעה לצוות האתר"
       admin_account_not_connected: ~
       paypal_account_email: "חבר את חשבון פייפל שלך"
       paypal_account_email_placeholder: "כתובת האימייל שלך ב- פייפל"
@@ -1945,14 +1949,14 @@ he-IL:
       show_only_open: "הצג שירותים פעילים בלבד"
       no_image: "אין תמונה"
     show:
-      contact: "‎%{person}‎ שלח הודעה ל‎"
+      contact: "‎%{person}‎ שלח/י הודעה ל‎"
       about_me: "קצת עלי:"
       add_description: "שתף משהו על עצמך"
       add_location: "הוסף מיקום"
       add_phone_number: "הוסף מספר טלפון"
       address: "מיקום:"
       as_expected: כצפוי
-      edit_profile_info: "ערוך פרופיל"
+      edit_profile_info: "עריכת פרופיל"
       exceeded_expectations: "מעבר למצופה"
       positive: חיובי
       hide_description: "הראי פחות"

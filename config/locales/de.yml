@@ -311,6 +311,7 @@ de:
         invalid_post_listing_button_label: "Bitte einen gültigen Text für die \"Neuen Eintrag erstellen\" Taste eingeben."
       transactions:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
+        processing_export: "CSV Export wird erstellt..."
         transactions: "Transaktionen anzeigen"
         headers:
           conversation: Unterhaltungsverlauf
@@ -602,7 +603,7 @@ de:
       change_settings: "Einstellungen ändern"
       configure_stripe: "Stripe konfigurieren"
       configure_paypal: "PayPal konfigurieren"
-      transaction_fee_settings: "Einstellungen für Transaktionsgebühre"
+      transaction_fee_settings: "Einstellungen für Transaktionsgebühren"
       transaction_fee_save: Speichern
       stripe_fee: Stripe-Gebühren
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
@@ -705,29 +706,22 @@ de:
     what_is_this: "Was ist das?"
     removed_user: "Entfernter Benutzer"
     payment_fee_info:
-      title: Zahlungsbearbeitungsgebühr
-      title_paypal: PayPal-Zahlungsbearbeitungsgebühr
+      title: "Provision und Zahlungsbearbeitungsgebühr"
       stripe: Stripe
       paypal: PayPal
-      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe oder PayPal verarbeitet. Beide Dienstleister erheben Zahlungsbearbeitungsgebühren bei jeder Transaktion."
+      info: "Zahlungen auf %{service_name} werden über die Zahlungsdienstleister Stripe (Kredit-/Debitkarte) oder PayPal abgewickelt. %{service_name} erhebt abhängig vom Zahlungsdienstleister eine Vermittlungsprovision. Der Zahlungsdienstleister erhebt ebenfalls eine Gebühr für jede Transaktion."
     paypal_fee_info:
       title: PayPal-Zahlungsbearbeitungsgebühr
       body_text: |-
-          Für jede Zahlung über PayPal erhebt %{service_name} eine Vermittlungsprovision in Höhe von %{paypal_commission}%. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen.
-          Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
+          Für jede über PayPal durchgeführte Zahlung erhebt %{service_name} eine Vermittlungsprovision von %{paypal_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die PayPal Gebühren sind nicht in der Vermittlungsprovision enthalten, diese musst du zusätzlich zu der Vermittlungsprovisionen von %{service_name} zahlen. Abhängig von Deinem monatlichen Verkaufsvolumen und dem Herkunftsland des Käufers, liegt die PayPal Gebühr zwischen 2% und 5% des Verkaufspreises. In der Regel liegen die Gebühren für inländische Verkäufe unter denen für Verkäufe ins Ausland und höhere monatliche Verkaufsvolumen führen zu ermäßigten Gebühren. 
+          Wenn du dich bei deinem Paypal Account anmeldest, erhältst du unter dieser Adresse %{link_to_paypal} Informationen zu den Gebühren. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       body_text_accept: |-
           Diese Zahlung wird durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
           Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
       link_to_paypal_text: hier
-    paypal_only_fee_info:
-      title: "Zahlungsbearbeitungsgebühr von PayPal"
-      body_text: |-
-          Die Zahlungen auf %{service_name} werden durch PayPal verarbeitet. PayPal erhebt eine Transaktionsgebühr auf jede Zahlung. Diese Gebühr liegt zwischen 2% und 5% der Transaktionssumme, je nach monatlichem Umsatz und Land des Käufers. Normalerweise ist es günstiger, inländische Käufe zu tätigen, und größere monatliche Transaktionsvolumen bedeuten einen Rabatt.
-          Wenn du dich bei deinem Paypal Account anmeldest, erhälst du unter dieser Adresse %{link_to_paypal} mehr Informationen auch zu internationalen Zahlungen. Nach jeder Transaktion bekommst du einen Beleg mit der exakten Gebühr.
-      link_to_paypal_text: hier
     stripe_fee_info:
       title: "Zahlungsbearbeitungsgebühr von Stripe"
-      body_text: "Bei Zahlungen auf %{service_name}, die über Stripe abgewickelt werden, entstehen neben den Vermittlungsprovisionen (%{stripe_commission}%) keine zusätzlichen Transaktionskosten für dich."
+      body_text: "Für Zahlungen, die über Stripe abgewickelt werden, erhebt %{service_name} eine Vermittlungsprovision von %{stripe_commission}%. Die Mindestprovision für jede Transaktion beträgt %{minimum_transaction_fee}. Die Stripe Gebühren sind bereits darin enthalten."
       link_to_stripe_text: hier
   conversations:
     accept:
@@ -800,6 +794,9 @@ de:
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
       payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
+      stripe:
+        held_payment: "Anfrage akzeptieren. Die Zahlung in Höhe von %{sum} wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wurde."
+        confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
     new:
       message: Nachricht
       message_to: "Nachricht an %{author_name}"
@@ -872,6 +869,8 @@ de:
           intl: "Warten darauf, dass du die PayPal-Zahlung akzeptierst"
           unknown_reason: "Zahlung ausstehend. Melde dich in deinem PayPal-Konto an, um mehr Details zu sehen."
           verify: "Warten, dass du dein PayPal Konto bestätigst"
+      stripe:
+        waiting_confirmation_from_requester: "Warten bis %{requester_name} den Auftrag als erledigt markiert hat. Sobald der Auftrag als erledigt markiert wurde, erfolgt der Transfer der Zahlung auf Dein Bankkonto."
     status_link:
       accept_offer: "Angebot annehmen"
       accept_request: "Anfrage annehmen"
@@ -941,6 +940,8 @@ de:
       has_marked_request_as_canceled: "%{other_party_full_name} hat deine Anfrage '%{request}' abgelehnt. Du kannst trotzdem %{other_party_given_name} Feedback geben."
       giving_feedback_is_good_idea: "Feedback zu geben, ist immer eine gute Idee. Wenn alles gut war, solltest du es andere wissen lassen, dass %{other_party_given_name} vertraut werden kann. Wenn es Probleme gab, dann ist es gut, dies auch zu erwähnen."
       give_feedback_to: "Gib %{other_party_given_name} ein Feedback"
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} hat den Auftrag \"%{request}\" als erledigt markiert. Die Überweisung der Zahlung auf Dein Bankkonto für diese Transaktion wurde soeben angestoßen. Du kannst %{other_party_given_name} nun ein Feedback geben."
     transaction_automatically_confirmed:
       subject: "Anfrage wurde automatisch abgeschlossen - bitte denk daran, Feedback zu geben."
       we_have_marked_request_as_confirmed: "Wir haben die Anfrage zu '%{request}' als erledigt markiert. Der Auftrag wurde automatisch erledigt, weil %{days_passed} Tage vergangen sind, seit der Antrag angenommen wurde."
@@ -1015,6 +1016,8 @@ de:
       price_per_unit_type: "Preis pro %{unit_type}"
       quantity: "Anzahl:"
       you_have_received_new_payment: "Du hast eine Zahlung in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> durch %{payer_full_name} erhalten. Hier ist deine Quittung."
+      stripe:
+        you_have_received_new_payment: "Der Betrag in Höhe von <b>%{payment_sum}</b> für <b>%{listing_title}</b> wurde von %{payer_full_name} gezahlt. Das Geld wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wird. Als Anlage erhältst Du Deinen Beleg."
     payment_receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
       you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> bezahlt für <b>%{listing_title}</b> an %{recipient_full_name}. Hier ist eine Quittung für deine Zahlung."
@@ -1030,7 +1033,7 @@ de:
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
     paypal_new_payment:
-      paypal_gateway_fee: "PayPal's Gebühr:"
+      paypal_gateway_fee: "PayPal Gebühr:"
       shipping_total: "Versand:"
     braintree_new_payment:
       product: "Produkt:"
@@ -1052,6 +1055,8 @@ de:
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
+      stripe:
+        you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> für <b>%{listing_title}</b> an %{service_name} gezahlt. Sobald Du den Auftrag als erledigt markiert hast, wird das Geld an %{recipient_full_name} überwiesen. Als Anlage erhältst Du Deinen Zahlungsbeleg."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat dich auf %{service_name} bewertet"
       you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
@@ -1085,7 +1090,7 @@ de:
     transaction_preauthorized:
       subject: "%{requester} hat %{listing_title} angefragt und eine Zahlung autorisiert auf %{service_name}"
       transaction_requested_by_user: "Gute Nachrichten! %{requester} hat \"%{listing_title}\" angefragt und eine Zahlung autorisiert."
-      you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen. Wenn Du innerhalb dieses Zeitrahmens akzeptierst, wird die Zahlung durchgehen. Wenn Du nicht zustimmst, wird die Anfrage automatisch abgelehnt, und Du wirst nicht bezahlt."
+      you_have_time_to_accept: "Du musst die Anfrage innerhalb von %{payment_expires_in} akzeptieren oder ablehnen."
       if_you_do_accept: "Wenn du die Anfrage innerhalb dieses Zeitrahmens akzeptierst, wirst du das Geld sofort auf dein Konto bekommen."
       if_you_do_accept_stripe: "Wenn du die Anfrage innerhalb von diesem Zeitraum akzeptierst, wird die Zahlung erfolgreich bearbeitet. Das Geld wird zu deinem Bankkonto überwiesen, nachdem du %{listing_title} zu %{requester} geliefert hast."
       if_you_do_not_accept: "Wenn du die Anfrage ablehnst, oder sie nicht innerhalb dieses Zeitrahmens akzeptierst, wird die Transaktion automatisch abgebrochen, %{requester} wird nicht belastet, und du bekommst das Geld nicht."
@@ -1637,11 +1642,8 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr und der Gebühren des Zahlungssystems, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{payment_fee_info_link} von dem Preis abgezogen."
-        after_service_fee_you_will_get_paypal_text: "Bei jedem Kauf wird die %{service_name} Gebühr (%{sum_with_currency}) und gegebenenfalls eine %{paypal_fee_info_link} von dem Preis abgezogen."
-        after_service_fee_you_will_get_stripe_text: "Wenn jemand den Auftrag kauft, wird die Gebühr von %{service_name} (%{sum_with_currency}) vom Betrag abgezogen."
-        payment_fee_info_link_text: Zahlungsbearbeitungsgebühr
-        paypal_fee_info_link_text: PayPal-Zahlungsbearbeitungsgebühr
+        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf werden %{payment_fee_info_link} vom Preis einbehalten."
+        payment_fee_info_link_text: "%{service_name} Vermittlungsprovision und Zahlungsbearbeitungsgebühr"
         delivery: Lieferart
         shipping: Versand
         shipping_price: Versandkostenpauschale

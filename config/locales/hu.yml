@@ -312,6 +312,7 @@ hu:
         invalid_post_listing_button_label: "Kérem helyes szöveget írjon az Új hirdetés feladása gombhoz."
       transactions:
         export_all_as_csv: "Az öszes exportálása CSV-ként"
+        processing_export: ~
         transactions: "Mutassa a tranzakciókat"
         headers:
           conversation: "Párbeszéd vonala"
@@ -701,7 +702,6 @@ hu:
     removed_user: "Törölt felhasználó"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -710,10 +710,6 @@ hu:
       body_text: "A PayPal kezelési költséget számol fel minden utaláskor. Ez az összeg a teljes eladási árnak 2% és 5% körüli része és a havi eladás mértékétől és a vevő lakhelyétől (ország) függ. Általában a hazai vásárlásoknak alacsonyabb a díja mint a nemzetközieknek és a nagyobb mértékű havi eladás kedvezményes díjakat eredményez. A pontos díjakat a PayPal fiókjába belépve tekintheti meg %{link_to_paypal}. Minden vásárlás után egy bizonylatot kap a díj pontos mértékéről."
       body_text_accept: ~
       link_to_paypal_text: itt
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -789,6 +785,9 @@ hu:
       canceled_offer: "Ajánlat törlése"
       paid: "Fizetve %{sum}"
       payment_preauthorized: "Fizetés engedélyezve: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Üzenet
       message_to: "Üzenet neki: %{author_name}"
@@ -863,6 +862,8 @@ hu:
           intl: "Várakozás önre, hogy elfogadja a PayPal-os kifizetést"
           unknown_reason: "A kifizetés függőben. További információért lépjen be a PayPal fiókjába."
           verify: "Várakozás önre, hogy hitelesítse a PayPal fiókját"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Ajánlat elfogadása"
       accept_request: "Ajánlatkérés elfogadása"
@@ -934,6 +935,8 @@ hu:
       has_marked_request_as_canceled: "%{other_party_full_name} törölte a rendelést '%{request}' felkérésre vonatkozóan. Ön továbbra is adhat visszajelzést %{other_party_given_name} számára."
       giving_feedback_is_good_idea: "Mindig jó, ha ad visszajelzést. Ha minden rendben ment, tudathatja másokkal is hogy, %{other_party_given_name} megbízható. Az is hasznos lehet, ha jelzi amennyiben problémája merült fel."
       give_feedback_to: "Adjon értékelést %{other_party_given_name} számára"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "A rendelés automatikusan teljesítve - ne feledjen értékelést írni"
       we_have_marked_request_as_confirmed: "Ezen felkérést '%{request}' teljesítését befejezettnek jelöltük. A felkérés azért lett automatikusan teljesítve mert %{days_passed} nap eltelt mióta a felkérés elfogadásra került."
@@ -1008,6 +1011,8 @@ hu:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1045,6 +1050,8 @@ hu:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta ön fizetett."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} értékelte Önt itt: %{service_name}"
       you_can_give_feedback_to: "Ön még nem értékelte a következő usert: %{name}"
@@ -1633,10 +1640,7 @@ hu:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} levonásra fog kerülni."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} díja (%{sum_with_currency}) és %{paypal_fee_info_link} levonásra fog kerülni."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal fizetési folyamat költsége"
         delivery: "Szállítás módja"
         shipping: Szállítás
         shipping_price: "Szállítási költség"

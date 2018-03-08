@@ -308,6 +308,7 @@ tr-TR:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: "İşlemleri görüntüle"
         headers:
           conversation: "Konuşma başlığı"
@@ -687,7 +688,6 @@ tr-TR:
     removed_user: "Silinmiş kullanıcı"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -699,10 +699,6 @@ tr-TR:
           PayPal her alışverişten sonra size komisyon oranlarını detaylı gösteren bir eposta göndermektedir.
       body_text_accept: ~
       link_to_paypal_text: buradan
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -778,6 +774,9 @@ tr-TR:
       canceled_offer: "teklifi iptal etti"
       paid: "%{sum} ödedi"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Mesaj
       message_to: "%{author_name} üyesine mesaj"
@@ -850,6 +849,8 @@ tr-TR:
           intl: "PayPal ödemesini kabul etmeniz bekleniyor"
           unknown_reason: "Ödeme beklemede. Ayrıntılı bilgi için PayPal hesabınıza giriş yapın."
           verify: "PayPal hesabınızı doğrulatmanız bekleniyor"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Teklifi kabul et"
       accept_request: "Talebi kabul et"
@@ -919,6 +920,8 @@ tr-TR:
       has_marked_request_as_canceled: "%{other_party_full_name} '%{request}' talebini iptal etti. Yine de %{other_party_given_name}'e geri bildirim bırakabilirsiniz."
       giving_feedback_is_good_idea: "Geri bildirim bırakmak her zaman iyi bir fikirdir. Eğer her şey yolunda gittiyse, diğer üyelere %{other_party_given_name}'in güvenilir olduğunu bildirmelisiniz. Eğer sorun yaşadıysanız, bunlardan bahsetmekte de fayda var."
       give_feedback_to: "%{other_party_given_name} üyesin geri bildirim bırakın."
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Talep otomatik olarak tamamlandı - geri bildirim bırakmayı unutmayın"
       we_have_marked_request_as_confirmed: "'%{request}' hakkındaki talebi tamamlandı olarak işaretledik. Talebin kabulünün üzerinden %{days_passed} gün geçtiği için, talep otomatik olarak tamamlandı."
@@ -993,6 +996,8 @@ tr-TR:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1030,6 +1035,8 @@ tr-TR:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Ödeme %{recipient_name}'in hesabına a) talebi tamamlandı olarak işaretlediğinizde ya da b) ödeme yapmanızın ardından %{automatic_confirmation_days} gün geçtikten sonra aktarılacak."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}, %{service_name} altında sana bir geri bildirimde bulundu"
       you_can_give_feedback_to: "%{name} kullanıcısına henüz bir geri bildirim vermedin."
@@ -1612,10 +1619,7 @@ tr-TR:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} toplam ücretten kesilecektir..."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name} ücreti (%{sum_with_currency}) ve %{paypal_fee_info_link} toplam ücretten kesilecektir."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal işlem ücreti"
         delivery: "Teslim Yöntemi"
         shipping: "Kargo:"
         shipping_price: "Kargo ücreti"

@@ -296,6 +296,7 @@ ar:
         invalid_post_listing_button_label: "يرجى إعطاء نص صحيح لزر \"إدراج إعلان جديد\""
       transactions:
         export_all_as_csv: "استخرج الكل في ملف إكسل"
+        processing_export: "جاري المعالجة..."
         transactions: "أظهر العملية"
         headers:
           conversation: ~
@@ -689,7 +690,6 @@ ar:
     removed_user: "مستخدم محذوف"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -700,10 +700,6 @@ ar:
           يتم معالجة هذه العملية من خلال باي بال. يقوم باي بال بخصم عمولة معالجة العملية. تتراوح نسبة الخصم من ٢ بالمئة إلى ٥ بالمئة من مجموع البيع الكلي بالاعتماد على حجم مبيعاتك الشهرية وبلد الإقامة للبائع. بشكل عام المبيعات الداخلية لها نسبة خصم عمولة أقل من المبيعات الدولية. وللمبيعات الأعلى شهريا لها خصم على نسبة العمولة.
           بعد كل عملية بيع سوف يصلك إيصال يعرض لك نسبة العمولة المخصومة بالضبط. يمكنك معرفة عمولة الخصم من خلال الدخول لحسابك في باي بال والذهاب إلى ‎%{link_to_paypal}‎ .
       link_to_paypal_text: هنا
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -779,6 +775,9 @@ ar:
       canceled_offer: "ألغى العرض"
       paid: "‎%{sum}‎ تم دفع"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: رسالة
       message_to: "‎%{author_name}‎ رسالة إلى"
@@ -851,6 +850,8 @@ ar:
           intl: ~
           unknown_reason: ~
           verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "اقبل هذا العرض"
       accept_request: "اقبل هذا الطلب"
@@ -923,6 +924,8 @@ ar:
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: "‎%{other_party_given_name}‎ أعط رأيك في"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "تم إكمال الطلب تلقائيا - تذكر بإعطاء رأيك"
       we_have_marked_request_as_confirmed: ~
@@ -997,6 +1000,8 @@ ar:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1034,6 +1039,8 @@ ar:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "‎‎%{service_name}‎ قام بإعطاء رأيه في ‎%{name}‎"
       you_can_give_feedback_to: "‎%{name}‎ لم تقم بإعطاء رأيك عن"
@@ -1620,10 +1627,7 @@ ar:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: "طريقة التوصيل"
         shipping: الشحن
         shipping_price: "تكلفة الشحن"

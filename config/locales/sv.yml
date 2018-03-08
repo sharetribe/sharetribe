@@ -311,6 +311,7 @@ sv:
         invalid_post_listing_button_label: "Vänligen ge en giltig text för \"skapa en ny annons\" knappen"
       transactions:
         export_all_as_csv: "Exportera alla som CSV"
+        processing_export: "Bearbetar export till CSV"
         transactions: "Visa transaktioner"
         headers:
           conversation: Konversationstråd
@@ -706,10 +707,9 @@ sv:
     removed_user: "Borttagen användare"
     payment_fee_info:
       title: Betalningshanteringsavgift
-      title_paypal: "PayPal's hanteringsavgift"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalningar i %{service_name} hanteras antingen av Stripe eller PayPal. Båda tar en avgift för varje betalning."
+      info: "Betalningar i %{service_name} hanteras antingen av Stripe (credit eller debit kort) eller PayPal. %{service_name} kommer ta en service avgift beroende på vilken betalningssystem som använts. Betalningssytemet tar även en avgift för varje betalning."
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
@@ -717,12 +717,6 @@ sv:
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
           Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och köparens hemland. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
-          Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
-      link_to_paypal_text: här
-    paypal_only_fee_info:
-      title: "PayPal's betalningshanteringsavgift"
-      body_text: |-
-          Betalningr i %{service_name} är processerade via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
           Du kan se dina exakta avgifter genom att logga in på ditt PayPalkonto och gå %{link_to_paypal}. Efter varje köp så kommer du att få ett kvitto som visar den exakta avgiften.
       link_to_paypal_text: här
     stripe_fee_info:
@@ -800,6 +794,9 @@ sv:
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
       payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
+      stripe:
+        held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills frörfrågan har blivit marketad som slutförd."
+        confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bank konto eller kommer snart att överförd."
     new:
       message: Meddelande
       message_to: "Meddelande till %{author_name}"
@@ -872,6 +869,8 @@ sv:
           intl: "Väntar på att du ska acceptera PayPal betalningen"
           unknown_reason: "Betalningen väntar. Logga in till ditt PayPal-konto för att se mer information."
           verify: "Väntar på att du ska verifiera ditt PayPal konto"
+      stripe:
+        waiting_confirmation_from_requester: "Väntar på att %{requester_name} skall markera förfrågan som slutförd. När förfrågan har markerats som slutfört kommer betalningen att överföras till ditt bankkonto."
     status_link:
       accept_offer: "Acceptera erbjudande"
       accept_request: "Acceptera förfrågan"
@@ -941,6 +940,8 @@ sv:
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutit förfrågan om %{request}. Du kan fortfarande ge feedback till %{other_party_given_name}."
       giving_feedback_is_good_idea: "Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan för %{request} som slutförd. Betalningen för denna transaktion har nu överförsts till dit bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
@@ -953,7 +954,7 @@ sv:
       show_thread: "Visa konversation"
     confirmation_instructions:
       confirmation_instructions_signature: "Vänliga hälsningar,<br/>%{service_name} teamet"
-      need_to_confirm: "Du behöver bekräfta din email adress genom att klicka på knappen nedan för att gå med i%{service_name}."
+      need_to_confirm: "Du behöver bekräfta din emailadress genom att klicka på knappen nedan för att gå med i %{service_name}."
       confirmation_link_text: "Bekräfta min e-postadress"
       or_paste_link: "Alternativt så kan du kopiera följande länk till adressfältet i din webbläsare:"
     common:
@@ -1015,6 +1016,8 @@ sv:
       price_per_unit_type: "Pris per %{unit_type}"
       quantity: "Antal:"
       you_have_received_new_payment: "Du har fått <b>%{payment_sum}</b> betalt för <b>%{listing_title}</b> av %{payer_full_name}. Här är ditt kvitto."
+      stripe:
+        you_have_received_new_payment: "Summan <b>%{payment_sum}</b> bar blivit betalt för <b>%{listing_title}</b> av %{payer_full_name}. Pengarna hålls nu av %{service_name} tills förfrågan har blivit markerad som slutförd. Här är ditt kvitto."
     payment_receipt_to_payer:
       receipt_of_payment: "Kvitto för betalning"
       you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{recipient_full_name}. Här är ett kvitto av betalningen."
@@ -1052,6 +1055,8 @@ sv:
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
       listing_per_unit_title: "%{title} per %{unit_type}"
+      stripe:
+        you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{service_name}. Pengarna kommer bli överförda till %{recipient_full_name} när du markerar förfrågan som slutförd. Här är kvittot över betalningen"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
@@ -1640,10 +1645,7 @@ sv:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} kommer bli avdragen från priset."
         after_service_fee_you_will_get_payment_text: "När någon gör en beställning kommer %{service_name} serviceavgift (%{sum_with_currency}) och %{payment_fee_info_link} bli avdraget från priset."
-        after_service_fee_you_will_get_paypal_text: "%{service_name}s avgift %{sum_with_currency} och %{paypal_fee_info_link} kommer att dras av från priset."
-        after_service_fee_you_will_get_stripe_text: "När någon gör en beställning kommer %{service_name} serviceavgift (%{sum_with_currency}) bli avdraget från priset."
         payment_fee_info_link_text: betalningshanteringsavgift
-        paypal_fee_info_link_text: "PayPal's betalningshanteringsavgift"
         delivery: Leveransmetod
         shipping: Frakt
         shipping_price: Fraktkostnad
@@ -2308,7 +2310,7 @@ sv:
         working_hours:
           required: obligatorisk
           overlaps: överlappar
-          covers: ~
+          covers: täcker
       pricing_units:
         piece: styck
         hour: timme

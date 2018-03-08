@@ -306,6 +306,7 @@ th-TH:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: แสดงรายการทางบัญชี
         headers:
           conversation: บทสนทนา
@@ -689,7 +690,6 @@ th-TH:
     removed_user: ~
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -699,10 +699,6 @@ th-TH:
           PayPal คิดค่าธรรมเนียมในการประมวลผลจากการชำระเงินแต่ละครั้ง ค่าธรรมเนียมนี้อยู่ระหว่าง 2% และ 5% ของราคาขายทั้งหมด (รวมค่าจัดส่ง) ขึ้นอยู่กับปริมาณการขายรายเดือนของคุณ และประเทศที่พำนักของผู้ซื้อ โดยทั่วไป การซื้อสินค้าในประเทศมีค่าใช้จ่ายต่ำกว่าต่างประเทศ และยิ่งยอดขายรายเดือนสูงเท่าไหร่ ส่วนลดค่าธรรมเนียมก็จะน้อยลงตามสัดส่วน
           คุณสามารถดูค่าธรรมเนียมที่ถูกต้อง โดยการเข้าสู่บัญชี PayPal ของคุณ และไปยัง %{link_to_paypal} หลังจากการซื้อขายแต่ละครั้ง คุณจะได้รับใบเสร็จรับเงินแสดงค่าธรรมเนียมในแต่ละรายการ
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -779,6 +775,9 @@ th-TH:
       canceled_offer: ยกเลิกข้อเสนอ
       paid: "ชำระเงิน %{sum}"
       payment_preauthorized: "การชำระเงินได้รับอนุญาตแล้ว: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: ข้อความ
       message_to: "ข้อความถึง %{author_name}"
@@ -851,6 +850,8 @@ th-TH:
           intl: "กำลังรอให้คุณยอมรับการชำระเงิน PayPal"
           unknown_reason: ~
           verify: "กำลังรอให้คุณตรวจสอบบัญชี PayPal ของคุณ"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: ยอมรับข้อเสนอ
       accept_request: ตอบรับออเดอร์
@@ -920,6 +921,8 @@ th-TH:
       has_marked_request_as_canceled: "%{other_party_full_name}ได้ยกเลิกเกี่ยวกับ%{request} คุณยังคงสามารถให้ความคิดเห็นแก่%{other_party_given_name}ได้"
       giving_feedback_is_good_idea: "การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
       give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
@@ -994,6 +997,8 @@ th-TH:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1031,6 +1036,8 @@ th-TH:
       paypal_gateway_fee: ~
       money_will_be_transferred: "เงินจะถูกโอนไปยัง %{recipient_name} เมื่อ ก.) คุณได้ทำเครื่องหมายให้คำขอเสร็จสมบูรณ์ หรือ ข.) คุณจ่ายเงินมาแล้ว %{automatic_confirmation_days} วัน"
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ได้ให้ข้อเสนอแนะแก่คุณใน %{service_name}"
       you_can_give_feedback_to: "คุณยังไม่ได้ให้ข้อเสนอแนะแก่ %{name}"
@@ -1613,10 +1620,7 @@ th-TH:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "ค่าบริการของ %{service_name} (%{sum_with_currency}) และ %{paypal_fee_info_link} จะถูกหักออกจากราคานี้"
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "ค่าดำเนินการของ PayPal"
         delivery: วิธีการส่งสินค้า
         shipping: จัดส่ง
         shipping_price: ค่าจัดส่ง

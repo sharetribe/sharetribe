@@ -311,6 +311,7 @@ da-DK:
         invalid_post_listing_button_label: "Indtast venligst en gyldig tekst for \"Opret annonce\" knappen."
       transactions:
         export_all_as_csv: "Eksporter alle som CSV"
+        processing_export: ~
         transactions: "Vis transaktioner"
         headers:
           conversation: Samtaletråd
@@ -702,7 +703,6 @@ da-DK:
     removed_user: "Fjernet bruger"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: PayPal
       info: ~
@@ -710,10 +710,6 @@ da-DK:
       title: PayPal-gebyr
       body_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       body_text_accept: ~
-      link_to_paypal_text: her
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: her
     stripe_fee_info:
       title: ~
@@ -790,6 +786,9 @@ da-DK:
       canceled_offer: "afvis tilbudet"
       paid: "betalt %{sum}"
       payment_preauthorized: "Betaling godkendt: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Besked
       message_to: "Besked til %{author_name}"
@@ -862,6 +861,8 @@ da-DK:
           intl: "Venter på at du godkender PayPal betalingen."
           unknown_reason: "Din betaling er undervejs. Log ind på din PayPal-konto for at se flere detaljer."
           verify: "Venter på at du bekræfter din PayPal-konto"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Accepter tilbud"
       accept_request: "Accepter forespørgsel"
@@ -931,6 +932,8 @@ da-DK:
       has_marked_request_as_canceled: "%{other_party_full_name} har annulleret din anmodning '%{request}'. Du kan stadig give feedback til %{other_party_given_name}."
       giving_feedback_is_good_idea: "Det er altid en god idé at vurdere hinanden. Hvis alt gik godt, kan du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået %{days_passed} dage, siden anmodningen blev accepteret."
@@ -1005,6 +1008,8 @@ da-DK:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1042,6 +1047,8 @@ da-DK:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har endnu ikke givet feedback til %{name}"
@@ -1630,10 +1637,7 @@ da-DK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name}-gebyr (%{sum_with_currency}) og %{paypal_fee_info_link}  vil blive fratrukket prisen."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: PayPal-gebyr
         delivery: Leveringsform
         shipping: Forsendelse
         shipping_price: Porto
