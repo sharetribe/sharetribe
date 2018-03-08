@@ -5,6 +5,18 @@ module MarketplaceService::API
 
     RESERVED_DOMAINS = [
       "www",
+      "www0",
+      "www1",
+      "www2",
+      "www3",
+      "www4",
+      "www5",
+      "www6",
+      "www7",
+      "www8",
+      "www9",
+      "www10",
+      "wwww",
       "home",
       "sharetribe",
       "login",
@@ -34,6 +46,7 @@ module MarketplaceService::API
       "doc",
       "docs",
       "support",
+      "team",
       "support-team",
       "help",
       "legal",
@@ -85,6 +98,12 @@ module MarketplaceService::API
       "cdn7",
       "cdn8",
       "cdn9",
+      "flex",
+      "api",
+      "console",
+      "custom",
+      "core",
+      "turnkey",
     ]
 
     module_function
