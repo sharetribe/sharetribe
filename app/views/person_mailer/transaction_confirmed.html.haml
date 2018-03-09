@@ -4,7 +4,7 @@
 %tr
   %td{:align => "left"}
     %font{body_font}
-      - stripe_confirmed = @conversation.payment_gateway == 'stripe' && @conversation.status == 'confirmed'
+      - stripe_confirmed = @conversation.payment_gateway == :stripe && @conversation.status == 'confirmed'
       - key = stripe_confirmed ? 'emails.transaction_confirmed.stripe.has_marked_request_as_confirmed' : "emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}"
       = t(key, :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
 
