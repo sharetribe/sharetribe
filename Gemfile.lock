@@ -251,7 +251,7 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.8.6)
+    i18n (0.8.4)
     i18n-js (3.0.0)
       i18n (~> 0.6, >= 0.6.6)
     i18n_data (0.7.0)
@@ -301,7 +301,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.3.0)
-    minitest (5.11.3)
+    minitest (5.10.2)
     monetize (1.6.0)
       money (~> 6.8)
     money (6.8.4)
@@ -543,7 +543,7 @@ GEM
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
-    tzinfo (1.2.5)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)

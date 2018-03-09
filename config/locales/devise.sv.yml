@@ -51,7 +51,7 @@ sv:
       failure: "Det gick inte att auktorisera dig från %{kind} eftersom %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Bekräftelse instruktioner för att gå med i %{service_name}"
+        subject: "Bekräftelseinstruktioner för att gå med i %{service_name}"
       reset_password_instructions:
         subject: "Instruktioner för nollställning av lösenord"
       unlock_instructions:

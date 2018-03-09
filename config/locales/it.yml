@@ -296,6 +296,7 @@ it:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: "Visualizza transazioni"
         headers:
           conversation: ~
@@ -675,7 +676,6 @@ it:
     removed_user: "Utente rimosso"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -686,10 +686,6 @@ it:
           Puoi vedere le tariffe esatte accedendo al tuo conto PayPal andando %{link_to_paypal} . Dopo ogni acquisto si otterrà una ricevuta che visualizza la quota esatta.
       body_text_accept: ~
       link_to_paypal_text: qui
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -765,6 +761,9 @@ it:
       canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
@@ -837,6 +836,8 @@ it:
           intl: "In attesa che tu accetti il pagamento PayPal"
           unknown_reason: "C'è un pagamento pendente. Entra nel tuo account PayPal per maggiori informazioni."
           verify: "In attesa che tu verifichi il tuo conto PayPal"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
@@ -906,6 +907,8 @@ it:
       has_marked_request_as_canceled: "%{other_party_full_name} ha cancellato l'ordine per %{request}. Puoi ancora dare il tuo feedback a %{other_party_given_name}."
       giving_feedback_is_good_idea: "Dare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti far sapere agli altri che %{other_party_given_name} è affidabile. Se ci sono stati dei problemi, è giusto menzionarli."
       give_feedback_to: "Dai il tuo feedback a %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
@@ -980,6 +983,8 @@ it:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1017,6 +1022,8 @@ it:
       paypal_gateway_fee: ~
       money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
@@ -1603,10 +1610,7 @@ it:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sarà dedotta dal prezzo."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "Dal valore totale verrà sottratta la commissione di intermediazione di %{service_name} equivalente a %{sum_with_currency}, più la %{paypal_fee_info_link}."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "commissione dovuta al sistema di pagamento PayPal"
         delivery: "Metodo di consegna"
         shipping: Spedizione
         shipping_price: "Spese di spedizione"

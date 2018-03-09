@@ -306,6 +306,7 @@ zh-HK:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: 查閱交易記錄
         headers:
           conversation: 對話
@@ -693,7 +694,6 @@ zh-HK:
     removed_user: ~
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -701,10 +701,6 @@ zh-HK:
       title: PayPal的款項處理費
       body_text: "PayPal將對每筆付款收取一筆處理費。該費用介乎於總銷售價格的2%到5%之間，取決於你每月的銷售量和買家所在國家。大致上，國內的購買比國際的購買的費用為低，而愈高的每月銷售額則可以獲得折扣。你可以透過登入你的PayPal帳戶，到%{link_to_paypal}來查看詳細費用。在每次購買之後你將得到一張收據以顯示實際的費用。"
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -781,6 +777,9 @@ zh-HK:
       canceled_offer: 已取消
       paid: "已支付%{sum}"
       payment_preauthorized: "已授權款項：%{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: 訊息
       message_to: "發送給%{author_name}的訊息"
@@ -853,6 +852,8 @@ zh-HK:
           intl: 正等待你接受PayPal的款項
           unknown_reason: 正等待款項。請登入你的PayPal帳戶查看詳情。
           verify: 正在等待確認你的Paypal帳號
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: 接受議價
       accept_request: 接受要求
@@ -922,6 +923,8 @@ zh-HK:
       has_marked_request_as_canceled: "%{other_party_full_name}已經把「%{request}」取消。你仍可以向%{other_party_given_name}作出回應。"
       giving_feedback_is_good_idea: "你可以給予回應。你應該讓其他人知道你與%{other_party_given_name}的交易愉快。如果有任何問題，你也可以在評論中提及。"
       give_feedback_to: "向%{other_party_given_name}作出回應"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: 交易自動完成——不要忘記給予回應
       we_have_marked_request_as_confirmed: "我們已經把「%{request}」標示作已完成。此交易已自動完成，因為在請求被接受後%{days_passed}天已經過去。"
@@ -996,6 +999,8 @@ zh-HK:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1033,6 +1038,8 @@ zh-HK:
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}已在%{service_name}對您作出評價。"
       you_can_give_feedback_to: "您還未對%{name}作出評價。"
@@ -1618,10 +1625,7 @@ zh-HK:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}會從價格中扣除。"
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name}的費用（%{sum_with_currency}）和%{paypal_fee_info_link}會從價格中扣除。"
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: PayPal的款項處理費
         delivery: 配送方式
         shipping: 郵寄
         shipping_price: 運費

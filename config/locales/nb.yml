@@ -311,6 +311,7 @@ nb:
         invalid_post_listing_button_label: "Vennligst oppgi en gyldig tekst for knappen \"Opprett ny annonse\""
       transactions:
         export_all_as_csv: "Eksportér alle i CSV-fil"
+        processing_export: ~
         transactions: "Vis transaksjoner"
         headers:
           conversation: "Samtale tråd"
@@ -702,7 +703,6 @@ nb:
     removed_user: "Fjernet bruker"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -711,10 +711,6 @@ nb:
       body_text: "PayPal tar betalt ved hver betaling. Denne kostnaden er mellom 2-5% av salgsprisen, avhenging av ditt månedlige salgsvolum og land. Vanligvis er det billigere innenlands og et høyere volum gir lavere priser. Du kan se nøyaktige priser ved å logge inn på din PayPal-konto og gå til %{link_to_paypal}. Du vil motta en kvittering etter hver transaksjon med alle detaljer."
       body_text_accept: ~
       link_to_paypal_text: her
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -792,6 +788,9 @@ nb:
       canceled_offer: "avslo tilbudet"
       paid: "betalte %{sum}"
       payment_preauthorized: "Autorisert betaling: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Melding
       message_to: "Melding til %{author_name}"
@@ -864,6 +863,8 @@ nb:
           intl: "Venter på at du skal godkjenne PayPal betalingen"
           unknown_reason: "Betaling venter. Logg inn på din PayPal-konto for å se mer detaljer."
           verify: "Venter på at du skal verifisere din PayPal konto"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Godta tilbud"
       accept_request: "Godta forespørsel"
@@ -933,6 +934,8 @@ nb:
       has_marked_request_as_canceled: "%{other_party_full_name} har avbrutt forespørselen om '%{request}'. Du kan fremdeles gi vurdering av %{other_party_given_name}."
       giving_feedback_is_good_idea: "Å gi vurdering er alltid en god idé. Dersom alt gikk fint, bør du la andre få vite at %{other_party_given_name} er til å stole på. Dersom det oppstod problemer er det fint å nevne det også."
       give_feedback_to: "Gi vurdering av %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Forespørsel er automatisk merket som gjennomført - husk å gi vurdering"
       we_have_marked_request_as_confirmed: "Vi har merket forespørselen vedrørende %{request} som fullført. Forespørselen ble automatisk fullført fordi %{days_passed} dager er passert siden forespørselen ble akseptert."
@@ -1009,6 +1012,8 @@ nb:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1046,6 +1051,8 @@ nb:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pengene blir overført til %{recipient_name} når a) du har huket av for at forespørselen er utført eller b) %{automatic_confirmation_days} dager har gått fra du betalte."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har gitt deg tilbakemelding på %{service_name}"
       you_can_give_feedback_to: "Du har ikke gitt tilbakemelding til %{name} ennå."
@@ -1632,10 +1639,7 @@ nb:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil bli trukket fra prisen."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "%{service_name}-kostnad (%{sum_with_currency}) og %{paypal_fee_info_link} vil bli trukket fra prisen."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "PayPal transaksjonskostnad"
         delivery: Leveringsmetode
         shipping: Frakt
         shipping_price: Fraktkostnad

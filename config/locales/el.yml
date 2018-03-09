@@ -296,6 +296,7 @@ el:
         invalid_post_listing_button_label: ~
       transactions:
         export_all_as_csv: ~
+        processing_export: ~
         transactions: ~
         headers:
           conversation: ~
@@ -675,7 +676,6 @@ el:
     removed_user: ~
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -683,10 +683,6 @@ el:
       title: ~
       body_text: ~
       body_text_accept: ~
-      link_to_paypal_text: ~
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
       link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
@@ -763,6 +759,9 @@ el:
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
       payment_preauthorized: ~
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Μήνυμα
       message_to: ~
@@ -835,6 +834,8 @@ el:
           intl: ~
           unknown_reason: ~
           verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
       accept_request: "Αποδοχή αιτήματος"
@@ -904,6 +905,8 @@ el:
       has_marked_request_as_canceled: "Ο/η %{other_party_full_name} ακύρωσε το αίτημά σας για \"%{request}\". Μπορείτε ωστόσο να κάνετε κριτική για τον/την %{other_party_given_name}."
       giving_feedback_is_good_idea: "Είναι πάντα καλή ιδέα να κάνετε κριτική. Αν όλα πήγαν καλά δείχνετε και στα υπόλοιπα μέλη ότι ο/η %{other_party_given_name} είναι έμπιστος/η. Ακόμα κι αν υπήρχαν προβλήματα, καλό είναι να τα αναφέρετε κι αυτά."
       give_feedback_to: "Κάντε κριτική στον/στην %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -978,6 +981,8 @@ el:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1015,6 +1020,8 @@ el:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "O/H %{name} σχολίασε για σένα στο %{service_name}"
       you_can_give_feedback_to: "Έχετε παραλείψει να γράψετε την κριτική σας για τον/την %{name}."
@@ -1597,10 +1604,7 @@ el:
         no_service_fee_you_will_get_paypal_text: ~
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: ~
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: ~
         delivery: ~
         shipping: ~
         shipping_price: ~

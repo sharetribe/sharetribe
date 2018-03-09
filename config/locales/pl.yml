@@ -321,6 +321,7 @@ pl:
         invalid_post_listing_button_label: "Proszę podaj poprawny tekst dla guzika \"Opublikuj nową ofertę\""
       transactions:
         export_all_as_csv: "Wyeksportuj wszystko do CSV"
+        processing_export: ~
         transactions: "Zobacz transakcje"
         headers:
           conversation: "Wątek konwersacji"
@@ -720,7 +721,6 @@ pl:
     removed_user: "Użytkownik usunięty"
     payment_fee_info:
       title: ~
-      title_paypal: ~
       stripe: ~
       paypal: ~
       info: ~
@@ -731,10 +731,6 @@ pl:
           Możesz sprawdzić dokładny poziom opłat logując się na swoje konto PayPal i idąc na %{link_to_paypal}. Po każdej transakcji dostaniesz rachunek pokazujący dokładną wartość opłaty.
       body_text_accept: ~
       link_to_paypal_text: tutaj
-    paypal_only_fee_info:
-      title: ~
-      body_text: ~
-      link_to_paypal_text: ~
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -810,6 +806,9 @@ pl:
       canceled_offer: "anulowano ofertę"
       paid: "zapłacono %{sum}"
       payment_preauthorized: "Płatność zautoryzowana: %{sum}"
+      stripe:
+        held_payment: ~
+        confirmed_request: ~
     new:
       message: Wiadomość
       message_to: "Wiadomość do %{author_name}"
@@ -882,6 +881,8 @@ pl:
           intl: "Oczekiwanie aż zaakceptujesz płatność PayPal"
           unknown_reason: "Płatność oczekuje na realizację. Zaloguj się na swoje konto PayPal aby zobaczyć więcej szczegółów."
           verify: "Oczekiwanie aż zweryfikujesz swoje konto PayPal"
+      stripe:
+        waiting_confirmation_from_requester: ~
     status_link:
       accept_offer: "Zaakceptuj ofertę"
       accept_request: "Zaakceptuj zapytanie"
@@ -951,6 +952,8 @@ pl:
       has_marked_request_as_canceled: "%{other_party_full_name} anulował zamówienie na %{request}. Wciąż możesz przekazać opinię do %{other_party_given_name}."
       giving_feedback_is_good_idea: "Przekazywanie opinii jest zawsze dobrym pomysłem. Jeżeli wszystko poszło dobrze, daj znać innym, że %{other_party_given_name} jest warty zaufania. Jeżeli napotkałeś jakieś problemy, dobrze zaznaczyć to także."
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby przekazać recenzję"
       we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minęło %{days_passed} dni od jego akceptacji."
@@ -1025,6 +1028,8 @@ pl:
       price_per_unit_type: ~
       quantity: ~
       you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
@@ -1062,6 +1067,8 @@ pl:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pieniądze zostaną przesłane do %{recipient_name} kiedy: a) zaznaczysz zlecenie jako zrealizowane lub b) minie %{automatic_confirmation_days} dni od kiedy dokonałeś płatności."
       listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} przekazał Tobie opinię w %{service_name}"
       you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
@@ -1650,10 +1657,7 @@ pl:
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} będzie odjęte od ceny."
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_paypal_text: "opłata serwisowa %{service_name} (%{sum_with_currency}) oraz %{paypal_fee_info_link} będą odjęte od ceny."
-        after_service_fee_you_will_get_stripe_text: ~
         payment_fee_info_link_text: ~
-        paypal_fee_info_link_text: "Opłata za obsługę płatności PayPal"
         delivery: "Metoda dostawy"
         shipping: Transport
         shipping_price: "Koszt transportu"
