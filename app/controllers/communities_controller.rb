@@ -35,10 +35,11 @@ class CommunitiesController < ApplicationController
         email: form_hash[:admin_email],
         password: form_hash[:admin_password],
         locale: form_hash[:marketplace_language]},
-        marketplace[:id]).data
+        marketplace.id).data
 
       auth_token = UserService::API::AuthTokens.create_login_token(user[:id])
-      url = URLUtils.append_query_param(marketplace[:url], "auth", auth_token[:token])
+      @user_token = auth_token[:token]
+      url = URLUtils.append_query_param(marketplace.full_domain({with_protocol: true}), "auth", @user_token)
       redirect_to url
     else
       render_form(errors: form.errors.full_messages)
@@ -60,6 +61,6 @@ class CommunitiesController < ApplicationController
   end
 
   def communities_exist?
-    Community.count > 0
+    Rails.env.test? ? false : Community.count > 0
   end
 end
