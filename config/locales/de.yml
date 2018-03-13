@@ -795,7 +795,7 @@ de:
       paid: "bezahlt %{sum}"
       payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
       stripe:
-        held_payment: "Anfrage akzeptieren. Die Zahlung in Höhe von %{sum} wird solange von %{service_name} geblockt, bis der Auftrag als erledigt markiert wurde."
+        held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
         confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
     new:
       message: Nachricht
@@ -1642,8 +1642,8 @@ de:
         after_service_fee_you_will_get: "Nach Abzug der %{service_name} Servicegebühr und der Gebühren des Zahlungssystems, wirst du %{sum_with_currency} erhalten"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} wird vom Preis abgezogen."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} wird vom Preis abgezogen."
-        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf werden %{payment_fee_info_link} vom Preis einbehalten."
-        payment_fee_info_link_text: "%{service_name} Vermittlungsprovision und Zahlungsbearbeitungsgebühr"
+        after_service_fee_you_will_get_payment_text: "Bei jedem Kauf wird die %{payment_fee_info_link} vom Preis einbehalten."
+        payment_fee_info_link_text: "%{service_name} Vermittlungsprovision und ggf. eine Zahlungsbearbeitungsgebühr"
         delivery: Lieferart
         shipping: Versand
         shipping_price: Versandkostenpauschale

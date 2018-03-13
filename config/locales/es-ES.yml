@@ -311,7 +311,7 @@ es-ES:
         invalid_post_listing_button_label: "Proporciona un texto válido para el botón de \"Publicar Anuncio\""
       transactions:
         export_all_as_csv: "Exportar todos en formato CSV"
-        processing_export: ~
+        processing_export: "Procesando la exportación a CSV..."
         transactions: "Ver transacciones"
         headers:
           conversation: Conversación
@@ -706,14 +706,14 @@ es-ES:
     what_is_this: "¿Qué es esto?"
     removed_user: "Usuario eliminado"
     payment_fee_info:
-      title: "Cuota de procesamiento de pago"
+      title: "Comisión y cuota de procesamiento de pago"
       stripe: Stripe
       paypal: PayPal
-      info: "Los pagos en %{service_name} son procesados por Stripe o PayPal. Cualquiera de los dos sistemas cobra una cuota por cada pago."
+      info: "Los pagos en %{service_name} son procesados por Stripe (para pagos con tarjeta) o PayPal. %{service_name} cobra una comisión que depende de la plataforma usada. La plataforma de pagos puede cobrar una comisión adicional."
     paypal_fee_info:
       title: "Comisión de procesamiento de pago de PayPal"
       body_text: |-
-          Para pagos con PayPal, %{service_name} cobra una comisión de %{paypal_commission}%. Las cuotas adicionales de PayPal no están incluidas en esta comisión, así que además de la comisión de %{service_name}, también deberás pagar las cuota de PayPal por cada pago procesado por PayPal. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
+          Para pagos con PayPal, %{service_name} cobra una comisión de %{paypal_commission}%. La cuota mínima por transacción es %{minimum_transaction_fee}. Las cuotas adicionales de PayPal no están incluidas en esta comisión, así que además de la comisión de %{service_name}, también deberás pagar las cuota de PayPal por cada pago procesado por PayPal. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
           Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       body_text_accept: |-
           Esta transacción será procesada por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
@@ -721,7 +721,7 @@ es-ES:
       link_to_paypal_text: aquí
     stripe_fee_info:
       title: "Cuota de procesamiento de pago de Stripe"
-      body_text: "Para pagos por medio de Stripe, %{service_name} carga una cuota de %{stripe_commission}%. Las cuotas de Stripe están incluidas en esta cuota/comisión."
+      body_text: "Para pagos por medio de Stripe, %{service_name} cobra una comisión de %{stripe_commission}%. La cuota mínima por transacción es de %{minimum_transaction_fee}. Las cuotas de Stripe están incluidas en esta cuota/comisión."
       link_to_stripe_text: aquí
   conversations:
     accept:
@@ -795,8 +795,8 @@ es-ES:
       paid: "pagó %{sum}"
       payment_preauthorized: "Pago autorizado: %{sum}"
       stripe:
-        held_payment: ~
-        confirmed_request: ~
+        held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
+        confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
     new:
       message: Mensaje
       message_to: "Mensaje para %{author_name}"
@@ -870,7 +870,7 @@ es-ES:
           unknown_reason: "El pago está pendiente. Conéctate a tu cuenta de PayPal para ver más detalles."
           verify: "Estamos esperando a que verifiques tu cuenta de PayPal"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "Esperando a que %{requester_name} marqué la orden como completada. Una vez que la orden sea marcada como completada, el dinero se moverá a tu cuenta de banco."
     status_link:
       accept_offer: "Aceptar oferta"
       accept_request: "Aceptar solicitud"
@@ -941,7 +941,7 @@ es-ES:
       giving_feedback_is_good_idea: "Dar una valoración es siempre una buena idea. Si todo salió bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       give_feedback_to: "Dar valoración a %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} ha marcado la orden de '%{request}' como completada. El dinero por esta transacción se ha transferido a tu cuenta de banco. Puedes ahora dejar una valoración a %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Solicitud completada automáticamente - Recuerda dar una valoración"
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
@@ -1017,7 +1017,7 @@ es-ES:
       quantity: "Cantidad:"
       you_have_received_new_payment: "Has recibido un pago de <b>%{payment_sum}</b> por <b>%{listing_title}</b> de parte de %{payer_full_name}. Aquí está tu recibo."
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "La cantidad de <b>%{payment_sum}</b> ha sido pagada para <b>%{listing_title}</b> por %{payer_full_name}. El dinero esta siendo retenido por %{service_name} hasta que la orden sea marcada como completada. Aquí está tu recibo."
     payment_receipt_to_payer:
       receipt_of_payment: "Recibo de pago"
       you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{recipient_full_name}. Aquí tienes el recibo de pago."
@@ -1056,7 +1056,7 @@ es-ES:
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
       listing_per_unit_title: "%{title}, por %{unit_type}"
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{service_name}. El dinero sera enviado a %{recipient_full_name} una vez que hayas marcado la orden como completada. Aquí está tu recibo de pago."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
       you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
@@ -1090,7 +1090,7 @@ es-ES:
     transaction_preauthorized:
       subject: "%{requester} está interesado en y autorizado el pago por %{listing_title} en %{service_name}"
       transaction_requested_by_user: "Buenas noticias! %{requester} está interesado en \"%{listing_title}\" y ya ha autorizado el pago por este anuncio."
-      you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}. Si aceptas dentro de este periodo, el pago será procesado. Si no aceptas, la solicitud se rechazará automáticamente y no recibirás el pago."
+      you_have_time_to_accept: "Debes aceptar o rechazar la solicitud dentro de %{payment_expires_in}."
       if_you_do_accept: "Si aceptas la transacción durante este tiempo, recibirás el dinero inmediatamente en tu cuenta."
       if_you_do_accept_stripe: "Si aceptas la solicitud dentro de este periodo, el pago será completado. Recibirás el dinero directamente en tu cuenta de banco después de que hayas completado %{listing_title} para %{requester}."
       if_you_do_not_accept: "Si rechazas la transacción o no aceptas la oferta durante este tiempo, la transacción se cancelará automáticamente, no se le cobrará a %{requester} y no recibirás el pago."
@@ -1642,8 +1642,8 @@ es-ES:
         after_service_fee_you_will_get: "Después de la comisión de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} se reducirá del precio."
-        after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la comisión de %{service_name} (%{sum_with_currency}) y una %{payment_fee_info_link} se deducirán del precio."
-        payment_fee_info_link_text: "cuota de procesamiento de pago"
+        after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la %{payment_fee_info_link} se deducirán del precio."
+        payment_fee_info_link_text: "comisión de %{service_name} y la cuota de procesamiento de pago"
         delivery: "Método de envío"
         shipping: Envío
         shipping_price: "Costos de envío"

@@ -3,32 +3,32 @@ zh-TW:
     messages:
       expired: 已經過期，請重新申請
       not_found: 没有找到
-      already_confirmed: "已经确认,请重新登录"
-      not_locked: 未锁定
+      already_confirmed: 已經確認，請重新登入
+      not_locked: 未鎖定
       not_saved:
         other: "有%{count}個錯誤導致%{resource}保存失敗："
   devise:
     failure:
-      already_authenticated: 你已經登入
-      unauthenticated: 繼續操作前請註冊或登入
-      unconfirmed: 继续操作前请先确认你的帐号
-      locked: 你的帐号已被锁定
-      invalid: 邮箱或密码错误
-      invalid_token: 认证码无效
-      timeout: 您已登錄超時，請重新登錄
+      already_authenticated: 您已經登入。
+      unauthenticated: 繼續操作前請註冊或登入。
+      unconfirmed: 繼續操作前請先確認你的帳號
+      locked: 你的帳號已被鎖定
+      invalid: 電子信箱或密碼錯誤
+      invalid_token: 認證碼無效
+      timeout: 您已登入超時，請重新登入
       inactive: 您還沒有啟動帳戶。
     passwords:
       updated_not_active: 您的密碼已修改成功。
-      send_paranoid_instructions: 如果您的郵箱存在於我們的數據庫記錄中，您將收到一封找回密碼的郵件
+      send_paranoid_instructions: 如果您的電子郵件存在於我們的資料庫，您將收到一封找回密碼的郵件
       send_instructions: 幾分鐘後，您將收到重置密碼的電子郵件。
       updated: 您的密碼已修改成功，您現在已登錄。
     sessions:
-      signed_in: 登錄成功。
-      signed_out: 退出成功。
+      signed_in: 登入成功。
+      signed_out: 登入成功。
     confirmations:
       send_paranoid_instructions: 如果您的郵箱存在於我們的數據庫記錄中，您會在幾分鐘內收到一封確認帳號的郵件。
       send_instructions: 幾分鐘內，您將收到確認帳號的電子郵件。
-      confirmed: 你的帳號已經成功確認。
+      confirmed: 你的帳號已經驗證成功。
     registrations:
       signed_up_but_unconfirmed: 附有確認鏈接的消息已經發送到您的郵箱。請打開此鏈接來啟動您的帳號
       signed_up_but_inactive: 雖然您已經註冊成功，但因為您的帳號還未激活，所以您暫時無法登錄。
@@ -38,13 +38,13 @@ zh-TW:
         unconfirmed: 未確認
         locked: 鎖定
       update_needs_confirmation: 更新您的帳戶成功，但我們需要驗證您的新電子郵件地址。請檢查您的電子郵件，點擊確認鏈接來確認您的新電子郵件地址。
-      signed_up: 歡迎您！你已註冊成功。
+      signed_up: 歡迎您！您已註冊成功。
       updated: 帳號資料更新成功。
       destroyed: 再見！您的帳戶已成功取消。我們希望可以很快再見到您.
     unlocks:
-      send_paranoid_instructions: 如果您的郵箱存在於我們的數據庫中，您將收到一封解鎖賬號的郵件。
-      send_instructions: 幾分鐘後，您將收到一封解鎖帳號的郵件.
-      unlocked: 您的帳號已成功解鎖，請登錄繼續使用網站.
+      send_paranoid_instructions: 如果您的電子信箱存在於我們的數據庫中，您將收到一封解鎖賬號的信件。
+      send_instructions: 幾分鐘後，您將收到一封如何解鎖帳號的電子郵件。
+      unlocked: 您的帳號已成功解鎖，請登入以繼續使用
     omniauth_callbacks:
       success: "成功地從%{kind}獲得授權。"
       failure: "因為%{reason}，所以您無法從%{kind}獲得授權。"
