@@ -713,7 +713,7 @@ sv:
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
-          För PayPal betalningar tar %{service_name} en transaktionssavgift på %{paypal_commission}%. Den lägsta transaktionsavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyer att i tillägg till %{service_name} transaktionsavgift betalar du även PayPal's hanteringsavgift. PayPals betalningshanteringsavgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp har lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
+          För PayPal betalningar tar %{service_name} en transaktionssavgift på %{paypal_commission}%. Den lägsta transaktionsavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyer att i tillägg till %{service_name} transaktionsavgift betalar du även PayPal's hanteringsavgift. PayPals betalningshanteringsavgiften är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
           Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och köparens hemland. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
@@ -721,7 +721,7 @@ sv:
       link_to_paypal_text: här
     stripe_fee_info:
       title: "Stripes betalningshanteringsavgift"
-      body_text: "För Stripe betalningar tar %{service_name} en transaktionsavgift på %{stripe_commission}. Den lägsta transaktionsavgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
+      body_text: "För Stripe betalningar tar %{service_name} en transaktionsavgift på %{stripe_commission}%. Den lägsta transaktionsavgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
       link_to_stripe_text: här
   conversations:
     accept:

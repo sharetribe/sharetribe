@@ -1056,7 +1056,7 @@ es-ES:
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
       listing_per_unit_title: "%{title}, por %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b> a %{service_name}. El dinero sera enviado a %{recipient_full_name} una vez que hayas marcado la orden como completada. Aquí está tu recibo de pago."
+        you_have_made_new_payment: "Has pagado <b>%{payment_sum}</b> por <b>%{listing_title}</b>. El dinero está siendo retenido por %{service_name}. El dinero sera enviado a %{recipient_full_name} una vez que hayas marcado la orden como completada. Aquí está tu recibo de pago"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} te ha dado una valoración en %{service_name}"
       you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
@@ -1642,7 +1642,7 @@ es-ES:
         after_service_fee_you_will_get: "Después de la comisión de %{service_name} y los costos de procesamiento de pago, recibirás %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "La %{paypal_fee_info_link} será deducida del precio."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} se reducirá del precio."
-        after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la %{payment_fee_info_link} se deducirán del precio."
+        after_service_fee_you_will_get_payment_text: "Cuando alguien haga una orden, la %{payment_fee_info_link} se deducirán de esta cantidad."
         payment_fee_info_link_text: "comisión de %{service_name} y la cuota de procesamiento de pago"
         delivery: "Método de envío"
         shipping: Envío
