@@ -709,7 +709,7 @@ en:
       title: "Commission and Payment processing fee"
       stripe: Stripe
       paypal: PayPal
-      info: "Payments in %{service_name} are processed by either Stripe (credit/debit card) or PayPal. %{service_name} will charge a commission depending on the payment gateway. The payment gateway also charges a fee for each payment."
+      info: "Payments in %{service_name} are processed by either Stripe (credit/debit card) or PayPal. %{service_name} will charge a commission depending on the payment gateway."
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-
@@ -1056,7 +1056,7 @@ en:
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
       listing_per_unit_title: "%{title}, per %{unit_type}"
       stripe:
-        you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{service_name}. The money will be released to %{recipient_full_name} once you mark the order as completed. Here is a receipt of the payment."
+        you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b>. The money is being held by %{service_name} and will be released to %{recipient_full_name} once you mark the order as completed. Here is a receipt of the payment."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
       you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
@@ -1642,7 +1642,7 @@ en:
         after_service_fee_you_will_get: "After %{service_name} and payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{payment_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_payment_text: "Once someone makes an order, you'll receive this amount minus %{payment_fee_info_link}."
         payment_fee_info_link_text: "%{service_name} fee and a payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
