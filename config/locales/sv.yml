@@ -635,7 +635,7 @@ sv:
         active: Aktiv
         gateway: Gateway
         process: Process
-        commission: Provision
+        commission: Transaktionsavgift
         minimum_price: Min.pris
         minimum_fee: Min.avgift
         api_verified: "API bekräftad?"
@@ -709,11 +709,11 @@ sv:
       title: "Transaktionsavgift och PayPals betalningshanteringsavgift"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalningar i %{service_name} hanteras antingen av Stripe (credit eller debit kort) eller PayPal. %{service_name} kommer ta en serviceavgift beroende på vilken betalningssystem som använts. Betalningssytemet tar även en avgift för varje betalning."
+      info: "Betalningar i %{service_name} hanteras antingen av Stripe (credit eller debit kort) eller PayPal. %{service_name} kommer ta en serviceavgift beroende på vilken betalningssystem som används."
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
-          För PayPal betalningar tar %{service_name} en transaktionssavgift på %{paypal_commission}%. Den lägsta transaktionsavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyer att i tillägg till %{service_name} transaktionsavgift betalar du även PayPal's hanteringsavgift. PayPals betalningshanteringsavgiften är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
+          För PayPal betalningar tar %{service_name} en serviceavgift på %{paypal_commission}%. Den lägsta serviceavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyer att i tillägg till %{service_name} serviceavgift betalar du även PayPal's betalningshanteringsavgift. PayPals hanteringsavgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
           Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och köparens hemland. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
@@ -721,7 +721,7 @@ sv:
       link_to_paypal_text: här
     stripe_fee_info:
       title: "Stripes betalningshanteringsavgift"
-      body_text: "För Stripe betalningar tar %{service_name} en transaktionsavgift på %{stripe_commission}%. Den lägsta transaktionsavgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
+      body_text: "För Stripe betalningar tar %{service_name} en serviceavgift på %{stripe_commission}%. Den lägsta avgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
       link_to_stripe_text: här
   conversations:
     accept:
@@ -1056,7 +1056,7 @@ sv:
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
       listing_per_unit_title: "%{title} per %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b> till %{service_name}. Pengarna kommer bli överförda till %{recipient_full_name} när du markerar förfrågan som slutförd. Här är kvittot över betalningen"
+        you_have_made_new_payment: "Du har betalat <b>%{payment_sum}</b> för <b>%{listing_title}</b>. Pengarna hålls av %{service_name} och kommer bli överförda till %{recipient_full_name} när du markerat förfrågan som slutförd. Här är kvittot över betalningen."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givit dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har inget gett feedback till %{name}."
@@ -1644,7 +1644,7 @@ sv:
         after_service_fee_you_will_get: "Efter %{service_name}s serviceavgift så kommer du att få %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} kommer att dras av från priset."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} kommer bli avdragen från priset."
-        after_service_fee_you_will_get_payment_text: "När någon gör en beställning kommer %{payment_fee_info_link} bli avdraget från priset."
+        after_service_fee_you_will_get_payment_text: "När någon gör en beställning kommer du få denna summa minus %{payment_fee_info_link}."
         payment_fee_info_link_text: "%{service_name} avgift och en betalningshanteringsavgift"
         delivery: Leveransmetod
         shipping: Frakt
@@ -1865,7 +1865,7 @@ sv:
     paypal_account_email_connected: "<del>1. Anslut PayPal konto</del> Klart!"
     payout_info_paypal: "%{service_name} använder PayPal för hantering av betalningar. Du behöver ett %{create_paypal_account_link} för att ta emot betalningar från dina annonser. Du behöver också ge %{service_name} tillåtelse att ta ut en serviceavgift."
     paypal_billing_agreement_made: "<del>Ge %{service_name} tillåtelse att ta ut en serviceavgift</del> Klart!"
-    commission_permission_needed: "Du måste också ge %{service_name} tillåtelse att ta en transaktionsavgift."
+    commission_permission_needed: "Du måste också ge %{service_name} tillåtelse att ta en serviceavgift."
     create_paypal_account_link_text: PayPal-konto
     connected_account: "PayPal-kontot '%{email}' har blivit anslutet."
     paypal_receive_funds_info_label_australia_only: "Ditt PayPal konto måste kunna ta ta emot betalningar. Detta kräver ett Premier eller Business konto hos PayPal."
@@ -1929,8 +1929,8 @@ sv:
     checkout_with_paypal: "Gå till checkout med PayPal"
     cancel_succesful: "PayPal betalning avbruten"
     transaction:
-      commission_payment_name: "Provisionsbetalning för %{listing_title}"
-      commission_payment_description: "Marknadsplatsen %{service_name} tog denna provion från transaktionen avseende %{listing_title}"
+      commission_payment_name: "Serviceavgift för %{listing_title}"
+      commission_payment_description: "Marknadsplatsen %{service_name} tog denna serviceavgift från transaktionen avseende %{listing_title}"
     wait_while_loading: "Vänligen vänta."
     chatting_with_paypal: "Vi chattar med PayPal."
   people:

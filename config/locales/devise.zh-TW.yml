@@ -11,8 +11,8 @@ zh-TW:
     failure:
       already_authenticated: 您已經登入。
       unauthenticated: 繼續操作前，請先註冊或登入。
-      unconfirmed: 繼續操作前請先確認你的帳號
-      locked: 你的帳號已被鎖定
+      unconfirmed: 繼續操作前請先確認您的帳號
+      locked: 您的帳號已被鎖定
       invalid: Email或密碼錯誤
       invalid_token: 認證碼無效
       timeout: 您已登入超時，請重新登入
@@ -28,7 +28,7 @@ zh-TW:
     confirmations:
       send_paranoid_instructions: 如果您的Email帳號存在於我們的數據庫記錄中，您會在幾分鐘內收到一封確認帳號的信件。
       send_instructions: 幾分鐘內，您將收到確認帳號的email。
-      confirmed: 你的帳號已經驗證成功。
+      confirmed: 您的帳號已驗證成功。
     registrations:
       signed_up_but_unconfirmed: 附有確認鏈接的消息已經發送到您的Email，請打開鏈接來啟動您的帳號。
       signed_up_but_inactive: 雖然您已經註冊成功，但因為您的帳號還未激活，所以您暫時無法登入。
@@ -50,7 +50,7 @@ zh-TW:
       failure: "因為%{reason}，所以您無法從%{kind}獲得授權。"
     mailer:
       confirmation_instructions:
-        subject: 確認步驟說明
+        subject: "加入%{service_name}的步驟說明"
       reset_password_instructions:
         subject: 重設密碼說明
       unlock_instructions:
