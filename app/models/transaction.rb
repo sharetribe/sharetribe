@@ -105,6 +105,10 @@ class Transaction < ApplicationRecord
   scope :for_csv_export, -> {
     includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
   }
+  scope :for_testimonials, -> {
+    includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
+    .where(current_state: ['confirmed', 'canceled'])
+  }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?

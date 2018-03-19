@@ -274,6 +274,7 @@ Rails.application.routes.draw do
           end
         end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
+        resources :testimonials, controller: :community_testimonials, only: [:index, :show]
         resources :emails
         resources :community_memberships do
           member do
