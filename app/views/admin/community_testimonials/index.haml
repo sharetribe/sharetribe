@@ -1,0 +1,35 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.testimonials.testimonials")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.testimonials.testimonials")
+
+  %span#admin_testimonials_count
+    = page_entries_info(@transactions, :model => "Transaction").html_safe
+
+  %table#admin_testimonials
+    %thead
+      %tr
+        %th
+          = render partial: "layouts/sort_link", locals: { column: "started",
+            direction: sort_link_direction("started"),
+            title: t("admin.communities.testimonials.headers.transaction") }
+        %th= t("admin.communities.testimonials.headers.author")
+        %th= t("admin.communities.testimonials.headers.receiver")
+        %th= t("admin.communities.testimonials.headers.status")
+        %th= t("admin.communities.testimonials.headers.grade")
+        %th= t("admin.communities.testimonials.headers.note")
+
+    %tbody
+      - @transactions.each do |tx|
+        - [:starter, :author].each do |participant|
+          = render 'testimonial', tx: tx, participant: participant
+
+  .row
+    .col-12
+      = will_paginate @transactions
