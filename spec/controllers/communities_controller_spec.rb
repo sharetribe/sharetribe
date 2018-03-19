@@ -4,7 +4,8 @@ describe CommunitiesController, type: :controller do
   render_views
 
   describe 'Product marketplace' do
-    let(:params) {{
+    let(:params) do
+    {
       admin_email: 'martha@example.com',
       admin_password: '12345678',
       admin_first_name: 'Martha',
@@ -13,7 +14,8 @@ describe CommunitiesController, type: :controller do
       marketplace_type: 'product',
       marketplace_country: 'FI',
       marketplace_language: 'en',
-    }}
+    }
+    end
     subject { post :create, params: params }
 
     it 'create' do
