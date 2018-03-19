@@ -98,6 +98,8 @@ module NavigationHelpers
       edit_admin_listing_shape_path(id: $1)
     when /the unsubscribe link with code "(.*)" from invitation email to join community/
       unsubscribe_invitations_path(code: $1)
+    when /the testimonials admin page/
+      admin_community_testimonials_path(:community_id => @current_community.id)
     else
       begin
         page_name =~ /the (.*) page/

@@ -28,10 +28,17 @@ class Testimonial < ApplicationRecord
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
 
   scope :positive, -> { where("grade >= 0.5") }
+  scope :for_admin_view, -> (community) {
+    includes(:tx, :author, :receiver)
+    .merge(Transaction.by_community(community.id).exist)
+  }
 
   # Formats grade so that it can be displayed in the UI
   def displayed_grade
     (grade * 4 + 1).to_i
   end
 
+  def positive?
+    grade >= 0.5
+  end
 end
