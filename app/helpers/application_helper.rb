@@ -384,6 +384,13 @@ module ApplicationHelper
         :name => "conversations"
       },
       {
+        :topic => :manage,
+        :text => t("admin.communities.testimonials.testimonials"),
+        :icon_class => icon_class("chat_bubble"),
+        :path => admin_community_testimonials_path(@current_community),
+        :name => "testimonials"
+      },
+      {
         :topic => :configure,
         :text => t("admin.communities.edit_details.community_details"),
         :icon_class => icon_class("details"),
