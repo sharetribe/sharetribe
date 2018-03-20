@@ -189,7 +189,7 @@ window.ST.stripe_form_i18n = {
       ".bank-routing-1 input", ".bank-routing-2 input"];
     for (var index in removeSpacesInputs) {
       var input = $(removeSpacesInputs[index]);
-      var value = input.val().replace(/\s+/g, '');
+      var value = input.val().replace(/\s+/g, '').toUpperCase();
       input.val(value);
     }
   };
@@ -264,7 +264,7 @@ window.ST.stripe_form_i18n = {
       }
       if(re) {
         var rx = new RegExp("^"+re+"$");
-        var testValue = value.replace(/\s+/g, '');
+        var testValue = value.replace(/\s+/g, '').toUpperCase();
         return rx.test(testValue);
       }
       return this.optional(element) || $(element).val();
