@@ -311,7 +311,7 @@ fi:
         invalid_post_listing_button_label: "Ole hyvä ja anna kelvollinen teksti \"Lisää uusi ilmoitus\" -napille"
       transactions:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
-        processing_export: ~
+        processing_export: "Prosessoidaan vientiä CSV-tiedostoon..."
         transactions: "Näytä tilaukset"
         headers:
           conversation: Viestiketju
@@ -795,7 +795,7 @@ fi:
       paid: "maksoi %{sum}"
       payment_preauthorized: "Katevaraus tehty: %{sum}"
       stripe:
-        held_payment: ~
+        held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
         confirmed_request: ~
     new:
       message: Viesti
