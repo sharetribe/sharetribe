@@ -68,7 +68,6 @@ class PreauthorizeTransactionsController < ApplicationController
   def calculate_shipping_from_listing(tx_params:, listing:, quantity:)
     if tx_params[:delivery] == :shipping
       TransactionService::Validation::ShippingTotal.new(
-        tx_params: tx_params,
         initial: listing.shipping_price,
         additional: listing.shipping_price_additional,
         quantity: quantity)
