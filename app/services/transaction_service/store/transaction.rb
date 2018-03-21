@@ -61,6 +61,9 @@ module TransactionService::Store::Transaction
     tx_model = TransactionModel.where(id: transaction_id, community_id: community_id).first
     if tx_model
       address = tx_model.shipping_address || tx_model.build_shipping_address
+      if addr.is_a?(ActionController::Parameters)
+        addr = addr.permit(:name, :street1, :street2, :postal_code, :city, :country_code, :state_or_province)
+      end
       address.update_attributes!(addr)
     end
   end
