@@ -72,6 +72,7 @@ module TransactionService::Store::ProcessToken
   end
 
   def from_model(model)
+    ::Transaction.name # load the class
     model_hash = EntityUtils.model_to_hash(model)
     model_hash[:op_input] = YAML.load(model_hash[:op_input]) unless model_hash[:op_input].nil?
     model_hash[:op_output] = YAML.load(model_hash[:op_output]) unless model_hash[:op_output].nil?
