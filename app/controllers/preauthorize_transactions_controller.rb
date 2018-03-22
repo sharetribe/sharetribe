@@ -376,7 +376,7 @@ class PreauthorizeTransactionsController < ApplicationController
       end
 
     flash[:error] = error_msg
-    logger.error(msg, :transaction_initiate_error, data)
+    logger.error(error_msg, :transaction_initiate_error, data)
     redirect_to listing_path(listing.id)
   end
 

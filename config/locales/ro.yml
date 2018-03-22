@@ -12,7 +12,7 @@ ro:
       index:
         listing_categories: ~
         create_a_new_category: ~
-        remove_category_confirmation: ~
+        remove_category_confirmation: "Sunteti sigur ca vreti sa stergeti categoria %{category_name}?"
         saving_order: ~
         save_order_successful: ~
         save_order_error: ~
@@ -33,13 +33,25 @@ ro:
           save: ~
           cancel: ~
       remove:
-        remove_category: ~
-        remove_category_name: ~
-        warning_remove_effects: ~
+        remove_category: "Stergeti categoria"
+        remove_category_name: "Stergeti categoria %{category_name}"
+        warning_remove_effects: "Atentie! Stergerea categoriei %{category_name} va avea urmatoarele efecte:"
         select_new_category: ~
         buttons:
           remove: ~
           cancel: ~
+        warning_listing_will_be_moved:
+          one: "In categorie este %{count} anunt"
+          few: "In categorie sunt %{count} anunturi"
+          other: "In categorie sunt %{count} anunturi"
+        warning_custom_field_will_be_moved:
+          one: "In categorie este %{count} camp personalizat"
+          few: "In categorie sunt %{count} campuri personalizate"
+          other: "In categorie sunt %{count} campuri personalizate"
+        warning_subcategory_will_be_removed:
+          one: "In categorie este %{count} subcategorie"
+          few: "In categorie sunt %{count} subcategorii"
+          other: "In categorie sunt %{count} subcategorii"
     communities:
       edit_details:
         community_details: ~
@@ -382,7 +394,7 @@ ro:
         listing_fields: ~
         listing_fields_help: ~
         add_new_field: ~
-        remove_field_confirmation: ~
+        remove_field_confirmation: "Sunteti sigur ca vreti sa stergeti campul %{field_name}?"
         cancel: ~
         save: ~
         field_title: ~
@@ -1393,7 +1405,7 @@ ro:
       comment_sent: "Comentariu trimis"
       confirmation_link_is_wrong_or_used: "Link-ul de confirmare este deja folosit sau corupt. Incercati sa va autentificati sau trimiteti feedback daca problema persista."
       additional_email_confirmed: "Adresa de email pe care ai introdus-o a fost confirmata"
-      could_not_get_email_from_facebook: ~
+      could_not_get_email_from_facebook: "Nu s-a gasit adresa de e-mail de pe Facebook si fara e-mail nu se poate crea un cont."
       facebook_email_unconfirmed: ~
       create_new_listing: ~
       create_one_here: "creaza aici"
@@ -1413,8 +1425,8 @@ ro:
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Va rugam sa va conectati din nou"
       login_failed: "Conectarea nu a reusit. Te rog, introdu datele corecte."
-      account_creation_successful: ~
-      account_deleted: ~
+      account_creation_successful: "Bine ati venit pe %{service_name}, %{person_name}!"
+      account_deleted: "Contul dumneavoastra a fost sters."
       login_successful: "Bine ai venit, %{person_name}!"
       logout_successful: "Esti deconectat(a) din %{service_name}. Larevedere!"
       news_item_created: "Articol creat"
@@ -1493,9 +1505,9 @@ ro:
       you_must_fill_all_the_fields: ~
       you_unfollowed_listing: "Nu mai urmaresti acest anunt"
       joining_community_failed: ~
-      can_not_delete_email: ~
-      user_does_not_have_email_to_delete: ~
-      email_deleted: ~
+      can_not_delete_email: "Nu puteti sterge adresa de e-mail"
+      user_does_not_have_email_to_delete: "Nu aveti adresa de e-mail pe care incercati sa o stergeti"
+      email_deleted: "Adresa de e-mail stearsa"
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
@@ -1576,7 +1588,7 @@ ro:
         image: Imagine
         best_result: ~
         no_file_selected: "Nici un fișier selectat"
-        remove_image: "Inlatură imaginea"
+        remove_image: "Sterge imaginea"
         select_file: "Selectează fisier"
         add_more: ~
         removing: ~
@@ -2019,10 +2031,10 @@ ro:
     account:
       change: Modificati
       confirm_new_password: "Confirma noua parola"
-      delete_account: ~
-      delete_account_button: ~
+      delete_account: "Stergeti contul"
+      delete_account_button: "Sterge definitiv contul meu."
       delete_account_confirmation_popup: ~
-      email_addresses: ~
+      email_addresses: "Adresa de e-mail"
       new_email: "Adresa de email noua"
       delete_personal_information: "Daca va stergeti contul, informatiile personale (nume, numar de telefon, adresa, adresa de email, poza de profil, etc.) vor fi sterse permanent si nu vor mai putea fi recuperate. Toate anunturile pe care le-ati creat vor fi sterse. Nu va veti putea reactiva contul."
       delete_information_others_involved: ~
@@ -2032,9 +2044,9 @@ ro:
       these_fields_are_shown_only_to_you: "Numele de utilizator este afisat in profilul tau, in cazul in care nu ai furnizat numele tau. Alte informatii sunt vizibile doar pentru tine"
       email_already_confirmed: ~
       email:
-        address_title: ~
-        remove_title: ~
-        remove_confirmation: ~
+        address_title: Adresa
+        remove_title: Stergeti
+        remove_confirmation: "Sunteti sigur ca vreti sa stergeti adresa de e-mail?"
         receive_notifications_title_desktop: ~
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
