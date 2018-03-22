@@ -220,7 +220,7 @@ zh-TW:
         google_analytics_key: "Google Analytics跟踪ID"
         twitter_handle: Twitter用户名（使用在信息页面的tweet按钮）
         update_settings: 保存設置
-        automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
+        automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "自動發送電子報：%{frequency_dropdown}"
         newsletter_daily: 每日
@@ -460,7 +460,7 @@ zh-TW:
       read_more: 詳細了解可用時間自動管理。
       read_more_availability_management: 詳細了解可用性管理。
       allow_providers_to_manage_availability: 允許提供商從日曆管理其可用性
-      per_hour_availability: ~
+      per_hour_availability: “每小時”有空時段
       per_day_availability: “每天”開放日期
       per_night_availability: “每晚”開放日期
       pricing_units_disabled_info: 當啟用日曆管理時，定價單位無法使用
@@ -738,7 +738,7 @@ zh-TW:
       stripe-fee_label: ~
     confirm:
       confirm_description: 如果你的请求被完成，你应该确认完成。然后你可以给其他人反馈。
-      cancel_description: 如果你的请求没有完成，你可以标记它为“有争议的”。你仍然可以评论给其他交易方描述发生的事情。
+      cancel_description: "如果您的訂單沒有完成，您可以將其標記為“有爭議”。 你仍然可以向對方提供反饋，並描述發生了什麼。"
       cancel_payed_description: 如果你的请求被接受但是你有其他的想法，你仍然可以在付款前取消请求。
       canceling_payed_transaction: 取消交易
       confirm: 标记为完成
@@ -911,7 +911,7 @@ zh-TW:
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "你还没有确认或者取消请求%{request_link}。如果请求已经完成，你应该确认。之后你可以评论给%{other_party_given_name}。"
       remember_to_confirm_request: 记得确认或取消请求
-      if_will_not_happen_you_should_cancel: "如果你觉得请求由于某种原因无法完成，你可以%{cancel_it_link}。"
+      if_will_not_happen_you_should_cancel: "如果你覺得請求由於某種原因無法完成，你可以%{cancel_it_link}。"
       cancel_it_link_text: 取消
       automatic_confirmation: "如果您在接受請求後的%{days_to_automatic_confirmation}天內未確認或取消訂單，我們會自動將其標記為已完成。"
     payment_settings_reminder:
@@ -931,10 +931,10 @@ zh-TW:
         has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
-      we_have_marked_request_as_confirmed: "我们已经将关于“%{request}”的请求标记为完成。自动标记完成是因为在请求被接受后已经过了%{days_passed}天。"
+      we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 訂單已自動完成，因為接受請求後已過去了%{days_passed}天。"
     booking_transaction_automatically_confirmed:
       subject: 请求自动完成——记得给予评价
-      we_have_marked_request_as_confirmed: "我们已标记请求“%{request}”完成。该请求自动完成于预订期限结束后一天。"
+      we_have_marked_request_as_confirmed: "我們已經完成了關於'%{request}'的順序標記。 該請求自動完成，因為預訂期限結束後一天已過。"
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "你现在可以评价%{other_party_given_name}。给予评价总是一个好主意。如果一切顺利，你应该让其他人知道%{other_party_given_name}可以被信任。如果有任何问题，在评论中提到它们也是很好的。"
       give_feedback_to: "给予%{other_party_given_name}反馈"
@@ -1058,7 +1058,7 @@ zh-TW:
       added_listing: "%{name_link}发布了一条信息："
       update_mail_title: "%{title_link}更新"
       title_link_text: "%{community_name}"
-      intro_paragraph: "这儿是一些在过去%{time_since_last_update}发生在%{community_link}的事情。"
+      intro_paragraph: "這是一些%{time_since_last_update}發生在%{community_link}的事情。"
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "太多邮件？%{settings_link}或者%{unsubscribe_link}"
       settings_link_text: 在这里编辑你的邮箱设定
@@ -1085,7 +1085,7 @@ zh-TW:
     transaction_preauthorized_reminder:
       subject: "記得接受來自%{requester}關於%{listing_title}的服務請求"
       remember_to_accept: "記得接受來自%{requester}關於“%{listing_title}”的服務請求。%{requester}已完成付款，您必須接受請求才可收到款項。"
-      one_day_left: 如果你不在一天内接受请求，该请求将被自动拒绝，你将无法收到支付款项。
+      one_day_left: 如果您在一天內不接受請求，該請求將被自動拒絕，您將無法獲得付款。
       click_here_to_reply: 点击这里回应请求
     welcome_email:
       welcome_email_subject: "欢迎来到%{service_name}"
@@ -1146,7 +1146,7 @@ zh-TW:
     error_500:
       temporary_unavailable: 集市暂时不可用
       unable_to_process: 服务当前无法处理你的请求。请过几分钟再试。
-      we_hate_this: 我们很不高兴它的发生！我们已经收到通知并将尽快修复它。
+      we_hate_this: "我們討厭這種情況發生！ 我們已收到通知並將盡快修復它。"
       refer_to_error_id: "如果您想申報此問題，請告訴我們錯誤ID“%{error_id}”。"
     error_500_title: 頁面加載失敗
     error_description: 錯誤描述
@@ -1578,7 +1578,7 @@ zh-TW:
         at: 在
         departure_time: 出發時間
       departure_time_radio_buttons:
-        repeated: 重复的（在字段“详细描述”中添加次数和天数）
+        repeated: 重複（在“詳細說明”欄中添加時間和日期）
       description:
         detailed_description: 細節描述
         youtube_info: 如果您的描述包括Youtube連結，該影片將會在下方顯示
@@ -1799,7 +1799,7 @@ zh-TW:
       by: "由%{author}刊登的%{listing}"
       payment: 付款
       exp: 過期：
-      you_will_be_charged: "你只有在%{author}接受交易后才会被收费。%{author}需要在%{expiration_period}天内接受交易。如果%{author}拒绝或者没有响应，不会产生任何费用。"
+      you_will_be_charged: "只有在%{author}接受交易時才會收取費用。 %{author}需要在%{expiration_period}天內接受交易。 如果%{author}拒絕或不回應，則不收費。"
       day: 日
       days: 天
       night: 晚上
