@@ -27,7 +27,7 @@ class ConfirmConversationsController < ApplicationController
   end
 
   def cancel
-    unless in_valid_pre_state(@listing_transaction)
+    unless in_valid_pre_state?
       return redirect_to person_transaction_path(person_id: @current_user.id, message_id: @listing_transaction.id)
     end
 
