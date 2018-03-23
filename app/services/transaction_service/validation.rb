@@ -39,6 +39,7 @@ module TransactionService
     )
 
     NewPerHourTransactionParams = EntityUtils.define_builder(
+      [:delivery, :to_symbol, one_of: [nil, :shipping, :pickup]],
       [:start_time, :time, transform_with: PARSE_DATETIME],
       [:end_time, :time, transform_with: PARSE_DATETIME],
       [:per_hour, transform_with: ->(v) { v == "1" }],
