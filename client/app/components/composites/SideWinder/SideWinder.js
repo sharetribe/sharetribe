@@ -183,6 +183,7 @@ class SideWinder extends Component {
                 onClick: this.props.onClose,
                 className: css.closeButton,
                 dangerouslySetInnerHTML: { __html: closeIcon },
+                id: 'side-winder-close-button',
               }),
             ]),
           ]) :

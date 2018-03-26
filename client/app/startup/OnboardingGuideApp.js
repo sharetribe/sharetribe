@@ -21,6 +21,7 @@ export default (props, marketplaceContext) => {
     'admin_getting_started_guide_payment',
     'admin_getting_started_guide_listing',
     'admin_getting_started_guide_invitation',
+    'admin_getting_started_guide_skip_payment',
     'admin_look_and_feel_edit',
     'admin_details_edit',
     'admin_custom_fields',

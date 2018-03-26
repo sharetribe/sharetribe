@@ -201,6 +201,7 @@ Rails.application.routes.draw do
       get "getting_started_guide/payment"                => "getting_started_guide#payment",                as: :getting_started_guide_payment
       get "getting_started_guide/listing"                => "getting_started_guide#listing",                as: :getting_started_guide_listing
       get "getting_started_guide/invitation"             => "getting_started_guide#invitation",             as: :getting_started_guide_invitation
+      get "getting_started_guide/skip_payment"           => "getting_started_guide#skip_payment",           as: :getting_started_guide_skip_payment
 
       # Details and look 'n feel
       get   "/look_and_feel/edit" => "communities#edit_look_and_feel",          as: :look_and_feel_edit

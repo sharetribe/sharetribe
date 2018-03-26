@@ -41,6 +41,12 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
     render :index, locals: { props: data(page: :invitation) }
   end
 
+  def skip_payment
+    steps = MarketplaceSetupSteps.find_by(community_id: @current_community.id)
+    steps&.skip_payment
+    redirect_to admin_getting_started_guide_path
+  end
+
   private
 
   def data(page:)
