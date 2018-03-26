@@ -89,7 +89,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
 
       # Onboarding wizard step recording
       state_changed = Admin::OnboardingWizard.new(@current_community.id)
-        .update_from_event(:listing_shape_updated, [update_result.data])
+        .update_from_event(:listing_shape_updated, @current_community)
       if state_changed
         record_event(flash, "km_record", {km_event: "Onboarding payments setup"})
         record_event(flash, "km_record", {km_event: "Onboarding payment disabled"})

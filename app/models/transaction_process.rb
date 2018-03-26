@@ -15,11 +15,19 @@
 #
 
 class TransactionProcess < ApplicationRecord
+  PROCESSES = [
+    PROCESS_NONE = :none,
+    PROCESS_PREAUTHORIZE = :preauthorize,
+    PROCESS_POSTPAY = :postpay
+  ].freeze
+
   belongs_to :community
 
   validates :community_id, presence: true
   validates :author_is_seller, inclusion: [true, false]
-  validates :process, inclusion: [:none, :preauthorize, :postpay]
+  validates :process, inclusion: PROCESSES
+
+  scope :process_none, -> { where(process: PROCESS_NONE) }
 
   def process
     read_attribute(:process).to_sym

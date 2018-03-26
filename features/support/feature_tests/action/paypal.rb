@@ -62,12 +62,12 @@ module FeatureTests
         listing.fill_in_booking_dates
         listing.click_request
 
-        expect(page).to have_content("Request #{title}")
+        expect(page).to have_content("Buy #{title}")
         listing_book.fill_in_message("Snowman ☃ sells: #{title}")
 
         if expected_price.present?
           # listing.fill_in_booking_dates always selects a two day period
-          expect(page).to have_content("(2 days)")
+          # expect(page).to have_content("(2 days)")
           expect(listing_book.total_value).to have_content("$#{expected_price}")
         end
 
