@@ -709,7 +709,7 @@ sv:
       title: "Transaktionsavgift och PayPals betalningshanteringsavgift"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalningar i %{service_name} hanteras antingen av Stripe (credit eller debit kort) eller PayPal. %{service_name} kommer ta en serviceavgift beroende på vilken betalningssystem som används."
+      info: "Betalningar i %{service_name} hanteras av betalystemet nämnt här nedanför. %{service_name} kommer ta en serviceavgift beroende på betalningssystemet. Det kan hända betalsystemet också tar en avgift för varje betalning om det nämns här nedanför."
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-

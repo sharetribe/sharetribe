@@ -709,7 +709,7 @@ fr:
       title: "Commission et frais de transactions"
       stripe: Stripe
       paypal: PayPal
-      info: "Les paiements sur %{service_name} sont gérés par Stripe (carte de crédit ou de débit) ou PayPal. %{service_name} facture une commission qui diffère selon la plateforme de paiement utilisée."
+      info: "Les paiements sur %{service_name} sont gérés les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui diffère selon la plateforme de paiement utilisée. Cette dernière peut également facture des frais pour chaque paiement, comme décrit ci-dessous."
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
@@ -1642,7 +1642,7 @@ fr:
         after_service_fee_you_will_get: "Après les frais de service de %{service_name} et du prestataire de paiement vous recevrez %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} seront déduits du montant."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} seront déduits du montant."
-        after_service_fee_you_will_get_payment_text: "Lorsque quelqu'un passera commande, vous recevrez ce montant moins %{payment_fee_info_link}."
+        after_service_fee_you_will_get_payment_text: "Lorsque quelqu'un passera commande, vous recevrez ce montant moins %{payment_fee_info_link}"
         payment_fee_info_link_text: "une commission %{service_name} et des frais de paiements"
         delivery: Livraison
         shipping: Envoi

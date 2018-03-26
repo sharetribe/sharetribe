@@ -875,12 +875,12 @@ bg:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Не забравяйте да приемете или отхвърлите предложението от %{sender_name}"
+      remember_to_accept_request: "Не забравяйте да приемете или отхвърлите запитването от %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Можете да приемете или отхвърлите предложението до"
+      you_can_accept_or_reject_request_at: "Можете да приемете или отхвърлите запитването до"
+      you_have_not_yet_accepted_or_rejected_offer: "Още не сте приели или отхвърлили предложението %{title} , което получихте %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Още не сте приели или отхвърлили запитването %{title} , което получихте %{date}."
       show_thread: ~
     branding:
       powered_by: ~
@@ -1051,7 +1051,7 @@ bg:
       reset_password_instructions: ~
     testimonial_reminder:
       remember_to_give_feedback_to: "Напомняне: Оставете оценка на %{name}."
-      you_have_not_given_feedback_yet: ~
+      you_have_not_given_feedback_yet: "Още не сте дали обратна връзка на %{name} за събитието \"%{event}\". Не забравяйте да дадете обратна връзка за това, как %{given_name} е провел събитието."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1088,14 +1088,14 @@ bg:
     onboarding:
       server_rendering: ~
     listings:
-      departure_time: ~
+      departure_time: "Времето за заминаване трябва да бъде до една година от днешната дата."
       share_type: "Трябва да изберете поне едно."
       valid_until: "Датата трябва да бъде между текущата и 6 месеца напред."
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: ~
-      you_must_select_a_grade: ~
+      you_must_explain_not_neutral_feedback: "Ако искате да дадете не-неутрална обратна връзка, трябва да обясните защо."
+      you_must_select_a_grade: "Не забравяйте да кажете дали вашият опит е бил положителен или отрицателен."
     transaction_agreement:
       required_error: ~
     paypal:
@@ -1112,9 +1112,9 @@ bg:
   error_pages:
     back_to_kassi_front_page: "Върнете се в началото."
     error_404:
-      if_you_believe: ~
+      if_you_believe: "Ако смятате, че адресът е правилен и трябва да работи, моля, помогнете ни да намерим грешката, като ни информирате кой адрес е причинил грешката и какво трябва да се види на страницата с формуляра по-долу."
       page_can_not_be_found: "Страницата не може да бъде показана!"
-      page_you_requested_can_not_be_found: "Страницата не може да бъде показана!"
+      page_you_requested_can_not_be_found: "Страницата не може да бъде намерена. Сигурни ли сте, че сте написали адреса правилно?"
     error_404_title: "Страницата не може да бъде намерена!"
     error_410:
       page_removed: ~
@@ -1132,8 +1132,8 @@ bg:
       javascript_is_disabled_in_your_browser: "Javascript е изключен във вашият браузър."
       kassi_does_not_currently_work_without_javascript: "%{service_name} не работи коректно със изключен javascript. Моля, активирайте javascript и заредете страницата отново."
       contact_us: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
+      send_feedback: "Изпратете съобщение"
+      your_feedback_to_admins: "Вашето съобщение до %{service_name} екип"
     send: Изпратено
     your_email_address: "Вашият email адрес:"
   errors:
@@ -1191,36 +1191,36 @@ bg:
     menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: ~
-      additionally_one_private_request_exists: ~
-      additionally_some_private_offers_exist: ~
-      additionally_some_private_requests_exist: ~
+      additionally_one_private_offer_exists: "В допълнение има <b>друго предложение</b>,"
+      additionally_one_private_request_exists: "В допълнение има <b>друго запитване</b>,"
+      additionally_some_private_offers_exist: "В допълнение има <b>%{number_of_listings} други предложения</b>,"
+      additionally_some_private_requests_exist: "В допълнение има <b>%{number_of_listings} други запитвания</b>,"
     blank_slate:
-      add_first: ~
+      add_first: "Добавете един!"
       but_that_is_visible_only_to_registered_members: "това е видимо само за регистрирани потребители."
       but_those_are_visible_only_to_registered_members: "тези са видими само за регистрирани потребители."
       create_new_account_for_yourself: "Създайте си нов акаунт"
-      examples_of_what_you_could_offer_to_others: ~
-      examples_of_what_you_could_request_to_others: ~
-      favor_offer_list: ~
-      favor_request_list: ~
+      examples_of_what_you_could_offer_to_others: "Какво можете да предложите на другите"
+      examples_of_what_you_could_request_to_others: "Какво бихте могли да поискате от другите"
+      favor_offer_list: "компютърна помощ, поправка на дрехи, печене, ремонт на велосипеди"
+      favor_request_list: "гледане на деца, уроци по пиано, разхождане на кучета, косене на трева"
       favors_to_offer: "Помощ: "
       favors_to_request: "Помощ: "
-      item_offer_list: ~
-      item_request_list: ~
-      items_to_offer: ~
-      items_to_request: ~
-      log_in: Влез.
-      no_offers_visible_unless_logged_in: ~
-      no_open_offers_currently: ~
-      no_open_requests_currently: ~
-      no_requests_visible_unless_logged_in: ~
+      item_offer_list: "инструменти, спортно оборудване, костюми, оборудване за къмпинг"
+      item_request_list: "инструменти, спортно оборудване, костюми, оборудване за къмпинг"
+      items_to_offer: "Неща под наем: "
+      items_to_request: "Неща назаем: "
+      log_in: Вход!
+      no_offers_visible_unless_logged_in: "Артикули, услуги или предложения за превози не са видими за потребители, които не са влезли в профила си."
+      no_open_offers_currently: "Няма открити артикули, услуги или предложения за превози."
+      no_open_requests_currently: "Няма открити артикули, услуги или запитвания за превози."
+      no_requests_visible_unless_logged_in: "Артикули, услуги или запитвания за превози не са видими за потребители, които не са влезли в профила си."
       one_private_offer_exists: "Вече има <b>една оферта</b>,"
-      one_private_request_exists: ~
+      one_private_request_exists: "Вече има <b>едно запитване</b>,"
       ride_offer: ~
-      ride_request: ~
-      some_private_offers_exist: ~
-      some_private_requests_exist: ~
+      ride_request: "Пътуване до работа"
+      some_private_offers_exist: "Вече има <b>%{number_of_listings} предложения</b>,"
+      some_private_requests_exist: "Вече има <b>%{number_of_listings} запитвания</b>,"
     custom_filters:
       update_view: ~
       min: ~
@@ -1240,10 +1240,10 @@ bg:
       are: ~
       what_do_you_need: ~
       post_new_listing: ~
-      are_offering: ~
+      are_offering: предложение
       add_news_item: ~
-      lend_rent_help_carpool: ~
-      loading_more_content: ~
+      lend_rent_help_carpool: "Продай, заеми, помогни, сподели пътуване"
+      loading_more_content: "Зареждане на повече съдържание"
       more_events: Още...
       news: Новини
       no_news: ~
@@ -1251,7 +1251,7 @@ bg:
       or: и
       or_see_what_the_others: "...или вижте какво другите"
       recent_events: Най-нови
-      requesting: ~
+      requesting: нужен
       tell_it_here: "Разкажи го тук!"
       welcome_to_new_kassi: "Добре дошли в %{service_name}!"
       no_reviews: ~
@@ -1326,14 +1326,14 @@ bg:
     application:
       join_this_community: ~
       read_more: ~
-      feedback: ~
+      feedback: "Вашето съобщение до %{service_name} екип"
       dont_use_to_contact_support: ~
       feedback_forum: "форум за препоръки"
       feedback_handle: Препоръка
       give_feedback: "Свържете се с нас"
       or_check_our: "..или проверете нашата"
-      send_feedback_to_admin: ~
-      to_see_what_others_have_suggested: ~
+      send_feedback_to_admin: "Изпрати съобщение"
+      to_see_what_others_have_suggested: "за да видите какво са предложили другите потребители и гласувайте за идеите там."
       your_email_address: "Вашата електронна поща(За контакт с Вас)"
       connect: "Регистрирай се"
       invite_your_friends: ~
@@ -1389,60 +1389,60 @@ bg:
       community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
-      comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_cannot_be_empty: "Коментарът не може да бъде празен"
+      comment_sent: "Коментарът е изпратен"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
       could_not_get_email_from_facebook: ~
       facebook_email_unconfirmed: ~
       create_new_listing: ~
-      create_one_here: ~
+      create_one_here: "създайте тук"
       email_confirmation_sent_to_new_address: ~
-      email_not_found: ~
-      error_with_session: ~
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      email_not_found: "Даденият от вас имейл не бе намерен от базата данни %{service_name}."
+      error_with_session: "Грешка при сесията."
+      feedback_considered_spam: "Обратната връзка не е запазена поради форматирането и. Опитайте отново или използвайте форума за обратни връзки."
+      feedback_not_saved: "Обратната връзка не може да бъде изпратена."
+      feedback_saved: "Благодарим ви много за вашето съобщение! Ще се свържем с вас възможно най-скоро."
+      feedback_sent_to: "Обратната връзка е изпратена до %{target_person}."
+      feedback_skipped: "Обратната връзка е пропусната."
       invitation_cannot_be_sent: ~
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Моля, влезте отново."
+      login_failed: "Неуспешно влизане. Моля, въведете правилните данни за вход."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "Добре дошли, %{person_name}!"
+      logout_successful: "Вече излязохте от %{service_name}. До скоро!"
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Предложението е прието"
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Предложението е затворено"
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Предложението е отхвърлено"
       offer_canceled: ~
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Само екипът %{service_name} има достъп до тази област"
+      only_listing_author_can_close_a_listing: "Само авторът на обява може да я закрие"
+      only_listing_author_can_edit_a_listing: "Само авторът на обява може да я редактира"
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Инструкции за промяна на паролата ви бяха изпратени до вашия имейл."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Информацията е актуализирана"
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1450,41 +1450,41 @@ bg:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Прочетете повече!"
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "Не може да изпратите празно съобщение"
+      reply_sent: "Отговорът е изпратен успешно"
+      request_accepted: "Запитването е прието"
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: "Запитването е отхвърлено"
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Неизвестна грешка. Моля, използвайте връзката Свържете се с нас, за да изпратите подробности за случилото се."
+      update_error: "При опита за актуализиране на информацията възникна грешка, моля, опитайте отново"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Не сте упълномощени да давате обратна връзка за това събитие"
+      you_are_not_authorized_to_do_this: "Не сте упълномощени да правите това"
+      you_are_not_authorized_to_view_this_content: "Не сте упълномощени да разглеждате това съдържание"
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: "Не можете да отговорите на затворено предложение"
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Вече дадохте обратна връзка за това събитие"
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Трябва да влезете, за да дадете обратна връзка"
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_comment: "Трябва да влезете, за да изпратите нов коментар"
+      you_must_log_in_to_send_a_message: "Трябва да влезете в %{service_name}, за да изпратите съобщение на друг потребител."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "Трябва да влезете, за да видите това съдържание"
       you_must_log_in_to_view_this_page: "Трябва да се вписани за да видите тази страница"
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Трябва да влезете в %{service_name}, за да видите входящата си поща."
+      you_must_log_in_to_view_your_settings: "Трябва да влезете в %{service_name}, за да видите настройките си."
       you_must_log_in_to_add_news_item: "Трябва да сте регистрирани в %{service_name} за да добавите обява."
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
@@ -1500,10 +1500,10 @@ bg:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Сметка
+      notifications: Известия
+      profile: "Информация за профила"
+      settings: Настройки
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
@@ -1518,11 +1518,11 @@ bg:
     comment_form:
       ask_a_question: ~
       log_in: Вход
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      send_comment: "Изпратете коментар"
+      to_send_a_comment: "за да изпратите нов коментар."
+      write_comment: "Напишете нов коментар:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: "Вие трябва"
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1550,34 +1550,34 @@ bg:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: в
+        departure_time: "Време на заминаване"
       departure_time_radio_buttons:
         repeated: "Повтаряемо (добавете часове и дати в полето 'Допълнително описание')"
       description:
-        detailed_description: ~
+        detailed_description: "Подробно описание"
         youtube_info: ~
       destination:
-        destination: ~
+        destination: Дестинация
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: услуга
+        housing: пространство
+        item: артикул
+        offer_something: "Предложете нещо"
+        request_something: "Заявете нещо"
+        rideshare: превоз
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Крайни точки от картата"
+        googlemap_description: "Изглед на картата"
+        googlemap_updatemap: "Актуализиране на картата"
       images:
-        image: ~
+        image: Изображение
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Не е избран файл"
+        remove_image: "Премахване на изображението"
+        select_file: "Избери файл"
         add_more: ~
         removing: ~
         processing: ~
@@ -1592,7 +1592,7 @@ bg:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: местоположение
       price:
         price: ~
         per: ~
@@ -1611,32 +1611,32 @@ bg:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: местоположение
+        origin: Произход
       send_button:
         save_listing: Запази
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: Отдаване
+        buy: Купуване
+        give_away: Подаряване
+        lend: Заемане
+        offer_type: "Тип оферта"
+        receive: "Приеми безплатно"
+        rent: Наемане
+        rent_out: "Отдаване под наем"
+        request_type: "Тип на заявката"
+        sell: Продажба
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: Размяна
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: "(Отделете думите със запетая)"
+        tags: Етикети
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Крайна дата"
       valid_until_radio_buttons:
         for_the_time_being: "За времето"
       privacy:
@@ -1644,46 +1644,46 @@ bg:
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Тип на предложение или заявка"
+      help_tags_title: Етикети
+      help_valid_until_title: "Крайна дата"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Всички категории"
+      all_offer_types: "Всички видове предложения"
+      all_request_types: "Всички видове заявки"
+      category: Категория
+      did_not_found_what_you_were_looking_for: "Не намерихте ли това от което се нуждаехте?"
+      favors: Услуги
+      housing: Пространства
+      items: Артикули
+      list_view: "Изглед като списък"
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
+      map_view: "Изглед на карта"
+      offer_something: "Нека другите да знаят!"
+      offer_type: "Тип на предложението"
+      offers: Предложения
+      request_something: "Заявете нещо!"
+      request_type: "Тип на заявката"
+      requests: Заявки
+      rideshare: "Споделен превоз"
+      you_have_something_others_do_not: "Имате ли нещо да предложите?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      borrows: отдаване
+      buys: купуване
+      favors: Услуги
+      give_aways: Подарявам
+      housings: Пространства
+      items: Артикули
+      lends: Заемане
+      receives: "Безплатно вземане"
+      rent_outs: "Отдаване под наем"
+      rents: Наемане
+      rideshares: "Споделен превоз"
+      sells: Продаване
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Размяна
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1715,36 +1715,36 @@ bg:
       month: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Коментар
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Обществена дискусия"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: "Предложение за услуга"
+      favor_request: "Заявка за услуга"
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Тази обява няма описание"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Предложение
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: Заявление
+      rideshare_offer: "Предложение за споделен превоз"
+      rideshare_request: "Заявление за споделен превоз"
       send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      tags: Етикети
+      time: време
+      times: пъти
+      times_viewed: Преглеждани
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -1795,25 +1795,25 @@ bg:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Всички категории"
+      all_offer_types: "Всички видове предложения"
+      all_request_types: "Всички видове заявки"
+      category: Категория
+      did_not_found_what_you_were_looking_for: "Не намерихте ли това от което се нуждаехте?"
+      favors: Услуги
+      housing: Пространства
+      items: Артикули
+      list_view: "Изглед като списък"
+      map_view: "Преглед върху карта"
+      offer_something: "Нека другите да знаят!"
+      offer_type: "Тип на предложението"
+      offers: Предложения
+      request_something: "Заявете нещо!"
+      request_type: "Тип на заявката"
+      requests: Заявки
+      rideshare: "Споделен превоз"
+      you_have_something_others_do_not: "Имате ли нещо да предложите?"
+    please_comment: Коментар
   mercury:
     content_too_long: ~
   okl:
@@ -1897,53 +1897,53 @@ bg:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: "Обратна връзка"
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "%{service_name} условия за ползване"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: "Създайте акаунт"
+      email: "Имейл адрес"
+      email_is_in_use: "Подаденият от вас имейл вече се използва."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       invalid_username_or_email: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      family_name: "Фамилно име"
+      given_name: "Собствено име"
+      i_accept_the: Приемам
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", не е задължително"
       notification_is_mandatory: ~
-      password_again: ~
+      password_again: "Потвърди паролата"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Създайте нов профил %{service_name}"
+      terms: "условия за ползване"
+      username_is_in_use: "Това потребителско име вече е в употреба."
+      username_is_invalid: "Потребителското име е невалидно. Позволените знаци са букви, цифри и долни черти."
+      visible_only_to_you: "видимо само за вас и %{service_name} екипа"
+      visible_to_everybody: "видимо за всички"
       create_account_with_facebook: "Регистрирай се чрез Facebook"
       OR: ~
       signup_with_email: "Регистрирай се с ел.поща."
     profile_feedback:
-      grade: ~
+      grade: "оценка:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
+      show_also_closed: "Показване също е затворено"
       show_only_open: ~
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "За мен:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
+      address: "Местоположение:"
       as_expected: ~
       edit_profile_info: ~
       exceeded_expectations: ~

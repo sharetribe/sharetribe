@@ -117,10 +117,10 @@ it:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: ~
+        welcome_email_content: "Contenuto email di benvenuto"
         welcome_email_content_description: ~
-        edit_message: ~
-        send_test_message: ~
+        edit_message: "Modifica messaggio"
+        send_test_message: "Invia messaggio di testo"
       outgoing_email:
         title: ~
         info: ~
@@ -234,7 +234,7 @@ it:
         admin: ~
         posting_allowed: "Ora è possibile pubblicare annunci"
         ban_user: ~
-        saving_user_status: Salvando...
+        saving_user_status: Salvataggio...
         save_user_status_successful: Salvato
         export_all_as_csv: ~
         save_user_status_error: ~
@@ -473,7 +473,7 @@ it:
           save_order_error: ~
       templates:
         selling_products: "Vendendo prodotti"
-        renting_products: "Noleggiando prodotti"
+        renting_products: "Noleggiare prodotti"
         offering_services: "Offrire servizi"
         giving_things_away: "Dare via"
         requesting: ~
@@ -593,7 +593,7 @@ it:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
-        publishable_key_example: ~
+        publishable_key_example: "Per esempio %{api_publishable_key_example}"
         secret_key_example: ~
         save_api_keys: ~
         invalid_secret: ~
@@ -649,7 +649,7 @@ it:
       offer_to_swap: scambio
       request_to_swap: scambio
       share_for_free: "condivisione libera"
-      accept_for_free: ~
+      accept_for_free: "voler usare gratuitamente"
     categories:
       item: Categorie
       favor: Servizi
@@ -677,8 +677,8 @@ it:
     payment_fee_info:
       title: ~
       stripe: ~
-      paypal: ~
-      info: ~
+      paypal: ""
+      info: "I pagamenti in %{service_name} sono processati dai payment gateways elencati sotto. %{service_name} applicherà una commissione a seconda del payment gateway. Il payment gateway applicherà una commissione per ogni pagamento, come descritto sotto."
     paypal_fee_info:
       title: "Informazioni sulle commissioni dovute a PayPal"
       body_text: |-
@@ -687,9 +687,9 @@ it:
       body_text_accept: ~
       link_to_paypal_text: qui
     stripe_fee_info:
-      title: ~
-      body_text: ~
-      link_to_stripe_text: ~
+      title: "Commissione di Stripe per ordine processato"
+      body_text: "Per i pagamenti con Stripe, %{service_name} applica una commissione di %{stripe_commission}%. La commissione minima per transazione è %{minimum_transaction_fee}. Le tariffe di Stripe sono incluse in questa commissione."
+      link_to_stripe_text: qui
   conversations:
     accept:
       details: "Dettagli dell'ordine"
@@ -713,9 +713,9 @@ it:
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione di PayPal</a>"
-      payment_fee_info: ~
+      payment_fee_info: "* Esclusi i <a id='%{fee_info_link_id}' href='#'>costi di transazione</a>"
       shipping_price_label: "Spedizione:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Tariffe per pagamento processato"
     confirm:
       confirm_description: "Se il tuo ordine è stato completato, dovresti confermarlo. Successivamente puoi dare il tuo feedback all'altra parte."
       cancel_description: ~
@@ -762,8 +762,8 @@ it:
       paid: "pagati %{sum}"
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
       stripe:
-        held_payment: ~
-        confirmed_request: ~
+        held_payment: "Richiesta accettata. Il pagamento di %{sum} è tenuto da %{service_name} finchè l'ordine non è contrassegnato come completato."
+        confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}"
     new:
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
@@ -837,7 +837,7 @@ it:
           unknown_reason: "C'è un pagamento pendente. Entra nel tuo account PayPal per maggiori informazioni."
           verify: "In attesa che tu verifichi il tuo conto PayPal"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "In attesa che %{requester_name} contrassegni l'ordine come completato. Una volta che l'ordine sarà contrassegnato, il pagamento verrà trasferito sul tuo conto corrente."
     status_link:
       accept_offer: "Accetta offerta"
       accept_request: "Accetta richiesta"
@@ -908,7 +908,7 @@ it:
       giving_feedback_is_good_idea: "Dare un feedback è sempre una buona idea. Se tutto è andato bene, dovresti far sapere agli altri che %{other_party_given_name} è affidabile. Se ci sono stati dei problemi, è giusto menzionarli."
       give_feedback_to: "Dai il tuo feedback a %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} ha contrassegnato l'ordine per %{request} come completato. Il pagamento per questa transazione è stato trasferito sul tuo conto corrente. Puoi ora dare un feedback a %{other_party_given_name}"
     transaction_automatically_confirmed:
       subject: "Richiesta completata automaticamente -  ricordati di dare il tuo feedback"
       we_have_marked_request_as_confirmed: "Abbiamo confermato la richiesta per '%{request}'. La richiesta è stata completata automaticamente perché sono trascorsi %{days_passed} giorni da quando la richiesta è stata accettata."
@@ -973,31 +973,31 @@ it:
       you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      payment_gateway_fee: "Tariffe per pagamento processato"
+      shipping_total: "Spedizione:"
+      product: "Prodotto:"
+      price_payer_paid: "Prezzo pagato da %{payer_full_name}:"
+      service_fee: "Commissione di %{service_name}:"
+      you_will_get: Totale
+      new_payment: "Hai ricevuto un nuovo pagamento"
+      price_per_unit_type: "Prezzo per %{unit_type}"
+      quantity: Quantità
+      you_have_received_new_payment: "Hai ricevuto <b>%{payment_sum}</b> per <b>%{listing_title}</b> da %{payer_full_name}. Ecco la tua ricevuta."
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "La somma di <b>%{payment_sum}</b> è stata pagata per <b>%{listing_title}</b> da %{payer_full_name}. Il denaro è tenuto da %{service_name} finchè l'ordine non sarà contrassegnato come completato. Ecco la tua ricevuta"
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      receipt_of_payment: "Ricevuta di pagamento"
+      you_have_made_new_payment: "Hai pagato <b>%{payment_sum}</b> per <b>%{listing_title}</b> a %{recipient_full_name}. Ecco la ricevuta del pagamento."
+      product: Prodotto
+      price_per_unit_type: "Prezzo per %{unit_type}"
+      duration: "Periodo:"
+      quantity: Quantità
+      subtotal: Subtotale
+      total: Totale
+      price: Prezzo
+      service_fee: Commissione
+      stripe_gateway_fee: "Tariffa di Stripe:"
+      paypal_gateway_fee: "Tariffa di Paypal"
       money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "Commissione di PayPal"
@@ -1018,12 +1018,12 @@ it:
       total: Totale
       price: Prezzo
       service_fee: Commissione
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Tariffa di Stripe:"
+      paypal_gateway_fee: "Tariffa di Paypal"
       money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Hai pagato <b>%{payment_sum}</b> per <b>%{listing_title}</b>. La somma è tenuta da %{service_name} e sarà trasferita a %{recipient_full_name} una volta che l'ordine sarà completato. Ecco la tua ricevuta del pagamento."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} ti ha lasciato un feedback in %{service_name}"
       you_can_give_feedback_to: "non hai ancora lasciato un feedback a %{name}"
@@ -1059,7 +1059,7 @@ it:
       transaction_requested_by_user: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
       you_have_time_to_accept: "E' necessario che accetti o rifiuti entro %{payment_expires_in}. Se accetti entro questo tempo, il pagamento sarà eseguito. Se non accetti, la richiesta sarà automaticamente rifiutata e non riceverai il pagamento."
       if_you_do_accept: ~
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "Se accetti la richiesta entro questo lasso temporale, il pagamento andrà a buon fine. Riceverai il denaro direttamente nel tuo conto corrente dopo che avrai consegnato %{listing_title} a %{requester}"
       if_you_do_not_accept: ~
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_reminder:
@@ -1110,7 +1110,7 @@ it:
       accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
       reject_authorization_error: "Si è verificato un errore durante il tentativo di respingere la preautorizzazione del pagamento di Paypal. Per favore, provare di nuovo."
     stripe:
-      generic_error: ~
+      generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento con Stripe"
   error_pages:
     back_to_kassi_front_page: "Indietro alla front page"
     error_404:
@@ -1165,7 +1165,7 @@ it:
       has_accepted_rent_out_housing: "%{offerer_name} ha accettato di noleggiare %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rent_housing: "%{offerer_name} ha accettato di prendere a noleggio %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_favor: "%{offerer_name} ha accettato di offrire %{listing_title} a %{requester_name}%{time_ago}"
-      has_accepted_rideshare: ~
+      has_accepted_rideshare: "%{offerer_name} ha accettato di condividere una corsa%{listing_title} con %{requester_name}%{time_ago}"
     join:
       joined_kassi: "%{name} si è unito a %{service_name} %{time_ago}"
     login:
@@ -1305,7 +1305,7 @@ it:
       click_here_link_text: "Clicca qui"
     how_to_use:
       default_title: "Come funziona"
-      default_content: ~
+      default_content: "Qui puoi trovare informazioni di come %{marketplace_name} funziona."
   landing_page:
     hero:
       search: ~
@@ -1324,7 +1324,7 @@ it:
     no_tribe:
       inbox: Messaggi
       settings: Impostazioni
-      feedback: ~
+      feedback: "Contatta il team %{service_name}"
     application:
       join_this_community: ~
       read_more: Continua
@@ -1385,7 +1385,7 @@ it:
     notifications:
       listing_could_not_be_saved: "L'annuncio non può essere salvato. Ti preghiamo di riprovare. Se il problema persiste, %{contact_admin_link}."
       contact_admin_link_text: "Contatta l'admin"
-      test_welcome_email_delivered_to: ~
+      test_welcome_email_delivered_to: "Un'email di prova è stata inviata a %{email}"
       something_went_wrong: "Qualcosa non è andato a buon fine"
       community_updated: ~
       community_update_failed: ~
@@ -1404,7 +1404,7 @@ it:
       error_with_session: "Errore con la sessione."
       feedback_considered_spam: "Feedback non salvato a causa della formattazione. Prova ancora o usa il forum dei feedback."
       feedback_not_saved: "Il feedback non può essere inviato."
-      feedback_saved: "Grazie per il tuo messaggio! Ti risponderemo al più presto possibile."
+      feedback_saved: "Grazie per il tuo messaggio! Ti risponderemo il più presto possibile."
       feedback_sent_to: "Feedback inviato a %{target_person}."
       feedback_skipped: "Feedback saltato"
       invitation_cannot_be_sent: "L'invito non può essere inviato"
@@ -1510,8 +1510,8 @@ it:
       notifications: Notifiche
       profile: "Informazioni del profilo"
       settings: Impostazioni
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "Pagamenti PayPal"
+      stripe_payments: "Pagamenti Stripe"
       payments: Pagamenti
   listings:
     bubble_listing_not_visible:
@@ -1601,16 +1601,16 @@ it:
         location: Località
       price:
         price: Prezzo
-        per: ~
+        per: per
         per_day: "al giorno"
         mass: "pezzo, kg, l, m2, ..."
         time: "ora, giorno, mese, ..."
         long_time: "settimana, mese, ..."
         after_service_fee_you_will_get: ~
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} sarà dedotta dal prezzo."
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} sarà sottratto al prezzo."
+        after_service_fee_you_will_get_payment_text: "Una volta che qualcuno effettua un ordine, riceverai la somma meno %{payment_fee_info_link}"
+        payment_fee_info_link_text: "Commissione di %{service_name} e del processore di pagamento."
         delivery: "Metodo di consegna"
         shipping: Spedizione
         shipping_price: "Spese di spedizione"
@@ -1634,7 +1634,7 @@ it:
         request_type: "Tipo di richiesta"
         sell: Vendere
         share_for_free: "Condiviso gratuitamente"
-        accept_for_free: ~
+        accept_for_free: "accettare gratuitamente"
         trade: Scambiare
       tag_list:
         comma_separate: (virgola)
@@ -1688,7 +1688,7 @@ it:
       rideshares: Passaggio
       sells: Vendere
       share_for_frees: "Condiviso gratuitamente"
-      accept_for_frees: ~
+      accept_for_frees: "Accettare gratuitamente"
       trades: Scambiare
     listing_actions:
       booking_from: Da
@@ -1696,10 +1696,10 @@ it:
       how_paypal_works: "Come funziona PayPal"
       payment_help: "Aiuto per i pagamenti con PayPal"
       unable_load_availability: "Non si possono avere informazioni disponibili. Per favore riprova più tardi."
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      booking_date: "Data prenotazione"
+      select_one: "Seleziona una"
+      start_time: "Data di inizio"
+      end_time: "Data di partenza"
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"
@@ -1712,7 +1712,7 @@ it:
       contact_admin_link_text: "Contatta l'amministratore"
       community_not_configured_for_payments: "%{service_name} non è stato configurato per i pagamenti e quindi non puoi inserire nuovi annunci ancora. Contattare %{contact_admin_link} per ulteriori dettagli."
       payment_settings_link: "Impostazioni dei pagamenti"
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} non è ancora stato configurato per i pagamenti, quindi non puoi pubblicare inserzioni. Vai a %{payment_settings_link} per inserire i dettagli."
     quantity:
       hour: "Numero di ore:"
       day: "Numero di giorni:"
@@ -1789,16 +1789,16 @@ it:
     transaction_agreement_checkbox:
       read_more: Mostra
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: Pagamento
+      pay_with_card: "Paga con carta di credito o di debito"
+      address: "Indirizzo di spedizione"
+      address_country: Nazione*
+      address_name: "Nome e cognome*"
+      address_city: Città*
+      address_state: Provincia*
+      address_street1: "Indirizzo linea 1"
+      address_street2: "Indirizzo linea 2"
+      address_postal_code: "Codice postale*"
   mapview:
     index:
       all_categories: "Tutte le categorie"
@@ -1842,7 +1842,7 @@ it:
     contact_admin_link_text: "contatta l'amministratore della piattaforma di marketplace"
     you_are_ready_to_accept_payments: "Ora sei pronto per accettare i pagamenti!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "Non voglio connettere un account PayPal ora"
     new:
       payout_info_you_need_to_connect: "Per accettare i pagamenti devi connettere il tuo conto PayPal a %{service_name}."
       payout_info_text: "Ti preghiamo di completare gli step successivi per connettere il tuo account."
@@ -1889,8 +1889,8 @@ it:
     paypal_permission_granted_summary: "Permesso per la commissione di intermediazione concesso."
   paypal:
     pay_with_paypal: "Procedi con il pagamento"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: "Acquista con"
+    or_pay_with_paypal: o
     checkout_with_paypal: "Paga con PayPal"
     cancel_succesful: "Il pagamento di PayPal è stato cancellato con successo"
     transaction:
@@ -1917,7 +1917,7 @@ it:
       email_is_in_use: "L'email che hai fornito è già utilizzata."
       email_is_in_use_or_not_allowed: "Questa email non è valida o è già in uso. Se ancora non ti è possibile accedere, inviaci un'email."
       email_not_allowed: ~
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Il nome utente o email non sono validi o già in uso"
       email_restriction_instructions:
         one: "L'accesso a %{service_name} è ristretto. per unirti hai bisogno di un %{allowed_emails}"
         other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
@@ -2018,7 +2018,7 @@ it:
       change_email: Cambia
       confirm_your_email: "Conferma la tua email"
       account_confirmation_instructions: "Presto riceverai un'e-mail con un link per confermare il tuo indirizzo email. Non dimenticare di controllare la cartella spam! Dopo aver confermato il tuo indirizzo, potrai unirti a %{service_name}."
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "Conferma il tuo indirizzo email"
       before_full_access_you_need_to_confirm_email: "Prima di darti pieno acceso al tuo marketplace, c'è solo una cosa da fare: confermare l'indirizzo email."
       before_confirmation_only_access_admin_dashboard: "Prima di confermare puoi accedere soltanto a %{admin_dashboard_link}"
       admin_dashboard_link_text: "admin dashboard"
@@ -2078,7 +2078,7 @@ it:
       unsubscribe_info_text: "Controlla le %{settings_link} per scegliere quale tipo di email vuoi ricevere %{service_name}, o ritorna a %{homepage_link}."
       settings_link: impostazioni
       homepage_link: homepage
-      unsubscribe_unsuccesful: ~
+      unsubscribe_unsuccesful: "Errore nella cancellazione della sottoscrizione"
       unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Su di te"
@@ -2240,19 +2240,25 @@ it:
         other: "Notti prenotate:"
       price_per_day: "Prezzo al giorno:"
       price_per_night: "Prezzo per notte"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Tariffa oraria:"
+      price_per_unit: "Prezzo unitario:"
       quantity: "Quantità:"
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
-      stripe-fee: ~
-      start_end_time: ~
+      stripe-fee: "Tariffa di Stripe (stimata)"
+      start_end_time: "%{start_time} a%{end_time}"
+      booked_hours_label:
+        one: "Ora prenotata:"
+        other: "Ore prenotate:"
+      duration_in_hours:
+        one: "(1 ora)"
+        other: "(%{count} ore)"
     price_per_quantity: "Prezzo per %{unit_type}"
     price: "Prezzo:"
     quantity: "Quantità: %{quantity}"
     unit_price: "Unità di conto: %{unit_price}"
     total: "Totale:"
-    total_to_pay: ~
+    total_to_pay: "Totale del pagamento"
   unit:
     day: giorno
     days: giorni
@@ -2263,9 +2269,9 @@ it:
           something_went_wrong: "Non è possibile mostrare l'informazione. Prova a ricaricare la pagina."
           saving_failed: "Non è possibile salvare i cambiamenti alle disponibilità. Prova a ricaricare la pagina."
         working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
+          required: richiesto
+          overlaps: sovrapposizione
+          covers: copre
       pricing_units:
         piece: unità
         hour: ora
@@ -2279,12 +2285,12 @@ it:
       confirm_discarding_unsaved_availability_changes_question: "Hai la certezza di voler lasciar pedere i tuoi cambiamenti?"
       edit_listing_availability: "Modifica disponibilità"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Programmazione base"
+        i_am_available_on: "Sono disponibile il..."
+        start_time: Inizio
+        end_time: Fine
+        add_another_time_slot: "+ Aggiungi un altro spazio"
+        save: Salva
     no_listings:
       sorry: "Purtroppo non si trovano inserzioni per i tuoi criteri di ricerca."
       try_other_search_terms: "Prova con altri termini di ricerca."
@@ -2328,47 +2334,47 @@ it:
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
+    admin_account_not_connected: "Non è possibile utilizzare il sistema di pagamenti di %{service_name} e ricevere pagamenti, se prima non è stato settato. Per favore %{contact_admin_link} per i dettagli."
+    contact_admin_link_text: "contatta il team di %{service_name}"
+    you_are_ready_to_accept_payments: "Sei pronto per accettare pagamenti!"
     commission: ~
-    pay_with_stripe: ~
-    add_and_pay: ~
-    card_not_stored: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
+    pay_with_stripe: "Paga con Stripe usando %{card}"
+    add_and_pay: "Conferma pagamento"
+    card_not_stored: "Il tuo pagamento è processato in sicurezza da Stripe. %{service_name} non colleziona informazioni di carte di credito/debito"
+    missing_payment: "Hai un'inserzione aperta ma il tuo account non è stato configurato per accettare pagamenti. Per configurare le tue preferenze di pagamento, visita %{settings_link}"
+    stripe_bank_connected: "I dettagli del conto corrente sono stati configurati correttamente!"
+    stripe_can_accept: "Ora sei pronto per ricevere denaro sul tuo conto corrente"
+    stripe_credit_card: "Carta di credito"
     paypal: ~
-    paypal_connected: ~
+    paypal_connected: "L'account PayPal è stato connesso con successo!"
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
-      need_info: ~
-      select_country: ~
-      legal_name: ~
-      country: ~
-      birth_date: ~
+      need_info: "Abbiamo bisogno di alcune informazioni su di te per poterti inviare denaro"
+      select_country: "Scegli nazione"
+      legal_name: Nome
+      country: Nazione
+      birth_date: "Data di nascita"
       ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
+      personal_id_number: "Numero documento di identità"
+      address_country: Nazione
+      address_state: Provincia
+      address_city: Città
+      address_postal_code: "Codice postale"
+      address_line1: Indirizzo
+      tos_link: "Aggiungendo i dettagli di pagamento accetti %{stripe_link}"
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      save_details: "Salva dettagli"
+      edit: "Modifica dettagli"
+      cancel: Cancella
     form_bank:
-      bank_account_number: ~
+      bank_account_number: "Numero conto corrente"
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
-      bank_currency: ~
+      bank_currency: "Valuta conto corrente"
       messages:
-        account_number: ~
+        account_number: "Numero del conto"
         routing_number: ~
         bank_code: ~
         branch_code: ~
@@ -2376,18 +2382,18 @@ it:
         institution_number: ~
         format_varies_by_bank: ~
         bsb: ~
-        error_message: ~
+        error_message: "Formato non valido"
         clearing_code: ~
         sort_code: ~
-        must_match: ~
+        must_match: "deve essere nel seguente formato:"
         a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        digits: cifre
+        digits_or_chars: "Cifre da A-Z"
     form_verification:
-      personal_id_number: ~
-      document: ~
-      send_verification: ~
-      need_verification: ~
+      personal_id_number: "Numero documento di identità"
+      document: "Documento di verifica"
+      send_verification: "Invia verifica"
+      need_verification: "Bisogno di verifiche aggiuntive"
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -2396,14 +2402,14 @@ it:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
-    bank_account: ~
+    title: "Preferenze di pagamento"
+    bank_account: "Conto corrente"
     paypal: ~
-    bank_account_details: ~
-    add_bank_details: ~
+    bank_account_details: "Per ricevere denaro sul tuo conto corrente, devi fornire i tuoi dettagli bancari. I tuoi clienti potranno pagare con carta."
+    add_bank_details: "Aggiungi dettagli bancari"
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~
-    invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    invalid_bank_account_number: "Ti preghiamo di controllare che il conto corrente sia stato inserito correttamente e coincida con la tua nazione"
+    invalid_postal_code: "Codice postale non valido per %{country}"

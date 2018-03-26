@@ -311,7 +311,7 @@ fi:
         invalid_post_listing_button_label: "Ole hyvä ja anna kelvollinen teksti \"Lisää uusi ilmoitus\" -napille"
       transactions:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
-        processing_export: ~
+        processing_export: "Prosessoidaan vientiä CSV-tiedostoon..."
         transactions: "Näytä tilaukset"
         headers:
           conversation: Viestiketju
@@ -795,8 +795,8 @@ fi:
       paid: "maksoi %{sum}"
       payment_preauthorized: "Katevaraus tehty: %{sum}"
       stripe:
-        held_payment: ~
-        confirmed_request: ~
+        held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
+        confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
     new:
       message: Viesti
       message_to: "Viesti käyttäjälle %{author_name}"
@@ -870,7 +870,7 @@ fi:
           unknown_reason: "Maksu odottaa. Voit kirjautua Paypal-tilillesi nähdäksesi lisätietoja."
           verify: "Odottaa että vahvistat PayPal-tilisi"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "Odotetaan, että käyttäjä %{requester_name} merkitsee tilauksen toteutuneeksi. Kun tilaus on merkitty toteutuneeksi, maksu vapautetaan pankkitilillesi."
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
@@ -941,7 +941,7 @@ fi:
       giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
       give_feedback_to: "Anna palautetta käyttäjälle %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "Käyttäjä %{other_party_full_name} on merkinnyt tilauksen '%{request}' toteutuneeksi. Maksu tästä tilauksesta on nyt vapautettu pankkitilillesi. Voit nyt antaa palautetta käyttäjälle %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Pyyntösi on automaattisesti merkitty toteutuneeksi - muistathan antaa palautetta"
       we_have_marked_request_as_confirmed: "Olemme merkinneet pyynnön '%{request}' toteutuneeksi. Merkitsimme pyynnön toteutuneeksi automaattisesti, koska pyynnön hyväksymisestä on kulunut %{days_passed} päivää."
@@ -1017,7 +1017,7 @@ fi:
       quantity: "Määrä:"
       you_have_received_new_payment: "Käyttäjä %{payer_full_name} on maksanut sinulle <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuittisi."
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "Käyttäjä %{payer_full_name} on nyt maksanut summan <b>%{payment_sum}</b> tilauksesta <b>%{listing_title}</b>. %{service_name} pidättää maksun siihen asti, että tilaus merkitään toteutuneeksi. Tässä on kuittisi."
     payment_receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
       you_have_made_new_payment: "Olet maksanut käyttäjälle %{recipient_full_name} <b>%{payment_sum}</b> ilmoituksesta <b>%{listing_title}</b>. Tässä kuitti maksusta."
@@ -1056,7 +1056,7 @@ fi:
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
       listing_per_unit_title: "%{title}, per %{unit_type}"
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Olet maksanut <b>%{payment_sum}</b> tuotteesta <b>%{listing_title}</b>. %{service_name} pidättää maksun, ja se vapautetaan käyttäjälle %{recipient_full_name} sitten kun merkitset tilauksen toteutuneeksi. Tässä on kuitti maksustasi."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name}-palvelussa"
       you_can_give_feedback_to: "Et ole vielä antanut palautetta käyttäjälle %{name}."
