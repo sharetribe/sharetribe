@@ -25,7 +25,7 @@ Then("I expect transaction with PayPal test to pass") do
   onboarding_wizard.dismiss_dialog
 
   # Page::Listing.fill_in_booking_dates always selects a two day period
-  expected_price = listing_price * 2
+  expected_price = listing_price
 
   # Member buys the listing
   login.logout_and_login_as(member[:username], member[:password])

@@ -60,8 +60,8 @@ describe MarketplaceService do
       community = create(@community_params.merge({:marketplace_type => "service"}))
       c = Community.find(community.id)
       s = c.shapes.first
-      expect(s.availability).to eql 'none'
-      expect(s.units[0][:unit_type]).to eql 'day'
+      expect(s.availability).to eql 'booking'
+      expect(s.units[0][:unit_type]).to eql 'hour'
       expect(s.price_enabled).to eql true
       expect(s.shipping_enabled).to eql false
 
