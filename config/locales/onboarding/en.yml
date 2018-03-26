@@ -49,6 +49,7 @@ en:
             paypal: "Accept payments"
             listing: "Post your first listing"
             invitation: "Invite users"
+            skip_this_step_for_now: "Skip this step for now"
           payments:
             title: "Step 5: Set up online payments"
             description_p1: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
@@ -64,6 +65,8 @@ en:
               disable_payments_alt: "How to disable payments or add free listings to your marketplace"
               content_paypal_stripe: "Read more about disabling payments from %{disable_payments_link} or read more about %{stripe_paypal_link}."
               stripe_paypal_link: "online payments, Stripe and Paypal"
+            i_dont_want: "I don't want to use the online payment system, %{link}."
+            disable_it: "disable it"
           slogan_and_description:
             title: "Step 2: Add a Slogan & Description"
             description: "The slogan and description help new visitors understand what your marketplace is about. They are the first thing visitors notice when they land on your site, so try to make them compact but descriptive."
