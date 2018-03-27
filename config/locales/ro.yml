@@ -36,10 +36,6 @@ ro:
         remove_category: "Stergeti categoria"
         remove_category_name: "Stergeti categoria %{category_name}"
         warning_remove_effects: "Atentie! Stergerea categoriei %{category_name} va avea urmatoarele efecte:"
-        select_new_category: ~
-        buttons:
-          remove: ~
-          cancel: ~
         warning_listing_will_be_moved:
           one: "In categorie este %{count} anunt"
           few: "In categorie sunt %{count} anunturi"
@@ -52,6 +48,10 @@ ro:
           one: "In categorie este %{count} subcategorie"
           few: "In categorie sunt %{count} subcategorii"
           other: "In categorie sunt %{count} subcategorii"
+        select_new_category: ~
+        buttons:
+          remove: ~
+          cancel: ~
     communities:
       edit_details:
         community_details: ~
