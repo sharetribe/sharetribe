@@ -90,5 +90,10 @@
     :javascript
       $(".checkout-with-paypal-button").click(function(){
         $("#payment_type").val("paypal");
-        $("#transaction-form").trigger("submit");
+        var form = $("#transaction-form");
+        form.validate();
+        $('input[stripe-shipping-address]').each(function(){
+          $(this).rules('remove');
+        });
+        form.trigger("submit");
       });

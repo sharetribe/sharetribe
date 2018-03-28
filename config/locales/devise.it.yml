@@ -35,9 +35,9 @@ it:
       signed_up_but_inactive: "Ti sei registrato correttamente. Tuttavia non puoi effettuare l'accesso perchè il tuo account non è stato ancora attivato."
       signed_up_but_locked: "Ti sei registrato correttamente. Tuttavia non puoi effettuare l'accesso perchè il tuo account è bloccato."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
+        inactive: inattivo
+        unconfirmed: "non confermato"
+        locked: bloccato
       update_needs_confirmation: "Il tuo account è stato aggiornato, tuttavia è necessario verificare il tuo nuovo indirizzo email. Entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo nuovo indirizzo email."
       signed_up: "Benvenuto! Ti sei registrato correttamente."
       updated: "Il tuo account è stato aggiornato."
@@ -51,7 +51,7 @@ it:
       failure: "Non è stato possibile autorizzarti da %{kind} perchè \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Istruzioni per la conferma"
+        subject: "Istruzioni per la conferma per iscriversi a %{service_name}"
       reset_password_instructions:
         subject: "Istruzioni per reimpostare la password"
       unlock_instructions:

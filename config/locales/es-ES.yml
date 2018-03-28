@@ -709,7 +709,7 @@ es-ES:
       title: "Comisión y cuota de procesamiento de pago"
       stripe: Stripe
       paypal: PayPal
-      info: "Los pagos en %{service_name} son procesados por Stripe (para pagos con tarjeta) o PayPal. %{service_name} cobra una comisión que depende de la plataforma usada. La plataforma de pagos puede cobrar una comisión adicional."
+      info: "Los pagos en %{service_name} son procesados la plataforma de pagos que se nombra abajo. %{service_name} cobra una comisión que depende de la plataforma usada. La plataforma de pagos puede cobrar una comisión adicional."
     paypal_fee_info:
       title: "Comisión de procesamiento de pago de PayPal"
       body_text: |-
