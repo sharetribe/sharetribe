@@ -63,9 +63,9 @@ module TransactionService::Process
           Result::Success.new()
         else
           booking_res =
-            if tx.availability == :booking && tx.booking.per_hour?
+            if tx.availability.to_sym == :booking && tx.booking.per_hour?
               Result::Success.new()
-            elsif tx.availability == :booking
+            elsif tx.availability.to_sym == :booking
 
               initiate_booking(tx: tx).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
@@ -159,17 +159,21 @@ module TransactionService::Process
     private
 
     def initiate_booking(tx:)
+      community_uuid = UUIDUtils.parse_raw(tx.community_uuid)
+      starter_uuid = UUIDUtils.parse_raw(tx.starter_uuid)
+      listing_uuid = UUIDUtils.parse_raw(tx.listing_uuid)
+
       auth_context = {
-        marketplace_id: tx.community_uuid,
-        actor_id: tx.starter_uuid
+        marketplace_id: community_uuid,
+        actor_id: starter_uuid
       }
 
       HarmonyClient.post(
         :initiate_booking,
         body: {
-          marketplaceId: tx.community_uuid,
-          refId: tx.listing_uuid,
-          customerId: tx.starter_uuid,
+          marketplaceId: community_uuid,
+          refId: listing_uuid,
+          customerId: starter_uuid,
           initialStatus: :paid,
           start: tx.booking.start_on,
           end: tx.booking.end_on
