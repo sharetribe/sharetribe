@@ -7,6 +7,24 @@ namespace :sharetribe do
     end
   end
 
+  namespace :landing_pages do
+    desc "Install sample landing page into initializers/landing_page.rb"
+    task :install_static => :environment do
+      source = File.join(Rails.root, "app", "services", "custom_landing_page", "example_data.rb")
+      dest = File.join(Rails.root, "config", "initializers", "landing_page.rb")
+
+      # patch example_data
+      text = File.read(source)
+      text = text.gsub(/ExampleData/, "StaticData")
+      # dont copy TEMPLATE_STR
+      text = text.gsub(/^\s*TEMPLATE_STR = <<JSON.*JSON/m, "")
+      File.open(dest, "w") {|file| file.puts text }
+
+      puts "Created config/initializers/landing_page.rb with static template."
+      puts "This needs clp_static_enabled: true in config.yml for it to take effect."
+    end
+  end
+
   desc "Cleans the auth_tokens table in the DB by deleting expired ones"
   task :delete_expired_auth_tokens => :environment do
     AuthToken.delete_expired
