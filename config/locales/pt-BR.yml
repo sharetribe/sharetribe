@@ -960,10 +960,10 @@ pt-BR:
       message_not_displaying_correctly: "Este e-mail não está sendo exibido corretamente?"
       view_it_in_your_browser: "Visualizar no seu navegador."
       or: ou
-      unsubscribe_from_these_emails_info: "Você recebeu um novo pagamento este e-mail por ser membro do %{service_name}"
+      unsubscribe_from_these_emails_info: "Voce recebeu este e-mail por ser membro do  %{service_name}"
       unsubscribe_from_these_emails: "cancelar o recebimento desses e-mails"
-      unsubscribe_from_invitation_emails_info: "Você recebeu um novo pagamento este e-mail por que um membro do %{service_name} convidou você."
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails_info: "Voce recebeu este e-mail porque um membro do portal %{service_name} convidou você."
+      unsubscribe_from_invitation_emails: "Clique aqui para cancelar o recebimento de futuros convites a partir do portal %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} aceitou sua oferta %{listing}"
       has_accepted_your_request: "%{accepter} aceitou sua solicitação %{listing}"

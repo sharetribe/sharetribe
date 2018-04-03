@@ -267,7 +267,7 @@ ro:
       social_media:
         social_media: ~
         twitter_handle: ~
-        twitter_handle_info_text: ~
+        twitter_handle_info_text: "Numele de utilizator al contului Twitter pentru platforma dumneavoastra (daca aveti unul). Va fi mentionat cand oamenii folosesc butonul de tweet pe pagina de afisari."
         twitter_handle_info_text_with_instructions: ~
         twitter_instructions_link_text: ~
         twitter_handle_placeholder: ~
@@ -284,7 +284,7 @@ ro:
       analytics:
         analytics: ~
         google_analytics_key: ~
-        google_analytics_key_info_text: ~
+        google_analytics_key_info_text: "Numarul de identificare al contului dumneavoastra de Google Analytics"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
         save: ~
@@ -540,8 +540,8 @@ ro:
           quantity_label: ~
           time_label: ~
     paypal_accounts:
-      marketplace_paypal_integration: ~
-      preferences_updated: ~
+      marketplace_paypal_integration: "Preferintele sistemului de plata"
+      preferences_updated: "Preferintele sistemului de plata actualizate"
       contact_support_link_text: ~
       integration_info_text: "Plăţile pe Sharetribe se realizează prin intermediul PayPal. Pentru a permite utilizatorilor să plătească în cadrul marketplace-ului dumneavoastră, trebuie să vă conectaţi contul PayPal. Odata conectat contul PayPal, puteţi alege o limită minimă a unei tranzacţii şi un posibil comision."
       link_paypal_personal_account_label: ~
@@ -554,10 +554,10 @@ ro:
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
-      minimum_listing_price_label: ~
-      transaction_fee_label: ~
+      minimum_listing_price_label: "Dimensiunea minima a tranzactiei:"
+      transaction_fee_label: "Comision:"
       minimum_transaction_fee_label: ~
-      save_settings: ~
+      save_settings: "Salvati setarile"
       minimum_listing_price_below_tx_fee: ~
       minimum_listing_price_below_min: ~
     payment_preferences:
@@ -821,7 +821,7 @@ ro:
       pending_external:
         paypal:
           multicurrency: "Nu am putut procesa plata prin PayPal deoarece contul dvs. de PayPal nu a fost setat sa primeasca bani in %{currency}. Accesati link-ul %{paypal_url} si conectati-va pentru a putea accepta sau rejecta manual plata."
-          verify: ~
+          verify: "Nu puteti accepta aceasta tranzactie pentru ca nu v-ati verificat contul PayPal. Accesati %{paypal_url} pentru a va verifica contul."
           intl: "Nu am putut procesa plata prin PayPal deoarece contul dvs. de PayPal nu are un mecanism de retragere. Accesati link-ul %{paypal_url} si conectati-va pentru a putea accepta sau rejecta manual plata."
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
@@ -845,7 +845,7 @@ ro:
           multicurrency: ~
           intl: ~
           unknown_reason: "Plata este in asteptare. Conectati-va la contul dvs. de PayPal pentru mai multe detalii."
-          verify: ~
+          verify: "Asteptam sa va verificati contul PayPal"
       stripe:
         waiting_confirmation_from_requester: ~
     status_link:
@@ -1131,7 +1131,7 @@ ro:
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
-      page_removed_reason: ~
+      page_removed_reason: "Exista cateva motive posibile pentru acest lucru. De exemplu, un utilizator ar fi putut sa-si fi eliminat contul sau ar fi putut fi eliminata o inregistrare."
     error_410_title: ~
     error_500:
       temporary_unavailable: ~
@@ -1399,7 +1399,7 @@ ro:
       something_went_wrong: ~
       community_updated: ~
       community_update_failed: ~
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Contul dumneavoastra a fost creat cu succes. Acum trebuie sa confirmati adresa de email"
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       comment_cannot_be_empty: "Comentariul nu poate fi fara continut."
       comment_sent: "Comentariu trimis"
@@ -1832,13 +1832,13 @@ ro:
     member_id: "ID membru"
     member_id_or_email: ~
   paypal_accounts:
-    payout_info_title: ~
-    paypal_account_email_connected: ~
+    payout_info_title: "Acceptare fonduri"
+    paypal_account_email_connected: "<del> Conectati-va contul PayPal</del> Finalizat!"
     payout_info_paypal: ~
-    paypal_billing_agreement_made: ~
+    paypal_billing_agreement_made: "<del>Perimiteti %{service_name} sa incaseze un comision din tranzactie</del> Finalizat!"
     commission_permission_needed: ~
     create_paypal_account_link_text: ~
-    connected_account: ~
+    connected_account: "%{email} pentru contul PayPal conectat cu succes"
     paypal_receive_funds_info_label_australia_only: ~
     paypal_receive_funds_info_label: ~
     paypal_receive_funds_info_australia_only: ~
@@ -1846,47 +1846,47 @@ ro:
     upgrade_paypal_account_link_text: "conectati-va la PayPal si modificati-va contul intr-unul de business."
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: "Nu sunteti pregatit sa acceptati plati!"
+    commission: "%{commission} %"
     not_now: ~
     new:
-      payout_info_you_need_to_connect: ~
-      payout_info_text: ~
-      contact_admin_link_text: ~
-      admin_account_not_connected: ~
-      paypal_account_email: ~
-      paypal_account_email_placeholder: ~
-      paypal_account_email_info_text: ~
-      create_paypal_account: ~
+      payout_info_you_need_to_connect: "Pentru a accepta plati trebuie sa va conectati contul PayPal cu %{service_name}."
+      payout_info_text: "Pentru a va conecta contul, va rugam sa completati pasii urmatori"
+      contact_admin_link_text: "contactati echipa %{service_name}"
+      admin_account_not_connected: "Conectarea contului de PayPal nu este posibila avand in vedere ca %{service_name} nu a facut setarile pentru plati. Va rugam contactati %{contact_admin_link} pentru detalii."
+      paypal_account_email: "Conectati-va contul PayPal"
+      paypal_account_email_placeholder: "Adresa dumneavoastra de email PayPal"
+      paypal_account_email_info_text: "Daca nu aveti un cont PayPal, puteti sa creati unul prin %{create_paypal_account}. Daca primiti un mesaj de eroare cand va conectati contul PayPal, actualizati-va contul PayPal intr-un cont de business. Actualizarea este gratuita si procesul este unul usor. Daca sunteti persoana fizica, puteti folosi numele si prenumele ca nume de business. Pentru actualizarea contului, %{upgrade_paypal_account} si gasiti link-ul pentru actualizare"
+      create_paypal_account: "daca faceti click aici"
       upgrade_paypal_account: "conectati-va la contul de PayPal"
-      paypal_account_billing_agreement: ~
+      paypal_account_billing_agreement: "Permiteti %{service_name} sa incaseze un comision din tranzactie"
       follow_steps: ~
       connect_paypal_account_title: ~
       connect_paypal_account_title_with_step: ~
       connect_paypal_account_instructions: "Faceti click pe butonul de mai jos pentru a va conecta la PayPal si legati-va contul de PayPal cu %{service_name}."
-      connect_paypal_account: ~
+      connect_paypal_account: "Conectati-va contul PayPal"
       paypal_account_billing_agreement_with_step: ~
       paypal_account_billing_agreement_info_both: ~
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
       paypal_info_link_text: ~
-      billing_agreement_description: ~
-      billing_agreement: ~
-      permissions_not_granted: ~
-      could_not_fetch_redirect_url: ~
-      paypal_not_enabled: ~
-      billing_agreement_canceled: ~
-      billing_agreement_not_accepted: ~
-      billing_agreement_wrong_account: ~
-      something_went_wrong: ~
-      account_not_verified: ~
+      billing_agreement_description: "Permiteti %{service_name} sa incaseze un comision din tranzactie."
+      billing_agreement: Permiteti
+      permissions_not_granted: "Permisiunea de a va conecta contul PayPal nu a fost acceptata"
+      could_not_fetch_redirect_url: "Nu s-a putut prelua URL-ul de redirectionare pentru conexiunea cu PayPal."
+      paypal_not_enabled: "Platile prin PayPal nu sunt activate"
+      billing_agreement_canceled: "Acordul de facturare a fost anulat"
+      billing_agreement_not_accepted: "Nu ati acceptat acordul de facturare in PayPal."
+      billing_agreement_wrong_account: "Conturile PayPal nu se potrivesc. Utilizati acelasi cont PayPal pe care l-ati conectat in primul pas."
+      something_went_wrong: "Ceva nu a mers bine. Va rugam sa incercati inca o data. Daca problema persista va rugam contactati echipa %{service_name}."
+      account_not_verified: "Nu v-ati verificat contul PayPal. Trebuie sa accesati paypal.com si sa va verificati contul inainte de a putea continua."
       account_restricted: "Contul dvs. de PayPal este restrictionat si nu poate fi conectat. Va rugam sa va conectati pe paypal.com pentru a afla mai multe detalii sau sa luati legatura cu serviciul de relatii cu clientii al PayPal pentru a rezolva problema."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: ~
-    from_your_payment_settings_link_text: ~
+    missing: "Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat pentru a primi plati. Conectati contul dumneavoastra Paypal si acordati permisiunea %{service_name} de a percepe o taxa de tranzactie din%{settings_link}."
+    from_your_payment_settings_link_text: "Setarile sistemului de plati"
     redirect_message: ~
     redirect_link_text: ~
     paypal_account_all_set_up: ~
@@ -2021,11 +2021,11 @@ ro:
       change_email: Modifica
       confirm_your_email: ~
       account_confirmation_instructions: ~
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "Confirmati adresa de email"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: "Ar fi trebuit sa primiti un email la %{email_address} cu un link de confirmare. Daca nu il vedeti, verificati in spam sau faceti click pe butonul de mai jos pentru a retrimite email-ul. Cand il primiti apasati pe link-ul inclus pentru a va confirma adresa de email, dupa care veti primi acces deplin pe platforma. Daca aveti nevoie de ajutor nu ezitati %{support_link}."
       contact_support_link_text: ~
   settings:
     account:
@@ -2037,8 +2037,8 @@ ro:
       email_addresses: "Adresa de e-mail"
       new_email: "Adresa de email noua"
       delete_personal_information: "Daca va stergeti contul, informatiile personale (nume, numar de telefon, adresa, adresa de email, poza de profil, etc.) vor fi sterse permanent si nu vor mai putea fi recuperate. Toate anunturile pe care le-ati creat vor fi sterse. Nu va veti putea reactiva contul."
-      delete_information_others_involved: ~
-      unfinished_transactions: ~
+      delete_information_others_involved: "Informatiile in care sunt implicati alti membri (conversatii cu alte persoane, tranzactii pe care le-ati efectuat, recenzii pe care le-ati dat altora etc.) nu vor fi eliminate atunci când stergeti contul. Cu toate acestea, numele dvs. nu va mai fi afisat langa aceste informatii."
+      unfinished_transactions: "Contul dumneavoastra nu poate fi sters deoarece aveti tranzactii in derulare. Va rugam sa completati toate aceste tranzactii inainte de stergerea contului."
       new_password: "Parola noua"
       save: Salveaza
       these_fields_are_shown_only_to_you: "Numele de utilizator este afisat in profilul tau, in cazul in care nu ai furnizat numele tau. Alte informatii sunt vizibile doar pentru tine"
@@ -2047,16 +2047,16 @@ ro:
         address_title: Adresa
         remove_title: Stergeti
         remove_confirmation: "Sunteti sigur ca vreti sa stergeti adresa de e-mail?"
-        receive_notifications_title_desktop: ~
+        receive_notifications_title_desktop: "Primiti notificari"
         receive_notifications_title_mobile: ~
         receive_notifications_new_title_mobile: ~
-        add_new_with_plus: ~
-        add_new_cancel: ~
-        confirmation_title_mobile: ~
-        confirmation_title_desktop: ~
-        confirmation_resend: ~
-        status_confirmed: ~
-        status_pending: ~
+        add_new_with_plus: "+ Adaugati o noua adresa de email"
+        add_new_cancel: Anulare
+        confirmation_title_mobile: "Confirmare:"
+        confirmation_title_desktop: Confirmare
+        confirmation_resend: Retrimiteti
+        status_confirmed: Confirmat
+        status_pending: "In asteptare"
     notifications:
       email_from_admins: ~
       i_want_to_get_email_notification_when: "Vreau sa primesc un email de notificare cand..."
