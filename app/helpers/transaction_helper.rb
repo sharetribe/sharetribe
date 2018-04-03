@@ -419,7 +419,7 @@ module TransactionHelper
   end
 
   def waiting_for_buyer_to_confirm(conversation)
-    key = conversation.payment_gateway == "stripe" ? "conversations.status.stripe.waiting_confirmation_from_requester" : "conversations.status.waiting_confirmation_from_requester"
+    key = conversation.payment_gateway == :stripe ? "conversations.status.stripe.waiting_confirmation_from_requester" : "conversations.status.waiting_confirmation_from_requester"
     link = t(key,
       :requester_name => link_to(
         PersonViewUtils.person_display_name_for_type(conversation.other_party(@current_user), "first_name_only"),
