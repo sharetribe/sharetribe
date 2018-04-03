@@ -464,14 +464,14 @@ tr-TR:
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
       per_day_availability: "\"Günlük\" kullanılabilirlik"
-      per_night_availability: "\"Gecelik\" kullanılabilirlik"
+      per_night_availability: "\"Her bir gece\" yararlanılabilirlik"
       pricing_units_disabled_info: "Takvim kullanılabirliği etkinleştirildiğinde fiyatlandırma tablosu kullanılamaz."
       can_not_find_name: ~
       index:
         listing_shapes: "İşlem türü"
-        description: ~
+        description: "Sipariş türleri, sipariş sürecinin sitenizde nasıl çalıştığını belirler. Kullanıcılarınızın kiralayıp satabilmelerine veya muhtemelen sadece duyurular yayınlayıp doğrudan mesajlarla iletişim kurabilmelerine karar verebilirsiniz."
         read_more_about_order_types: "Sipariş tipleriyle ilgili daha fazla bilgi al"
-        add_new_shape: ~
+        add_new_shape: "Yeni sipariş türü ekle: "
         select_template: "Şablon seç"
         all_categories: "Tüm kategoriler"
         no_categories: "Kategori yok"
@@ -481,24 +481,24 @@ tr-TR:
           listing_shape_categories: "Kullanıldığı kategoriler"
         order:
           saving_order: "Sipariş kaydediliyor"
-          save_order_successful: ~
+          save_order_successful: "Sipariş türü siparişi başarıyla kaydedildi"
           save_order_error: "Sipariş kaydedilirken hata yaşandı. Lütfen sayfayı yenileyip tekrar deneyiniz."
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
+        selling_products: "Satılık ürünler"
+        renting_products: "Kiralık ürünler"
+        offering_services: "Sunulan hizmetler"
+        giving_things_away: "Bağışlanan şeyler"
         requesting: "Talep ediliyor"
         announcement: "Duyuru yayınlanılıyor"
-        custom: ~
+        custom: "Özel ayarlar"
       new:
-        create_listing_shape: ~
+        create_listing_shape: "Sipariş türü oluşturun"
         create: Oluştur
         cancel: İptal
         create_success: ~
         create_failure: "Yeni sipariş türü oluşturulamadı. Hata: %{error_msg}"
       edit:
-        edit_listing_shape: ~
+        edit_listing_shape: "Sipariş türünü düzenle %{shape}"
         update: Kaydet
         cancel: İptal
         update_success: "%{shape}"
@@ -508,7 +508,7 @@ tr-TR:
         can_not_delete_only_one_in_categories: ~
       listing_shape_name: İsim
       listing_shape_name_placeholder: "Ör. Sat"
-      action_button_label: ~
+      action_button_label: "Ödeme düğmesi etiketi"
       action_button_placeholder: "Ör. Sil"
       successfully_closed: ~
       successfully_deleted: "Sipariş türü %{order_type} başarıyla silindi"
@@ -519,12 +519,12 @@ tr-TR:
       units_title: "Fiyatlandırma tablosu"
       units_desc: "Fiyatlandırma birimlerini etkinleştirdiyseniz, liste fiyatı \"fiyatlandırma birimi başına fiyat\" olarak görüntülenir. Buna bir örnek: \"saatte 39 dolar\"."
       units:
-        piece: ~
-        hour: Saatlik
+        piece: "Her bir parça"
+        hour: "her bir saat"
         day: Günlük
-        night: Gecelik
-        week: Haftalık
-        month: Aylık
+        night: "her bir gece"
+        week: "Her bir hafta"
+        month: "Her bir ay"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: Sil
@@ -1610,7 +1610,7 @@ tr-TR:
         location: Konum
       price:
         price: Fiyat
-        per: ~
+        per: "her bir"
         per_day: günlük
         mass: "parça, kg, l, m2, ..."
         time: "saat, gün, ay, ..."
@@ -1700,8 +1700,8 @@ tr-TR:
       accept_for_frees: "Ücretsiz olarak kabul etmek"
       trades: "Değiş tokuş etmek"
     listing_actions:
-      booking_from: "'dan"
-      booking_to: "'a"
+      booking_from: "Giriş tarihi"
+      booking_to: "Çıkış tarihi"
       how_paypal_works: "PayPal Nasıl Çalışır"
       payment_help: "Ödeme yardımı"
       unable_load_availability: ~
@@ -1724,11 +1724,11 @@ tr-TR:
       community_not_configured_for_payments_admin: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{payment_settings_link} adresine giderek gerekli ödeme alanlarını doldurunuz."
     quantity:
       hour: "Aylık saat:"
-      day: ~
+      day: "Gün sayısı"
       night: "Gece sayısı:"
       week: "Hafta sayısı:"
       month: "Ay sayısı:"
-      custom: ~
+      custom: Miktar
     quantity_placeholder: Adet
     please_comment: Yorum
     reply_link:
@@ -1763,7 +1763,7 @@ tr-TR:
       processing_uploaded_image: "(Yüklenen görsel işleniyor...)"
       listing_created_at: "İlan oluşturuldu"
       price:
-        per_quantity_unit: "%{quantity_unit} başına"
+        per_quantity_unit: "%{quantity_unit} her bir"
         per_day: günlük
       delivery: "Teslim Yöntemi"
       shipping: "Kargo (+%{price})"
@@ -1774,11 +1774,11 @@ tr-TR:
       youtube_video_player: "YouTube video oynatıcısı"
     unit_types:
       piece: "adet başına"
-      hour: saatlik
+      hour: saat
       day: gün
-      night: gecelik
-      week: haftalık
-      month: aylık
+      night: gece
+      week: hafta
+      month: ay
     verification_required:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
@@ -2205,7 +2205,7 @@ tr-TR:
       december: Ara
     today: Bugün
     clear: Sil
-    format: mm/dd/yyyy
+    format: ay/gün/yıl
   time:
     formats:
       short: "%e %b %Y at %H:%M"
@@ -2237,10 +2237,10 @@ tr-TR:
         other: "%{count} gün"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "Ayrılmış günler:"
       booked_nights: ~
       price_per_day: "Günlük ücret:"
-      price_per_night: "Gecelik fiyat"
+      price_per_night: "Her bir gece için fiyat"
       price_per_hour: ~
       price_per_unit: ~
       quantity: "Adet:"
