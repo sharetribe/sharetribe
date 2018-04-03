@@ -195,6 +195,7 @@ window.ST.stripe_form_i18n = {
   };
 
   module.initStripeBankForm = function(options) {
+    var stripeAccountForm = $("#stripe-account-form");
     window.ST.stripe_test_api_mode = options.stripe_test_mode;
     stripeApi = Stripe(options.api_publishable_key);
     $("#stripe_account_form_address_country").change(function(){
@@ -231,14 +232,21 @@ window.ST.stripe_form_i18n = {
       update_bank_number_form(country);
     });
     $("#stripe_account_form_address_country").trigger('change');
-    $("#stripe-account-form").validate({
-      submitHandler: function(form) {
+    stripeAccountForm.validate();
+    stripeAccountForm.on('submit', function(ev) {
+      var accounts = $('#stripe_bank_form_bank_account_number, #stripe_bank_form_bank_account_number_common');
+      ev.preventDefault();
+      accounts.each(function(){
+        $(this).rules('add', { country_regexp: 'account_number' });
+      });
+      if(stripeAccountForm.valid()) {
         removeSpaces();
-        stripeFormData = $(form).serializeArray();
+        stripeFormData = stripeAccountForm.serializeArray();
         stripeToken(options, function() {
-          form.submit();
+          stripeAccountForm[0].submit();
         });
       }
+      return false;
     });
   };
 
