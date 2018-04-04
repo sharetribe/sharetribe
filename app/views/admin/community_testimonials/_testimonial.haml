@@ -2,7 +2,7 @@
 - testimonial = for_author ? tx.testimonial_from_author : tx.testimonial_from_starter
 %tr
   - unless for_author
-    %td{rowspan: "2"}
+    %td{rowspan: "2", class: 'testimonial-title'}
       - listing_title = tx.listing_title || t("admin.communities.transactions.not_available")
       - price = MoneyViewUtils.to_humanized(tx.payment_total)
       = link_to person_transaction_path(person_id: @current_user.id, id: tx.id) do
@@ -23,10 +23,14 @@
     %td
       = t("admin.communities.testimonials.status.published")
     %td
-      - grade_key = testimonial.positive? ? 'positive' : 'negative'
-      = t("testimonials.new.#{grade_key}")
+      .testimonial-cell
+        .testimonial-icon{:class => testimonial.positive? ? 'positive' : 'negative'}
+          - if testimonial.positive?
+            = icon_tag("like", ["positive"])
+          - else
+            = icon_tag("dislike", ["negative"])
     %td
-      = testimonial.text
+      = truncate(strip_tags(testimonial.text), length: 100)
   - else
     %td
       - p = for_author ? tx.author : tx.starter
