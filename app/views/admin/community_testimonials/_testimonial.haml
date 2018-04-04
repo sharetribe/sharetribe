@@ -2,7 +2,7 @@
 - testimonial = for_author ? tx.testimonial_from_author : tx.testimonial_from_starter
 %tr
   - unless for_author
-    %td{rowspan: "2"}
+    %td{rowspan: "2", class: 'testimonial-title'}
       - listing_title = tx.listing_title || t("admin.communities.transactions.not_available")
       - price = MoneyViewUtils.to_humanized(tx.payment_total)
       = link_to person_transaction_path(person_id: @current_user.id, id: tx.id) do

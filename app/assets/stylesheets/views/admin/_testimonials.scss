@@ -2,12 +2,17 @@
   tbody tr:nth-child(2n) {
     border-bottom: 3px solid white;
   }
-  td .testimonial-cell {
-    margin: auto;
-    .testimonial-icon {
-      position: relative;
-      font-size: 1.2em;
-      line-height: 1.2em;
+  td {
+    &.testimonial-title {
+      border-bottom: 3px solid white;
+    }
+    .testimonial-cell {
+      margin: auto;
+      .testimonial-icon {
+        position: relative;
+        font-size: 1.2em;
+        line-height: 1.2em;
+      }
     }
   }
 }
