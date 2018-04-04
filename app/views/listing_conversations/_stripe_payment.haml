@@ -115,7 +115,6 @@
         } else {
           errorElement.className = 'hidden';
           var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
-          $("#payment_type").val("stripe");
           form.append(input);
           if(form.valid()) {
             form.submit();

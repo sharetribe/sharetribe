@@ -66,6 +66,7 @@ module TransactionService::Process
             if tx.availability.to_sym == :booking && tx.booking.per_hour?
               Result::Success.new()
             elsif tx.availability.to_sym == :booking
+
               initiate_booking(tx: tx).on_error { |error_msg, data|
                 logger.error("Failed to initiate booking #{data.inspect} #{error_msg}", :failed_initiate_booking, tx.slice(:community_id, :id).merge(error_msg: error_msg))
 

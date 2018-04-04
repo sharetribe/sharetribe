@@ -91,18 +91,22 @@ module TransactionService
     def paid(transaction)
       return unless transaction.availability.to_sym == :booking
 
+      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
+      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
+      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
+
       auth_context = {
-        marketplace_id: transaction.community_uuid,
-        actor_id: transaction.listing_author_uuid
+        marketplace_id: community_uuid,
+        actor_id: listing_author_uuid
       }
 
       HarmonyClient.post(
         :accept_booking,
         params: {
-          id: transaction.booking_uuid
+          id: booking_uuid
         },
         body: {
-          actorId: transaction.listing_author_uuid,
+          actorId: listing_author_uuid,
           reason: :provider_accepted
         },
         opts: {
@@ -118,18 +122,22 @@ module TransactionService
     def rejected(transaction)
       return unless transaction.availability.to_sym == :booking
 
+      community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
+      listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
+      booking_uuid = UUIDUtils.parse_raw(transaction.booking_uuid)
+
       auth_context = {
-        marketplace_id: transaction.community_uuid,
-        actor_id: transaction.listing_author_uuid
+        marketplace_id: community_uuid,
+        actor_id: listing_author_uuid
       }
 
       HarmonyClient.post(
         :reject_booking,
         params: {
-          id: transaction.booking_uuid
+          id: booking_uuid
         },
         body: {
-          actorId: transaction.listing_author_uuid,
+          actorId: listing_author_uuid,
 
           # Passing the reason to the event handler is a bit
           # cumbersome. We decided to skip it for now. That's why
