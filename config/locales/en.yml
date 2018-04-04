@@ -1168,7 +1168,7 @@ en:
       kassi_does_not_currently_work_without_javascript: "%{service_name} does not work properly without javascript. Try to enable javascript from your browser's preferences and then reload this page again."
       contact_us: "contact us"
       send_feedback: "Send message"
-      your_feedback_to_admins: "Your message to %{service_name} team"
+      your_feedback_to_admins: "Your message to the %{service_name} team"
     send: Send
     your_email_address: "Your email address"
   errors:
@@ -1357,11 +1357,11 @@ en:
     no_tribe:
       inbox: Inbox
       settings: Settings
-      feedback: "Contact %{service_name} team"
+      feedback: "Contact the %{service_name} team"
     application:
       join_this_community: "Join marketplace"
       read_more: "Read more"
-      feedback: "Your message to %{service_name} team"
+      feedback: "Your message to the %{service_name} team"
       dont_use_to_contact_support: "We noticed you're an admin of %{service_name}. This form is what your users use to contact you. You cannot use this form to contact Sharetribe support. You can do that via the support widget in the bottom right corner of the admin panel instead."
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
