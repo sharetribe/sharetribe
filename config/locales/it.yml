@@ -677,7 +677,7 @@ it:
     payment_fee_info:
       title: ~
       stripe: ~
-      paypal: ""
+      paypal: ~
       info: "I pagamenti in %{service_name} sono processati dai payment gateways elencati sotto. %{service_name} applicherà una commissione a seconda del payment gateway. Il payment gateway applicherà una commissione per ogni pagamento, come descritto sotto."
     paypal_fee_info:
       title: "Informazioni sulle commissioni dovute a PayPal"
@@ -2238,6 +2238,9 @@ it:
       booked_nights_label:
         one: "Notte prenotata:"
         other: "Notti prenotate:"
+      booked_hours_label:
+        one: "Ora prenotata:"
+        other: "Ore prenotate:"
       price_per_day: "Prezzo al giorno:"
       price_per_night: "Prezzo per notte"
       price_per_hour: "Tariffa oraria:"
@@ -2246,13 +2249,10 @@ it:
       subtotal: "Subtotale:"
       shipping-price: "Spedizione:"
       stripe-fee: "Tariffa di Stripe (stimata)"
-      start_end_time: "%{start_time} a%{end_time}"
-      booked_hours_label:
-        one: "Ora prenotata:"
-        other: "Ore prenotate:"
       duration_in_hours:
         one: "(1 ora)"
         other: "(%{count} ore)"
+      start_end_time: "%{start_time} a%{end_time}"
     price_per_quantity: "Prezzo per %{unit_type}"
     price: "Prezzo:"
     quantity: "Quantità: %{quantity}"
