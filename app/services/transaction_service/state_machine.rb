@@ -89,7 +89,7 @@ module TransactionService
     end
 
     def paid(transaction)
-      return unless transaction.availability.to_sym == :booking
+      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
 
       community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
       listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
@@ -120,7 +120,7 @@ module TransactionService
     end
 
     def rejected(transaction)
-      return unless transaction.availability.to_sym == :booking
+      return unless (transaction.availability.to_sym == :booking && !transaction.booking.per_hour?)
 
       community_uuid = UUIDUtils.parse_raw(transaction.community_uuid)
       listing_author_uuid = UUIDUtils.parse_raw(transaction.listing_author_uuid)
