@@ -150,10 +150,9 @@ module ListingAvailabilityManage
       while start < booking.end_time do # rubocop:disable Style/WhileUntilDo
         value = start.strftime('%H:%M')
         if day_options
-          option = day_options.select{ |x| x[:value] == value }.first
-          if option
+          day_options.select{ |x| x[:value] == value }.each do |option|
             option[:disabled] = true
-            option[:booking_start] = true if start == booking.start_time # rubocop:disable Metrics/BlockNesting
+            option[:booking_start] = true if start == booking.start_time
           end
           if day_options.all?{ |x| x.key?(:disabled) }
             result.push start.to_date
