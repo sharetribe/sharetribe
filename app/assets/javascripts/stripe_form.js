@@ -380,7 +380,8 @@ var stripeToken = (function() {
                   },
                   personal_id_number: ["US", "CA", "HK", "SG"].includes(country)
                     ? getValue("personal_id_number")
-                    : null
+                    : null,
+                  ssn_last_4: country == "US" ? getValue("ssn_last_4") : null
                 };
 
                 if (options.update) {
