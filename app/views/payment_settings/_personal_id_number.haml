@@ -6,8 +6,8 @@
         data: {'msg-ca-social-insurance-number': t('stripe_accounts.form_pin.messages.social_insurance_number')}
   .row.country-dependent{"data-country-only" => "US"}
     .col-12
-      = label_tag :personal_id_number, t("stripe_accounts.form_pin.social_security_number")+"*"
-      = form.text_field :personal_id_number, placeholder: '123456789', required: true
+      = label_tag :ssn_last_4, t("stripe_accounts.form_pin.ssn_last_4")+"*"
+      = form.text_field :ssn_last_4, placeholder: '1234', required: true
   .row.country-dependent{"data-country-only" => "HK"}
     .col-12
       = label_tag :personal_id_number, t("stripe_accounts.form_pin.hong_kong_identity_card")+"*"

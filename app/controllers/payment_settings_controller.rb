@@ -188,6 +188,7 @@ class PaymentSettingsController < ApplicationController
         :address_postal_code,
         :address_state,
         :document,
+        :ssn_last_4,
         :token
         ).with_validations do
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
