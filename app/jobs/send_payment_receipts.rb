@@ -3,15 +3,15 @@ class SendPaymentReceipts < Struct.new(:transaction_id)
   include DelayedAirbrakeNotification
 
   def perform
-    transaction = TransactionService::Transaction.query(transaction_id)
-    set_service_name!(transaction[:community_id])
-    receipt_to_seller = seller_should_receive_receipt(transaction[:listing_author_id])
+    transaction = Transaction.find(transaction_id)
+    set_service_name!(transaction.community_id)
+    receipt_to_seller = seller_should_receive_receipt(transaction.listing_author_id)
 
     receipts =
-      case transaction[:payment_gateway]
+      case transaction.payment_gateway
 
       when :paypal, :stripe
-        community = Community.find(transaction[:community_id])
+        community = Community.find(transaction.community_id)
 
         receipts = []
         receipts << TransactionMailer.payment_receipt_to_seller(transaction) if receipt_to_seller

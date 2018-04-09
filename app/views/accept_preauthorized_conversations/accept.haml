@@ -26,14 +26,16 @@
 
   %h3= link_to_unless listing.deleted?, listing.title, listing
 
-  - if orderer
+  - if @transaction.starter
     %p= t("conversations.accept.order_by",
-          orderer_link: link_to_unless(orderer.deleted?, PersonViewUtils.person_display_name(orderer, @current_community), orderer)).html_safe
+          orderer_link: link_to_unless(@transaction.starter.deleted?, PersonViewUtils.person_display_name(@transaction.starter, @current_community), @transaction.starter)).html_safe
 
   .conversation-price-info
     .conversation-totals
-      - if booking
-        - if booking[:per_hour]
+      - if @transaction.booking
+        - booking = @transaction.booking
+        - if booking.per_hour?
+
           .conversation-per-unit-wrapper
             %span.conversation-per-unit-label
               = t("transactions.initiate.price_per_hour")
@@ -42,31 +44,42 @@
 
           .conversation-booking-wrapper
             %span.conversation-booking-label
-              = t('transactions.initiate.booked_hours_label', count: booking[:duration])
+              = t('transactions.initiate.booked_hours_label', count: booking.duration)
             %span.conversation-booking-value
-              = l booking[:start_time].to_date, format: :long_with_abbr_day_name
+              = l booking.start_time.to_date, format: :long_with_abbr_day_name
               = '-'
               = t("transactions.initiate.start_end_time",
-                start_time: l(booking[:start_time], format: :hours_only),
-                end_time: l(booking[:end_time], format: :hours_only))
-              = t("transactions.initiate.duration_in_hours", count: booking[:duration])
+                start_time: l(booking.start_time, format: :hours_only),
+                end_time: l(booking.end_time, format: :hours_only))
+              = t("transactions.initiate.duration_in_hours", count: booking.duration)
         - else
+          - unit_type_day = @transaction.unit_type == :day
           .conversation-per-unit-wrapper
             %span.conversation-per-unit-label
-              = t("transactions.initiate.price_per_day")
+              - if unit_type_day
+                = t("transactions.initiate.price_per_day")
+              - else
+                = t("transactions.initiate.price_per_night")
             %span.conversation-per-unit-value
               = MoneyViewUtils.to_humanized(listing.price)
 
           .conversation-booking-wrapper
             %span.conversation-booking-label
-              = t("transactions.initiate.booked_days")
+              - if unit_type_day
+                = use_new_translation("transactions.initiate.booked_days_label", count: booking.duration).or_fallback_to("transactions.initiate.booked_days")
+              - else
+                = use_new_translation("transactions.initiate.booked_nights_label", count: booking.duration).or_fallback_to("transactions.initiate.booked_nights")
             %span.conversation-booking-value
-              = l booking[:start_on], format: :long_with_abbr_day_name
+              = l booking.start_on, format: :long_with_abbr_day_name
               = "-"
-              = l booking[:end_on], format: :long_with_abbr_day_name
-              = "(#{pluralize(booking[:duration], t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+              - if unit_type_day
+                = l (booking.end_on - 1.day), format: :long_with_abbr_day_name
+                = "(#{pluralize(booking.duration, t("listing_conversations.preauthorize.day"), t("listing_conversations.preauthorize.days"))})"
+              - else
+                = l booking.end_on, format: :long_with_abbr_day_name
+                = "(#{pluralize(booking.duration, t("listing_conversations.preauthorize.night"), t("listing_conversations.preauthorize.nights"))})"
 
-      - elsif listing_quantity > 1
+      - elsif @transaction.listing_quantity > 1
         .conversation-per-unit-wrapper
           %span.conversation-per-unit-label
             = t("transactions.price_per_quantity", unit_type: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key))
@@ -76,7 +89,7 @@
           %span.conversation-quantity-label
             = ListingViewUtils.translate_quantity(listing.unit_type, listing.unit_selector_tr_key) || t("conversations.accept.quantity_label")
           %span.conversation-quantity-value
-            = listing_quantity
+            = @transaction.listing_quantity
 
       .conversation-sum-wrapper
         %span.conversation-sum-label
@@ -89,14 +102,14 @@
         %span.conversation-service-fee-value
           = "-#{MoneyViewUtils.to_humanized(fee)}"
 
-      - if shipping_price
+      - if @transaction.shipping_price
         .conversation-shipping-price-wrapper
           %span.conversation-shipping-price-label
             = t("conversations.accept.shipping_price_label")
           %span.conversation-shipping-price-value
-            = MoneyViewUtils.to_humanized(shipping_price)
+            = MoneyViewUtils.to_humanized(@transaction.shipping_price)
 
-      - if payment_gateway == :paypal || payment_gateway == :stripe
+      - if @transaction.payment_gateway == :paypal || @transaction.payment_gateway == :stripe
         - if gateway_fee.present? && gateway_fee > 0
           .conversation-stripe-fee-wrapper
             %span.conversation-stripe-fee-label
@@ -108,7 +121,7 @@
           %span.conversation-total-label
             = t("conversations.accept.total_label")
           %span.conversation-total-paypal-value
-            = t("conversations.accept.total_value_#{payment_gateway}", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
+            = t("conversations.accept.total_value_#{@transaction.payment_gateway}", seller_gets: MoneyViewUtils.to_humanized(seller_gets))
 
       - else
         .conversation-total-wrapper
@@ -117,7 +130,7 @@
           %span.conversation-total-value
             = MoneyViewUtils.to_humanized(seller_gets)
 
-    - if payment_gateway == :paypal
+    - if @transaction.payment_gateway == :paypal
       %p
         = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
 
@@ -132,11 +145,11 @@
           $('#paypal_fee_info_link').click(function() { $('#paypal_fee_info_content').lightbox_me({centered: true, zIndex: 1000000}); });
 
 
-  = render partial: "transactions/shipping_address", locals: { shipping_address: shipping_address }
+  = render partial: "transactions/shipping_address", locals: { shipping_address: @transaction.shipping_address }
 
   = form_for form, :url => form_action, :html => { id: "accept-reject-form", :method => "put" } do |form|
 
-    %input.js-accept-status{type: :hidden, name: "listing_conversation[status]", value: preselected_action == "accept" ? "paid" : "rejected"}
+    %input.js-accept-status{type: :hidden, name: "transaction[status]", value: preselected_action == "accept" ? "paid" : "rejected"}
 
     %a.radio-button-positive.js-accept-radio-button{ data: { :"radio-button-value" => "paid" }, class: preselected_action == "accept" ? "radio-button-selected" : "" }
       .radio-button-icon{class: icon_for("accepted")}
@@ -146,7 +159,7 @@
       .radio-button-label= t("conversations.accept.reject_request")
 
     %div
-      = fields_for "listing_conversation[message_attributes]", Message.new do |message_form|
+      = fields_for "transaction[message_attributes]", Message.new do |message_form|
         = message_form.label :content, t("conversations.new.message"), :class => "input"
         = message_form.text_area :content, :class => "text_area", :placeholder => t("conversations.accept.optional_message")
         = message_form.hidden_field :sender_id, :value => @current_user.id

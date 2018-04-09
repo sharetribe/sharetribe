@@ -1,88 +1,6 @@
 module TransactionService::Store::Transaction
 
   TransactionModel = ::Transaction
-  ShippingAddressModel = ::ShippingAddress
-
-  NewTransaction = EntityUtils.define_builder(
-    [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
-    [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
-    [:starter_id, :string, :mandatory],
-    [:starter_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
-    [:listing_quantity, :fixnum, default: 1],
-    [:listing_title, :string, :mandatory],
-    [:listing_author_id, :string, :mandatory],
-    [:listing_author_uuid, :string, :mandatory, transform_with: UUIDUtils::RAW], # :string type for raw bytes
-    [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
-    [:unit_price, :money, default: Money.new(0)],
-    [:unit_tr_key, :string],
-    [:unit_selector_tr_key, :string],
-    [:availability, :to_symbol, one_of: [:none, :booking]],
-    [:shipping_price, :money],
-    [:delivery_method, :to_symbol, one_of: [:none, :shipping, :pickup], default: :none],
-    [:payment_process, one_of: [:none, :postpay, :preauthorize]],
-    [:payment_gateway, one_of: [:paypal, :checkout, :braintree, :stripe, :none]],
-    [:commission_from_seller, :fixnum, :mandatory],
-    [:automatic_confirmation_after_days, :fixnum, :mandatory],
-    [:minimum_commission, :money, :mandatory],
-    [:content, :string],
-    [:starting_page, :string],
-    [:booking_uuid, :string, transform_with: UUIDUtils::RAW], # :string type for raw bytes
-    [:booking_fields, :hash])
-
-  Transaction = EntityUtils.define_builder(
-    [:id, :fixnum, :mandatory],
-    [:community_id, :fixnum, :mandatory],
-    [:community_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
-    [:listing_id, :fixnum, :mandatory],
-    [:listing_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
-    [:starter_id, :string, :mandatory],
-    [:starter_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
-    [:listing_quantity, :fixnum, :mandatory],
-    [:listing_title, :string, :mandatory],
-    [:listing_author_id, :string, :mandatory],
-    [:listing_author_uuid, :uuid, :mandatory, transform_with: UUIDUtils::PARSE_RAW],
-    [:unit_type, :to_symbol, one_of: [:hour, :day, :night, :week, :month, :custom, nil]],
-    [:unit_price, :money, default: Money.new(0)],
-    [:unit_tr_key, :string],
-    [:unit_selector_tr_key, :string],
-    [:availability, :to_symbol, one_of: [:none, :booking]],
-    [:shipping_price, :money],
-    [:delivery_method, :to_symbol, :mandatory, one_of: [:none, :shipping, :pickup]],
-    [:payment_process, :to_symbol, one_of: [:none, :postpay, :preauthorize]],
-    [:payment_gateway, :to_symbol, one_of: [:paypal, :checkout, :braintree, :stripe, :none]],
-    [:commission_from_seller, :fixnum],
-    [:automatic_confirmation_after_days, :fixnum, :mandatory],
-    [:minimum_commission, :money],
-    [:last_transition_at, :time],
-    [:current_state, :to_symbol],
-    [:shipping_address, :hash],
-    [:booking_uuid, :uuid, transform_with: UUIDUtils::PARSE_RAW],
-    [:booking, :hash])
-
-  ShippingAddress = EntityUtils.define_builder(
-    [:status, :string],
-    [:name, :string],
-    [:phone, :string],
-    [:street1, :string],
-    [:street2, :string],
-    [:postal_code, :string],
-    [:city, :string],
-    [:state_or_province, :string],
-    [:country, :string],
-    [:country_code, :string])
-
-  Booking = EntityUtils.define_builder(
-    [:start_on, :date, :mandatory],
-    [:end_on, :date, :mandatory],
-    [:duration, :fixnum, :mandatory])
-
-  BookingPerHour = EntityUtils.define_builder(
-    [:start_time, :time, :mandatory],
-    [:end_time, :time, :mandatory],
-    [:per_hour, :bool, :mandatory],
-    [:duration, :fixnum, :mandatory])
 
   # While initiated is technically not a finished state it also
   # doesn't have any payment data to track against, so removing person
@@ -91,15 +9,13 @@ module TransactionService::Store::Transaction
 
   module_function
 
-  def create(opts)
-    tx_data = HashUtils.compact(NewTransaction.call(opts))
-    tx_model = TransactionModel.new(tx_data.except(:content, :starting_page, :booking_fields))
+  def create(tx_data)
+    tx_model = TransactionModel.new(tx_data.except(:content, :booking_fields, :starting_page))
 
     build_conversation(tx_model, tx_data)
     build_booking(tx_model, tx_data)
-
     tx_model.save!
-    from_model(tx_model)
+    tx_model
   end
 
   def add_message(community_id:, transaction_id:, sender_id:, message:)
@@ -124,15 +40,11 @@ module TransactionService::Store::Transaction
   end
 
   def get(transaction_id)
-    Maybe(TransactionModel.where(id: transaction_id, deleted: false).first)
-      .map { |m| from_model(m) }
-      .or_else(nil)
+    TransactionModel.where(id: transaction_id, deleted: false).first
   end
 
   def get_in_community(community_id:, transaction_id:)
-    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id, deleted: false).first)
-      .map { |m| from_model(m) }
-      .or_else(nil)
+    TransactionModel.where(id: transaction_id, community_id: community_id, deleted: false).first
   end
 
   def unfinished_tx_count(person_id)
@@ -146,17 +58,22 @@ module TransactionService::Store::Transaction
   end
 
   def upsert_shipping_address(community_id:, transaction_id:, addr:)
-    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
-      .map { |m| ShippingAddressModel.where(transaction_id: m.id).first_or_create!(transaction_id: m.id) }
-      .map { |a| a.update_attributes!(addr_fields(addr)) }
-      .or_else { nil }
+    tx_model = TransactionModel.where(id: transaction_id, community_id: community_id).first
+    if tx_model
+      address = tx_model.shipping_address || tx_model.build_shipping_address
+      if addr.is_a?(ActionController::Parameters)
+        addr = addr.permit(:name, :street1, :street2, :postal_code, :city, :country_code, :state_or_province)
+      end
+      address.update_attributes!(addr)
+    end
   end
 
   def delete(community_id:, transaction_id:)
-    Maybe(TransactionModel.where(id: transaction_id, community_id: community_id).first)
-      .each { |m| m.update_attribute(:deleted, true) }
-      .map { |m| from_model(m.reload) }
-      .or_else(nil)
+    tx_model = TransactionModel.where(id: transaction_id, community_id: community_id).first
+    if tx_model
+      tx_model.update_attribute(:deleted, true)
+      tx_model
+    end
   end
 
   def update_booking_uuid(community_id:, transaction_id:, booking_uuid:)
@@ -164,49 +81,11 @@ module TransactionService::Store::Transaction
       raise ArgumentError.new("booking_uuid must be a UUID, was: #{booking_uuid} (#{booking_uuid.class.name})")
     end
 
-    Maybe(TransactionModel.where(community_id: community_id, id: transaction_id).first)
-      .each { |tx_model| tx_model.update_attributes(booking_uuid: UUIDUtils.raw(booking_uuid)) }
-      .map { |tx_model| from_model(tx_model.reload) }
-      .or_else(nil)
-  end
-
-  ## Privates
-
-  def from_model(model)
-    Maybe(model)
-      .map { |m|
-        hash = EntityUtils.model_to_hash(m)
-               .merge({unit_price: m.unit_price, minimum_commission: m.minimum_commission, shipping_price: m.shipping_price })
-
-        hash = add_opt_shipping_address(hash, m)
-        hash = add_opt_booking(hash, m)
-
-        hash
-      }
-      .map { |hash| Transaction.call(hash) }
-      .or_else(nil)
-  end
-
-  def add_opt_shipping_address(hash, m)
-    if m.shipping_address
-      hash.merge({shipping_address: ShippingAddress.call(EntityUtils.model_to_hash(m.shipping_address)) })
-    else
-      hash
+    tx_model = TransactionModel.where(community_id: community_id, id: transaction_id).first
+    if tx_model
+      tx_model.update_attributes(booking_uuid: UUIDUtils.raw(booking_uuid))
+      tx_model
     end
-  end
-
-  def add_opt_booking(hash, m)
-    if m.booking
-      booking_data = EntityUtils.model_to_hash(m.booking)
-      booking_entity = booking_data[:per_hour] ? BookingPerHour : Booking
-      hash.merge(booking: booking_entity.call(booking_data.merge(duration: m.listing_quantity)))
-    else
-      hash
-    end
-  end
-
-  def addr_fields(addr)
-    HashUtils.compact(ShippingAddress.call(addr))
   end
 
   def build_conversation(tx_model, tx_data)

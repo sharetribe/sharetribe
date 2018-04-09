@@ -4,7 +4,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)
-    all_locales = MarketplaceService::API::Marketplaces.all_locales.map { |l|
+    all_locales = MarketplaceService.all_locales.map { |l|
       {locale_key: l[:locale_key], translated_name: t("admin.communities.available_languages.#{l[:locale_key]}")}
     }.sort_by { |l| l[:translated_name] }
     enabled_locale_keys = available_locales.map(&:second)
@@ -43,10 +43,10 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
 
     if process_locales
       enabled_locales = params[:enabled_locales]
-      all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}.to_set
+      all_locales = MarketplaceService.all_locales.map{|l| l[:locale_key]}.to_set
       enabled_locales_valid = enabled_locales.present? && enabled_locales.map{ |locale| all_locales.include? locale }.all?
       if enabled_locales_valid
-        MarketplaceService::API::Marketplaces.set_locales(@current_community, enabled_locales)
+        MarketplaceService.set_locales(@current_community, enabled_locales)
       end
     end
 
@@ -96,7 +96,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
   end
 
   def unofficial_locales
-    all_locales = MarketplaceService::API::Marketplaces.all_locales.map{|l| l[:locale_key]}
+    all_locales = MarketplaceService.all_locales.map{|l| l[:locale_key]}
     @current_community.locales.select { |locale| !all_locales.include?(locale) }
       .map { |unsupported_locale_key|
         unsupported_locale_name = Sharetribe::AVAILABLE_LOCALES.select { |l| l[:ident] == unsupported_locale_key }.map { |l| l[:name] }.first
@@ -105,6 +105,6 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
   end
 
   def has_preauthorize_process?(processes)
-    processes.any? { |p| p[:process] == :preauthorize }
+    processes.any? { |p| p.process == :preauthorize }
   end
 end

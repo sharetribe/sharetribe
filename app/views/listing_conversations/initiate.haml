@@ -13,7 +13,7 @@
 
 #new_message_form.centered-section
 
-  - author_link = link_to(author[:display_name], person_path(username: author[:username]))
+  - author_link = link_to(PersonViewUtils.person_display_name(author, @current_community), person_path(username: author.username))
 
   .preauthorize-section
     %h2.preauthorize-details-title
@@ -22,7 +22,7 @@
     %ul.no-bullets
       %li
         %div
-          = t("listing_conversations.preauthorize.by", listing: link_to("#{listing[:title]}", listing_path(listing[:id])), author: author_link).html_safe
+          = t("listing_conversations.preauthorize.by", listing: link_to("#{listing.title}", listing_path(listing.id)), author: author_link).html_safe
 
       %li
         = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: false)
@@ -98,5 +98,10 @@
       });
       $(".paypal-image").click(function(){
         $("#payment_type").val("paypal");
-        $("#transaction-form").trigger("submit");
+        var form = $("#transaction-form");
+        form.validate();
+        $('input[stripe-shipping-address]').each(function(){
+          $(this).rules('remove');
+        });
+        form.trigger("submit");
       });

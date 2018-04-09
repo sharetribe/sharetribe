@@ -268,7 +268,7 @@ class PaymentSettingsController < ApplicationController
     def initialize(parsed_seller_account:, params:)
       @parsed_seller_account = parsed_seller_account
       @bank_country = parsed_seller_account[:address_country]
-      @bank_currency = MarketplaceService::AvailableCurrencies::COUNTRY_CURRENCIES[@bank_country]
+      @bank_currency = TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[@bank_country]
       @form_params = params[:stripe_bank_form]
     end
 

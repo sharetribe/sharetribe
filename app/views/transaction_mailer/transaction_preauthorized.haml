@@ -13,7 +13,7 @@
   %td{:align => "left", :style => "padding-bottom: 15px;"}
     %font{body_font}
       %ul{style: "padding-left: 10px;"}
-        - if @transaction.payment_gateway == 'stripe'
+        - if @transaction.payment_gateway == :stripe
           %li
             = t("emails.transaction_preauthorized.if_you_do_accept_stripe", requester: PersonViewUtils.person_display_name(@transaction.starter, @transaction.community), listing_title: @transaction.listing.title)
         - else

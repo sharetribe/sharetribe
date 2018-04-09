@@ -10,248 +10,8 @@ class PreauthorizeTransactionsController < ApplicationController
   before_action :ensure_authorized_to_reply
   before_action :ensure_can_receive_payment
 
-  IS_POSITIVE = ->(v) {
-    return if v.nil?
-    unless v.positive?
-      {code: :positive_integer, msg: "Value must be a positive integer"}
-    end
-  }
-
-  PARSE_DATE = ->(v) {
-    return if v.nil?
-    begin
-      TransactionViewUtils.parse_booking_date(v)
-    rescue ArgumentError => e
-      # The transformator has to return something else than `Date` or
-      # `nil` so that the `date` validator know that it's not a valid
-      # date
-      e
-    end
-  }
-
-  PARSE_DATETIME = ->(v) {
-    return if v.nil?
-    begin
-      TransactionViewUtils.parse_booking_datetime(v)
-    rescue ArgumentError => e
-      e
-    end
-  }
-
-  NewTransactionParams = EntityUtils.define_builder(
-    [:delivery, :to_symbol, one_of: [nil, :shipping, :pickup]],
-    [:start_on, :date, transform_with: PARSE_DATE],
-    [:end_on, :date, transform_with: PARSE_DATE],
-    [:message, :string],
-    [:quantity, :to_integer, validate_with: IS_POSITIVE],
-    [:contract_agreed, transform_with: ->(v) { v == "1" }]
-  )
-
-  NewPerHourTransactionParams = EntityUtils.define_builder(
-    [:start_time, :time, transform_with: PARSE_DATETIME],
-    [:end_time, :time, transform_with: PARSE_DATETIME],
-    [:per_hour, transform_with: ->(v) { v == "1" }],
-    [:message, :string],
-    [:contract_agreed, transform_with: ->(v) { v == "1" }]
-  )
-
-  ListingQuery = MarketplaceService::Listing::Query
-
-  class ItemTotal
-    attr_reader :unit_price, :quantity
-
-    def initialize(unit_price:, quantity:)
-      @unit_price = unit_price
-      @quantity = quantity
-    end
-
-    def total
-      unit_price * quantity
-    end
-  end
-
-  class ShippingTotal
-    attr_reader :initial, :additional, :quantity
-
-    def initialize(initial:, additional:, quantity:)
-      @initial = initial || 0
-      @additional = additional || 0
-      @quantity = quantity
-    end
-
-    def total
-      initial + (additional * (quantity - 1))
-    end
-  end
-
-  class NoShippingFee
-    def total
-      0
-    end
-  end
-
-  class OrderTotal
-    attr_reader :item_total, :shipping_total
-
-    def initialize(item_total:, shipping_total:)
-      @item_total = item_total
-      @shipping_total = shipping_total
-    end
-
-    def total
-      item_total.total + shipping_total.total
-    end
-  end
-
-  module Validator
-
-    module_function
-
-    def validate_initiate_params(marketplace_uuid:,
-                                 listing_uuid:,
-                                 tx_params:,
-                                 quantity_selector:,
-                                 shipping_enabled:,
-                                 pickup_enabled:,
-                                 availability_enabled:,
-                                 listing:,
-                                 stripe_in_use:)
-
-      validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
-        .and_then { |result|
-          if tx_params[:per_hour]
-            validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
-          elsif availability_enabled
-            validate_booking_timeslots(tx_params: tx_params,
-                                       marketplace_uuid: marketplace_uuid,
-                                       listing_uuid: listing_uuid,
-                                       quantity_selector: quantity_selector)
-          else
-            Result::Success.new(result)
-          end
-      }
-    end
-
-    def validate_initiated_params(tx_params:,
-                                  quantity_selector:,
-                                  shipping_enabled:,
-                                  pickup_enabled:,
-                                  transaction_agreement_in_use:,
-                                  stripe_in_use:)
-
-      validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
-        .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
-        .and_then {
-          validate_transaction_agreement(tx_params: tx_params,
-                                         transaction_agreement_in_use: transaction_agreement_in_use)
-        }
-    end
-
-    def validate_delivery_method(tx_params:, shipping_enabled:, pickup_enabled:)
-      delivery = tx_params[:delivery]
-
-      case [delivery, shipping_enabled, pickup_enabled]
-      when matches([:shipping, true])
-        Result::Success.new(tx_params.merge(delivery: :shipping))
-      when matches([:pickup, __, true])
-        Result::Success.new(tx_params.merge(delivery: :pickup))
-      when matches([nil, false, false])
-        Result::Success.new(tx_params.merge(delivery: :nil))
-      else
-        Result::Error.new(nil, code: :delivery_method_missing, tx_params: tx_params)
-      end
-    end
-
-    def validate_booking(tx_params:, quantity_selector:, stripe_in_use:)
-      per_hour = tx_params[:per_hour]
-      if per_hour || [:day, :night].include?(quantity_selector)
-        start_on, end_on = per_hour ? tx_params.values_at(:start_time, :end_time)  : tx_params.values_at(:start_on, :end_on)
-        max_end_date = stripe_in_use ? APP_CONFIG.stripe_max_booking_date.days.from_now : 12.months.from_now
-
-        if start_on.nil? || end_on.nil?
-          Result::Error.new(nil, code: :dates_missing, tx_params: tx_params)
-        elsif start_on > end_on
-          Result::Error.new(nil, code: :end_cant_be_before_start, tx_params: tx_params)
-        elsif start_on == end_on
-          code = per_hour ? :at_least_one_hour_required : :at_least_one_day_or_night_required
-          Result::Error.new(nil, code: code, tx_params: tx_params)
-        elsif end_on > max_end_date
-          Result::Error.new(nil, code: :date_too_late, tx_params: tx_params)
-        else
-          Result::Success.new(tx_params)
-        end
-      else
-        Result::Success.new(tx_params)
-      end
-    end
-
-    def all_days_available(timeslots, start_on, end_on)
-      # Take all the days except the exclusive last day
-      requested_days = (start_on..end_on).to_a[0..-2]
-
-      available_days = timeslots
-                         .select { |s| s[:unitType] == :day }
-                         .map { |s| s[:start].to_date }
-
-      requested_days.all? { |d|
-        available_days.include?(d)
-      }
-    end
-
-    def validate_booking_timeslots(tx_params:, marketplace_uuid:, listing_uuid:, quantity_selector:)
-      start_on, end_on = tx_params.values_at(:start_on, :end_on)
-
-      HarmonyClient.get(
-        :query_timeslots,
-        params: {
-          marketplaceId: marketplace_uuid,
-          refId: listing_uuid,
-          start: start_on,
-          end: end_on
-        }
-      ).rescue {
-        Result::Error.new(nil, code: :harmony_api_error)
-      }.and_then { |res|
-        timeslots = res[:body][:data].map { |v| v[:attributes] }
-
-        if all_days_available(timeslots, start_on, end_on)
-          Result::Success.new(tx_params)
-        else
-          Result::Error.new(nil, code: :dates_not_available)
-        end
-      }
-    end
-
-    def validate_booking_per_hour_timeslots(listing:, tx_params:)
-      return Result::Success.new(tx_params) unless tx_params[:per_hour]
-      booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
-      if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
-        Result::Success.new(tx_params)
-      else
-        Result::Error.new(nil, code: :dates_not_available)
-      end
-    end
-
-    def validate_transaction_agreement(tx_params:, transaction_agreement_in_use:)
-      contract_agreed = tx_params[:contract_agreed]
-
-      if transaction_agreement_in_use
-        if contract_agreed
-          Result::Success.new(tx_params)
-        else
-          Result::Error.new(nil, code: :agreement_missing, tx_params: tx_params)
-        end
-      else
-        Result::Success.new(tx_params)
-      end
-    end
-  end
-
-  # rubocop:disable MethodLength
-  # rubocop:disable AbcSize
   def initiate
-    params_validator = params_per_hour? ? NewPerHourTransactionParams : NewTransactionParams
+    params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
@@ -259,205 +19,60 @@ class PreauthorizeTransactionsController < ApplicationController
         pickup_enabled: listing.pickup_enabled)
       tx_params[:marketplace_id] = @current_community.id
 
-      Validator.validate_initiate_params(marketplace_uuid: @current_community.uuid_object,
-                                         listing_uuid: listing.uuid_object,
-                                         tx_params: tx_params,
-                                         quantity_selector: listing.quantity_selector&.to_sym,
-                                         shipping_enabled: listing.require_shipping_address,
-                                         pickup_enabled: listing.pickup_enabled,
-                                         availability_enabled: listing.availability.to_sym == :booking,
-                                         listing: listing,
-                                         stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
+      TransactionService::Validation::Validator.validate_initiate_params(
+        marketplace_uuid: @current_community.uuid_object,
+        listing_uuid: listing.uuid_object,
+        tx_params: tx_params,
+        quantity_selector: listing.quantity_selector&.to_sym,
+        shipping_enabled: listing.require_shipping_address,
+        pickup_enabled: listing.pickup_enabled,
+        availability_enabled: listing.availability.to_sym == :booking,
+        listing: listing,
+        stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
-    validation_result.on_success { |tx_params|
-      is_booking = is_booking?(listing)
-
-      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
-
-      listing_entity = ListingQuery.listing(params[:listing_id])
-
-      item_total = ItemTotal.new(
-        unit_price: listing_entity[:price],
-        quantity: quantity)
-
-      shipping_total = calculate_shipping_from_entity(tx_params: tx_params, listing_entity: listing_entity, quantity: quantity)
-      order_total = OrderTotal.new(
-        item_total: item_total,
-        shipping_total: shipping_total
-      )
-
-      record_event(
-        flash.now,
-        "InitiatePreauthorizedTransaction",
-        { listing_id: listing.id,
-          listing_uuid: listing.uuid_object.to_s })
-
-      render "listing_conversations/initiate",
-             locals: {
-               start_on: tx_params[:start_on],
-               end_on: tx_params[:end_on],
-               start_time: tx_params[:start_time],
-               end_time:   tx_params[:end_time],
-               per_hour:   tx_params[:per_hour],
-               listing: listing_entity,
-               delivery_method: tx_params[:delivery],
-               quantity: tx_params[:quantity],
-               author: query_person_entity(listing_entity[:author_id]),
-               action_button_label: translate(listing_entity[:action_button_tr_key]),
-               paypal_in_use: PaypalHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
-               paypal_expiration_period: MarketplaceService::Transaction::Entity.authorization_expiration_period(:paypal),
-               stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
-               stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
-               stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
-               form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing_entity[:id]),
-               country_code: LocalizationUtils.valid_country_code(@current_community.country),
-               paypal_analytics_event: [
-                 "RedirectingBuyerToPayPal",
-                 { listing_id: listing.id,
-                   listing_uuid: listing.uuid_object.to_s,
-                   community_id: @current_community.id,
-                   marketplace_uuid: @current_community.uuid_object.to_s,
-                   user_logged_in: @current_user.present? }],
-               price_break_down_locals: TransactionViewUtils.price_break_down_locals(
-                 booking:  is_booking,
-                 quantity: quantity,
-                 start_on: tx_params[:start_on],
-                 end_on:   tx_params[:end_on],
-                 duration: quantity,
-                 listing_price: listing_entity[:price],
-                 localized_unit_type: translate_unit_from_listing(listing_entity),
-                 localized_selector_label: translate_selector_label_from_listing(listing_entity),
-                 subtotal: subtotal_to_show(order_total),
-                 shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
-                 total: order_total.total,
-                 unit_type: listing.unit_type,
-                 start_time: tx_params[:start_time],
-                 end_time:   tx_params[:end_time],
-                 per_hour:   tx_params[:per_hour]
-                )
-             }
-    }
-
-    validation_result.on_error { |msg, data|
-      error_msg =
-        if data.is_a?(Array)
-          # Entity validation failed
-          t("listing_conversations.preauthorize.invalid_parameters")
-        elsif [:dates_missing,
-               :end_cant_be_before_start,
-               :delivery_method_missing,
-               :at_least_one_day_or_night_required,
-               :at_least_one_hour_required,
-               :date_too_late
-              ].include?(data[:code])
-          t("listing_conversations.preauthorize.invalid_parameters")
-        elsif data[:code] == :dates_not_available
-          t("listing_conversations.preauthorize.dates_not_available")
-        elsif data[:code] == :harmony_api_error
-          t("listing_conversations.preauthorize.error_in_checking_availability")
-        else
-          raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
-        end
-
-      flash[:error] = error_msg
-      logger.error(msg, :transaction_initiate_error, data)
-      redirect_to listing_path(listing.id)
-    }
+    if validation_result.success
+      initiation_success(validation_result.data)
+    else
+      initiation_error(validation_result.data)
+    end
   end
 
   def initiated
-    params_validator = params_per_hour? ? NewPerHourTransactionParams : NewTransactionParams
+    params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
     validation_result = params_validator.validate(params).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled)
 
-      is_booking = is_booking?(listing)
-
-      Validator.validate_initiated_params(tx_params: tx_params,
-                                          quantity_selector: listing.quantity_selector&.to_sym,
-                                          shipping_enabled: listing.require_shipping_address,
-                                          pickup_enabled: listing.pickup_enabled,
-                                          transaction_agreement_in_use: @current_community.transaction_agreement_in_use?,
-                                          stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
+      TransactionService::Validation::Validator.validate_initiated_params(
+        tx_params: tx_params,
+        quantity_selector: listing.quantity_selector&.to_sym,
+        shipping_enabled: listing.require_shipping_address,
+        pickup_enabled: listing.pickup_enabled,
+        transaction_agreement_in_use: @current_community.transaction_agreement_in_use?,
+        stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
-    validation_result.on_success { |tx_params|
-      is_booking = is_booking?(listing)
-
-      quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
-      shipping_total = calculate_shipping_from_model(tx_params: tx_params, listing_model: listing, quantity: quantity)
-
-      tx_response = create_preauth_transaction(
-        payment_type: params[:payment_type].to_sym,
-        community: @current_community,
-        listing: listing,
-        listing_quantity: quantity,
-        user: @current_user,
-        content: tx_params[:message],
-        force_sync: !request.xhr?,
-        delivery_method: tx_params[:delivery],
-        shipping_price: shipping_total.total,
-        booking_fields: {
-          start_on: tx_params[:start_on],
-          end_on: tx_params[:end_on],
-          start_time: tx_params[:start_time],
-          end_time:   tx_params[:end_time],
-          per_hour:   tx_params[:per_hour],
-        })
-
-      handle_tx_response(tx_response, params[:payment_type].to_sym)
-    }
-
-    validation_result.on_error { |msg, data|
-      error_msg, path =
-        if data.is_a?(Array)
-          # Entity validation failed
-          logger.error(msg, :transaction_initiated_error, data)
-          [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
-
-        elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_day_or_night_required, :at_least_one_hour_required].include?(data[:code])
-          logger.error(msg, :transaction_initiated_error, data)
-          [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
-        elsif data[:code] == :agreement_missing
-          # User error, no logging here
-          [t("error_messages.transaction_agreement.required_error"), error_path(data[:tx_params])]
-        else
-          raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
-        end
-
-      render_error_response(request.xhr?, error_msg, path)
-    }
+    if validation_result.success
+      initiated_success(validation_result.data)
+    else
+      initiated_error(validation_result.data)
+    end
   end
+
 
   private
 
-  def calculate_shipping_from_entity(tx_params:, listing_entity:, quantity:)
-    calculate_shipping(
-      tx_params: tx_params,
-      initial: listing_entity[:shipping_price],
-      additional: listing_entity[:shipping_price_additional],
-      quantity: quantity)
-  end
-
-  def calculate_shipping_from_model(tx_params:, listing_model:, quantity:)
-    calculate_shipping(
-      tx_params: tx_params,
-      initial: listing_model.shipping_price,
-      additional: listing_model.shipping_price_additional,
-      quantity: quantity)
-  end
-
-  def calculate_shipping(tx_params:, initial:, additional:, quantity:)
+  def calculate_shipping_from_listing(tx_params:, listing:, quantity:)
     if tx_params[:delivery] == :shipping
-      ShippingTotal.new(
-        initial: initial,
-        additional: additional,
+      TransactionService::Validation::ShippingTotal.new(
+        initial: listing.shipping_price,
+        additional: listing.shipping_price_additional,
         quantity: quantity)
     else
-      NoShippingFee.new
+      TransactionService::Validation::NoShippingFee.new
     end
   end
 
@@ -479,7 +94,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def handle_tx_response(tx_response, gateway)
     if !tx_response[:success]
-      render_error_response(request.xhr?, t("error_messages.#{gateway}.generic_error"), action: :initiate)
+      render_error_response(request.xhr?, t("error_messages.#{gateway}.generic_error")+tx_response.inspect, action: :initiate)
     elsif (tx_response[:data][:gateway_fields][:redirect_url])
       xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
     elsif gateway == :stripe
@@ -521,35 +136,19 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def translate_unit_from_listing(listing)
-    Maybe(listing).select { |l|
-      l[:unit_type].present?
-    }.map { |l|
-      ListingViewUtils.translate_unit(l[:unit_type], l[:unit_tr_key])
-    }.or_else(nil)
+    listing.unit_type.present? ? ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key) : nil
   end
 
   def translate_selector_label_from_listing(listing)
-    Maybe(listing).select { |l|
-      l[:unit_type].present?
-    }.map { |l|
-      ListingViewUtils.translate_quantity(l[:unit_type], l[:unit_selector_tr_key])
-    }.or_else(nil)
+    listing.unit_type.present? ? ListingViewUtils.translate_quantity(listing.unit_type, listing.unit_selector_tr_key) : nil
   end
 
   def subtotal_to_show(order_total)
-    order_total.item_total.total if show_subtotal?(order_total)
+    order_total.item_total.total if order_total.total != order_total.item_total.unit_price
   end
 
   def shipping_price_to_show(delivery_method, shipping_total)
-    shipping_total.total if show_shipping_price?(delivery_method)
-  end
-
-  def show_subtotal?(order_total)
-    order_total.total != order_total.item_total.unit_price
-  end
-
-  def show_shipping_price?(delivery_method)
-    delivery_method == :shipping
+    shipping_total.total if delivery_method == :shipping
   end
 
   def is_booking?(listing)
@@ -594,7 +193,7 @@ class PreauthorizeTransactionsController < ApplicationController
   end
 
   def ensure_can_receive_payment
-    payment_type = MarketplaceService::Community::Query.payment_type(@current_community.id) || :none
+    payment_type = @current_community.active_payment_types || :none
 
     ready = TransactionService::Transaction.can_start_transaction(transaction: {
         payment_gateway: payment_type,
@@ -661,7 +260,7 @@ class PreauthorizeTransactionsController < ApplicationController
           payment_gateway: opts[:payment_type].to_sym,
           payment_process: :preauthorize,
           booking_fields: opts[:booking_fields],
-          delivery_method: opts[:delivery_method]
+          delivery_method: opts[:delivery_method] || :none
     }
 
     if(opts[:delivery_method] == :shipping)
@@ -674,14 +273,157 @@ class PreauthorizeTransactionsController < ApplicationController
       force_sync: opts[:payment_type] == :stripe || opts[:force_sync])
   end
 
-  def query_person_entity(id)
-    person_entity = MarketplaceService::Person::Query.person(id, @current_community.id)
-    person_display_entity = person_entity.merge(
-      display_name: PersonViewUtils.person_entity_display_name(person_entity, @current_community.name_display_type)
+  def paypal_event_params(listing)
+    [
+      "RedirectingBuyerToPayPal",
+      {
+        listing_id: listing.id,
+        listing_uuid: listing.uuid_object.to_s,
+        community_id: @current_community.id,
+        marketplace_uuid: @current_community.uuid_object.to_s,
+        user_logged_in: @current_user.present?
+      }
+    ]
+  end
+
+  def price_break_down_locals(tx_params, listing)
+    is_booking = is_booking?(listing)
+
+    quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
+
+    item_total = TransactionService::Validation::ItemTotal.new(
+      unit_price: listing.price,
+      quantity: quantity)
+
+    shipping_total = calculate_shipping_from_listing(tx_params: tx_params, listing: listing, quantity: quantity)
+    order_total = TransactionService::Validation::OrderTotal.new(
+      item_total: item_total,
+      shipping_total: shipping_total
     )
+
+    TransactionViewUtils.price_break_down_locals(
+                 booking:  is_booking,
+                 quantity: quantity,
+                 start_on: tx_params[:start_on],
+                 end_on:   tx_params[:end_on],
+                 duration: quantity,
+                 listing_price: listing.price,
+                 localized_unit_type: translate_unit_from_listing(listing),
+                 localized_selector_label: translate_selector_label_from_listing(listing),
+                 subtotal: subtotal_to_show(order_total),
+                 shipping_price: shipping_price_to_show(tx_params[:delivery], shipping_total),
+                 total: order_total.total,
+                 unit_type: listing.unit_type,
+                 start_time: tx_params[:start_time],
+                 end_time:   tx_params[:end_time],
+                 per_hour:   tx_params[:per_hour]
+                )
   end
 
   def params_per_hour?
     params[:per_hour] == '1'
+  end
+
+  def initiation_success(tx_params)
+    record_event(
+      flash.now,
+      "InitiatePreauthorizedTransaction",
+      { listing_id: listing.id,
+        listing_uuid: listing.uuid_object.to_s })
+
+    render "listing_conversations/initiate",
+           locals: {
+             start_on:   tx_params[:start_on],
+             end_on:     tx_params[:end_on],
+             start_time: tx_params[:start_time],
+             end_time:   tx_params[:end_time],
+             per_hour:   tx_params[:per_hour],
+             listing: listing,
+             delivery_method: tx_params[:delivery],
+             quantity: tx_params[:quantity],
+             author: listing.author,
+             action_button_label: translate(listing.action_button_tr_key),
+             paypal_in_use: PaypalHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
+             paypal_expiration_period: TransactionService::Transaction.authorization_expiration_period(:paypal),
+             stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id),
+             stripe_publishable_key: StripeHelper.publishable_key(@current_community.id),
+             stripe_shipping_required: listing.require_shipping_address && tx_params[:delivery] != :pickup,
+             form_action: initiated_order_path(person_id: @current_user.id, listing_id: listing.id),
+             country_code: LocalizationUtils.valid_country_code(@current_community.country),
+             paypal_analytics_event: paypal_event_params(listing),
+             price_break_down_locals: price_break_down_locals(tx_params, listing)
+           }
+  end
+
+  def initiation_error(data)
+    error_msg =
+      if data.is_a?(Array)
+        # Entity validation failed
+        t("listing_conversations.preauthorize.invalid_parameters")
+      elsif [:dates_missing,
+             :end_cant_be_before_start,
+             :delivery_method_missing,
+             :at_least_one_day_or_night_required,
+             :date_too_late
+            ].include?(data[:code])
+        t("listing_conversations.preauthorize.invalid_parameters")
+      elsif data[:code] == :dates_not_available
+        t("listing_conversations.preauthorize.dates_not_available")
+      elsif data[:code] == :harmony_api_error
+        t("listing_conversations.preauthorize.error_in_checking_availability")
+      else
+        raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
+      end
+
+    flash[:error] = error_msg
+    logger.error(error_msg, :transaction_initiate_error, data)
+    redirect_to listing_path(listing.id)
+  end
+
+  def initiated_success(tx_params)
+    is_booking = is_booking?(listing)
+
+    quantity = calculate_quantity(tx_params: tx_params, is_booking: is_booking, unit: listing.unit_type)
+    shipping_total = calculate_shipping_from_listing(tx_params: tx_params, listing: listing, quantity: quantity)
+
+    tx_response = create_preauth_transaction(
+      payment_type: params[:payment_type].to_sym,
+      community: @current_community,
+      listing: listing,
+      listing_quantity: quantity,
+      user: @current_user,
+      content: tx_params[:message],
+      force_sync: !request.xhr?,
+      delivery_method: tx_params[:delivery],
+      shipping_price: shipping_total.total,
+      booking_fields: {
+        start_on:   tx_params[:start_on],
+        end_on:     tx_params[:end_on],
+        start_time: tx_params[:start_time],
+        end_time:   tx_params[:end_time],
+        per_hour:   tx_params[:per_hour]
+      })
+
+    handle_tx_response(tx_response, params[:payment_type].to_sym)
+  end
+
+  def initiated_error(data)
+    error_msg, path =
+      if data.is_a?(Array)
+        # Entity validation failed
+        logger.error(msg, :transaction_initiated_error, data)
+        [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
+
+      elsif [:dates_missing, :end_cant_be_before_start, :delivery_method_missing, :at_least_one_day_or_night_required].include?(data[:code])
+        logger.error(msg, :transaction_initiated_error, data)
+        [t("listing_conversations.preauthorize.invalid_parameters"), listing_path(listing.id)]
+      elsif data[:code] == :agreement_missing
+        # User error, no logging here
+        [t("error_messages.transaction_agreement.required_error"), error_path(data[:tx_params])]
+      else
+        raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
+      end
+
+    render_error_response(request.xhr?, error_msg, path)
   end
 end

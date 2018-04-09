@@ -3,12 +3,12 @@
     .col-12
 
       %h2
-        = link_to_unless listing[:deleted], listing[:title], listing_path(id: listing[:id])
+        = link_to_unless @transaction.listing.deleted, @transaction.listing.title, listing_path(id: @transaction.listing.id)
 
       - if price_break_down_locals.present?
         = render partial: "transactions/price_break_down", locals: price_break_down_locals.merge(is_author: is_author)
 
-      = render partial: "transactions/shipping_address", locals: { shipping_address: tx[:shipping_address] }
+      = render partial: "transactions/shipping_address", locals: { shipping_address: @transaction.shipping_address }
 
       %div{:id => "transaction_status"}
-        = render :partial => "transactions/status/status", :locals => { :__transaction_model => transaction_model, role: role, is_author: is_author }
+        = render :partial => "transactions/status/status", :locals => { :__transaction_model => @transaction, role: role, is_author: is_author }
