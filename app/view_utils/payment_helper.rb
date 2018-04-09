@@ -3,8 +3,7 @@ module PaymentHelper
   module_function
 
   def open_listings_with_payment_process?(community_id, user_id)
-    processes = TransactionService::API::Api.processes.get(community_id: community_id)[:data]
-    payment_process_ids = processes.reject { |p| p[:process] == :none }.map { |p| p[:id] }
+    payment_process_ids = TransactionProcess.where(community_id: community_id).where.not(process: 'none').pluck(:id)
 
     if payment_process_ids.empty?
       false

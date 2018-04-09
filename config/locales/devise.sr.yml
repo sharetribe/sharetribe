@@ -1,10 +1,10 @@
 sr:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "istekao, zatražite novi"
+      not_found: "nije pronađeno"
+      already_confirmed: "već je potvrđen, pokušajte da se prijavite"
+      not_locked: "nije zaključano"
   devise:
     failure:
       already_authenticated: ~

@@ -586,7 +586,7 @@ sv:
       which_to_choose: "Vilken ska väljas?"
       you_can_use_stripe_or_paypal: "Du kan antingen använda Stripe, PayPal eller båda som betalningssystem. %{choose_link}"
       you_can_use_stripe_only: "Du kan använda Stripe som ditt betalsystem. %{read_more_link}"
-      read_more_stripe: "Läs mera om Stripe betalningar"
+      read_more_stripe: "Läs mera om Stripebetalningar"
       you_can_use_paypal_only: "Du kan använda PayPal som ditt betalsystem. %{read_more_link}"
       read_more_paypal: "Läs mera om PayPal betalningar."
       read_more_about_paypal_and_stripe: "Läs mera om online betalningar, Stripe och PayPal"
@@ -706,10 +706,10 @@ sv:
     what_is_this: "Vad är detta?"
     removed_user: "Borttagen användare"
     payment_fee_info:
-      title: "Transaktionsavgift och PayPals betalningshanteringsavgift"
+      title: "Transaktionsavgift och betalningshanteringsavgift"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalningar i %{service_name} hanteras av betalystemet nämnt här nedanför. %{service_name} kommer ta en serviceavgift beroende på betalningssystemet. Det kan hända betalsystemet också tar en avgift för varje betalning om det nämns här nedanför."
+      info: "Betalningar i %{service_name} hanteras av betalystemet nämnt här nedanför. %{service_name} kommer ta en serviceavgift beroende på betalningssystemet. Det kan hända att betalsystemet också tar en avgift för varje betalning om det nämns här nedanför."
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
@@ -721,7 +721,7 @@ sv:
       link_to_paypal_text: här
     stripe_fee_info:
       title: "Stripes betalningshanteringsavgift"
-      body_text: "För Stripe betalningar tar %{service_name} en serviceavgift på %{stripe_commission}%. Den lägsta avgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
+      body_text: "För Stripebetalningar tar %{service_name} en serviceavgift på %{stripe_commission}%. Den lägsta avgiften per transaktion är %{minimum_transaction_fee}. Stripes hanteringsavgifter är inkluderade i denna avgift."
       link_to_stripe_text: här
   conversations:
     accept:
@@ -795,8 +795,8 @@ sv:
       paid: "Betalt %{sum}"
       payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
       stripe:
-        held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills frörfrågan har blivit marketad som slutförd."
-        confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bank konto eller kommer snart att överförd."
+        held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills förfrågan har blivit markerad som slutförd."
+        confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bank konto eller kommer snart att överföras."
     new:
       message: Meddelande
       message_to: "Meddelande till %{author_name}"
@@ -941,7 +941,7 @@ sv:
       giving_feedback_is_good_idea: "Att ge feedback är alltid en bra idé. Om något gick bra så borde du låta andra få veta att %{other_party_given_name} är trovärdig. Om det blev något problem så är det bra att nämna det också."
       give_feedback_to: "Ge feedback till %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan för %{request} som slutförd. Betalningen för denna transaktion har nu överförsts till dit bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
+        has_marked_request_as_confirmed: "%{other_party_full_name} har markerad förfrågan på %{request} som slutförd. Betalningen för denna transaktion har nu överförts till ditt bankkonto. Du kan nu ge feedback till %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Förfrågan har automatiskt marketats som slutförd - kom ihåg att ge feedback"
       we_have_marked_request_as_confirmed: "Vi har markerat förfrågan om %{request} som slutförd. Förfrågan blev automatisk markerad som slutförd eftersom %{days_passed} har passerat sedan förfrågan accepterades."
@@ -1546,7 +1546,7 @@ sv:
       profile: Profilinfo
       settings: Inställningar
       paypal_payments: "PayPal betalningar"
-      stripe_payments: "Stripe betalningar"
+      stripe_payments: Stripebetalningar
       payments: Betalningar
   listings:
     bubble_listing_not_visible:
