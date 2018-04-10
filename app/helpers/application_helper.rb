@@ -647,7 +647,7 @@ module ApplicationHelper
   end
 
   def search_mode
-    FeatureFlagHelper.location_search_available ? @current_community.configuration&.main_search : :keyword
+    FeatureFlagHelper.location_search_available ? @current_community.configuration&.main_search&.to_sym : :keyword
   end
 
   def landing_page_path
