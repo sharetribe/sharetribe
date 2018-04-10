@@ -116,7 +116,7 @@ module InboxService
 
     people_ids = HashUtils.pluck(result_set, :current_id, :other_id).uniq # rubocop:disable Rails/UniqBeforePluck
     community = Community.find(community_id)
-    people_store = community.members.where(id: people_ids).index_by(&:id)
+    people_store = Person.where(id: people_ids).index_by(&:id)
 
     last_message_conv_ids, last_transition_transaction_ids = reduce_transaction_and_conv_ids(result_set)
     message_store = latest_messages_for_conversations(last_message_conv_ids)
