@@ -22,7 +22,7 @@
       second_wo_background =
         sections.each_with_index.reduce([Set.new, false]) { |(consecutive_infos, second_in_row), (section, idx)|
           sect = section["section"]
-          if sect["kind"] == "info" && sect["background_image"].nil? && sect["background_color"].nil?
+          if %w(info listings categories).include?(sect["kind"]) && sect["background_image"].nil? && sect["background_color"].nil?
             if second_in_row
               [consecutive_infos.add([sect["id"], idx]), false]
             else
