@@ -29,10 +29,13 @@
           = form_tag update_person_payment_settings_path(@current_user),
             id: "stripe-account-form", multipart: true, method: :put do
             = hidden_field_tag "stripe_account_form_address_country", stripe_seller_account[:address_country]
-            .row
-              .col-12
-                = label_tag t("stripe_accounts.form_new.legal_name")
-                = stripe_seller_account[:legal_name]
+            = fields_for stripe_account_form do |form|
+              = form.date_select :birth_date, { discard_day: true, discard_month: true, discard_year: true }
+              .row
+                .col-12
+                  = form.error_messages
+                  = form.label :legal_name, t("stripe_accounts.form_new.legal_name")+"*"
+                  = form.text_field :legal_name, class: 'required'
             .row
               .col-12
                 = label_tag t("stripe_accounts.form_new.country")

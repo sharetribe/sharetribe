@@ -144,7 +144,8 @@ class StripeService::API::StripeApiWrapper
             country:        account_info[:bank_country],
             account_holder_name: account_info[:bank_holder_name],
             account_holder_type: 'individual'
-          }.merge(routing)
+          }.merge(routing),
+          default_for_currency: true
         }
 
         stripe_account.external_accounts.create(data)

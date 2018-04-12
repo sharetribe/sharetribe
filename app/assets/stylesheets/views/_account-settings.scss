@@ -284,3 +284,13 @@
 #stripe_account_form_birth_date_1i, #stripe_account_form_birth_date_2i, #stripe_account_form_birth_date_3i {
   width: 32.5%;
 }
+
+#update_also_bank_account {
+  margin-right: 10px;
+}
+
+#stripe_wizard {
+  input[disabled] {
+    background-color: #dddddd;
+  }
+}
