@@ -277,3 +277,43 @@ $listings__tablet-gutter: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.listings__section--background, .listings__section--background-image--light, .listings__section--background-image--dark {
+  .listings__paragraph--markdown {
+    & > p {
+      color: #ffffff;
+    }
+  }
+  .listings__title {
+      color: #ffffff;
+  }
+}
+ 
+.listings__section--background {
+  @extend .listings__section;
+
+  color: #FFFFFF;
+  @include viewport-unit(min-height, 80vh);
+}
+
+.listings__section--background-image--light {
+  @extend .listings__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.3); /* is there any cleaner way? */
+}
+
+.listings__section--background-image--dark {
+  @extend .listings__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
+}
+
+.listings__section--background-color {
+  @extend .listings__section;
+  color: #FFFFFF;
+}
+
+.listings__section--blank {
+  @extend .listings__section;
+  color: $typography__main-color;
+}
+
+
