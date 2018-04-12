@@ -307,7 +307,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     end
 
     social_media_params = params.require(:community).permit(
-      :twitter_handle, :facebook_connect_id, :facebook_connect_secret
+      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled
     )
 
     update(@current_community,
