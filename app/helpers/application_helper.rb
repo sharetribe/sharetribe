@@ -64,6 +64,11 @@ module ApplicationHelper
     haml_concat add_links_and_br_tags_for_email(capture_haml(&block)).html_safe
   end
 
+  #  Transforms URLs to links
+  def text_with_url_links(&block)
+    haml_concat add_links(capture_haml(&block)).html_safe
+  end
+
   def small_avatar_thumb(person, avatar_html_options={})
     avatar_thumb(:thumb, person, avatar_html_options)
   end
@@ -246,7 +251,10 @@ module ApplicationHelper
 
   def add_links(text)
     pattern = /[\.)]*$/
-    text.gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,""), class: "truncated-link") + link_url.match(pattern)[0]}
+    text.gsub(/\b(https?:\/\/|www\.)\S+/i) do |link_url|
+      site_url = (link_url.starts_with?("www.") ? "http://" + link_url : link_url)
+      link_to(link_url.gsub(pattern,""), site_url.gsub(pattern,""), class: "truncated-link") + link_url.match(pattern)[0]
+    end
   end
 
   # general method for making urls as links and line breaks as <br /> tags
