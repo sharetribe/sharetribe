@@ -247,7 +247,7 @@ class PaymentSettingsController < ApplicationController
     bank_params = StripeParseBankParams.new(parsed_seller_account: @parsed_seller_account, params: params).parse
     bank_form = StripeBankForm.new(bank_params)
     @extra_forms[:stripe_bank_form] = bank_form
-    return false unless @stripe_account_ready
+    return if !@stripe_account_ready || params[:stripe_bank_form].blank?
 
     if bank_form.valid? && bank_form.bank_account_number !~ /\*/
       result = stripe_accounts_api.create_bank_account(community_id: @current_community.id, person_id: @current_user.id, body: bank_form.to_hash)
@@ -256,7 +256,8 @@ class PaymentSettingsController < ApplicationController
       else
         @stripe_error = true
         flash.now[:error] = result[:error_msg]
-        @parsed_seller_account[:bank_number_info] ||= params[:stripe_bank_form].try(:[], :bank_account_number_common)
+        @parsed_seller_account[:bank_number_info] = (params[:stripe_bank_form].try(:[], :bank_account_number_common) ||
+                                                     params[:stripe_bank_form].try(:[], :bank_account_number))
       end
     else
       flash.now[:error] = bank_form.errors.messages.flatten.join(' ')
@@ -273,15 +274,20 @@ class PaymentSettingsController < ApplicationController
     end
 
     def parse
-      {
+      result = {
         bank_country: bank_country,
         bank_currency: bank_currency,
-        bank_account_holder_name: parsed_seller_account[:legal_name],
-        bank_account_number: parse_bank_account_number,
-        bank_routing_number: parse_bank_routing_number,
-        bank_routing_1: form_params[:bank_routing_1],
-        bank_routing_2: form_params[:bank_routing_2],
+        bank_account_holder_name: parsed_seller_account[:legal_name]
       }
+      if form_params.present?
+        result.merge!({
+          bank_account_number: parse_bank_account_number,
+          bank_routing_number: parse_bank_routing_number,
+          bank_routing_1: form_params[:bank_routing_1],
+          bank_routing_2: form_params[:bank_routing_2],
+        })
+      end
+      result
     end
 
     def parse_bank_routing_number
@@ -308,7 +314,9 @@ class PaymentSettingsController < ApplicationController
   def stripe_update_account
     return unless @stripe_account_ready
 
-    address_attrs = params.require(:stripe_account_form).permit(:address_line1, :address_city, :address_state, :address_postal_code, :document, :token)
+    account_params = params.require(:stripe_account_form)
+    address_attrs = account_params.permit(:legal_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :token)
+    address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
     result = stripe_accounts_api.update_account(community_id: @current_community.id, person_id: @current_user.id, token: address_attrs[:token])
@@ -324,8 +332,10 @@ class PaymentSettingsController < ApplicationController
     bank_number = if bank_record.present?
       [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
     end
+    dob = account[:legal_entity][:dob]
     {
       legal_name: [account.legal_entity.first_name,  account.legal_entity.last_name].join(" "),
+      birth_date: Date.new(dob[:year], dob[:month], dob[:day]),
 
       address_city: account.legal_entity.address.city,
       address_state: account.legal_entity.address.state,
@@ -334,7 +344,8 @@ class PaymentSettingsController < ApplicationController
       address_postal_code: account.legal_entity.address.postal_code,
 
       bank_number_info: bank_number,
-      bank_currency: bank_record ? bank_record["currency"] : nil
+      bank_currency: bank_record ? bank_record["currency"] : nil,
+      bank_routing_number: bank_record ? bank_record[:routing_number] : nil
     }
   end
 
