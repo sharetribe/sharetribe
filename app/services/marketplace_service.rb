@@ -209,17 +209,6 @@ module MarketplaceService
     community.community_customizations.create!(customization_params(marketplace_name, locale)) unless existing_customization
   end
 
-  def select_listing_shape_template(type)
-   case type.or_else("product")
-   when "rental"
-    "Rent"
-   when "service"
-    "Service"
-   else # also "product" goes to this default
-    "Sell"
-   end
-  end
-
   def how_to_use_page_default_content(locale, marketplace_name)
     "<h1>#{I18n.t('infos.how_to_use.default_title', locale: locale)}</h1><div>#{I18n.t('infos.how_to_use.default_content', locale: locale, :marketplace_name => marketplace_name)}</div>"
   end
