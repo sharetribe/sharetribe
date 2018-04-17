@@ -6,6 +6,12 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
+*****
+
+Would you like to contribute to the development of Sharetribe? Our equity crowdfunding campaign is now open for people around the world! Check out [our campaign page](https://www.invesdor.com/en/pitches/903) for more info.
+
+*****
+
 ### Contents
 
 - [Technology stack](#technology-stack)
