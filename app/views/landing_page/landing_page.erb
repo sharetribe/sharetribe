@@ -36,11 +36,11 @@
 
       <%= render partial: "info", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background } %>
     <% when "categories" %>
-      <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "categories", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "locations" %>
-      <%= render partial: "locations", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "locations", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "listings" %>
-      <%= render partial: "listings", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "listings", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "video" %>
       <%= render partial: "video", locals: {section_id: section_id, s: s} %>
     <% end %>
