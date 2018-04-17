@@ -61,8 +61,6 @@ module TestHelpers
 
       # Load listing shapes
       listing_shape_templates.each do |type, translations|
-        defaults = TransactionTypeCreator::DEFAULTS[type.to_s]
-
         name_group = {
           translations: community.locales.map do |locale|
             translation = translations[locale.to_sym]
@@ -92,6 +90,7 @@ module TestHelpers
 
         basename = translations.find{ |t| t[:locale] == community.default_locale }[:name]
 
+        defaults = TransactionTypeCreator::DEFAULTS[type.to_s][:none] || TransactionTypeCreator::DEFAULTS[type.to_s]
         shape_opts = defaults.merge(
           transaction_process_id: processes[:none],
           translations: translations,

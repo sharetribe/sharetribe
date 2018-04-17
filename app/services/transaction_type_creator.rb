@@ -20,11 +20,20 @@ class TransactionTypeCreator
       price_enabled: false
     },
     "Rent" => {
-      price_enabled: true,
-      availability: ListingShape::AVAILABILITY_BOOKING,
-      units: [
-        {unit_type: ListingUnit::NIGHT, quantity_selector: 'night', kind: 'time'}
-      ]
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::DAY, quantity_selector: 'day', kind: 'time'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_BOOKING,
+        units: [
+          {unit_type: ListingUnit::NIGHT, quantity_selector: 'night', kind: 'time'}
+        ]
+      }
     },
     "Request" => {
       price_enabled: false
@@ -33,11 +42,20 @@ class TransactionTypeCreator
       price_enabled: true
     },
     "Service" => {
-      price_enabled: true,
-      availability: ListingShape::AVAILABILITY_BOOKING,
-      units: [
-        {unit_type: ListingUnit::HOUR, quantity_selector: 'number', kind: 'time'}
-      ]
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::HOUR, quantity_selector: 'number', kind: 'time'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_BOOKING,
+        units: [
+          {unit_type: ListingUnit::HOUR, quantity_selector: 'number', kind: 'time'}
+        ]
+      }
     },
     "ShareForFree" => {
       price_enabled: false
@@ -189,7 +207,7 @@ class TransactionTypeCreator
     created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
     name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
 
-    defaults = DEFAULTS[transaction_type]
+    defaults = DEFAULTS[transaction_type][transaction_process.process] || DEFAULTS[transaction_type]
 
     # Create
 

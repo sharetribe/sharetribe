@@ -81,7 +81,7 @@ describe CommunitiesController, type: :controller do
       shape = shapes.first
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
-      expect(shape.availability).to eq 'booking'
+      expect(shape.availability).to eq 'none'
       expect(shape.name).to eq 'offering-without-payment-system'
       expect(get_translation(shape, :name_tr_key)).to eq 'Offering without payment system'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Request'
@@ -115,14 +115,14 @@ describe CommunitiesController, type: :controller do
       shape = shapes.first
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
-      expect(shape.availability).to eq 'booking'
+      expect(shape.availability).to eq 'none'
       expect(shape.name).to eq 'renting-out-without-payment-system'
       expect(get_translation(shape, :name_tr_key)).to eq 'Renting out without payment system'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Rent'
       expect(shape.transaction_process.process).to eq :none
       unit = shape.listing_units.first
-      expect(unit.unit_type).to eq 'night'
-      expect(unit.quantity_selector).to eq 'night'
+      expect(unit.unit_type).to eq 'day'
+      expect(unit.quantity_selector).to eq 'day'
       expect(unit.kind).to eq 'time'
       shape = shapes.second
       expect(shape.price_enabled).to eq true
