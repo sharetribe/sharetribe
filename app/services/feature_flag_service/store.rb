@@ -17,7 +17,6 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :export_transactions_as_csv,
       :topbar_v1,
       :searchpage_v1,
       :manage_searchpage,
