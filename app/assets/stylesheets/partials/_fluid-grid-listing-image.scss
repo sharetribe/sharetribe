@@ -13,6 +13,10 @@
   }
 
   @include block-with-aspect-ratio(3/2);
+
+  &.people-listings {
+    @include block-with-aspect-ratio(4/3);
+  }
 }
 
 .fluid-thumbnail-grid-image-title {
