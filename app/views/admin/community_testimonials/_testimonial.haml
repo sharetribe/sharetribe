@@ -1,0 +1,49 @@
+- for_author = participant == :author
+- testimonial = for_author ? tx.testimonial_from_author : tx.testimonial_from_starter
+%tr
+  - unless for_author
+    %td{rowspan: "2", class: 'testimonial-title'}
+      - listing_title = tx.listing_title || t("admin.communities.transactions.not_available")
+      - price = MoneyViewUtils.to_humanized(tx.payment_total)
+      = link_to person_transaction_path(person_id: @current_user.id, id: tx.id) do
+        = "#{listing_title} #{price} #{l(tx.created_at, format: :short_date)}"
+  - if testimonial
+    %td
+      - p = testimonial.author
+      - if p.deleted
+        = ''
+      - else
+        = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+    %td
+      - p = testimonial.receiver
+      - if p.deleted
+        = ''
+      - else
+        = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+    %td
+      = t("admin.communities.testimonials.status.published")
+    %td
+      .testimonial-cell
+        .testimonial-icon{:class => testimonial.positive? ? 'positive' : 'negative'}
+          - if testimonial.positive?
+            = icon_tag("like", ["positive"])
+          - else
+            = icon_tag("dislike", ["negative"])
+    %td
+      = truncate(strip_tags(testimonial.text), length: 100)
+  - else
+    %td
+      - p = for_author ? tx.author : tx.starter
+      - if p.deleted
+        = ''
+      - else
+        = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+    %td
+    %td
+      - skipped_feedback = for_author ? tx.author_skipped_feedback : tx.starter_skipped_feedback
+      - if skipped_feedback
+        = t("admin.communities.testimonials.status.skipped")
+      - else
+        = t("admin.communities.testimonials.status.waiting")
+    %td
+    %td
