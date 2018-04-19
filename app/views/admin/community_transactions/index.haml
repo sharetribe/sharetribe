@@ -9,8 +9,7 @@
 .left-navi-section
   %h2= t("admin.communities.transactions.transactions", community_name: community.name(I18n.locale))
 
-  - if FeatureFlagHelper.feature_enabled?(:export_transactions_as_csv)
-    #export-as-csv.right= link_to(" " + t("admin.communities.transactions.export_all_as_csv"), {action: :export}, {remote: true, class: icon_class("download")})
+  #export-as-csv.right= link_to(" " + t("admin.communities.transactions.export_all_as_csv"), {action: :export}, {remote: true, class: icon_class("download")})
 
   %span#admin_transactions_count= page_entries_info(transactions, :model => "Transaction").html_safe
 
