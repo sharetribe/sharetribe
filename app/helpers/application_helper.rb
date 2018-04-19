@@ -386,7 +386,7 @@ module ApplicationHelper
       {
         :topic => :manage,
         :text => t("admin.communities.testimonials.testimonials"),
-        :icon_class => icon_class("chat_bubble"),
+        :icon_class => icon_class("like"),
         :path => admin_community_testimonials_path(@current_community),
         :name => "testimonials"
       },
