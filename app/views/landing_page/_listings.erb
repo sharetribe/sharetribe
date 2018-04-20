@@ -1,3 +1,5 @@
+<% bg_styles = background_style_modifiers(s, second_wo_background) %>
+
 <% content_for :listings_css do %>
 
   <% if s["button_color"] %>
@@ -45,7 +47,8 @@
   <% end %>
 <% end %>
 
-<section id="<%= section_id %>" class="listings__section">
+<section id="<%= section_id %>" class="listings__section listings__section--<%= bg_styles[:section_style_modifier] %>" style="<%= bg_styles[:background_image_style] %> <%= bg_styles[:background_color_style] %>">
+
   <div class="listings__content">
     <h1 class="listings__title"><%= s["title"] %></h1>
 

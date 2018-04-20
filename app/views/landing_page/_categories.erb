@@ -1,3 +1,4 @@
+<% bg_styles = background_style_modifiers(s, second_wo_background) %>
 <% content_for :categories_css do %>
   <% if s["button_color"] %>
 
@@ -34,7 +35,7 @@
 
 <% end %>
 
-<section id="<%= section_id %>" class="categories__section">
+<section id="<%= section_id %>" class="categories__section categories__section--<%= bg_styles[:section_style_modifier] %>" style="<%= bg_styles[:background_image_style] %> <%= bg_styles[:background_color_style] %>">
   <div class="categories__content">
     <h1 class="categories__title"><%= s["title"] %></h1>
     <div class="categories__paragraph--markdown">
