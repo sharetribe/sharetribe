@@ -35,12 +35,17 @@
       - else
         = render :partial => "layouts/info_text", :locals => { :text => t(".facebook_connect_info_text").html_safe }
     .row
+      .checkbox-container
+        = form.check_box :facebook_connect_enabled
+        = form.label :facebook_connect_enabled, t(".enable_facebook_login"), :class => "settings-checkbox-label"
+    .row
+      - disabled_connect = @community.facebook_connect_enabled? ? {} : {disabled: 'disabled'}
       .col-6
-        = form.label :facebook_connect_id, t(".facebook_connect_id"), :class => "input"
-        = form.text_field :facebook_connect_id, :maxlength => "16", :class => "text_field", :placeholder => "1234567890123456"
+        = form.label :facebook_connect_id, t(".facebook_connect_id"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :facebook_connect_id, {:maxlength => "16", :class => "text_field", :placeholder => "1234567890123456"}.merge(disabled_connect)
       .col-6
-        = form.label :facebook_connect_secret, t(".facebook_connect_secret"), :class => "input"
-        = form.text_field :facebook_connect_secret, :maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"
+        = form.label :facebook_connect_secret, t(".facebook_connect_secret"), {:class => "input"}.merge(disabled_connect)
+        = form.text_field :facebook_connect_secret, {:maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"}.merge(disabled_connect)
 
     .row
       = form.button t("admin.communities.social_media.save")

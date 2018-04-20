@@ -152,11 +152,20 @@ class SessionsController < ApplicationController
 
   # Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
   def facebook_setup
-    request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id || APP_CONFIG.fb_connect_id
-    request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
     request.env["omniauth.strategy"].options[:iframe] = true
     request.env["omniauth.strategy"].options[:scope] = "public_profile,email"
     request.env["omniauth.strategy"].options[:info_fields] = "name,email,last_name,first_name"
+
+    if @current_community.facebook_connect_enabled?
+      request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id || APP_CONFIG.fb_connect_id
+      request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
+    else
+      # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
+      request.env["omniauth.strategy"].options[:client_id] = ""
+      request.env["omniauth.strategy"].options[:client_secret] = ""
+      request.env["omniauth.strategy"].options[:client_options][:authorize_url] = login_url
+      request.env["omniauth.strategy"].options[:client_options][:site_url] = login_url
+    end
 
     render :plain => "Setup complete.", :status => 404 #This notifies the ominauth to continue
   end
