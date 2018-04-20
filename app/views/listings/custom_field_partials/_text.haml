@@ -1,3 +1,4 @@
 - question_name = custom_field_value.question.name(I18n.locale)
 %b= "#{question_name}:"
-= custom_field_value.text_value
+- text_with_url_links do
+  = custom_field_value.text_value
