@@ -372,6 +372,9 @@ en:
         profile: "%{author}'s Profile"
       testimonials:
         testimonials: 'View reviews'
+        no_testimonials_found: 'No reviews found'
+        displaying_xx_reviews: 'Displaying %{count} reviews'
+        displaying_xx_of_xx_reviews: 'Displaying %{count} of %{all_count} reviews'
         headers:
           transaction: Transaction
           author: Author
