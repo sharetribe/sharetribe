@@ -68,7 +68,7 @@ class Rack::Attack
   if Rails.cache.class.to_s == "Readthis::Cache"
     Rack::Attack.blocklist('block') do |req|
       # if variable `block <ip>` exists in cache store, then we'll block the request
-      Rails.cache.pool.with { |client| client.sismember('blocked', req.ip)}
+      Rails.cache.pool.with { |client| client.sismember('blocked', req.env['action_dispatch.remote_ip'].to_s) }
     end
   end
 

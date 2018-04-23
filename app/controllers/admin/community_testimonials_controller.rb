@@ -4,6 +4,8 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
     @selected_left_navi_link = "testimonials"
     @transactions = resource_scope.order("#{sort_column} #{sort_direction}")
       .paginate(:page => params[:page], :per_page => 30)
+    @testimonials_all_count = Testimonial.merge(resource_scope).joins(:tx).count
+    @testimonials_page_count = @transactions.map{ |tx| tx.testimonials.size }.sum
   end
 
   private
