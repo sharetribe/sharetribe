@@ -10,7 +10,13 @@
   %h2= t("admin.communities.testimonials.testimonials")
 
   %span#admin_testimonials_count
-    = page_entries_info(@transactions, :model => "Transaction").html_safe
+    - pages = @transactions.total_pages
+    - if pages == 0
+      = t('admin.communities.testimonials.no_reviews_found')
+    - elsif pages == 1
+      = t('admin.communities.testimonials.displaying_xx_reviews', count: @testimonials_all_count)
+    - elsif pages > 1
+      = t('admin.communities.testimonials.displaying_xx_of_xx_reviews', count: @testimonials_page_count, all_count: @testimonials_all_count)
 
   %table#admin_testimonials
     %thead
