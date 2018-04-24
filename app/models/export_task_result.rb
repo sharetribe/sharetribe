@@ -20,10 +20,14 @@ class ExportTaskResult < ApplicationRecord
       'Content-Type' => "text/#{record.original_extname}",
       'Content-Disposition' => "attachment; filename=#{record.original_filename}",
     }
-  }
+  },
+                           path: "file-exports/:class/:attachment/:id/:filename",
+                           s3_permissions: :private
+
   do_not_validate_attachment_file_type :file
 
   STATUSES = ['pending', 'started', 'finished']
+  AWS_S3_URL_EXPIRES_SECONDS = 10
 
   before_create :set_token_and_status
 
