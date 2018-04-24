@@ -201,7 +201,7 @@ sv:
         settings: Inställningar
         general: Allmänt
         access: Åtkomstpreferenser
-        join_with_invite_only: "Tillåt användare att ändast gå med genom en inbjudan från en annan användare"
+        join_with_invite_only: "Tillåt användare att endast gå med genom en inbjudan från en annan användare"
         users_can_invite_new_users: "Tillåt alla användare att bjuda in nya användare"
         private: "Tillåt endast registrerade användare att se annonser och användarprofiler (gör marknadsplatsen privat)"
         require_verification_to_post_listings: "Tillåt endast användare som har verifierats av admin att skapa nya annonser"
@@ -370,6 +370,19 @@ sv:
           other_party: Motpart
         participants: "Konversation: %{starter} med %{author}"
         profile: "%{author}s profil"
+      testimonials:
+        testimonials: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          note: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -709,11 +722,11 @@ sv:
       title: "Transaktionsavgift och betalningshanteringsavgift"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalningar i %{service_name} hanteras av betalystemet nämnt här nedanför. %{service_name} kommer ta en serviceavgift beroende på betalningssystemet. Det kan hända att betalsystemet också tar en avgift för varje betalning om det nämns här nedanför."
+      info: "Betalningar i %{service_name} hanteras av betalningssystemet nämnt här nedanför. %{service_name} kommer ta en serviceavgift beroende på betalningssystemet. Det kan hända att betalningssystemet också tar en avgift för varje betalning om det nämns här nedanför."
     paypal_fee_info:
       title: "PayPals avgift för betalningshantering"
       body_text: |-
-          För PayPal betalningar tar %{service_name} en serviceavgift på %{paypal_commission}%. Den lägsta serviceavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyer att i tillägg till %{service_name} serviceavgift betalar du även PayPal's betalningshanteringsavgift. PayPals hanteringsavgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
+          För PayPal betalningar tar %{service_name} en serviceavgift på %{paypal_commission}%. Den lägsta serviceavgiften för varje transaktion är %{minimum_transaction_fee}. PayPal's egna avgifter är inte inkluderade i denna avgift. Detta betyder att i tillägg till %{service_name} serviceavgift betalar du även PayPal's betalningshanteringsavgift. PayPals hanteringsavgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och hemland för köparen. I allmänhet har inhemska inköp lägre avgifter än de internationella, och högre månatlig försäljning ger dig rabatt på avgifterna.
           Du kan se de exakta avgifterna genom att logga in på ditt PayPal-konto och gå %{link_to_paypal}. Efter varje köp kommer du att få ett kvitto som visar den exakta avgiften.
       body_text_accept: |-
           Denna transaktion är processerad via PayPal. PayPal tar ut en administrativ avgift från varje betalning. Denna avgift är mellan 2% och 5% av det totala försäljningspriset, beroende på din månatliga försäljningsvolym och köparens hemland. Generellt så har inhemska köp lägre avgifter än internationella och ju mer du säljer varje månad desto bättre rabatt på avgifterna får du. 
@@ -1170,7 +1183,7 @@ sv:
       kassi_does_not_currently_work_without_javascript: "Tyvärr %{service_name} fungerar inte utan Javascript. Försök att aktivera Javascript i din webbläsare och ladda om sidan."
       contact_us: "kontakta oss"
       send_feedback: "Skicka meddelande"
-      your_feedback_to_admins: "Ditt meddelande till %{service_name} -teamet"
+      your_feedback_to_admins: "Ditt meddelande till %{service_name} team"
     send: Skicka
     your_email_address: "Din e-postadress"
   errors:
@@ -1303,7 +1316,7 @@ sv:
       add_lots_of_email_addresses: "Om du planerar att skicka många inbjudningar, så rekommenderar vi att du använder en e-posttjänst. Kolla in %{this_article_link} för att hitta lämpliga e-posttjänster."
       this_article_link: "denna artikel"
       invitation_emails_field_placeholder: "kompis1@exempel.com, kompis2@exempel.com, ..."
-      invitation_message_field_placeholder: "Jag gick med denna fantastiska marknadsplats. Det borde du också göra!"
+      invitation_message_field_placeholder: "Jag har gått med i denna fantastiska marknadsplats. Det borde du också göra!"
       errors_in_emails: "Kontrollera att e-postadresserna som du lade till är giltiga och inte innehåller några otillåtna tecken. Om du lade till flera adresser, kontrollera så att de är separerade med kommatecken."
     list_item:
       review: granska
@@ -1359,11 +1372,11 @@ sv:
     no_tribe:
       inbox: Inkorg
       settings: Inställningar
-      feedback: "Kontakta team %{service_name}"
+      feedback: "Kontakta %{service_name}  team"
     application:
       join_this_community: "Gå med marknadsplatsen"
       read_more: "Läs mer"
-      feedback: "Ditt meddelande till %{service_name} -teamet"
+      feedback: "Ditt meddelande till %{service_name} team"
       dont_use_to_contact_support: "Vi lade märke till att du är en admin för %{service_name}. Detta formulär är till för att dina användare skall kunna kontakta dig. Du kan inte använda detta formulär för att kontakta Sharetribes kundtjänst. Använd chatten i högra hörnet istället."
       feedback_forum: "forum för feedback"
       feedback_handle: Feedback
@@ -2437,6 +2450,7 @@ sv:
       bank_routing_1: Bankkod
       bank_routing_2: "Gren-kod (Branch code)"
       bank_currency: "Bankkontots valuta"
+      update_also_bank_account: ~
       messages:
         account_number: Kontonummer
         routing_number: Clearingnummer
@@ -2461,6 +2475,7 @@ sv:
     form_pin:
       social_insurance_number: "Personnummer (SIN)"
       social_security_number: "Personnummer (SSN)"
+      ssn_last_4: "De fyra sista siffrorna av ditt personnummer (SSN)"
       hong_kong_identity_card: "Hong Kong Identitetskortsnummer (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) eller Foreign Identification Number (FIN)"
       messages:

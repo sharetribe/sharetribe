@@ -129,8 +129,8 @@ zh-TW:
       edit_welcome_email:
         welcome_email_content: 欢迎邮件内容
         welcome_email_content_description: "下面的消息將發送給每位剛加入的新用戶。 您可以自定義消息以適應您的平台。 通過點擊'%{send_test_message_link}'，您可以向您的Email發送預覽消息，這樣您就可以看到它在客戶端中Email的外觀。"
-        edit_message: 编辑消息
-        send_test_message: 发送测试消息
+        edit_message: 編輯消息
+        send_test_message: 發送測試消息
       outgoing_email:
         title: 发送邮件地址
         info: 名称和地址是用于从你的集市发送邮件给用户。
@@ -365,6 +365,19 @@ zh-TW:
           other_party: 其他參與方
         participants: "對話：%{starter}和%{author}"
         profile: "%{author}的個人頁面"
+      testimonials:
+        testimonials: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          note: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
     custom_fields:
       edit:
         edit_listing_field: "編輯刊登名稱“%{field_name}”"
@@ -441,7 +454,7 @@ zh-TW:
         email_content_placeholder: 你想和你的用户说些什么？
         email_language: 邮件接收者使用的语言
         any_language: 任何語言
-        message_will_be_sent_only_to_people_with_this_language: "注意：电子邮件只会以你选择的语言发送给使用%{service_name}的用户。"
+        message_will_be_sent_only_to_people_with_this_language: "注意：電子信箱只會以你選擇的語言發送給使用%{service_name}的用戶。"
         email_sent: 邮件已发送。
         to_improve_email_deliverability: 為了改善電子信件傳送能力，電子信件主題是自動生成的，無法更改。
         email_subject_text: "來自%{service_name}的新消息"
@@ -720,7 +733,7 @@ zh-TW:
       reject_request: 这次不行。
       close_listing: "关闭这条信息%{listing_title_link}"
       update_later: 保持信息的公开
-      optional_message: 可选消息
+      optional_message: 可選消息
       price_to_pay: 需要支付的總價
       accept: 接受
       decline: 拒绝
@@ -765,20 +778,20 @@ zh-TW:
       confirmed_offer: 宝贝已完成。
       canceled_request: 请求已取消。
       canceled_offer: 宝贝已取消。
-      message_from: "来自%{person}的消息"
+      message_from: "來自%{person}的消息"
       about_listing: "關於%{listing_title}服務"
       free_message: 站内短信
       message_content_not_available: 消息內容不可用
     message:
-      accepted_request: 已接受请求
+      accepted_request: 已接受請求
       received_payment: "接受了請求，收到了%{sum}"
-      accepted_offer: 已接受的宝贝
-      rejected_request: 已拒绝的请求
-      rejected_offer: 已拒绝的宝贝
-      confirmed_request: 标记请求为完成
-      confirmed_offer: 标记宝贝为完成
-      canceled_request: 已取消请求
-      canceled_offer: 已取消宝贝
+      accepted_offer: 已接受的邀請
+      rejected_request: 已拒絕，取消的款項
+      rejected_offer: 已拒絕的請求
+      confirmed_request: 標記為完成
+      confirmed_offer: 標記為完成
+      canceled_request: 已取消訂單
+      canceled_offer: 已取消請求
       paid: "支付了%{sum}"
       payment_preauthorized: "授权支付:%{sum}"
       stripe:
@@ -786,21 +799,21 @@ zh-TW:
         confirmed_request: ~
     new:
       message: 消息
-      message_to: "发送给%{author_name}的消息"
+      message_to: "發送給%{author_name}的消息"
       optional_message_to: "給%{author_name}留言（自選）"
-      send_message: 发送消息
+      send_message: 發送信息
       send: 发送
       this_message_is_private: "此信息為您與%{person}之間的私密信息。%{person}將收到Email通知。"
       you_will_get_notified_of_acceptance: "当%{person}接受或拒绝你的提议时，你将收到一封电子邮件通知。"
       you_will_get_notified: "当%{person}回复你时，你将收到一封电子邮件通知。"
       title: 標題
-      send_message_to_user: "发送消息给%{person}"
+      send_message_to_user: "發送信息給%{person}"
       about_listing: "關於%{listing_title}服務"
       author_has_to_accept_request: "在你支付前%{author_name}需要接受请求"
     show:
       in_response_to_listing: 關於服務
-      message_sent_by: 消息发送方
-      message_sent_to: 消息发送到
+      message_sent_by: 消息來自
+      message_sent_to: 消息發送給
       send_reply: 發送回覆
       write_a_reply: 回覆：
       conversation_about_listing: "与%{person}关于%{listing}"
@@ -920,7 +933,7 @@ zh-TW:
       please_go_to_payment_settings: "请点击进入%{payment_settings_link}并填入付款信息。"
       payment_settings_link: 付款設定
     transaction_confirmed:
-      here_is_a_message_from: "这里有一条%{other_party_given_name}发送的消息："
+      here_is_a_message_from: "有一條來自%{other_party_given_name}的消息："
       request_marked_as_confirmed: 请求已完成——记得给予评价
       request_marked_as_canceled: 请求已取消
       has_marked_request_as_confirmed: "%{other_party_full_name}标记关于“%{request}”的请求为完成。你现在可以评论给%{other_party_given_name}。"
@@ -950,7 +963,7 @@ zh-TW:
       thanks: 謝謝！
       dont_want_to_receive_these_emails: 不想收到这些邮件？
       edit_your_email_settings_here: 编辑你的邮箱设定
-      message_not_displaying_correctly: 邮件显示正确吗？
+      message_not_displaying_correctly: 郵件顯示是否正確？
       view_it_in_your_browser: 在你的浏览器中查看
       or: 或者
       unsubscribe_from_these_emails_info: "您收到此電子郵件是因為您是%{service_name}的會員。"
@@ -1161,13 +1174,13 @@ zh-TW:
   errors:
     messages:
       invalid_date: 不是有效的日期
-      invalid_time: 不是有效的时间
-      invalid_datetime: 不是有效的日期时间
-      is_at: "必须在%{restriction}时"
-      before: "必须在%{restriction}之前"
-      on_or_before: "必须在%{restriction}时或之前"
-      after: "必须在%{restriction}之后"
-      on_or_after: "必须在%{restriction}时或之后"
+      invalid_time: 不是有效的時間
+      invalid_datetime: 不是有效的日期和時間
+      is_at: "必須在%{restriction}時"
+      before: "必須在%{restriction}之前"
+      on_or_before: "必須在%{restriction}時或之前"
+      after: "必須在%{restriction}之後"
+      on_or_after: "必須在%{restriction}時或之前"
       positive_number: 填入一個數字
   event_feed_events:
     accept:
@@ -1474,13 +1487,13 @@ zh-TW:
       poll_deleted: 问卷调查已删除
       read_more: 阅读更多！
       registration_considered_spam: "註冊失敗，請從頂部導覽聯絡我們，並輸入\"email2 error\"，我們將盡快與您聯繫。"
-      reply_cannot_be_empty: 你不能发送空白消息
+      reply_cannot_be_empty: 您不能發送空白的信息
       reply_sent: 回复发送成功
       request_accepted: 你的请求已被接受
       request_confirmed: 请求已完成。
       request_rejected: 请求已拒绝
       request_canceled: 请求已取消
-      message_sent: 消息已发出
+      message_sent: 信息已發送
       message_not_sent: "發送消息失敗。 請再試一次。"
       this_content_is_not_available_in_this_community: 此内容不可用。
       unknown_error: 發生未知錯誤。請透過”聯繫我們“向我們提交問題。
@@ -1491,7 +1504,7 @@ zh-TW:
       listing_closed: 此刊登已經關閉
       send_instructions: 幾分鐘後，您將收到重置密碼的email。
       you_cannot_reply_to_a_closed_offer: 你不能对已关闭的宝贝发表评论
-      you_cannot_send_message_to_yourself: 你不能给你自己发送消息
+      you_cannot_send_message_to_yourself: 您不能給自己發送信息
       you_followed_listing: 你没有关注这条信息
       you_have_already_given_feedback_about_this_event: 您已經提供針對此活動的反饋
       you_are_now_member: "欢迎来到%{service_name}！"
@@ -1537,7 +1550,7 @@ zh-TW:
       listing_not_visible: 你无权查看此信息。
     comment:
       wrote: 写到
-      send_private_message: "发送私人消息给%{person}"
+      send_private_message: "發送私訊給%{person}"
       delete: 刪除
       are_you_sure: 您確定要刪除評論嗎？
     comment_form:
@@ -1765,7 +1778,7 @@ zh-TW:
       request: 請求
       rideshare_offer: 顺风车
       rideshare_request: 需要顺风车
-      send_private_message: 发送私人消息
+      send_private_message: 發送私訊
       tags: 標籤
       time: 時間
       times: 次數
@@ -2402,6 +2415,7 @@ zh-TW:
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
+      update_also_bank_account: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -2426,6 +2440,7 @@ zh-TW:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
+      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:

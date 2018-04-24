@@ -370,6 +370,19 @@ en-NZ:
           other_party: "Other party"
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
+      testimonials:
+        testimonials: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          note: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -2431,6 +2444,7 @@ en-NZ:
       bank_routing_1: "Bank code"
       bank_routing_2: "Branch code"
       bank_currency: "Bank account currency"
+      update_also_bank_account: ~
       messages:
         account_number: "Account number"
         routing_number: "Routing number"
@@ -2455,6 +2469,7 @@ en-NZ:
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
+      ssn_last_4: ~
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) or Foreign Identification Number (FIN)"
       messages:
