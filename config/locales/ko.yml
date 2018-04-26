@@ -365,6 +365,19 @@ ko:
           other_party: 제3자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
+      testimonials:
+        testimonials: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          note: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
     custom_fields:
       edit:
         edit_listing_field: "항목 '%{field_name}' 편집"
@@ -2410,6 +2423,7 @@ ko:
       bank_routing_1: "은행 코드"
       bank_routing_2: "지점 코드"
       bank_currency: "은행 계좌 통화"
+      update_also_bank_account: ~
       messages:
         account_number: "계좌 넘버"
         routing_number: "라우팅 번호"
@@ -2434,6 +2448,7 @@ ko:
     form_pin:
       social_insurance_number: "사회 보장 번호 (SIN)"
       social_security_number: "사회 보장 번호 (SSN)"
+      ssn_last_4: ~
       hong_kong_identity_card: "홍콩 신분증 번호 (HKID)"
       singapore_identity_card: "국가 등록 신분증 (NRIC) 또는 외국인 식별 번호 (FIN)"
       messages:

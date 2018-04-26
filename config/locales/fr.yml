@@ -370,6 +370,19 @@ fr:
           other_party: "Autre participant"
         participants: "Conversation : %{starter} avec %{author}"
         profile: "Profil de %{author}"
+      testimonials:
+        testimonials: "Voir les avis"
+        headers:
+          transaction: Transaction
+          author: Auteur
+          receiver: Destinataire
+          status: Statut
+          grade: Note
+          note: Commentaire
+        status:
+          waiting: "En attente"
+          skipped: Ignorée
+          published: Publiée
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -709,7 +722,7 @@ fr:
       title: "Commission et frais de transactions"
       stripe: Stripe
       paypal: PayPal
-      info: "Les paiements sur %{service_name} sont gérés les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui diffère selon la plateforme de paiement utilisée. Cette dernière peut également facture des frais pour chaque paiement, comme décrit ci-dessous."
+      info: "Les paiements sur %{service_name} sont gérés par les plateformes de paiement listées ci-dessous. %{service_name} facture une commission qui peut diffèrer selon la plateforme de paiement utilisée. Cette dernière peut également facture des frais pour chaque paiement, comme décrit ci-dessous."
     paypal_fee_info:
       title: "Frais de transaction PayPal"
       body_text: |-
@@ -2435,6 +2448,7 @@ fr:
       bank_routing_1: "Code banque"
       bank_routing_2: "Code branche"
       bank_currency: "Devise du compte en banque"
+      update_also_bank_account: "Mettre à jour le numéro de compte bancaire"
       messages:
         account_number: "Numéro de compte"
         routing_number: "Numéro de routing"
@@ -2459,6 +2473,7 @@ fr:
     form_pin:
       social_insurance_number: "Numéro d'Assurance Sociale (NAS)"
       social_security_number: "Numéro de Sécurité Sociale (SSN)"
+      ssn_last_4: "Quatre derniers chiffres du numéro de sécurité sociale (SSN)"
       hong_kong_identity_card: "Numéro de carte d'identité de Hong Kong (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) ou Foreign Identification Number (FIN)"
       messages:

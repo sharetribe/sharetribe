@@ -370,6 +370,19 @@ de:
           other_party: "Anderer Beteiligter"
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
+      testimonials:
+        testimonials: "Bewertungen ansehen"
+        headers:
+          transaction: Transaktion
+          author: Author
+          receiver: Empfänger
+          status: Status
+          grade: Note
+          note: Hinweis
+        status:
+          waiting: "Bewertung ausstehend"
+          skipped: Übersprungen
+          published: Veröffentlicht
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -1056,7 +1069,7 @@ de:
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
       listing_per_unit_title: "%{title}, pro %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> für <b>%{listing_title}</b> an %{service_name} gezahlt. Sobald Du den Auftrag als erledigt markiert hast, wird das Geld an %{recipient_full_name} überwiesen. Als Anlage erhältst Du Deinen Zahlungsbeleg."
+        you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> für <b>%{listing_title}</b> gezahlt. Das Geld wird vorübergehend von %{service_name} bewahrt. Sobald du den Auftrag als erledigt markiert hast, wird das Geld an %{recipient_full_name} überwiesen. Als Anlage erhältst du deinen Zahlungsbeleg."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} hat dich auf %{service_name} bewertet"
       you_can_give_feedback_to: "Du hast %{name} noch nicht bewertet."
@@ -2435,6 +2448,7 @@ de:
       bank_routing_1: Bankleitzahl
       bank_routing_2: Branch/Filialcode
       bank_currency: "Währung des Bankkontos"
+      update_also_bank_account: "Bankkonto ebenfalls aktualisieren"
       messages:
         account_number: Kontonummer
         routing_number: Bankleitzahl
@@ -2459,6 +2473,7 @@ de:
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN; Sozialversicherungsnummer)"
       social_security_number: "Social Security Number (SSN; Sozialversicherungsnummer)"
+      ssn_last_4: "Die letzten 4 Ziffern der Sozialversicherungsnummer (SVNR)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID; Hong Kong Personalausweisnummer)"
       singapore_identity_card: "National Registration Identity Card (NRIC; Personalausweisnummer) oder Foreign Identification Number (Ausländeridentifikationsnummer)"
       messages:

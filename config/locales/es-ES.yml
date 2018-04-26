@@ -370,6 +370,19 @@ es-ES:
           other_party: "Otro usuario"
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
+      testimonials:
+        testimonials: "Ver reseñas"
+        headers:
+          transaction: Transacción
+          author: Autor
+          receiver: Receptor
+          status: Estatus
+          grade: Calificación
+          note: Texto
+        status:
+          waiting: "Esperando reseña"
+          skipped: Omitida
+          published: Publicada
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -2435,6 +2448,7 @@ es-ES:
       bank_routing_1: "Código del banco"
       bank_routing_2: "Código de la sucursal"
       bank_currency: "Divisa de la cuenta del banco"
+      update_also_bank_account: "Modificar la cuenta de banco también"
       messages:
         account_number: "Número de cuenta"
         routing_number: "Número de ruta/routing"
@@ -2459,6 +2473,7 @@ es-ES:
     form_pin:
       social_insurance_number: "Número de seguridad social (Social Insurance Number)"
       social_security_number: "Número de seguridad social (Social Security Number)"
+      ssn_last_4: "Número de Seguridad Social (últimos 4 dígitos)"
       hong_kong_identity_card: "Número de identificación de Hong Kong (Hong Kong Identity Card Number)"
       singapore_identity_card: "Tarjeta de Identidad de Registro Nacional (NRIC) o Número de Identificación Extranjero (FIN)"
       messages:

@@ -372,6 +372,19 @@ nl:
           other_party: "Andere partij"
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
+      testimonials:
+        testimonials: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          note: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -712,7 +725,7 @@ nl:
       title: "Commissie en betalingverwerkingskosten"
       stripe: Stripe
       paypal: PayPal
-      info: "Betalingen in %{service_name} worden verwerkt door Stripe (credit/debit card) of PayPal. %{service_name} brengt een commissie in rekening, afhankelijk van welke betalingssysteem wordt gekozen. Het betalingssysteem zelf brengt ook kosten in rekening voor iedere betaling."
+      info: "Betalingen in %{service_name} worden verwerkt door de betalingsdiensten hieronder. %{service_name} brengt een commissie in rekening, afhankelijk van welke betalingssysteem wordt gekozen. Het betalingssysteem zelf brengt ook kosten in rekening voor iedere betaling."
     paypal_fee_info:
       title: "PayPal proces kosten"
       body_text: |-
@@ -1059,7 +1072,7 @@ nl:
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
       listing_per_unit_title: "%{title}, per %{unit_type}"
       stripe:
-        you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b> aan %{service_name}. Het geld zal worden overgemaakt aan %{recipient_full_name} wanneer je de bestelling als voltooid hebt gemarkeerd."
+        you_have_made_new_payment: "Je hebt <b>%{payment_sum}</b> betaald voor <b>%{listing_title}</b>. Het geld wordt vastgehouden door %{service_name} en zal worden overgemaakt aan %{recipient_full_name} wanneer je de bestelling als voltooid hebt gemarkeerd."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} heeft u feedback gegeven op %{service_name}"
       you_can_give_feedback_to: "U heeft nog geen feedback geven aan %{name}."
@@ -2438,6 +2451,7 @@ nl:
       bank_routing_1: Bankcode
       bank_routing_2: Filiaalcode
       bank_currency: "Valuta bankrekening"
+      update_also_bank_account: ~
       messages:
         account_number: Bankrekeningnummer
         routing_number: "Routing nummer"
@@ -2462,6 +2476,7 @@ nl:
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
       social_security_number: "Social Security Number (SSN)"
+      ssn_last_4: "Laatste 4 cijfers van Social Security Number (SSN)"
       hong_kong_identity_card: "Hong Kong Identity Card Number (HKID)"
       singapore_identity_card: "National Registration Identity Card (NRIC) of Foreign Identification Number (FIN)"
       messages:
