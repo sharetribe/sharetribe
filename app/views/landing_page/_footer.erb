@@ -11,6 +11,12 @@
   .footer__container--light .footer__social-media-link:hover > svg {
     fill: rgb(<%= s['social_media_icon_color_hover']['value'].join(",") %>);
   }
+  .footer__container--light .footer__social-media-link > svg .icon-with-stroke{
+    stroke: rgb(<%= s['social_media_icon_color']['value'].join(",") %>);
+  }
+  .footer__container--light .footer__social-media-link:hover > svg .icon-with-stroke{
+    stroke: rgb(<%= s['social_media_icon_color_hover']['value'].join(",") %>);
+  }
 <% end %>
 
 <%
@@ -72,7 +78,7 @@
                 <svg class="footer__social-media-icon footer__pinterest-icon" width="19" height="23" viewBox="0 0 19 23" xmlns="http://www.w3.org/2000/svg"><path d="M.93 8.424c0 1.755.695 4.313 2.61 4.888.067.014.16.04.228.04.442 0 .696-1.23.696-1.58 0-.415-1.058-1.3-1.058-3.026 0-3.59 2.732-6.134 6.268-6.134 3.04 0 5.29 1.727 5.29 4.9 0 2.372-.95 6.818-4.03 6.818-1.113 0-2.063-.803-2.063-1.955 0-1.688 1.18-3.32 1.18-5.063 0-1.058-.604-1.915-1.73-1.915-1.525 0-2.463 1.715-2.463 3.067 0 .75.094 1.58.43 2.264-.617 2.65-1.876 6.602-1.876 9.334 0 .844.12 1.675.202 2.518l.12.134.188-.067c2.25-3.08 2.17-3.683 3.187-7.714.55 1.045 1.97 1.607 3.094 1.607 4.742 0 6.87-4.62 6.87-8.786C18.07 3.32 14.24.43 10.037.43 5.456.43.93 3.48.93 8.423z" fill-rule="evenodd"/></svg>
 
               <% when "soundcloud" %>
-                <svg class="footer__social-media-icon footer__soundcloud-icon" width="24" height="24"><g fill-rule="evenodd" stroke="none" stroke-linejoin="round" stroke-miterlimit="10"><path d="M12.807 16.496c.193.004 7.791.004 7.84.004 1.562 0 2.829-1.266 2.829-2.829 0-1.562-1.267-2.83-2.829-2.83-.388 0-.758.079-1.094.219-.226-2.549-2.363-4.549-4.972-4.549-.638 0-1.26.126-1.809.339-.215.082-.271.167-.273.333v8.979c.003.172.137.33.308.334z"/><path stroke-linecap="round" d="M10.5 7.489v9.007M8.5 8.489v8.007M6.5 8.989v7.507M4.5 10.989v5.507M2.5 10.989v5.507M.5 11.992v3.991"/></g></svg>  
+                <svg class="footer__social-media-icon footer__soundcloud-icon" width="24" height="24"><g fill-rule="evenodd" stroke="none" stroke-linejoin="round" stroke-miterlimit="10"><path d="M12.807 16.496c.193.004 7.791.004 7.84.004 1.562 0 2.829-1.266 2.829-2.829 0-1.562-1.267-2.83-2.829-2.83-.388 0-.758.079-1.094.219-.226-2.549-2.363-4.549-4.972-4.549-.638 0-1.26.126-1.809.339-.215.082-.271.167-.273.333v8.979c.003.172.137.33.308.334z"/><path class="icon-with-stroke" stroke-linecap="round" d="M10.5 7.489v9.007M8.5 8.489v8.007M6.5 8.989v7.507M4.5 10.989v5.507M2.5 10.989v5.507M.5 11.992v3.991"/></g></svg>  
 
               <% end # case %>
             </a>
