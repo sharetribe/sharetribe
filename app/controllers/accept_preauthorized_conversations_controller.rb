@@ -133,6 +133,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
         t("error_messages.paypal.reject_authorization_error")
       elsif payment_gateway == :stripe
         t("error_messages.stripe.reject_authorization_error")
+      end
     end
   end
 
