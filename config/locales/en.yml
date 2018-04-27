@@ -283,6 +283,7 @@ en:
         invalid_facebook_connect_id: "Client id should contain only numbers."
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
+        enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
       analytics:
         analytics: Analytics
