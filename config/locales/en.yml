@@ -1164,6 +1164,8 @@ en:
       reject_authorization_error: "An error occurred while trying to reject preauthorized Paypal payment. Please, try again."
     stripe:
       generic_error: "An error occurred during the payment process. Could not finalize your Stripe payment."
+      accept_authorization_error: "An error occurred while trying to accept preauthorized Stripe payment. Please, try again."
+      reject_authorization_error: "An error occurred while trying to reject preauthorized Stripe payment. Please, try again."
   error_pages:
     back_to_kassi_front_page: "Back to the front page"
     error_404:
