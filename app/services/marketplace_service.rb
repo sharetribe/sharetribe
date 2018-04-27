@@ -119,7 +119,7 @@ module MarketplaceService
     create_community_customization!(community, marketplace_name, locale)
     create_category!("Default", community, locale)
     create_processes!(community.id, payment_process)
-    create_listing_shape!(community, p[:marketplace_type], payment_process)
+    create_listing_shapes!(community, p[:marketplace_type])
     create_configurations!({
       community_id: community.id,
       main_search: :keyword,
@@ -188,29 +188,16 @@ module MarketplaceService
       {author_is_seller: false, process: :none},
       {author_is_seller: true, process: payment_process}
     ].to_set.map { |p|
-      get_or_create_transaction_process(
+      TransactionProcess.where(
         community_id: community_id,
         process: p[:process],
-        author_is_seller: p[:author_is_seller])
+        author_is_seller: p[:author_is_seller]
+      ).first_or_create
     }
   end
 
-  def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
-    processes = TransactionService::API::Api.processes.get(community_id: community_id).data
-    existing_process = processes.detect{ |p| p.process == process && p.author_is_seller == author_is_seller }
-    unless existing_process
-      TransactionService::API::Api.processes.create(
-        community_id: community_id,
-        process: process,
-        author_is_seller: author_is_seller
-      )
-    end
-  end
-
-  def create_listing_shape!(community, marketplace_type, process)
-    listing_shape_template = select_listing_shape_template(marketplace_type)
-    enable_shipping = marketplace_type.or_else("product") == "product"
-    TransactionTypeCreator.create(community, listing_shape_template, process, enable_shipping)
+  def create_listing_shapes!(community, marketplace_type)
+    TransactionTypeCreator.create(community, marketplace_type)
   end
 
   def create_community_customization!(community, marketplace_name, locale)
@@ -220,17 +207,6 @@ module MarketplaceService
   def first_or_create_community_customization!(community, marketplace_name, locale)
     existing_customization = community.community_customizations.where(locale: locale).first
     community.community_customizations.create!(customization_params(marketplace_name, locale)) unless existing_customization
-  end
-
-  def select_listing_shape_template(type)
-   case type.or_else("product")
-   when "rental"
-    "Rent"
-   when "service"
-    "Service"
-   else # also "product" goes to this default
-    "Sell"
-   end
   end
 
   def how_to_use_page_default_content(locale, marketplace_name)

@@ -657,11 +657,17 @@ en:
         payments_not_enabled: "Payments are not enabled for your marketplace"
     transaction_types:
       sell: Selling
+      sell_w_online_payment: "Selling with online payment system"
+      sell_wo_online_payment: "Selling without online payment system"
       rent: "Renting out"
+      rent_w_online_payment: "Renting out with payment system"
+      rent_wo_online_payment: "Renting out without payment system"
       give: "Giving away"
       lend: Lending
       swap: Swapping
       service: Offering
+      service_w_online_payment: "Offering with payment system"
+      service_wo_online_payment: "Offering without payment system"
       request: Requesting
       inquiry: Announcement
       share_for_free: "Sharing for free"

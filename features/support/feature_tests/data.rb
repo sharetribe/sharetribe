@@ -6,7 +6,7 @@ module FeatureTests
 
       marketplace = MarketplaceService.create(
         marketplace_name: "Test marketplace",
-        marketplace_type: "service",
+        marketplace_type: "product",
         marketplace_country: "us",
         marketplace_language: "en",
         payment_process: :preauthorize

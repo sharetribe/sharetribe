@@ -7,7 +7,7 @@
 # c = Community.find(1234)
 # TransactionTyperCreator.create(c, "Sell")
 #
-module TransactionTypeCreator
+class TransactionTypeCreator
 
   DEFAULTS = {
     "Give" => {
@@ -20,11 +20,20 @@ module TransactionTypeCreator
       price_enabled: false
     },
     "Rent" => {
-      price_enabled: true,
-      availability: 'booking',
-      units: [
-        {unit_type: 'night', quantity_selector: 'night', kind: 'time'}
-      ]
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::DAY, quantity_selector: 'day', kind: 'time'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_BOOKING,
+        units: [
+          {unit_type: ListingUnit::NIGHT, quantity_selector: 'night', kind: 'time'}
+        ]
+      }
     },
     "Request" => {
       price_enabled: false
@@ -33,10 +42,20 @@ module TransactionTypeCreator
       price_enabled: true
     },
     "Service" => {
-      price_enabled: true,
-      units: [
-        {unit_type: 'day', quantity_selector: 'day', kind: 'time'}
-      ]
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::HOUR, quantity_selector: 'number', kind: 'time'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_BOOKING,
+        units: [
+          {unit_type: ListingUnit::HOUR, quantity_selector: 'number', kind: 'time'}
+        ]
+      }
     },
     "ShareForFree" => {
       price_enabled: false
@@ -63,9 +82,16 @@ module TransactionTypeCreator
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
     },
     "Rent" => {
-      label: "Rent",
-      translation_key: "admin.transaction_types.rent",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
+      none: {
+        label: "Rent",
+        translation_key: "admin.transaction_types.rent_wo_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
+      },
+      preauthorize: {
+        label: "Rent",
+        translation_key: "admin.transaction_types.rent_w_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
+      },
     },
     "Request" => {
       label: "Request",
@@ -73,14 +99,28 @@ module TransactionTypeCreator
       action_button_translation_key: "admin.transaction_types.default_action_button_labels.request",
     },
     "Sell" => {
-      label: "Sell",
-      translation_key: "admin.transaction_types.sell",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
+      none: {
+        label: "Sell",
+        translation_key: "admin.transaction_types.sell_wo_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
+      },
+      preauthorize: {
+        label: "Sell",
+        translation_key: "admin.transaction_types.sell_w_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
+      },
     },
     "Service" => {
-      label: "Service",
-      translation_key: "admin.transaction_types.service",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      none: {
+        label: "Service",
+        translation_key: "admin.transaction_types.service_wo_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      },
+      preauthorize: {
+        label: "Service",
+        translation_key: "admin.transaction_types.service_w_online_payment",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      },
     },
     "ShareForFree" => {
       label: "Share for free",
@@ -96,23 +136,62 @@ module TransactionTypeCreator
 
   TRANSACTION_PROCESSES = [:none, :preauthorize, :postpay]
 
-  module_function
+  class << self
+    def create(community, marketplace_type)
+      transaction_type = select_listing_shape_template(marketplace_type)
+      enable_shipping = marketplace_type.or_else("product") == "product"
+      throw "Transaction type '#{transaction_type}' not available. Available types are: #{DEFAULTS.keys.join(', ')}" unless DEFAULTS.keys.include? transaction_type
+      author_is_seller = transaction_type != "Request"
 
-  def create(community, transaction_type_class_name, process, enable_shipping)
-    throw "Transaction type '#{transaction_type_class_name}' not available. Available types are: #{available_types.join(', ')}" unless available_types.include? transaction_type_class_name
-    throw "Transaction process '#{process}' not available. Available processes are: #{TRANSACTION_PROCESSES.join(', ')}" unless TRANSACTION_PROCESSES.include? process.to_sym
+      transaction_processes = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller)
+      transaction_processes.each do |transaction_process|
+        new(
+          community: community,
+          transaction_type: transaction_type,
+          enable_shipping: enable_shipping,
+          author_is_seller: author_is_seller,
+          transaction_process: transaction_process
+        ).create_listing_shape
+      end
+    end
 
-    author_is_seller = transaction_type_class_name != "Request"
-    transaction_process = get_or_create_transaction_process(community_id: community.id, process: process, author_is_seller: author_is_seller)
+    def select_listing_shape_template(type)
+     case type.or_else("product")
+     when "rental"
+      "Rent"
+     when "service"
+      "Service"
+     else # also "product" goes to this default
+      "Sell"
+     end
+    end
+  end
 
+  private
+
+  attr_reader :community, :transaction_type, :enable_shipping,
+    :author_is_seller, :transaction_process
+
+  public
+
+  def initialize(community:, transaction_type:, enable_shipping:,
+                author_is_seller:, transaction_process:)
+    @community = community
+    @transaction_type = transaction_type
+    @enable_shipping = enable_shipping
+    @author_is_seller = author_is_seller
+    @transaction_process = transaction_process
+  end
+
+  def create_listing_shape
     # Save name & action_button_label to TranslationService
-    translations = TRANSLATIONS[transaction_type_class_name]
+    translations = TRANSLATIONS[transaction_type][transaction_process.process] || TRANSLATIONS[transaction_type]
     name_group =
       {
         translations: community.locales.map do |locale|
           {
             locale: locale,
-            translation: I18n.t(translations[:translation_key], :locale => locale.to_sym)
+            translation: I18n.t(translations[:translation_key], :locale => locale.to_sym, raise: true)
           }
         end
       }
@@ -121,14 +200,14 @@ module TransactionTypeCreator
         translations: community.locales.map do |locale|
           {
             locale: locale,
-            translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym)
+            translation: I18n.t(translations[:action_button_translation_key], :locale => locale.to_sym, raise: true)
           }
         end
       }
     created_translations = TranslationService::API::Api.translations.create(community.id, [name_group, action_button_group])
     name_tr_key, action_button_tr_key = created_translations[:data].map { |translation| translation[:translation_key] }
 
-    defaults = DEFAULTS[transaction_type_class_name]
+    defaults = DEFAULTS[transaction_type][transaction_process.process] || DEFAULTS[transaction_type]
 
     # Create
 
@@ -141,7 +220,7 @@ module TransactionTypeCreator
     end
 
     shape_opts = defaults.merge(
-      transaction_process_id: transaction_process[:id],
+      transaction_process_id: transaction_process.id,
       name_tr_key: name_tr_key,
       action_button_tr_key: action_button_tr_key,
       translations: translations,
@@ -149,24 +228,5 @@ module TransactionTypeCreator
       basename: translations.find { |t| t[:locale] == community.default_locale }[:name]
     )
     ListingShape.create_with_opts(community: community, opts: shape_opts)
-  end
-
-  def available_types
-    TransactionTypeCreator::DEFAULTS.map { |type, _| type }
-  end
-
-  def get_or_create_transaction_process(community_id:, process:, author_is_seller:)
-    TransactionService::API::Api.processes.get(community_id: community_id)
-      .maybe
-      .map { |processes|
-        processes.find { |p| p.process == process && p.author_is_seller == author_is_seller }
-      }
-      .or_else {
-        TransactionService::API::Api.processes.create(
-          community_id: community_id,
-          process: process,
-          author_is_seller: author_is_seller
-        ).data
-      }
   end
 end
