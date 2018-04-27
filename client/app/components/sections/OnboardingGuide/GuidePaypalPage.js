@@ -7,7 +7,7 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';
 
 const GuidePaypalPage = (props) => {
-  const { changePage, pageData, infoIcon, routes } = props;
+  const { changePage, pageData, infoIcon, routes } = props; // eslint-disable-line no-unused-vars
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.payments.title')),
