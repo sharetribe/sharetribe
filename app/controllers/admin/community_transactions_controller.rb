@@ -66,7 +66,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
   def export_status
     export_result = ExportTaskResult.where(:token => params[:token]).first
     if export_result
-      file_url = export_result.file.present? ? export_result.file.url : nil
+      file_url = export_result.file.present? ? export_result.file.expiring_url(ExportTaskResult::AWS_S3_URL_EXPIRES_SECONDS) : nil
       render json: {token: export_result.token, status: export_result.status, url: file_url}
     else
       render json: {status: 'error'}
