@@ -45,7 +45,7 @@
 
             = render partial: 'bank_fields_form', locals: {stripe_bank_form: stripe_bank_form, stripe_account: stripe_account, stripe_seller_account: stripe_seller_account, stripe_mode: stripe_mode}
 
-            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_needs_verification: seller_needs_verification}
+            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_verfication_fields: seller_verfication_fields}
 
             .col-4
               = link_to t('stripe_accounts.form_new.cancel'), person_payment_settings_path(@current_user), style: 'float: right; margin-top: 1.5em'
@@ -94,7 +94,7 @@
 
             = render 'personal_id_number', stripe_account_form: stripe_account_form
 
-            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_needs_verification: seller_needs_verification}
+            = render partial: 'verification_fields_form', locals: {stripe_account_form: stripe_account_form, seller_verfication_fields: seller_verfication_fields}
 
             .country-dependent{"data-country-except" => "XXX"}
               - base_terms_url = "https://stripe.com/COUNTRY/connect-account/legal#translation"
