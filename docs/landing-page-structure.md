@@ -262,7 +262,6 @@ Values to set:
   * `googleplus`
   * `linkedin`
   * `pinterest`
-  * `soundcloud`
 
 * `copyright` copyright text
 
