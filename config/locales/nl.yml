@@ -285,6 +285,7 @@ nl:
         invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
         facebook_connect_secret: "Facebook client geheim"
         invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
+        enable_facebook_login: ~
         save: "Opslaan instellingen"
       analytics:
         analytics: Analytics
@@ -659,11 +660,17 @@ nl:
         payments_not_enabled: "Betalingen zijn niet ingeschakeld voor je marktplaats."
     transaction_types:
       sell: Verkopen
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Verhuren
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Weggeven
       lend: Uitlenen
       swap: Ruilen
       service: Aanbod
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Vraag
       inquiry: Verzoek
       share_for_free: "Gratis delen"
@@ -1160,6 +1167,8 @@ nl:
       reject_authorization_error: "Het annuleren van de preautorisatie van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
     stripe:
       generic_error: "Er is een fout opgetreden tijdens de betaling. Je Stripe betaling kon niet worden uitgevoerd."
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:

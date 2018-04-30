@@ -278,6 +278,7 @@ ka:
         invalid_facebook_connect_id: "კლიენტის id უნდა შეიცავდეს მხოლოდ ციფრებს."
         facebook_connect_secret: "Facebook კლიენტის საიდუმლო"
         invalid_facebook_connect_secret: "კლიენტის საიდუმლო უნდა შეიცავდეს მხოლოდ ციფრებს და ასოებს a-დან f-მდე."
+        enable_facebook_login: ~
         save: "დაიმახსოვრე პარამეტრები"
       analytics:
         analytics: ანალიტიკა
@@ -643,11 +644,17 @@ ka:
         payments_not_enabled: ~
     transaction_types:
       sell: გაყიდვა
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: ქირავდება
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: დარიგება
       lend: გასესხება
       swap: გაცვლა
       service: შეთავაზება
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: მოთხოვნა
       inquiry: განცხადება
       share_for_free: "უფასოთ გაზიარება"
@@ -1142,6 +1149,8 @@ ka:
       reject_authorization_error: "შეცდომა მოხდა Paypal-ის გადახდის პრეავტორიზაციის მცდელობისას. ცადეთ თავიდან."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "მთავარ გვერდზე დაბრუნება"
     error_404:

@@ -278,6 +278,7 @@ ja:
         invalid_facebook_connect_id: ユーザーIDは数字のみで構成されています
         facebook_connect_secret: フェイスプックユーザーの秘密
         invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
+        enable_facebook_login: ~
         save: 設定を保存する
       analytics:
         analytics: アナリティクス
@@ -641,11 +642,17 @@ ja:
         payments_not_enabled: ~
     transaction_types:
       sell: 売ります
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: 貸します
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: あげます
       lend: 無料で貸します
       swap: 交換したいです
       service: オファーします
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: リクエストします
       inquiry: 質問します
       share_for_free: 無料でシェアします
@@ -1140,6 +1147,8 @@ ja:
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: 前のページに戻る
     error_404:

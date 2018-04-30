@@ -283,6 +283,7 @@ es-ES:
         invalid_facebook_connect_id: "La ID de cliente debe incluir sólo números"
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret debe incluir sólo números y letras desde la A a la F."
+        enable_facebook_login: ~
         save: "Guardar configuración"
       analytics:
         analytics: Analytics
@@ -656,11 +657,17 @@ es-ES:
         payments_not_enabled: "Pagos en línea no están habilitados para tu comunidad"
     transaction_types:
       sell: Venta
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Alquilando
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Regalando
       lend: Prestando
       swap: Intercambio
       service: Oferta
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Solicitando
       inquiry: Anuncio
       share_for_free: "Compartido gratuitamente"
@@ -1157,6 +1164,8 @@ es-ES:
       reject_authorization_error: "Ha ocurrido un error al rechazar el pago pre-autorizado de PayPal. Por favor, inténtalo de nuevo."
     stripe:
       generic_error: "Ocurrió un error al procesar el pago. No se pudo finalizar el pago Stripe."
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal"
     error_404:

@@ -372,7 +372,7 @@ en:
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
       testimonials:
-        testimonials: 'View reviews'
+        testimonials: "View reviews"
         headers:
           transaction: Transaction
           author: Author
@@ -381,7 +381,7 @@ en:
           grade: Grade
           note: Note
         status:
-          waiting: Waiting for review
+          waiting: "Waiting for review"
           skipped: Skipped
           published: Published
     custom_fields:

@@ -280,6 +280,7 @@ tr-TR:
         invalid_facebook_connect_id: "Müşteri kimliği sadece rakam içerebilir."
         facebook_connect_secret: "Facebook müşteri gizli anahtarı"
         invalid_facebook_connect_secret: "Gizli anahtar sadece rakam ve A-F arası harfleri içerebilir."
+        enable_facebook_login: ~
         save: "Ayarları kaydet"
       analytics:
         analytics: Analytics
@@ -637,11 +638,17 @@ tr-TR:
         payments_not_enabled: ~
     transaction_types:
       sell: Satmak
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: "Kiraya vermek"
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: "Hediye etmek"
       lend: "Ödünç vermek"
       swap: Takas
       service: "Teklif etmek"
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: "Talep etmek"
       inquiry: Sorgulama
       share_for_free: "Bedelsiz paylaşım"
@@ -1137,6 +1144,8 @@ tr-TR:
       reject_authorization_error: "izin verilmiş PayPal ödemesini reddederken bir hata meydana geldi. Lütfen tekrar deneyin."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Anasayfaya dön"
     error_404:

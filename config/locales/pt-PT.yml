@@ -274,6 +274,7 @@ pt-PT:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
         save: ~
       analytics:
         analytics: ~
@@ -643,11 +644,17 @@ pt-PT:
         payments_not_enabled: ~
     transaction_types:
       sell: ~
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: ~
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: ~
       lend: ~
       swap: ~
       service: ~
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: ~
       inquiry: ~
       share_for_free: ~
@@ -1140,6 +1147,8 @@ pt-PT:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Voltar à pagina inicial"
     error_404:

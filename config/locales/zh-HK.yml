@@ -278,6 +278,7 @@ zh-HK:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
         save: 保存設定
       analytics:
         analytics: ~
@@ -643,11 +644,17 @@ zh-HK:
         payments_not_enabled: ~
     transaction_types:
       sell: 出售
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: 出租
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: 贈送
       lend: 出借
       swap: 交換
       service: 提出交易
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: 請求
       inquiry: 公告
       share_for_free: 免費分享
@@ -1140,6 +1147,8 @@ zh-HK:
       reject_authorization_error: 當拒絕預先授權的PayPal付款時癹生錯誤。請稍後再試。
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: 返回到主頁
     error_404:

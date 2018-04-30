@@ -283,6 +283,7 @@ de:
         invalid_facebook_connect_id: "Die Client-ID sollte nur aus Nummern bestehen."
         facebook_connect_secret: "Facebook Client-Geheimnis"
         invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
+        enable_facebook_login: "Nutzern erlauben, sich mit ihrem Facebook Account anzumelden"
         save: "Einstellungen speichern"
       analytics:
         analytics: Analytics
@@ -656,11 +657,17 @@ de:
         payments_not_enabled: "Zahlungen sind nicht für diesen Marktplatz aktiviert"
     transaction_types:
       sell: Verkaufen
+      sell_w_online_payment: "Online Zahlungen für Verkäufe nutzen"
+      sell_wo_online_payment: "Keine Online Zahlungen für Verkäufe nutzen"
       rent: Vermieten
+      rent_w_online_payment: "Online Zahlungen für Vermietungen nutzen"
+      rent_wo_online_payment: "Keine Online Zahlungen für Vermietungen nutzen"
       give: "Umsonst abzugeben"
       lend: Verleihen
       swap: Tauschen
       service: Angebot
+      service_w_online_payment: "Angebot mit Online Zahlungen"
+      service_wo_online_payment: "Angebot ohne Online Zahlungen"
       request: Anfragen
       inquiry: Anfrage
       share_for_free: "Kostenlos teilen"
@@ -1157,6 +1164,8 @@ de:
       reject_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal Zahlung abzulehnen, ist ein Fehler aufgetreten. Bitte versuche es erneut."
     stripe:
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die Stripe Zahlung konnte nicht abgeschlossen werden."
+      accept_authorization_error: "Es ist ein Fehler während der Authorisierung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
+      reject_authorization_error: "Es ist ein Fehler während der Ablehnung der Stripe Zahlung aufgetreten. Bitte erneut versuchen."
   error_pages:
     back_to_kassi_front_page: "Zurück zur Startseite"
     error_404:

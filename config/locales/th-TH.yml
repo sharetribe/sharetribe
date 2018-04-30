@@ -278,6 +278,7 @@ th-TH:
         invalid_facebook_connect_id: รหัสลูกค้าควรมีแต่ตัวเลขเท่านั้น
         facebook_connect_secret: "รหัสลับของลูกค้า Facebook"
         invalid_facebook_connect_secret: "รหัสลับลูกค้าควรมีเฉพาะตัวเลขและตัวอักษรจาก A ถึง F"
+        enable_facebook_login: ~
         save: บันทึกการตั้งค่า
       analytics:
         analytics: การวิเคราะห์ข้อมูลหรือสถิติ
@@ -639,11 +640,17 @@ th-TH:
         payments_not_enabled: ~
     transaction_types:
       sell: ขาย
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: ให้เช่า
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: ให้เปล่า
       lend: ให้ยืม
       swap: แลก
       service: ให้ข้อเสนอ
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: ต้องการ
       inquiry: ประกาศ
       share_for_free: แบ่งปันฟรี
@@ -1138,6 +1145,8 @@ th-TH:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: กลับไปหน้าแรก
     error_404:
