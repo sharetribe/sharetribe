@@ -94,7 +94,7 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
       expect(shape.availability).to eq 'booking'
-      expect(shape.name).to eq 'offering-with-online-paymen'
+      expect(shape.name).to eq 'offering-with-online-payment'
       expect(get_translation(shape, :name_tr_key)).to eq 'Offering with online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Request'
       expect(shape.transaction_process.process).to eq :preauthorize
