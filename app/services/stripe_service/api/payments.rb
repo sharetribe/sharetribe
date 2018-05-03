@@ -160,9 +160,6 @@ module StripeService::API
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
                                         transfered_at: Time.zone.now
                                       })
-        Result::Success.new(payment)
-      rescue => e
-        Result::Error.new(e.message)
       end
 
       def stripe_api
