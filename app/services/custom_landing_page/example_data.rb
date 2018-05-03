@@ -275,7 +275,8 @@ module CustomLandingPage
         {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
         {"service": "googleplus", "url": "https://plus.google.com/114869130265262677354/"},
         {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"},
-        {"service": "pinterest", "url": "https://www.pinterest.com/"}
+        {"service": "pinterest", "url": "https://www.pinterest.com/"},
+        {"service": "pinterest", "url": "https://soundcloud.com/"}"
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     }
