@@ -348,7 +348,7 @@ $categories__mobile-gutter: 12px;
 
 }
 
-.categories__section--background, .categories__section--background-image--light, .categories__section--background-image--dark {
+.categories__section--background-color, .categories__section--background-image--light, .categories__section--background-image--dark {
   .categories__paragraph--markdown {
     & > p {
       color: #ffffff;
@@ -357,5 +357,8 @@ $categories__mobile-gutter: 12px;
   .categories__title {
       color: #ffffff;
   }
+  .categories__button--ghost {
+      color: #ffffff;
+      border-color: #ffffff;
+  }
 }
- 
