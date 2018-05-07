@@ -34,8 +34,13 @@
               .row
                 .col-12
                   = form.error_messages
-                  = form.label :legal_name, t("stripe_accounts.form_new.legal_name")+"*"
-                  = form.text_field :legal_name, class: 'required'
+              .row
+                .col-6
+                  = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
+                  = form.text_field :first_name, class: 'required'
+                .col-6
+                  = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
+                  = form.text_field :last_name, class: 'required'
             .row
               .col-12
                 = label_tag t("stripe_accounts.form_new.country")
@@ -74,8 +79,13 @@
               .row
                 .col-12
                   = form.error_messages
-                  = form.label :legal_name, t("stripe_accounts.form_new.legal_name")+"*"
-                  = form.text_field :legal_name, class: 'required'
+              .row
+                .col-6
+                  = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
+                  = form.text_field :first_name, class: 'required'
+                .col-6
+                  = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
+                  = form.text_field :last_name, class: 'required'
 
               .row
                 .col-12

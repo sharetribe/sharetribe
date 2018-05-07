@@ -175,7 +175,8 @@ class PaymentSettingsController < ApplicationController
   end
 
   StripeAccountForm = FormUtils.define_form("StripeAccountForm",
-        :legal_name,
+        :first_name,
+        :last_name,
         :address_country,
         :address_city,
         :address_line1,
@@ -228,7 +229,7 @@ class PaymentSettingsController < ApplicationController
   StripeBankForm = FormUtils.define_form("StripeBankForm",
         :bank_country,
         :bank_currency,
-        :bank_account_holder_name,
+        :bank_holder_name,
         :bank_account_number,
         :bank_routing_number,
         :bank_routing_1,
@@ -237,7 +238,7 @@ class PaymentSettingsController < ApplicationController
         ).with_validations do
     validates_presence_of :bank_country,
         :bank_currency,
-        :bank_account_holder_name,
+        :bank_holder_name,
         :bank_account_number
     validates_inclusion_of :bank_country, in: StripeService::Store::StripeAccount::COUNTRIES
     validates_inclusion_of :bank_currency, in: StripeService::Store::StripeAccount::VALID_BANK_CURRENCIES
@@ -277,7 +278,7 @@ class PaymentSettingsController < ApplicationController
       result = {
         bank_country: bank_country,
         bank_currency: bank_currency,
-        bank_account_holder_name: parsed_seller_account[:legal_name]
+        bank_holder_name: [parsed_seller_account[:first_name], parsed_seller_account[:last_name]].join(" ")
       }
       if form_params.present?
         result.merge!({
@@ -315,7 +316,7 @@ class PaymentSettingsController < ApplicationController
     return unless @stripe_account_ready
 
     account_params = params.require(:stripe_account_form)
-    address_attrs = account_params.permit(:legal_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :personal_id_number, :token)
+    address_attrs = account_params.permit(:first_name, :last_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :personal_id_number, :token)
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
@@ -334,7 +335,8 @@ class PaymentSettingsController < ApplicationController
     end
     dob = account[:legal_entity][:dob]
     {
-      legal_name: [account.legal_entity.first_name,  account.legal_entity.last_name].join(" "),
+      first_name: account.legal_entity.first_name,
+      last_name: account.legal_entity.last_name,
       birth_date: Date.new(dob[:year], dob[:month], dob[:day]),
 
       address_city: account.legal_entity.address.city,
