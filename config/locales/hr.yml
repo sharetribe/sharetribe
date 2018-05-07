@@ -268,6 +268,7 @@ hr:
         invalid_facebook_connect_id: "Client id bi trebao sadržavati samo brojeve."
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret bi trebao sadržavati samo brojeve i slova od a do f."
+        enable_facebook_login: ~
         save: "Spremite postavke"
       analytics:
         analytics: Analitika
@@ -625,11 +626,17 @@ hr:
         payments_not_enabled: ~
     transaction_types:
       sell: Prodaja
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Iznajmljivanje
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Darivanje
       lend: Posudba
       swap: Razmjena
       service: Ponuda
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Potražnja
       inquiry: ~
       share_for_free: "Besplatno dijeljenje"
@@ -1122,6 +1129,8 @@ hr:
       reject_authorization_error: "Greška se dogodila prilikom pokušaja otkazivanja preautoriziranog PayPal plaćanja. Molimo pokušajte ponovno."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Natrag na naslovnu stranicu"
     error_404:

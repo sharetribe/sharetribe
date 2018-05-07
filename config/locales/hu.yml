@@ -284,6 +284,7 @@ hu:
         invalid_facebook_connect_id: "Felhasználó azonosító csak számokat tartalmazhat."
         facebook_connect_secret: "Facebook kliens kulcs"
         invalid_facebook_connect_secret: "A kliens kulcs csak számokat tartalmazhat és betűket a-tól f-ig."
+        enable_facebook_login: ~
         save: "Beállítások mentése"
       analytics:
         analytics: Vizsgálat
@@ -651,11 +652,17 @@ hu:
         payments_not_enabled: ~
     transaction_types:
       sell: Eladás
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Bérbeadás
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Ajándékozás
       lend: Kölcsönöz
       swap: Cserél
       service: Ajánlat
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Kérés
       inquiry: Közlemény
       share_for_free: "ingyen fuvar"
@@ -1154,6 +1161,8 @@ hu:
       reject_authorization_error: "Hiba történt a PayPal-os utalás elutasításakor. Kérem, próbálja újra!"
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: Főoldalra
     error_404:

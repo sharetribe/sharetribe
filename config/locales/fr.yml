@@ -283,6 +283,7 @@ fr:
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
         facebook_connect_secret: "Clé secrète Facebook"
         invalid_facebook_connect_secret: "La clé secrète ne devrait contenir que des chiffres et des lettre de a à f."
+        enable_facebook_login: "Permettre aux utilisateurs de se connecter avec leur compte Facebook"
         save: "Sauvegarder les paramètres"
       analytics:
         analytics: Analyses
@@ -656,11 +657,17 @@ fr:
         payments_not_enabled: "Le système de paiement n'est pas activé dans votre place de marché"
     transaction_types:
       sell: Vente
+      sell_w_online_payment: "Vente avec paiement en ligne"
+      sell_wo_online_payment: "Vente sans paiement en ligne"
       rent: Location
+      rent_w_online_payment: "Location avec paiement en ligne"
+      rent_wo_online_payment: "Location sans paiement en ligne"
       give: Don
       lend: Prêt
       swap: Échange
       service: Offre
+      service_w_online_payment: "Offre avec paiement en ligne"
+      service_wo_online_payment: "Offre sans paiement en ligne"
       request: Demande
       inquiry: Information
       share_for_free: "Partage gratuit"
@@ -1157,6 +1164,8 @@ fr:
       reject_authorization_error: "Une erreur s'est produite lors de la tentative de rejet du paiement PayPal avec pré-autorisation. Veuillez essayer de nouveau."
     stripe:
       generic_error: "Une erreur s'est produite durant le paiement. Le paiement Stripe n'a pu être finalisé."
+      accept_authorization_error: "Une erreur s'est produite en essayant d'accepter le paiement préautorisé par Stripe. Veuillez essayer de nouveau."
+      reject_authorization_error: "Une erreur s'est produite en essayant de rejeter le paiement préautorisé par Stripe. Veuillez essayer de nouveau."
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:

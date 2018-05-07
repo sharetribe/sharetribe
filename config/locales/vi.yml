@@ -278,6 +278,7 @@ vi:
         invalid_facebook_connect_id: "Tài khoản khách hàng chỉ nên chứa số."
         facebook_connect_secret: "Khách hàng bí mật Facebook"
         invalid_facebook_connect_secret: "Khách hàng bí mật chỉ chứa số và chữ cái từ a tới f."
+        enable_facebook_login: ~
         save: "Lưu thiết lâp"
       analytics:
         analytics: "Phân tích"
@@ -647,11 +648,17 @@ vi:
         payments_not_enabled: ~
     transaction_types:
       sell: Bán
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: "Cho thuê"
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Tặng
       lend: "Cho mượn"
       swap: "Trao đổi"
       service: "Chào bán"
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: "Yêu cầu"
       inquiry: "Thông báo"
       share_for_free: "Chia sẻ miễn phí"
@@ -1146,6 +1153,8 @@ vi:
       reject_authorization_error: "Đã xảy ra lỗi khi cố từ chối thanh toán của Paypal. Vui lòng thử lại."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Quay đầu trang"
     error_404:

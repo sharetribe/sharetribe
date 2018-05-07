@@ -278,6 +278,7 @@ ko:
         invalid_facebook_connect_id: "클라이언트 ID는 숫자만 포함해야합니다."
         facebook_connect_secret: "Facebook 클라이언트 비밀"
         invalid_facebook_connect_secret: "클라이언트 비밀은 a에서 f까지의 숫자와 문자만 포함해야 합니다."
+        enable_facebook_login: ~
         save: "설정 저장"
       analytics:
         analytics: 분석
@@ -647,11 +648,17 @@ ko:
         payments_not_enabled: "마켓 플레이스에서 결제가 사용 설정되지 않았습니다."
     transaction_types:
       sell: 판매
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: 대여
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: 증정
       lend: 대여
       swap: 교환
       service: 제안
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: 요청
       inquiry: 공지
       share_for_free: "무료 공유"
@@ -1148,6 +1155,8 @@ ko:
       reject_authorization_error: "사전 승인된 Paypal 결제를 거부하는 중에 오류가 발생했습니다. 다시 시도하십시오."
     stripe:
       generic_error: "결제 프로세스 중에 오류가 발생했습니다. Stripe의 결제를 완료 할 수 없습니다."
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "앞 페이지로 돌아가기"
     error_404:

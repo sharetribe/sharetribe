@@ -283,6 +283,7 @@ fr-CA:
         invalid_facebook_connect_id: "L'id client ne devrait contenir que des chiffres"
         facebook_connect_secret: "Clé secrète Facebook"
         invalid_facebook_connect_secret: "La clé secrète ne devrait contenir que des chiffres et des lettre de a à f."
+        enable_facebook_login: ~
         save: "Sauvegarder les paramètres"
       analytics:
         analytics: Analyses
@@ -640,11 +641,17 @@ fr-CA:
         payments_not_enabled: ~
     transaction_types:
       sell: Vente
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Location
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Don
       lend: Prêt
       swap: Échange
       service: Offre
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Demande
       inquiry: Information
       share_for_free: "Partage gratuit"
@@ -1139,6 +1146,8 @@ fr-CA:
       reject_authorization_error: "Une erreur s'est produite lors de la tentative de rejet du paiement PayPal avec pré-autorisation. Veuillez essayer de nouveau."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Retourner sur la page d'accueil"
     error_404:

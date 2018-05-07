@@ -43,16 +43,16 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq true
       expect(shape.availability).to eq 'none'
-      expect(shape.name).to eq 'selling-without-online-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Selling without online payment system'
+      expect(shape.name).to eq 'selling-without-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Selling without online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Buy'
       expect(shape.transaction_process.process).to eq :none
       shape = shapes.second
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq true
       expect(shape.availability).to eq 'none'
-      expect(shape.name).to eq 'selling-with-online-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Selling with online payment system'
+      expect(shape.name).to eq 'selling-with-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Selling with online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Buy'
       expect(shape.transaction_process.process).to eq :preauthorize
     end
@@ -82,8 +82,8 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
       expect(shape.availability).to eq 'none'
-      expect(shape.name).to eq 'offering-without-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Offering without payment system'
+      expect(shape.name).to eq 'offering-without-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Offering without online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Request'
       expect(shape.transaction_process.process).to eq :none
       unit = shape.listing_units.first
@@ -94,8 +94,8 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
       expect(shape.availability).to eq 'booking'
-      expect(shape.name).to eq 'offering-with-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Offering with payment system'
+      expect(shape.name).to eq 'offering-with-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Offering with online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Request'
       expect(shape.transaction_process.process).to eq :preauthorize
       unit = shape.listing_units.first
@@ -116,8 +116,8 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
       expect(shape.availability).to eq 'none'
-      expect(shape.name).to eq 'renting-out-without-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Renting out without payment system'
+      expect(shape.name).to eq 'renting-out-without-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Renting out without online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Rent'
       expect(shape.transaction_process.process).to eq :none
       unit = shape.listing_units.first
@@ -128,8 +128,8 @@ describe CommunitiesController, type: :controller do
       expect(shape.price_enabled).to eq true
       expect(shape.shipping_enabled).to eq false
       expect(shape.availability).to eq 'booking'
-      expect(shape.name).to eq 'renting-out-with-payment-system'
-      expect(get_translation(shape, :name_tr_key)).to eq 'Renting out with payment system'
+      expect(shape.name).to eq 'renting-out-with-online-payment'
+      expect(get_translation(shape, :name_tr_key)).to eq 'Renting out with online payment'
       expect(get_translation(shape, :action_button_tr_key)).to eq 'Rent'
       expect(shape.transaction_process.process).to eq :preauthorize
       unit = shape.listing_units.first

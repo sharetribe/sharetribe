@@ -293,6 +293,7 @@ pl:
         invalid_facebook_connect_id: "Id klienta powinno zawierać wyłącznie liczby."
         facebook_connect_secret: "Tajny klucz klienta Facebook"
         invalid_facebook_connect_secret: "Tajny klucz klienta powinien zawierać wyłącznie liczby oraz litery od a do f"
+        enable_facebook_login: ~
         save: "Zapisz ustawienia"
       analytics:
         analytics: Analizy
@@ -670,11 +671,17 @@ pl:
         payments_not_enabled: ~
     transaction_types:
       sell: Sprzedawanie
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Wynajmowanie
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Rozdawanie
       lend: Pożyczanie
       swap: Wymienianie
       service: Oferowanie
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Żądanie
       inquiry: Ogłoszenie
       share_for_free: "Współdzielone za darmo"
@@ -1169,6 +1176,8 @@ pl:
       reject_authorization_error: "Wystąpił błąd podczas próby odrzucenia preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Wróć do strony głównej"
     error_404:

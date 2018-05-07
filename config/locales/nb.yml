@@ -283,6 +283,7 @@ nb:
         invalid_facebook_connect_id: "Client id kan kun inneholde tall."
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret kan kun inneholde tall og bokstaver fra a til f."
+        enable_facebook_login: ~
         save: "Lagre innstillinger"
       analytics:
         analytics: Analytics
@@ -652,11 +653,17 @@ nb:
         payments_not_enabled: ~
     transaction_types:
       sell: Selger
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: "Leier ut"
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: "Gis bort"
       lend: låner
       swap: Bytter
       service: Tilbyr
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Forespør
       inquiry: Forespørsel
       share_for_free: "Deler gratis"
@@ -1153,6 +1160,8 @@ nb:
       reject_authorization_error: "En feil oppstod med PayPal-betaling. Vennlist prøv igjen."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Tilbake til forsiden"
     error_404:

@@ -283,6 +283,7 @@ fi:
         invalid_facebook_connect_id: "Sovellustunnus voi sisältää vain numeroita."
         facebook_connect_secret: "Facebook - salainen avain"
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
+        enable_facebook_login: ~
         save: Tallenna
       analytics:
         analytics: Analytiikka
@@ -656,11 +657,17 @@ fi:
         payments_not_enabled: "Verkkomaksut eivät ole käytössä markkinapaikallasi"
     transaction_types:
       sell: Myydään
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: "Annetaan vuokralle"
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Annetaan
       lend: "Annetaan lainaan"
       swap: Vaihdetaan
       service: Tarjotaan
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Tarvitaan
       inquiry: Tiedustelu
       share_for_free: "Tarjotaan käyttöön ilmaiseksi"
@@ -1157,6 +1164,8 @@ fi:
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
     stripe:
       generic_error: "Maksuprosessissa tapahtui virhe. Stripe-maksua ei voitu käsitellä."
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:

@@ -283,6 +283,7 @@ da-DK:
         invalid_facebook_connect_id: "Client id skal kun indeholde tal."
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret skal kun indehold tal og bogstaver fra a til f."
+        enable_facebook_login: ~
         save: Gem
       analytics:
         analytics: Analytics
@@ -652,11 +653,17 @@ da-DK:
         payments_not_enabled: ~
     transaction_types:
       sell: Sælger
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Udlejer
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: "Giver væk"
       lend: Udlåner
       swap: Bytter
       service: Tilbyder
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Anmoder
       inquiry: Forespørgsel
       share_for_free: "Deler gratis"
@@ -1151,6 +1158,8 @@ da-DK:
       reject_authorization_error: "Der skete en fejl da vi prøvede at afvise PayPal betalingen. Prøv venligst igen."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Tilbage til forsiden"
     error_404:

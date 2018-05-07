@@ -293,6 +293,7 @@ ru:
         invalid_facebook_connect_id: "ID должен содержать только цифры"
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
+        enable_facebook_login: ~
         save: "Сохранить настройки"
       analytics:
         analytics: Аналитика
@@ -670,11 +671,17 @@ ru:
         payments_not_enabled: ~
     transaction_types:
       sell: Продажа
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Аренда
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: "Отдам бесплатно"
       lend: "Дам на время"
       swap: Обмен
       service: Предлагающие
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Требуется
       inquiry: Запрос
       share_for_free: "Бесплатно поделюсь"
@@ -1167,6 +1174,8 @@ ru:
       reject_authorization_error: "При попытке отклонить предавторизацию Paypal оплаты произошла ошибка. Повторите ошибку."
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "На главную страницу"
     error_404:

@@ -268,6 +268,7 @@ es:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
         save: ~
       analytics:
         analytics: ~
@@ -625,11 +626,17 @@ es:
         payments_not_enabled: ~
     transaction_types:
       sell: Venta
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: Alquilando
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: Regalando
       lend: Prestando
       swap: Intercambio
       service: Oferta
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: Solicitando
       inquiry: ~
       share_for_free: "Compartido gratuitamente"
@@ -1129,6 +1136,8 @@ es:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: "Volver a la página principal"
     error_404:

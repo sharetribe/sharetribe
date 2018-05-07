@@ -278,6 +278,7 @@ zh:
         invalid_facebook_connect_id: 客户号仅能包含数字。
         facebook_connect_secret: Facebook客户端密钥
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
+        enable_facebook_login: ~
         save: 保存设置
       analytics:
         analytics: 分析
@@ -643,11 +644,17 @@ zh:
         payments_not_enabled: ~
     transaction_types:
       sell: 出售
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: 出租
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: 赠送
       lend: 出借
       swap: 交换
       service: 提供
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: 请求
       inquiry: 公告
       share_for_free: 免费共享
@@ -1140,6 +1147,8 @@ zh:
       reject_authorization_error: 在尝试拒绝Paypal支付预授权时发生错误。请重试。
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: 回到主页
     error_404:
