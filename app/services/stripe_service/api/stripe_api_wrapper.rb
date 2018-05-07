@@ -276,20 +276,5 @@ class StripeService::API::StripeApiWrapper
         Stripe.api_key =~ /^sk_test/
       end
     end
-
-    def verification_fields_needed(account)
-      fields = [
-        "legal_entity.personal_id_number",
-        "legal_entity.verification.document"
-      ]
-      if account
-        verification = account.verification
-        if verification.due_by.present?
-          verification.fields_needed.select{|x| fields.include?(x)}
-        else
-          []
-        end
-      end
-    end
   end
 end

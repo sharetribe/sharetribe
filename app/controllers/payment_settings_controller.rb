@@ -84,12 +84,10 @@ class PaymentSettingsController < ApplicationController
 
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
-    verfication_fields = []
+    need_verification = false
     if @stripe_account_ready
       seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
-      if seller_account
-        verfication_fields = stripe_api.verification_fields_needed(seller_account)
-      end
+      need_verification = seller_account && seller_account.verification.fields_needed.present? && seller_account.verification.due_by.present?
     end
 
     {
@@ -101,7 +99,7 @@ class PaymentSettingsController < ApplicationController
       stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,
       seller_account: seller_account,
-      seller_verfication_fields: verfication_fields,
+      seller_needs_verification: need_verification,
       paypal_commission: paypal_tx_settings[:commission_from_seller]
     }
   end
