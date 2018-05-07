@@ -1,11 +1,8 @@
 // contains async-await
 var stripeToken = async function(options, callback) {
   var country = getValue('address_country'),
-    names = getValue('legal_name'),
-    space = /\s+/,
-    legalNames = names ? names.split(space) : [],
-    firstName = legalNames[0],
-    lastName = legalNames[1];
+    firstName = getValue('first_name'),
+    lastName = getValue('last_name');
 
   var data = {
     legal_entity: {
