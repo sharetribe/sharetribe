@@ -12,7 +12,11 @@
     .col-12
       = form.label :address_city, t("stripe_accounts.form_new.address_city")+"*"
       = form.text_field :address_city, class: 'required'
-  .row.country-dependent{"data-country-only" => "AU,IE,US,CA"}
+  .row.country-dependent{"data-country-only" => "AU,IE,US"}
     .col-12
       = form.label :address_state, t("stripe_accounts.form_new.address_state")+"*"
+      = form.text_field :address_state
+  .row.country-dependent{"data-country-only" => "CA"}
+    .col-12
+      = form.label :address_state, t("stripe_accounts.form_new.address_province")+"*"
       = form.text_field :address_state
