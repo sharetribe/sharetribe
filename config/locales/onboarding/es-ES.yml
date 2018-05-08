@@ -49,6 +49,7 @@ es-ES:
             paypal: "Configura los pagos en linea"
             listing: "Publica tu primer anuncio"
             invitation: "Invita usuarios"
+            skip_this_step_for_now: "Saltarse este paso por ahora"
           payments:
             title: "Step 5: Configura el sistema de pagos en linea"
             description_p1: "Si quieres permitir que tus usuarios paguen y acepten pagos en línea, y recibir comisiones por ello, necesitas conectar un sistema de pagos. Sharetribe soporta Stripe y Paypal (%{not_sure_link}). Una vez conectado(s), necesitas elegir la cuota o comisión por transacción."
@@ -61,8 +62,10 @@ es-ES:
               content: "Puedes leer más acerca de como desactivar los pagos en linea en %{disable_payments_link}."
               disable_payments_link: "este artículo"
               disable_payments_alt: "How to disable payments or add free listings to your marketplace"
-              content_paypal_stripe: "Read more about disabling payments from %{disable_payments_link} or read more about %{stripe_paypal_link}."
-              stripe_paypal_link: "online payments, Stripe and Paypal"
+              content_paypal_stripe: "Lee más acerca de como deshabilitar el sistema de pagos en %{disable_payments_link} o lee más sobre %{stripe_paypal_link}."
+              stripe_paypal_link: "pagos en línea con Stripe y Paypal"
+            i_dont_want: "No quiero usar el sistema de pagos en línea, %{link}."
+            disable_it: "deshabilitarlo"
           slogan_and_description:
             title: "Paso 2: Añade la descripción y el eslogan"
             description: "La descripción y el eslogan ayudan a los nuevos visitantes a entender el porqué de tu comunidad. Son la primera cosa que los usuarios ven al entrar a tu sitio, por eso intenta hacerlos descriptivos, claros y concisos."
