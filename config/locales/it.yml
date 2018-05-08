@@ -448,10 +448,10 @@ it:
         message_will_be_sent_only_to_people_with_this_language: ~
         email_sent: "Email inviata."
         to_improve_email_deliverability: ~
-        email_subject_text: ~
+        email_subject_text: "Un nuovo messaggio dal team %{service_name}"
         firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        hello_firstname: "Ciao Nome,"
+        hello_firstname_text: "Ciao %{person},"
     left_hand_navigation:
       general: ~
       users_and_transactions: "Utenti & transazioni"

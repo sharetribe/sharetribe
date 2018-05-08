@@ -52,7 +52,7 @@ cs:
       failure: "Nebylo možné ověřit účet %{kind} z důvodu %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Aktivační instrukce"
+        subject: "Aktivační instrukce k připojení %{service_name}"
       reset_password_instructions:
         subject: "Instrukce ke změně hesla"
       unlock_instructions:
