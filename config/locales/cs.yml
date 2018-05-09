@@ -1895,7 +1895,7 @@ cs:
     paypal_receive_funds_info_label_australia_only: "Aby mohl Váš PayPal účet přijímat platby, musí být nastaven jako \"Premier\" nebo \"Business\" účet."
     paypal_receive_funds_info_label: "Aby mohl Tvůj PayPal účet přijímat platby, bude možná potřeba \"Business\" účet."
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
+    paypal_receive_funds_info: "Jestliže vidíte chybu při přihlášení na váš účet na webu %{service_name}, %{upgrade_paypal_account_link}.Je to jednoduché a snadné. Pokud jste jednotlivec, PayPal doporučuje používat vaše jméno jako Obchodní jméno."
     upgrade_paypal_account_link_text: "Připojte se a nastavte svůj PayPal účet jako obchodní účet"
     admin_account_not_connected: "Použití platebního systému %{service_name} k přijímání plateb není možné, protože platby nebyly nastaveny. Pro podrobnosti prosím prosím kontaktujte %{contact_admin_link}."
     contact_admin_link_text: "kontaktujte %{service_name} správce"
