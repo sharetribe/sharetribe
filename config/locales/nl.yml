@@ -285,7 +285,7 @@ nl:
         invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
         facebook_connect_secret: "Facebook client geheim"
         invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
-        enable_facebook_login: ~
+        enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
       analytics:
         analytics: Analytics
@@ -374,18 +374,18 @@ nl:
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
       testimonials:
-        testimonials: ~
+        testimonials: "Bekijk recensies"
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
-          grade: ~
-          note: ~
+          transaction: Transactie
+          author: Auteur
+          receiver: Ontvanger
+          status: Status
+          grade: Cijfer
+          note: Aantekening
         status:
-          waiting: ~
-          skipped: ~
-          published: ~
+          waiting: "In afwachting van recensie"
+          skipped: Overgeslagen
+          published: Gepubliceerd
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -660,17 +660,17 @@ nl:
         payments_not_enabled: "Betalingen zijn niet ingeschakeld voor je marktplaats."
     transaction_types:
       sell: Verkopen
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Verkopende met online betaling"
+      sell_wo_online_payment: "Verkopende zonder online betaling"
       rent: Verhuren
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Verhurende met online betaling"
+      rent_wo_online_payment: "Verhurende zonder online betaling"
       give: Weggeven
       lend: Uitlenen
       swap: Ruilen
       service: Aanbod
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
+      service_w_online_payment: "Aangeboden met online betaling"
+      service_wo_online_payment: "Aangeboden zonder online betaling"
       request: Vraag
       inquiry: Verzoek
       share_for_free: "Gratis delen"
@@ -1167,8 +1167,8 @@ nl:
       reject_authorization_error: "Het annuleren van de preautorisatie van de PayPal betaling is mislukt. Probeer opnieuw a.u.b."
     stripe:
       generic_error: "Er is een fout opgetreden tijdens de betaling. Je Stripe betaling kon niet worden uitgevoerd."
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te accepteren. Gelieve het opnieuw te proberen."
+      reject_authorization_error: "Er is een fout opgetreden tijdens een poging on een vooraf geauthoriseerde betaling te weigeren. Gelieve het opnieuw te proberen."
   error_pages:
     back_to_kassi_front_page: "Terug naar de voorpagina"
     error_404:
@@ -2460,7 +2460,7 @@ nl:
       bank_routing_1: Bankcode
       bank_routing_2: Filiaalcode
       bank_currency: "Valuta bankrekening"
-      update_also_bank_account: ~
+      update_also_bank_account: "Werk ook bankrekeningnummer bij"
       messages:
         account_number: Bankrekeningnummer
         routing_number: "Routing nummer"

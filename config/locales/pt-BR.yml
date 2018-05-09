@@ -725,7 +725,7 @@ pt-BR:
       title: "Taxa de processamento do pagamento"
       stripe: ~
       paypal: ~
-      info: ~
+      info: "Pagamentos em %{service_name} são processados pelo portal de pagamentos listado abaixo. %{service_name} irá cobrar uma comissão, dependendo do portal de pagamento. O portal de pagamento poderá também cobrar uma taxa por cada pagamento, conforme descrito abaixo."
     paypal_fee_info:
       title: "Taxa de processamento do pagamento do PayPal"
       body_text: |-
@@ -735,7 +735,7 @@ pt-BR:
       link_to_paypal_text: aqui
     stripe_fee_info:
       title: "Taxa de processamento do pagamento do Stripe"
-      body_text: ~
+      body_text: "Para pagamentos Stripe, o %{service_name} cobra uma comissão de %{stripe_commission}. A taxa minima por transação é de %{minimum_transaction_fee}. As taxas dos pagamentos Stripe estão incluídas na comissão."
       link_to_stripe_text: ~
   conversations:
     accept:
@@ -1843,7 +1843,7 @@ pt-BR:
       payment: ~
       pay_with_card: ~
       address: ~
-      address_country: ~
+      address_country: País
       address_name: ~
       address_city: ~
       address_state: ~
@@ -2404,22 +2404,22 @@ pt-BR:
     add_and_pay: ~
     card_not_stored: ~
     missing_payment: "Você tem anúncios ativos mas sua conta ainda não foi configurada para receber pagamentos. Para configurar o recebimento de pagamentos, visite %{settings_link}"
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
+    stripe_bank_connected: "Dados bancários configurados com sucesso!"
+    stripe_can_accept: "Está pronto para receber dinheiro na sua conta bancária"
     stripe_credit_card: ~
     paypal: ~
     paypal_connected: ~
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
-      need_info: ~
-      select_country: ~
+      need_info: "Precisamos de alguma informação para poder enviar-lhe o seu dinheiro."
+      select_country: "Selecione o país..."
       legal_name: ~
-      country: ~
-      birth_date: ~
+      country: País
+      birth_date: "Data de nascimento"
       ssn_last_4: ~
       personal_id_number: ~
-      address_country: ~
+      address_country: País
       address_state: ~
       address_city: ~
       address_postal_code: ~
@@ -2466,14 +2466,14 @@ pt-BR:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
-    bank_account: ~
+    title: "Preferências de pagamento"
+    bank_account: "Conta bancária"
     paypal: ~
-    bank_account_details: ~
+    bank_account_details: "Para receber dinheiro na sua conta bancária por favor indique-nos os seus dados de conta. Os seus clientes poderão pagar com cartão de crédito."
     add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
+    can_accept_stripe_and_paypal: "Pode receber dinheiro na sua conta bancária ou na sua conta PayPal"
+    to_accept_paypal: "Para receber dinheiro na sua conta PayPal, precisa de conectar a sua conta PayPal. Os seus clientes poderao efectuar pagamentos com PayPal."
+    connect_paypal: "Conectar a sua conta PayPal"
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~

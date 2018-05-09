@@ -2422,12 +2422,12 @@ pt-PT:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: "Preferências de pagamento"
     bank_account: ~
     paypal: ~
     bank_account_details: ~
     add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
+    can_accept_stripe_and_paypal: "Pode receber dinheiro na sua conta bancária ou na sua conta PayPal."
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~

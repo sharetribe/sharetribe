@@ -283,7 +283,7 @@ sv:
         invalid_facebook_connect_id: "Klient-ID ska bara innehålla nummer."
         facebook_connect_secret: "Facebook klientsäkerhet"
         invalid_facebook_connect_secret: "Klientsäkerhet ska bara innehålla nummer och bokstäver från a till f."
-        enable_facebook_login: ~
+        enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
       analytics:
         analytics: Analytics
@@ -374,16 +374,16 @@ sv:
       testimonials:
         testimonials: "Visa recensioner"
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
-          grade: ~
-          note: ~
+          transaction: Transaktion
+          author: Författare
+          receiver: Mottagare
+          status: Status
+          grade: Betyg
+          note: Recension
         status:
-          waiting: ~
-          skipped: ~
-          published: ~
+          waiting: "Väntar på recension"
+          skipped: "Hoppade över"
+          published: Publicerad
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -657,17 +657,17 @@ sv:
         payments_not_enabled: "Online betalningar är inte aktiverad för din marknadsplats"
     transaction_types:
       sell: Säljer
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Försäljning med onlinebetalning"
+      sell_wo_online_payment: "Försäljning utan onlinebetalning"
       rent: "Hyr ut"
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Hyr ut med onlinebetalning"
+      rent_wo_online_payment: "Hyr ut utan onlinebetalning"
       give: "Ge bort"
       lend: "Låna ut"
       swap: Byta
       service: Erbjudande
-      service_w_online_payment: ~
-      service_wo_online_payment: ~
+      service_w_online_payment: "Erbjudande med onlinebetalning"
+      service_wo_online_payment: "Erbjudande utan onlinebetalning"
       request: Förfrågan
       inquiry: Meddelande
       share_for_free: Dela
@@ -849,7 +849,7 @@ sv:
       payment_errored_author: "Betalningen misslyckades. Vänligen kontakta %{starter_name} och be dem att försöka betala igen."
       cancel_payed_transaction: Avbryt
       feedback_given: "Feedback skickat"
-      feedback_skipped: "Ingen feedback"
+      feedback_skipped: "Gav ingen feedback"
       give_feedback: "Ge feedback"
       offer_accepted: Godkänd
       offer_rejected: Avslagen
@@ -1166,8 +1166,8 @@ sv:
       reject_authorization_error: "Ett fel uppstod vid försök att avbryta den förauktoriserade PayPal betalningen. Vänligen försök igen."
     stripe:
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din Stripe betalning."
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      accept_authorization_error: "Ett fel uppstod vid försök att acceptera den förauktoriserade Stripe betalningen. Vänligen försök igen."
+      reject_authorization_error: "Ett fel uppstod vid försök att avbryta den förauktoriserade Stripe betalningen. Vänligen försök igen."
   error_pages:
     back_to_kassi_front_page: "Tillbaka till startsidan"
     error_404:
@@ -1463,7 +1463,7 @@ sv:
       feedback_not_saved: "Feedback kunde inte skickas."
       feedback_saved: "Tack så mycket för ditt meddelande! Vi återkommer så fort vi kan."
       feedback_sent_to: "Feedback skickades till %{target_person}."
-      feedback_skipped: "Feedback skippades"
+      feedback_skipped: "Gav ingen feedback"
       invitation_cannot_be_sent: "Inbjudan kunde inte skickas"
       invitation_cannot_unsubscribe: "Kan inte avprenumerera från inbjudningsemail"
       invitation_limit_reached: "Du försökte skicka för många inbjudningar. Dagliga gränsen är nådd."
