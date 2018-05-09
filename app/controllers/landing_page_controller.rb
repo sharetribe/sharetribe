@@ -123,9 +123,6 @@ class LandingPageController < ActionController::Metal
     begin
       structure = CLP::LandingPageStore.load_structure(cid, preview_version)
 
-      # Uncomment to use static data instead of dynamic from DB
-      # structure = JSON.parse(CustomLandingPage::ExampleData::DATA_STR)
-
       # Tell robots to not index and to not follow any links
       headers["X-Robots-Tag"] = "none"
 
