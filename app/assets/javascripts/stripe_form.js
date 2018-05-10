@@ -338,9 +338,6 @@ var stripeToken = (function() {
   var _ref = _asyncToGenerator(
     /*#__PURE__*/ regeneratorRuntime.mark(function _callee(options, callback) {
       var country,
-        names,
-        space,
-        legalNames,
         firstName,
         lastName,
         data,
@@ -359,11 +356,8 @@ var stripeToken = (function() {
             switch ((_context.prev = _context.next)) {
               case 0:
                 (country = getValue("address_country")),
-                  (names = getValue("legal_name")),
-                  (space = /\s+/),
-                  (legalNames = names ? names.split(space) : []),
-                  (firstName = legalNames[0]),
-                  (lastName = legalNames[1]);
+                  (firstName = getValue("first_name")),
+                  (lastName = getValue("last_name"));
                 data = {
                   legal_entity: {
                     type: "individual"
