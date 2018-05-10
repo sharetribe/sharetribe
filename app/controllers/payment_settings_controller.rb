@@ -315,7 +315,7 @@ class PaymentSettingsController < ApplicationController
     return unless @stripe_account_ready
 
     account_params = params.require(:stripe_account_form)
-    address_attrs = account_params.permit(:legal_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :token)
+    address_attrs = account_params.permit(:legal_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :personal_id_number, :token)
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
