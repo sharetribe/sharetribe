@@ -5,7 +5,7 @@
 - if listings.total_entries > limit
   .people-load-more-listings-container
     #load-more-listings
-      - if current_user?(@person) && params[:show_closed]
-        = link_to t("people.show.show_all_listings"), "#", :data => { :url => person_listings_url(@person, :show_closed => true) }
+      - if current_user?(person) && params[:show_closed]
+        = link_to t("people.show.show_all_listings"), "#", :data => { :url => person_listings_url(person, :show_closed => true) }
       - else
-        = link_to t("people.show.show_all_open_listings"), "#", :data => { :url => person_listings_url(@person) }
+        = link_to t("people.show.show_all_open_listings"), "#", :data => { :url => person_listings_url(person) }
