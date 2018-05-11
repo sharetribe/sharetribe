@@ -160,7 +160,9 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def build_devise_resource_from_person(person_params)
-    person_params.delete(:terms) #remove terms part which confuses Devise
+    #remove terms part which confuses Devise
+    person_params.delete(:terms)
+    person_params.delete(:admin_emails_consent)
 
     # This part is copied from Devise's regstration_controller#create
     build_resource(person_params)
@@ -336,6 +338,7 @@ class PeopleController < Devise::RegistrationsController
     initial_params[:person][:community_id] = current_community.id
 
     params = person_create_params(initial_params)
+    admin_emails_consent = params[:admin_emails_consent]
     person = Person.new
 
     email = Email.new(:person => person, :address => params[:email].downcase, :send_notifications => true, community_id: current_community.id)
@@ -352,6 +355,8 @@ class PeopleController < Devise::RegistrationsController
     end
 
     person.set_default_preferences
+    person.preferences["email_from_admins"] = (admin_emails_consent == "on")
+    person.save
 
     [person, email]
   end
@@ -374,6 +379,7 @@ class PeopleController < Devise::RegistrationsController
         :username,
         :test_group_number,
         :community_id,
+        :admin_emails_consent,
     ).permit!
   end
 

@@ -69,6 +69,12 @@
 
     = form.hidden_field :consent, :value => @current_community.consent
 
+    .outer-checkbox-container
+      .checkbox-container
+        %input{:type => "checkbox", :id => "person_admin_emails_consent", :name => "person[admin_emails_consent]"}
+        = form.label :admin_emails_consent, t('.admin_emails_consent'), :class => 'checkbox'
+
+
     = button_tag t('.create_new_account')
 
 = render :partial => "help_texts", :collection => ["terms", "help_invitation_code"], :as => :field
