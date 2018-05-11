@@ -193,6 +193,11 @@ class PeopleController < Devise::RegistrationsController
       Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
 
       @person.set_default_preferences
+
+      # By default no email consent is given
+      @person.preferences["email_from_admins"] = false
+      @person.save
+
       CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
     end
 
