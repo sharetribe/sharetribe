@@ -33,9 +33,12 @@ module TransactionService::Process
         gateway_fields: gateway_fields,
         force_sync: true)
 
-      Gateway.unwrap_completion(completion) do
+      if completion[:success] && completion[:sync]
         finalize_create(tx: tx, gateway_adapter: gateway_adapter, force_sync: true)
+      elsif !completion[:success]
+        delete_failed_transaction(tx)
       end
+      completion[:response]
     end
 
     def finalize_create(tx:, gateway_adapter:, force_sync:)
@@ -155,6 +158,12 @@ module TransactionService::Process
       Result::Success.new({result: true})
     end
 
+    # Stripe gateway works in sync mode. Failed transaction will be deleted.
+    def delete_failed_transaction(tx)
+      if tx.payment_gateway == :stripe
+        TransactionService::Store::Transaction.delete(community_id: tx.community_id, transaction_id: tx.id)
+      end
+    end
 
     private
 
