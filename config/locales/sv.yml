@@ -816,7 +816,7 @@ sv:
       payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
       stripe:
         held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills förfrågan har blivit markerad som slutförd."
-        confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bank konto eller kommer snart att överföras."
+        confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bankkonto eller kommer snart att överföras."
     new:
       message: Meddelande
       message_to: "Meddelande till %{author_name}"
@@ -1109,7 +1109,7 @@ sv:
       you_have_not_given_feedback_yet: "Du har ännu inte lämnat någon feedback till %{name} angående händelsen '%{event}'. Kom ihåg att ge feedback om hur %{given_name} utfört händelsen."
     transaction_preauthorized:
       subject: "%{requester} är intresserad och har auktoriserat betalningen för %{listing_title} som finns på %{service_name}"
-      transaction_requested_by_user: "Goda nyhteter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
+      transaction_requested_by_user: "Goda nyheter! %{requester} är intresserad av %{listing_title} och har auktoriserat betalningen för annonsen."
       you_have_time_to_accept: "Du måste acceptera eller avböja förfrågan inom %{payment_expires_in}."
       if_you_do_accept: "Om du bekräftar betalningen inom denna tidsram kommer du omedelbart få betalningen till ditt konto."
       if_you_do_accept_stripe: "Om du accepterar förfrågan inom denna tidsram så kommer betalningen gå igenom. Du kommer att få pengarna direkt till ditt bankkonto efter att du har uppfyllt förfrågan för %{listing_title} åt %{requester}."
@@ -1727,7 +1727,7 @@ sv:
       offers: Erbjudanden
       request_something: "Efterfråga något!"
       request_type: "Typ av förfrågan"
-      requests: Förfrågan
+      requests: Förfrågningar
       rideshare: Samåkning
       you_have_something_others_do_not: "Har du något att erbjuda?"
       feed_title: "%{listing_type} på %{service_name}%{optional_category}"
