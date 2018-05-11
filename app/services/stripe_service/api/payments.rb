@@ -56,6 +56,7 @@ module StripeService::API
 
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
@@ -72,6 +73,7 @@ module StripeService::API
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: {status: 'canceled'})
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
@@ -88,6 +90,7 @@ module StripeService::API
                                       })
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
