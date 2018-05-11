@@ -11,6 +11,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 ### Added
 
 - Add soundcloud link support in custom landing page footer [#3300](https://github.com/sharetribe/sharetribe/pull/3300)
+- Add checkbox for consent for receiving emails from admins to signup process [#3318](https://github.com/sharetribe/sharetribe/pull/3318)
 
 ### Changed
 
