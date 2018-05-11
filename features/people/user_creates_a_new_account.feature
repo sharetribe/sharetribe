@@ -17,6 +17,7 @@ Feature: User creates a new account
     And I fill in "Confirm password" with "test"
     And I fill in "Email address" with random email
     And I check "person_terms"
+    And I check "person_admin_emails_consent"
     And I press "Create account"
     Then I should see "Please confirm your email"
     When wait for 1 seconds
@@ -27,6 +28,34 @@ Feature: User creates a new account
     And I should see "The email you entered is now confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
+    When I open user menu
+    When I follow "Settings"
+    And I follow "settings-tab-notifications"
+    Then the "I accept to receive occasional emails from" checkbox should be checked
+
+  Scenario: Creating a new account successfully without giving admin email consent
+    Then I should not see "The access to Sharetribe is restricted."
+    When I fill in "person[username]" with random username
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
+    And I check "person_terms"
+    And I press "Create account"
+    Then I should see "Please confirm your email"
+    When wait for 1 seconds
+    Then I should receive 1 email
+    When I open the email
+    And I click the first link in the email
+    Then I should have 2 emails
+    And I should see "The email you entered is now confirmed"
+    And I should not see my username
+    And Most recently created user should be member of "test" community with its latest consent accepted
+    When I open user menu
+    When I follow "Settings"
+    And I follow "settings-tab-notifications"
+    Then the "I accept to receive occasional emails from" checkbox should not be checked
 
   Scenario: Trying to create account with unavailable username
     When I fill in "person[username]" with "kassi_testperson2"
