@@ -71,6 +71,10 @@ class CommunityMembershipsController < ApplicationController
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       Delayed::Job.enqueue(SendWelcomeEmail.new(@current_user.id, @current_community.id), priority: 5)
 
+      # Record user's email preference
+      @current_user.preferences["email_from_admins"] = (params[:form][:admin_emails_consent] == "on")
+      @current_user.save
+
       record_event(flash, "GaveConsent")
 
       flash[:notice] = t("layouts.notifications.you_are_now_member")

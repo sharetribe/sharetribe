@@ -45,6 +45,12 @@
         = check_box_tag "form[consent]", "on", values[:consent] == "on", id: "community_membership_consent"
         = label_tag "form[consent]", t('people.new.i_accept_the'), class: "checkbox"
         = link_to t("people.new.terms"), "#", tabindex: "-1", id: "terms_link", class: "form"
+
+    .outer-checkbox-container
+      .checkbox-container
+        = check_box_tag "form[admin_emails_consent]", "on", values[:admin_email_consent] == "on", id: "admin_emails_consent"
+        = label_tag "form[admin_emails_consent]", t('people.new.admin_emails_consent'), class: "checkbox"
+
     = button_tag(t('community_memberships.new.join_community_button'), class: "send_button")
 
 = render partial: "people/help_texts", collection: ["terms", "help_invitation_code"], as: :field
