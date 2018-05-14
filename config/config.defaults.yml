@@ -454,7 +454,7 @@ default: &default_settings
   stripe_publishable_key_pattern: "\\Apk_test_.{24}\\z"
 
   # Stripe allows to hold funds up to 90 days
-  # (85 and not 90 or 89 as a security, also because timezones are not 
+  # (85 and not 90 or 89 as a security, also because timezones are not
   # managed and transactions are automatically marked as completed)
   stripe_max_booking_date: 85
 
@@ -462,13 +462,22 @@ default: &default_settings
   # Sharetribe supports only managed accounts, and two payment modes:
   #
   # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
-  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller  
+  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller
   #
   # By default :destination mode is used
   stripe_charges_mode: :destination
 
   # Used to encrypt Stripe api keys
   app_encryption_key:
+
+  ##########################################
+  # Admin (sharetribe.com internal)
+  ##########################################
+
+  # Enable end-user analytics tracking configuration
+  # in admin panel. Open source users should instead use
+  # the use_google_tag_manager: false
+  admin_enable_tracking_config: false
 
 production: &production_settings
   <<: *default_settings

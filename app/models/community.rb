@@ -89,6 +89,7 @@
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
+#  end_user_analytics                         :boolean          default(TRUE)
 #
 # Indexes
 #
