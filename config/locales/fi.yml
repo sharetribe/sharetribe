@@ -1979,6 +1979,7 @@ fi:
       family_name: Sukunimi
       given_name: Etunimi
       i_accept_the: Hyväksyn
+      admin_emails_consent: ~
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: Kutsukoodi
       not_required: ", ei pakollinen"
@@ -2438,12 +2439,15 @@ fi:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
       select_country: "Valitse maa..."
       legal_name: Nimi
+      first_name: ~
+      last_name: ~
       country: Maa
       birth_date: Syntymäaika
       ssn_last_4: "Henkilötunnuksen 4 viimeistä numeroa"
       personal_id_number: "Henkilökohtainen ID"
       address_country: Maa
       address_state: Valtio
+      address_province: ~
       address_city: Kaupunki
       address_postal_code: Postinumero
       address_line1: Katuosoite

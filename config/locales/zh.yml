@@ -1960,6 +1960,7 @@ zh:
       family_name: 姓
       given_name: 名
       i_accept_the: 我接受
+      admin_emails_consent: ~
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
       not_required: ，不是必须的
@@ -2386,12 +2387,15 @@ zh:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

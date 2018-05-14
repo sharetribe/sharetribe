@@ -1979,6 +1979,7 @@ fr:
       family_name: Nom
       given_name: Prénom
       i_accept_the: "J'accepte les"
+      admin_emails_consent: "J'accepte de recevoir occasionnellement des messages de l'équipe %{service_name} et je comprends que je peux changer d'avis à tout moment"
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
@@ -2110,7 +2111,7 @@ fr:
         status_confirmed: Confirmé
         status_pending: "En attente"
     notifications:
-      email_from_admins: "J'accepte de recevoir occasionnellement des messages des administrateurs"
+      email_from_admins: "J'accepte de recevoir occasionnellement des messages de l'équipe %{service_name}"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
       newsletters: "Emails de la part des administrateurs"
       community_updates: Newsletters
@@ -2437,12 +2438,15 @@ fr:
       need_info: "Nous avons besoin de quelques informations pour pouvoir vous transférer votre argent."
       select_country: "Choisir un pays..."
       legal_name: "Nom complet (Prénom Nom)"
+      first_name: Prénom
+      last_name: Nom
       country: Pays
       birth_date: "Date de naissance"
       ssn_last_4: "Derniers 4 chiffres SSN"
       personal_id_number: "Numéro d'identifiant personnel"
       address_country: Pays
       address_state: Etat
+      address_province: Province
       address_city: Ville
       address_postal_code: "Code postal"
       address_line1: Adresse

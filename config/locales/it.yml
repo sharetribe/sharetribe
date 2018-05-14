@@ -1946,6 +1946,7 @@ it:
       family_name: Cognome
       given_name: Nome
       i_accept_the: "Accetto i"
+      admin_emails_consent: ~
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
@@ -2375,12 +2376,15 @@ it:
       need_info: "Abbiamo bisogno di alcune informazioni su di te per poterti inviare denaro"
       select_country: "Scegli nazione"
       legal_name: Nome
+      first_name: ~
+      last_name: ~
       country: Nazione
       birth_date: "Data di nascita"
       ssn_last_4: ~
       personal_id_number: "Numero documento di identità"
       address_country: Nazione
       address_state: Provincia
+      address_province: ~
       address_city: Città
       address_postal_code: "Codice postale"
       address_line1: Indirizzo

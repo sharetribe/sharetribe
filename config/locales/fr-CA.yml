@@ -1957,6 +1957,7 @@ fr-CA:
       family_name: Nom
       given_name: Prénom
       i_accept_the: "J'accepte les"
+      admin_emails_consent: ~
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation"
       not_required: ", pas demandé"
@@ -2378,12 +2379,15 @@ fr-CA:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

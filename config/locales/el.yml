@@ -1940,6 +1940,7 @@ el:
       family_name: Επώνυμο
       given_name: Όνομα
       i_accept_the: "Αποδέχομαι τους"
+      admin_emails_consent: ~
       invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
       invitation_code: "Κωδικός πρόσκλησης"
       not_required: ", δεν απαιτείται"
@@ -2348,12 +2349,15 @@ el:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

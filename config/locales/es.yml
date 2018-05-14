@@ -1947,6 +1947,7 @@ es:
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto los"
+      admin_emails_consent: ~
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
@@ -2355,12 +2356,15 @@ es:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

@@ -1962,6 +1962,7 @@ ka:
       family_name: გვარი
       given_name: სახელი
       i_accept_the: ვეთანხმები
+      admin_emails_consent: ~
       invalid_invitation_code: "მოწვევის კოდი არ არის სწორი"
       invitation_code: "მოწვევის კოდი"
       not_required: "არ არის მოთხოვნილი"
@@ -2392,12 +2393,15 @@ ka:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

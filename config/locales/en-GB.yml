@@ -1937,6 +1937,7 @@ en-GB:
       family_name: ~
       given_name: ~
       i_accept_the: ~
+      admin_emails_consent: ~
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~
@@ -2342,12 +2343,15 @@ en-GB:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

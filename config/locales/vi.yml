@@ -1964,6 +1964,7 @@ vi:
       family_name: Họ
       given_name: Tên
       i_accept_the: "Tôi chấp nhận"
+      admin_emails_consent: ~
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
       not_required: ", không bắt buộc"
@@ -2394,12 +2395,15 @@ vi:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

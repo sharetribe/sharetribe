@@ -1975,6 +1975,7 @@ nb:
       family_name: Etternavn
       given_name: Fornavn
       i_accept_the: "Jeg aksepterer"
+      admin_emails_consent: ~
       invalid_invitation_code: "Invitasjonskode er ikke gyldig."
       invitation_code: Invitasjonskode
       not_required: ", ikke påkrevd"
@@ -2415,12 +2416,15 @@ nb:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

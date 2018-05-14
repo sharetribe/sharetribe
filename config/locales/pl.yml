@@ -1995,6 +1995,7 @@ pl:
       family_name: Nazwisko
       given_name: Imię
       i_accept_the: Akceptuję
+      admin_emails_consent: ~
       invalid_invitation_code: "Kod zaproszenia jest niepoprawny"
       invitation_code: "Kod zaproszenia"
       not_required: ", nie wymagane"
@@ -2455,12 +2456,15 @@ pl:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

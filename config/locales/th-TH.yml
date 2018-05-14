@@ -1955,6 +1955,7 @@ th-TH:
       family_name: นามสกุล
       given_name: ชื่อ
       i_accept_the: ฉันยอมรับ
+      admin_emails_consent: ~
       invalid_invitation_code: รหัสเชิญไม่ถูกต้อง
       invitation_code: รหัสเชิญ
       not_required: ", ไม่จำเป็น"
@@ -2374,12 +2375,15 @@ th-TH:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

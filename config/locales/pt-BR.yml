@@ -1975,6 +1975,7 @@ pt-BR:
       family_name: Sobrenome
       given_name: Nome
       i_accept_the: "Eu aceito os"
+      admin_emails_consent: ~
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código do convite "
       not_required: ", não necessaria"
@@ -2415,12 +2416,15 @@ pt-BR:
       need_info: "Precisamos de alguma informação para poder enviar-lhe o seu dinheiro."
       select_country: "Selecione o país..."
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: País
       birth_date: "Data de nascimento"
       ssn_last_4: ~
       personal_id_number: ~
       address_country: País
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

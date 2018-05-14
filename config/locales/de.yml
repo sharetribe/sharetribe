@@ -1979,6 +1979,7 @@ de:
       family_name: Nachname
       given_name: Vorname
       i_accept_the: "Ich akzeptiere die"
+      admin_emails_consent: ~
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
@@ -2437,12 +2438,15 @@ de:
       need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
       select_country: "Land wählen..."
       legal_name: "Gesetzlicher Name"
+      first_name: Vorname
+      last_name: Nachname
       country: Land
       birth_date: Geburtsdatum
       ssn_last_4: "Sozialversicherungsnummer, letzte 4 Ziffern"
       personal_id_number: Personalausweisnummer
       address_country: Land
       address_state: Staat
+      address_province: Bundesland
       address_city: Stadt
       address_postal_code: Postleitzahl
       address_line1: Adresse
