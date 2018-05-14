@@ -316,4 +316,9 @@ $listings__tablet-gutter: 16px;
   color: $typography__main-color;
 }
 
-
+.listings__section--background-color, .listings__section--background-image--light, .listings__section--background-image--dark {
+  .listings__button--ghost {
+      color: #ffffff;
+      border-color: #ffffff;
+  }
+}
