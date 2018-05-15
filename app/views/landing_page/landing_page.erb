@@ -55,6 +55,8 @@
     <%= render partial: "analytics/google_analytics_script",
                locals: { feature_flags: feature_flags,
                          community_id: community_context[:id],
+                         user_is_admin: false,
+                         end_user_analytics: community_context[:end_user_analytics],
                          google_analytics_key: community_context[:google_analytics_key] } %>
   <% end %>
 

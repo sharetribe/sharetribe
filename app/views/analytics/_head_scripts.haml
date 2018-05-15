@@ -16,9 +16,10 @@
 = render :partial => "analytics/google_analytics_script",
   locals: {feature_flags: FeatureFlagHelper.feature_flags,
   community_id: Maybe(community).id.or_else,
-  google_analytics_key: Maybe(community).google_analytics_key.or_else}
+  google_analytics_key: Maybe(community).google_analytics_key.or_else,
+  end_user_analytics: Maybe(community).end_user_analytics.or_else,
+  user_is_admin: community && Maybe(user).is_marketplace_admin?(community).or_else}
 
 -# Intercom for admin area
 - if on_admin? && IntercomHelper.admin_intercom_respond_enabled?
   = render partial: "analytics/intercom", locals: { app_id: IntercomHelper.admin_intercom_app_id}
-
