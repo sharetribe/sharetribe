@@ -620,6 +620,10 @@ class Community < ApplicationRecord
     supported.size > 1 ? supported : supported.first
   end
 
+  def is_person_only_admin(person)
+    admins.count == 1 && admins.first == person
+  end
+
   private
 
   def initialize_settings

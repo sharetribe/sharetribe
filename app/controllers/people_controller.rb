@@ -284,7 +284,9 @@ class PeopleController < Devise::RegistrationsController
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
 
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
-    return redirect_to search_path if has_unfinished
+    only_admin = @current_community.is_person_only_admin(target_user)
+
+    return redirect_to search_path if has_unfinished || only_admin
 
     # Do all delete operations in transaction. Rollback if any of them fails
     ActiveRecord::Base.transaction do
