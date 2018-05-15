@@ -1969,6 +1969,7 @@ ko:
       family_name: 성
       given_name: 이름
       i_accept_the: "나는 동의합니다"
+      admin_emails_consent: ~
       invalid_invitation_code: "초청 코드가 유효하지 않습니다."
       invitation_code: 초청코드
       not_required: ", 필요하지 않습니다"
@@ -2412,12 +2413,15 @@ ko:
       need_info: "우리는 당신에게 돈을 보낼 수있는 당신에 관한 정보가 필요합니다."
       select_country: 국가선택...
       legal_name: 법명
+      first_name: ~
+      last_name: ~
       country: 국가
       birth_date: 생일
       ssn_last_4: "SSN 마지막 4"
       personal_id_number: "개인 아이디 넘버"
       address_country: 국가
       address_state: 주
+      address_province: ~
       address_city: 도시
       address_postal_code: 우편번호
       address_line1: 거리주소

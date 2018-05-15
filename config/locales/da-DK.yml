@@ -1973,6 +1973,7 @@ da-DK:
       family_name: Efternavn
       given_name: Fornavn
       i_accept_the: "Jeg accepterer"
+      admin_emails_consent: ~
       invalid_invitation_code: "Invitationskode er ikke gyldig."
       invitation_code: Invitationskode
       not_required: ", ikke nødvendig."
@@ -2413,12 +2414,15 @@ da-DK:
       need_info: ~
       select_country: "Vælg land"
       legal_name: "Kontohavers navn"
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: Fødselsdato
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

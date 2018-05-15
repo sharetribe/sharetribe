@@ -1937,6 +1937,7 @@ ca:
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"
+      admin_emails_consent: ~
       invalid_invitation_code: "El codi d'invitació no és vàlid"
       invitation_code: "Codi d'invitació:"
       not_required: ", no és necessari"
@@ -2342,12 +2343,15 @@ ca:
       need_info: ~
       select_country: ~
       legal_name: "Nom legal"
+      first_name: ~
+      last_name: ~
       country: País
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: "NIF/NIE/Número de Passaport"
       address_country: País
       address_state: ~
+      address_province: ~
       address_city: Ciutat
       address_postal_code: "Codi postal"
       address_line1: ~

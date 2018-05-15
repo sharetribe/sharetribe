@@ -1979,6 +1979,7 @@ en-NZ:
       family_name: "Last name"
       given_name: "First name"
       i_accept_the: "I accept the"
+      admin_emails_consent: ~
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
       not_required: ", not required"
@@ -2433,12 +2434,15 @@ en-NZ:
       need_info: "We need some information about you to be able to send you money."
       select_country: "Select country..."
       legal_name: "Legal name"
+      first_name: ~
+      last_name: ~
       country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
       personal_id_number: "Personal ID number"
       address_country: Country
       address_state: State
+      address_province: ~
       address_city: City
       address_postal_code: "Postal code"
       address_line1: "Street address"

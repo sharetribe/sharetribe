@@ -1954,6 +1954,7 @@ tr-TR:
       family_name: Soyad
       given_name: Ad
       i_accept_the: "Okudum ve Kabul ediyorum:"
+      admin_emails_consent: ~
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
@@ -2380,12 +2381,15 @@ tr-TR:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

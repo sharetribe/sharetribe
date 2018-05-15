@@ -1937,6 +1937,7 @@ lv:
       family_name: Uzvārds
       given_name: Vārds
       i_accept_the: "Es apstiprinu"
+      admin_emails_consent: ~
       invalid_invitation_code: "Ielūguma kods nav pareizs"
       invitation_code: "Ielūguma kods"
       not_required: ", nav nepieciešams"
@@ -2346,12 +2347,15 @@ lv:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

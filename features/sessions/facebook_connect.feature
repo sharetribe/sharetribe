@@ -44,6 +44,7 @@ Feature: Facebook connect
     And I follow "fb-login"
     Then I should see "Welcome to Sharetribe, Markus! There's one more step to join"
     When I check "community_membership_consent"
+    When I check "admin_emails_consent"
     And I press "Join Sharetribe"
     Then I should see "Welcome to Sharetribe!"
     And I should see "Markus"
@@ -52,6 +53,30 @@ Feature: Facebook connect
     And user "markusdotsharer123" should have email "markus@example.com"
     And user "markusdotsharer123" should have "facebook_id" with value "597013691"
     And user "markusdotsharer123" should not have "image_file_size" with value "nil"
+    When I open user menu
+    When I follow "Settings"
+    And I follow "settings-tab-notifications"
+    Then the "I accept to receive occasional emails from" checkbox should be checked
+
+  @javascript
+  Scenario: Facebook connect first time, without existing account in Sharetribe, no admin email consent
+    Given I am on the home page
+    When I follow log in link
+    And I follow "fb-login"
+    Then I should see "Welcome to Sharetribe, Markus! There's one more step to join"
+    When I check "community_membership_consent"
+    And I press "Join Sharetribe"
+    Then I should see "Welcome to Sharetribe!"
+    And I should see "Markus"
+    And user "markusdotsharer123" should have "given_name" with value "Markus"
+    And user "markusdotsharer123" should have "family_name" with value "Sugarberg"
+    And user "markusdotsharer123" should have email "markus@example.com"
+    And user "markusdotsharer123" should have "facebook_id" with value "597013691"
+    And user "markusdotsharer123" should not have "image_file_size" with value "nil"
+    When I open user menu
+    When I follow "Settings"
+    And I follow "settings-tab-notifications"
+    Then the "I accept to receive occasional emails from" checkbox should not be checked
 
   @javascript
   Scenario: Facebook connect to log in when the accounts are already linked

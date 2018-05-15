@@ -1163,7 +1163,7 @@ es-ES:
       accept_authorization_error: "Ha ocurrido un error al intentar aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
       reject_authorization_error: "Ha ocurrido un error al rechazar el pago pre-autorizado de PayPal. Por favor, inténtalo de nuevo."
     stripe:
-      generic_error: "Ocurrió un error al procesar el pago. No se pudo finalizar el pago Stripe."
+      generic_error: "Ocurrió un error al procesar el pago. No se pudo finalizar el pago con Stripe."
       accept_authorization_error: "Ocurrió un error al intentar aceptar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
       reject_authorization_error: "Ocurrió un error al intentar rechazar el pago preautorizado con Stripe. Por favor inténtalo nuevamente."
   error_pages:
@@ -1979,6 +1979,7 @@ es-ES:
       family_name: Apellido
       given_name: "Nombre:"
       i_accept_the: "Acepto los"
+      admin_emails_consent: "Acepto recibir correos del equipo de %{service_name} y entiendo que puedo cambiar de parecer en cualquier momento"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
@@ -2110,7 +2111,7 @@ es-ES:
         status_confirmed: Confirmado
         status_pending: Pendiente
     notifications:
-      email_from_admins: "Quiero recibir correos de los administradores de forma ocasional."
+      email_from_admins: "Acepto recibir correos del equipo de %{service_name}"
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: "Correos de los administradores"
       community_updates: "Actualizaciones de la comunidad"
@@ -2437,12 +2438,15 @@ es-ES:
       need_info: "Necesitamos un poco de información sobre ti para poder enviarte dinero."
       select_country: "Selecciona un país..."
       legal_name: "Nombre legal"
+      first_name: Nombre
+      last_name: Apellido(s)
       country: País
       birth_date: "Fecha de nacimiento"
       ssn_last_4: "Últimos 4 dígitos del SSN"
       personal_id_number: "Numero personal de ID"
       address_country: País
       address_state: Estado
+      address_province: Provincia
       address_city: Ciudad
       address_postal_code: "Código postal"
       address_line1: Dirección

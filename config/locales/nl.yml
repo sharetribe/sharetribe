@@ -1982,6 +1982,7 @@ nl:
       family_name: Familienaam
       given_name: Voornaam
       i_accept_the: "Ik accepteer de"
+      admin_emails_consent: "Ik geef hierbij toestemming voor het ontvangen van emails van %{service_name}, en ik begrijp dat ik dit later altijd kan veranderen."
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
       not_required: ", niet vereist"
@@ -2440,12 +2441,15 @@ nl:
       need_info: "We hebben wat informatie van je nodig om betalingen te kunnen sturen."
       select_country: "Kies land..."
       legal_name: "Officiele naam"
+      first_name: Voornaam
+      last_name: Achternaam
       country: Land
       birth_date: Geboortedatum
       ssn_last_4: Sofinummer
       personal_id_number: "Persoonlijk ID nummer"
       address_country: Land
       address_state: Staat/Provincie
+      address_province: Provincie
       address_city: Plaats
       address_postal_code: Postcode
       address_line1: Adres

@@ -1977,6 +1977,7 @@ hu:
       family_name: Családnév
       given_name: Keresztnév
       i_accept_the: Elfogadom
+      admin_emails_consent: ~
       invalid_invitation_code: "Meghívó kód érvénytelen"
       invitation_code: "Meghívó kód"
       not_required: ", nem szükséges"
@@ -2403,12 +2404,15 @@ hu:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

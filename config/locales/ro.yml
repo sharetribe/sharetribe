@@ -1949,6 +1949,7 @@ ro:
       family_name: Nume
       given_name: Prenume
       i_accept_the: Accept
+      admin_emails_consent: ~
       invalid_invitation_code: "Codul de invitatie nu este valid."
       invitation_code: "Codul de invitatie"
       not_required: ", nu este necesar"
@@ -2354,12 +2355,15 @@ ro:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

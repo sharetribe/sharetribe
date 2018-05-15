@@ -1981,6 +1981,7 @@ sv:
       family_name: Efternamn
       given_name: Förnamn
       i_accept_the: "Jag accepterar"
+      admin_emails_consent: ~
       invalid_invitation_code: "Inbjudningskoden är inte korrekt."
       invitation_code: Inbjudningskod
       not_required: ", krävs inte"
@@ -2439,12 +2440,15 @@ sv:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
       select_country: "Välj land...."
       legal_name: Namn
+      first_name: ~
+      last_name: ~
       country: Land
       birth_date: Födelsedatum
       ssn_last_4: "Personnumrets fyra sista tecken"
       personal_id_number: "Personligt ID nummer"
       address_country: Land
       address_state: Län
+      address_province: ~
       address_city: Stad
       address_postal_code: Postnummer
       address_line1: Gatuadress

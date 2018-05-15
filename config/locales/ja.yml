@@ -1960,6 +1960,7 @@ ja:
       family_name: 姓
       given_name: 名
       i_accept_the: 利用規約に同意します
+      admin_emails_consent: ~
       invalid_invitation_code: その招待コードは無効です。
       invitation_code: 招待コード
       not_required: 、必要ありません
@@ -2384,12 +2385,15 @@ ja:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~

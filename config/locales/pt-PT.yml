@@ -939,12 +939,12 @@ pt-PT:
       here_is_a_message_from: ~
       request_marked_as_confirmed: "Ordem concluída - não se esqueça de dar feedback"
       request_marked_as_canceled: "Ordem cancelada"
-      has_marked_request_as_confirmed: ~
+      has_marked_request_as_confirmed: "%{other_party_full_name} marcou a ordem de '%{request}' como terminada. Já pode dar o seu feedback a %{other_party_given_name}."
       has_marked_request_as_canceled: ~
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} marcou a ordem de '%{request}' como terminada. O pagamento por esta ordem será agora transferido para a sua conta bancária. Já pode dar o seu feedback a %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: ~
       we_have_marked_request_as_confirmed: ~
@@ -1958,6 +1958,7 @@ pt-PT:
       family_name: Apelido
       given_name: Nome
       i_accept_the: "Aceito os"
+      admin_emails_consent: ~
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código de convite"
       not_required: ", não necessaria"
@@ -2371,12 +2372,15 @@ pt-PT:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
