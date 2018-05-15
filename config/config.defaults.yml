@@ -574,3 +574,5 @@ test:
   # Add your test keys to run features/stripe/stripe.feature
   feature_stripe_publishable_key: pk_test_123456789012345678901234
   feature_stripe_private_key: sk_test_123456789012345678901234
+
+  admin_enable_tracking_config: true
