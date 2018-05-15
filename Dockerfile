@@ -47,6 +47,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 RUN apt-get install -y nginx
 
 # Install latest bundler
+ENV BUNDLE_BIN=
 RUN gem install bundler
 
 # Run as non-privileged user
