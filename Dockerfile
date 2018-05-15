@@ -6,6 +6,8 @@ ENV REFRESHED_AT 2016-11-08
 
 RUN apt-get update \
     && apt-get dist-upgrade -y
+    
+ENV BUNDLE_BIN=
 
 #
 # Node (based on official docker node image)
