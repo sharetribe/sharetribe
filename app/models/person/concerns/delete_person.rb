@@ -13,9 +13,13 @@ module DeletePerson
           person.update_attributes(
             given_name: nil,
             family_name: nil,
+            display_name: nil,
             phone_number: nil,
             description: nil,
             facebook_id: nil,
+            username: "deleted_#{SecureRandom.hex(5)}",
+            current_sign_in_ip: nil,
+            last_sign_in_ip: nil,
             # To ensure user can not log in anymore we have to:
             #
             # 1. Delete the password (Devise rejects login attempts if the password is empty)
@@ -26,6 +30,9 @@ module DeletePerson
 
           # Delete emails
           person.emails.destroy_all
+
+          # Delete location
+          person.location&.destroy
 
           # Delete avatar
           person.image.destroy
