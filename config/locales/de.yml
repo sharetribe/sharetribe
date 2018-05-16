@@ -1979,7 +1979,7 @@ de:
       family_name: Nachname
       given_name: Vorname
       i_accept_the: "Ich akzeptiere die"
-      admin_emails_consent: ~
+      admin_emails_consent: "Ich bin damit einverstanden, gelegentlich Emails vom %{service_name} Team zu erhalten und habe zur Kenntnis genommen, dass ich es mir jederzeit anders überlegen kann."
       invalid_invitation_code: "Der Einladungs-Code ist ungültig."
       invitation_code: Einladungscode
       not_required: ", nicht erforderlich"
@@ -2090,7 +2090,7 @@ de:
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
       delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren."
-      delete_information_others_involved: "Informationen, wo andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du vorgenommen hast, Reviews die Du an andere gegeben haben, usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
+      delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du durchgeführt hast, Bewertungen, die Du vorgenommen hast usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
       unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
       new_password: "Neues Passwort"
       save: Speichern

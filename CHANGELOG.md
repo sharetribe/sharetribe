@@ -21,6 +21,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Fixed
 
+- Fix Dockerfile issue where bundler was trying to install binaries in root-owner directory [#3321](https://github.com/sharetribe/sharetribe/pull/3321). Thanks, Nick Meiremans.
+
 ### Security
 
 ## [7.3.0] - 2018-02-23
