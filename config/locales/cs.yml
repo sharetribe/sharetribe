@@ -174,7 +174,7 @@ cs:
         invalid_email_domain: "E-mailová adresa %{email} využívá nepodporovaného poskytovatele e-mailu: \"%{domain}\". %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "Přečtěte si následující článek pro více informací."
         unknown_error: "Něco se nezdařilo"
-        white_label_offer: ~
+        white_label_offer: "Nastavte svou vlastní emailovou adresu odesílatele a odstraňte všechny značky Sharetribe z odchozích emailů %{upgrade_pro_plan_link}."
         upgrade_plan_link: "Přejděte na Pro plán nebo vyšší"
         verification_sent_from: "Ověřovací e-mail byl odeslán z %{verification_sender_name}."
         follow_the_instructions: "Prosíme, postupujte dle pokynů v e-mailu pro ověření Vaší adresy."
@@ -409,7 +409,7 @@ cs:
           this_field_is_required: "Toto pole je povinné"
           this_field_is_required_checkbox: "Toto pole je povinné (uživatel musí zvolit alespoň jednu možnost)"
         search_filter:
-          search_filter: ~
+          search_filter: "Zobrazit filtr pole na domovské stránce"
           date_cant_be_filtered: "Pro pole Datum není k dispozici žádný filtr"
           text_cant_be_filtered: ~
       index:
@@ -477,7 +477,7 @@ cs:
       users_and_transactions: "Uživatelé & transakce"
       configure: Nastavení
       emails_title: Emaily
-      subscription: ~
+      subscription: Pčedplatné
       preview: "Náhled stránky"
     listing_shapes:
       availability_title: Dostupnost
@@ -807,7 +807,7 @@ cs:
       message_content_not_available: "Obsah zprávy není k dispozici"
     message:
       accepted_request: "přijatá žádost"
-      received_payment: ~
+      received_payment: "přijal požadavek, obdržel platbu za %{sum}"
       accepted_offer: "přijatá nabídka"
       rejected_request: "odmítnutá žádost"
       rejected_offer: "odmítnutá nabídka"
@@ -941,7 +941,7 @@ cs:
       you_have_not_yet_accepted_or_rejected_request: "Ještě jste nepřijali nebo neodmítli nabídku %{title}, kterou jste obdrželi %{date}"
       show_thread: "Zobrazit konverzaci"
     branding:
-      powered_by: ~
+      powered_by: "Web %{service_name} je vytvořen na platformě %{sharetribe_link} ."
       create_own: "Chcete vytvořit vlastní tržiště jako  %{service_name}? %{learn_more}."
       learn_more: "Další informace"
     confirm_reminder:
@@ -1376,7 +1376,7 @@ cs:
     admin:
       admin: "Pomozte nám rozšířit %{service_name}"
     branding:
-      powered_by: ~
+      powered_by: "Web %{service_name} je vytvořen na platformě %{sharetribe_link} ."
       create_own: "Chcete vytvořit své vlastní webové tržiště jako %{service_name}? %{learn_more}."
       learn_more: "Zjistit víc"
     no_tribe:
@@ -1918,7 +1918,7 @@ cs:
       connect_paypal_account_title_with_step: "Krok %{current_step}/%{total_steps}: Připojte svůj PayPal účet"
       connect_paypal_account_instructions: "Kliknutím na tlačítko níže se přihlaste na účet PayPal a propojte ho s%{service_name}."
       connect_paypal_account: "Připojit se k PayPal účtu"
-      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_with_step: "Krok %{current_step}/%{total_steps}: Povolení účtovat transakční poplatek"
       paypal_account_billing_agreement_info_both: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného, minimální poplatek %{minimum_commission}) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Po provedení prodej na %{service_name}, poplatek za služby %{minimum_commission} bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
@@ -1984,7 +1984,7 @@ cs:
       family_name: Příjmení
       given_name: Jméno
       i_accept_the: Přijímám
-      admin_emails_consent: ~
+      admin_emails_consent: "Souhlasím s přijímáním občasných emailů od týmu%{service_name} , s tím že můžu své rozhodnutí kdykoliv změnit."
       invalid_invitation_code: "Kód pozvánky není platný."
       invitation_code: "Kód pozvánky"
       not_required: ", není požadováno"

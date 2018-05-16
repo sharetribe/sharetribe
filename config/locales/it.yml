@@ -1946,7 +1946,7 @@ it:
       family_name: Cognome
       given_name: Nome
       i_accept_the: "Accetto i"
-      admin_emails_consent: ~
+      admin_emails_consent: "Accetto di ricevere mail occasionali dal team %{service_name}, consapevole che posso cambiare idea in qualsiasi momento"
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
       not_required: ", non richiesto"
