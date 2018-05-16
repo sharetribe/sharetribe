@@ -19,8 +19,9 @@ class SettingsController < ApplicationController
     @selected_left_navi_link = "account"
     target_user.emails.build
     has_unfinished = TransactionService::Transaction.has_unfinished_transactions(target_user.id)
+    only_admin = @current_community.is_person_only_admin(target_user)
 
-    render locals: {has_unfinished: has_unfinished, target_user: target_user}
+    render locals: {has_unfinished: has_unfinished, target_user: target_user, only_admin: only_admin}
   end
 
   def notifications
