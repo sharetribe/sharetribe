@@ -374,8 +374,7 @@ en:
       testimonials:
         testimonials: 'View reviews'
         no_testimonials_found: 'No reviews found'
-        displaying_xx_reviews: 'Displaying %{count} reviews'
-        displaying_xx_of_xx_reviews: 'Displaying %{count} of %{all_count} reviews'
+        displaying_xx_reviews: 'Displaying %{count} reviews in transactions %{tx_from} - %{tx_to} of %{all_count} in total.'
         headers:
           transaction: Transaction
           author: Author
