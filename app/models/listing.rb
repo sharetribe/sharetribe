@@ -367,6 +367,9 @@ class Listing < ApplicationRecord
       open: false,
       deleted: true
     )
+    listings.each do |listing|
+      listing.location&.destroy
+    end
     ids = listings.pluck(:id)
     ListingImage.where(listing_id: ids).destroy_all
   end

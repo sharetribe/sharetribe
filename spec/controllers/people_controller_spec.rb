@@ -96,11 +96,11 @@ describe PeopleController, type: :controller do
                          last_page_load_date: DateTime.now,
                          status: "accepted")
 
-      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json} 
+      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
 
       Email.create(:person_id => person.id, community_id: @community.id, :address => "test2@example.com")
-      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json} 
+      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
     end
 
@@ -116,7 +116,7 @@ describe PeopleController, type: :controller do
       sign_in person
 
       Email.create(:person_id => person.id, community_id: @community.id, :address => "test2@example.com")
-      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json} 
+      get :check_email_availability, params: {:person => {:email_attributes => {:address => "test2@example.com"} }, :format => :json}
       expect(response.body).to eq("false")
     end
 
@@ -130,7 +130,7 @@ describe PeopleController, type: :controller do
       @request.env[:current_marketplace] = community
       person_count = Person.count
       username = generate_random_username
-      post :create, params: {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"} 
+      post :create, params: {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
       expect(Person.find_by(username: username, community_id: community.id)).not_to be_nil
       expect(Person.count).to eq(person_count + 1)
     end
@@ -143,7 +143,7 @@ describe PeopleController, type: :controller do
       @request.host = "#{community.ident}.lvh.me"
       @request.env[:current_marketplace] = community
 
-      post :create, params: {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}} 
+      post :create, params: {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}}
 
       expect(Person.find_by(username: username, community_id: community.id)).to be_nil
       expect(flash[:error].to_s).to include("This email is not allowed")
@@ -155,7 +155,12 @@ describe PeopleController, type: :controller do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
-      @person = FactoryGirl.create(:person, community_id: @community.id)
+      @location = FactoryGirl.create(:location)
+      @person = FactoryGirl.create(:person,
+                                   community_id: @community.id,
+                                   location: @location,
+                                   display_name: "A User",
+                                   description: "My bio.")
       @community.members << @person
       @id = @person.id
       @username = @person.username
@@ -168,7 +173,15 @@ describe PeopleController, type: :controller do
       delete :destroy, params: {:id => @username}
       expect(response.status).to eq(302)
 
-      expect(Person.find_by(username: @username, community_id: @community.id).deleted?).to eql(true)
+      person = Person.find(@id)
+      expect(person.deleted?).to eql(true)
+      expect(person.username).to match(/deleted_\w+/)
+      expect(person.location).to be_nil
+      expect(person.phone_number).to be_nil
+      expect(person.given_name).to be_nil
+      expect(person.family_name).to be_nil
+      expect(person.display_name).to be_nil
+      expect(person.description).to be_nil
     end
 
     it "doesn't delete if not logged in as target person" do
