@@ -113,6 +113,6 @@ module StripeService::Store::StripeAccount
     StripeAccountModel.where(
       person_id: person_id,
       community_id: community_id
-    ).delete_all
+    ).destroy_all
   end
 end
