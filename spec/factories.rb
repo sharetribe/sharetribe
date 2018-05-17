@@ -486,4 +486,9 @@ FactoryGirl.define do
     real_fee_cents    31
     subtotal_cents    200
   end
+
+  factory :stripe_account do
+    community_id      123
+    person_id         "ABC"
+  end
 end
