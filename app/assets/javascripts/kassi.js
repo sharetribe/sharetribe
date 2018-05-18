@@ -333,6 +333,10 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     link.preventDefault();
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
   });
+  $('#privacy_link').click(function(link) {
+    link.preventDefault();
+    $('#privacy').lightbox_me({ centered: true, zIndex: 1000000 });
+  });
   var form_id = "#new_person";
   //name_required = (name_required == 1) ? true : false
   $(form_id).validate({
@@ -749,6 +753,10 @@ function initialize_pending_consent_form(email_invalid_message, invitation_requi
   $('#terms_link').click(function(link) {
     link.preventDefault();
     $('#terms').lightbox_me({ centered: true, zIndex: 1000000 });
+  });
+  $('#privacy_link').click(function(link) {
+    link.preventDefault();
+    $('#privacy').lightbox_me({ centered: true, zIndex: 1000000 });
   });
   $('#pending_consent_form').validate({
     errorPlacement: function(error, element) {
