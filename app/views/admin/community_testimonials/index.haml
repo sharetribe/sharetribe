@@ -14,7 +14,7 @@
     - if pages == 0
       = t('admin.communities.testimonials.no_reviews_found')
     - else
-      = t('admin.communities.testimonials.displaying_xx_reviews', count: @testimonials[:page_count], all_count: @testimonials[:all_count], tx_from: @testimonials[:tx_from], tx_to: @testimonials[:tx_to])
+      = raw t('admin.communities.testimonials.displaying_xx_reviews', count: @testimonials[:page_count], all_count: @testimonials[:all_count], tx_from: @testimonials[:tx_from], tx_to: @testimonials[:tx_to])
 
   %table#admin_testimonials
     %thead
