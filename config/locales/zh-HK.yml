@@ -255,6 +255,7 @@ zh-HK:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -286,6 +287,10 @@ zh-HK:
         google_analytics_key_info_text: "追蹤你的Google Analytics帳號。"
         google_analytics_key_info_text_with_instructions: "你的Google Analytics帳號的Tracking ID。%{instructions_link}。"
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: 保存設定
       menu_links:
         menu_links: 目錄連結
@@ -1959,7 +1964,7 @@ zh-HK:
         other: "你已被限制加入%{service_name}。你需要一個有效的電郵地址以加入我們。"
       family_name: 姓
       given_name: 名
-      i_accept_the: 我接受
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: 此邀請碼無效。
       invitation_code: 邀請碼
@@ -1969,6 +1974,7 @@ zh-HK:
       show_my_name_to_others: "向其它%{service_name}用戶顯示我的真實姓名"
       sign_up: "建立一個新的%{service_name}帳戶"
       terms: 使用條款
+      privacy: ~
       username_is_in_use: 此用戶名稱已被使用。
       username_is_invalid: 用戶名稱格式不正確。請使用字母，數字及底線。
       visible_only_to_you: 僅你和管理員可見
@@ -2073,6 +2079,7 @@ zh-HK:
       delete_personal_information: 如果你刪除你的帳號，你的個人信息（姓名，電話號碼，地址，電郵，個人資料圖片等等）都將被永久刪除且不能恢復。所有你發表的訊息將被刪除。你將不能重新啓動你的帳號。
       delete_information_others_involved: 涉及其他會員的訊息（和其他人的對話，你完成的交易，你给其他人的評論等）在你删除賑號後是不能被删除的。但是，你的名字將不會出現在這些訊息中。
       unfinished_transactions: "因你有正在進行中的交易，所以你的賬號不能被删除。 請在删除帳戶前完成所有交易。"
+      only_admin: ~
       new_password: 新密碼
       save: 儲存
       these_fields_are_shown_only_to_you: 除非你已提供姓名，否則用戶名稱將會被顯示在個人檔案頁面中。其他資料只有你才能閱覽。

@@ -255,6 +255,7 @@ zh-TW:
         search_by_name_email: 搜索名稱，電子信箱或顯示名稱
         reset_search: 顯示全部
         for_search_terms: "為：%{terms}"
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: 新的排列設計
         description_roadmap_new: "當新的佈局組件可用於您的市場時，您可以選擇是開始使用新組件還是繼續使用舊組件。 您可以在此頁面的任意位置切換選擇。 建議始終使用新版本，因為舊版組件可能會在某個時間點被淘汰。 如果您正在使用的組件將被逐步淘汰，則會提前與您聯繫。"
@@ -286,6 +287,10 @@ zh-TW:
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
         google_analytics_key_info_text_with_instructions: "您Google Analytics帳號的Tracking ID。%{instructions_link}。"
         google_analytics_instructions_link_text: "了解更多关于Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: 保存设置
       menu_links:
         menu_links: 選單連結
@@ -1963,7 +1968,7 @@ zh-TW:
         other: "訪問%{service_name}受限。請使用Email加入會員。"
       family_name: 姓
       given_name: 名
-      i_accept_the: 我接受
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
@@ -1973,6 +1978,7 @@ zh-TW:
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "創建%{service_name}帳號"
       terms: 使用條款
+      privacy: ~
       username_is_in_use: 此用戶名已被使用。
       username_is_invalid: "無效的用戶名。 允許的字符是字母，數字和下劃線。"
       visible_only_to_you: "僅對您和%{service_name}團隊可見"
@@ -2077,6 +2083,7 @@ zh-TW:
       delete_personal_information: "如果您刪除了您的帳號，您的個人信息（姓名，電話號碼，地址，電子信箱，個人資料圖片等）將被永久刪除，並且無法恢復。 您創建的所有刊登都將被刪除。 您將無法重新激活您的帳戶。"
       delete_information_others_involved: "涉及其他會員的信息（與其他人的對話，您進行的交易，您給予他人的評論等）在刪除您的帳戶時不會被刪除。 但是，您的姓名將不再顯示在此信息旁邊。"
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
+      only_admin: ~
       new_password: 新密碼
       save: 保存
       these_fields_are_shown_only_to_you: "用戶名將顯示在您的個人資料中，除非您已提供姓名。 其他信息僅向您顯示。"

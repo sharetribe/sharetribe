@@ -2,9 +2,9 @@ ru:
   number:
     currency:
       format:
-        separator: ~
-        delimiter: ~
-        format: ~
+        separator: ","
+        delimiter: ","
+        format: "%n%u"
   admin:
     categories:
       edit:
@@ -249,7 +249,7 @@ ru:
         last_community_updates: "Обратите внимание на то, что даже после удаления вы и пользователи проекта могут получить последние электронные письма с обновлениями."
         you_will_be_redirected_to: "После того, как вы удалите проект, вы будете перенаправлены на %{destination}. После этого вы не сможете получить доступ к проекту."
         delete_this_marketplace: "Удалить этот проект"
-        payment_preferences: ~
+        payment_preferences: "Платежная система"
       manage_members:
         manage_members: "Управление участниками"
         email: E-mail
@@ -270,6 +270,7 @@ ru:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Новй макет"
         description_roadmap_new: "Когда для вашего маркетплейса будут доступны новые компоненты макета, вы сможите выбрать, использовать новые или старые компоненты. Вы сможете переключать свои настройки в любое время с этой страницы. Рекомендуется всегда использовать новую версию, поскольку старые компоненты со временем могут быть отключены. В случае, если компонент, который вы используете в настоящее время, будет планироваться отключить, вам сообщат заранее."
@@ -301,6 +302,10 @@ ru:
         google_analytics_key_info_text: "Tracking ID вашего Google Analytics account"
         google_analytics_key_info_text_with_instructions: "Tracking ID вашего Google Analytics аккаунта. %{instructions_link}."
         google_analytics_instructions_link_text: "Узнать больше о подключении Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Сохранить настройки"
       menu_links:
         menu_links: "Ссылки меню"
@@ -357,7 +362,7 @@ ru:
             confirmed: ~
             canceled: ~
             initiated: ~
-            pending_ext: ~
+            pending_ext: "Ожидание платежа PayPal"
           stripe:
             free: ~
             pending: ~
@@ -365,10 +370,10 @@ ru:
             accepted: ~
             rejected: ~
             paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            confirmed: Подтверждено
+            canceled: Отменено
+            initiated: "Ожидание платежа Stripe"
+            pending_ext: "Ожидание платежа Stripe"
         not_available: "Не доступно"
       conversations:
         conversations: ~
@@ -493,7 +498,7 @@ ru:
       per_day_availability: "Доступность \"на день\""
       per_night_availability: "Доступность \"на ночь\""
       pricing_units_disabled_info: "Параметры цены не могут быть использованы при активированном календаре доступности."
-      can_not_find_name: ~
+      can_not_find_name: "Не получается найти тип заказа с указанным именем: %{name}"
       index:
         listing_shapes: "Типы заказов"
         description: "Типы заказов определяют, каким образом процесс заказа работает на вашем сайте. Вы можете решить, будут ли пользователи арендовать или продавать, или просто публиковать объявления и общаться с помощью бесплатных сообщений."
@@ -593,8 +598,8 @@ ru:
       integration_info_text: "Система платежей Sharetribe функционирует на основе PayPal. Если вы желаете разрешить вашим пользователям осуществлять платежи в вашем проекте, вы обязаны подключить ваш аккаунт PayPal и определить минимальный размер транзакции и комиссию которую вы желаете установить от каждой транзакции."
       link_paypal_personal_account_label: "Вы предоставляете товары или услуги сами?"
       link_paypal_personal_account: "Если так, то вам необходимо подключить учетную запись PayPal к %{personal_payment_preferences_link}"
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "В этом случае необходимо добавить платежные реквизиты в %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "В этом случае необходимо добавить учетную запись PayPal или Stripe в %{personal_payment_preferences_link}"
       personal_payment_preferences_link_text: "ваш личный маркетплейс аккаунт"
       read_more_about_paypal: "Узнать больше о системе платежей Sharetribe"
       edit_payment_settings: "Редактировть настройки платежей"
@@ -608,19 +613,19 @@ ru:
       minimum_listing_price_below_tx_fee: "должно быть не менее чем минимальная комиссия за транзакцию %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "должно быть больше чем минимальная комиссия %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
+      title: "Настройки платежных систем"
+      general_settings: "1. Общие настройки"
+      connect_a_payment_provider: "2. Подключение платежной системы"
       contact_support: ~
       no_payments_link_text: ~
-      your_country: ~
+      your_country: "Страна вашего местонахождения:"
       you_cannot_use_online_payments: ~
       which_to_choose: ~
       you_can_use_stripe_or_paypal: ~
       you_can_use_stripe_only: ~
       read_more_stripe: ~
       you_can_use_paypal_only: ~
-      read_more_paypal: ~
+      read_more_paypal: "Узнайте больше о платежах PayPal."
       read_more_about_paypal_and_stripe: ~
       general_settings_updated: ~
       transaction_fee_settings_updated: ~
@@ -1992,7 +1997,7 @@ ru:
         other: "Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий что вы имеете право на участие."
       family_name: "Фамилия:"
       given_name: "Имя:"
-      i_accept_the: "Я согласен с"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
@@ -2002,6 +2007,7 @@ ru:
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"
       terms: "условиями использования"
+      privacy: ~
       username_is_in_use: "Это имя пользователя занято."
       username_is_invalid: "Можно использовать только латинские буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
@@ -2106,6 +2112,7 @@ ru:
       delete_personal_information: "Если вы удалите ваш аккаунт, ваша персональная информация (имя, телефон, адрес, email, аватар и тд) будут удалены постоянно и без восстановления. Все публикации которые вы создали будут удалены. Вы не сможете реактивировать ваш аккаунт."
       delete_information_others_involved: "Информация в которую вовлечены другие участники (диалоги, транзакции, отзывы, и тд) не будут удалены при удалении вашего аккаунта. Однако, ваше имя/название более не будет отображаться."
       unfinished_transactions: "Ваш аккаунт не может быть удален так как вы имеете незавершенные транзакции. Пожалуйста завершите все транзакции перед удалением вашего аккаунта."
+      only_admin: ~
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."

@@ -257,6 +257,7 @@ tr-TR:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -288,6 +289,10 @@ tr-TR:
         google_analytics_key_info_text: "Google Analytics hesabınızın takip kimliği"
         google_analytics_key_info_text_with_instructions: "Google Analytics hesabınızın izleme kodu: %{instructions_link}"
         google_analytics_instructions_link_text: "Google Analytics kurulumu hakkında daha fazla bilgi edinin."
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Ayarları kaydet"
       menu_links:
         menu_links: "Menü bağlantıları"
@@ -1953,8 +1958,8 @@ tr-TR:
         other: "%{service_name}'e erişim sınırlandırılmıştır. Katılım izniniz olduğunu gösteren bir e-posta adresine sahip olmalısınız."
       family_name: Soyad
       given_name: Ad
-      i_accept_the: "Okudum ve Kabul ediyorum:"
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: "Zaman zaman %{service_name} takım üyelerinden e-mailler alacağımı kabul ediyorum ve fikrimi istedim zaman değiştirebileceğimi anladım."
       invalid_invitation_code: "Davet kodu geçerli değil."
       invitation_code: "Davet kodu"
       not_required: ", gerekmemektedir"
@@ -1963,6 +1968,7 @@ tr-TR:
       show_my_name_to_others: "Diğer %{service_name} kullanıcılarına gerçek adımı göster"
       sign_up: "Yeni %{service_name} hesabı oluştur."
       terms: "Kullanım Koşulları"
+      privacy: ~
       username_is_in_use: "Bu kullanıcı adı kullanımdadır."
       username_is_invalid: "Kullanıcı adı geçersiz. Kullanıcı adı harf, rakam ve altçizgiden oluşabilir."
       visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
@@ -2067,6 +2073,7 @@ tr-TR:
       delete_personal_information: "Hesabınızı sildiğinizde kişisel bilgileriniz (ad, telefon, adres, eposta, profil fotoğrafı) geri getirilmeyecek şekilde silinecektir. Oluşturduğunuz bütün listelemeler silinecek ve hesabınızı tekrar aktif hale getiremeyeceksiniz."
       delete_information_others_involved: "Diğer üyeleri içeren site aktiviteleriniz (yazışmalarınız, yaptığınız işlemler, yorumlarınız vb.) silinmeyecektir. Ama isminiz yayınlanmayacaktır."
       unfinished_transactions: "Hali hazırda aktif listelemeleriniz olduğu için hesabınızı silemiyoruz. Bütün işlemler tamamlandıktan sonra lütfen tekrar deneyiniz."
+      only_admin: ~
       new_password: "Yeni şifre"
       save: Kaydet
       these_fields_are_shown_only_to_you: "Adınızı vermediyseniz profilinizde kullanıcı adınız görünür. Diğer bilgilerinizi yalnızca siz görüntüleyebilirsiniz."

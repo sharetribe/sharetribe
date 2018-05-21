@@ -260,6 +260,7 @@ es-ES:
         search_by_name_email: "Buscar por nombre, dirección o nombre personalizado"
         reset_search: "Mostrar todos"
         for_search_terms: "relacionados con: %{terms}"
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nuevo diseño"
         description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
@@ -291,6 +292,10 @@ es-ES:
         google_analytics_key_info_text: "Tracking ID de tu cuenta de Google Analytics."
         google_analytics_key_info_text_with_instructions: "Tracking ID de tu cuenta de Google Analytics.%{instructions_link}"
         google_analytics_instructions_link_text: "Leer más sobre la conexión con Google Analytics."
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Guardar configuración"
       menu_links:
         menu_links: "Menú de enlaces"
@@ -1978,7 +1983,7 @@ es-ES:
         other: "El acceso a %{service_name} está restringido. Para unirte necesitas una dirección de correo electrónico que sea válida en esta comunidad."
       family_name: Apellido
       given_name: "Nombre:"
-      i_accept_the: "Acepto los"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: "Acepto recibir correos del equipo de %{service_name} y entiendo que puedo cambiar de parecer en cualquier momento"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
@@ -1988,6 +1993,7 @@ es-ES:
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"
       terms: "Términos de uso"
+      privacy: ~
       username_is_in_use: "El nombre de usuario ingresado ya está en uso."
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el equipo de %{service_name}"
@@ -2092,6 +2098,7 @@ es-ES:
       delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todas las publicaciones que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta."
       delete_information_others_involved: "La información en la que están involucrados otros miembros (conversaciones con otra gente, transacciones que has realizado, revisiones que has dado a otros, etc) no se eliminarán cuando canceles tu cuenta. No obstante, tu nombre no aparecerá visualizado en esa información."
       unfinished_transactions: "Tu cuenta no puede ser eliminada porque tienes transacciones en marcha. Por favor, completa todas las transacciones antes de eliminar tu cuenta."
+      only_admin: ~
       new_password: "Nueva contraseña"
       save: Guardar
       these_fields_are_shown_only_to_you: "El nombre del usuario se muestra en tu perfil a menos que hayas proporcionado tu nombre. Cualquier otra información sólo está disponible para ti."

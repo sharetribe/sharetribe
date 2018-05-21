@@ -245,6 +245,7 @@ el:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ el:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1939,7 +1944,7 @@ el:
         other: "Αυτή η κοινότητα αφορά το %{community_name}. Για να εγγραφείτε πρέπει η διεύθυνση email σας να αποδεικνύει ότι μπορείτε να συμμετέχετε εδώ."
       family_name: Επώνυμο
       given_name: Όνομα
-      i_accept_the: "Αποδέχομαι τους"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
       invitation_code: "Κωδικός πρόσκλησης"
@@ -1949,6 +1954,7 @@ el:
       show_my_name_to_others: "Να εμφανίζεται το πραγματικό μου όνομα στους άλλους χρήστες του %{service_name}"
       sign_up: "Δημιουργήστε λογαριασμό στο %{service_name}"
       terms: "όρους χρήσης"
+      privacy: ~
       username_is_in_use: "Το όνομα χρήστη που δώσατε χρησιμοποιείται ήδη."
       username_is_invalid: "Αυτό το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
@@ -2053,6 +2059,7 @@ el:
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
       these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σας εκτός αν έχετε δώσει το πραγματικό σας όνομα. Οι υπόλοιπες πληροφορίες είναι ορατές μόνο σε σας."

@@ -251,6 +251,7 @@ pt-PT:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -282,6 +283,10 @@ pt-PT:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1957,7 +1962,7 @@ pt-PT:
         other: "O acesso ao %{service_name} é restrito. Precisa de um endereço de email que mostre que está autorizado a aderir."
       family_name: Apelido
       given_name: Nome
-      i_accept_the: "Aceito os"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código de convite"
@@ -1967,6 +1972,7 @@ pt-PT:
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores do %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"
       terms: "Termos de utilização"
+      privacy: ~
       username_is_in_use: "Este nome de utilizador já está em uso."
       username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para si e para o administrador do mercado virtual"
@@ -2071,6 +2077,7 @@ pt-PT:
       delete_personal_information: "Se apagar a sua conta, as suas informações pessoais (nome, número de telefone, endereço, email, foto do perfil, etc.) serão apagadas permanentemente e não poderão ser recuperadas. Todos os anúncios que criou serão removidos. Não será possível reativar a conta."
       delete_information_others_involved: "Informação em que outros membros estejam envolvidos (conversas com outras pessoas, transações que realizou, avaliações que tenha feito dos outros, etc) não será removida quando apagar a sua conta. No entanto, o seu nome não aparecerá mais junto dessa informação."
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "Nova palavra-passe"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de utilizador é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."

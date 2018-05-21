@@ -261,6 +261,7 @@ hu:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Új megjelenés"
         description_roadmap_new: ~
@@ -292,6 +293,10 @@ hu:
         google_analytics_key_info_text: "Google Analytics fiókja azonosítójának lekövetése."
         google_analytics_key_info_text_with_instructions: "Google Analytics fiókja azonosítójának lekövetése.%{instructions_link}"
         google_analytics_instructions_link_text: "Leírás a Google Analytics csatlakoztatásáról."
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Beállítások mentése"
       menu_links:
         menu_links: "Menü linkek"
@@ -1976,7 +1981,7 @@ hu:
         other: "A hozzáférés korlátozott a %{service_name}-hez. Az e-mail címe megadásával igazolhatja a csatlakozáshoz való jogosultságát."
       family_name: Családnév
       given_name: Keresztnév
-      i_accept_the: Elfogadom
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Meghívó kód érvénytelen"
       invitation_code: "Meghívó kód"
@@ -1986,6 +1991,7 @@ hu:
       show_my_name_to_others: "Lássák a valós nevem a %{service_name} oldal felhasználói"
       sign_up: "Új %{service_name} fiók létrehozása"
       terms: "felhasználási feltételek"
+      privacy: ~
       username_is_in_use: "Ez a felhasználónév már foglalt"
       username_is_invalid: "Érvénytelen felhasználónév. Csak betűk, számok és alsó aláhúzás engedélyezett."
       visible_only_to_you: "csak Ön és az adminisztrátor látja"
@@ -2090,6 +2096,7 @@ hu:
       delete_personal_information: "Amennyiben törölné a fiókját, a személyes adatai (név, telefonszám, cím, e-mailcím, profilkép stb.) véglegesen törlődnek. Az összes ön által feladott hirdetés törléslődni fog. A fiókot nem lesz módjában újraaktiválni."
       delete_information_others_involved: "Információ melynek más felhasználók is részesei voltak (társalgások, tranzakciók, értékelések, stb) nem törlődik a fiók törlésekor. De az ön neve már nem lesz feltűntetve ezek megjelenítésekor."
       unfinished_transactions: "Az ön fiókját a folyamatban lévő tranzakciók miatt nem lehet törölni. Kérjük fejezze be tranzakcióit a fiók törlése előtt."
+      only_admin: ~
       new_password: "Új jelszó"
       save: Mentés
       these_fields_are_shown_only_to_you: "A felhasználónév a profilban látható, kivéve ha a nevét adta meg. A többi infomációt csak Ön látja."

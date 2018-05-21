@@ -245,6 +245,7 @@ km-KH:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ km-KH:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1936,7 +1941,7 @@ km-KH:
       invalid_username_or_email: ~
       family_name: ~
       given_name: ~
-      i_accept_the: ~
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: ~
       invitation_code: ~
@@ -1946,6 +1951,7 @@ km-KH:
       show_my_name_to_others: ~
       sign_up: ~
       terms: ~
+      privacy: ~
       username_is_in_use: ~
       username_is_invalid: ~
       visible_only_to_you: ~
@@ -2050,6 +2056,7 @@ km-KH:
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
+      only_admin: ~
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~

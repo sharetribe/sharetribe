@@ -255,6 +255,7 @@ th-TH:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -286,6 +287,10 @@ th-TH:
         google_analytics_key_info_text: "รหัสการติดตามของบัญชี Google Analytics"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: บันทึกการตั้งค่า
       menu_links:
         menu_links: ลิงค์เมนู
@@ -1954,7 +1959,7 @@ th-TH:
         other: "การเข้าถึงไปยัง %{service_name} ถูกจำกัด  คุณจำเป็นต้องมีที่อยู่อีเมล '%{allowed_emails}' เพื่อที่จะเข้าร่วม"
       family_name: นามสกุล
       given_name: ชื่อ
-      i_accept_the: ฉันยอมรับ
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: รหัสเชิญไม่ถูกต้อง
       invitation_code: รหัสเชิญ
@@ -1964,6 +1969,7 @@ th-TH:
       show_my_name_to_others: "แสดงชื่อจริงของฉันแก่ผู้ใช้ %{service_name}"
       sign_up: "สร้างบัญชีใหม่ใน %{service_name}"
       terms: ข้อกำหนดการใช้งาน
+      privacy: ~
       username_is_in_use: ชื่อผู้ใช้ได้ถูกใช้ไปแล้ว
       username_is_invalid: "ชื่อผู้ใช้ไม่ถูกต้อง ตัวอักษร ตัวเลข และเส้นใต้เท่านั้นที่สามารถใช้ได้"
       visible_only_to_you: "ปรากฎให้เห็นเฉพาะกับคุณ และผู้ดูแลระบบตลาด"
@@ -2068,6 +2074,7 @@ th-TH:
       delete_personal_information: "หากคุณลบบัญชีของคุณ ข้อมูลส่วนบุคคลของคุณ (ชื่อ , หมายเลขโทรศัพท์, ที่อยู่, อีเมล์, ภาพโปรไฟล์ ฯลฯ) จะถูกลบออกอย่างถาวร และไม่สามารถกู้คืนได้ รายการทั้งหมดที่คุณได้สร้างขึ้นจะถูกลบออก คุณจะไม่สามารถเปิดใช้งานบัญชีของคุณได้อีก"
       delete_information_others_involved: "ข้อมูลที่สมาชิกคนอื่น ๆ มีส่วนเกี่ยวข้อง (บทสนทนากับคนอื่น ๆ, การทำธุรกรรมที่คุณได้ทำ, ความเห็นที่คุณให้กับคนอื่น ๆ ฯลฯ) จะไม่ถูกลบ เมื่อคุณลบบัญชีของคุณ อย่างไรก็ตาม ชื่อของคุณจะไม่ถูกแสดง ในข้อมูลเหล่านั้น"
       unfinished_transactions: ~
+      only_admin: ~
       new_password: รหัสผ่านใหม่
       save: บันทึก
       these_fields_are_shown_only_to_you: "ชื่อผู้ใช้จะปรากฏในโปรไฟล์ของคุณ นอกจากคุณจะให้ชื่อของคุณเอง ข้อมูลอื่น ๆ จะแสดงให้เห็นเฉพาะกับคุณ"

@@ -265,13 +265,14 @@ cs:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nové uspořádání"
         description_roadmap_new: ~
         enabled_for_you: "Povoleno pro vás"
         enabled_for_all: "Povoleno pro všechny"
         new_topbar: "Nová horní lišta (viditelná na každé stránce)"
-        searchpage: ~
+        searchpage: "Nové vyhledávání (vyžaduje nový horní řádek)"
       social_media:
         social_media: "Sociální média"
         twitter_handle: Twitter
@@ -296,6 +297,10 @@ cs:
         google_analytics_key_info_text: "Sledování identifikačního čísla Vašeho Google Analytics účtu"
         google_analytics_key_info_text_with_instructions: "Sledování identifikačního čísla Vašeho Google Analytics účtu. %{instructions_link}"
         google_analytics_instructions_link_text: "Přečtěte si více o připojení ke Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Uložit nastavení"
       menu_links:
         menu_links: Odkazy
@@ -481,7 +486,7 @@ cs:
       preview: "Náhled stránky"
     listing_shapes:
       availability_title: Dostupnost
-      read_more: ~
+      read_more: "Přečtěte si více o automatické správě dostupnosti."
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
@@ -589,7 +594,7 @@ cs:
       personal_payment_preferences_link_text: "Tvůj osobní účet pro marketplace"
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       edit_payment_settings: "Upravte nastavení platby"
-      supported_currencies_information_text: ~
+      supported_currencies_information_text: "Online platební systém Sharetribe podporuje 24 měn. Pokud se vaše měna v tomto seznamu nenachází, kontaktujte prosím %{contact_support_link}. Pokud změníte měnu, zůstanou stávající položky v původní měně. U těchto položek musíte měnu změnit ručně."
       currency_change_warning_text: ~
       marketplace_currency_label: "Měna :"
       minimum_listing_price_label: "Minimální částka transakce:"
@@ -1135,7 +1140,7 @@ cs:
       you_are_receiving_this_because: "Obdrželi jste toto upozornění, protože sledujete uživatele %{author_name}."
       view_listing: "Zobrazit inzerát"
     new_member_notification:
-      new_member_has_joined: ~
+      new_member_has_joined: "Nový člen se připojil k webu %{community}. Zkontrolujte zda potvrdil svou mailovou adresu."
       this_is_automatic_message: "Jedná se o automatickou zprávu zaslanou administrátorům %{community}."
       person_name: "Jméno:"
       person_email: "Email:"
@@ -1157,7 +1162,7 @@ cs:
     transaction_agreement:
       required_error: "Je třeba souhlasit s podmínkami"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transakci nelze dokončit. To je zřejmě způsobeno tím, že platební karta selže při bankovní autorizaci. Prosím, vyberte si jiný způsob platby."
       buyer_cannot_pay_error: "Platba byla odmítnuta serverem PayPal. Prosíme, kontaktujte jejich zákaznický servis pro více informací: %{customer_service_link}"
       pending_review_error: "Platba byla provedena, ale byla serverem PayPal označena jako \"vyžaduje přezkoumání\". Jakmile PayPal dokončí přezkoumání platby, bude platba automaticky vyřízena."
       seller_express_checkout_disabled: ~
@@ -1983,7 +1988,7 @@ cs:
         other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
       family_name: Příjmení
       given_name: Jméno
-      i_accept_the: Přijímám
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: "Souhlasím s přijímáním občasných emailů od týmu%{service_name} , s tím že můžu své rozhodnutí kdykoliv změnit."
       invalid_invitation_code: "Kód pozvánky není platný."
       invitation_code: "Kód pozvánky"
@@ -1993,6 +1998,7 @@ cs:
       show_my_name_to_others: "Zobrazit moje skutečné jméno jiným uživatelům %{service_name}."
       sign_up: "Vytvořit nový %{service_name} účet"
       terms: "podmínky použití"
+      privacy: ~
       username_is_in_use: "Toto uživatelské jméno je již obsazené."
       username_is_invalid: "Uživatelské jméno je neplatné. Povolenými znaky jsou písmena, číslice a podtržítko."
       visible_only_to_you: "viditelné pouze pro Vás a pro správce tržiště"
@@ -2097,6 +2103,7 @@ cs:
       delete_personal_information: "Pokud smažete Váš účet, Vaše osobní informace (jméno, telefonní číslo, adresa, e-mail, profilový obrázek atd.) budou navždy smazány a nebude je možno obnovit. Všechny Vámi vytvořené inzeráty budou odstraněny. Již nebudete moci znovu aktivovat Váš účet."
       delete_information_others_involved: "Informace, které se týkají ostatních členů (konverzace s dalšími lidmi, uskutečněné transakce, Vámi poskytnutá zpětná vazba atd.), nebudou odstraněny v případě smazání účtu. Nicméně, Vaše jméno se již u těchto informací nebude zobrazovat."
       unfinished_transactions: "Váš účet nemůže být smazán, protože stále máte probíhající transakce. Prosíme, dokončete všechny transakce předtím, než smažete Váš účet."
+      only_admin: ~
       new_password: "Nové heslo"
       save: Uložit
       these_fields_are_shown_only_to_you: "Uživatelské jméno je zobrazeno ve Vašem profilu, pokud jste zadali své jméno. Ostatní informace se zobrazí pouze Vám."

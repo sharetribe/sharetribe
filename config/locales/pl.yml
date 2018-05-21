@@ -270,6 +270,7 @@ pl:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nowy układ"
         description_roadmap_new: "Kiedy nowy elementy układu graficznego będą dostępne dla Twojej platformy, możesz wybrać czy chcesz zacząć używać nowego elementu, czy pozostać przy starym. Możesz zmienić ten wybór zawsze na tej stronie. Rekomenduje się zawsze używanie nowych wersji, gdyż stare mogą stać się niepasujące w pewnym momencie. W przypadku gdy element, którego używasz stanie się niepasujący zostaniesz powiadomiony z wyprzedzeniem."
@@ -301,6 +302,10 @@ pl:
         google_analytics_key_info_text: "ID śledzenia Twojego konta Google Analytics"
         google_analytics_key_info_text_with_instructions: "ID śledzenia Twojego konta Google Analytics. %{instructions_link}"
         google_analytics_instructions_link_text: "Czytaj więcej na temat połączenia Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Zapisz ustawienia"
       menu_links:
         menu_links: "Linki menu"
@@ -1994,7 +1999,7 @@ pl:
         other: "Dostęp do %{service_name} jest ograniczony. Potrzebujesz adresu email, który potwierdzi, że jesteś uprawniony, aby dołączyć."
       family_name: Nazwisko
       given_name: Imię
-      i_accept_the: Akceptuję
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Kod zaproszenia jest niepoprawny"
       invitation_code: "Kod zaproszenia"
@@ -2004,6 +2009,7 @@ pl:
       show_my_name_to_others: "Pokaż moje prawdziwe imię do innych użytkowników %{service_name}"
       sign_up: "Stwórz nowe konto w %{service_name}"
       terms: "zasady użytkowania"
+      privacy: ~
       username_is_in_use: "Ta nazwa użytkownika jest już w użyciu."
       username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery, cyfry i podkreślnik."
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
@@ -2108,6 +2114,7 @@ pl:
       delete_personal_information: "Jeśli usuniesz swoje konto, Twoje informacje osobiste (imię, telefon, adres, e-mail, zdjęcie profilowe itp.) zostaną usunięte na stałe i nie będzie można ich odzyskać. Wszystkie oferty jakie stworzyłeś zostaną także usunięte. Nie będziesz mógł odzyskać swojego konta."
       delete_information_others_involved: "Informacje w których zaangażowani są inni użytkownicy (konwersacje z innymi, przeprowadzone transakcje, udzielone opinie itp.) nie są usuwane, gdy usuwasz swoje konto. Jednakże Twoje imię nie będzie wyświetlane przy tych informacjach."
       unfinished_transactions: "Twoje konto nie może zostać usunięte, ponieważ masz aktywne transakcje. Zakończ wszystkie swoje transakcje zanim usuniesz konto."
+      only_admin: ~
       new_password: "Nowe hasło"
       save: Zapisz
       these_fields_are_shown_only_to_you: "Nazwa użytkownika jest wyświetlana w Twoim profilu, chyba, że podałeś swoje imię. Inne informacje są widoczne tylko dla Ciebie."

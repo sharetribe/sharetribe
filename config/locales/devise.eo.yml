@@ -1,0 +1,58 @@
+eo:
+  errors:
+    messages:
+      expired: "senvalidiĝis, bonvolu peti novan"
+      not_found: "ne trovita"
+      already_confirmed: "jam konfirmita, bonvolu provi ensaluti"
+      not_locked: "ne estis ŝlosita"
+      not_saved:
+        one: "1 eraro malebligis la konservon de %{resource}:"
+        other: "%{count} eraroj malebligis la konservon de %{resource}:"
+  devise:
+    failure:
+      already_authenticated: "Vi estas jam ensalutinta."
+      unauthenticated: "Vi devas ensaluti aŭ registriĝi antaŭ ol daŭrigi."
+      unconfirmed: "Vi devas konfirmi vian konton antaŭ ol daŭrigi."
+      locked: "Via konto estas blokita."
+      invalid: "Nevalida pasvorto aŭ retpoŝtadreso."
+      invalid_token: "Nevalida aŭtentiga ĵetono."
+      timeout: "Via seanco senvalidiĝis. Bonvolu ree ensaluti por daŭrigi."
+      inactive: "Via konto ankoraŭ ne estas aktiva."
+    passwords:
+      updated_not_active: "Vi sukcese ŝanĝis vian pasvorton."
+      send_paranoid_instructions: "Se via retpoŝtadreso ekzistas en nia datumbazo, vi ricevos retmesaĝon kun ligilo por restartigi vian pasvorton"
+      send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel restartigi vian pasvorton."
+      updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
+    sessions:
+      signed_in: "Vi estas sukcese ensalutinta."
+      signed_out: "Vi estas sukcese elsalutinta."
+    confirmations:
+      send_paranoid_instructions: "Se via retpoŝtadreso ekzistas en nia datumbazo, vi ricevos retmesaĝon kun instrukcioj pri kiel konfirmi vian konton."
+      send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel konfirmi vian konton."
+      confirmed: "Via konto estis sukcese konfirmita."
+    registrations:
+      signed_up_but_unconfirmed: "Ni sendis konfirman ligilon al via retpoŝtadreso. Bonvolu malfermi la ligilon por aktivigi vian konton."
+      signed_up_but_inactive: "Vi sukcese registriĝis. Tamen, ensaluto ne eblas ĉar via konto ankoraŭ ne estas akvita."
+      signed_up_but_locked: "Vi sukcese registriĝis. Tamen, ensaluto ne eblas ĉar via konto estas ŝlosita."
+      reasons:
+        inactive: neaktiva
+        unconfirmed: nekonfirmita
+        locked: ŝlosita
+      update_needs_confirmation: "Vi sukcese ĝisdatigis vian konton, sed ni bezonas kontroli vian novan retpoŝtadreson. Bonvolu kontrolu vian retpoŝtan enirkeston kaj alklakli la konfirman ligilon por konfirmi vian novan retpoŝtadreson."
+      signed_up: "Bonvenon! Vi sukcese ensalutis."
+      updated: "Vi sukcese ĝisdatigis vian konton."
+      destroyed: "Ĝis! Via konto estas sukcese forigita. Ni esperas baldaŭ denove vin vidi."
+    unlocks:
+      send_paranoid_instructions: "Se via konto ekzistas, post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi ĝin."
+      send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton."
+      unlocked: "Via konto sukcese malŝlosiĝis. Bonvolu ensaluti por daŭrigi ."
+    omniauth_callbacks:
+      success: "Sukcese rajtigita pere de la konto %{kind}."
+      failure: "Ne eblis rajtigi vin pere de %{kind} ĉar \"%{reason}\""
+    mailer:
+      confirmation_instructions:
+        subject: "Instrukcioj por konfirmo"
+      reset_password_instructions:
+        subject: "Instrukcioj por restartigi vian pasvorton"
+      unlock_instructions:
+        subject: "Instrukcioj por malŝlosi vian konton"
