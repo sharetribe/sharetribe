@@ -56,3 +56,12 @@ Then("I expect transaction with Stripe test to pass") do
 
   expect(page).to have_content("Completed")
 end
+
+Then("Stripe API refuse to delete the account") do
+  account = double(:StripeAccount)
+  allow(account).to receive(:delete).and_raise(StandardError.new('Stripe error'))
+  api = double(:StripeAccountApi)
+  allow(api).to receive(:retrieve).with(anything).and_return(account)
+  stub_const('Stripe::Account', api)
+end
+

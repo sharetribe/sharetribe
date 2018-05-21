@@ -276,5 +276,12 @@ class StripeService::API::StripeApiWrapper
         Stripe.api_key =~ /^sk_test/
       end
     end
+
+    def delete_account(community:, account_id:)
+      with_stripe_payment_config(community) do |payment_settings|
+        account = Stripe::Account.retrieve(account_id)
+        account.delete
+      end
+    end
   end
 end

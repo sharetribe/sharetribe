@@ -231,3 +231,10 @@ Given /^I have confirmed paypal account(?: as "([^"]*)")?(?: for community "([^"
   FactoryGirl.create(:billing_agreement, paypal_account: paypal_account)
 end
 
+Given /^I have confirmed stripe account(?: as "([^"]*)")?(?: for community "([^"]*)")?$/ do |person, community_name|
+  username = person || "kassi_testperson1"
+  person = Person.find_by(username: username)
+  community = Community.where(ident: community_name || "test").first
+  FactoryGirl.create(:stripe_account, person_id: person.id, community_id: community.id, stripe_seller_id: 'ABC')
+end
+

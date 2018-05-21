@@ -288,6 +288,13 @@ class PeopleController < Devise::RegistrationsController
 
     return redirect_to search_path if has_unfinished || only_admin
 
+    stripe_del = StripeService::API::Api.accounts.delete_seller_account(community_id: @current_community.id,
+                                                                        person_id: target_user.id)
+    unless stripe_del[:success]
+      flash[:error] =  t("layouts.notifications.stripe_you_account_balance_is_not_0")
+      return redirect_to search_path
+    end
+
     # Do all delete operations in transaction. Rollback if any of them fails
     ActiveRecord::Base.transaction do
       Person.delete_user(target_user.id)
