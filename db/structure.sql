@@ -266,6 +266,7 @@ CREATE TABLE `communities` (
   `small_cover_photo_processing` tinyint(1) DEFAULT NULL,
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
+  `end_user_analytics` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2259,6 +2260,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20171207073027'),
 ('20171207075640'),
 ('20180108061342'),
-('20180108093607');
+('20180108093607'),
+('20180514083133');
 
 

@@ -224,6 +224,36 @@ describe "Landing page", type: :request do
         expect(response.headers["Cache-Control"]).to eq("max-age=#{APP_CONFIG.clp_cache_time}, public")
       end
 
+      describe "end user analytics" do
+        before(:each) do
+          @old_gtm = APP_CONFIG.use_google_tag_manager
+          APP_CONFIG.use_google_tag_manager = true
+          Rails.cache.clear
+        end
+
+        after(:each) do
+          APP_CONFIG.use_google_tag_manager = @old_gtm
+        end
+
+        it "contains GTM" do
+          expect_string("http://#{@domain}", "Google Tag Manager")
+        end
+
+        describe "when end user analytics disabled" do
+          before(:each) do
+            @community.end_user_analytics = false
+            @community.save
+            Rails.cache.clear
+          end
+
+          it "does not contain GTM when disabled" do
+            get "http://#{@domain}"
+
+            expect(response.body).not_to match(/Google Tag Manager/)
+          end
+        end
+      end
+
       describe "private marketplaces" do
         before(:all) {
           @orig_private = @community.private
