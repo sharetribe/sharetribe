@@ -91,6 +91,7 @@ Feature: Admin lists members
      Then I should not see "Sledgehammer"
 
   Scenario: Admin promotes user to admin
+    Given I will confirm all following confirmation dialogs in this page if I am running PhantomJS
     Then I should see that "manager" has admin rights in this community
     Then I should see that "john doe" has admin rights in this community
     Then I should see that "jane doe" does not have admin rights in this community
