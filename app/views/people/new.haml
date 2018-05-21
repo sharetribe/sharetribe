@@ -64,8 +64,10 @@
       .checkbox-container
         - unless @skip_terms_checkbox
           %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
-          = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-          = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
+          = form.label :terms, :class => "checkbox" do
+            = raw t('.i_accept_the_terms_and_privacy',
+              terms: link_to(t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"),
+              privacy: link_to(t(".privacy"), "#", :tabindex => "-1", :id => "privacy_link", :class => "form"),)
 
     = form.hidden_field :consent, :value => @current_community.consent
 
@@ -77,4 +79,4 @@
 
     = button_tag t('.create_new_account')
 
-= render :partial => "help_texts", :collection => ["terms", "help_invitation_code"], :as => :field
+= render :partial => "help_texts", :collection => ["terms", "help_invitation_code", "privacy"], :as => :field

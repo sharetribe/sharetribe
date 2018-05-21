@@ -1,0 +1,11 @@
+- if @community_customization && @community_customization.privacy_page_content
+  - content = @community_customization.privacy_page_content.html_safe
+- elsif File.exists?("app/views/infos/localized_privacy_policy/privacy_policy.#{I18n.locale}.haml")
+  - content = render :file => "infos/localized_privacy_policy/privacy_policy.#{I18n.locale}"
+- else
+  - content = render :file => "infos/localized_privacy_policy/privacy_policy.en"
+
+- content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
+- content_for :keywords, StringUtils.keywords(strip_tags(content.html_safe))
+
+= content

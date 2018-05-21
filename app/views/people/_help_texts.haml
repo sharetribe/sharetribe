@@ -1,5 +1,5 @@
 = render :layout => "layouts/lightbox", locals: {id: field, field: field} do
-  - unless field.eql?("terms")
+  - unless ['terms', 'privacy'].include?(field)
     %h2
       .hidden_title
         = t("people.help_texts.#{field}_title")
