@@ -7,3 +7,9 @@
           = form.label :required, t(".this_field_is_required_checkbox")
         - else
           = form.label :required, t(".this_field_is_required")
+.row
+  .col-12
+    .checkbox-container
+      = form.check_box :public
+      = form.label :public, t(".this_field_is_public")
+
