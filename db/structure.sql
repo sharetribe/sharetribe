@@ -462,6 +462,7 @@ CREATE TABLE `custom_fields` (
   `max` float DEFAULT NULL,
   `allow_decimals` tinyint(1) DEFAULT '0',
   `entity_type` int(11) DEFAULT '0',
+  `public` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`) USING BTREE,
   KEY `index_custom_fields_on_search_filter` (`search_filter`) USING BTREE
@@ -2263,6 +2264,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180108061342'),
 ('20180108093607'),
 ('20180514083133'),
-('20180518073348');
+('20180518073348'),
+('20180523121344');
 
 
