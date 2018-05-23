@@ -26,8 +26,8 @@
 
     = render 'fixed_fields'
 
-    - if @presenter.show_custom_fields?
-      = render partial: 'custom_field', collection: @presenter.custom_fields, as: :custom_field
+    - if @service.show_custom_fields?
+      = render partial: 'custom_field', collection: @service.custom_fields, as: :custom_field
 
     #custom-field-ajax-status
       .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
