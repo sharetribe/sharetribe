@@ -260,6 +260,7 @@ da-DK:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nyt layout"
         description_roadmap_new: ~
@@ -291,6 +292,10 @@ da-DK:
         google_analytics_key_info_text: "Tracking ID til din Google Analytics konto."
         google_analytics_key_info_text_with_instructions: "Tracking ID til din Google Analytics konto. %{instructions_link}."
         google_analytics_instructions_link_text: "Læs mere om tilknytning af Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: Gem
       menu_links:
         menu_links: "Links i menuen"
@@ -1972,7 +1977,7 @@ da-DK:
         other: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en godkendt emailadresse."
       family_name: Efternavn
       given_name: Fornavn
-      i_accept_the: "Jeg accepterer"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Invitationskode er ikke gyldig."
       invitation_code: Invitationskode
@@ -1982,6 +1987,7 @@ da-DK:
       show_my_name_to_others: "Vis mit rigtige navn til andre %{service_name} brugere"
       sign_up: "Opret ny %{service_name} konto"
       terms: Brugervilkår
+      privacy: ~
       username_is_in_use: "Dette brugernavn er allerede i brug."
       username_is_invalid: "Brugernavn er ugyldig. Tilladte tegn er bogstaver, tal og understregning."
       visible_only_to_you: "kun synlige for dig og markedspladsens admin"
@@ -2086,6 +2092,7 @@ da-DK:
       delete_personal_information: "Hvis du sletter din konto, vil dine personlige oplysninger (navn, telefonnummer, adresse, email, profilbillede osv.) blive fjernet permanent og kan ikke gendannes. Alle dine annoncer vil blive slettet. Du kan ikke genaktivere kontoen."
       delete_information_others_involved: "Følgende oplysninger slettes ikke, når du sletter din konto: samtaler med andre, foretagne transaktioner, anmeldelser osv. Dog vil dit navn ikke længere blive vist ved siden af disse oplysninger."
       unfinished_transactions: "Din konto kan ikke slettes fordi du har udestående transaktioner. Gennemfør venligst alle transaktioner før du sletter din konto."
+      only_admin: ~
       new_password: "Ny adgangskode"
       save: Gem
       these_fields_are_shown_only_to_you: "Brugernavn er vist i din profil, medmindre du har givet dit navn. Andre oplysninger vises kun til dig."

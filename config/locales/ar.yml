@@ -245,6 +245,7 @@ ar:
         search_by_name_email: "ابحث عن اسم أو بريد إلكتروني أو اسم معروض"
         reset_search: "أظهر الكل"
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "تصميم جديد"
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ ar:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "حفظ الإعدادات"
       menu_links:
         menu_links: "روابط القائمة"
@@ -1961,7 +1966,7 @@ ar:
       invalid_username_or_email: "اسم المستخدم أو البريد الإلكتروني غير صحيح أو مستخدم مسبقا"
       family_name: "إسم العائلة"
       given_name: "الإسم الأول"
-      i_accept_the: "أوافق على"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "رمز الدعوة غير صحيح"
       invitation_code: "رمز الدعوة"
@@ -1971,6 +1976,7 @@ ar:
       show_my_name_to_others: "‎%{service_name}‎ أظهر الأسم لمستخدمي"
       sign_up: "‎%{service_name}‎ قم بإنشاء حساب جديد في"
       terms: "شروط الاستخدام"
+      privacy: ~
       username_is_in_use: "اسم المستخدم هذا موجود"
       username_is_invalid: "اسم المستخدم غير صحيح، الرموز المسموحة هي الأحرف، الأرقام والشرطة السفلية"
       visible_only_to_you: "‎%{service_name}‎ مرئية فقط لك ولمشرفي"
@@ -2075,6 +2081,7 @@ ar:
       delete_personal_information: "إذا قمت بحذف حسابك كل معلوماتك الخاصة والإعلانات التي قمت بها ستحذف نهائيا من السوق ولا يمكنك إعادتها"
       delete_information_others_involved: "المعلومات التي يكون فيها احتكاك مع الآخرين مثل المحادثات والعمليات التي قمت بها والمراجعات التي أعطيتها وغيرها لن تحذف عند قيامك بحذف حسابك نهائيا ولكن لن يظهر اسمك في هذه التفاعلات"
       unfinished_transactions: "لا يمكنك حذف حسابك بسبب وجود عمليات مفتوحة. يرجى إكمال العمليات قبل حذف حسابك."
+      only_admin: ~
       new_password: "كلمة مرور جديدة"
       save: حفظ
       these_fields_are_shown_only_to_you: "اسم المستخدم يظهر في ملفك الشخصي مالم تقم بإعطاء إسمك. المعلومات الأخرى فقط معروضة لك."

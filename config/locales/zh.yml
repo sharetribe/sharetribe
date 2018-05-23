@@ -255,6 +255,7 @@ zh:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: 新布局
         description_roadmap_new: ~
@@ -286,6 +287,10 @@ zh:
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
         google_analytics_key_info_text_with_instructions: "你Google Analytics帐号的Tracking ID。%{instructions_link}。"
         google_analytics_instructions_link_text: "了解更多关于Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: 保存设置
       menu_links:
         menu_links: 菜单链接
@@ -1959,7 +1964,7 @@ zh:
         other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
       family_name: 姓
       given_name: 名
-      i_accept_the: 我接受
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
@@ -1969,6 +1974,7 @@ zh:
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "在%{service_name}注册"
       terms: 使用条款
+      privacy: ~
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 仅对你和集市管理员可见
@@ -2073,6 +2079,7 @@ zh:
       delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除且不能恢复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
       delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。不过，之后你的名字将不会出现在这些信息中。
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
+      only_admin: ~
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了你的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对你可见。

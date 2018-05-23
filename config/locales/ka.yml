@@ -255,6 +255,7 @@ ka:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "ახალი განლაგება"
         description_roadmap_new: ~
@@ -286,6 +287,10 @@ ka:
         google_analytics_key_info_text: "Google Analytics ანგარიშის ტრეკინგ ID"
         google_analytics_key_info_text_with_instructions: "Google Analytics ანგარიშის ტრეკინგ ID. %{instructions_link}"
         google_analytics_instructions_link_text: "წაიკითხე მეტი Google Analytics-თან შეერთების შესახებ"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "დაიმახსოვრე პარამეტრები"
       menu_links:
         menu_links: "მენიუს ბმულები"
@@ -1961,7 +1966,7 @@ ka:
         other: "%{service_name}-ზე შესვლა არძალულია. დასარეგისტრირებლად გჭირდებათ %{allowed_emails} ელ. ფოსტა."
       family_name: გვარი
       given_name: სახელი
-      i_accept_the: ვეთანხმები
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "მოწვევის კოდი არ არის სწორი"
       invitation_code: "მოწვევის კოდი"
@@ -1971,6 +1976,7 @@ ka:
       show_my_name_to_others: "აჩვენე ჩემი ნამდვილი სახელი სხვა %{service_name}ის მომხმარებლებს"
       sign_up: "შექმენით ახალი %{service_name} ანგარიში"
       terms: "მოხმარების პირობები"
+      privacy: ~
       username_is_in_use: "მომხმარებლის ეს სახელი უკვე გამოყენებულია"
       username_is_invalid: "მომხმარებლის სახელი არასწორია. დაშვებული სასვენი ნიშნებია ასოები, ციფრები და ქვედა ტირე."
       visible_only_to_you: "ხილული მხოლოდ შენთვის და ბაზრის ადმინისტრაციისთვის"
@@ -2075,6 +2081,7 @@ ka:
       delete_personal_information: "თუ თქვენ წაშლით თქვენ ანგარიშს, თქვენი პერსონალური ინფორმაცია (სახელი, ტელეფონის ნომერი, მისამარტი, ელ. ფოსტა, პროფილის სურათი და ა..შ) წაიშლება სამუდამოდ და ვეღარ აღდგება ვერასდორს. ყველა ჩამონათვალი რომელიც შექმენით წაიშლება. ვეღარ გახდით თქვენ ანგარიშს აქტიურს."
       delete_information_others_involved: "ინფორმაცია, სადაც სხვა მომხმარებლებიც ჩართულები არიან (მიმოწერა სხვა პირებთან, ტრანზაქციები რომლებიც გააკეთეთ, შეფასებები რომლებიც მიეცით და ა.შ.) არ არის წაშლილი თქვენი ანგარიშის წაშლის შემდეგ. მაგრამ თქვენი სახელი აღარ იქნება ნაჩვენები ამ ინფორმაციის გვერდით."
       unfinished_transactions: "თქვენი ანგარიში ვერ გაუქმდება, რადგან გაქვთ მიმდინარე ტრანზაქციები. გთხოვთ დაასრულოთ ყველა ტრანზაქცია ანგარიშის წაშლამდე."
+      only_admin: ~
       new_password: "ახალი პაროლი"
       save: დამახსოვრება
       these_fields_are_shown_only_to_you: "მომხმარებლის სახელი გამოჩნდება თქვენ პროფილზე თუ თქვენი სახელი არ გაქვთ მითითებული. სხვა ინფორმაცია იქნება ხილული მხოლოდ თქვენთვის."

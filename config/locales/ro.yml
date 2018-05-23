@@ -257,6 +257,7 @@ ro:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -288,6 +289,10 @@ ro:
         google_analytics_key_info_text: "Numarul de identificare al contului dumneavoastra de Google Analytics"
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1948,7 +1953,7 @@ ro:
       invalid_username_or_email: ~
       family_name: Nume
       given_name: Prenume
-      i_accept_the: Accept
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Codul de invitatie nu este valid."
       invitation_code: "Codul de invitatie"
@@ -1958,6 +1963,7 @@ ro:
       show_my_name_to_others: "Arata numele meu real altor utilizatori ai serviciului %{service_name}"
       sign_up: "Creati un cont nou pe %{service_name}"
       terms: "termeni de utilizare"
+      privacy: ~
       username_is_in_use: "Acest nume de utilizator este deja folosit"
       username_is_invalid: "Numele de utilizator nu este valid. Caracterele permise sunt litere, numere si \"underscore\""
       visible_only_to_you: ~
@@ -2062,6 +2068,7 @@ ro:
       delete_personal_information: "Daca va stergeti contul, informatiile personale (nume, numar de telefon, adresa, adresa de email, poza de profil, etc.) vor fi sterse permanent si nu vor mai putea fi recuperate. Toate anunturile pe care le-ati creat vor fi sterse. Nu va veti putea reactiva contul."
       delete_information_others_involved: "Informatiile in care sunt implicati alti membri (conversatii cu alte persoane, tranzactii pe care le-ati efectuat, recenzii pe care le-ati dat altora etc.) nu vor fi eliminate atunci când stergeti contul. Cu toate acestea, numele dvs. nu va mai fi afisat langa aceste informatii."
       unfinished_transactions: "Contul dumneavoastra nu poate fi sters deoarece aveti tranzactii in derulare. Va rugam sa completati toate aceste tranzactii inainte de stergerea contului."
+      only_admin: ~
       new_password: "Parola noua"
       save: Salveaza
       these_fields_are_shown_only_to_you: "Numele de utilizator este afisat in profilul tau, in cazul in care nu ai furnizat numele tau. Alte informatii sunt vizibile doar pentru tine"

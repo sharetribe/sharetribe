@@ -245,6 +245,7 @@ it:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ it:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: "Maggiori informazioni su come connettere Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Salva le impostazioni"
       menu_links:
         menu_links: ~
@@ -1945,7 +1950,7 @@ it:
         other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
       family_name: Cognome
       given_name: Nome
-      i_accept_the: "Accetto i"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: "Accetto di ricevere mail occasionali dal team %{service_name}, consapevole che posso cambiare idea in qualsiasi momento"
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"
@@ -1955,6 +1960,7 @@ it:
       show_my_name_to_others: "Mostra il mio vero nome agli altri utenti di %{service_name}"
       sign_up: "Crea un nuovo account per %{service_name}"
       terms: "Termini e Condizioni"
+      privacy: ~
       username_is_in_use: "Questo nome utente è già in uso"
       username_is_invalid: "Nome utente non valido. I caratteri ammessi sono lettere, numeri e underscore."
       visible_only_to_you: "visibile solo a te ed all'amministratore della community"
@@ -2061,6 +2067,7 @@ it:
       delete_personal_information: "Se elimini l'account, i tuoi dati personali (nome, numero di telefono, indirizzo, email, foto del profilo, ecc) verranno eliminati in modo permanente e non potranno essere recuperati. Tutti gli annunci che hai creato verranno rimossi. Non sarai in grado di riattivare il tuo account."
       delete_information_others_involved: "Le informazioni dove altri partecipanti sono coinvolti (le conversazioni con altre persone, le operazioni che hai fatto, recensioni che hai dato agli altri, ecc) non verranno rimosse quando elimini il tuo account. Tuttavia, il tuo nome non sarà più visualizzato accanto a queste informazioni."
       unfinished_transactions: "Il tuo account non può essere camcellato, perchè hai delle transazioni in sospeso. Per favore completa prima le transazioni."
+      only_admin: ~
       new_password: "Nuova password"
       save: Salva
       these_fields_are_shown_only_to_you: "Lo username è mostrato nel tuo profilo a meno che non abbia fornito il tuo nome. Altre informazioni sono mostrate solo a te."

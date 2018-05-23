@@ -260,6 +260,7 @@ pt-BR:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Novo layout"
         description_roadmap_new: ~
@@ -291,6 +292,10 @@ pt-BR:
         google_analytics_key_info_text: "ID de rastreamento da sua conta do \"Google Analytics\"."
         google_analytics_key_info_text_with_instructions: "ID de acompanhamento da sua conta do \"Google Analytics\". %{instructions_link}."
         google_analytics_instructions_link_text: "Leia mais sobre como conectar com o \"Google Analytics\""
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Salvar configurações"
       menu_links:
         menu_links: "Menu links"
@@ -1974,7 +1979,7 @@ pt-BR:
         other: "O acesso a %{service_name} é restrito. Para entrar, você deve ter um e-mail autorizado."
       family_name: Sobrenome
       given_name: Nome
-      i_accept_the: "Eu aceito os"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código do convite "
@@ -1984,6 +1989,7 @@ pt-BR:
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores de %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"
       terms: "termos de uso"
+      privacy: ~
       username_is_in_use: "Este nome de usuário já está em uso."
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para você e para o administrador do mercado virtual"
@@ -2088,6 +2094,7 @@ pt-BR:
       delete_personal_information: "Se você excluir sua conta, suas informações pessoais (nome, número de telefone, endereço, e-mail, foto do perfil, etc.) serão excluídas permanentemente e não poderão ser recuperadas. Todos os anúncios que você criou serão removidos. Você não será capaz de reativar a sua conta."
       delete_information_others_involved: "Informações onde outros membros estão envolvidos (conversas com outras pessoas, transações que você fez, avaliações que você tenha feito dos outros, etc) não serão removidas quando você excluir sua conta. No entanto, seu nome não será mais exibido junto a essas informações."
       unfinished_transactions: "Sua conta não pode ser excluída porque você tem transações em andamento. Por favor, conclua todas as transações antes de excluir a sua conta."
+      only_admin: ~
       new_password: "Nova senha"
       save: Salvar
       these_fields_are_shown_only_to_you: "Seu nome de usuário é mostrado no seu perfil a menos que você tenha dado o seu nome. Outras informações só é mostrado a você."

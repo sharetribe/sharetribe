@@ -265,6 +265,7 @@ sk-SK:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nový vzhľad"
         description_roadmap_new: ~
@@ -296,6 +297,10 @@ sk-SK:
         google_analytics_key_info_text: "Sledovacie číslo Vašeho Google Analytics účtu"
         google_analytics_key_info_text_with_instructions: "Sledovacie číslo Vašeho Google Analytics účtu.%{instructions_link}."
         google_analytics_instructions_link_text: "Čítať viac o pripojení Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Uložiť nastavenia"
       menu_links:
         menu_links: "Menu odkazy"
@@ -1985,7 +1990,7 @@ sk-SK:
         other: "Prístup do %{service_name} je obmezený. Budete potrebovať e-mailovú adresu, vďaka ktorej sa budete môcť prihlásiť."
       family_name: Priezvisko
       given_name: Meno
-      i_accept_the: Akceptujem
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Kód pozvánky je neplatný."
       invitation_code: "Kód pozvánky"
@@ -1995,6 +2000,7 @@ sk-SK:
       show_my_name_to_others: "Zobraziť skutočné meno používateľom %{service_name}"
       sign_up: "Vytvoriť nový %{service_name} účet"
       terms: "Podmienky používania"
+      privacy: ~
       username_is_in_use: "Požívateľské meno je už používané."
       username_is_invalid: "Používateľské meno je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
       visible_only_to_you: "viditeľné iba pre Vás a pre admin použivateľa"
@@ -2099,6 +2105,7 @@ sk-SK:
       delete_personal_information: "Pokiaľ zmažete Váš účet, Vaše osobné údaje (meno, telefónne číslo, adresa, e-mail, profilová foto atď.) budú permanentne odstránené a nebude ich možné obnoviť. Všetky Vaše inzeráty budú odstránené a už nebude možné reaktivovať Váš účet."
       delete_information_others_involved: "informácie, ktoré sa týkajú ostatných členov (konverzácie s ďalšími ľudmi, uskutočnené transakcie, Vami poskytnutá spätná väzba atď.), nebudú odstránené v prípade zmazania účtu. Vaše meno sa už pri týchto informáciách nebude zobrazovať."
       unfinished_transactions: "Váš účet nemôže byť zmazaný, pretože stále máte prebiehajúce transakcie. Prosíme, dokončite všetky transakcie predtým, než zmažete Váš účet."
+      only_admin: ~
       new_password: "Nové heslo"
       save: Uložiť
       these_fields_are_shown_only_to_you: "Užívateľské meno sa zobrazuje v profile iba, keď bolo zadané meno. Ostatné informácie sa zobrazujú iba Vám."

@@ -260,6 +260,7 @@ nb:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "Når nye layout-komponenter er tilgjengelige for markedsplassen din, kan du velge om du vil begynne å bruke de nye komponentene eller fortsette å bruke de gamle. Du kan aktivere valgene dine når som helst på denne siden. Det er anbefalt å alltid bruke nyeste versjon, siden de gamle komponentene kan bli faset ut etter hvert. Hvis en komponent som du bruker vil bli faset ut, vil du bli kontaktet i forkant."
@@ -291,6 +292,10 @@ nb:
         google_analytics_key_info_text: "Tracking ID til din Google Analytics-konto."
         google_analytics_key_info_text_with_instructions: "Tracking-ID til din Google Analytics-konto. %{instructions_link}."
         google_analytics_instructions_link_text: "Les mer hvordan knytte til Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Lagre innstillinger"
       menu_links:
         menu_links: "Meny linker"
@@ -1974,7 +1979,7 @@ nb:
         other: "%{service_name} har restriksjoner. Du trenger en e-postadresse som viser at du er godkjent for å bli medlem."
       family_name: Etternavn
       given_name: Fornavn
-      i_accept_the: "Jeg aksepterer"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Invitasjonskode er ikke gyldig."
       invitation_code: Invitasjonskode
@@ -1984,6 +1989,7 @@ nb:
       show_my_name_to_others: "Vis mitt virkelige navn til andre brukere på %{service_name}"
       sign_up: "Opprett ny  %{service_name} brukerkonto"
       terms: "vilkår for bruk"
+      privacy: ~
       username_is_in_use: "Brukernavnet er allerede i bruk."
       username_is_invalid: "Brukernavnet er ugyldig. Gyldige tegn er bokstaver, tall og understrek."
       visible_only_to_you: "synlig kun for deg og markedsplassens administrator"
@@ -2088,6 +2094,7 @@ nb:
       delete_personal_information: "Hvis du fjerner din konto vil dine personalia (navn, telefon, adresse, epost, profilbilde, etc) bli slettet og disse kan ikke gjenopprettes. Alle dine annonser vil bli fjernet og du vil ikke kunne gjenopprette din brukerkonto."
       delete_information_others_involved: "Informasjon hvor andre brukere er involvert (samtaler med brukere, transaksjoner du har gjort, vurderinger du har gitt andre, etc) fjernes ikke når du sletter din konto. Navnet ditt vil derimot ikke lenger vises sammen med denne informasjonen."
       unfinished_transactions: "Din konto kan ikke fjernes fordi du har pågående transaksjoner. Vennligst fullfør alle dine transaksjoner før du fjerner din konto."
+      only_admin: ~
       new_password: "Nytt passord"
       save: Lagre
       these_fields_are_shown_only_to_you: "Brukernavn er synlig på din profil hvis du ikke har oppgitt navn. Annen informasjon er kun synlig for deg."

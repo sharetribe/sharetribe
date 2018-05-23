@@ -255,6 +255,7 @@ vi:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Bố cục mới"
         description_roadmap_new: "Khi các thành phần bố cục mới được tạo sẵn cho thị trường của bạn, bạn có thể chọn xem bạn muốn bắt đầu sử dụng thành phần mới hay tiếp tục sử dụng thành phần mới. Bạn có thể bật / tắt vùng chọn ở bất kỳ điểm nào từ trang này. Bạn nên luôn luôn sử dụng phiên bản mới vì các thành phần cũ có thể được loại bỏ tại một số điểm. Trong trường hợp một thành phần mà bạn hiện đang sử dụng sẽ được loại bỏ, bạn sẽ được liên hệ trước."
@@ -286,6 +287,10 @@ vi:
         google_analytics_key_info_text: "ID theo dõi tài khoản Google Analytics của bạn."
         google_analytics_key_info_text_with_instructions: "ID theo dõi tài khoản Google Analytics của bạn.%{instructions_link}."
         google_analytics_instructions_link_text: "Đọc thêm về kết nối Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Lưu thiết lâp"
       menu_links:
         menu_links: "Liên kết danh mục"
@@ -1963,7 +1968,7 @@ vi:
       invalid_username_or_email: "Tên người dùng hoặc e-mail không hợp lệ hoặc đã được sử dụng"
       family_name: Họ
       given_name: Tên
-      i_accept_the: "Tôi chấp nhận"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
@@ -1973,6 +1978,7 @@ vi:
       show_my_name_to_others: "Hiển thị tên thật của tôi cho các người dùng %{service_name} khác"
       sign_up: "Tạo một tài khoản mới trong %{service_name}"
       terms: "Điều khoản sử dụng"
+      privacy: ~
       username_is_in_use: "Tên người dùng này đang được sử dụng."
       username_is_invalid: "Tên người dùng không hợp lệ. Cho phép các ký tự là chữ cái, số và gạch dưới."
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
@@ -2077,6 +2083,7 @@ vi:
       delete_personal_information: "Nếu bạn xoá tài khoản của mình, thông tin cá nhân (tên, số điện thoại, địa chỉ, email, ảnh đại diện, v.v.) sẽ bị xóa vĩnh viễn và không phục hồi lại được. Tất cả các bài đăng của bạn sẽ bị xóa. Bạn sẽ không thể kích hoạt lại tài khoản của mình."
       delete_information_others_involved: "Thông tin mà các thành viên khác tham gia (cuộc trò chuyện với người khác, giao dịch bạn thực hiện, nhận xét bạn đưa cho người khác, v.v ...) sẽ không bị xóa khi bạn xóa tài khoản của mình. Tuy nhiên, tên của bạn sẽ không còn được hiển thị bên cạnh thông tin này."
       unfinished_transactions: "Bạn không thể xóa tài khoản của mình vì bạn có các giao dịch đang diễn ra. Vui lòng hoàn tất tất cả giao dịch trước khi xóa tài khoản của bạn."
+      only_admin: ~
       new_password: "Mật khẩu mới"
       save: Lưu
       these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."

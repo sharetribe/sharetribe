@@ -260,6 +260,7 @@ fi:
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
         reset_search: "Näytä kaikki"
         for_search_terms: "hakutermille: %{terms}"
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -291,6 +292,10 @@ fi:
         google_analytics_key_info_text: "Google Analytics -tilisi tracking ID."
         google_analytics_key_info_text_with_instructions: "Google Analytics -tilisi tracking ID. %{instructions_link}."
         google_analytics_instructions_link_text: "Lue lisää Google Analytics -tilin yhdistämisestä"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: Tallenna
       menu_links:
         menu_links: Valikkolinkit
@@ -1978,7 +1983,7 @@ fi:
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
       family_name: Sukunimi
       given_name: Etunimi
-      i_accept_the: Hyväksyn
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: Kutsukoodi
@@ -1988,6 +1993,7 @@ fi:
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus"
       terms: käyttöehdot
+      privacy: ~
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja %{service_name}-palvelun ylläpidolle"
@@ -2092,6 +2098,7 @@ fi:
       delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
       delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, tilaukset, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
       unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä tilauksia. Päätä tilaukset ennen tunnuksen poistoa."
+      only_admin: ~
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."

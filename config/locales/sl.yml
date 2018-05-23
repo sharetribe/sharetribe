@@ -245,6 +245,7 @@ sl:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ sl:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
       menu_links:
         menu_links: ~
@@ -1936,7 +1941,7 @@ sl:
       invalid_username_or_email: ~
       family_name: Priimek
       given_name: Ime
-      i_accept_the: Sprejmem
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Ta koda povabiila ni veljavna."
       invitation_code: "Koda povabila"
@@ -1946,6 +1951,7 @@ sl:
       show_my_name_to_others: ~
       sign_up: "Kreiraj nov %{service_name} uporabniški račun"
       terms: "pogoji poslovanja"
+      privacy: ~
       username_is_in_use: "To uporabniško ime je že v uporabi."
       username_is_invalid: "Uporabniško ime ni veljavno. Dovoljene so samo črke, številke in podčrtaj."
       visible_only_to_you: ~
@@ -2050,6 +2056,7 @@ sl:
       delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bojo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
       delete_information_others_involved: ~
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "Novo geslo"
       save: Shrani
       these_fields_are_shown_only_to_you: ~

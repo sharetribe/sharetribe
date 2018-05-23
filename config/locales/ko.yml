@@ -255,6 +255,7 @@ ko:
         search_by_name_email: "이름, 이메일 또는 표시 이름 검색"
         reset_search: "전체 보기"
         for_search_terms: "%{terms}동안"
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "새 레이아웃"
         description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
@@ -286,6 +287,10 @@ ko:
         google_analytics_key_info_text: "Google 애널리틱스 계정의 추적 ID입니다."
         google_analytics_key_info_text_with_instructions: "Google 애널리틱스 계정의 추적 ID입니다. %{instructions_link}."
         google_analytics_instructions_link_text: "Google 애널리틱스 연결에 대해 자세히 알아보기"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "설정 저장"
       menu_links:
         menu_links: 메뉴링크
@@ -1968,7 +1973,7 @@ ko:
         other: "%{service_name}에 대한 액세스가 제한됩니다. 가입 자격이 있음을 증명하는 이메일 주소가 필요합니다."
       family_name: 성
       given_name: 이름
-      i_accept_the: "나는 동의합니다"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "초청 코드가 유효하지 않습니다."
       invitation_code: 초청코드
@@ -1978,6 +1983,7 @@ ko:
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
+      privacy: ~
       username_is_in_use: "이 사용자명은 이미 존재합니다"
       username_is_invalid: "사용자 이름이 잘못되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
       visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
@@ -2082,6 +2088,7 @@ ko:
       delete_personal_information: "계정을 삭제하면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 만든 모든 목록이 삭제됩니다. 계정을 다시 활성화 할 수 없습니다."
       delete_information_others_involved: "다른 회원이 참여한 정보 (다른 사람과의 대화, 만든 거래, 다른 사용자에게 준 리뷰 등)는 계정을 삭제해도 삭제되지 않습니다. 그러나 귀하의 이름은이 정보 옆에 더 이상 표시되지 않습니다."
       unfinished_transactions: "거래가 진행 중이므로 계정을 삭제할 수 없습니다. 계정을 삭제하기 전에 모든 거래를 완료하십시오."
+      only_admin: ~
       new_password: "새로운 비밀번호"
       save: 저장
       these_fields_are_shown_only_to_you: "사용자의 성과 이름을 넣지 않으면 사용자 계정이 프로필에 보여집니다. 다른 정보는 오로지 사용자에게만 표시됩니다."

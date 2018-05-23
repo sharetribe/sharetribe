@@ -245,6 +245,7 @@ hr:
         search_by_name_email: "Tražite ime, email ili korisničko ime"
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Novi prikaz"
         description_roadmap_new: ~
@@ -276,6 +277,10 @@ hr:
         google_analytics_key_info_text: "Praćenje IDa vašeg Google Analytics računa"
         google_analytics_key_info_text_with_instructions: "Praćenje IDa vašeg Google Analytics računa. %{instructions_link}."
         google_analytics_instructions_link_text: "Pročitajte više o povezivanju Google Analyticsa"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Spremiti postavke"
       menu_links:
         menu_links: "Linkovi izbornika"
@@ -1942,7 +1947,7 @@ hr:
       invalid_username_or_email: ~
       family_name: Prezime
       given_name: Ime
-      i_accept_the: Prihvaćam
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Kod pozivnice nije točan."
       invitation_code: "Kod pozivnice"
@@ -1952,6 +1957,7 @@ hr:
       show_my_name_to_others: "Pokažite moje prave ime prema %{service_name} korisnicima"
       sign_up: "Kreirajte novi %{service_name} korisnički račun"
       terms: "Uvjeti korištenja"
+      privacy: ~
       username_is_in_use: "Korisničko ime je već u upotrebi."
       username_is_invalid: "Korisničko ime je neispravno. Dozvoljeni znakovi su slova, brojevi i donja crta."
       visible_only_to_you: ~
@@ -2056,6 +2062,7 @@ hr:
       delete_personal_information: "Ako izbrišete svoj račun, vaše osobne informacije (ime, broj telefona, adresa, email, profilna slika i slično) će biti zauvijek izbrisane i neće se moći povratiti. Svi oglasi koje ste postavili će biti uklonjeni. Nećete moći ponovno aktivirati vaš račun."
       delete_information_others_involved: "Informacije u koje su uključeni ostali članovi (razgovori sa drugim ljudima, dovršene transakcije, recenzije koje ste dali drugima i slično) neće biti uklonjene kada izbrišete svoj račun. Iako, vaše ime neće više biti vidljivo do ovih informacija."
       unfinished_transactions: "Vaš račun ne može biti izbrisan jer imate transakcije u tijeku. Molimo dovršite sve transakcije prije brisanja vašeg računa."
+      only_admin: ~
       new_password: "Nova lozinka"
       save: Spremiti
       these_fields_are_shown_only_to_you: "Korisničko ime je prikazano u Vašem profilu osim ako niste upisali Vaše ime. Ostale informacije su prikazane samo Vama."

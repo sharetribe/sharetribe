@@ -260,6 +260,7 @@ sv:
         search_by_name_email: "Sök efter namn, epostadress eller synligt namn"
         reset_search: "Visa alla"
         for_search_terms: "för: %{terms}"
+        this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -291,6 +292,10 @@ sv:
         google_analytics_key_info_text: "Tracking ID för ditt Google Analytics konto."
         google_analytics_key_info_text_with_instructions: "Tracking ID för ditt Google Analytics konto.%{instructions_link}."
         google_analytics_instructions_link_text: "Läs mer om att koppla Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: "Spara inställningar"
       menu_links:
         menu_links: Menylänkar
@@ -1980,7 +1985,7 @@ sv:
         other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."
       family_name: Efternamn
       given_name: Förnamn
-      i_accept_the: "Jag accepterar"
+      i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: "Inbjudningskoden är inte korrekt."
       invitation_code: Inbjudningskod
@@ -1990,6 +1995,7 @@ sv:
       show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"
       sign_up: "Skapa ett nytt %{service_name} konto"
       terms: användarvillkoren
+      privacy: ~
       username_is_in_use: "Detta användarnamn används redan."
       username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
       visible_only_to_you: "endast synlig för dig och %{service_name} admin"
@@ -2094,6 +2100,7 @@ sv:
       delete_personal_information: "Om du tar bort ditt konto så kommer din personliga information (namn, telefonnummer, adress, e-post, profilbild osv.) att tas bort permanent och går inte att återskapa. Alla annonser som du har skapat kommer också att tas bort från sidan. Du kommer inte att kunna återaktivera kontot."
       delete_information_others_involved: "Information där andra medlemmar är involverade (konversationer med andra personer, transaktioner du gjort, recensioner du har gett till andra, m.m.) kommer inte att tas bort när du raderar ditt konto. Ditt namn kommer inte att visas vid denna information."
       unfinished_transactions: "Ditt konto kan inte tas bort eftersom du har pågående transaktioner. Vänligen slutför alla transaktioner innan du tar bort ditt konto."
+      only_admin: ~
       new_password: "Nytt lösenord"
       save: Spara
       these_fields_are_shown_only_to_you: "Användarnamn visas i din profil om du inte har angett ditt namn. Annan information syns enbart för dig."
