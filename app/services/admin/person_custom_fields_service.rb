@@ -1,4 +1,4 @@
-class Admin::PersonCustomFieldsPresenter
+class Admin::PersonCustomFieldsService
   attr_reader :community, :params, :min_option_count, :custom_field
 
   def initialize(community:, params:)
