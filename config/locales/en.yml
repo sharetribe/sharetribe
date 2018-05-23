@@ -476,8 +476,9 @@ en:
         new_user_field: "New user field"
       form:
         field_required:
-          this_field_is_required: "Make it mandatory to fill in this field when user signs up"
-          this_field_is_required_checkbox: "Make it mandatory to fill in this field when user signs up (user has to select at least one option)"
+          this_field_is_required: "Make it mandatory to fill this field when signing up to the marketplace"
+          this_field_is_required_checkbox: "Make it mandatory to fill this field when signing up to the marketplace (user has to select at least one option)"
+          this_field_is_public: "Show this field in the public profile page"
       edit:
         edit_user_field: "Edit user field '%{field_name}'"
     emails:
