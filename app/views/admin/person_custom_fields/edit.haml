@@ -2,10 +2,10 @@
   %h1
     = t("layouts.admin.admin")
     = "-"
-    = t(".edit_user_field", :field_name => @presenter.custom_field.name(I18n.locale))
+    = t(".edit_user_field", :field_name => @service.custom_field.name(I18n.locale))
 
 = render "admin/left_hand_navigation", links: admin_links_for(@current_community)
 
 .left-navi-section
-  = render 'form', presenter: @presenter
+  = render 'form', service: @service
 
