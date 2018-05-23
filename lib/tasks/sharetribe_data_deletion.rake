@@ -12,8 +12,9 @@ namespace :sharetribe do
     end
   end
 
+  # rubocop:disable MethodLength
   def delete_marketplace_queries(id)
-  sql = <<SQL
+  sql = <<~SQL
 UPDATE communities SET deleted = 1 WHERE id = #{id};
 
 DELETE FROM feature_flags WHERE community_id = #{id};
@@ -232,6 +233,7 @@ SQL
       people = Person.where(community_id: marketplace_id)
 
       people.each do |person|
+        puts "Deleting data for user #{person.id}..."
         ActiveRecord::Base.transaction do
           Person.delete_user(person.id)
           Listing.delete_by_author(person.id)
@@ -240,9 +242,10 @@ SQL
       end
 
       # Clean up all data in database
+      puts "Deleting all remaining marketplace data in the database..."
       ActiveRecord::Base.connection.transaction do
         delete_marketplace_queries(marketplace_id).each do |q|
-          ActiveRecord::Base.connection.execute(q);
+          ActiveRecord::Base.connection.execute(q)
         end
       end
 
@@ -268,14 +271,17 @@ SQL
 
       people.each do |person|
         stripe_acc = StripeAccount.where(person_id: person.id, community_id: community.id).first
-        if stripe_acc
-          stripe_res = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
-                                                                              person_id: person.id)
-          unless stripe_res[:success]
-            puts "WARN: Failed to delete Stripe account for user #{person.id}: #{stripe_acc.stripe_seller_id}"
-          end
+
+        next unless stripe_acc
+
+        puts "Deleting Stripe account for user #{person.id}..."
+        stripe_res = StripeService::API::Api.accounts.delete_seller_account(community_id: community.id,
+                                                                            person_id: person.id)
+        unless stripe_res[:success]
+          puts "WARN: Failed to delete Stripe account for user #{person.id}: #{stripe_acc.stripe_seller_id}"
         end
       end
+      puts "Done."
     end
   end
 
