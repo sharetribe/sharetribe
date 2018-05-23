@@ -1,14 +1,14 @@
 class Admin::PersonCustomFieldsController < Admin::AdminBaseController
   before_action :ensure_feature_flag_enabled
   before_action :set_selected_left_navi_link
-  before_action :set_presenter
+  before_action :set_service
 
   def new
-    @presenter.new_custom_field
+    @service.new_custom_field
   end
 
   def create
-    success = @presenter.create
+    success = @service.create
     if success
       redirect_to admin_person_custom_fields_path
     else
@@ -18,21 +18,21 @@ class Admin::PersonCustomFieldsController < Admin::AdminBaseController
   end
 
   def edit
-    @presenter.find_custom_field
+    @service.find_custom_field
   end
 
   def update
-    @presenter.update
+    @service.update
     redirect_to admin_person_custom_fields_path
   end
 
   def destroy
-    @presenter.destroy
+    @service.destroy
     redirect_to admin_person_custom_fields_path
   end
 
   def order
-    @presenter.order
+    @service.order
     render body: nil, status: 200
   end
 
@@ -42,8 +42,8 @@ class Admin::PersonCustomFieldsController < Admin::AdminBaseController
     @selected_left_navi_link = "user_fields"
   end
 
-  def set_presenter
-    @presenter = Admin::PersonCustomFieldsPresenter.new(
+  def set_service
+    @service = Admin::PersonCustomFieldsService.new(
       community: @current_community,
       params: params)
   end
