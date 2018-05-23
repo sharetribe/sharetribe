@@ -313,6 +313,11 @@ Rails.application.routes.draw do
           put :update_expiration
         end
       end
+      resources :person_custom_fields do
+        collection do
+          post :order
+        end
+      end
       resources :categories do
         member do
           get :remove

@@ -451,6 +451,16 @@ module ApplicationHelper
     links += [
       {
         :topic => :configure,
+        :text => t("admin.communities.user_fields.user_fields"),
+        :icon_class => icon_class("community"),
+        :path => admin_person_custom_fields_path,
+        :name => "user_fields"
+      }
+    ]
+
+    links += [
+      {
+        :topic => :configure,
         :text => t("admin.categories.index.listing_categories"),
         :icon_class => icon_class("list"),
         :path => admin_categories_path,

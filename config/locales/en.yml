@@ -402,6 +402,8 @@ en:
           status: Status
         open: Open
         closed: Closed
+      user_fields:
+        user_fields: "User fields"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -455,6 +457,29 @@ en:
         dropdown: Dropdown
         checkbox_group: "Checkbox group"
         date: Date
+        file: File
+        location: Location
+    person_custom_fields:
+      saving_failed: "User field saving failed"
+      index:
+        user_fields: "User fields"
+        field_title: "Field title"
+        field_type: "Field type"
+        add_new_field: "Add new field:"
+        save: "Save"
+        cancel: "Cancel"
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Allow decimals"
+        add_option: "Add option"
+      new:
+        new_user_field: "New user field"
+      form:
+        field_required:
+          this_field_is_required: "Make it mandatory to fill in this field when user signs up"
+          this_field_is_required_checkbox: "Make it mandatory to fill in this field when user signs up (user has to select at least one option)"
+      edit:
+        edit_user_field: "Edit user field '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Email users"
