@@ -110,6 +110,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
     custom_field_entity = build_custom_field_entity(params[:field_type], params[:custom_field])
 
     @custom_field = params[:field_type].constantize.new(custom_field_entity) #before filter checks valid field types and prevents code injection
+    @custom_field.entity_type = :for_listing
     @custom_field.community = @current_community
 
     success =

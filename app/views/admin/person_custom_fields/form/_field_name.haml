@@ -1,0 +1,8 @@
+= form.label :name_attributes, t("admin.custom_fields.index.field_title")
+- available_locales.each do |locale_name, locale_value|
+  .row
+    - if available_locales.size > 1
+      .col-2
+        = label_tag "custom_field[name_attributes][#{locale_value}]", locale_name + ": ", :class => "new-field-name-locale-label"
+    .col-8
+      = text_field_tag "custom_field[name_attributes][#{locale_value}]", form.object.name(locale_value), :class => "new-field-name-locale-text-field required"
