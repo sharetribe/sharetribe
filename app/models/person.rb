@@ -112,6 +112,9 @@ class Person < ApplicationRecord
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+  has_many :custom_field_values, :dependent => :destroy
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
