@@ -10,6 +10,7 @@
 .row
   .col-12
     .checkbox-container
-      = form.check_box :public
-      = form.label :public, t(".this_field_is_public")
+      - disabled = form.object.phone_number?
+      = form.check_box :public, disabled: disabled
+      = form.label :public, t(".this_field_is_public"), class: disabled ? 'disabled' : ''
 

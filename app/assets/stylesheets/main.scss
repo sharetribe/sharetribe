@@ -341,6 +341,10 @@ form {
       margin-top: lines(0.5) - em(3);
       margin-bottom: em(3);
       font-weight: 600;
+
+      &.disabled {
+        color: #c3c3c3;
+      }
     }
 
     label.radio {
