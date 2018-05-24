@@ -15,6 +15,7 @@
 #  allow_decimals :boolean          default(FALSE)
 #  entity_type    :integer          default("for_listing")
 #  public         :boolean          default(FALSE)
+#  assignment     :integer          default("unassigned")
 #
 # Indexes
 #
@@ -47,6 +48,13 @@ class CustomField < ApplicationRecord
   }.freeze
 
   enum entity_type: ENTITY_TYPES
+
+  ASSIGNMENTS = {
+    unassigned: 0,
+    phone_number: 1
+  }.freeze
+
+  enum assignment: ASSIGNMENTS
 
   VALID_TYPES = ["TextField", "NumericField", "DropdownField", "CheckboxField","DateField"]
 
