@@ -35,7 +35,9 @@ class PersonPhoneCopyist
 
     def first_or_create_phone_field(community)
       phone_field = community.person_custom_fields.phone_number.first
-      unless phone_field
+      if phone_field
+        phone_field
+      else
         names = {}
         locales = community.settings['locales'] || ['en']
         locales.each do |locale|
@@ -46,12 +48,10 @@ class PersonPhoneCopyist
           assignment: :phone_number,
           name_attributes: names,
           required: false,
-          public: false,
+          public: false
         )
         community.person_custom_fields << field
         field
-      else
-        phone_field
       end
     end
   end
