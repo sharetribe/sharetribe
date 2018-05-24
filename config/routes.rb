@@ -313,7 +313,7 @@ Rails.application.routes.draw do
           put :update_expiration
         end
       end
-      resources :person_custom_fields do
+      resources :person_custom_fields, path: 'user_fields' do
         collection do
           post :order
         end

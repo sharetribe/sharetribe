@@ -159,6 +159,7 @@ ICON_MAP = {
       "cars" => "ss-car",
       "raclette_grill" => "ss-cookingutensils",
       "topbar_menu" => "ss-signpost",
+      "user_edit" => "ss-userprofile",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -268,5 +269,6 @@ ICON_MAP = {
       "academy" => "icon-bookmark",
       "grid" => "icon-th-large",
       "check" => "icon-ok",
+      "user_edit" => "icon-user",
     }
   }

@@ -453,7 +453,7 @@ module ApplicationHelper
         {
           :topic => :configure,
           :text => t("admin.communities.user_fields.user_fields"),
-          :icon_class => icon_class("community"),
+          :icon_class => icon_class("user_edit"),
           :path => admin_person_custom_fields_path,
           :name => "user_fields"
         }
