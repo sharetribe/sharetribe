@@ -31,4 +31,6 @@ class CustomFieldValue < ApplicationRecord
 
   default_scope { includes(:question).order("custom_fields.sort_priority") }
 
+  scope :by_question, ->(question){ where(custom_field_id: question.id) }
+
 end
