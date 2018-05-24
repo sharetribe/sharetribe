@@ -15,197 +15,193 @@ namespace :sharetribe do
   # rubocop:disable MethodLength
   def delete_marketplace_queries(id)
   sql = <<~SQL
-UPDATE communities SET deleted = 1 WHERE id = #{id};
+    UPDATE communities SET deleted = 1 WHERE id = #{id};
 
-DELETE FROM feature_flags WHERE community_id = #{id};
+    DELETE FROM feature_flags WHERE community_id = #{id};
 
-DELETE FROM community_translations WHERE community_id = #{id};
+    DELETE FROM community_translations WHERE community_id = #{id};
 
-DELETE mlt, ml
-  FROM menu_link_translations mlt LEFT JOIN menu_links ml
-    ON mlt.menu_link_id = ml.id
-  WHERE ml.community_id = #{id};
+    DELETE mlt, ml
+      FROM menu_link_translations mlt LEFT JOIN menu_links ml
+        ON mlt.menu_link_id = ml.id
+      WHERE ml.community_id = #{id};
 
-DELETE loc FROM locations loc
-  LEFT JOIN people p ON loc.person_id = p.id
-  LEFT JOIN listings l ON loc.listing_id = l.id
-  WHERE p.community_id = #{id} OR l.community_id = #{id} ;
+    DELETE loc FROM locations loc
+      LEFT JOIN people p ON loc.person_id = p.id
+      LEFT JOIN listings l ON loc.listing_id = l.id
+      WHERE p.community_id = #{id} OR l.community_id = #{id} ;
 
-DELETE FROM locations WHERE community_id = #{id};
+    DELETE FROM locations WHERE community_id = #{id};
 
-DELETE li FROM listing_images li
-  LEFT JOIN listings l ON li.listing_id = l.id
-  WHERE l.community_id = #{id};
+    DELETE li FROM listing_images li
+      LEFT JOIN listings l ON li.listing_id = l.id
+      WHERE l.community_id = #{id};
 
-DELETE fr
-  FROM follower_relationships fr
-  LEFT JOIN people p ON fr.person_id = p.id
-  WHERE p.community_id = #{id};
+    DELETE fr
+      FROM follower_relationships fr
+      LEFT JOIN people p ON fr.person_id = p.id
+      WHERE p.community_id = #{id};
 
-DELETE lf
-  FROM listing_followers lf
-  LEFT JOIN listings l ON lf.listing_id = l.id
-  WHERE l.community_id = #{id};
+    DELETE lf
+      FROM listing_followers lf
+      LEFT JOIN listings l ON lf.listing_id = l.id
+      WHERE l.community_id = #{id};
 
-DELETE lts
-  FROM listing_working_time_slots lts
-  LEFT JOIN listings l ON lts.listing_id = l.id
-  WHERE l.community_id = #{id};
+    DELETE lts
+      FROM listing_working_time_slots lts
+      LEFT JOIN listings l ON lts.listing_id = l.id
+      WHERE l.community_id = #{id};
 
-DELETE cfos
-  FROM custom_field_option_selections cfos
-  LEFT JOIN listings l ON cfos.listing_id = l.id
-  WHERE l.community_id = #{id};
+    DELETE cfos
+      FROM custom_field_option_selections cfos
+      LEFT JOIN listings l ON cfos.listing_id = l.id
+      WHERE l.community_id = #{id};
 
-DELETE cfv
-  FROM custom_field_values cfv
-  LEFT JOIN listings l ON cfv.listing_id = l.id
-  WHERE l.community_id = #{id};
+    DELETE cfv
+      FROM custom_field_values cfv
+      LEFT JOIN listings l ON cfv.listing_id = l.id
+      WHERE l.community_id = #{id};
 
-DELETE part
-  FROM participations part
-  LEFT JOIN people p ON part.person_id = p.id
-  WHERE p.community_id = #{id};
+    DELETE part
+      FROM participations part
+      LEFT JOIN people p ON part.person_id = p.id
+      WHERE p.community_id = #{id};
 
--- participation not deleted above, due to link to deleted people row
-DELETE part
-  FROM participations part
-  LEFT JOIN conversations c ON part.conversation_id = c.id
-  WHERE c.community_id = #{id};
+    DELETE part
+      FROM participations part
+      LEFT JOIN conversations c ON part.conversation_id = c.id
+      WHERE c.community_id = #{id};
 
-DELETE m, c
-  FROM messages m
-  LEFT JOIN conversations c ON m.conversation_id = c.id
-  WHERE c.community_id = #{id};
+    DELETE m, c
+      FROM messages m
+      LEFT JOIN conversations c ON m.conversation_id = c.id
+      WHERE c.community_id = #{id};
 
-DELETE FROM conversations WHERE community_id = #{id};
+    DELETE FROM conversations WHERE community_id = #{id};
 
-DELETE b
-  FROM bookings b
-  LEFT JOIN transactions t ON b.transaction_id = t.id
-  WHERE t.community_id = #{id};
+    DELETE b
+      FROM bookings b
+      LEFT JOIN transactions t ON b.transaction_id = t.id
+      WHERE t.community_id = #{id};
 
-DELETE op
-  FROM order_permissions op
-  LEFT JOIN paypal_accounts pa ON op.paypal_account_id = pa.id
-  WHERE pa.community_id = #{id};
+    DELETE op
+      FROM order_permissions op
+      LEFT JOIN paypal_accounts pa ON op.paypal_account_id = pa.id
+      WHERE pa.community_id = #{id};
 
-DELETE FROM paypal_accounts WHERE community_id = #{id};
+    DELETE FROM paypal_accounts WHERE community_id = #{id};
 
-DELETE tt
-  FROM transaction_transitions tt
-  LEFT JOIN transactions t ON tt.transaction_id = t.id
-  WHERE t.community_id = #{id};
+    DELETE tt
+      FROM transaction_transitions tt
+      LEFT JOIN transactions t ON tt.transaction_id = t.id
+      WHERE t.community_id = #{id};
 
--- what to do with shipping addresses? Perhaps they should be deleted as soon as they are no longer needed (i.e. when transaction completes)?
+    DELETE sa
+      FROM shipping_addresses sa
+      LEFT JOIN transactions t ON sa.transaction_id = t.id
+      WHERE t.community_id = #{id};
 
-DELETE sa
-  FROM shipping_addresses sa
-  LEFT JOIN transactions t ON sa.transaction_id = t.id
-  WHERE t.community_id = #{id};
+    DELETE FROM transaction_process_tokens WHERE community_id = #{id};
 
-DELETE FROM transaction_process_tokens WHERE community_id = #{id};
+    DELETE FROM transactions WHERE community_id = #{id};
 
-DELETE FROM transactions WHERE community_id = #{id};
+    DELETE FROM transaction_processes WHERE community_id = #{id};
 
-DELETE FROM transaction_processes WHERE community_id = #{id};
+    DELETE t
+      FROM testimonials t
+      LEFT JOIN people p ON t.author_id = p.id
+      WHERE p.community_id = #{id};
 
-DELETE t
-  FROM testimonials t
-  LEFT JOIN people p ON t.author_id = p.id
-  WHERE p.community_id = #{id};
+    DELETE c
+      FROM comments c
+      LEFT JOIN people p ON c.author_id = p.id
+      WHERE p.community_id = #{id};
 
-DELETE c
-  FROM comments c
-  LEFT JOIN people p ON c.author_id = p.id
-  WHERE p.community_id = #{id};
+    DELETE a
+      FROM auth_tokens a
+      LEFT JOIN people p ON a.person_id = p.id
+      WHERE p.community_id = #{id};
 
-DELETE a
-  FROM auth_tokens a
-  LEFT JOIN people p ON a.person_id = p.id
-  WHERE p.community_id = #{id};
+    DELETE FROM emails WHERE community_id = #{id};
 
-DELETE FROM emails WHERE community_id = #{id};
+    DELETE FROM active_sessions WHERE community_id = #{id};
 
-DELETE FROM active_sessions WHERE community_id = #{id};
+    DELETE FROM community_customizations WHERE community_id = #{id};
 
-DELETE FROM community_customizations WHERE community_id = #{id};
+    DELETE FROM feedbacks WHERE community_id = #{id};
 
-DELETE FROM feedbacks WHERE community_id = #{id};
+    DELETE FROM invitations WHERE community_id = #{id};
 
-DELETE FROM invitations WHERE community_id = #{id};
+    DELETE FROM invitation_unsubscribes WHERE community_id = #{id};
 
-DELETE FROM invitation_unsubscribes WHERE community_id = #{id};
+    DELETE FROM landing_page_versions WHERE community_id = #{id};
 
-DELETE FROM landing_page_versions WHERE community_id = #{id};
+    DELETE FROM landing_pages WHERE community_id = #{id};
 
-DELETE FROM landing_pages WHERE community_id = #{id};
+    DELETE FROM marketplace_sender_emails WHERE community_id = #{id};
 
-DELETE FROM marketplace_sender_emails WHERE community_id = #{id};
+    DELETE FROM marketplace_setup_steps WHERE community_id = #{id};
 
-DELETE FROM marketplace_setup_steps WHERE community_id = #{id};
+    DELETE FROM marketplace_configurations WHERE community_id = #{id};
 
-DELETE FROM marketplace_configurations WHERE community_id = #{id};
+    DELETE pr
+      FROM paypal_refunds pr
+      LEFT JOIN paypal_payments pp ON pr.paypal_payment_id = pp.id
+      WHERE pp.community_id = #{id};
 
-DELETE pr
-  FROM paypal_refunds pr
-  LEFT JOIN paypal_payments pp ON pr.paypal_payment_id = pp.id
-  WHERE pp.community_id = #{id};
+    DELETE FROM paypal_payments WHERE community_id = #{id};
 
-DELETE FROM paypal_payments WHERE community_id = #{id};
+    DELETE FROM stripe_payments WHERE community_id = #{id};
 
-DELETE FROM stripe_payments WHERE community_id = #{id};
+    DELETE FROM marketplace_plans WHERE community_id = #{id};
 
--- what about charm?
-DELETE FROM marketplace_plans WHERE community_id = #{id};
+    DELETE FROM marketplace_trials WHERE community_id = #{id};
 
-DELETE FROM marketplace_trials WHERE community_id = #{id};
+    DELETE FROM listings WHERE community_id = #{id};
 
-DELETE FROM listings WHERE community_id = #{id};
+    DELETE lu
+      FROM listing_units lu
+      LEFT JOIN listing_shapes ls ON lu.listing_shape_id = ls.id
+      WHERE ls.community_id = #{id};
 
-DELETE lu
-  FROM listing_units lu
-  LEFT JOIN listing_shapes ls ON lu.listing_shape_id = ls.id
-  WHERE ls.community_id = #{id};
+    DELETE FROM listing_shapes WHERE community_id = #{id};
 
-DELETE FROM listing_shapes WHERE community_id = #{id};
+    DELETE ct
+      FROM category_translations ct
+      LEFT JOIN categories c ON ct.category_id = c.id WHERE c.community_id = #{id};
 
-DELETE ct
-  FROM category_translations ct
-  LEFT JOIN categories c ON ct.category_id = c.id WHERE c.community_id = #{id};
+    DELETE ccf
+      FROM category_custom_fields ccf
+      LEFT JOIN categories c ON ccf.category_id = c.id
+      WHERE c.community_id = #{id};
 
-DELETE ccf
-  FROM category_custom_fields ccf
-  LEFT JOIN categories c ON ccf.category_id = c.id
-  WHERE c.community_id = #{id};
+    DELETE cls
+      FROM category_listing_shapes cls
+      LEFT JOIN categories c ON cls.category_id = c.id
+      WHERE c.community_id = #{id};
 
-DELETE cls
-  FROM category_listing_shapes cls
-  LEFT JOIN categories c ON cls.category_id = c.id
-  WHERE c.community_id = #{id};
+    DELETE FROM categories WHERE community_id = #{id};
 
-DELETE FROM categories WHERE community_id = #{id};
+    DELETE cfn
+      FROM custom_field_names cfn
+      LEFT JOIN custom_fields cf ON cfn.custom_field_id = cf.id
+      WHERE cf.community_id = #{id};
 
-DELETE cfn
-  FROM custom_field_names cfn
-  LEFT JOIN custom_fields cf ON cfn.custom_field_id = cf.id
-  WHERE cf.community_id = #{id};
+    DELETE cfot, cfo
+      FROM custom_field_option_titles cfot
+      LEFT JOIN custom_field_options cfo ON cfo.id = cfot.custom_field_option_id
+      LEFT JOIN custom_fields cf ON cfo.custom_field_id = cf.id
+      WHERE cf.community_id = #{id};
 
-DELETE cfot, cfo
-  FROM custom_field_option_titles cfot
-  LEFT JOIN custom_field_options cfo ON cfo.id = cfot.custom_field_option_id
-  LEFT JOIN custom_fields cf ON cfo.custom_field_id = cf.id
-  WHERE cf.community_id = #{id};
+    DELETE FROM custom_fields WHERE community_id = #{id};
 
-DELETE FROM custom_fields WHERE community_id = #{id};
+    DELETE FROM people WHERE community_id = #{id};
 
-DELETE FROM people WHERE community_id = #{id};
+    DELETE FROM stripe_accounts WHERE community_id = #{id};
 
-DELETE FROM stripe_accounts WHERE community_id = #{id};
+    DELETE FROM payment_settings WHERE community_id = #{id};
 
-DELETE FROM payment_settings WHERE community_id = #{id};
-
-DELETE FROM community_memberships WHERE community_id = #{id};
+    DELETE FROM community_memberships WHERE community_id = #{id};
 SQL
 
   sql.split(/;/).map { |q| q.strip }.reject { |q| q.empty? }
@@ -234,6 +230,8 @@ SQL
 
       people.each do |person|
         puts "Deleting data for user #{person.id}..."
+        # Delete users and listings one by one to let the models handle image deletion
+        # This can later be optimized to happen in larger batches for speed.
         ActiveRecord::Base.transaction do
           Person.delete_user(person.id)
           Listing.delete_by_author(person.id)
