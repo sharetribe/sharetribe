@@ -12,10 +12,12 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
+#  person_id       :string(255)
 #
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_person_id   (person_id)
 #  index_custom_field_values_on_type        (type)
 #
 
