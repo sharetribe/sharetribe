@@ -25,4 +25,7 @@ class TextFieldValue < CustomFieldValue
 
   validates_presence_of :text_value
 
+  def display_value
+    text_value
+  end
 end
