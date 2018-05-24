@@ -1,4 +1,4 @@
-class Admin::PersonCustomFieldsPresenter
+class Admin::PersonCustomFieldsService
   attr_reader :community, :params, :min_option_count, :custom_field
 
   def initialize(community:, params:)
@@ -83,7 +83,7 @@ class Admin::PersonCustomFieldsPresenter
 
   def custom_field_params
     permitted = params.require(:custom_field)
-      .permit(:required, :min, :max, :allow_decimals,
+      .permit(:required, :min, :max, :allow_decimals, :public,
               name_attributes: {},
               option_attributes: [:id, :sort_priority, title_attributes: {}])
     [:min, :max].each do |key|

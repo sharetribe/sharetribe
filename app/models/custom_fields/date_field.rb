@@ -14,6 +14,8 @@
 #  max            :float(24)
 #  allow_decimals :boolean          default(FALSE)
 #  entity_type    :integer          default("for_listing")
+#  public         :boolean          default(FALSE)
+#  assignment     :integer          default("unassigned")
 #
 # Indexes
 #

@@ -7,3 +7,10 @@
           = form.label :required, t(".this_field_is_required_checkbox")
         - else
           = form.label :required, t(".this_field_is_required")
+.row
+  .col-12
+    .checkbox-container
+      - disabled = form.object.phone_number?
+      = form.check_box :public, disabled: disabled
+      = form.label :public, t(".this_field_is_public"), class: disabled ? 'disabled' : ''
+
