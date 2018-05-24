@@ -25,4 +25,7 @@ class DateFieldValue < CustomFieldValue
 
   validates_presence_of :date_value
 
+  def display_value
+    date_value
+  end
 end
