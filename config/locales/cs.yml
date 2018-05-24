@@ -160,9 +160,9 @@ cs:
         change_sender_email: ~
         successfully_saved: "Adresa odesílatele byla úspěšně uložena. Ověřovací e-mail bude brzy odeslán."
         successfully_saved_name: ~
-        set_sender_name: ~
-        change_sender_name: ~
-        change_sender_prompt: ~
+        set_sender_name: "Změnit jméno odesílatele"
+        change_sender_name: "Změnit jméno odesílatele"
+        change_sender_prompt: "%{change_name_link} nebo %{change_email_link}"
         status: "Status: %{status}"
         status_verified: "Ověřeno - již se používá"
         status_error: "Došlo k chybě. Prosíme, aktualizujte stránku."
@@ -261,10 +261,10 @@ cs:
         ban_user_confirmation: "Tímto bude uživatel z tržiště odstraněn a nebude již mít pod tímto účtem přístup na tuto stránku. Jste si jisti, že chcete pokračovat?"
         unban_user_confirmation: ~
         ban_me_error: "Nemůžete sami sebe zakázat."
-        search: ~
-        search_by_name_email: ~
-        reset_search: ~
-        for_search_terms: ~
+        search: Hledání
+        search_by_name_email: "Hledání podle jména, emailu nebo zobrazovaného názvu"
+        reset_search: "Zobrazit vše"
+        for_search_terms: "pro: %{terms}"
         this_makes_the_user_an_admin: ~
       new_layout:
         new_layout: "Nové uspořádání"
@@ -350,7 +350,7 @@ cs:
           paypal:
             free: Konverzace
             pending: Nevyřízený
-            preauthorized: ~
+            preauthorized: "Před autorizací"
             accepted: Přijato
             rejected: Odmítnuto
             paid: Zaplaceno
@@ -361,7 +361,7 @@ cs:
           stripe:
             free: Konverzace
             pending: Nevyřízený
-            preauthorized: ~
+            preauthorized: "Před autorizací"
             accepted: Přijato
             rejected: Odmítnuto
             paid: Zaplaceno
@@ -383,6 +383,8 @@ cs:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -456,15 +458,15 @@ cs:
         send_test_email: "Pošlete si testovací email"
         test_sent: "Testovací email byl odeslán do vaší schránky"
         send_email_article_title: "tento článek"
-        send_email_article_text: ~
+        send_email_article_text: "Další informace o uživatelských segmentech najdete v článku %{article_link}."
         recipients:
           title: "Kdo chce poslat email?"
           options:
             all_users: "Všichni uživatelé"
             with_listing: "Uživatelé, kteří zveřejnili alespoň jeden záznam"
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing_no_payment: "Uživatelé, kteří zveřejnili alespoň jeden záznam, ale neposkytli svoje platební údaje"
+            with_payment_no_listing: "Uživatelé,  kteří poskytli své platební údaje, ale nezveřejnili žádný záznam"
+            no_listing_no_payment: "Uživatelé, kteří nezveřejnili záznam a neposkytli své platební údaje"
         email_subject: "Předmět e-mailu"
         email_content: "Obsah e-mailu"
         email_content_placeholder: "Co chcete sdělit Vašim uživatelům?"
@@ -604,15 +606,15 @@ cs:
       minimum_listing_price_below_tx_fee: "Minimální velikost transakce musí být alespoň stejná částka jako minimální transakční poplatek %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "Minimální velikost transakce musí být větší než minimální přirážka %{minimum_commission}."
     payment_preferences:
-      title: ~
-      general_settings: ~
-      connect_a_payment_provider: ~
+      title: "Nastavení plateb"
+      general_settings: "1. Obecná nastavení"
+      connect_a_payment_provider: "2. Připojení poskytovatele plateb"
       contact_support: "kontaktujte podporu"
       no_payments_link_text: zde
       your_country: "Vaše země:"
       you_cannot_use_online_payments: ~
       which_to_choose: "Který z nich si vyberete?"
-      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_or_paypal: "Jako poskytovatele plateb můžete použít Stripe,Paypal nebo obojí. %{choose_link}"
       you_can_use_stripe_only: "Můžete použít Stripe jako svojí platební bránu. %{read_more_link}"
       read_more_stripe: "Zjistit více o Stripe platbách"
       you_can_use_paypal_only: "Můžete použít PayPal jako svojí platební bránu. %{read_more_link}"
@@ -646,25 +648,25 @@ cs:
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
-        add_your_api_keys: ~
+        add_your_api_keys: "Vložte váš Stripe API klíč"
         how_to_get_these: "Jak je získat?"
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
+        save_api_keys: "Uložte Stripe API klíč"
         invalid_secret: ~
         invalid_publishable: ~
       index:
-        header: ~
-        info: ~
-        active: ~
-        gateway: ~
-        process: ~
-        commission: ~
-        minimum_price: ~
-        minimum_fee: ~
-        api_verified: ~
-        actions: ~
-        payments_not_enabled: ~
+        header: "Dostupné nastavení platby"
+        info: "Můžete nastavit dostupné platební brány pro váš trh. Nyní jsou podporovány PayPal a Stripe."
+        active: Aktivní
+        gateway: Brána
+        process: Proces
+        commission: Provize
+        minimum_price: "Minimální cena"
+        minimum_fee: "Minimální poplatek"
+        api_verified: "Bylo API ověřeno?"
+        actions: Akce
+        payments_not_enabled: "Platby nejsou pro váš trh povoleny"
     transaction_types:
       sell: Prodám
       sell_w_online_payment: "Prodej s online platebním systémem"
@@ -736,9 +738,9 @@ cs:
     what_is_this: "Co je to?"
     removed_user: "Odstraněný uživatel"
     payment_fee_info:
-      title: ~
-      stripe: ~
-      paypal: ~
+      title: "Poplatek za zpracování platby"
+      stripe: Stripe
+      paypal: Paypal
       info: ~
     paypal_fee_info:
       title: "poplatek PayPal za zpracování platby"
@@ -1049,16 +1051,16 @@ cs:
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      product: Produkt
+      price_per_unit_type: "Cena za %{unit_type}"
+      duration: Trvání
+      quantity: Množství
+      subtotal: Mezisoučet
+      total: Celkem
+      price: Cena
+      service_fee: "Servisní poplatek"
+      stripe_gateway_fee: "Stripe poplatek :"
+      paypal_gateway_fee: "PayPal poplatek :"
       money_will_be_transferred: ~
     paypal_new_payment:
       paypal_gateway_fee: "PayPal poplatek:"
@@ -1079,8 +1081,8 @@ cs:
       total: Celkem
       price: Cena
       service_fee: "Servisní poplatek"
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Stripe poplatek :"
+      paypal_gateway_fee: "PayPal poplatek :"
       money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name}, a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní ode dne, kdy jste zaplatili."
       listing_per_unit_title: ~
       stripe:
@@ -1569,13 +1571,14 @@ cs:
         few: "Webová stránka bude offline %{count} minut, probíhá údržba"
         other: "Webová stránka bude offline %{count} minut, probíhá údržba"
       automatically_logged_out_please_sign_in: "Byl jsi automaticky odhlášen. Přihlas se prosím znovu"
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Účet
       notifications: Upozornění
       profile: "Informace o profilu"
       settings: Nastavení
-      paypal_payments: ~
-      stripe_payments: ~
+      paypal_payments: "PayPal platba"
+      stripe_payments: "Stripe platba"
       payments: Platby
   listings:
     bubble_listing_not_visible:
@@ -1854,15 +1857,15 @@ cs:
       read_more: Zobrazit.
     stripe_payment:
       payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      pay_with_card: "Platba kreditní nebo debetní kartou"
+      address: "Doručovací adresa"
+      address_country: "Země *"
+      address_name: "Jméno a příjmení *"
+      address_city: "Město *"
+      address_state: "Stát *"
+      address_street1: "Ulice řádek 1 *"
+      address_street2: "Ulice řádek 2"
+      address_postal_code: "PSČ *"
   mapview:
     index:
       all_categories: "Všechny kategorie"
@@ -1906,7 +1909,7 @@ cs:
     contact_admin_link_text: "kontaktujte %{service_name} správce"
     you_are_ready_to_accept_payments: "Nyní už můžete přijímat platby!"
     commission: "%{commission} %"
-    not_now: ~
+    not_now: "Nechci nyní připojit PayPal účet"
     new:
       payout_info_you_need_to_connect: "Abyste mohli přijímat platby, musíte se připojit k Vašemu PayPal účtu na %{service_name}."
       payout_info_text: "Prosíme, vyplňte následující kroky, abyste se mohli přihlásit ke svému účtu."
@@ -1954,7 +1957,7 @@ cs:
   paypal:
     pay_with_paypal: "Přejít k platbě"
     checkout_with: ~
-    or_pay_with_paypal: ~
+    or_pay_with_paypal: nebo
     checkout_with_paypal: "Odhlášení z PayPal"
     cancel_succesful: "Platba přes PayPal byla úspěšně zrušena"
     transaction:
@@ -2428,65 +2431,65 @@ cs:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: "Potvrzení platby"
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: "Údaje bankovního účtu byly úspěšně nastaveny!"
     stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
+    stripe_credit_card: "Kreditní karta"
+    paypal: PayPal
     paypal_connected: "Účet PayPal byl úspěšně připojen!"
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
-      select_country: ~
-      legal_name: ~
+      select_country: "Vyberte zemi ..."
+      legal_name: "Legální jméno"
       first_name: ~
       last_name: ~
-      country: ~
-      birth_date: ~
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      country: Země
+      birth_date: "Datum narození"
+      ssn_last_4: "SSN poslední 4"
+      personal_id_number: "Osobní ID číslo"
+      address_country: Země
+      address_state: Stát
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      address_city: Město
+      address_postal_code: PSČ
+      address_line1: Ulice
       tos_link: ~
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
+      save_details: "Uložit podrobnosti"
+      edit: "Upravit detaily"
+      cancel: Zrušit
     form_bank:
-      bank_account_number: ~
-      bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_account_number: "Číslo bankovního účtu"
+      bank_routing_number: "Směrovací číslo"
+      bank_routing_1: "Kód banky"
+      bank_routing_2: "Kód pobočky"
+      bank_currency: "Měna bankovního účtu"
       update_also_bank_account: ~
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
-        format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
-        clearing_code: ~
-        sort_code: ~
-        must_match: ~
-        a_dash: ~
-        digits: ~
-        digits_or_chars: ~
+        account_number: "Číslo účtu"
+        routing_number: "Směrovací číslo"
+        bank_code: "Kód banky"
+        branch_code: "Kód pobočky"
+        transit_number: "Číslo tranzitu"
+        institution_number: "Číslo instituce"
+        format_varies_by_bank: "Formát se liší podle banky"
+        bsb: BSB
+        error_message: "Neplatný formát"
+        clearing_code: "Zúčtovací kód"
+        sort_code: "Krátký kód"
+        must_match: "musí být v následujícím formátu :"
+        a_dash: pomlčka
+        digits: číslice
+        digits_or_chars: "číslice nebo A-Z písmena"
     form_verification:
-      personal_id_number: ~
-      document: ~
-      send_verification: ~
-      need_verification: ~
+      personal_id_number: "Osobní ID číslo"
+      document: "Ověřovací dokument"
+      send_verification: "Odeslat ověření"
+      need_verification: "Potřebujete další ověření"
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
@@ -2496,11 +2499,11 @@ cs:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
-    bank_account: ~
-    paypal: ~
+    title: "Předvolby platby"
+    bank_account: "Bankovní účet"
+    paypal: PayPal
     bank_account_details: ~
-    add_bank_details: ~
+    add_bank_details: "Přidat bankovní detaily"
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
     connect_paypal: ~

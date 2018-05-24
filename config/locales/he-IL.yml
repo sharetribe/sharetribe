@@ -369,6 +369,8 @@ he-IL:
         profile: "‎%{author}‎ פרופיל"
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1534,6 +1536,7 @@ he-IL:
       listing_author_payment_details_missing: "צור קשר עם המחבר על ידי לחיצה על הלחצן 'צור קשר' בהמשך. הם צריכים לעדכן את פרטי התשלום שלהם כדי לקבל תשלומים."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: חשבון
       notifications: התראות

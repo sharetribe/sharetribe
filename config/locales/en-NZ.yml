@@ -378,6 +378,8 @@ en-NZ:
         profile: "%{author}'s Profile"
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1565,6 +1567,7 @@ en-NZ:
         one: "The website will be offline for maintenance in %{count} minute"
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Account
       notifications: Notifications

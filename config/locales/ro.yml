@@ -375,6 +375,8 @@ ro:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1538,6 +1540,7 @@ ro:
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Cont
       notifications: Notificari

@@ -373,6 +373,8 @@ vi:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1553,6 +1555,7 @@ vi:
         zero: "Trang web bây giờ sẽ không hoạt động để bảo trì"
         other: "Trang web bây giờ sẽ không hoạt động để bảo trì trong %{count} phút"
       automatically_logged_out_please_sign_in: "Bạn đã tự động đăng xuất. Xin vui lòng đăng nhập lại."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: "Tài khoản"
       notifications: "Các ghi chú"

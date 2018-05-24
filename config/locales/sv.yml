@@ -378,6 +378,8 @@ sv:
         profile: "%{author}s profil"
       testimonials:
         testimonials: "Visa recensioner"
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: Transaktion
           author: Författare
@@ -1567,6 +1569,7 @@ sv:
         one: "Hemsidan kommer gå offline for underhåll om %{count} minut"
         other: "Hemsidan kommer gå offline for underhåll om %{count} minuter"
       automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Konto
       notifications: Aviseringar

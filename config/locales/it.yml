@@ -363,6 +363,8 @@ it:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -886,15 +888,15 @@ it:
       contact_page_link: feedback
     new:
       welcome_fb_user: "Benvenuto su %{service_name}, %{name}!"
-      fb_join_accept_terms: ~
-      join_community: ~
+      fb_join_accept_terms: "Manca un ultimo passaggio per completare l’iscrizione su %{service_name}: devi accettare i Termini e le Condizioni di utilizzo."
+      join_community: "Iscriviti a %{service_name}"
       you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
+      if_want_to_view_content: "Se vuoi navigare su %{service_name} senza esserne membro, devi fare"
       log_out: ~
-      join_community_button: ~
+      join_community_button: "Iscriviti a %{service_name}"
     give_consent:
       invitation_code_invalid_or_used: "Il codice di invito non è valido oppure è già stato usato."
       email_not_allowed: "Questa email non è permessa in %{service_name}."
@@ -1394,7 +1396,7 @@ it:
       notifications: Notifiche
       requests: "Richieste di amicizia"
       settings: Impostazioni
-      sign_up: "Crea account"
+      sign_up: Iscriviti
     logged_in_messages_icon:
       messages: Messaggi
     logged_in_notifications_icon:
@@ -1532,6 +1534,7 @@ it:
         one: "Il sito web sarà offline per manutenzione per %{count} minuto."
         other: "Il sito web sarà offline per %{count} minuti."
       automatically_logged_out_please_sign_in: "Log out automatico. Per favore effettua nuovamente il login."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Account
       notifications: Notifiche
@@ -1939,7 +1942,7 @@ it:
       this_person_is_not_active_in_kassi: "Questo utente non è più attivo in %{service_name}"
       inactive_description: "Questo utente ha smesso di utilizzare %{service_name}. Non puoi contattare questo utente, lascia un feedback o un commento nei suoi annunci."
     new:
-      create_new_account: "Crea account"
+      create_new_account: Iscriviti
       email: "Indirizzo email"
       email_is_in_use: "L'email che hai fornito è già utilizzata."
       email_is_in_use_or_not_allowed: "Questa email non è valida o è già in uso. Se ancora non ti è possibile accedere, inviaci un'email."
@@ -1950,7 +1953,7 @@ it:
         other: "L'accesso a %{service_name} è ristretto. Per unirti hai bisogno di un indirizzo email titolato ad un irti."
       family_name: Cognome
       given_name: Nome
-      i_accept_the_terms_and_privacy: ~
+      i_accept_the_terms_and_privacy: "Ho letto e accetto %{terms} e %{privacy}"
       admin_emails_consent: "Accetto di ricevere mail occasionali dal team %{service_name}, consapevole che posso cambiare idea in qualsiasi momento"
       invalid_invitation_code: "Questo codice di invito non è valido."
       invitation_code: "Codice di invito"

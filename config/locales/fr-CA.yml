@@ -378,6 +378,8 @@ fr-CA:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1543,6 +1545,7 @@ fr-CA:
       listing_author_payment_details_missing: "L'auteur de cette annonce n'a pas ajouté ses détails de paiement et ne peut pas recevoir de paiement actuellement. Merci de contacter l'auteur de l'annonce."
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Compte
       notifications: Notifications

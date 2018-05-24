@@ -383,6 +383,8 @@ sk-SK:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1571,6 +1573,7 @@ sk-SK:
         few: "Webová stánka bude pre údržbu v offline režime %{count} minúty"
         other: "Webová stánka bude pre údržbu v offline režime %{count} minút"
       automatically_logged_out_please_sign_in: "Boli ste automaticky odhlásený. Prosím prihláste sa znovu."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Účet
       notifications: Oznámenia

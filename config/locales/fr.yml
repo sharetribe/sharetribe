@@ -378,6 +378,8 @@ fr:
         profile: "Profil de %{author}"
       testimonials:
         testimonials: "Voir les avis"
+        no_testimonials_found: "Aucun avis trouvé"
+        displaying_xx_reviews: "Affichage de <b>%{count}</b> avis pour les transactions %{tx_from} - %{tx_to} sur un total de <b>%{all_count}</b> avis."
         headers:
           transaction: Transaction
           author: Auteur
@@ -1565,6 +1567,7 @@ fr:
         one: "Le site sera inaccessible pour maintenance dans %{count} minute"
         other: "Le site sera inaccessible pour maintenance dans %{count} minutes"
       automatically_logged_out_please_sign_in: "Vous avez été déconnecté automatiquement. Veuillez vous connecter de nouveau."
+      stripe_you_account_balance_is_not_0: "Le solde de votre compte n'est pas nul, il ne peut donc pas être supprimé. Cela peut être car vous avez des transactions non encore réalisées ou bien des paiements vers votre compte en banque sont en attente. Veuillez contacter l'équipe %{service_name} pour en savoir plus."
     settings:
       account: Compte
       notifications: Notifications

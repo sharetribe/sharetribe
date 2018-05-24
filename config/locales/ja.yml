@@ -373,6 +373,8 @@ ja:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1547,6 +1549,7 @@ ja:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります
         other: "このウェブサイトはメンテナンスのため%{count}分後にオフラインになります"
       automatically_logged_out_please_sign_in: セッションの期限が切れました。もう一度ログインしてください
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: ご登録情報
       notifications: メール通知

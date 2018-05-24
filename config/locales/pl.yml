@@ -388,6 +388,8 @@ pl:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1579,6 +1581,7 @@ pl:
         many: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
         other: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
       automatically_logged_out_please_sign_in: "Zostałeś automatycznie wylogowany. Proszę zaloguj się ponownie."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Konto
       notifications: Powiadomienia
