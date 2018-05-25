@@ -406,13 +406,13 @@ class PeopleController < Devise::RegistrationsController
         :phone_number,
         :image,
         :description,
-        { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
-        { send_notifications: [] },
-        { email_attributes: [:address] },
         :min_days_between_community_updates,
-        { preferences: [
+        location: [:address, :google_address, :latitude, :longitude],
+        send_notifications: [],
+        email_attributes: [:address],
+        preferences: [
           :email_from_admins,
           :email_about_new_messages,
           :email_about_new_comments_to_own_listing,
@@ -425,7 +425,17 @@ class PeopleController < Devise::RegistrationsController
           :email_about_new_payments,
           :email_about_new_listings_by_followed_people,
           :empty_notification
-        ] }
+        ],
+        custom_field_values_attributes: [
+          :id,
+          :type,
+          :custom_field_id,
+          :person_id,
+          :text_value,
+          :numeric_value,
+          :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
+          selected_option_ids: []
+        ]
       )
   end
 

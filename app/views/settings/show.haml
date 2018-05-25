@@ -1,3 +1,4 @@
+- target_user = @service.person
 - content_for :javascript do
   initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
 
@@ -73,4 +74,18 @@
       = loc.hidden_field :google_address, :value => target_user.location.google_address
       = loc.hidden_field :latitude, :value => target_user.location.latitude
       = loc.hidden_field :longitude, :value => target_user.location.longitude
+    - if FeatureFlagHelper.feature_enabled?(:user_fields) && @service.has_person_custom_fields?
+      .inline-label-container
+        - @service.custom_field_values.each do |custom_field_value|
+          - custom_field = custom_field_value.question
+          - custom_field.with_type do |field_type|
+            - prefix = "person[custom_field_values_attributes][]"
+            = label "custom_fields", custom_field.id, "#{custom_field.name(I18n.locale)}#{custom_field.required ? '*' : ''}"
+            = hidden_field_tag "#{prefix}[id]", custom_field_value.id
+            = hidden_field_tag "#{prefix}[type]", custom_field_value.type
+            = hidden_field_tag "#{prefix}[custom_field_id]", custom_field_value.custom_field_id
+            = render "settings/custom_fields/#{field_type}", :service => @service,
+              :custom_field => custom_field,
+              :custom_field_value => custom_field_value,
+              :prefix => prefix
     = form.button t("settings.save_information"), :class => "send_button"

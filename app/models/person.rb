@@ -120,6 +120,8 @@ class Person < ApplicationRecord
             community_memberships: "Use community_membership instead.",
             deprecator: MethodDeprecator.new
 
+  accepts_nested_attributes_for :custom_field_values
+
   def to_param
     username
   end
@@ -629,6 +631,10 @@ class Person < ApplicationRecord
   def unsubscribe_from_community_updates
     self.min_days_between_community_updates = 100000
     self.save!
+  end
+
+  def custom_field_value_for(custom_field)
+    custom_field_values.by_question(custom_field).first
   end
 
   private
