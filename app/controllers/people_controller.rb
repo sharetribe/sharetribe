@@ -78,7 +78,8 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-    @service = Person::SettingsService.new(community: @current_community, params: params)
+    @service = Person::SettingsService.new(community: @current_community, params: params,
+                                           required_fields_only: true)
     @service.new_person
 
     @container_class = params[:private_community] ? "container_12" : "container_24"
