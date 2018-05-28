@@ -24,6 +24,16 @@
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
 
+    - if community_person_custom_fields.any?
+      - community_person_custom_fields.each do |custom_field|
+        .row
+          .col-12
+            - custom_field_value = @person.custom_field_value_for(custom_field)
+            %span.people-custom-fields-title
+              = "#{custom_field.name(I18n.locale)}:"
+            %span.people-custom-fields-value
+              = custom_field_value.display_value
+
     .row
       %h2.people-header
         - if listings.total_entries > 0
