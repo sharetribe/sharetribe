@@ -41,6 +41,7 @@ class CustomField < ApplicationRecord
   scope :dropdown, ->{ where("type = 'DropdownField'") }
   scope :numeric, ->{ where("type = 'NumericField'") }
   scope :max_priority, ->{ select('MAX(sort_priority) AS priority') }
+  scope :is_public, ->{ where(public: true) }
 
   ENTITY_TYPES = {
     for_listing: 0,
