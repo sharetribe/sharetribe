@@ -32,6 +32,14 @@ class Person::SettingsService
     community_person_custom_fields.any?
   end
 
+  def new_person
+    @person ||= if params[:person]
+      Person.new(params[:person].slice(:given_name, :family_name, :email, :username).permit!)
+    else
+      Person.new()
+    end
+  end
+
   private
 
   def new_custom_field_value(custom_field)

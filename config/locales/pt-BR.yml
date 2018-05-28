@@ -378,6 +378,8 @@ pt-BR:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1559,6 +1561,7 @@ pt-BR:
         one: "O site sairá do ar para manutenção em %{count} minuto"
         other: "O site sairá do ar para manutenção em %{count} minutos"
       automatically_logged_out_please_sign_in: "Você foi desconectado automaticamente. Por favor faça o login novamente."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Conta
       notifications: Notificações
@@ -1979,8 +1982,8 @@ pt-BR:
         other: "O acesso a %{service_name} é restrito. Para entrar, você deve ter um e-mail autorizado."
       family_name: Sobrenome
       given_name: Nome
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Eu aceito os %{terms} e %{privacy}"
+      admin_emails_consent: "Eu aceito receber e-mails ocasionais do time da %{service_name} e entendo que posso mudar de ideia a qualquer momento."
       invalid_invitation_code: "O código de convite não é válido."
       invitation_code: "Código do convite "
       not_required: ", não necessaria"
@@ -1989,7 +1992,7 @@ pt-BR:
       show_my_name_to_others: "Mostrar o meu nome completo aos utilizadores de %{service_name}"
       sign_up: "Criar uma conta no %{service_name}"
       terms: "termos de uso"
-      privacy: ~
+      privacy: privacidade
       username_is_in_use: "Este nome de usuário já está em uso."
       username_is_invalid: "Nome de usuário é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para você e para o administrador do mercado virtual"

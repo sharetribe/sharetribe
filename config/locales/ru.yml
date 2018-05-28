@@ -388,6 +388,8 @@ ru:
         profile: ~
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1577,6 +1579,7 @@ ru:
         many: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
         other: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
       automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: "Учётная запись"
       notifications: Оповещения

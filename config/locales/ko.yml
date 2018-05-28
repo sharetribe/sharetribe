@@ -373,6 +373,8 @@ ko:
         profile: "%{author}의 프로필"
       testimonials:
         testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: ~
           author: ~
@@ -1555,6 +1557,7 @@ ko:
         zero: "유지 보수를 위해 웹 사이트가 오프라인 상태가됩니다."
         other: "%{count} 분 후에 웹 사이트가 유지 관리를 위해 오프라인 상태가됩니다."
       automatically_logged_out_please_sign_in: "자동으로 로그 아웃되었습니다. 다시 로그인하십시오."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: 계정
       notifications: 공지

@@ -380,6 +380,8 @@ nl:
         profile: "Profiel van %{author}"
       testimonials:
         testimonials: "Bekijk recensies"
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: Transactie
           author: Auteur
@@ -1568,6 +1570,7 @@ nl:
         one: "De website gaat over %{count} minuut offline voor onderhoud"
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: Account
       notifications: Notificaties

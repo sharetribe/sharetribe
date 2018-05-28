@@ -378,6 +378,8 @@ fi:
         profile: "Käyttäjän %{author} profiili"
       testimonials:
         testimonials: "Näytä arviot"
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
         headers:
           transaction: Tilaus
           author: Antaja
@@ -1565,6 +1567,7 @@ fi:
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
+      stripe_you_account_balance_is_not_0: ~
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet

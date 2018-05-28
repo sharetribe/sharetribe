@@ -4,7 +4,7 @@
       = hidden_field_tag "#{prefix}[selected_option_ids][]"
       - column.each do |opt|
         .checkbox-container
-          - html_id = "custom_fields_#{custom_field.id}_#{opt.id}"
+          - html_id = "person_custom_fields_#{index}_#{opt.id}"
           - selected = custom_field_value ? custom_field_value.selected_options.include?(opt) : false
           = check_box_tag "#{prefix}[selected_option_ids][]", opt.id, selected,
             {id: html_id, class: "custom_field_checkbox #{custom_field.required? ? 'required' : ''}"}

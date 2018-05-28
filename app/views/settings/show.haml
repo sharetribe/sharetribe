@@ -75,8 +75,8 @@
       = loc.hidden_field :latitude, :value => target_user.location.latitude
       = loc.hidden_field :longitude, :value => target_user.location.longitude
     - if FeatureFlagHelper.feature_enabled?(:user_fields) && @service.has_person_custom_fields?
-      .inline-label-container
-        - @service.custom_field_values.each do |custom_field_value|
+      - @service.custom_field_values.each_with_index do |custom_field_value, index|
+        .inline-label-container
           - custom_field = custom_field_value.question
           - custom_field.with_type do |field_type|
             - prefix = "person[custom_field_values_attributes][]"
@@ -85,7 +85,7 @@
             = hidden_field_tag "#{prefix}[type]", custom_field_value.type
             = hidden_field_tag "#{prefix}[custom_field_id]", custom_field_value.custom_field_id
             = render "settings/custom_fields/#{field_type}", :service => @service,
-              :custom_field => custom_field,
+              :custom_field => custom_field, index: index,
               :custom_field_value => custom_field_value,
               :prefix => prefix
     = form.button t("settings.save_information"), :class => "send_button"
