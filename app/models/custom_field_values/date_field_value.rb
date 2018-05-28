@@ -26,6 +26,6 @@ class DateFieldValue < CustomFieldValue
   validates_presence_of :date_value
 
   def display_value
-    date_value
+    I18n.l(date_value, format: :short_date)
   end
 end
