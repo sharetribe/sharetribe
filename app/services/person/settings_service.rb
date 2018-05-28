@@ -1,9 +1,10 @@
 class Person::SettingsService
-  attr_reader :community, :params
+  attr_reader :community, :params, :required_fields_only
 
-  def initialize(community:, params:)
+  def initialize(community:, params:, required_fields_only: false)
     @params = params
     @community = community
+    @required_fields_only = required_fields_only
   end
 
   delegate :person_custom_fields, to: :community, prefix: true
@@ -49,12 +50,18 @@ class Person::SettingsService
 
   def build_custom_field_values
     values = person.custom_field_values
-    community_person_custom_fields.each do |custom_field|
+    community_scope.each do |custom_field|
       exists = values.find{|value| value.custom_field_id == custom_field.id }
       unless exists
         values << new_custom_field_value(custom_field)
       end
     end
     values.sort_by{|x| x.sort_priority }
+  end
+
+  def community_scope
+    scope = community_person_custom_fields
+    scope = scope.required if required_fields_only
+    scope
   end
 end
