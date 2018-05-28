@@ -48,7 +48,8 @@ class PersonPhoneCopyist
           assignment: :phone_number,
           name_attributes: names,
           required: false,
-          public: false
+          public: false,
+          sort_priority: 0
         )
         community.person_custom_fields << field
         field
