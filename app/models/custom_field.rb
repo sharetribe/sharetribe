@@ -42,6 +42,7 @@ class CustomField < ApplicationRecord
   scope :numeric, ->{ where("type = 'NumericField'") }
   scope :max_priority, ->{ select('MAX(sort_priority) AS priority') }
   scope :is_public, ->{ where(public: true) }
+  scope :required, ->{ where(required: true) }
 
   ENTITY_TYPES = {
     for_listing: 0,
