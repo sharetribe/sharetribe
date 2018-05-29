@@ -29,10 +29,11 @@
         .row
           .col-12
             - custom_field_value = @person.custom_field_value_for(custom_field)
-            %span.people-custom-fields-title
-              = "#{custom_field.name(I18n.locale)}:"
-            %span.people-custom-fields-value
-              = custom_field_value.display_value
+            - if custom_field_value
+              %span.people-custom-fields-title
+                = "#{custom_field.name(I18n.locale)}:"
+              %span.people-custom-fields-value
+                = custom_field_value.display_value
 
     .row
       %h2.people-header
