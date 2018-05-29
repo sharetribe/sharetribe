@@ -1,10 +1,11 @@
 class Person::SettingsService
   attr_reader :community, :params, :required_fields_only
 
-  def initialize(community:, params:, required_fields_only: false)
+  def initialize(community:, params:, required_fields_only: false, person: nil)
     @params = params
     @community = community
     @required_fields_only = required_fields_only
+    @person = person
   end
 
   delegate :person_custom_fields, to: :community, prefix: true
