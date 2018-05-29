@@ -26,3 +26,11 @@
   color: $light-body;
   position: relative;
 }
+
+.signup-form, #pending_consent_form {
+  .inline-label-container {
+    small {
+      display: inline;
+    }
+  }
+}
