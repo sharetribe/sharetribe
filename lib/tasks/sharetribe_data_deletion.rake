@@ -207,6 +207,20 @@ SQL
   sql.split(/;/).map { |q| q.strip }.reject { |q| q.empty? }
   end
 
+  def s3_delete_objects(client, bucket, objects)
+    res = client.delete_objects(
+      bucket: bucket,
+      delete: {
+        objects: objects,
+        quiet: true
+      }
+    ).to_h
+
+    if res[:errors]
+      res[:errors].each { |e| puts "  #{e}"}
+    end
+  end
+
   namespace :marketplace do
     desc "DANGER: Deletes all marketplace data. There is no going back. Stripe Connect accounts are not deleted in Stripe."
     task :delete, [:marketplace_id, :force] => [:environment] do |t, args|
@@ -226,21 +240,41 @@ SQL
       community.deleted = true
       community.save
 
-      people = Person.where(community_id: marketplace_id)
+      s3 = Aws::S3::Client.new(
+        region: APP_CONFIG.s3_region,
+        access_key_id: APP_CONFIG.aws_access_key_id,
+        secret_access_key: APP_CONFIG.aws_secret_access_key
+      )
 
-      people.each do |person|
-        puts "Deleting data for user #{person.id}..."
-        # Delete users and listings one by one to let the models handle image deletion
-        # This can later be optimized to happen in larger batches for speed.
-        ActiveRecord::Base.transaction do
-          Person.delete_user(person.id)
-          Listing.delete_by_author(person.id)
-          PaypalAccount.where(person_id: person.id, community_id: community.id).delete_all
-        end
-      end
+      puts "Deleting marketplace images..."
+      [:cover_photo, :small_cover_photo, :logo, :wide_logo, :favicon].flat_map { |i|
+        image = community.send(i)
+        image.present? && image.styles.map { |s, _| {key: image.s3_object(s).key} }
+      }.select { |o| o }.each_slice(1000) { |objects|
+        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+      }
+      raise "foo"
+
+      puts "Deleting profile images..."
+      Person.where(community_id: community.id).flat_map { |p|
+        p.image.present? && p.image.styles.map { |s, _| {key: p.image.s3_object(s).key} }
+      }.select { |o| o }.each_slice(1000) { |objects|
+        puts "  batch: #{objects.count}"
+        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+      }
+
+      puts "Deleting listing images..."
+      Listing.where(community_id: community.id).flat_map { |l|
+        l.listing_images
+      }.flat_map { |i|
+        i.image.styles.map { |s, _| {key: i.image.s3_object(s).key }}
+      }.each_slice(1000) { |objects|
+        puts "  batch: #{objects.count}"
+        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+      }
 
       # Clean up all data in database
-      puts "Deleting all remaining marketplace data in the database..."
+      puts "Deleting all marketplace data in the database..."
       ActiveRecord::Base.connection.transaction do
         delete_marketplace_queries(marketplace_id).each do |q|
           ActiveRecord::Base.connection.execute(q)
@@ -263,7 +297,7 @@ SQL
 
       puts "Will delete all Stripe Connect accounts in marketplace #{community.ident}, ID #{community.id}!"
       puts "THIS CAN NOT BE UNDONE!"
-      force || confirm!("Are you sure you want to delete all data for this marketplace?")
+      force || confirm!("Are you sure you want to delete all Stripe Connect accounts in this marketplace?")
 
       people = Person.where(community_id: marketplace_id)
 
