@@ -57,6 +57,8 @@ module MarketplaceService
     "jobs",
     "career",
     "careers",
+    "journey",
+    "journeys",
     "webinar",
     "local",
     "marketplace-academy",
