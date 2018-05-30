@@ -52,6 +52,7 @@ module MarketplaceService
     "intra",
     "intranet",
     "internal",
+    "join",
     "webinar",
     "local",
     "marketplace-academy",
