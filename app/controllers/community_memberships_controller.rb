@@ -254,7 +254,9 @@ class CommunityMembershipsController < ApplicationController
   end
 
   def update_person_custom_fields(person)
-    person.update_attributes!(person_params)
+    if params[:person].try(:[], :custom_field_values_attributes)
+      person.update_attributes!(person_params)
+    end
   end
 
   def person_params
