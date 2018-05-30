@@ -16,6 +16,7 @@ module DeletePerson
             display_name: nil,
             phone_number: nil,
             description: nil,
+            email: nil,
             facebook_id: nil,
             username: "deleted_#{SecureRandom.hex(5)}",
             current_sign_in_ip: nil,
