@@ -12,7 +12,7 @@
                 .col-3.custom-field-option-locale-column
                   = label_tag "custom_field[option_attributes][][title_attributes][#{locale_value}]", locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
               .custom-field-option-locale-column{:class => "col-#{input_col_size}"}
-                = text_field_tag "custom_field[option_attributes][][title_attributes][#{locale_value}]", option.title(locale_value), :class => "required", :value => option.title(locale_value), :id => "custom_field[option_attributes][][title_attributes][#{locale_value}]"
+                = text_field_tag "custom_field[option_attributes][][title_attributes][#{locale_value}]", option.title(locale_value), :class => "required", :value => option.title(locale_value), :id => "custom_field_option_attributes_#{option_id}_title_attributes_#{locale_value}"
           = hidden_field_tag "custom_field[option_attributes][][sort_priority]", sort_priority, :class => "custom-field-hidden-sort-priority"
       .col-4.custom-field-actions
         - link_class = "custom-field-option-#{(show_locales ? "with" : "without")}-locale-remove"
