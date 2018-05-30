@@ -253,7 +253,6 @@ SQL
       }.select { |o| o }.each_slice(1000) { |objects|
         s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
       }
-      raise "foo"
 
       puts "Deleting profile images..."
       Person.where(community_id: community.id).flat_map { |p|
