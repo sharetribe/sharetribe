@@ -41,6 +41,6 @@ class Admin::CommunityConversationsController < Admin::AdminBaseController
   end
 
   def sort_direction
-    params[:direction] || "desc"
+    params[:direction] == "asc" ? "asc" : "desc"
   end
 end
