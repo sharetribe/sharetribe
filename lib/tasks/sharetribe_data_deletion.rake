@@ -28,8 +28,11 @@ namespace :sharetribe do
 
     DELETE loc FROM locations loc
       LEFT JOIN people p ON loc.person_id = p.id
+      WHERE p.community_id = #{id};
+
+    DELETE loc FROM locations loc
       LEFT JOIN listings l ON loc.listing_id = l.id
-      WHERE p.community_id = #{id} OR l.community_id = #{id} ;
+      WHERE l.community_id = #{id};
 
     DELETE FROM locations WHERE community_id = #{id};
 
@@ -89,6 +92,11 @@ namespace :sharetribe do
       LEFT JOIN paypal_accounts pa ON op.paypal_account_id = pa.id
       WHERE pa.community_id = #{id};
 
+    DELETE ba
+      FROM billing_agreements ba
+      LEFT JOIN paypal_accounts pa ON ba.paypal_account_id = pa.id
+      WHERE pa.community_id = #{id};
+
     DELETE FROM paypal_accounts WHERE community_id = #{id};
 
     DELETE tt
@@ -114,13 +122,8 @@ namespace :sharetribe do
 
     DELETE c
       FROM comments c
-      LEFT JOIN people p ON c.author_id = p.id
-      WHERE p.community_id = #{id};
-
-    DELETE a
-      FROM auth_tokens a
-      LEFT JOIN people p ON a.person_id = p.id
-      WHERE p.community_id = #{id};
+      LEFT JOIN listings l ON c.listing_id = l.id
+      WHERE l.community_id = #{id};
 
     DELETE FROM emails WHERE community_id = #{id};
 
@@ -223,9 +226,10 @@ SQL
 
   namespace :marketplace do
     desc "DANGER: Deletes all marketplace data. There is no going back. Stripe Connect accounts are not deleted in Stripe."
-    task :delete, [:marketplace_id, :force] => [:environment] do |t, args|
+    task :delete, [:marketplace_id, :force, :skip_delete_images] => [:environment] do |t, args|
       marketplace_id = args[:marketplace_id]
       force = (args[:force] == "true") || false
+      skip_delete_images = (args[:skip_delete_images] == "true") || false
 
       unless marketplace_id =~ /^\d+$/
         railse "Invalid marketplace id."
@@ -240,44 +244,45 @@ SQL
       community.deleted = true
       community.save
 
-      s3 = Aws::S3::Client.new(
-        region: APP_CONFIG.s3_region,
-        access_key_id: APP_CONFIG.aws_access_key_id,
-        secret_access_key: APP_CONFIG.aws_secret_access_key
-      )
+      unless skip_delete_images
+        s3 = Aws::S3::Client.new(
+          region: APP_CONFIG.s3_region,
+          access_key_id: APP_CONFIG.aws_access_key_id,
+          secret_access_key: APP_CONFIG.aws_secret_access_key
+        )
 
-      puts "Deleting marketplace images..."
-      [:cover_photo, :small_cover_photo, :logo, :wide_logo, :favicon].flat_map { |i|
-        image = community.send(i)
-        image.present? && image.styles.map { |s, _| {key: image.s3_object(s).key} }
-      }.select { |o| o }.each_slice(1000) { |objects|
-        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
-      }
+        puts "Deleting marketplace images..."
+        [:cover_photo, :small_cover_photo, :logo, :wide_logo, :favicon].flat_map { |i|
+          image = community.send(i)
+          image.present? && image.styles.map { |s, _| {key: image.s3_object(s).key} }
+        }.select { |o| o }.each_slice(1000) { |objects|
+          s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+        }
 
-      puts "Deleting profile images..."
-      Person.where(community_id: community.id).flat_map { |p|
-        p.image.present? && p.image.styles.map { |s, _| {key: p.image.s3_object(s).key} }
-      }.select { |o| o }.each_slice(1000) { |objects|
-        puts "  batch: #{objects.count}"
-        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
-      }
+        puts "Deleting profile images..."
+        Person.where(community_id: community.id).flat_map { |p|
+          p.image.present? && p.image.styles.map { |s, _| {key: p.image.s3_object(s).key} }
+        }.select { |o| o }.each_slice(1000) { |objects|
+          puts "  batch: #{objects.count}"
+          s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+        }
 
-      puts "Deleting listing images..."
-      Listing.where(community_id: community.id).flat_map { |l|
-        l.listing_images
-      }.flat_map { |i|
-        i.image.styles.map { |s, _| {key: i.image.s3_object(s).key }}
-      }.each_slice(1000) { |objects|
-        puts "  batch: #{objects.count}"
-        s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
-      }
+        puts "Deleting listing images..."
+        Listing.where(community_id: community.id).flat_map { |l|
+          l.listing_images
+        }.flat_map { |i|
+          i.image.styles.map { |s, _| {key: i.image.s3_object(s).key }}
+        }.each_slice(1000) { |objects|
+          puts "  batch: #{objects.count}"
+          s3_delete_objects(s3, APP_CONFIG.s3_bucket_name, objects)
+        }
+      end
 
       # Clean up all data in database
       puts "Deleting all marketplace data in the database..."
-      ActiveRecord::Base.connection.transaction do
-        delete_marketplace_queries(marketplace_id).each do |q|
-          ActiveRecord::Base.connection.execute(q)
-        end
+      delete_marketplace_queries(marketplace_id).each do |q|
+        puts "#{q};"
+        ActiveRecord::Base.connection.execute(q)
       end
 
       puts "Done."
