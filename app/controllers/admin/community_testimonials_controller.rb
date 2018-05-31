@@ -21,7 +21,11 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
   end
 
   def sort_direction
-    params[:direction] || 'desc'
+    if params[:direction] == "asc"
+      "asc"
+    else
+      "desc" #default
+    end
   end
 
   def testimonials(transactions)
