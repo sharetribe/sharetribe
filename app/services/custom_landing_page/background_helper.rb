@@ -47,5 +47,21 @@ module CustomLandingPage
         variation_modifier: variation_modifier
       }
     end
+
+    def calculate_second_wo_background(section)
+      @landing_page_zebra_row ||= false
+      @landing_page_second_wo_background ||= false
+      if %w(info listings categories).include?(section["kind"]) && section["background_image"].nil? && section["background_color"].nil?
+        if @landing_page_zebra_row
+          @landing_page_second_wo_background = !@landing_page_second_wo_background
+        else
+          @landing_page_zebra_row = true
+        end
+      else
+        @landing_page_zebra_row = false
+        @landing_page_second_wo_background = false
+      end
+      @landing_page_second_wo_background
+    end
   end
 end
