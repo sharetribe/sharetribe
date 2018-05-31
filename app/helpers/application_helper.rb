@@ -379,6 +379,13 @@ module ApplicationHelper
       },
       {
         :topic => :manage,
+        :text => t("admin.communities.listings.listings"),
+        :icon_class => icon_class("analytics"),
+        :path => admin_community_listings_path(@current_community, sort: "updated"),
+        :name => "listings"
+      },
+      {
+        :topic => :manage,
         :text => t("admin.communities.transactions.transactions"),
         :icon_class => icon_class("coins"),
         :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),

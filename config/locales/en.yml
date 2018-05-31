@@ -393,6 +393,17 @@ en:
           published: Published
       user_fields:
         user_fields: "User fields"
+      listings:
+        listings: 'Manage Listings'
+        headers:
+          title: "Title"
+          author: "Author"
+          created: "Created"
+          updated: "Updated"
+          category: "Category"
+          status: "Status"
+        open: 'Open'
+        closed: 'Closed'
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
