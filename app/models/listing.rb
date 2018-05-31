@@ -106,6 +106,8 @@ class Listing < ApplicationRecord
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..60, :allow_nil => false
 
+  scope :exist, -> { where(deleted: false) }
+
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
     self.sort_date ||= Time.now
