@@ -391,6 +391,17 @@ en:
           waiting: "Waiting for review"
           skipped: Skipped
           published: Published
+      listings:
+        listings: 'Manage listings'
+        headers:
+          title: "Title"
+          author: "Author"
+          created: "Created"
+          updated: "Updated"
+          category: "Category"
+          status: "Status"
+        open: 'Open'
+        closed: 'Closed'
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
