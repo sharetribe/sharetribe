@@ -219,9 +219,7 @@ SQL
       }
     ).to_h
 
-    if res[:errors]
-      res[:errors].each { |e| puts "  #{e}"}
-    end
+    res[:errors]&.each { |e| puts "  #{e}"}
   end
 
   namespace :marketplace do
