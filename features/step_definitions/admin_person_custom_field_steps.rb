@@ -81,36 +81,6 @@ When(/^I add a new person date field "(.*?)"$/) do |field_name|
   }
 end
 
-Given(/^there is a person custom field "(.*?)" in community "(.*?)"$/) do |name, community|
-  current_community = Community.where(ident: community).first
-  @custom_field = FactoryGirl.build(:custom_dropdown_field, {
-    community_id: current_community.id,
-    names: [CustomFieldName.create(value: name, locale: "en")],
-    entity_type: :for_person
-  })
-  @custom_field.save
-end
-
-Given(/^there is a person custom dropdown field "(.*?)" in community "(.*?)" with options:$/) do |name, community, options|
-  current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:custom_dropdown_field, {
-    community_id: current_community.id,
-    names: [CustomFieldName.create(value: name, locale: "en")],
-    entity_type: :for_person
-  })
-
-  custom_field.options << options.hashes.each_with_index.map do |hash, index|
-    en = FactoryGirl.build(:custom_field_option_title, value: hash['fi'], locale: 'fi')
-    fi = FactoryGirl.build(:custom_field_option_title, value: hash['en'], locale: 'en')
-    FactoryGirl.build(:custom_field_option, titles: [en, fi], sort_priority: index)
-  end
-
-  custom_field.save!
-
-  @custom_fields ||= []
-  @custom_fields << custom_field
-end
-
 When(/^I change person custom field "(.*?)" name to "(.*?)"$/) do |old_name, new_name|
   steps %{
     When I follow "edit_custom_field_#{@custom_field.id}"
@@ -133,19 +103,5 @@ When(/^I edit person dropdown "(.*?)" options$/) do |field_name|
     And I follow "custom-field-option-remove-#{@custom_field.options[0].id}"
     And I press submit
   }
-end
-
-Given(/^there is a person custom text field "(.*?)" in community "(.*?)"$/) do |name, community|
-  current_community = Community.where(ident: community).first
-  custom_field = FactoryGirl.build(:custom_text_field, {
-    :community_id => current_community.id,
-    :names => [CustomFieldName.create(:value => name, :locale => "en")],
-    entity_type: :for_person
-  })
-
-  custom_field.save!
-
-  @custom_fields ||= []
-  @custom_fields << custom_field
 end
 

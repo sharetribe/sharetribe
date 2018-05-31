@@ -57,7 +57,7 @@ class Person::SettingsService
         values << new_custom_field_value(custom_field)
       end
     end
-    values.sort_by{|x| x.sort_priority }
+    values.sort_by{|x| x.sort_priority || 0 }
   end
 
   def community_scope
