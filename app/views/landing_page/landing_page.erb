@@ -37,6 +37,8 @@
       <%= render partial: "info", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background } %>
     <% when "categories" %>
       <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
+    <% when "locations" %>
+      <%= render partial: "locations", locals: {section_id: section_id, s: s} %>
     <% when "listings" %>
       <%= render partial: "listings", locals: {section_id: section_id, s: s} %>
     <% when "video" %>
@@ -82,6 +84,7 @@
     <%= yield :categories_css %>
     <%= yield :listings_css %>
     <%= yield :video_css %>
+    <%= yield :locations_css %>
   </style>
   <%= @current_community.custom_head_script.to_s.html_safe %>
 </head>
