@@ -260,7 +260,7 @@ fi:
         search_by_name_email: "Etsi nimeä, sähköpostiosoitetta, tai näyttönimeä"
         reset_search: "Näytä kaikki"
         for_search_terms: "hakutermille: %{terms}"
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "Tämä tekee käyttäjästä ylläpitäjän. Sinun kannattaa kertoa käyttäjälle hänen vastuustaan ylläpitäjänä, ja hänen kannattaa lukea Sharetriben käyttöehdot. Oletko varma että haluat jatkaa?"
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -292,10 +292,10 @@ fi:
         google_analytics_key_info_text: "Google Analytics -tilisi tracking ID."
         google_analytics_key_info_text_with_instructions: "Google Analytics -tilisi tracking ID. %{instructions_link}."
         google_analytics_instructions_link_text: "Lue lisää Google Analytics -tilin yhdistämisestä"
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics: "Sharetriben analytiikka"
+        sharetribe_analytics_info_text_with_instructions: "Sharetribe seuraa markkinapaikan käyttäjien aktiviteettia parantaakseen palvelujaan. Henkilökohtaisia tietoja ei kerätä, eikä tietoja jaeta Sharetriben ulkopuolelle. Tämä seuranta voidaan kytkeä kokonaan pois päältä. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Lue lisää Sharetriben analytiikasta"
+        end_user_analytics: "Salli Sharetriben seurata markkinapaikan jäsenten käyttäytymistä, jotta Sharetribe voi parantaa palvelujaan"
         save: Tallenna
       menu_links:
         menu_links: Valikkolinkit
@@ -378,8 +378,8 @@ fi:
         profile: "Käyttäjän %{author} profiili"
       testimonials:
         testimonials: "Näytä arviot"
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
+        no_testimonials_found: "Arvosteluja ei löytynyt"
+        displaying_xx_reviews: "Näytetään <b>%{count}</b> arvostelua ostotapahtumissa %{tx_from} - %{tx_to} , yhteensä <b>%{all_count}</b> arvostelusta"
         headers:
           transaction: Tilaus
           author: Antaja
@@ -1567,7 +1567,7 @@ fi:
         one: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
-      stripe_you_account_balance_is_not_0: ~
+      stripe_you_account_balance_is_not_0: "Tilisi saldo ei ole 0, joten sitä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että sinulla on ostotapahtumia, joita ei ole vielä saatettu loppuun, tai että tililläsi on rahaa, jota ei ole vielä siirretty pankkitilillesi. Ole hyvä ja ota yhteyttä %{service_name} -tiimiin saadaksesi lisätietoja."
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -1986,8 +1986,8 @@ fi:
         other: "%{service_name}-palveluun liittyminen on rajattua. Liittyäksesi tarvitset sellaisen organisaation sähköpostiosoitteen, jolle on myönnetty mahdollisuus liittyä tähän palveluun."
       family_name: Sukunimi
       given_name: Etunimi
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Hyväksyn %{terms} ja %{privacy}"
+      admin_emails_consent: "Hyväksyn sähköpostien vastaanottamisen %{service_name} -tiimiltä ja ymmärrän, että voin muuttaa mieltäni milloin tahansa"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: Kutsukoodi
       not_required: ", ei pakollinen"
@@ -1995,8 +1995,8 @@ fi:
       password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus"
-      terms: käyttöehdot
-      privacy: ~
+      terms: Käyttöehdot
+      privacy: tietosuojakäytännön
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja %{service_name}-palvelun ylläpidolle"
@@ -2098,10 +2098,10 @@ fi:
       delete_account_confirmation_popup: "Oletko aivan varma, että haluat pysyvästi poistaa käyttäjätilisi ja kaikki siihen liittyvät tiedot? Poistoa ei voi peruuttaa."
       email_addresses: Sähköpostiosoitteet
       new_email: "Uusi sähköpostiosoite"
-      delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen."
+      delete_personal_information: "Jos poistat käyttäjätunnuksesi, kaikki henkilokohtaiset tietosi (nimi, puhelinnumero, osoite, sähköpostiosoite, profiilikuva, jne.) poistetaan pysyvästi. Tietojen palauttaminen ei ole mahdollista. Kaikki ilmoituksesi poistetaan. Et voi aktivoida tunnustasi uudelleen poiston jälkeen. Käyttäjänimesi palvelussa %{service_name} vapautuu muiden käytettäväksi."
       delete_information_others_involved: "Tapahtumat, joissa mukana on ollut muita osapuolia (esimerkiksi keskustelut, tilaukset, antamasi palautteet, jne.) eivät poistu tunnustesi poiston yhteydessä. Nimeäsi ei kuitenkaan enää näytetä näiden tapahtumien yhteydessä."
       unfinished_transactions: "Et voi poistaa tunnustasi, koska sinulla on keskeneräisiä tilauksia. Päätä tilaukset ennen tunnuksen poistoa."
-      only_admin: ~
+      only_admin: "Tiliäsi ei voi poistaa, sillä olet markkinapaikan ainoa ylläpitäjä."
       new_password: "Uusi salasana"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
@@ -2449,15 +2449,15 @@ fi:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
       select_country: "Valitse maa..."
       legal_name: Nimi
-      first_name: ~
-      last_name: ~
+      first_name: Etunimi
+      last_name: Sukunimi
       country: Maa
       birth_date: Syntymäaika
       ssn_last_4: "Henkilötunnuksen 4 viimeistä numeroa"
       personal_id_number: "Henkilökohtainen ID"
       address_country: Maa
       address_state: Valtio
-      address_province: ~
+      address_province: Maakunta
       address_city: Kaupunki
       address_postal_code: Postinumero
       address_line1: Katuosoite

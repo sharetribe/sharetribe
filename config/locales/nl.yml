@@ -262,7 +262,7 @@ nl:
         search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
         reset_search: "Toon alles"
         for_search_terms: "voor: %{terms}"
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "Dit maakt de gebruiker een beheerder. Je dient de gebruiker op de hoogte te stellen van hun verantwoordelijkheden en de gebruiksvoorwaarden van Sharetribe. Weet je zeker dat je wilt doorgaan?"
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -294,10 +294,10 @@ nl:
         google_analytics_key_info_text: "Tracking ID van je Google Analytics account."
         google_analytics_key_info_text_with_instructions: "Tracking ID van je Google Analytics account. %{instructions_link}."
         google_analytics_instructions_link_text: "Lees meer over het connecteren van Google Analytics"
-        sharetribe_analytics: ~
-        sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics: "Sharetribe analytics"
+        sharetribe_analytics_info_text_with_instructions: "Om Sharetribes services en support te verbeteren, volgt Sharetribe de activiteit van de leden van de marktplaats. Er wordt geen persoonlijke data verzameld en deze informatie wordt niet gedeeld buiten Sharetribe. Dit volgen kan volledig worden uitgeschakeld. %{instructions_link}"
+        sharetribe_analytics_instructions_link_text: "Lees meer over Sharetribes analytics."
+        end_user_analytics: "Sta Sharetribe toe om activiteit van de leden te volgen om de service te verbeteren"
         save: "Instellingen opslaan"
       menu_links:
         menu_links: "Menu koppelingen"
@@ -380,8 +380,8 @@ nl:
         profile: "Profiel van %{author}"
       testimonials:
         testimonials: "Bekijk recensies"
-        no_testimonials_found: ~
-        displaying_xx_reviews: ~
+        no_testimonials_found: "Geen recensies gevonden"
+        displaying_xx_reviews: "Geeft weer <b>%{count}</b> recensies in transacties %{tx_from} - %{tx_to} van <b>%{all_count}</b> recensies in totaal"
         headers:
           transaction: Transactie
           author: Auteur
@@ -1570,7 +1570,7 @@ nl:
         one: "De website gaat over %{count} minuut offline voor onderhoud"
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
-      stripe_you_account_balance_is_not_0: ~
+      stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
     settings:
       account: Account
       notifications: Notificaties
@@ -1989,7 +1989,7 @@ nl:
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
       family_name: Familienaam
       given_name: Voornaam
-      i_accept_the_terms_and_privacy: ~
+      i_accept_the_terms_and_privacy: "I accepteer de %{terms} en %{privacy}"
       admin_emails_consent: "Ik geef hierbij toestemming voor het ontvangen van emails van %{service_name}, en ik begrijp dat ik dit later altijd kan veranderen."
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
@@ -1998,8 +1998,8 @@ nl:
       password_again: "Bevestig wachtwoord"
       show_my_name_to_others: "Toon mijn echte naam aan andere %{service_name} gebruikers"
       sign_up: "Maak een nieuwe account op %{service_name}"
-      terms: gebruiksvoorwaarden
-      privacy: ~
+      terms: Gebruiksvoorwaarden
+      privacy: Privacybeleid
       username_is_in_use: "Deze gebruikersnaam is al in gebruik."
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn letters, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en het %{service_name} team"
@@ -2101,10 +2101,10 @@ nl:
       delete_account_confirmation_popup: "Weet u zeker dat u uw account en alle bijbehorende data wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt."
       email_addresses: "E-mail adressen"
       new_email: "Nieuw e-mail adres"
-      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de advertenties die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren."
+      delete_personal_information: "Als je je account verwijdert, zal al je persoonlijke informatie (naam, telefoonnummer, adres, e-mail, profiel afbeelding, enz...) permanent verwijderd worden. Dit kan niet meer ongedaan worden gemaakt. Al de advertenties die je hebt aangemaakt, worden verwijderd. Je kunt je account niet opnieuw activeren. Je gebruikersnaam zal beschikbaar komen voor anderen die registreren op %{service_name}."
       delete_information_others_involved: "Informatie waar andere leden bij betrokken zijn (gesprekken met andere mensen, transacties die je gedaan hebt, feedback die je aan anderen hebt gegeven, enz...) verdwijnen niet wanneer je je account verwijdert. In deze gevallen zal jouw naam echter niet meer getoond worden."
       unfinished_transactions: "Je account kan niet worden verwijderd omdat je lopende transacties hebt. Sluit aub alle transacties alvorens je je account verwijdert."
-      only_admin: ~
+      only_admin: "Je account kan niet worden verwijderd omdat je de enige beheerder van de marktplaats bent."
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."

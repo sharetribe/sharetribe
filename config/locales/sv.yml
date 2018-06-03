@@ -1988,8 +1988,8 @@ sv:
         other: "Access till %{service_name} är begränsad. Du behöver en e-postadress som bevisar att du har rätt att gå med."
       family_name: Efternamn
       given_name: Förnamn
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Jag accepterar %{terms} och %{privacy}"
+      admin_emails_consent: "Jag accepterar att emellanåt ta emot email från %{service_name}-teamet och förstår att jag kan ändra mig när som helst"
       invalid_invitation_code: "Inbjudningskoden är inte korrekt."
       invitation_code: Inbjudningskod
       not_required: ", krävs inte"
@@ -1998,7 +1998,7 @@ sv:
       show_my_name_to_others: "Visa mitt riktiga namn till andra %{service_name} användare"
       sign_up: "Skapa ett nytt %{service_name} konto"
       terms: användarvillkoren
-      privacy: ~
+      privacy: Sekretesspolicy
       username_is_in_use: "Detta användarnamn används redan."
       username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
       visible_only_to_you: "endast synlig för dig och %{service_name} admin"
@@ -2123,7 +2123,7 @@ sv:
         status_confirmed: Bekräftad
         status_pending: Väntar
     notifications:
-      email_from_admins: "Jag är villig att ta emot enstaka uppdateringar från administratören.n"
+      email_from_admins: "Jag accepterar att ta emot enstaka uppdateringar från %{service_name}-teamet"
       i_want_to_get_email_notification_when: "Jag vill få e-post aviseringar när..."
       newsletters: "Epost meddelanden från administratörer"
       community_updates: Nyhetsbrev
