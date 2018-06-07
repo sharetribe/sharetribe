@@ -41,6 +41,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- Update sinatra dependency [#3344](https://github.com/sharetribe/sharetribe/pull/3344)
 
 ## [7.3.0] - 2018-02-23
 
