@@ -98,9 +98,10 @@ class Transaction < ApplicationRecord
     left_outer_joins(:conversation).merge(Conversation.payment)
   }
   scope :with_payment_conversation_latest, -> (sort_direction) {
+    order = sort_direction.to_s.downcase == "desc" ? "desc" : "asc"
     with_payment_conversation.order(
       "GREATEST(COALESCE(transactions.last_transition_at, 0),
-        COALESCE(conversations.last_message_at, 0)) #{sort_direction}")
+        COALESCE(conversations.last_message_at, 0)) #{order}")
   }
   scope :for_csv_export, -> {
     includes(:starter, :booking, :testimonials, :transaction_transitions, :conversation => [{:messages => :sender}, :listing, :participants], :listing => :author)
@@ -270,7 +271,7 @@ class Transaction < ApplicationRecord
   def mark_as_seen_by_current(person_id)
     self.conversation
       .participations
-      .where("person_id = '#{person_id}'")
+      .where(person_id: person_id)
       .update_all(is_read: true) # rubocop:disable Rails/SkipsModelValidations
   end
 

@@ -8,7 +8,9 @@ module ExportTransaction
   included do
     class << self
       def for_community_sorted_by_column(community_id, sort_column, sort_direction, limit, offset)
-        sort_column = "transactions.#{sort_column}" if sort_column.index('.').nil?
+        sort_column = sort_column == "listings.title" ? "listings.title": "created_at"
+        sort_direction = sort_direction == "desc" ? "desc" : "asc"
+
         exist.by_community(community_id)
           .with_payment_conversation
           .includes(:listing)

@@ -48,7 +48,7 @@ class Conversation < ApplicationRecord
     by_community(community).where("id NOT IN (#{subquery})").non_payment
   end
   scope :free_for_community, -> (community, sort_field, sort_direction) do
-    non_payment_or_free(community).order("#{sort_field} #{sort_direction}")
+    non_payment_or_free(community).order(sort_field => sort_direction)
   end
 
   # Creates a new message to the conversation
