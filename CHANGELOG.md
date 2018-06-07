@@ -10,6 +10,20 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [7.3.1] - 2018-06-07
+
+### Added
+
 - Add soundcloud link support in custom landing page footer [#3300](https://github.com/sharetribe/sharetribe/pull/3300)
 - Add checkbox for consent for receiving emails from admins to signup process [#3318](https://github.com/sharetribe/sharetribe/pull/3318)
 - Add popup notification when giving admin rights to a new user [#3329](https://github.com/sharetribe/sharetribe/pull/3329)
@@ -27,8 +41,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Prevent an admin from deleting their account if they are the only admin in the marketplace[#3320](https://github.com/sharetribe/sharetribe/pull/3320)
 - Split first name and last name from Stripe account connection form [#3317](https://github.com/sharetribe/sharetribe/pull/3317)
 
-### Deprecated
-
 ### Removed
 
 - Remove feature flag for export transactions feature [#3288](https://github.com/sharetribe/sharetribe/pull/3288)
@@ -41,8 +53,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- [Critical] Fix several parameter validation bugs that opened the app to SQL injection
 - Update sinatra dependency [#3344](https://github.com/sharetribe/sharetribe/pull/3344)
 - Update multiple dependencies
+- Present form auto-complete for Stripe secret keys [#3338](https://github.com/sharetribe/sharetribe/pull/3338)
 
 ## [7.3.0] - 2018-02-23
 
@@ -510,7 +524,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...HEAD
+[7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
+[7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/sharetribe/sharetribe/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...v7.1.0
