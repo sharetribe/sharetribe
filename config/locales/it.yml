@@ -960,7 +960,7 @@ it:
       message_not_displaying_correctly: "L'email non è correttamente visibile?"
       view_it_in_your_browser: "Vedi nel tuo browser"
       or: o
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "Hai ricevuto questa mail perché ti sei iscritto a %{service_name}."
       unsubscribe_from_these_emails: "Rimuovi la sottoscrizione da queste email"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
@@ -1084,10 +1084,10 @@ it:
     transaction_preauthorized:
       subject: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
       transaction_requested_by_user: "%{requester} ha richiesto ed autorizzato il pagamento per %{listing_title}"
-      you_have_time_to_accept: "E' necessario che accetti o rifiuti entro %{payment_expires_in}. Se accetti entro questo tempo, il pagamento sarà eseguito. Se non accetti, la richiesta sarà automaticamente rifiutata e non riceverai il pagamento."
-      if_you_do_accept: ~
+      you_have_time_to_accept: "E' necessario che accetti o rifiuti entro %{payment_expires_in}."
+      if_you_do_accept: "Se accetti la richiesta entro questo lasso temporale, riceverai il denaro direttamente nel tuo conto."
       if_you_do_accept_stripe: "Se accetti la richiesta entro questo lasso temporale, il pagamento andrà a buon fine. Riceverai il denaro direttamente nel tuo conto corrente dopo che avrai consegnato %{listing_title} a %{requester}"
-      if_you_do_not_accept: ~
+      if_you_do_not_accept: "Se rifiuti o non accetti in questo periodo di tempo, la transazione sarà automaticamente cancellata, a %{requester} non avrà addebito e tu non riceverai il pagamento."
       click_here_to_reply: "Clicca qui per rispondere alla richiesta"
     transaction_preauthorized_reminder:
       subject: "Ricordati di accettare la richiesta di %{requester} per l'annuncio %{listing_title}"
