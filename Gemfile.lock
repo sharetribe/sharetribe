@@ -382,12 +382,12 @@ GEM
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-attack (5.0.1)
       rack
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
-    rack-protection (2.0.1)
+    rack-protection (2.0.2)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -500,10 +500,10 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
-    sinatra (2.0.1)
+    sinatra (2.0.2)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.1)
+      rack-protection (= 2.0.2)
       tilt (~> 2.0)
     sitemap_generator (5.3.1)
       builder (~> 3.0)
@@ -686,4 +686,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
