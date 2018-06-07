@@ -2,7 +2,7 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "testimonials"
-    @transactions = resource_scope.order("#{sort_column} #{sort_direction}")
+    @transactions = resource_scope.order(sort_column => sort_direction)
       .paginate(:page => params[:page], :per_page => 30)
     @testimonials = testimonials(@transactions)
   end

@@ -11,7 +11,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
         @memberships = CommunityMembership.where(community_id: @current_community.id, status: ["accepted", "banned"])
                                            .includes(person: :emails)
                                            .paginate(page: params[:page], per_page: 50)
-                                           .order("#{sort_column} #{sort_direction}")
+                                           .order(sort_column => sort_direction)
         if params[:q].present?
           query = <<-SQL
           community_memberships.person_id IN
