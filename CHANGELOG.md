@@ -41,8 +41,10 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- [Critical] Fix several parameter validation bugs that opened the app to SQL injection
 - Update sinatra dependency [#3344](https://github.com/sharetribe/sharetribe/pull/3344)
 - Update multiple dependencies
+- Present form auto-complete for Stripe secret keys [#3338](https://github.com/sharetribe/sharetribe/pull/3338)
 
 ## [7.3.0] - 2018-02-23
 
