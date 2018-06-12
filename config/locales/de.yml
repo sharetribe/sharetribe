@@ -379,7 +379,7 @@ de:
       testimonials:
         testimonials: "Bewertungen ansehen"
         no_testimonials_found: "Keine Bewertungen gefunden."
-        displaying_xx_reviews: ~
+        displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
         headers:
           transaction: Transaktion
           author: Author

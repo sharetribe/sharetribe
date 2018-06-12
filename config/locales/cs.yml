@@ -157,9 +157,9 @@ cs:
         amazon_ses_notification: ~
         this_is_how_it_will_look: "Takto to bude vypadat:"
         send_verification_button: "Ověřovací e-mail byl odeslán"
-        change_sender_email: ~
+        change_sender_email: "změna emailu odesílatele"
         successfully_saved: "Adresa odesílatele byla úspěšně uložena. Ověřovací e-mail bude brzy odeslán."
-        successfully_saved_name: ~
+        successfully_saved_name: "Jméno odesílatele úspěšně změněno"
         set_sender_name: "Změnit jméno odesílatele"
         change_sender_name: "Změnit jméno odesílatele"
         change_sender_prompt: "%{change_name_link} nebo %{change_email_link}"
@@ -334,7 +334,7 @@ cs:
           initiated_by: Spouštěč
           other_party: "Další strana"
         status:
-          conversation: ~
+          conversation: Konverzace
           free: Konverzace
           pending: "Čeká na vyřízení"
           preauthorized: Předschváleno
@@ -371,10 +371,10 @@ cs:
             pending_ext: "Čeká se na Stripe platbu"
         not_available: Nedostupné
       conversations:
-        conversations: ~
+        conversations: "Zobrazit konverzaci"
         headers:
-          started_from: ~
-          status: ~
+          started_from: "Začal z"
+          status: Status
           started: ~
           last_activity: ~
           initiated_by: ~
@@ -382,8 +382,8 @@ cs:
         participants: ~
         profile: ~
       testimonials:
-        testimonials: ~
-        no_testimonials_found: ~
+        testimonials: "Zobrazit konverzace"
+        no_testimonials_found: "Žádné hodnocení nenalezeno"
         displaying_xx_reviews: ~
         headers:
           transaction: ~
@@ -393,7 +393,7 @@ cs:
           grade: ~
           note: ~
         status:
-          waiting: ~
+          waiting: "Čeká na recenzi"
           skipped: ~
           published: ~
     custom_fields:
@@ -489,8 +489,8 @@ cs:
     listing_shapes:
       availability_title: Dostupnost
       read_more: "Přečtěte si více o automatické správě dostupnosti."
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      read_more_availability_management: "Přečtěte si více o správě dostupnosti"
+      allow_providers_to_manage_availability: "Umožnit poskytovatelů spravovat dostupnost z kalendáře"
       per_hour_availability: ~
       per_day_availability: ~
       per_night_availability: ~
@@ -623,38 +623,38 @@ cs:
       general_settings_updated: "Aktualizace obecného nastavení platebního systému"
       transaction_fee_settings_updated: "Aktualizace nastavení transakčních poplatků"
       choose_popup_text: ~
-      invalid_api_keys: ~
-      missing_api_keys: ~
-      stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
+      invalid_api_keys: "Neplatný Stripe API klíč"
+      missing_api_keys: "Chybí Stripe API klíč"
+      stripe_verified: "Stripe API přístup ověřen"
+      change_settings: "Změňte nastavení a poplatky"
+      configure_stripe: "Nastavení Stripe"
+      configure_paypal: "Nastavení PayPal"
+      transaction_fee_settings: "Nastavení transakčního poplatku"
       transaction_fee_save: Uložit
       stripe_fee: "Stripe poplatky"
       stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      fee_should_be_less_than_minimum_price: "Minimální transakční poplatek musí být nižší než minimální transakce"
       confirm_disable: ~
       stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: "Stripe připojeno"
+        disable: "Zakázat Stripe"
+        disabled: "Stripe zakázáno"
+        enable: "Znovu povolit Stripe"
       paypal_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: "PayPal připojen"
+        disable: "Zakázat PayPal"
+        disabled: "PayPal zakázán"
+        enable: "Znovu povolit PayPal"
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
         add_your_api_keys: "Vložte váš Stripe API klíč"
         how_to_get_these: "Jak je získat?"
-        publishable_key_example: ~
-        secret_key_example: ~
+        publishable_key_example: "Například: %{api_publishable_key_example}"
+        secret_key_example: "Například: %{api_secret_key_example}"
         save_api_keys: "Uložte Stripe API klíč"
-        invalid_secret: ~
-        invalid_publishable: ~
+        invalid_secret: "To nevypadá jako správný %{secret_key}"
+        invalid_publishable: "To nevypadá jako správný %{publishable_key}"
       index:
         header: "Dostupné nastavení platby"
         info: "Můžete nastavit dostupné platební brány pro váš trh. Nyní jsou podporovány PayPal a Stripe."
@@ -750,9 +750,9 @@ cs:
       body_text_accept: ~
       link_to_paypal_text: zde
     stripe_fee_info:
-      title: ~
+      title: "Poplatek Stripe za zpracování platby"
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: zde
   conversations:
     accept:
       details: "Podobnosti o uspořádání"
@@ -773,8 +773,8 @@ cs:
       you_will_get_label: "Obdržíte:"
       total_label: "Celkem:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Nezahrnuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatek za zpracování</a>"
       payment_fee_info: ~
       shipping_price_label: "Doprava:"
@@ -1036,21 +1036,21 @@ cs:
       you_have_received_new_payment: "Obdrželi jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od uživatele %{payer_full_name}. Zde je Vaše stvrzenka."
       listing_per_unit_title: ~
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
+      payment_gateway_fee: "Poplatek za zpracování platby :"
+      shipping_total: "Doprava:"
+      product: "Produkt:"
       price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      service_fee: "%{service_name} servisní poplatek :"
+      you_will_get: "Celkem:"
+      new_payment: "Obdrželi jste novou platbu"
+      price_per_unit_type: "Cena za %{unit_type}"
+      quantity: "Množství:"
+      you_have_received_new_payment: "Obdrželi jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> by %{payer_full_name}. Zde je váš doklad."
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
+      receipt_of_payment: "Doklad o zaplacení"
+      you_have_made_new_payment: "Zaplatili jste<b>%{payment_sum}</b> za <b>%{listing_title}</b> uživateli %{recipient_full_name}. Zde je stvrzenka provedené platby."
       product: Produkt
       price_per_unit_type: "Cena za %{unit_type}"
       duration: Trvání
@@ -1101,7 +1101,7 @@ cs:
       added_listing: "Na odkazu %{name_link} byl přidán inzerát:"
       update_mail_title: "%{title_link} aktualizace"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Zde jsou některé věci, které se staly na %{community_link} od %{time_since_last_update}."
+      intro_paragraph: "Zde jsou některé věci, které se staly na %{community_link} za %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Příliš mnoho e-mailů? %{settings_link} nebo %{unsubscribe_link}"
       settings_link_text: "Upravte nastavení Vašeho e-mailu zde"
@@ -1132,7 +1132,7 @@ cs:
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
     welcome_email:
       welcome_email_subject: "Vítejte v %{service_name}"
-      welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste s k nám připojili."
+      welcome_to_marketplace: "Vítejte v %{service_name}! Jsme rádi, že jste se k nám připojili."
       love_marketplace_crew: "S pozdravem,<br /><i>%{service_name}</i>"
       welcome_email_footer_text: "Jaký druh e-mailů chcete dostávat od %{service_name}? %{settings_link}"
       settings_link_text: "Zkontrolujte si nastavení"
@@ -1856,7 +1856,7 @@ cs:
     transaction_agreement_checkbox:
       read_more: Zobrazit.
     stripe_payment:
-      payment: ~
+      payment: Platba
       pay_with_card: "Platba kreditní nebo debetní kartou"
       address: "Doručovací adresa"
       address_country: "Země *"
@@ -1930,7 +1930,7 @@ cs:
       paypal_account_billing_agreement_info_both: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného, minimální poplatek %{minimum_commission}) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: "Po provedení prodej na %{service_name}, poplatek za služby %{minimum_commission} bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
       paypal_account_billing_agreement_info_relative: "Po provedení prodeje na %{service_name}, poplatek za služby (%{commission_from_seller} z celkové ceny položky, kromě dopravného) bude stržen z Vašeho PayPal účtu. Chcete-li přijímat platby v %{service_name}, je třeba povolit, aby Vám poplatek mohl být stržen. Tento poplatek nezahrnuje %{paypal_info_link}."
-      paypal_account_billing_agreement_info_none: ~
+      paypal_account_billing_agreement_info_none: "%{service_name} momentálně neúčtuje poplatky. Jestliže chcete poplatky povolit, musíte pro %{service_name} povolit poplatky, aby jste mohli přijímat platby. Poplatek nezahrnuje %{paypal_info_link}."
       paypal_info_link_text: "PayPal poplatek za provedení platby"
       billing_agreement_description: "%{service_name} opravňuje účtovat transakční poplatek"
       billing_agreement: "Udělit oprávnění"
@@ -1956,7 +1956,7 @@ cs:
     paypal_permission_granted_summary: "Povolení k udělení transakčních poplatků"
   paypal:
     pay_with_paypal: "Přejít k platbě"
-    checkout_with: ~
+    checkout_with: "Pokladna s"
     or_pay_with_paypal: nebo
     checkout_with_paypal: "Odhlášení z PayPal"
     cancel_succesful: "Platba přes PayPal byla úspěšně zrušena"
@@ -1984,14 +1984,14 @@ cs:
       email_is_in_use: "Vámi zadaný e-mail je již obsazen."
       email_is_in_use_or_not_allowed: "Tento e-mail není povolen nebo je již využíván. Pokud se nemůžete přihlásit, kontaktujte nás."
       email_not_allowed: "Tento e-mail nebyl povolen v %{service_name}. Prosíme, použijte povolenou e-mailovou adresu. Pokud se i nadále nemůžete přihlásit, napište nám."
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Uživatelské jméno nebo email je neplatný nebo je již použit"
       email_restriction_instructions:
         one: "Přístup do %{service_name} je omezený. K připojení budete potřebovat %{allowed_emails} e-mailovou adresu."
         few: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
         other: "Přístup do %{service_name} je omezený. Budete potřebovat e-mailovou adresu, díky které se budete moci přihlásit."
       family_name: Příjmení
       given_name: Jméno
-      i_accept_the_terms_and_privacy: ~
+      i_accept_the_terms_and_privacy: "Akceptuji %{terms} a %{privacy}"
       admin_emails_consent: "Souhlasím s přijímáním občasných emailů od týmu%{service_name} , s tím že můžu své rozhodnutí kdykoliv změnit."
       invalid_invitation_code: "Kód pozvánky není platný."
       invitation_code: "Kód pozvánky"
@@ -2334,7 +2334,7 @@ cs:
     quantity: "Množství: %{quantity}"
     unit_price: "Cena za jednotku: %{unit_price}"
     total: "Celkem:"
-    total_to_pay: ~
+    total_to_pay: "Platba celkem:"
   unit:
     day: den
     days: dny
@@ -2343,7 +2343,7 @@ cs:
       errors:
         availability:
           something_went_wrong: "Nemůžeme zobrazit informace o dostupnosti. Zkuste znovu načíst stránku."
-          saving_failed: ~
+          saving_failed: "Nemůžeme zobrazit informace o dostupnosti. Zkuste znovu načíst stránku."
         working_hours:
           required: ~
           overlaps: ~
@@ -2395,7 +2395,7 @@ cs:
       km: km
       mi: míle
     branding:
-      powered_by: ~
+      powered_by: "Web %{service_name} je vytvořen na platformě %{sharetribe_link} ."
       create_own: "Chcete vytvořit vlastní webové tržiště jako %{service_name}? %{learn_more}."
       learn_more: "Další informace"
   will_paginate:
@@ -2427,9 +2427,9 @@ cs:
         multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    contact_admin_link_text: "kontaktujte správce %{service_name}"
+    you_are_ready_to_accept_payments: "Jste připraveni přijímat platby !"
+    commission: "%{commission} %"
     pay_with_stripe: ~
     add_and_pay: "Potvrzení platby"
     card_not_stored: ~
@@ -2508,5 +2508,5 @@ cs:
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~
-    invalid_bank_account_number: ~
-    invalid_postal_code: ~
+    invalid_bank_account_number: "Zkontrolujte prosím, zde je váš bankovní účet zadán správně a zda odpovídá vaší zemi."
+    invalid_postal_code: "Neplatné PSČ pro %{country}"

@@ -267,7 +267,7 @@ SQL
 
         puts "Deleting listing images..."
         Listing.where(community_id: community.id).flat_map { |l|
-          l.listing_images
+          l.listing_images.select { |i| i.image.present? }
         }.flat_map { |i|
           i.image.styles.map { |s, _| {key: i.image.s3_object(s).key }}
         }.each_slice(1000) { |objects|
