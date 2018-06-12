@@ -32,8 +32,12 @@
             - if custom_field_value
               %span.people-custom-fields-title
                 = "#{custom_field.name(I18n.locale)}:"
-              %span.people-custom-fields-value
-                = custom_field_value.display_value
+              - if custom_field.is_a?(CheckboxField)
+                = render 'people/custom_fields/checkbox', custom_field: custom_field,
+                custom_field_value: custom_field_value
+              - else
+                %span.people-custom-fields-value
+                  = custom_field_value.display_value
 
     .row
       %h2.people-header
