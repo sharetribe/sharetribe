@@ -99,7 +99,7 @@
             </div>
 
             <% if c["button_title"] %>
-              <a class="info__column-button--ghost <%= section_id %>__info__button--ghost" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
+              <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
             <% end %>
           </div>
         <% end %>
