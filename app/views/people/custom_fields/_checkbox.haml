@@ -1,4 +1,4 @@
-- options = custom_field.options.to_a.dup
+- options = custom_field.options.sort.to_a.dup
 .row.checkbox-group
   - ArrayUtils.each_slice_columns(options, 3) do |column|
     .col-4
