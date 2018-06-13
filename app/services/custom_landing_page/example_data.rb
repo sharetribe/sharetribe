@@ -259,6 +259,10 @@ module CustomLandingPage
         "title": "Locations section",
         "paragraph": "PLEASE NOTE: This section is NOT ENABLED by default. To enable this section add the section to the 'composition'. Locations section can contain 3 to 7 featured locations. Each location should have a background image.",
         "location_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        "button_title": "Browse all listings",
+        "button_path": {"type": "path", "id": "search"},
         "locations": [
             {
                 "title": "About",
