@@ -42,6 +42,10 @@ class Person::SettingsService
     end
   end
 
+  def fixed_phone_field?
+    @fixed_phone_field ||= community_person_custom_fields.phone_number.empty?
+  end
+
   private
 
   def new_custom_field_value(custom_field)

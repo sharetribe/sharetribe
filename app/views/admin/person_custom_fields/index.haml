@@ -24,7 +24,7 @@
       .col-5.custom-fields-list-title
         = t(".field_type")
 
-    = render 'fixed_fields'
+    = render 'fixed_fields', service: @service
 
     - if @service.show_custom_fields?
       = render partial: 'custom_field', collection: @service.custom_fields, as: :custom_field
