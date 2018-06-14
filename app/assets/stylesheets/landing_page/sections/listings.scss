@@ -12,7 +12,7 @@ $listings__tablet-gutter: 16px;
 
   @include dimensions__section--paddings;
 
-  background-color: #F9F9F9;
+  background-color: #FFFFFF;
 }
 
 .listings__content {
@@ -150,6 +150,11 @@ $listings__tablet-gutter: 16px;
 
 .listings__button--ghost {
   @include landing-page__button;
+}
+
+.listings__button--inverted {
+  @include landing-page__button;
+  background-color: #FFF;
 }
 
 .listings__listing-title {
@@ -314,6 +319,11 @@ $listings__tablet-gutter: 16px;
 .listings__section--blank {
   @extend .listings__section;
   color: $typography__main-color;
+}
+
+.listings__section--zebra {
+  @extend .listings__section--blank;
+  background-color: #F6F6F6;
 }
 
 .listings__section--background-color, .listings__section--background-image--light, .listings__section--background-image--dark {
