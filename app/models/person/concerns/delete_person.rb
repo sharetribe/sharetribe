@@ -50,6 +50,8 @@ module DeletePerson
 
           # Delte auth tokens
           person.auth_tokens.destroy_all
+
+          person.custom_field_values.destroy_all
         end
       end
     end
