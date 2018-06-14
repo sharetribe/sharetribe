@@ -392,7 +392,7 @@ en:
           skipped: Skipped
           published: Published
       listings:
-        listings: 'Manage listings'
+        listings: 'Listings'
         headers:
           title: "Title"
           author: "Author"
@@ -487,8 +487,8 @@ en:
         hello_firstname_text: "Hello %{person},"
     left_hand_navigation:
       general: General
-      users_and_transactions: "Users & transactions"
-      configure: Configuration
+      users_and_transactions: Manage
+      configure: Configure
       emails_title: Emails
       subscription: Subscription
       preview: "Preview site"
