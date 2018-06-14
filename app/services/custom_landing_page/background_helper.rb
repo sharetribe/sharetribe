@@ -51,7 +51,7 @@ module CustomLandingPage
     def calculate_second_wo_background(section)
       @landing_page_zebra_row ||= false
       @landing_page_second_wo_background ||= false
-      if %w(info listings categories).include?(section["kind"]) && section["background_image"].nil? && section["background_color"].nil?
+      if %w(info listings categories locations).include?(section["kind"]) && section["background_image"].nil? && section["background_color"].nil?
         if @landing_page_zebra_row
           @landing_page_second_wo_background = !@landing_page_second_wo_background
         else

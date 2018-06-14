@@ -1,0 +1,24 @@
+- bg_styles = background_style_modifiers(s, second_wo_background)
+- content_for :locations_css do
+  = render 'landing_page/inline_css', s: s, section_id: section_id
+
+%section.locations__section{id: section_id, class: "locations__section--#{bg_styles[:section_style_modifier]}",
+  style: "#{bg_styles[:background_image_style]} #{bg_styles[:background_color_style]}"}
+  .locations__content
+    %h1.locations__title= s["title"]
+    .locations__paragraph--markdown
+      = render_markdown(s["paragraph"])
+    .locations__locations
+      - num_of_locations = s["locations"].length
+      - s["locations"].each do |location|
+        - loc = location["location"]
+        - path = loc.is_a?(Hash) ? loc["value"] : loc
+        %div{:class => "locations__location--#{num_of_locations}"}
+          %a{:href => "#{path}"}
+            %div{:class => "#{section_id}__locations__location-content locations__location-content", :style => "background-image: url(#{location["background_image"]["src"]})"}
+              %h3.locations__location-title= location["title"]
+
+    - if s["button_title"]
+      %a{class: "locations__button#{bg_styles[:button_modifier]} #{section_id}__locations__button#{bg_styles[:button_modifier]}", href: s['button_path']['value']}
+        = s["button_title"]
+
