@@ -365,20 +365,6 @@ module ApplicationHelper
       },
       {
         :topic => :manage,
-        :text => t("admin.emails.new.send_email_to_members"),
-        :icon_class => icon_class("send"),
-        :path => new_admin_community_email_path(:community_id => @current_community.id),
-        :name => "email_members"
-      },
-      {
-        :topic => :manage,
-        :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => icon_class("invite"),
-        :path => new_invitation_path,
-        :name => "invite_people"
-      },
-      {
-        :topic => :manage,
         :text => t("admin.communities.transactions.transactions"),
         :icon_class => icon_class("coins"),
         :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
@@ -397,6 +383,20 @@ module ApplicationHelper
         :icon_class => icon_class("like"),
         :path => admin_community_testimonials_path(@current_community),
         :name => "testimonials"
+      },
+      {
+        :topic => :manage,
+        :text => t("admin.emails.new.send_email_to_members"),
+        :icon_class => icon_class("send"),
+        :path => new_admin_community_email_path(:community_id => @current_community.id),
+        :name => "email_members"
+      },
+      {
+        :topic => :manage,
+        :text => t("admin.communities.edit_details.invite_people"),
+        :icon_class => icon_class("invite"),
+        :path => new_invitation_path,
+        :name => "invite_people"
       },
       {
         :topic => :configure,
