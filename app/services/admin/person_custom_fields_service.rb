@@ -13,21 +13,21 @@ class Admin::PersonCustomFieldsService
   end
 
   def find_custom_field
-    @custom_field = resorce_scope.find(params[:id])
+    @custom_field = resource_scope.find(params[:id])
     default_min_option_count(custom_field)
     custom_field
   end
 
   def custom_fields
-    resorce_scope
+    resource_scope
   end
 
   def create
     field = build_resource
     field.assign_attributes(custom_field_params)
-    field.sort_priority = resorce_scope.max_priority.last.priority.to_i + 1
+    field.sort_priority = resource_scope.max_priority.last.priority.to_i + 1
     @custom_field = field
-    resorce_scope << field
+    resource_scope << field
   end
 
   def update
@@ -37,7 +37,7 @@ class Admin::PersonCustomFieldsService
 
   def order
     sort_priorities = params[:order].map(&:to_i)
-    resorce_scope.each do |field|
+    resource_scope.each do |field|
       field.update_attributes(sort_priority: sort_priorities.index(field.id))
     end
   end
@@ -67,9 +67,13 @@ class Admin::PersonCustomFieldsService
     custom_field.persisted?
   end
 
+  def fixed_phone_field?
+    @fixed_phone_field ||= resource_scope.phone_number.empty?
+  end
+
   private
 
-  def resorce_scope
+  def resource_scope
     community.person_custom_fields
   end
 
