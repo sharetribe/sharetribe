@@ -69,3 +69,9 @@
   \.#{section_id}__listings__author-link:hover .listings__author-name {
   color: rgb(#{s["price_color"]["value"].join(",")});
   }
+
+- if s["location_color_hover"]
+  \.#{section_id}__locations__location-content:hover {
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(#{s["location_color_hover"]["value"].join(",")}, 0.9); /* big enough number to cover the whole area */
+  }
+
