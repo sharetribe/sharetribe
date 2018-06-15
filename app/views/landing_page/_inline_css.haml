@@ -26,15 +26,15 @@
   }
 
 - if s["variation"] == "multi_column" && s["icon_color"]
-  \.#{section_id}__#{kind}__column-icon &gt; svg g,
-  \.#{section_id}__#{kind}__column-icon &gt; svg circle,
-  \.#{section_id}__#{kind}__column-icon &gt; svg path  {
+  \.#{section_id}__#{kind}__column-icon > svg g,
+  \.#{section_id}__#{kind}__column-icon > svg circle,
+  \.#{section_id}__#{kind}__column-icon > svg path  {
   stroke: rgb(#{s["icon_color"]["value"].join(",")});
   }
-  \.#{section_id}__#{kind}__column-icon &gt; svg .icon-no-stroke {
+  \.#{section_id}__#{kind}__column-icon > svg .icon-no-stroke {
   stroke: none;
   }
-  \.#{section_id}__#{kind}__column-icon &gt; svg .icon-custom-color-fill {
+  \.#{section_id}__#{kind}__column-icon > svg .icon-custom-color-fill {
   fill: rgb(#{s["icon_color"]["value"].join(",")});
   }
 
