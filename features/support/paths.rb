@@ -100,6 +100,8 @@ module NavigationHelpers
       unsubscribe_invitations_path(code: $1)
     when /the testimonials admin page/
       admin_community_testimonials_path(:community_id => @current_community.id)
+    when /the listings admin page/
+      admin_community_listings_path(:community_id => @current_community.id)
     else
       begin
         page_name =~ /the (.*) page/
