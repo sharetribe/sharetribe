@@ -1,0 +1,43 @@
+- content_for :locations_css do
+  - if s["button_color"]
+    \.#{section_id}__locations__button--ghost {
+    color: rgb(#{s["button_color"]["value"].join(",")});
+    border-color: rgb(#{s["button_color"]["value"].join(",")});
+    }
+  - if s["button_color_hover"]
+    \.#{section_id}__locations__button--ghost:hover {
+    background-color: rgb(#{s["button_color_hover"]["value"].join(",")});
+    border-color: rgb(#{s["button_color_hover"]["value"].join(",")});
+    }
+  - if s["location_color_hover"]
+    \.#{section_id}__locations__location-content:hover {
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(#{s["location_color_hover"]["value"].join(",")}, 0.9); /* big enough number to cover the whole area */
+    }
+  - if s["paragraph_link_color"]
+    \.locations__paragraph--markdown a {
+    color: rgb(#{s["paragraph_link_color"]["value"].join(",")});
+    }
+  - if s["paragraph_link_color_hover"]
+    \.locations__paragraph--markdown a:hover {
+    color: rgb(#{s["paragraph_link_color_hover"]["value"].join(",")});
+    }
+
+%section.locations__section{:id => section_id}
+  .locations__content
+    %h1.locations__title= s["title"]
+    .locations__paragraph--markdown
+      = render_markdown(s["paragraph"])
+    .locations__locations
+      - num_of_locations = s["locations"].length
+      - s["locations"].each do |location|
+        - loc = location["location"]
+        - path = loc.is_a?(Hash) ? loc["value"] : loc
+        %div{:class => "locations__location--#{num_of_locations}"}
+          %a{:href => "#{path}"}
+            %div{:class => "#{section_id}__locations__location-content locations__location-content", :style => "background-image: url(#{location["background_image"]["src"]})"}
+              %h3.locations__location-title= location["title"]
+
+    - if s["button_title"]
+      %a{class: "#{section_id}__locations__button--ghost locations__button--ghost",  href: s['button_path']['value']}
+        = s["button_title"]
+
