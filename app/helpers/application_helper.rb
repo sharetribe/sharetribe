@@ -366,7 +366,7 @@ module ApplicationHelper
       {
         :topic => :manage,
         :text => t("admin.communities.listings.listings"),
-        :icon_class => icon_class("analytics"),
+        :icon_class => icon_class("thumbnails"),
         :path => admin_community_listings_path(@current_community, sort: "updated"),
         :name => "listings"
       },
