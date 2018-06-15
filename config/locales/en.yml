@@ -404,6 +404,8 @@ en:
           status: "Status"
         open: 'Open'
         closed: 'Closed'
+      user_fields:
+        user_fields: "User fields"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
