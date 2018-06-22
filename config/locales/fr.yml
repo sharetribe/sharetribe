@@ -75,7 +75,7 @@ fr:
         private_community_homepage_content: "Page d'accueil de la place de marché privée"
         edit_private_community_homepage_content_description: "Ce contenu n'est visible qu'aux utilisateurs non connectés, sur la page d'accueil de la place de marché privée. Vous pouvez décrire ici votre place de marché et comment la rejoindre. Vous pouvez aussi ajouter des images, des vidéos et du contenu HTML. %{see_how_it_looks_like}."
         update_information: "Sauvegarder les paramètres"
-        invite_people: "Inviter des nouveaux utilisateurs sur %{service_name}"
+        invite_people: "Inviter de nouveaux utilisateurs"
         edit_signup_info: "Informations lors de l'inscription"
         edit_signup_info_description: "Ce texte peut être affiché aux utilisateurs sur la page d'inscription. Vous pouvez y donner des instructions à propos de l'inscription, des conseils pour obtenir une invitation, etc. Par défaut, il n'y a pas d'instructions."
         edit_info: "Modifier les informations"
@@ -241,7 +241,7 @@ fr:
         delete_this_marketplace: "Supprimer cette place de marché"
         payment_preferences: "Système de paiements"
       manage_members:
-        manage_members: "Gérer les utilisateurs"
+        manage_members: Utilisateurs
         email: Email
         name: Nom
         display_name: "Nom d'affichage"
@@ -318,7 +318,7 @@ fr:
       transactions:
         export_all_as_csv: "Exporter au format CSV"
         processing_export: "Export au format CSV en cours..."
-        transactions: "Voir les transactions"
+        transactions: Transactions
         headers:
           conversation: "Fil de conversation"
           listing: Annonce
@@ -366,7 +366,7 @@ fr:
             pending_ext: "En attente du paiement Stripe"
         not_available: "Non disponible"
       conversations:
-        conversations: "Voir les conversations"
+        conversations: Conversations
         headers:
           started_from: "Commencée sur"
           status: Statut
@@ -377,7 +377,7 @@ fr:
         participants: "Conversation : %{starter} avec %{author}"
         profile: "Profil de %{author}"
       testimonials:
-        testimonials: "Voir les avis"
+        testimonials: Avis
         no_testimonials_found: "Aucun avis trouvé"
         displaying_xx_reviews: "Affichage de <b>%{count}</b> avis pour les transactions %{tx_from} - %{tx_to} sur un total de <b>%{all_count}</b> avis."
         headers:
@@ -391,6 +391,17 @@ fr:
           waiting: "En attente"
           skipped: Ignorée
           published: Publiée
+      listings:
+        listings: Annonces
+        headers:
+          title: Titre
+          author: Auteur
+          created: "Publiée le"
+          updated: "Mise à jour le"
+          category: Catégorie
+          status: Statut
+        open: Ouverte
+        closed: Close
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -476,8 +487,8 @@ fr:
         hello_firstname_text: "Bonjour %{person},"
     left_hand_navigation:
       general: Général
-      users_and_transactions: "Utilisateurs et transactions"
-      configure: Configuration
+      users_and_transactions: Gérer
+      configure: Configurer
       emails_title: Emails
       subscription: Abonnement
       preview: "Prévisualiser le site"
@@ -2266,7 +2277,7 @@ fr:
     format: dd/mm/yyyy
   time:
     formats:
-      short: "%e. %b %Y heure %H:%M"
+      short: "%e. %b %Y à %H:%M"
       shorter: "%e. %b h %H:%M"
       short_date: "%e %b %Y"
       hours_only: "%H:%M"

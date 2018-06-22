@@ -382,7 +382,7 @@ cs:
         participants: ~
         profile: ~
       testimonials:
-        testimonials: "Zobrazit konverzace"
+        testimonials: "Zobrazit recenze"
         no_testimonials_found: "Žádné hodnocení nenalezeno"
         displaying_xx_reviews: ~
         headers:
@@ -396,6 +396,17 @@ cs:
           waiting: "Čeká na recenzi"
           skipped: ~
           published: ~
+      listings:
+        listings: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"

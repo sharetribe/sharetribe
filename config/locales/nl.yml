@@ -243,7 +243,7 @@ nl:
         delete_this_marketplace: "Verwijder deze marktplaats"
         payment_preferences: Betalingsysteem
       manage_members:
-        manage_members: "Beheer gebruikers"
+        manage_members: Gebruikers
         email: E-mail
         name: Naam
         display_name: "Weergegeven naam"
@@ -320,7 +320,7 @@ nl:
       transactions:
         export_all_as_csv: "Exporteer alles als CSV"
         processing_export: "Export naar CSV wordt verwerkt."
-        transactions: "Bekijk transacties"
+        transactions: Transacties
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -368,7 +368,7 @@ nl:
             pending_ext: "In afwachting van Stripe betaling"
         not_available: "Niet beschikbaar"
       conversations:
-        conversations: "Bekijk conversaties"
+        conversations: Conversaties
         headers:
           started_from: "Begonnen van"
           status: Status
@@ -379,7 +379,7 @@ nl:
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
       testimonials:
-        testimonials: "Bekijk recensies"
+        testimonials: Recensies
         no_testimonials_found: "Geen recensies gevonden"
         displaying_xx_reviews: "Geeft weer <b>%{count}</b> recensies in transacties %{tx_from} - %{tx_to} van <b>%{all_count}</b> recensies in totaal"
         headers:
@@ -393,6 +393,17 @@ nl:
           waiting: "In afwachting van recensie"
           skipped: Overgeslagen
           published: Gepubliceerd
+      listings:
+        listings: Advertenties
+        headers:
+          title: Titel
+          author: Auteur
+          created: Aangemaakt
+          updated: Bijgewerkt
+          category: Categorie
+          status: Status
+        open: Open
+        closed: Gesloten
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"

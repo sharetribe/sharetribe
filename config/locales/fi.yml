@@ -391,6 +391,17 @@ fi:
           waiting: "Odottaa arviota"
           skipped: "Arvio jätetty väliin"
           published: Julkaistu
+      listings:
+        listings: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
