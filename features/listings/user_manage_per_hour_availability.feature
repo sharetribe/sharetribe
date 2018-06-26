@@ -18,7 +18,7 @@ Feature: User creates a new listing
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_price" with "20"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer"
     Then I should see selected "9:00 am" in the "listing[working_time_slots_attributes][100][from]" dropdown
     Then I should see selected "5:00 pm" in the "listing[working_time_slots_attributes][100][till]" dropdown

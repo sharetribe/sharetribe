@@ -14,7 +14,7 @@ module FeatureTests
       end
 
       def save_listing
-        new_listing_form.click_button("Save listing")
+        new_listing_form.click_button("Post listing")
       end
 
       def new_listing_form
