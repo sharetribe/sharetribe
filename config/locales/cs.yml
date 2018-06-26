@@ -4,7 +4,7 @@ cs:
       format:
         separator: "."
         delimiter: ","
-        format: ~
+        format: "%u%u"
   admin:
     categories:
       edit:
@@ -265,7 +265,7 @@ cs:
         search_by_name_email: "Hledání podle jména, emailu nebo zobrazovaného názvu"
         reset_search: "Zobrazit vše"
         for_search_terms: "pro: %{terms}"
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "Tím je uživatel administrátor. Měli byste uživatele informovat o svých odpovědnostech a měli byste zkontrolovat podmínky použití Sharetribe. Opravdu chcete pokračovat?"
       new_layout:
         new_layout: "Nové uspořádání"
         description_roadmap_new: ~
@@ -297,10 +297,10 @@ cs:
         google_analytics_key_info_text: "Sledování identifikačního čísla Vašeho Google Analytics účtu"
         google_analytics_key_info_text_with_instructions: "Sledování identifikačního čísla Vašeho Google Analytics účtu. %{instructions_link}"
         google_analytics_instructions_link_text: "Přečtěte si více o připojení ke Google Analytics"
-        sharetribe_analytics: ~
+        sharetribe_analytics: "Analýzy Sharetribe"
         sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: ~
+        sharetribe_analytics_instructions_link_text: "Přečtěte si více o analytické službě Sharetribe."
+        end_user_analytics: "Umožněte společnosti Sharetribe sledovat činnost členů s cílem zlepšit služby Sharetribe"
         save: "Uložit nastavení"
       menu_links:
         menu_links: Odkazy
@@ -322,7 +322,7 @@ cs:
         invalid_post_listing_button_label: "Vyplň, prosím, validní text pro tlačítko \"Přidej novou položku\""
       transactions:
         export_all_as_csv: "Exportovat vše do formátu CSV"
-        processing_export: ~
+        processing_export: "Probíhá export do CSV ..."
         transactions: Transakce
         headers:
           conversation: "Vlákno konverzace"
@@ -375,38 +375,38 @@ cs:
         headers:
           started_from: "Začal z"
           status: Status
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
-        participants: ~
-        profile: ~
+          started: Začít
+          last_activity: "Poslední aktivita"
+          initiated_by: Spouštěč
+          other_party: "Další strana"
+        participants: "Konverzace:  %{author} s %{starter}"
+        profile: "Profil %{author}"
       testimonials:
         testimonials: "Zobrazit recenze"
         no_testimonials_found: "Žádné hodnocení nenalezeno"
         displaying_xx_reviews: ~
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
-          status: ~
+          transaction: Transakce
+          author: Autor
+          receiver: Příjemce
+          status: Status
           grade: ~
-          note: ~
+          note: Poznámka
         status:
           waiting: "Čeká na recenzi"
-          skipped: ~
-          published: ~
+          skipped: Vynecháno
+          published: Zveřejněno
       listings:
-        listings: ~
+        listings: "Seznam inzerátů"
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
+          title: Nadpis
+          author: Autor
+          created: Vytvořeno
+          updated: Upraveno
+          category: Kategorie
+          status: Status
+        open: Otevřeno
+        closed: Zavřeno
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
@@ -486,10 +486,10 @@ cs:
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude poslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
         email_sent: "E-mail byl odeslán."
         to_improve_email_deliverability: ~
-        email_subject_text: ~
-        firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        email_subject_text: "Nová zpráva od %{service_name}"
+        firstname_cannot_be_removed: "\"Jméno\" nelze odstranit, bude nahrazeno skutečným jménem každého příjemce."
+        hello_firstname: "Dobrý den,"
+        hello_firstname_text: "Dobrý den %{person},"
     left_hand_navigation:
       general: Všeobecné
       users_and_transactions: "Uživatelé & transakce"
@@ -502,9 +502,9 @@ cs:
       read_more: "Přečtěte si více o automatické správě dostupnosti."
       read_more_availability_management: "Přečtěte si více o správě dostupnosti"
       allow_providers_to_manage_availability: "Umožnit poskytovatelů spravovat dostupnost z kalendáře"
-      per_hour_availability: ~
-      per_day_availability: ~
-      per_night_availability: ~
+      per_hour_availability: "Dostupnost \"Za hodinu\""
+      per_day_availability: "Dostupnost \"Za den\""
+      per_night_availability: "Dostupnost \"Za noc\""
       pricing_units_disabled_info: ~
       can_not_find_name: "Nelze zjistit typ objednávky se jménem: %{name}"
       index:
@@ -602,8 +602,8 @@ cs:
       integration_info_text: "Platební systém Sharetribe funguje díky PayPal. Pokud chcete uživatelům umožnit, aby prováděli platby přes Vaše tržiště, musíte se připojit ke svému PayPal účtu a zadat minimální velikost transakce a poplatek z každé provedené transakce."
       link_paypal_personal_account_label: "Poskytuješ sám produkty nebo služby?"
       link_paypal_personal_account: "Pokud ano, budeš ještě muset spojit tvůj PayPal účet s %{personal_payment_preferences_link}"
-      link_stripe_personal_account: ~
-      link_paypal_and_stripe_personal_account: ~
+      link_stripe_personal_account: "Pokud ano, musíte zadat vaše údaje o výplatě na %{personal_payment_preferences_link}"
+      link_paypal_and_stripe_personal_account: "Pokud ano, budete muset propojit váš PayPal nebo Stripe účet s %{personal_payment_preferences_link}."
       personal_payment_preferences_link_text: "Tvůj osobní účet pro marketplace"
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       edit_payment_settings: "Upravte nastavení platby"
@@ -643,7 +643,7 @@ cs:
       transaction_fee_settings: "Nastavení transakčního poplatku"
       transaction_fee_save: Uložit
       stripe_fee: "Stripe poplatky"
-      stripe_fee_notice: ~
+      stripe_fee_notice: "%{stripe_fee_link} bude odečten od poplatku, který účtujete."
       fee_should_be_less_than_minimum_price: "Minimální transakční poplatek musí být nižší než minimální transakce"
       confirm_disable: ~
       stripe_connected:
@@ -789,7 +789,7 @@ cs:
       paypal_fee_info: "* Nezahrnuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatek za zpracování</a>"
       payment_fee_info: ~
       shipping_price_label: "Doprava:"
-      stripe-fee_label: ~
+      stripe-fee_label: "Poplatek za zpracování platby"
     confirm:
       confirm_description: "Pokud byla Vaše žádost splněna, měli byste ji označit jako vyřízenou. Potom můžete poskytnout zpětnou vazbu druhé straně."
       cancel_description: "Pokud Vaše žádost nebyla splněna, označte ji jako \"nesplněno\". Stále můžete poskytnout zpětnou vazbu druhé straně a popsat, co se stalo."
@@ -1045,12 +1045,12 @@ cs:
       price_per_unit_type: "Cena za %{unit_type}"
       quantity: "Množství:"
       you_have_received_new_payment: "Obdrželi jste částku <b>%{payment_sum}</b> za <b>%{listing_title}</b> od uživatele %{payer_full_name}. Zde je Vaše stvrzenka."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title} za %{unit_type}"
     payment_receipt_to_seller:
       payment_gateway_fee: "Poplatek za zpracování platby :"
       shipping_total: "Doprava:"
       product: "Produkt:"
-      price_payer_paid: ~
+      price_payer_paid: "Cena zaplacena uživatelem %{payer_full_name} :"
       service_fee: "%{service_name} servisní poplatek :"
       you_will_get: "Celkem:"
       new_payment: "Obdrželi jste novou platbu"
@@ -1095,7 +1095,7 @@ cs:
       stripe_gateway_fee: "Stripe poplatek :"
       paypal_gateway_fee: "PayPal poplatek :"
       money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name}, a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní ode dne, kdy jste zaplatili."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title} za %{unit_type}"
       stripe:
         you_have_made_new_payment: ~
     new_testimonial:
@@ -1132,7 +1132,7 @@ cs:
       subject: "Uživatel %{requester} zažádal a potvrdil platbu pro inzerát %{listing_title}"
       transaction_requested_by_user: "Uživatel %{requester} zažádal a autorizoval platbu pro inzerát %{listing_title}"
       you_have_time_to_accept: "Musíte přijmout nebo odmítnout žádost do %{payment_expires_in}. Pokud žádost do té doby přijmete, bude platba provedena. Pokud ji do té doby nepřijmete, žádost bude automaticky odmítnuta a nedostanete zaplaceno."
-      if_you_do_accept: ~
+      if_you_do_accept: "Pokud žádost přijmete v tomto časovém rámci, obdržíte peníze okamžitě na váš účet."
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
@@ -1687,7 +1687,7 @@ cs:
         after_service_fee_you_will_get: "Po %{service_name} a zaplacení procesních poplatků obdržíte %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odečten z ceny."
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: "Jakmile někdo provede objednávku, obdržíte částku mínus %{payment_fee_info_link}"
         payment_fee_info_link_text: ~
         delivery: "Způsob doručení"
         shipping: Doprava
@@ -1776,8 +1776,8 @@ cs:
       unable_load_availability: "Nelze načíst informace o dostupnosti. Prosím, zkuste to později."
       booking_date: ~
       select_one: ~
-      start_time: ~
-      end_time: ~
+      start_time: Začátek
+      end_time: Konec
     new:
       listing: inzerát
       selected_category: "Kategorie: %{category}"
@@ -2012,7 +2012,7 @@ cs:
       show_my_name_to_others: "Zobrazit moje skutečné jméno jiným uživatelům %{service_name}."
       sign_up: "Vytvořit nový %{service_name} účet"
       terms: "podmínky použití"
-      privacy: ~
+      privacy: "Zásady ochrany osobních údajů"
       username_is_in_use: "Toto uživatelské jméno je již obsazené."
       username_is_invalid: "Uživatelské jméno je neplatné. Povolenými znaky jsou písmena, číslice a podtržítko."
       visible_only_to_you: "viditelné pouze pro Vás a pro správce tržiště"
@@ -2117,7 +2117,7 @@ cs:
       delete_personal_information: "Pokud smažete Váš účet, Vaše osobní informace (jméno, telefonní číslo, adresa, e-mail, profilový obrázek atd.) budou navždy smazány a nebude je možno obnovit. Všechny Vámi vytvořené inzeráty budou odstraněny. Již nebudete moci znovu aktivovat Váš účet."
       delete_information_others_involved: "Informace, které se týkají ostatních členů (konverzace s dalšími lidmi, uskutečněné transakce, Vámi poskytnutá zpětná vazba atd.), nebudou odstraněny v případě smazání účtu. Nicméně, Vaše jméno se již u těchto informací nebude zobrazovat."
       unfinished_transactions: "Váš účet nemůže být smazán, protože stále máte probíhající transakce. Prosíme, dokončete všechny transakce předtím, než smažete Váš účet."
-      only_admin: ~
+      only_admin: "Váš účet nelze smazat, protože jste jediným administrátorem."
       new_password: "Nové heslo"
       save: Uložit
       these_fields_are_shown_only_to_you: "Uživatelské jméno je zobrazeno ve Vašem profilu, pokud jste zadali své jméno. Ostatní informace se zobrazí pouze Vám."
@@ -2225,7 +2225,7 @@ cs:
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
-    first_day_of_week: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Neděle
@@ -2333,13 +2333,13 @@ cs:
              :
       price_per_day: "Cena za den:"
       price_per_night: "Cena za noc:"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Cena za hodinu:"
+      price_per_unit: "Cena za jednotku:"
       quantity: "Množství:"
       subtotal: "Mezisoučet:"
       shipping-price: "Doprava:"
       stripe-fee: ~
-      start_end_time: ~
+      start_end_time: "%{end_time} do %{start_time}"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množství: %{quantity}"
@@ -2356,8 +2356,8 @@ cs:
           something_went_wrong: "Nemůžeme zobrazit informace o dostupnosti. Zkuste znovu načíst stránku."
           saving_failed: "Nemůžeme zobrazit informace o dostupnosti. Zkuste znovu načíst stránku."
         working_hours:
-          required: ~
-          overlaps: ~
+          required: Požadováno
+          overlaps: přesah
           covers: ~
       pricing_units:
         piece: kus
@@ -2368,16 +2368,16 @@ cs:
         month: měsíc
       edit_availability_header: Dostupnost
       save_and_close_availability_editing: "Uložit a zavřít"
-      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_explanation: "Nemáte uloženy změny o dostupnosti. Když budete pokračovat, změny budou ztraceny."
       confirm_discarding_unsaved_availability_changes_question: "Opravdu chcete zrušit změny?"
-      edit_listing_availability: ~
+      edit_listing_availability: "Upravte dostupnost zápisu"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
+        default_schedule: "Výchozí plán"
+        i_am_available_on: "Jsem k dispozici na..."
+        start_time: "Čas začátku"
+        end_time: "Čas ukončení"
         add_another_time_slot: ~
-        save: ~
+        save: Uložit
     no_listings:
       sorry: "Je nám líto, hledanému výrazu neodpovídají žádné záznamy."
       try_other_search_terms: "Můžete vyzkoušet další vyhledávací podmínky?"
@@ -2416,6 +2416,11 @@ cs:
         one: uživatel
         few: uživatelé
         other: uživatelů
+      transaction:
+        zero: transakce
+        one: transakce
+        few: transakcí
+        other: transakce
     previous_label: "&#8592; Předchozí"
     next_label: "Následující &#8594;"
     page_gap: "&hellip;"
@@ -2441,30 +2446,30 @@ cs:
     contact_admin_link_text: "kontaktujte správce %{service_name}"
     you_are_ready_to_accept_payments: "Jste připraveni přijímat platby !"
     commission: "%{commission} %"
-    pay_with_stripe: ~
+    pay_with_stripe: "Platba se Stripe pomocí %{card}"
     add_and_pay: "Potvrzení platby"
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: "Údaje bankovního účtu byly úspěšně nastaveny!"
-    stripe_can_accept: ~
+    stripe_can_accept: "Nyní máte nastaven příjem peněz na váš bankovní účet"
     stripe_credit_card: "Kreditní karta"
     paypal: PayPal
     paypal_connected: "Účet PayPal byl úspěšně připojen!"
     paypal_can_accept: ~
-    paypal_connected_give_permission: ~
+    paypal_connected_give_permission: "Chcete-li dokončit nastavení a začít přijímat finanční prostředky na váš PayPal účet %{email}, udělte prosím povolení k účtování poplatku za transakci."
     form_new:
-      need_info: ~
+      need_info: "Potřebujeme nějaké informace o tom, abyste mohli poslat peníze."
       select_country: "Vyberte zemi ..."
       legal_name: "Legální jméno"
-      first_name: ~
-      last_name: ~
+      first_name: Jméno
+      last_name: Příjmení
       country: Země
       birth_date: "Datum narození"
       ssn_last_4: "SSN poslední 4"
       personal_id_number: "Osobní ID číslo"
       address_country: Země
       address_state: Stát
-      address_province: ~
+      address_province: Okres
       address_city: Město
       address_postal_code: PSČ
       address_line1: Ulice
@@ -2479,7 +2484,7 @@ cs:
       bank_routing_1: "Kód banky"
       bank_routing_2: "Kód pobočky"
       bank_currency: "Měna bankovního účtu"
-      update_also_bank_account: ~
+      update_also_bank_account: "Aktualizujte také bankovní účet"
       messages:
         account_number: "Číslo účtu"
         routing_number: "Směrovací číslo"
@@ -2515,9 +2520,9 @@ cs:
     paypal: PayPal
     bank_account_details: ~
     add_bank_details: "Přidat bankovní detaily"
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
+    can_accept_stripe_and_paypal: "Můžete přijímat peníze na váš bankovní nebo PayPal účet."
+    to_accept_paypal: "Chcete-li přijímat platby na svůj PayPal účet, musíte svůj PayPal účet napřed připojit. Vaši zákazníci pak budou moci platit přes PayPal."
+    connect_paypal: "Připojte se k PayPal účtu"
     wrong_setup: ~
     invalid_bank_account_number: "Zkontrolujte prosím, zde je váš bankovní účet zadán správně a zda odpovídá vaší zemi."
     invalid_postal_code: "Neplatné PSČ pro %{country}"

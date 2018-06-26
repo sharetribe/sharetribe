@@ -392,16 +392,16 @@ fi:
           skipped: "Arvio jätetty väliin"
           published: Julkaistu
       listings:
-        listings: ~
+        listings: Ilmoitukset
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
+          title: Otsikko
+          author: Käyttäjä
+          created: Luotu
+          updated: Päivitetty
+          category: Kategoria
+          status: Tila
+        open: Auki
+        closed: Suljettu
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
