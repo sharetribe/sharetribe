@@ -4,7 +4,7 @@ cs:
       format:
         separator: "."
         delimiter: ","
-        format: "%u%u"
+        format: "%n%u"
   admin:
     categories:
       edit:
