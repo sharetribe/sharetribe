@@ -68,7 +68,7 @@ end
 
 When /^I save the listing$/ do
   steps %Q{
-    And I press "Save listing"
+    And I press "Post listing"
   }
 end
 
@@ -83,7 +83,7 @@ When /^I create a new listing "(.*?)" with price(?: "([^"]*)")?$/ do |title, pri
     And I select "Selling" from listing type menu
     And I fill in "listing_title" with "#{title}"
     And I fill in "listing_price" with "dsfsdf"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "You need to insert a valid monetary value."
     When I fill in "listing_price" with "#{price}"
     And I save the listing
