@@ -391,6 +391,17 @@ de:
           waiting: "Bewertung ausstehend"
           skipped: Übersprungen
           published: Veröffentlicht
+      listings:
+        listings: Einträge
+        headers:
+          title: Titel
+          author: Author
+          created: Erstellt
+          updated: Aktualisiert
+          category: Kategorie
+          status: Status
+        open: Geöffnet
+        closed: Geschlossen
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"

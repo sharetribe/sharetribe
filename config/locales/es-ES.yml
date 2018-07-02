@@ -75,7 +75,7 @@ es-ES:
         private_community_homepage_content: "Contenido de la página de inicio de la comunidad privada"
         edit_private_community_homepage_content_description: "Este contenido se muestra en la página de inicio de las comunidades privadas a los usuarios que no se han registrado. Aquí puedes describir tu comunidad y el proceso para registrarse. Aquí también puedes añadir imágenes, videos y contenido HTML. %{see_how_it_looks_like}."
         update_information: "Guardar configuración"
-        invite_people: "Invita nuevos usuarios a %{service_name}"
+        invite_people: "Invitar nuevos usuarios"
         edit_signup_info: "Información de registro"
         edit_signup_info_description: "Este es un texto informativo que puede mostrarse a los usuarios en la página de registro. Aquí puedes darles instrucciones para iniciar sesión, información sobre cómo conseguir una invitación, etc. Por defecto, no hay instrucciones para mostrar."
         edit_info: "Editar información"
@@ -241,7 +241,7 @@ es-ES:
         delete_this_marketplace: "Eliminar esta comunidad"
         payment_preferences: "Sistema de pagos"
       manage_members:
-        manage_members: "Administrar usuarios"
+        manage_members: Usuarios
         email: Email
         name: Nombre
         display_name: "Nombre Personalizado"
@@ -318,7 +318,7 @@ es-ES:
       transactions:
         export_all_as_csv: "Exportar todos en formato CSV"
         processing_export: "Procesando la exportación a CSV..."
-        transactions: "Ver transacciones"
+        transactions: Transacciones
         headers:
           conversation: Conversación
           listing: Anuncio
@@ -366,7 +366,7 @@ es-ES:
             pending_ext: "Esperando el pago de Stripe"
         not_available: "No disponible"
       conversations:
-        conversations: "Ver conversaciones"
+        conversations: Conversaciones
         headers:
           started_from: "Creada desde"
           status: Status
@@ -377,7 +377,7 @@ es-ES:
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
       testimonials:
-        testimonials: "Ver reseñas"
+        testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
         headers:
@@ -391,6 +391,17 @@ es-ES:
           waiting: "Esperando reseña"
           skipped: Omitida
           published: Publicada
+      listings:
+        listings: Anuncios
+        headers:
+          title: Título
+          author: Autor
+          created: Creación
+          updated: Modificación
+          category: Categoría
+          status: Estatus
+        open: Abierto
+        closed: Cerrado
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -446,7 +457,7 @@ es-ES:
         date: Fecha
     emails:
       new:
-        send_email_to_members: "Enviar correo electrónico a los usuarios"
+        send_email_to_members: "Enviar correo a usuarios"
         send_email_to_members_title: "Enviar correo electrónico a tus usuarios"
         send_email: Enviar
         send_email_or: o
@@ -476,8 +487,8 @@ es-ES:
         hello_firstname_text: "Hola %{person},"
     left_hand_navigation:
       general: General
-      users_and_transactions: "Usuarios y transacciones"
-      configure: Configuración
+      users_and_transactions: Administrar
+      configure: Configurar
       emails_title: Emails
       subscription: Subscripción
       preview: "Vista Previa"

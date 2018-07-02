@@ -13,7 +13,7 @@ Feature: User creates a new listing
     And I select "Requesting" from listing type menu
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
 
   @javascript
@@ -27,7 +27,7 @@ Feature: User creates a new listing
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I set location to be New York
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
 
   @javascript
@@ -40,7 +40,7 @@ Feature: User creates a new listing
     And I select "Lending" from listing type menu
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "My offer" within "#listing-title"
 
   @javascript
@@ -52,7 +52,7 @@ Feature: User creates a new listing
     And I select "Requesting" from listing type menu
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Massage" within "#listing-title"
 
   @javascript
@@ -88,7 +88,7 @@ Feature: User creates a new listing
     When I fill in "listing_title" with "My offer"
     And I fill in "listing_price" with "20"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "My offer" within "#listing-title"
 
   @javascript
@@ -121,7 +121,7 @@ Feature: User creates a new listing
     And I should see "Balcony type"
     And I should not see "Service type"
     When I fill in "listing_title" with "My house"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see 2 validation errors
     When custom field "Balcony type" is not required
     And I am on the home page
@@ -129,10 +129,10 @@ Feature: User creates a new listing
     And I select "Spaces" from listing type menu
     And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see 1 validation errors
     When I select "Big house" from dropdown "House type"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "House type: Big house"
 
   @javascript @sphinx @no-transaction
@@ -144,7 +144,7 @@ Feature: User creates a new listing
     And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     And I fill in text field "Details" with "Test details"
-    And I press "Save listing"
+    And I press "Post listing"
     And the Listing indexes are processed
     When I go to the home page
     And I fill in "q" with "Test details"
@@ -160,10 +160,10 @@ Feature: User creates a new listing
     And I select "Selling" from listing type menu
     And I fill in "listing_title" with "My house"
     And I fill in custom numeric field "Area" with "9999"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see validation error
     When I fill in custom numeric field "Area" with "150"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Area: 150"
 
 @javascript @sphinx @no-transaction
@@ -175,7 +175,7 @@ Scenario: User creates a new listing with date field
   And I select "Selling" from listing type menu
   And I fill in "listing_title" with "My house"
   And I fill select custom date "building_date_test" with day="19", month="April" and year="2014"
-  And I press "Save listing"
+  And I press "Post listing"
   Then I should see "building_date_test: Apr 19, 2014"
 
   @javascript @sphinx @no-transaction
@@ -197,7 +197,7 @@ Scenario: User creates a new listing with date field
     And I check "Pool"
     And I check "Sauna"
     And I check "Hot Tub"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see that the listing has "Wireless Internet"
     Then I should see that the listing has "Pool"
     Then I should see that the listing has "Sauna"
@@ -217,7 +217,7 @@ Scenario: User creates a new listing with date field
     Then I should not see "Privacy*"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
     When I go to the home page
     Then I should see "Sledgehammer"
@@ -240,17 +240,17 @@ Scenario: User creates a new listing with date field
     And I fill in "listing_description" with "My description"
     When I fill in "10" for "listing_price"
     When I select "week" from "listing[unit]"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
     When I follow "Edit listing"
     Then I should see selected "week" in the "listing[unit]" dropdown
     When I select "person" from "listing[unit]"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
     When I follow "Edit listing"
     Then I should see selected "person" in the "listing[unit]" dropdown
     When I select "kg" from "listing[unit]"
-    And I press "Save listing"
+    And I press "Post listing"
     Then I should see "Sledgehammer" within "#listing-title"
     When I follow "Edit listing"
     Then I should see selected "kg" in the "listing[unit]" dropdown

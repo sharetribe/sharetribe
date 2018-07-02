@@ -391,6 +391,17 @@ sv:
           waiting: "Väntar på recension"
           skipped: "Hoppade över"
           published: Publicerad
+      listings:
+        listings: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
