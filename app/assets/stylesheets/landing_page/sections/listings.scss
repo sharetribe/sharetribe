@@ -148,6 +148,11 @@ $listings__tablet-gutter: 16px;
   @include typography__semibold;
 }
 
+.listings__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
 .listings__button--ghost {
   @include landing-page__button;
 }

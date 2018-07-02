@@ -85,6 +85,11 @@ $categories__mobile-gutter: 12px;
   }
 }
 
+.categories__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
 .categories__button--ghost {
   @include landing-page__button;
 }
