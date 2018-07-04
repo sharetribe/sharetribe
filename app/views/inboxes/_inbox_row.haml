@@ -33,7 +33,7 @@
         - status_meta = conversation[:transitions].last[:metadata]
         - is_author = !conversation[:current_is_starter]
         - waiting_feedback = conversation[:waiting_feedback]
-        - other_name = conversation[:person_display_name]
+        - other_name = PersonViewUtils.person_display_name(conversation[:other], @current_community)
 
         - icon, status_description = conversation_icon_and_status(status, is_author, other_name, waiting_feedback, status_meta)
 
