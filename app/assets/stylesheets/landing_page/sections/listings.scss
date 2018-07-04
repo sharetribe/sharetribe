@@ -12,7 +12,7 @@ $listings__tablet-gutter: 16px;
 
   @include dimensions__section--paddings;
 
-  background-color: #F9F9F9;
+  background-color: #FFFFFF;
 }
 
 .listings__content {
@@ -148,8 +148,18 @@ $listings__tablet-gutter: 16px;
   @include typography__semibold;
 }
 
+.listings__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
 .listings__button--ghost {
   @include landing-page__button;
+}
+
+.listings__button--inverted {
+  @include landing-page__button;
+  background-color: #FFF;
 }
 
 .listings__listing-title {
@@ -276,4 +286,54 @@ $listings__tablet-gutter: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.listings__section--background, .listings__section--background-image--light, .listings__section--background-image--dark {
+  .listings__paragraph--markdown {
+    & > p {
+      color: #ffffff;
+    }
+  }
+  .listings__title {
+      color: #ffffff;
+  }
+}
+ 
+.listings__section--background {
+  @extend .listings__section;
+
+  color: #FFFFFF;
+  @include viewport-unit(min-height, 80vh);
+}
+
+.listings__section--background-image--light {
+  @extend .listings__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.3); /* is there any cleaner way? */
+}
+
+.listings__section--background-image--dark {
+  @extend .listings__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
+}
+
+.listings__section--background-color {
+  @extend .listings__section;
+  color: #FFFFFF;
+}
+
+.listings__section--blank {
+  @extend .listings__section;
+  color: $typography__main-color;
+}
+
+.listings__section--zebra {
+  @extend .listings__section--blank;
+  background-color: #F6F6F6;
+}
+
+.listings__section--background-color, .listings__section--background-image--light, .listings__section--background-image--dark {
+  .listings__button--ghost {
+      color: #ffffff;
+      border-color: #ffffff;
+  }
 }

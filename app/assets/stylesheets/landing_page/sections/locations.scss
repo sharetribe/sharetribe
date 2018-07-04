@@ -54,6 +54,11 @@ $locations__mobile-gutter: 12px;
   }
 }
 
+.locations__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
 .locations__button--ghost {
   @include landing-page__button;
 }

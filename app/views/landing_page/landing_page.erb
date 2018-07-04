@@ -11,6 +11,7 @@
 
     <% s = section["section"] %>
     <% section_id = "#{s['kind']}__#{s['id']}__#{index}" %>
+    <% second_wo_background = calculate_second_wo_background(s) %>
 
     <% case s["kind"] %>
     <% when "hero" %>
@@ -18,29 +19,13 @@
     <% when "footer" %>
       <%= render partial: "footer", locals: {section_id: section_id, s: s} %>
     <% when "info" %>
-      <%
-      second_wo_background =
-        sections.each_with_index.reduce([Set.new, false]) { |(consecutive_infos, second_in_row), (section, idx)|
-          sect = section["section"]
-          if sect["kind"] == "info" && sect["background_image"].nil? && sect["background_color"].nil?
-            if second_in_row
-              [consecutive_infos.add([sect["id"], idx]), false]
-            else
-              [consecutive_infos, true]
-            end
-          else
-            [consecutive_infos, false]
-          end
-        }.first.include?([s["id"], index])
-      %>
-
       <%= render partial: "info", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background } %>
     <% when "categories" %>
-      <%= render partial: "categories", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "categories", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "locations" %>
-      <%= render partial: "locations", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "locations", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "listings" %>
-      <%= render partial: "listings", locals: {section_id: section_id, s: s} %>
+      <%= render partial: "listings", locals: {section_id: section_id, s: s, second_wo_background: second_wo_background} %>
     <% when "video" %>
       <%= render partial: "video", locals: {section_id: section_id, s: s} %>
     <% end %>

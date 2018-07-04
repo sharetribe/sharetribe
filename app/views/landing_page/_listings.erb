@@ -1,51 +1,11 @@
+<% bg_styles = background_style_modifiers(s, second_wo_background) %>
+
 <% content_for :listings_css do %>
-
-  <% if s["button_color"] %>
-    .<%= section_id %>__listings__button--ghost {
-      color: rgb(<%= s["button_color"]["value"].join(",") %>);
-      border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["button_color_hover"] %>
-    .<%= section_id %>__listings__button--ghost:hover {
-      background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-      border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["price_color"] %>
-    .<%= section_id %>__listings__price-container {
-      color: rgb(<%= s["price_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["no_listing_image_background_color"] %>
-    .<%= section_id %>__listings__listing-image--empty {
-      background-color: rgba(<%= s["no_listing_image_background_color"]["value"].join(",") %>, 0.2);
-    }
-  <% end %>
-
-  <% if s["author_name_color_hover"] %>
-    .<%= section_id %>__listings__author-link:hover .listings__author-name {
-      color: rgb(<%= s["price_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["paragraph_link_color"] %>
-    .listings__paragraph--markdown a {
-      color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["paragraph_link_color_hover"] %>
-    .listings__paragraph--markdown a:hover {
-      color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
-    }
-  <% end %>
+  <%= render 'landing_page/inline_css', s: s, section_id: section_id %>
 <% end %>
 
-<section id="<%= section_id %>" class="listings__section">
+<section id="<%= section_id %>" class="listings__section listings__section--<%= bg_styles[:section_style_modifier] %>" style="<%= bg_styles[:background_image_style] %> <%= bg_styles[:background_color_style] %>">
+
   <div class="listings__content">
     <h1 class="listings__title"><%= s["title"] %></h1>
 
@@ -100,7 +60,7 @@
     </div>
 
     <% if s["button_title"] %>
-      <a class="<%= section_id%>__listings__button--ghost listings__button--ghost" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+      <a class="listings__button<%= bg_styles[:button_modifier] %> <%= section_id %>__listings__button<%= bg_styles[:button_modifier] %>" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
     <% end %>
   </div>
 </section>

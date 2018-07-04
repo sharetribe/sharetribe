@@ -1,40 +1,9 @@
+<% bg_styles = background_style_modifiers(s, second_wo_background) %>
 <% content_for :categories_css do %>
-  <% if s["button_color"] %>
-
-    .<%= section_id %>__categories__button--ghost {
-      color: rgb(<%= s["button_color"]["value"].join(",") %>);
-      border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["button_color_hover"] %>
-    .<%= section_id %>__categories__button--ghost:hover {
-      background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-      border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["category_color_hover"] %>
-    .<%= section_id %>__categories__category-content:hover {
-      box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(<%= s["category_color_hover"]["value"].join(",") %>, 0.9); /* big enough number to cover the whole area */
-    }
-  <% end %>
-
-  <% if s["paragraph_link_color"] %>
-    .categories__paragraph--markdown a {
-      color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
-    }
-  <% end %>
-
-  <% if s["paragraph_link_color_hover"] %>
-    .categories__paragraph--markdown a:hover {
-      color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
-    }
-  <% end %>
-
+  <%= render 'landing_page/inline_css', s: s, section_id: section_id %>
 <% end %>
 
-<section id="<%= section_id %>" class="categories__section">
+<section id="<%= section_id %>" class="categories__section categories__section--<%= bg_styles[:section_style_modifier] %>" style="<%= bg_styles[:background_image_style] %> <%= bg_styles[:background_color_style] %>">
   <div class="categories__content">
     <h1 class="categories__title"><%= s["title"] %></h1>
     <div class="categories__paragraph--markdown">
@@ -56,7 +25,7 @@
     </div>
 
     <% if s["button_title"] %>
-      <a class="<%= section_id%>__categories__button--ghost categories__button--ghost" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+      <a class="categories__button<%= bg_styles[:button_modifier] %> <%= section_id %>__categories__button<%= bg_styles[:button_modifier] %>" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
     <% end %>
   </div>
 </section>
