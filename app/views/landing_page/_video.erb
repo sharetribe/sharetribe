@@ -18,12 +18,15 @@
   </div>
 </section>
 
+<% autoplay = !!s["autoplay"] %>
+<% autoplaymuted = s["autoplay"] =~ /mute/ %>
 <% content_for :youtube_ready_js, flush: false do %>
  (function() {
 
    var mask = document.getElementById("<%= section_id%>");
    var overlay = document.getElementById("<%= section_id%>__video__youtube-overlay");
    var controls = document.getElementById("<%= section_id %>__video__youtube-controls");
+   var inactive = true;
 
    var player = new YT.Player('<%= section_id %>__video__youtube-player', {
      videoId: '<%= s["youtube_video_id"] %>',
@@ -32,7 +35,7 @@
        modestbranding: 1,
        rel: 0,
        showinfo: 0,
-       autoplay: 1,
+       autoplay: <%= autoplay ? 1 : 0 %>,
        loop: 1,
        playlist: '<%= s["youtube_video_id"] %>'
      },
@@ -44,12 +47,24 @@
 
    // Event listeners
    function onReady() {
-     // By default, assume that autoplay is available and mute. If not, unmute it after feature detection is ready
-     player.mute();
+     <% if autoplay %>
+       hideOverlay();
+       if (currentBrowserName == 'Safari') {
+         activate();
+         player.playVideo();
+       }
+     <% end %>
+     <% if autoplaymuted %>
+       player.mute();
+     <% else %>
+       inactive = false;
+     <% end %>
 
      Modernizr.on('videoautoplay', function(result) {
        if(!result) {
-         player.unMute();
+         <% if autoplay && !autoplaymuted %>
+           player.unMute();
+         <% end %>
        }
      });
    }
@@ -77,9 +92,6 @@
    }
 
    // Player controls
-
-   var inactive = true;
-
    function activate() {
      player.seekTo(0, true);
      player.unMute();
@@ -93,7 +105,7 @@
      inactive = true;
    }
 
-   var playing = true;
+   var playing = <%= autoplay ? 'true' : 'false' %>;
 
    function togglePlayback() {
      if(playing) {
@@ -113,5 +125,6 @@
        togglePlayback();
      }
    });
+
  })();
 <% end %>
