@@ -43,7 +43,7 @@ var BrowserDetect = {
 BrowserDetect.init();
 window.currentBrowserName = BrowserDetect.browser;
 
-document.onload = function() {
+BrowserDetectVideoAutoplay = function() {
   if (currentBrowserName == 'Chrome' || currentBrowserName == 'Safari') {
     var htmlTag =  document.getElementsByTagName('html')[0];
     htmlTag.classList.remove('no-videoautoplay');

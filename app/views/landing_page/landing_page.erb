@@ -73,7 +73,7 @@
   </style>
   <%= @current_community.custom_head_script.to_s.html_safe %>
 </head>
-<body>
+<body onload="BrowserDetectVideoAutoplay()">
 
   <% if topbar[:enabled] %>
   <div id="topbar-placeholder" class="topbar-placeholder"> </div>

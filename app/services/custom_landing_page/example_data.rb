@@ -50,7 +50,8 @@ module CustomLandingPage
       "youtube_video_id": "UffchBUUIoI",
       "width": "1280",
       "height": "720",
-      "text": "Video section can contain one Youtube video. Click to watch!"
+      "text": "Video section can contain one Youtube video. Click to watch!",
+      "autoplay": false
     },
     {
       "id": "single_info_without_background_and_cta",

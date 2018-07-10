@@ -105,7 +105,7 @@
      inactive = true;
    }
 
-   var playing = true;
+   var playing = <%= autoplay ? 'true' : 'false' %>;
 
    function togglePlayback() {
      if(playing) {
