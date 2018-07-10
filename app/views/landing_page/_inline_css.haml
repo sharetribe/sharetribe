@@ -13,6 +13,7 @@
   color: rgb(#{s["button_color"]["value"].join(",")});
   }
 
+- if s["button_color_hover"]
   \.#{section_id}__#{kind}__button--inverted:hover {
   color: #FFF;
   background-color: rgb(#{s["button_color_hover"]["value"].join(",")});
