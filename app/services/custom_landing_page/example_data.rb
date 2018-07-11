@@ -1,4 +1,5 @@
 module CustomLandingPage
+  # rubocop:disable Metrics/ModuleLength
   module ExampleData
 
     # TODO Document the expected JSON structure here
@@ -202,6 +203,50 @@ module CustomLandingPage
           "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
         }
       ]
+    },
+    {
+      "id": "two_column_info_without_icons_and_buttons_with_sigle_button",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Two column info section without icons and buttons",
+      "columns": [
+        {
+          "title": "Column 1",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.\\n\\nParagraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 2",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        }
+      ],
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Contact us",
+      "button_path": {"type": "path", "id": "contact_us"}
+    },
+    {
+      "id": "three_column_info_without_icons_and_buttons_with_sigle_button",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Three column info without icons and buttons",
+      "columns": [
+        {
+          "title": "Column 1",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 2",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 3",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        }
+      ],
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Contact us",
+      "button_path": {"type": "path", "id": "contact_us"}
     },
     {
         "id": "categories",
@@ -537,4 +582,5 @@ JSON
 JSON
 
   end
+  # rubocop:enable Metrics/ModuleLength
 end
