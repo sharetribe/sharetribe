@@ -124,7 +124,7 @@ module MarketplaceService
     community = Community.create(community_params(p, marketplace_name, locale))
 
     create_community_customization!(community, marketplace_name, locale)
-    create_category!("Default", community, locale)
+    create_category!("Default category", community, locale)
     create_processes!(community.id, payment_process)
     create_listing_shapes!(community, p[:marketplace_type])
     create_configurations!({
