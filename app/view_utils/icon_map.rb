@@ -160,6 +160,7 @@ ICON_MAP = {
       "raclette_grill" => "ss-cookingutensils",
       "topbar_menu" => "ss-signpost",
       "user_edit" => "ss-userprofile",
+      "picture" => "ss-picture",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -270,5 +271,6 @@ ICON_MAP = {
       "grid" => "icon-th-large",
       "check" => "icon-ok",
       "user_edit" => "icon-user",
+      "picture" => "icon-picture",
     }
   }
