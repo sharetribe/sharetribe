@@ -51,6 +51,11 @@
         <% end %>
       </div>
 
+      <% if s["button_title"] %>
+        <div class="info__button-container">
+          <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </section>
