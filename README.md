@@ -48,7 +48,7 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
     -  [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
     -  [passenger](https://github.com/phusion/passenger) | Web application server
     -  [react_on_rails](https://github.com/shakacode/react_on_rails) | Integration of React + Webpack + Rails
-    -  factory_girl, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
+    -  factory_bot, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
 
 ## Installation
 

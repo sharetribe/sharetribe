@@ -10,12 +10,12 @@ describe "Factory Girl", type: :model do
     :payment
   ]
 
-  (FactoryGirl.factories.map(&:name) - ignored_factories).each do |factory_name|
+  (FactoryBot.factories.map(&:name) - ignored_factories).each do |factory_name|
     describe "#{factory_name} factory" do
 
 
       it "is valid" do
-        factory = FactoryGirl.build(factory_name)
+        factory = FactoryBot.build(factory_name)
         if factory.respond_to?(:valid?)
           factory.valid?
 

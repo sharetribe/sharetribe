@@ -18,12 +18,12 @@ end
 World(HeaderSteps)
 
 Given(/^there is a menu link$/) do
-  @menu_link = FactoryGirl.create(:menu_link, community: @current_community)
+  @menu_link = FactoryBot.create(:menu_link, community: @current_community)
   @current_community.menu_links << @menu_link
 end
 
 Given(/^the title is "(.*?)" and the URL is "(.*?)" with locale "(.*?)" for that menu link$/) do |title, url, locale|
-  @menu_link.translations << FactoryGirl.create(:menu_link_translation, title: title, url: url, locale: locale)
+  @menu_link.translations << FactoryBot.create(:menu_link_translation, title: title, url: url, locale: locale)
 end
 
 When(/^I click the community logo$/) do

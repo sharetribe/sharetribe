@@ -3,16 +3,16 @@ require 'spec_helper'
 describe "Amazon Bounces", type: :request do
 
   before(:each) do
-    @community = FactoryGirl.create(:community, :domain => "market.custom.org")
+    @community = FactoryBot.create(:community, :domain => "market.custom.org")
   end
 
   describe "test notifications" do
 
     it "when notificationType is bounce" do
       # Prepare
-      @person = FactoryGirl.create(:person, id: "123abc", min_days_between_community_updates: 4)
+      @person = FactoryBot.create(:person, id: "123abc", min_days_between_community_updates: 4)
       @person.emails = [
-        FactoryGirl.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
+        FactoryBot.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
       ]
 
       incoming_data = JSON.parse('{
@@ -48,9 +48,9 @@ describe "Amazon Bounces", type: :request do
 
     it "when notificationType is Complaint" do
       # Prepare
-      @person = FactoryGirl.create(:person, id: "123abc", min_days_between_community_updates: 4)
+      @person = FactoryBot.create(:person, id: "123abc", min_days_between_community_updates: 4)
       @person.emails = [
-        FactoryGirl.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
+        FactoryBot.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
       ]
 
       incoming_data = JSON.parse('{

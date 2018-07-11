@@ -63,7 +63,7 @@ describe Person, type: :model do
 
    before(:all) do
       #These will be created only once for the whole example group
-      @test_person = FactoryGirl.create(:person)
+      @test_person = FactoryBot.create(:person)
     end
 
     it "should be valid" do
@@ -119,7 +119,7 @@ describe Person, type: :model do
 
     describe "#create_listing" do
       it "creates a new listing with the submitted attributes" do
-        listing = FactoryGirl.create(:listing,
+        listing = FactoryBot.create(:listing,
           :title => "Test",
           :author => @test_person,
           :listing_shape_id => 123
@@ -179,8 +179,8 @@ describe Person, type: :model do
 
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          expect(FactoryGirl.build(:person).valid_password?('testi')).to be_truthy
-          expect(FactoryGirl.build(:person).valid_password?('something_else')).not_to be_truthy
+          expect(FactoryBot.build(:person).valid_password?('testi')).to be_truthy
+          expect(FactoryBot.build(:person).valid_password?('something_else')).not_to be_truthy
         end
       end
 
@@ -188,13 +188,13 @@ describe Person, type: :model do
 
     describe "#delete" do
       it "should delete also related conversations and testimonials" do
-        conv = FactoryGirl.create(:conversation)
+        conv = FactoryBot.create(:conversation)
         conv.participants << @test_person
         conv_id = conv.id
         expect(Conversation.find_by_id(conv_id)).not_to be_nil
         expect(@test_person.conversations).to include(conv)
 
-        tes = FactoryGirl.create(:testimonial, :author => @test_person)
+        tes = FactoryBot.create(:testimonial, :author => @test_person)
         tes_id = tes.id
         expect(Testimonial.find_by_id(tes_id)).not_to be_nil
         expect(@test_person.authored_testimonials).to include(tes)
@@ -211,7 +211,7 @@ describe Person, type: :model do
     describe "#latest_pending_email_address" do
 
       before (:each) do
-        @p = FactoryGirl.create(:person)
+        @p = FactoryBot.create(:person)
       end
 
       it "should return nil if none pending" do
@@ -224,18 +224,18 @@ describe Person, type: :model do
       end
 
       it "should pick the right email to return" do
-        c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
-        e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
-        e2 = FactoryGirl.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
-        # e3 = FactoryGirl.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
+        c = FactoryBot.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
+        e = FactoryBot.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        e2 = FactoryBot.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
+        # e3 = FactoryBot.create(:email, :address => "jack@helsinki.fi", :confirmed_at => nil, :person => @p)
 
         expect(@p.latest_pending_email_address(c)).to eq("jack@example.com")
       end
     end
 
   describe "inherits_settings_from" do
-    let(:person) { FactoryGirl.build(:person) }
-    let(:community) { FactoryGirl.build(:community, :default_min_days_between_community_updates => 30) }
+    let(:person) { FactoryBot.build(:person) }
+    let(:community) { FactoryBot.build(:community, :default_min_days_between_community_updates => 30) }
 
     it "inherits_settings_from" do
       person.inherit_settings_from(community)

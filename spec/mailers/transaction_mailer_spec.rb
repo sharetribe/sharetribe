@@ -3,28 +3,28 @@ require 'spec_helper'
 describe TransactionMailer, type: :mailer do
 
   describe 'Payment receipt' do
-    let(:community) { FactoryGirl.create(:community) }
+    let(:community) { FactoryBot.create(:community) }
     let(:seller) {
-      FactoryGirl.create(:person, member_of: community,
+      FactoryBot.create(:person, member_of: community,
                                   given_name: "Joan", family_name: "Smith")
     }
-    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, author: seller) }
+    let(:buyer) { FactoryBot.create(:person, member_of: community) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, author: seller) }
     let(:paypal_transaction) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
+      transaction = FactoryBot.create(:transaction, starter: buyer,
                                                      community: community, listing: listing,
                                                      current_state: 'paid', payment_gateway: 'paypal')
-      FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
+      FactoryBot.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
                                           payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
                                           commission_total_cents: 0, commission_fee_total_cents: 0)
       service_name(transaction.community_id)
       transaction
     end
     let(:stripe_transaction) do
-      transaction = FactoryGirl.create(:transaction, starter: buyer,
+      transaction = FactoryBot.create(:transaction, starter: buyer,
                                                      community: community, listing: listing,
                                                      current_state: 'paid', payment_gateway: 'stripe')
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction)
+      FactoryBot.create(:stripe_payment, community_id: community.id, tx: transaction)
       service_name(transaction.community_id)
       transaction
     end

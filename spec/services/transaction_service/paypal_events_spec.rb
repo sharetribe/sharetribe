@@ -58,10 +58,10 @@ describe TransactionService::PaypalEvents do
   end
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @cid = @community.id
-    @payer = FactoryGirl.create(:payer)
-    @listing = FactoryGirl.create(:listing,
+    @payer = FactoryBot.create(:payer)
+    @listing = FactoryBot.create(:listing,
                                   price: Money.new(45000, "EUR"),
                                   listing_shape_id: 123, # This is not used, but needed because the Entity value is mandatory
                                   transaction_process_id: 123) # This is not used, but needed because the Entity value is mandatory

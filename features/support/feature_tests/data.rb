@@ -38,12 +38,12 @@ module FeatureTests
     def create_user(username:, marketplace_id:)
       password = "test"
 
-      u = FactoryGirl.create(:person,
+      u = FactoryBot.create(:person,
         username: username,
         community_id: marketplace_id,
         password: password,
         emails: [
-          FactoryGirl.build(:email, address: "#{username}@example.com")
+          FactoryBot.build(:email, address: "#{username}@example.com")
         ]
       )
 
@@ -55,7 +55,7 @@ module FeatureTests
     end
 
     def create_membership(user_id:, marketplace_id:, admin: false)
-      FactoryGirl.create(:community_membership,
+      FactoryBot.create(:community_membership,
                          person_id: user_id,
                          community_id: marketplace_id,
                          consent: "SHARETRIBE1.0",

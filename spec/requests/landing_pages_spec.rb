@@ -57,21 +57,21 @@ describe "Landing page", type: :request do
     DatabaseCleaner.start
 
     @domain = "market.custom.org"
-    @community = FactoryGirl.create(:community, :domain => @domain, use_domain: true)
+    @community = FactoryBot.create(:community, :domain => @domain, use_domain: true)
     @community.reload
 
     # Person with username with no substrings that match a valid locale
-    @person = FactoryGirl.create(:person, username: "u1234")
+    @person = FactoryBot.create(:person, username: "u1234")
 
     # Person with username with a locale present as substring
-    @person_with_locale_substring = FactoryGirl.create(:person, username: "fooen")
+    @person_with_locale_substring = FactoryBot.create(:person, username: "fooen")
 
     10.times do
-      FactoryGirl.create(:category, community_id: @community.id)
+      FactoryBot.create(:category, community_id: @community.id)
     end
 
     10.times do
-      FactoryGirl.create(:listing, community_id: @community.id)
+      FactoryBot.create(:listing, community_id: @community.id)
     end
 
     sample_structure = JSON.parse(CustomLandingPage::ExampleData::TEMPLATE_STR)

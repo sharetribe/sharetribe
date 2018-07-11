@@ -20,7 +20,7 @@ require 'spec_helper'
 describe Comment, type: :model do
 
   before(:each) do
-    @comment = FactoryGirl.build(:comment)
+    @comment = FactoryBot.build(:comment)
   end
 
   it "is valid with valid attributes" do

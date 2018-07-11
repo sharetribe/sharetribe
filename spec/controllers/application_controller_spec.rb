@@ -53,7 +53,7 @@ describe ApplicationController, type: :controller do
 
   describe "#check_auth_token" do
     it "logs person in when auth_token is valid" do
-      p1 = FactoryGirl.create(:person)
+      p1 = FactoryBot.create(:person)
       t = AuthToken.create!(:person_id => p1.id, :expires_at => 10.minutes.from_now, :token_type => "login")
       get :index, params: { :auth => t.token}
       expect(response.status).to eq(302) #redirection to url withouth token in query string

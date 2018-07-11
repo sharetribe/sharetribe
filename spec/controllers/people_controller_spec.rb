@@ -67,7 +67,7 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      community = FactoryGirl.create(:community)
+      community = FactoryBot.create(:community)
       @request.host = "#{community.ident}.lvh.me"
       @request.env[:current_marketplace] = community
     end
@@ -80,15 +80,15 @@ describe PeopleController, type: :controller do
 
   describe "#check_email_availability" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
     end
 
     it "should return unavailable if email is in use" do
-      person = FactoryGirl.create(:person, community_id: @community.id, :emails => [
-                                    FactoryGirl.create(:email, community_id: @community.id, :address => "test@example.com")])
-      FactoryGirl.create(:community_membership,
+      person = FactoryBot.create(:person, community_id: @community.id, :emails => [
+                                    FactoryBot.create(:email, community_id: @community.id, :address => "test@example.com")])
+      FactoryBot.create(:community_membership,
                          community: @community,
                          person: person,
                          admin: 0,
@@ -105,8 +105,8 @@ describe PeopleController, type: :controller do
     end
 
     it "should return NOT available for user's own adress" do
-      person = FactoryGirl.create(:person, community_id: @community.id)
-      FactoryGirl.create(:community_membership,
+      person = FactoryBot.create(:person, community_id: @community.id)
+      FactoryBot.create(:community_membership,
                          community: @community,
                          person: person,
                          admin: 0,
@@ -123,22 +123,22 @@ describe PeopleController, type: :controller do
   end
 
   describe "#create" do
-    let(:ordinary_community) { FactoryGirl.create(:community) }
-    let(:no_allowed_emails_community) { FactoryGirl.create(:community, allowed_emails: "@examplecompany.co") }
+    let(:ordinary_community) { FactoryBot.create(:community) }
+    let(:no_allowed_emails_community) { FactoryBot.create(:community, allowed_emails: "@examplecompany.co") }
     let(:field1) do
-      FactoryGirl.create(:person_custom_text_field, community: ordinary_community)
+      FactoryBot.create(:person_custom_text_field, community: ordinary_community)
     end
     let(:field2) do
-      FactoryGirl.create(:person_custom_dropdown_field, community: ordinary_community)
+      FactoryBot.create(:person_custom_dropdown_field, community: ordinary_community)
     end
     let(:field3) do
-      FactoryGirl.create(:custom_numeric_field, community: ordinary_community)
+      FactoryBot.create(:custom_numeric_field, community: ordinary_community)
     end
     let(:field4) do
-      FactoryGirl.create(:custom_checkbox_field, community: ordinary_community)
+      FactoryBot.create(:custom_checkbox_field, community: ordinary_community)
     end
     let(:field5) do
-      FactoryGirl.create(:custom_date_field, community: ordinary_community)
+      FactoryBot.create(:custom_date_field, community: ordinary_community)
     end
 
     it "creates a person" do
@@ -214,11 +214,11 @@ describe PeopleController, type: :controller do
 
   describe "#destroy" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
-      @location = FactoryGirl.create(:location)
-      @person = FactoryGirl.create(:person,
+      @location = FactoryBot.create(:location)
+      @person = FactoryBot.create(:person,
                                    community_id: @community.id,
                                    location: @location,
                                    display_name: "A User",
@@ -247,7 +247,7 @@ describe PeopleController, type: :controller do
     end
 
     it "doesn't delete if not logged in as target person" do
-      b = FactoryGirl.create(:person)
+      b = FactoryBot.create(:person)
       @community.members << b
       sign_in_for_spec(b)
 

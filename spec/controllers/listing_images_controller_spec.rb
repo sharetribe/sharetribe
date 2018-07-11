@@ -68,16 +68,16 @@ describe ListingImagesController, type: :controller do
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
-    @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
-    @c1.community_customizations << FactoryGirl.create(:community_customization, :locale => "fi")
+    @c1 = FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]})
+    @c1.community_customizations << FactoryBot.create(:community_customization, :locale => "fi")
 
-    @p1 = FactoryGirl.create(:person)
+    @p1 = FactoryBot.create(:person)
     @p1.accepted_community = @c1
 
     c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
     request_shape    = create_shape(@c1.id, "Request", c1_request_process.id)
 
-    @l1 = FactoryGirl.create(
+    @l1 = FactoryBot.create(
       :listing,
       :transaction_process_id => request_shape[:transaction_process_id],
       :listing_shape_id => request_shape[:id],

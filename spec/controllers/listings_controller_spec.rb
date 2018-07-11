@@ -105,18 +105,18 @@ describe ListingsController, type: :controller do
   before(:each) do
     Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
 
-    @c1 = FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]})
-    @c1.community_customizations << FactoryGirl.create(:community_customization, :locale => "fi")
-    @c2 = FactoryGirl.create(:community)
+    @c1 = FactoryBot.create(:community, :settings => {"locales" => ["en", "fi"]})
+    @c1.community_customizations << FactoryBot.create(:community_customization, :locale => "fi")
+    @c2 = FactoryBot.create(:community)
 
-    @p1 = FactoryGirl.create(:person)
+    @p1 = FactoryBot.create(:person)
     @p1.accepted_community = @c1
 
-    @category_item      = FactoryGirl.create(:category, :community => @c1)
-    @category_item.translations << FactoryGirl.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
-    @category_favor     = FactoryGirl.create(:category, :community => @c1)
-    @category_rideshare = FactoryGirl.create(:category, :community => @c1)
-    @category_furniture = FactoryGirl.create(:category, :community => @c1)
+    @category_item      = FactoryBot.create(:category, :community => @c1)
+    @category_item.translations << FactoryBot.create(:category_translation, :name => "Tavarat", :locale => "fi", :category => @category_item)
+    @category_favor     = FactoryBot.create(:category, :community => @c1)
+    @category_rideshare = FactoryBot.create(:category, :community => @c1)
+    @category_furniture = FactoryBot.create(:category, :community => @c1)
 
     c1_request_process = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: false)
     c1_offer_process   = TransactionProcess.create(community_id: @c1.id, process: :none, author_is_seller: true)
@@ -132,7 +132,7 @@ describe ListingsController, type: :controller do
     # This is needed in the spec, thus save it in instance variable
     @sell_shape = sell_shape
 
-    @l1 = FactoryGirl.create(
+    @l1 = FactoryBot.create(
       :listing,
       :transaction_process_id => request_shape[:transaction_process_id],
       :listing_shape_id => request_shape[:id],
@@ -146,7 +146,7 @@ describe ListingsController, type: :controller do
       :community_id => @c1.id,
     )
 
-    FactoryGirl.create(
+    FactoryBot.create(
       :listing,
       :title => "hammer",
       :category => @category_item,
@@ -160,7 +160,7 @@ describe ListingsController, type: :controller do
       :community_id => @c1.id,
     )
 
-    FactoryGirl.create(
+    FactoryBot.create(
       :listing,
       :transaction_process_id => request_c2_shape[:transaction_process_id],
       :listing_shape_id => request_c2_shape[:id],
@@ -172,7 +172,7 @@ describe ListingsController, type: :controller do
       :community_id => @c2.id,
     )
 
-    FactoryGirl.create(
+    FactoryBot.create(
       :listing,
       :transaction_process_id => request_shape[:transaction_process_id],
       :listing_shape_id => request_shape[:id],
@@ -185,7 +185,7 @@ describe ListingsController, type: :controller do
       :community_id => @c1.id,
     )
 
-    @l4 = FactoryGirl.create(
+    @l4 = FactoryBot.create(
       :listing,
       :title => "car",
       :created_at => 2.months.ago,

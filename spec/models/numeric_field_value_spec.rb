@@ -38,18 +38,18 @@ describe NumericFieldValue, type: :model do
   end
 
   describe "search", :'no-transaction' => true do
-    let!(:short_board)   { FactoryGirl.create :listing, title: "Short board" }
-    let!(:medium_board)   { FactoryGirl.create :listing, title: "Medium board" }
-    let!(:long_board)    { FactoryGirl.create :listing, title: "Long board" }
+    let!(:short_board)   { FactoryBot.create :listing, title: "Short board" }
+    let!(:medium_board)   { FactoryBot.create :listing, title: "Medium board" }
+    let!(:long_board)    { FactoryBot.create :listing, title: "Long board" }
 
-    let!(:board_length)  { FactoryGirl.create :custom_numeric_field, min: 0, max: 200 }
-    let!(:length_value1) { FactoryGirl.create :custom_numeric_field_value, listing: short_board, question: board_length, numeric_value: 100 }
-    let!(:length_value2) { FactoryGirl.create :custom_numeric_field_value, listing: medium_board, question: board_length, numeric_value: 160 }
-    let!(:length_value3) { FactoryGirl.create :custom_numeric_field_value, listing: long_board, question: board_length, numeric_value: 200 }
+    let!(:board_length)  { FactoryBot.create :custom_numeric_field, min: 0, max: 200 }
+    let!(:length_value1) { FactoryBot.create :custom_numeric_field_value, listing: short_board, question: board_length, numeric_value: 100 }
+    let!(:length_value2) { FactoryBot.create :custom_numeric_field_value, listing: medium_board, question: board_length, numeric_value: 160 }
+    let!(:length_value3) { FactoryBot.create :custom_numeric_field_value, listing: long_board, question: board_length, numeric_value: 200 }
 
-    let!(:board_width)   { FactoryGirl.create :custom_numeric_field, min: 0, max: 50 }
-    let!(:width_value1)  { FactoryGirl.create :custom_numeric_field_value, listing: short_board, question: board_width, numeric_value: 30 }
-    let!(:width_value3)  { FactoryGirl.create :custom_numeric_field_value, listing: long_board, question: board_width, numeric_value: 40 }
+    let!(:board_width)   { FactoryBot.create :custom_numeric_field, min: 0, max: 50 }
+    let!(:width_value1)  { FactoryBot.create :custom_numeric_field_value, listing: short_board, question: board_width, numeric_value: 30 }
+    let!(:width_value3)  { FactoryBot.create :custom_numeric_field_value, listing: long_board, question: board_width, numeric_value: 40 }
 
     before(:each) do
       ensure_sphinx_is_running_and_indexed

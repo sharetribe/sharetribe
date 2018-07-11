@@ -105,6 +105,6 @@ class MailPreview < MailView
   # Private methods to make modifications to default test data
 
   def change_conversation_status_to!(status)
-    transaction.transaction_transitions << FactoryGirl.build(:transaction_transition, to_state: status)
+    transaction.transaction_transitions << FactoryBot.build(:transaction_transition, to_state: status)
   end
 end

@@ -1,4 +1,4 @@
-# FactoryGirl definitions
+# FactoryBot definitions
 #
 # Notes:
 # - The caller is responsible for deciding whether the object should or should not be persisted to the DB, thus...
@@ -7,7 +7,7 @@
 
 require "#{Rails.root}/test/helper_modules"
 
-class FactoryGirl::DefinitionProxy
+class FactoryBot::DefinitionProxy
 
   # has_many is a neat helper that can be used to eliminate quirky before/after books for
   # creating associations.
@@ -44,7 +44,7 @@ class FactoryGirl::DefinitionProxy
   #   build_association(:custom_dropdown_field, as: :custom_field)
   # end
   #
-  # By default, FactoryGirl saves associations to the database and we don't want that.
+  # By default, FactoryBot saves associations to the database and we don't want that.
   #
   def build_association(association, opts = {})
     as = opts.fetch(:as) { association }
@@ -52,7 +52,7 @@ class FactoryGirl::DefinitionProxy
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence :id do |_|
     SecureRandom.urlsafe_base64
   end
@@ -102,7 +102,7 @@ FactoryGirl.define do
     password "testi"
 
     has_many :emails do |person|
-      FactoryGirl.build(:email, person: person)
+      FactoryBot.build(:email, person: person)
     end
 
     after(:create) do |person, evaluator|
@@ -152,7 +152,7 @@ FactoryGirl.define do
     build_association(:community)
 
     has_many(:messages, 0) do |conversation|
-      FactoryGirl.build(:message, conversation: conversation)
+      FactoryBot.build(:message, conversation: conversation)
     end
 
     created_at DateTime.now
@@ -208,7 +208,7 @@ FactoryGirl.define do
     build_association(:marketplace_configurations, as: :configuration)
 
     has_many(:community_customizations) do |community|
-      FactoryGirl.build(:community_customization, community: community)
+      FactoryBot.build(:community_customization, community: community)
     end
 
     uuid
@@ -274,18 +274,18 @@ FactoryGirl.define do
     build_association(:community)
 
     has_many :category_custom_fields do |custom_field|
-      FactoryGirl.build(:category_custom_field, :custom_field => custom_field)
+      FactoryBot.build(:category_custom_field, :custom_field => custom_field)
     end
 
     has_many :names do |custom_field|
-      FactoryGirl.build(:custom_field_name)
+      FactoryBot.build(:custom_field_name)
     end
 
     factory :custom_dropdown_field, class: 'DropdownField' do
       search_filter true
 
       has_many :options do |custom_field|
-        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+        [FactoryBot.build(:custom_field_option), FactoryBot.build(:custom_field_option)]
       end
     end
 
@@ -302,7 +302,7 @@ FactoryGirl.define do
       search_filter true
 
       has_many :options do |custom_field|
-        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+        [FactoryBot.build(:custom_field_option), FactoryBot.build(:custom_field_option)]
       end
     end
 
@@ -318,7 +318,7 @@ FactoryGirl.define do
 
   factory :custom_field_option do
     has_many :titles do
-      FactoryGirl.build(:custom_field_option_title)
+      FactoryBot.build(:custom_field_option_title)
     end
   end
 
@@ -345,7 +345,7 @@ FactoryGirl.define do
       build_association(:custom_dropdown_field, as: :question)
 
       has_many :custom_field_option_selections do |dropdown_field_value|
-        FactoryGirl.build(:custom_field_option_selection, custom_field_value: dropdown_field_value)
+        FactoryBot.build(:custom_field_option_selection, custom_field_value: dropdown_field_value)
       end
     end
 
@@ -367,7 +367,7 @@ FactoryGirl.define do
 
     factory :person_custom_dropdown_field, class: 'DropdownField' do
       has_many :options do |custom_field|
-        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+        [FactoryBot.build(:custom_field_option), FactoryBot.build(:custom_field_option)]
       end
     end
 
@@ -380,7 +380,7 @@ FactoryGirl.define do
 
     factory :person_custom_checkbox_field, class: 'CheckboxField' do
       has_many :options do |custom_field|
-        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+        [FactoryBot.build(:custom_field_option), FactoryBot.build(:custom_field_option)]
       end
     end
 

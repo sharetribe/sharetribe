@@ -11,7 +11,7 @@ describe "HTTP basic auth", type: :request do
     @domain = "market.custom.org"
     @http_url = "http://#{@domain}"
     @https_url = "https://#{@domain}"
-    @community = FactoryGirl.create(:community, :domain => @domain, use_domain: true)
+    @community = FactoryBot.create(:community, :domain => @domain, use_domain: true)
 
     # Refresh from DB
     @community.reload

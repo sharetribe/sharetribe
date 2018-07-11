@@ -1,5 +1,5 @@
 def build_conversation(community, listing, starter, message)
-  conversation = FactoryGirl.build(:conversation,
+  conversation = FactoryBot.build(:conversation,
     community: community,
     listing: listing )
 
@@ -24,7 +24,7 @@ def build_conversation(community, listing, starter, message)
 end
 
 def create_transaction(community, listing, starter, message, payment_gateway = :none)
-  transaction = FactoryGirl.create(:transaction,
+  transaction = FactoryBot.create(:transaction,
     listing: listing,
     community: community,
     starter: starter,

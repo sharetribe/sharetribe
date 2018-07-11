@@ -3,8 +3,8 @@ module AdminTransactionSteps
   def build_transaction(transaction_data)
     last_message = eval(transaction_data[:latest_activity].gsub(' ', '.'))
 
-    message = FactoryGirl.build(:message, created_at: last_message)
-    conversation = FactoryGirl.build(:conversation, created_at: last_message, messages: [message])
+    message = FactoryBot.build(:message, created_at: last_message)
+    conversation = FactoryBot.build(:conversation, created_at: last_message, messages: [message])
 
     community = Community.find_by(ident: transaction_data[:community_ident])
 
@@ -38,7 +38,7 @@ module AdminTransactionSteps
         author: author
       })
 
-    transaction = FactoryGirl.build(
+    transaction = FactoryBot.build(
       :transaction,
       transaction_opts.merge({
           listing: listing,

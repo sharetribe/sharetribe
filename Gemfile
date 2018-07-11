@@ -107,7 +107,7 @@ end
 
 group :development, :test do
   gem 'rubocop', '~> 0.49.1', require: false
-  gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'factory_bot_rails'
 end
 
 group :development, :staging do

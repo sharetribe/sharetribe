@@ -3,12 +3,12 @@ require 'spec_helper'
 describe SessionsController, "POST create", type: :controller do
 
   before(:each) do
-    community1 = FactoryGirl.create(:community,
+    community1 = FactoryBot.create(:community,
                                     consent: "test_consent0.1",
                                     settings: {"locales" => ["en", "fi"]},
                                     real_name_required: true)
 
-    person1 = FactoryGirl.create(:person,
+    person1 = FactoryBot.create(:person,
                                  username: "testpersonusername",
                                  is_admin: 0, "locale" => "en",
                                  encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2",
@@ -18,7 +18,7 @@ describe SessionsController, "POST create", type: :controller do
                                  created_at: "2012-05-04 18:17:04",
                                  community_id: community1.id)
 
-    FactoryGirl.create(:community_membership,
+    FactoryBot.create(:community_membership,
                         person: person1,
                         community: community1,
                         admin: 1,

@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe AnalyticService::API::Api do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:person) do
-    person = FactoryGirl.create(:person, community: community, is_admin: true)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community, is_admin: true)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 

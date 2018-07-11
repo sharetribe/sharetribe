@@ -3,12 +3,12 @@ require 'spec_helper'
 describe SettingsController, type: :controller do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
-    @person = FactoryGirl.create(:person)
+    @person = FactoryBot.create(:person)
 
-    FactoryGirl.create(:community_membership, :person => @person, :community => @community)
+    FactoryBot.create(:community_membership, :person => @person, :community => @community)
   end
 
   describe "#unsubscribe" do

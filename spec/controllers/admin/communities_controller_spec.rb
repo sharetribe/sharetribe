@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Admin::CommunitiesController, type: :controller do
 
   before(:each) do
-    @community = FactoryGirl.create(:community)
+    @community = FactoryBot.create(:community)
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
@@ -132,7 +132,7 @@ describe Admin::CommunitiesController, type: :controller do
   end
 
   def attempt_to_update_different_community_with(action, params)
-    different_community = FactoryGirl.create(:community)
+    different_community = FactoryBot.create(:community)
     put action, params: {id: different_community.id, community: params}
     different_community.reload
     params.each { |key, value| expect(different_community.send(key)).not_to eql(value) }

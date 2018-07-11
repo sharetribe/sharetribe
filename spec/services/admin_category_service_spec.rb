@@ -3,15 +3,15 @@ require 'spec_helper'
 describe Admin::CategoryService do
 
   before(:each) do
-    @category = FactoryGirl.create(:category, :community => @community)
-    @category2 = FactoryGirl.create(:category, :community => @community)
-    @subcategory = FactoryGirl.create(:category)
+    @category = FactoryBot.create(:category, :community => @community)
+    @category2 = FactoryBot.create(:category, :community => @community)
+    @subcategory = FactoryBot.create(:category)
     @subcategory.update_attribute(:parent_id, @category.id)
-    @subcategory2 = FactoryGirl.create(:category)
+    @subcategory2 = FactoryBot.create(:category)
     @subcategory2.update_attribute(:parent_id, @category.id)
 
-    @custom_field = FactoryGirl.create(:custom_field, :categories => [@category])
-    @subcustom_field = FactoryGirl.create(:custom_field, :categories => [@subcategory, @subcategory2])
+    @custom_field = FactoryBot.create(:custom_field, :categories => [@category])
+    @subcustom_field = FactoryBot.create(:custom_field, :categories => [@subcategory, @subcategory2])
 
     @category.reload
     @subcategory.reload
@@ -79,12 +79,12 @@ describe Admin::CategoryService do
       # - Subcategory C1
       # - Subcategory C2
       before(:each) do
-        @a = FactoryGirl.create(:category)
-        @a1 = FactoryGirl.create(:category)
-        @b = FactoryGirl.create(:category)
-        @c = FactoryGirl.create(:category)
-        @c1 = FactoryGirl.create(:category)
-        @c2 = FactoryGirl.create(:category)
+        @a = FactoryBot.create(:category)
+        @a1 = FactoryBot.create(:category)
+        @b = FactoryBot.create(:category)
+        @c = FactoryBot.create(:category)
+        @c1 = FactoryBot.create(:category)
+        @c2 = FactoryBot.create(:category)
         add_child(@a, @a1)
         add_child(@c, @c1)
         add_child(@c, @c2)

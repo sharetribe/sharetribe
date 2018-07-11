@@ -67,7 +67,7 @@ require 'spec_helper'
 describe Listing, type: :model do
 
   before(:each) do
-    @listing = FactoryGirl.build(:listing, listing_shape_id: 123)
+    @listing = FactoryBot.build(:listing, listing_shape_id: 123)
   end
 
   it "is valid with valid attributes" do
@@ -120,10 +120,10 @@ describe Listing, type: :model do
   end
 
   describe "#visible_to?" do
-    let(:community) { FactoryGirl.create(:community, private: true) }
-    let(:community2) { FactoryGirl.create(:community) }
-    let(:person) { FactoryGirl.create(:person, communities: [community]) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:community) { FactoryBot.create(:community, private: true) }
+    let(:community2) { FactoryBot.create(:community) }
+    let(:person) { FactoryBot.create(:person, communities: [community]) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
       expect(listing.visible_to?(person, community)).to be_truthy
@@ -164,8 +164,8 @@ describe Listing, type: :model do
   end
 
   context 'manage availability per hour' do
-    let(:community) { FactoryGirl.create(:community) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:community) { FactoryBot.create(:community) }
+    let(:listing) { FactoryBot.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it '#working_hours_periods_grouped_by_day' do
       listing.working_hours_new_set
@@ -180,8 +180,8 @@ describe Listing, type: :model do
   end
 
   describe "delete_listings" do
-    let(:location) { FactoryGirl.create(:location) }
-    let(:hammer) { FactoryGirl.create(:listing, title: "Hammer", listing_shape_id: 123, location: location)}
+    let(:location) { FactoryBot.create(:location) }
+    let(:hammer) { FactoryBot.create(:listing, title: "Hammer", listing_shape_id: 123, location: location)}
     let(:author) { hammer.author }
 
     it "delete_listings by author" do

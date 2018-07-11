@@ -10,9 +10,9 @@ module PaymentHelpers
   def payment_enable(community, payment_gateway, commission_from_seller: 10, minimum_price_cents: 100)
     tx_settings_api = TransactionService::API::Api.settings
     if payment_gateway == 'paypal'
-      FactoryGirl.create(:paypal_account,
+      FactoryBot.create(:paypal_account,
                          community_id: community.id,
-                         order_permission: FactoryGirl.build(:order_permission))
+                         order_permission: FactoryBot.build(:order_permission))
     end
     data = {
       community_id: community.id,

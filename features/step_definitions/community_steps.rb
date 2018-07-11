@@ -13,7 +13,7 @@ Given /^there are following communities:$/ do |communities_table|
     ident = hash[:community]
     existing_community = Community.where(ident: ident).first
     existing_community.destroy if existing_community
-    @hash_community = FactoryGirl.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
+    @hash_community = FactoryBot.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
     @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
@@ -215,9 +215,9 @@ Given /^community "(.*?)" has payment method "(.*?)" enabled by admin$/ do |comm
   community = Community.where(ident: community).first
   tx_settings_api = TransactionService::API::Api.settings
   if payment_gateway == 'paypal'
-    FactoryGirl.create(:paypal_account,
+    FactoryBot.create(:paypal_account,
                        community_id: community.id,
-                       order_permission: FactoryGirl.build(:order_permission))
+                       order_permission: FactoryBot.build(:order_permission))
   end
   data = {
     community_id: community.id,

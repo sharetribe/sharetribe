@@ -12,7 +12,7 @@ module ListingHelpers
 
     listing_opts = shape_opts.merge(opts).merge(community_id: community.id)
 
-    @listing = FactoryGirl.create(:listing, listing_opts)
+    @listing = FactoryBot.create(:listing, listing_opts)
   end
 
   def find_shape(name:, community: nil)

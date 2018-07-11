@@ -1,7 +1,7 @@
 Given(/^community "(.*?)" has order type "(.*?)"$/) do |community, order_type|
   community = Community.where(ident: community).first
-  FactoryGirl.create(:listing_shape, community: community,
-                                     transaction_process: FactoryGirl.create(:transaction_process),
+  FactoryBot.create(:listing_shape, community: community,
+                                     transaction_process: FactoryBot.create(:transaction_process),
                                      name: order_type)
 end
 
@@ -41,7 +41,7 @@ def create_listing_shape(community:, name:, availability:, name_translation:, bu
   )
   name_tr_key, action_button_tr_key = cached_translations[:data].map { |translation| translation[:translation_key] }
 
-  listing_shape = FactoryGirl.create(:listing_shape, community: community,
+  listing_shape = FactoryBot.create(:listing_shape, community: community,
                                                      transaction_process: transaction_process,
                                                      price_enabled: true,
                                                      shipping_enabled: false,
@@ -63,7 +63,7 @@ end
 # kind                'time'
 def create_unit_types(listing_shape, unit_types)
   unit_types && unit_types.each do |unit_type|
-    FactoryGirl.create(:listing_unit, listing_shape_id: listing_shape.id, unit_type: unit_type)
+    FactoryBot.create(:listing_unit, listing_shape_id: listing_shape.id, unit_type: unit_type)
   end
 end
 
@@ -81,7 +81,7 @@ def create_custom_unit_types(community, listing_shape, unit_types)
       ]
     )
     name_tr_key, selector_tr_key = cached_translations[:data].map { |translation| translation[:translation_key] }
-    FactoryGirl.create(:listing_unit, listing_shape_id: listing_shape.id,
+    FactoryBot.create(:listing_unit, listing_shape_id: listing_shape.id,
                                       unit_type: 'custom',
                                       kind: 'quantity',
                                       name_tr_key: name_tr_key,

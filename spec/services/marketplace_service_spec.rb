@@ -23,7 +23,7 @@ describe MarketplaceService do
     end
 
     it "should find a free domain, if intitial domain is taken" do
-      FactoryGirl.create(:community, :ident => "common")
+      FactoryBot.create(:community, :ident => "common")
 
       c = create(@community_params.merge!({:marketplace_name => "Common"}))
       expect(c.ident). to eql "common1"

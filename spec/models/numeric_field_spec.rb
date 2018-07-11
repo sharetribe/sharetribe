@@ -27,7 +27,7 @@ require 'spec_helper'
 
 describe Numeric, type: :model do
   describe "validations" do
-    let(:numeric) { FactoryGirl.build(:custom_numeric_field) }
+    let(:numeric) { FactoryBot.build(:custom_numeric_field) }
 
     it "should have min and max values" do
       numeric.min = nil

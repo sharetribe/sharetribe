@@ -1,7 +1,7 @@
 module UserSteps
   # Updates model's ID and associated IDs
   #
-  # Reasoning: Setting custom model for FactoryGirl is cubersome, since id
+  # Reasoning: Setting custom model for FactoryBot is cubersome, since id
   # is protected attribute and it's created on validation phase automatically.
   # Thus this helper function
   def force_override_model_id(id, model_instance, model_class, associated_model_classes=[])
@@ -84,7 +84,7 @@ Given /^there are following users:$/ do |person_table|
       username: hash['person'],
     }).merge(hash.except('person', 'membership_created_at', 'community'))
 
-    @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
+    @hash_person, @hash_session = Person.find_by(username: username) || FactoryBot.create(:person, person_opts)
     @hash_person.community_id = community.id
     @hash_person.save!
 
@@ -120,7 +120,7 @@ Given /^there are following users:$/ do |person_table|
 end
 
 Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
-  FactoryGirl.create_list(:person, user_count.to_i,
+  FactoryBot.create_list(:person, user_count.to_i,
                           given_name: given_name,
                           family_name: "#{family_name_prefix} #{user_count}",
                           community_id: @current_community.id,
@@ -226,15 +226,15 @@ Given /^I have confirmed paypal account(?: as "([^"]*)")?(?: for community "([^"
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
   community = Community.where(ident: community_name || "test").first
-  paypal_account = FactoryGirl.create(:paypal_account, person_id: person.id, community_id: community.id)
-  FactoryGirl.create(:order_permission, paypal_account: paypal_account)
-  FactoryGirl.create(:billing_agreement, paypal_account: paypal_account)
+  paypal_account = FactoryBot.create(:paypal_account, person_id: person.id, community_id: community.id)
+  FactoryBot.create(:order_permission, paypal_account: paypal_account)
+  FactoryBot.create(:billing_agreement, paypal_account: paypal_account)
 end
 
 Given /^I have confirmed stripe account(?: as "([^"]*)")?(?: for community "([^"]*)")?$/ do |person, community_name|
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
   community = Community.where(ident: community_name || "test").first
-  FactoryGirl.create(:stripe_account, person_id: person.id, community_id: community.id, stripe_seller_id: 'ABC')
+  FactoryBot.create(:stripe_account, person_id: person.id, community_id: community.id, stripe_seller_id: 'ABC')
 end
 

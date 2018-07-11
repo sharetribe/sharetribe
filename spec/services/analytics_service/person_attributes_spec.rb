@@ -1,10 +1,10 @@
 require "spec_helper"
 
 describe AnalyticService::PersonAttributes do
-  let(:community) { FactoryGirl.create(:community) }
+  let(:community) { FactoryBot.create(:community) }
   let(:person) do
-    person = FactoryGirl.create(:person, community: community)
-    FactoryGirl.create(:community_membership, community: community, person: person, admin: true)
+    person = FactoryBot.create(:person, community: community)
+    FactoryBot.create(:community_membership, community: community, person: person, admin: true)
     person
   end
 
@@ -29,19 +29,19 @@ describe AnalyticService::PersonAttributes do
     end
 
     it 'admin created filter' do
-      FactoryGirl.create(:custom_field, community: community)
+      FactoryBot.create(:custom_field, community: community)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_created_listing_field']).to eq true
     end
 
     it 'admin created listing' do
-      FactoryGirl.create(:listing, community_id: community.id, author: person)
+      FactoryBot.create(:listing, community_id: community.id, author: person)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_created_listing']).to eq true
     end
 
     it 'admin invited user' do
-      FactoryGirl.create(:invitation, community_id: community.id, inviter_id: person.id)
+      FactoryBot.create(:invitation, community_id: community.id, inviter_id: person.id)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_invited_user']).to eq true
     end
@@ -55,30 +55,30 @@ describe AnalyticService::PersonAttributes do
     end
 
     it 'admin configured outgoing email' do
-      FactoryGirl.create(:marketplace_sender_email, community: community, verification_status: :verified)
+      FactoryBot.create(:marketplace_sender_email, community: community, verification_status: :verified)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_configured_outgoing_email']).to eq true
     end
 
     it 'order type online payment' do
-      transaction_process = FactoryGirl.create(:transaction_process, community_id: community.id)
-      FactoryGirl.create(:listing_shape, community_id: community.id,
+      transaction_process = FactoryBot.create(:transaction_process, community_id: community.id)
+      FactoryBot.create(:listing_shape, community_id: community.id,
                                          transaction_process_id: transaction_process.id)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['order_type_online_payment']).to eq true
     end
 
     it 'order type online payment' do
-      transaction_process = FactoryGirl.create(:transaction_process, community_id: community.id, process: 'none')
-      FactoryGirl.create(:listing_shape, community_id: community.id,
+      transaction_process = FactoryBot.create(:transaction_process, community_id: community.id, process: 'none')
+      FactoryBot.create(:listing_shape, community_id: community.id,
                                          transaction_process_id: transaction_process.id)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['order_type_no_online_payments']).to eq true
     end
 
     it 'admin configured paypal acount and fees' do
-      FactoryGirl.create(:order_permission, paypal_account: FactoryGirl.create(:paypal_account, community: community))
-      FactoryGirl.create(:payment_settings, community_id: community.id, payment_gateway: 'paypal')
+      FactoryBot.create(:order_permission, paypal_account: FactoryBot.create(:paypal_account, community: community))
+      FactoryBot.create(:payment_settings, community_id: community.id, payment_gateway: 'paypal')
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_configured_paypal_acount']).to eq true
       expect(a['admin_configured_paypal_fees']).to eq true
@@ -86,7 +86,7 @@ describe AnalyticService::PersonAttributes do
 
     it 'admin configured stripe api and fees' do
       FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:stripe])
-      FactoryGirl.create(:payment_settings, community_id: community.id, payment_gateway: 'stripe', api_verified: true)
+      FactoryBot.create(:payment_settings, community_id: community.id, payment_gateway: 'stripe', api_verified: true)
       a = AnalyticService::PersonAttributes.new(person: person, community_id: community.id).attributes
       expect(a['admin_configured_stripe_api']).to eq true
       expect(a['admin_configured_stripe_fees']).to eq true

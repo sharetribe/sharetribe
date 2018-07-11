@@ -27,7 +27,7 @@ require 'spec_helper'
 describe Email, type: :model do
   describe "before_save" do
     it "downcases address" do
-      e = Email.create(:address => "TeST@eXample.COM", community_id: 1, :person => FactoryGirl.create(:person, community_id: 1))
+      e = Email.create(:address => "TeST@eXample.COM", community_id: 1, :person => FactoryBot.create(:person, community_id: 1))
       expect(Email.find(e.id).address).to eq("test@example.com")
     end
   end

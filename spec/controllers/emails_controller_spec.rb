@@ -27,16 +27,16 @@ require 'spec_helper'
 describe EmailsController, type: :controller do
   describe "#destroy" do
     before(:each) do
-      @community = FactoryGirl.create(:community)
+      @community = FactoryBot.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
       @request.env[:current_marketplace] = @community
     end
 
     it "should destroy email" do
-      person = FactoryGirl.create(:person)
+      person = FactoryBot.create(:person)
       person.emails = [
-        FactoryGirl.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
-        FactoryGirl.create(:email, :address => "two@examplecompany.co", :send_notifications => true)
+        FactoryBot.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
+        FactoryBot.create(:email, :address => "two@examplecompany.co", :send_notifications => true)
       ]
       person.save!
 
@@ -53,10 +53,10 @@ describe EmailsController, type: :controller do
 
     it "should not destroy email if that's not allowed" do
       # Don't test all edge cases here. They are covered in specs
-      person = FactoryGirl.create(:person)
+      person = FactoryBot.create(:person)
       person.emails = [
-        FactoryGirl.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
-        FactoryGirl.create(:email, :address => "two@examplecompany.co", :send_notifications => false)
+        FactoryBot.create(:email, :address => "one@examplecompany.co", :send_notifications => true),
+        FactoryBot.create(:email, :address => "two@examplecompany.co", :send_notifications => false)
       ]
       person.save!
 
