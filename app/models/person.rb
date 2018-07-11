@@ -112,10 +112,15 @@ class Person < ApplicationRecord
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+  has_many :custom_field_values, :dependent => :destroy
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
             deprecator: MethodDeprecator.new
+
+  accepts_nested_attributes_for :custom_field_values
 
   def to_param
     username
@@ -626,6 +631,10 @@ class Person < ApplicationRecord
   def unsubscribe_from_community_updates
     self.min_days_between_community_updates = 100000
     self.save!
+  end
+
+  def custom_field_value_for(custom_field)
+    custom_field_values.by_question(custom_field).first
   end
 
   private

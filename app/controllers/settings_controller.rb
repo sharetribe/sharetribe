@@ -7,11 +7,10 @@ class SettingsController < ApplicationController
   before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: :unsubscribe
 
   def show
-    target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
-    add_location_to_person!(target_user)
-    flash.now[:notice] = t("settings.profile.image_is_processing") if target_user.image.processing?
     @selected_left_navi_link = "profile"
-    render locals: {target_user: target_user}
+    @service = Person::SettingsService.new(community: @current_community, params: params)
+    @service.add_location_to_person
+    flash.now[:notice] = t("settings.profile.image_is_processing") if @service.image_is_processing?
   end
 
   def account
@@ -50,13 +49,6 @@ class SettingsController < ApplicationController
 
   private
 
-  def add_location_to_person!(person)
-    unless person.location
-      person.build_location(:address => person.street_address)
-      person.location.search_and_fill_latlng
-    end
-    person
-  end
 
   def find_person_to_unsubscribe(current_user, auth_token)
     current_user || Maybe(AuthToken.find_by_token(auth_token)).person.or_else { nil }

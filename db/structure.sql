@@ -441,9 +441,11 @@ CREATE TABLE `custom_field_values` (
   `updated_at` datetime NOT NULL,
   `type` varchar(255) DEFAULT NULL,
   `delta` tinyint(1) NOT NULL DEFAULT '1',
+  `person_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_custom_field_values_on_listing_id` (`listing_id`) USING BTREE,
-  KEY `index_custom_field_values_on_type` (`type`) USING BTREE
+  KEY `index_custom_field_values_on_type` (`type`) USING BTREE,
+  KEY `index_custom_field_values_on_person_id` (`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `custom_fields`;
@@ -461,6 +463,9 @@ CREATE TABLE `custom_fields` (
   `min` float DEFAULT NULL,
   `max` float DEFAULT NULL,
   `allow_decimals` tinyint(1) DEFAULT '0',
+  `entity_type` int(11) DEFAULT '0',
+  `public` tinyint(1) DEFAULT '0',
+  `assignment` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_custom_fields_on_community_id` (`community_id`) USING BTREE,
   KEY `index_custom_fields_on_search_filter` (`search_filter`) USING BTREE
@@ -2261,6 +2266,10 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20171207075640'),
 ('20180108061342'),
 ('20180108093607'),
-('20180514083133');
+('20180514083133'),
+('20180518073348'),
+('20180523121344'),
+('20180524075239'),
+('20180524081429');
 
 

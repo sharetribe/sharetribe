@@ -1,0 +1,14 @@
+- min = form.object.display_min || service.number_min
+- max = form.object.display_max || service.number_max
+.row
+  .col-3
+    = form.label :min, t("admin.person_custom_fields.index.minimum_value")
+    = text_field_tag "custom_field[min]", min, :class => "new-field-name-locale-text-field required"
+  .col-3
+    = form.label :max, t("admin.person_custom_fields.index.maximum_value")
+    = text_field_tag "custom_field[max]", max, :class => "new-field-name-locale-text-field required"
+.row
+  .col-12
+    .checkbox-container
+      = form.check_box :allow_decimals
+      = form.label :allow_decimals, t("admin.person_custom_fields.index.allow_decimals")

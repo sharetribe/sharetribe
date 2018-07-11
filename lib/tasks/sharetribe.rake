@@ -39,4 +39,26 @@ namespace :sharetribe do
   task :synchronize_verified_with_ses => :environment do
     EmailService::API::Api.addresses.enqueue_batch_sync()
   end
+
+  namespace :person_custom_fields do
+    desc "Copying person's phone number to custom fields"
+    task :copy_phone_number_community, [:community_ident] => :environment do |t, args|
+      community_ident = args[:community_ident]
+      if community_ident.blank?
+        raise 'Invalid marketplace ident.'
+      end
+      community = Community.find_by!(ident: community_ident)
+      PersonPhoneCopyist.copy_community(community)
+    end
+
+    desc "Remove person's phone number from custom fields"
+    task :remove_phone_number_community, [:community_ident] => :environment do |t, args|
+      community_ident = args[:community_ident]
+      if community_ident.blank?
+        raise 'Invalid marketplace ident.'
+      end
+      community = Community.find_by!(ident: community_ident)
+      community.person_custom_fields.phone_number.destroy_all
+    end
+  end
 end

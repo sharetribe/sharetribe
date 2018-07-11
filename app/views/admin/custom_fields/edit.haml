@@ -1,7 +1,10 @@
 - content_for :javascript do
-  initialize_admin_listing_field_form_view("#{I18n.locale}", "#edit_custom_field", #{@custom_field.options.size}, #{@min_option_count});
-  ST.customFieldOptionOrder = ST.createCustomFieldOptionOrder(".custom-field-option-container");
-  ST.initializeCustomFieldsSelectionClickHandlers();
+  ST.CustomFields.initForm({
+  locale: '#{I18n.locale}',
+  option_count: #{@custom_field.options.size},
+  min_count: #{@min_option_count}
+  });
+
 
 - content_for :title_header do
   %h1
@@ -12,7 +15,7 @@
 = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
 
 .left-navi-section
-  = form_for @custom_field, :as => :custom_field, :url => admin_custom_field_path(@custom_field), :method => :put do |form|
+  = form_for @custom_field, :as => :custom_field, :url => admin_custom_field_path(@custom_field), :method => :put, :html => {:id => 'custom_field_form'} do |form|
 
     = render :partial => "admin/custom_fields/form/field_name", :locals => { :form => form }
 

@@ -24,6 +24,21 @@
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
 
+    - if community_person_custom_fields.any?
+      - community_person_custom_fields.each do |custom_field|
+        .row
+          .col-12
+            - custom_field_value = @person.custom_field_value_for(custom_field)
+            - if custom_field_value
+              %span.people-custom-fields-title
+                = "#{custom_field.name(I18n.locale)}:"
+              - if custom_field.is_a?(CheckboxField)
+                = render 'people/custom_fields/checkbox', custom_field: custom_field,
+                custom_field_value: custom_field_value
+              - else
+                %span.people-custom-fields-value
+                  = custom_field_value.display_value
+
     .row
       %h2.people-header
         - if listings.total_entries > 0

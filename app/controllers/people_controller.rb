@@ -63,12 +63,14 @@ class PeopleController < Devise::RegistrationsController
     received_testimonials = TestimonialViewUtils.received_testimonials_in_community(@person, @current_community)
     received_positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(@person, @current_community)
     feedback_positive_percentage = @person.feedback_positive_percentage_in_community(@current_community)
+    community_person_custom_fields = @current_community.person_custom_fields.is_public
 
     render locals: { listings: listings,
                      followed_people: @person.followed_people,
                      received_testimonials: received_testimonials,
                      received_positive_testimonials: received_positive_testimonials,
-                     feedback_positive_percentage: feedback_positive_percentage
+                     feedback_positive_percentage: feedback_positive_percentage,
+                     community_person_custom_fields: community_person_custom_fields
                    }
   end
 
@@ -76,12 +78,9 @@ class PeopleController < Devise::RegistrationsController
     @selected_tribe_navi_tab = "members"
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
-
-    @person = if params[:person] then
-      Person.new(params[:person].slice(:given_name, :family_name, :email, :username).permit!)
-    else
-      Person.new()
-    end
+    @service = Person::SettingsService.new(community: @current_community, params: params,
+                                           required_fields_only: true)
+    @service.new_person
 
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
@@ -377,7 +376,7 @@ class PeopleController < Devise::RegistrationsController
 
 
   def person_create_params(params)
-    params.require(:person).slice(
+    result = params.require(:person).slice(
         :given_name,
         :family_name,
         :display_name,
@@ -393,8 +392,23 @@ class PeopleController < Devise::RegistrationsController
         :username,
         :test_group_number,
         :community_id,
-        :admin_emails_consent,
+        :admin_emails_consent
     ).permit!
+    result.merge(params.require(:person)
+      .slice(:custom_field_values_attributes)
+      .permit(
+        custom_field_values_attributes: [
+          :id,
+          :type,
+          :custom_field_id,
+          :person_id,
+          :text_value,
+          :numeric_value,
+          :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
+          selected_option_ids: []
+        ]
+      )
+    )
   end
 
   def person_update_params(params)
@@ -406,13 +420,13 @@ class PeopleController < Devise::RegistrationsController
         :phone_number,
         :image,
         :description,
-        { location: [:address, :google_address, :latitude, :longitude] },
         :password,
         :password2,
-        { send_notifications: [] },
-        { email_attributes: [:address] },
         :min_days_between_community_updates,
-        { preferences: [
+        location: [:address, :google_address, :latitude, :longitude],
+        send_notifications: [],
+        email_attributes: [:address],
+        preferences: [
           :email_from_admins,
           :email_about_new_messages,
           :email_about_new_comments_to_own_listing,
@@ -425,7 +439,17 @@ class PeopleController < Devise::RegistrationsController
           :email_about_new_payments,
           :email_about_new_listings_by_followed_people,
           :empty_notification
-        ] }
+        ],
+        custom_field_values_attributes: [
+          :id,
+          :type,
+          :custom_field_id,
+          :person_id,
+          :text_value,
+          :numeric_value,
+          :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
+          selected_option_ids: []
+        ]
       )
   end
 

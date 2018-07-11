@@ -1,0 +1,14 @@
+- custom_field = form.object
+= form.label :option_attributes, t("admin.custom_fields.index.options")
+.row
+  .col-12
+    #options.custom-field-options
+      %script{type: "text/template", class: "template", id: "new-option-tmpl"}
+        = render 'admin/person_custom_fields/form/new_option', option: service.new_option,
+          option_id: "${id}", sort_priority: "${sortPriority}"
+      - custom_field.options.sort.each_with_index do |option, index|
+        = render 'admin/person_custom_fields/form/new_option', option: option,
+          option_id: option.id || "new-#{index+1}", sort_priority: option.sort_priority
+.row
+  .col-12
+    = link_to t("admin.person_custom_fields.index.add_option"), "#", :id => "custom-fields-add-option"

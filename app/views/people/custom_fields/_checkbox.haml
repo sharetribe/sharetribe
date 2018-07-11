@@ -1,0 +1,12 @@
+- options = custom_field.options.sort.to_a.dup
+.row.checkbox-group
+  - ArrayUtils.each_slice_columns(options, 3) do |column|
+    .col-4
+      - column.each do |option|
+        - selected = custom_field_value.selected_options.include?(option)
+        .checkbox-option{class: selected ? 'selected' : 'not-selected'}
+          %span.checkbox-option-checkmark
+            - if selected
+              = icon_tag("check", ["icon-fix"])
+          %span
+            = option.title(I18n.locale)

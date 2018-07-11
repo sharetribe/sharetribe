@@ -1,0 +1,11 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t(".new_user_field")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  #new-person-field-form.new-field-form
+    = render 'form', service: @service

@@ -1,0 +1,19 @@
+- content_for :javascript do
+  ST.CustomFields.initForm({
+  locale: '#{I18n.locale}',
+  option_count: #{service.custom_field.options.size},
+  min_count: #{service.min_option_count}
+  });
+
+- custom_field = service.custom_field
+- path = service.edit? ? admin_person_custom_field_path(custom_field) : admin_person_custom_fields_path(:field_type => custom_field.type)
+= form_for custom_field, as: :custom_field, url: path, html: {id: 'custom_field_form'} do |form|
+  = render 'admin/person_custom_fields/form/field_name', form: form, service: service
+  = render 'admin/person_custom_fields/form/field_required', form: form, service: service
+  - custom_field.with(:numeric) do
+    = render 'admin/person_custom_fields/form/field_min_max', form: form, service: service
+  - custom_field.with(:dropdown) do
+    = render 'admin/person_custom_fields/form/field_options', form: form, service: service
+  - custom_field.with(:checkbox) do
+    = render 'admin/person_custom_fields/form/field_options', form: form, service: service
+  = render 'admin/person_custom_fields/form/buttons', form: form, service: service

@@ -242,7 +242,7 @@ class Listing < ApplicationRecord
   end
 
   def answer_for(custom_field)
-    custom_field_values.find { |value| value.custom_field_id == custom_field.id }
+    custom_field_values.by_question(custom_field).first
   end
 
   def unit_type

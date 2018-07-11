@@ -1,0 +1,25 @@
+.custom-field-option-container{:data => {:"field-id" => "#{option_id}"}}
+  .custom-field-option-locales
+    .row
+      - show_locales = available_locales.size > 1
+      .col-8{:class => show_locales ? "" : "custom-field-column-without-bottom-margin"}
+        = fields_for "custom_field[option_attributes][][]", option do |option_form|
+          = hidden_field_tag "custom_field[option_attributes][][id]", option_id
+          - input_col_size = show_locales ? "9" : "12"
+          - available_locales.each do |locale_name, locale_value|
+            .row.custom-field-option-locale-row
+              - if show_locales
+                .col-3.custom-field-option-locale-column
+                  = label_tag "custom_field[option_attributes][][title_attributes][#{locale_value}]", locale_name + ": ", :class => "custom-field-option-with-multiple-locales-label"
+              .custom-field-option-locale-column{:class => "col-#{input_col_size}"}
+                = text_field_tag "custom_field[option_attributes][][title_attributes][#{locale_value}]", option.title(locale_value), :class => "required", :value => option.title(locale_value), :id => "custom_field_option_attributes_#{option_id}_title_attributes_#{locale_value}"
+          = hidden_field_tag "custom_field[option_attributes][][sort_priority]", sort_priority, :class => "custom-field-hidden-sort-priority"
+      .col-4.custom-field-actions
+        - link_class = "custom-field-option-#{(show_locales ? "with" : "without")}-locale-remove"
+
+        = link_to "#", :class => "custom-field-option-remove #{link_class}", :tabindex => "-1", :id => "custom-field-option-remove-#{option_id}" do
+          = icon_tag("cross", ["icon-fix"])
+        = link_to '#', :class => "custom-fields-action-up admin-sort-button", :tabindex => "-1" do
+          = icon_tag("directup", ["icon-fix"])
+        = link_to '#', :class => "custom-fields-action-down admin-sort-button", :tabindex => "-1" do
+          = icon_tag("directdown", ["icon-fix"])
