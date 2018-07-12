@@ -397,6 +397,8 @@ ka:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "დაარედაქტირე ჩამონათვალის დარგი %{field_name}"
@@ -450,6 +452,30 @@ ka:
         dropdown: ჩამოშლა
         checkbox_group: "ჩექბოქსის ჯგუფი"
         date: თარიღი
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "გაუგზავნე ელ. ფოსტა მომხმარებლებს"
@@ -1998,6 +2024,7 @@ ka:
       create_account_with_facebook: "დარეგისტრირდი Facebook-ის დახმარებით"
       OR: ან
       signup_with_email: "დარეგისტრირდი ელ. ფოსტით"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "შეფასება:"
       and_gave_following_feedback: "და მისცა შემდეგი შეფასება"
@@ -2160,6 +2187,7 @@ ka:
       default_in_listing: "(გამოიყენება მხოლოდ როგორც ნაგულისხმები როცა იქნება ახალი ჩამონათვალი)"
       invisible: "(სხვა მომხმარებლებისთვის არ არის ხილული)"
       image_is_processing: "თქვენი პროფილის სურათი იტვირთება. დაელოდეთ ცოტა ხანი, 1-2 წუთში მზად იქნება."
+      shown_in_your_public_profile: ~
     save_information: "ინფორმაციის შენახვა"
   shipping_address:
     shipping_address: "ტრანსპორტირების მისამართი"

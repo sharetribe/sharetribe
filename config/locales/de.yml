@@ -402,6 +402,8 @@ de:
           status: Status
         open: Geöffnet
         closed: Geschlossen
+      user_fields:
+        user_fields: "Benutzer Feld"
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -455,6 +457,30 @@ de:
         dropdown: Dropdown-Menü
         checkbox_group: "Checkbox Gruppe"
         date: Datum
+        file: Datei
+        location: Standort
+    person_custom_fields:
+      saving_failed: "Speicherung Benutzer Feld fehlgeschlagen"
+      index:
+        user_fields: "Benutzer Felder"
+        field_title: "Feld Name"
+        field_type: "Feld Typ"
+        add_new_field: "Neues Feld hinzufügen:"
+        save: Speichern
+        cancel: Abbrechen
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Dezimalstellen erlauben"
+        add_option: "Option hinzufügen"
+      new:
+        new_user_field: "Neues Benutzer Feld"
+      form:
+        field_required:
+          this_field_is_required: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt"
+          this_field_is_required_checkbox: "Dieses Feld zum Pflichtfeld machen, wenn eine Registrierung auf dem Marktplatz erfolgt (Nutzer muss mindestens eine Option auswählen)"
+          this_field_is_public: "Dieses Feld in der öffentlichen Profilseite anzeigen"
+      edit:
+        edit_user_field: "Benutzer Feld anpassen %{field_name}"
     emails:
       new:
         send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
@@ -1377,7 +1403,7 @@ de:
       default_about_text: "Diese Website wurde mit Hilfe der Sharetribe-Plattform angelegt. Jeder kann mit Sharetribe seinen eigenen Marktplatz erstellen. Es ist kostenlos und dauert nur eine Minute. %{click_here_link}, um mehr zu erfahren!"
       click_here_link_text: "Hier klicken"
     how_to_use:
-      default_title: "So funktioniert's"
+      default_title: "So funktioniert es"
       default_content: "Hier findest du Informationen darüber, wie %{marketplace_name} funktioniert."
   landing_page:
     hero:
@@ -1426,7 +1452,7 @@ de:
       select_language: "Sprache auswählen"
     infos:
       about: Info
-      how_to_use: "So funktioniert's"
+      how_to_use: "So funktioniert es"
       info_about_kassi: "Informationen über %{service_name}"
       news: News
       register_details: "Impressum & Datenschutz"
@@ -2015,6 +2041,7 @@ de:
       create_account_with_facebook: "Mit Facebook registrieren"
       OR: ODER
       signup_with_email: "Registriere dich mit deiner E-Mail-Adresse"
+      this_field_will_be_publicly_visible: "(Dieses Feld ist öffentlich einsehbar)"
     profile_feedback:
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"
@@ -2177,6 +2204,7 @@ de:
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
       invisible: "(wird anderen Benutzern nicht angezeigt)"
       image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
+      shown_in_your_public_profile: "(wird im öffentlichen Profil angezeigt)"
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse

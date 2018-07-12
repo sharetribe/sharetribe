@@ -402,6 +402,8 @@ nb:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annonse felt'%{field_name}'"
@@ -455,6 +457,30 @@ nb:
         dropdown: Nedtrekksmeny
         checkbox_group: Avkrysningsgruppe
         date: Dato
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Send e-post til brukere"
@@ -2011,6 +2037,7 @@ nb:
       create_account_with_facebook: "Logg inn med Facebook"
       OR: ELLER
       signup_with_email: "Registrer deg med e-post"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "karakter:"
       and_gave_following_feedback: "og gav følgende tilbakemelding"
@@ -2173,6 +2200,7 @@ nb:
       default_in_listing: "(brukes kun ved opprettelse av nye annonser)"
       invisible: "(vises ikke til andre brukere)"
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
+      shown_in_your_public_profile: ~
     save_information: "Lagre innstillinger"
   shipping_address:
     shipping_address: Leveringsadresse

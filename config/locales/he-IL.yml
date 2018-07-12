@@ -393,6 +393,8 @@ he-IL:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -446,6 +448,30 @@ he-IL:
         dropdown: "התפריט הנפתח"
         checkbox_group: ~
         date: תאריך
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "שלח אימייל למשתמשים"
@@ -1984,6 +2010,7 @@ he-IL:
       create_account_with_facebook: "התחבר באמצעות פייסבוק"
       OR: או
       signup_with_email: "צור/י חשבון באמצעות כתובת הדואר האלקטרוני"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "ציון:"
       and_gave_following_feedback: "ונתן את המשוב הבא"
@@ -2146,6 +2173,7 @@ he-IL:
       default_in_listing: "משמש רק בתור ברירת מחדל בעת יצירת רשימה חדשה"
       invisible: "לא יוצג למשתמשים אחרים"
       image_is_processing: ~
+      shown_in_your_public_profile: ~
     save_information: "שמור פרטים"
   shipping_address:
     shipping_address: "כתובת למשלוח"

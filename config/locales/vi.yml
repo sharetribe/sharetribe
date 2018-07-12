@@ -397,6 +397,8 @@ vi:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
@@ -450,6 +452,30 @@ vi:
         dropdown: "Xổ xuống"
         checkbox_group: "Hôp đánh giấu"
         date: Ngày
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: ~
@@ -2000,6 +2026,7 @@ vi:
       create_account_with_facebook: "Đăng nhập bằng Facebook"
       OR: HOẶC
       signup_with_email: "Đăng ký với email"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
@@ -2162,6 +2189,7 @@ vi:
       default_in_listing: "(chỉ sử dụng làm mặc định khi đăng bài mới)"
       invisible: "(Không hiển thị cho người dùng khác)"
       image_is_processing: "Xin chờ. Chúng tôi đang xử lý ảnh tiểu sử của bạn. Nó sẽ được sẵn sàng trong một hoặc hai phút."
+      shown_in_your_public_profile: ~
     save_information: "Lưu thông tin"
   shipping_address:
     shipping_address: "Địa chỉ giao hàng"

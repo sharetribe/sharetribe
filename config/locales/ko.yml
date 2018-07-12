@@ -397,6 +397,8 @@ ko:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "항목 '%{field_name}' 편집"
@@ -450,6 +452,30 @@ ko:
         dropdown: 드롭다운
         checkbox_group: "체크박스 그룹"
         date: 날짜
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "사용자에게 이메일 발송"
@@ -2005,6 +2031,7 @@ ko:
       create_account_with_facebook: "페이스북으로 로그인하기"
       OR: 또는
       signup_with_email: "이메일 가입"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "등급:"
       and_gave_following_feedback: "그리고 다음과 같은 피드백을 주었다."
@@ -2167,6 +2194,7 @@ ko:
       default_in_listing: "(새 목록을 만들때 기본값으로만 사용됨)"
       invisible: "(다른 사용자에게는 표시되지 않음)"
       image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
+      shown_in_your_public_profile: ~
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소

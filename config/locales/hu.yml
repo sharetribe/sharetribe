@@ -403,6 +403,8 @@ hu:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Mező szerkesztése %{field_name}"
@@ -456,6 +458,30 @@ hu:
         dropdown: Lenyíló
         checkbox_group: "Jelölőnégyzet csoport"
         date: Dátum
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "E-mail küldése a felhasználóknak"
@@ -2013,6 +2039,7 @@ hu:
       create_account_with_facebook: "Regisztráció Facebookkal"
       OR: VAGY
       signup_with_email: "Bejelentkezés emaillel"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "fokozat:"
       and_gave_following_feedback: "és következő értékelést adta"
@@ -2175,6 +2202,7 @@ hu:
       default_in_listing: "(alapbeállításként használt kizárólag új hirdetés feladásakor)"
       invisible: "(a többi felhasználó számára nem látható)"
       image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
+      shown_in_your_public_profile: ~
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"

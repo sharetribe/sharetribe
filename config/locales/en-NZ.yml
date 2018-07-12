@@ -402,6 +402,8 @@ en-NZ:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -455,6 +457,30 @@ en-NZ:
         dropdown: Dropdown
         checkbox_group: "Checkbox group"
         date: Date
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Send email to users"
@@ -2015,6 +2041,7 @@ en-NZ:
       create_account_with_facebook: "Sign up with Facebook"
       OR: OR
       signup_with_email: "Sign up with email"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"
@@ -2177,6 +2204,7 @@ en-NZ:
       default_in_listing: "(used only as a default when creating a new listing)"
       invisible: "(not shown to other users)"
       image_is_processing: "Hang on tight. We are processing your profile picture. It will be ready in a minute or two."
+      shown_in_your_public_profile: ~
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"
