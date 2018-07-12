@@ -1,0 +1,80 @@
+version: 2
+jobs:
+  test:
+    parallelism: 4
+    # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
+    shell: /bin/bash -ileo pipefail
+    docker:
+      - image: circleci/ruby:2.3.4-jessie-node-browsers
+        environment:
+          CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+          MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
+          DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
+          NODE_VERSION: 7.8.0
+          NODE_ENV: test
+          RAILS_ENV: test
+          RACK_ENV: test
+      - image: mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD=very-secret
+    steps:
+      - checkout
+      - restore_cache:
+          # In order to invalidate the cache bump the version number
+          key: deps-cache-v4
+      - run:
+          name: install system deps
+          command: script/ci-install-deps.sh
+      - run:
+          # CircleCI v1 used to do this automatically
+          name: blacklist problematc gems
+          command: sed -i.bak "/gem ['\"]growl_notify\|autotest-fsevent\|rb-appscript\|rb-fsevent['\"].*, *$/ N; s/\n *//g; /gem ['\"]growl_notify\|autotest-fsevent\|rb-appscript\|rb-fsevent['\"]/ d" Gemfile
+      - run:
+          name: bundle install
+          command: bundle check --path=vendor/bundle || bundle install --without=development
+      - run:
+          name: npm install
+          command: npm install
+      - save_cache:
+          # In order to invalidate the cache bump the version number
+          key: deps-cache-v4
+          paths:
+            - ~/.nvm
+            - vendor/bundle
+            - ~/.bundle
+            - client/node_modules
+            - ./node_modules
+      - run:
+          name: prepare
+          command: script/ci-prepare.sh
+      - run:
+          name: rubocop
+          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then bundle exec rubocop -R ; fi
+      - run:
+          name: npm lint
+          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm run lint ; fi
+          working_directory: client
+      - run:
+          name: db setup
+          command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
+      - run:
+          name: rspec
+          command: bundle exec rspec --format progress --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)
+      - run:
+          name: cucumber
+          command: bundle exec cucumber -p ci --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
+          environment:
+            PHANTOMJS: true
+      - run:
+          name: npm test
+          command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm test ; fi
+          working_directory: client
+      - store_test_results:
+          path: /tmp/circleci-test-results
+      - store_artifacts:
+          path: /tmp/circleci-test-results
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
