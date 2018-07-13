@@ -1,0 +1,9 @@
+- if file_field.file?
+  .info-text-container.filename-container
+    .info-text-icon.marketplace-color
+      = icon_tag("picture")
+    .info-text-content
+      %p
+        = t('admin.communities.edit_look_and_feel.current_image')
+        = ' '
+        = file_field.original_filename

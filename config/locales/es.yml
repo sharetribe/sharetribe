@@ -387,6 +387,8 @@ es:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -440,6 +442,30 @@ es:
         dropdown: ~
         checkbox_group: ~
         date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Envia un mensaje a los miembros"
@@ -1983,6 +2009,7 @@ es:
       create_account_with_facebook: "Crear una cuenta con Facebook"
       OR: ~
       signup_with_email: ~
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "puntaje:"
       and_gave_following_feedback: "Feedbacks dados"
@@ -2145,6 +2172,7 @@ es:
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
+      shown_in_your_public_profile: ~
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: ~

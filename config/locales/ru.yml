@@ -412,6 +412,8 @@ ru:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
@@ -465,6 +467,30 @@ ru:
         dropdown: "Выпадающее меню"
         checkbox_group: Флажок
         date: Дата
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Отправить электронное письмо пользователям"
@@ -2029,6 +2055,7 @@ ru:
       create_account_with_facebook: "Создать учётную запись с помощью Facebook"
       OR: или
       signup_with_email: "Зарегистрируйте используя адрес электронной почты"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
@@ -2191,6 +2218,7 @@ ru:
       default_in_listing: "(используется по умолчанию при создании новой публикации)"
       invisible: "(не видно другим участникам)"
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
+      shown_in_your_public_profile: ~
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"

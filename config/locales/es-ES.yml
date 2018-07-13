@@ -402,6 +402,8 @@ es-ES:
           status: Estatus
         open: Abierto
         closed: Cerrado
+      user_fields:
+        user_fields: "Datos de usuarios"
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -455,6 +457,30 @@ es-ES:
         dropdown: Desplegable
         checkbox_group: "Selección de grupo"
         date: Fecha
+        file: Archivo
+        location: Ubicación
+    person_custom_fields:
+      saving_failed: "No se pudo guardar el campo"
+      index:
+        user_fields: "Datos de usuarios"
+        field_title: "Título del campo"
+        field_type: "Tipo de campo"
+        add_new_field: "Añadir un nuevo campo:"
+        save: Guardar
+        cancel: Cancelar
+        minimum_value: Mínimo
+        maximum_value: Máximo
+        allow_decimals: "Permitir decimales"
+        add_option: "Añadir opción"
+      new:
+        new_user_field: "Nuevo campo de usuario"
+      form:
+        field_required:
+          this_field_is_required: "Hacer este campo obligatorio al registrarse"
+          this_field_is_required_checkbox: "Hacer este campo obligatorio al registrarse (el usuario tiene que elegir al menos una opción)"
+          this_field_is_public: "Mostrar este campo en el perfil público de los usuarios"
+      edit:
+        edit_user_field: "Editar el campo '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Enviar correo a usuarios"
@@ -1694,7 +1720,7 @@ es-ES:
         location: Ubicación
         origin: Origen
       send_button:
-        save_listing: "Guardar anuncio"
+        save_listing: "Publicar anuncio"
       share_type:
         select: Seleccionar
         borrow: "Tomar Prestado"
@@ -2015,6 +2041,7 @@ es-ES:
       create_account_with_facebook: "Registrate con tu cuenta de Facebook"
       OR: O
       signup_with_email: "Regístrate con tu correo electrónico"
+      this_field_will_be_publicly_visible: "(Esta campo será público)"
     profile_feedback:
       grade: "puntaje:"
       and_gave_following_feedback: "e hizo los siguientes comentarios"
@@ -2177,6 +2204,7 @@ es-ES:
       default_in_listing: "(usada por defecto al publicar un nuevo anuncio)"
       invisible: "(no se mostrará a otros usuarios)"
       image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
+      shown_in_your_public_profile: "(se muestra en tu perfil público)"
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

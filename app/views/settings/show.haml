@@ -66,6 +66,7 @@
 
     -# Profile picture
     = form.label :image, t("settings.profile.profile_picture")
+    = render 'layouts/filename', file_field: target_user.image
     = form.file_field :image, :size => 30, :id => "avatar_file"
 
     -# About text

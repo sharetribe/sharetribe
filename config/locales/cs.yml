@@ -407,6 +407,8 @@ cs:
           status: Status
         open: Otevřeno
         closed: Zavřeno
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
@@ -460,6 +462,30 @@ cs:
         dropdown: Rozbalit
         checkbox_group: "Zaškrtávací pole"
         date: Datum
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Poslat e-mail uživatelům"
@@ -2020,6 +2046,7 @@ cs:
       create_account_with_facebook: "Přihlásit se přes Facebook"
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "známka:"
       and_gave_following_feedback: "a byla poskytnuta následující zpětná vazba"
@@ -2182,6 +2209,7 @@ cs:
       default_in_listing: "(použito jako výchozí adresa při vytváření nového inzerátu)"
       invisible: "(nezobrazuje se ostatním uživatelům)"
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
+      shown_in_your_public_profile: ~
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"

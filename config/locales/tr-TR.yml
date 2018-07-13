@@ -399,6 +399,8 @@ tr-TR:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: "Kullanıcı alanları"
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -452,6 +454,30 @@ tr-TR:
         dropdown: "Açılır menü"
         checkbox_group: "İşaret kutucuğu grubu"
         date: Tarih
+        file: Dosya
+        location: Konum
+    person_custom_fields:
+      saving_failed: "Kullanıcı alan kayıt hatası"
+      index:
+        user_fields: "Kullanıcı alanları"
+        field_title: "Alan başlığı"
+        field_type: "Alan türü"
+        add_new_field: "Yeni alan ekle"
+        save: Kaydet
+        cancel: "İptal et"
+        minimum_value: Minimum
+        maximum_value: Maksimum
+        allow_decimals: "Küsürlere izin ver"
+        add_option: "Seçenek ekle"
+      new:
+        new_user_field: "Yeni kullanıcı alanı"
+      form:
+        field_required:
+          this_field_is_required: "Pazaryerine kayıt olurken bu alanı zorunlu kıl"
+          this_field_is_required_checkbox: "Pazaryerine kayıt olurken bu alanın doldurulması gereklidir (kullanıcı en az bir seçenek belirtmelidir)"
+          this_field_is_public: "Bu alanı herkese açık profil sayfasında göster"
+      edit:
+        edit_user_field: "Kullanıcı alanını düzenle '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Kullanıcılara e-posta gönderin"
@@ -1990,6 +2016,7 @@ tr-TR:
       create_account_with_facebook: "Facebook hesabınla kayıt ol"
       OR: "YA DA"
       signup_with_email: "E-posta ile kayıt ol"
+      this_field_will_be_publicly_visible: "(Bu alan herkese görünür olacak)"
     profile_feedback:
       grade: "değerlendirme:"
       and_gave_following_feedback: "ve aşağıdaki geri bildirimi bıraktı"
@@ -2152,6 +2179,7 @@ tr-TR:
       default_in_listing: "(Sadece yeni listeleme oluşturulurken default olarak kullanılır.)"
       invisible: "(Diğer kullanıcılara gösterilmez.)"
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
+      shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
     save_information: "Bu bilgiyi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"

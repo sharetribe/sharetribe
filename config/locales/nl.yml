@@ -404,6 +404,8 @@ nl:
           status: Status
         open: Open
         closed: Gesloten
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -457,6 +459,30 @@ nl:
         dropdown: Dropdown
         checkbox_group: "Checkbox groep"
         date: Datum
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Stuur e-mail aan gebruikers"
@@ -2018,6 +2044,7 @@ nl:
       create_account_with_facebook: "Maak een account met Facebook"
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "cijfer:"
       and_gave_following_feedback: "en gaf de volgende feedback"
@@ -2180,6 +2207,7 @@ nl:
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe advertentie)"
       invisible: "(niet getoond aan andere gebruikers)"
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
+      shown_in_your_public_profile: ~
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

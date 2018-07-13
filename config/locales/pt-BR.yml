@@ -402,6 +402,8 @@ pt-BR:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
@@ -455,6 +457,30 @@ pt-BR:
         dropdown: "Lista de opções"
         checkbox_group: "Caixa de verificação"
         date: Data
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Envie e-mail aos usuários"
@@ -2011,6 +2037,7 @@ pt-BR:
       create_account_with_facebook: "Registre-se com seu Facebook"
       OR: OU
       signup_with_email: "Registre-se com seu e-mail"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "nota :"
       and_gave_following_feedback: "deu a opinião seguinte"
@@ -2173,6 +2200,7 @@ pt-BR:
       default_in_listing: "(usado apenas como um padrão ao criar um novo anúncio)"
       invisible: "(não será mostrado a outros usuários)"
       image_is_processing: "Seu imagem de perfil está sendo preparada. Por favor, atualize a página daqui a pouco."
+      shown_in_your_public_profile: ~
     save_information: "Salvar informações"
   shipping_address:
     shipping_address: "Endereço para envio"

@@ -397,6 +397,8 @@ zh-HK:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -450,6 +452,30 @@ zh-HK:
         dropdown: ~
         checkbox_group: ~
         date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: 發送通知郵件給用戶
@@ -1996,6 +2022,7 @@ zh-HK:
       create_account_with_facebook: 以Facebook進行登記
       OR: 或者
       signup_with_email: 以電郵來註冊
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: 評分：
       and_gave_following_feedback: 並且給予以下回應
@@ -2158,6 +2185,7 @@ zh-HK:
       default_in_listing: （只有在發布新訊息時作默認使用）
       invisible: （不顯示给其他用户）
       image_is_processing: "我們正在處理你的個人頭像, 請於稍後時間重新整理頁面  "
+      shown_in_your_public_profile: ~
     save_information: 保存訊息
   shipping_address:
     shipping_address: ~

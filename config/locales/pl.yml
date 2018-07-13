@@ -412,6 +412,8 @@ pl:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
@@ -465,6 +467,30 @@ pl:
         dropdown: "Pokazuj jako rozwijalne menu"
         checkbox_group: "Pole wybory grupy"
         date: Data
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: "Wyślij wiadomość do użytkowników"
@@ -2031,6 +2057,7 @@ pl:
       create_account_with_facebook: "Zarejestruj się poprzez Facebooka"
       OR: LUB
       signup_with_email: "Zarejestruj się przez email"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "stopień:"
       and_gave_following_feedback: "oraz daj następującą opinię"
@@ -2193,6 +2220,7 @@ pl:
       default_in_listing: "(używane wyłącznie jako domyślne przy tworzeniu nowej oferty)"
       invisible: "(nie widoczne dla innych użytkowników)"
       image_is_processing: "Trzymaj się mocno. Przetwarzamy właśnie Twoje zdjęcie profilowe. Będzie gotowe za minutę lub dwie."
+      shown_in_your_public_profile: ~
     save_information: "Zapisz informacje"
   shipping_address:
     shipping_address: "Adres dostawy"

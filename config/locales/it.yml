@@ -387,6 +387,8 @@ it:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -440,6 +442,30 @@ it:
         dropdown: ~
         checkbox_group: ~
         date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1982,6 +2008,7 @@ it:
       create_account_with_facebook: "Crea un account tramite Facebook"
       OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "grado:"
       and_gave_following_feedback: "e dare il successivo feedback"
@@ -2146,6 +2173,7 @@ it:
       default_in_listing: "(usato solo come impostazione di base quando crei un nuovo annuncio)"
       invisible: "(non visibile ad altri utenti)"
       image_is_processing: "L'immagine di profilo è pronta. Per favore, ricarica tra un po' di tempo la pagina."
+      shown_in_your_public_profile: ~
     save_information: "Salva le informazioni"
   shipping_address:
     shipping_address: "Indirizzo di consegna"
@@ -2456,9 +2484,9 @@ it:
     paypal: ~
     bank_account_details: "Per ricevere denaro sul tuo conto corrente, devi fornire i tuoi dettagli bancari. I tuoi clienti potranno pagare con carta."
     add_bank_details: "Aggiungi dettagli bancari"
-    can_accept_stripe_and_paypal: ~
-    to_accept_paypal: ~
-    connect_paypal: ~
+    can_accept_stripe_and_paypal: "Puoi scegliere se ricevere il pagamento sul tuo conto corrente bancario o sul tuo profilo PayPal."
+    to_accept_paypal: "Per ricevere denaro sul tuo conto PayPal, devi fornire i dettagli del tuo profilo PayPal. I tuoi clienti potranno pagare con PayPal."
+    connect_paypal: "Aggiungi dettagli PayPal"
     wrong_setup: ~
     invalid_bank_account_number: "Ti preghiamo di controllare che il conto corrente sia stato inserito correttamente e coincida con la tua nazione"
     invalid_postal_code: "Codice postale non valido per %{country}"

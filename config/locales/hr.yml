@@ -387,6 +387,8 @@ hr:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "Izmijeni oglasno polje '%{field_name}'"
@@ -440,6 +442,30 @@ hr:
         dropdown: "Padajući izbornik"
         checkbox_group: "Grupa kućica"
         date: Datum
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: ~
@@ -1979,6 +2005,7 @@ hr:
       create_account_with_facebook: "Registrirajte se uz Facebook"
       OR: ILI
       signup_with_email: "Registrirajte se uz email"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "ocjena:"
       and_gave_following_feedback: "i dao je sljedeću povratnu informaciju"
@@ -2141,6 +2168,7 @@ hr:
       default_in_listing: "(korišteno samo kao zadano pri kreiranju novog oglasa)"
       invisible: "(nije prikazano ostalim korisnicima)"
       image_is_processing: "Molimo za strpljenje. Obrađujemo vašu profilnu sliku. Biti će spremna za minutu ili dvije."
+      shown_in_your_public_profile: ~
     save_information: "Spremite informacije"
   shipping_address:
     shipping_address: "Adresa isporuke"

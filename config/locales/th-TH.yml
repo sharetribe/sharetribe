@@ -397,6 +397,8 @@ th-TH:
           status: ~
         open: ~
         closed: ~
+      user_fields:
+        user_fields: ~
     custom_fields:
       edit:
         edit_listing_field: "แก้ไขข้อมูลรายการ '%{field_name}'"
@@ -450,6 +452,30 @@ th-TH:
         dropdown: Dropdown
         checkbox_group: กลุ่มกล่องกาเครื่องหมาย
         date: วันที่
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: ส่งอีเมล์ไปหาผู้ใช้
@@ -1991,6 +2017,7 @@ th-TH:
       create_account_with_facebook: "สมัครสมาชิกด้วย Facebook"
       OR: หรือ
       signup_with_email: สมัครสมาชิกด้วยอีเมล์
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: "เกรด:"
       and_gave_following_feedback: และให้ข้อเสนอแนะดังต่อไปนี้
@@ -2153,6 +2180,7 @@ th-TH:
       default_in_listing: "(ใช้เป็นค่าเริ่มต้น เมื่อมีการสร้างประกาศซื้อขายอันใหม่)"
       invisible: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
       image_is_processing: ~
+      shown_in_your_public_profile: ~
     save_information: บันทึกข้อมูล
   shipping_address:
     shipping_address: ที่อยู่ในการจัดส่ง
