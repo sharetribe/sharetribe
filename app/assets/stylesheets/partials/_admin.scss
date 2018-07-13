@@ -43,3 +43,10 @@ select#locale-selection {
   visibility: hidden;
   height: em(50);
 }
+
+.info-text-container {
+  &.filename-container {
+    margin-top: 0;
+  }
+}
+
