@@ -104,8 +104,6 @@ module NavigationHelpers
       admin_person_custom_fields_path(:locale => "en")
     when /the listings admin page/
       admin_community_listings_path(:community_id => @current_community.id)
-    when /the person custom fields admin page/
-      admin_person_custom_fields_path(:locale => "en")
     else
       begin
         page_name =~ /the (.*) page/
