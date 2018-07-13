@@ -16,8 +16,7 @@
 
     .row
       - if @person.description && !@person.description.blank?
-        - text_with_line_breaks do
-          = @person.description
+        = markdown(@person.description)
       - elsif current_user?(@person)
         %a{href: person_settings_path(@person)}
           .icon-with-text-container
