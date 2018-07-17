@@ -41,12 +41,13 @@ Given(/^there is a( required)? person custom checkbox field "(.*?)" in community
   create_person_custom_field_with_options(:person_custom_checkbox_field, required, name, community, options)
 end
 
-Given(/^there is a( required)? person custom text field "(.*?)" in community "(.*?)"$/) do |required, name, community|
+Given(/^there is a( required)?( public)? person custom text field "(.*?)" in community "(.*?)"$/) do |required, is_public, name, community|
   current_community = Community.where(ident: community).first
   custom_field = FactoryGirl.build(:person_custom_text_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
     :required => required,
+    :public => is_public,
     sort_priority: @person_custom_field_sort_priority
   })
 
