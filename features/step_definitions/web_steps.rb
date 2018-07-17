@@ -219,6 +219,12 @@ Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, se
   end
 end
 
+Then /^(?:|I )should see link "([^"]*)" to "([^"]*)"(?: within "([^"]*)")?$/ do |text, href, selector|
+  with_scope(selector) do
+    expect(page).to have_link(text, href: href)
+  end
+end
+
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain "([^"]*)"$/ do |field, selector, value|
   with_scope(selector) do
     field = find_field(field)
