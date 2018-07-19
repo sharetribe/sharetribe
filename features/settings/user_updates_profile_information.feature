@@ -62,3 +62,14 @@ Feature: User updates profile information
     And the "German language" checkbox should not be checked
     And the "French language" checkbox should be checked
 
+  @javascript
+  Scenario: Profile's custom text field has autolink
+    Given feature flag "user_fields" is enabled
+    And there is a required public person custom text field "Hobby" in community "test"
+    And I am on the profile settings page
+    And I fill in "person_custom_fields_0" with "Airplane models www.example.com"
+    And I press "Save information"
+    Then I should see "Information updated" within ".flash-notifications"
+    And I am on my profile page
+    Then should see link "www.example.com" to "http://www.example.com"
+
