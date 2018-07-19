@@ -822,6 +822,7 @@ CREATE TABLE `marketplace_configurations` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `limit_search_distance` tinyint(1) NOT NULL DEFAULT '1',
+  `footer_style` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_marketplace_configurations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -915,6 +916,7 @@ CREATE TABLE `menu_links` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `sort_priority` int(11) DEFAULT '0',
+  `entity_type` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2270,6 +2272,8 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180518073348'),
 ('20180523121344'),
 ('20180524075239'),
-('20180524081429');
+('20180524081429'),
+('20180717122957'),
+('20180719074644');
 
 

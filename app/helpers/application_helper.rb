@@ -438,6 +438,18 @@ module ApplicationHelper
       }
     ]
 
+    if FeatureFlagHelper.feature_enabled?(:footer)
+      links += [
+        {
+          :topic => :configure,
+          :text => t("admin.communities.footer.footer"),
+          :icon_class => icon_class("footer_menu"),
+          :path => admin_footer_edit_path,
+          :name => "footer"
+        }
+      ]
+    end
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
