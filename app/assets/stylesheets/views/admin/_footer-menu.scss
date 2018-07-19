@@ -1,0 +1,21 @@
+@import "mixins/all";
+
+.footer-menu-container-padding {
+  padding: lines(0.5);
+  padding-bottom: 0;
+}
+
+.footer-menu-container {
+  @extend .footer-menu-container-padding;
+
+  &:nth-of-type(odd) {
+    background: $highlight;
+  }
+}
+
+#footer-menu-form {
+  input[type="radio"] {
+    margin-left: 0.75em
+  }
+}
+

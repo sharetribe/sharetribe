@@ -213,8 +213,12 @@ Rails.application.routes.draw do
       patch "/new_layout"         => "communities#update_new_layout",           as: :update_new_layout
 
       # Topbar menu
-      get   "/topbar/edit"        => "communities#topbar",                      as: :topbar_edit
-      patch "/topbar"             => "communities#update_topbar",               as: :topbar
+      get   "/topbar/edit"        => "communities/topbar#edit",                 as: :topbar_edit
+      patch "/topbar"             => "communities/topbar#update",               as: :topbar
+
+      # Footer menu
+      get   "/footer/edit"        => "communities/footer#edit",                 as: :footer_edit
+      patch "/tooter"             => "communities/footer#update",               as: :footer
 
       # Landing page menu
       get   "/landing_page"         => "communities#landing_page",                  as: :landing_page

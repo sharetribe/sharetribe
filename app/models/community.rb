@@ -113,7 +113,8 @@ class Community < ApplicationRecord
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, -> { order("sort_priority") }, :dependent => :destroy
+  has_many :menu_links, -> { for_topbar.sorted }, :dependent => :destroy
+  has_many :footer_menu_links, -> { for_footer.sorted }, :class_name => "MenuLink",  :dependent => :destroy
 
   has_many :categories, -> { order("sort_priority") }
   has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category"
@@ -142,6 +143,8 @@ class Community < ApplicationRecord
   has_one :social_logo, :dependent => :destroy
 
   accepts_nested_attributes_for :social_logo
+
+  accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
 
   after_create :initialize_settings
 
