@@ -1,0 +1,67 @@
+- content_for :javascript do
+  ST.FooterMenu.init();
+
+- show_locales = available_locales.size > 1
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.footer.footer")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  %h2= t("admin.communities.footer.footer")
+  = form_for @service.community, url: admin_footer_path, method: :patch,
+    html: {id: "footer-menu-form"} do |form|
+    %h3= t("admin.communities.footer.footer_style")
+    .row
+      .col-12
+        = radio_button_tag 'configuration[footer_style]', 'dark', @service.configuration_dark?,
+          id: 'configuration-dark'
+        %label.checkbox-row-label{for: 'configuration-dark'}
+          = t("admin.communities.footer.style.dark")
+        = radio_button_tag 'configuration[footer_style]', 'light', !@service.configuration_dark?,
+          id: 'configuration-light'
+        %label.checkbox-row-label{for: 'configuration-light'}
+          = t("admin.communities.footer.style.light")
+
+
+    %h3= t("admin.communities.footer.menu_links")
+    #menu-links-table
+      .row.topbar-menu-container-padding.visible-tablet
+        .col-10
+          - if show_locales
+            .col-2
+              = label_tag do
+                = t("admin.communities.footer.language")
+          %div{class: show_locales ? "col-5" : "col-6"}
+            = label_tag do
+              = t("admin.communities.footer.title")
+          %div{class: show_locales ? "col-5" : "col-6"}
+            = label_tag do
+              = t("admin.communities.footer.url")
+
+    .row#menu-links
+      - @service.footer_menu_links.each do |footer_menu_link|
+        = form.fields_for :footer_menu_links, footer_menu_link do |fields|
+          = render "footer_menu_link", f: fields
+
+      - new_footer_menu_link = @service.new_footer_menu_link
+      = form.fields_for :footer_menu_links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
+        %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+          = render "footer_menu_link", f: fields
+
+    .row#menu-links-empty
+      .col-12
+        = t("admin.communities.menu_links.empty")
+
+    .row
+      .col-12
+        = link_to t("admin.communities.footer.add"), '#', class: "add-fields",
+          data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+    .row
+      .col-12
+        = form.button t("admin.communities.footer.save")
