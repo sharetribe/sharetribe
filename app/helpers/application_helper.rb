@@ -438,7 +438,7 @@ module ApplicationHelper
       }
     ]
 
-    if FeatureFlagHelper.feature_enabled?(:footer)
+    if pro_plan? && FeatureFlagHelper.feature_enabled?(:footer)
       links += [
         {
           :topic => :configure,
