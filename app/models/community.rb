@@ -138,8 +138,10 @@ class Community < ApplicationRecord
   has_many :marketplace_sender_emails
 
   has_one :configuration, class_name: 'MarketplaceConfigurations'
+  has_many :social_links, -> { sorted }, :dependent => :destroy
 
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :social_links, allow_destroy: true
 
   after_create :initialize_settings
 
