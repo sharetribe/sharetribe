@@ -69,7 +69,7 @@ window.ST = window.ST || {};
         index++;
       });
       form.submit();
-   };
+    };
 
     form.validate({submitHandler: submitHandler});
   };

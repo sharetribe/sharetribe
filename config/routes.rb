@@ -218,7 +218,11 @@ Rails.application.routes.draw do
 
       # Footer menu
       get   "/footer/edit"        => "communities/footer#edit",                 as: :footer_edit
-      patch "/tooter"             => "communities/footer#update",               as: :footer
+      patch "/footer"             => "communities/footer#update",               as: :footer
+
+      # Footer social links
+      get   "/footer_social/edit" => "communities/footer_social#edit",          as: :footer_social_edit
+      patch "/footer_social"      => "communities/footer_social#update",        as: :footer_social
 
       # Landing page menu
       get   "/landing_page"         => "communities#landing_page",                  as: :landing_page
