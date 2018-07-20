@@ -92,6 +92,8 @@
 #  end_user_analytics                         :boolean          default(TRUE)
 #  show_slogan                                :boolean          default(TRUE)
 #  show_description                           :boolean          default(TRUE)
+#  footer_theme                               :integer          default(0)
+#  footer_copyright                           :text(65535)
 #
 # Indexes
 #
@@ -274,6 +276,14 @@ class Community < ApplicationRecord
   process_in_background :favicon
 
   before_save :cache_previous_image_urls
+
+  FOOTER_DARK = 'dark'.freeze
+  FOOTER_LIGHT = 'light'.freeze
+  FOOTER_THEMES = {
+    FOOTER_DARK => 0,
+    FOOTER_LIGHT => 1
+  }.freeze
+  enum footer_theme: FOOTER_THEMES
 
   def uuid_object
     if self[:uuid].nil?
