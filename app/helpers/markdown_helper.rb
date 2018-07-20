@@ -7,7 +7,14 @@ module MarkdownHelper
 
   def markdown_renderer
     @markdown_renderer ||= Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML.new(filter_html: true, hard_wrap: true),
+      Redcarpet::Render::HTML.new(
+        filter_html: true,
+        hard_wrap: true,
+        no_images: true,
+        no_styles: true
+      ),
+      strikethrough: true,
+      underline: true,
       autolink: true
     )
   end
