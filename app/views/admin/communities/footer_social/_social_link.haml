@@ -1,0 +1,22 @@
+- social_link = f.object
+.row.without-margin.menu-link-sortable.footer-social-container{id: f.index, data: {"field-id": f.index}}
+  .col-10
+    = f.hidden_field :id
+    = f.hidden_field :sort_priority, class: 'sort-priority'
+    = f.hidden_field :provider
+    .row
+      .col-6
+        = f.check_box :enabled
+        %span.provider
+          = t("admin.communities.footer_social.#{social_link.provider}")
+
+      .col-6
+        %span.hidden-tablet
+          = t("admin.communities.footer_social.url")
+        = f.text_field :url, maxlength: 255
+
+  .col-2.menu-links-actions
+    = link_to '#', class: "menu-link-action-up admin-sort-button", tabindex: "-1" do
+      = icon_tag("directup", ["icon-fix"])
+    = link_to '#', class: "menu-link-action-down admin-sort-button", tabindex: "-1" do
+      = icon_tag("directdown", ["icon-fix"])

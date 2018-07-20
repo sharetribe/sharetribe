@@ -308,7 +308,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -438,6 +438,26 @@ module ApplicationHelper
       }
     ]
 
+    if pro_plan? && FeatureFlagHelper.feature_enabled?(:footer)
+      links += [
+        {
+          :topic => :configure,
+          :text => t("admin.communities.footer.footer"),
+          :icon_class => icon_class("footer_menu"),
+          :path => admin_footer_edit_path,
+          :name => "footer"
+        },
+        {
+          :topic => :configure,
+          :text => t("admin.communities.footer_social.social_links"),
+          :icon_class => icon_class("social_media"),
+          :path => admin_footer_social_edit_path,
+          :name => "footer_social"
+        },
+
+      ]
+    end
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
@@ -535,7 +555,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
