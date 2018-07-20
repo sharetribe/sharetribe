@@ -15,18 +15,18 @@ class Admin::Communities::FooterService
   end
 
   def update
-    community.update_attributes(footer_params) &&
-      community.configuration.update_attributes(configuration_params)
+    community.update_attributes(footer_params)
   end
 
-  def configuration_dark?
-    community.configuration.footer_style == MarketplaceConfigurations::DARK
+  def footer_theme_dark?
+    community.footer_theme == Community::FOOTER_DARK
   end
 
   private
 
   def footer_params
     params.require(:community).permit(
+      :footer_theme, :footer_copyright,
       footer_menu_links_attributes: [
         :id, :entity_type, :sort_priority, :_destroy,
         translation_attributes: Hash[community.locales.collect { |item| [item.to_sym, [:title, :url]] } ]

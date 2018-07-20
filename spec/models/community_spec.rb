@@ -91,6 +91,8 @@
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
 #  end_user_analytics                         :boolean          default(TRUE)
+#  footer_theme                               :integer          default(0)
+#  footer_copyright                           :text(65535)
 #
 # Indexes
 #
