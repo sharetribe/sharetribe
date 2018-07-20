@@ -18,11 +18,11 @@
     %h3= t("admin.communities.footer.footer_style")
     .row
       .col-12
-        = radio_button_tag 'configuration[footer_style]', 'dark', @service.configuration_dark?,
+        = radio_button_tag 'community[footer_theme]', 'dark', @service.footer_theme_dark?,
           id: 'configuration-dark'
         %label.checkbox-row-label{for: 'configuration-dark'}
           = t("admin.communities.footer.style.dark")
-        = radio_button_tag 'configuration[footer_style]', 'light', !@service.configuration_dark?,
+        = radio_button_tag 'community[footer_theme]', 'light', !@service.footer_theme_dark?,
           id: 'configuration-light'
         %label.checkbox-row-label{for: 'configuration-light'}
           = t("admin.communities.footer.style.light")
@@ -61,6 +61,11 @@
       .col-12
         = link_to t("admin.communities.footer.add"), '#', class: "add-fields",
           data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+    %h3= t("admin.communities.footer.footer_copyright")
+    .row
+      .col-12
+        = form.text_area :footer_copyright
 
     .row
       .col-12

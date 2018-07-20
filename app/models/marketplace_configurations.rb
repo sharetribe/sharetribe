@@ -10,7 +10,6 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  limit_search_distance :boolean          default(TRUE), not null
-#  footer_style          :integer          default("dark")
 #
 # Indexes
 #
@@ -18,11 +17,5 @@
 #
 
 class MarketplaceConfigurations < ApplicationRecord
-  DARK = 'dark'.freeze
-  LIGHT = 'light'.freeze
-  FOOTER_STYLES = {
-    DARK => 0,
-    LIGHT => 1
-  }.freeze
-  enum footer_style: FOOTER_STYLES
+
 end
