@@ -13,7 +13,7 @@ module MarkdownHelper
         strikethrough: true,
         underline: true,
         no_images: true,
-        no_styles: true,
+        no_styles: true
       ),
       autolink: true
     )
