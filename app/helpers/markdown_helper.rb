@@ -10,11 +10,11 @@ module MarkdownHelper
       Redcarpet::Render::HTML.new(
         filter_html: true,
         hard_wrap: true,
-        strikethrough: true,
-        underline: true,
         no_images: true,
         no_styles: true
       ),
+      strikethrough: true,
+      underline: true,
       autolink: true
     )
   end
