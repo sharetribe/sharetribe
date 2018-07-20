@@ -267,6 +267,8 @@ CREATE TABLE `communities` (
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   `end_user_analytics` tinyint(1) DEFAULT '1',
+  `footer_theme` int(11) DEFAULT '0',
+  `footer_copyright` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -822,7 +824,6 @@ CREATE TABLE `marketplace_configurations` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `limit_search_distance` tinyint(1) NOT NULL DEFAULT '1',
-  `footer_style` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_marketplace_configurations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2290,7 +2291,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180524075239'),
 ('20180524081429'),
 ('20180717122957'),
-('20180719074644'),
-('20180720044534');
+('20180720044534'),
+('20180720065907');
 
 
