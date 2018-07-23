@@ -8,7 +8,8 @@ class FooterPresenter < MemoisticPresenter
   end
 
   def display?
-    FeatureFlagHelper.feature_enabled?(:footer)
+    FeatureFlagHelper.feature_enabled?(:footer) &&
+      community.footer_enabled
   end
 
   def links?
@@ -28,11 +29,11 @@ class FooterPresenter < MemoisticPresenter
   end
 
   def social_media_icon_color
-    'FFFFFF'
+    community.custom_color1
   end
 
   def social_media_icon_color_hover
-    'D9D9D9'
+    (0..2).map{ |x| community.custom_color1.slice(x*2, 2).to_i(16) }.join(',')
   end
 
   def copyright

@@ -15,6 +15,11 @@
   %h2= t("admin.communities.footer.footer")
   = form_for @service.community, url: admin_footer_path, method: :patch,
     html: {id: "footer-menu-form"} do |form|
+    %h3= t("admin.communities.footer.footer_enabled")
+    .row
+      .col-12
+        = form.check_box :footer_enabled
+
     %h3= t("admin.communities.footer.footer_style")
     .row
       .col-12
@@ -61,6 +66,22 @@
       .col-12
         = link_to t("admin.communities.footer.add"), '#', class: "add-fields",
           data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+    %h3= t("admin.communities.footer.social_links")
+    #menu-links-table
+      .row.topbar-menu-container-padding.visible-tablet
+        .col-10
+          .col-6
+            = label_tag do
+              = t("admin.communities.footer.social.title")
+          .col-6
+            = label_tag do
+              = t("admin.communities.footer.social.url")
+
+    .row#social-links
+      - @service.social_links.each do |social_link|
+        = form.fields_for :social_links, social_link do |fields|
+          = render "social_link", f: fields
 
     %h3= t("admin.communities.footer.footer_copyright")
     .row
