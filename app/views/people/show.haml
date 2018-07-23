@@ -14,7 +14,7 @@
       .profile-action-buttons-mobile
         = render :partial => "profile_action_buttons"
 
-    .row
+    .row.profile-about-me
       - if @person.description && !@person.description.blank?
         = markdown(@person.description)
       - elsif current_user?(@person)
