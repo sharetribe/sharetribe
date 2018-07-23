@@ -93,8 +93,9 @@
 #  end_user_analytics                         :boolean          default(TRUE)
 #  show_slogan                                :boolean          default(TRUE)
 #  show_description                           :boolean          default(TRUE)
-#  footer_theme                               :integer          default(0)
+#  footer_theme                               :integer          default("dark")
 #  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
 #
 # Indexes
 #

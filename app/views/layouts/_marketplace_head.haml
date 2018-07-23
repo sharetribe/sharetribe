@@ -68,8 +68,8 @@
 - if @current_community.has_customizations?
   = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
 
-- if content_for?(:footer_css)
-  = yield :footer_css
+- if @custom_footer.try(:display?)
+  = render 'layouts/footer/css'
 
 = stylesheet_link_tag "app-bundle"
 

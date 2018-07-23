@@ -446,15 +446,7 @@ module ApplicationHelper
           :icon_class => icon_class("footer_menu"),
           :path => admin_footer_edit_path,
           :name => "footer"
-        },
-        {
-          :topic => :configure,
-          :text => t("admin.communities.footer_social.social_links"),
-          :icon_class => icon_class("social_media"),
-          :path => admin_footer_social_edit_path,
-          :name => "footer_social"
-        },
-
+        }
       ]
     end
 

@@ -69,7 +69,6 @@
 //= require admin/manage_members
 //= require admin/topbar_menu
 //= require admin/footer_menu
-//= require admin/footer_social
 //= require admin/community_customizations
 //= require admin/listing_shapes
 //= require admin/settings.js

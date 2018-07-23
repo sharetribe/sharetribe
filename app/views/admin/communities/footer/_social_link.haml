@@ -8,11 +8,11 @@
       .col-6
         = f.check_box :enabled
         %span.provider
-          = t("admin.communities.footer_social.#{social_link.provider}")
+          = t("admin.communities.footer.social.#{social_link.provider}")
 
       .col-6
         %span.hidden-tablet
-          = t("admin.communities.footer_social.url")
+          = t("admin.communities.footer.social.url")
         = f.text_field :url, maxlength: 255
 
   .col-2.menu-links-actions

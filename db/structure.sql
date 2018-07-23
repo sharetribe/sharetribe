@@ -271,6 +271,7 @@ CREATE TABLE `communities` (
   `show_description` tinyint(1) DEFAULT '1',
   `footer_theme` int(11) DEFAULT '0',
   `footer_copyright` text,
+  `footer_enabled` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2315,6 +2316,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20181024094615'),
 ('20180717122957'),
 ('20180720044534'),
-('20180720065907');
+('20180720065907'),
+('20180723115548');
 
 
