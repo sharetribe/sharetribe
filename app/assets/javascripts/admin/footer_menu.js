@@ -2,6 +2,17 @@ window.ST = window.ST || {};
 
 (function(module) {
   var init = function() {
+    var socialFieldMap = $(".footer-social-container").map(function(id, entry) {
+      return {
+        id: $(entry).data("field-id"),
+        element: $(entry),
+        up: $(".menu-link-action-up", entry),
+        down: $(".menu-link-action-down", entry)
+      };
+    }).get();
+
+    window.ST.orderManager(socialFieldMap);
+
     var fieldMap = $(".footer-menu-container").map(function(id, entry) {
       return {
         id: $(entry).data("field-id"),
@@ -62,12 +73,17 @@ window.ST = window.ST || {};
       return event.preventDefault();
     });
 
-    var submitHandler = function(form) {
+    var setSortPriority = function(selector) {
       var index = 0;
-      $(".sort-priority").each(function(){
+      $(selector).each(function(){
         $(this).val(index);
         index++;
       });
+    };
+
+    var submitHandler = function(form) {
+      setSortPriority("#menu-links .sort-priority");
+      setSortPriority("#social-links .sort-priority");
       form.submit();
     };
 
