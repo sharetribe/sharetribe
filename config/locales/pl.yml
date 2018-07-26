@@ -139,6 +139,7 @@ pl:
         invalid_color_code: "Kod kolory powinien zawierać sześć cyfr lub liter od A do F, np. D96E21."
         custom_head_script: "Skrypt niestandardowy"
         custom_head_script_instructions_text: "Ten skrypt jest osadzony wewnątrz tagu <head>  dla każdej strony i może być użyty do wstawienia niestandardowego kodu CSS, JavaScript czy HTML. Zwróć proszę uwagę, że przyszłe zmiany w Sharetribe mogą spowodować, ze Twój skrypt stanie się niekompatybilny."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Tekst instrukcji"
       edit_welcome_email:
@@ -2208,6 +2209,7 @@ pl:
       display_name: "Imię wyświetlane"
       display_name_description: "Jeśli reprezentujesz organizację lub firmę, możesz użyć jej nazwy jako imię wyświetlane. Imię wyświetlane jest pokazywane innym użytkownikom zamiast twojego imienia i nazwiska."
       location_description: "Możesz podać albo adres albo miasto lub kod pocztowy. Dobrze jest także dodać nazwę kraju podając lokalizację. Przykład: \"87-100 Toruń, Polska\" albo \"Marszałkowska 16, Warszawa, Polska\""
+      profile_picture_description: ~
       phone_number: "Numer telefonu"
       profile_picture: "Zdjęcie profilowe"
       postal_code: "Kod pocztowy"

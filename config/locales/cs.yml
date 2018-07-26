@@ -120,7 +120,7 @@ cs:
         small_cover_photo_instructions_text_with_dimensions: "Fotografie bude přizpůsobena velikosti %{width}x%{height} pixelů a větší obrázky budou ořezány."
         main_content_width: "Při výběru úvodních fotek vezměte na vědomí, že rozlišení hlavní stránky je maximálně %{main_width} pixelů na šířku. Nezapomeňte také zkontrolovat, jak bude Vaše úvodní fotografie vypadat na menších obrazovkách. (např. použitím užších oken vyhledávačů)."
         custom_color1_instructions_text: "Můžete změnit základní barvu uživatelského rozhraní zadáním hodnoty hexa barvy. Na <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> si můžete vybrat barvu a následně sem bude zkopírován kód barvy."
-        new_listing_button_instructions_text: ~
+        new_listing_button_instructions_text: "Barvu tlačítka Přidat nový záznam můžete změnit zadáním hexadecimální hodnoty. %{link_to_colorpicker} vám pomůže vybrat barvu a poskytnout vám hexadecimální kód. Pak můžete kód zkopírovat."
         default_browse_view: "Výchozí zobrazení prohlížeče"
         default_browse_view_instructions_text: "Výchozí zobrazení prohlížeče se používá na domovské stránce k nastavení, jak mají být inzeráty zobrazeny ve výchozím nastavení."
         grid: Mřížka
@@ -134,6 +134,7 @@ cs:
         invalid_color_code: "Kód barvy by měl obsahovat 6 čísel nebo písmena A-F, například D96E21"
         custom_head_script: "Vlastní skript"
         custom_head_script_instructions_text: "Tento skript je součástí <head> části každé stránky a může být vložen do CSS, JavaScript nebo HTML. Vezměte na vědomí, že budoucí změny v Sharetribe mohou způsobit, že Váš skript nebude kompatibilní."
+        current_image: "Současný obrázek:"
       edit_text_instructions:
         edit_text_instructions: Návody
       edit_welcome_email:
@@ -298,7 +299,7 @@ cs:
         google_analytics_key_info_text_with_instructions: "Sledování identifikačního čísla Vašeho Google Analytics účtu. %{instructions_link}"
         google_analytics_instructions_link_text: "Přečtěte si více o připojení ke Google Analytics"
         sharetribe_analytics: "Analýzy Sharetribe"
-        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_info_text_with_instructions: "Chcete-li zlepšit služby Sharetribe, nechte Sharetribe sledovat činnost členů trhu. Osobní údaje nejsou shromažďovány a nejsou sdíleny mimo tým Sharetribe. Toto sledování lze zcela zakázat. %{instructions_link}"
         sharetribe_analytics_instructions_link_text: "Přečtěte si více o analytické službě Sharetribe."
         end_user_analytics: "Umožněte společnosti Sharetribe sledovat činnost členů s cílem zlepšit služby Sharetribe"
         save: "Uložit nastavení"
@@ -314,7 +315,7 @@ cs:
         empty: "Nejsou zde žádné odkazy"
         max_number_of_links: "Maximální počet odkazů zobrazených v horním řádku:%{select_max_number}"
         all: Vše
-        max_number_of_links_info: ~
+        max_number_of_links_info: "Odkaz na %{about_page} se vždy zobrazí v menu jako první"
         about_page: "o nás"
       topbar:
         topbar: "Horní lišta"
@@ -390,7 +391,7 @@ cs:
           author: Autor
           receiver: Příjemce
           status: Status
-          grade: ~
+          grade: stupeň
           note: Poznámka
         status:
           waiting: "Čeká na recenzi"
@@ -408,7 +409,7 @@ cs:
         open: Otevřeno
         closed: Zavřeno
       user_fields:
-        user_fields: ~
+        user_fields: "Uživatelská pole"
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
@@ -462,30 +463,30 @@ cs:
         dropdown: Rozbalit
         checkbox_group: "Zaškrtávací pole"
         date: Datum
-        file: ~
-        location: ~
+        file: Soubor
+        location: Adresa
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Uložení pole uživatele selhalo"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: "Uživatelská pole"
+        field_title: "Název pole"
+        field_type: "Typ pole"
+        add_new_field: "Přidat nové pole:"
+        save: Uložit
+        cancel: Zrušit
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Povolit desetinná místa"
+        add_option: "Přidat možnost"
       new:
-        new_user_field: ~
+        new_user_field: "Nové uživatelské pole"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Uveďte povinnost vyplnit toto pole při registraci na web"
+          this_field_is_required_checkbox: "Uveďte povinnost vyplnit toto pole při registraci na web (uživatel musí vybrat alespoň jednu možnost)"
+          this_field_is_public: "Zobrazit toto pole na stránce veřejného profilu"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Upravit uživatelské pole '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Poslat e-mail uživatelům"
@@ -531,7 +532,7 @@ cs:
       per_hour_availability: "Dostupnost \"Za hodinu\""
       per_day_availability: "Dostupnost \"Za den\""
       per_night_availability: "Dostupnost \"Za noc\""
-      pricing_units_disabled_info: ~
+      pricing_units_disabled_info: "Cenové jednotky nelze použít, když aktivován kalendář dostupnosti"
       can_not_find_name: "Nelze zjistit typ objednávky se jménem: %{name}"
       index:
         listing_shapes: "Typy objednávek"
@@ -671,7 +672,7 @@ cs:
       stripe_fee: "Stripe poplatky"
       stripe_fee_notice: "%{stripe_fee_link} bude odečten od poplatku, který účtujete."
       fee_should_be_less_than_minimum_price: "Minimální transakční poplatek musí být nižší než minimální transakce"
-      confirm_disable: ~
+      confirm_disable: "Opravdu chcete zakázat%{gateway}? Zakážete-li to, prodávající již nebudou moci přijímat peníze a zákazníci již nebudou moci platit prostřednictvím této platební metody. Pokud prodávající nenakonfigurovali jiný způsob platby, zákazníci od nich nebudou moci kupovat."
       stripe_connected:
         title: "Stripe připojeno"
         disable: "Zakázat Stripe"
@@ -682,8 +683,8 @@ cs:
         disable: "Zakázat PayPal"
         disabled: "PayPal zakázán"
         enable: "Znovu povolit PayPal"
-      cannot_enable_gateway: ~
-      cannot_disable_gateway: ~
+      cannot_enable_gateway: "Nelze povolit platební bránu %{gateway}"
+      cannot_disable_gateway: "Nelze zakázat platební bránu %{gateway}"
       stripe_form:
         add_your_api_keys: "Vložte váš Stripe API klíč"
         how_to_get_these: "Jak je získat?"
@@ -813,7 +814,7 @@ cs:
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Nezahrnuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatek za zpracování</a>"
-      payment_fee_info: ~
+      payment_fee_info: "* Nezahrunuje <a id='%{fee_info_link_id}' href='#'>poplatek za zpracování platby</a>"
       shipping_price_label: "Doprava:"
       stripe-fee_label: "Poplatek za zpracování platby"
     confirm:
@@ -1033,10 +1034,10 @@ cs:
       message_not_displaying_correctly: "Nezobrazuje se Vám tento e-mail správně?"
       view_it_in_your_browser: "Zobrazte si jej ve svém prohlížeči."
       or: nebo
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "Obdrželi jste tento email, protože jste členem webu %{service_name}."
       unsubscribe_from_these_emails: "odhlásit se z přijímaní těchto e-mailů"
-      unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails_info: "Tento email jste obdrželi, protože vás pozval člen webu%{service_name}."
+      unsubscribe_from_invitation_emails: "Odhlásit se od pozvánek k připojení k webu%{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "Uživatel %{accepter} přijal/a Vaši nabídku %{listing}."
       has_accepted_your_request: "Uživatel %{accepter} přijal/a Vaši žádost %{listing}."
@@ -1159,7 +1160,7 @@ cs:
       transaction_requested_by_user: "Uživatel %{requester} zažádal a autorizoval platbu pro inzerát %{listing_title}"
       you_have_time_to_accept: "Musíte přijmout nebo odmítnout žádost do %{payment_expires_in}. Pokud žádost do té doby přijmete, bude platba provedena. Pokud ji do té doby nepřijmete, žádost bude automaticky odmítnuta a nedostanete zaplaceno."
       if_you_do_accept: "Pokud žádost přijmete v tomto časovém rámci, obdržíte peníze okamžitě na váš účet."
-      if_you_do_accept_stripe: ~
+      if_you_do_accept_stripe: "Pokud v tomto čase přijmete žádost, platba proběhne. Po vložení %{listing_title} na %{requester} obdržíte peníze přímo na váš bankovní účet."
       if_you_do_not_accept: ~
       click_here_to_reply: "Klikněte zde a odpovězte na žádost"
     transaction_preauthorized_reminder:
@@ -1185,7 +1186,7 @@ cs:
       person_email: "Email:"
   error_messages:
     booking:
-      booking_failed_payment_voided: ~
+      booking_failed_payment_voided: "Rezervace se nezdařila, kvůli neočekávané chybě. Zkuste to prosím později."
       double_booking_payment_voided: ~
     onboarding:
       server_rendering: ~
@@ -1210,7 +1211,7 @@ cs:
       accept_authorization_error: "Došlo k chybě při pokusu o přijetí předschválení PayPal platby. Prosíme, zkuste to znovu."
       reject_authorization_error: "Došlo k chybě při pokusu o odmítnutí předschválení PayPal platby. Prosíme, zkuste to znovu."
     stripe:
-      generic_error: ~
+      generic_error: "Během platby došlo k chybě. Nelze dokončit platbu přes Stripe."
       accept_authorization_error: "Došlo k chybě při pokusu o přijetí předem schválené platby Stripe. Prosím, zkuste to znovu"
       reject_authorization_error: "Došlo k chybě při pokusu o zamítnutí předem schválené platby Stripe. Prosím, zkuste to znovu"
   error_pages:
@@ -1431,7 +1432,7 @@ cs:
       join_this_community: "Připojit se k tržišti"
       read_more: "Přečtete si více"
       feedback: "Tvoje zpráva pro %{service_name} tým"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "Zjistili jsme, že jste správcem %{service_name}. Tento formulář je to, co uživatelé používají k tomu, aby vás kontaktovali. Tento formulář nelze použít ke kontaktování podpory služby Sharetribe. Můžete to udělat pomocí widgetu podpory v pravém dolním rohu administračního panelu."
       feedback_forum: "Diskuzní fórum"
       feedback_handle: "Napište nám"
       give_feedback: "Kontaktujte nás"
@@ -1510,10 +1511,10 @@ cs:
       feedback_sent_to: "Zpětná vazba odeslána uživateli %{target_person}."
       feedback_skipped: "Zpětná vazba přeskočena"
       invitation_cannot_be_sent: "Pozvánka nemohla být odeslána"
-      invitation_cannot_unsubscribe: ~
+      invitation_cannot_unsubscribe: "Nelze se odhlásit od přijímání pozvánek"
       invitation_limit_reached: "Snažíte se poslat příliš mnoho pozvánek. Dosáhli jste již denního limitu."
       invitation_sent: "Pozvánka byla úspěšně odeslána"
-      invitation_successfully_unsubscribed: ~
+      invitation_successfully_unsubscribed: "Úspěšně jste se odhlásili od přijímání emailů s pozvánkami"
       inviting_new_users_is_not_allowed_in_this_community: "Není povoleno pozvat nové uživatele."
       login_again: "Prosíme, přihlaste se znovu."
       login_failed: "Přihlášení selhalo. Prosíme, ověřte, zda vše bylo správně zadáno."
@@ -1651,7 +1652,7 @@ cs:
       something_went_wrong: "Něco se nezdařilo, kód chyby: %{error_code}"
       something_went_wrong_plain: "Něco se nepovedlo"
       create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: "Aktualizace zápisu se nezdařila: Nepodařilo se připojit k rezervační službě. Prosím zkuste to znovu."
     follow_links:
       follow: "Dostávat e-maily o nových příspěvcích"
       unfollow: "Nedostávat e-maily o nových příspěvcích"
@@ -1712,9 +1713,9 @@ cs:
         long_time: "týden, měsíc, ..."
         after_service_fee_you_will_get: "Po %{service_name} a zaplacení procesních poplatků obdržíte %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} bude odečten z ceny."
-        no_service_fee_you_will_get_payment_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} budou odečteny z ceny."
         after_service_fee_you_will_get_payment_text: "Jakmile někdo provede objednávku, obdržíte částku mínus %{payment_fee_info_link}"
-        payment_fee_info_link_text: ~
+        payment_fee_info_link_text: "%{service_name} poplatek a poplatek za zpracování platby."
         delivery: "Způsob doručení"
         shipping: Doprava
         shipping_price: "Poplatek za dopravu"
@@ -1800,8 +1801,8 @@ cs:
       how_paypal_works: "Jak PayPal funguje"
       payment_help: "Nápověda k platbě"
       unable_load_availability: "Nelze načíst informace o dostupnosti. Prosím, zkuste to později."
-      booking_date: ~
-      select_one: ~
+      booking_date: "Datum rezervace"
+      select_one: "Vyberte jeden"
       start_time: Začátek
       end_time: Konec
     new:
@@ -2046,7 +2047,7 @@ cs:
       create_account_with_facebook: "Přihlásit se přes Facebook"
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Toto pole bude zveřejněno)"
     profile_feedback:
       grade: "známka:"
       and_gave_following_feedback: "a byla poskytnuta následující zpětná vazba"
@@ -2197,6 +2198,7 @@ cs:
       display_name: "Zobrazované jméno"
       display_name_description: "V případě, že zastupuješ organizaci, je možné použít její jméno. Toto jméno bude pak zobrazeno ostatním uživatelům místo křestního jména a příjmení."
       location_description: "Můžete uvést přesnou adresu Vašeho bydliště nebo například pouze PSČ. Prosíme, uveďte alespoň PSČ. Adresu můžete také zadat na mapě níže.."
+      profile_picture_description: ~
       phone_number: "Telefonní číslo"
       profile_picture: "Profilový obrázek"
       postal_code: PSČ
@@ -2209,7 +2211,7 @@ cs:
       default_in_listing: "(použito jako výchozí adresa při vytváření nového inzerátu)"
       invisible: "(nezobrazuje se ostatním uživatelům)"
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "( zobrazeno ve vašem veřejném profilu)"
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"
@@ -2359,6 +2361,10 @@ cs:
         few: |-
             Rezervované noci:
              :
+      booked_hours_label:
+        one: "Doba rezervace:"
+        few: "Doba rezervace:"
+        other: "Doba rezervace:"
       price_per_day: "Cena za den:"
       price_per_night: "Cena za noc:"
       price_per_hour: "Cena za hodinu:"
@@ -2366,7 +2372,11 @@ cs:
       quantity: "Množství:"
       subtotal: "Mezisoučet:"
       shipping-price: "Doprava:"
-      stripe-fee: ~
+      stripe-fee: "Poplatek Stripe (odhad):"
+      duration_in_hours:
+        one: "( 1 hodina)"
+        few: "(%{count} hodiny)"
+        other: "(%{count} hodin)"
       start_end_time: "%{end_time} do %{start_time}"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
@@ -2386,7 +2396,7 @@ cs:
         working_hours:
           required: Požadováno
           overlaps: přesah
-          covers: ~
+          covers: pokrýt
       pricing_units:
         piece: kus
         hour: hodina
@@ -2404,7 +2414,7 @@ cs:
         i_am_available_on: "Jsem k dispozici na..."
         start_time: "Čas začátku"
         end_time: "Čas ukončení"
-        add_another_time_slot: ~
+        add_another_time_slot: "+ Přidání jiného časového úseku"
         save: Uložit
     no_listings:
       sorry: "Je nám líto, hledanému výrazu neodpovídají žádné záznamy."
@@ -2467,8 +2477,8 @@ cs:
       multi_page_html: "Nalezen %{model} <b> %{from}&nbsp;-&nbsp;%{to} <b> z <b> %{count} <b> celkem"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Zobrazí se %{model} %{from} - %{to} z %{accepted_count} přijal %{accepted_model} a %{banned_count} zakázal %{banned_model}zakázalzí se"
+        multi_page_html: "Zobrazí se %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> přijal %{accepted_model} a %{banned_count} zakázal %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "kontaktujte správce %{service_name}"
@@ -2483,7 +2493,7 @@ cs:
     stripe_credit_card: "Kreditní karta"
     paypal: PayPal
     paypal_connected: "Účet PayPal byl úspěšně připojen!"
-    paypal_can_accept: ~
+    paypal_can_accept: "Nyní máte nastaveno přijímání plateb na váš PayPal účet"
     paypal_connected_give_permission: "Chcete-li dokončit nastavení a začít přijímat finanční prostředky na váš PayPal účet %{email}, udělte prosím povolení k účtování poplatku za transakci."
     form_new:
       need_info: "Potřebujeme nějaké informace o tom, abyste mohli poslat peníze."
@@ -2501,8 +2511,8 @@ cs:
       address_city: Město
       address_postal_code: PSČ
       address_line1: Ulice
-      tos_link: ~
-      tos_link_title: ~
+      tos_link: "Přidáním údajů o výplatě přijmete %{stripe_link}"
+      tos_link_title: "Dohoda o účtu společnosti Stripe."
       save_details: "Uložit podrobnosti"
       edit: "Upravit detaily"
       cancel: Zrušit
@@ -2535,13 +2545,13 @@ cs:
       send_verification: "Odeslat ověření"
       need_verification: "Potřebujete další ověření"
     form_pin:
-      social_insurance_number: ~
-      social_security_number: ~
-      ssn_last_4: ~
+      social_insurance_number: "Číslo sociálního pojištění (SIN)"
+      social_security_number: "Číslo sociálního zabezpečení (SSN)"
+      ssn_last_4: "Poslední 4 číslice čísla sociálního zabezpečení (SSN)"
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:
-        social_insurance_number: ~
+        social_insurance_number: "Číslo sociálního pojištění (SIN) musí být platné"
   payment_settings:
     title: "Předvolby platby"
     bank_account: "Bankovní účet"

@@ -124,6 +124,7 @@ ja:
         invalid_color_code: "カラーコードは6つの数字とアルファベットA-Fで構成されます、例 D96E21"
         custom_head_script: カスタムスクリプト
         custom_head_script_instructions_text: "このスクリプトは、あらゆるページの<head> タグの中で、カスタムCSS、JavaScriptまたはHTML挿入などに用いることができます。将来Sharetribeの変更によっては、あなたのスクリプトを相容れなくするかもしれない点に注意してください。"
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: 新規登録前の説明テキスト
       edit_welcome_email:
@@ -2173,6 +2174,7 @@ ja:
       display_name: 表示名
       display_name_description: 団体や法人の場合には、その組織名称を表示名として使用することができます。表示名はあなたの氏名の代わりに表示されます。
       location_description: 住所の記載は必要ありませんが、少なくとも国と都市の記載をお願いいたします。地図から所在地を選択することもできます。
+      profile_picture_description: ~
       phone_number: 電話番号
       profile_picture: プロフィール画像
       postal_code: 郵便番号

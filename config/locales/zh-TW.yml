@@ -124,6 +124,7 @@ zh-TW:
         invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
         custom_head_script: 定制脚本
         custom_head_script_instructions_text: 该脚本注入在每一个页面的<head>标签中，可以插入自定义CSS，JavaScript或者HTML。请注意对Sharetribe的未来改动可能会导致你的脚本不兼容。
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: 说明文本
       edit_welcome_email:
@@ -2177,6 +2178,7 @@ zh-TW:
       display_name: 顯示名稱
       display_name_description: "如果您代表一個組織，則可以使用其名稱作為您的顯示名稱。 顯示名稱將顯示給其他用戶，而不是您的名字和姓氏。"
       location_description: "請提供您的服務地點，也可以只提供城市或郵政編碼。 "
+      profile_picture_description: ~
       phone_number: 電話號碼
       profile_picture: 個人頭像
       postal_code: 郵遞區號

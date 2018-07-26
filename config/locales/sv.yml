@@ -129,6 +129,7 @@ sv:
         invalid_color_code: "Färgkod bör innehålla 6 siffror eller bokstäver A-F t ex D96E21"
         custom_head_script: "Anpassat script"
         custom_head_script_instructions_text: "Detta script finns under <head> taggen för varje sida och kan användas för att lägga in anpassad CSS, Javascript eller HTML. Vänligen notera att framtida ändringar av Sharetribe kan göra ditt script inkomplett."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: Instruktionstext
       edit_welcome_email:
@@ -2194,6 +2195,7 @@ sv:
       display_name: "Synligt namn"
       display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
       location_description: "Du kan antingen ange hela din address eller t ex bara ditt postnummer eller stad. Det är också bra att lägga till ditt land då du väljer en plats. Till exempel: 753 20 Uppsala Sverige\" Eller \"Gustav Adolfsgatan 34,Malmö, Sverige\"."
+      profile_picture_description: ~
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postnummer

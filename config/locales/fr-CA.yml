@@ -129,6 +129,7 @@ fr-CA:
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
         custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourraient rendre votre script incompatible."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
@@ -2170,6 +2171,7 @@ fr-CA:
       display_name: ~
       display_name_description: ~
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
+      profile_picture_description: ~
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"
       postal_code: "Code postal"

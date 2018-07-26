@@ -129,6 +129,7 @@ fi:
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
         custom_head_script: Head-skripti
         custom_head_script_instructions_text: "Tämä skripti lisätään joka sivun <head>-tagin sisään. Voit käyttää sitä lisätäksesi omaa CSS-, JavaScript- tai HTML-koodia. Huomaa, että Sharetriben kehittyessä skripti saattaa lakata toimimasta."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: Ohjetekstit
       edit_welcome_email:
@@ -2192,6 +2193,7 @@ fi:
       display_name: Näyttönimi
       display_name_description: "Jos edustat organisaatiota, voit käyttää organisaatiosi nimeä näyttönimenä. Tämä näyttönimi näkyy muille käyttäjille oman etu- ja sukunimesi sijaan."
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
+      profile_picture_description: ~
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva
       postal_code: Postinumero

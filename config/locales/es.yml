@@ -114,6 +114,7 @@ es:
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -2160,6 +2161,7 @@ es:
       display_name: ~
       display_name_description: ~
       location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
+      profile_picture_description: ~
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
       postal_code: "Código postal:"

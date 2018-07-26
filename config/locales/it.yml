@@ -114,6 +114,7 @@ it:
         invalid_color_code: "Il codice del colore deve contenere 6 numeri o lettere A-F, per esempio D96E21"
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -2161,6 +2162,7 @@ it:
       display_name: "Nome da mostrare"
       display_name_description: "Se rappresenti un'organizzazione, puoi scegliere di visualizzarne il nome. Il nome dell'organizzazione è utilizzato e visualizzato dagli altri utenti al posto del tuo nome e cognome ."
       location_description: "Puoi specificare la tua posizione esatta o, per esempio, solo il codice di avviamento postale. Per favore, aggiungi almeno il tuo CAP. Puoi anche selezionare una posizione dalla mappa sotto."
+      profile_picture_description: ~
       phone_number: "Numero di telefono"
       profile_picture: "Immagine del profilo"
       postal_code: CAP
