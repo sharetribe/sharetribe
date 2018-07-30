@@ -11,7 +11,8 @@ window.ST = window.ST || {};
     var form = document.querySelector(selectors.form);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     var locationQueryMade = false;
-    autocomplete.setTypes(['geocode']);
+    autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
+
 
     // The values of these fields are defined based on the value of searchInput
     function clearHiddenInputs() {
