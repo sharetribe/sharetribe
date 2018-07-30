@@ -4,10 +4,6 @@
 - content_for :extra_javascript do
   :javascript
     window.ST.listing();
-  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
-  - key_param = maps_key ? "?key=#{maps_key}" : ""
-  - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
-  = javascript_include_tag "//maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
 - content_for :title, raw(@listing.title)
 - content_for :meta_author, PersonViewUtils.person_display_name(@listing.author, @current_community)
