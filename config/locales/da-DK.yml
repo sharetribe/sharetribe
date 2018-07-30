@@ -129,6 +129,7 @@ da-DK:
         invalid_color_code: "Farvekoden skal indeholde 6 cifre eller bogstaver, eksempelvis D96E21"
         custom_head_script: "Brugerdefineret script"
         custom_head_script_instructions_text: "Dit script vil blive indsat i <head> tag på enhver side på din markedsplads. Du kan indsætte CSS, JavaScript eller HTML. Du skal være opmærksom på at fremtidige opdateringer hos Sharetribe kan skabe problemer med dine egne scripts."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Instruktion tekster"
       edit_welcome_email:
@@ -2186,6 +2187,7 @@ da-DK:
       display_name: "Vist navn"
       display_name_description: "Hvis du repræsenterer en virksomhed eller organisation, kan du benytte dennes navn som brugernavn. Brugernavnet vises til andre brugere i stedet for dit for- og efternavn."
       location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
+      profile_picture_description: ~
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
       postal_code: Postnummer

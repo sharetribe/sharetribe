@@ -129,6 +129,7 @@ fr:
         invalid_color_code: "Le code de la couleur doit être une suite de 6 chiffres ou lettres (de A à F), par exemple D96E21"
         custom_head_script: "Script personnalisé"
         custom_head_script_instructions_text: "Ce script est inséré dans le tag <head> de chaque page et peut être utilisé pour insérer du contenu CSS, JavaScript ou HTML personnalisé. Notez que des futures évolutions de Sharetribe pourraient rendre votre script incompatible."
+        current_image: "Image actuelle :"
       edit_text_instructions:
         edit_text_instructions: "Instructions textuelles"
       edit_welcome_email:
@@ -403,7 +404,7 @@ fr:
         open: Ouverte
         closed: Close
       user_fields:
-        user_fields: ~
+        user_fields: "Champs d'utilisateurs"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -428,14 +429,14 @@ fr:
           date_cant_be_filtered: "Il n'y a pas de filtre possible pour un champ date."
           text_cant_be_filtered: "Il n'y a pas de filtre possible pour un champ texte. La recherche prend en compte les champs texte."
       index:
-        listing_fields: "Champs d'annonces & filtres"
+        listing_fields: "Champs et filtres d'annonces"
         listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
         add_new_field: "Ajouter un nouveau champ : "
         remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
         cancel: Annuler
         save: Sauvegarder
         field_title: "Nom du champ"
-        field_type: "Type de champ"
+        field_type: "Type du champ"
         categories: "Catégories d'annonces pour lequel le champ est utilisé"
         select_all: "Tout cocher"
         clear_all: "Tout décocher"
@@ -457,30 +458,30 @@ fr:
         dropdown: "Liste déroulante"
         checkbox_group: "Cases à cocher"
         date: Date
-        file: ~
-        location: ~
+        file: Fichier
+        location: Adresse
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "La sauvegarde du champ d'utilisateur a échoué"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: "Champs d'utilisateurs"
+        field_title: "Nom du champ"
+        field_type: "Type du champ"
+        add_new_field: "Ajouter un nouveau champ :"
+        save: Sauvegarder
+        cancel: Annuler
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Autoriser les décimales"
+        add_option: "+ Ajouter une option"
       new:
-        new_user_field: ~
+        new_user_field: "Nouveau champ d'utilisateur"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Rendre ce champ obligatoire lors de la création d'un compte utilisateur"
+          this_field_is_required_checkbox: "Rendre ce champ obligatoire lors de la création d'un compte utilisateur (au moins une option doit être sélectionnée)"
+          this_field_is_public: "Afficher ce champ à tous sur la page de profil"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Modifier le champ d'utilisateur '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Envoyer un email aux utilisateurs"
@@ -2041,7 +2042,7 @@ fr:
       create_account_with_facebook: "S'inscrire avec Facebook"
       OR: OU
       signup_with_email: "S'inscrire avec un email"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Ce champ sera visible à tous)"
     profile_feedback:
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
@@ -2192,6 +2193,7 @@ fr:
       display_name: "Nom d'affichage"
       display_name_description: "Si vous êtes une entreprise, vous pouvez utiliser son nom comme nom d'affichage. Le nom d'affichage sera visible par les autres utilisateurs à la place de votre nom et prénom."
       location_description: "Vous pouvez entrer votre adresse ou simplement une ville ou un code postal. Il est également utile de préciser votre pays lorsque vous entrez votre adresse. Exemples : \"10117 Berlin, Allemagne\" ou \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: "La photo de profil doit être dans un format carré (ratio de 1:1), par exemple 800x800 pixels. Autrement, la photo sera coupée."
       phone_number: "Numéro de téléphone"
       profile_picture: "Photo de profil"
       postal_code: "Code postal"
@@ -2204,7 +2206,7 @@ fr:
       default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
       invisible: "(non visible par les autres utilisateurs)"
       image_is_processing: "C'est presque prêt ! Nous sommes en train de traiter votre photo de profil. Elle sera visible dans une ou deux minutes."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(Visible dans votre profile public)"
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"

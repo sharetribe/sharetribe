@@ -124,6 +124,7 @@ ko:
         invalid_color_code: "컬러 코드는 6자리의 숫자 또는 알파벳 A-F로 구성됩니다 (예: D96E21)."
         custom_head_script: "사용자 정의 스크립트"
         custom_head_script_instructions_text: "이 스크립트는 모든 페이지의 <head> 태그 안에 삽입되며 사용자 정의 CSS, JavaScript 또는 HTML을 삽입하는 데 사용될 수 있습니다. 나중에 Sharetribe를 변경하면 스크립트가 호환되지 않을 수 있습니다."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: 설명서
       edit_welcome_email:
@@ -2182,6 +2183,7 @@ ko:
       display_name: "표기 이름"
       display_name_description: "조직을 대표하는 경우 조직의 이름을 표시 이름으로 사용할 수 있습니다. 표시 이름은 성 및 이름 대신 다른 사용자에게 표시됩니다."
       location_description: "당신은 번지 또는시 / 우편 번호만 제공 할 수 있습니다. 위치를 추가 할 때 국가를 추가하는 것도 좋습니다. 예 : \"10117 Berlin, Germany\"또는 \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: ~
       phone_number: 전화번호
       profile_picture: "프로필 사진"
       postal_code: 우편번호

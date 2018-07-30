@@ -129,6 +129,7 @@ es-ES:
         invalid_color_code: "El código de color debe contener 6 caracteres, números o letras de la A a la F, por ejemplo D96E21"
         custom_head_script: "Script personalizado"
         custom_head_script_instructions_text: "Éste script será añadido al <head> de cada página y se puede usar para añadir un CSS personalizado, JavaScript o HTML. Por favor, recuerda que futuras actualizaciones de Sharetribe pueden hacer que tu script deje de funcionar correctamente."
+        current_image: "Imagen actual:"
       edit_text_instructions:
         edit_text_instructions: "Textos de instrucción"
       edit_welcome_email:
@@ -2192,6 +2193,7 @@ es-ES:
       display_name: "Nombre Personalizado"
       display_name_description: "Si representas a una organización, puedes utilizar este campo para añadir el nombre que quieres mostrar a los otros usuarios. El nombre personalizado se mostrará a los otros usuarios en lugar de tu nombre y apellido."
       location_description: "Puedes dar tu ubicación exacta o indicar sólo tu código postal. Es buena idea indicar tu país al momento de añadir tu ubicación. Ejemplos son: \"10117 Berlin, Alemania\" or \"2000 Sand Hill Road, CA, USA\". ."
+      profile_picture_description: "La foto de perfil debe de ser en formato cuadrado (1:1), por ejemplo, 800x800 pixeles. De lo contrario será recortada para cuadrar."
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
       postal_code: "Código postal:"

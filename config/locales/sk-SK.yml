@@ -134,6 +134,7 @@ sk-SK:
         invalid_color_code: "Kód farby by mal obsahovať 6 čísiel alebo písmen A až F, napríklad D69E21"
         custom_head_script: "Vlastný skript"
         custom_head_script_instructions_text: "Tento skript je súčasťou <head> časti každej stránky a môže byť vložený do CSS, JavaScript alebo HTML. Vezmite na vedomie, že budúce zmeny v Sharetribe môžu spôsobiť, že Váš skript nebude kompatibilný."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: Návody
       edit_welcome_email:
@@ -2199,6 +2200,7 @@ sk-SK:
       display_name: "Zobrazované Meno"
       display_name_description: ~
       location_description: "Môžete zadať Vašu presnú adresu, alebo napríklad iba PSČ. Je dobré tiež pridať krajinu. Príklady: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: ~
       phone_number: "Telefónne číslo"
       profile_picture: "Profilová fotka"
       postal_code: PSČ

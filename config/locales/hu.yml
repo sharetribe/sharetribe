@@ -130,6 +130,7 @@ hu:
         invalid_color_code: "A színkód 6 számból vagy betűből kell álljon A-F, például D96E21"
         custom_head_script: "Egyedi leírás"
         custom_head_script_instructions_text: "Ez a szkript be van injektálva  az összes oldal  <head> tag-jébe és egyedi CSS, JavaScript vagy HTML beszúrására használható. A Sharetribe jövőbeni fejlesztéseinek/valtoztatásainak következtében arra számíthat, hogy a szkriptje inkompatibilissé válik."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Útmutató szöveg"
       edit_welcome_email:
@@ -2190,6 +2191,7 @@ hu:
       display_name: ~
       display_name_description: ~
       location_description: "Ön megadhatja a pontos címét vagy például csak az irányítószámát. Kérjük adja meg legalább az irányítószámát. Továbbá az alábbi térképen is kiválaszthat egy helyet."
+      profile_picture_description: ~
       phone_number: Telefonszám
       profile_picture: Profilkép
       postal_code: Irányítószám

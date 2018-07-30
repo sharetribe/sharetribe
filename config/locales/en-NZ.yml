@@ -129,6 +129,7 @@ en-NZ:
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
         custom_head_script: "Custom script"
         custom_head_script_instructions_text: "This script is injected inside the <head> tag of every page and can be used to insert custom CSS, JavaScript or HTML. Please note that future changes to Sharetribe may render your script incompatible."
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: "Instruction texts"
       edit_welcome_email:
@@ -2192,6 +2193,7 @@ en-NZ:
       display_name: "Display name"
       display_name_description: "If you represent an organisation, you can use its name as your display name. Display name is shown to other users instead of your first and last name."
       location_description: "You can provide either your street address or only a city or zip/postal code. It’s good to also add your country when adding your location. Examples: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: ~
       phone_number: "Phone number"
       profile_picture: "Profile picture"
       postal_code: "Postal code"

@@ -124,6 +124,7 @@ th-TH:
         invalid_color_code: "รหัสสี ควรมีตัวเลข หรือตัวอักษร A -F รวม 6 ตัว เช่น D96E21"
         custom_head_script: สคริปต์ที่กำหนดเอง
         custom_head_script_instructions_text: "สคริปต์นี้จะเพิ่มเติมภายในแท็ก <head> ของทุกหน้า และสามารถนำ CSS, JavaScript หรือ HTML ที่กำหนดเองมาใช้ในการแทรกได้ โปรดทราบว่าการเปลี่ยนแปลงในอนาคตของ Sharetribe อาจทำให้สคริปต์ของคุณเข้ากันไม่ได้"
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: ข้อความแนะนำ
       edit_welcome_email:
@@ -2168,6 +2169,7 @@ th-TH:
       display_name: ~
       display_name_description: ~
       location_description: "คุณสามารถให้ทั้งที่อยู่ หรือเฉพาะเมือง หรือเฉพาะรหัสไปรษณีย์ของคุณ จะเป็นการดีที่จะเพิ่มประเทศของคุณ ในขณะที่เพิ่มตำแหน่งของคุณ ตัวอย่าง: \"10117 Berlin, Germany\" หรือ \" 2000 Sand Hill Road, CA, USA \""
+      profile_picture_description: ~
       phone_number: หมายเลขโทรศัพท์
       profile_picture: รูปโปรไฟล์
       postal_code: รหัสไปรษณีย์
