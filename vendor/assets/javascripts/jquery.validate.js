@@ -457,9 +457,10 @@ $.extend( $.validator, {
 			for ( var i = 0, elements = ( this.currentElements = this.elements() ); elements[ i ]; i++ ) {
 
 				//Fix validation for name array within form
-				if ( this.findByName( elements[ i ].name ).length !== undefined && this.findByName( elements[ i ].name ).length > 1 ) {
-					for ( var cnt = 0; cnt < this.findByName( elements[ i ].name ).length; cnt++ ) {
-						this.check( this.findByName( elements[ i ].name )[ cnt ] );
+				var sameNameElements = this.findByName( elements[ i ].name )
+				if ( sameNameElements.length !== undefined && sameNameElements.length > 1 ) {
+					for ( var cnt = 0; cnt < sameNameElements.length; cnt++ ) {
+						this.check( sameNameElements[ cnt ] );
 					}
 				} else {
 					this.check( elements[ i ] );
@@ -1048,7 +1049,12 @@ $.extend( $.validator, {
 
 			// If radio/checkbox, validate first element in group instead
 			if ( this.checkable( element ) ) {
-				element = this.findByName( element.name );
+				var inputGroupId = $(element).attr('input_group_id');
+				if ( inputGroupId ) {
+					element = $("input[input_group_id='" + inputGroupId + "']");
+				} else {
+					element = this.findByName( element.name );
+				}
 			}
 
 			// Always apply ignore filter
