@@ -340,11 +340,11 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
   var form_id = "#new_person";
   //name_required = (name_required == 1) ? true : false
   $(form_id).validate({
-    errorPlacement: function(error, element) {
-      if (element.attr("name") == "person[terms]") {
-        error.appendTo(element.parent().parent());
+    errorPlacement: function(errorLabel, element) {
+      if (( /radio|checkbox/i ).test( element[0].type )) {
+        element.closest('.checkbox-container').append(errorLabel);
       } else {
-        error.insertAfter(element);
+        errorLabel.insertAfter( element );
       }
     },
     rules: {
@@ -395,6 +395,13 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
     onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+    },
+    errorPlacement: function(errorLabel, element) {
+      if (( /radio|checkbox/i ).test( element[0].type )) {
+        element.closest('.checkbox-container').append(errorLabel);
+      } else {
+        errorLabel.insertAfter( element );
+      }
     }
   });
 }
@@ -684,7 +691,9 @@ function initialize_pending_consent_form(email_invalid_message, invitation_requi
   });
   $('#pending_consent_form').validate({
     errorPlacement: function(error, element) {
-      if (element.attr("name") == "form[consent]") {
+      if (( /radio|checkbox/i ).test( element[0].type )) {
+        element.closest('.checkbox-container').append(error);
+      } else if (element.attr("name") == "form[consent]") {
         error.appendTo(element.parent().parent());
       } else {
         error.insertAfter(element);
