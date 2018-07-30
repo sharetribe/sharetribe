@@ -395,6 +395,13 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
     onsubmit: true,
     submitHandler: function(form) {
       disable_and_submit(form_id, form, "false", locale);
+    },
+    errorPlacement: function(errorLabel, element) {
+      if (( /radio|checkbox/i ).test( element[0].type )) {
+        element.closest('.checkbox-container').append(errorLabel);
+      } else {
+        errorLabel.insertAfter( element );
+      }
     }
   });
 }
