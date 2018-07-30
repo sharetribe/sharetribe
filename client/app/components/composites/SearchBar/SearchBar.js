@@ -41,6 +41,7 @@ class SearchBar extends Component {
     if (window.google) {
       const autocomplete = new window.google.maps.places.Autocomplete(this.locationInput, { bounds });
       autocomplete.setTypes(['geocode']);
+      autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
       this.placeChangedListener = window.google.maps.event.addListener(
         autocomplete,
         'place_changed',
