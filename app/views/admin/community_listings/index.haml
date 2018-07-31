@@ -45,7 +45,8 @@
             - category = listing.category
             = link_to category.display_name(I18n.locale), search_path(category: category.url)
           %td
-            - key = listing.open? ? 'open' : 'closed'
+            - expired = listing.valid_until && listing.valid_until < DateTime.current
+            - key = expired ? 'expired' : (listing.open? ? 'open' : 'closed')
             = t("admin.communities.listings.#{key}")
           %td
             = link_to edit_listing_path(listing) do
