@@ -1042,19 +1042,23 @@ $.extend( $.validator, {
 		},
 
 		idOrName: function( element ) {
-			return this.groups[ element.name ] || ( this.checkable( element ) ? element.name : element.id || element.name );
+			var result = this.groups[ element.name ];
+			if ( !result ) {
+				if ( this.checkable( element ) ) {
+					var inputGroupId = $(element).attr('input_group_id');
+					result = inputGroupId ? element.id : element.name
+				} else {
+					result = element.id || element.name
+				};
+			}
+			return result;
 		},
 
 		validationTargetFor: function( element ) {
 
 			// If radio/checkbox, validate first element in group instead
 			if ( this.checkable( element ) ) {
-				var inputGroupId = $(element).attr('input_group_id');
-				if ( inputGroupId ) {
-					element = $("input[input_group_id='" + inputGroupId + "']");
-				} else {
-					element = this.findByName( element.name );
-				}
+				element = this.findByInputGroupOrName( element );
 			}
 
 			// Always apply ignore filter
@@ -1069,13 +1073,23 @@ $.extend( $.validator, {
 			return $( this.currentForm ).find( "[name='" + this.escapeCssMeta( name ) + "']" );
 		},
 
+		findByInputGroupOrName: function( element ) {
+			var result, inputGroupId = $(element).attr('input_group_id');
+			if ( inputGroupId ) {
+				result = $("input[input_group_id='" + inputGroupId + "']");
+			} else {
+				result = this.findByName( element.name );
+			}
+			return result;
+		},
+
 		getLength: function( value, element ) {
 			switch ( element.nodeName.toLowerCase() ) {
 			case "select":
 				return $( "option:selected", element ).length;
 			case "input":
 				if ( this.checkable( element ) ) {
-					return this.findByName( element.name ).filter( ":checked" ).length;
+					return this.findByInputGroupOrName( element ).filter( ":checked" ).length;
 				}
 			}
 			return value.length;
