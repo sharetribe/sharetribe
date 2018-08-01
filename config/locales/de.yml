@@ -75,7 +75,7 @@ de:
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
         edit_private_community_homepage_content_description: "Dieser Content ist nur bei privaten Marktplätzen sichtbar. User, die nicht eingeloggt sind, sehen den Text auf der Startseite. Beschreibe hier deinen Marktplatz und wie man ihm beitreten kann. Du kannst hier außerdem Bilder, Videos und HTML-Content hinzufügen. %{see_how_it_looks_like}."
         update_information: "Einstellungen speichern"
-        invite_people: "Lade Leute zu dem Marktplatz %{service_name} ein"
+        invite_people: "Lade Leute ein"
         edit_signup_info: Anmeldedaten
         edit_signup_info_description: "Dies ist ein Infotext, der den Nutzern auf der Anmeldeseite angezeigt wird. Hier kannst du den Nutzern Anleitungen zum Anmelden geben, wie z.B. Informationen darüber, wie sie eine Einladung erhalten können etc.. Standardgemäß gibt es hier keine Anweisungen, aber du kannst sie hinzufügen, wenn du auf den Link unten klickst."
         edit_info: "Angaben bearbeiten"
@@ -242,7 +242,7 @@ de:
         delete_this_marketplace: "Diesen Marktplatz löschen"
         payment_preferences: Zahlungssystem
       manage_members:
-        manage_members: "Benutzer verwalten"
+        manage_members: Benutzer
         email: E-Mail
         name: Name
         display_name: Anzeigename
@@ -319,7 +319,7 @@ de:
       transactions:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         processing_export: "CSV Export wird erstellt..."
-        transactions: "Transaktionen anzeigen"
+        transactions: Transaktionen
         headers:
           conversation: Unterhaltungsverlauf
           listing: Eintrag
@@ -367,7 +367,7 @@ de:
             pending_ext: "Warte auf Stripe-Bezahlung"
         not_available: "nicht verfügbar"
       conversations:
-        conversations: "Unterhaltungen anzeigen"
+        conversations: Unterhaltungen
         headers:
           started_from: "Gestartet aus"
           status: Status
@@ -378,7 +378,7 @@ de:
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
       testimonials:
-        testimonials: "Bewertungen ansehen"
+        testimonials: Bewertungen
         no_testimonials_found: "Keine Bewertungen gefunden."
         displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
         headers:
@@ -484,7 +484,7 @@ de:
         edit_user_field: "Benutzer Feld anpassen %{field_name}"
     emails:
       new:
-        send_email_to_members: "Sende eine E-Mail an alle Mitglieder"
+        send_email_to_members: "E-Mail an alle Mitglieder senden"
         send_email_to_members_title: "Sende E-Mail an alle Mitglieder"
         send_email: "E-Mail senden"
         send_email_or: oder
@@ -514,7 +514,7 @@ de:
         hello_firstname_text: "Hallo %{person},"
     left_hand_navigation:
       general: Allgemein
-      users_and_transactions: "Benutzer & Transaktionen"
+      users_and_transactions: Verwalten
       configure: Konfiguration
       emails_title: E-Mails
       subscription: Abonnement
@@ -702,17 +702,17 @@ de:
         payments_not_enabled: "Zahlungen sind nicht für diesen Marktplatz aktiviert"
     transaction_types:
       sell: Verkaufen
-      sell_w_online_payment: "Online Zahlungen für Verkäufe nutzen"
-      sell_wo_online_payment: "Keine Online Zahlungen für Verkäufe nutzen"
+      sell_w_online_payment: "Verkaufen mit Online-Zahlungen"
+      sell_wo_online_payment: "Verkaufen ohne Online-Zahlungen"
       rent: Vermieten
-      rent_w_online_payment: "Online Zahlungen für Vermietungen nutzen"
-      rent_wo_online_payment: "Keine Online Zahlungen für Vermietungen nutzen"
+      rent_w_online_payment: "Vermieten mit Online-Zahlungen"
+      rent_wo_online_payment: "Vermieten ohne Online-Zahlungen"
       give: "Umsonst abzugeben"
       lend: Verleihen
       swap: Tauschen
       service: Angebot
-      service_w_online_payment: "Angebot mit Online Zahlungen"
-      service_wo_online_payment: "Angebot ohne Online Zahlungen"
+      service_w_online_payment: "Angebot mit Online-Zahlungen"
+      service_wo_online_payment: "Angebot ohne Online-Zahlungen"
       request: Anfragen
       inquiry: Anfrage
       share_for_free: "Kostenlos teilen"
@@ -2137,7 +2137,7 @@ de:
       delete_account_confirmation_popup: "Bist du sicher, dass du dein Benutzerkonto und alle damit verbundenen Daten endgültig löschen möchtest? Dieser Vorgang kann nicht rückgängig gemacht werden."
       email_addresses: E-Mail-Adressen
       new_email: "Neue E-Mail-Adresse"
-      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren."
+      delete_personal_information: "Wenn Du Dein Konto löschst, werden Deine persönlichen Daten (Name, Telefonnummer, Adresse, E-Mail, Profilbild, etc.) endgültig gelöscht und können nicht wiederhergestellt werden. Alle Angebote, die Du erstellt hast, werden entfernt. Du wirst nicht in der Lage sein, Dein Konto zu reaktivieren. Dein Benutzername wird für neue Mitglieder beim Registrieren wieder verfügbar auf %{service_name}."
       delete_information_others_involved: "Informationen, an denen andere Mitglieder beteiligt sind (Unterhaltungen mit anderen Menschen, Transaktionen, die Du durchgeführt hast, Bewertungen, die Du vorgenommen hast usw.) werden nicht entfernt, wenn Du Dein Konto löschst. Allerdings wird dein Name nicht mehr neben diesen Informationen angezeigt werden."
       unfinished_transactions: "Dein Konto kann nicht gelöscht werden, weil Du laufende Transaktionen hast. Bitte schließe alle Transaktionen vor dem Löschen Deines Kontos ab."
       only_admin: "Dein Konto kann nicht gelöscht werden, da Du der einzige Administrator in dem Marktplatz bist."
@@ -2160,7 +2160,7 @@ de:
         status_confirmed: Bestätigt
         status_pending: Ausstehend
     notifications:
-      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren empfangen"
+      email_from_admins: "Ich möchte gelegentlich Neuigkeiten von den Administratoren von %{service_name} empfangen"
       i_want_to_get_email_notification_when: "Ich möchte eine E-Mail-Benachrichtigung erhalten, wenn..."
       newsletters: "E-mails von Administatoren"
       community_updates: Newsletters
@@ -2193,7 +2193,7 @@ de:
       display_name: Anzeigename
       display_name_description: "Wenn du eine Organisation vertrittst, kannst du den Namen deiner Organisation als Anzeigename verwenden. Der Anzeigename wird den anderen Nutzern statt deines Vor- und Nachnamens angezeigt."
       location_description: "Du kannst entweder deinen exakten Standort oder nur deine Postleitzahl angeben. Es ist eine gute Idee, das Land auch einzugeben. Beispiele: \"10117 Berlin, Deutschland\" oder \"2000 Sand Hill Road, CA, USA\"."
-      profile_picture_description: ~
+      profile_picture_description: "Das Bild sollte ein quadratisches Seitenverhältnis haben (1:1), zum Beispiel 800x800 Pixel. Ansonsten wird es beschnitten."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postleitzahl

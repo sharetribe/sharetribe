@@ -129,7 +129,7 @@ nl:
         invalid_color_code: "Kleurencode moet 6 nummer of letters A-F bevatten. Bijvoorbeeld: D96E21"
         custom_head_script: "Aangepast script"
         custom_head_script_instructions_text: "Dit script word toegevoegd aan de <head> tag van elke pagina en kan gebruikt worden om aanpaste CSS, Javascript of HTML toe te voegen. Hou er rekening mee dat toekomstige wijzigingen aan Sharetribe je script onbruikbaar kunnen maken."
-        current_image: ~
+        current_image: "Huidige afbeelding:"
       edit_text_instructions:
         edit_text_instructions: "Teksten instructies"
       edit_welcome_email:
@@ -406,7 +406,7 @@ nl:
         open: Open
         closed: Gesloten
       user_fields:
-        user_fields: ~
+        user_fields: Gebruikersvelden
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -460,30 +460,30 @@ nl:
         dropdown: Dropdown
         checkbox_group: "Checkbox groep"
         date: Datum
-        file: ~
-        location: ~
+        file: Bestand
+        location: Locatie
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Opslaan van gebruikersveld mislukt"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: Gebruikersvelden
+        field_title: Veldtitel
+        field_type: Veldtype
+        add_new_field: "Voeg nieuw veld toe"
+        save: "Sla op"
+        cancel: Annuleer
+        minimum_value: Minimum
+        maximum_value: Maximum
+        allow_decimals: "Laat cijfers na de komma toe"
+        add_option: "Voeg optie toe"
       new:
-        new_user_field: ~
+        new_user_field: "Nieuw gebruikersveld"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Maak het verplicht dit veld in te vullen bij registreren voor de marktplaats"
+          this_field_is_required_checkbox: "Maak het verplicht dit veld in te vullen bij registreren voor de marktplaats (gebruiker moet minstens één optie kiezen)"
+          this_field_is_public: "Geef dit veld weer op de publieke profielpagina"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Bewerk gebruikersveld '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Stuur e-mail aan gebruikers"
@@ -2045,7 +2045,7 @@ nl:
       create_account_with_facebook: "Maak een account met Facebook"
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Dit veld wordt publiekelijk zichtbaar)"
     profile_feedback:
       grade: "cijfer:"
       and_gave_following_feedback: "en gaf de volgende feedback"
@@ -2196,7 +2196,7 @@ nl:
       display_name: "Weergegeven naam"
       display_name_description: "Als je een organisatie vertegenwoordigt, kun je diens naam gebruiken als je weergegeven naam. De weergegeven naam is dan te zien door andere gebruikers in plaats van je voor- en achternaam."
       location_description: "U kunt uw exacte locatie geven of bijvoorbeeld enkel uw postcode. Voeg a.u.b. minstens een postcode toe. U kunt ook een locatie op onderstaande kaart selecteren."
-      profile_picture_description: ~
+      profile_picture_description: "De profielfoto dient van een vierkant formaat te zijn (1:1 ratio), bijvoorbeeld 800x800 pixels. Anders wordt het bijgesneden tot het past."
       phone_number: Telefoon
       profile_picture: "Profiel afbeelding"
       postal_code: Postcode
@@ -2209,7 +2209,7 @@ nl:
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe advertentie)"
       invisible: "(niet getoond aan andere gebruikers)"
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

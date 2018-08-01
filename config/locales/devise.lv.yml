@@ -4,7 +4,7 @@ lv:
       expired: "beidzies termiņš, lūdzu, pieprasiet jaunu"
       not_found: "nav atrasts"
       already_confirmed: "jau apstiprināts, lūdzu mēģiniet vēlreiz"
-      not_locked: ~
+      not_locked: "nebija aizslēgts"
       not_saved:
         zero: "dēļ vienas kļūdas šis %{resource} nevar būt saglabāts"
         one: "dēļ %{count} kļūdas šis %{resource} nevar būt saglabāts "
@@ -49,11 +49,11 @@ lv:
       unlocked: "Jūsu lietotājs ir veiksmīgi atbloķēts. Jūs esat pieslēdzies."
     omniauth_callbacks:
       success: "Veiksmīga autorizācija no %{kind} profila."
-      failure: ~
+      failure: "Nevarēja autorizēt jūs no %{kind}, jo \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Apstiprināšanas instrukcijas, lai pievienotos %{service_name}"
       reset_password_instructions:
-        subject: ~
+        subject: "Atjaunot paroles norādījumus"
       unlock_instructions:
         subject: "Atbloķēšanas instrukcijas"

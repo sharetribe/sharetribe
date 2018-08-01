@@ -1929,7 +1929,7 @@ es-ES:
   paypal_accounts:
     payout_info_title: "Recibo de fondos"
     paypal_account_email_connected: "<del>Conectar cuenta PayPal</del> Completado!"
-    payout_info_paypal: "%{service_name} usa PayPal como su proveedor de pagos. %{create_paypal_account_link} y conectarla a %{service_name} es necesario para aceptar pagos por sus anuncios en línea."
+    payout_info_paypal: "%{service_name} usa PayPal como su proveedor de pagos. Una %{create_paypal_account_link}, conectada a %{service_name}, es necesario para aceptar pagos por sus anuncios en línea."
     paypal_billing_agreement_made: "<del>Otorgar permiso a %{service_name} para cobrar la cuota de servicio</del> Completado!"
     commission_permission_needed: "También es necesario que otorgue permiso a %{service_name} para cobrar la comisión de servicio"
     create_paypal_account_link_text: "cuenta de PayPal"
