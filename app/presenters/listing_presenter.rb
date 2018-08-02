@@ -188,8 +188,10 @@ class ListingPresenter < MemoisticPresenter
         minimum_price_cents: 0,
         payment_gateway: nil,
         paypal_commission: 0,
+        paypal_minimum_transaction_fee: 0,
         seller_commission_in_use: false,
         stripe_commission: 0,
+        stripe_minimum_transaction_fee: 0,
       }
     when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
       p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: payment_type))
@@ -197,24 +199,26 @@ class ListingPresenter < MemoisticPresenter
         .map {|res| res[:data]}
         .or_else({})
 
-      stripe_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
+      stripe_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
-        .or_else({})[:commission_from_seller]
+        .or_else({})
 
-      paypal_commission = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
+      paypal_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
-        .or_else({})[:commission_from_seller]
+        .or_else({})
 
       {
         commission_from_seller: p_set[:commission_from_seller],
         minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
         minimum_price_cents: p_set[:minimum_price_cents],
         payment_gateway: payment_type,
-        paypal_commission: paypal_commission,
+        paypal_commission: paypal_settings[:commission_from_seller],
+        paypal_minimum_transaction_fee: Money.new(paypal_settings[:minimum_transaction_fee_cents], currency),
         seller_commission_in_use: p_set[:commission_type] != :none,
-        stripe_commission: stripe_commission
+        stripe_commission: stripe_settings[:commission_from_seller],
+        stripe_minimum_transaction_fee: Money.new(stripe_settings[:minimum_transaction_fee_cents], currency),
       }
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
