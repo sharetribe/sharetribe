@@ -1,10 +1,6 @@
 .googlemap
-  .jsmap.listing-map{:id => "map_canvas"}
-  - content_for :extra_javascript do
-    :javascript
-      $(document).ready(function() {
-        googlemapMarkerInit('map_canvas', "origin_loc", undefined, undefined, #{tribe_latitude}, #{tribe_longitude}, "#{listing.location.address}");
-      });
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+  %img{class: 'static-google-map', src: "https://maps.googleapis.com/maps/api/staticmap?center=#{CGI.escape(listing.location.address)}&zoom=12&size=400x228&scale=2&markers=color:red|#{CGI.escape(listing.location.address)}&key=#{maps_key}"}
   .map-link
     %a.icon-with-text-container{href: "//maps.google.com/?q=#{CGI.escape(listing.location.address)}", target: "_blank"}
       = icon_tag("external_link", ["icon-part"])
