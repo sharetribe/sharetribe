@@ -1064,7 +1064,7 @@ lv:
         you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: "Maksājuma saņemšana"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "Jūs esat samaksājis <b>%{payment_sum}</b> par <b>%{listing_title}</b> %{recipient_full_name}. Šeit ir informācija par saņemto maksājumu."
       product: Prece
       price_per_unit_type: "Cena par %{unit_type}"
       duration: Ilgums
