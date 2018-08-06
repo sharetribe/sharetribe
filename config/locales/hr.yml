@@ -43,6 +43,9 @@ hr:
         buttons:
           remove: Uklonite
           cancel: Otkažite
+        warning_subcategory_will_be_removed:
+          one: "Postoji %{count} podkategorija u kategoriji.Biti će izbrisana"
+          few: "Postoje %{count} podkategorije u kategoriji.Biti će izbrisane"
     communities:
       edit_details:
         community_details: ~
@@ -127,7 +130,7 @@ hr:
         send_test_message: "Pošaljite test poruku"
       outgoing_email:
         title: "odlazeća e-mail adresa"
-        info: ~
+        info: "Ime i adresu koristimo za e-mail poruke poslane od strane platforme prema članovima"
         read_more: "Pročitaj više o odlaznoj email adresi"
         sender_address: "adresa pošiljatelja%{sender_address}"
         sender_address_default: "adresa pošiljatelja:nije postavljena (koristeći osnovnu adresu %{sender_address})"
@@ -1173,7 +1176,7 @@ hr:
       required_error: "Morate prihvatiti dogovor"
     paypal:
       transaction_cannot_complete: ~
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Uplata je odbijena od stane Paypala.Molimo kontaktirajte njihovu korisničku podršku za više informacija:%{customer_service_link}"
       pending_review_error: "Uplata je podnešena ali ju je Paypal označio kao \"potrebno za pregledati\".Kada Paypal završi pregled, uplata će biti automatski autorizirana."
       seller_express_checkout_disabled: ~
       generic_error: "Greška se dogodila prilikom procesa plaćanja. Nismo mogli dovršiti plaćanje sa vašim PayPal računom."
@@ -2168,7 +2171,7 @@ hr:
       display_name: "Korisničko ime"
       display_name_description: "Ako predstavljate organizaciju, možete koristiti ime vaše organizacije kao vaše korisničko ime. Umjesto vašeg stvarnog imena i prezimena, korisnicima ćemo prikazati vaše odabrano korisničko ime."
       location_description: "Možete upisati ili vašu ulicu ili samo grad ili samo poštanski broj. Bilo bi također dobro dodati i ime države kada dodajete lokaciju. Npr.: \"10000 Zagreb, Hrvatska\"."
-      profile_picture_description: ~
+      profile_picture_description: "Slika profila bi trebala biti square format (1:1 odnos), naprimjer,800x800 pixela.Sve ostale slike van navedenog  će biti izrezane kako bi se uklopile u format."
       phone_number: "Broj telefona"
       profile_picture: "Slika profila"
       postal_code: "Poštanski broj"
@@ -2416,6 +2419,12 @@ hr:
     page_entries_info:
       multi_page: "Prikaz %{model}%{from} - %{to} od %{count} ukupno"
       multi_page_html: "Prikaz %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b> ukupno"
+      single_page:
+        zero: "Nije %{model}  pronađen"
+        one: "Prikazujemo 1 %{model}"
+        few: "Prikazujemo par  %{count}%{model}"
+        many: "Prikazujemo sve %{count}%{model}"
+        other: "Prikazujemo sve %{count}%{model}"
     person:
       community_members_entries_info:
         multi_page: ~

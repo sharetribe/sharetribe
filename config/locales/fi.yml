@@ -75,7 +75,7 @@ fi:
         private_community_homepage_content: "Suljetun kauppapaikan etusivun sisältö"
         edit_private_community_homepage_content_description: "Tämä sisältö näytetään kirjautumattomille käyttäjille suljettujen kauppapaikkojen etusivulla. Tässä voit kertoa tarkemmin kauppapaikan tarkoituksesta sekä siitä, miten palveluun voi liittyä. Voit lisätä kuvaukseen halutessasi myös kuvia, videoita tai HTML-muotoista sisältöä. %{see_how_it_looks_like}."
         update_information: Tallenna
-        invite_people: "Kutsu uusia käyttäjiä %{service_name} -palveluun"
+        invite_people: "Kutsu uusia käyttäjiä"
         edit_signup_info: Liittymisohjeet
         edit_signup_info_description: "Nämä ohjeet näytetään käyttäjille liittymissivulla, kun he ovat liittymässä palveluun. Tähän voit lisätä ohjeita koskien esimerkiksi palveluun liittymistä tai sitä, mistä käyttäjät voivat hakea kutsua palveluun. Oletuksena ohjekenttä on tyhjä."
         edit_info: "Muokkaa tietoja"
@@ -129,7 +129,7 @@ fi:
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
         custom_head_script: Head-skripti
         custom_head_script_instructions_text: "Tämä skripti lisätään joka sivun <head>-tagin sisään. Voit käyttää sitä lisätäksesi omaa CSS-, JavaScript- tai HTML-koodia. Huomaa, että Sharetriben kehittyessä skripti saattaa lakata toimimasta."
-        current_image: ~
+        current_image: "Nykyinen kuva:"
       edit_text_instructions:
         edit_text_instructions: Ohjetekstit
       edit_welcome_email:
@@ -242,7 +242,7 @@ fi:
         delete_this_marketplace: "Poista tämä markkinapaikka"
         payment_preferences: Maksujärjestelmä
       manage_members:
-        manage_members: "Hallitse käyttäjiä"
+        manage_members: Käyttäjät
         email: Sähköposti
         name: Nimi
         display_name: Näyttönimi
@@ -319,7 +319,7 @@ fi:
       transactions:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         processing_export: "Prosessoidaan vientiä CSV-tiedostoon..."
-        transactions: "Näytä tilaukset"
+        transactions: Tilaukset
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -367,7 +367,7 @@ fi:
             pending_ext: "Odottaa Stripe-maksua"
         not_available: "Ei saatavilla"
       conversations:
-        conversations: "Näytä keskustelut"
+        conversations: Keskustelut
         headers:
           started_from: "Alkanut sivulta"
           status: Tila
@@ -378,7 +378,7 @@ fi:
         participants: "Keskustelu: %{starter} sekä %{author}"
         profile: "Käyttäjän %{author} profiili"
       testimonials:
-        testimonials: "Näytä arviot"
+        testimonials: Arviot
         no_testimonials_found: "Arvosteluja ei löytynyt"
         displaying_xx_reviews: "Näytetään <b>%{count}</b> arvostelua ostotapahtumissa %{tx_from} - %{tx_to} , yhteensä <b>%{all_count}</b> arvostelusta"
         headers:
@@ -404,7 +404,7 @@ fi:
         open: Auki
         closed: Suljettu
       user_fields:
-        user_fields: ~
+        user_fields: Käyttäjäkentät
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -458,30 +458,30 @@ fi:
         dropdown: Pudotusvalikko
         checkbox_group: "Ryhmä valintaruutuja"
         date: Päivämäärä
-        file: ~
-        location: ~
+        file: Tiedosto
+        location: Sijainti
     person_custom_fields:
-      saving_failed: ~
+      saving_failed: "Käyttäjäkentän talletus epäonnistui"
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        user_fields: Käyttäjäkentät
+        field_title: "Kentän nimi"
+        field_type: "Kentän tyyppi"
+        add_new_field: "Lisää uusi kenttä:"
+        save: Tallenna
+        cancel: Peruuta
+        minimum_value: Alaraja
+        maximum_value: Yläraja
+        allow_decimals: "Salli desimaalit"
+        add_option: "Lisää vaihtoehto"
       new:
-        new_user_field: ~
+        new_user_field: "Uusi käyttäjäkenttä"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Tee tämän kentän täyttämisestä pakollista rekisteröitymisen yhteydessä"
+          this_field_is_required_checkbox: "Tee tämän kentän täyttämisestä pakollista rekisteröitymisen yhteydessä (käyttäjän tulee valita ainakin 1 vaihtoehto)"
+          this_field_is_public: "Näytä tämä kenttä julkisella profiilisivulla"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Muokkaa käyttäjäkenttää '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Lähetä sähköpostiviesti käyttäjille"
@@ -514,7 +514,7 @@ fi:
         hello_firstname_text: "Hei %{person},"
     left_hand_navigation:
       general: Yleistä
-      users_and_transactions: "Käyttäjät ja tilaukset"
+      users_and_transactions: Hallinta
       configure: "Sivuston muokkaus"
       emails_title: Sähköpostit
       subscription: Tilaus
@@ -2042,7 +2042,7 @@ fi:
       create_account_with_facebook: "Rekisteröidy Facebook-tunnuksesi avulla"
       OR: TAI
       signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Tämä kenttä tulee olemaan näkyvillä julkisesti)"
     profile_feedback:
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
@@ -2193,7 +2193,7 @@ fi:
       display_name: Näyttönimi
       display_name_description: "Jos edustat organisaatiota, voit käyttää organisaatiosi nimeä näyttönimenä. Tämä näyttönimi näkyy muille käyttäjille oman etu- ja sukunimesi sijaan."
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
-      profile_picture_description: ~
+      profile_picture_description: "Kuvan pitäisi olla neliömäisessä kuvasuhteessa (1:1), kuten kuva, joka on 800x800 pikseliä. Muussa taapauksessa kuvaasi joudutaan leikkaamaan niin että se mahtu neliömuotoiseen kokoon."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva
       postal_code: Postinumero
@@ -2206,7 +2206,7 @@ fi:
       default_in_listing: "(käytetään vain oletusarvona uutta ilmoitusta luotaessa)"
       invisible: "(ei näytetä muille käyttäjille)"
       image_is_processing: "Profiilikuvaasi valmistellaan taustalla. Lataa sivu uudelleen hetken kuluttua."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(Näkyy julkisessa profiilissasi)"
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite
