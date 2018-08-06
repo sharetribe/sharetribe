@@ -57,8 +57,12 @@ const getDetails = (placeId) => new Promise((resolve, reject) => {
   const serviceStatus = window.google.maps.places.PlacesServiceStatus;
   const el = document.createElement('div');
   const service = new window.google.maps.places.PlacesService(el);
+  const request = {
+    placeId: placeId, // eslint-disable-line babel/object-shorthand
+    fields: ['address_components', 'geometry', 'icon', 'name'],
+  };
 
-  service.getDetails({ placeId }, (place, status) => {
+  service.getDetails(request, (place, status) => {
     if (status !== serviceStatus.OK) {
       reject(new Error(`Could not get details for place id "${placeId}"`));
     } else {
