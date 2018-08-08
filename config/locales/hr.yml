@@ -39,13 +39,13 @@ hr:
         warning_listing_will_be_moved:
           one: "Postoji %{count} oglas u kategoriji.Biti će premješten u odabranu kategoriju"
           few: "Postoje %{count} oglasi u kategoriji.Biti će premješteni  u odabranu kategoriju"
+        warning_subcategory_will_be_removed:
+          one: "Postoji %{count} podkategorija u kategoriji.Biti će izbrisana"
+          few: "Postoje %{count} podkategorije u kategoriji.Biti će izbrisane"
         select_new_category: "Odaberite novu kategoriju gdje će stavke iznad biti premještene:"
         buttons:
           remove: Uklonite
           cancel: Otkažite
-        warning_subcategory_will_be_removed:
-          one: "Postoji %{count} podkategorija u kategoriji.Biti će izbrisana"
-          few: "Postoje %{count} podkategorije u kategoriji.Biti će izbrisane"
     communities:
       edit_details:
         community_details: ~
@@ -394,6 +394,7 @@ hr:
           status: ~
         open: ~
         closed: ~
+        expired: ~
       user_fields:
         user_fields: ~
     custom_fields:
@@ -2417,14 +2418,14 @@ hr:
     next_label: "Sljedeće &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: "Prikaz %{model}%{from} - %{to} od %{count} ukupno"
-      multi_page_html: "Prikaz %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b> ukupno"
       single_page:
         zero: "Nije %{model}  pronađen"
         one: "Prikazujemo 1 %{model}"
         few: "Prikazujemo par  %{count}%{model}"
         many: "Prikazujemo sve %{count}%{model}"
         other: "Prikazujemo sve %{count}%{model}"
+      multi_page: "Prikaz %{model}%{from} - %{to} od %{count} ukupno"
+      multi_page_html: "Prikaz %{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b> ukupno"
     person:
       community_members_entries_info:
         multi_page: ~

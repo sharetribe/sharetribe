@@ -213,3 +213,16 @@ Feature: User creates a new account
     And the "German language" checkbox should not be checked
     And the "French language" checkbox should be checked
 
+  Scenario: Creating a new account successfully with spaces before and after email
+    Then I should not see "The access to Sharetribe is restricted."
+    When I fill in "person[username]" with random username
+    And I fill in "First name" with "Testmanno"
+    And I fill in "Last name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with " phyllis@example.com    "
+    And I check "person_terms"
+    And I check "person_admin_emails_consent"
+    And I press "Create account"
+    Then I should see "Please confirm your email"
+

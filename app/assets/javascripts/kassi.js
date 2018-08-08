@@ -170,6 +170,13 @@ function add_validator_methods() {
     addMethod("number_max", function(value, element, max) {
       return value.length === 0 ? true : toNumber(value) <= max;
     });
+
+  $.validator.
+    addMethod("email_remove_spaces", function(value, element) {
+      value = value.trim();
+      $(element).val(value);
+      return $.validator.methods.email.call(this, value, element)
+    });
 }
 
 // Initialize code that is needed for every view
@@ -351,7 +358,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
-      "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
+      "person[email]": {required: true, email_remove_spaces: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password1" },
@@ -359,7 +366,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
     },
     messages: {
       "person[username]": { valid_username: invalid_username_message, remote: username_in_use_message },
-      "person[email]": { remote: email_in_use_message },
+      "person[email]": { remote: email_in_use_message, email_remove_spaces: $.validator.messages.email },
       "invitation_code": { remote: invalid_invitation_code_message }
     },
     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls

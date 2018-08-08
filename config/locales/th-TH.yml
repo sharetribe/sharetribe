@@ -55,9 +55,9 @@ th-TH:
         community_details: รายละเอียดพื้นฐาน
         community_look_and_feel: ดีไซน์
         edit_community: รายละเอียดพื้นฐาน
-        enabled_languages: ~
-        enabled_languages_description: ~
-        default_language: ~
+        enabled_languages: เปิดใช้งานภาษา
+        enabled_languages_description: "ชุดภาษาที่ใช้ได้สำหรับผู้ใช้ รายการแรกใช้เป็นค่าเริ่มต้น"
+        default_language: ภาษาเริ่มต้น
         language_selection_disabled: "การเลือกภาษาถูกปิดการใช้งานในตลาดของคุณ เพราะคุณกำลังใช้ภาษาที่ไม่เป็นทางการต่อไปนี้ : %{languages} โปรดติดต่อฝ่ายสนับสนุนของ Sharetribe หากคุณต้องการที่จะปรับเปลี่ยนการตั้งค่าภาษาของคุณ"
         community_name: ชื่อตลาด
         edit_community_name_description: "ชื่อตลาดของคุณ ซึ่งจะปรากฏต่อผู้ใช้ในอีเมล์และที่อื่น ๆ "
@@ -172,27 +172,27 @@ th-TH:
       getting_started:
         getting_started: เริ่มต้นการใช้งาน
       available_languages:
-        en: ~
-        en-AU: ~
-        en-GB: ~
-        fr: ~
-        fr-CA: ~
-        es: ~
-        es-ES: ~
+        en: อังกฤษ
+        en-AU: "อังกฤษ (ออสเตรเลีย)"
+        en-GB: "อังกฤษ (สหราชอาณาจักร)"
+        fr: ฝรั่งเศส
+        fr-CA: "ฝรั่งเศส (แคนาดา)"
+        es: "สเปน (ชิลี)"
+        es-ES: สเปน
         pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
-        fi: ~
-        ru: ~
-        de: ~
-        el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
-        it: ~
+        pt-BR: "โปรตุเกส (บราซิล)"
+        nb: นอร์เวย์บุคมอล
+        sv: สวีเดน
+        da-DK: เดนมาร์ก
+        fi: ฟินแลนด์
+        ru: รัสเซีย
+        de: เยอรมัน
+        el: กรีก
+        nl: ดัตช์
+        tr-TR: ตุรกี
+        zh: จีน
+        ja: ญี่ปุ่น
+        it: อิตาลี
       settings:
         settings: ตั้งค่า
         general: ทั่วไป
@@ -221,15 +221,15 @@ th-TH:
         google_analytics_key: " ID ติดตามของ Google Analytics"
         twitter_handle: "การจัดการ Twitter (ใช้กับปุ่มทวีตในหน้ารายการ)"
         update_settings: บันทึกการตั้งค่า
-        automatically_confirmed_no_escrow: ~
+        automatically_confirmed_no_escrow: "คำสั่งซื้อจะถูกทำเครื่องหมายว่าเสร็จสมบูรณ์ภายใน %{days_dropdown} วันหลังจากวันที่ชำระเงินเสร็จสิ้น"
         automatically_confirmed_no_escrow_stripe_info: ~
         automatic_newsletter_frequency: "ส่งจดหมายข่าวโดยอัตโนมัติ: %{frequency_dropdown}"
         newsletter_daily: รายวัน
         newsletter_weekly: รายสัปดาห์
-        delete_marketplace_title: ~
-        type_marketplace_domain: ~
-        type_marketplace_domain_placeholder: ~
-        once_you_delete: ~
+        delete_marketplace_title: ลบตลาดนี้ทิ้ง
+        type_marketplace_domain: "พิมพ์โดเมนตลาดของคุณ (%{domain}) ลงในฟิลด์ข้อความด้านล่าง:"
+        type_marketplace_domain_placeholder: พิมพ์โดเมนตลาดของคุณที่นี่
+        once_you_delete: "เมื่อคุณลบตลาดแล้วคุณจะไม่สามารถเข้าถึงได้อีกต่อไป โปรดระวัง."
         are_you_sure: ~
         i_understand_button: ~
         last_community_updates: ~
@@ -251,7 +251,7 @@ th-TH:
         save_user_status_error: "การบันทึกล้มเหลว โปรดรีเฟรชหน้าเว็บ และลองอีกครั้ง"
         ban_user_confirmation: "การกระทำเช่นนี้จะย้ายผู้ใช้ออกจากตลาด และป้องกันไม่ให้พวกเขาเข้าถึงเว็บไซต์ได้อีกครั้ง กับบัญชีนี้ คุณแน่ใจหรือว่าต้องการดำเนินการต่อ?"
         unban_user_confirmation: ~
-        ban_me_error: ~
+        ban_me_error: คุณไม่สามารถแบนตัวเองได้
         search: ~
         search_by_name_email: ~
         reset_search: ~
@@ -268,14 +268,14 @@ th-TH:
         social_media: โซเชียลมีเดีย
         twitter_handle: "การจัดการ Twitter"
         twitter_handle_info_text: "ชื่อผู้ใช้บัญชี Twitter ในตลาดของคุณ (ถ้ามี) ซึ่งจะได้รับการกล่าวถึงเมื่อมีคนใช้ปุ่มทวีตบนหน้ารายการ"
-        twitter_handle_info_text_with_instructions: ~
-        twitter_instructions_link_text: ~
+        twitter_handle_info_text_with_instructions: "ชื่อผู้ใช้ของบัญชี Twitter ของตลาดของคุณ (ถ้าคุณมี) จะมีการกล่าวถึงเมื่อผู้คนใช้ปุ่ม tweet บนหน้ารายการ %{instructions_link}"
+        twitter_instructions_link_text: อ่านเพิ่มเติม...
         twitter_handle_placeholder: ชื่อผู้ใช้
         invalid_twitter_handle: "การจัดการ Twitter ควรมีตัวเลขและอักษรมากที่สุด 15 ตัว (อักษร A-Z เลข 0-9)"
         facebook_connect: Facebook
         facebook_connect_info_text: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่"
         facebook_connect_info_text_with_instructions: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่ %{instructions_link}"
-        facebook_instructions_link_text: ~
+        facebook_instructions_link_text: "ดูคำแนะนำสำหรับการกำหนดค่าเข้าสู่ระบบด้วย Facebook Connect"
         facebook_connect_id: "รหัสลูกค้า Facebook"
         invalid_facebook_connect_id: รหัสลูกค้าควรมีแต่ตัวเลขเท่านั้น
         facebook_connect_secret: "รหัสลับของลูกค้า Facebook"
@@ -286,8 +286,8 @@ th-TH:
         analytics: การวิเคราะห์ข้อมูลหรือสถิติ
         google_analytics_key: " ID ติดตามของ Google Analytics"
         google_analytics_key_info_text: "รหัสการติดตามของบัญชี Google Analytics"
-        google_analytics_key_info_text_with_instructions: ~
-        google_analytics_instructions_link_text: ~
+        google_analytics_key_info_text_with_instructions: "รหัสการติดตามบัญชี Google Analytics ของคุณ %{instructions_link}"
+        google_analytics_instructions_link_text: "อ่านเพิ่มเติมเกี่ยวกับการเชื่อมต่อ Google Analytics"
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
@@ -360,7 +360,7 @@ th-TH:
             canceled: ~
             initiated: ~
             pending_ext: ~
-        not_available: ~
+        not_available: ไม่พบข้อมูล
       conversations:
         conversations: ~
         headers:
@@ -398,6 +398,7 @@ th-TH:
           status: ~
         open: ~
         closed: ~
+        expired: ~
       user_fields:
         user_fields: ~
     custom_fields:
@@ -523,83 +524,87 @@ th-TH:
       per_day_availability: ~
       per_night_availability: ~
       pricing_units_disabled_info: ~
-      can_not_find_name: ~
+      can_not_find_name: "ไม่พบประเภทคำสั่งซื้อที่มีชื่อ: %{name}"
       index:
-        listing_shapes: ~
-        description: ~
-        read_more_about_order_types: ~
-        add_new_shape: ~
-        select_template: ~
+        listing_shapes: ประเภทการสั่งซื้อ
+        description: "ประเภทคำสั่งซื้อจะกำหนดว่ากระบวนการสั่งซื้อทำงานอย่างไรในไซต์ของคุณ คุณสามารถตัดสินใจได้ว่าผู้ใช้ของคุณกำลังเช่าหรือขายหรือเพียงแค่โพสต์ประกาศและสื่อสารผ่านทางข้อความโดยตรง"
+        read_more_about_order_types: อ่านเพิ่มเติมเกี่ยวกับประเภทการสั่งซื้อ
+        add_new_shape: "เพิ่มประเภทคำสั่งซื้อใหม่: "
+        select_template: เลือกเทมเพลต...
         all_categories: หมวดหมู่ทั้งหมด
-        no_categories: ~
-        category_count: ~
+        no_categories: ไม่มีหมวดหมู่
+        category_count: "%{category_count} หมวดหมู่"
         header:
-          listing_shape_name: ~
-          listing_shape_categories: ~
+          listing_shape_name: ชื่อชนิดของรายการ
+          listing_shape_categories: หมวดหมู่ที่ใช้งาน
         order:
-          saving_order: ~
-          save_order_successful: ~
-          save_order_error: ~
+          saving_order: กำลังบันทึกคำสั่งซื้อ
+          save_order_successful: บันทึกคำสั่งซื้อตามลำดับเรียบร้อยแล้ว
+          save_order_error: "เกิดข้อผิดพลาดในขณะที่กำลังบันทึกการเรียงลำดับข้อมูล กรุณารีเฟรชหน้าเว็บ และลองอีกครั้ง"
       templates:
-        selling_products: ~
-        renting_products: ~
-        offering_services: ~
-        giving_things_away: ~
-        requesting: ~
-        announcement: ~
-        custom: ~
+        selling_products: ขายสินค้า
+        renting_products: การให้เช่าสินค้า
+        offering_services: การเสนอบริการ
+        giving_things_away: ปล่อยของฟรี
+        requesting: กำลังร้องขอ
+        announcement: โพสต์ประกาศ
+        custom: กำหนดเอง
       new:
-        create_listing_shape: ~
-        create: ~
-        cancel: ~
-        create_success: ~
-        create_failure: ~
+        create_listing_shape: สร้างประเภทคำสั่งซื้อ
+        create: สร้าง
+        cancel: ยกเลิก
+        create_success: "สร้างประเภทคำสั่งซื้อใหม่ '%{shape}' แล้ว"
+        create_failure: "ไม่สามารถบันทึกการเปลี่ยนแปลงได้ ข้อผิดพลาด: %{error_msg}"
       edit:
-        edit_listing_shape: ~
-        update: ~
-        cancel: ~
-        update_success: ~
-        update_failure: ~
-        delete: ~
+        edit_listing_shape: "แก้ไขประเภทคำสั่งซื้อ '%{shape}'"
+        update: บันทึก
+        cancel: ยกเลิก
+        update_success: "เปลี่ยนประเภทคำสั่งซื้อ '%{shape}' แล้ว"
+        update_failure: "ไม่สามารถบันทึกการเปลี่ยนแปลงได้ ข้อผิดพลาด: %{error_msg}"
+        delete: ลบประเภทคำสั่งซื้อ
         confirm_delete_order_type:
           other: "มี %{count} รายการที่มีคำสั่งประเภทนี้อยู่ ถ้าคุณลบประเภทคำสั่ง รายการนี้จะถูกปิด คุณแน่ใจหรือว่าต้องการลบประเภทคำสั่งนี้?"
-        can_not_delete_last: ~
-        can_not_delete_only_one_in_categories: ~
-      listing_shape_name: ~
-      listing_shape_name_placeholder: ~
-      action_button_label: ~
-      action_button_placeholder: ~
+        can_not_delete_last: คุณไม่สามารถลบประเภทคำสั่งซื้อนี้เนื่องจากเป็นประเภทเดียวในตลาดของคุณ
+        can_not_delete_only_one_in_categories: "คุณไม่สามารถลบประเภทใบสั่งซื้อได้เนื่องจากในประเภทต่อไปนี้ประเภทคำสั่งซื้อนี้มีเพียงประเภทเดียวที่ใช้งานอยู่: %{categories}"
+      listing_shape_name: ชื่อ
+      listing_shape_name_placeholder: "เช่น ขาย"
+      action_button_label: ชื่อปุ่มสั่งซื้อ
+      action_button_placeholder: "เช่น ซื้อ"
       open_listings_warning:
         other: "มี %{count} ประกาศที่ใช้งานอยู่ ที่สัมพันธ์กับชนิดของคำสั่งนี้ หากคุณเปลี่ยนการตั้งค่าด้านล่าง ประกาศนั้นจะยังคงมีการตั้งค่าแบบเก่าอยู่ ประกาศสามารถเปลี่ยนการตั้งค่าใหม่ได้โดยการแก้ไขรายการด้วยตนเอง หากคุณไม่ต้องการที่จะมีประกาศที่มีการตั้งค่าเก่าปรากฏอยู่บนเว็บไซต์ คุณสามารถปิดได้โดยคลิกที่ปุ่มด้านล่าง"
-      successfully_closed: ~
-      successfully_deleted: ~
-      pricing_and_checkout_title: ~
-      online_payments_label: ~
+      close_listings_action:
+        other: "ปิด %{count} รายการ"
+      confirm_close_listings_action:
+        other: "คุณแน่ใจหรือไม่ว่าต้องการปิด %{count} รายการ?"
+      successfully_closed: ปิดรายการเรียบร้อยแล้ว
+      successfully_deleted: "ลบประเภทคำสั่งซื้อ '%{order_type}' เรียบร้อยแล้ว"
+      pricing_and_checkout_title: ราคาและเช็คเอาท์
+      online_payments_label: อนุญาตให้ผู้ขายยอมรับการชำระเงินทางออนไลน์
       shipping_label: "อนุญาตให้ผู้ขายกำหนด ค่าจัดส่ง ได้"
-      price_label: ~
-      units_title: ~
-      units_desc: ~
+      price_label: อนุญาตผู้ขายสามารถใส่ราคาลงในรายการของพวกเขาได้
+      units_title: หน่วยราคา
+      units_desc: "หากคุณเปิดใช้หน่วยการกำหนดราคาราคาในรายการจะแสดงเป็น \"ราคาต่อหน่วยการกำหนดราคา\" ตัวอย่าง: \"39 บาทต่อชั่วโมง\""
       units:
-        piece: ~
-        hour: ~
-        day: ~
-        night: ~
-        week: ~
-        month: ~
-      can_not_find: ~
-      add_custom_unit: ~
-      delete_custom_unit: ~
+        piece: ต่อชิ้น
+        hour: ต่อชั่วโมง
+        day: ต่อวัน
+        night: ต่อคืน
+        week: ต่อสัปดาห์
+        month: ต่อเดือน
+      can_not_find: "ไม่พบประเภทใบสั่งที่มีรหัส: %{id}"
+      add_custom_unit: "+ เพิ่มหน่วยราคาเอง…"
+      delete_custom_unit: ลบ
       custom_unit_form:
-        title: ~
-        label_heading: ~
-        selector_label_heading: ~
-        label_placeholder: ~
-        selector_placeholder: ~
-        per: ~
+        title: กำหนดหน่วยราคาใหม่
+        label_heading: ป้ายกำกับ
+        selector_label_heading: เลือกป้ายกำกับ
+        label_placeholder: "เช่น. \"กก.\", \"30 นาที\", \"คน\", \"ชั้นเรียน\""
+        selector_placeholder: "เช่น. \"จำนวนคน\", \"จำนวนเงินในกก.\""
+        per: ต่อ
         unit_type:
-          heading: ~
-          quantity_label: ~
-          time_label: ~
+          heading: ประเภทหน่วย
+          quantity_label: "จำนวน (ต่อชิ้น, ต่อกิโลกรัม, ต่อคน,  2 ชั่วโมงต่อทัวร์...)"
+          time_label: "เวลา (ต่อ 30 นาทีม, ต่อ 2 สัปดาห์, ต่อปี...)"
     paypal_accounts:
       marketplace_paypal_integration: การตั้งค่าระบบการชำระเงิน
       preferences_updated: อัปเดตการตั้งค่าระบบการชำระเงินแล้ว
@@ -610,17 +615,17 @@ th-TH:
       link_stripe_personal_account: ~
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: ~
-      read_more_about_paypal: ~
+      read_more_about_paypal: อ่านเพิ่มเติมเกี่ยวกับระบบการชำระเงิน
       edit_payment_settings: ~
       supported_currencies_information_text: ~
       currency_change_warning_text: ~
       marketplace_currency_label: ~
       minimum_listing_price_label: "รายการขั้นต่ำ:"
       transaction_fee_label: "ค่าธรรมเนียมการทำธุรกรรม:"
-      minimum_transaction_fee_label: ~
+      minimum_transaction_fee_label: "ค่าธรรมเนียมการทำธุรกรรมขั้นต่ำ:"
       save_settings: บันทึกการตั้งค่า
-      minimum_listing_price_below_tx_fee: ~
-      minimum_listing_price_below_min: ~
+      minimum_listing_price_below_tx_fee: "รายการชำระเงินขั้นต่ำต้องสูงกว่าหรือเท่ากับค่าธรรมเนียมการทำธุรกรรมขั้นต่ำ: %{minimum_transaction_fee}"
+      minimum_listing_price_below_min: "รายการชำระเงินต้องสูงกว่าค่าคอมมิชชั่นขั้นต่ำ %{minimum_commission}"
     payment_preferences:
       title: ~
       general_settings: ~
@@ -764,15 +769,15 @@ th-TH:
           หากต้องการใช้ PayPal ทาง %{service_name} คิดค่าคอมมิชชั่นในการประมวลผลจากการชำระเงินแต่ละครั้ง %{paypal_commission}% และการชำระเงินขั้นต่ำอยู่ที่ %{minimum_transaction_fee}  ทั้งนี้ค่าธรรมเนียมของ PayPal จะไม่รวมอยู่ในค่าคอมมิชชั่นน ดังนั้นนอกเหนือจากค่าคอมมิชชั่นของ %{service_name} คุณจะจ่ายค่าธรรมเนียมของ PayPal สำหรับแต่ละการชำระเงิน ค่าธรรมเนียมนี้อยู่ระหว่าง 2% และ 5% ของราคาขายทั้งหมด ขึ้นอยู่กับปริมาณการขายรายเดือนของคุณ และประเทศที่พำนักของผู้ซื้อ โดยทั่วไป การซื้อสินค้าในประเทศมีค่าใช้จ่ายต่ำกว่าต่างประเทศ และยิ่งยอดขายรายเดือนสูงเท่าไหร่ ส่วนลดค่าธรรมเนียมก็จะน้อยลงตามสัดส่วน
           คุณสามารถดูค่าธรรมเนียมที่ถูกต้อง โดยการเข้าสู่บัญชี PayPal ของคุณ และไปยัง %{link_to_paypal} หลังจากการซื้อขายแต่ละครั้ง คุณจะได้รับใบเสร็จรับเงินแสดงค่าธรรมเนียมในแต่ละรายการ
       body_text_accept: ~
-      link_to_paypal_text: ~
+      link_to_paypal_text: คลิ๊กที่นี่
     stripe_fee_info:
       title: ~
       body_text: ~
       link_to_stripe_text: ~
   conversations:
     accept:
-      details: ~
-      order_by: ~
+      details: รายละเอียดใบสั่ง
+      order_by: "เรียงลำดับโดย %{orderer_link}"
       accept_offer: ยอมรับข้อเสนอ
       accept_request: ตอบรับออเดอร์
       reject_offer: ไม่ใช่เวลานี้
@@ -783,12 +788,12 @@ th-TH:
       price_to_pay: ราคารวมที่จะต้องจ่าย
       accept: ยอมรับ
       decline: ปฏิเสธ
-      quantity_label: ~
-      sum_label: ~
-      service_fee_label: ~
-      you_will_get_label: ~
-      total_label: ~
-      total_value: ~
+      quantity_label: "ปริมาณ:"
+      sum_label: ผลรวมย่อย
+      service_fee_label: "ค่าธรรมเนียม: %{service_name}"
+      you_will_get_label: "คุณจะได้รับ:"
+      total_label: "รวมทั้งหมด:"
+      total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
       paypal_fee_info: "*ไม่รวม <a id='%{fee_info_link_id}' href='#'>ค่าธรรมเนียมการชำระเงินของ PayPal</a>"
@@ -1047,8 +1052,8 @@ th-TH:
       you_have_a_new_message: "ข้อความใหม่ใน %{service_name} จาก %{sender_name}"
     new_payment:
       new_payment: คุณได้รับการชำระเงินใหม่
-      price_per_unit_type: ~
-      quantity: ~
+      price_per_unit_type: "ราคาต่อ: %{unit_type}"
+      quantity: "ปริมาณ:"
       you_have_received_new_payment: "คุณได้รับการชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> จาก %{payer_full_name} นี่คือใบเสร็จรับเงินของคุณ"
       listing_per_unit_title: ~
     payment_receipt_to_seller:
@@ -1079,7 +1084,7 @@ th-TH:
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "ค่าธรรมเนียมของ PayPal"
       shipping_total: จัดส่ง
     braintree_new_payment:
       product: "ผลิตภัณฑ์:"
@@ -1090,10 +1095,10 @@ th-TH:
       receipt_of_payment: ใบเสร็จรับเงินของการชำระเงิน
       you_have_made_new_payment: "คุณได้ชำระเงิน <b>%{payment_sum}</b> สำหรับ <b>%{listing_title}</b> แก่ %{recipient_full_name} นี่คือใบเสร็จรับเงินของการชำระเงิน"
       product: ผลิตภัณฑ์
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
+      price_per_unit_type: "ราคาต่อ: %{unit_type}"
+      duration: ช่วงเวลา
+      quantity: ปริมาณ
+      subtotal: ผลรวมย่อย
       total: รวมทั้งหมด
       price: ราคา
       service_fee: "ค่าบริการ "
@@ -1229,7 +1234,7 @@ th-TH:
       on_or_before: "ต้องเป็นเท่ากับหรือก่อน %{restriction}"
       after: "ต้องเป็นหลัง %{restriction}"
       on_or_after: "ต้องเป็นเท่ากับหรือหลัง %{restriction}"
-      positive_number: ~
+      positive_number: ใส่หมายเลข
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ได้ตกลงที่จะให้ %{requester_name} ยืม เมื่อ%{time_ago}"
@@ -1622,7 +1627,7 @@ th-TH:
     map:
       open_in_google_maps: ~
     error:
-      something_went_wrong: ~
+      something_went_wrong: "เกิดข้อผิดพลาดรหัสข้อผิดพลาด: %{error_code}"
       something_went_wrong_plain: ~
       create_failed_to_connect_to_booking_service: ~
       update_failed_to_connect_to_booking_service: ~
@@ -1685,14 +1690,14 @@ th-TH:
         time: "ชั่วโมง, วัน, เดือน, ..."
         long_time: "สัปดาห์, เดือน, ..."
         after_service_fee_you_will_get: "หลังจาก %{service_name} และการชำระเงินค่าธรรมเนียมการประมวลผล คุณจะได้รับ %{sum_with_currency}"
-        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} จะถูกหักออกจากราคานี้"
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
         payment_fee_info_link_text: ~
         delivery: วิธีการส่งสินค้า
         shipping: จัดส่ง
         shipping_price: ค่าจัดส่ง
-        shipping_price_additional: ~
+        shipping_price_additional: รายการเพิ่มเติม
         pickup: มารับด้วยตนเอง
       origin:
         location: ตำแหน่ง
@@ -1787,18 +1792,18 @@ th-TH:
       select_subcategory: เลือกหมวดหมู่ย่อย
       select_transaction_type: เลือกประเภทรายการ
       you_need_to_fill_payout_details_before_accepting: "คุณต้องกรอกรายละเอียดการจ่ายเงินก่อนที่จะสามารถโพสต์รายการได้ โปรดไปที่%{payment_settings_link} เพื่อกรอกรายละเอียด"
-      contact_admin_link_text: ~
-      community_not_configured_for_payments: ~
+      contact_admin_link_text: "ติดต่อผู้ดูแลระบบ %{service_name}"
+      community_not_configured_for_payments: "%{service_name} ไม่ได้ตั้งค่าสำหรับการชำระเงินดังนั้นคุณจึงไม่สามารถโพสต์รายการใหม่ได้ โปรดติด่ตอ %{contact_admin_link} สำหรับรายละเอียดเพิ่มเติม"
       payment_settings_link: การตั้งค่าการชำระเงิน
-      community_not_configured_for_payments_admin: ~
+      community_not_configured_for_payments_admin: "%{service_name} ไม่ได้ตั้งค่าสำหรับการชำระเงินดังนั้นคุณจึงไม่สามารถโพสต์รายการใหม่ได้ โปรดไปที่ %{payment_settings_link} เพื่อกรอกรายละเอียดการชำระเงิน"
     quantity:
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
-      custom: ~
-    quantity_placeholder: ~
+      hour: "จำนวนชั่วโมง:"
+      day: "จำนวนวัน:"
+      night: "จำนวนคืน:"
+      week: "จำนวนสัปดาห์:"
+      month: "จำนวนเดือน:"
+      custom: "ปริมาณ:"
+    quantity_placeholder: ปริมาณ
     please_comment: ข้อคิดเห็น
     reply_link:
       listing_closed: รายการถูกปิด
@@ -1837,17 +1842,17 @@ th-TH:
       delivery: วิธีการส่งสินค้า
       shipping: "จัดส่ง (+%{price})"
       shipping_no_price: จัดส่ง
-      shipping_price_additional: ~
+      shipping_price_additional: "ค่าจัดส่ง (+ %{price}, รายการเพิ่มเติม: %{shipping_price_additional})"
       pickup: มารับด้วยตนเอง
       pickup_no_price: มารับด้วยตนเอง
       youtube_video_player: ~
     unit_types:
-      piece: ~
-      hour: ~
-      day: ~
-      night: ~
-      week: ~
-      month: ~
+      piece: ชื้น
+      hour: ชั่วโมง
+      day: วัน
+      night: คืน
+      week: สัปดาห์
+      month: เดือน
     verification_required:
       verification_required: ต้องได้รับการยืนยัน
   listing_conversations:
@@ -1899,7 +1904,7 @@ th-TH:
       you_have_something_others_do_not: มีข้อเสนอบางอย่างหรือเปล่า?
     please_comment: ข้อคิดเห็น
   mercury:
-    content_too_long: ~
+    content_too_long: เนื้อหาที่ใส่ยาวเกินไป
   okl:
     member_id: "ID สมาชิก "
     member_id_or_email: "ID สมาชิก หรืออีเมล์"
@@ -1924,7 +1929,7 @@ th-TH:
     new:
       payout_info_you_need_to_connect: "ในการรับเงิน คุณจะต้องเชื่อมต่อบัญชี PayPal ของคุณกับ %{service_name}"
       payout_info_text: "โปรดทำตามขั้นตอนดังต่อไปนี้ เพื่อเชื่อมต่อกับบัญชีของคุณ"
-      contact_admin_link_text: ~
+      contact_admin_link_text: "ติดต่อผู้ดูแลระบบ %{service_name}"
       admin_account_not_connected: "การเชื่อมต่อบัญชี PayPal ของคุณเป็นไปไม่ได้ เนื่องจาก%{service_name} ไม่ได้ตั้งค่าการชำระเงิน กรุณา %{contact_admin_link} สำหรับรายละเอียด"
       paypal_account_email: "เชื่อมต่อบัญชี PayPal ของคุณ"
       paypal_account_email_placeholder: "ที่อยู่อีเมล PayPal ของคุณ"
@@ -1939,7 +1944,7 @@ th-TH:
       connect_paypal_account: "เชื่อมต่อบัญชี PayPal ของคุณ"
       paypal_account_billing_agreement_with_step: "ขั้นตอนที่ %{current_step}/%{total_steps}: อนุญาตให้หักค่าดำเนินการ"
       paypal_account_billing_agreement_info_both: "หลังจากที่คุณขายสินค้าสำเร็จบน %{service_name} ค่าธรรมเนียมในการให้บริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่งและค่าธรรมเนียมขั้นต่ำ %{minimum_commission}) จะถูกเรียกเก็บจากบัญชี PayPal ของคุณ คุณจำเป็นต้องอนุญาติให้มีการหักค่าธรรมเนียมดังกล่าว เพื่อที่จะรับชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
-      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_fixed: "หลังจากที่คุณขายสินค้าสำเร็จใน %{service_name} ค่าธรรมเนียมในการให้บริการ %{minimum_commission} จะถูกเรียกเก็บเงินจากบัญชี PayPal ของคุณ เราต้องได้รับอนุญาตให้ทำเช่นนี้เพื่อรับการชำระเงินใน %{service_name} ค่าธรรมเนียมไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_relative: "หลังจากที่คุณขายสินค้าสำเร็จบน %{service_name} ค่าธรรมเนียมในการให้บริการ (%{commission_from_seller} ของราคาสินค้าทั้งหมด ไม่รวมค่าจัดส่ง) จะถูกเรียกเก็บจากบัญชี PayPal ของคุณ คุณจำเป็นต้องอนุญาติให้มีการหักค่าธรรมเนียมดังกล่าว เพื่อที่จะรับชำระเงินใน %{service_name} ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_account_billing_agreement_info_none: "ขณะนี้ %{service_name} ไม่เรียกเก็บค่าบริการ หากมีการเปิดใช้งานค่าบริการ คุณจะต้องอนุญาตให้ %{service_name} ในการเรียกเก็บค่าบริการ เพื่อที่จะยอมรับการชำระเงิน ค่าธรรมเนียมนี้ไม่รวม %{paypal_info_link}"
       paypal_info_link_text: "ค่าดำเนินการของ PayPal"
@@ -1953,12 +1958,12 @@ th-TH:
       billing_agreement_wrong_account: "บัญชี PayPal ไม่ตรงกัน โปรดใช้บัญชี PayPal เดียวกับที่คุณเชื่อมต่อในขั้นตอนแรก"
       something_went_wrong: "บางอย่างผิดพลาด กรุณาลองอีกครั้ง หากยังคงมีปัญหาอยู่ กรุณาติดต่อผู้ดูแลเว็บไซต์ %{service_name}"
       account_not_verified: "คุณยังไม่ได้ยืนยันบัญชี PayPal ของคุณ คุณต้องไปที่ paypal.com และยืนยันบัญชีของคุณก่อนจึงจะสามารถดำเนินการต่อได้"
-      account_restricted: ~
+      account_restricted: "บัญชี PayPal ของคุณถูก จำกัด และไม่สามารถเชื่อมต่อได้ โปรดเข้าสู่ระบบ paypal.com เพื่อหาข้อมูลเพิ่มเติมหรือติดต่อฝ่ายบริการลูกค้าของ PayPal เพื่อแก้ไขปัญหา"
     paypal_account_connected_title: "เชื่อมต่อบัญชี PayPal แล้ว"
     paypal_account_connected: "บัญชี PayPal ของคุณคือ %{email} ได้เชื่อมต่อกับ %{service_name} แล้ว"
     change_account: "เปลี่ยนบัญชี PayPal"
     missing: "คุณมีรายการที่เปิดอยู่ แต่บัญชี PayPal ของคุณไม่ได้ถูกตั้งค่าเพื่อที่จะได้รับการชำระเงิน กรุณาเชื่อมต่อบัญชี PayPal ของคุณและให้อนุญาต %{service_name} ในการเรียกเก็บค่าธรรมเนียมการทำธุรกรรมจาก %{settings_link} ของคุณ"
-    from_your_payment_settings_link_text: ~
+    from_your_payment_settings_link_text: การตั้งค่าการชำระเงิน
     redirect_message: "ระบบกำลังนำคุณไปสู่หน้าของ PayPal หากไม่มีความเคลื่อนไหว คลิกที่นี่ %{redirect_link}"
     redirect_link_text: ~
     paypal_account_all_set_up: การตั้งค่าสำเร็จสมบูรณ์
@@ -1975,7 +1980,7 @@ th-TH:
       commission_payment_name: "ค่าคอมมิชชั่นสำหรับ %{listing_title}"
       commission_payment_description: "%{service_name} หักค่าคอมมิชชั่นนี้จากการทำธุรกรรมของ %{listing_title}"
     wait_while_loading: โปรดรอ.
-    chatting_with_paypal: ~
+    chatting_with_paypal: "เรากำลังคุยกับ PayPal"
   people:
     edit_links:
       activate: เปิดใช้งาน
@@ -2120,7 +2125,7 @@ th-TH:
       new_password: รหัสผ่านใหม่
       save: บันทึก
       these_fields_are_shown_only_to_you: "ชื่อผู้ใช้จะปรากฏในโปรไฟล์ของคุณ นอกจากคุณจะให้ชื่อของคุณเอง ข้อมูลอื่น ๆ จะแสดงให้เห็นเฉพาะกับคุณ"
-      email_already_confirmed: ~
+      email_already_confirmed: ที่อยู่อีเมลของคุณได้รับการยืนยันแล้ว
       email:
         address_title: ที่อยู่
         remove_title: ลบ
@@ -2181,7 +2186,7 @@ th-TH:
       visible_to_registered_users: (ปรากฎให้เห็นแก่ผู้ใช้ที่เข้าสู่ระบบ)
       default_in_listing: "(ใช้เป็นค่าเริ่มต้น เมื่อมีการสร้างประกาศซื้อขายอันใหม่)"
       invisible: "(ไม่แสดงต่อผู้ใช้อื่น ๆ)"
-      image_is_processing: ~
+      image_is_processing: "โปรดรอซักครู เรากำลังประมวลผลรูปโปรไฟล์ของคุณ จะพร้อมภายใน 1-2 นาที"
       shown_in_your_public_profile: ~
     save_information: บันทึกข้อมูล
   shipping_address:
@@ -2303,24 +2308,33 @@ th-TH:
     years_ago: "%{count} ปีที่แล้ว"
     days_since:
       other: "%{count} วัน"
+    time_to:
+      seconds:
+        other: "%{count} วินาที"
+      minutes:
+        other: "%{count} นาที"
+      hours:
+        other: "%{count} ชั่วโมง"
+      days:
+        other: "%{count} วัน"
   transactions:
     initiate:
-      booked_days: ~
+      booked_days: "วันที่จอง:"
       booked_nights: ~
-      price_per_day: ~
+      price_per_day: "ราคาต่อวัน:"
       price_per_night: ~
       price_per_hour: ~
       price_per_unit: ~
-      quantity: ~
-      subtotal: ~
+      quantity: "ปริมาณ:"
+      subtotal: ผลรวมย่อย
       shipping-price: จัดส่ง
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
-    price: ~
-    quantity: ~
-    unit_price: ~
-    total: ~
+    price_per_quantity: "ราคาต่อ: %{unit_type}"
+    price: ราคา
+    quantity: "ปริมาณ: %{quantity}"
+    unit_price: "ราคาต่อหน่วย: %{unit_price}"
+    total: "รวมทั้งหมด:"
     total_to_pay: ~
   unit:
     day: วัน
