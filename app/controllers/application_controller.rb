@@ -627,18 +627,10 @@ class ApplicationController < ActionController::Base
   end
 
   def setup_custom_footer
-    if pro_plan?
-      @custom_footer = admin_controller? ? nil : FooterPresenter.new(@current_community, @current_plan)
-    end
+    @custom_footer = admin_controller? ? nil : FooterPresenter.new(@current_community, @current_plan)
   end
 
   def admin_controller?
     self.class.name =~ /^Admin/
   end
-
-  def pro_plan?
-    @current_plan && @current_plan[:features][:whitelabel] && @current_plan[:features][:admin_email]
-  end
-  helper_method :pro_plan?
-
 end
