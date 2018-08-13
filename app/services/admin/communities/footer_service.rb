@@ -15,7 +15,8 @@ class Admin::Communities::FooterService
   end
 
   def update
-    community.update_attributes(footer_params)
+    community.update_attributes(footer_params) &&
+      community.footer_menu_links.map(&:save).all?
   end
 
   def footer_theme_dark?
