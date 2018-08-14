@@ -29,14 +29,14 @@ class FooterPresenter < MemoisticPresenter
   end
 
   def social_media_icon_color
-    community.custom_color1 || 'FFFFFF'
+    community.custom_color1 || (theme_dark? ? 'FFFFFF' : '4a90e2')
   end
 
   def social_media_icon_color_hover
     if community.custom_color1.present?
       (0..2).map{ |x| community.custom_color1.slice(x*2, 2).to_i(16) }.join(',')
     else
-      '217,217,217'
+      (theme_dark? ? '217,217,217' : '74,144,226')
     end
   end
 
@@ -55,6 +55,10 @@ class FooterPresenter < MemoisticPresenter
 
   def social
     community.social_links.enabled
+  end
+
+  def theme_dark?
+    community.footer_theme == Community::FOOTER_DARK
   end
 
   memoize_all_reader_methods
