@@ -29,11 +29,15 @@ class FooterPresenter < MemoisticPresenter
   end
 
   def social_media_icon_color
-    community.custom_color1
+    community.custom_color1 || 'FFFFFF'
   end
 
   def social_media_icon_color_hover
-    (0..2).map{ |x| community.custom_color1.slice(x*2, 2).to_i(16) }.join(',')
+    if community.custom_color1.present?
+      (0..2).map{ |x| community.custom_color1.slice(x*2, 2).to_i(16) }.join(',')
+    else
+      '217,217,217'
+    end
   end
 
   def copyright
