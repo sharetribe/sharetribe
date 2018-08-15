@@ -14,34 +14,43 @@ jobs:
           NODE_ENV: test
           RAILS_ENV: test
           RACK_ENV: test
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
       - image: mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD=very-secret
     steps:
       - checkout
       - restore_cache:
-          # In order to invalidate the cache bump the version number
-          key: deps-cache-v4
+          keys:
+            - bundler-cache-v2-{{ checksum "Gemfile.lock" }}
+            - bundler-cache-v2-
+      - run:
+          name: generate node package file for cache checksum
+          command: cat package.json client/package.json > .package.json.tmp
+      - restore_cache:
+          keys:
+            - node-cache-v2-{{ checksum ".package.json.tmp" }}
+            - node-cache-v2-
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
       - run:
-          # CircleCI v1 used to do this automatically
-          name: blacklist problematc gems
-          command: sed -i.bak "/gem ['\"]growl_notify\|autotest-fsevent\|rb-appscript\|rb-fsevent['\"].*, *$/ N; s/\n *//g; /gem ['\"]growl_notify\|autotest-fsevent\|rb-appscript\|rb-fsevent['\"]/ d" Gemfile
-      - run:
           name: bundle install
-          command: bundle check --path=vendor/bundle || bundle install --without=development
+          command: bundle check || bundle install --without=development
       - run:
           name: npm install
           command: npm install
       - save_cache:
-          # In order to invalidate the cache bump the version number
-          key: deps-cache-v4
+          key: bundler-cache-v2-{{ checksum "Gemfile.lock" }}
           paths:
-            - ~/.nvm
             - vendor/bundle
             - ~/.bundle
+      - save_cache:
+          key: node-cache-v2-{{ checksum ".package.json.tmp" }}
+          paths:
+            - ~/.nvm
             - client/node_modules
             - ./node_modules
       - run:
