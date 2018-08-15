@@ -64,6 +64,9 @@ jobs:
           command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm run lint ; fi
           working_directory: client
       - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
           name: db setup
           command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
       - run:
