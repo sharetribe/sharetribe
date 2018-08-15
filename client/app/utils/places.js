@@ -141,8 +141,10 @@ export const maxDistance = (place) => {
 export const getPrediction = (location) => new Promise((resolve, reject) => {
   const serviceStatus = window.google.maps.places.PlacesServiceStatus;
   const service = new window.google.maps.places.AutocompleteService();
+  const sessionToken = new window.google.maps.places.AutocompleteSessionToken();
 
-  service.getPlacePredictions({ input: location }, (predictions, status) => {
+  service.getPlacePredictions({ input: location, sessionToken: sessionToken }, // eslint-disable-line babel/object-shorthand
+  (predictions, status) => {
     if (status !== serviceStatus.OK) {
       const e = new Error(`Prediction service status not OK: ${status}`);
       e.serviceStatus = status;

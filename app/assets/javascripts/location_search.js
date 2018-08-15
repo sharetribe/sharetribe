@@ -112,7 +112,8 @@ window.ST = window.ST || {};
 
     var queryPredictions = function(inputString, callback) {
       var autocompleteService = new window.google.maps.places.AutocompleteService();
-      autocompleteService.getQueryPredictions({ input: inputString }, callback);
+      var sessionToken = new google.maps.places.AutocompleteSessionToken();
+      autocompleteService.getPlacePredictions({ input: inputString, sessionToken: sessionToken }, callback);
     };
 
     var handlePredictions = function(predictions, autocompleteServiceStatus) {
