@@ -23,7 +23,7 @@
 
 class TextFieldValue < CustomFieldValue
 
-  validates_presence_of :text_value
+  validates :text_value, presence: true, if: proc { |text_field_value| text_field_value.question.required? }
 
   def display_value
     text_value
