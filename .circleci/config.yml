@@ -5,7 +5,7 @@ jobs:
     # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
     shell: /bin/bash -ileo pipefail
     docker:
-      - image: circleci/ruby:2.3.4-jessie-node-browsers
+      - image: circleci/ruby:2.3.4-jessie-browsers
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
