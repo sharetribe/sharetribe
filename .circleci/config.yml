@@ -26,12 +26,9 @@ jobs:
           keys:
             - bundler-cache-v2-{{ checksum "Gemfile.lock" }}
             - bundler-cache-v2-
-      - run:
-          name: generate node package file for cache checksum
-          command: cat package.json client/package.json > .package.json.tmp
       - restore_cache:
           keys:
-            - node-cache-v2-{{ checksum ".package.json.tmp" }}
+            - node-cache-v2-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
             - node-cache-v2-
       - run:
           name: install system deps
@@ -48,7 +45,7 @@ jobs:
             - vendor/bundle
             - ~/.bundle
       - save_cache:
-          key: node-cache-v2-{{ checksum ".package.json.tmp" }}
+          key: node-cache-v2-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
           paths:
             - ~/.nvm
             - client/node_modules
