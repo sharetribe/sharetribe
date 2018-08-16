@@ -10,13 +10,36 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- View Listings page in the admin panel [#3340](https://github.com/sharetribe/sharetribe/pull/3340)
+- Locations section in the custom landing pages [#3341](https://github.com/sharetribe/sharetribe/pull/3341)
+- Background color and image for any section [#3296](https://github.com/sharetribe/sharetribe/pull/3296)
+- Custom fields for user profiles [#3332](https://github.com/sharetribe/sharetribe/pull/3332)
+- Add a section button for info-2-columns and info-3-columns in the custom landing pages [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- File name in the design tab and profile settings to show the stored file [#3364](https://github.com/sharetribe/sharetribe/pull/3364)
+- Allow markdown in user profiles "About you" section [#3370](https://github.com/sharetribe/sharetribe/pull/3370)
+- "Expired" status in View listings page [#3387](https://github.com/sharetribe/sharetribe/pull/3387)
+- Allow spaces at the end of the e-mails in signup form [#3394](https://github.com/sharetribe/sharetribe/pull/3394)
+
 ### Changed
+
+- Rename admin panel sections [#3350](https://github.com/sharetribe/sharetribe/pull/3350)
+- Rename save listings button [#3355](https://github.com/sharetribe/sharetribe/pull/3355)
+- Video section variations on the custom landing pages [#3367](https://github.com/sharetribe/sharetribe/pull/3367)
+- Renamed the default category to "default category" [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- Allow links in the custom user text fields [#3373](https://github.com/sharetribe/sharetribe/pull/3373)
+- Google maps dynamic map for static maps in the listing page [#3382](https://github.com/sharetribe/sharetribe/pull/3382)
+
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Fix data deletion task to handle missing images [#3349](https://github.com/sharetribe/sharetribe/pull/3349)
+- Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
+- Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
+- Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
 
 ### Security
 
