@@ -19,10 +19,15 @@
 
   #custom-fields-list
     .row.visible-tablet
-      .col-5.custom-fields-list-title
+      .col-4.custom-fields-list-title
         = t(".field_title")
-      .col-5.custom-fields-list-title
+      .col-4.custom-fields-list-title
         = t(".field_type")
+      .col-1.custom-fields-list-title
+        = t(".signup")
+      .col-1.custom-fields-list-title
+        = t(".public")
+
 
     = render 'fixed_fields', service: @service
 

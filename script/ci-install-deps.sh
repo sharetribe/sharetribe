@@ -6,7 +6,7 @@ echo 'deb http://deb.debian.org/debian jessie-backports main' | sudo tee -a /etc
 
 sudo apt-get update && sudo apt-get install -y sphinxsearch mysql-client
 
-if [[ -f ~/.nvm/nvm/sh ]] ; then
+if [[ -f ~/.nvm/nvm.sh ]] ; then
     echo "NVM already installed"
 else
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
