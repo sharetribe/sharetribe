@@ -14,6 +14,7 @@ Rails.application.configure do
   # (this is a hack which is fixed properly in Rails 4)
   # config.action_view.cache_template_loading = false
 
+=begin
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
   # Formats log entries into: LEVEL MESSAGE
@@ -44,6 +45,7 @@ Rails.application.configure do
     ActionMailer::Base.logger = Rails.logger.clone
     ActionMailer::Base.logger.level = Logger::INFO
   end
+=end
 
 
 
