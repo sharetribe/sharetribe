@@ -28,8 +28,8 @@ jobs:
             - bundler-cache-v2-
       - restore_cache:
           keys:
-            - node-cache-v2-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
-            - node-cache-v2-
+            - node-cache-v3-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+            - node-cache-v3-
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
@@ -45,9 +45,10 @@ jobs:
             - vendor/bundle
             - ~/.bundle
       - save_cache:
-          key: node-cache-v2-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: node-cache-v3-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
           paths:
             - ~/.nvm
+            - ~/.bashrc
             - client/node_modules
             - ./node_modules
       - run:
