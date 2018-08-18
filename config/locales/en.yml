@@ -350,7 +350,7 @@ en:
             accepted: Accepted
             rejected: Rejected
             paid: Paid
-            confirmed: Confirmed
+            confirmed: Completed
             canceled: Canceled
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
@@ -361,7 +361,7 @@ en:
             accepted: Accepted
             rejected: Rejected
             paid: Paid
-            confirmed: Confirmed
+            confirmed: Completed
             canceled: Canceled
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
