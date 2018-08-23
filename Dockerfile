@@ -1,4 +1,4 @@
-FROM ruby:2.3.4
+FROM ruby:2.3.7
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 

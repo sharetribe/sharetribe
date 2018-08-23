@@ -40,6 +40,17 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+Ruby version is updated from 2.3.4 to 2.3.7. The update contains fixes for several security vulnerabilities.
+
+Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
+```
+rvm install ruby-2.3.7
+rvm use ruby-2.3.7
+gem install bundler
+bundle install
+```
+
 ## Upgrade from 7.3.0 to 7.3.1
 
 Nothing special. See the [#general-update-instructions].

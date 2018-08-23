@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.3.7'
 
 gem 'rails', '5.1.1'
 
@@ -16,6 +16,8 @@ gem 'jquery-rails', '~> 4.3.1'
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", '~> 5.1.4'
+
+gem 'puma'
 
 gem "mysql2", '~> 0.4.6'
 gem 'haml', '~> 5.0.1'

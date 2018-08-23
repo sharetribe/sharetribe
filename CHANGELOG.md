@@ -10,7 +10,12 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+- Add support for Puma web server
+
 ### Changed
+
+- Update Ruby version to 2.3.7 to [protect Puma from "stream closed in another thread (IOError)"](https://github.com/puma/puma#known-bugs)
+- Change default web server from WEBrick to Puma
 
 ### Deprecated
 
