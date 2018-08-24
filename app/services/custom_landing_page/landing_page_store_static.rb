@@ -10,7 +10,7 @@ module CustomLandingPage
     end
 
     def load_structure(*)
-      data = if CustomLandingPage.const_defined?("StaticData")
+      data = if CustomLandingPage.const_defined?(:StaticData)
                CustomLandingPage::StaticData::DATA_STR
              else
                CustomLandingPage::ExampleData::DATA_STR
