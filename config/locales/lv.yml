@@ -594,7 +594,7 @@ lv:
         selector_label_heading: ~
         label_placeholder: ~
         selector_placeholder: ~
-        per: ~
+        per: par
         unit_type:
           heading: ~
           quantity_label: ~
@@ -843,7 +843,7 @@ lv:
         held_payment: "Apstiprināja pieprasījumu. %{service_name} pieturēs maksājumu par summu %{sum} līdz pasūtījums būs atzīmēts kā izpildīts."
         confirmed_request: "Pasūtījums atzīmēts kā izpildīts. Maksājums ir pārskaitīts uz %{author_name} bankas kontu vai arī drīz tiks pārskaitīts."
     new:
-      message: Vēstule
+      message: Ziņa
       message_to: "Ziņa %{author_name}"
       optional_message_to: "Izvēles ziņa %{author_name}"
       send_message: "Nosūtīt vēstuli"
@@ -860,7 +860,7 @@ lv:
       message_sent_by: "Ziņojumu nosūtīja"
       message_sent_to: "Ziņa nosūtīta"
       send_reply: "Sūtīt atbildi"
-      write_a_reply: "Uzrakstīt atbildi:"
+      write_a_reply: "Rakstīt atbildi:"
       conversation_about_listing: "Ar %{person} par %{listing}"
       conversation_with_user: "Kopā ar %{person}"
       conversation_with: "Sarakste ar %{person}"
@@ -1114,7 +1114,7 @@ lv:
       added_offer: "%{name_link} pievienoja piedāvājumu:"
       added_request: "%{name_link} pievienoja piedāvājumu:"
       added_listing: "%{name_link} pievienoja sludinājumu:"
-      update_mail_title: "%{title_link} atjaunināšana"
+      update_mail_title: "%{title_link} jaunumi"
       title_link_text: "%{community_name}"
       intro_paragraph: "Šeit ir dažas lietas, kas notikušas %{community_link} pēdējā laikā %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
@@ -1273,14 +1273,14 @@ lv:
     menu: Izvēlne
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "Papildus   vēl ir <b>vēl viens cits piedāvājums</b>,"
-      additionally_one_private_request_exists: "Papildus   vēl ir <b>vēl viens cits pieprasījums</b>,"
+      additionally_one_private_offer_exists: "Papildus    ir <b> cits piedāvājums</b>,"
+      additionally_one_private_request_exists: "Papildus    ir <b>vēl viens cits pieprasījums</b>,"
       additionally_some_private_offers_exist: "Papildus šeit ir <b>%{number_of_listings} citi piedāvājumi</b>,"
       additionally_some_private_requests_exist: "Papildus vēl ir <b>%{number_of_listings} citi pieprasījumi</b>,"
     blank_slate:
       add_first: Pievieno!
       but_that_is_visible_only_to_registered_members: "bet tas ir redzams tikai reģistrētiem lietotājiem."
-      but_those_are_visible_only_to_registered_members: "bet tie ir redzams tikai reģistrētiem lietotājiem."
+      but_those_are_visible_only_to_registered_members: "bet tie ir redzami tikai reģistrētiem lietotājiem."
       create_new_account_for_yourself: "Izveidot sev jaunu profilu"
       examples_of_what_you_could_offer_to_others: "Ko jūs varat piedāvāt citiem"
       examples_of_what_you_could_request_to_others: "Ko jūs varat pieprasīt no citiem"
@@ -1324,7 +1324,7 @@ lv:
       post_new_listing: "Izveidot jaunu sludinājumu"
       are_offering: piedāvājums
       add_news_item: "Pievieno rakstu"
-      lend_rent_help_carpool: "Pārdod, aizdod, palīdz, dalās ar braucamo"
+      lend_rent_help_carpool: "Pārdod, aizdod, palīdzi, dalies ar braucamo"
       loading_more_content: "Meklējam vairāk"
       more_events: "Vairāk notikumu..."
       news: Jaunumi
@@ -1433,7 +1433,7 @@ lv:
       select_language: "Izvēlieties valodu"
     infos:
       about: "Par mums"
-      how_to_use: "Kā tas strādā"
+      how_to_use: "Kā tas darbojas"
       info_about_kassi: "Informācija par %{service_name}"
       news: Jaunumi
       register_details: "Privātuma politika"
@@ -1449,7 +1449,7 @@ lv:
       settings: Uzstādījumi
       sign_up: "Izveidot profilu"
     logged_in_messages_icon:
-      messages: Vēstules
+      messages: Ziņas
     logged_in_notifications_icon:
       notifications: Paziņojumi
     mobile_logged_in:
@@ -1480,7 +1480,7 @@ lv:
       create_new_listing: "Izveidot jaunu sludinājumu"
       create_one_here: "izveidot šeit"
       email_confirmation_sent_to_new_address: "E-pasta apstiprinājums ir nosūtīts uz jauno adresi."
-      email_not_found: "Jūsu dotais e-pasts netika atrasts %{service_name} datubāzā."
+      email_not_found: "e-pasts netika atrasts %{service_name} datubāzē."
       error_with_session: "Sesijas kļūda"
       feedback_considered_spam: "Atsauksme nav saglabāta tās formatēšanas dēļ. Mēģiniet vēlreiz vai izmantojiet atsauksmju forumu."
       feedback_not_saved: "Atsauksmi nevar nosūtīt."
@@ -1978,7 +1978,7 @@ lv:
       commission_payment_name: "Komisijas maksa par %{listing_title}"
       commission_payment_description: "Tirgošanās vieta %{service_name} ieturēja šo komisiju par darījumu, kas attiecas uz %{listing_title}"
     wait_while_loading: "Lūdzu uzgaidiet."
-    chatting_with_paypal: "Mēs sarunājamies ar PayPal."
+    chatting_with_paypal: "Mēs sazināmies ar PayPal"
   people:
     edit_links:
       activate: Aktivizēt
@@ -2014,7 +2014,7 @@ lv:
       show_my_name_to_others: "Parādiet manu pilno vārdu citiem %{service_name} lietotājiem"
       sign_up: "Izveidot jaunu %{service_name} profilu"
       terms: "Lietošanas noteikumi"
-      privacy: "Privātuma politika"
+      privacy: "Privātuma noteikumi"
       username_is_in_use: "Lietotājvārds jau tiek izmantots."
       username_is_invalid: "Lietotājvārds nav derīgs. Atļautās rakstu zīmes ir burti, cipari un pasvītrojums."
       visible_only_to_you: "redzams tikai Jums un %{service_name} komandai"

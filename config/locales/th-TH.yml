@@ -135,7 +135,7 @@ th-TH:
       outgoing_email:
         title: ~
         info: ~
-        read_more: ~
+        read_more: อ่านเพิ่มเติมเกี่ยวกับการส่งอีเมล
         sender_address: ~
         sender_address_default: ~
         need_to_change: ~
@@ -256,7 +256,7 @@ th-TH:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
-        this_makes_the_user_an_admin: ~
+        this_makes_the_user_an_admin: "ทำให้ผู้ใช้เป็นผู้ดูแลระบบ คุณควรแจ้งให้ผู้ใช้ทราบถึงความรับผิดชอบของตนและควรทบทวนข้อกำหนดในการให้บริการของ Sharetribe คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -290,7 +290,7 @@ th-TH:
         google_analytics_instructions_link_text: "อ่านเพิ่มเติมเกี่ยวกับการเชื่อมต่อ Google Analytics"
         sharetribe_analytics: ~
         sharetribe_analytics_info_text_with_instructions: ~
-        sharetribe_analytics_instructions_link_text: ~
+        sharetribe_analytics_instructions_link_text: "อ่านข้อมูลเพิ่มเติมเกี่ยวกับการวิเคราะห์ของ Sharetribe"
         end_user_analytics: ~
         save: บันทึกการตั้งค่า
       menu_links:
@@ -305,8 +305,8 @@ th-TH:
         empty: "คุณไม่มีการเชื่อมโยงกับเมนูใด ๆ เพิ่มเติม"
         max_number_of_links: ~
         all: ~
-        max_number_of_links_info: ~
-        about_page: ~
+        max_number_of_links_info: "ลิ้งเชื่อมโยงไปยัง %{about_page} จะปรากฏเป็นลิงก์เมนูแรกเสมอ"
+        about_page: หน้าเกี่ยวกับเรา
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -487,7 +487,7 @@ th-TH:
         send_test_email: ~
         test_sent: ~
         send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_article_text: "คุณสามารถเรียนรู้เพิ่มเติมเกี่ยวกับกลุ่มผู้ใช้ได้จาก %{article_link}"
         recipients:
           title: ~
           options:
@@ -517,8 +517,8 @@ th-TH:
       preview: ~
     listing_shapes:
       availability_title: ~
-      read_more: ~
-      read_more_availability_management: ~
+      read_more: อ่านเพิ่มเติมเกี่ยวกับการจัดการความพร้อมใช้งานโดยอัตโนมัติ
+      read_more_availability_management: อ่านเพิ่มเติมเกี่ยวกับการจัดการความพร้อมใช้งาน
       allow_providers_to_manage_availability: ~
       per_hour_availability: ~
       per_day_availability: ~
@@ -633,14 +633,14 @@ th-TH:
       contact_support: ~
       no_payments_link_text: ~
       your_country: ~
-      you_cannot_use_online_payments: ~
+      you_cannot_use_online_payments: "คุณไม่สามารถใช้งานชำระเงินออนไลน์ใน %{country_name} กับ %{currency} ได้ โปรดเลือกสกุลเงินอื่นหรือ %{support_link} เพื่อเปลี่ยนประเทศของคุณ คุณสามารถอ่านเพิ่มเติมเกี่ยวกับประเทศและสกุลเงินที่สนับสนุน %{help_link} ในอนาคตเราอาจเพิ่มผู้ให้บริการด้านการชำระเงินและสนับสนุนสกุลเงินเพิ่มเติม"
       which_to_choose: ~
       you_can_use_stripe_or_paypal: ~
       you_can_use_stripe_only: ~
-      read_more_stripe: ~
+      read_more_stripe: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินด้วย Stripe"
       you_can_use_paypal_only: ~
-      read_more_paypal: ~
-      read_more_about_paypal_and_stripe: ~
+      read_more_paypal: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินผ่าน PayPal"
+      read_more_about_paypal_and_stripe: "อ่านเพิ่มเติมเกี่ยวกับการชำระเงินออนไลน์, Stripe และ PayPal"
       general_settings_updated: ~
       transaction_fee_settings_updated: ~
       choose_popup_text: ~
@@ -992,7 +992,7 @@ th-TH:
       giving_feedback_is_good_idea: "การให้ข้อเสนอแนะมักเป็นสิ่งที่ดี หากทุกอย่างเป็นไปด้วยดี คุณควรช่วยให้คนอื่นรู้ว่า %{other_party_given_name} สามารถเชื่อถือได้ หากมีปัญหาใด ๆ ก็การดีที่จะพูดถึง ปัญหาเหล่านั้นเช่นกัน"
       give_feedback_to: "ให้ความคิดเห็นแก่%{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} ได้ทำเครื่องหมายการสั่งซื้อเกี่ยวกับ%{request}เสร็จสมบูรณ์แล้ว การชำระเงินได้ถูกปล่อยเข้าธนาคารคุณแล้ว ขณะนี้คุณสามารถให้ความคิดเห็นไปยัง%{other_party_given_name}ได้"
     transaction_automatically_confirmed:
       subject: "การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติ - อย่าลืมที่จะให้ความคิดเห็น"
       we_have_marked_request_as_confirmed: "เราได้ทำเครื่องหมายในการสั่งซื้อ '%{request}' เสร็จแล้ว การสั่งซื้อเสร็จสมบูรณ์โดยอัตโนมัติเนื่องจากผ่านมาแล้ว %{days_passed} วันนับตั้งแต่คำขอได้รับการยอมรับ"
@@ -1172,7 +1172,7 @@ th-TH:
       booking_failed_payment_voided: ~
       double_booking_payment_voided: ~
     onboarding:
-      server_rendering: ~
+      server_rendering: "ไม่สามารถโหลดคู่มือเริ่มต้นใช้งาน เราได้รับแจ้งเกี่ยวกับสถานการณ์และเรากำลังแก้ไข"
     listings:
       departure_time: เวลาออกต้องอยู่ระหว่างเวลาปัจจุบันและหนึ่งปีนับจากนี้
       share_type: คุณต้องเลือกหนึ่งข้อ
@@ -1261,7 +1261,7 @@ th-TH:
       offer_partitive: เสนอ
       request_partitive: คำขอ
   header:
-    about: เกี่ยวกับ
+    about: เกี่ยวกับเรา
     home: หน้าแรก
     members: ชุมชน
     new_listing: รายการใหม่
@@ -1438,7 +1438,7 @@ th-TH:
     global-header:
       select_language: เลือกภาษา
     infos:
-      about: เกี่ยวกับ
+      about: เกี่ยวกับเรา
       how_to_use: ทำงานอย่างไร
       info_about_kassi: "ข้อมูลเกี่ยวกับ %{service_name}"
       news: ข่าว
@@ -2437,7 +2437,7 @@ th-TH:
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
-      need_info: ~
+      need_info: เราต้องการข้อมูลเกี่ยวกับตัวคุณเพื่อให้สามารถส่งเงินได้
       select_country: ~
       legal_name: ~
       first_name: ~
