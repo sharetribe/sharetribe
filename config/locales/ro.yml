@@ -70,7 +70,7 @@ ro:
         default_language: ~
         language_selection_disabled: ~
         community_name: "Numele Marketplace-ului"
-        edit_community_name_description: ~
+        edit_community_name_description: "Numele marketplace-ului dvs. Acest lucru este afișat utilizatorilor în e-mailuri și în diverse alte locuri."
         community_slogan: "Sloganul Marketplace-ului"
         edit_community_slogan_description: ~
         community_description: "Descrierea Marketplace-ului"
@@ -99,7 +99,7 @@ ro:
       edit_look_and_feel:
         edit_community_look_and_feel: "Editați aspectul marketplace-ului \"%{community_name}\""
         community_logo: Logo
-        community_logo_icon: ~
+        community_logo_icon: "Logo pentru rețele sociale și dispozitive mobile"
         community_cover_photo: "Imaginea de cover"
         small_community_cover_photo: "Poza de cover mică"
         favicon: Favicon
@@ -110,13 +110,13 @@ ro:
         community_description_color: ~
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: ~
-        logo_instructions_text_with_dimensions: ~
+        logo_instructions_text_with_dimensions: "Dimensiunea logo-ului ar trebui să fie %{width} x%{height} px. Acesta va fi afișat utilizatorilor cu ecrane mai mari."
         logo_instructions_text_with_dimensions_no_placing: ~
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Acest logo pătrat va fi afișat când utilizatorii vor distribui site-ul dvs. pe Facebook, atunci când vă vor vedea site-ul pe un dispozitiv mobil sau când vor marca site-ul dvs. pe ecranul de pornire al dispozitivului mobil. Dimensiunile trebuie să fie (cel puțin) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: "Fotografia de pe copertă este afișată în pagina de pornire pentru utilizatorii care nu sunt conectați."
         cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai înalte vor fi tăiate în mijloc. %{see_how_it_looks_like}."
-        small_cover_photo_visibility: ~
+        small_cover_photo_visibility: "Fotografia cu copertă mică este afișată în toate paginile, cu excepția paginii de pornire pentru utilizatorii care nu sunt conectați."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai înalte vor fi tăiate în mijloc."
         main_content_width: "Când alegeți fotografii de copertă, rețineți că conținutul principal al paginii este cel mult %{main_width} pixeli. Amintiți-vă, de asemenea, să verificați modul în care imaginea de pe copertă arată pe ecranele mai mici (de exemplu, utilizând o fereastră mai îngustă a browserului)."
         custom_color1_instructions_text: "Puteți modifica culoarea principală a interfeței de utilizator introducând o valoare de culoare hexagonală. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> vă poate ajuta să alegeți culoarea și să vă obtineti codul culorii hexagonale. Puteți apoi copia codul aici."
@@ -139,7 +139,7 @@ ro:
         edit_text_instructions: ~
       edit_welcome_email:
         welcome_email_content: "Bun venit e-mail"
-        welcome_email_content_description: ~
+        welcome_email_content_description: "Mesajul de mai jos va fi trimis fiecarui utilizator nou cand se alatura. Puteți personaliza mesajul astfel încât să se potrivească marketplace-ului dvs. Făcând clic pe \"%{send_test_message_link}\" puteți trimite un mesaj de previzualizare la adresa dvs. de e-mail, astfel încât să puteți vedea cum arată într-un client de e-mail."
         edit_message: "Editați mesaj"
         send_test_message: "Trimiteți mesaj test"
       outgoing_email:
@@ -326,24 +326,24 @@ ro:
         processing_export: ~
         transactions: ~
         headers:
-          conversation: ~
-          listing: ~
-          status: ~
-          sum: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          conversation: "Firul conversației"
+          listing: Listarea
+          status: Stare
+          sum: Suma
+          started: Început
+          last_activity: "Ultima activitate"
+          initiated_by: Inițiator
+          other_party: "Cealaltă parte"
         status:
           conversation: ~
           free: ~
-          pending: ~
-          preauthorized: ~
-          accepted: ~
-          rejected: ~
-          paid: ~
+          pending: "În așteptare"
+          preauthorized: Pre-autorizat
+          accepted: "Acceptat / ă"
+          rejected: "Respins / ă"
+          paid: "Plătit /ă"
           confirmed: ~
-          canceled: ~
+          canceled: "Anulat /ă"
           initiated: ~
           pending_ext: ~
           none:
@@ -811,9 +811,9 @@ ro:
       give_feedback_to: "Oferiti feedback catre %{person_link}"
       do_not_give_feedback: "Omiteti feedback"
     details:
-      day: ~
-      days: ~
-      price_per_day: ~
+      day: zi
+      days: zile
+      price_per_day: "Preț pe zi: %{price}"
     index:
       loading_more_messages: "Se încarcă mai multe mesaje"
       message_partitive: mesaj
@@ -851,7 +851,7 @@ ro:
     new:
       message: Mesaj
       message_to: "Mesaj pentru %{author_name}"
-      optional_message_to: ~
+      optional_message_to: "Mesaj opțional pentru %{author_name}"
       send_message: "Trimite mesaj"
       send: Trimiteți
       this_message_is_private: "Acest mesaj este privat intre tine si %{person}. Persoana %{person} va fi notificata de acest mesaj prin email"
@@ -873,7 +873,7 @@ ro:
       last_message_at: "(ultimul mesaj %{time})"
       price: "Preț: %{price}"
       sum: "Total: %{sum}"
-      total: ~
+      total: "Total: %{total}"
     status:
       payment_errored: ~
       payment_errored_starter: ~
@@ -981,7 +981,7 @@ ro:
     payment_settings_reminder:
       remember_to_add_payment_details: "Nu uitați să adăugați detaliile de plată pentru a primi plăți"
       you_have_added_listing_with_payment: "Ați adăugat o înregistrare %{listing_link} cu plata. Cu toate acestea, nu ați adăugat încă detaliile dvs. de plată. Pentru a primi plata, trebuie să adăugați informațiile dvs. de plată."
-      please_go_to_payment_settings: ~
+      please_go_to_payment_settings: "Accesați %{payment_settings_link} și completați informațiile de plată necesare."
       payment_settings_link: "setări plăți"
     transaction_confirmed:
       here_is_a_message_from: "Iată un mesaj de la %{other_party_given_name}:"
@@ -998,11 +998,11 @@ ro:
       we_have_marked_request_as_confirmed: ~
     booking_transaction_automatically_confirmed:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti feedback"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Puteti acum sa oferiti feedback catre %{other_party_given_name}. Oferirea de feedback este intotdeauna o idee buna. Daca totul a decurs bine ar trebui sa-i lasati pe ceilalti sa stie ca %{other_party_given_name} poate fi de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
       give_feedback_to: "Oferiti feedback catre %{other_party_given_name}"
-      show_thread: ~
+      show_thread: "Arată conversația"
     confirmation_instructions:
       confirmation_instructions_signature: "Toate cele bune, <br/> echipa %{service_name}"
       need_to_confirm: "Pentru a vă alătura %{service_name}, confirmați adresa dvs. de e-mail făcând clic pe butonul de mai jos."
@@ -1090,7 +1090,7 @@ ro:
       product: "Produs:"
       price_payer_paid: "Preț %{payer_full_name} plătit:"
       service_fee: "%{service_name} service fee:"
-      you_will_get: ~
+      you_will_get: "Total:"
     receipt_to_payer:
       receipt_of_payment: "Primirea plății"
       you_have_made_new_payment: "Dvs. ați plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> la %{recipient_full_name}. Aici este chitanța plății."
@@ -1153,8 +1153,8 @@ ro:
       click_here_to_reply: "Faceți clic aici pentru a răspunde solicitării"
     welcome_email:
       welcome_email_subject: ~
-      welcome_to_marketplace: ~
-      love_marketplace_crew: ~
+      welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
+      love_marketplace_crew: "Cu drag, <br /> <i>%{service_name} echipa </i>"
       welcome_email_footer_text: "Ce fel de emailuri doriţi să primiţi de la %{service_name}? %{settings_link}"
       settings_link_text: "Verificați-vă setările"
     new_listing_by_followed_person:
@@ -1226,9 +1226,9 @@ ro:
     your_email_address: "Adresa ta de e-mail"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
-      invalid_datetime: ~
+      invalid_date: "nu este o dată validă"
+      invalid_time: "nu este o oră validă"
+      invalid_datetime: "nu este o durată de timp valabilă"
       is_at: ~
       before: ~
       on_or_before: ~
@@ -1318,7 +1318,7 @@ ro:
     grid_item:
       processing_uploaded_image: "(Procesarea imaginilor încărcate...)"
     index:
-      no_listings_with_your_search_criteria: ~
+      no_listings_with_your_search_criteria: "Ne pare rău, nu s-au găsit oferte pentru criteriile dvs. de căutare. Poate încercați alți termeni de căutare?"
       no_listings_notification: "Fără anunțuri. %{add_listing_link}."
       add_listing_link_text: "Adăugați o postare nouă"
       open_listing: "deschideți anunțul"
@@ -1525,7 +1525,7 @@ ro:
       payment_successful: "Plata cu succes"
       payment_canceled: "Plată anulată"
       error_in_payment: "Eroare la efectuarea platii. Daca nu ati efectuat plata inca, incercati din nou. Daca ati efectuat-o, va rugam sa ne trimiteti feedback."
-      cannot_receive_payment: ~
+      cannot_receive_payment: "Cealaltă persoana nu poate primi plata datorată unor erori. Contactați echipa %{service_name} pentru a clarifica situația"
       payment_waiting_for_later_accomplishment: "Când aţi plătit, vom notifica vânzătorul şi veţi primi o chitanţă în e-mail"
       password_recovery_sent: "Instructiunile de schimbare a parolei v-au fost trimise prin e-mail."
       person_activated: "Utilizator activat"
@@ -1861,7 +1861,7 @@ ro:
       error_in_checking_availability: ~
       details: Detalii
       by: "%{listing} de %{author}"
-      payment: ~
+      payment: Plată
       exp: ~
       you_will_be_charged: ~
       day: ~
@@ -2068,14 +2068,14 @@ ro:
     followed_people:
       you_follow_plural: "Urmăriți %{count} de persoane"
       you_follow_singular: "Urmăriți %{count} persoana"
-      they_follow_plural: ~
-      they_follow_singular: ~
+      they_follow_plural: "%{count} persoane urmarite"
+      they_follow_singular: "%{count} persoana urmarita"
       show_all_followed_people: "Afișați toți oamenii urmăriți"
       no_followed_people: "Nicio persoana urmarita"
     follow_button:
       following: Urmarind
       follow: Urmeaza
-      unfollow: ~
+      unfollow: "Nu mai urmări"
   sessions:
     new:
       create_new_account: "Creati un cont nou"
@@ -2117,7 +2117,7 @@ ro:
       confirm_new_password: "Confirma noua parola"
       delete_account: "Stergeti contul"
       delete_account_button: "Sterge definitiv contul meu."
-      delete_account_confirmation_popup: ~
+      delete_account_confirmation_popup: "Sigur doriți să ștergeți contul de utilizator și să pierdeți permanent toate datele legate de acesta? Ștergerea contului nu poate fi inversată."
       email_addresses: "Adresa de e-mail"
       new_email: "Adresa de email noua"
       delete_personal_information: "Daca va stergeti contul, informatiile personale (nume, numar de telefon, adresa, adresa de email, poza de profil, etc.) vor fi sterse permanent si nu vor mai putea fi recuperate. Toate anunturile pe care le-ati creat vor fi sterse. Nu va veti putea reactiva contul."

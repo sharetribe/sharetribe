@@ -1116,7 +1116,7 @@ lv:
       added_listing: "%{name_link} pievienoja sludinājumu:"
       update_mail_title: "%{title_link} jaunumi"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Šeit ir dažas lietas, kas notikušas %{community_link} pēdējā laikā %{time_since_last_update}."
+      intro_paragraph: "Šeit būs daži sludinājumi, kas pievienoti %{community_link} pēdējās %{time_since_last_update} laikā."
       intro_paragraph_link_text: "%{community_name}"
       reduce_email_footer_text: "Pārāk daudz e-pastu? %{settings_link} vai %{unsubscribe_link}."
       settings_link_text: "E-pasta iestatījumus rediģējiet šeit"
@@ -1131,7 +1131,7 @@ lv:
       reset_password_instructions: "<p>Jūs esat norādījis, ka esat aizmirsis paroli vai lietotājvārdu %{service_name}.</p><p>Jūsu lietotājvārds ir: %{username}</p><p>Ja jums ir nepieciešams atjaunot paroli, noklikšķiniet uz sekojošas saites: %{password_reset_link}</p><br/><p>Ja neesat to pieprasījis, lūdzu, ignorējiet šo e-pastu. Jūsu parole nemainīsies, kamēr neizmantosiet augstāk norādīto saiti un neizveidosiet jaunu paroli.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Atgādinājums: sniedziet atsauksmi %{name}"
-      you_have_not_given_feedback_yet: "Jūs vēl neesat saņēmis atsauksmi %{name} par pasākumu '%{event}'. Atceries sniegt atsauksmi par to kā  %{given_name} izturējās pasākumā."
+      you_have_not_given_feedback_yet: "Jūs vēl neesat saņēmis atsauksmi no %{name} par pirkumu '%{event}'. Lūdzu sniedziet arī Jūs atsauksmi par %{given_name} kā pārdevēju."
     transaction_preauthorized:
       subject: "%{requester} ir ieinteresēts un ir apstiprinājis maksājumu par %{listing_title}, kas publicēts vietnē %{service_name}"
       transaction_requested_by_user: "Lieliski jaunumi! %{requester} ir ieinteresēts '%{listing_title}' un ir apstiprinājis maksājumu par šo sludinājumu."
@@ -2221,7 +2221,7 @@ lv:
       slightly_better_than_expected: "Nedaudz labāk, nekā bija gaidīts"
       slightly_less_than_expected: "Nedaudz sliktāk, kā gaidīts"
       textual_feedback: "Kā gāja?"
-      this_will_be_shown_in_profile: "Sniegtā atsauksme būs redzama citiem lietotājiem %{person} profila lapā. Tas palīdzēs citiem novērtēt, vai %{person} ir uzticama persona."
+      this_will_be_shown_in_profile: "Sniegtā atsauksme būs redzama citiem lietotājiem %{person} profila lapā. Tas palīdzēs citiem novērtēt, vai %{person} ir uzticams pārdevējs."
       positive: Pozitīvs
       negative: Negatīvs
       default_textual_feedback: "Viss noritēja gludi, liels paldies!"
