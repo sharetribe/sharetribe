@@ -391,16 +391,6 @@ class TransactionsController < ApplicationController
   end
 
   def render_free(listing_model:, author_model:, community:, params:)
-    tx_params = {}
-    [:start_time, :end_time, :start_on, :end_on, :per_hour].each do |item|
-      tx_params[item] = params[item].present? ? params[item] : nil
-    end
-    validation_result = TransactionService::Validation::Validator.validate_booking(
-      tx_params: tx_params, quantity_selector: listing_model.unit_type, stripe_in_use: false
-    )
-    if !validation_result.success
-      return free_error(validation_result.data, listing_model.id)
-    end
     listing = {
       id: listing_model.id,
       title: listing_model.title,
@@ -456,30 +446,6 @@ class TransactionsController < ApplicationController
              quantity: quantity,
              form_action: person_transactions_path(person_id: @current_user, listing_id: listing_model.id)
            }
-  end
-
-  def free_error(data, listing_id)
-    error_msg =
-      if data.is_a?(Array)
-        # Entity validation failed
-        t("listing_conversations.preauthorize.invalid_parameters")
-      elsif [:dates_missing,
-             :end_cant_be_before_start,
-             :delivery_method_missing,
-             :at_least_one_day_or_night_required,
-             :date_too_late
-            ].include?(data[:code])
-        t("listing_conversations.preauthorize.invalid_parameters")
-      elsif data[:code] == :dates_not_available
-        t("listing_conversations.preauthorize.dates_not_available")
-      elsif data[:code] == :harmony_api_error
-        t("listing_conversations.preauthorize.error_in_checking_availability")
-      else
-        raise NotImplementedError.new("No error handler for: #{msg}, #{data.inspect}")
-      end
-
-    flash[:error] = error_msg
-    redirect_to listing_path(listing_id)
   end
 
   def date_selector?(listing)
