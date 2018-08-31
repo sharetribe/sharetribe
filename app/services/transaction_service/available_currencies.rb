@@ -15,6 +15,7 @@ module TransactionService::AvailableCurrencies
       "HK" => "HKD",
       "HU" => "HUF",
       "IL" => "ILS",
+      "IN" => "INR",
       "JP" => "JPY",
       "MY" => "MYR",
       "MX" => "MXN",
@@ -107,6 +108,7 @@ module TransactionService::AvailableCurrencies
     "GBP" => :country_sets,
     "HKD" => :country_sets,
     "HUF" => :country_sets,
+    "INR" => "IN", # INR is valid only for PayPal accounts in India
     "ILS" => :country_sets,
     "JPY" => :country_sets,
     "MXN" => :country_sets,
