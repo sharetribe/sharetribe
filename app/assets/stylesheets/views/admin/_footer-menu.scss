@@ -17,6 +17,9 @@
   input[type="radio"] {
     margin-left: 0.75em
   }
+  button[disabled] {
+    background: gray;
+  }
 }
 
 .footer-social-container {

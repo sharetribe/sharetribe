@@ -1,9 +1,9 @@
 class Admin::Communities::FooterController < Admin::AdminBaseController
-  before_action :ensure_feature_flag_enabled
   before_action :set_selected_left_navi_link
   before_action :set_service
 
   def update
+    return if @service.plan_footer_disabled?
     if @service.update
       flash[:notice] = t('layouts.notifications.community_updated')
       redirect_to admin_footer_edit_path
@@ -22,13 +22,7 @@ class Admin::Communities::FooterController < Admin::AdminBaseController
   def set_service
     @service = Admin::Communities::FooterService.new(
       community: @current_community,
-      params: params)
-  end
-
-  def ensure_feature_flag_enabled
-    return true if Rails.env.test?
-    unless !!@current_plan[:features][:footer]
-      redirect_to search_path and return
-    end
+      params: params,
+      plan: @current_plan)
   end
 end
