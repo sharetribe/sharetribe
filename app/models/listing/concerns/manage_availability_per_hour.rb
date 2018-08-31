@@ -63,5 +63,4 @@ module ManageAvailabilityPerHour
       config.time_zone = 'Etc/UTC'
     end
   end
-
 end

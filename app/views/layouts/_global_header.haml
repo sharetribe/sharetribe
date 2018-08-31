@@ -29,9 +29,10 @@
       .header-right
         = link_to login_path, class: "header-text-link header-hover", id: "header-login-link" do
           = t("header.login")
-      .header-right
-        = link_to sign_up_path, class: "header-text-link header-hover" do
-          = t("header.signup")
+      - if !current_plan_trial_and_expired?
+        .header-right
+          = link_to sign_up_path, class: "header-text-link header-hover" do
+            = t("header.signup")
 
     .header-left.hidden-tablet
       .header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}

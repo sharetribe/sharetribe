@@ -75,6 +75,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def new
+    redirect_to '/' if current_plan_trial_and_expired?
     @selected_tribe_navi_tab = "members"
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]

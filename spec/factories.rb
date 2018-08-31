@@ -450,9 +450,9 @@ FactoryGirl.define do
   factory :listing_shape do
     community_id           123
     transaction_process_id 1
-    price_enabled          false
-    shipping_enabled       false
-    name                   'Selling'
+    price_enabled          true
+    shipping_enabled       true
+    name                   'selling'
     name_tr_key            'unit.day'
     action_button_tr_key   'unit.days'
     sort_priority          0
@@ -472,6 +472,17 @@ FactoryGirl.define do
     email 'sherry@example.com'
   end
 
+  factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
+    listing_id 123
+  end
+
+  factory :billing_agreement do
+    build_association(:paypal_account)
+    billing_agreement_id  'zzz'
+    paypal_username_to    'eloise.smith'
+    request_token         'ddd'
+  end
+
   factory :paypal_ipn_message do
     body       { { abc: 123 } }
     status     nil
@@ -486,17 +497,6 @@ FactoryGirl.define do
     currency          'EUR'
     payment_status    'pending'
     commission_status 'pending'
-  end
-
-  factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
-    listing_id 123
-  end
-
-  factory :billing_agreement do
-    build_association(:paypal_account)
-    billing_agreement_id  'zzz'
-    paypal_username_to    'eloise.smith'
-    request_token         'ddd'
   end
 
   factory :stripe_payment do

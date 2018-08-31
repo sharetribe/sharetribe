@@ -1,6 +1,8 @@
 .googlemap
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
-  %img{class: 'static-google-map', src: "https://maps.googleapis.com/maps/api/staticmap?center=#{CGI.escape(listing.location.address)}&zoom=12&size=400x228&scale=2&markers=color:red|#{CGI.escape(listing.location.address)}&key=#{maps_key}"}
+  .embed-container
+    %iframe{width: "600", height: "450", frameborder: "0",
+      src: "https://www.google.com/maps/embed/v1/place?key=#{maps_key}&q=#{CGI.escape(listing.location.address)}&language=#{I18n.locale}"}
   .map-link
     %a.icon-with-text-container{href: "//maps.google.com/?q=#{CGI.escape(listing.location.address)}", target: "_blank"}
       = icon_tag("external_link", ["icon-part"])

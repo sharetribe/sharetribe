@@ -1,0 +1,6 @@
+* add to CHANGELOG.md
+  - IDOR vulnerability fix + references to the finder of the issue
+  - image reordering works on mobiles
+
+app/controllers/admin/payment_preferences_controller.rb#stripe_index
+  should not retrieve the private key at all

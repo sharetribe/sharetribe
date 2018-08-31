@@ -23,7 +23,6 @@ class Listing::WorkingTimeSlot < ApplicationRecord
   scope :by_week_day, ->(day) { where(week_day: day) }
   scope :ordered, -> { order('listing_working_time_slots.week_day ASC, listing_working_time_slots.from ASC') }
 
-
   def covers_booking?(booking)
     start_time = booking.start_time
     year = start_time.year

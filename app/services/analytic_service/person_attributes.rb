@@ -84,7 +84,7 @@ module AnalyticService
     end
 
     def configured_stripe_account(community)
-      StripeHelper.stripe_active?(community.id)
+      !!StripeHelper.stripe_active?(community.id)
     end
 
     def configured_fees(community, payment_gateway)

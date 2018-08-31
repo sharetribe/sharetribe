@@ -75,10 +75,20 @@ window.ST.transaction = window.ST.transaction || {};
     // EventStream of true/false
     var submitInProgress = new Bacon.Bus();
 
+    var noPaymentTypeEnabled = function(x) {
+      var payment_type = $("#payment_type").val(),
+        disabled =!(payment_type === 'paypal' || payment_type === 'stripe');
+      if (disabled && $("#stripe-send-card").length > 0) {
+        $("#stripe-send-card").trigger('click');
+      }
+      return disabled;
+    };
+
     var formSubmitWithData = $form.asEventStream('submit', function(ev) {
       ev.preventDefault();
       return $form.serialize();
     })
+      .skipWhile(noPaymentTypeEnabled)
       .filter(submitInProgress.not().toProperty(true)); // Prevent concurrent submissions
 
     var opResult = formSubmitWithData
