@@ -7,7 +7,8 @@ describe Admin::Communities::FooterController, type: :controller do
       expired: false,
       features: {
         whitelabel: true,
-        admin_email: true
+        admin_email: true,
+        footer: true
       }
     }
   end

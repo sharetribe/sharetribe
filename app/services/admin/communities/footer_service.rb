@@ -1,9 +1,14 @@
 class Admin::Communities::FooterService
-  attr_reader :community, :params
+  attr_reader :community, :params, :plan
 
-  def initialize(community:, params:)
+  def initialize(community:, params:, plan:)
     @params = params
     @community = community
+    @plan = plan
+  end
+
+  def plan_footer_disabled?
+    !plan[:features][:footer] ? true : nil
   end
 
   def footer_menu_links # rubocop:disable Rails/Delegate
