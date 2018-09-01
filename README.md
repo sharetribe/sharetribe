@@ -77,7 +77,7 @@ Before you get started, the following needs to be installed:
     git checkout latest
     ```
 
-1.  Install the required gems by running the following command in the project root directory:
+2.  Install the required gems by running the following command in the project root directory:
 
     ```bash
     bundle install
@@ -95,33 +95,33 @@ Before you get started, the following needs to be installed:
     bundle install
     ```
 
-1.  Install node modules:
+3.  Install node modules:
 
     ```bash
     npm install
     ```
 
-1.  Create a `database.yml` file by copying the example database configuration:
+4.  Create a `database.yml` file by copying the example database configuration:
 
     ```bash
     cp config/database.example.yml config/database.yml
     ```
 
-1.  Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
+5.  Add your database configuration details to `config/database.yml`. You will probably only need to fill in the password for the database(s).
 
-1.  Create a `config.yml` file by copying the example configuration file:
+6.  Create a `config.yml` file by copying the example configuration file:
 
     ```bash
     cp config/config.example.yml config/config.yml
     ```
 
-1.  Create and initialize the database:
+7.  Create and initialize the database:
 
     ```bash
     bundle exec rake db:create db:structure:load
     ```
 
-1.  Run Sphinx index:
+8.  Run Sphinx index:
 
     ```bash
     bundle exec rake ts:index
@@ -129,19 +129,21 @@ Before you get started, the following needs to be installed:
 
     **Note:** If your MySQL server is configured for SSL, update the `config/thinking_sphinx.yml` file and uncomment the `mysql_ssl_ca` lines. Configure correct SSL certificate chain for connection to your database over SSL.
 
-1.  Start the Sphinx daemon:
+9.  Start the Sphinx daemon:
 
     ```bash
     bundle exec rake ts:start
     ```
 
-1.  Start the development server:
+10. Start the development server:
+
 
     ```bash
     foreman start -f Procfile.static
     ```
 
-1.  Invoke the delayed job worker in a new console (open the project root folder):
+11. Invoke the delayed job worker in a new console (open the project root folder):
+
 
     ```bash
     bundle exec rake jobs:work
@@ -159,13 +161,13 @@ Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
     gem install mailcatcher
     ```
 
-1.  Start it:
+2.  Start it:
 
     ```bash
     mailcatcher
     ```
 
-1.  Add the following lines to `config/config.yml`:
+3.  Add the following lines to `config/config.yml`:
 
     ```yml
     development:
@@ -174,7 +176,7 @@ Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
       smtp_email_port: 1025
     ```
 
-1.  Open `http://localhost:1080` in your browser
+4.  Open `http://localhost:1080` in your browser
 
 ### Database migrations
 
@@ -192,7 +194,7 @@ Remember to follow _all_ the steps listed in the [Setting up the development env
 
 1.  Navigate to the root directory of the sharetribe project
 
-1.  Initialize your test database:
+2.  Initialize your test database:
 
     ```bash
     bundle exec rake test:prepare
@@ -200,19 +202,19 @@ Remember to follow _all_ the steps listed in the [Setting up the development env
 
     This needs to be rerun whenever you make changes to your database schema.
 
-1.  If Zeus isn't running, start it:
+3.  If Zeus isn't running, start it:
 
     ```bash
     zeus start
     ```
 
-1.  To run unit tests, open another terminal and run:
+4.  To run unit tests, open another terminal and run:
 
     ```bash
     zeus rspec spec
     ```
 
-1.  To run acceptance tests, open another terminal and run:
+5.  To run acceptance tests, open another terminal and run:
 
     ```bash
     zeus cucumber
@@ -236,21 +238,21 @@ Some components are created with React (see [documentation](https://github.com/s
     foreman start -f Procfile.static
     ```
 
-1.  React component & hot loading styleguide (http://localhost:9001/)
+2.  React component & hot loading styleguide (http://localhost:9001/)
 
     ```bash
     foreman start -f Procfile.hot
     ```
 
-1.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
+3.  If you need to debug the Rails parts of Sharetribe with [Pry](https://github.com/pry/pry), it's not possible with Foreman due to a [known compatibility issue](https://github.com/ddollar/foreman/pull/536). In this case we recommend running Rails with old-fashioned `rails server` and React builds with Foreman in a separate terminal. That way your `binding.pry` calls open nicely in the same window with the Rails process.
 
-1.  React component static build, React client only
+4.  React component static build, React client only
 
     ```bash
     foreman start -f Procfile.client-static
     ```
 
-1.  React component & hot loading styleguide (http://localhost:9001/), React client only
+5.  React component & hot loading styleguide (http://localhost:9001/), React client only
 
     ```bash
     foreman start -f Procfile.client-hot
@@ -277,43 +279,43 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
 
     (You can also set the `secret_key_base` environment variable, if you don't want to store the secret key in a file)
 
-1.  Create the database:
+2.  Create the database:
 
     ```bash
     RAILS_ENV=production bundle exec rake db:create
     ```
 
-1.  Initialize your database:
+3.  Initialize your database:
 
     ```bash
     RAILS_ENV=production bundle exec rake db:structure:load
     ```
 
-1.  Run Sphinx index:
+4.  Run Sphinx index:
 
     ```bash
     RAILS_ENV=production bundle exec rake ts:index
     ```
 
-1.  Start the Sphinx daemon:
+5.  Start the Sphinx daemon:
 
     ```bash
     RAILS_ENV=production bundle exec rake ts:start
     ```
 
-1.  Precompile the assets:
+6.  Precompile the assets:
 
     ```bash
     RAILS_ENV=production NODE_ENV=production bundle exec rake assets:precompile
     ```
 
-1.  Invoke the delayed job worker:
+7.  Invoke the delayed job worker:
 
     ```bash
     RAILS_ENV=production bundle exec rake jobs:work
     ```
 
-1.  In a new console, open the project root folder and start the server:
+8.  In a new console, open the project root folder and start the server:
 
     ```bash
     bundle exec rails server -e production
@@ -331,25 +333,25 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 
 1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
 
-1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
+2. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
 #### Setting up S3
 
 If you want to use S3 to host your images, you need to do a bit more configuration.
 
-1. Create a IAM role which has full S3 access. Save the AWS access and secret keys.
+3. Create a IAM role which has full S3 access. Save the AWS access and secret keys.
 
-1. In the S3 console, create two buckets, one for upload and one for permanent storage. For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
+4. In the S3 console, create two buckets, one for upload and one for permanent storage. For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
 
-1. Set the upload bucket (`your-sharetribe-images-tmp`) to have an expiration (for example, of 14 days) using [lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
+5. Set the upload bucket (`your-sharetribe-images-tmp`) to have an expiration (for example, of 14 days) using [lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 
-1. [Enable CORS on the upload bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
+6. [Enable CORS on the upload bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
 
-1. Set the following configuration in your sharetribe `config.yml`: `s3_bucket_name: "your-sharetribe-images"` `s3_upload_bucket_name: "your-sharetribe-images-tmp"`
+7. Set the following configuration in your sharetribe `config.yml`: `s3_bucket_name: "your-sharetribe-images"` `s3_upload_bucket_name: "your-sharetribe-images-tmp"`
 
-1. Add your AWS keys to the sharetribe app. The best way to do that is via environment variables, rather than checking them into your `config.yml`. Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
+8. Add your AWS keys to the sharetribe app. The best way to do that is via environment variables, rather than checking them into your `config.yml`. Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
 
-1. (Optional) When you enable S3, uploaded images are linked directly to the S3 bucket. If you want to serve these assets through CDN, you can set the `user_asset_host` configuration option in addition to `asset_host` in `config/config.yml`.
+9. (Optional) When you enable S3, uploaded images are linked directly to the S3 bucket. If you want to serve these assets through CDN, you can set the `user_asset_host` configuration option in addition to `asset_host` in `config/config.yml`.
 
 Here's a sample CORS configuration that allows anyone to post to your bucket. Note that you may want to lock down the origin host more tightly, depending on your needs.
 

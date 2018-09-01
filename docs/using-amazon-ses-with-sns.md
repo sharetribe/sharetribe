@@ -23,10 +23,10 @@ This means that newsletter type emails about new listings are no more sent, but 
 To set up SNS notifications:
 
 1. There needs to be a SNS topic for this. You can create that via AWS UI.
-1. Store the SNS topic to config variable "aws_ses_sns_topic". (the string that starts with "arn:aws:sns...")
-1. In the SES UI make the sender address use the SNS topic for bounces and complaints.
-1. Generate a secret notification token string and store it to config variable "sns_notification_token"
-1. Add a subscription to your SNS topic using https and endpoint https://[YOUR_MARKETPLACE_DOMAIN]/bounces?sns_notification_token=[THE_TOKEN_YOU_GENEARATED_IN_LAST_STEP]
+2. Store the SNS topic to config variable "aws_ses_sns_topic". (the string that starts with "arn:aws:sns...")
+3. In the SES UI make the sender address use the SNS topic for bounces and complaints.
+4. Generate a secret notification token string and store it to config variable "sns_notification_token"
+5. Add a subscription to your SNS topic using https and endpoint https://[YOUR_MARKETPLACE_DOMAIN]/bounces?sns_notification_token=[THE_TOKEN_YOU_GENEARATED_IN_LAST_STEP]
 
 #### debugging the SNS setup
 
