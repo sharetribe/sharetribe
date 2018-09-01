@@ -6,11 +6,11 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-*****
+---
 
 Would you like to contribute to the development of Sharetribe? Our equity crowdfunding campaign is now open for people around the world! Check out [our campaign page](https://www.invesdor.com/en/pitches/903) for more info.
 
-*****
+---
 
 ### Contents
 
@@ -32,7 +32,7 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
 
 - Ruby 2.3
 - Ruby on Rails 5.1.1
-- MySQL  5.7
+- MySQL 5.7
 - React + jQuery
 - Node.js 7.8 (for compiling JavaScript assets)
 - "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
@@ -41,30 +41,31 @@ Would you like to contribute to the development of Sharetribe? Our equity crowdf
 - Image hosting: Amazon S3
 - Background job: [delayed_job](https://github.com/collectiveidea/delayed_job)
 - Gems:
-    -  [devise](https://github.com/plataformatec/devise) | Authentication
-    -  [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
-    -  [haml](https://github.com/haml/haml) and ERB | HTML teamplating
-    -  [mysql2](https://github.com/brianmario/mysql2) | MySQL library for Ruby
-    -  [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
-    -  [passenger](https://github.com/phusion/passenger) | Web application server
-    -  [react_on_rails](https://github.com/shakacode/react_on_rails) | Integration of React + Webpack + Rails
-    -  factory_girl, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
+  - [devise](https://github.com/plataformatec/devise) | Authentication
+  - [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
+  - [haml](https://github.com/haml/haml) and ERB | HTML teamplating
+  - [mysql2](https://github.com/brianmario/mysql2) | MySQL library for Ruby
+  - [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
+  - [passenger](https://github.com/phusion/passenger) | Web application server
+  - [react_on_rails](https://github.com/shakacode/react_on_rails) | Integration of React + Webpack + Rails
+  - factory_girl, capybara, rspec-rails, cucumber-rails, selenium-webdriver | Testing
 
 ## Installation
 
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.3.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
-  * [**RubyGems**](http://rubygems.org/)
-  * **Bundler**: `gem install bundler`
-  * **Node**. Version 7.8 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
-  * [**Git**](http://help.github.com/git-installation-redirect)
-  * **A database**. Only MySQL 5.7 has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
-    1. If you are on a Mac, use homebrew: `brew install mysql` (*highly* recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
-    2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
-  * [**Sphinx**](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well. Make sure to enable MySQL support. If you're using OS X and have Homebrew installed, install it with `brew install sphinx --with-mysql`
-  * [**Imagemagick**](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
+
+- **Ruby**. Version 2.3.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+- [**RubyGems**](http://rubygems.org/)
+- **Bundler**: `gem install bundler`
+- **Node**. Version 7.8 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).
+- [**Git**](http://help.github.com/git-installation-redirect)
+- **A database**. Only MySQL 5.7 has been tested, so we give no guarantees that other databases (e.g. PostgreSQL) work. You can install MySQL Community Server two ways:
+  1. If you are on a Mac, use homebrew: `brew install mysql` (_highly_ recommended). Also consider installing the [MySQL Preference Pane](https://dev.mysql.com/doc/refman/5.1/en/osx-installation-prefpane.html) to control MySQL startup and shutdown. It is packaged with the MySQL downloadable installer, but can be easily installed as a stand-alone.
+  2. Download a [MySQL installer from here](http://dev.mysql.com/downloads/mysql/)
+- [**Sphinx**](http://pat.github.com/ts/en/installing_sphinx.html). Version 2.1.4 has been used successfully, but newer versions should work as well. Make sure to enable MySQL support. If you're using OS X and have Homebrew installed, install it with `brew install sphinx --with-mysql`
+- [**Imagemagick**](http://www.imagemagick.org). If you're using OS X and have Homebrew installed, install it with `brew install imagemagick`
 
 ### Setting up the development environment
 
@@ -146,7 +147,6 @@ Before you get started, the following needs to be installed:
     bundle exec rake jobs:work
     ```
 
-
 Congratulations! Sharetribe should now be up and running for development purposes. Open a browser and go to the server URL (e.g. http://lvh.me:3000). Fill in the form to create a new marketplace and admin user. You should be now able to access your marketplace and modify it from the admin area.
 
 ### Mailcatcher
@@ -180,15 +180,15 @@ Use [Mailcatcher](http://mailcatcher.me) to receive sent emails locally:
 
 To update your local database schema to the newest version, run database migrations with:
 
-  ```bash
-  bundle exec rake db:migrate
-  ```
+```bash
+bundle exec rake db:migrate
+```
 
 ### Running tests
 
 Tests are handled by [RSpec](http://rspec.info/) for unit tests and [Cucumber](https://cucumber.io/) for acceptance tests.
 
-Remember to follow *all* the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
+Remember to follow _all_ the steps listed in the [Setting up the development environment](#setting-up-the-development-environment) paragraph before running tests because some tests depend on webpack assets.
 
 1.  Navigate to the root directory of the sharetribe project
 
@@ -222,9 +222,9 @@ Remember to follow *all* the steps listed in the [Setting up the development env
 
 To automatically run unit tests when code is changed, start [Guard](https://github.com/guard/guard):
 
-  ```bash
-  bundle exec guard
-  ```
+```bash
+bundle exec guard
+```
 
 ### Working with React, Webpack and Foreman
 
@@ -319,7 +319,6 @@ Before starting these steps, perform [steps 1-5 from above](#setting-up-the-deve
     bundle exec rails server -e production
     ```
 
-
 The built-in WEBrick server (which was started in the last step above) should not be used in production due to performance reasons. A dedicated HTTP server such as [unicorn](http://unicorn.bogomips.org/) is recommended.
 
 It is not recommended to serve static assets from a Rails server in production. Instead, you should use a CDN (Content Delivery Network) service, such as [Amazon CloudFront](https://aws.amazon.com/cloudfront/). To serve the assets from the CDN service, you need to change the `asset_host` configuration in the the `config/config.yml` file to point your CDN distribution.
@@ -334,27 +333,25 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 
 1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
-
 #### Setting up S3
 
 If you want to use S3 to host your images, you need to do a bit more configuration.
 
-1. Create a IAM role which has full S3 access.  Save the AWS access and secret keys.
+1. Create a IAM role which has full S3 access. Save the AWS access and secret keys.
 
-1. In the S3 console, create two buckets, one for upload and one for permanent storage.  For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
+1. In the S3 console, create two buckets, one for upload and one for permanent storage. For example `your-sharetribe-images` and `your-sharetribe-images-tmp`.
 
 1. Set the upload bucket (`your-sharetribe-images-tmp`) to have an expiration (for example, of 14 days) using [lifecycle management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)
 
 1. [Enable CORS on the upload bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html).
 
-1. Set the following configuration in your sharetribe `config.yml`: `s3_bucket_name: "your-sharetribe-images"` `s3_upload_bucket_name:  "your-sharetribe-images-tmp"`
+1. Set the following configuration in your sharetribe `config.yml`: `s3_bucket_name: "your-sharetribe-images"` `s3_upload_bucket_name: "your-sharetribe-images-tmp"`
 
-1. Add your AWS keys to the sharetribe app.  The best way to do that is via environment variables, rather than checking them into your `config.yml`.  Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
+1. Add your AWS keys to the sharetribe app. The best way to do that is via environment variables, rather than checking them into your `config.yml`. Set the `aws_access_key_id` and `aws_secret_access_key` environment variables to the values for the IAM user.
 
 1. (Optional) When you enable S3, uploaded images are linked directly to the S3 bucket. If you want to serve these assets through CDN, you can set the `user_asset_host` configuration option in addition to `asset_host` in `config/config.yml`.
 
-
-Here's a sample CORS configuration that allows anyone to post to your bucket.  Note that you may want to lock down the origin host more tightly, depending on your needs.
+Here's a sample CORS configuration that allows anyone to post to your bucket. Note that you may want to lock down the origin host more tightly, depending on your needs.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -371,9 +368,9 @@ Here's a sample CORS configuration that allows anyone to post to your bucket.  N
 
 ##### Troubleshooting S3 Setup
 
-* if you are having trouble uploading, look at the request using browser devtools and see what error statuses and messages are being sent.
-* double check that your AWS keys are being correctly set.
-* if you can upload images successfully, but the images aren't processed, make sure that the delayed-job worker is running.
+- if you are having trouble uploading, look at the request using browser devtools and see what error statuses and messages are being sent.
+- double check that your AWS keys are being correctly set.
+- if you can upload images successfully, but the images aren't processed, make sure that the delayed-job worker is running.
 
 ### Advanced settings
 
@@ -388,7 +385,6 @@ Use these instructions to set up and deploy Sharetribe for production in differe
 If you have installation instructions that you would like to share, don't hesitate to share them at the [Sharetribe community forum](https://www.sharetribe.com/community).
 
 - [Deploying Sharetribe to Heroku](https://gist.github.com/svallory/d08e9baa88e18d691605) by [svallory](https://github.com/svallory)
-
 
 ## Payments
 
@@ -418,16 +414,15 @@ Sharetribe follows [Semantic Versioning](http://semver.org/) where possible.
 
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
-* MAJOR version when you make incompatible API changes,
-* MINOR version when you add functionality in a backwards-compatible manner, and
-* PATCH version when you make backwards-compatible bug fixes.
+- MAJOR version when you make incompatible API changes,
+- MINOR version when you add functionality in a backwards-compatible manner, and
+- PATCH version when you make backwards-compatible bug fixes.
 
 See the document [How Sharetribe applies Semantic Versioning](docs/semantic-versioning.md) to read more how Semantic Versioning is applied in practice.
 
 ## Changes
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed list of changes between releases.
-
 
 ## Upgrade
 
@@ -445,13 +440,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to contribute.
 
 See [RELEASE.md](RELEASE.md) for information about how to make a new release.
 
-
 ## Translation
 
 Sharetribe uses [WebTranslateIt (WTI)](https://webtranslateit.com/en) for translations. If you'd like to translate Sharetribe to your language or improve existing translations, please ask for a WTI invitation. To get an invite, send an email to [info@sharetribe.com](mailto:info@sharetribe.com) and mention that you would like to become a translator.
 
 All language additions and modifications (except for English) should be done through the WTI tool. We do not accept Pull Requests that add or modify languages (except English).
-
 
 ## Bug tracker
 
@@ -461,18 +454,15 @@ We are dedicating the Github Issue only for bugs in the Sharetribe codebase. For
 
 After you have opened a new issue, the team will handle it according to these instructions: [How to handle Github Issues](https://github.com/sharetribe/sharetribe/blob/master/docs/how-to-handle-github-issues.md)
 
-
 ## Documentation
 
 More detailed technical documentation is located in [docs/](docs/)
-
 
 ## Community forum
 
 The Sharetribe open source community forum is located at [https://www.sharetribe.com/community/](https://www.sharetribe.com/community/).
 
 The forum is a great place to ask support and help for example with issues during the installation.
-
 
 ## MIT License
 

@@ -11,14 +11,15 @@ $listing-image-cellpadding: lines(0.5);
 }
 
 @mixin fileupload-thumbnail($border: 0) {
-  $available-space: lines(19) - (2 * lines(0.5)) - (2 * $listing-image-cellpadding); // centered section, 19 lines minus 0.5 padding
+  $available-space: lines(19) - (2 * lines(0.5)) -
+    (2 * $listing-image-cellpadding); // centered section, 19 lines minus 0.5 padding
   $width: ($available-space / 3);
   width: $width;
   height: $width;
   border-radius: 2 * $default-border-radius;
 
   // Colors
-  border: darken(#EEE, 5%) dashed em($border);
+  border: darken(#eee, 5%) dashed em($border);
 }
 
 .fileupload-remove-hover {
@@ -79,7 +80,7 @@ $listing-image-cellpadding: lines(0.5);
   @include fileupload-thumbnail(3);
   text-align: center;
 
-  color: darken(#EEE, 33%);
+  color: darken(#eee, 33%);
 
   // Center multiline text
   @include vertical-centering-table-container;
@@ -88,12 +89,12 @@ $listing-image-cellpadding: lines(0.5);
 .upload-image-placeholder {
   @include fileupload-thumbnail;
   float: left;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 
-  &:hover .fileupload-text-container, &.hover .fileupload-text-container {
-    border-color: darken(#EEE, 20%);
+  &:hover .fileupload-text-container,
+  &.hover .fileupload-text-container {
+    border-color: darken(#eee, 20%);
   }
-
 
   margin-right: $listing-image-cellpadding;
   margin-bottom: $listing-image-cellpadding;

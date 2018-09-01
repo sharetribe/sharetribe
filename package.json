@@ -2,11 +2,40 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "7.8"
+    "node": ">=7.8"
   },
   "scripts": {
-    "postinstall": "cd client && npm install",
-    "clean": "rm -f app/assets/webpack/*"
+    "postinstall": "cd client && yarn install",
+    "clean": "rm -f app/assets/webpack/*",
+    "prettier": "prettier --write \"client/**/*.{ts,tsx,js,jsx,json,md,css,scss}\"",
+    "changelog": "conventional-changelog -i NEW_CHANGELOG.md -s -r 0",
+    "precommit": "lint-staged",
+    "commit": "npx git-cz"
   },
-  "cacheDirectories": ["node_modules", "client/node_modules"]
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md}": [
+      "prettier --write",
+      "git add -u"
+    ]
+  },
+  "config": {
+    "ghooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^7.1.1",
+    "@commitlint/config-conventional": "^7.1.1",
+    "conventional-changelog-cli": "^2.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2"
+  }
 }

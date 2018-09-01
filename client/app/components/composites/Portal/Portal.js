@@ -23,23 +23,20 @@
 
 */
 
-import { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import { Component, PropTypes } from "react";
+import ReactDOM from "react-dom";
 
-import css from './Portal.css';
+import css from "./Portal.css";
 
 class Portal extends Component {
   componentDidMount() {
-    this.element = document.createElement('div');
+    this.element = document.createElement("div");
     this.element.className = css.root;
     this.props.parentElement.appendChild(this.element);
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    ReactDOM.render(
-      this.props.children,
-      this.element
-    );
+    ReactDOM.render(this.props.children, this.element);
   }
   componentWillUnmount() {
     ReactDOM.unmountComponentAtNode(this.element);
@@ -52,7 +49,7 @@ class Portal extends Component {
 
 Portal.propTypes = {
   parentElement: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  children: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.object // eslint-disable-line react/forbid-prop-types
 };
 
 export default Portal;

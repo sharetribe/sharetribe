@@ -1,13 +1,13 @@
-import { Component, PropTypes } from 'react';
-import r, { div } from 'r-dom';
-import classNames from 'classnames';
+import { Component, PropTypes } from "react";
+import r, { div } from "r-dom";
+import classNames from "classnames";
 
-import { className } from '../../../utils/PropTypes';
-import ProfileDropdown from './ProfileDropdown';
-import Avatar from '../../elements/Avatar/Avatar';
-import NotificationBadge from '../../elements/NotificationBadge/NotificationBadge';
+import { className } from "../../../utils/PropTypes";
+import ProfileDropdown from "./ProfileDropdown";
+import Avatar from "../../elements/Avatar/Avatar";
+import NotificationBadge from "../../elements/NotificationBadge/NotificationBadge";
 
-import css from './AvatarDropdown.css';
+import css from "./AvatarDropdown.css";
 
 const HOVER_TIMEOUT = 250;
 
@@ -22,7 +22,7 @@ class AvatarDropdown extends Component {
 
     this.state = {
       isOpen: false,
-      isMounted: false,
+      isMounted: false
     };
 
     this.mouseOverTimeout = null;
@@ -30,7 +30,7 @@ class AvatarDropdown extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isMounted: true });// eslint-disable-line react/no-set-state
+    this.setState({ isMounted: true }); // eslint-disable-line react/no-set-state
   }
 
   componentWillUnmount() {
@@ -41,61 +41,89 @@ class AvatarDropdown extends Component {
   handleMouseOver() {
     window.clearTimeout(this.mouseLeaveTimeout);
     window.clearTimeout(this.mouseOverTimeout);
-    this.mouseOverTimeout = window.setTimeout(() => (
-      this.setState({ isOpen: true }) // eslint-disable-line react/no-set-state
-      ), HOVER_TIMEOUT);
+    this.mouseOverTimeout = window.setTimeout(
+      () =>
+        this.setState({ isOpen: true }), // eslint-disable-line react/no-set-state
+      HOVER_TIMEOUT
+    );
   }
 
   handleMouseLeave() {
     window.clearTimeout(this.mouseOverTimeout);
-    this.mouseLeaveTimeout = window.setTimeout(() => (
-      this.setState({ isOpen: false }) // eslint-disable-line react/no-set-state
-      ), HOVER_TIMEOUT);
+    this.mouseLeaveTimeout = window.setTimeout(
+      () =>
+        this.setState({ isOpen: false }), // eslint-disable-line react/no-set-state
+      HOVER_TIMEOUT
+    );
   }
 
   handleClick() {
-    this.setState({ isOpen: !this.state.isOpen });// eslint-disable-line react/no-set-state
+    this.setState({ isOpen: !this.state.isOpen }); // eslint-disable-line react/no-set-state
   }
 
   handleBlur(event) {
     // FocusEvent is fired faster than the link elements native click handler
     // gets its own event. Therefore, we need to check the origin of this FocusEvent.
-    if (this.state.isOpen && !this.profileDropdown.contains(event.relatedTarget)) {
-      this.setState({ isOpen: false });// eslint-disable-line react/no-set-state
+    if (
+      this.state.isOpen &&
+      !this.profileDropdown.contains(event.relatedTarget)
+    ) {
+      this.setState({ isOpen: false }); // eslint-disable-line react/no-set-state
     }
   }
 
   render() {
-    const openOnHoverClass = this.state.isMounted ? '' : css.openOnHover;
-    const transitionDelayClass = this.state.isMounted ? '' : css.transitionDelay;
-    const openClass = this.state.isOpen ? css.openDropdown : '';
-    const notificationsClass = this.props.notificationCount > 0 ? css.hasNotifications : null;
-    const notificationBadgeInArray = this.props.notificationCount > 0 ?
-      [r(NotificationBadge, { className: css.notificationBadge }, this.props.notificationCount)] :
-      [];
-    return div({
-      onMouseOver: this.handleMouseOver,
-      onMouseLeave: this.handleMouseLeave,
-      onClick: this.handleClick,
-      onBlur: this.handleBlur,
-      tabIndex: 0,
-      className: classNames('AvatarDropdown', this.props.className, openOnHoverClass, openClass, css.avatarDropdown, notificationsClass),
-    }, [
-      div({ className: css.avatarWithNotifications }, [
-        r(Avatar, this.props.avatar),
-      ].concat(notificationBadgeInArray)),
-      r(ProfileDropdown, {
-        classNames: [css.avatarProfileDropdown, transitionDelayClass],
-        customColor: this.props.customColor,
-        actions: this.props.actions,
-        isAdmin: this.props.isAdmin,
-        notificationCount: this.props.notificationCount,
-        translations: this.props.translations,
-        profileDropdownRef: (c) => {
-          this.profileDropdown = c;
-        },
-      }),
-    ]);
+    const openOnHoverClass = this.state.isMounted ? "" : css.openOnHover;
+    const transitionDelayClass = this.state.isMounted
+      ? ""
+      : css.transitionDelay;
+    const openClass = this.state.isOpen ? css.openDropdown : "";
+    const notificationsClass =
+      this.props.notificationCount > 0 ? css.hasNotifications : null;
+    const notificationBadgeInArray =
+      this.props.notificationCount > 0
+        ? [
+            r(
+              NotificationBadge,
+              { className: css.notificationBadge },
+              this.props.notificationCount
+            )
+          ]
+        : [];
+    return div(
+      {
+        onMouseOver: this.handleMouseOver,
+        onMouseLeave: this.handleMouseLeave,
+        onClick: this.handleClick,
+        onBlur: this.handleBlur,
+        tabIndex: 0,
+        className: classNames(
+          "AvatarDropdown",
+          this.props.className,
+          openOnHoverClass,
+          openClass,
+          css.avatarDropdown,
+          notificationsClass
+        )
+      },
+      [
+        div(
+          { className: css.avatarWithNotifications },
+          [r(Avatar, this.props.avatar)].concat(notificationBadgeInArray)
+        ),
+        r(ProfileDropdown, {
+          classNames: [css.avatarProfileDropdown, transitionDelayClass],
+          customColor: this.props.customColor,
+          actions: this.props.actions,
+          isAdmin: this.props.isAdmin,
+          notificationCount: this.props.notificationCount,
+          translations: this.props.translations,
+          profileDropdownRef: c => {
+            this.profileDropdown = c;
+          }
+        })
+      ]
+    );
   }
 }
 
@@ -104,7 +132,7 @@ AvatarDropdown.propTypes = {
   avatar: PropTypes.shape(Avatar.propTypes).isRequired,
   notificationCount: PropTypes.number,
   ...passedThroughProps,
-  className,
+  className
 };
 
 export default AvatarDropdown;

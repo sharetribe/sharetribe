@@ -133,7 +133,8 @@ $bubbleDetailsMargin: em(5, $googleMapsFontSize);
   > a {
     display: block;
 
-    &, > img {
+    &,
+    > img {
       height: $bubbleDetailsHeight - (2 * $bubbleDetailsMargin);
     }
   }

@@ -38,8 +38,9 @@
 }
 
 .conversation-title-link-text {
-  &:before, &:after {
-    content: "\"";
+  &:before,
+  &:after {
+    content: '"';
   }
 }
 
@@ -49,7 +50,7 @@
 
 .conversation-context {
   @include small-type;
-  line-height: lines(1, $small-type)
+  line-height: lines(1, $small-type);
 }
 
 .conversation-list-status-container {
@@ -91,5 +92,4 @@
   padding-left: em(40);
   height: 48px;
   @include vertical-centering-table-content;
-
 }

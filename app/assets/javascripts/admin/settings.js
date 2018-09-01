@@ -1,7 +1,6 @@
 window.ST = window.ST || {};
 
 (function(module) {
-
   var initializeDeleteMarketplace = function(confirmationDomain) {
     var $deleteButton = $(".js-delete-marketplace-button");
     var $confirmationForm = $(".js-delete-marketplace-confirmation-form");
@@ -13,7 +12,7 @@ window.ST = window.ST || {};
     });
 
     $confirmationForm.submit(function() {
-      if($confirmationDomain.val() === confirmationDomain) {
+      if ($confirmationDomain.val() === confirmationDomain) {
         return true;
       } else {
         return false;
@@ -22,5 +21,4 @@ window.ST = window.ST || {};
   };
 
   module.initializeDeleteMarketplace = initializeDeleteMarketplace;
-
 })(window.ST);

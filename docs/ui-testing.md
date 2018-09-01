@@ -20,13 +20,13 @@ In
 [features/support/feature_tests/](../features/support/feature_tests/)
 directory, testing helpers are split into the following directories:
 
- - `page/`: Page specific accessors and actions, e.g. selecting an
-   element, clicking on a button on a certain page.
+- `page/`: Page specific accessors and actions, e.g. selecting an
+  element, clicking on a button on a certain page.
 
- - `section/`: Accessors and actions for UI components that are shared
-   in many pages, e.g. the Topbar.
+- `section/`: Accessors and actions for UI components that are shared
+  in many pages, e.g. the Topbar.
 
- - `action/`: UI flows that span multiple pages, using page and
-   section helpers.
+- `action/`: UI flows that span multiple pages, using page and
+  section helpers.
 
 All the CSS selectors should live within page or section helpers.

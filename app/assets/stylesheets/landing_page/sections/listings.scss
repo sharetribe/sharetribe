@@ -12,7 +12,7 @@ $listings__tablet-gutter: 16px;
 
   @include dimensions__section--paddings;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .listings__content {
@@ -54,13 +54,15 @@ $listings__tablet-gutter: 16px;
   @media #{$mobile-landscape}, #{$tablet} {
     @include prefix-prop(flex-direction, row);
     margin: 0;
-    padding: 0px (48px - $listings__tablet-gutter / 2) 48px (48px - $listings__tablet-gutter / 2);
+    padding: 0px (48px - $listings__tablet-gutter / 2) 48px
+      (48px - $listings__tablet-gutter / 2);
   }
 
   @media #{$desktop} {
     @include prefix-prop(flex-direction, row);
     margin: 0;
-    padding: 0px (60px - $listings__desktop-gutter / 2) 60px (60px - $listings__desktop-gutter / 2);
+    padding: 0px (60px - $listings__desktop-gutter / 2) 60px
+      (60px - $listings__desktop-gutter / 2);
   }
 }
 
@@ -68,7 +70,7 @@ $listings__tablet-gutter: 16px;
   width: 100%;
   max-width: 327px;
 
-  background-color: #FFF;
+  background-color: #fff;
 
   @include prefix-val(display, flex);
   @include prefix-prop(justify-content, space-between);
@@ -77,11 +79,11 @@ $listings__tablet-gutter: 16px;
   border-radius: $dimension-card-border-radius;
   overflow: hidden;
 
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: scale(1.011);
-    box-shadow: 0 0 50px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
     @include prefix-prop(transition, all 50ms ease-in-out);
   }
 
@@ -159,7 +161,7 @@ $listings__tablet-gutter: 16px;
 
 .listings__button--inverted {
   @include landing-page__button;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .listings__listing-title {
@@ -255,7 +257,7 @@ $listings__tablet-gutter: 16px;
   @include prefix-prop(align-items, center);
   @include prefix-prop(justify-content, center);
 
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
 }
 
 .listings__author-avatar {
@@ -280,7 +282,7 @@ $listings__tablet-gutter: 16px;
 
   // override default link color
   // hover color is set in the template
-  color: #7A7D80;
+  color: #7a7d80;
 
   // ellipsis
   white-space: nowrap;
@@ -288,21 +290,23 @@ $listings__tablet-gutter: 16px;
   text-overflow: ellipsis;
 }
 
-.listings__section--background, .listings__section--background-image--light, .listings__section--background-image--dark {
+.listings__section--background,
+.listings__section--background-image--light,
+.listings__section--background-image--dark {
   .listings__paragraph--markdown {
     & > p {
       color: #ffffff;
     }
   }
   .listings__title {
-      color: #ffffff;
+    color: #ffffff;
   }
 }
- 
+
 .listings__section--background {
   @extend .listings__section;
 
-  color: #FFFFFF;
+  color: #ffffff;
   @include viewport-unit(min-height, 80vh);
 }
 
@@ -318,7 +322,7 @@ $listings__tablet-gutter: 16px;
 
 .listings__section--background-color {
   @extend .listings__section;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .listings__section--blank {
@@ -328,12 +332,14 @@ $listings__tablet-gutter: 16px;
 
 .listings__section--zebra {
   @extend .listings__section--blank;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
-.listings__section--background-color, .listings__section--background-image--light, .listings__section--background-image--dark {
+.listings__section--background-color,
+.listings__section--background-image--light,
+.listings__section--background-image--dark {
   .listings__button--ghost {
-      color: #ffffff;
-      border-color: #ffffff;
+    color: #ffffff;
+    border-color: #ffffff;
   }
 }

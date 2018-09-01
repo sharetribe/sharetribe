@@ -8,7 +8,9 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   z-index: var(--ProfileDropdown_zIndex);
-  margin-top: calc(var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth) - 1);
+  margin-top: calc(
+    var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth) - 1
+  );
 }
 
 .profileActions {
@@ -91,7 +93,7 @@
   bottom: 100%;
   left: 50%;
   border: solid transparent;
-  content: ' ';
+  content: " ";
   height: 0;
   width: 0;
   pointer-events: none;
@@ -101,8 +103,15 @@
 .rootArrowTop {
   border-color: transparent;
   border-bottom-color: white;
-  border-width: calc((var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
-  margin-left: calc(0 - (var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) / 2);
+  border-width: calc(
+    (var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) /
+      2
+  );
+  margin-left: calc(
+    0 -
+      (var(--ProfileDropdown_arrowWidth) - 2 * var(--ProfileDropdown_lineWidth)) /
+      2
+  );
   z-index: calc(var(--ProfileDropdown_zIndex) + 1);
   left: calc(var(--ProfileDropdown_lineWidth) * 2 + 1);
   top: var(--ProfileDropdown_topSeparation);
@@ -113,5 +122,7 @@
   border-bottom-color: var(--ProfileDropdown_borderColor);
   border-width: calc(var(--ProfileDropdown_arrowWidth) / 2);
   margin-left: calc(0 - var(--ProfileDropdown_arrowWidth) / 2);
-  top: calc(var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth));
+  top: calc(
+    var(--ProfileDropdown_topSeparation) - var(--ProfileDropdown_arrowWidth)
+  );
 }

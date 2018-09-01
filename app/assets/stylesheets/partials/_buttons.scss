@@ -23,11 +23,11 @@
     background: $red;
     color: white;
   }
-
 }
 
 .disabled-button {
-  &, &:hover {
+  &,
+  &:hover {
     background-color: $border;
   }
 }

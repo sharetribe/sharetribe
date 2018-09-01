@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 
     &::after {
-      content: '';
+      content: "";
       flex: auto;
     }
   }

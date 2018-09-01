@@ -1,5 +1,5 @@
-import * as actionTypes from '../constants/SearchPageConstants';
-import FlashNotificationModel from '../models/FlashNotificationModel';
+import * as actionTypes from "../constants/SearchPageConstants";
+import FlashNotificationModel from "../models/FlashNotificationModel";
 
 let nextMessageId = 1;
 
@@ -11,14 +11,12 @@ export const addFlashNotification = (type, content) => {
     payload: new FlashNotificationModel({
       id: `note_${id}`,
       type,
-      content,
-    }),
+      content
+    })
   };
 };
 
-export const removeFlashNotification = (id) => (
-  {
-    type: actionTypes.FLASH_NOTIFICATION_REMOVE,
-    payload: { id },
-  }
-);
+export const removeFlashNotification = id => ({
+  type: actionTypes.FLASH_NOTIFICATION_REMOVE,
+  payload: { id }
+});

@@ -38,7 +38,7 @@
   Some icons, e.g. dropdown icon needs to be a bit lower
 */
 @mixin dropdown-icon-fix {
- @include icon-fix-more;
+  @include icon-fix-more;
 }
 
 @mixin icon-fix-more {
@@ -69,5 +69,5 @@
   See more: http://stackoverflow.com/questions/6914822/absolute-positioned-anchor-tag-with-no-text-not-clickable-in-ie
 */
 @mixin clickable-area-ie {
-  background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==)
+  background-image: url(data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==);
 }

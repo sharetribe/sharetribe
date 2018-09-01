@@ -19,7 +19,6 @@ Request: Empty
 
 Response:
 
-
 ```json
 {
   id: 123,
@@ -30,7 +29,6 @@ Response:
 ## POST /:community_id
 
 Request:
-
 
 ```json
 {

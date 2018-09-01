@@ -1,4 +1,4 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 /**
   Returns a new element for image uploading/preview
@@ -7,23 +7,23 @@ window.ST.renderImagePlaceholder = function() {
   var template = $("#new-image-tmpl").html();
   var element = $(template);
   var previewImage = $("img", element).hide();
-  var removeLink = $('.fileupload-preview-remove-image', element);
-  var fileupload = $('.fileupload', element);
-  var texts = $('.fileupload-text-container', element);
-  var textsOriginalDisplay = texts.css('display');
+  var removeLink = $(".fileupload-preview-remove-image", element);
+  var fileupload = $(".fileupload", element);
+  var texts = $(".fileupload-text-container", element);
+  var textsOriginalDisplay = texts.css("display");
   var normalText = $(".fileupload-text", element);
   var smallText = $(".fileupload-small-text", element);
   var listingId = $(".listing-image-id", element);
   var errorText = $(".fileupload-error-text", element);
 
   function showMessage(normal, small) {
-    if(normal) {
+    if (normal) {
       normalText.text(normal);
     } else {
       normalText.empty();
     }
 
-    if(small) {
+    if (small) {
       smallText.text(small);
     } else {
       smallText.empty();
@@ -46,15 +46,15 @@ window.ST.renderImagePlaceholder = function() {
   }
 
   function hideTexts() {
-    texts.css('display', 'none');
+    texts.css("display", "none");
   }
 
   function showTexts() {
-    texts.css('display', textsOriginalDisplay);
+    texts.css("display", textsOriginalDisplay);
   }
 
   function showPreview(src) {
-    previewImage.show().attr('src', src);
+    previewImage.show().attr("src", src);
   }
 
   function setListingId(id) {
@@ -73,7 +73,7 @@ window.ST.renderImagePlaceholder = function() {
   hideRemove();
 
   return {
-    uniqueId: _.uniqueId('image_element_'),
+    uniqueId: _.uniqueId("image_element_"),
     container: element,
     showMessage: showMessage,
     hideTexts: hideTexts,
@@ -111,7 +111,6 @@ window.ST.imageUploadElementManager = function($container) {
     }
 
     previews.push(element);
-
   }
 
   function removePreview(element) {
@@ -136,10 +135,13 @@ window.ST.imageUploadElementManager = function($container) {
 
   function changeStateToProcessing(uploadingElement, processingElement) {
     function swap(ref, replacement, input) {
-      return (ref === input) ? replacement : input;
+      return ref === input ? replacement : input;
     }
 
-    uploadings = _.map(uploadings, _.partial(swap, uploadingElement, processingElement));
+    uploadings = _.map(
+      uploadings,
+      _.partial(swap, uploadingElement, processingElement)
+    );
     uploadingElement.after(processingElement);
     uploadingElement.remove();
   }
@@ -153,7 +155,7 @@ window.ST.imageUploadElementManager = function($container) {
   // whole element, not only the DOM element (container)
   function addEmpty(element) {
     var last = _.last(empties);
-    if(last) {
+    if (last) {
       last.showMessage(ST.t("listings.form.images.select_file"));
     }
     element.showMessage(ST.t("listings.form.images.add_more"));
@@ -179,7 +181,9 @@ window.ST.imageUploadElementManager = function($container) {
 };
 
 window.ST.imageUploader = function(listings, opts) {
-  var elementManager = ST.imageUploadElementManager($("#image-uploader-container"));
+  var elementManager = ST.imageUploadElementManager(
+    $("#image-uploader-container")
+  );
   var directUploadToS3 = !!opts.s3Fields && !!opts.s3UploadPath;
 
   var extraPlaceholders = 2;
@@ -194,7 +198,9 @@ window.ST.imageUploader = function(listings, opts) {
           var filename = ST.utils.filenameToURLSafe(data.files[0].name);
           data.formData = _.extend({}, opts.s3Fields, {
             "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name),
-            key: opts.s3Fields.key.replace("${index}", i++).replace("${filename}", filename)
+            key: opts.s3Fields.key
+              .replace("${index}", i++)
+              .replace("${filename}", filename)
           });
         }
       };
@@ -208,23 +214,33 @@ window.ST.imageUploader = function(listings, opts) {
       paramName: "listing_image[image]",
       url: opts.saveFromFile,
       submit: function(e, data) {
-        data.formData = { "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name) };
+        data.formData = {
+          "Content-Type": ST.utils.contentTypeByFilename(data.files[0].name)
+        };
       }
     };
 
     return renderUpload(localOptions);
   }
 
-  var extraPlaceholdersNeeded = listings.length < extraPlaceholders ? extraPlaceholders - listings.length : 0;
-  var imageSelected = _().range(extraPlaceholdersNeeded + 1).map(function() {
-    return directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
-  }).each(function(rendered) {
-    elementManager.addEmpty(rendered.element);
-  }).map(function(rendered) {
-    return rendered.stream;
-  }).reduce(function(a, b) {
-    return a.merge(b);
-  });
+  var extraPlaceholdersNeeded =
+    listings.length < extraPlaceholders
+      ? extraPlaceholders - listings.length
+      : 0;
+  var imageSelected = _()
+    .range(extraPlaceholdersNeeded + 1)
+    .map(function() {
+      return directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
+    })
+    .each(function(rendered) {
+      elementManager.addEmpty(rendered.element);
+    })
+    .map(function(rendered) {
+      return rendered.stream;
+    })
+    .reduce(function(a, b) {
+      return a.merge(b);
+    });
 
   var uploadingRendered = imageSelected.map(function(data) {
     return renderUploading(data);
@@ -234,7 +250,10 @@ window.ST.imageUploader = function(listings, opts) {
     var processingRenderedResult = rendered.stream.map(renderProcessing);
 
     processingRenderedResult.onValue(function(renderResult) {
-      elementManager.changeStateToProcessing(rendered.element.container, renderResult.element.container);
+      elementManager.changeStateToProcessing(
+        rendered.element.container,
+        renderResult.element.container
+      );
     });
 
     return processingRenderedResult;
@@ -248,41 +267,75 @@ window.ST.imageUploader = function(listings, opts) {
     return rendered.stream;
   });
 
-  var processingListings = _.filter(listings, function(listing) { return !listing.ready; });
-  var readyListings = _.filter(listings, function(listing) { return listing.ready; });
-
-  var processingDone = _(processingListings).map(function(listing) {
-    return renderProcessing(listing);
-  }).each(function(rendered) {
-    elementManager.addUploading(rendered.element.container);
-  }).map(function(rendered) {
-    return rendered.stream;
-  }).reduce(function(a, b) {
-    return a.merge(b);
+  var processingListings = _.filter(listings, function(listing) {
+    return !listing.ready;
+  });
+  var readyListings = _.filter(listings, function(listing) {
+    return listing.ready;
   });
 
-  var previewRemoved = _(readyListings).map(function(listing) {
-    return renderPreview(listing);
-  }).each(function(rendered) {
-    elementManager.addPreview(rendered.element.container);
-  }).map(function(rendered) {
-    return rendered.stream;
-  }).reduce(function(a, b) {
-    return a.merge(b);
+  var processingDone = _(processingListings)
+    .map(function(listing) {
+      return renderProcessing(listing);
+    })
+    .each(function(rendered) {
+      elementManager.addUploading(rendered.element.container);
+    })
+    .map(function(rendered) {
+      return rendered.stream;
+    })
+    .reduce(function(a, b) {
+      return a.merge(b);
+    });
+
+  var previewRemoved = _(readyListings)
+    .map(function(listing) {
+      return renderPreview(listing);
+    })
+    .each(function(rendered) {
+      elementManager.addPreview(rendered.element.container);
+    })
+    .map(function(rendered) {
+      return rendered.stream;
+    })
+    .reduce(function(a, b) {
+      return a.merge(b);
+    });
+
+  var imageUploaded = processingDone
+    ? newImageProcessingDone.merge(processingDone)
+    : newImageProcessingDone;
+
+  var numberOfProcessingImages = imageUploaded
+    .map(function() {
+      return -1;
+    })
+    .merge(
+      processingRendered.map(function() {
+        return 1;
+      })
+    )
+    .scan(processingListings.length, function(a, b) {
+      return a + b;
+    });
+
+  var numberOfLoadingImages = uploadingRendered
+    .map(function() {
+      return 1;
+    })
+    .merge(
+      processingRendered.map(function() {
+        return -1;
+      })
+    )
+    .scan(0, function(a, b) {
+      return a + b;
+    });
+
+  var status = Bacon.combineTemplate({
+    loading: numberOfLoadingImages,
+    processing: numberOfProcessingImages
   });
-
-  var imageUploaded = processingDone ? newImageProcessingDone.merge(processingDone) : newImageProcessingDone;
-
-  var numberOfProcessingImages = imageUploaded.map(function() { return -1; })
-        .merge(processingRendered.map(function() { return 1; }))
-        .scan(processingListings.length, function(a, b) { return a + b; });
-
-  var numberOfLoadingImages = uploadingRendered.map(function() { return 1; })
-        .merge(processingRendered.map(function() { return -1; }))
-        .scan(0, function(a, b) { return a + b; });
-
-  var status = Bacon.combineTemplate(
-    {loading: numberOfLoadingImages, processing: numberOfProcessingImages });
 
   var successfullyUploaded = imageUploaded.filter(function(value) {
     return value.ready && !value.errored;
@@ -300,7 +353,9 @@ window.ST.imageUploader = function(listings, opts) {
     return rendered.stream;
   });
 
-  var imageRemoved = previewRemoved ? newPreviewRemoved.merge(previewRemoved) : newPreviewRemoved;
+  var imageRemoved = previewRemoved
+    ? newPreviewRemoved.merge(previewRemoved)
+    : newPreviewRemoved;
 
   function value(v) {
     return function() {
@@ -308,15 +363,26 @@ window.ST.imageUploader = function(listings, opts) {
     };
   }
 
-  function add(x, y) { return x + y; }
+  function add(x, y) {
+    return x + y;
+  }
 
-  var count = imageSelected.map(value(1)).merge(imageRemoved.map(value(-1))).scan(listings.length, add);
+  var count = imageSelected
+    .map(value(1))
+    .merge(imageRemoved.map(value(-1)))
+    .scan(listings.length, add);
 
-  var maybeNeedsAddPlaceholder = count.map(function(c) { return c < extraPlaceholders; });
-  var maybeNeedsRemovePlaceholder = count.map(function(c) { return c <= extraPlaceholders; });
+  var maybeNeedsAddPlaceholder = count.map(function(c) {
+    return c < extraPlaceholders;
+  });
+  var maybeNeedsRemovePlaceholder = count.map(function(c) {
+    return c <= extraPlaceholders;
+  });
 
   imageRemoved.filter(maybeNeedsAddPlaceholder).onValue(function() {
-    var rendered = directUploadToS3 ? renderS3Uploader() : renderLocalUploader();
+    var rendered = directUploadToS3
+      ? renderS3Uploader()
+      : renderLocalUploader();
     elementManager.addEmpty(rendered.element);
   });
 
@@ -331,7 +397,7 @@ window.ST.imageUploader = function(listings, opts) {
     $element.fileupload.show();
 
     var fileuploadDefaultOptions = {
-      dataType: 'text', // Browsers without XHR fileupload support do not support other dataTypes than text
+      dataType: "text", // Browsers without XHR fileupload support do not support other dataTypes than text
       dropZone: $element.container,
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       imageMaxWidth: opts.originalImageWidth,
@@ -340,30 +406,41 @@ window.ST.imageUploader = function(listings, opts) {
       autoUpload: false, // We want to control this ourself
       messages: {
         acceptFileTypes: ST.t("listings.form.images.accepted_formats"),
-        maxFileSize: ST.t("listings.form.images.file_too_large"),
+        maxFileSize: ST.t("listings.form.images.file_too_large")
       },
       // Enable image resizing, except for Android and Opera,
       // which actually support image resizing, but fail to
       // send Blob objects via XHR requests:
-      disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator && navigator.userAgent)
+      disableImageResize: /Android(?!.*Chrome)|Opera/.test(
+        window.navigator && navigator.userAgent
+      )
     };
 
-    var fileuploadOptions = _.extend(fileuploadDefaultOptions, additionalOptions);
+    var fileuploadOptions = _.extend(
+      fileuploadDefaultOptions,
+      additionalOptions
+    );
 
-    $element.fileupload.fileupload(fileuploadOptions).on('dragenter', function() {
-      $(this).addClass('hover');
-    }).on('dragleave', function() {
-      $(this).removeClass('hover');
-    });
+    $element.fileupload
+      .fileupload(fileuploadOptions)
+      .on("dragenter", function() {
+        $(this).addClass("hover");
+      })
+      .on("dragleave", function() {
+        $(this).removeClass("hover");
+      });
 
-    var fileAdded = $element.fileupload.asEventStream('fileuploadadd', function(e, data) {
+    var fileAdded = $element.fileupload.asEventStream("fileuploadadd", function(
+      e,
+      data
+    ) {
       return [$(this), data];
     });
     var fileValidated = fileAdded.flatMap(function(inputAndData) {
       var input = inputAndData[0];
       var data = inputAndData[1];
 
-      return Bacon.fromPromise(input.fileupload('process', data));
+      return Bacon.fromPromise(input.fileupload("process", data));
     });
 
     fileValidated.onError(function(data) {
@@ -374,7 +451,7 @@ window.ST.imageUploader = function(listings, opts) {
       $element.hideError();
     });
 
-    return {element: $element, stream: fileValidated};
+    return { element: $element, stream: fileValidated };
   }
 
   function renderUploading(data) {
@@ -386,12 +463,12 @@ window.ST.imageUploader = function(listings, opts) {
     var filePreprocessed = Bacon.fromPromise(data.process());
 
     var fileSubmitted = filePreprocessed.flatMap(function(fileinputData) {
-
       var submit = fileinputData.submit();
 
       Bacon.fromPoll(100, function() {
         var progress = fileinputData.progress();
-        var percentage = Math.floor((progress.loaded / progress.total) * 100) + "%";
+        var percentage =
+          Math.floor((progress.loaded / progress.total) * 100) + "%";
         var events = [new Bacon.Next(percentage)];
 
         if (progress.loaded === progress.total) {
@@ -399,28 +476,34 @@ window.ST.imageUploader = function(listings, opts) {
         }
 
         return events;
-
       }).onValue(function(percentageLoaded) {
         $element.showMessage(percentageLoaded);
       });
 
       return Bacon.fromBinder(function(sink) {
-        submit.done(function(result) {
-          sink(new Bacon.Next([fileinputData, result]));
-        }).fail(function() {
-          sink(new Bacon.Error());
-        }).always(function() {
-          sink(new Bacon.End());
-        });
+        submit
+          .done(function(result) {
+            sink(new Bacon.Next([fileinputData, result]));
+          })
+          .fail(function() {
+            sink(new Bacon.Error());
+          })
+          .always(function() {
+            sink(new Bacon.End());
+          });
 
         return function() {
-           // unsub functionality here, this one's a no-op
+          // unsub functionality here, this one's a no-op
         };
       });
     });
 
-    var fileSubmittedS3 = fileSubmitted.filter(function() { return directUploadToS3; });
-    var fileSubmittedLocal = fileSubmitted.filter(function() { return !directUploadToS3; });
+    var fileSubmittedS3 = fileSubmitted.filter(function() {
+      return directUploadToS3;
+    });
+    var fileSubmittedLocal = fileSubmitted.filter(function() {
+      return !directUploadToS3;
+    });
 
     // File is saved at the same time it's submitted to local server
     var fileSavedLocal = fileSubmittedLocal.map(function(values) {
@@ -469,7 +552,7 @@ window.ST.imageUploader = function(listings, opts) {
 
     filePreprocessed.onError(imageUploadingFailed);
 
-    return {element: $element, stream: fileSaved};
+    return { element: $element, stream: fileSaved };
   }
 
   function renderProcessing(listing) {
@@ -478,18 +561,28 @@ window.ST.imageUploader = function(listings, opts) {
 
     $element.container.addClass("fileupload-uploading");
 
-    $element.showMessage(ST.t("listings.form.images.processing"), ST.t("listings.form.images.this_may_take_a_while"));
+    $element.showMessage(
+      ST.t("listings.form.images.processing"),
+      ST.t("listings.form.images.this_may_take_a_while")
+    );
     $element.setListingId(listing.id);
 
-    var filePostprocessingDone = ST.utils.baconStreamFromAjaxPolling({url: listing.urls.status}, function(pollingResult) {
-      return pollingResult.ready || pollingResult.errored;
-    });
+    var filePostprocessingDone = ST.utils.baconStreamFromAjaxPolling(
+      { url: listing.urls.status },
+      function(pollingResult) {
+        return pollingResult.ready || pollingResult.errored;
+      }
+    );
 
-    var filePostprocessingSuccessful = filePostprocessingDone.filter(function(value) {
+    var filePostprocessingSuccessful = filePostprocessingDone.filter(function(
+      value
+    ) {
       return value.ready && !value.errored;
     });
 
-    var filePostprocessingError = filePostprocessingDone.filter(function(value) {
+    var filePostprocessingError = filePostprocessingDone.filter(function(
+      value
+    ) {
       return value.errored;
     });
 
@@ -498,10 +591,12 @@ window.ST.imageUploader = function(listings, opts) {
     });
 
     filePostprocessingError.onValue(function() {
-      $element.showMessage(ST.t("listings.form.images.image_processing_failed"));
+      $element.showMessage(
+        ST.t("listings.form.images.image_processing_failed")
+      );
     });
 
-    return {element: $element, stream: filePostprocessingDone};
+    return { element: $element, stream: filePostprocessingDone };
   }
 
   function renderPreview(listing) {
@@ -515,7 +610,9 @@ window.ST.imageUploader = function(listings, opts) {
 
     $element.container.addClass("fileupload-preview");
 
-    var removeClicked = $element.removeLink.asEventStream('click').doAction(".preventDefault");
+    var removeClicked = $element.removeLink
+      .asEventStream("click")
+      .doAction(".preventDefault");
 
     removeClicked.onValue(function() {
       $element.hideRemove();
@@ -525,7 +622,7 @@ window.ST.imageUploader = function(listings, opts) {
     var ajaxRequest = removeClicked.map(function() {
       return {
         url: listing.urls.remove,
-        type: 'DELETE'
+        type: "DELETE"
       };
     });
 
@@ -535,23 +632,27 @@ window.ST.imageUploader = function(listings, opts) {
       elementManager.removePreview($element.container);
     });
 
-    return {element: $element, stream: ajaxResponse};
+    return { element: $element, stream: ajaxResponse };
   }
 
   function reorderImages() {
     var ordered = [];
-    $(".listing-images .listing-image-id").each(function(){
-      if(this.value) {
+    $(".listing-images .listing-image-id").each(function() {
+      if (this.value) {
         ordered.push(this.value);
       }
     });
-    $.ajax({type: "PUT", url:  opts.reorderUrl, data: {ordered_ids: ordered.join(",")} });
+    $.ajax({
+      type: "PUT",
+      url: opts.reorderUrl,
+      data: { ordered_ids: ordered.join(",") }
+    });
   }
 
   function localReorderImages() {
     var ordered = [];
-    $(".listing-images .listing-image-id").each(function(){
-      if(this.value) {
+    $(".listing-images .listing-image-id").each(function() {
+      if (this.value) {
         ordered.push(this.value);
       }
     });
@@ -562,9 +663,17 @@ window.ST.imageUploader = function(listings, opts) {
     $(":text").blur();
   }
   if (opts.reorderUrl) {
-    $(".listing-images").sortable({start: unfocusMe, stop: reorderImages, items: '.fileinput-button:not(:last-child)' });
+    $(".listing-images").sortable({
+      start: unfocusMe,
+      stop: reorderImages,
+      items: ".fileinput-button:not(:last-child)"
+    });
   } else {
-    $(".listing-images").sortable({start: unfocusMe, stop: localReorderImages, items: '.fileinput-button:not(:last-child)'});
+    $(".listing-images").sortable({
+      start: unfocusMe,
+      stop: localReorderImages,
+      items: ".fileinput-button:not(:last-child)"
+    });
   }
 
   return status;

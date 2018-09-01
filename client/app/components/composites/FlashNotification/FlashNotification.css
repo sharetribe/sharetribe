@@ -69,7 +69,10 @@
 .closeIcon {
   line-height: var(--FlashNotification_fontSizeClose);
   flex-basis: var(--FlashNotification_closeIconSize);
-  padding: var(--FlashNotification_spacingInside) var(--FlashNotification_spacingInside) var(--FlashNotification_closeIconExtraSpace) var(--FlashNotification_closeIconExtraSpace);
+  padding: var(--FlashNotification_spacingInside)
+    var(--FlashNotification_spacingInside)
+    var(--FlashNotification_closeIconExtraSpace)
+    var(--FlashNotification_closeIconExtraSpace);
   cursor: pointer;
 
   & g {

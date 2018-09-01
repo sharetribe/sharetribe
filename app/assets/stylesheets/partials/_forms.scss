@@ -1,9 +1,9 @@
 @import "mixins/all";
 @import "compass/css3/border-radius";
 
-input[type=text],
-input[type=password],
-input[type=number],
+input[type="text"],
+input[type="password"],
+input[type="number"],
 textarea {
   @include border-radius(em(5));
   border: 2px solid $border;
@@ -30,7 +30,7 @@ select {
 }
 
 input.auto_width {
-  width:auto;
+  width: auto;
 }
 
 // Select tag in the middle of text. Add some spacing

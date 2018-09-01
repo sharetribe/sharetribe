@@ -1,6 +1,6 @@
 # conversations/v1/
 
-## POST /:conversation\_id/messages/
+## POST /:conversation_id/messages/
 
 Example request body:
 
@@ -137,7 +137,7 @@ Response:
 }
 ```
 
-## POST /:transaction\_id/complete\_preauthorization
+## POST /:transaction_id/complete_preauthorization
 
 Only for **preauthorize** and **paypal**
 

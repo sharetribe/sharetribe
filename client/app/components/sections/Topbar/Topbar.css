@@ -28,7 +28,7 @@
     box-sizing: border-box;
   }
 
-  & input[type='search'] {
+  & input[type="search"] {
     -webkit-appearance: none; /* stylelint-disable-line property-no-vendor-prefix */
 
     &::-webkit-search-decoration,

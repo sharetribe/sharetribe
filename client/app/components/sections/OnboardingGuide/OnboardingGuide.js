@@ -1,36 +1,36 @@
-import React, { PropTypes } from 'react';
-import r from 'r-dom';
-import _ from 'lodash';
+import React, { PropTypes } from "react";
+import r from "r-dom";
+import _ from "lodash";
 
-import GuideStatusPage from './GuideStatusPage';
-import GuideSloganAndDescriptionPage from './GuideSloganAndDescriptionPage';
-import GuideCoverPhotoPage from './GuideCoverPhotoPage';
-import GuideFilterPage from './GuideFilterPage';
-import GuidePaypalPage from './GuidePaypalPage';
-import GuideListingPage from './GuideListingPage';
-import GuideInvitationPage from './GuideInvitationPage';
+import GuideStatusPage from "./GuideStatusPage";
+import GuideSloganAndDescriptionPage from "./GuideSloganAndDescriptionPage";
+import GuideCoverPhotoPage from "./GuideCoverPhotoPage";
+import GuideFilterPage from "./GuideFilterPage";
+import GuidePaypalPage from "./GuidePaypalPage";
+import GuideListingPage from "./GuideListingPage";
+import GuideInvitationPage from "./GuideInvitationPage";
 
-import { canUseDOM, canUsePushState } from '../../../utils/featureDetection';
-import { routes, marketplaceContext } from '../../../utils/PropTypes';
+import { canUseDOM, canUsePushState } from "../../../utils/featureDetection";
+import { routes, marketplaceContext } from "../../../utils/PropTypes";
 
 // Select child component (page/view) to be rendered
 // Returns object (including child component) based on props.data
 const selectChild = function selectChild(data) {
   const { page, onboarding_data } = data;
-  const pageData = _.find(onboarding_data, (pd) => pd.step === page) || {};
+  const pageData = _.find(onboarding_data, pd => pd.step === page) || {};
 
   switch (page) {
-    case 'slogan_and_description':
+    case "slogan_and_description":
       return { Page: GuideSloganAndDescriptionPage, pageData };
-    case 'cover_photo':
+    case "cover_photo":
       return { Page: GuideCoverPhotoPage, pageData };
-    case 'filter':
+    case "filter":
       return { Page: GuideFilterPage, pageData };
-    case 'payment':
+    case "payment":
       return { Page: GuidePaypalPage, pageData };
-    case 'listing':
+    case "listing":
       return { Page: GuideListingPage, pageData };
-    case 'invitation':
+    case "invitation":
       return { Page: GuideInvitationPage, pageData };
     default:
       return { Page: GuideStatusPage, onboarding_data };
@@ -44,7 +44,6 @@ const setPushState = function setPushState(state, title, path) {
 };
 
 class OnboardingGuide extends React.Component {
-
   constructor(props, context) {
     super(props, context);
 
@@ -58,7 +57,7 @@ class OnboardingGuide extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('popstate', this.handlePopstate);
+    window.addEventListener("popstate", this.handlePopstate);
   }
 
   componentWillUpdate(nextProps) {
@@ -71,13 +70,20 @@ class OnboardingGuide extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('popstate', this.handlePopstate);
+    window.removeEventListener("popstate", this.handlePopstate);
   }
 
   handlePopstate(event) {
     if (event.state != null && event.state.path != null) {
-      this.props.actions.updateGuidePage(event.state.page, event.state.path, false);
-    } else if (event.state == null && typeof this.props.data.pathHistoryForward !== 'undefined') {
+      this.props.actions.updateGuidePage(
+        event.state.page,
+        event.state.path,
+        false
+      );
+    } else if (
+      event.state == null &&
+      typeof this.props.data.pathHistoryForward !== "undefined"
+    ) {
       // null state means that page component's root path is reached and
       // previous page is actually on Rails side - i.e. one step further
       // Safari fix: if pathHistoryForward is not defined, its initial page load
@@ -96,7 +102,7 @@ class OnboardingGuide extends React.Component {
       name: this.props.data.name,
       infoIcon: this.props.data.info_icon,
       routes: this.props.routes,
-      ...opts,
+      ...opts
     });
   }
 }
@@ -105,7 +111,7 @@ const { shape, string, arrayOf, bool, oneOf, func, object } = PropTypes;
 
 OnboardingGuide.propTypes = {
   actions: shape({
-    updateGuidePage: func.isRequired,
+    updateGuidePage: func.isRequired
   }).isRequired,
   marketplaceContext,
   routes,
@@ -117,19 +123,19 @@ OnboardingGuide.propTypes = {
     onboarding_data: arrayOf(
       shape({
         step: oneOf([
-          'slogan_and_description',
-          'cover_photo',
-          'filter',
-          'payment',
-          'listing',
-          'invitation',
-          'all_done',
+          "slogan_and_description",
+          "cover_photo",
+          "filter",
+          "payment",
+          "listing",
+          "invitation",
+          "all_done"
         ]).isRequired,
         complete: bool.isRequired,
-        additional_info: object,
+        additional_info: object
       }).isRequired
-    ).isRequired,
-  }).isRequired,
+    ).isRequired
+  }).isRequired
 };
 
 export default OnboardingGuide;

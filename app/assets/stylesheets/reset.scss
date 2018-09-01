@@ -5,12 +5,41 @@
   ---------------------------------
 */
 
-body, div,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section,
-summary, hgroup {
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+hr,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+hgroup {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +51,13 @@ summary, hgroup {
   ----------------------------------------
 */
 
-h1, h2, h3, h4, h5, h6, small {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
   font-size: 1em;
 }
 
@@ -36,13 +71,15 @@ h1, h2, h3, h4, h5, h6, small {
 html {
   height: 100%;
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%; }
+  -ms-text-size-adjust: 100%;
+}
 
 body {
   height: 100%;
   min-height: 100%;
   font-size: 100%;
-  position: relative; }
+  position: relative;
+}
 
 article,
 aside,
@@ -55,30 +92,30 @@ hgroup,
 nav,
 section,
 summary {
-    display: block;
+  display: block;
 }
 
 audio,
 canvas,
 video {
-    display: inline-block;
+  display: inline-block;
 }
 
 audio:not([controls]) {
-    display: none;
-    height: 0;
+  display: none;
+  height: 0;
 }
 
 svg:not(:root) {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 [hidden] {
-    display: none;
+  display: none;
 }
 
 abbr[title] {
-    border-bottom: 1px dotted;
+  border-bottom: 1px dotted;
 }
 
 dfn {
@@ -90,45 +127,61 @@ mark {
   color: #000;
 }
 
-b, strong {
-  font-weight: bold; }
+b,
+strong {
+  font-weight: bold;
+}
 
 pre {
-  white-space: pre; }
+  white-space: pre;
+}
 
-pre, code, kbd, samp {
+pre,
+code,
+kbd,
+samp {
   font-family: monospace, monospace;
-  font-size: 1em; }
+  font-size: 1em;
+}
 
 q {
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 sup {
-  top: -0.5em; }
+  top: -0.5em;
+}
 
 sub {
-  bottom: -0.25em; }
+  bottom: -0.25em;
+}
 
-input, textarea, button, select {
+input,
+textarea,
+button,
+select {
   margin: 0;
   font-size: 100%;
   line-height: normal;
   vertical-align: baseline;
-  font-family: inherit; }
+  font-family: inherit;
+}
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   cursor: pointer;
-  -webkit-appearance: button; }
+  -webkit-appearance: button;
+}
 
 button[disabled],
 input[disabled] {
@@ -142,7 +195,8 @@ input[type="radio"] {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0; }
+  padding: 0;
+}
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
@@ -151,16 +205,21 @@ input::-moz-focus-inner {
 }
 
 textarea {
-  overflow: auto; }
+  overflow: auto;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
-a img, img {
+a img,
+img {
   -ms-interpolation-mode: bicubic;
-  border: 0; }
+  border: 0;
+}
 
 hr {
   color: transparent;
-  background: none; }
+  background: none;
+}

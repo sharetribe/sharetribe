@@ -1,27 +1,32 @@
 window.ST = window.ST || {};
 
 window.ST.initializeListingShapesOrder = function() {
-  var fieldMap = $(".js-listing-shape-row").map(function(id, row) {
-    var $row = $(row);
-    return {
-      id: $row.data("id"),
-      element: $row,
-      up: $row.find(".js-listing-shape-action-up"),
-      down: $row.find(".js-listing-shape-action-down")
-    };
-  }).get();
+  var fieldMap = $(".js-listing-shape-row")
+    .map(function(id, row) {
+      var $row = $(row);
+      return {
+        id: $row.data("id"),
+        element: $row,
+        up: $row.find(".js-listing-shape-action-up"),
+        down: $row.find(".js-listing-shape-action-down")
+      };
+    })
+    .get();
 
   var orderManager = window.ST.orderManager(fieldMap);
 
-  var ajaxRequest = orderManager.order.changes().debounce(800).map(".order")
+  var ajaxRequest = orderManager.order
+    .changes()
+    .debounce(800)
+    .map(".order")
     .skipDuplicates(_.isEqual)
     .map(function(order) {
-    return {
-      type: "POST",
-      url: ST.utils.relativeUrl("order"),
-      data: { order: order }
-    };
-  });
+      return {
+        type: "POST",
+        url: ST.utils.relativeUrl("order"),
+        data: { order: order }
+      };
+    });
 
   var ajaxResponse = ajaxRequest.ajax();
   var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
@@ -64,10 +69,10 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleShippingEnabled(state.onlinePaymentsEnabled);
     toggleAvailabilityEnabled(state.onlinePaymentsEnabled);
     toggleAvailabilityUnitsEnabled(state.availabilityEnabled);
-  }
+  };
 
   var isChecked = function(el) {
-    return el.is(':checked');
+    return el.is(":checked");
   };
 
   var isPriceEnabled = isChecked;
@@ -77,7 +82,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   var priceChanged = function(currentEl) {
     var enabled = isPriceEnabled(currentEl);
 
-    if(enabled) {
+    if (enabled) {
       toggleOnlinePaymentEnabled(true);
       toggleUnitsEnabled(true);
     } else {
@@ -92,7 +97,7 @@ window.ST.initializeListingShapeForm = function(formId) {
   var onlinePaymentsChanged = function(currentEl) {
     var enabled = isOnlinePaymentsEnabled(currentEl);
 
-    if(enabled) {
+    if (enabled) {
       toggleAvailabilityEnabled(true);
       toggleShippingEnabled(true);
       toggleUnitsEnabled(true);
@@ -107,14 +112,14 @@ window.ST.initializeListingShapeForm = function(formId) {
   var availabilityChanged = function(currentEl) {
     var enabled = isAvailabilityEnabled(currentEl);
 
-    if(enabled) {
+    if (enabled) {
       toggleAvailabilityUnitsEnabled(true);
       toggleUnitsEnabled(false);
     } else {
-      toggleAvailabilityUnitsEnabled(false)
+      toggleAvailabilityUnitsEnabled(false);
       toggleUnitsEnabled(true);
     }
-  }
+  };
 
   var toggleOnlinePaymentEnabled = function(enabled) {
     toggleCheckboxEnabled($(".js-online-payments"), enabled);
@@ -129,24 +134,24 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleUnitsEnabled = function(enabled) {
     toggleCheckboxEnabled($(".js-unit-checkbox"), enabled);
     toggleLabelEnabled($(".js-unit-label"), enabled);
-    toggleInfoEnabled($('.js-pricing-units-info'), enabled);
+    toggleInfoEnabled($(".js-pricing-units-info"), enabled);
     toggleCustomUnitsEnabled(enabled);
   };
 
   var toggleCustomUnitsEnabled = function(enabled) {
     toggleLabelEnabled($(".js-listing-shape-add-custom-unit-link"), enabled);
-    toggleInputEnabled($('.js-custom-unit input'), enabled);
+    toggleInputEnabled($(".js-custom-unit input"), enabled);
 
     // First, turn off the click listener
-    $('.js-listing-shape-add-custom-unit-link').off('click');
+    $(".js-listing-shape-add-custom-unit-link").off("click");
 
     if (enabled) {
       // Add click listener if custom units are enabled
-      $('.js-listing-shape-add-custom-unit-link').click(function() {
+      $(".js-listing-shape-add-custom-unit-link").click(function() {
         addCustomUnitForm();
       });
     }
-  }
+  };
 
   var toggleAvailabilityEnabled = function(enabled) {
     toggleCheckboxEnabled($(".js-availability"), enabled);
@@ -156,25 +161,31 @@ window.ST.initializeListingShapeForm = function(formId) {
   var toggleAvailabilityUnitsEnabled = function(enabled) {
     toggleRadioEnabled($(".js-availability-unit"), enabled);
     toggleLabelEnabled($(".js-availability-unit-label"), enabled);
-    toggleInfoEnabled($('.js-pricing-units-disabled-info'), enabled)
+    toggleInfoEnabled($(".js-pricing-units-disabled-info"), enabled);
   };
 
   var removeCustomUnit = function() {
     var index = $(this).data("customunitindex");
     if (typeof index !== "undefined") {
-      $('.js-custom-unit-' + index).remove();
+      $(".js-custom-unit-" + index).remove();
     }
   };
 
-  var customUnitTemplate = _.template($(".js-listing-shape-add-custom-unit-form").html());
+  var customUnitTemplate = _.template(
+    $(".js-listing-shape-add-custom-unit-form").html()
+  );
 
   var addCustomUnitForm = function() {
-    var uniqueId = _.uniqueId('new_unit-');
+    var uniqueId = _.uniqueId("new_unit-");
 
-    var $form = $(customUnitTemplate({uniqueId: uniqueId}));
+    var $form = $(customUnitTemplate({ uniqueId: uniqueId }));
 
-    $form.find('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
-    $form.insertBefore($('.js-listing-shape-add-custom-unit-link').parent()).show();
+    $form
+      .find(".js-listing-shape-close-custom-unit-form")
+      .click(closeCustomUnitForm);
+    $form
+      .insertBefore($(".js-listing-shape-add-custom-unit-link").parent())
+      .show();
   };
 
   var closeCustomUnitForm = function() {
@@ -185,29 +196,29 @@ window.ST.initializeListingShapeForm = function(formId) {
     toggleInputEnabled(el, state);
 
     if (!state) {
-      el.prop('checked', false);
+      el.prop("checked", false);
     }
   };
 
   var toggleInputEnabled = function(el, state) {
-    if(state) {
-      el.prop('disabled', false);
+    if (state) {
+      el.prop("disabled", false);
     } else {
-      el.prop('disabled', true);
+      el.prop("disabled", true);
     }
-  }
+  };
 
   var toggleRadioEnabled = function(el, state) {
-    if(state) {
-      el.prop('disabled', false);
+    if (state) {
+      el.prop("disabled", false);
 
       // Check the first one if none of the radiobuttons is checked
       if (!el.is(":checked")) {
-        el.first().prop('checked', true);
+        el.first().prop("checked", true);
       }
     } else {
-      el.prop('disabled', true);
-      el.prop('checked', false);
+      el.prop("disabled", true);
+      el.prop("checked", false);
     }
   };
 
@@ -223,23 +234,23 @@ window.ST.initializeListingShapeForm = function(formId) {
     el.toggleClass("listing-shape-label-disabled", !state);
   };
 
-  $('.js-price-enabled').change(function() {
+  $(".js-price-enabled").change(function() {
     priceChanged($(this));
   });
-  $('.js-online-payments').change(function() {
+  $(".js-online-payments").change(function() {
     onlinePaymentsChanged($(this));
   });
-  $('.js-availability').click(function() {
+  $(".js-availability").click(function() {
     availabilityChanged($(this));
   });
 
-  $('.js-listing-shape-close-custom-unit-form').click(closeCustomUnitForm);
-  $('.js-remove-custom-unit').click(removeCustomUnit);
+  $(".js-listing-shape-close-custom-unit-form").click(closeCustomUnitForm);
+  $(".js-remove-custom-unit").click(removeCustomUnit);
 
   // Run once on init
   initializeState({
-    priceEnabled: isPriceEnabled($('.js-price-enabled')),
-    onlinePaymentsEnabled: isOnlinePaymentsEnabled($('.js-online-payments')),
-    availabilityEnabled: isAvailabilityEnabled($('.js-availability')),
-  })
+    priceEnabled: isPriceEnabled($(".js-price-enabled")),
+    onlinePaymentsEnabled: isOnlinePaymentsEnabled($(".js-online-payments")),
+    availabilityEnabled: isAvailabilityEnabled($(".js-availability"))
+  });
 };

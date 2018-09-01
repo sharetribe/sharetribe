@@ -3,9 +3,9 @@
    instances.
  */
 
-import Immutable from 'immutable';
-import * as date from './date';
-import moment from 'moment';
+import Immutable from "immutable";
+import * as date from "./date";
+import moment from "moment";
 
 /**
    Takes a time range (`start` and `end` (exclusive)) and returns an Immutable List
@@ -27,11 +27,10 @@ import moment from 'moment';
    @param {String} duration - minutes|days|months|etc.
 */
 export const expandRange = (start, end, duration) =>
-  Immutable.Range(0, end.diff(start, duration)).map(
-    (i) => start.clone().add(i, duration));
+  Immutable.Range(0, end.diff(start, duration)).map(i =>
+    start.clone().add(i, duration)
+  );
 
-export const fromMidnightUTCDate = (d) =>
-  moment(date.fromMidnightUTCDate(d));
+export const fromMidnightUTCDate = d => moment(date.fromMidnightUTCDate(d));
 
-export const toMidnightUTCDate = (d) =>
-  date.toMidnightUTCDate(d.toDate());
+export const toMidnightUTCDate = d => date.toMidnightUTCDate(d.toDate());

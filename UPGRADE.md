@@ -83,7 +83,6 @@ it's an issue with rubygems. This issue can be solved by updating rubygems with:
 gem update --system
 ```
 
-
 ## Upgrade from 6.3.0 to 6.4.0
 
 Nothing special. See the [#general-update-instructions].
@@ -227,6 +226,7 @@ However, if `use_asi_encryptor` was configured to `true` then you can not roll b
 Ruby version is updated from 2.1.2 to 2.1.8. The update contains security and bug fixes.
 
 Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
 ```
 rvm install ruby-2.1.8
 rvm use ruby-2.1.8
@@ -246,13 +246,13 @@ Upgrade path:
 
 ## Upgrade from 5.0.x or 5.1.x to 5.2.0
 
-* After updating, you are not able to downgrade to Rails 3 (version 4.6.0). Do not upgrade until you are sure that you don't need to roll back to Rails 3.
+- After updating, you are not able to downgrade to Rails 3 (version 4.6.0). Do not upgrade until you are sure that you don't need to roll back to Rails 3.
 
-* You need to set `secret_key_base` to environment variables or to `config.yml` for `production` environment. Default values for `development` and `test` environments are provided.
+- You need to set `secret_key_base` to environment variables or to `config.yml` for `production` environment. Default values for `development` and `test` environments are provided.
 
   Run `SecureRandom.hex(64)` in rails console or irb to generate a new key.
 
-* This version changes the way how password reset tokens are being stored to the database. Due to this, tokens that are created with the earlier versions do not work anymore.
+- This version changes the way how password reset tokens are being stored to the database. Due to this, tokens that are created with the earlier versions do not work anymore.
 
   For seamless migration, set the environment variable `devise_allow_insecure_token_lookup` to `true`. After you are sure you have migrated all the reset tokens to the new format, you can remove the environment variable.
 

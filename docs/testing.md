@@ -12,9 +12,9 @@ This is useful command also in reseting the test DB to empty and clean state.
 
 Run all the tests suites:
 
-* run `rspec spec`
-* run `cucumber features`
-* Start Rails server and open `http://localhost:3000/test/`
+- run `rspec spec`
+- run `cucumber features`
+- Start Rails server and open `http://localhost:3000/test/`
 
 ## Integration testing (Cucumber)
 

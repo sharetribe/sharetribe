@@ -116,7 +116,7 @@
   &:hover {
     background: darken($bg-color, 5%);
     color: $background;
-  };
+  }
 
   &:active {
     background: darken($bg-color, 10%);
@@ -136,8 +136,12 @@
   @include button($highlight);
   color: $light-body;
 
-  &:hover { color: $light-body; }
-  &:active { color: $light-body; }
+  &:hover {
+    color: $light-body;
+  }
+  &:active {
+    color: $light-body;
+  }
 }
 
 // Button on top of cover photo
@@ -156,7 +160,7 @@
   &:hover {
     background: darken($color, 5%);
     color: $background;
-  };
+  }
 
   @include media(tablet) {
     @include big-type;

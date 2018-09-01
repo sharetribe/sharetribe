@@ -1,4 +1,4 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 /**
   Almost generic order manager.
@@ -33,7 +33,6 @@ window.ST.orderManager = function(fieldMap) {
   });
 
   function createSwapFn(upIdFinder, downIdFinder) {
-
     return function(fieldId) {
       var upArrayId = upIdFinder(fieldMap, byFieldId(fieldId));
       var downArrayId = downIdFinder(fieldMap, byFieldId(fieldId));
@@ -70,17 +69,20 @@ window.ST.orderManager = function(fieldMap) {
   fieldMap.forEach(createUpDownStreams);
 
   function createClickStream(el, id) {
-    return el.clickE().doAction(".preventDefault").map(_.constant(id));
+    return el
+      .clickE()
+      .doAction(".preventDefault")
+      .map(_.constant(id));
   }
 
   function swapDomElements(downEl, upEl) {
     var downDone = downEl.transition({ y: upEl.height() }).promise();
-    var upDone = upEl.transition({ y: (-1) * downEl.height() }).promise();
+    var upDone = upEl.transition({ y: -1 * downEl.height() }).promise();
 
     $.when(downDone, upDone).done(function() {
       $(downEl).before($(upEl));
-      upEl.transition({y: 0, duration: 0});
-      downEl.transition({y: 0, duration: 0});
+      upEl.transition({ y: 0, duration: 0 });
+      downEl.transition({ y: 0, duration: 0 });
     });
   }
 
@@ -90,11 +92,11 @@ window.ST.orderManager = function(fieldMap) {
 
     fieldMap = utils.swapArrayElements(fieldMap, downId, upId);
 
-    return Bacon.once({down: downField, up: upField, order: getOrder()});
+    return Bacon.once({ down: downField, up: upField, order: getOrder() });
   }
 
   function getOrder() {
-    return _.map(fieldMap, 'id');
+    return _.map(fieldMap, "id");
   }
 
   function add(newField) {
@@ -109,6 +111,6 @@ window.ST.orderManager = function(fieldMap) {
   return {
     add: add,
     remove: remove,
-    order: eventBus.filter(_.isObject).toProperty({order: getOrder()})
+    order: eventBus.filter(_.isObject).toProperty({ order: getOrder() })
   };
 };

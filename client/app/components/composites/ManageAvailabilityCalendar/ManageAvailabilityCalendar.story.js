@@ -1,15 +1,15 @@
 /* eslint-disable react/no-set-state, no-magic-numbers */
 
-import { Component } from 'react';
-import r from 'r-dom';
-import withProps from '../../Styleguide/withProps';
-import ManageAvailabilityCalendar from './ManageAvailabilityCalendar';
-import moment from 'moment';
-import { isSameDay } from 'react-dates';
+import { Component } from "react";
+import r from "r-dom";
+import withProps from "../../Styleguide/withProps";
+import ManageAvailabilityCalendar from "./ManageAvailabilityCalendar";
+import moment from "moment";
+import { isSameDay } from "react-dates";
 
 const { storiesOf } = storybookFacade;
 
-const MOMENTJS_LOCALE = 'en';
+const MOMENTJS_LOCALE = "en";
 
 const now = Date.now();
 const day1 = moment(now + 24 * 60 * 60 * 1000);
@@ -19,9 +19,9 @@ class ManageAvailabilityCalendarWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleMonth: moment().startOf('month'),
+      visibleMonth: moment().startOf("month"),
       blockedDays: [],
-      reservedDays: [day1, day2],
+      reservedDays: [day1, day2]
     };
 
     // Set the Moment.js locale globally for react-dates to apply i18n
@@ -29,16 +29,15 @@ class ManageAvailabilityCalendarWrapper extends Component {
     moment.locale(MOMENTJS_LOCALE);
   }
   render() {
-
-    const allow = (d) => {
+    const allow = d => {
       this.setState({
-        blockedDays: this.state.blockedDays.filter((day) => !isSameDay(d, day)),
+        blockedDays: this.state.blockedDays.filter(day => !isSameDay(d, day))
       });
     };
 
-    const block = (d) => {
+    const block = d => {
       this.setState({
-        blockedDays: this.state.blockedDays.concat(d),
+        blockedDays: this.state.blockedDays.concat(d)
       });
     };
 
@@ -48,13 +47,13 @@ class ManageAvailabilityCalendarWrapper extends Component {
       reservedDays: this.state.reservedDays,
       onDayAllowed: allow,
       onDayBlocked: block,
-      onMonthChanged: (m) => {
+      onMonthChanged: m => {
         this.setState({ visibleMonth: m });
-      },
+      }
     });
   }
 }
 
-storiesOf('Availability')
-  .add('ManageAvailabilityCalendar', () =>
-       withProps(ManageAvailabilityCalendarWrapper, {}));
+storiesOf("Availability").add("ManageAvailabilityCalendar", () =>
+  withProps(ManageAvailabilityCalendarWrapper, {})
+);

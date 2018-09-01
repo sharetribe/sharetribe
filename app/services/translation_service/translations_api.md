@@ -27,11 +27,11 @@ Response 200 OK, all translations for community in body:
 ]
 ```
 
-
 ###Scenario 2 - request body contains translation_keys and locale(s):
 e.g. user goes to a page x
 
 Request body:
+
 ```ruby
 { translation_keys: ["dhfgh45tg75t3", "dhfgh45tg75t4", "dhfgh45tg75t5", "dhfgh45tg75t6"]
 , locales: ["en-US"]
@@ -39,6 +39,7 @@ Request body:
 ```
 
 Response 200 OK, array of asked translations in body:
+
 ```ruby
 [ { translation_key: "dhfgh45tg75t3"
   , locale: "en-US"
@@ -62,11 +63,11 @@ Response 200 OK, array of asked translations in body:
 ]
 ```
 
-
 ###Scenario 3 - request body contains translation_key(s) and locales:
 e.g. admin goes to modify-translations page
 
 Request body:
+
 ```ruby
 { translation_keys:["dhfgh45tg75t3"]
 , locales: ["en-US", "en-GB", "fi-FI"]
@@ -75,6 +76,7 @@ Request body:
 ```
 
 Response 200 OK, array of translations in body:
+
 ```ruby
 [ { translation_key: "dhfgh45tg75t3"
   , locale: "en-US"
@@ -92,8 +94,6 @@ Response 200 OK, array of translations in body:
 ]
 ```
 
-
-
 ## POST /translations/:community_id/
 
 ###Scenario 1 - empty body:
@@ -101,6 +101,7 @@ Response 200 OK, array of translations in body:
 Request no body
 
 Response 400 Bad Request, body:
+
 ```ruby
 { error_message: "You must specify an array of locale & translation pairs in your request. e.g. '[{locale: "en-US", translation: "hello"}, {locale: "fi-FI", translation: "Moi"}]'
 }
@@ -110,6 +111,7 @@ Response 400 Bad Request, body:
 e.g. admin modifies a static translation
 
 Request body:
+
 ```ruby
 [ { translation_key: nil // optional key - if defined it will override previous translations
   , translations:
@@ -136,6 +138,7 @@ Request body:
 ```
 
 Response 201 Created, an array of created translations (grouped the same way as in request) in body:
+
 ```ruby
 [ { translation_key: "dfnv7858vfjgk"
   , translations:
@@ -168,6 +171,7 @@ Response 201 Created, an array of created translations (grouped the same way as 
 e.g. adming creates dynamic translations similar to categories or custom_field_option_titles
 
 Request body:
+
 ```ruby
 [ { translation_key: "category.1" // override translations under key "category.1"
   , translations:
@@ -185,6 +189,7 @@ Request body:
 ```
 
 Response 201 Created, array of created translations in body:
+
 ```ruby
 [ { translation_key: "category.1"
   , translations:
@@ -205,6 +210,7 @@ Response 201 Created, array of created translations in body:
 e.g. adming creates or modifies several static or dynamic translations
 
 Request body:
+
 ```ruby
 [ { translation_key: "listings.edit.edit_listing"
   , translations:
@@ -218,6 +224,7 @@ Request body:
 ```
 
 Response 201 Created, array of created and modified translations in body:
+
 ```ruby
 [ { translation_key: "listings.edit.edit_listing"
   , translations:
@@ -230,7 +237,6 @@ Response 201 Created, array of created and modified translations in body:
 ]
 ```
 
-
 ## DELETE /translations/:community_id/
 
 Scenario 1 - empty body:
@@ -238,6 +244,7 @@ Scenario 1 - empty body:
 Request no body
 
 Response 400 Bad Request, body:
+
 ```ruby
 { error_message: "You must specify an array of translation_key objects. e.g. '[{translation_key: "dfnv7858vfjgk"}, {translation_key: "dfnv7858vfjgk"}]'
 }
@@ -246,11 +253,13 @@ Response 400 Bad Request, body:
 Scenario 2 - array of translation_keys:
 
 Request body:
+
 ```ruby
 [ { translation_keys: ["dfnv7858vfjgk"]
   }
 ]
 ```
+
 Response 200 OK, deleted translations in body:
 
 ```ruby

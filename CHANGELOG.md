@@ -29,7 +29,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Allow links in the custom user text fields [#3373](https://github.com/sharetribe/sharetribe/pull/3373)
 - Google maps dynamic map for static maps in the listing page [#3382](https://github.com/sharetribe/sharetribe/pull/3382)
 
-
 ### Deprecated
 
 ### Removed
@@ -55,7 +54,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Allow links in custom listing text fields [#3297](https://github.com/sharetribe/sharetribe/pull/3297)
 - Add View reviews section in the admin panel [#3267](https://github.com/sharetribe/sharetribe/pull/3267)
 - Add possibility to export transaction as CSV file [#3245](https://github.com/sharetribe/sharetribe/pull/3245)
-
 
 ### Changed
 
@@ -547,7 +545,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...HEAD
+[unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...HEAD
 [7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
 [7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0

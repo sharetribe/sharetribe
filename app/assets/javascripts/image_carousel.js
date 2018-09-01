@@ -1,4 +1,4 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 ST.imageCarousel = function(images) {
   // Elements
@@ -9,7 +9,9 @@ ST.imageCarousel = function(images) {
 
   // Initialize thumbnail elements
   var elements = _.map(images, function(image) {
-    return $(tmpl({url: image.images.big, aspectRatioClass: image.aspectRatio }));
+    return $(
+      tmpl({ url: image.images.big, aspectRatioClass: image.aspectRatio })
+    );
   });
 
   _.each(elements, function(el) {
@@ -33,7 +35,9 @@ ST.imageCarousel = function(images) {
     newElement.transition({ x: newStartDir * newElement.width() }, 0);
     newElement.show();
 
-    var oldDone = oldElement.transition({ x: oldMoveDir * oldElement.width() }, swipeDelay).promise();
+    var oldDone = oldElement
+      .transition({ x: oldMoveDir * oldElement.width() }, swipeDelay)
+      .promise();
     var newDone = newElement.transition({ x: 0 }, swipeDelay).promise();
 
     var bothDone = $.when(newDone, oldDone);
@@ -53,10 +57,10 @@ ST.imageCarousel = function(images) {
     var newElement = elements[newIdx];
 
     // Notice, if going right, the swipe effect goes to from left
-    if(goingRight) {
+    if (goingRight) {
       swipe("left", newElement, oldElement);
     }
-    if(goingLeft) {
+    if (goingLeft) {
       swipe("right", newElement, oldElement);
     }
   }
@@ -71,20 +75,27 @@ ST.imageCarousel = function(images) {
   prevBus.plug(prev);
   nextBus.plug(next);
 
-  var prevIdxStream = prevBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: prevId}; });
-  var nextIdxStream = nextBus.debounceImmediate(swipeDelay).map(function() { return {value: null, fn: nextId}; });
+  var prevIdxStream = prevBus.debounceImmediate(swipeDelay).map(function() {
+    return { value: null, fn: prevId };
+  });
+  var nextIdxStream = nextBus.debounceImmediate(swipeDelay).map(function() {
+    return { value: null, fn: nextId };
+  });
 
   var idxStreamBus = new Bacon.Bus();
   idxStreamBus.plug(prevIdxStream);
   idxStreamBus.plug(nextIdxStream);
 
-  var idxStream = idxStreamBus.scan(initialIdx, function(a, b) {
-    if (_.isNumber(b.value)) {
-      return b.value;
-    } else {
-      return b.fn(a);
-    }
-  }).skipDuplicates(_.isEqual).slidingWindow(2, 2);
+  var idxStream = idxStreamBus
+    .scan(initialIdx, function(a, b) {
+      if (_.isNumber(b.value)) {
+        return b.value;
+      } else {
+        return b.fn(a);
+      }
+    })
+    .skipDuplicates(_.isEqual)
+    .slidingWindow(2, 2);
 
   idxStream.onValues(show);
 
@@ -99,7 +110,11 @@ ST.imageCarousel = function(images) {
       prevBus.plug(prevStream);
     },
     show: function(showStream) {
-      idxStreamBus.plug(showStream.map(function(idx) { return {value: idx}; }));
+      idxStreamBus.plug(
+        showStream.map(function(idx) {
+          return { value: idx };
+        })
+      );
     }
   };
 };

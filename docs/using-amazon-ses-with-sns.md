@@ -28,13 +28,10 @@ To set up SNS notifications:
 1. Generate a secret notification token string and store it to config variable "sns_notification_token"
 1. Add a subscription to your SNS topic using https and endpoint https://[YOUR_MARKETPLACE_DOMAIN]/bounces?sns_notification_token=[THE_TOKEN_YOU_GENEARATED_IN_LAST_STEP]
 
-
 #### debugging the SNS setup
 
 If the bounce reports via SNS are working you should at least see those coming in at your server log. You can also add another endpoint (e.g. email) to your SNS topic to be able to debug if something comes that far.
 
-
-------------------
-
+---
 
 (There is also third part of SES integration which allows adding new sender addresses via Sharetribe UI, but that's probably not needed to setup for a single marketplace as it's simpler to just add the one sender address needed via the SES UI.)

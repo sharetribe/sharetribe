@@ -51,7 +51,8 @@ $profile-pic-gutter-mobile: lines(0.5);
   }
 }
 
-.profile-edit-link, .profile-contact-link {
+.profile-edit-link,
+.profile-contact-link {
   @include grey-button;
   width: 100%;
 }
@@ -70,7 +71,6 @@ $profile-pic-gutter-mobile: lines(0.5);
   @include media(tablet) {
     display: none;
   }
-
 }
 
 .people-fluid-thumbnail-grid-container {
@@ -97,6 +97,6 @@ $profile-pic-gutter-mobile: lines(0.5);
 
 .profile-about-me {
   ol {
-    padding-left: 1.5em
+    padding-left: 1.5em;
   }
 }

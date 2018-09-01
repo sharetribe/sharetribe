@@ -16,7 +16,7 @@
 
 .design-h2 {
   @include larger-type;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
 }
 
 .design-h3 {
@@ -28,18 +28,18 @@
 }
 
 .design-component {
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   @include border-radius(5px);
 }
 
 .design-example {
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
   padding: lines(0.5);
   @include clearfix;
 }
 
 .design-code {
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
   padding: lines(0.5);
   @include small-type;
   @include border-bottom-radius(5px);
@@ -93,41 +93,57 @@
 }
 
 @mixin design-mq-active {
-  background-color: #CAEBCC;
-  color: darken(#CAEBCC, 40%);
+  background-color: #caebcc;
+  color: darken(#caebcc, 40%);
 }
 
 .design-mq-tiny-mobile {
   @extend .design-block;
-  @include media(tiny-mobile) { @include design-mq-active; }
+  @include media(tiny-mobile) {
+    @include design-mq-active;
+  }
 }
 .design-mq-mobile {
   @extend .design-block;
-  @include media(mobile) { @include design-mq-active; }
+  @include media(mobile) {
+    @include design-mq-active;
+  }
 }
 .design-mq-large-mobile {
   @extend .design-block;
-  @include media(large-mobile) { @include design-mq-active; }
+  @include media(large-mobile) {
+    @include design-mq-active;
+  }
 }
 .design-mq-small-tablet {
   @extend .design-block;
-  @include media(small-tablet) { @include design-mq-active; }
+  @include media(small-tablet) {
+    @include design-mq-active;
+  }
 }
 .design-mq-tablet {
   @extend .design-block;
-  @include media(tablet) { @include design-mq-active; }
+  @include media(tablet) {
+    @include design-mq-active;
+  }
 }
 .design-mq-small-desktop {
   @extend .design-block;
-  @include media(small-desktop) { @include design-mq-active; }
+  @include media(small-desktop) {
+    @include design-mq-active;
+  }
 }
 .design-mq-mid-desktop {
   @extend .design-block;
-  @include media(mid-desktop) { @include design-mq-active; }
+  @include media(mid-desktop) {
+    @include design-mq-active;
+  }
 }
 .design-mq-desktop {
   @extend .design-block;
-  @include media(desktop) { @include design-mq-active; }
+  @include media(desktop) {
+    @include design-mq-active;
+  }
 }
 
 .col-content {
@@ -227,6 +243,6 @@
   float: left;
 
   &.selected {
-    background-color: darken(#CAEBCC, 20%);
+    background-color: darken(#caebcc, 20%);
   }
 }

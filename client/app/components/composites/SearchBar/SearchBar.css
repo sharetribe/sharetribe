@@ -17,7 +17,8 @@
 }
 
 /* Used in JavaScript to toggle the mobile menu. */
-.mobileSearchOpen {} /* stylelint-disable-line block-no-empty */
+.mobileSearchOpen {
+} /* stylelint-disable-line block-no-empty */
 
 .root {
   line-height: 1em;
@@ -69,14 +70,16 @@
    for the focus styles to cover the whole form area. */
 .focusContainer::before {
   display: none;
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   border: 1px solid var(--SearchBar_borderColor);
-  z-index: var(--SearchBar_focusContainerZIndex); /* Required to allow mouse event to the inputs/buttons. */
+  z-index: var(
+    --SearchBar_focusContainerZIndex
+  ); /* Required to allow mouse event to the inputs/buttons. */
   transition: border-color 0.1s ease-in;
 
   @media (--large-viewport) {
@@ -117,7 +120,9 @@
   &:only-of-type {
     width: 100%;
     padding: 0;
-    margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
+    margin-right: calc(
+      var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile)
+    );
 
     @media (--large-viewport) {
       margin-right: var(--SearchBar_height);
@@ -208,7 +213,7 @@
        search button with a shadow effect on the button. */
     & ~ .searchButton::before {
       box-shadow: -10px 0 15px -10px #000 inset;
-      content: ' ';
+      content: " ";
       position: absolute;
       top: 0;
       width: 20px;
@@ -238,7 +243,9 @@
    next to each other. */
 .keywordInput + .locationInput {
   margin-left: calc(var(--SearchBar_sidePaddingMobile) / 2);
-  margin-right: calc(var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile));
+  margin-right: calc(
+    var(--SearchBar_mobileHeight) + var(--SearchBar_sidePaddingMobile)
+  );
 
   @media (--large-viewport) {
     border-left: 1px solid var(--SearchBar_borderColor);
@@ -288,8 +295,7 @@
         stroke: var(--SearchBar_iconColorActive);
       }
 
-      &:hover svg,
-      &:focus svg {
+      &:hover svg, &:focus svg {
         stroke: var(--SearchBar_iconColorFocus);
       }
     }
@@ -302,8 +308,12 @@
 
   & svg {
     position: absolute;
-    top: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_iconSize) / 2);
-    left: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_iconSize) / 2);
+    top: calc(
+      var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_iconSize) / 2
+    );
+    left: calc(
+      var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_iconSize) / 2
+    );
     line-height: 1;
     width: var(--SearchBar_iconSize);
     height: var(--SearchBar_iconSize);
@@ -351,7 +361,9 @@
   display: none;
   position: absolute;
   bottom: -1px;
-  right: calc(var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_mobileTriangleSize));
+  right: calc(
+    var(--SearchBar_mobileHeight) / 2 - var(--SearchBar_mobileTriangleSize)
+  );
   border: var(--SearchBar_mobileTriangleSize) solid transparent;
 
   /* We must adjust the brightness here to match either the input

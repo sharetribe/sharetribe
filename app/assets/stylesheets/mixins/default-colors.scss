@@ -35,29 +35,29 @@ $primary-hue: 25;
 $notification-hue: 80;
 $error-hue: 0;
 
-$background:  hsl($primary-hue, 0%, 100%);
-$highlight:   hsl($primary-hue, 0%, 91%);
-$border:      hsl($primary-hue, 0%, 76.4%);
+$background: hsl($primary-hue, 0%, 100%);
+$highlight: hsl($primary-hue, 0%, 91%);
+$border: hsl($primary-hue, 0%, 76.4%);
 
-$aside:       hsl($primary-hue, 0%, 50%);
-$light-body:  hsl($primary-hue, 0%, 28%);
-$body:        hsl($primary-hue, 0%, 23.6%);
-$emphasis:    hsl($primary-hue, 0%, 9%);
+$aside: hsl($primary-hue, 0%, 50%);
+$light-body: hsl($primary-hue, 0%, 28%);
+$body: hsl($primary-hue, 0%, 23.6%);
+$emphasis: hsl($primary-hue, 0%, 9%);
 
-$link:         #4a90e2;
-$link2:        #2ab865;
+$link: #4a90e2;
+$link2: #2ab865;
 
-$slogancolor:      #ffffff;
+$slogancolor: #ffffff;
 $descriptioncolor: #ffffff;
 
 $success-green: #19b400;
 
 // notification colors
-$green:       hsl($notification-hue, 73.4%, 28.2%);
+$green: hsl($notification-hue, 73.4%, 28.2%);
 $light-green: hsl(110, 38%, 76%);
-$red:         hsl($error-hue, 73.4%, 38.2%);
-$error-red:   hsl($error-hue, 73.4%, 45.2%);
-$yellow:      #D1C905;
+$red: hsl($error-hue, 73.4%, 38.2%);
+$error-red: hsl($error-hue, 73.4%, 45.2%);
+$yellow: #d1c905;
 
 $cover-photo-url: "cover_photos/header/default.jpg";
 $small-cover-photo-url: "cover_photos/header/default.jpg";
@@ -73,4 +73,4 @@ $lander-content-top: -15.25;
 $lander-content-top-mobile: -14;
 
 //expiration lightbox
-$sharetribe-color: #F35937;
+$sharetribe-color: #f35937;

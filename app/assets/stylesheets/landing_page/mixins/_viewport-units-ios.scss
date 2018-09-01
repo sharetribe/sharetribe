@@ -25,9 +25,11 @@
 
   @if (index((vw, vh, vmin, vmax), $unit) != null) {
     $devices: (
-      (768px, 1024px), // iPad (all versions)
-      (320px, 480px),  // iPhone 4
-      (320px, 568px)   // iPhone 5, 5C, 5S
+      (768px, 1024px),
+      // iPad (all versions) (320px, 480px),
+      // iPhone 4 (320px, 568px) // iPhone 5,
+      5c,
+      5s
     );
 
     @each $device in $devices {
@@ -38,7 +40,8 @@
       $device-query: "#{$device-query} and (device-width: #{$device-width})";
       $device-query: "#{$device-query} and (device-height: #{$device-height})";
 
-      $percent: $value / ($value * 0 + 1); // see https://github.com/sass/sass/issues/533
+      $percent: $value /
+        ($value * 0 + 1); // see https://github.com/sass/sass/issues/533
 
       $percent-width: $device-width * $percent / 100;
       $percent-height: $device-height * $percent / 100;
@@ -47,8 +50,7 @@
         @media #{$device-query} {
           #{$property}: if($unit == vmin, $percent-width, $percent-height);
         }
-      }
-      @else {
+      } @else {
         @media #{$device-query} and (orientation: portrait) {
           #{$property}: if($unit == vw, $percent-width, $percent-height);
         }

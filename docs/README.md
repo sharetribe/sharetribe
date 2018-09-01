@@ -42,7 +42,6 @@ Guidelines for writing new UI tests.
 
 Documentation of SCSS coding guidelines and directory structure.
 
-
 ## Technical documentation
 
 Technical documentation of different components.

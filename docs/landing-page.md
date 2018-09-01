@@ -15,6 +15,7 @@ clp_static_enabled: true
 ```
 
 Run the following rake task to copy the default landing page template
+
 ```sh
 bundle exec rake sharetribe:landing_page:install_static
 ```

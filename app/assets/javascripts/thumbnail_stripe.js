@@ -23,22 +23,29 @@ ST.thumbnailStripe = function(images, opts) {
   var thumbnailClickS = [];
 
   var elements = _.map(images, function(image, idx) {
-    var thumbnailElement = $(thumbnailTmpl({url: image.images.thumb }));
-    thumbnailClickS.push(thumbnailElement.asEventStream("click").map(function() { return idx; }));
+    var thumbnailElement = $(thumbnailTmpl({ url: image.images.thumb }));
+    thumbnailClickS.push(
+      thumbnailElement.asEventStream("click").map(function() {
+        return idx;
+      })
+    );
     return thumbnailElement;
   });
 
-  var clickS = Bacon.mergeAll.apply(null, thumbnailClickS).debounceImmediate(swipeDelay);
+  var clickS = Bacon.mergeAll
+    .apply(null, thumbnailClickS)
+    .debounceImmediate(swipeDelay);
 
   _.each(elements, function(el) {
     thumbnailContainer.append(el);
   });
 
-  if(elements.length < 2) {
+  if (elements.length < 2) {
     container.hide();
   }
 
-  thumbnailContainerWidth = elements.length * thumbnailWidth + 2 * paddingAdjustment;
+  thumbnailContainerWidth =
+    elements.length * thumbnailWidth + 2 * paddingAdjustment;
   thumbnailContainer.width(thumbnailContainerWidth);
 
   // State
@@ -59,11 +66,16 @@ ST.thumbnailStripe = function(images, opts) {
   }
 
   function maxMovement() {
-    return Math.max((elements.length - Math.floor(visibleWidth() / thumbnailWidth)) - 2, 0);
+    return Math.max(
+      elements.length - Math.floor(visibleWidth() / thumbnailWidth) - 2,
+      0
+    );
   }
 
   function modWidth() {
-    return thumbnailWidth - ((visibleWidth() % thumbnailWidth) / 2) - paddingAdjustment;
+    return (
+      thumbnailWidth - (visibleWidth() % thumbnailWidth) / 2 - paddingAdjustment
+    );
   }
 
   function show(oldValue, newValue) {
@@ -75,15 +87,15 @@ ST.thumbnailStripe = function(images, opts) {
     var goingRightAround = newValue.direction === "next" && goingLeft;
 
     // Move
-    if(!isPosVisible(newIdx)) {
-      if(goingRight) {
-        if(goingLeftAround) {
+    if (!isPosVisible(newIdx)) {
+      if (goingRight) {
+        if (goingLeftAround) {
           moveBackRight();
         } else {
           moveRight(newIdx);
         }
       } else {
-        if(goingRightAround) {
+        if (goingRightAround) {
           moveBackLeft();
         } else {
           moveLeft(newIdx);
@@ -99,7 +111,7 @@ ST.thumbnailStripe = function(images, opts) {
   function isPosVisible(idx) {
     var thumbStart = idx * thumbnailWidth;
     var thumbEnd = thumbStart + thumbnailWidth;
-    var start = (containerMoved * thumbnailWidth) + (modAdded * modWidth());
+    var start = containerMoved * thumbnailWidth + modAdded * modWidth();
     var end = start + visibleWidth();
     return start <= thumbStart && thumbEnd <= end;
   }
@@ -108,9 +120,9 @@ ST.thumbnailStripe = function(images, opts) {
     var firstMove = containerMoved === 0 && modAdded === 0;
     var lastMove = newIdx === elements.length - 1;
 
-    if(lastMove) {
+    if (lastMove) {
       modAdded = 2;
-    } else if(firstMove) {
+    } else if (firstMove) {
       modAdded = 1;
     } else {
       containerMoved++;
@@ -123,9 +135,9 @@ ST.thumbnailStripe = function(images, opts) {
     var firstMove = containerMoved === maxMovement() && modAdded === 2;
     var lastMove = newIdx === 0;
 
-    if(lastMove) {
+    if (lastMove) {
       modAdded = 0;
-    } else if(firstMove) {
+    } else if (firstMove) {
       modAdded = 1;
     } else {
       containerMoved--;
@@ -149,18 +161,31 @@ ST.thumbnailStripe = function(images, opts) {
   }
 
   function move(wholeMoves, partialMoves) {
-    thumbnailContainer.transition({ x: (-1 * ((wholeMoves * thumbnailWidth) + (partialMoves * modWidth())) ) });
+    thumbnailContainer.transition({
+      x: -1 * (wholeMoves * thumbnailWidth + partialMoves * modWidth())
+    });
   }
 
   // Prev/Next events
-  var prevIdxStream = prevBus.map(function() { return {value: null, fn: prevId, direction: "prev"}; });
-  var nextIdxStream = nextBus.map(function() { return {value: null, fn: nextId, direction: "next"}; });
-  var showIdxStream = clickS.map(function(newIdx) { return {value: newIdx }; });
+  var prevIdxStream = prevBus.map(function() {
+    return { value: null, fn: prevId, direction: "prev" };
+  });
+  var nextIdxStream = nextBus.map(function() {
+    return { value: null, fn: nextId, direction: "next" };
+  });
+  var showIdxStream = clickS.map(function(newIdx) {
+    return { value: newIdx };
+  });
 
-  var idxStream = prevIdxStream.merge(nextIdxStream).merge(showIdxStream).scan({value: initialIdx}, function(a, b) {
-    var newIdx = b.value != null ? b.value : b.fn(a.value);
-    return {direction: b.direction, value: newIdx};
-  }).skipDuplicates(_.isEqual).slidingWindow(2, 2);
+  var idxStream = prevIdxStream
+    .merge(nextIdxStream)
+    .merge(showIdxStream)
+    .scan({ value: initialIdx }, function(a, b) {
+      var newIdx = b.value != null ? b.value : b.fn(a.value);
+      return { direction: b.direction, value: newIdx };
+    })
+    .skipDuplicates(_.isEqual)
+    .slidingWindow(2, 2);
 
   idxStream.onValues(show);
 

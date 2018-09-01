@@ -16,7 +16,7 @@
 @mixin prefix-val($property, $value) {
   $prefixes: webkit moz ms o;
   @each $prefix in $prefixes {
-    #{$property}: #{'-' + $prefix + '-' + $value};
+    #{$property}: #{"-" + $prefix + "-" + $value};
   }
 
   // Output standard non-prefixed declaration

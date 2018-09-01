@@ -1,12 +1,12 @@
-import * as actionTypes from '../constants/OnboardingConstants';
+import * as actionTypes from "../constants/OnboardingConstants";
 
 const initialState = {
   lastActionType: null,
   payload: {
     path: null,
     page: null,
-    pathHistoryForward: true,
-  },
+    pathHistoryForward: true
+  }
 };
 
 export default function onboardingGuideReducer(state = initialState, action) {
@@ -17,7 +17,7 @@ export default function onboardingGuideReducer(state = initialState, action) {
         lastActionType: type,
         path: payload.path,
         page: payload.page,
-        pathHistoryForward: payload.pathHistoryForward,
+        pathHistoryForward: payload.pathHistoryForward
       });
     default:
       return state;

@@ -11,11 +11,11 @@ In the React component, you need to import `t` function from the `utils/i18n` mo
 ```js
 // MyReactComponent.js
 
-import { t } from '../../utils/i18n';
+import { t } from "../../utils/i18n";
 
 class MyReactComponent extends Component {
   render() {
-    return span({className: 'hello-world'}, t('web.hello_world'))
+    return span({ className: "hello-world" }, t("web.hello_world"));
   }
 }
 ```
@@ -23,7 +23,6 @@ class MyReactComponent extends Component {
 The example above assumed that there's a `web.hello_world` key in the translation YML file, e.g.:
 
 ```yml
-
 # en.yml
 
 en:
@@ -70,13 +69,13 @@ I18n.t('click_here', { this_link: a({ href: 'http://example.com', alt: t('this_l
 In **development** mode a missing translation message is shown with an easy to notice red background
 
 ```javascript
-I18n.t('missing_key'); // span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, "[missing 'missing_key' translation]";
+I18n.t("missing_key"); // span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, "[missing 'missing_key' translation]";
 ```
 
 In **production** mode we try to "guess" the translation from the key:
 
 ```javascript
-I18n.translate('this_key_is_missing'); // => 'This key is missing'
+I18n.translate("this_key_is_missing"); // => 'This key is missing'
 ```
 
 ### Pluralization, date/time localization, number localization etc.
@@ -89,10 +88,10 @@ Make sure that you always **type the translation key in its full form.**
 
 ```javascript
 // BAD!
-t('listing_field.' + type);
+t("listing_field." + type);
 
 // Good
-t('listing_field.dropdown');
+t("listing_field.dropdown");
 ```
 
 Sometimes it is convenient to use dynamic keys. In this case, make sure that the full form is written somewhere near (i.e. in the same file at least) the `t` function call:
@@ -134,9 +133,9 @@ rake assets:clobber
 
 The client-side translations are powered by [i18n-js](https://github.com/fnando/i18n-js/) gem. The gem provides three important utilities:
 
-* `rake i18n:js:export` task to export the translations to `.js` bundle
-* `i18n-js` npm package, which helpers for translations, pluralizations, etc.
-* `I18n::JS::Middleware` which compiles the `.js` bundle every request in development mode
+- `rake i18n:js:export` task to export the translations to `.js` bundle
+- `i18n-js` npm package, which helpers for translations, pluralizations, etc.
+- `I18n::JS::Middleware` which compiles the `.js` bundle every request in development mode
 
 ## Client-side rendering
 
@@ -173,18 +172,19 @@ The interpolation mode `split` returns an `array` if interpolation is used. If t
 
 ```javascript
 // yml
-web:
-  sharetribe: "Sharetribe"
-  click_here: "Click %{here} to read more about Sharetribe"
-  here: "here"
+web: sharetribe: "Sharetribe";
+click_here: "Click %{here} to read more about Sharetribe";
+here: "here";
 
 // javascript
 // BAD!
 
 div([
-  h1(t('web.sharetribe')),
-  t('web.click_here', {here: a({ href: 'https://www.sharetribe.com' }, t('web.here'))}),
-])
+  h1(t("web.sharetribe")),
+  t("web.click_here", {
+    here: a({ href: "https://www.sharetribe.com" }, t("web.here"))
+  })
+]);
 
 // result after translations:
 //

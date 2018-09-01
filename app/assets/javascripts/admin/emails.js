@@ -1,31 +1,36 @@
 window.ST = window.ST || {};
 
 (function(module) {
-
   var TIMEOUT = 20000;
 
   var toTextStream = function(selector) {
     return $(selector)
       .asEventStream("keydown blur input change click")
       .debounce(0) // This is needed because the "keydown" event is fired before the e.target.value has the new value
-      .map(function(e) { return e.target.value; });
+      .map(function(e) {
+        return e.target.value;
+      });
   };
 
   var formatSender = function(values) {
-    if(!values.email) {
+    if (!values.email) {
       return "-";
-    } else if(values.name) {
-      return values.name + ' <' + values.email.toLowerCase() + '>';
+    } else if (values.name) {
+      return values.name + " <" + values.email.toLowerCase() + ">";
     } else {
       return values.email.toLowerCase();
     }
   };
 
-  module.initializeSenderEmailForm = function(userEmail, statusCheckUrl, resendVerificationEmailUrl) {
-
+  module.initializeSenderEmailForm = function(
+    userEmail,
+    statusCheckUrl,
+    resendVerificationEmailUrl
+  ) {
     var updateState = function(currentEmailState) {
       return ST.utils.baconStreamFromAjaxPolling(
-        { url: statusCheckUrl,
+        {
+          url: statusCheckUrl,
           data: { email: currentEmailState.email }
         },
         function(pollingResult) {
@@ -82,35 +87,44 @@ window.ST = window.ST || {};
       };
 
       var shouldResend = function(email) {
-        return _.contains(["none", "requested", "expired"], email.verificationStatus);
+        return _.contains(
+          ["none", "requested", "expired"],
+          email.verificationStatus
+        );
       };
 
-      var needsStatusCheckStream = currentEmailStateStream.filter(ST.utils.not(isExpired));
+      var needsStatusCheckStream = currentEmailStateStream.filter(
+        ST.utils.not(isExpired)
+      );
       var resendImmediatelyStream = currentEmailStateStream.filter(isExpired);
 
       var updatedStatusStream = needsStatusCheckStream
-            .flatMap(function(emailState) {
-              return enqueueSync(emailState);
-            })
-            .flatMap(function(currentState) {
-              return updateState(currentState);
-            });
+        .flatMap(function(emailState) {
+          return enqueueSync(emailState);
+        })
+        .flatMap(function(currentState) {
+          return updateState(currentState);
+        });
 
-      var shouldNotResendStream = updatedStatusStream.filter(ST.utils.not(shouldResend));
+      var shouldNotResendStream = updatedStatusStream.filter(
+        ST.utils.not(shouldResend)
+      );
       var shouldResendStream = updatedStatusStream.filter(shouldResend);
 
-      var resentStream = Bacon.mergeAll(resendImmediatelyStream, shouldResendStream)
-        .flatMap(function(email) {
-          return sendNewVerificationEmail(email).flatMap(function() {
-            // Ignore the ajax response, but pass email as a stream value
-            return Bacon.once(email);
-          });
+      var resentStream = Bacon.mergeAll(
+        resendImmediatelyStream,
+        shouldResendStream
+      ).flatMap(function(email) {
+        return sendNewVerificationEmail(email).flatMap(function() {
+          // Ignore the ajax response, but pass email as a stream value
+          return Bacon.once(email);
         });
+      });
 
       shouldNotResendStream.onValue(showEmailState);
 
       resentStream.onValue(function(email) {
-        showEmailState(_.merge(email, {verificationStatus: "resent"}));
+        showEmailState(_.merge(email, { verificationStatus: "resent" }));
       });
       resentStream.onError(showErrorState);
 
@@ -136,26 +150,23 @@ window.ST = window.ST || {};
       initializeResendHandler(emailState);
 
       var elements = {
-        "verified": [
+        verified: [
           ".js-status-verified",
           ".js-sender-address-preview-new",
-          ".js-if-you-need-to-change",
+          ".js-if-you-need-to-change"
         ],
-        "requested": [
+        requested: [
           ".js-status-requested",
           ".js-sender-address-verification-sent-time-ago",
           ".js-sender-address-preview-current",
-          ".js-verification-email-from",
+          ".js-verification-email-from"
         ],
 
-        "expired": [
-          ".js-status-expired",
-          ".js-sender-address-preview-current",
-        ],
-        "resent": [
+        expired: [".js-status-expired", ".js-sender-address-preview-current"],
+        resent: [
           ".js-status-resent",
           ".js-sender-address-preview-current",
-          ".js-verification-email-from",
+          ".js-verification-email-from"
         ]
       };
 
@@ -180,15 +191,16 @@ window.ST = window.ST || {};
         return $form.valid() ? v : "";
       });
 
-      var nameEmailStream = Bacon
-            .combineTemplate({
-              name: nameStream.toProperty(""),
-              email: validEmailOrEmptyStream.toProperty("")
-            })
-            .skipDuplicates(_.isEqual)
-            .changes();
+      var nameEmailStream = Bacon.combineTemplate({
+        name: nameStream.toProperty(""),
+        email: validEmailOrEmptyStream.toProperty("")
+      })
+        .skipDuplicates(_.isEqual)
+        .changes();
 
-      var validEmailStream = emailStream.filter(function() { return $form.valid(); });
+      var validEmailStream = emailStream.filter(function() {
+        return $form.valid();
+      });
       validEmailStream.take(1).onValue(function() {
         $previewContainer.show();
       });
@@ -203,18 +215,17 @@ window.ST = window.ST || {};
     var $form = $(".js-sender-email-form");
     $form.validate({
       rules: {
-        "email": {required: true, email: true}
+        email: { required: true, email: true }
       }
     });
 
     initializePreview();
 
-    if (userEmail && (userEmail.verificationStatus !== "verified")) {
+    if (userEmail && userEmail.verificationStatus !== "verified") {
       var stateStream = updateState(userEmail);
 
       stateStream.onValue(showEmailState);
       stateStream.onError(showErrorState);
     }
   };
-
 })(window.ST);

@@ -4,7 +4,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -53,7 +55,8 @@ main, /* 2 */
 menu,
 nav,
 section,
-summary { /* 1 */
+summary {
+  /* 1 */
   display: block;
 }
 
@@ -290,7 +293,8 @@ optgroup {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -300,7 +304,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 

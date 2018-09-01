@@ -5,14 +5,14 @@
   @nest :global(.js-enabled) & {
     visibility: hidden;
 
-    &.noPriorityLinks,
-    &.isMeasured {
+    &.noPriorityLinks, &.isMeasured {
       visibility: visible;
     }
   }
 }
 
-.isMeasured {} /* stylelint-disable-line block-no-empty */
+.isMeasured {
+} /* stylelint-disable-line block-no-empty */
 
 .priorityLinks {
   overflow: hidden;

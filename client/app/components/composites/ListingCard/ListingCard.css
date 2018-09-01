@@ -77,7 +77,8 @@
   position: relative;
   flex-grow: 1;
   background-color: var(--ListingCard_colorBackground);
-  padding: var(--ListingCard_spacingVertical) var(--ListingCard_spacingHorizontal);
+  padding: var(--ListingCard_spacingVertical)
+    var(--ListingCard_spacingHorizontal);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }

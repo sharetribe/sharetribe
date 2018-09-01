@@ -8,7 +8,9 @@
   width: 100%;
   @include border-radius(em(5));
   border: 2px solid $border;
-  &:hover { background: $highlight; }
+  &:hover {
+    background: $highlight;
+  }
   margin-bottom: lines(0.25);
 }
 
@@ -30,7 +32,9 @@
   &.radio-button-selected {
     color: $green;
     background: lighten($green, 40%);
-    &:hover { background: lighten($green, 40%); }
+    &:hover {
+      background: lighten($green, 40%);
+    }
   }
 }
 
@@ -40,6 +44,8 @@
   &.radio-button-selected {
     color: $red;
     background: lighten($red, 40%);
-    &:hover { background: lighten($red, 40%); }
+    &:hover {
+      background: lighten($red, 40%);
+    }
   }
 }

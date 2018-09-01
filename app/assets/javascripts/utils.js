@@ -1,9 +1,8 @@
 window.ST = window.ST || {};
 
 ST.utils = (function(_) {
-
   function findNextIndex(arr, fn) {
-    if(arr.length < 2) {
+    if (arr.length < 2) {
       return -1;
     } else {
       var idx = _.findIndex(arr, fn);
@@ -107,7 +106,7 @@ ST.utils = (function(_) {
   }
 
   function baconStreamFromAjaxPolling(ajaxOpts, predicate, pollerOpts) {
-    pollerOpts = _.defaults(pollerOpts || {}, {timeout: 0});
+    pollerOpts = _.defaults(pollerOpts || {}, { timeout: 0 });
     var startPolling = Date.now();
 
     return Bacon.fromBinder(function(sink) {
@@ -121,7 +120,7 @@ ST.utils = (function(_) {
         ajax.filter(not(predicate)).onValue(function() {
           var loadingHasTaken = Date.now() - startPolling;
 
-          if(pollerOpts.timeout && loadingHasTaken > pollerOpts.timeout) {
+          if (pollerOpts.timeout && loadingHasTaken > pollerOpts.timeout) {
             sink([new Bacon.Error("timeout"), new Bacon.End()]);
           } else {
             _.delay(poll, 1000);
@@ -151,10 +150,10 @@ ST.utils = (function(_) {
   */
   function contentTypeByFilename(filename) {
     var map = {
-      "jpg": "image/jpeg",
-      "jpeg": "image/jpeg",
-      "png": "image/png",
-      "gif": "image/gif",
+      jpg: "image/jpeg",
+      jpeg: "image/jpeg",
+      png: "image/png",
+      gif: "image/gif"
     };
 
     return map[fileExtension(filename)];
@@ -169,7 +168,7 @@ ST.utils = (function(_) {
   }
 
   function stringToURLSafe(s) {
-    return s.replace(/[^a-z0-9\-]/gi, '_').toLowerCase();
+    return s.replace(/[^a-z0-9\-]/gi, "_").toLowerCase();
   }
 
   function pad(n) {
@@ -177,22 +176,35 @@ ST.utils = (function(_) {
   }
 
   function toISODate(date) {
-    return [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate())].join("-");
+    return [
+      date.getFullYear(),
+      pad(date.getMonth() + 1),
+      pad(date.getDate())
+    ].join("-");
   }
 
   function showError(errorMsg, errorClass, wrapperSel) {
-    wrapperSel = wrapperSel || 'div.wrapper';
-    var errorTemplate = _.template('<div class="flash-notifications"><div class="flash-<%= errorClass %> flash-notification"><div class="flash-icon <%= errorIcon %>"></div><div class="flash-text"><%= errorMsg %></div></div></div>');
-    var errorClassMapping = { notice: "ss-check", warning: "ss-info", error: "ss-alert"};
+    wrapperSel = wrapperSel || "div.wrapper";
+    var errorTemplate = _.template(
+      '<div class="flash-notifications"><div class="flash-<%= errorClass %> flash-notification"><div class="flash-icon <%= errorIcon %>"></div><div class="flash-text"><%= errorMsg %></div></div></div>'
+    );
+    var errorClassMapping = {
+      notice: "ss-check",
+      warning: "ss-info",
+      error: "ss-alert"
+    };
 
-    var $error_el = $(errorTemplate({
-      errorMsg: errorMsg,
-      errorClass: errorClass,
-      errorIcon: errorClassMapping[errorClass]
-    }));
-    $(wrapperSel).prepend($error_el).click(window.hideNotice);
+    var $error_el = $(
+      errorTemplate({
+        errorMsg: errorMsg,
+        errorClass: errorClass,
+        errorIcon: errorClassMapping[errorClass]
+      })
+    );
+    $(wrapperSel)
+      .prepend($error_el)
+      .click(window.hideNotice);
   }
-
 
   return {
     findNextIndex: findNextIndex,
@@ -213,5 +225,4 @@ ST.utils = (function(_) {
     showError: showError,
     not: not
   };
-
 })(_);

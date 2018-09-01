@@ -1,9 +1,11 @@
 window.ST = window.ST || {};
 
 window.ST.listingImages = function(images) {
-
   function createStripe() {
-    return ST.thumbnailStripe(images, {thumbnailWidth: 64, paddingAdjustment: 2});
+    return ST.thumbnailStripe(images, {
+      thumbnailWidth: 64,
+      paddingAdjustment: 2
+    });
   }
 
   function createCarousel() {
@@ -22,7 +24,9 @@ window.ST.listingImages = function(images) {
     return e.keyCode || e.which;
   }
 
-  var keyCodeStream = $(document).asEventStream("keyup").map(keyCode);
+  var keyCodeStream = $(document)
+    .asEventStream("keyup")
+    .map(keyCode);
   var keyboardLeft = keyCodeStream.filter(equals(LEFT));
   var keyboardRight = keyCodeStream.filter(equals(RIGHT));
 

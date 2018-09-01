@@ -6,16 +6,16 @@ When you are ready to release a new version, follow these steps:
 
 1.  Update [CHANGELOG.md](CHANGELOG.md)
 
-    * Replace the \[Unreleased\] with the version number.
-    * Add current date to version number line.
-    * Add a new \[Unreleased\] version.
-    * Add a git diff link to the end of the file, and update the `unreleased` diff link.
+    - Replace the \[Unreleased\] with the version number.
+    - Add current date to version number line.
+    - Add a new \[Unreleased\] version.
+    - Add a git diff link to the end of the file, and update the `unreleased` diff link.
 
 1.  Update [UPGRADE.md](UPGRADE.md)
 
-    * See if there are any upgrade notes. If not, you can move to next step.
-    * Replace the \[Unreleased\] with the correct version number.
-    * Add a new \[Unreleased\] version
+    - See if there are any upgrade notes. If not, you can move to next step.
+    - Replace the \[Unreleased\] with the correct version number.
+    - Add a new \[Unreleased\] version
 
 1.  Commit the changes
 

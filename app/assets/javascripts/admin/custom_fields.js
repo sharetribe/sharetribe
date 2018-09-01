@@ -1,4 +1,4 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 (function(module) {
   var optionOrder, newOptionAdded;
@@ -24,26 +24,31 @@ window.ST = window.ST || {};
     /**
       Fetch all custom field rows and save them to a variable
     */
-    var fieldMap = $(".custom-field-list-row").map(function(id, row) {
-      return {
-        id: $(row).data("field-id"),
-        element: $(row),
-        up: $(".custom-fields-action-up", row),
-        down: $(".custom-fields-action-down", row)
-      };
-    }).get();
+    var fieldMap = $(".custom-field-list-row")
+      .map(function(id, row) {
+        return {
+          id: $(row).data("field-id"),
+          element: $(row),
+          up: $(".custom-fields-action-up", row),
+          down: $(".custom-fields-action-down", row)
+        };
+      })
+      .get();
 
     var orderManager = window.ST.orderManager(fieldMap);
 
-    var ajaxRequest = orderManager.order.changes().debounce(800).map(".order")
+    var ajaxRequest = orderManager.order
+      .changes()
+      .debounce(800)
+      .map(".order")
       .skipDuplicates(_.isEqual)
       .map(function(order) {
-      return {
-        type: "POST",
-        url: ST.utils.relativeUrl("order"),
-        data: { order: order }
-      };
-    });
+        return {
+          type: "POST",
+          url: ST.utils.relativeUrl("order"),
+          data: { order: order }
+        };
+      });
 
     var ajaxResponse = ajaxRequest.ajax();
     var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
@@ -75,19 +80,24 @@ window.ST = window.ST || {};
     Changes `sort_priority` hidden field when order changes.
   */
   var createOptionOrder = function(rowSelector) {
-
     /**
       Fetch all custom field rows and save them to a variable
     */
-    var fieldMap = $(rowSelector).map(function(id, row) {
-      return {
-        id: $(row).data("field-id"),
-        element: $(row),
-        sortPriority: Number($(row).find(".custom-field-hidden-sort-priority").val()),
-        up: $(".custom-fields-action-up", row),
-        down: $(".custom-fields-action-down", row)
-      };
-    }).get();
+    var fieldMap = $(rowSelector)
+      .map(function(id, row) {
+        return {
+          id: $(row).data("field-id"),
+          element: $(row),
+          sortPriority: Number(
+            $(row)
+              .find(".custom-field-hidden-sort-priority")
+              .val()
+          ),
+          up: $(".custom-fields-action-up", row),
+          down: $(".custom-fields-action-down", row)
+        };
+      })
+      .get();
 
     var highestSortPriority = function(fieldMap) {
       return _(fieldMap)
@@ -134,7 +144,7 @@ window.ST = window.ST || {};
     $("#custom-fields-add-option").click(function(e) {
       e.preventDefault();
       var id = "jsnew-" + nextId();
-      var row = $(newOptionTmpl({id: id, sortPriority: nextSortPriority()}));
+      var row = $(newOptionTmpl({ id: id, sortPriority: nextSortPriority() }));
       $customFieldOptions.append(row);
       var newField = {
         id: id,
@@ -146,7 +156,10 @@ window.ST = window.ST || {};
       optionOrder.add(newField);
 
       // Focus the new one
-      row.find("input").first().focus();
+      row
+        .find("input")
+        .first()
+        .focus();
     });
 
     return {
@@ -155,7 +168,12 @@ window.ST = window.ST || {};
     };
   };
 
-  var removeLinkEnabledState = function(initialCount, minCount, containerSelector, linkSelector) {
+  var removeLinkEnabledState = function(
+    initialCount,
+    minCount,
+    containerSelector,
+    linkSelector
+  ) {
     var enabled;
     var count = initialCount;
     update();
@@ -163,7 +181,7 @@ window.ST = window.ST || {};
     $(containerSelector).on("click", linkSelector, function(event) {
       event.preventDefault();
 
-      if(enabled) {
+      if (enabled) {
         var el = $(event.currentTarget);
         var container = el.closest(".custom-field-option-container");
         container.remove();
@@ -187,7 +205,6 @@ window.ST = window.ST || {};
         update();
       }
     };
-
   };
 
   var initMainForm = function(options) {
@@ -195,7 +212,8 @@ window.ST = window.ST || {};
 
     var form_id = "#custom_field_form";
     var $form = $(form_id);
-    var CATEGORY_CHECKBOX_NAME = "custom_field[category_attributes][][category_id]";
+    var CATEGORY_CHECKBOX_NAME =
+      "custom_field[category_attributes][][category_id]";
     var MIN_NAME = "custom_field[min]";
     var MAX_NAME = "custom_field[max]";
     var DECIMAL_CHECKBOX = "custom_field[allow_decimals]";
@@ -229,7 +247,12 @@ window.ST = window.ST || {};
       }
     });
 
-    newOptionAdded = removeLinkEnabledState(options.option_count, options.min_count, "#options", ".custom-field-option-remove").add;
+    newOptionAdded = removeLinkEnabledState(
+      options.option_count,
+      options.min_count,
+      "#options",
+      ".custom-field-option-remove"
+    ).add;
   };
 
   var initForm = function(options) {

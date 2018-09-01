@@ -18,7 +18,8 @@
 
 .menuLabelMobile {
   display: inline-block;
-  padding: var(--MobileMenu_labelPaddingVertical) var(--MobileMenu_labelPaddingHorizontal);
+  padding: var(--MobileMenu_labelPaddingVertical)
+    var(--MobileMenu_labelPaddingHorizontal);
   cursor: pointer;
   position: relative;
 
@@ -105,7 +106,10 @@
 
 .offScreenHeader {
   display: flex;
-  margin: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingTopbarHorizontalMin) var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+  margin: var(--MenuItem_paddingOffScreenVertical)
+    var(--MenuItem_paddingTopbarHorizontalMin)
+    var(--MenuItem_paddingOffScreenVertical)
+    var(--MenuItem_paddingOffScreenHorizontal);
   flex-shrink: 0;
 
   @media (--medium-viewport) {
@@ -150,14 +154,16 @@
   }
 
   & .menuSectionMenuItemLink {
-    padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontal);
+    padding: var(--MenuItem_paddingOffScreenVertical)
+      var(--MenuItem_paddingOffScreenHorizontal);
     letter-spacing: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     @media (--medium-viewport) {
-      padding: var(--MenuItem_paddingOffScreenVertical) var(--MenuItem_paddingOffScreenHorizontalTablet);
+      padding: var(--MenuItem_paddingOffScreenVertical)
+        var(--MenuItem_paddingOffScreenHorizontalTablet);
     }
 
     &:focus,
@@ -175,7 +181,8 @@
   list-style: none;
   display: flex;
   justify-content: flex-start;
-  padding: var(--MenuSection_paddingOffScreenVertical) var(--MenuSection_paddingOffScreenHorizontal);
+  padding: var(--MenuSection_paddingOffScreenVertical)
+    var(--MenuSection_paddingOffScreenHorizontal);
   color: var(--MenuSection_titleColor);
   width: 100%;
   letter-spacing: 3px;
@@ -183,7 +190,8 @@
   font-weight: 600;
 
   @media (--medium-viewport) {
-    padding: var(--MenuSection_paddingOffScreenVertical) var(--MenuSection_paddingOffScreenHorizontalTablet);
+    padding: var(--MenuSection_paddingOffScreenVertical)
+      var(--MenuSection_paddingOffScreenHorizontalTablet);
   }
 }
 
@@ -232,4 +240,3 @@
     margin-top: var(--LanguagesMobile_marginLanguageListTopTablet);
   }
 }
-

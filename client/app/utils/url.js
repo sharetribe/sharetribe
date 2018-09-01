@@ -1,13 +1,12 @@
-import _ from 'lodash';
+import _ from "lodash";
 
-const paramsToQueryString = (paramsMap) => {
+const paramsToQueryString = paramsMap => {
   if (_.isEmpty(paramsMap)) {
-    return '';
+    return "";
   } else {
-    const keyValues = _.map(paramsMap, (val, key) => [
-      window.encodeURIComponent(key),
-      window.encodeURIComponent(val),
-    ].join('=')).join('&');
+    const keyValues = _.map(paramsMap, (val, key) =>
+      [window.encodeURIComponent(key), window.encodeURIComponent(val)].join("=")
+    ).join("&");
     return `?${keyValues}`;
   }
 };
@@ -19,12 +18,12 @@ const paramsToQueryString = (paramsMap) => {
  *
  * @return {String} - parsed query string
  */
-const parseQueryString = (location) => {
-  const parts = location.split('?');
+const parseQueryString = location => {
+  const parts = location.split("?");
   if (parts.length > 1) {
-    return parts[1].split('#')[0];
+    return parts[1].split("#")[0];
   } else {
-    return '';
+    return "";
   }
 };
 
@@ -35,20 +34,20 @@ const parseQueryString = (location) => {
  *
  * @return {Object<String, String>} - parsed query string as a key/value object
  */
-const parseQuery = (searchQuery) => {
-  const parts = (searchQuery || '')
-          .replace(/^\?/, '')
-          .replace(/#.*$/, '')
-          .split('&');
+const parseQuery = searchQuery => {
+  const parts = (searchQuery || "")
+    .replace(/^\?/, "")
+    .replace(/#.*$/, "")
+    .split("&");
 
   return parts.reduce((params, keyval) => {
-    const pair = keyval.split('=');
+    const pair = keyval.split("=");
     const pairLength = 2;
 
     if (pair.length === pairLength) {
       // We also have to deal with + char encoding a space since Rails
       // likes these more and decodeURIComponent doesn't decode them.
-      params[pair[0]] = decodeURIComponent(pair[1].replace(/\+/g, ' ')); // eslint-disable-line no-param-reassign
+      params[pair[0]] = decodeURIComponent(pair[1].replace(/\+/g, " ")); // eslint-disable-line no-param-reassign
     }
 
     return params;
@@ -63,7 +62,10 @@ const parseQuery = (searchQuery) => {
  *
  * @return {Object<String, String>} - parsed params from query string
  */
-const parseSearchQueryParams = function parseSearchQueryParams(location, restrict_to_params) {
+const parseSearchQueryParams = function parseSearchQueryParams(
+  location,
+  restrict_to_params
+) {
   const searchQuery = parseQueryString(location);
   const parsedParams = parseQuery(searchQuery);
   return Object.keys(parsedParams).reduce((params, key) => {
@@ -87,12 +89,17 @@ const currySearchParams = function currySearchParams(restrict_to_params) {
   };
 };
 
-const upsertSearchQueryParam = function upsertSearchQueryParam(location, param, value) {
+const upsertSearchQueryParam = function upsertSearchQueryParam(
+  location,
+  param,
+  value
+) {
   const originalParams = parseSearchQueryParams(location);
   const newParams = { ...originalParams, [param]: value };
-  return _.map(newParams, (v, k) =>
-    `${encodeURIComponent(k)}=${encodeURIComponent(v)}`
-  ).join('&');
+  return _.map(
+    newParams,
+    (v, k) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`
+  ).join("&");
 };
 
 export {
@@ -101,5 +108,5 @@ export {
   parseSearchQueryParams,
   currySearchParams,
   upsertSearchQueryParam,
-  paramsToQueryString,
+  paramsToQueryString
 };

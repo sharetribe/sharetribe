@@ -1,13 +1,13 @@
 /* eslint-env commonjs */
 
-import _ from 'lodash';
+import _ from "lodash";
 
 let Routes = {};
 
 try {
-  Routes = require('../routes/routes.js');
+  Routes = require("../routes/routes.js");
 } catch (e) {
-  console.warn('Can not load route bundle routes.js'); // eslint-disable-line no-console
+  console.warn("Can not load route bundle routes.js"); // eslint-disable-line no-console
 }
 
 /**
@@ -29,14 +29,16 @@ const addDefaultArgs = function addDefaultArgs(args, defaultArgs) {
 };
 
 const didYouMean = function didYouMean(routeName) {
-  if (_.endsWith(routeName, '_path') && Routes[routeName]) {
-    return `Did you mean '${routeName.replace(/_path$/, '')}'?`;
+  if (_.endsWith(routeName, "_path") && Routes[routeName]) {
+    return `Did you mean '${routeName.replace(/_path$/, "")}'?`;
   } else {
     return null;
   }
 };
 
-const routeNameToPathHelperName = function routeNameToPathHelperName(routeName) {
+const routeNameToPathHelperName = function routeNameToPathHelperName(
+  routeName
+) {
   return `${routeName}_path`;
 };
 
@@ -67,14 +69,19 @@ const wrapWithDefaultArgs = function wrapWithDefaultArgs(pathFns, defaultArgs) {
  * You can pass also `defaultArgs` object, for example for "locale"
  */
 const subset = function subset(routesSubset, defaultArgs = {}) {
-  const pathHelpers = routesSubset.map((routeName) => {
+  const pathHelpers = routesSubset.map(routeName => {
     const pathHelperName = routeNameToPathHelperName(routeName);
     const pathHelper = Routes[pathHelperName];
 
     if (pathHelper) {
       return { pathHelperName, pathHelper };
     } else {
-      throw new Error(_.compact([`Couldn't find named route: '${routeName}'.`, didYouMean(routeName)]).join(' '));
+      throw new Error(
+        _.compact([
+          `Couldn't find named route: '${routeName}'.`,
+          didYouMean(routeName)
+        ]).join(" ")
+      );
     }
   });
 
@@ -87,9 +94,11 @@ const subset = function subset(routesSubset, defaultArgs = {}) {
  * ** Use this ONLY in styleguide or in tests. **
  */
 const all = function all(defaultArgs) {
-  const pathHelperNames = _.keys(Routes).filter((key) => _.endsWith(key, '_path'));
+  const pathHelperNames = _.keys(Routes).filter(key =>
+    _.endsWith(key, "_path")
+  );
 
-  const pathFns = pathHelperNames.map((pathHelperName) => {
+  const pathFns = pathHelperNames.map(pathHelperName => {
     const pathHelper = Routes[pathHelperName];
     return { pathHelperName, pathHelper };
   });

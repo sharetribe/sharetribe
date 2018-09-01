@@ -16,7 +16,7 @@ By default, `deprecate` will print a notification about method being deprecated 
 
 ## Examples
 
-``` ruby
+```ruby
 class LaunchControl
   def launch_apollo
     puts "Apollo, lift-off!!"

@@ -35,7 +35,8 @@
   Use disabled link or icon
 */
 .disabled {
-  &, &:hover {
+  &,
+  &:hover {
     color: $border;
     cursor: default;
   }

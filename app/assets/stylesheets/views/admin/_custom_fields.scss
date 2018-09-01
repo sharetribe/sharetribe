@@ -1,7 +1,9 @@
 @import "mixins/all";
 
 $add-custom-field-option-with-multiple-locales-label-top-padding: 5px; // Used to center label text vertically with inline text field
-$custom-field-option-height: lines(1.5); // Used to center label text vertically with inline text field
+$custom-field-option-height: lines(
+  1.5
+); // Used to center label text vertically with inline text field
 
 .custom-fields-list-title,
 .custom-fields-mobile-list-title {
@@ -61,7 +63,7 @@ $custom-field-option-height: lines(1.5); // Used to center label text vertically
   margin: $add-custom-field-option-with-multiple-locales-label-top-padding 0 0 0;
 }
 
-.custom-field-option-locale-row input[type=text] {
+.custom-field-option-locale-row input[type="text"] {
   @include media(tablet) {
     margin: 0;
     padding: 0 lines(0.25);

@@ -4,7 +4,6 @@
   @include prefix-prop(flex-shrink, 0);
 }
 
-
 @mixin disable-flex-shrink-fix {
   @include prefix-prop(flex-shrink, 1);
 }

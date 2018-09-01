@@ -8,12 +8,10 @@ In the top-level React component, you need to import `subset` function from `uti
 
 ```js
 // App.js
-import { subset } from '../utils/routes';
+import { subset } from "../utils/routes";
 
 export default (props, marketplaceContext) => {
-  const routes = subset([
-    'homepage',
-  ], { locale: "en" })
+  const routes = subset(["homepage"], { locale: "en" });
 
   return r(MyComponent, { routes });
 };
@@ -24,18 +22,17 @@ In the component, you then use the routes subset to create the routes you want:
 // MyComponent.js
 
 class MyComponent extends React.Component {
-  render() {
-    return a(href: this.props.root.homepage_path())
-  }
+render() {
+return a(href: this.props.root.homepage_path())
 }
-
+}
 
 ## Arguments
 
 You can give arguments to the route helper function as you would do in Rails:
 
 ```js
-Routes.person_path({username: "johndoe", show_closed: true})
+Routes.person_path({ username: "johndoe", show_closed: true });
 ```
 
 ## Cleaning up
@@ -50,8 +47,8 @@ rake assets:clobber
 
 The route bundling is powered by [js-routes](https://github.com/railsware/js-routes) gem. The gem provides two important utilities:
 
-* `rake js:routes` task to export the routes to `.js` bundle
-* The JavaScript `_path` helpers
+- `rake js:routes` task to export the routes to `.js` bundle
+- The JavaScript `_path` helpers
 
 In addition to that, we have implemented a middleware `JsRoutes::Middleware` that watches changes in the `config/routes.rb` file and compiles a new `.js` route bundle when ever that file changes. By default, this happens only in development mode.
 

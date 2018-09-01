@@ -14,7 +14,7 @@
 .info__section--background {
   @extend .info__section;
 
-  color: #FFFFFF;
+  color: #ffffff;
   @include viewport-unit(min-height, 80vh);
 }
 
@@ -30,7 +30,7 @@
 
 .info__section--background-color {
   @extend .info__section;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .info__section--blank {
@@ -40,7 +40,7 @@
 
 .info__section--zebra {
   @extend .info__section--blank;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .info__content {
@@ -48,11 +48,17 @@
   text-align: center;
 
   @media #{$mobile-landscape}, #{$tablet} {
-    @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
+    @include viewport-unit(
+      margin-top,
+      -4.44vh
+    ); /* -50px, when content height is 900px, 80vh */
   }
 
   @media #{$desktop} {
-    @include viewport-unit(margin-top, -4.44vh); /* -50px, when content height is 900px, 80vh */
+    @include viewport-unit(
+      margin-top,
+      -4.44vh
+    ); /* -50px, when content height is 900px, 80vh */
   }
 }
 
@@ -149,7 +155,7 @@ $content-padding: 36px;
 
 .info__button--inverted {
   @extend .info__button;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .info__columns {
@@ -304,7 +310,6 @@ $content-padding: 36px;
 }
 
 .info__column-paragraph--markdown {
-
   & > p {
     @include typography__regular;
     color: #525961;
@@ -342,25 +347,29 @@ $content-padding: 36px;
   width: 100%;
 }
 
-.info__section--background-color, .info__section--background-image--light, .info__section--background-image--dark {
+.info__section--background-color,
+.info__section--background-image--light,
+.info__section--background-image--dark {
   .info__column-paragraph--markdown {
     & > p {
       color: #ffffff;
     }
   }
   .info__column-title {
-      color: #ffffff;
+    color: #ffffff;
   }
   .info__column-button--ghost {
-      color: #ffffff;
-      border-color: #ffffff;
+    color: #ffffff;
+    border-color: #ffffff;
   }
   .info__column-icon {
     svg {
-      g, circle, path {
-        stroke: #ffffff; 
+      g,
+      circle,
+      path {
+        stroke: #ffffff;
       }
-    }    
+    }
   }
 }
 

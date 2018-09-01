@@ -8,13 +8,13 @@ Scheduled tasks are tasks that the system needs to run regularly to keep the app
 
 Here is a list of scheduled tasks you need to configure:
 
-| Purpose | Command | Recommended run interval | Note |
-|---------|---------|--------------------------|------|
-| Clean up expired sessions | `bundle exec rails runner ActiveSessionsHelper.cleanup` | Once per day | |
-| Send daily/weekly marketplace digest emails | `bundle exec rails runner CommunityMailer.deliver_community_updates` | Once per day | |
-| Clean up expired auth tokens | `bundle exec rake sharetribe:delete_expired_auth_tokens` | Once per day | |
-| Synchronize [Amazon SES](https://aws.amazon.com/ses/) state | `bundle exec rake sharetribe:synchronize_verified_with_ses` | Every 10 minutes | Only if Amazon SES is use |
-| Retry and clean PayPal tokens | `bundle exec rake sharetribe:retry_and_clean_paypal_tokens` | Every 10 minutes | Only if PayPal is in use |
+| Purpose                                                     | Command                                                              | Recommended run interval | Note                      |
+| ----------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------ | ------------------------- |
+| Clean up expired sessions                                   | `bundle exec rails runner ActiveSessionsHelper.cleanup`              | Once per day             |                           |
+| Send daily/weekly marketplace digest emails                 | `bundle exec rails runner CommunityMailer.deliver_community_updates` | Once per day             |                           |
+| Clean up expired auth tokens                                | `bundle exec rake sharetribe:delete_expired_auth_tokens`             | Once per day             |                           |
+| Synchronize [Amazon SES](https://aws.amazon.com/ses/) state | `bundle exec rake sharetribe:synchronize_verified_with_ses`          | Every 10 minutes         | Only if Amazon SES is use |
+| Retry and clean PayPal tokens                               | `bundle exec rake sharetribe:retry_and_clean_paypal_tokens`          | Every 10 minutes         | Only if PayPal is in use  |
 
 ## How to configure scheduled tasks
 

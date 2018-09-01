@@ -13,15 +13,14 @@
 // The i18n-js library is able to read the language bundle from that global
 //
 
-import { span } from 'r-dom';
-import { bind, includes } from 'lodash';
+import { span } from "r-dom";
+import { bind, includes } from "lodash";
 
 const isServer = function isServer() {
-  return typeof window === 'undefined';
+  return typeof window === "undefined";
 };
 
 if (isServer()) {
-
   // Initialize global.I18n
   // In browser we initialize this in a script-tag manually
   global.I18n = {};
@@ -32,7 +31,7 @@ if (isServer()) {
   try {
     // The translation bundle will be loaded to the global I18n
     // variable. Initialize the variable here.
-    require('../i18n/all.js');
+    require("../i18n/all.js");
   } catch (e) {
     console.warn("Can't load language bundle all.js"); // eslint-disable-line no-console
   }
@@ -42,21 +41,32 @@ if (isServer()) {
 // translations from the global.I18n variable. This variable needs to
 // be initialized before loading the i18n-js library, so that the
 // library can use the existing I18n object
-const I18n = require('i18n-js');
+const I18n = require("i18n-js");
 
 const missingTranslationMessage = function missingTranslationMessage(scope) {
   return `[missing "${scope}" translation]`;
 };
 
-const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, localeInfo) {
+const initialize = function initialize(
+  i18nLocale,
+  i18nDefaultLocale,
+  env,
+  localeInfo
+) {
   I18n.locale = i18nLocale;
   I18n.defaultLocale = i18nDefaultLocale;
-  I18n.interpolationMode = 'split';
+  I18n.interpolationMode = "split";
   I18n.localeInfo = localeInfo != null ? localeInfo : { ident: i18nLocale };
 
-  if (env === 'development') {
+  if (env === "development") {
     I18n.missingTranslation = function displayMissingTranslation(scope) {
-      return span({ className: 'missing-translation', style: { backgroundColor: 'red !important' } }, missingTranslationMessage(scope));
+      return span(
+        {
+          className: "missing-translation",
+          style: { backgroundColor: "red !important" }
+        },
+        missingTranslationMessage(scope)
+      );
     };
   } else {
     I18n.missingTranslation = function guessMissingTranslation(scope) {
@@ -64,16 +74,23 @@ const initialize = function initialize(i18nLocale, i18nDefaultLocale, env, local
       // https://github.com/fnando/i18n-js/blob/2ca6d31365bb41db21e373d126cac00d38d15144/app/assets/javascripts/i18n.js#L536
 
       // Get only the last portion of the scope
-      const s = scope.split('.').slice(-1)[0];
+      const s = scope.split(".").slice(-1)[0];
 
       // Replace underscore with space && camelcase with space and lowercase letter
       const guess = s
-              .replace(/_/g, ' ')
-              .replace(/([a-z])([A-Z])/g, (match, p1, p2) => `${p1} ${p2.toLowerCase()}`);
+        .replace(/_/g, " ")
+        .replace(
+          /([a-z])([A-Z])/g,
+          (match, p1, p2) => `${p1} ${p2.toLowerCase()}`
+        );
 
       const uppercasedGuess = guess[0].toUpperCase() + guess.substr(1);
 
-      return (this.missingTranslationPrefix.length > 0 ? this.missingTranslationPrefix : '') + uppercasedGuess;
+      return (
+        (this.missingTranslationPrefix.length > 0
+          ? this.missingTranslationPrefix
+          : "") + uppercasedGuess
+      );
     };
   }
 };
@@ -93,10 +110,18 @@ const localizedString = function localizedString(localizationMap, scope) {
 };
 
 const localizedPricingUnit = function localizedPricingUnit(pricingUnit) {
-  const pricingUnitType = pricingUnit.get(':unit');
-  if (pricingUnitType === 'custom') {
-    return localizedString(pricingUnit.get(':customTranslations'), 'pricing unit');
-  } else if (includes(['piece', 'hour', 'day', 'night', 'week', 'month'], pricingUnitType)) {
+  const pricingUnitType = pricingUnit.get(":unit");
+  if (pricingUnitType === "custom") {
+    return localizedString(
+      pricingUnit.get(":customTranslations"),
+      "pricing unit"
+    );
+  } else if (
+    includes(
+      ["piece", "hour", "day", "night", "week", "month"],
+      pricingUnitType
+    )
+  ) {
     return I18n.t(`web.listings.pricing_units.${pricingUnitType}`);
   }
   return missingTranslationMessage(pricingUnitType);
@@ -109,7 +134,7 @@ const currentLocale = function currentLocale() {
 const fullLocaleCode = function fullLocaleCode() {
   const localeInfo = currentLocale();
   if (!(localeInfo && localeInfo.language && localeInfo.region)) {
-    throw new Error('No locale found');
+    throw new Error("No locale found");
   }
 
   return `${localeInfo.language.toLowerCase()}-${localeInfo.region.toUpperCase()}`;
@@ -134,5 +159,5 @@ export {
   translate,
   l,
   p,
-  t,
+  t
 };

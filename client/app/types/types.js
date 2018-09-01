@@ -5,9 +5,9 @@
    the number of types grow, we can split the type to smaller chunks.
  */
 
-import Immutable from 'immutable';
+import Immutable from "immutable";
 
-export class UUID extends Immutable.Record({ value: '' }) {
+export class UUID extends Immutable.Record({ value: "" }) {
   toString() {
     return this.value;
   }
@@ -15,10 +15,10 @@ export class UUID extends Immutable.Record({ value: '' }) {
 
 export const Distance = Immutable.Record({
   value: 0,
-  unit: 'km',
+  unit: "km"
 });
 
 export const Money = Immutable.Record({
   fractionalAmount: 0,
-  currency: 'USD',
+  currency: "USD"
 });

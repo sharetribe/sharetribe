@@ -65,7 +65,6 @@
 }
 
 .video__youtube-overlay {
-
   // There seems to be a bit annoying issue in Safari: When the window
   // size is changed, every now and then a 1px gap appears in the top or bottom
   // of the video.
@@ -100,7 +99,10 @@
     background-color: rgba(0, 0, 0, 0.35);
   }
 
-  @include prefix-prop(transition, (background-color 100ms ease-in-out, opacity 800ms ease-in-out));
+  @include prefix-prop(
+    transition,
+    (background-color 100ms ease-in-out, opacity 800ms ease-in-out)
+  );
 }
 
 .video__youtube-overlay--inactive {
@@ -114,7 +116,7 @@
 .video__youtube-watch-video-text {
   @include typography__semibold;
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   letter-spacing: 3px;
   line-height: 12px;
 

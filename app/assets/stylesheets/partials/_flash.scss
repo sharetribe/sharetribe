@@ -15,19 +15,23 @@
   position: relative;
   padding: em(8) em(20) em(12) em(20);
   @include border-radius(em(5));
-  .ajax-icon, .flash-icon {
+  .ajax-icon,
+  .flash-icon {
     position: absolute;
     top: em(10);
     left: em(12);
   }
-  .ajax-text, .flash-text {
+  .ajax-text,
+  .flash-text {
     margin-left: lines(0.75);
     min-height: lines(0.5);
   }
 }
 
-.ajax-notice, .ajax-warning,
-.flash-notice, .flash-warning,
+.ajax-notice,
+.ajax-warning,
+.flash-notice,
+.flash-warning,
 .ajax-update-notice {
   background: $highlight;
 }

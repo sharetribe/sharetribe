@@ -1,4 +1,3 @@
-
 # paypal/v1/
 
 ## Common message types
@@ -133,7 +132,6 @@ Response 200 OK, Error body:
 
 Response 200 OK, Payment body (example as above)
 
-
 ## POST /payments/:community_id/:transaction_id/void
 
 Request body VoidingInfo
@@ -199,5 +197,5 @@ Response 200 OK, Payment body
 
 # Open questions / TODO
 
-* All requests have header community_id so that it's enough to have unique transaction ids within a community? (future extension)
-* No error scenarios here
+- All requests have header community_id so that it's enough to have unique transaction ids within a community? (future extension)
+- No error scenarios here

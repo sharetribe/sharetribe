@@ -39,9 +39,9 @@ In RSpec, the `require 'spec_helper'` that you are used to add to each spec file
 
 The effect is that:
 
-* The test is super fast
-* Rails auto-loading doesn't kick in
-* ActiveSupport is not included
+- The test is super fast
+- Rails auto-loading doesn't kick in
+- ActiveSupport is not included
 
 The last two points need to be fixed. Here's how.
 
@@ -77,11 +77,12 @@ To include the full ActiveSupport, use:
 ```ruby
 require 'active_support/all'
 ```
+
 ## TODO
 
 Starting from RSpec 3.x, the required way to avoid loading Rails is to have two helper files:
 
-* `spec_helper`: General configurations and helpers. Nothing Rails specific. Doesn't load Rails.
-* `rails_helper`: Rails specific helpers. Loads Rails environment. Requires `spec_helper`
+- `spec_helper`: General configurations and helpers. Nothing Rails specific. Doesn't load Rails.
+- `rails_helper`: Rails specific helpers. Loads Rails environment. Requires `spec_helper`
 
 We haven't splitted our `spec_helper` file yet. Hopefully in that will happen in the future.

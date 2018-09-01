@@ -9,7 +9,8 @@
 .account-settings {
   padding-top: lines(0.25);
 
-  #account_email_form, #account_password_form {
+  #account_email_form,
+  #account_password_form {
     display: none;
   }
 
@@ -42,7 +43,9 @@
       padding: lines(0.5) 0;
       @include media(desktop) {
         padding: 0;
-        line-height: (lines(1.5) - em(2)); // Magic number to vertically center text
+        line-height: (
+          lines(1.5) - em(2)
+        ); // Magic number to vertically center text
       }
     }
 
@@ -95,7 +98,6 @@
         width: lines(7);
         text-align: center;
       }
-
     }
 
     .account-settings-email-row-delete {
@@ -135,7 +137,6 @@
         padding: 0;
       }
     }
-
   }
 
   .email-form {
@@ -146,10 +147,9 @@
   .password-form {
     padding: 0 lines(0.5);
 
-    input[type=password] {
+    input[type="password"] {
       margin-top: lines(0.5);
     }
-
   }
 
   p {
@@ -161,17 +161,14 @@
   }
 
   @include media(tablet) {
-
     a.change-link {
       margin-left: lines(0.5);
     }
-
   }
 
   #delete_account_button {
     margin-left: lines(0.5);
   }
-
 }
 
 .notification-settings {
@@ -281,7 +278,9 @@
   background-color: #fefde5 !important;
 }
 
-#stripe_account_form_birth_date_1i, #stripe_account_form_birth_date_2i, #stripe_account_form_birth_date_3i {
+#stripe_account_form_birth_date_1i,
+#stripe_account_form_birth_date_2i,
+#stripe_account_form_birth_date_3i {
   width: 32.5%;
 }
 

@@ -1,10 +1,10 @@
-import Immutable from 'immutable';
+import Immutable from "immutable";
 
 const FlashNotificationModel = Immutable.Record({
   id: 0,
-  type: 'notice',
-  content: 'message',
-  isRead: false,
+  type: "notice",
+  content: "message",
+  isRead: false
 });
 
 export default FlashNotificationModel;

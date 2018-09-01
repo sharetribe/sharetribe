@@ -4,14 +4,19 @@ window.ST.onFollowButtonAjaxComplete = function(event, xhr) {
 
   // Work around "Unfollow" showing up too soon
   $(".button-hoverable", newButtonContainer).addClass("button-disable-hover");
-  newButtonContainer.on(
-    "mouseleave", function() { 
-      $(".button-disable-hover", newButtonContainer).removeClass("button-disable-hover"); 
-    }
-  );
+  newButtonContainer.on("mouseleave", function() {
+    $(".button-disable-hover", newButtonContainer).removeClass(
+      "button-disable-hover"
+    );
+  });
 
-  target.parents(".follow-button-container:first").replaceWith(newButtonContainer);
-  $(".follow-button", newButtonContainer).on("ajax:complete", window.ST.onFollowButtonAjaxComplete);
+  target
+    .parents(".follow-button-container:first")
+    .replaceWith(newButtonContainer);
+  $(".follow-button", newButtonContainer).on(
+    "ajax:complete",
+    window.ST.onFollowButtonAjaxComplete
+  );
 };
 
 window.ST.initializeFollowButtons = function() {

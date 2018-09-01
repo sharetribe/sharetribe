@@ -1,7 +1,15 @@
-import { storiesOf as storiesOfReal, action as actionReal, linkTo as linkToReal } from '@kadira/storybook';
-import { specs as specsReal, describe as describeReal, it as itReal } from 'storybook-addon-specifications';
-import chai, { expect as expectReal } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
+import {
+  storiesOf as storiesOfReal,
+  action as actionReal,
+  linkTo as linkToReal
+} from "@kadira/storybook";
+import {
+  specs as specsReal,
+  describe as describeReal,
+  it as itReal
+} from "storybook-addon-specifications";
+import chai, { expect as expectReal } from "chai";
+import chaiEnzyme from "chai-enzyme";
 
 chai.use(chaiEnzyme());
 

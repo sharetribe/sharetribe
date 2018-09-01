@@ -14,33 +14,44 @@ window.ST.initializeCategoriesSelectionClickHandlers = function() {
   Category order manager
 */
 window.ST.initializeCategoriesOrder = function() {
-  var fieldMap = $(".top-level-category-container").map(function(id, row) {
-    return {
-      id: $(row).data("id"),
-      element: $(row),
-      up: $(row).find(".top-level-category-row").find(".category-action-up"),
-      down: $(row).find(".top-level-category-row").find(".category-action-down"),
-    };
-  }).get();
-
-  var topLevelChanges = window.ST.orderManager(fieldMap).order;
-
-  var subLevelChanges = $(".top-level-category-container").get().map(function(topLevelContainer) {
-    var subFieldMap = $(".sub-category-row", topLevelContainer).map(function(id, row) {
+  var fieldMap = $(".top-level-category-container")
+    .map(function(id, row) {
       return {
         id: $(row).data("id"),
         element: $(row),
-        up: $(".category-action-up", row),
-        down: $(".category-action-down", row)
+        up: $(row)
+          .find(".top-level-category-row")
+          .find(".category-action-up"),
+        down: $(row)
+          .find(".top-level-category-row")
+          .find(".category-action-down")
       };
-    }).get();
+    })
+    .get();
 
-    return window.ST.orderManager(subFieldMap).order;
-  });
+  var topLevelChanges = window.ST.orderManager(fieldMap).order;
+
+  var subLevelChanges = $(".top-level-category-container")
+    .get()
+    .map(function(topLevelContainer) {
+      var subFieldMap = $(".sub-category-row", topLevelContainer)
+        .map(function(id, row) {
+          return {
+            id: $(row).data("id"),
+            element: $(row),
+            up: $(".category-action-up", row),
+            down: $(".category-action-down", row)
+          };
+        })
+        .get();
+
+      return window.ST.orderManager(subFieldMap).order;
+    });
 
   var allChanges = [topLevelChanges].concat(subLevelChanges);
 
-  var ajaxRequest = Bacon.combineAsArray(allChanges).changes()
+  var ajaxRequest = Bacon.combineAsArray(allChanges)
+    .changes()
     .debounce(800)
     .map(function(orders) {
       var onlyOrders = orders.map(function(obj) {

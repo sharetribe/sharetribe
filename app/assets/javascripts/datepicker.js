@@ -1,72 +1,94 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 (function(module) {
-
   var dateAtBeginningOfDay = function(date) {
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      0,
+      0,
+      0,
+      0
+    );
   };
 
   var pad = function(num, size) {
-    var s = num+"";
+    var s = num + "";
     while (s.length < size) s = "0" + s;
     return s;
   };
 
   // this ignores time zone
   var dateToString = function(date) {
-    return date.getFullYear() + '-' + pad((date.getMonth() + 1), 2) + '-' +  pad(date.getDate(), 2);
+    return (
+      date.getFullYear() +
+      "-" +
+      pad(date.getMonth() + 1, 2) +
+      "-" +
+      pad(date.getDate(), 2)
+    );
   };
 
   var setupPerDayOrNight = function(options) {
     var disabledDates = options.blocked_dates.map(function(d) {
       return new Date(d * 1000);
     });
-    var quantityNight = options.listing_quantity_selector === 'night';
+    var quantityNight = options.listing_quantity_selector === "night";
 
     $.fn.datepicker.dates[options.locale] = options.localized_dates;
 
-    $.validator.addMethod("night_selected",
-      function(value, element, params) {
-        var startVal = $(params.startOnSelector).val();
-        if (!!startVal === false) {
-          return true;
-        } else {
-          return startVal !== value;
+    $.validator.addMethod("night_selected", function(value, element, params) {
+      var startVal = $(params.startOnSelector).val();
+      if (!!startVal === false) {
+        return true;
+      } else {
+        return startVal !== value;
+      }
+    });
+
+    $.validator.addMethod("availability_range", function(
+      value,
+      element,
+      params
+    ) {
+      var startVal = $(params.startOnSelector).datepicker("getDates");
+      var endVal = $(element).datepicker("getDates");
+
+      if (
+        !startVal ||
+        startVal.length !== 1 ||
+        !endVal ||
+        endVal.length !== 1
+      ) {
+        return false;
+      }
+
+      var startDate = startVal[0].getTime();
+      var endDate = endVal[0].getTime();
+
+      // Validate that all booked dates are outside the selected range
+      return disabledDates.every(function(d) {
+        var date = d.getTime();
+        if (startDate === endDate) {
+          return date !== startDate;
         }
+        return date < startDate || date >= endDate;
       });
+    });
 
-    $.validator.addMethod("availability_range",
-      function(value, element, params) {
-        var startVal = $(params.startOnSelector).datepicker('getDates');
-        var endVal = $(element).datepicker('getDates');
-
-        if (!startVal || startVal.length !== 1 || !endVal || endVal.length !== 1) {
-          return false;
-        }
-
-        var startDate = startVal[0].getTime();
-        var endDate = endVal[0].getTime();
-
-        // Validate that all booked dates are outside the selected range
-        return disabledDates.every(function(d) {
-          var date = d.getTime();
-          if (startDate === endDate) {
-            return date !== startDate;
+    var rules = quantityNight
+      ? {
+          end_on: {
+            night_selected: { startOnSelector: "#start-on" },
+            availability_range: { startOnSelector: "#start-on" }
           }
-          return date < startDate || date >= endDate;
-        });
-      });
-
-    var rules = quantityNight ? {
-      "end_on": {
-        night_selected: {startOnSelector: "#start-on"},
-        availability_range: {startOnSelector: "#start-on"}
-      }
-    } : {
-      "end_on": {
-        availability_range: {startOnSelector: "#start-on"}
-      }
-    };
+        }
+      : {
+          end_on: {
+            availability_range: { startOnSelector: "#start-on" }
+          }
+        };
 
     $("#booking-dates").validate({
       rules: rules,
@@ -81,7 +103,11 @@ window.ST = window.ST || {};
 
     var endDate = new Date(options.end_date * 1000);
 
-    initializeFromToDatePicker('datepicker', {disabledDates: disabledDates, endDate: endDate, nightPicker: quantityNight });
+    initializeFromToDatePicker("datepicker", {
+      disabledDates: disabledDates,
+      endDate: endDate,
+      nightPicker: quantityNight
+    });
   };
 
   /**
@@ -104,8 +130,8 @@ window.ST = window.ST || {};
       return clonedDate;
     });
     var today = dateAtBeginningOfDay(new Date());
-    var dateRage = $('#'+ rangeContainerId);
-    var dateLocale = dateRage.data('locale');
+    var dateRage = $("#" + rangeContainerId);
+    var dateLocale = dateRage.data("locale");
 
     var options = {
       startDate: today,
@@ -115,7 +141,7 @@ window.ST = window.ST || {};
       plusOne: nightPicker
     };
 
-    if(dateLocale !== 'en') {
+    if (dateLocale !== "en") {
       options.language = dateLocale;
     }
 
@@ -123,13 +149,13 @@ window.ST = window.ST || {};
 
     if (nightPicker) {
       $("#start-on").focus(function() {
-        if(!$(this).is(":focus")) {
+        if (!$(this).is(":focus")) {
           $("#start-on").datepicker("setDatesDisabled", disabledStartDates);
         }
       });
 
       $("#end-on").focus(function() {
-        if(!$(this).is(":focus")) {
+        if (!$(this).is(":focus")) {
           $("#end-on").datepicker("setDatesDisabled", disabledEndDates);
         }
       });
@@ -140,7 +166,7 @@ window.ST = window.ST || {};
       "booking-end-output": $("#booking-end-output")
     };
 
-    picker.on('changeDate', function(e) {
+    picker.on("changeDate", function(e) {
       var newDate = e.dates[0];
       var outputElementId = $(e.target).data("output");
       var outputElement = outputElements[outputElementId];
@@ -154,25 +180,28 @@ window.ST = window.ST || {};
       }
 
       if (outputElementId === "booking-start-output") {
-        $("#start-on").datepicker('hide')
-        $("#end-on").focus().datepicker('show')
+        $("#start-on").datepicker("hide");
+        $("#end-on")
+          .focus()
+          .datepicker("show");
       }
 
       outputElement.val(module.utils.toISODate(newDate));
-      setTimeout(function() { $("#end-on").valid(); }, 360);
+      setTimeout(function() {
+        $("#end-on").valid();
+      }, 360);
     });
-
   };
 
   var setupPerHour = function(options) {
-    var dateInput = $('#start-on');
+    var dateInput = $("#start-on");
     var disabledDates = options.blocked_dates.map(function(d) {
       return new Date(d * 1000);
     });
     var today = dateAtBeginningOfDay(new Date());
     var endDate = new Date(options.end_date * 1000);
     var currentDate = null;
-    var selectOne = ST.t('listings.listing_actions.select_one');
+    var selectOne = ST.t("listings.listing_actions.select_one");
 
     $.fn.datepicker.dates[options.locale] = options.localized_dates;
 
@@ -185,68 +214,90 @@ window.ST = window.ST || {};
     });
 
     var validateForm = function() {
-      $('#booking-dates').validate();
+      $("#booking-dates").validate();
     };
 
-    $('#start_time').on('change', function() {
-      var selected = $(this).find('option:selected'),
-        startTimeindex = selected.data('index'),
-        startTimeSlot = selected.data('slot'),
-        endTime = $('#end_time'),
+    $("#start_time").on("change", function() {
+      var selected = $(this).find("option:selected"),
+        startTimeindex = selected.data("index"),
+        startTimeSlot = selected.data("slot"),
+        endTime = $("#end_time"),
         prevBlocked = false;
-      if (endTime.prop('disabled') != true) {
-        setUpSelectOptions(currentDate, false, '#end_time');
+      if (endTime.prop("disabled") != true) {
+        setUpSelectOptions(currentDate, false, "#end_time");
       }
-      endTime.find('option').each(function () {
-        var option = $(this), endTimeIndex = option.data('index'),
-          endTimeSlot = option.data('slot'), blocked  = option.data('blocked'),
-          bookingStart = option.data('bookingStart');
-        if (endTimeIndex > startTimeindex && startTimeSlot === endTimeSlot &&
-          (!blocked || (!prevBlocked && bookingStart))) {
-          option.removeAttr('disabled');
+      endTime.find("option").each(function() {
+        var option = $(this),
+          endTimeIndex = option.data("index"),
+          endTimeSlot = option.data("slot"),
+          blocked = option.data("blocked"),
+          bookingStart = option.data("bookingStart");
+        if (
+          endTimeIndex > startTimeindex &&
+          startTimeSlot === endTimeSlot &&
+          (!blocked || (!prevBlocked && bookingStart))
+        ) {
+          option.removeAttr("disabled");
         } else {
-          option.prop('disabled', true);
+          option.prop("disabled", true);
         }
         prevBlocked = blocked;
       });
-      endTime.removeAttr('disabled');
+      endTime.removeAttr("disabled");
     });
 
     var setUpSelectOptions = function(date, start, selectSelector) {
       var date_options = options.options_for_select[date],
-        options_for_select = ['<option value="" disabled selected>' + selectOne + '</option>'],
+        options_for_select = [
+          '<option value="" disabled selected>' + selectOne + "</option>"
+        ],
         prevDisabled = false,
-        blocked = '';
-      for(var index in date_options) {
-        var disabled, option = date_options[index],
-          value = date + ' ' + option.value;
+        blocked = "";
+      for (var index in date_options) {
+        var disabled,
+          option = date_options[index],
+          value = date + " " + option.value;
         if (!start && option.slot_end && !prevDisabled) {
-          disabled = '';
-          blocked = '';
+          disabled = "";
+          blocked = "";
           if (option.next_day) {
-            value = option.next_day + ' ' + option.value;
+            value = option.next_day + " " + option.value;
           }
         } else {
-          disabled = option.disabled ? ' disabled ' : '';
-          blocked = option.disabled ? 'true' : '';
+          disabled = option.disabled ? " disabled " : "";
+          blocked = option.disabled ? "true" : "";
         }
         if (!(start && option.slot_end)) {
-          options_for_select.push('<option value="' + value + '" ' + disabled +
-            ' data-index="' + index + '" data-slot="' + option.slot +
-            '" data-blocked="' + blocked + '" data-booking-start="' + !!option.booking_start + '" >' + option.name + '</option>');
+          options_for_select.push(
+            '<option value="' +
+              value +
+              '" ' +
+              disabled +
+              ' data-index="' +
+              index +
+              '" data-slot="' +
+              option.slot +
+              '" data-blocked="' +
+              blocked +
+              '" data-booking-start="' +
+              !!option.booking_start +
+              '" >' +
+              option.name +
+              "</option>"
+          );
         }
         prevDisabled = option.disabled;
       }
-      $(selectSelector).html($(options_for_select.join('')));
+      $(selectSelector).html($(options_for_select.join("")));
       if (!start) {
-        $(selectSelector).prop('disabled', true);
+        $(selectSelector).prop("disabled", true);
       }
     };
 
-    picker.on('changeDate', function(e) {
+    picker.on("changeDate", function(e) {
       currentDate = dateToString(e.date);
-      setUpSelectOptions(currentDate, true, '#start_time');
-      setUpSelectOptions(currentDate, false, '#end_time');
+      setUpSelectOptions(currentDate, true, "#start_time");
+      setUpSelectOptions(currentDate, false, "#end_time");
     });
     validateForm();
   };

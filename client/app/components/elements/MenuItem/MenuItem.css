@@ -15,7 +15,8 @@
 
 .menuitemLink {
   display: inline-block;
-  padding: var(--MenuItem_paddingTopbarVertical) var(--MenuItem_paddingTopbarHorizontal);
+  padding: var(--MenuItem_paddingTopbarVertical)
+    var(--MenuItem_paddingTopbarHorizontal);
   color: var(--MenuItem_textColor);
   width: 100%;
   letter-spacing: var(--MenuItem_letterSpacing);

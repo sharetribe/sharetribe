@@ -13,19 +13,25 @@ window.ST = window.ST || {};
   - `decimals: boolean allow decimals
 */
 
-window.ST.rangeFilter = function(selector, range, start, labels, fields, decimals) {
-
+window.ST.rangeFilter = function(
+  selector,
+  range,
+  start,
+  labels,
+  fields,
+  decimals
+) {
   function decimalPlaces(number) {
     // The ^-?\d*\. strips off any sign, integer portion, and decimal point
     // leaving only the decimal fraction.
-    return ((+number).toString()).replace(/^-?\d*\.?/g, '').length;
+    return (+number).toString().replace(/^-?\d*\.?/g, "").length;
   }
 
-  function numberOfDecimals(){
-    if(decimals){
+  function numberOfDecimals() {
+    if (decimals) {
       var num_of_decimals = Math.max.apply(null, range.map(decimalPlaces));
       return 1 / Math.pow(10, num_of_decimals);
-    }else{
+    } else {
       return 1;
     }
   }
@@ -35,7 +41,6 @@ window.ST.rangeFilter = function(selector, range, start, labels, fields, decimal
       el.html(val);
     };
   }
-
 
   var step = numberOfDecimals();
 

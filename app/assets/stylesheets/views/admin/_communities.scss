@@ -23,7 +23,7 @@
   float: left;
 }
 .sort-arrow {
-  float:left;
+  float: left;
   font-size: em(12);
   display: inline-block;
   padding-left: 0.4em;
@@ -70,7 +70,10 @@ textarea.text_area_code {
 }
 
 .member-banned {
-  a, span, .admin-members-can-post-listings, .admin-members-is-admin {
+  a,
+  span,
+  .admin-members-can-post-listings,
+  .admin-members-is-admin {
     opacity: 0.5;
   }
 }

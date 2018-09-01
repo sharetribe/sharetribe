@@ -68,8 +68,14 @@
   /* This will position the button to the flexbox group bottom.
   See excellent SO answer: http://stackoverflow.com/a/33856609/432787 */
   margin-top: auto;
-  height: calc(var(--ManageAvailability_saveButtonHeight) + var(--ManageAvailability_padding));
-  min-height: calc(var(--ManageAvailability_saveButtonHeight) + var(--ManageAvailability_padding));
+  height: calc(
+    var(--ManageAvailability_saveButtonHeight) +
+      var(--ManageAvailability_padding)
+  );
+  min-height: calc(
+    var(--ManageAvailability_saveButtonHeight) +
+      var(--ManageAvailability_padding)
+  );
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -109,7 +115,8 @@
     stroke-miterlimit: 10;
     margin: 0 auto;
     box-shadow: inset 0 0 0 #fff;
-    animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+    animation: fill 0.4s ease-in-out 0.4s forwards,
+      scale 0.3s ease-in-out 0.9s both;
   }
 
   & :global(.availability_checkmark__circle) {

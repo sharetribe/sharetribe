@@ -1,9 +1,9 @@
 /* eslint-disable react/no-set-state  */
 
-import { Component, PropTypes } from 'react';
-import { div } from 'r-dom';
+import { Component, PropTypes } from "react";
+import { div } from "r-dom";
 
-import css from './SideWinder.css';
+import css from "./SideWinder.css";
 
 // ReactTransitionGroup is a low level animation API that handles
 // component mounting, unmounting and leaving/entering between
@@ -25,7 +25,7 @@ class SideWinderTransition extends Component {
     this.state = {
       open: true,
       entering: false,
-      leaving: false,
+      leaving: false
     };
   }
   componentWillUnmount() {
@@ -81,7 +81,7 @@ class SideWinderTransition extends Component {
 SideWinderTransition.propTypes = {
   enterTimeout: PropTypes.number.isRequired,
   leaveTimeout: PropTypes.number.isRequired,
-  children: PropTypes.any, // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.any // eslint-disable-line react/forbid-prop-types
 };
 
 export default SideWinderTransition;

@@ -24,7 +24,8 @@
     }
   }
 
-  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+  & :global(.notification-background) {
+    /* stylelint-disable-line selector-class-pattern */
     display: none;
   }
 
@@ -40,7 +41,8 @@
 }
 
 .hasNotifications {
-  & :global(.notification-background) { /* stylelint-disable-line selector-class-pattern */
+  & :global(.notification-background) {
+    /* stylelint-disable-line selector-class-pattern */
     display: block;
   }
 }

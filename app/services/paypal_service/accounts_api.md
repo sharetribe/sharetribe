@@ -1,4 +1,3 @@
-
 # paypal/v1/
 
 ## POST /accounts/request
@@ -113,7 +112,6 @@ Query params:
 Empty body
 
 Empty response
-
 
 ## DELETE /accounts?community_id=1&person_id=asdfasdgasdfasdg
 

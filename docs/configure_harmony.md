@@ -6,9 +6,9 @@ This guide does not instruct how to install and run Harmony. See [README.md](htt
 
 ## Prerequisites
 
-* Sharetribe version 6.2.0 or newer
-* Harmony service up and running
-* Marketplace configured to use transaction process with PayPal payments.
+- Sharetribe version 6.2.0 or newer
+- Harmony service up and running
+- Marketplace configured to use transaction process with PayPal payments.
 
 The availability management is tightly coupled to the transaction process, so PayPal payments need to be enabled to use availability management.
 
@@ -16,32 +16,32 @@ The availability management is tightly coupled to the transaction process, so Pa
 
 1. Make sure that Harmony is up and running
 
-  Try to open: [http://localhost:8085/apidoc/index.html](http://localhost:8085/apidoc/index.html)
+Try to open: [http://localhost:8085/apidoc/index.html](http://localhost:8085/apidoc/index.html)
 
-  If everything goes well, you should see the Swagger UI.
+If everything goes well, you should see the Swagger UI.
 
-  If you are running Harmony service in other location than `http://localhost:8085` (e.g. different port) you need to change the URL. `http://localhost:8085` is the default location.
+If you are running Harmony service in other location than `http://localhost:8085` (e.g. different port) you need to change the URL. `http://localhost:8085` is the default location.
 
 1. Enable Harmony
 
-  Add the following configuration to your `config.yml` file:
+Add the following configuration to your `config.yml` file:
 
-  ```
-  # Harmony service API connection
-  harmony_api_in_use: true
-  ```
+```
+# Harmony service API connection
+harmony_api_in_use: true
+```
 
 1. Restart Rails server
 
-  As always, Rails server needs to be restarted after configurations are changed.
+As always, Rails server needs to be restarted after configurations are changed.
 
 1. Enable availability management for Order types
 
-  Go to Admin > Order Types and edit the order types to enable daily or nightly availability.
+Go to Admin > Order Types and edit the order types to enable daily or nightly availability.
 
 1. Done!
 
-  If everything went ok, you should be now able to add listings with availability management enabled!
+If everything went ok, you should be now able to add listings with availability management enabled!
 
 ## Advanced configurations
 

@@ -4,8 +4,8 @@
 
 Query params:
 
- - `community_id`: mandatory, for searching community-specific features
- - `person_id`: mandatory, for searching person-specific features
+- `community_id`: mandatory, for searching community-specific features
+- `person_id`: mandatory, for searching person-specific features
 
 Request body: empty
 
@@ -25,7 +25,7 @@ Response body:
 
 Query params:
 
- - `community_id`: mandatory, for searching community-specific features
+- `community_id`: mandatory, for searching community-specific features
 
 Request body: empty
 
@@ -43,7 +43,7 @@ Response body:
 
 Query params:
 
- - `person_id`: mandatory, for searching person-specific features
+- `person_id`: mandatory, for searching person-specific features
 
 Request body: empty
 
@@ -57,13 +57,12 @@ Response body:
 }
 ```
 
-
 ## POST /?community_id=123&person_id=456
 
 Query params:
 
- - `community_id`: mandatory
- - `person_id`: optional (if `person_id` is provided, operation tagets user-specific feature flags)
+- `community_id`: mandatory
+- `person_id`: optional (if `person_id` is provided, operation tagets user-specific feature flags)
 
 Request body:
 
@@ -101,8 +100,8 @@ Response body (person_id provided):
 
 Query params:
 
- - `community_id`: mandatory
- - `person_id`: optional (if `person_id` is provided, operation tagets user-specific feature flags)
+- `community_id`: mandatory
+- `person_id`: optional (if `person_id` is provided, operation tagets user-specific feature flags)
 
 Request body:
 

@@ -10,7 +10,7 @@ Use Facebook's [API Upgrade Tool](https://developers.facebook.com/tools/api_vers
 
 Edit the file [config/facebook_sdk_version.rb](/config/facebook_sdk_version.rb). There are two configurations in that file
 
-* `SERVER`: The current server-side SDK version
-* `CLIENT`: The current client-side JavaScript SDK version
+- `SERVER`: The current server-side SDK version
+- `CLIENT`: The current client-side JavaScript SDK version
 
 Make the version change and test that everything works.

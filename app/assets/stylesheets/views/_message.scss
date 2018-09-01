@@ -4,7 +4,6 @@ $avatar-size: em(48);
 $message-time-height: lines(1);
 $message-time-margin: lines(0.25);
 
-
 .message-avatar-padding {
   @include media(large-mobile) {
     margin-left: $avatar-size + lines(0.5);
@@ -14,7 +13,8 @@ $message-time-margin: lines(0.25);
 .page-content .message-price-break-down {
   margin-bottom: 0;
 }
-.message-sum, .message-price {
+.message-sum,
+.message-price {
   @include big-type;
   padding-top: lines(0.5);
 }
@@ -48,7 +48,7 @@ $message-time-margin: lines(0.25);
   left: 0;
 }
 
-.message-avatar-right  {
+.message-avatar-right {
   @extend .message-avatar;
   right: 0;
 }
@@ -193,5 +193,5 @@ $message-time-margin: lines(0.25);
 }
 
 .message-price-vat {
-  @include small-type
+  @include small-type;
 }

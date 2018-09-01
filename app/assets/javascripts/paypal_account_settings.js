@@ -1,39 +1,43 @@
-window.ST = window.ST || {};
+window.ST = window.ST || {};
 
 (function(module) {
-
-
-  module.initializeNewPaypalAccountHandler = function(linkId, action, redirectMessageSelector) {
-    var $link = $('#'+linkId);
+  module.initializeNewPaypalAccountHandler = function(
+    linkId,
+    action,
+    redirectMessageSelector
+  ) {
+    var $link = $("#" + linkId);
     var spinner = new Image();
-    spinner.src = "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
+    spinner.src =
+      "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif";
     spinner.className = "send-button-loading-img";
 
-    $link.click(function(){
+    $link.click(function() {
       $link.after(spinner);
       $link.addClass("send-button-loading").blur();
 
       $.ajax({
-        type: 'GET',
+        type: "GET",
         url: action,
-        success: function(response){
-          var $redirectLink = $('#' + linkId + '_redirect');
-          $redirectLink.attr('href', response.redirect_url);
-          $(redirectMessageSelector).removeClass('hidden');
+        success: function(response) {
+          var $redirectLink = $("#" + linkId + "_redirect");
+          $redirectLink.attr("href", response.redirect_url);
+          $(redirectMessageSelector).removeClass("hidden");
           window.location = response.redirect_url;
         }
       });
-
     });
   };
 
   module.initializePayPalPreferencesForm = function(formId, commissionRange) {
-    var $form = $('#' + formId);
-    var $currency = $form.find('#payment_preferences_form_marketplace_currency');
-    var $currencyLabels = $form.find('.paypal-preferences-currency-label');
-    var $warning = $form.find('.paypal-currency-change-warning-text');
+    var $form = $("#" + formId);
+    var $currency = $form.find(
+      "#payment_preferences_form_marketplace_currency"
+    );
+    var $currencyLabels = $form.find(".paypal-preferences-currency-label");
+    var $warning = $form.find(".paypal-currency-change-warning-text");
 
-    $currency.on('change', function() {
+    $currency.on("change", function() {
       $currencyLabels.text($currency.val());
       $warning.show();
     });
@@ -59,5 +63,4 @@ window.ST = window.ST || {};
       }
     });
   };
-
 })(window.ST);

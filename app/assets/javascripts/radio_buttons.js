@@ -1,7 +1,6 @@
 window.ST = window.ST || {};
 
 (function(exports) {
-
   /**
    * Adds radiobutton functionality
    *
@@ -58,9 +57,9 @@ window.ST = window.ST || {};
   var initialize = function(opts) {
     opts = opts || {};
 
-    var buttonSelectors  = opts.buttons;
-    var inputSelector    = opts.input;
-    var callback         = opts.callback || function() {};
+    var buttonSelectors = opts.buttons;
+    var inputSelector = opts.input;
+    var callback = opts.callback || function() {};
 
     var input = $(inputSelector);
     var buttons = buttonSelectors.map(initializeButton);
@@ -74,5 +73,4 @@ window.ST = window.ST || {};
   };
 
   exports.initializeRadioButtons = initialize;
-
 })(window.ST);

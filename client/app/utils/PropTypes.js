@@ -1,16 +1,12 @@
-import { PropTypes } from 'react';
+import { PropTypes } from "react";
 
 const { oneOfType, string, objectOf, bool, object, shape, number } = PropTypes;
 
-const className = oneOfType([
-  string,
-  objectOf(bool),
-]);
+const className = oneOfType([string, objectOf(bool)]);
 
 const routes = object.isRequired;
 
 const marketplaceContext = shape({
-
   // Required props
   i18nLocale: string.isRequired,
   i18nDefaultLocale: string.isRequired,
@@ -26,8 +22,7 @@ const marketplaceContext = shape({
   httpAcceptLanguage: string,
   port: number,
   scheme: string,
-  serverSide: bool,
-
+  serverSide: bool
 }).isRequired;
 
 export { className, routes, marketplaceContext };

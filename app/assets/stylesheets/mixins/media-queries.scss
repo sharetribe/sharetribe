@@ -20,28 +20,44 @@
 
 @mixin media($point) {
   @if $point == tiny-mobile {
-    @media (max-width: em(318)) { @content; }
+    @media (max-width: em(318)) {
+      @content;
+    }
   }
   @if $point == mobile {
-    @media (min-width: em(320)) { @content; }
+    @media (min-width: em(320)) {
+      @content;
+    }
   }
   @if $point == large-mobile {
-    @media (min-width: em(480)) { @content; }
+    @media (min-width: em(480)) {
+      @content;
+    }
   }
   @if $point == small-tablet {
-    @media (min-width: em(600)) { @content; }
+    @media (min-width: em(600)) {
+      @content;
+    }
   }
   @if $point == tablet {
-    @media (min-width: em(768)) { @content; }
+    @media (min-width: em(768)) {
+      @content;
+    }
   }
   @if $point == small-desktop {
-    @media (min-width: em(860)) { @content; }
+    @media (min-width: em(860)) {
+      @content;
+    }
   }
   @if $point == mid-desktop {
-    @media (min-width: em(960)) { @content; }
+    @media (min-width: em(960)) {
+      @content;
+    }
   }
   @if $point == desktop {
-    @media (min-width: em(1008)) { @content; }
+    @media (min-width: em(1008)) {
+      @content;
+    }
   }
 }
 
@@ -50,9 +66,7 @@
 */
 @mixin highres {
   /* 1.5 dpr */
-  @media
-  (-webkit-min-device-pixel-ratio: 1.5),
-  (min-resolution: 144dpi){
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     @content;
   }
 }

@@ -7,7 +7,7 @@ $locations__desktop-height-4: 208px;
 $locations__desktop-height-3: 282px;
 
 $locations__tablet-height-7: 457px; // The height is actually more than this, but this is the
-                                     // number which is used to calculate the area based on the ratio
+// number which is used to calculate the area based on the ratio
 $locations__tablet-height-6: 457px;
 $locations__tablet-height-5: 457px;
 $locations__tablet-height-4: 441px;
@@ -68,14 +68,17 @@ $locations__mobile-gutter: 12px;
   @include prefix-prop(flex-wrap, wrap);
 
   // mobile
-  padding: 0px (24px - $locations__tablet-gutter / 2) 36px (24px - $locations__tablet-gutter / 2);
+  padding: 0px (24px - $locations__tablet-gutter / 2) 36px
+    (24px - $locations__tablet-gutter / 2);
 
   @media #{$mobile-landscape}, #{$tablet} {
-    padding: 0px (48px - $locations__tablet-gutter / 2) 48px (48px - $locations__tablet-gutter / 2);
+    padding: 0px (48px - $locations__tablet-gutter / 2) 48px
+      (48px - $locations__tablet-gutter / 2);
   }
 
   @media #{$desktop} {
-    padding: 0px (60px - $locations__desktop-gutter / 2) 60px (60px - $locations__desktop-gutter / 2);
+    padding: 0px (60px - $locations__desktop-gutter / 2) 60px
+      (60px - $locations__desktop-gutter / 2);
   }
 }
 
@@ -274,7 +277,8 @@ $locations__mobile-gutter: 12px;
 
   @media #{$mobile-landscape}, #{$tablet} {
     // location-mobile-style uses :first-child so we need to override it
-    &, &:first-child {
+    &,
+    &:first-child {
       width: (100% / 3);
       height: $locations__tablet-height-3;
     }
@@ -282,7 +286,8 @@ $locations__mobile-gutter: 12px;
 
   @media #{$desktop} {
     // location-mobile-style uses :first-child so we need to override it
-    &, &:first-child {
+    &,
+    &:first-child {
       width: (100% / 3);
       height: $locations__desktop-height-3;
     }
@@ -297,7 +302,8 @@ $locations__mobile-gutter: 12px;
   background-size: cover;
   background-position: center;
 
-  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10), inset 0 0 0 999999px rgba(0, 0, 0, 0.2); /* big enough number to cover the whole area */
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 999999px rgba(0, 0, 0, 0.2); /* big enough number to cover the whole area */
   width: 100%;
   height: 100%;
 
@@ -309,7 +315,7 @@ $locations__mobile-gutter: 12px;
 }
 
 .locations__location-title {
-  color: #FFF;
+  color: #fff;
   margin: 0 auto;
   @include typography__semibold;
   letter-spacing: 0px;
@@ -323,6 +329,4 @@ $locations__mobile-gutter: 12px;
   @media #{$desktop} {
     font-size: 18px;
   }
-
 }
-

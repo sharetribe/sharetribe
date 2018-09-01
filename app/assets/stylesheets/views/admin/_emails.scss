@@ -2,7 +2,7 @@
 
 .sender-address-preview-container {
   margin-top: lines(0.75);
-  margin-bottom: lines(1.0);
+  margin-bottom: lines(1);
 }
 
 .sender-address-preview {
@@ -36,7 +36,7 @@
 
 .status-requested {
   font-weight: bold;
-  color: #FF0000;
+  color: #ff0000;
 }
 
 .status-error {
@@ -49,7 +49,8 @@
 
 input {
   &.sender-address-disabled {
-    &, &:hover {
+    &,
+    &:hover {
       background-color: $highlight;
     }
   }
@@ -57,7 +58,8 @@ input {
 
 button {
   &.sender-address-disabled {
-    &, &:hover {
+    &,
+    &:hover {
       background-color: $border;
     }
   }

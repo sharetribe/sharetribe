@@ -4,7 +4,7 @@ First of all, thank you so much! We greatly appreciate all contributions. Howeve
 
 ## Reporting issues
 
-Use the [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md) to report issues.  Here's an example issue: [raw](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_EXAMPLE.md) / [formatted](https://github.com/sharetribe/sharetribe/blob/master/ISSUE_EXAMPLE.md)
+Use the [ISSUE_TEMPLATE.md](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md) to report issues. Here's an example issue: [raw](https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_EXAMPLE.md) / [formatted](https://github.com/sharetribe/sharetribe/blob/master/ISSUE_EXAMPLE.md)
 
 If you'd like to know what happens after you've reported an Issue, see [How to handle Github Issues](docs/how-to-handle-github-issues.md)
 

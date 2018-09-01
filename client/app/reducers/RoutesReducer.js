@@ -1,5 +1,5 @@
 const initialState = {
-  routes: {},
+  routes: {}
 };
 
 export default function routesReducer(state = initialState) {
