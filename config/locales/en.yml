@@ -397,6 +397,14 @@ en:
           waiting: "Waiting for review"
           skipped: Skipped
           published: Published
+          blocked: Blocked
+        form:
+          review_text: 'Review text'
+          save: 'Save changes'
+          delete_review: 'Delete review'
+          block_review: 'Block review'
+          confirm_modify: 'Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover previous removed data.'
+          deleting_info: 'Deleting a review allows the author of the review to leave another review for the same transaction. Blocking the review (and deleting it) does not allow the author to leave another review and deletes the review from the site.'
       listings:
         listings: Listings
         headers:

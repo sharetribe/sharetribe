@@ -1,3 +1,6 @@
+- content_for :javascript do
+  ST.Testimonials.init();
+
 - content_for :title_header do
   %h1
     = t("layouts.admin.admin")
@@ -10,11 +13,11 @@
   %h2= t("admin.communities.testimonials.testimonials")
 
   %span#admin_testimonials_count
-    - pages = @testimonials[:tx_total_pages]
+    - pages = @service.testimonials[:tx_total_pages]
     - if pages == 0
       = t('admin.communities.testimonials.no_reviews_found')
     - else
-      = raw t('admin.communities.testimonials.displaying_xx_reviews', count: @testimonials[:page_count], all_count: @testimonials[:all_count], tx_from: @testimonials[:tx_from], tx_to: @testimonials[:tx_to])
+      = raw t('admin.communities.testimonials.displaying_xx_reviews', count: @service.testimonials[:page_count], all_count: @service.testimonials[:all_count], tx_from: @service.testimonials[:tx_from], tx_to: @service.testimonials[:tx_to])
 
   %table#admin_testimonials
     %thead
@@ -28,12 +31,18 @@
         %th= t("admin.communities.testimonials.headers.status")
         %th= t("admin.communities.testimonials.headers.grade")
         %th= t("admin.communities.testimonials.headers.note")
+        %th
 
     %tbody
-      - @transactions.each do |tx|
+      - @service.transactions.each do |tx|
         - [:starter, :author].each do |participant|
           = render 'testimonial', tx: tx, participant: participant
 
   .row
     .col-12
-      = will_paginate @transactions
+      = will_paginate @service.transactions
+
+= render layout: "layouts/lightbox", locals: { id: "testimonial_popup"} do
+  #testimonial-form
+
+

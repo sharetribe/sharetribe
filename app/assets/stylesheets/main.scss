@@ -661,6 +661,7 @@ a.lightbox-x {
   right: 0;
   top: 0;
   color: #aaacad;
+  z-index: 1;
 
   &:hover {
     color: #919294;
@@ -2206,4 +2207,7 @@ figure.fluidratio {
 }
 .text-center {
   text-align: center;
+}
+.ui-tooltip {
+  background-color: #ffffff;
 }

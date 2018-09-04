@@ -1,0 +1,32 @@
+.testimonial-edit-form
+  = form_for service.testimonial, url: admin_community_testimonial_path(service.testimonial),
+    remote: true, data: { confirm: t('admin.communities.testimonials.form.confirm_modify') } do |form|
+    = form.hidden_field :grade
+    .row
+      - positive = service.testimonial.positive?
+      .col-2
+        .testimonial-cell
+          #thumbs-up.testimonial-icon{:class => positive ? 'positive' : 'faded'}
+            = icon_tag("like")
+      .col-2
+        .testimonial-cell
+          #thumbs-down.testimonial-icon{:class => positive ? 'faded' : 'negative'}
+            = icon_tag("dislike")
+      .col-8
+        = form.label :text, t('admin.communities.testimonials.form.review_text')
+        = form.text_area :text
+    .row
+      .col-12.testimonial-save
+        = form.submit t('admin.communities.testimonials.form.save'), class: 'button'
+    .row
+      .col-4
+      .col-8.testimonial-checkbox
+        %label
+          = check_box_tag :delete_review
+          = t('admin.communities.testimonials.form.delete_review')
+          %span.marketplace-color{title: t('admin.communities.testimonials.form.deleting_info')}
+            = icon_tag("information")
+        %label
+          = form.check_box :blocked
+          = t('admin.communities.testimonials.form.block_review')
+

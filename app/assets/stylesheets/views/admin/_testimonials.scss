@@ -1,3 +1,5 @@
+@import "mixins/all";
+
 #admin_testimonials {
   tbody tr:nth-child(2n) {
     border-bottom: 3px solid white;
@@ -16,4 +18,35 @@
     }
   }
 }
-
+#testimonial_popup {
+  @include media(desktop) {
+    min-width: 600px;
+  }
+}
+#testimonial-form {
+  .testimonial-cell {
+    margin: auto;
+    .testimonial-icon {
+      position: relative;
+      font-size: 3em;
+      line-height: 3em;
+      text-align: center;
+      width: auto;
+      cursor: pointer;
+    }
+  }
+  .testimonial-save {
+    text-align: center;
+    .button {
+      display: initial;
+    }
+  }
+  .testimonial-checkbox {
+    input {
+      margin-right: 10px;
+    }
+    span {
+      margin-left: 10px;
+    }
+  }
+}
