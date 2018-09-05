@@ -46,6 +46,18 @@ class Admin::TestimonialsService
     testimonial.errors.any?
   end
 
+  def new_testimonial
+    @testimonial = transactions_scope.find(params[:transaction_id]).testimonials.build(grade: 1)
+  end
+
+  def create
+    @testimonial = transactions_scope.find(params[:transaction_id]).testimonials.build(testimonial_params)
+    @testimonial.author = params_true?(:from_tx_author) ? testimonial.tx.author : testimonial.tx.starter
+    @testimonial.receiver = params_true?(:from_tx_author) ? testimonial.tx.starter : testimonial.tx.author
+    @testimonial.save
+    @testimonial.tx.reload
+  end
+
   private
 
   def transactions_scope
@@ -73,5 +85,9 @@ class Admin::TestimonialsService
 
   def testimonial_params
     params.require(:testimonial).permit(:text, :grade, :blocked)
+  end
+
+  def params_true?(key)
+    !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[key])
   end
 end

@@ -1,5 +1,7 @@
+- persisted = service.testimonial.persisted?
 .testimonial-edit-form
-  = form_for service.testimonial, url: admin_community_testimonial_path(service.testimonial),
+  - url = persisted ? admin_community_testimonial_path(service.testimonial) : admin_community_testimonials_path()
+  = form_for service.testimonial, url: url,
     remote: true, data: { confirm: t('admin.communities.testimonials.form.confirm_modify') } do |form|
     = form.hidden_field :grade
     .row
@@ -21,12 +23,16 @@
     .row
       .col-4
       .col-8.testimonial-checkbox
-        %label
-          = check_box_tag :delete_review
+        %label{class: "#{persisted ? '' : 'disabled'}"}
+          = check_box_tag :delete_review, '1', false, disabled: persisted ? nil : true
           = t('admin.communities.testimonials.form.delete_review')
           %span.marketplace-color{title: t('admin.communities.testimonials.form.deleting_info')}
             = icon_tag("information")
-        %label
-          = form.check_box :blocked
+        %label{class: "#{persisted ? '' : 'disabled'}"}
+          = form.check_box :blocked, {disabled: persisted ? nil : true}
           = t('admin.communities.testimonials.form.block_review')
+    - unless persisted
+      = hidden_field_tag :transaction_id, service.testimonial.tx.id
+      = hidden_field_tag :from_tx_author, params[:from_tx_author]
+      = hidden_field_tag :testimonial_index, params[:testimonial_index]
 
