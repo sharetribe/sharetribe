@@ -16,20 +16,27 @@
           %span.hidden-tablet
             = t("admin.communities.footer.title")
           = text_field_tag "community[footer_menu_links_attributes][#{f.index}][translation_attributes][#{locale_value}][title]",
-            f.object.title(locale_value), required: true, maxlength: 255
+            f.object.title(locale_value), required: true, maxlength: 255,
+            disabled: disabled
 
         %div{:class => show_locales ? "col-5" : "col-6"}
           %span.hidden-tablet
             = t("admin.communities.footer.url")
           = text_field_tag "community[footer_menu_links_attributes][#{f.index}][translation_attributes][#{locale_value}][url]",
-            f.object.url(locale_value), required: true, maxlength: 255
+            f.object.url(locale_value), required: true, maxlength: 255,
+            disabled: disabled
 
   .col-2.menu-links-actions
-    - link_class = "menu-link-#{(show_locales ? "with" : "without")}-locale-remove"
+    - if disabled
+      = icon_tag("cross", ["icon-fix disabled"])
+      = icon_tag("directup", ["icon-fix disabled"])
+      = icon_tag("directdown", ["icon-fix disabled"])
+    - else
+      - link_class = "menu-link-#{(show_locales ? "with" : "without")}-locale-remove"
 
-    = link_to "#", class: "menu-link-remove #{link_class}", tabindex: "-1" do
-      = icon_tag("cross", ["icon-fix"])
-    = link_to '#', class: "menu-link-action-up admin-sort-button", tabindex: "-1" do
-      = icon_tag("directup", ["icon-fix"])
-    = link_to '#', class: "menu-link-action-down admin-sort-button", tabindex: "-1" do
-      = icon_tag("directdown", ["icon-fix"])
+      = link_to "#", class: "menu-link-remove #{link_class}", tabindex: "-1" do
+        = icon_tag("cross", ["icon-fix"])
+      = link_to '#', class: "menu-link-action-up admin-sort-button", tabindex: "-1" do
+        = icon_tag("directup", ["icon-fix"])
+      = link_to '#', class: "menu-link-action-down admin-sort-button", tabindex: "-1" do
+        = icon_tag("directdown", ["icon-fix"])

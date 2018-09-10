@@ -17,8 +17,11 @@
   input[type="radio"] {
     margin-left: 0.75em
   }
+  input[disabled] {
+    background-color: #e8e8e8;
+  }
   button[disabled] {
-    background: gray;
+    background-color: #c3c3c3;
   }
 }
 

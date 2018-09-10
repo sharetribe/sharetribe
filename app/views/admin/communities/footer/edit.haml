@@ -62,12 +62,12 @@
     .row#menu-links
       - @service.footer_menu_links.each do |footer_menu_link|
         = form.fields_for :footer_menu_links, footer_menu_link do |fields|
-          = render "footer_menu_link", f: fields
+          = render "footer_menu_link", f: fields, disabled: disabled
 
       - new_footer_menu_link = @service.new_footer_menu_link
       = form.fields_for :footer_menu_links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
         %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
-          = render "footer_menu_link", f: fields
+          = render "footer_menu_link", f: fields, disabled: disabled
 
     .row#menu-links-empty
       .col-12
