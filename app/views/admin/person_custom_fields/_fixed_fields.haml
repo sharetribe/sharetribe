@@ -32,6 +32,8 @@
   .col-1.text-center
     = icon_tag("check", ["icon-fix disabled"])
   .col-1.text-center
+    - if service.public_family_name?
+      = icon_tag("check", ["icon-fix disabled"])
   .col-2
     = icon_tag("edit", ["icon-fix disabled"])
     = icon_tag("cross", ["icon-fix disabled"])
