@@ -28,8 +28,9 @@
           = t('admin.communities.testimonials.form.delete_review')
           %span.marketplace-color{title: t('admin.communities.testimonials.form.deleting_info')}
             = icon_tag("information")
-        %label{class: "#{persisted ? '' : 'disabled'}"}
-          = form.check_box :blocked, {disabled: persisted ? nil : true}
+        - disabled = service.testimonial_blocked_disabled?
+        %label{class: "#{disabled ? 'disabled' : ''}"}
+          = form.check_box :blocked, {disabled: disabled ? true : nil}
           = t('admin.communities.testimonials.form.block_review')
     - unless persisted
       = hidden_field_tag :transaction_id, service.testimonial.tx.id

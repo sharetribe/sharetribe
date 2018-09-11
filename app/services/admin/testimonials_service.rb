@@ -30,7 +30,8 @@ class Admin::TestimonialsService
   end
 
   def update
-    if params[:delete_review]
+    if params[:delete_review] &&
+       (params[:testimonial][:blocked].nil? || params[:testimonial][:blocked] == '0')
       testimonial.destroy && testimonial.tx.reload
     else
       testimonial.update_attributes(testimonial_params) &&
@@ -44,6 +45,10 @@ class Admin::TestimonialsService
 
   def testimonial_errors?
     testimonial.errors.any?
+  end
+
+  def testimonial_blocked_disabled?
+    (testimonial.persisted? && !testimonial.blocked) || testimonial.new_record?
   end
 
   def new_testimonial
