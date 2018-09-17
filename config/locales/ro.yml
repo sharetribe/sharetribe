@@ -91,11 +91,11 @@ ro:
         contact_admin_link_text: ~
         save: "Salvează setările"
         transaction_agreement: ~
-        transaction_agreement_checkbox: ~
-        transaction_agreement_checkbox_header: ~
-        transaction_agreement_checkbox_label_description: ~
-        transaction_agreement_text_header: ~
-        transaction_agreement_description: ~
+        transaction_agreement_checkbox: "Solicita utilizatorilor sa confirme inainte de efectuarea tranzactiilor"
+        transaction_agreement_checkbox_header: "Eticheta butonului de confirmare a tranzactiei"
+        transaction_agreement_checkbox_label_description: "Acest text va fi afisat alaturi de o caseta de verificare in pasul de checkout. Utilizatorul trebuie sa bifeze caseta de verificare pentru a putea continua tranzactia. Un exemplu al acestei etichete poate fi \"Prin apasarea acestui buton confirm tranzatia\""
+        transaction_agreement_text_header: "Textul de confirmare a tranzactiei"
+        transaction_agreement_description: "Acesta este continutul Termenilor si Conditiilor de tranzactionare pe care utilizatorii trebuie sa il accepte. Continutul este afisat la apasarea butonului %{read_more} aplasat langa caseta de verificare a confirmarii tranzactiei."
       edit_look_and_feel:
         edit_community_look_and_feel: "Editați aspectul marketplace-ului \"%{community_name}\""
         community_logo: Logo
@@ -344,8 +344,8 @@ ro:
           paid: "Plătit /ă"
           confirmed: ~
           canceled: "Anulat /ă"
-          initiated: ~
-          pending_ext: ~
+          initiated: "Plata prin PayPal in desfasurare"
+          pending_ext: "Plata prin PayPal in desfasurare"
           none:
             free: ~
           paypal:
@@ -887,8 +887,8 @@ ro:
       offer_canceled: Anulat
       offer_confirmed: Finalizat
       offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_preauthorized: "Plata efectuata cu suuces"
+      offer_waiting_for_payment: "Plata efectuate de %{requester_name} in asteptare"
       pay: Plata
       preauthorized: "Plata realizată cu succes"
       paid: "Plata cu succes"
@@ -904,7 +904,7 @@ ro:
       request_confirmed: Finalizat
       request_canceled: Anulat
       request_paid: ~
-      request_preauthorized: ~
+      request_preauthorized: "Plata autorizata"
       skip_feedback: "Omiteti feedback"
       waiting_for_listing_author_to_accept_offer: "Aşteptare pentru %{listing_author_name} pentru a accepta oferta"
       waiting_for_listing_author_to_accept_request: "Așteptat %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, veți fi taxat/ă."
@@ -916,7 +916,7 @@ ro:
       waiting_feedback_from_you: "Asteptam sa oferiti feedback"
       pending_external_inbox:
         paypal:
-          multicurrency: ~
+          multicurrency: "Te rugam sa confirmi plata prin PayPal"
           intl: ~
           unknown_reason: "Plata este in asteptare. Conectati-va la contul dvs. de PayPal pentru mai multe detalii."
           verify: "Asteptam sa va verificati contul PayPal"
@@ -1189,7 +1189,7 @@ ro:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
-      generic_error: ~
+      generic_error: "O eroare a aparut in timpul platii. Plata ta prin PayPal nu a fost finalizata"
       cancel_error: ~
       accept_authorization_error: ~
       reject_authorization_error: ~
@@ -1584,10 +1584,12 @@ ro:
       can_not_delete_email: "Nu puteti sterge adresa de e-mail"
       user_does_not_have_email_to_delete: "Nu aveti adresa de e-mail pe care incercati sa o stergeti"
       email_deleted: "Adresa de e-mail stearsa"
-      listing_author_payment_details_missing: ~
+      listing_author_payment_details_missing: "Te rugam sa contactezi furnizorul prin apasarea butonului \"Contact\" de mai jos in vederea actualizarii detaliilor de plata"
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Cont
       notifications: Notificari
@@ -1669,7 +1671,7 @@ ro:
         select_file: "Selectează fisier"
         add_more: ~
         removing: "Se elimina..."
-        processing: "Se proceseaza"
+        processing: "Se proceseaza..."
         loading_image: Încarcă...
         image_uploading_in_progress: ~
         processing_takes_a_while: ~
@@ -1870,7 +1872,7 @@ ro:
       nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
-      read_more: ~
+      read_more: Afiseaza
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -1974,7 +1976,7 @@ ro:
     pay_with_paypal: ~
     checkout_with: ~
     or_pay_with_paypal: ~
-    checkout_with_paypal: ~
+    checkout_with_paypal: "Finalizeaza tranzactia prin PayPal"
     cancel_succesful: ~
     transaction:
       commission_payment_name: ~

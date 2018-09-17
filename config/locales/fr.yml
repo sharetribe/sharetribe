@@ -1607,6 +1607,8 @@ fr:
         other: "Le site sera inaccessible pour maintenance dans %{count} minutes"
       automatically_logged_out_please_sign_in: "Vous avez été déconnecté automatiquement. Veuillez vous connecter de nouveau."
       stripe_you_account_balance_is_not_0: "Le solde de votre compte n'est pas nul, il ne peut donc pas être supprimé. Cela peut être car vous avez des transactions non encore réalisées ou bien des paiements vers votre compte en banque sont en attente. Veuillez contacter l'équipe %{service_name} pour en savoir plus."
+      visit_admin: "Voulez-vous aller dans %{link} ?"
+      visit_admin_link: "votre panneau d'administration"
     settings:
       account: Compte
       notifications: Notifications

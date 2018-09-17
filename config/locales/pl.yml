@@ -1621,6 +1621,8 @@ pl:
         other: "Strona stanie się niedostępna ze względów serwisowych za %{count} minut"
       automatically_logged_out_please_sign_in: "Zostałeś automatycznie wylogowany. Proszę zaloguj się ponownie."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: "czy chciałbyś %{link}?"
+      visit_admin_link: "zobacz w panelu administratora"
     settings:
       account: Konto
       notifications: Powiadomienia
@@ -1812,10 +1814,10 @@ pl:
       how_paypal_works: "Jak działa PayPal"
       payment_help: "Pomoc w sprawie płatności"
       unable_load_availability: "Nie można załadować informacji o dostępności. Proszę spróbować ponownie później."
-      booking_date: ~
+      booking_date: "Data rezerwacji"
       select_one: ~
-      start_time: ~
-      end_time: ~
+      start_time: Początek
+      end_time: Koniec
     new:
       listing: oferta
       selected_category: "Kategoria: %{category}"
@@ -2423,8 +2425,8 @@ pl:
       working_hours:
         default_schedule: ~
         i_am_available_on: ~
-        start_time: ~
-        end_time: ~
+        start_time: Początek
+        end_time: Koniec
         add_another_time_slot: ~
         save: ~
     no_listings:

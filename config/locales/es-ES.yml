@@ -1607,6 +1607,8 @@ es-ES:
         other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
       automatically_logged_out_please_sign_in: "Por favor, inicia sesión de nuevo, ya que tu sesión ha caducado."
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Cuenta
       notifications: Notificaciones
