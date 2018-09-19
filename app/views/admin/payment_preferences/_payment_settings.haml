@@ -55,12 +55,11 @@
                         =icon_tag("check", ["icon-fix"])
                         =t("admin.payment_preferences.stripe_connected.title")
                       = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_stripe_toggle"
-                      - if paypal_connected && paypal_enabled_by_admin
-                        %br
-                        = link_to t("admin.payment_preferences.stripe_connected.disable"),
-                          disable_admin_payment_preference_path(payment_gateway: :stripe),
-                          data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'STRIPE')},
-                          id: "disable_stripe"
+                      %br
+                      = link_to t("admin.payment_preferences.stripe_connected.disable"),
+                        disable_admin_payment_preference_path(payment_gateway: :stripe),
+                        data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'STRIPE')},
+                        id: "disable_stripe"
                   - else
                     .col-6
                       %h3.paypal-account-disabled
@@ -146,4 +145,3 @@
       - content_for :extra_javascript do
         :javascript
           $('#config_paypal_toggle').click();
-
