@@ -227,7 +227,7 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
-        automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to providers are delayed until the order is marked as completed. %{learn_more}."
+        automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed. %{learn_more}."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -524,7 +524,7 @@ en:
       availability_title: Availability
       read_more: "Read more about automatic availability management."
       read_more_availability_management: "Read more about availability management."
-      allow_providers_to_manage_availability: "Allow providers to manage their availability from a calendar"
+      allow_providers_to_manage_availability: "Allow sellers to manage their availability from a calendar"
       per_hour_availability: "\"Per hour\" availability"
       per_day_availability: "\"Per day\" availability"
       per_night_availability: "\"Per night\" availability"
@@ -655,8 +655,8 @@ en:
       choose_popup_text: |-
           If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
           You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
-          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your providers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your providers to create a PayPal Business Account to accept payments.
-          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the provider separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
+          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your sellers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your sellers to create a PayPal Business Account to accept payments.
+          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the seller separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
       invalid_api_keys: "Invalid Stripe API keys"
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
@@ -668,7 +668,7 @@ en:
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
-      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, providers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If providers haven't configured another payment method, buyers will not be able to buy from them."
+      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       stripe_connected:
         title: "Stripe connected"
         disable: "Disable Stripe"
