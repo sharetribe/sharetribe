@@ -539,7 +539,7 @@ class ApplicationController < ActionController::Base
     user = Maybe(@current_user).map { |u|
       {
         unread_count: InboxService.notification_count(u.id, @current_community.id),
-        avatar_url: u.image.present? ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
+        avatar_url: u.image.present? && !u.image_processing ? u.image.url(:thumb) : view_context.image_path("profile_image/thumb/missing.png"),
         current_user_name: PersonViewUtils.person_display_name(u, @current_community),
         inbox_path: person_inbox_path(u),
         profile_path: person_path(u),
