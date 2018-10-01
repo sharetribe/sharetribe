@@ -53,13 +53,14 @@ const getDistance = (pointA, pointB) => {
  * @return {Promise<google.maps.places.PlaceResult>} Promise that
  * resolves to the detailed place, rejects if the request failed
  */
-const getDetails = (placeId) => new Promise((resolve, reject) => {
+const getDetails = (placeId, sessionToken) => new Promise((resolve, reject) => {
   const serviceStatus = window.google.maps.places.PlacesServiceStatus;
   const el = document.createElement('div');
   const service = new window.google.maps.places.PlacesService(el);
   const request = {
     placeId: placeId, // eslint-disable-line babel/object-shorthand
     fields: ['address_components', 'geometry', 'icon', 'name'],
+    sessionToken: sessionToken, // eslint-disable-line babel/object-shorthand
   };
 
   service.getDetails(request, (place, status) => {
@@ -152,7 +153,7 @@ export const getPrediction = (location) => new Promise((resolve, reject) => {
     } else if (predictions.length === 0) {
       reject(new Error(`No predictions found for location "${location}"`));
     } else {
-      resolve(getDetails(predictions[0].place_id));
+      resolve(getDetails(predictions[0].place_id, sessionToken));
     }
   });
 });
