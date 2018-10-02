@@ -27,7 +27,6 @@ Feature: User updates profile information
 
   @javascript
   Scenario: Updating profile's custom fields successfully
-    Given feature flag "user_fields" is enabled
     And there is a required person custom text field "House type" in community "test"
     And there is a required person custom numeric field "Points" in community "test"
     And there is a required person custom date field "Member since" in community "test"
@@ -64,7 +63,6 @@ Feature: User updates profile information
 
   @javascript
   Scenario: Profile's custom text field has autolink
-    Given feature flag "user_fields" is enabled
     And there is a required public person custom text field "Hobby" in community "test"
     And I am on the profile settings page
     And I fill in "person_custom_fields_0" with "Airplane models www.example.com"
@@ -75,7 +73,6 @@ Feature: User updates profile information
 
   @javascript
   Scenario: Updating required profile's custom checkbox field shows error message
-    Given feature flag "user_fields" is enabled
     And there is a person custom dropdown field "Balcony type" in community "test" with options:
       | en             | fi                   |
       | No balcony     | Ei parveketta        |

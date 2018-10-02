@@ -1,5 +1,4 @@
 class Admin::PersonCustomFieldsController < Admin::AdminBaseController
-  before_action :ensure_feature_flag_enabled
   before_action :set_selected_left_navi_link
   before_action :set_service
 
@@ -46,11 +45,5 @@ class Admin::PersonCustomFieldsController < Admin::AdminBaseController
     @service = Admin::PersonCustomFieldsService.new(
       community: @current_community,
       params: params)
-  end
-
-  def ensure_feature_flag_enabled
-    unless FeatureFlagHelper.feature_enabled?(:user_fields)
-      redirect_to search_path and return
-    end
   end
 end

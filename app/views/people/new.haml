@@ -59,7 +59,7 @@
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
 
-    - if FeatureFlagHelper.feature_enabled?(:user_fields) && @service.has_person_custom_fields?
+    - if @service.has_person_custom_fields?
       - @service.custom_field_values.each_with_index do |custom_field_value, index|
         - custom_field = custom_field_value.question
         - custom_field.with_type do |field_type|

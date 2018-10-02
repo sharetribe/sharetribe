@@ -6,7 +6,6 @@ Feature: Admin removes person custom fieldy
       | No balcony     | Ei parveketta        |
       | French balcony | Ranskalainen parveke |
     And there is a person custom text field "Additional details" in community "test"
-    And feature flag "user_fields" is enabled
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
     And I am on the person custom fields admin page
