@@ -2558,6 +2558,6 @@ en:
     can_accept_stripe_and_paypal: "You can receive money to your bank account or your PayPal account."
     to_accept_paypal: "To receive money to your PayPal account, you need to connect your PayPal account. Your customers will be able to pay with PayPal."
     connect_paypal: "Connect PayPal account"
-    wrong_setup: "There is something wrong with the payment system setup in this marketplace: the platform has not been registered. Please contact the team to let them know that they should register their platform at Stripe."
+    wrong_setup: "There is something wrong with the payment system setup in this marketplace: Stripe Connect has not been enabled. Please contact the team to let them know that they should enable Stripe Connect in their Stripe Dashboard."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"
