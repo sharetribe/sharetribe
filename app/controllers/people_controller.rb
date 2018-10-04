@@ -412,7 +412,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def person_update_params(params)
-    params.require(:person).permit(
+    result = params.require(:person).permit(
         :given_name,
         :family_name,
         :display_name,
@@ -451,6 +451,13 @@ class PeopleController < Devise::RegistrationsController
           selected_option_ids: []
         ]
       )
+    if result.key?(:custom_field_values_attributes)
+      result[:custom_field_values_attributes].delete_if do |value|
+        (value[:type] == "DropdownFieldValue" || value[:type] == "CheckboxFieldValue") &&
+          value[:selected_option_ids].delete_if{|x| x.blank?}.empty?
+      end
+    end
+    result
   end
 
   def email_not_valid(params, error_redirect_path)
