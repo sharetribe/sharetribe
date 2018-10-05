@@ -53,7 +53,7 @@
         = check_box_tag "form[admin_emails_consent]", "on", values[:admin_email_consent] == "on", id: "admin_emails_consent"
         = label_tag "form[admin_emails_consent]", t('people.new.admin_emails_consent'), class: "checkbox"
 
-    - if FeatureFlagHelper.feature_enabled?(:user_fields) && @service.has_person_custom_fields?
+    - if @service.has_person_custom_fields?
       - @service.custom_field_values.each_with_index do |custom_field_value, index|
         - custom_field = custom_field_value.question
         - custom_field.with_type do |field_type|

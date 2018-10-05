@@ -56,7 +56,7 @@
             });
 
     -# Phone number
-    - show_phone_number = FeatureFlagHelper.feature_enabled?(:user_fields) ? @service.fixed_phone_field? : true
+    - show_phone_number = @service.fixed_phone_field?
     - if show_phone_number
       .inline-label-container
         = form.label :phone_number, t("settings.profile.phone_number"), :class => "inline"
@@ -82,7 +82,7 @@
       = loc.hidden_field :google_address, :value => target_user.location.google_address
       = loc.hidden_field :latitude, :value => target_user.location.latitude
       = loc.hidden_field :longitude, :value => target_user.location.longitude
-    - if FeatureFlagHelper.feature_enabled?(:user_fields) && @service.has_person_custom_fields?
+    - if @service.has_person_custom_fields?
       - @service.custom_field_values.each_with_index do |custom_field_value, index|
         .inline-label-container
         - custom_field = custom_field_value.question

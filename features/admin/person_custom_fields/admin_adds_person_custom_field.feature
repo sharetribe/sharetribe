@@ -3,7 +3,6 @@ Feature: Admin adds a person custom field
   Background:
     Given I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights in community "test"
-    And feature flag "user_fields" is enabled
     And I am on the person custom fields admin page
     Then I should see that I do not have any custom fields
 

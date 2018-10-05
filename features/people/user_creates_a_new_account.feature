@@ -159,7 +159,6 @@ Feature: User creates a new account
     And I should see "The email you entered is now confirmed"
 
   Scenario: Creating a new account with custom fields successfully
-    Given feature flag "user_fields" is enabled
     And there is a required person custom text field "House type" in community "test"
     And there is a required person custom numeric field "Points" in community "test"
     And there is a required person custom date field "Member since" in community "test"
