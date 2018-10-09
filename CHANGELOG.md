@@ -10,6 +10,20 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [7.4.0] - 2018-10-09
+
+### Added
+
 - View Listings page in the admin panel [#3340](https://github.com/sharetribe/sharetribe/pull/3340)
 - Locations section in the custom landing pages [#3341](https://github.com/sharetribe/sharetribe/pull/3341)
 - Background color and image for any section [#3296](https://github.com/sharetribe/sharetribe/pull/3296)
@@ -39,11 +53,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Update to Circle CI 2.0 [#3360](https://github.com/sharetribe/sharetribe/pull/3360)
 - Profile image is only used once it has been processed [#3427](https://github.com/sharetribe/sharetribe/pull/3427)
 
-
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Fix data deletion task to handle missing images [#3349](https://github.com/sharetribe/sharetribe/pull/3349)
@@ -53,8 +62,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Display bug in checkbox user fields [#3385](https://github.com/sharetribe/sharetribe/pull/3385)
 - Fixed a broken link when no date was selected for free "per day" and "per night" listings [#3410](https://github.com/sharetribe/sharetribe/pull/3410)
 - Allow to leave dropdown option unselected if it is not mandatory [#3446](https://github.com/sharetribe/sharetribe/pull/3446)
-
-### Security
 
 ## [7.3.1] - 2018-06-07
 
@@ -560,7 +567,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...HEAD
+[7.4.0]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...v7.4.0
 [7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
 [7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0
