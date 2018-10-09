@@ -40,6 +40,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
 - Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
 - Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
+- Fixed displaying design page [#3451](https://github.com/sharetribe/sharetribe/pull/3451)
 
 ### Security
 
