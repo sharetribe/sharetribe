@@ -19,6 +19,13 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Allow markdown in user profiles "About you" section [#3370](https://github.com/sharetribe/sharetribe/pull/3370)
 - "Expired" status in View listings page [#3387](https://github.com/sharetribe/sharetribe/pull/3387)
 - Allow spaces at the end of the e-mails in signup form [#3394](https://github.com/sharetribe/sharetribe/pull/3394)
+- Added Puerto Rico as a Stripe supported country [#3399](https://github.com/sharetribe/sharetribe/pull/3399)
+- Added support for INR with PayPal [#3416](https://github.com/sharetribe/sharetribe/pull/3416)
+- Added support for ARS with PayPal [#3415](https://github.com/sharetribe/sharetribe/pull/3415)
+- Direct link to the admin panel when logging in as admin user[#3414](https://github.com/sharetribe/sharetribe/pull/3414)
+- Added checkmarks to the user fields [#3441](https://github.com/sharetribe/sharetribe/pull/3441)
+- Added the use of session token in Google's autocomplete feature [#3401](https://github.com/sharetribe/sharetribe/pull/3401)
+- Icons to payment provider's page [#3444](https://github.com/sharetribe/sharetribe/pull/3444)
 
 ### Changed
 
@@ -28,6 +35,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Renamed the default category to "default category" [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
 - Allow links in the custom user text fields [#3373](https://github.com/sharetribe/sharetribe/pull/3373)
 - Google maps dynamic map for static maps in the listing page [#3382](https://github.com/sharetribe/sharetribe/pull/3382)
+- Change Static map for embedded maps in the listing page [#3395](https://github.com/sharetribe/sharetribe/pull/3395)
+- Update to Circle CI 2.0 [#3360](https://github.com/sharetribe/sharetribe/pull/3360)
+- Profile image is only used once it has been processed [#3427](https://github.com/sharetribe/sharetribe/pull/3427)
 
 
 ### Deprecated
@@ -40,6 +50,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
 - Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
 - Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
+- Display bug in checkbox user fields [#3385](https://github.com/sharetribe/sharetribe/pull/3385)
+- Fixed a broken link when no date was selected for free "per day" and "per night" listings [#3410](https://github.com/sharetribe/sharetribe/pull/3410)
+- Allow to leave dropdown option unselected if it is not mandatory [#3446](https://github.com/sharetribe/sharetribe/pull/3446)
 
 ### Security
 
