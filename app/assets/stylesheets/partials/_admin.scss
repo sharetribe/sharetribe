@@ -45,6 +45,10 @@ select#locale-selection {
 }
 
 .info-text-container {
+  .info-thumbnail {
+    float: left;
+    margin-right: 1.5em;
+  }
   &.filename-container {
     margin-top: 0;
   }

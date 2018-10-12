@@ -95,6 +95,7 @@ en:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
         community_logo_icon: "Logo for social networks and mobile devices"
+        community_logo_icon_mobile: "Logo for home screen on mobile devices"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
@@ -109,6 +110,8 @@ en:
         logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The recommended dimensions is %{width}x%{height}px."
+
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
@@ -271,6 +274,8 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
+        logo: "Logo"
+        logo_info: "This image is used when someone shares your domain in social media (Facebook, Twitter, Linkedin). For better result, it should have a 2:1 ratio and a minimum size of %{width} x %{height} px"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
