@@ -37,6 +37,8 @@ class CommunityMembership < ApplicationRecord
 
   scope :accepted, -> { where(status: 'accepted') }
   scope :admin, -> { where(admin: true) }
+  scope :posting_allowed, -> { where(can_post_listings: true) }
+  scope :not_banned, -> { where("community_memberships.status <> 'banned'") }
 
   def person_can_join_community_only_once
     if CommunityMembership.find_by_person_id_and_community_id(person_id, community_id)

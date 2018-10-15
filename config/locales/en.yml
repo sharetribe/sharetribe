@@ -499,6 +499,7 @@ en:
           title: "Who do you want to email?"
           options:
             all_users: "All users"
+            posting_allowed: "Users who are allowed to post listings"
             with_listing: "Users who have posted at least one listing"
             with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
             with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"

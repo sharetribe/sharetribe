@@ -22,10 +22,12 @@ class Admin::EmailsController < Admin::AdminBaseController
 
   protected
 
-  ADMIN_EMAIL_OPTIONS = [:all_users, :with_listing, :with_listing_no_payment, :with_payment_no_listing, :no_listing_no_payment]
+  ADMIN_EMAIL_OPTIONS = [:all_users, :posting_allowed, :with_listing, :with_listing_no_payment, :with_payment_no_listing, :no_listing_no_payment]
 
   def admin_email_options
-    ADMIN_EMAIL_OPTIONS.map{|option| [I18n.t("admin.emails.new.recipients.options.#{option}"), option] }
+    options = ADMIN_EMAIL_OPTIONS.dup
+    options.delete(:posting_allowed) unless @current_community.require_verification_to_post_listings
+    options.map{|option| [I18n.t("admin.emails.new.recipients.options.#{option}"), option] }
   end
 
   helper_method :admin_email_options
