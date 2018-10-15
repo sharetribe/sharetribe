@@ -392,7 +392,7 @@ en:
           receiver: Receiver
           status: Status
           grade: Grade
-          note: Note
+          text: Text
         status:
           waiting: "Waiting for review"
           skipped: Skipped
@@ -400,11 +400,12 @@ en:
           blocked: Blocked
         form:
           review_text: 'Review text'
-          save: 'Save changes'
+          save: 'Save'
           delete_review: 'Delete review'
           block_review: 'Block review'
           confirm_modify: 'Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover previous removed data.'
-          deleting_info: 'Deleting a review allows the author of the review to leave another review for the same transaction. Blocking the review (and deleting it) does not allow the author to leave another review and deletes the review from the site.'
+          deleting_info: 'Deleting a review allows its author to leave another one for the same transaction.'
+          blocking_info: 'Blocking the review after deletion prevents its author from leaving another one for the same transaction.'
       listings:
         listings: Listings
         headers:

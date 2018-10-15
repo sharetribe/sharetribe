@@ -18,6 +18,6 @@ Feature: Admin edit testimonials
     Then I should see "Hi from author" within "#testimonial-form"
     Then I fill in "testimonial[text]" with "What is up?"
     Then I will confirm all following confirmation dialogs in this page if I am running PhantomJS
-    Then I press "Save changes"
+    Then I press "Save"
     Then I wait for 1 seconds
     Then I should see "What is up?" within "#admin_testimonials"

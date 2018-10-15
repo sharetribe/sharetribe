@@ -32,6 +32,8 @@
         %label{class: "#{disabled ? 'disabled' : ''}"}
           = form.check_box :blocked, {disabled: disabled ? true : nil}
           = t('admin.communities.testimonials.form.block_review')
+          %span.marketplace-color{title: t('admin.communities.testimonials.form.blocking_info')}
+            = icon_tag("information")
     - unless persisted
       = hidden_field_tag :transaction_id, service.testimonial.tx.id
       = hidden_field_tag :from_tx_author, params[:from_tx_author]
