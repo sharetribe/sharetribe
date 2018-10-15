@@ -321,6 +321,23 @@ CREATE TABLE `community_memberships` (
   KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `community_social_logos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `community_social_logos` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
+  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
+  `image_updated_at` datetime DEFAULT NULL,
+  `image_processing` tinyint(1) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_community_social_logos_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2270,6 +2287,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180518073348'),
 ('20180523121344'),
 ('20180524075239'),
-('20180524081429');
+('20180524081429'),
+('20181012065625');
 
 

@@ -137,6 +137,9 @@ class Community < ApplicationRecord
   has_many :marketplace_sender_emails
 
   has_one :configuration, class_name: 'MarketplaceConfigurations'
+  has_one :social_logo, :dependent => :destroy
+
+  accepts_nested_attributes_for :social_logo
 
   after_create :initialize_settings
 

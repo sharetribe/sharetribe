@@ -111,6 +111,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    @community.build_social_logo unless @community.social_logo
     render "social_media", :locals => {
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
@@ -307,7 +308,11 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     end
 
     social_media_params = params.require(:community).permit(
-      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled
+      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled,
+      social_logo_attributes: [
+        :id,
+        :image
+      ]
     )
 
     update(@current_community,
