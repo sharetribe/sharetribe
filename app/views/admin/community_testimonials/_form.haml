@@ -18,9 +18,6 @@
         = form.label :text, t('admin.communities.testimonials.form.review_text')
         = form.text_area :text
     .row
-      .col-12.testimonial-save
-        = form.submit t('admin.communities.testimonials.form.save'), class: 'button'
-    .row
       .col-4
       .col-8.testimonial-checkbox
         %label{class: "#{persisted ? '' : 'disabled'}"}
@@ -34,6 +31,13 @@
           = t('admin.communities.testimonials.form.block_review')
           %span.marketplace-color{title: t('admin.communities.testimonials.form.blocking_info')}
             = icon_tag("information")
+    .row
+      .col-12.testimonial-save
+        = form.submit t('admin.communities.testimonials.form.save'), class: 'button'
+        .inline-button-container
+          %a#close_x1{:href => '#', :class => "cancel-button"}
+            .content
+              = t("admin.communities.testimonials.form.cancel")
     - unless persisted
       = hidden_field_tag :transaction_id, service.testimonial.tx.id
       = hidden_field_tag :from_tx_author, params[:from_tx_author]

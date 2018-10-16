@@ -15,7 +15,7 @@ window.ST = window.ST || {};
 
   var edit = function(options) {
     $('#testimonial-form').html(options.content);
-    $('#testimonial_popup').lightbox_me({centered: true, closeSelector: '#close_x'});
+    $('#testimonial_popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
     $(document).tooltip();
     setupDeleteBlocked();
   };
