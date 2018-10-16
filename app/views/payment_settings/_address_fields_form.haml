@@ -4,7 +4,7 @@
     .col-12
       = form.label :address_line1, t("stripe_accounts.form_new.address_line1")+"*", class: 'required'
       = form.text_field :address_line1, class: 'required'
-  .row.country-dependent{"data-country-except" => "IE"}
+  .row.country-dependent{"data-country-except" => "IE,HK"}
     .col-12
       = form.label :address_postal_code, t("stripe_accounts.form_new.address_postal_code")+"*"
       = form.text_field :address_postal_code, class: 'required'
