@@ -2518,6 +2518,10 @@ en:
       legal_name: "Legal name"
       first_name: "First name"
       last_name: "Last name"
+      first_name_kana: "First name kana"
+      last_name_kana: "Last name kana"
+      first_name_kanji: "First name kanji"
+      last_name_kanji: "Last name kanji"
       country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
@@ -2533,6 +2537,18 @@ en:
       save_details: "Save details"
       edit: "Edit details"
       cancel: Cancel
+      gender: 'Gender'
+      phone_number: 'Phone number'
+      address_kana_postal_code: 'Postal code kana'
+      address_kana_state: 'State kana'
+      address_kana_city: 'City kana'
+      address_kana_town: 'Town kana'
+      address_kana_line1: 'Street address kana'
+      address_kanji_postal_code: 'Postal code kanji'
+      address_kanji_state: 'State kanji'
+      address_kanji_city: 'City kanji'
+      address_kanji_town: 'Town kanji'
+      address_kanji_line1: 'Street address kanji'
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"
