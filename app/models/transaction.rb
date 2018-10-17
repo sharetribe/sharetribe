@@ -72,7 +72,7 @@ class Transaction < ApplicationRecord
   validates :community_uuid, :listing_uuid, :starter_id, :starter_uuid, presence: true, on: :create
   validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}, on: :create
   validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true, on: :create
-  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil, :hour, :day, :night, :week, :month, :custom], on: :create
+  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", "unit", nil, :hour, :day, :night, :week, :month, :custom, :unit], on: :create
   validates :availability, inclusion: ["none", "booking", :none, :booking], on: :create
   validates :delivery_method, inclusion: ["none", "shipping", "pickup", nil, :none, :shipping, :pickup], on: :create
   validates :payment_process, inclusion: [:none, :postpay, :preauthorize], on: :create

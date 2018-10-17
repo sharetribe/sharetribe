@@ -126,7 +126,15 @@ class ShapeService
   end
 
   def add_kind(unit)
-    unit.merge(kind: unit[:unit_type] == 'custom' ? unit[:kind] : 'time')
+    kind = 
+      case unit[:unit_type]
+      when 'custom' then unit[:kind]
+      when 'unit' then 'quantity'
+      else
+        'time'
+      end
+
+    unit.merge(kind: kind)
   end
 
   def select_process(online_payments, author_is_seller, processes)
