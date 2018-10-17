@@ -1,0 +1,5 @@
+- if service.testimonial_errors?
+  = render 'admin/community_testimonials/form', service: service
+- else
+  = render 'admin/community_testimonials/testimonial',
+    tx: service.testimonial.tx, participant: service.testimonial_participant

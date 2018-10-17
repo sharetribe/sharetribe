@@ -1320,6 +1320,7 @@ CREATE TABLE `testimonials` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `receiver_id` varchar(255) DEFAULT NULL,
+  `blocked` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_testimonials_on_author_id` (`author_id`) USING BTREE,
   KEY `index_testimonials_on_receiver_id` (`receiver_id`) USING BTREE,
@@ -2288,6 +2289,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180523121344'),
 ('20180524075239'),
 ('20180524081429'),
+('20180904075653'),
 ('20181012065625');
 
 
