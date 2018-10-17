@@ -110,7 +110,7 @@ en:
         logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
-        logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The recommended dimensions is %{width}x%{height} pixels."
+        logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
 
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle. %{see_how_it_looks_like}."
@@ -275,7 +275,7 @@ en:
       social_media:
         social_media: "Social media"
         logo: "Logo"
-        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For better result, it should have a 2:1 ratio and a minimum size of %{width}x%{height} pixels"
+        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best result, it should have a 2:1 ratio and a minimum size of %{width}x%{height} pixels"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
@@ -404,7 +404,7 @@ en:
           cancel: 'Cancel'
           delete_review: 'Delete review'
           block_review: 'Block review'
-          confirm_modify: 'Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover previous removed data.'
+          confirm_modify: 'Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover any of the old data.'
           deleting_info: 'Deleting a review allows its author to leave another one for the same transaction.'
           blocking_info: 'Blocking the review after deletion prevents its author from leaving another one for the same transaction.'
       listings:
