@@ -19,6 +19,7 @@ class TransactionProcessStateMachine
   transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,               to: [:paid, :rejected]
   transition from: :paid,                      to: [:confirmed, :canceled]
+  transition from: :free,                      to: [:confirmed]
 
   after_transition(to: :paid) do |transaction|
     payer = transaction.starter

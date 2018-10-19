@@ -211,8 +211,13 @@ module TransactionHelper
   #   }
   # }
   def get_conversation_statuses(conversation, is_author)
-    statuses = if conversation.listing && !conversation.status.eql?("free")
+    statuses = if conversation.listing
       status_hash = {
+        free: ->() { {
+            both: [
+                confirm_field(conversation)
+            ]
+        } },
         paid: ->() { {
           both: [
             status_info(t("conversations.status.request_paid"), icon_classes: icon_for("paid")),
@@ -311,6 +316,19 @@ module TransactionHelper
       waiting_for_buyer_to_confirm(conversation)
     else
       waiting_for_current_user_to_confirm(conversation)
+    end
+  end
+
+  def confirm_field(conversation)
+    if current_user?(conversation.starter)
+      status_links([
+        {
+           link_href: confirm_person_message_path(@current_user, :id => conversation.id),
+           link_classes: "confirm",
+           link_icon_with_text_classes: icon_for("confirmed"),
+           link_text_with_icon: link_text_with_icon(conversation, "confirm")
+        }
+     ])
     end
   end
 

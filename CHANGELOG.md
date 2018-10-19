@@ -16,6 +16,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 - Update Ruby version to 2.3.7 to [protect Puma from "stream closed in another thread (IOError)"](https://github.com/puma/puma#known-bugs)
 - Change default web server from WEBrick to Puma
+- Logic of orders processing with reviews
 
 ### Deprecated
 
