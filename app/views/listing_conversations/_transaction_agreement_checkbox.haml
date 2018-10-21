@@ -5,6 +5,10 @@
       %label
         = @community_customization.transaction_agreement_label
         = link_to(t(".read_more"), "#", id: "transaction-agreement-read-more").html_safe
+      %div
+        %label.error.hidden{for: :contract_agreed, style: 'display: none'}
+          = t("error_messages.transaction_agreement.required_error")
+          &nbsp;
 
 = render layout: "layouts/lightbox", locals: { id: "transaction-agreement-content"} do
   - text_with_line_breaks do
