@@ -105,6 +105,7 @@ Rails.application.routes.draw do
   get '/406' => 'errors#not_acceptable', :as => :error_not_acceptable
   get '/410' => 'errors#gone', as: :error_gone
   get '/community_not_found' => 'errors#community_not_found', as: :community_not_found
+  get '/not_available' => 'application#not_available', as: :community_not_available
 
   resources :communities, only: [:new, :create]
 

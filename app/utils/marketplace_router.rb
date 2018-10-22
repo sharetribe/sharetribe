@@ -13,7 +13,9 @@ module MarketplaceRouter
       [:deleted, :bool, :mandatory],
       [:closed, :bool, :mandatory],
       [:domain, :string, :optional],
-      [:ident, :string, :mandatory]
+      [:ident, :string, :mandatory],
+      [:expired, :bool, :optional],
+      [:hold, :bool, :optional]
     )
 
     Path = EntityUtils.define_builder(
@@ -48,6 +50,8 @@ module MarketplaceRouter
          :not_found,       # Marketplace not found, but some marketplaces do exist
          :no_marketplaces, # There are no marketplaces. Redirect to new marketplace page
          :www_ident,       # Accessed marketplace with WWW and subdomain, e.g. www.mymarketplace.sharetribe.com
+         :hold,            # Marketplace plan is on hold
+         :expired,         # Marketplace is expired
        ]],
 
       # Url
@@ -56,7 +60,10 @@ module MarketplaceRouter
       # Named route
       [:route_name, :symbol, :optional],
 
-      [:status, :symbol, :mandatory]
+      [:status, :symbol, :mandatory],
+
+      # detailed error message to be rendered
+      [:message, :optional]
     )
 
     module_function
@@ -82,6 +89,35 @@ module MarketplaceRouter
     end
   end
 
+  ERROR_MESSAGES = {
+    closed: {
+      title: "Damn, the %{community_name} marketplace no longer exists!",
+      description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
+      cta: "Create your own online marketplace",
+      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect",
+    },
+
+    expired: {
+      title: "Damn, the %{community_name} marketplace no longer exists!",
+      description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
+      cta: "Create your own online marketplace",
+      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect",
+    },
+
+    deleted: {
+      title: "Damn, the %{community_name} marketplace no longer exists!",
+      description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
+      cta: "Create your own online marketplace",
+      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=dl-manual-redirect",
+    },
+
+    hold: {
+      title: "The %{community_name} marketplace is on hold.",
+      description: "The %{community_name} team has decided to pause things and they will reopen this platform in the future",
+      use_marketplace_logo: true
+    },
+  }
+
   module_function
 
   # Returns a hash, which contains either a url or named route
@@ -94,7 +130,7 @@ module MarketplaceRouter
   #
   # { route_name: :new_community, status: :moved_permanently, protocol: "http"}
   #
-  def redirect_target(reason:, request:, community:, paths:, configs:)
+  def redirect_target(reason:, request:, community:, paths:, configs:, message: nil)
     community = Maybe(community).map { |c| DataTypes.create_community(c) }.or_else(nil)
     request   = DataTypes.create_request(request)
     paths     = DataTypes.create_paths(paths)
@@ -126,7 +162,7 @@ module MarketplaceRouter
         }.or_else {
           paths[:community_not_found].merge(status: :moved_permanently)
         }
-      when :closed
+      when :closed, :expired, :hold
         # Community closed
         # -> Redirect to not found
         Maybe(paths[:community_not_found])[:url].map { |u|
@@ -155,7 +191,7 @@ module MarketplaceRouter
         raise ArgumentError.new("Unknown redirect reason: '#{reason}'")
       end
 
-    HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason)))
+    HashUtils.compact(DataTypes::Target.call(target.merge(reason: reason, message: message)))
   end
 
   def domain_redirect_url(domain:, request:)
@@ -181,6 +217,10 @@ module MarketplaceRouter
       :not_found
     elsif community && community[:deleted]
       :deleted
+    elsif community && community[:expired]
+      :expired
+    elsif community && community[:hold]
+      :hold
     elsif community && community[:closed]
       :closed
     elsif community && community[:domain].present? && community[:use_domain] && host != community[:domain]
@@ -225,7 +265,8 @@ module MarketplaceRouter
         request:   MarketplaceRouter.request_hash(request),
         community: MarketplaceRouter.community_hash(community, plan),
         paths:     paths,
-        configs:   configs
+        configs:   configs,
+        message:   MarketplaceRouter.make_error_message(community, reason)
       )
 
       block.call(target)
@@ -257,8 +298,38 @@ module MarketplaceRouter
         domain: c.domain,
         deleted: c.deleted?,
         use_domain: c.use_domain?,
-        closed: Maybe(plan)[:closed].or_else(false)
+        closed: Maybe(plan)[:closed].or_else(false),
+        hold: Maybe(plan)[:hold].or_else(false),
+        expired: Maybe(plan)[:expired].or_else(false)
       }
     }.or_else(nil)
+  end
+
+  def make_error_message(community, reason)
+    unless ERROR_MESSAGES[reason] && community.is_a?(Community)
+      warn [reason, community].inspect
+      return nil
+    end
+
+    ident = community.ident
+    community_name =
+      begin
+        community.name(community.default_locale)
+      rescue
+        ident
+      end
+
+    var_map = { "community_name" => community_name, "marketplace_ident" => ident}
+    message = {}
+
+    ERROR_MESSAGES[reason].each do |key, value|
+      if key == :use_marketplace_logo
+        message[key] = value
+        message[:logo] = community.logo.present? ? community.logo.url(:apple_touch) : nil
+      else
+        message[key] = value.gsub(/%\{(\w+)\}/){|var_name| var_map[var_name] }
+      end
+    end
+    message
   end
 end
