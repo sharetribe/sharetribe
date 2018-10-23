@@ -126,7 +126,7 @@ class ShapeService
   end
 
   def add_kind(unit)
-    kind = 
+    kind =
       case unit[:unit_type]
       when 'custom' then unit[:kind]
       when 'unit' then 'quantity'
