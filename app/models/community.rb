@@ -106,8 +106,8 @@ class Community < ApplicationRecord
   include EmailHelper
 
   has_many :community_memberships, :dependent => :destroy
-  has_many :members, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships, :source => :person
-  has_many :admins, -> { where("community_memberships.admin = true AND community_memberships.status <> 'banned'") }, :through => :community_memberships, :source => :person
+  has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
+  has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
