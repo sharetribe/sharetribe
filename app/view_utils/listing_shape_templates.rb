@@ -46,7 +46,7 @@ class ListingShapeTemplates
         online_payments: true,
         template: :selling_products,
         author_is_seller: true,
-        units: []
+        units: [{unit_type: 'unit', quantity_selector: :number}]
       },
       {
         label: "admin.listing_shapes.templates.renting_products",
