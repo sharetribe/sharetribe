@@ -12,8 +12,13 @@ module RefererHider
   def set_hide_referer
     HIDE_REFERER_ON.each do |item|
       if controller_name == item[:controller] && action_name == item[:action]
-        @hide_referer = true
+        force_hide_referer
       end
     end
+  end
+
+  def force_hide_referer
+    @hide_referer = true
+    response.set_header('Referrer-Policy', 'no-referrer')
   end
 end
