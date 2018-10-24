@@ -15,11 +15,11 @@
     - if FeatureFlagHelper.feature_enabled?(:social_image)
       .row
         %h3= t(".logo")
-        .col-12
-          = render :partial => "layouts/info_text", :locals => { :text => t('.logo_info', :width => 1200, :height => 600)}
-          = render 'layouts/thumbnail', file_field: @community.social_logo.image
-          = form.fields_for :social_logo do |logo_form|
-            = logo_form.file_field(:image, :class => "file_field")
+        = render :partial => "layouts/info_text", :locals => { :text => t('.logo_info', :width => 1200, :height => 600)}
+        = render 'layouts/thumbnail', file_field: @community.social_logo.image
+        = form.fields_for :social_logo do |logo_form|
+          = logo_form.label :image, t('admin.communities.social_media.add_another_image')
+          = logo_form.file_field(:image, :class => "file-field-button")
     .row
       %h3= t(".twitter_handle")
     .row
