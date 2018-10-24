@@ -327,7 +327,7 @@ module MarketplaceRouter
         message[key] = value
         message[:logo] = community.logo.present? ? community.logo.url(:apple_touch) : nil
       else
-        message[key] = value.gsub(/%\{(\w+)\}/){|var_name| var_map[var_name] }
+        message[key] = value.gsub(/%\{(\w+)\}/){|var_name| var_map[Regexp.last_match[1]] }
       end
     end
     message
