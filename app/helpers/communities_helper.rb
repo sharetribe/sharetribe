@@ -31,7 +31,7 @@ module CommunitiesHelper
 
   def community_description_locals
     translations = find_community_customizations(:description)
-    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", id: "view_slogan_link")
+    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")
     info_text =
       if FeatureFlagHelper.feature_enabled?(:hide_slogan)
         I18n.t("admin.communities.edit_details.edit_community_description_description_hideable", :see_how_it_looks_like => looks_link)
