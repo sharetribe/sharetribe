@@ -90,6 +90,8 @@
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
 #  end_user_analytics                         :boolean          default(TRUE)
+#  show_slogan                                :boolean          default(TRUE)
+#  show_description                           :boolean          default(TRUE)
 #
 # Indexes
 #

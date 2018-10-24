@@ -29,7 +29,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
         :description,
         :search_placeholder,
         :transaction_agreement_label,
-        :transaction_agreement_content
+        :transaction_agreement_content,
       ]
       locale_params = params.require(:community_customizations).require(locale).permit(*permitted_params)
       customizations = find_or_initialize_customizations_for_locale(locale)
@@ -52,6 +52,14 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
 
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     update_results.push(@current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked))
+
+    if FeatureFlagHelper.feature_enabled?(:hide_slogan)
+      show_slogan = Maybe(params)[:community][:show_slogan].is_some?
+      update_results.push(@current_community.update_attributes(show_slogan: show_slogan))
+
+      show_description = Maybe(params)[:community][:show_description].is_some?
+      update_results.push(@current_community.update_attributes(show_description: show_description))
+    end
 
     analytic.send_properties
     if update_results.all? && (!process_locales || enabled_locales_valid)

@@ -22,6 +22,7 @@ module FeatureFlagService::Store
       :manage_searchpage,
       :stripe,
       :social_image,
+      :hide_slogan,
     ].to_set
 
     def initialize(additional_flags:)
