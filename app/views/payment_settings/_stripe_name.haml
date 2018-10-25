@@ -35,7 +35,8 @@
       .row
         .col-12
           = form.label :gender, t("stripe_accounts.form_new.gender")+"*"
-          = form.text_field :gender, class: 'required'
+          - choices = [[t("stripe_accounts.form_new.male"), 'male'], [t("stripe_accounts.form_new.female"), 'female']]
+          = form.select :gender, choices, { include_blank: true }, class: 'required'
       .row
         .col-12
           = form.label :phone_number, t("stripe_accounts.form_new.phone_number")+"*"
