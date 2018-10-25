@@ -28,23 +28,10 @@
         .paypal-wizard-content.connect-row
           = form_tag update_person_payment_settings_path(@current_user),
             id: "stripe-account-form", multipart: true, method: :put do
-            = hidden_field_tag "stripe_account_form_address_country", stripe_seller_account[:address_country]
-            = fields_for stripe_account_form do |form|
-              = form.date_select :birth_date, { discard_day: true, discard_month: true, discard_year: true }
-              .row
-                .col-12
-                  = form.error_messages
-              .row
-                .col-6
-                  = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
-                  = form.text_field :first_name, class: 'required'
-                .col-6
-                  = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
-                  = form.text_field :last_name, class: 'required'
-            .row
-              .col-12
-                = label_tag t("stripe_accounts.form_new.country")
-                = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
+            = render 'stripe_name', stripe_seller_ready: stripe_seller_ready,
+              stripe_account_form: stripe_account_form,
+              available_countries: available_countries,
+              stripe_seller_account: stripe_seller_account
 
             = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}
 
@@ -75,26 +62,10 @@
       .paypal-wizard-content.connect-row
         .col-12
           = form_tag create_person_payment_settings_path(@current_user), id: "stripe-account-form", multipart: true do
-            = fields_for stripe_account_form do |form|
-              .row
-                .col-12
-                  = form.error_messages
-              .row
-                .col-6
-                  = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
-                  = form.text_field :first_name, class: 'required'
-                .col-6
-                  = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
-                  = form.text_field :last_name, class: 'required'
-
-              .row
-                .col-12
-                  = form.label :birth_date, t("stripe_accounts.form_new.birth_date")+"*"
-                  = form.date_select :birth_date, {:start_year => Date.current.year-18, :end_year => 1920, order: [:day, :month, :year], :use_month_names => I18n.t("datepicker.months").values}, class: 'required'
-              .row
-                .col-2
-                  = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
-                  = form.select :address_country, available_countries, {prompt: t("stripe_accounts.form_new.select_country")}, {style: "min-width: 200px"}
+            = render 'stripe_name', stripe_seller_ready: stripe_seller_ready,
+              stripe_account_form: stripe_account_form,
+              available_countries: available_countries,
+              stripe_seller_account: stripe_seller_account
 
             .country-dependent{"data-country-except" => "XXX"}
               = render partial: 'address_fields_form', locals: {stripe_account_form: stripe_account_form, available_countries: available_countries}

@@ -177,6 +177,10 @@ class PaymentSettingsController < ApplicationController
   StripeAccountForm = FormUtils.define_form("StripeAccountForm",
         :first_name,
         :last_name,
+        :first_name_kana,
+        :last_name_kana,
+        :first_name_kanji,
+        :last_name_kanji,
         :address_country,
         :address_city,
         :address_line1,
@@ -190,7 +194,19 @@ class PaymentSettingsController < ApplicationController
         :address_state,
         :document,
         :ssn_last_4,
-        :token
+        :token,
+        :gender,
+        :phone_number,
+        :address_kana_postal_code,
+        :address_kana_state,
+        :address_kana_city,
+        :address_kana_town,
+        :address_kana_line1,
+        :address_kanji_postal_code,
+        :address_kanji_state,
+        :address_kanji_city,
+        :address_kanji_town,
+        :address_kanji_line1
         ).with_validations do
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
     validates_presence_of :address_country
@@ -278,7 +294,7 @@ class PaymentSettingsController < ApplicationController
       result = {
         bank_country: bank_country,
         bank_currency: bank_currency,
-        bank_holder_name: [parsed_seller_account[:first_name], parsed_seller_account[:last_name]].join(" ")
+        bank_holder_name: parse_holder_name
       }
       if form_params.present?
         result.merge!({
@@ -295,6 +311,8 @@ class PaymentSettingsController < ApplicationController
       if bank_country == 'NZ'
         bank_number, bank_branch, = form_params[:bank_account_number_common].split('-')
         "#{bank_number}#{bank_branch}"
+      elsif bank_country == 'JP'
+        [form_params[:bank_routing_1], form_params[:bank_routing_2]].join('')
       elsif form_params[:bank_routing_1].present?
         [form_params[:bank_routing_1], form_params[:bank_routing_2]].join("-")
       else
@@ -310,13 +328,30 @@ class PaymentSettingsController < ApplicationController
         form_params[:bank_account_number]
       end
     end
+
+    def parse_holder_name
+      if bank_country == 'JP'
+        [parsed_seller_account[:first_name_kana], parsed_seller_account[:last_name_kana]].join(" ")
+      else
+        [parsed_seller_account[:first_name], parsed_seller_account[:last_name]].join(" ")
+      end
+    end
   end
 
   def stripe_update_account
     return unless @stripe_account_ready
 
     account_params = params.require(:stripe_account_form)
-    address_attrs = account_params.permit(:first_name, :last_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)', :address_line1, :address_city, :address_state, :address_postal_code, :document, :personal_id_number, :token)
+    address_attrs = account_params.permit(
+      :first_name, :last_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)',
+      :address_line1, :address_city, :address_state, :address_postal_code,
+      :document, :personal_id_number, :token, :first_name_kana, :last_name_kana,
+      :first_name_kanji, :last_name_kanji, :gender, :phone_number,
+      :address_kana_postal_code, :address_kana_state, :address_kana_city,
+      :address_kana_town, :address_kana_line1, :address_kanji_postal_code,
+      :address_kanji_state, :address_kanji_city, :address_kanji_town,
+      :address_kanji_line1, :address_country
+    )
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
@@ -334,21 +369,46 @@ class PaymentSettingsController < ApplicationController
       [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
     end
     dob = account[:legal_entity][:dob]
-    {
+    result = {
       first_name: account.legal_entity.first_name,
       last_name: account.legal_entity.last_name,
       birth_date: Date.new(dob[:year], dob[:month], dob[:day]),
-
-      address_city: account.legal_entity.address.city,
-      address_state: account.legal_entity.address.state,
-      address_country: account.legal_entity.address.country,
-      address_line1: account.legal_entity.address.line1,
-      address_postal_code: account.legal_entity.address.postal_code,
 
       bank_number_info: bank_number,
       bank_currency: bank_record ? bank_record["currency"] : nil,
       bank_routing_number: bank_record ? bank_record[:routing_number] : nil
     }
+
+    if account.legal_entity.respond_to?(:address)
+      result.merge!({
+        address_city: account.legal_entity.address.city,
+        address_state: account.legal_entity.address.state,
+        address_country: account.legal_entity.address.country,
+        address_line1: account.legal_entity.address.line1,
+        address_postal_code: account.legal_entity.address.postal_code,
+      })
+    elsif account.legal_entity.respond_to?(:address_kana) # supposed to be Japan
+      result.merge!({
+        address_country: account.legal_entity.address_kana.country,
+        first_name_kana: account.legal_entity.first_name_kana,
+        first_name_kanji: account.legal_entity.first_name_kanji,
+        gender: account.legal_entity.gender,
+        last_name_kana: account.legal_entity.last_name_kana,
+        last_name_kanji: account.legal_entity.last_name_kanji,
+        phone_number: account.legal_entity.phone_number,
+        address_kana_postal_code: account.legal_entity.address_kana.postal_code,
+        address_kana_state: account.legal_entity.address_kana.state,
+        address_kana_city: account.legal_entity.address_kana.city,
+        address_kana_town: account.legal_entity.address_kana.town,
+        address_kana_line1: account.legal_entity.address_kana.line1,
+        address_kanji_postal_code: account.legal_entity.address_kanji.postal_code,
+        address_kanji_state: account.legal_entity.address_kanji.state,
+        address_kanji_city: account.legal_entity.address_kanji.city,
+        address_kanji_town: account.legal_entity.address_kanji.town,
+        address_kanji_line1: account.legal_entity.address_kanji.line1,
+      })
+    end
+    result
   end
 
   def index_view_locals

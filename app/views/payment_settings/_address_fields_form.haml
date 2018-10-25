@@ -1,22 +1,35 @@
 = fields_for stripe_account_form do |form|
   = form.hidden_field :token
-  .row
-    .col-12
-      = form.label :address_line1, t("stripe_accounts.form_new.address_line1")+"*", class: 'required'
-      = form.text_field :address_line1, class: 'required'
-  .row.country-dependent{"data-country-except" => "IE,HK"}
-    .col-12
-      = form.label :address_postal_code, t("stripe_accounts.form_new.address_postal_code")+"*"
-      = form.text_field :address_postal_code, class: 'required'
-  .row
-    .col-12
-      = form.label :address_city, t("stripe_accounts.form_new.address_city")+"*"
-      = form.text_field :address_city, class: 'required'
-  .row.country-dependent{"data-country-only" => "AU,IE,US"}
-    .col-12
-      = form.label :address_state, t("stripe_accounts.form_new.address_state")+"*"
-      = form.text_field :address_state
-  .row.country-dependent{"data-country-only" => "CA"}
-    .col-12
-      = form.label :address_state, t("stripe_accounts.form_new.address_province")+"*"
-      = form.text_field :address_state
+  .country-dependent{"data-country-except" => "JP"}
+    .row
+      .col-12
+        = form.label :address_line1, t("stripe_accounts.form_new.address_line1")+"*", class: 'required'
+        = form.text_field :address_line1, class: 'required'
+    .row.country-dependent{"data-country-except" => "IE,HK"}
+      .col-12
+        = form.label :address_postal_code, t("stripe_accounts.form_new.address_postal_code")+"*"
+        = form.text_field :address_postal_code, class: 'required'
+    .row
+      .col-12
+        = form.label :address_city, t("stripe_accounts.form_new.address_city")+"*"
+        = form.text_field :address_city, class: 'required'
+    .row.country-dependent{"data-country-only" => "AU,IE,US"}
+      .col-12
+        = form.label :address_state, t("stripe_accounts.form_new.address_state")+"*"
+        = form.text_field :address_state
+    .row.country-dependent{"data-country-only" => "CA"}
+      .col-12
+        = form.label :address_state, t("stripe_accounts.form_new.address_province")+"*"
+        = form.text_field :address_state
+  .country-dependent{"data-country-only" => "JP"}
+    - [:address_kana_postal_code, :address_kana_state, :address_kana_city, :address_kana_town, :address_kana_line1].each do |field|
+      .row
+        .col-12
+          = form.label field, t("stripe_accounts.form_new.#{field}")+"*"
+          = form.text_field field, class: 'required'
+    - [:address_kanji_postal_code, :address_kanji_state, :address_kanji_city, :address_kanji_town, :address_kanji_line1].each do |field|
+      .row
+        .col-12
+          = form.label field, t("stripe_accounts.form_new.#{field}")+"*"
+          = form.text_field field, class: 'required'
+
