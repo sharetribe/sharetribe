@@ -401,11 +401,18 @@ var stripeToken = (function() {
                     phone_number: getValue('phone_number')
                   };
                 } else {
+                  var fix_country = country;
+                  var fix_state = getValue('address_state');
+                  if (country == 'PR') {
+                    fix_country = 'US';
+                    fix_state = 'PR';
+                  }
+
                   address = {
                     address: {
                       city: getValue('address_city'),
-                      state: getValue('address_state'),
-                      country: getValue('address_country'),
+                      state: fix_state,
+                      country: fix_country,
                       postal_code: getValue('address_postal_code'),
                       line1: getValue('address_line1')
                     }
