@@ -2,7 +2,8 @@ module EmailService::SES::Synchronize
 
   AddressStore = EmailService::Store::Address
 
-  BATCH_SIZE = 1000
+  BATCH_SIZE = 100
+  SES_WAIT_TIME_SECONDS = 1
 
   module_function
 
@@ -12,9 +13,15 @@ module EmailService::SES::Synchronize
 
     while addresses.present?
       verified_addresses = []
-      addresses.each do |address|
-        if email_verified?(ses_client, address[:email])
-          verified_addresses.push(address[:email])
+      result = ses_client.get_identity_verification_attributes(emails: addresses.map { |a| a[:email] })
+      if result.success
+        verification_attributes = result.data
+        addresses.each do |address|
+          email = address[:email]
+          status = verification_attributes[email]
+          if status && status[:verification_status] == 'Success'
+            verified_addresses.push(email)
+          end
         end
       end
 
@@ -22,6 +29,9 @@ module EmailService::SES::Synchronize
 
       offset += BATCH_SIZE
       addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+      # from SES get_identity_verification_attributes documentation
+      # This operation is throttled at one request per second
+      sleep SES_WAIT_TIME_SECONDS
     end
   end
 
