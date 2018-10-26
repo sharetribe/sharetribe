@@ -29,3 +29,6 @@
 
   -# A tag for google webmaster site verification
   %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
+
+  - if @hide_referer
+    %meta{name: "referrer", content: "no-referrer"}

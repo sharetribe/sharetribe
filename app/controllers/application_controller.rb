@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   include IconHelper
   include DefaultURLOptions
   include Analytics
+  include RefererHider
   protect_from_forgery
   layout 'application'
 
@@ -456,6 +457,7 @@ class ApplicationController < ActionController::Base
     if person
       sign_in(person)
       @current_user = person
+      force_hide_referer
 
       # Clean the URL from the used token
       path_without_auth_token = URLUtils.remove_query_param(request.fullpath, "auth")
