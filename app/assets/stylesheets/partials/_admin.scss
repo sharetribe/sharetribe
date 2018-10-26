@@ -52,8 +52,11 @@ select#locale-selection {
       float: left;
       margin-left: 19px;
     }
-    .description > i {
-      margin-right: 3px;
+    .description {
+      clear: both;
+      & > i {
+        margin-right: 3px;
+      }
     }
     .current-image {
       color: gray;
