@@ -80,6 +80,7 @@ it:
         edit_community_look_and_feel: ~
         community_logo: Logo
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: "Immagine di copertina"
         small_community_cover_photo: ~
         favicon: ~
@@ -94,6 +95,7 @@ it:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: ~
@@ -256,6 +258,8 @@ it:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: "Nome utente di Twitter"
         twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
         twitter_handle_info_text_with_instructions: ~
@@ -272,6 +276,7 @@ it:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: "Salva impostazioni"
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -372,11 +377,21 @@ it:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -452,6 +467,8 @@ it:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -482,6 +499,7 @@ it:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -573,6 +591,7 @@ it:
         night: "Per notte"
         week: "Per settimana"
         month: "Per mese"
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: Elimina
@@ -1790,6 +1809,7 @@ it:
       night: "Numero di notti:"
       week: "Numero di settimane:"
       month: "Numero di mesi:"
+      unit: ~
       custom: "Quantità:"
     quantity_placeholder: Quantità
     please_comment: Commenta
@@ -1841,6 +1861,7 @@ it:
       night: notte
       week: settimana
       month: mese
+      unit: ~
     verification_required:
       verification_required: "Richiesta verifica"
   listing_conversations:
@@ -2432,6 +2453,10 @@ it:
       legal_name: Nome
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Nazione
       birth_date: "Data di nascita"
       ssn_last_4: ~
@@ -2447,6 +2472,20 @@ it:
       save_details: "Salva dettagli"
       edit: "Modifica dettagli"
       cancel: Cancella
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: "Numero conto corrente"
       bank_routing_number: ~

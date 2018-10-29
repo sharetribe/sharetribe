@@ -95,6 +95,7 @@ de:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo für soziale Netzwerke und Mobilgeräte"
+        community_logo_icon_mobile: "Logo für den Startbildschirm von Mobilgeräten"
         community_cover_photo: Titelbild
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
@@ -109,6 +110,7 @@ de:
         logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixels betragen."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
@@ -271,6 +273,8 @@ de:
         searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
       social_media:
         social_media: "Social media"
+        logo: Logo
+        logo_info: "Dieses Bild wird auf soziale Netzwerke (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} px."
         twitter_handle: Twittername
         twitter_handle_info_text: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
         twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintrag-Seite klickt. %{instructions_link}."
@@ -287,6 +291,7 @@ de:
         invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
         enable_facebook_login: "Nutzern erlauben, sich mit ihrem Facebook Account anzumelden"
         save: "Einstellungen speichern"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -387,11 +392,21 @@ de:
           receiver: Empfänger
           status: Status
           grade: Note
-          note: Hinweis
+          text: Text
         status:
           waiting: "Bewertung ausstehend"
           skipped: Übersprungen
           published: Veröffentlicht
+          blocked: Gesperrt
+        form:
+          review_text: Bewertungstext
+          save: Speichern
+          cancel: Abbrechen
+          delete_review: "Bewertung löschen"
+          block_review: "Bewertung sperren"
+          confirm_modify: "Bist du sicher, dass du die Bewertung ändern/löschen möchtest? Wenn sie die Bewertung ändern/löschen, ist es danach nicht mehr möglich, die alten Daten wiederherzustellen."
+          deleting_info: "Wird die Bewertung gelöscht, kann der/die Käufer/in eine neue Bewertung für dieselbe Transaktion schreiben."
+          blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
       listings:
         listings: Einträge
         headers:
@@ -467,6 +482,8 @@ de:
         user_fields: "Benutzer Felder"
         field_title: "Feld Name"
         field_type: "Feld Typ"
+        signup: Anmeldung
+        public: Öffentlich
         add_new_field: "Neues Feld hinzufügen:"
         save: Speichern
         cancel: Abbrechen
@@ -497,6 +514,7 @@ de:
           title: "Wem willst du eine E-Mail schicken?"
           options:
             all_users: "Alle Benutzer"
+            posting_allowed: ~
             with_listing: "Benutzer, die mindestens einen Eintrag erstellt haben"
             with_listing_no_payment: "Benutzer, die mindestens einen Eintrag erstellt haben, aber ihre Zahlungsdaten nicht eingetragen haben"
             with_payment_no_listing: "Benutzer, die ihre Zahlungsdaten eingetragen haben, aber keine Einträge erstellt haben"
@@ -600,6 +618,7 @@ de:
         night: "Pro Nacht"
         week: "Pro Woche"
         month: "Pro Monat"
+        unit: ~
       can_not_find: "Kann die Auftragsart mit dieser ID nicht finden: %{id}"
       add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
       delete_custom_unit: löschen
@@ -1823,6 +1842,7 @@ de:
       night: "Anzahl Nächte:"
       week: "Anzahl Wochen:"
       month: "Anzahl Monate:"
+      unit: ~
       custom: "Anzahl:"
     quantity_placeholder: Anzahl
     please_comment: Kommentar
@@ -1874,6 +1894,7 @@ de:
       night: Nacht
       week: Woche
       month: Monat
+      unit: ~
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -2203,7 +2224,7 @@ de:
       profile_page: "auf deiner Profil-Seite"
       profilemap: Kartenansicht
       street_address: Standort
-      these_fields_are_shown_in_your: "Diese Informationen sind für alle %{service_name} Mitglieder sichtbar"
+      these_fields_are_shown_in_your: "Ein Teil dieser Informationen sind für alle %{service_name} Mitglieder sichtbar"
       visible_to_everybody: "für jeden sichtbar"
       visible_to_registered_users: "(sichtbar für angemeldete Benutzer)"
       default_in_listing: "(wird nur beim Erstellen eines neuen Eintrags als Standardeinstellung benutzt)"
@@ -2494,6 +2515,10 @@ de:
       legal_name: "Gesetzlicher Name"
       first_name: Vorname
       last_name: Nachname
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Land
       birth_date: Geburtsdatum
       ssn_last_4: "Sozialversicherungsnummer, letzte 4 Ziffern"
@@ -2509,6 +2534,20 @@ de:
       save_details: "Details speichern"
       edit: "Details bearbeiten"
       cancel: Abbrechen
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: Kontonummer
       bank_routing_number: Bankleitzahl

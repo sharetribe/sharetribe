@@ -105,6 +105,7 @@ ru:
         edit_community_look_and_feel: "Редактировать оформление «%{community_name}»"
         community_logo: Логотип
         community_logo_icon: "Лого для соц сетей и мобильных устройств"
+        community_logo_icon_mobile: ~
         community_cover_photo: Обложка
         small_community_cover_photo: "Уменьшенное фото для обложки"
         favicon: "Значок для избранного и отображения во вкладке"
@@ -119,6 +120,7 @@ ru:
         logo_instructions_text_with_dimensions_no_placing: "Размер логотипа должен быть %{width} %{height}px."
         logo_icon_instructions_text_with_dimensions: "Этот квадратный лого будет показан когда люди делятся вашим проектом в Фейсбук, когда они просматривают ваш сайт на мобильных устройствах или когда они запоминают ваш сайт на главной странице их мобильного устройства. Размеры должны быть (по крайней мере) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Данный логотип будет виден тем, кто делиться вашей страницей на Facebook или когда добавляют в избранное на главном экране своего мобильного устройства. Размеры должны быть (минимум) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Уменьшенная обложка с фото будет показана на всех страницах исключаю главную страницу для не зарегистрированных пользователей."
@@ -281,6 +283,8 @@ ru:
         searchpage: "Новая страница поиска (необходима новая верхняя панель)"
       social_media:
         social_media: "Социальные медиа"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter аккаунт"
         twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице публикации."
         twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице публикации. %{instructions_link}."
@@ -297,6 +301,7 @@ ru:
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
         enable_facebook_login: ~
         save: "Сохранить настройки"
+        add_another_image: ~
       analytics:
         analytics: Аналитика
         google_analytics_key: "Google Analytics tracking ID"
@@ -397,11 +402,21 @@ ru:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -477,6 +492,8 @@ ru:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: Зарегистрироваться
+        public: Публичный
         add_new_field: ~
         save: ~
         cancel: ~
@@ -507,6 +524,7 @@ ru:
           title: "Кому вы хотите отправить email?"
           options:
             all_users: "Все пользователи"
+            posting_allowed: ~
             with_listing: "Пользователи, которые разместили хотя бы один каталог"
             with_listing_no_payment: "Пользователи, которые разместили хотя бы один каталог, но не добавили свои платежные реквизиты"
             with_payment_no_listing: "Пользователи, которые добавили свои платежные реквизиты, но не разместили каталог"
@@ -618,6 +636,7 @@ ru:
         night: "За ночь"
         week: "За неделю"
         month: "За месяц"
+        unit: ~
       can_not_find: "Не удается найти тип заказа с ID: %{id}"
       add_custom_unit: "+ Добавить пользовательскую ценовую единицу..."
       delete_custom_unit: удалить
@@ -1835,6 +1854,7 @@ ru:
       night: "Количество недель:"
       week: "Количество недель:"
       month: "Количество месяцев:"
+      unit: ~
       custom: "Количество:"
     quantity_placeholder: Количество
     please_comment: Комментарий
@@ -1886,6 +1906,7 @@ ru:
       night: ночь
       week: неделя
       month: месяц
+      unit: ~
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:
@@ -2510,6 +2531,10 @@ ru:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2525,6 +2550,20 @@ ru:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

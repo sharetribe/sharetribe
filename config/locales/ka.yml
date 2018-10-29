@@ -90,6 +90,7 @@ ka:
         edit_community_look_and_feel: "დაარედაქტირე ბაზარი \"%{community_name}\" შეხედე და შეიგრძენი"
         community_logo: "მთავარი ეკრანის ლოგო"
         community_logo_icon: "ლოგო სოციალური ქსელისთვის და მობილური მოწყობილებისთვის"
+        community_logo_icon_mobile: ~
         community_cover_photo: "გარეკანის ფოტო"
         small_community_cover_photo: "პატარა გარეკანის ფოტო"
         favicon: Favicon
@@ -104,6 +105,7 @@ ka:
         logo_instructions_text_with_dimensions_no_placing: "ლოგოს ზომა უნდა იყოს%{height}%{width}პიქსელი"
         logo_icon_instructions_text_with_dimensions: "ეს ლოგო ნაჩვენები იქნება მაშინ, როცა ხალხი გააზიარებს თქვენს გვერდს Facebook-ზე, მაშინ როცა ნახავენ თქვენ საიტს მობილური მოწყობილობით ან როცა ჩაინიშნავენ მთავარ გვერდზე თავიანთ მობილურ მოწყობილობაში. გაფართოება უნდა იყოს (მინიმუმ) %{width}x%{height} პიკსელი."
         logo_icon_instructions_text_with_dimensions_no_placing: "ეს ლოგო ნაჩვენები იქნება მაშინ, როცა ხალხი გააზიარებს თქვენს გვერდს Facebook-ზე, მაშინ როცა ნახავენ თქვენ საიტს მობილური მოწყობილობით ან როცა ჩაინიშნავენ მთავარ გვერდზე თავიანთ მობილურ მოწყობილობაში. გაფართოება უნდა იყოს (მინიმუმ) %{width}x%{height} პიკსელი."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "გარეკანის ფოტო ჩანს მთავარ გვერდზე იმ მომხარებლებისთვის, ვინც სისტემაში არ არიან შესულები"
         cover_photo_instructions_text_with_dimensions: "ფოტოს შეეცვლება ზომები %{width}x%{height} პიქსელის ზომაზე ხოლო მაღალი სურათები გაიჭრება შუაზე. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "პატარა გარეკანის სურათი ნაჩვენები იქნება ყველა გვერდზე გარდა მთავარი გვერდისა იმ მომხმარებლებისთვის ვინც არ არიან სისტემაში შესულები."
@@ -266,6 +268,8 @@ ka:
         searchpage: "ახალი გვერდის ძებნა (მოითხოვს ახალი ზედა ზოლის გამოყენებას)"
       social_media:
         social_media: "სოციალური მედია"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "თქვენი ბაზრის Twitter-ის ანგარიშის მომხმარებლის სახელი (თუ გაქვთ ესეთი). ეს გამოყენებული იქნება მაშინ როცა ხალხი გამოიყენებს tweet ღილაკს ჩამონათვალის გვერდზე."
         twitter_handle_info_text_with_instructions: "თქვენი ბაზრის Twitter-ის ანგარიშის მომხმარებლის სახელი (თუ გაქვთ ესეთი). ეს გამოყენებული იქნება მაშინ რომცა ხალხი გამოიყენებს tweet ღილაკს ჩამონათვალის გვერდზე. %{instructions_link}."
@@ -282,6 +286,7 @@ ka:
         invalid_facebook_connect_secret: "კლიენტის საიდუმლო უნდა შეიცავდეს მხოლოდ ციფრებს და ასოებს a-დან f-მდე."
         enable_facebook_login: ~
         save: "დაიმახსოვრე პარამეტრები"
+        add_another_image: ~
       analytics:
         analytics: ანალიტიკა
         google_analytics_key: "Google Analytics ტრეკინგის  ID"
@@ -382,11 +387,21 @@ ka:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -462,6 +477,8 @@ ka:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +509,7 @@ ka:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -591,6 +609,7 @@ ka:
         night: "ყოველ ღამე"
         week: "ყოველ კვირას"
         month: "ყოველ თვიურად"
+        unit: ~
       can_not_find: "ვერ ვპოულობთ შეკვეთის ტიპს id-ით: %{id}"
       add_custom_unit: "+ დაამატე მორგებული ფასის ერთეული..."
       delete_custom_unit: წაშლა
@@ -1807,6 +1826,7 @@ ka:
       night: "ღამეების რაოდენობა:"
       week: "კვირეების რაოდენობა"
       month: "თვეების რაოდენობა"
+      unit: ~
       custom: რაოდენობა
     quantity_placeholder: რაოდენობა
     please_comment: კომენტარი
@@ -1858,6 +1878,7 @@ ka:
       night: ღამე
       week: კვირა
       month: თვე
+      unit: ~
     verification_required:
       verification_required: "ვერიფიკაცია სავალდებულოა"
   listing_conversations:
@@ -2449,6 +2470,10 @@ ka:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2464,6 +2489,20 @@ ka:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

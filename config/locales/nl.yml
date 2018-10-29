@@ -95,6 +95,7 @@ nl:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
@@ -109,6 +110,7 @@ nl:
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
         logo_icon_instructions_text_with_dimensions: "Mobiele logo's dienen vierkant te zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dit vierkante logo wordt vertoond wanneer mensen jouw site delen op Facebook, of wanneer ze je site bookmarken op het home screen van hun mobiele apparaat. De dimensies dienen (minstens) %{height}x%{width} pixels te zijn."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
@@ -273,6 +275,8 @@ nl:
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
       social_media:
         social_media: "Sociale media"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter account"
         twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
@@ -289,6 +293,7 @@ nl:
         invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -389,11 +394,21 @@ nl:
           receiver: Ontvanger
           status: Status
           grade: Cijfer
-          note: Aantekening
+          text: ~
         status:
           waiting: "In afwachting van recensie"
           skipped: Overgeslagen
           published: Gepubliceerd
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: Advertenties
         headers:
@@ -469,6 +484,8 @@ nl:
         user_fields: Gebruikersvelden
         field_title: Veldtitel
         field_type: Veldtype
+        signup: ~
+        public: ~
         add_new_field: "Voeg nieuw veld toe"
         save: "Sla op"
         cancel: Annuleer
@@ -499,6 +516,7 @@ nl:
           title: "Naar wie wil je een email sturen?"
           options:
             all_users: "Alle gebruikers"
+            posting_allowed: ~
             with_listing: "Gebruikers die ten minste één advertentie hebben geplaatst"
             with_listing_no_payment: "Gebruikers die ten minste één advertentie hebben geplaatst, maar niet hun betalingsdetails hebben ingevuld"
             with_payment_no_listing: "Gebruikers die hun gebruikersdetails hebben ingevuld, maar nog geen advertentie hebben geplaatst."
@@ -602,6 +620,7 @@ nl:
         night: "Per nacht"
         week: "Per week"
         month: "Per maand"
+        unit: ~
       can_not_find: "Kan order type met het volgende id niet vinden: %{id}"
       add_custom_unit: "+ Voeg een eigen prijseenheid toe…"
       delete_custom_unit: verwijder
@@ -1610,8 +1629,8 @@ nl:
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
       stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
-      visit_admin: ~
-      visit_admin_link: ~
+      visit_admin: "Wil je je %{link}?"
+      visit_admin_link: "beheerderpaneel bezoeken"
     settings:
       account: Account
       notifications: Notificaties
@@ -1826,6 +1845,7 @@ nl:
       night: "Aantal nachten:"
       week: "Aantal weken:"
       month: "Aantal maanden:"
+      unit: ~
       custom: "Aantal:"
     quantity_placeholder: Aantal
     please_comment: Reactie
@@ -1877,6 +1897,7 @@ nl:
       night: nacht
       week: week
       month: maand
+      unit: ~
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -2497,6 +2518,10 @@ nl:
       legal_name: "Officiele naam"
       first_name: Voornaam
       last_name: Achternaam
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Land
       birth_date: Geboortedatum
       ssn_last_4: Sofinummer
@@ -2512,6 +2537,20 @@ nl:
       save_details: "Sla informatie op"
       edit: "Informatie bewerken"
       cancel: Annuleer
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: Bankrekeningnummer
       bank_routing_number: "Routing nummer"

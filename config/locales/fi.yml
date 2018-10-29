@@ -95,6 +95,7 @@ fi:
         edit_community_look_and_feel: Ulkoasu
         community_logo: Peruslogo
         community_logo_icon: "Logo mobiililaitteita ja sosiaalista mediaa varten"
+        community_logo_icon_mobile: "Logo mobiililaitteiden kotinäkymään"
         community_cover_photo: Kansikuva
         small_community_cover_photo: "Matala kansikuva"
         favicon: Favicon
@@ -109,6 +110,7 @@ fi:
         logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width}px."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         logo_icon_instructions_text_with_dimensions_no_placing: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
+        logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
@@ -271,6 +273,8 @@ fi:
         searchpage: "Uusi hakusivu (tarvitsee uuden yläpalkin)"
       social_media:
         social_media: "Sosiaalinen media"
+        logo: Logo
+        logo_info: "Tätä kuvaa käytetään, kun joku jakaa sinun domainisi sosiaalisessa mediassa (Facebook, Twitter, Linkedin). Parhaan tuloksen saamiseksi sen kuvasuhteen tulisi olla 2:1, ja sen vähimmäiskoko tulisi olla %{width} x %{height} pikseliä."
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
         twitter_handle_info_text_with_instructions: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia. %{instructions_link}."
@@ -287,6 +291,7 @@ fi:
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
+        add_another_image: ~
       analytics:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
@@ -383,20 +388,30 @@ fi:
         displaying_xx_reviews: "Näytetään <b>%{count}</b> arvostelua ostotapahtumissa %{tx_from} - %{tx_to} , yhteensä <b>%{all_count}</b> arvostelusta"
         headers:
           transaction: Tilaus
-          author: Antaja
+          author: Laatija
           receiver: Saaja
           status: Tila
           grade: Arvio
-          note: Teksti
+          text: Palaute
         status:
           waiting: "Odottaa arviota"
           skipped: "Arvio jätetty väliin"
           published: Julkaistu
+          blocked: Estetty
+        form:
+          review_text: "Palautteen sisältö"
+          save: Tallenna
+          cancel: Peruuta
+          delete_review: "Poista palaute"
+          block_review: "Estä palaute"
+          confirm_modify: "Oletko varma, että haluat muuttaa palautetta tai poistaa sen? Tämän toiminnon jälkeen palautteen vanhoja tietoja ei voida enää palauttaa."
+          deleting_info: "Palautteen poistaminen antaa sen kirjoittajalle mahdollisuuden kirjoittaa uusi palaute samasta ostotapahtumasta."
+          blocking_info: "Palautteen estäminen estää sen kirjoittajaa kirjoittamasta uutta palautetta samasta ostotapahtumasta."
       listings:
         listings: Ilmoitukset
         headers:
           title: Otsikko
-          author: Käyttäjä
+          author: Laatija
           created: Luotu
           updated: Päivitetty
           category: Kategoria
@@ -467,6 +482,8 @@ fi:
         user_fields: Käyttäjäkentät
         field_title: "Kentän nimi"
         field_type: "Kentän tyyppi"
+        signup: Pakollinen
+        public: Julkinen
         add_new_field: "Lisää uusi kenttä:"
         save: Tallenna
         cancel: Peruuta
@@ -497,6 +514,7 @@ fi:
           title: "Kenelle haluat lähettää sähköpostia?"
           options:
             all_users: "Kaikille käyttäjille"
+            posting_allowed: ~
             with_listing: "Käyttäjille jotka ovat lisänneet ainakin yhden ilmoituksen"
             with_listing_no_payment: "Käyttäjille jotka ovat jättäneet ainakin yhden ilmoituksen mutta eivät ole lisänneet maksutietojaan"
             with_payment_no_listing: "Käyttäjille jotka ovat lisänneet maksutietonsa mutta eivät ole jättäneet yhtään ilmoitusta"
@@ -600,6 +618,7 @@ fi:
         night: "Per yö"
         week: "Per viikko"
         month: "Per kuukausi"
+        unit: ~
       can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
       add_custom_unit: "+ Lisää uusi yksikkö…"
       delete_custom_unit: Poista
@@ -1051,7 +1070,7 @@ fi:
       remember_to_confirm: "Muista merkitä pyyntö toteutuneeksi, kun olet saanut haluamasi. Jos vastapuoli ei pysty täyttämään lupaustaan, sinulla on %{days_to_automatic_confirmation} päivää aikaa peruuttaa pyyntö, ennen kuin se merkitään toteutuneeksi automaattisesti."
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{service_name}-palveluun"
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut %{service_name}-palveluun."
       here_is_a_message_from: "%{inviter} lähetti sinulle seuraavan saateviestin:"
       join_now: "Liity palveluun"
       invitation_code: "Kutsukoodi: %{code}"
@@ -1210,8 +1229,8 @@ fi:
       reject_authorization_error: "Maksun peruuttaminen epäonnistui. Yritä uudelleen."
     stripe:
       generic_error: "Maksuprosessissa tapahtui virhe. Stripe-maksua ei voitu käsitellä."
-      accept_authorization_error: "Katevarausta hyväksyttäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
-      reject_authorization_error: "Katevarausta hylättäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
+      accept_authorization_error: "Stripen kautta tehtyä katevarausta hyväksyttäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
+      reject_authorization_error: "Stripen kautta tehtyä katevarausta hylättäessä tapahtui virhe. Ole hyvä ja yritä uudelleen."
   error_pages:
     back_to_kassi_front_page: "Takaisin etusivulle"
     error_404:
@@ -1457,7 +1476,7 @@ fi:
       how_to_use: "Miten palvelu toimii"
       info_about_kassi: "Tietoa %{service_name}-palvelusta"
       news: Uutiset
-      register_details: Rekisteriseloste
+      register_details: Tietosuojakäytäntö
       terms: Käyttöehdot
     logged_in:
       admin: Ylläpito
@@ -1607,8 +1626,8 @@ fi:
         other: "Sivusto menee %{count} minuutin kuluttua offline-tilaan huoltoa varten"
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
       stripe_you_account_balance_is_not_0: "Tilisi saldo ei ole 0, joten sitä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että sinulla on ostotapahtumia, joita ei ole vielä saatettu loppuun, tai että tililläsi on rahaa, jota ei ole vielä siirretty pankkitilillesi. Ole hyvä ja ota yhteyttä %{service_name} -tiimiin saadaksesi lisätietoja."
-      visit_admin: ~
-      visit_admin_link: ~
+      visit_admin: "Haluaisitko %{link}?"
+      visit_admin_link: "siirtyä ylläpitonäkymään?"
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -1823,6 +1842,7 @@ fi:
       night: "Öiden määrä:"
       week: "Viikkojen määrä:"
       month: "Kuukausien määrä:"
+      unit: ~
       custom: "Määrä:"
     quantity_placeholder: Määrä
     please_comment: Kommentoi
@@ -1874,6 +1894,7 @@ fi:
       night: yö
       week: viikko
       month: kuukausi
+      unit: ~
     verification_required:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
@@ -2163,7 +2184,7 @@ fi:
         status_confirmed: Vahvistettu
         status_pending: Odottaa
     notifications:
-      email_from_admins: "Sivuston ylläpitäjä voi lähettää minulle sähköpostia"
+      email_from_admins: "Sivuston %{service_name} ylläpito saa lähettää minulle tarvittaessa sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: "Sähköpostit ylläpitäjiltä"
       community_updates: Tapahtumapäivitykset
@@ -2196,14 +2217,14 @@ fi:
       display_name: Näyttönimi
       display_name_description: "Jos edustat organisaatiota, voit käyttää organisaatiosi nimeä näyttönimenä. Tämä näyttönimi näkyy muille käyttäjille oman etu- ja sukunimesi sijaan."
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Esimerkiksi: \"02150 Espoo\" tai \"Otakaari 1, Espoo\"."
-      profile_picture_description: "Kuvan pitäisi olla neliömäisessä kuvasuhteessa (1:1), kuten kuva, joka on 800x800 pikseliä. Muussa taapauksessa kuvaasi joudutaan leikkaamaan niin että se mahtu neliömuotoiseen kokoon."
+      profile_picture_description: "Kuvan pitäisi olla neliömäisessä kuvasuhteessa (1:1), kuten esimerkiksi kuvakoossa 800x800 pikseliä. Muussa tapauksessa kuvaasi joudutaan leikkaamaan niin että se mahtuu kenttään."
       phone_number: Puhelinnumero
       profile_picture: Profiilikuva
       postal_code: Postinumero
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
       street_address: Sijainti
-      these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name}-palvelun käyttäjille"
+      these_fields_are_shown_in_your: "Osa näistä tiedoista näytetään kaikille %{service_name}-palvelun käyttäjille"
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
       default_in_listing: "(käytetään vain oletusarvona uutta ilmoitusta luotaessa)"
@@ -2495,6 +2516,10 @@ fi:
       legal_name: Nimi
       first_name: Etunimi
       last_name: Sukunimi
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Maa
       birth_date: Syntymäaika
       ssn_last_4: "Henkilötunnuksen 4 viimeistä numeroa"
@@ -2510,6 +2535,20 @@ fi:
       save_details: "Tallenna tiedot"
       edit: "Muokkaa tietoja"
       cancel: Peruuta
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: Tilinumero
       bank_routing_number: Reititysnumero
@@ -2555,6 +2594,6 @@ fi:
     can_accept_stripe_and_paypal: "Voit ottaa maksuja vastaan joko pankkitilillesi tai PayPal-tilillesi."
     to_accept_paypal: "Jotta voisit ottaa vastaan PayPal-maksuja, sinun pitää yhdistää PayPal-tilisi. Asiakkaasi voivat näin maksaa PayPalilla."
     connect_paypal: "Yhdistä PayPal-tili"
-    wrong_setup: "Sivuston maksujärjestelmässä on jotain vikaa: markkinapaikkaa ei ole rekisteröity Stripeen. Ota yhteys ylläpitoon ja kerro heille, että heidän markkinapaikkansa tulee rekisteröidä Stripeen."
+    wrong_setup: "Sivuston maksujärjestelmässä on jotain vikaa: Stripe Connectia ei ole kytketty päälle. Ota yhteys ylläpitoon ja kerro heille, että heidän tulee kytkeä Stripe Connect päälle Stripen ylläpitonäkymästä (Stripe Dashboard)."
     invalid_bank_account_number: "Tarkistathan, että tilinumerosi on asetettu oikein."
     invalid_postal_code: "Postinumero ei ole käytössä maassa %{country}"

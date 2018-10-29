@@ -94,6 +94,7 @@ hu:
         edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
         community_logo: Logó
         community_logo_icon: "Logó közösségi hálózatokhoz és mobil eszközökhöz."
+        community_logo_icon_mobile: ~
         community_cover_photo: Háttérkép
         small_community_cover_photo: "Kis háttérkép"
         favicon: Favicon
@@ -108,6 +109,7 @@ hu:
         logo_instructions_text_with_dimensions_no_placing: "A logó megfelelő mérete a következő:%{width}x%{height}px"
         logo_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
         logo_icon_instructions_text_with_dimensions_no_placing: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
         cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "A kis borítókép az összes oldalon megjelenik a nyitóoldal kivételével ahol a felhasználók nincsenek bejelentkezve."
@@ -272,6 +274,8 @@ hu:
         searchpage: "Új keresési oldal"
       social_media:
         social_media: "Közösségi média"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter név"
         twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
         twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
@@ -288,6 +292,7 @@ hu:
         invalid_facebook_connect_secret: "A kliens kulcs csak számokat tartalmazhat és betűket a-tól f-ig."
         enable_facebook_login: ~
         save: "Beállítások mentése"
+        add_another_image: ~
       analytics:
         analytics: Vizsgálat
         google_analytics_key: "Google Analytics követési azonosító"
@@ -388,11 +393,21 @@ hu:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -468,6 +483,8 @@ hu:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -498,6 +515,7 @@ hu:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -599,6 +617,7 @@ hu:
         night: Éjszakánként
         week: Hetente
         month: Havonta
+        unit: ~
       can_not_find: "Nem található hirdetés típus ezzel az azonosítóval: %{id}"
       add_custom_unit: "+Adjon meg egy egyedi árat ..."
       delete_custom_unit: töröl
@@ -1820,6 +1839,7 @@ hu:
       night: "Éjszakák száma:"
       week: "Hetek száma:"
       month: "Hónapok száma:"
+      unit: ~
       custom: "Mennyiség:"
     quantity_placeholder: Mennyiség
     please_comment: Megjegyzés
@@ -1871,6 +1891,7 @@ hu:
       night: éjszaka
       week: hét
       month: hónap
+      unit: ~
     verification_required:
       verification_required: "Visszaigazolás szükséges"
   listing_conversations:
@@ -2460,6 +2481,10 @@ hu:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2475,6 +2500,20 @@ hu:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

@@ -95,6 +95,7 @@ es-ES:
         edit_community_look_and_feel: "Edita la apariencia de %{community_name}"
         community_logo: Logotipo
         community_logo_icon: "Logo para sedes sociales y dispositivos móviles"
+        community_logo_icon_mobile: "Logo para la pantalla de inicio en dispositivos móviles"
         community_cover_photo: "Foto de portada"
         small_community_cover_photo: "Imagen de cabecera pequeña"
         favicon: Favicon
@@ -109,6 +110,7 @@ es-ES:
         logo_instructions_text_with_dimensions_no_placing: "El logo debe tener una resolución de %{width}x%{height} pixeles."
         logo_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook, cuando vean tu sitio desde un dispositivo móvil o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Este logo cuadrado se mostrará cuando las personas compartan tu sitio en Facebook o cuando guarden un acceso directo a tu sitio en sus dispositivos móviles. Las dimensiones deben ser (al menos) %{width}x%{height} pixeles."
+        logo_mobile_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará a los usuarios que guarden el link de tu comunidad en la página de inicio de un dispositivo móvil. Las dimensiones de la imagen deben ser (por lo menos) %{width} x %{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
@@ -227,7 +229,7 @@ es-ES:
         twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
-        automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los proveedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
+        automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los vendedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -271,6 +273,8 @@ es-ES:
         searchpage: "Nueva página de búsqueda (requiere de la nueva barra superior)"
       social_media:
         social_media: "Social media"
+        logo: Logo
+        logo_info: "Esta imagen se mostrará en medios sociales (Facebook, Twitter, LinkedIn) cuando alguien comparta tu dominio. Para mejores resultados, la imagen deberá tener una proporción de 2:1 y un tamaño mínimo de %{width} x%{height} pixeles."
         twitter_handle: Twitter
         twitter_handle_info_text: "El nombre de usuario de la cuenta de Twitter de tu comunidad (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
         twitter_handle_info_text_with_instructions: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien use el botón para twittear desde la página del anuncio. %{instructions_link}"
@@ -287,6 +291,7 @@ es-ES:
         invalid_facebook_connect_secret: "Client secret debe incluir sólo números y letras desde la A a la F."
         enable_facebook_login: "Permitir a los usuarios conectarse con su cuenta de Facebook"
         save: "Guardar configuración"
+        add_another_image: "Cambia la imagen"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -387,11 +392,21 @@ es-ES:
           receiver: Receptor
           status: Estatus
           grade: Calificación
-          note: Texto
+          text: Texto
         status:
           waiting: "Esperando reseña"
           skipped: Omitida
           published: Publicada
+          blocked: Bloqueada
+        form:
+          review_text: "Texto de la reseña"
+          save: Guardar
+          cancel: Cancelar
+          delete_review: "Borrar reseña"
+          block_review: "Bloquear reseña"
+          confirm_modify: "¿Estás seguro de querer modificar/borrar esta reseña? Una vez modificada/borrada no es possible recuperar la información en el futuro."
+          deleting_info: "Borrar la reseña le permite al autor dejar otra para la misma transacción."
+          blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
       listings:
         listings: Anuncios
         headers:
@@ -467,6 +482,8 @@ es-ES:
         user_fields: "Datos de usuarios"
         field_title: "Título del campo"
         field_type: "Tipo de campo"
+        signup: Registro
+        public: Público
         add_new_field: "Añadir un nuevo campo:"
         save: Guardar
         cancel: Cancelar
@@ -497,6 +514,7 @@ es-ES:
           title: "¿A quién le quieres enviar el correo?"
           options:
             all_users: "Todos los usuarios"
+            posting_allowed: "Usuarios que pueden publicar anuncios"
             with_listing: "Usuarios que han publicado por lo menos un anuncio"
             with_listing_no_payment: "Usuarios que han publicado por lo menos un anuncio pero que no han añadido sus detalles de pago"
             with_payment_no_listing: "Usuarios que han añadido sus detalles de pago pero que no han publicado ningún anuncio"
@@ -524,7 +542,7 @@ es-ES:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."
       read_more_availability_management: "Lee más acerca del manejo de la disponibilidad."
-      allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad."
+      allow_providers_to_manage_availability: "Permitir a los vendedores administrar su disponibilidad"
       per_hour_availability: "Disponibilidad \"Por hora\""
       per_day_availability: "Disponibilidad \"Por día\""
       per_night_availability: "Disponibilidad \"Por Noche\""
@@ -600,6 +618,7 @@ es-ES:
         night: "Por noche"
         week: "Por semana"
         month: "Por mes"
+        unit: "Por unidad"
       can_not_find: "No se pudo encontrar el tipo de orden con id: %{id}"
       add_custom_unit: "+ Añadir una unidad de precio personalizada..."
       delete_custom_unit: eliminar
@@ -668,7 +687,7 @@ es-ES:
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
-      confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus proveedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los proveedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
+      confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
       stripe_connected:
         title: "Stripe conectado"
         disable: "Deshabilitar Stripe"
@@ -1607,8 +1626,8 @@ es-ES:
         other: "La página estará fuera de servicio por mantenimiento en %{count} minutos"
       automatically_logged_out_please_sign_in: "Por favor, inicia sesión de nuevo, ya que tu sesión ha caducado."
       stripe_you_account_balance_is_not_0: "El balance de tu cuenta no es 0 y por lo tanto no puede ser eliminada. Esto puede significar que tienes transacciones esperando a ser completadas o que hay dinero esperando a ser transferido a tu cuenta de banco. Por favor contacta al equipo de %{service_name} si tienes alguna duda."
-      visit_admin: ~
-      visit_admin_link: ~
+      visit_admin: "¿ Quisieras %{link}?"
+      visit_admin_link: "visitar tu panel de administración"
     settings:
       account: Cuenta
       notifications: Notificaciones
@@ -1823,6 +1842,7 @@ es-ES:
       night: "Número de noches:"
       week: "Número de semanas:"
       month: "Número de meses:"
+      unit: "Número de unidades:"
       custom: "Cantidad:"
     quantity_placeholder: Cantidad
     please_comment: Comentario
@@ -1874,6 +1894,7 @@ es-ES:
       night: noche
       week: semana
       month: mes
+      unit: unidad
     verification_required:
       verification_required: "Verificación requerida"
   listing_conversations:
@@ -2203,7 +2224,7 @@ es-ES:
       profile_page: "en su página de perfil"
       profilemap: "Vista de mapa"
       street_address: Ubicación
-      these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de %{service_name}"
+      these_fields_are_shown_in_your: "Parte de esta información es visible para todos los usuarios de %{service_name}"
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
       default_in_listing: "(usada por defecto al publicar un nuevo anuncio)"
@@ -2494,6 +2515,10 @@ es-ES:
       legal_name: "Nombre legal"
       first_name: Nombre
       last_name: Apellido(s)
+      first_name_kana: "Nombre (Kana)"
+      last_name_kana: "Apellido (Kana)"
+      first_name_kanji: "Nombre (Kanji)"
+      last_name_kanji: "Apellido (Kanji)"
       country: País
       birth_date: "Fecha de nacimiento"
       ssn_last_4: "Últimos 4 dígitos del SSN"
@@ -2509,6 +2534,20 @@ es-ES:
       save_details: "Guardar datos"
       edit: "Editar datos"
       cancel: Cancelar
+      gender: Sexo
+      phone_number: Teléfono
+      address_kana_postal_code: "Código postal (Kana)"
+      address_kana_state: "Estado (Kana)"
+      address_kana_city: "Ciudad (Kana)"
+      address_kana_town: "Región (Kana)"
+      address_kana_line1: "Dirección (Kana)"
+      address_kanji_postal_code: "Código postal (Kanji)"
+      address_kanji_state: "Estado (Kanji)"
+      address_kanji_city: "Ciudad (Kanji)"
+      address_kanji_town: "Región (Kanji)"
+      address_kanji_line1: "Dirección (Kanji)"
+      male: masculino
+      female: femenino
     form_bank:
       bank_account_number: "Número de cuenta de banco"
       bank_routing_number: "Número de ruta/routing"
@@ -2554,6 +2593,6 @@ es-ES:
     can_accept_stripe_and_paypal: "Puedes recibir dinero en tu cuenta de banco o en tu cuenta de PayPal."
     to_accept_paypal: "Para recibir dinero en tu cuenta de PayPal, necesitas conectar tu cuenta de PayPal. Tus clientes podrán pagar con PayPal."
     connect_paypal: "Conectar cuenta de PayPal"
-    wrong_setup: "Hay un error con la configuración del sistema de pagos en esta comunidad. La plataforma no ha sido registrada. Por favor contacta al equipo para dejarles saber que deben registrar la plataforma en Stripe."
+    wrong_setup: "Hay un error con la configuración del sistema de pagos en esta comunidad. Stripe Connect no ha sido habilitado. Por favor contacta al equipo para dejarles saber que deben habilitar Stripe Connect desde su cuenta de Stripe."
     invalid_bank_account_number: "Por favor verifica que tu cuenta bancaria es correcta y que concuerda con tu país."
     invalid_postal_code: "Código postal invalido para %{country}"

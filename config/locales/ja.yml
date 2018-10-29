@@ -90,6 +90,7 @@ ja:
         edit_community_look_and_feel: "%{community_name}のカスタマイズ"
         community_logo: デスクトップロゴ
         community_logo_icon: モバイル用ロゴ
+        community_logo_icon_mobile: ~
         community_cover_photo: カバー写真
         small_community_cover_photo: 小さいカバー写真
         favicon: ファビコン
@@ -104,6 +105,7 @@ ja:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "モバイル用ロゴは出来れば、%{width}ｘ%{height}ピクセルの正方形にしてください。それは特に小さいスクリーンを使用しているユーザに表示されます。"
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
         cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
@@ -266,6 +268,8 @@ ja:
         searchpage: 新検索ページ(新トップメニューが必要)
       social_media:
         social_media: ソーシャルメディア
+        logo: ~
+        logo_info: ~
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: "あなたのマーケットプレイスのTwitterのユーザー名 (お持ちであれば) 。投稿ページのツイートボタンを使うときに言及されます。"
         twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
@@ -282,6 +286,7 @@ ja:
         invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
         enable_facebook_login: ~
         save: 設定を保存する
+        add_another_image: ~
       analytics:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
@@ -382,11 +387,21 @@ ja:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -462,6 +477,8 @@ ja:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +509,7 @@ ja:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -589,6 +607,7 @@ ja:
         night: １泊
         week: １週
         month: １ヵ月
+        unit: ~
       can_not_find: "id: %{id} の課金タイプは見つかりません"
       add_custom_unit: +独自の価格単位を追加…
       delete_custom_unit: 削除
@@ -1805,6 +1824,7 @@ ja:
       night: 宿泊日数：
       week: 週間：
       month: 月間：
+      unit: ~
       custom: 数量：
     quantity_placeholder: 数量
     please_comment: コメント
@@ -1856,6 +1876,7 @@ ja:
       night: 泊
       week: 週
       month: 月
+      unit: ~
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:
@@ -2441,6 +2462,10 @@ ja:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: "担当者氏名 (名・かな)"
+      last_name_kana: "担当者氏名 (姓・かな)"
+      first_name_kanji: "担当者氏名 (名・漢字)"
+      last_name_kanji: "担当者氏名 (姓・漢字)"
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2456,6 +2481,20 @@ ja:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: 性別
+      phone_number: ~
+      address_kana_postal_code: "郵便番号 (会社住所)"
+      address_kana_state: "都道府県 (かな)"
+      address_kana_city: "市区郡 (かな)"
+      address_kana_town: "町村名、丁目を含む (かな)"
+      address_kana_line1: "番地 (かな)"
+      address_kanji_postal_code: "郵便番号 (会社住所)"
+      address_kanji_state: "都道府県 (漢字)"
+      address_kanji_city: "市区郡 (漢字)"
+      address_kanji_town: "町村名、丁目を含む (漢字)"
+      address_kanji_line1: "番地 (漢字)"
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

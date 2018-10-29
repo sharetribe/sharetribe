@@ -86,6 +86,7 @@ hr:
         edit_community_look_and_feel: ~
         community_logo: ~
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: "Naslovna fotografija"
         small_community_cover_photo: "Mala profilna slika"
         favicon: Favicon
@@ -100,6 +101,7 @@ hr:
         logo_instructions_text_with_dimensions_no_placing: "Veličina loga bi trebala biti %{width}x%{height} piksela."
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini. %{see_how_it_looks_like}."
         small_cover_photo_visibility: ~
@@ -262,6 +264,8 @@ hr:
         searchpage: ~
       social_media:
         social_media: "Društvene mreže"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter oznaka"
         twitter_handle_info_text: "Korisničko ime Twitter računa od vašeg marketplacea (ako imate svoj marketplace). Biti će spomenuto kada će ljudi koristiti tweet gumb na stranici oglasa."
         twitter_handle_info_text_with_instructions: "Korisničko ime Twitter računa od vašeg marketplacea (ako imate svoj marketplace). Biti će spomenuto kada će ljudi koristiti tweet gumb na stranici oglasa. %{instructions_link}."
@@ -278,6 +282,7 @@ hr:
         invalid_facebook_connect_secret: "Client secret bi trebao sadržavati samo brojeve i slova od a do f."
         enable_facebook_login: ~
         save: "Spremite postavke"
+        add_another_image: ~
       analytics:
         analytics: Analitika
         google_analytics_key: "Google Analytics tracking ID"
@@ -378,11 +383,21 @@ hr:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -458,6 +473,8 @@ hr:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -488,6 +505,7 @@ hr:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -584,6 +602,7 @@ hr:
         night: "Po noćenju"
         week: "Po tjednu"
         month: "Po mjesecu"
+        unit: ~
       can_not_find: "Ne možemo naći tip narudžbe sa oznakom: %{id}"
       add_custom_unit: "+dodaj prilagođen cjenovni blok"
       delete_custom_unit: izbrisati
@@ -1801,6 +1820,7 @@ hr:
       night: "Broj noći:"
       week: "Broj tjedana:"
       month: "Broj mjeseci:"
+      unit: ~
       custom: "Količina:"
     quantity_placeholder: Količina
     please_comment: Komentar
@@ -1852,6 +1872,7 @@ hr:
       night: noć
       week: tjedan
       month: mjesec
+      unit: ~
     verification_required:
       verification_required: "Potrebna verifikacija"
   listing_conversations:
@@ -2454,6 +2475,10 @@ hr:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2469,6 +2494,20 @@ hr:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

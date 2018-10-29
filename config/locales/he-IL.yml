@@ -86,6 +86,7 @@ he-IL:
         edit_community_look_and_feel: "ערוך את המראה והתחושה של האתר \"‎%{community_name}‎\""
         community_logo: לוגו
         community_logo_icon: "לוגו עבור רשתות חברתיות ומכשירים ניידים"
+        community_logo_icon_mobile: ~
         community_cover_photo: "תמונת רקע"
         small_community_cover_photo: "תמונת שער קטנה"
         favicon: ~
@@ -100,6 +101,7 @@ he-IL:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "לוגו מרובע זה יוצג כאשר אנשים משתפים את האתר שלך ב- Facebook, כאשר הם מציגים את האתר שלך במכשיר נייד או כאשר הם מסמלים את האתר שלך למסך דף הבית של המכשיר הנייד. על המאפיינים להיות (לפחות)‎%{height}‎‎%{width}‎."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "תמונת השער מוצגת בדף הבית עבור משתמשים שאינם מחוברים."
         cover_photo_instructions_text_with_dimensions: "התמונה תשנה את גודלה ל - ‎%{height}‎‎%{width}‎ פיקסל ותמונות גבוהות יותר ייחתכו באמצע. ‎%{see_how_it_looks_like}‎"
         small_cover_photo_visibility: "תמונת שער קטנה מוצגת בכל הדפים, למעט בדף הבית עבור משתמשים שאינם מחוברים."
@@ -262,6 +264,8 @@ he-IL:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -278,6 +282,7 @@ he-IL:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -378,11 +383,21 @@ he-IL:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -458,6 +473,8 @@ he-IL:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -488,6 +505,7 @@ he-IL:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -579,6 +597,7 @@ he-IL:
         night: ללילה
         week: לשבוע
         month: לחודש
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1792,6 +1811,7 @@ he-IL:
       night: ~
       week: "מספר שבועות:"
       month: "מספר חודשים:"
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: תגובה
@@ -1843,6 +1863,7 @@ he-IL:
       night: ~
       week: שבוע
       month: חודש
+      unit: ~
     verification_required:
       verification_required: "נדרש אימות"
   listing_conversations:
@@ -2420,6 +2441,10 @@ he-IL:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2435,6 +2460,20 @@ he-IL:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

@@ -100,6 +100,7 @@ sk-SK:
         edit_community_look_and_feel: "Upraviť vzhľad trhoviska %{community_name}"
         community_logo: "Logo veľké"
         community_logo_icon: "Logo pre sociálne siete a mobilné zariadenia"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Úvodná fotografia"
         small_community_cover_photo: "Malá úvodná fotografia"
         favicon: "Ikonka webovej stránky"
@@ -114,6 +115,7 @@ sk-SK:
         logo_instructions_text_with_dimensions_no_placing: "Velkosť loga by mala byť %{width}x%{height}pixelov."
         logo_icon_instructions_text_with_dimensions: "Toto štvorcové logo sa zobrazí v prípade zdieľania Vašej stránky na Facebooku, na mobilnom zariadení, alebo v prípade nastavenia Vašej stránky ako domovskej na mobilnom zariadení. Rozmery by mali byť (aspoň) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Toto štvorcové logo sa zobrazí v prípade zdieľania Vašej stránky na Facebooku, alebo v prípade nastavenia Vašej stránky ako domovskej na mobilnom zariadení. Rozmery by mali byť (aspoň) %{width}x%{height} pixelov."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Úvodná fotografia sa zobrazí na domovskej stránke neprihláseným užívateľom."
         cover_photo_instructions_text_with_dimensions: "Fotografie budú prispôsobené veľkosti %{width}x%{height} pixelov a väčšie snímky budú orezané. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Malá úvodná fotografia sa zobrazí neprihláseným užívateľom na všetkých stránkach okrem domovskej stránky."
@@ -276,6 +278,8 @@ sk-SK:
         searchpage: ~
       social_media:
         social_media: "Sociálne médiá"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter účet"
         twitter_handle_info_text: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorý používajú Twitter tlačítko stránke."
         twitter_handle_info_text_with_instructions: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorí používajú Twitter tlačítko na stránke. %{instructions_link}."
@@ -292,6 +296,7 @@ sk-SK:
         invalid_facebook_connect_secret: "Heslo by malo obsahovať iba číslice a písmená od A do F."
         enable_facebook_login: ~
         save: "Uložiť nastavenia"
+        add_another_image: ~
       analytics:
         analytics: "Google Analytics"
         google_analytics_key: "Google Analytics sledovacie ID"
@@ -392,11 +397,21 @@ sk-SK:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -472,6 +487,8 @@ sk-SK:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -502,6 +519,7 @@ sk-SK:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -609,6 +627,7 @@ sk-SK:
         night: "Za noc"
         week: "Za týždeň"
         month: "Za mesiac"
+        unit: ~
       can_not_find: "Typ objednávky s id: %{id} nebol nájdený"
       add_custom_unit: "+ Pridať vlastnú cenovú jednotku…"
       delete_custom_unit: Vymazať
@@ -1829,6 +1848,7 @@ sk-SK:
       night: "Počet nocí:"
       week: "Počet týždňov:"
       month: "Počet mesiacov:"
+      unit: ~
       custom: "Množstvo:"
     quantity_placeholder: Množstvo
     please_comment: Komentár
@@ -1880,6 +1900,7 @@ sk-SK:
       night: noc
       week: týždeň
       month: mesiac
+      unit: ~
     verification_required:
       verification_required: "Overenie požadované"
   listing_conversations:
@@ -2493,6 +2514,10 @@ sk-SK:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2508,6 +2533,20 @@ sk-SK:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

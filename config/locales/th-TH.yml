@@ -90,6 +90,7 @@ th-TH:
         edit_community_look_and_feel: "แก้ไขรูปลักษณ์และความรู้สึกของตลาด \"%{community_name}\""
         community_logo: โลโก้
         community_logo_icon: โลโก้สำหรับเครือข่ายทางสังคมและอุปกรณ์มือถือ
+        community_logo_icon_mobile: ~
         community_cover_photo: รูปภาพหน้าปก
         small_community_cover_photo: ภาพปกขนาดเล็ก
         favicon: Favicon
@@ -104,6 +105,7 @@ th-TH:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
         logo_icon_instructions_text_with_dimensions_no_placing: "โลโก้ขนาดจัตุรัสนี้จะปรากฎเมื่อมีคนแชร์เว็บไซต์ของคุณใน Facebook เมื่อมีคนดูเว็บไซต์ของคุณบนอุปกรณ์มือถือ หรือเมื่อมีการบุ๊คมาร์คเว็บไซต์ของคุณในหน้าจอหลักของอุปกรณ์มือถือ ขนาดที่แนะนำ (อย่างน้อย) คือ %{width}x%{height} px"
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: รูปภาพหน้าปกจะแสดงในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน
         cover_photo_instructions_text_with_dimensions: "ขนาดโลโก้จะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง %{see_how_it_looks_like}"
         small_cover_photo_visibility: "ภาพปกขนาดเล็กจะถูกแสดงในหน้าเว็บทั้งหมด ยกเว้นในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน"
@@ -133,42 +135,42 @@ th-TH:
         edit_message: แก้ไขข้อความ
         send_test_message: ส่งข้อความทดสอบ
       outgoing_email:
-        title: ~
-        info: ~
+        title: อีเมลที่ใช้ในการส่งออก
+        info: "ชื่อและอีเมลนี้ จะใช้สำหรับอีเมลที่ส่งจากตลาดของคุณไปยังสมาชิก"
         read_more: อ่านเพิ่มเติมเกี่ยวกับการส่งอีเมล
-        sender_address: ~
-        sender_address_default: ~
-        need_to_change: ~
-        contact_support_link_text: ~
-        set_sender_address: ~
-        sender_name_label: ~
-        sender_name_placeholder: ~
-        sender_email_label: ~
-        sender_email_placeholder: ~
+        sender_address: "อีเมลผู้ส่ง: %{sender_address}"
+        sender_address_default: "อีเมลผู้ส่ง: ไม่ได้ระบุ (ตอนนี้ใช้ %{sender_address})"
+        need_to_change: "หากคุณต้องการเปลี่ยนอีเมลโปรดติดต่อ %{contact_support_link}"
+        contact_support_link_text: "ติดต่อศูนย์บริการ Sharetribe"
+        set_sender_address: ตั้งค่าอีเมลผู้ส่ง
+        sender_name_label: ชื่อ
+        sender_name_placeholder: ชื่อผู้ส่ง
+        sender_email_label: อีเมล
+        sender_email_placeholder: sender-email@example.com
         amazon_ses_notification: ~
-        this_is_how_it_will_look: ~
-        send_verification_button: ~
+        this_is_how_it_will_look: "นี่คือรูปลักษณ์ที่จะเห็น:"
+        send_verification_button: ส่งอีเมลเพื่อทำการยืนยัน
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: "ได้ทำการบันทึกค่าอีเมลผู้ส่งเรียบร้อยแล้ว อีเมลทำการยืนยันจะถูกส่งไปในเร็วๆนี้"
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
         change_sender_prompt: ~
-        status: ~
-        status_verified: ~
-        status_error: ~
-        status_requested: ~
-        status_expired: ~
-        status_resent: ~
-        resend_link: ~
-        invalid_email_error: ~
+        status: "สถานะ: %{status}"
+        status_verified: "ได้ทำการยืนยันแล้ว - ใช้งานอยู่"
+        status_error: "มีข้อผิดพลาดเกิดขึ้น กรุณารีเฟรชหน้า"
+        status_requested: "ยังไม่ได้ทำการยืนยัน - ส่งอีเมลเพื่อทำการยืนยันได้ส่งไปที่ %{email} เมื่อตอน %{time_ago} หากต้องการส่งใหม่กรุณากด %{resend_link}"
+        status_expired: "เวลาในการยืนยันอีเมล %{email} หมดลงแล้ว เพื่อส่งอีเมลอีกครั้งกรุณากด %{resend_link}"
+        status_resent: "อีเมลเพื่อทำการยืนยันได้ส่งไปที่ %{email} อีกครั้ง หากต้องการส่งใหม่กรุณากด %{resend_link}"
+        resend_link: ส่งอีกครั้ง
+        invalid_email_error: "อีเมลไม่ถูกต้องสำหรับ '%{email}'"
         invalid_email_domain: ~
         invalid_email_domain_read_more_link: ~
-        unknown_error: ~
+        unknown_error: เกิดข้อผิดพลาดบางอย่าง
         white_label_offer: ~
         upgrade_plan_link: ~
-        verification_sent_from: ~
-        follow_the_instructions: ~
+        verification_sent_from: "อีเมลเพื่อทำการยืนยันจะมาจากอีเมล %{verification_sender_name}"
+        follow_the_instructions: โปรดทำตามขั้นตอนในอีเมลเพื่อยืนยันอีเมลของคุณ
       getting_started:
         getting_started: เริ่มต้นการใช้งาน
       available_languages:
@@ -230,11 +232,11 @@ th-TH:
         type_marketplace_domain: "พิมพ์โดเมนตลาดของคุณ (%{domain}) ลงในฟิลด์ข้อความด้านล่าง:"
         type_marketplace_domain_placeholder: พิมพ์โดเมนตลาดของคุณที่นี่
         once_you_delete: "เมื่อคุณลบตลาดแล้วคุณจะไม่สามารถเข้าถึงได้อีกต่อไป โปรดระวัง."
-        are_you_sure: ~
-        i_understand_button: ~
-        last_community_updates: ~
-        you_will_be_redirected_to: ~
-        delete_this_marketplace: ~
+        are_you_sure: คุณแน่ใจหรือไม่
+        i_understand_button: ฉันเข้าใจว่าการคลิกปุ่มนี้จะทำตลาดของฉันถูกลบ
+        last_community_updates: "โปรดทราบว่าหลังจากการลบนี้ คุณและผู้ใช้ตลาดของคุณอาจยังได้รับอีเมลการปรับปรุงตลาดครั้งล่าสุด"
+        you_will_be_redirected_to: "หลังจากที่คุณได้ลบตลาดของคุณแล้ว คุณจะถูกส่งต่อไปยัง %{destination} คุณจะไม่สามารถเข้าถึงตลาดของคุณได้อีกต่อไป"
+        delete_this_marketplace: ลบตลาดนี้
         payment_preferences: ~
       manage_members:
         manage_members: จัดการผู้ใช้
@@ -266,6 +268,8 @@ th-TH:
         searchpage: ~
       social_media:
         social_media: โซเชียลมีเดีย
+        logo: ~
+        logo_info: ~
         twitter_handle: "การจัดการ Twitter"
         twitter_handle_info_text: "ชื่อผู้ใช้บัญชี Twitter ในตลาดของคุณ (ถ้ามี) ซึ่งจะได้รับการกล่าวถึงเมื่อมีคนใช้ปุ่มทวีตบนหน้ารายการ"
         twitter_handle_info_text_with_instructions: "ชื่อผู้ใช้ของบัญชี Twitter ของตลาดของคุณ (ถ้าคุณมี) จะมีการกล่าวถึงเมื่อผู้คนใช้ปุ่ม tweet บนหน้ารายการ %{instructions_link}"
@@ -282,6 +286,7 @@ th-TH:
         invalid_facebook_connect_secret: "รหัสลับลูกค้าควรมีเฉพาะตัวเลขและตัวอักษรจาก A ถึง F"
         enable_facebook_login: ~
         save: บันทึกการตั้งค่า
+        add_another_image: ~
       analytics:
         analytics: การวิเคราะห์ข้อมูลหรือสถิติ
         google_analytics_key: " ID ติดตามของ Google Analytics"
@@ -382,11 +387,21 @@ th-TH:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -462,6 +477,8 @@ th-TH:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +509,7 @@ th-TH:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -591,6 +609,7 @@ th-TH:
         night: ต่อคืน
         week: ต่อสัปดาห์
         month: ต่อเดือน
+        unit: ~
       can_not_find: "ไม่พบประเภทใบสั่งที่มีรหัส: %{id}"
       add_custom_unit: "+ เพิ่มหน่วยราคาเอง…"
       delete_custom_unit: ลบ
@@ -1186,8 +1205,8 @@ th-TH:
       required_error: คุณต้องยอมรับข้อตกลงก่อนการใช้งาน
     paypal:
       transaction_cannot_complete: ~
-      buyer_cannot_pay_error: ~
-      pending_review_error: ~
+      buyer_cannot_pay_error: "การชำระเงินถูกปฏิเสธโดย PayPal โปรดติดต่อฝ่ายบริการลูกค้าของ PayPal เพื่อขอข้อมูลเพิ่มเติม: %{customer_service_link}"
+      pending_review_error: "การชำระเงินถูกส่งเข้าระบบแล้ว แต่ถูกระบุโดย PayPal ว่า 'ต้องได้รับการตรวจสอบ' เมื่อ PayPal เสร็จสิ้นการตรวจสอบเสร็จสิ้น การชำระเงินจะได้รับการอนุมัติโดยอัตโนมัติ"
       seller_express_checkout_disabled: "PayPal Express Checkout ได้ถูกปิดในรายการบัญชี PayPal ของผู้เขียน กรุณาติดต่อ ผู้เขียน เพื่อรายงานให้รู้ว่ามีปัญหากับบัญชี PayPal ของเขา และแนะนำให้ติดต่อฝ่ายบริการลูกค้าของ PayPal"
       generic_error: "เกิดข้อผิดพลาดในระหว่างขั้นตอนการชำระเงิน ไม่สามารถสรุปการชำระเงิน PayPal ของคุณได้"
       cancel_error: "เกิดข้อผิดพลาดระหว่างการยกเลิก ไม่สามารถยกเลิกรายการได้"
@@ -1352,7 +1371,7 @@ th-TH:
       send_invitation: ส่งบัตรเชิญ
       add_email_addresses_description: "เพิ่มที่อยู่อีเมล์ของคนที่คุณอยากชวนลงในกล่องด้านล่าง หากใส่อีเมลหลายอัน ให้ใช้เครื่องหมายลูกน้ำหรือจุลภาค , คั่นแต่ละอีเมล"
       add_lots_of_email_addresses: "ในฐานะที่คุณเป็นผู้ดูแล นี่เป็นเคล็ดลับ: หากคุณวางแผนที่จะส่งการเชิญจำนวนมาก คุณควรใช้เครื่องมือส่งอีเมล โปรดดู %{this_article_link} เพื่อหาแหล่งข้อมูลเกี่ยวกับบริการ อีเมล์ที่เหมาะสม"
-      this_article_link: ~
+      this_article_link: สินค้านี้
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "ฉันได้เข้าร่วมในตลาดอันน่าตื่นตาตื่นใจนี้ คุณน่าจะมาร่วมด้วยกันนะ!"
       errors_in_emails: "กรุณาตรวจสอบว่าที่อยู่อีเมล์ที่คุณเพิ่มถูกต้อง และไม่มีตัวอักษรที่ผิดปกติใด ๆ หากคุณเพิ่มหลายที่อยู่ โปรดแน่ใจว่าที่อยู่เหล่านั้นถูกแยกด้วยเครื่องหมายจุลภาค"
@@ -1495,7 +1514,7 @@ th-TH:
       feedback_skipped: ความคิดเห็นที่ถูกข้าม
       invitation_cannot_be_sent: การเชิญไม่สามารถจัดส่งได้
       invitation_cannot_unsubscribe: ~
-      invitation_limit_reached: ~
+      invitation_limit_reached: "คุณพยายามส่งใบเชิญมากเกินไป คุณส่งเกินขีดจำกัดรายวันแล้ว"
       invitation_sent: ส่งการเชิญเรียบร้อยแล้ว
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: "ไม่ได้รับอนุญาตให้เชิญผู้ใช้ใหม่ "
@@ -1804,6 +1823,7 @@ th-TH:
       night: "จำนวนคืน:"
       week: "จำนวนสัปดาห์:"
       month: "จำนวนเดือน:"
+      unit: ~
       custom: "ปริมาณ:"
     quantity_placeholder: ปริมาณ
     please_comment: ข้อคิดเห็น
@@ -1855,6 +1875,7 @@ th-TH:
       night: คืน
       week: สัปดาห์
       month: เดือน
+      unit: ~
     verification_required:
       verification_required: ต้องได้รับการยืนยัน
   listing_conversations:
@@ -2444,6 +2465,10 @@ th-TH:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2459,6 +2484,20 @@ th-TH:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

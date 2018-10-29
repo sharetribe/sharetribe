@@ -86,6 +86,7 @@ pt-PT:
         edit_community_look_and_feel: "Editar o visual do mercado virtual %{community_name}."
         community_logo: Logo
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: "Foto de capa"
         small_community_cover_photo: ~
         favicon: ~
@@ -100,6 +101,7 @@ pt-PT:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Foto da capa apresentada na página inicial para utilizadores não conectados."
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: "Foto pequena da capa mostrado para utilizadores não conectados."
@@ -262,6 +264,8 @@ pt-PT:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
@@ -278,6 +282,7 @@ pt-PT:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -378,11 +383,21 @@ pt-PT:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -458,6 +473,8 @@ pt-PT:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -488,6 +505,7 @@ pt-PT:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -591,6 +609,7 @@ pt-PT:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1802,6 +1821,7 @@ pt-PT:
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: Comentar
@@ -1853,6 +1873,7 @@ pt-PT:
       night: ~
       week: ~
       month: ~
+      unit: ~
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -2428,6 +2449,10 @@ pt-PT:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2443,6 +2468,20 @@ pt-PT:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

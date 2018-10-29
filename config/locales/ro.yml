@@ -100,6 +100,7 @@ ro:
         edit_community_look_and_feel: "Editați aspectul marketplace-ului \"%{community_name}\""
         community_logo: Logo
         community_logo_icon: "Logo pentru rețele sociale și dispozitive mobile"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Imaginea de cover"
         small_community_cover_photo: "Poza de cover mică"
         favicon: Favicon
@@ -114,6 +115,7 @@ ro:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Acest logo pătrat va fi afișat când utilizatorii vor distribui site-ul dvs. pe Facebook, atunci când vă vor vedea site-ul pe un dispozitiv mobil sau când vor marca site-ul dvs. pe ecranul de pornire al dispozitivului mobil. Dimensiunile trebuie să fie (cel puțin) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Fotografia de pe copertă este afișată în pagina de pornire pentru utilizatorii care nu sunt conectați."
         cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai înalte vor fi tăiate în mijloc. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Fotografia cu copertă mică este afișată în toate paginile, cu excepția paginii de pornire pentru utilizatorii care nu sunt conectați."
@@ -276,6 +278,8 @@ ro:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: "Numele de utilizator al contului Twitter pentru platforma dumneavoastra (daca aveti unul). Va fi mentionat cand oamenii folosesc butonul de tweet pe pagina de afisari."
         twitter_handle_info_text_with_instructions: ~
@@ -292,6 +296,7 @@ ro:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -392,11 +397,21 @@ ro:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -472,6 +487,8 @@ ro:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -502,6 +519,7 @@ ro:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -593,6 +611,7 @@ ro:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1804,6 +1823,7 @@ ro:
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: Comenteaza
@@ -1855,6 +1875,7 @@ ro:
       night: ~
       week: ~
       month: ~
+      unit: ~
     verification_required:
       verification_required: "Verificare necesară"
   listing_conversations:
@@ -2443,6 +2464,10 @@ ro:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2458,6 +2483,20 @@ ro:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

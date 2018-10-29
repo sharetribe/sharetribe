@@ -90,6 +90,7 @@ ko:
         edit_community_look_and_feel: "마켓플레이스 %{community_name} 꾸미기"
         community_logo: 로고
         community_logo_icon: "모바일용 로고"
+        community_logo_icon_mobile: ~
         community_cover_photo: "표지 이미지"
         small_community_cover_photo: "작은 표지 이미지"
         favicon: 파비콘
@@ -104,6 +105,7 @@ ko:
         logo_instructions_text_with_dimensions_no_placing: "로고 크기는 %{width} x %{height} px 여야합니다."
         logo_icon_instructions_text_with_dimensions: "정사각형 로고는 모바일 화면 또는 페이스북을 통해 사이트를 공유할 때 사용됩니다. 가급적 %{width} x %{height}픽셀로 만들어주세요."
         logo_icon_instructions_text_with_dimensions_no_placing: "이 사각형 로고는 사람들이 Facebook에서 귀하의 사이트를 공유하거나 모바일 장치의 홈 화면에 귀하의 사이트를 북마크 할 때 표시됩니다. 크기는 적어도 %{width} x %{height} px 여야합니다."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지에 나타납니다."
         cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "작은 표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지 이외의 모든 페이지에 나타납니다."
@@ -266,6 +268,8 @@ ko:
         searchpage: "새 검색 페이지 (새 최상위 바가 필요함)"
       social_media:
         social_media: "소셜 미디어"
+        logo: ~
+        logo_info: ~
         twitter_handle: "트위터 핸들"
         twitter_handle_info_text: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다."
         twitter_handle_info_text_with_instructions: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다. %{instructions_link}."
@@ -280,15 +284,16 @@ ko:
         invalid_facebook_connect_id: "클라이언트 ID는 숫자만 포함해야합니다."
         facebook_connect_secret: "Facebook 클라이언트 비밀"
         invalid_facebook_connect_secret: "클라이언트 비밀은 a에서 f까지의 숫자와 문자만 포함해야 합니다."
-        enable_facebook_login: ~
+        enable_facebook_login: "페이스북 계정으로 로그인 허용"
         save: "설정 저장"
+        add_another_image: "새 이미지 추가"
       analytics:
         analytics: 분석
         google_analytics_key: "구글 분석 추적 ID"
         google_analytics_key_info_text: "Google 애널리틱스 계정의 추적 ID입니다."
         google_analytics_key_info_text_with_instructions: "Google 애널리틱스 계정의 추적 ID입니다. %{instructions_link}."
         google_analytics_instructions_link_text: "Google 애널리틱스 연결에 대해 자세히 알아보기"
-        sharetribe_analytics: ~
+        sharetribe_analytics: "셰어트라이브 분석 결과"
         sharetribe_analytics_info_text_with_instructions: ~
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
@@ -373,31 +378,41 @@ ko:
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
       testimonials:
-        testimonials: ~
+        testimonials: 리뷰
         no_testimonials_found: ~
         displaying_xx_reviews: ~
         headers:
-          transaction: ~
-          author: ~
-          receiver: ~
+          transaction: 거래
+          author: 저자
+          receiver: 수신자
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
-          waiting: ~
+          waiting: "검토 대기중"
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
-          title: ~
-          author: ~
+          title: 제목
+          author: 저자
           created: ~
           updated: ~
           category: ~
           status: ~
-        open: ~
-        closed: ~
+        open: 열림
+        closed: 닫힘
         expired: ~
       user_fields:
         user_fields: ~
@@ -462,13 +477,15 @@ ko:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        save: 저장
+        cancel: 취소
+        minimum_value: 최소
+        maximum_value: 최대
+        allow_decimals: "소수점 허용"
+        add_option: "옵션 추가"
       new:
         new_user_field: ~
       form:
@@ -492,6 +509,7 @@ ko:
           title: "누구에게 이메일을 보내시겠습니까?"
           options:
             all_users: "모든 사용자들"
+            posting_allowed: ~
             with_listing: "하나 이상의 목록을 게시한 사용자"
             with_listing_no_payment: "하나 이상의 목록을 게시했지만 결제 세부 정보를 추가하지 않은 사용자"
             with_payment_no_listing: "결제 세부 사항을 추가했지만 목록을 게시하지 않은 사용자"
@@ -591,6 +609,7 @@ ko:
         night: 1박당
         week: 매주
         month: 매월
+        unit: ~
       can_not_find: "다음의 ID인 주문 유형을 찾을 수 없습니다 : %{id}"
       add_custom_unit: "+ 맞춤 가격 책정 단위 추가 ..."
       delete_custom_unit: 삭제
@@ -1448,7 +1467,7 @@ ko:
       how_to_use: "사용 예제"
       info_about_kassi: "%{service_name} 정보"
       news: 소식들
-      register_details: 프라이버시
+      register_details: "개인 정보 정책"
       terms: "이용 약관"
     logged_in:
       admin: 관리
@@ -1714,7 +1733,7 @@ ko:
         location: 위치
         origin: 원산지
       send_button:
-        save_listing: "목록 저장"
+        save_listing: "포스팅 하기"
       share_type:
         select: 선택
         borrow: 차용
@@ -1785,7 +1804,7 @@ ko:
       accept_for_frees: 무료수락
       trades: 교환
     listing_actions:
-      booking_from: 로부터
+      booking_from: 부터
       booking_to: 에게
       how_paypal_works: "PayPal의 작동 원리"
       payment_help: "결제 도움말"
@@ -1813,6 +1832,7 @@ ko:
       night: "숙박 일수:"
       week: "주 수 :"
       month: "개월 수 :"
+      unit: ~
       custom: "수량:"
     quantity_placeholder: 수량
     please_comment: 설명
@@ -1864,6 +1884,7 @@ ko:
       night: 밤
       week: 주
       month: 월
+      unit: ~
     verification_required:
       verification_required: 확인필요
   listing_conversations:
@@ -2027,7 +2048,7 @@ ko:
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
-      privacy: ~
+      privacy: "개인 정보 정책"
       username_is_in_use: "이 사용자명은 이미 존재합니다"
       username_is_invalid: "사용자 이름이 잘못되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
       visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
@@ -2193,7 +2214,7 @@ ko:
       profile_page: "당신의 프로필 페이지에서"
       profilemap: 지도보기
       street_address: 위치
-      these_fields_are_shown_in_your: "이 정보는 모든 %{service_name} 사용자에게 표시됩니다."
+      these_fields_are_shown_in_your: "이 정보중 일부는 모든 %{service_name} 사용자에게 표시됩니다."
       visible_to_everybody: "모든사람에게 보여집니다"
       visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
       default_in_listing: "(새 목록을 만들때 기본값으로만 사용됨)"
@@ -2467,15 +2488,19 @@ ko:
       need_info: "우리는 당신에게 돈을 보낼 수있는 당신에 관한 정보가 필요합니다."
       select_country: 국가선택...
       legal_name: 법명
-      first_name: ~
-      last_name: ~
+      first_name: 이름
+      last_name: 성
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: 국가
       birth_date: 생일
       ssn_last_4: "SSN 마지막 4"
       personal_id_number: "개인 아이디 넘버"
       address_country: 국가
       address_state: 주
-      address_province: ~
+      address_province: 도
       address_city: 도시
       address_postal_code: 우편번호
       address_line1: 거리주소
@@ -2484,6 +2509,20 @@ ko:
       save_details: "세부 정보 저장"
       edit: "세부 정보 편집"
       cancel: 취소
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: "은행 계좌 정보"
       bank_routing_number: "라우팅 번호"

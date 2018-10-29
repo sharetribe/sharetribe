@@ -95,6 +95,7 @@ fr:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la place de marché \"%{community_name}\""
         community_logo: Logo
         community_logo_icon: "Logo pour les réseaux sociaux et appareils mobiles"
+        community_logo_icon_mobile: "Logo pour appareils mobiles"
         community_cover_photo: "Photo de couverture"
         small_community_cover_photo: "Photo de couverture réduite"
         favicon: Favicon
@@ -106,9 +107,10 @@ fr:
         community_description_color_instructions_text: "Vous pouvez changer la couleur de la description sur la page d'accueil en entrant une valeur hexadécimale. %{colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Couleur du bouton Déposer une annonce"
         logo_instructions_text_with_dimensions: "Le logo doit avoir des dimensions de %{width}x%{height} pixels. Il sera affiché sur les grands écrans."
-        logo_instructions_text_with_dimensions_no_placing: "Les dimensions du logo doivent être de %{width}*%{height} pixels."
+        logo_instructions_text_with_dimensions_no_placing: "Les dimensions du logo doivent être de %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions_no_placing: "Ce logo carré est affiché lorsque des utilisateurs partagent votre site sur Facebook ou qu'ils l'ajoutent comme favori sur l'écran d'accueil de leur smartphone ou tablette. Ses dimensions doivent être (au moins) de %{width}x%{height} pixels."
+        logo_mobile_icon_instructions_text_with_dimensions: "Ce logo de format carré est affiché lorsque des utilisateurs créent un marque-page pour votre site sur la page d'accueil de leur appareil mobile. Ses dimensions doivent être (au moins) de %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
@@ -271,6 +273,8 @@ fr:
         searchpage: "Nouvelle page de recherche (nouvelle barre des menus requise)"
       social_media:
         social_media: "Réseaux sociaux"
+        logo: Logo
+        logo_info: "Cette image est utilisée lorsque quelqu'un partage votre place de marché sur un réseau social (Facebook, Twitter, LinkedIn). Idéalement, elle devrait avoir un ratio de 2:1 et des dimensions minimum de %{width}x%{height} pixels."
         twitter_handle: "Nom Twitter"
         twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
         twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
@@ -287,6 +291,7 @@ fr:
         invalid_facebook_connect_secret: "La clé secrète ne devrait contenir que des chiffres et des lettre de a à f."
         enable_facebook_login: "Permettre aux utilisateurs de se connecter avec leur compte Facebook"
         save: "Sauvegarder les paramètres"
+        add_another_image: "Ajouter une autre image"
       analytics:
         analytics: Analyses
         google_analytics_key: "Code de suivi Google Analytics"
@@ -387,11 +392,21 @@ fr:
           receiver: Destinataire
           status: Statut
           grade: Note
-          note: Commentaire
+          text: Texte
         status:
           waiting: "En attente"
           skipped: Ignorée
           published: Publiée
+          blocked: Bloquée
+        form:
+          review_text: "Texte de l'avis"
+          save: Sauvegarder
+          cancel: Annuler
+          delete_review: "Supprimer l'avis"
+          block_review: "Bloquer l'avis"
+          confirm_modify: "Voulez-vous vraiment modifier/supprimer cet avis ? Une fois modifiée ou supprimée, il n'est plus possible d'en récupérer la version précédente."
+          deleting_info: "Supprimer un avis permet à son auteur d''en laisser un nouveau pour la même transaction."
+          blocking_info: "Bloquer un avis lors de sa suppression empêche son auteur d'en laisser un nouveau pour la même transaction."
       listings:
         listings: Annonces
         headers:
@@ -467,6 +482,8 @@ fr:
         user_fields: "Champs d'utilisateurs"
         field_title: "Nom du champ"
         field_type: "Type du champ"
+        signup: Inscription
+        public: Public
         add_new_field: "Ajouter un nouveau champ :"
         save: Sauvegarder
         cancel: Annuler
@@ -497,6 +514,7 @@ fr:
           title: "A qui voulez-vous écrire ?"
           options:
             all_users: "Tous les utilisateurs"
+            posting_allowed: "Utilisateurs étant autorisés à poster des annonces"
             with_listing: "Utilisateurs ayant posté au moins une annonce"
             with_listing_no_payment: "Utilisateurs ayant posté au moins une annonce mais n'ayant pas ajouté leurs informations de paiement"
             with_payment_no_listing: "Utilisateurs ayant ajouté leurs informations de paiement mais n'ayant pas posté d'annonces"
@@ -524,7 +542,7 @@ fr:
       availability_title: Disponibilité
       read_more: "En savoir plus sur la gestion automatique des disponibilités."
       read_more_availability_management: "En savoir plus sur la gestion des disponibilités."
-      allow_providers_to_manage_availability: "Autoriser les fournisseurs à gérer leur disponibilité depuis un calendrier"
+      allow_providers_to_manage_availability: "Autoriser les vendeurs à gérer leur disponibilité depuis un calendrier"
       per_hour_availability: "Disponibilité \"par heure\""
       per_day_availability: "Disponibilité \"par jour\""
       per_night_availability: "Disponibilité \"par nuit\""
@@ -600,6 +618,7 @@ fr:
         night: "Par nuit"
         week: "Par semaine"
         month: "Par mois"
+        unit: "Par unité"
       can_not_find: "Impossible de trouver le type de transaction avec l'id suivant : %{id}"
       add_custom_unit: "+ Ajouter une unité de prix personnalisée..."
       delete_custom_unit: supprimer
@@ -653,7 +672,7 @@ fr:
       general_settings_updated: "Paramètres généraux du système de paiements mis à jour"
       transaction_fee_settings_updated: "Frais de service mis à jour"
       choose_popup_text: |-
-          Si vous souhaitez permettre à vos utilisateurs d'accepter des paiements en ligne, vous devez choisir la devise de votre place de marché et connecter au moins une des deux plateformes de paiements supportées par Sharetribe : Stripe et PayPal. Vous pouvez également choisir d'utiliser les deux, ce qui signifie que vos utilisateurs pourront accepter les paiements avec les deux méthodes. 
+          Si vous souhaitez permettre à vos utilisateurs d'accepter des paiements en ligne, vous devez choisir la devise de votre place de marché et connecter au moins une des deux plateformes de paiements supportées par Sharetribe : Stripe et PayPal. Vous pouvez également choisir d'utiliser les deux, ce qui signifie que vos vendeurs pourront accepter les paiements avec les deux méthodes. 
           Vous pouvez créer un nouveau compte sur chacune des plateformes si vous n'en avez pas déjà un. Une fois que vous aurez connecté un compte, vous pourrez choisir des éventuels frais de services que vous facturerez pour chaque transaction. 
           Quelles sont les différences entre Stripe et PayPal ? Stripe vous permet de conserver les fonds pour le vendeur jusqu'à trois mois et proposer une méthode de paiement (carte bancaire). Stripe permet également à vos vendeurs de recevoir leur argent directement sur leur compte en banque en fournissant simplement leurs informations bancaires. PayPal proposer deux méthodes de paiement (carte bancaire et compte PayPal) et propose un programme de protection pour les vendeurs et acheteurs. Les vendeurs doivent avec un compte PayPal business pour recevoir des paiements. 
           Si vous utilisez Stripe, ses frais seront déduits de vos frais de service, n'oubliez donc pas de définir des frais suffisamment élevés. Si vous utilisez PayPal, ses frais seront facturés au vendeur, en plus de vos frais de service. Stripe et PayPal ont des frais définis de manière assez différente. En général, les frais Stripe sont un peu plus bas.
@@ -1051,7 +1070,7 @@ fr:
       remember_to_confirm: "Quand la commande est réalisée, n'oubliez pas de la signaler comme terminée. Si la commande n'est pas réalisée vous avez %{days_to_automatic_confirmation} pour l'annuler. Autrement, elle sera automatiquement signalée comme réalisée."
     invitation_to_kassi:
       hi: "Bonjour !"
-      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}"
+      you_have_been_invited_to_kassi: "%{inviter} vous a invité à rejoindre %{service_name}."
       here_is_a_message_from: "Voici un message personnel de %{inviter} :"
       join_now: Rejoindre
       invitation_code: "Code d'invitation : %{code}"
@@ -1684,7 +1703,7 @@ fr:
         googlemap_updatemap: "Mettre à jour le plan"
       images:
         image: Image
-        best_result: "Pour un résultat idéal, ajoutez des images au format JPEG, GIF ou PNG, de dimensions %{width} par %{height} pixels."
+        best_result: "Pour un résultat idéal, ajoutez des images au format JPG, GIF ou PNG, de dimensions %{width}x%{height} pixels."
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer l'image"
         select_file: "Choisir une image"
@@ -1823,6 +1842,7 @@ fr:
       night: "Nombre de nuits : "
       week: "Nombre de semaines : "
       month: "Nombre de mois : "
+      unit: "Nombre d'unités :"
       custom: "Quantité : "
     quantity_placeholder: Quantité
     please_comment: "Faire un commentaire"
@@ -1874,6 +1894,7 @@ fr:
       night: nuit
       week: semaine
       month: mois
+      unit: unité
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -2203,7 +2224,7 @@ fr:
       profile_page: "sur votre page de profil"
       profilemap: Plan
       street_address: Adresse
-      these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
+      these_fields_are_shown_in_your: "Certaines de ces informations seront visibles par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "(visible par les utilisateurs connectés)"
       default_in_listing: "(utilisée par défaut lors de la création d'une nouvelle annonce)"
@@ -2494,6 +2515,10 @@ fr:
       legal_name: "Nom complet (Prénom Nom)"
       first_name: Prénom
       last_name: Nom
+      first_name_kana: "Prénom kana"
+      last_name_kana: "Nom kana"
+      first_name_kanji: "Prénom kanji"
+      last_name_kanji: "Nom kanji"
       country: Pays
       birth_date: "Date de naissance"
       ssn_last_4: "Derniers 4 chiffres SSN"
@@ -2509,6 +2534,20 @@ fr:
       save_details: "Sauvegarder les informations"
       edit: "Editer les informations"
       cancel: Annuler
+      gender: Sexe
+      phone_number: "Numéro de téléphone"
+      address_kana_postal_code: "Code postal kana"
+      address_kana_state: "Etat kana"
+      address_kana_city: "Ville kana"
+      address_kana_town: "Ville kana"
+      address_kana_line1: "Adresse kana"
+      address_kanji_postal_code: "Code postal kanji"
+      address_kanji_state: "Etat kanji"
+      address_kanji_city: "Ville kanji"
+      address_kanji_town: "Ville kanji"
+      address_kanji_line1: "Adresse kanji"
+      male: Homme
+      female: Femme
     form_bank:
       bank_account_number: "Numéro de compte en banque"
       bank_routing_number: "Numéro de routing"
@@ -2554,6 +2593,6 @@ fr:
     can_accept_stripe_and_paypal: "Vous pouvez recevoir vos paiements sur votre compte bancaire ou votre compte PayPal."
     to_accept_paypal: "Pour recevoir les paiements sur votre compte PayPal, vous devez connecter votre compte PayPal. Vos clients pourront payer avec PayPal."
     connect_paypal: "Connecter le compte PayPal"
-    wrong_setup: "Quelque chose n'est pas correct dans la configuration du système de paiements de cette place de marché: \"The platform has not been registered\". Veuillez contacter l'équipe pour leur signaler qu'ils doivent \"register the platform\" dans leur compte Stripe."
+    wrong_setup: "Quelque chose n'est pas correct dans la configuration du système de paiements de cette place de marché : Stripe Connect n'a pas été activé. Veuillez contacter l'équipe pour leur signaler qu'ils doivent activer Stripe Connect dans leur compte Stripe."
     invalid_bank_account_number: "Veuillez vérifier que les informations sur compte en banque sont bien définies et correspondent à votre pays."
     invalid_postal_code: "Code postal invalide pour le pays %{country}"

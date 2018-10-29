@@ -92,6 +92,7 @@ lv:
         edit_community_look_and_feel: ~
         community_logo: Logo
         community_logo_icon: "Logo sociālajiem tīkliem un mobilajām ierīcēm"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Noformējuma fotogrāfija"
         small_community_cover_photo: ~
         favicon: ~
@@ -106,6 +107,7 @@ lv:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Fotoattēls tiks mainīts uz %{width}x%{height} pikseļu lielumu un garāki attēli tiks pārgriezti uz pusēm. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
@@ -268,6 +270,8 @@ lv:
         searchpage: "Jauna meklēšanas lapa (nepieciešama jauna augšējā josla)"
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -284,6 +288,7 @@ lv:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -384,11 +389,21 @@ lv:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -464,6 +479,8 @@ lv:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: Reģistrēties
+        public: Publisks
         add_new_field: ~
         save: ~
         cancel: ~
@@ -494,6 +511,7 @@ lv:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -585,6 +603,7 @@ lv:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -684,11 +703,11 @@ lv:
         payments_not_enabled: ~
     transaction_types:
       sell: Pārdot
-      sell_w_online_payment: ~
-      sell_wo_online_payment: ~
+      sell_w_online_payment: "Pārdod ar tiešsaistes maksājumu"
+      sell_wo_online_payment: "Pārdod bez tiešsaistes maksājuma"
       rent: Iznomāt
-      rent_w_online_payment: ~
-      rent_wo_online_payment: ~
+      rent_w_online_payment: "Iznomā ar tiešsaistes maksjumu"
+      rent_wo_online_payment: "Iznomā bez tiešsaistes maksājuma."
       give: Atdot
       lend: Aizdot
       swap: Samainīties
@@ -703,11 +722,11 @@ lv:
         rent: Iznomāt
         request: Piedāvājums
         offer: Pieprasīt
-        inquiry: Kontakti
+        inquiry: "Nosūtīt ziņu"
   common:
     edit_page: "Rediģēt lapu"
-    default_community_slogan: "Tirgošanās vietne"
-    default_community_description: "Šī ir vieta, kur pārdot vai iegādāties preces un pakalpojumus."
+    default_community_slogan: "Savstarpējās iznomāšanas platforma"
+    default_community_description: "Šī ir vieta, kur nomāt vai iznomāt preces no citiem platformas lietotājiem."
     cancel: Atcelt
     fields_that_are_mandatory: "Laukus atzīmētus ar (*) ir jāaizpilda obligāti."
     or: vai
@@ -1685,7 +1704,7 @@ lv:
       price:
         price: Cena
         per: par
-        per_day: "par dienu"
+        per_day: dienā
         mass: "gabalu, kg, l, m2, ..."
         time: "stundu, dienu, mēnesi"
         long_time: "nedēļu, mēnesi"
@@ -1802,6 +1821,7 @@ lv:
       night: "Nakšu skaits:"
       week: "Nedēļu skaits:"
       month: "Mēnešu skaits:"
+      unit: ~
       custom: "Daudzums:"
     quantity_placeholder: Daudzums
     please_comment: Komentārs
@@ -1812,7 +1832,7 @@ lv:
       add_profile_picture: "Pievienot profila bildi"
       comments: Apspriest
       contact_by_phone: "Telefons saziņai:"
-      contact: Kontakti
+      contact: "Nosūtīt ziņu"
       favor_offer: "Pakalpojumu piedāvājums"
       favor_request: "Pakalpojumu pieprasījums"
       inquiry: Paziņojums
@@ -1838,7 +1858,7 @@ lv:
       listing_created_at: "Sludinājums izveidots"
       price:
         per_quantity_unit: "par %{quantity_unit}"
-        per_day: "par dienu"
+        per_day: Dienā
       delivery: "Piegādes veids"
       shipping: "Piegāde (+%{price})"
       shipping_no_price: Piegāde
@@ -1853,6 +1873,7 @@ lv:
       night: nakts
       week: nedēļa
       month: mēnesis
+      unit: ~
     verification_required:
       verification_required: "Nepieciešama pārbaude"
   listing_conversations:
@@ -2286,7 +2307,7 @@ lv:
       december: Dec
     today: Šodien
     clear: Brīvs
-    format: mm/dd/gggg
+    format: mm/dd/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
@@ -2474,6 +2495,10 @@ lv:
       legal_name: "Juridiskais nosaukums"
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Valsts
       birth_date: "Dzimšanas datums"
       ssn_last_4: "SSN Pēdējie 4"
@@ -2489,6 +2514,20 @@ lv:
       save_details: "Saglabāt informāciju"
       edit: "Rediģēt informāciju"
       cancel: Atcelt
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: "Bankas konta numurs"
       bank_routing_number: ~
