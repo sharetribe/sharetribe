@@ -2,32 +2,45 @@ module EmailService::SES::Synchronize
 
   AddressStore = EmailService::Store::Address
 
-  BATCH_SIZE = 1000
+  BATCH_SIZE = 100
+  SES_WAIT_TIME_SECONDS = 1
 
   module_function
 
   def run_batch_synchronization!(ses_client:)
-    ses_client.list_verified_addresses.on_success do |vaddrs|
-      vaddrs = vaddrs.to_set
-      offset = 0
-      addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+    offset = 0
+    addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
 
-      while addresses.present?
-        update_statuses(build_sync_updates(addresses, vaddrs))
-
-        offset += BATCH_SIZE
-        addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+    while addresses.present?
+      verified_addresses = []
+      result = ses_client.get_identity_verification_attributes(emails: addresses.map { |a| a[:email] })
+      if result.success
+        verification_attributes = result.data
+        addresses.each do |address|
+          email = address[:email]
+          status = verification_attributes[email]
+          if status && status[:verification_status] == 'Success'
+            verified_addresses.push(email)
+          end
+        end
       end
+
+      update_statuses(build_sync_updates(addresses, verified_addresses))
+
+      offset += BATCH_SIZE
+      addresses = AddressStore.load_all(limit: BATCH_SIZE, offset: offset)
+      # from SES get_identity_verification_attributes documentation
+      # This operation is throttled at one request per second
+      sleep SES_WAIT_TIME_SECONDS
     end
   end
 
   def run_single_synchronization!(community_id:, id:, ses_client:)
-    ses_client.list_verified_addresses.on_success { |vaddrs|
-      update_statuses(
-        build_sync_updates(
-          [AddressStore.get(community_id: community_id, id: id)].compact,
-          vaddrs))
-    }
+    address = AddressStore.get(community_id: community_id, id: id)
+    email = address[:email]
+    if email_verified?(ses_client, email)
+      update_statuses(build_sync_updates([address],[email]))
+    end
   end
 
   def build_sync_updates(addresses, verified_addresses)
@@ -80,5 +93,17 @@ module EmailService::SES::Synchronize
     else
       raise ArgumentError.new("Unknown address verification status #{addr}")
     end
+  end
+
+  def email_verified?(ses_client, email)
+    result = ses_client.get_identity_verification_attributes(emails: [email])
+    if result.success
+      verification_attributes = result.data
+      status = verification_attributes[email]
+      if status && status[:verification_status] == 'Success'
+        return true
+      end
+    end
+    false
   end
 end
