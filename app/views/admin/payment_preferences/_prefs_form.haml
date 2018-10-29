@@ -20,9 +20,27 @@
         = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
           = currency
-    .row
-      .col-12
-        = form.button t("admin.payment_preferences.transaction_fee_save")
+    - if FeatureFlagHelper.feature_enabled?(:buyer_commission) && pref_mode == 'stripe'
+      - buyer_disabled = paypal_active
+      .row
+        .col-6
+          = form.label :commission_from_buyer, t("admin.payment_preferences.commission_from_buyer_label"), class: "paypal-horizontal-input-label"
+        .col-6
+          = form.text_field :commission_from_buyer, class: "paypal-preferences-input",
+            disabled: buyer_disabled
+          %label.paypal-horizontal-input-label-unit
+            = "%"
+      .row
+        .col-6
+          = form.label :minimum_buyer_transaction_fee, t("admin.payment_preferences.minimum_buyer_transaction_fee_label"), class: "paypal-horizontal-input-label"
+        .col-6
+          = form.text_field :minimum_buyer_transaction_fee, class: "paypal-preferences-input",
+            disabled: buyer_disabled
+          %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
+            = currency
+      .row
+        .col-12
+          = form.button t("admin.payment_preferences.transaction_fee_save")
 
     - if pref_mode == 'stripe'
       - stripe_fee_link = link_to t("admin.payment_preferences.stripe_fee"), "#{knowledge_base_url}/what-are-stripes-payment-processing-fees" , target: "_blank"
