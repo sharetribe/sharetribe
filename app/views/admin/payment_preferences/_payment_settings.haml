@@ -114,6 +114,7 @@
         - if paypal_enabled && paypal_allowed
           = link_to "PayPal", "#", data: {tab: 'paypal_tab'}, class: "tab-link paypal"
 
+      - paypal_active = paypal_enabled && paypal_allowed && paypal_connected && paypal_enabled_by_admin
       - if stripe_enabled && stripe_allowed
         .tab-content.hidden#stripe_tab
           - if !stripe_connected
@@ -122,7 +123,7 @@
           - else
             = render partial: 'stripe_connected', locals: {stripe_account: stripe_account}
             .paypal-wizard-divider
-            = render partial: 'prefs_form', locals: {payment_prefs_form: stripe_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'stripe', knowledge_base_url: knowledge_base_url}
+            = render partial: 'prefs_form', locals: {payment_prefs_form: stripe_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'stripe', knowledge_base_url: knowledge_base_url, paypal_active: paypal_active}
 
       - if paypal_enabled && paypal_allowed
         .tab-content.hidden#paypal_tab
@@ -131,7 +132,7 @@
           - else
             = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
             .paypal-wizard-divider
-            = render partial: 'prefs_form', locals: {payment_prefs_form: paypal_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal', knowledge_base_url: knowledge_base_url}
+            = render partial: 'prefs_form', locals: {payment_prefs_form: paypal_prefs_form, currency: currency, available_currencies: available_currencies, support_email: support_email, pref_mode: 'paypal', knowledge_base_url: knowledge_base_url, paypal_active: paypal_active}
 
     - if paypal_ready && stripe_ready
       = render partial: 'paypal_connect_own_notice', locals: {connected_mode: 'stripe_and_paypal'}
