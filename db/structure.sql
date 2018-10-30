@@ -267,6 +267,8 @@ CREATE TABLE `communities` (
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   `end_user_analytics` tinyint(1) DEFAULT '1',
+  `show_slogan` tinyint(1) DEFAULT '1',
+  `show_description` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2290,6 +2292,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180524075239'),
 ('20180524081429'),
 ('20180904075653'),
-('20181012065625');
+('20181012065625'),
+('20181024094615');
 
 
