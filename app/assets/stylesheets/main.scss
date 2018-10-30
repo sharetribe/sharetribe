@@ -2019,10 +2019,16 @@ figure.fluidratio {
       @include huge-type;
       line-height: em(15);
     }
+    &.hidden-title-part {
+      opacity: 0 !important;
+    }
   }
 
   .marketplace-lander-content-description {
       color: $descriptioncolor;
+      &.hidden-title-part {
+        opacity: 0 !important;
+      }
   }
 
   .title-container {

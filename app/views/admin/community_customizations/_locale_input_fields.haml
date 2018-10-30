@@ -5,6 +5,18 @@
     .input-header
       = header
   = render :partial => "layouts/info_text", :locals => { :text => info_text.html_safe }
+  - if FeatureFlagHelper.feature_enabled?(:hide_slogan)
+    - if 'slogan' == input_name
+      .row
+        .col-12
+          = check_box_tag "community[show_slogan]", 1, @current_community.show_slogan?, class: "checkbox-row-checkbox"
+          = label_tag "community[show_slogan]", t("admin.communities.edit_details.community_slogan_display"), class:"checkbox-row-label"
+    - if 'description' == input_name
+      .row
+        .col-12
+          = check_box_tag "community[show_description]", 1, @current_community.show_description?, class: "checkbox-row-checkbox"
+          = label_tag "community[show_description]", t("admin.communities.edit_details.community_description_display"), class:"checkbox-row-label"
+
   - translations.each do |language_key, value|
     .row
       - if translations.size > 1
