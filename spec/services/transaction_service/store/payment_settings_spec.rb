@@ -12,6 +12,9 @@ describe TransactionService::Store::PaymentSettings do
       api_verified: false,
       api_visible_private_key: nil,
       api_country: nil,
+      commission_from_buyer: nil,
+      minimum_buyer_transaction_fee_cents: nil,
+      minimum_buyer_transaction_fee_currency: nil,
     }
     expect(
       payment_settings.create(
