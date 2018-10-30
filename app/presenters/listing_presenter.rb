@@ -317,5 +317,9 @@ class ListingPresenter < MemoisticPresenter
     }
   end
 
+  def buyer_fee?
+    FeatureFlagHelper.feature_enabled?(:buyer_commission) && stripe_in_use && !paypal_in_use
+  end
+
   memoize_all_reader_methods
 end

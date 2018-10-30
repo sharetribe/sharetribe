@@ -23,7 +23,7 @@
 #  api_country                            :string(255)
 #  commission_from_buyer                  :integer
 #  minimum_buyer_transaction_fee_cents    :integer
-#  minimum_buyer_transaction_fee_currency :string(255)
+#  minimum_buyer_transaction_fee_currency :string(3)
 #
 # Indexes
 #
