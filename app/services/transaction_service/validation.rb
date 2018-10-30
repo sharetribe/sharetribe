@@ -47,52 +47,6 @@ module TransactionService
       [:contract_agreed, transform_with: ->(v) { v == "1" }]
     )
 
-    class ItemTotal
-      attr_reader :unit_price, :quantity
-
-      def initialize(unit_price:, quantity:)
-        @unit_price = unit_price
-        @quantity = quantity
-      end
-
-      def total
-        unit_price * quantity
-      end
-    end
-
-    class ShippingTotal
-      attr_reader :initial, :additional, :quantity
-
-      def initialize(initial:, additional:, quantity:)
-        @initial = initial || 0
-        @additional = additional || 0
-        @quantity = quantity
-      end
-
-      def total
-        initial + (additional * (quantity - 1))
-      end
-    end
-
-    class NoShippingFee
-      def total
-        0
-      end
-    end
-
-    class OrderTotal
-      attr_reader :item_total, :shipping_total
-
-      def initialize(item_total:, shipping_total:)
-        @item_total = item_total
-        @shipping_total = shipping_total
-      end
-
-      def total
-        item_total.total + shipping_total.total
-      end
-    end
-
     module Validator
 
       module_function

@@ -1035,7 +1035,7 @@ CREATE TABLE `payment_settings` (
   `api_country` varchar(255) DEFAULT NULL,
   `commission_from_buyer` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_cents` int(11) DEFAULT NULL,
-  `minimum_buyer_transaction_fee_currency` varchar(255) DEFAULT NULL,
+  `minimum_buyer_transaction_fee_currency` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1443,6 +1443,9 @@ CREATE TABLE `transactions` (
   `availability` varchar(32) DEFAULT 'none',
   `booking_uuid` binary(16) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0',
+  `commission_from_buyer` int(11) DEFAULT NULL,
+  `minimum_buyer_fee_cents` int(11) DEFAULT NULL,
+  `minimum_buyer_fee_currency` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_transactions_on_listing_id` (`listing_id`) USING BTREE,
   KEY `index_transactions_on_conversation_id` (`conversation_id`) USING BTREE,
@@ -2326,6 +2329,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180723115548'),
 ('20181106212306'),
 ('20181221120927'),
-('20181029064728');
+('20181029064728'),
+('20181029132748');
 
 
