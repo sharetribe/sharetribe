@@ -43,7 +43,11 @@
   <meta property="fb:app_id" content="<%= cc[:facebook_connect_id] %>" />
 <% end %>
 
-<meta name="twitter:card" content="summary" />
+<% if cc[:social_image] %>
+  <meta name="twitter:card" content="summary_large_image" />
+<% else %>
+  <meta name="twitter:card" content="summary" />
+<% end %>
 
 <% if p["twitter_handle"] && p["twitter_handle"]["value"] %>
   <meta name="twitter:site" content="@<%= p["twitter_handle"]["value"] %>" />
