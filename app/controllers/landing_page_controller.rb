@@ -152,12 +152,8 @@ class LandingPageController < ActionController::Metal
     }
 
     MarketplaceRouter.perform_redirect(redirect_params) do |target|
-      if target[:message]
-        redirect_to community_not_available_path
-      else
-        url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-        redirect_to(url, status: target[:status])
-      end
+      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+      redirect_to(url, status: target[:status])
     end
   end
 
