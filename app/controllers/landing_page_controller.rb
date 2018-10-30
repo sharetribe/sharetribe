@@ -264,7 +264,9 @@ class LandingPageController < ActionController::Metal
       facebook_connect_id: c.facebook_connect_id,
       google_maps_key: MarketplaceHelper.google_maps_key(c.id),
       end_user_analytics: c.end_user_analytics,
-      google_analytics_key: c.google_analytics_key }
+      google_analytics_key: c.google_analytics_key,
+      social_image: c.social_logo.present? && c.social_logo.image.present?
+    }
   end
 
   def render_landing_page(default_locale:, locale_param:, structure:, cta:)
