@@ -29,7 +29,8 @@ module TransactionViewUtils
     [:seller_gets, :money],
     [:start_time, :time],
     [:end_time, :time],
-    [:per_hour, :to_bool, default: false]
+    [:per_hour, :to_bool, default: false],
+    [:buyer_fee, :money]
   )
 
 
