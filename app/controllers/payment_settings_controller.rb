@@ -233,7 +233,7 @@ class PaymentSettingsController < ApplicationController
   end
 
   def parse_create_params(params)
-    allowed_params = params.permit(*StripeAccountForm.keys)
+    allowed_params = mask_puerto_rico_as_us_pr(params.permit(*StripeAccountForm.keys).dup)
     allowed_params[:birth_date] = params["birth_date(1i)"].present? ? parse_date(params) : nil
     StripeAccountForm.new(allowed_params)
   end
@@ -286,6 +286,9 @@ class PaymentSettingsController < ApplicationController
     def initialize(parsed_seller_account:, params:)
       @parsed_seller_account = parsed_seller_account
       @bank_country = parsed_seller_account[:address_country]
+      if @bank_country == 'PR'
+        @bank_country = 'US'
+      end
       @bank_currency = TransactionService::AvailableCurrencies::COUNTRY_CURRENCIES[@bank_country]
       @form_params = params[:stripe_bank_form]
     end
@@ -341,7 +344,7 @@ class PaymentSettingsController < ApplicationController
   def stripe_update_account
     return unless @stripe_account_ready
 
-    account_params = params.require(:stripe_account_form)
+    account_params = params.require(:stripe_account_form).dup
     address_attrs = account_params.permit(
       :first_name, :last_name, 'birth_date(1i)', 'birth_date(2i)', 'birth_date(3i)',
       :address_line1, :address_city, :address_state, :address_postal_code,
@@ -353,6 +356,7 @@ class PaymentSettingsController < ApplicationController
       :address_kanji_line1, :address_country
     )
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
+    address_attrs = mask_puerto_rico_as_us_pr(address_attrs)
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
     result = stripe_accounts_api.update_account(community_id: @current_community.id, person_id: @current_user.id, token: address_attrs[:token])
@@ -408,7 +412,7 @@ class PaymentSettingsController < ApplicationController
         address_kanji_line1: account.legal_entity.address_kanji.line1,
       })
     end
-    result
+    mask_us_pr_as_puerto_rico(result)
   end
 
   def index_view_locals
@@ -424,5 +428,20 @@ class PaymentSettingsController < ApplicationController
     end
 
     build_view_locals.merge(more_locals).merge(@extra_forms)
+  end
+
+  def mask_puerto_rico_as_us_pr(params)
+    if params[:address_country] == 'PR'
+      params[:address_country] = 'US'
+      params[:address_state] = 'PR'
+    end
+    params
+  end
+
+  def mask_us_pr_as_puerto_rico(params)
+    if params[:address_country] == 'US' && params[:address_state] == 'PR'
+      params[:address_country] = 'PR'
+    end
+    params
   end
 end
