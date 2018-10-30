@@ -36,6 +36,9 @@
 #  availability                      :string(32)       default("none")
 #  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
+#  commission_from_buyer             :integer
+#  minimum_buyer_fee_cents           :integer
+#  minimum_buyer_fee_currency        :string(3)
 #
 # Indexes
 #

@@ -127,7 +127,10 @@ module TransactionService::Store::PaymentSettings
   def from_model(model)
     Maybe(model)
       .map { |m| EntityUtils.model_to_hash(m) }
-      .map { |hash| PaymentSettings.call(hash.merge({commission_type: commission_type(hash)})) }
+      .map { |hash|
+      PaymentSettings.call(hash.merge({
+        commission_type: commission_type(hash)
+      })) }
       .or_else(nil)
   end
 
