@@ -37,7 +37,7 @@
 #  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
 #  commission_from_buyer             :integer
-#  minimum_buyer_fee_cents           :integer
+#  minimum_buyer_fee_cents           :integer          default(0)
 #  minimum_buyer_fee_currency        :string(3)
 #
 # Indexes
@@ -88,6 +88,7 @@ class Transaction < ApplicationRecord
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
+  monetize :minimum_buyer_fee_cents, with_model_currency: :minimum_buyer_fee_currency
 
   scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
@@ -287,6 +288,14 @@ class Transaction < ApplicationRecord
   def commission
     [(item_total * (commission_from_seller / 100.0) unless commission_from_seller.nil?),
      (minimum_commission unless minimum_commission.nil? || minimum_commission.zero?),
+     Money.new(0, item_total.currency)]
+      .compact
+      .max
+  end
+
+  def buyer_commission
+    [(item_total * (commission_from_buyer / 100.0) unless commission_from_buyer.nil?),
+     (minimum_buyer_fee unless minimum_buyer_fee.nil? || minimum_buyer_fee.zero?),
      Money.new(0, item_total.currency)]
       .compact
       .max

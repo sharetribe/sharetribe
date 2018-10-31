@@ -2,24 +2,25 @@
 #
 # Table name: stripe_payments
 #
-#  id                 :integer          not null, primary key
-#  community_id       :integer
-#  transaction_id     :integer
-#  payer_id           :string(255)
-#  receiver_id        :string(255)
-#  status             :string(255)
-#  sum_cents          :integer
-#  commission_cents   :integer
-#  currency           :string(255)
-#  stripe_charge_id   :string(255)
-#  stripe_transfer_id :string(255)
-#  fee_cents          :integer
-#  real_fee_cents     :integer
-#  subtotal_cents     :integer
-#  transfered_at      :datetime
-#  available_on       :datetime
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id                     :integer          not null, primary key
+#  community_id           :integer
+#  transaction_id         :integer
+#  payer_id               :string(255)
+#  receiver_id            :string(255)
+#  status                 :string(255)
+#  sum_cents              :integer
+#  commission_cents       :integer
+#  currency               :string(255)
+#  stripe_charge_id       :string(255)
+#  stripe_transfer_id     :string(255)
+#  fee_cents              :integer
+#  real_fee_cents         :integer
+#  subtotal_cents         :integer
+#  transfered_at          :datetime
+#  available_on           :datetime
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  buyer_commission_cents :integer
 #
 
 class StripePayment < ApplicationRecord
@@ -32,6 +33,7 @@ class StripePayment < ApplicationRecord
   monetize :fee_cents,        with_model_currency: :currency
   monetize :real_fee_cents,   with_model_currency: :currency, allow_nil: true
   monetize :subtotal_cents,   with_model_currency: :currency
+  monetize :buyer_commission_cents, with_model_currency: :currency
 
   STATUSES = %w(pending paid canceled transfered)
 end
