@@ -32,8 +32,8 @@ describe TransactionService::Order do
 
   it "calculates the shipping total" do
     listing = FactoryGirl.create(:listing, shipping_price: Money.new(5000, "USD"),
-                                 shipping_price_additional: nil,
-                                 community_id: community.id)
+                                           shipping_price_additional: nil,
+                                           community_id: community.id)
     tx_params = {quantity: 1, delivery: :shipping}
 
     oder = TransactionService::Order.new(
@@ -51,8 +51,8 @@ describe TransactionService::Order do
     expect(oder.shipping_total).to eq(Money.new(5000, "USD"))
 
     listing = FactoryGirl.create(:listing, shipping_price: Money.new(5000, "USD"),
-                                 shipping_price_additional: Money.new(1000, "USD"),
-                                 community_id: community.id)
+                                           shipping_price_additional: Money.new(1000, "USD"),
+                                           community_id: community.id)
     tx_params = {quantity: 1, delivery: :shipping}
 
     oder = TransactionService::Order.new(
