@@ -290,9 +290,20 @@ class ApplicationController < ActionController::Base
     }
 
     MarketplaceRouter.perform_redirect(redirect_params) do |target|
-      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-      redirect_to(url, status: target[:status])
+      if target[:message] && params[:action] != 'not_available'
+        redirect_to community_not_available_path
+      elsif target[:message]
+        render 'layouts/marketplace_router_error', layout: false, locals: {message: target[:message]}
+      else
+        url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+        redirect_to(url, status: target[:status])
+      end
     end
+  end
+
+  # plain stub for routes, intercepted in perfom_redirect
+  def not_available
+    render action: 'errors/community_not_found', status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   def fetch_community_membership
