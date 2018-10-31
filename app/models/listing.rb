@@ -110,10 +110,9 @@ class Listing < ApplicationRecord
 
   scope :search_title_author_category, ->(pattern) do
     joins(:author)
-      .joins("LEFT OUTER JOIN categories c ON listings.category_id = c.id")
-      .joins("LEFT OUTER JOIN category_translations ct ON c.id = ct.category_id")
+      .joins(:category => :translations)
       .where("listings.title like :pattern
-        OR (ct.locale = :locale AND ct.name like :pattern)
+        OR (category_translations.locale = :locale AND category_translations.name like :pattern)
         OR (people.given_name like :pattern OR people.family_name like :pattern OR people.display_name like :pattern)",
         locale: I18n.locale,
         pattern: "%#{pattern}%")
