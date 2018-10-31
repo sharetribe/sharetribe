@@ -65,3 +65,23 @@ Then("Stripe API refuse to delete the account") do
   stub_const('Stripe::Account', api)
 end
 
+Then("I pay with stripe") do
+  execute_script("$('#payment_type').val('stripe');$('#transaction-form').append('<input type=hidden name=stripe_token value=tok_visa />');$('#transaction-form').submit()")
+end
+
+Then("Stripe API is fake") do
+  FakeStripe.stub_stripe
+end
+
+Given(/^community "(.*?)" payment gateway stripe has buyer fee "(.*?)"%$/) do |community, buyer_commission|
+  community = Community.where(ident: community).first
+  tx_settings_api = TransactionService::API::Api.settings
+  data = {
+    community_id: community.id,
+    payment_process: :preauthorize,
+    payment_gateway: 'stripe',
+    commission_from_buyer: buyer_commission.to_i
+  }
+  tx_settings_api.update(data)
+end
+
