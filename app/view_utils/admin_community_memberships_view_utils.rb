@@ -21,9 +21,9 @@ module AdminCommunityMembershipsViewUtils
       opts[:count] == 1 ? name : name.pluralize
     }
 
-    accepted_count = CommunityMembership.where(community_id: community_id, status: "accepted").count
+    accepted_count = collection.where(status: "accepted").count
     accepted_model = will_paginate_translate defaults, :count => accepted_count
-    banned_count = CommunityMembership.where(community_id: community_id, status: "banned").count
+    banned_count = collection.where(status: "banned").count
     banned_model = will_paginate_translate defaults, :count => banned_count
 
     model_count = collection.total_pages > 1 ? 5 : collection.size
