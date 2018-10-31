@@ -9,6 +9,26 @@
 .left-navi-section
   %h2= t("admin.communities.listings.listings")
 
+  = form_tag '', :method => :get do
+    .row
+      .col-6
+        = text_field_tag :q, params[:q], placeholder: t('admin.communities.listings.search_by_title_author_category')
+      .col-3.status-select-wrapper
+        .status-select-button
+          = listing_search_status_titles
+
+        .status-select-dropdown
+          .status-select-line.reset{data: {status: 'all'}}
+            = listing_search_status_titles
+          - %w(open closed expired).each do |status|
+            - checked = params[:status].present? && params[:status].include?(status)
+            .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+              = check_box_tag "status[]", status, checked, id: "status-#{status}"
+              = t("admin.communities.listings.status.#{status}")
+      .col-3
+        = submit_tag t("admin.communities.listings.search"), class: 'button search-button'
+        = link_to t("admin.communities.listings.reset_search"), admin_community_listings_path(@current_community.id)
+
   %span#admin_listings_count= page_entries_info(@listings, :model => "Listing").html_safe
 
   %table#admin_listings
@@ -55,3 +75,8 @@
   .row
     .col-12
       = will_paginate @listings
+
+- content_for :extra_javascript do
+  = js_t ["admin.communities.listings.status.all"], true
+  :javascript
+    window.ST.initializeListingSearchFormSelector();
