@@ -86,7 +86,7 @@
       %span.initiate-transaction-sum-label
         = t("conversations.accept.service_fee_label")
       %span.initiate-transaction-sum-value
-        = "#{MoneyViewUtils.to_humanized(buyer_fee)}"
+        = "#{is_author ? '-' : ''}#{MoneyViewUtils.to_humanized(buyer_fee)}"
 
   - if total.present?
     .initiate-transaction-total-wrapper
