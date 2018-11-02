@@ -322,7 +322,7 @@ class Transaction < ApplicationRecord
     unit_price       = self.unit_price || 0
     quantity         = self.listing_quantity || 1
     shipping_price   = self.shipping_price || 0
-    (unit_price * quantity) + shipping_price
+    (unit_price * quantity) + shipping_price + buyer_commission
   end
 
 end

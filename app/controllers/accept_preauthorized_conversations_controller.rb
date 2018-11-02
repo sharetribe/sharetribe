@@ -158,10 +158,11 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
     render "accept", locals: {
       listing: @listing,
-      sum: @transaction.item_total + (payment_details[:payment_gateway_fee] || 0),
+      sum: payment_details[:total_price] + (payment_details[:payment_gateway_fee] || 0),
       fee: @transaction.commission,
+      buyer_commission: payment_details[:buyer_commission],
       gateway_fee: payment_details[:payment_gateway_fee],
-      seller_gets: payment_details[:total_price]- @transaction.commission,
+      seller_gets: payment_details[:total_price] - (payment_details[:charged_commission] || 0) - (payment_details[:buyer_commission] || 0),
       form: @transaction,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,

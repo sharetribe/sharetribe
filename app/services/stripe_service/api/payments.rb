@@ -123,7 +123,8 @@ module StripeService::API
           payment_total:       payment[:sum],
           total_price:         payment[:subtotal],
           charged_commission:  payment[:commission],
-          payment_gateway_fee: gateway_fee
+          payment_gateway_fee: gateway_fee,
+          buyer_commission:    payment[:buyer_commission] || 0
         }
       end
 
