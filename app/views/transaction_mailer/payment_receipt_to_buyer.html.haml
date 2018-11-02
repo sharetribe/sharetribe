@@ -39,6 +39,13 @@
           %td
             = subtotal
 
+        - if payment_buyer_service_fee.present?
+          %tr
+            %td{:width => "250"}
+              = t("emails.receipt_to_payer.service_fee")
+            %td
+              = payment_buyer_service_fee
+
         - if shipping_total.present?
           %tr
             %td

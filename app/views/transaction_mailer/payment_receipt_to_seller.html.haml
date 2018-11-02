@@ -43,6 +43,13 @@
             = t("emails.payment_receipt_to_seller.service_fee")
           %td= "#{payment_service_fee}"
 
+        - if payment_buyer_service_fee.present?
+          %tr
+            %td
+              = t("emails.payment_receipt_to_seller.service_fee")
+            %td= "#{payment_buyer_service_fee}"
+
+
         - if shipping_total.present?
           %tr
             %td
