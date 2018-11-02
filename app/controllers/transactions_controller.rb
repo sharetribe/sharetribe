@@ -378,7 +378,7 @@ class TransactionsController < ApplicationController
         quantity: quantity,
         subtotal: show_subtotal ? tx.item_total : nil,
         total: Maybe(tx.payment_total).or_else(payment[:total_price]),
-        seller_gets: Maybe(tx.payment_total).or_else(payment[:total_price]) - tx.commission,
+        seller_gets: Maybe(tx.payment_total).or_else(payment[:total_price]) - tx.commission - tx.buyer_commission,
         fee: tx.commission,
         shipping_price: tx.shipping_price,
         total_label: total_label,
@@ -386,6 +386,7 @@ class TransactionsController < ApplicationController
         per_hour: booking_per_hour,
         start_time: booking_per_hour ? tx.booking.start_time : nil,
         end_time: booking_per_hour ? tx.booking.end_time : nil,
+        buyer_fee: tx.buyer_commission
       })
     end
   end

@@ -37,4 +37,5 @@ Feature: Buyer initiate order and pays
     Then I should see "Total: €110"
     And I pay with stripe
     Then I should see "Payment authorized"
+    Then I should see "Total: €110"
 
