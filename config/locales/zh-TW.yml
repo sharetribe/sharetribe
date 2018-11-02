@@ -62,9 +62,13 @@ zh-TW:
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
+        community_slogan_display: ~
         edit_community_slogan_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: 集市描述
+        community_description_display: ~
         edit_community_description_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: 搜索提示
         edit_community_search_placeholder_description: "这将在集市主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
         private_community_homepage_content: 私有集市主页内容
@@ -90,6 +94,7 @@ zh-TW:
         edit_community_look_and_feel: "编辑集市”%{community_name}“的外观"
         community_logo: 桌面標示
         community_logo_icon: 社交网络和移动设备的Logo
+        community_logo_icon_mobile: ~
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 網站圖標
@@ -104,6 +109,7 @@ zh-TW:
         logo_instructions_text_with_dimensions_no_placing: "Logo大小應為%{width} x %{height} px。"
         logo_icon_instructions_text_with_dimensions: "当人们在Facebook分享你的站点，当他们在移动设备上查看你的站点或者当他们在移动设备的主屏幕收藏你的站点时，这个方形的图标将被显示。它的尺寸必须（至少）是%{width}x%{height}像素。"
         logo_icon_instructions_text_with_dimensions_no_placing: "當有人在Facebook上分享您的網站或將您的網站書籤到其移動設備的主屏幕時，這個方形徽標將會顯示。 尺寸應該是（至少）%{width} x%{height} px。"
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: 封面照片将显示在未登录用户的首页
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
         small_cover_photo_visibility: 小的封面照片将显示在除未登录用户首页的所有页面。
@@ -266,6 +272,8 @@ zh-TW:
         searchpage: 新增搜索頁面（需要新的頂部導覽）
       social_media:
         social_media: 社交媒体
+        logo: ~
+        logo_info: ~
         twitter_handle: Twitter用户名
         twitter_handle_info_text: 当人们使用信息页面上的tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。
         twitter_handle_info_text_with_instructions: "当人们使用信息页面上的Tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
@@ -282,6 +290,7 @@ zh-TW:
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
         enable_facebook_login: ~
         save: 保存设置
+        add_another_image: ~
       analytics:
         analytics: 分析
         google_analytics_key: "Google Analytics Tracking ID"
@@ -382,11 +391,21 @@ zh-TW:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
         headers:
@@ -462,6 +481,8 @@ zh-TW:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +513,7 @@ zh-TW:
           title: 你想給誰發電子信箱？
           options:
             all_users: 所有用戶
+            posting_allowed: ~
             with_listing: 已發布至少一個列表的用戶
             with_listing_no_payment: 已添加付款詳情但尚未發布商家信息的用戶
             with_payment_no_listing: 已添加付款詳情但尚未發布商家信息的用戶
@@ -591,6 +613,7 @@ zh-TW:
         night: 每晚
         week: 每周
         month: 每月
+        unit: ~
       can_not_find: "找不到id是%{id}交易类型"
       add_custom_unit: +添加一个自定义的价格单位
       delete_custom_unit: 删除
@@ -1809,6 +1832,7 @@ zh-TW:
       night: "幾個晚上:"
       week: "周數:"
       month: "月數:"
+      unit: ~
       custom: "數量:"
     quantity_placeholder: 數量
     please_comment: 評論
@@ -1860,6 +1884,7 @@ zh-TW:
       night: 晚
       week: 周
       month: 月
+      unit: ~
     verification_required:
       verification_required: 需要驗證
   listing_conversations:
@@ -2461,6 +2486,10 @@ zh-TW:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2476,6 +2505,20 @@ zh-TW:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

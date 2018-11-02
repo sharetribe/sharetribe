@@ -67,9 +67,13 @@ de:
         community_name: "Name des Marktplatzes"
         edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Slogan des Marktplatzes"
+        community_slogan_display: ~
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Beschreibung des Marktplatzes"
+        community_description_display: ~
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Hilfe-Text durchsuchen"
         edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"

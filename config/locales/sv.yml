@@ -67,9 +67,13 @@ sv:
         community_name: Marknadsplatsnamn
         edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
         community_slogan: "Marknadsplats slogan"
+        community_slogan_display: ~
         edit_community_slogan_description: "Detta visas på startsidan av marknadsplatsen för användare som inte är inloggade. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Marknadsplats beskrivning"
+        community_description_display: ~
         edit_community_description_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Sök hjälp text"
         edit_community_search_placeholder_description: "Detta visas på startsidan av marknadsplatsen som en text i sökfältet. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privat marknadsplats startsidans innehåll"

@@ -67,9 +67,13 @@ pt-BR:
         community_name: "Nome do Mercado Virtual"
         edit_community_name_description: "O nome do seu mercado virtual. Será mostrado a usuários e em vários outros locais."
         community_slogan: "Slogan do Mercado Virtual"
+        community_slogan_display: ~
         edit_community_slogan_description: "Isso é mostrado na página inicial do mercado virtual para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Descrição do Mercado Virtual"
+        community_description_display: ~
         edit_community_description_description: "Isso é mostrado na página inicial do mercado virtual para os usuários que não estejam cadastrados. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Auxílio na busca de texto"
         edit_community_search_placeholder_description: "Isso é mostrado na página inicial do mercado virtual como um texto de espaço reservado na barra de pesquisa. %{see_how_it_looks_like}."
         private_community_homepage_content: "Conteúdo privado da página inicial do mercado virtual"

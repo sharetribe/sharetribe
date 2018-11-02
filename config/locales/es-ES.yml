@@ -67,9 +67,13 @@ es-ES:
         community_name: "Nombre de la comunidad:"
         edit_community_name_description: "El nombre de tu comunidad. Este se muestra en correos electrónicos y en varios otros lugares."
         community_slogan: "Eslogan de la comunidad:"
+        community_slogan_display: "Mostrar el eslogan en la página de inicio"
         edit_community_slogan_description: "Se muestra en la página de inicio de la comunidad a los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarlo en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_description: "Descripción de la comunidad:"
+        community_description_display: "Mostrar la descripción en la página de inicio"
         edit_community_description_description: "Se muestra en la página de inicio para los usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Se muestra en navegadores, buscadores y social media. También puedes decidir mostrarla en la página de inicio de tu marketplace para visitantes y usuarios que no han iniciado sesión. %{see_how_it_looks_like}."
         community_search_placeholder: Ayuda
         edit_community_search_placeholder_description: "Esto se muestra en la página inicial de tu comunidad como texto de marcador en la barra de búsqueda. %{see_how_it_looks_like}."
         private_community_homepage_content: "Contenido de la página de inicio de la comunidad privada"

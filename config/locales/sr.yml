@@ -52,9 +52,13 @@ sr:
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
+        community_slogan_display: ~
         edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: ~
         community_description: ~
+        community_description_display: ~
         edit_community_description_description: ~
+        edit_community_description_description_hideable: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -1266,7 +1270,7 @@ sr:
     new_listing: ~
     mobile_version: "Verzija za mob"
     offers: Ponude
-    requests: ZAhtevi
+    requests: Zahtevi
     search_kassi: "Traži na %{service_name}"
     create_new_marketplace: ~
     contact_us: ~
@@ -1486,50 +1490,50 @@ sr:
       create_one_here: "napravi novi"
       email_confirmation_sent_to_new_address: ~
       email_not_found: "Email adresa koju ste uneli nije u %{service_name} bazi."
-      error_with_session: "Greška sa posetom."
-      feedback_considered_spam: ~
-      feedback_not_saved: ~
-      feedback_saved: ~
-      feedback_sent_to: ~
-      feedback_skipped: ~
+      error_with_session: "Greška u sesiji."
+      feedback_considered_spam: "Poruka nije sačuvana zbog problema sa formatom. Pokušaj ponovo ili koristi forum za podršku."
+      feedback_not_saved: "Povratna informacija nije sačuvana."
+      feedback_saved: "Hvala za poruku. Javićemo se što pre."
+      feedback_sent_to: "Poruka je poslata %{target_person}."
+      feedback_skipped: Preskočeno.
       invitation_cannot_be_sent: ~
       invitation_cannot_unsubscribe: ~
       invitation_limit_reached: ~
       invitation_sent: ~
       invitation_successfully_unsubscribed: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      login_again: ~
-      login_failed: ~
+      login_again: "Prijavite se ponovo."
+      login_failed: "Neuspešna prijava. Unesite ispravne podatke."
       account_creation_successful: ~
       account_deleted: ~
-      login_successful: ~
-      logout_successful: ~
+      login_successful: "%{person_name} dobrodošli."
+      logout_successful: "Uspešno ste se odjavili sa %{service_name}. Vidimo se uskoro."
       news_item_created: ~
       news_item_creation_failed: ~
       news_item_update_failed: ~
       news_item_updated: ~
       news_item_deleted: ~
-      offer_accepted: ~
+      offer_accepted: "Ponuda prihvaćena."
       offer_confirmed: ~
-      offer_closed: ~
+      offer_closed: "Ponuda zatvorena."
       listing_created_successfully: ~
-      offer_rejected: ~
+      offer_rejected: "Ponuda je odbijena."
       offer_canceled: ~
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: ~
-      only_listing_author_can_edit_a_listing: ~
+      only_kassi_administrators_can_access_this_area: "Samo tim %{service_name} može da pristupi ovom delu."
+      only_listing_author_can_close_a_listing: "Samo vlasnik liste može da zatvori listu."
+      only_listing_author_can_edit_a_listing: "Samo vlasnik liste može da izmeni listu."
       payment_successful: ~
       payment_canceled: ~
       error_in_payment: ~
       cannot_receive_payment: ~
       payment_waiting_for_later_accomplishment: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Uputstvo za promenu šifre je poslato na vašu email adresu."
       person_activated: ~
       person_deactivated: ~
-      person_updated_successfully: ~
+      person_updated_successfully: "Informacija je ažurirana."
       poll_answered: ~
       poll_could_not_be_answered: ~
       poll_created: ~
@@ -1537,28 +1541,28 @@ sr:
       poll_update_failed: ~
       poll_updated: ~
       poll_deleted: ~
-      read_more: ~
+      read_more: "Pročitajte opširnije."
       registration_considered_spam: ~
-      reply_cannot_be_empty: ~
-      reply_sent: ~
-      request_accepted: ~
+      reply_cannot_be_empty: "Poruka ne može biti prazna."
+      reply_sent: "Odgovor je poslat."
+      request_accepted: "Zahtev je prihvaćen."
       request_confirmed: ~
-      request_rejected: ~
+      request_rejected: "Zahtev je odbijen."
       request_canceled: ~
       message_sent: ~
       message_not_sent: ~
       this_content_is_not_available_in_this_community: ~
-      unknown_error: ~
-      update_error: ~
-      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
-      you_are_not_authorized_to_do_this: ~
-      you_are_not_authorized_to_view_this_content: ~
+      unknown_error: "Nepoznata greška. Kontaktirajte nas sa detaljima o problemu."
+      update_error: "Došlo je do greške u toku ažuriranja informacija. Pokušajte ponovo."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nemate ovlašćenja za odgovaranje."
+      you_are_not_authorized_to_do_this: "Nemate ovlašćenja."
+      you_are_not_authorized_to_view_this_content: "Nemate ovlašćenja za uvid u sadržaj."
       listing_closed: ~
       send_instructions: ~
-      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_offer: "Ne možete odgovoriti na zatvorenu ponudu."
       you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
-      you_have_already_given_feedback_about_this_event: ~
+      you_have_already_given_feedback_about_this_event: "Već ste dobili povratni odgovor na o ovom događaju."
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~

@@ -72,9 +72,13 @@ sk-SK:
         community_name: "Názov trhoviska"
         edit_community_name_description: "Názov Vašeho trhoviska. Tento názov sa zobrazí v e-mailových správach a na iných miestach."
         community_slogan: Slogan
+        community_slogan_display: ~
         edit_community_slogan_description: "Toto sa zobrazí na domovskej stránke všetkým neprihláseným užívateľom. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Popis Trhoviska"
+        community_description_display: ~
         edit_community_description_description: "Toto sa zobrazí na domovskej stránke všetkým neprihláseným užívateľom. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Pomocný text vyhľadavánia"
         edit_community_search_placeholder_description: "Toto sa zobrazí na domovskej stránke trhoviska ako podporný text vo vyhľadávaní. %{see_how_it_looks_like}"
         private_community_homepage_content: "Obsah domovskej stránky súkromného trhoviska"

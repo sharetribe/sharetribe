@@ -62,9 +62,13 @@ ko:
         community_name: "마켓플레이스 이름"
         edit_community_name_description: "마켓플레이스 이름입니다. 이메일 및 다양한 페이지에서 사용자에게 보여집니다."
         community_slogan: "마켓플레이스 슬로건"
+        community_slogan_display: ~
         edit_community_slogan_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "마켓플레이스 설명"
+        community_description_display: ~
         edit_community_description_description: "로그인하지 않은 사용자에게 마켓 플레이스 상단에 보여집니다. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "도움말 텍스트 검색"
         edit_community_search_placeholder_description: "이것은 검색창에 플레이스홀더 텍스트로 마켓 플레이스의 홈페이지에 표시됩니다. %{see_how_it_looks_like}."
         private_community_homepage_content: "개인 마켓플레이스 홈페이지 컨텐츠"

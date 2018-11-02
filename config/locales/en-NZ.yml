@@ -67,9 +67,13 @@ en-NZ:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
+        community_slogan_display: ~
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Marketplace description"
+        community_description_display: ~
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the homepage of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"

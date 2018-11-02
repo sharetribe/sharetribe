@@ -77,9 +77,13 @@ pl:
         community_name: "Nazwa platformy"
         edit_community_name_description: "Nazwa Twojej platformy. To jest wyświetlane dla użytkowników w wiadomościach email i różnych, innych miejscach."
         community_slogan: "Slogan platformy"
+        community_slogan_display: ~
         edit_community_slogan_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Opis platformy"
+        community_description_display: ~
         edit_community_description_description: "Ta zawartość jest pokazywana na stronie głównej platformy tym użytkownikom, którzy nie są zalogowani. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Przeszukaj treść pomocy"
         edit_community_search_placeholder_description: "Ta zawartość jest pokazywana na stronie głównej platformy jako tekst wypełniający w pasku wyszukiwania. %{see_how_it_looks_like}."
         private_community_homepage_content: "Treść prywatnej strony głównej platformy"

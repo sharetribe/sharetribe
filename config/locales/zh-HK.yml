@@ -62,9 +62,13 @@ zh-HK:
         community_name: 市集名稱
         edit_community_name_description: 你的集市名稱。它將在郵件和其他不同地方顯示給用戶。
         community_slogan: 市集標語
+        community_slogan_display: ~
         edit_community_slogan_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: 市集描述
+        community_description_display: ~
         edit_community_description_description: "這將顯示在未登錄用戶的集市主頁。%{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: "這將在集市的主頁以佔位符文本顯示在搜索欄。%{see_how_it_looks_like}"
         private_community_homepage_content: 不公開市集主頁的內容

@@ -72,9 +72,13 @@ cs:
         community_name: "Název tržiště"
         edit_community_name_description: "Název Vašeho tržiště. Tento název se zobrazí uživatelům v e-mailech a na jiných místech."
         community_slogan: "Slogan tržiště"
+        community_slogan_display: ~
         edit_community_slogan_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: "Popis tržiště"
+        community_description_display: "Zobrazit popis na domovské stránce"
         edit_community_description_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: "Toto je zobrazeno v prohlížečích, vyhledávačích a na sociálních sítích. Můžete to také zobrazit na domovské stránce vašeho trhu pro uživatele, kteří nejsou přihlášeni.%{see_how_it_looks_like} ."
         community_search_placeholder: "Text vyhledávacího pole"
         edit_community_search_placeholder_description: "Toto je zobrazí na domovské stránce tržiště jako podpůrný text ve vyhledávacím řádku. %{see_how_it_looks_like}"
         private_community_homepage_content: "Obsah domovské stránky soukromého tržiště"
@@ -296,7 +300,7 @@ cs:
         invalid_facebook_connect_secret: "Heslo by mělo obsahovat pouze číslice a znaky od A do F."
         enable_facebook_login: "Povolit uživatelům přihlásit se pomocí Facebookového účtu"
         save: "Uložit nastavení"
-        add_another_image: ~
+        add_another_image: "Přidat další obrázek"
       analytics:
         analytics: "Google Analytics"
         google_analytics_key: "sledování identifikačního čísla pomocí Google Analytics"
@@ -397,19 +401,19 @@ cs:
           receiver: Příjemce
           status: Status
           grade: stupeň
-          text: ~
+          text: Text
         status:
           waiting: "Čeká na recenzi"
           skipped: Vynecháno
           published: Zveřejněno
-          blocked: ~
+          blocked: Blokováno
         form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
+          review_text: Hodnocení
+          save: Uložit
+          cancel: Zrušit
+          delete_review: "Smazat hodnocení"
+          block_review: "Blokovat hodnocení"
+          confirm_modify: "Opravdu chcete tuto recenzi upravit nebo smazat? Jakmile upravíte / odstraníte recenzi, nelze obnovit žádné staré údaje."
           deleting_info: ~
           blocking_info: ~
       listings:
@@ -519,7 +523,7 @@ cs:
           title: "Kdo chce poslat email?"
           options:
             all_users: "Všichni uživatelé"
-            posting_allowed: ~
+            posting_allowed: "Uživatelé, kteří mohou psát záznamy"
             with_listing: "Uživatelé, kteří zveřejnili alespoň jeden záznam"
             with_listing_no_payment: "Uživatelé, kteří zveřejnili alespoň jeden záznam, ale neposkytli svoje platební údaje"
             with_payment_no_listing: "Uživatelé,  kteří poskytli své platební údaje, ale nezveřejnili žádný záznam"
@@ -541,7 +545,7 @@ cs:
       users_and_transactions: "Uživatelé & transakce"
       configure: Nastavení
       emails_title: Emaily
-      subscription: Pčedplatné
+      subscription: Předplatné
       preview: "Náhled stránky"
     listing_shapes:
       availability_title: Dostupnost
@@ -627,7 +631,7 @@ cs:
         night: "Za noc"
         week: "Za týden"
         month: "Za měsíc"
-        unit: ~
+        unit: "Za jednotku"
       can_not_find: "Nelze najít typ objednávky pomocí identifikačního čísla: %{id}"
       add_custom_unit: "+ Přidat vlastní cenovou jednotku..."
       delete_custom_unit: odstranit
@@ -1846,7 +1850,7 @@ cs:
       night: "Počet nocí:"
       week: "Počet týdnů:"
       month: "Počet měsíců:"
-      unit: ~
+      unit: "Počet jednotek:"
       custom: "Množství:"
     quantity_placeholder: Množství
     please_comment: Komentář
@@ -1898,7 +1902,7 @@ cs:
       night: noc
       week: týden
       month: měsíc
-      unit: ~
+      unit: jednotka
     verification_required:
       verification_required: "Ověření požadováno"
   listing_conversations:
@@ -2544,8 +2548,8 @@ cs:
       save_details: "Uložit podrobnosti"
       edit: "Upravit detaily"
       cancel: Zrušit
-      gender: ~
-      phone_number: ~
+      gender: Pohlaví
+      phone_number: "Telefonní číslo"
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -2556,8 +2560,8 @@ cs:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: muž
+      female: žena
     form_bank:
       bank_account_number: "Číslo bankovního účtu"
       bank_routing_number: "Směrovací číslo"
@@ -2590,7 +2594,7 @@ cs:
       social_insurance_number: "Číslo sociálního pojištění (SIN)"
       social_security_number: "Číslo sociálního zabezpečení (SSN)"
       ssn_last_4: "Poslední 4 číslice čísla sociálního zabezpečení (SSN)"
-      hong_kong_identity_card: ~
+      hong_kong_identity_card: "Hong Kong - číslo průkazu (HKID)"
       singapore_identity_card: ~
       messages:
         social_insurance_number: "Číslo sociálního pojištění (SIN) musí být platné"

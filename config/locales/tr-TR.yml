@@ -62,9 +62,13 @@ tr-TR:
         community_name: "Pazar adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
         community_slogan: "Pazar sloganı"
+        community_slogan_display: ~
         edit_community_slogan_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Pazar tanımı"
+        community_description_display: ~
         edit_community_description_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Yardım metni ara"
         edit_community_search_placeholder_description: "Bu metin, pazarın ana sayfasındaki arama çubuğunda yer tutucu olarak gösterilecektir. %{see_how_it_looks_like}"
         private_community_homepage_content: "Özel pazar ana sayfa içeriği"

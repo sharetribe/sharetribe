@@ -67,9 +67,13 @@ nl:
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan marktplaats"
+        community_slogan_display: ~
         edit_community_slogan_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Beschrijving marktplaats"
+        community_description_display: ~
         edit_community_description_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Zoek hulptekst"
         edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de marktplaats als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marktplaats homepage inhoud"
