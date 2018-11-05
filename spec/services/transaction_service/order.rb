@@ -3,6 +3,17 @@ require 'spec_helper'
 describe TransactionService::Order do
   let(:community) { FactoryGirl.create(:community) }
 
+  before do
+    request = OpenStruct.new
+    request.session = {}
+    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:buyer_commission])
+    FeatureFlagHelper.init(community_id: community.id,
+                           user_id: nil,
+                           request: request,
+                           is_admin: false,
+                           is_marketplace_admin: false)
+  end
+
   it "calculates the item total" do
     listing = FactoryGirl.create(:listing, price: Money.new(0, "USD"), community_id: community.id)
     tx_params = {quantity: 10}
@@ -175,7 +186,8 @@ describe TransactionService::Order do
         community: community,
         tx_params: tx_params,
         listing: listing)
-      expect(oder.order_total).to eq(Money.new(6_500, "EUR"))
+      expect(oder.buyer_fee).to eq(Money.new(1_000, "EUR"))
+      expect(oder.order_total).to eq(Money.new(6_000, "EUR"))
     end
 
     def create_stripe_account(listing)
