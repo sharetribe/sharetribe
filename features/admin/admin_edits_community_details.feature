@@ -20,8 +20,6 @@ Feature: Admin edits info pages
     And I should see "This is a custom description"
 
   Scenario: Admin user can hide community slogan or description
-    Given community "test" has feature flag "hide_slogan" enabled
-
     When I go to the admin view of community "test"
     And I should see "Display the slogan in the home page"
     And I should see "Display the description in the home page"
