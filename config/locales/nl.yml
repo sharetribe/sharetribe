@@ -67,13 +67,13 @@ nl:
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan marktplaats"
-        community_slogan_display: ~
+        community_slogan_display: "Geef de slogan weer op de home pagina"
         edit_community_slogan_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "Dit wordt weergegeven in browsers, zoekmachines en sociale media. Je kunt het ook weergeven op de home pagina van je marktplaats voor bezoekers die niet zijn ingelogd. %{see_how_it_looks_like}"
         community_description: "Beschrijving marktplaats"
-        community_description_display: ~
+        community_description_display: "Geef de beschrijving weer op de home pagina"
         edit_community_description_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: ~
+        edit_community_description_description_hideable: "Dit wordt weergegeven in browsers, zoekmachines en sociale media. Je kunt het ook weergeven op de home pagina van je marktplaats voor bezoekers die niet zijn ingelogd. %{see_how_it_looks_like}"
         community_search_placeholder: "Zoek hulptekst"
         edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de marktplaats als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marktplaats homepage inhoud"
@@ -99,7 +99,7 @@ nl:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
-        community_logo_icon_mobile: ~
+        community_logo_icon_mobile: "Logo voor home screen op mobiele apparaten"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
@@ -110,11 +110,11 @@ nl:
         community_description_color: "Kleur marktplaats beschrijving"
         community_description_color_instructions_text: "Je kunt de kleur van de beschrijving op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waarde te vinden. Die vul je vervolgens hier in.%{see_how_it_looks_like}"
         new_listing_button_custom_color: "Kleur van de \"Plaats een nieuwe advertentie\" button"
-        logo_instructions_text_with_dimensions: "Het desktop logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
+        logo_instructions_text_with_dimensions: "Het logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
         logo_icon_instructions_text_with_dimensions: "Mobiele logo's dienen vierkant te zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dit vierkante logo wordt vertoond wanneer mensen jouw site delen op Facebook, of wanneer ze je site bookmarken op het home screen van hun mobiele apparaat. De dimensies dienen (minstens) %{height}x%{width} pixels te zijn."
-        logo_mobile_icon_instructions_text_with_dimensions: ~
+        logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen minstens %{width}x%{height} pixels te zijn."
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
@@ -279,8 +279,8 @@ nl:
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
       social_media:
         social_media: "Sociale media"
-        logo: ~
-        logo_info: ~
+        logo: Logo
+        logo_info: "Deze afbeelding verschijnt in sociale media (Facebook, Twitter, LinkedIn) wanneer iemand jouw website deelt. Voor het beste resultaat dient het een beeldverhouding van 2:1 te hebben en een minimum grootte van %{width}x%{height} pixels."
         twitter_handle: "Twitter account"
         twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
@@ -297,7 +297,7 @@ nl:
         invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
-        add_another_image: ~
+        add_another_image: "Voeg nog een afbeelding toe"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -398,21 +398,21 @@ nl:
           receiver: Ontvanger
           status: Status
           grade: Cijfer
-          text: ~
+          text: Tekst
         status:
           waiting: "In afwachting van recensie"
           skipped: Overgeslagen
           published: Gepubliceerd
-          blocked: ~
+          blocked: Geblokkeerd
         form:
-          review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
-          confirm_modify: ~
-          deleting_info: ~
-          blocking_info: ~
+          review_text: "Herzie tekst"
+          save: "Sla op"
+          cancel: Annuleer
+          delete_review: "Verwijder recensie"
+          block_review: "Blokkeer recensie"
+          confirm_modify: "Weet je zeker dat je deze recensie wilt aanpassen/verwijderen? Wanneer je een recensie aanpast/verwijdert, is het niet mogelijk om de oude gegevens terug te krijgen."
+          deleting_info: "Het verwijderen van een recensie stelt de schrijver in staat om opnieuw een recensie voor dezelfde transactie achter te laten."
+          blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
       listings:
         listings: Advertenties
         headers:
@@ -488,8 +488,8 @@ nl:
         user_fields: Gebruikersvelden
         field_title: Veldtitel
         field_type: Veldtype
-        signup: ~
-        public: ~
+        signup: Inschrijving
+        public: Openbaar
         add_new_field: "Voeg nieuw veld toe"
         save: "Sla op"
         cancel: Annuleer
@@ -520,7 +520,7 @@ nl:
           title: "Naar wie wil je een email sturen?"
           options:
             all_users: "Alle gebruikers"
-            posting_allowed: ~
+            posting_allowed: "Gebruikers die advertenties mogen plaatsen"
             with_listing: "Gebruikers die ten minste één advertentie hebben geplaatst"
             with_listing_no_payment: "Gebruikers die ten minste één advertentie hebben geplaatst, maar niet hun betalingsdetails hebben ingevuld"
             with_payment_no_listing: "Gebruikers die hun gebruikersdetails hebben ingevuld, maar nog geen advertentie hebben geplaatst."
@@ -624,7 +624,7 @@ nl:
         night: "Per nacht"
         week: "Per week"
         month: "Per maand"
-        unit: ~
+        unit: "Per eenheid"
       can_not_find: "Kan order type met het volgende id niet vinden: %{id}"
       add_custom_unit: "+ Voeg een eigen prijseenheid toe…"
       delete_custom_unit: verwijder
@@ -1849,7 +1849,7 @@ nl:
       night: "Aantal nachten:"
       week: "Aantal weken:"
       month: "Aantal maanden:"
-      unit: ~
+      unit: "Aantal eenheden"
       custom: "Aantal:"
     quantity_placeholder: Aantal
     please_comment: Reactie
@@ -1901,7 +1901,7 @@ nl:
       night: nacht
       week: week
       month: maand
-      unit: ~
+      unit: eenheid
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -2231,7 +2231,7 @@ nl:
       profile_page: "op uw profielpagina"
       profilemap: "Overzicht op kaart"
       street_address: "Straat en huisnummer"
-      these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle %{service_name} gebruikers"
+      these_fields_are_shown_in_your: "Een gedeelte van deze informatie is zichtbaar voor alle %{service_name} gebruikers"
       visible_to_everybody: "zichtbaar voor iedereen"
       visible_to_registered_users: "(zichtbaar voor ingelogde gebruikers)"
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe advertentie)"
@@ -2522,10 +2522,10 @@ nl:
       legal_name: "Officiele naam"
       first_name: Voornaam
       last_name: Achternaam
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
+      first_name_kana: "Voornaam (in Kana)"
+      last_name_kana: "Achternaam (in Kana)"
+      first_name_kanji: "Voornaam (in Kanji)"
+      last_name_kanji: "Achternaam (in Kanji)"
       country: Land
       birth_date: Geboortedatum
       ssn_last_4: Sofinummer
@@ -2541,20 +2541,20 @@ nl:
       save_details: "Sla informatie op"
       edit: "Informatie bewerken"
       cancel: Annuleer
-      gender: ~
-      phone_number: ~
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
-      address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
-      address_kanji_state: ~
-      address_kanji_city: ~
-      address_kanji_town: ~
-      address_kanji_line1: ~
-      male: ~
-      female: ~
+      gender: Geslacht
+      phone_number: Telefoonnummer
+      address_kana_postal_code: "Postcode (in Kana)"
+      address_kana_state: "Staat (in Kana)"
+      address_kana_city: "Stad (in Kana)"
+      address_kana_town: "Dorp (in Kana)"
+      address_kana_line1: "Adres (in Kana)"
+      address_kanji_postal_code: "Postcode (in Kanji)"
+      address_kanji_state: "Staat (in Kanji)"
+      address_kanji_city: "Stad (in Kanji)"
+      address_kanji_town: "Dorp (in Kanji)"
+      address_kanji_line1: "Adres (in Kanji)"
+      male: man
+      female: vrouw
     form_bank:
       bank_account_number: Bankrekeningnummer
       bank_routing_number: "Routing nummer"
@@ -2600,6 +2600,6 @@ nl:
     can_accept_stripe_and_paypal: "Je kunt geld ontvangen op je bankrekening of op je PayPal account."
     to_accept_paypal: "Om geld te ontvangen op je PayPal account, dien je je PayPal account te koppelen. Je klanten kunnen dan met PayPal betalen."
     connect_paypal: "Koppel PayPal-account"
-    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: het platform is niet geregistreerd. Neem contact op met het team om ze te laten weten dat ze hun platform bij Stripe moeten registreren."
+    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: Stripe Connect is niet ingeschakeld. Neem contact op met het team om ze te laten weten dat ze Stripe Connect moeten inschakelen op hun Stripe Dashboard."
     invalid_bank_account_number: "Controleer aub of je bankrekeningnummer correct is ingevoerd en met je land overeenkomt."
     invalid_postal_code: "Ongeldige postcode voor %{country}"

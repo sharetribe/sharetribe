@@ -115,7 +115,6 @@ en:
         logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
         logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
-
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
@@ -278,7 +277,7 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
-        logo: "Logo"
+        logo: Logo
         logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
@@ -404,14 +403,14 @@ en:
           published: Published
           blocked: Blocked
         form:
-          review_text: 'Review text'
-          save: 'Save'
-          cancel: 'Cancel'
-          delete_review: 'Delete review'
-          block_review: 'Block review'
-          confirm_modify: 'Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover any of the old data.'
-          deleting_info: 'Deleting a review allows its author to leave another one for the same transaction.'
-          blocking_info: 'Blocking the review after deletion prevents its author from leaving another one for the same transaction.'
+          review_text: "Review text"
+          save: Save
+          cancel: Cancel
+          delete_review: "Delete review"
+          block_review: "Block review"
+          confirm_modify: "Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover any of the old data."
+          deleting_info: "Deleting a review allows its author to leave another one for the same transaction."
+          blocking_info: "Blocking the review after deletion prevents its author from leaving another one for the same transaction."
       listings:
         listings: Listings
         headers:
@@ -487,8 +486,8 @@ en:
         user_fields: "User fields"
         field_title: "Field title"
         field_type: "Field type"
-        signup: "Signup"
-        public: "Public"
+        signup: Signup
+        public: Public
         add_new_field: "Add new field:"
         save: Save
         cancel: Cancel
@@ -2541,18 +2540,18 @@ en:
       save_details: "Save details"
       edit: "Edit details"
       cancel: Cancel
-      gender: 'Gender'
-      phone_number: 'Phone number'
-      address_kana_postal_code: 'Postal code kana'
-      address_kana_state: 'State kana'
-      address_kana_city: 'City kana'
-      address_kana_town: 'Town kana'
-      address_kana_line1: 'Street address kana'
-      address_kanji_postal_code: 'Postal code kanji'
-      address_kanji_state: 'State kanji'
-      address_kanji_city: 'City kanji'
-      address_kanji_town: 'Town kanji'
-      address_kanji_line1: 'Street address kanji'
+      gender: Gender
+      phone_number: "Phone number"
+      address_kana_postal_code: "Postal code kana"
+      address_kana_state: "State kana"
+      address_kana_city: "City kana"
+      address_kana_town: "Town kana"
+      address_kana_line1: "Street address kana"
+      address_kanji_postal_code: "Postal code kanji"
+      address_kanji_state: "State kanji"
+      address_kanji_city: "City kanji"
+      address_kanji_town: "Town kanji"
+      address_kanji_line1: "Street address kanji"
       male: male
       female: female
     form_bank:

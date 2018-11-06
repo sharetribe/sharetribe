@@ -727,7 +727,7 @@ sr:
     share_types:
       request: ~
       offer: ~
-      borrow: pozajmica
+      borrow: iznajmljivanje
       buy: kupovina
       give_away: poklon
       lend: pozajmiti
@@ -1567,15 +1567,15 @@ sr:
       you_are_already_member: ~
       you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_give_feedback: "Morate se prijaviti pre nego ostavite poruku."
       you_must_log_in_to_invite_new_users: ~
-      you_must_log_in_to_send_a_comment: ~
-      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_send_a_comment: "Da bi poslali komentar morate se ulogovati."
+      you_must_log_in_to_send_a_message: "Za slanje poruke korisnicima, morate biti prijavljeni na %{service_name}."
       you_must_log_in_to_do_a_transaction: ~
-      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_this_content: "Pregled sadržaja dozvoljen samo prijavljenim korisnicima."
       you_must_log_in_to_view_this_page: ~
-      you_must_log_in_to_view_your_inbox: ~
-      you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_view_your_inbox: "Poruke možete videti samo kada ste prijavljeni na %{service_name}."
+      you_must_log_in_to_view_your_settings: "Podešavanja su dostupna samo kada ste prijavljeni na %{service_name}."
       you_must_log_in_to_add_news_item: ~
       you_must_log_in_to_change_profile_settings: ~
       you_must_log_in_to_accept_or_reject: ~
@@ -1594,10 +1594,10 @@ sr:
       visit_admin: ~
       visit_admin_link: ~
     settings:
-      account: ~
-      notifications: ~
-      profile: ~
-      settings: ~
+      account: Nalog
+      notifications: Obaveštenja.
+      profile: "Info o profilu"
+      settings: Podešavanja
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
@@ -1611,12 +1611,12 @@ sr:
       are_you_sure: ~
     comment_form:
       ask_a_question: ~
-      log_in: ~
-      send_comment: ~
-      to_send_a_comment: ~
-      write_comment: ~
+      log_in: "Prijavi se"
+      send_comment: "Pošalji komentar"
+      to_send_a_comment: "za slanje komentara."
+      write_comment: "Napišite komentar:"
       you_cannot_send_a_new_comment_because_listing_is_closed: ~
-      you_must: ~
+      you_must: Morate
       subscribe_to_comments: ~
     edit:
       edit_listing: ~
@@ -1644,34 +1644,34 @@ sr:
         dropdown:
           select_one___: ~
       departure_time:
-        at: ~
-        departure_time: ~
+        at: Na
+        departure_time: "Vreme polaska"
       departure_time_radio_buttons:
         repeated: ~
       description:
         detailed_description: ~
         youtube_info: ~
       destination:
-        destination: ~
+        destination: Odredište
       form_content:
-        favor: ~
-        housing: ~
-        item: ~
-        offer_something: ~
-        request_something: ~
-        rideshare: ~
+        favor: servis
+        housing: prostor
+        item: stvar
+        offer_something: "Ponudite nešto"
+        request_something: Zahtev
+        rideshare: vožnja
         i_want_to_offer: ~
         i_want_to_request: ~
       googlemap:
-        googlemap_copy: ~
-        googlemap_description: ~
-        googlemap_updatemap: ~
+        googlemap_copy: "Krajnje tačke na mapi"
+        googlemap_description: Mapa
+        googlemap_updatemap: "Osveži mapu"
       images:
-        image: ~
+        image: Slika
         best_result: ~
-        no_file_selected: ~
-        remove_image: ~
-        select_file: ~
+        no_file_selected: "Fajl nije odabran"
+        remove_image: "Ukloni sliku"
+        select_file: "Izaberi fajl"
         add_more: ~
         removing: ~
         processing: ~
@@ -1686,7 +1686,7 @@ sr:
         accepted_formats: ~
         images_not_uploaded_confirm: ~
       location:
-        location: ~
+        location: Lokacija
       price:
         price: ~
         per: ~
@@ -1705,70 +1705,70 @@ sr:
         shipping_price_additional: ~
         pickup: ~
       origin:
-        location: ~
-        origin: ~
+        location: Lokacija
+        origin: Poreklo
       send_button:
         save_listing: ~
       share_type:
         select: ~
-        borrow: ~
-        buy: ~
-        give_away: ~
-        lend: ~
-        offer_type: ~
-        receive: ~
-        rent: ~
-        rent_out: ~
-        request_type: ~
-        sell: ~
+        borrow: Pozajmiti
+        buy: Kupiti
+        give_away: Pokloniti
+        lend: Pozajmiti
+        offer_type: "Tip ponude"
+        receive: Besplatno
+        rent: Iznajmiljivanje
+        rent_out: Iznajmljivanje
+        request_type: Vrsta
+        sell: Prodaja
         share_for_free: ~
         accept_for_free: ~
-        trade: ~
+        trade: Zamena
       tag_list:
-        comma_separate: ~
-        tags: ~
+        comma_separate: (zapeta)
+        tags: Tag
       title:
         listing_title: ~
       valid_until:
-        valid_until: ~
+        valid_until: "Datum isteka"
       valid_until_radio_buttons:
-        for_the_time_being: ~
+        for_the_time_being: "Za sad"
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: ~
-      help_tags_title: ~
-      help_valid_until_title: ~
+      help_share_type_title: "Vrsta ponude ili zahteva"
+      help_tags_title: Tag
+      help_valid_until_title: "Datum isteka"
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
+      all_categories: "Sve kategorije"
+      all_offer_types: "Sve vrste ponuda"
+      all_request_types: "Sve vrste zahteva"
+      category: Kategorija
+      did_not_found_what_you_were_looking_for: "Niste pronašli šta vam treba?"
+      favors: Usluge
+      housing: Prostor
+      items: Stvari
+      list_view: lista
       listings: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
+      map_view: mapa
+      offer_something: Objavite
+      offer_type: "Tip ponude"
+      offers: Ponude
+      request_something: "Postavite zahtev za nečim."
+      request_type: "Vrsta zahteva"
+      requests: Potražnja
+      rideshare: vožnja
+      you_have_something_others_do_not: "Želite nešto da ponudite?"
       feed_title: ~
     left_panel_link:
-      borrows: ~
-      buys: ~
-      favors: ~
-      give_aways: ~
-      housings: ~
-      items: ~
+      borrows: iznajmljivanje
+      buys: Kupovina
+      favors: Usluge
+      give_aways: poklon
+      housings: Prostor
+      items: Stvari
       lends: ~
       receives: ~
       rent_outs: ~
