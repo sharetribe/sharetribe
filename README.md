@@ -328,6 +328,8 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 
 1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
 
+1. If you wish to enable [HTTP Strict Transport Security](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) (recommended), set also the `hsts_max_age` column in `communities` table to a non-zero number of seconds. For instance `31536000 ` (1 year).
+
 
 #### Setting up S3
 

@@ -31,6 +31,8 @@ class LandingPageController < ActionController::Metal
   helper CLP::MarkdownHelper
   helper CLP::BackgroundHelper
 
+  include HSTS
+
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
@@ -53,6 +55,12 @@ class LandingPageController < ActionController::Metal
       content = nil
       cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param, cta, script_digest)
       cache_hit = true
+
+      hsts_header, hsts_header_value = HSTS.hsts_header(request)
+
+      if hsts_header
+        headers[hsts_header] = hsts_header_value
+      end
 
       if cache_meta.nil?
         cache_hit = false

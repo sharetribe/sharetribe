@@ -269,6 +269,7 @@ CREATE TABLE `communities` (
   `end_user_analytics` tinyint(1) DEFAULT '1',
   `show_slogan` tinyint(1) DEFAULT '1',
   `show_description` tinyint(1) DEFAULT '1',
+  `hsts_max_age` int(11) DEFAULT NULL,
   `footer_theme` int(11) DEFAULT '0',
   `footer_copyright` text,
   `footer_enabled` tinyint(1) DEFAULT '0',
@@ -2317,6 +2318,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180717122957'),
 ('20180720044534'),
 ('20180720065907'),
-('20180723115548');
-
-
+('20180723115548'),
+('20181106212306');

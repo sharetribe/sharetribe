@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   include DefaultURLOptions
   include Analytics
   include RefererHider
+  include HSTS::Concern
   protect_from_forgery
   layout 'application'
 

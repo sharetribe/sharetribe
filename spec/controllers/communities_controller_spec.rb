@@ -95,6 +95,7 @@
 #  footer_theme                               :integer          default("dark")
 #  footer_copyright                           :text(65535)
 #  footer_enabled                             :boolean          default(FALSE)
+#  hsts_max_age                               :integer
 #
 # Indexes
 #
