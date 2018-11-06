@@ -13,13 +13,11 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
                                            .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
         if params[:q].present?
-          query = <<-SQL
-          community_memberships.person_id IN
-          (SELECT p.id FROM people p LEFT OUTER JOIN emails e ON e.person_id = p.id
-           WHERE p.given_name like ? OR p.family_name like ? OR p.display_name like ? OR e.address like ?)
-          SQL
-          like_q = "%#{params[:q]}%"
-          @memberships = @memberships.where(query, like_q, like_q, like_q, like_q)
+          person_search_query = Person
+            .search_name_or_email(@current_community.id, "%#{params[:q]}%")
+            .select('people.id')
+
+          @memberships = @memberships.where(person_id: person_search_query)
         end
       end
       format.csv do

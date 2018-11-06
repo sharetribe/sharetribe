@@ -120,11 +120,13 @@ Given /^there are following users:$/ do |person_table|
 end
 
 Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
-  FactoryGirl.create_list(:person, user_count.to_i,
-                          given_name: given_name,
-                          family_name: "#{family_name_prefix} #{user_count}",
-                          community_id: @current_community.id,
-                          communities: [@current_community])
+  1.upto(user_count.to_i).map do |counter|
+    FactoryGirl.create(:person,
+                        given_name: given_name,
+                        family_name: format(family_name_prefix, counter),
+                        community_id: @current_community.id,
+                        communities: [@current_community])
+  end
 end
 
 # Filling in with random strings
