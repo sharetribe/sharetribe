@@ -74,7 +74,7 @@ select#locale-selection {
   border: 2px solid $border;
    @include media(tablet) {
     margin: 0;
-    padding: em(8) em(11);
+    padding: em(8) em(11) 0;
   }
   &:after {
     content: "▼";

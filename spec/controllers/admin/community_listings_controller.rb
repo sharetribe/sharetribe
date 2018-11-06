@@ -90,8 +90,8 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it "filters open" do
       get :index, params: {community_id: @community.id, status: ["open"]}
-      expect(assigns("listings").size).to eq 4
-      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe1, @listing_joe3, @listing_jack1, @listing_jack3]
+      expect(assigns("listings").size).to eq 2
+      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe1, @listing_jack1]
     end
 
     it "filters closed" do

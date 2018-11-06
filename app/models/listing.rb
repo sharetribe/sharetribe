@@ -121,7 +121,7 @@ class Listing < ApplicationRecord
   scope :status_open, ->   { where(open: true) }
   scope :status_closed, -> { where(open: false) }
   scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
-  scope :status_active, -> { where('valid_until > ?', DateTime.now) }
+  scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
 
 
   before_create :set_sort_date_to_now

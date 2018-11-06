@@ -77,6 +77,6 @@
       = will_paginate @listings
 
 - content_for :extra_javascript do
-  = js_t ["admin.communities.listings.status.all"], true
+  = js_t ["admin.communities.listings.status.all", "admin.communities.listings.status.selected_js"], true
   :javascript
     window.ST.initializeListingSearchFormSelector();

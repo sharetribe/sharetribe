@@ -21,6 +21,8 @@ class Admin::CommunityListingsController < Admin::AdminBaseController
       end
       if params[:status].include?("expired")
         scope = scope.status_expired
+      else
+        scope = scope.status_active
       end
     end
     scope
@@ -43,7 +45,7 @@ class Admin::CommunityListingsController < Admin::AdminBaseController
 
   def listing_search_status_titles
     if params[:status].present?
-      params[:status].map{|s| I18n.t("admin.communities.listings.status.#{s}") }.join(", ")
+      I18n.t("admin.communities.listings.status.selected_js") + params[:status].size.to_s
     else
       I18n.t("admin.communities.listings.status.all")
     end
