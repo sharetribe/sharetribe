@@ -25,14 +25,8 @@
 
     .row
       .col-12
-        - if FeatureFlagHelper.feature_enabled?(:social_image)
-          - icon_label = ".community_logo_icon_mobile"
-          - icon_info = ".logo_mobile_icon_instructions_text_with_dimensions"
-        - else
-          - icon_label = ".community_logo_icon"
-          - icon_old = ".logo_icon_instructions_text_with_dimensions"
-          - icon_no_placing = ".logo_icon_instructions_text_with_dimensions_no_placing"
-          - icon_info = FeatureFlagHelper.feature_enabled?(:topbar_v1) ? icon_no_placing : icon_old
+        - icon_label = ".community_logo_icon_mobile"
+        - icon_info = ".logo_mobile_icon_instructions_text_with_dimensions"
         = form.label :logo, t(icon_label), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(icon_info, :width => 600, :height => 600)}
         = render 'layouts/filename', file_field: @community.logo

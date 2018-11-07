@@ -27,7 +27,7 @@
   - meta_image_width = content_for(:meta_image_width)
   - meta_image_height = content_for(:meta_image_height)
 - else
-  - if FeatureFlagHelper.feature_enabled?(:social_image) && @current_community.social_logo.try(:image).try(:file?)
+  - if @current_community.social_logo.try(:image).try(:file?)
     - meta_image = @current_community.social_logo.image.url(:original)
   - elsif @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
