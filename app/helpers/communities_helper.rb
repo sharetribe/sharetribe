@@ -14,12 +14,7 @@ module CommunitiesHelper
   def community_slogan_locals
     translations = find_community_customizations(:slogan)
     looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", id: "view_slogan_link")
-    info_text =
-      if FeatureFlagHelper.feature_enabled?(:hide_slogan)
-        I18n.t("admin.communities.edit_details.edit_community_slogan_description_hideable", :see_how_it_looks_like => looks_link)
-      else
-        I18n.t("admin.communities.edit_details.edit_community_slogan_description", :see_how_it_looks_like => looks_link)
-      end
+    info_text = I18n.t("admin.communities.edit_details.edit_community_slogan_description_hideable", :see_how_it_looks_like => looks_link)
     {
       header: t("admin.communities.edit_details.community_slogan"),
       input_classes: "",
@@ -32,12 +27,7 @@ module CommunitiesHelper
   def community_description_locals
     translations = find_community_customizations(:description)
     looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")
-    info_text =
-      if FeatureFlagHelper.feature_enabled?(:hide_slogan)
-        I18n.t("admin.communities.edit_details.edit_community_description_description_hideable", :see_how_it_looks_like => looks_link)
-      else
-        I18n.t("admin.communities.edit_details.edit_community_description_description", :see_how_it_looks_like => looks_link)
-      end
+    info_text = I18n.t("admin.communities.edit_details.edit_community_description_description_hideable", :see_how_it_looks_like => looks_link)
     {
       header: t("admin.communities.edit_details.community_description"),
       input_classes: "",

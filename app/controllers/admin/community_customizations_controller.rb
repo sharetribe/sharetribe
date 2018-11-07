@@ -53,13 +53,11 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
     update_results.push(@current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked))
 
-    if FeatureFlagHelper.feature_enabled?(:hide_slogan)
-      show_slogan = Maybe(params)[:community][:show_slogan].is_some?
-      update_results.push(@current_community.update_attributes(show_slogan: show_slogan))
+    show_slogan = Maybe(params)[:community][:show_slogan].is_some?
+    update_results.push(@current_community.update_attributes(show_slogan: show_slogan))
 
-      show_description = Maybe(params)[:community][:show_description].is_some?
-      update_results.push(@current_community.update_attributes(show_description: show_description))
-    end
+    show_description = Maybe(params)[:community][:show_description].is_some?
+    update_results.push(@current_community.update_attributes(show_description: show_description))
 
     analytic.send_properties
     if update_results.all? && (!process_locales || enabled_locales_valid)
