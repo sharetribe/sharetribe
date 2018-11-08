@@ -19,11 +19,11 @@ class Admin::CommunityListingsController < Admin::AdminBaseController
         scope = scope.status_open    if params[:status].include?("open")
         scope = scope.status_closed  if params[:status].include?("closed")
       end
-      if params[:status].include?("expired")
-        scope = scope.status_expired
+      scope = if params[:status].include?("expired")
+        scope.status_expired
       else
-        scope = scope.status_active
-      end
+        scope.status_active
+              end
     end
     scope
   end
