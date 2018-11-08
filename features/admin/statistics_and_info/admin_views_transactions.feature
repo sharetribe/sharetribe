@@ -10,11 +10,12 @@ I want to see see all the transactions happening in my community
       | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0200 |
       | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0200 |
       | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0200 |
+      | kassi_testperson3 | richard    | roe         | test3@example.com   | 2012-03-01 00:00:00 +0200 |
     And there are following transactions
       | listing     | status  | sum | currency | started_at  | latest_activity | starter           | other_party       | community_ident |
       | Moving help | free    | 127 | EUR      | 2 days ago  | 3 hours ago     | kassi_testperson1 | kassi_testperson2 | test            |
       | Red apples  | free    | 60  | USD      | 1 week ago  | 2 hours ago     | kassi_testperson2 | kassi_testperson1 | test            |
-      | Power drill | free    |     |          | 2 hours ago | 1 hour ago      | kassi_testperson1 | kassi_testperson2 | test            |
+      | Power drill | free    |     |          | 2 hours ago | 1 hour ago      | kassi_testperson1 | kassi_testperson3 | test            |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And I am on the transactions admin page
@@ -39,3 +40,30 @@ I want to see see all the transactions happening in my community
     Then I should see the transactions in ascending time order by "latest activity"
     When I sort by "latest activity"
     Then I should see the transactions in descending time order by "latest activity"
+
+  Scenario: Admin filters transaction by free status
+    When I click ".status-select-button"
+    And I click ".status-select-line[data-status=free]"
+    And I click ".search-button"
+    Then I should see 3 transaction with status "Free transaction"
+
+  Scenario: Admin filters transaction by paid status
+    When I click ".status-select-button"
+    And I click ".status-select-line[data-status=paid]"
+    And I click ".search-button"
+    Then I should see 0 transaction with status "Free transaction"
+
+  Scenario: Admin searches transactions by title
+    When I fill in "q" with "Moving help"
+    And I click ".search-button"
+    Then I should see 1 transaction with status "Free transaction"
+    And I should see "Moving help"
+
+  Scenario: Admin searches transactions by participant
+    When I fill in "q" with "richard"
+    And I click ".search-button"
+    Then I should see 1 transaction with status "Free transaction"
+    And I should see "Power drill"
+    When I fill in "q" with "jane"
+    And I click ".search-button"
+    Then I should see 2 transaction with status "Free transaction"
