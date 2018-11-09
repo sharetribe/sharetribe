@@ -104,7 +104,7 @@ class Listing < ApplicationRecord
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
-  validates_length_of :title, :in => 2..60, :allow_nil => false
+  validates_length_of :title, :in => 2..65, :allow_nil => false
 
   scope :exist, -> { where(deleted: false) }
 
