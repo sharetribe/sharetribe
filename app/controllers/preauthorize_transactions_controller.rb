@@ -162,7 +162,6 @@ class PreauthorizeTransactionsController < ApplicationController
   def render_error_response(is_xhr, error_msg, redirect_params)
     if is_xhr
       render json: { error_msg: error_msg, location: redirect_params }
-      flash[:error] = error_msg
     else
       flash[:error] = error_msg
       redirect_to(redirect_params)
