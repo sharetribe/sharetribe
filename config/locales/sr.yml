@@ -1769,15 +1769,15 @@ sr:
       give_aways: poklon
       housings: Prostor
       items: Stvari
-      lends: ~
-      receives: ~
-      rent_outs: ~
-      rents: ~
-      rideshares: ~
-      sells: ~
+      lends: pozajmiti
+      receives: "uzeti besplatno"
+      rent_outs: rentiranje
+      rents: iznajmiljivanje
+      rideshares: vožnja
+      sells: prodati
       share_for_frees: ~
       accept_for_frees: ~
-      trades: ~
+      trades: Zamena
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1810,36 +1810,36 @@ sr:
       unit: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: ~
+    please_comment: Komentar
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: ~
+      comments: "Javna diskusija"
       contact_by_phone: ~
       contact: ~
-      favor_offer: ~
-      favor_request: ~
+      favor_offer: Ponude
+      favor_request: Zahtev
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: ~
+      no_description: "Ova lista nema opis"
       no_image: ~
       no_reviews: ~
-      offer: ~
+      offer: Ponuda
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: ~
-      rideshare_offer: ~
-      rideshare_request: ~
+      request: Zahtev
+      rideshare_offer: "Ponuda za vožnju"
+      rideshare_request: "Zahtev za vožnju"
       send_private_message: ~
-      tags: ~
-      time: ~
-      times: ~
-      times_viewed: ~
+      tags: Tag
+      time: vreme
+      times: broj
+      times_viewed: pregleda
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -1891,25 +1891,25 @@ sr:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
+      all_categories: "Sve kategorije"
+      all_offer_types: "Sve vrste ponuda"
+      all_request_types: "Sve vrste zahteva"
+      category: Kategorija
+      did_not_found_what_you_were_looking_for: "Niste pronašli šta vam treba?"
+      favors: Usluge
+      housing: Prostor
+      items: Stvari
+      list_view: lista
+      map_view: mapa
+      offer_something: Objavite
+      offer_type: "Tip ponude"
+      offers: Ponude
+      request_something: "Postavite zahtev za nečim."
+      request_type: Vrsta
+      requests: Zahtevi
+      rideshare: vožnja
+      you_have_something_others_do_not: "Želite nešto da ponudite?"
+    please_comment: Komentar
   mercury:
     content_too_long: ~
   okl:
@@ -1993,69 +1993,69 @@ sr:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: ~
+      feedback_description_title: Podrška
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "Uslovi korišćenja %{service_name}"
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      create_new_account: "Napravite nalog"
+      email: "Email adresa"
+      email_is_in_use: "Email već postoji u bazi."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       invalid_username_or_email: ~
-      family_name: ~
-      given_name: ~
+      family_name: Prezime
+      given_name: Ime
       i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
+      not_required: ", nije neophodno"
       notification_is_mandatory: ~
-      password_again: ~
+      password_again: "Potvdite lozinku"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
+      sign_up: "Otvorite novi nalog na %{service_name}"
+      terms: "Uslovi korišćenja"
       privacy: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      username_is_in_use: "Ovo korisničko ime postoji."
+      username_is_invalid: "Neispravno korisničko ime. Dozvoljena su slova, brojevi i donja crta  _"
+      visible_only_to_you: "vidljivo samo vama i članovimo %{service_name} tima"
+      visible_to_everybody: "svima vidljivo"
       create_account_with_facebook: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
     profile_feedback:
-      grade: ~
+      grade: "stepen:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
+      show_also_closed: "Prikaži i zatvorene"
+      show_only_open: "Samo otvorene"
       no_image: ~
     show:
       contact: ~
-      about_me: ~
+      about_me: "O meni:"
       add_description: ~
       add_location: ~
       add_phone_number: ~
-      address: ~
-      as_expected: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
+      address: "Mesto:"
+      as_expected: Očekivano
+      edit_profile_info: "Izmeni profil"
+      exceeded_expectations: "Nadmašena očekivanja"
       positive: ~
-      hide_description: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
+      hide_description: "Prikaži manje"
+      less_than_expected: "Lošije od očekivanog"
+      phone_number: "Telefon:"
+      show_all_feedback: "Prikaz svih komentara"
+      show_all_testimonials: "Prikaz svih komentara"
+      show_full_description: "Prikaži još"
+      slightly_better_than_expected: "Bolje od očekivanog"
+      slightly_less_than_expected: "Lošije od očekivanog"
+      what_are_these: "Šta je ovo?"
       review: ~
       reviews: ~
       listing: ~
@@ -2081,10 +2081,10 @@ sr:
       unfollow: ~
   sessions:
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
+      create_new_account: "Napravite novi nalog"
+      i_forgot_my_password: "Zaboravljeno korisničko ime ili lozinka"
+      login: "Prijavite se"
+      login_to_kassi: "Prijavite se na %{service_name}"
       connect_your_facebook_to_kassi: ~
       facebook_account: ~
       log_in_to_link_account: ~
@@ -2096,9 +2096,9 @@ sr:
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: Email
+      password_recovery_instructions: "Unesite vašu email adresu kako bi ste primi email za promenu lozinke."
+      request_new_password: "Zahtev za novu lozinku"
       change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
@@ -2116,20 +2116,20 @@ sr:
       contact_support_link_text: ~
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
+      change: Izmeni
+      confirm_new_password: "Potvdite lozinku"
       delete_account: ~
       delete_account_button: ~
       delete_account_confirmation_popup: ~
       email_addresses: ~
-      new_email: ~
+      new_email: "Nova email adresa"
       delete_personal_information: ~
       delete_information_others_involved: ~
       unfinished_transactions: ~
       only_admin: ~
-      new_password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
+      new_password: "Nova lozinka"
+      save: Sačuvaj
+      these_fields_are_shown_only_to_you: "Korisničko ime je prikazano u vašem profilu. Ostale informacije su vidljive samo vama."
       email_already_confirmed: ~
       email:
         address_title: ~
@@ -2147,19 +2147,19 @@ sr:
         status_pending: ~
     notifications:
       email_from_admins: ~
-      i_want_to_get_email_notification_when: ~
+      i_want_to_get_email_notification_when: "Želim da primim email poruku..."
       newsletters: ~
       community_updates: ~
       email_about_confirm_reminders: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
+      email_about_new_comments_to_own_listing: "...neko je komentarisao moju ponudu ili zahtev"
+      email_about_new_messages: "...neko mi je poslao poruku"
+      email_about_new_received_testimonials: "...neko me je ocenio"
+      email_about_testimonial_reminders: "...ako zaboravim da dam ocenu"
       email_daily_community_updates: ~
       email_weekly_community_updates: ~
       do_not_email_community_updates: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
+      email_when_conversation_accepted: "...neko je prihvatio moju ponudu ili zahtev"
+      email_when_conversation_rejected: "...neko je odbio moju ponudu ili zahtev"
       email_about_completed_transactions: ~
       email_about_new_payments: ~
       email_about_new_listings_by_followed_people: ~
@@ -2170,25 +2170,25 @@ sr:
       unsubscribe_unsuccesful: ~
       unsuccessful_unsubscribe_info_text: ~
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
+      about_you: "O vama"
+      city: Grad
+      family_name: Prezime
+      given_name: Ime
       first_name_with_initial: ~
       first_name_only: ~
       display_name: ~
       display_name_description: ~
       location_description: ~
       profile_picture_description: ~
-      phone_number: ~
+      phone_number: Telefon
       profile_picture: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
+      postal_code: "Poštanski broj"
+      profile_page: "profilna stranica"
+      profilemap: Mapa
+      street_address: Adresa
+      these_fields_are_shown_in_your: "Neke od informacija su vidljive za sve korisnike %{service_name}"
+      visible_to_everybody: "svima vidljivo"
+      visible_to_registered_users: "(vidljivo prijavljenim korisnicima)"
       default_in_listing: ~
       invisible: ~
       image_is_processing: ~
