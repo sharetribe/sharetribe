@@ -62,6 +62,7 @@ class Transaction < ApplicationRecord
   belongs_to :starter, class_name: "Person", foreign_key: :starter_id
   belongs_to :conversation
   has_many :testimonials
+  belongs_to :listing_author, class_name: 'Person'
 
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true
@@ -108,6 +109,14 @@ class Transaction < ApplicationRecord
   scope :for_testimonials, -> {
     includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
     .where(current_state: ['confirmed', 'canceled'])
+  }
+  scope :search_by_party_or_listing_title, ->(pattern) {
+    joins(:starter, :listing_author)
+    .where("listing_title like :pattern
+        OR (people.given_name like :pattern OR people.family_name like :pattern OR people.display_name like :pattern)
+        OR (listing_authors_transactions.given_name like :pattern
+            OR listing_authors_transactions.family_name like :pattern
+            OR listing_authors_transactions.display_name like :pattern)", pattern: pattern)
   }
 
   def booking_uuid_object
