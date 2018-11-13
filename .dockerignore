@@ -2,20 +2,20 @@
 log
 .DS_Store
 
-db/*.sqlite3
-db/sphinx
-config/*.sphinx.conf
-config/database.yml
-config/config.yml
-config/session_secret
-config/gmaps_api_key.yml
-config/translation.yml
-tmp/
-doc/api
-doc/app
-public/images/listing_images
-index/
-db/development_structure.sql
+# db/*.sqlite3
+# db/sphinx
+# config/*.sphinx.conf
+# config/database.yml
+# config/config.yml
+# config/session_secret
+# config/gmaps_api_key.yml
+# config/translation.yml
+# tmp/
+# doc/api
+# doc/app
+# public/images/listing_images
+# index/
+# db/development_structure.sql
 old_databases.sql
 .bundle
 .sass-cache/
@@ -31,7 +31,7 @@ public/system/wide_logos/
 .loadpath
 .project
 cg.sh
-public/assets/
+# public/assets/
 app/assets/webfonts/
 app/assets/stylesheets/customizations-*
 app/assets/stylesheets/custom-style-*
@@ -46,7 +46,7 @@ coverage/
 .idea/
 *.sock
 .vagrant
-.env
+# .env
 
 # React on Rails
 npm-debug.log*
