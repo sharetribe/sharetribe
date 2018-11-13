@@ -57,24 +57,27 @@ describe Admin::CommunityListingsController, type: :controller do
     it "finds listings by title" do
       @all_listings.each do |listing|
         get :index, params: {community_id: @community.id, q: listing.title}
-        expect(assigns("listings").size).to eq 1
-        expect(assigns("listings")).to eq [listing]
+        listings = assigns("listings")
+        expect(listings.size).to eq 1
+        expect(listings).to eq [listing]
       end
     end
 
     it "finds listings by category title" do
       [@category1, @category2].each do |category|
         get :index, params: {community_id: @community.id, q: category.translations.first.name}
-        expect(assigns("listings").size).to eq 3
-        expect(assigns("listings").map(&:category_id).uniq).to eq [category.id]
+        listings = assigns("listings")
+        expect(listings.size).to eq 3
+        expect(listings.map(&:category_id).uniq).to eq [category.id]
       end
     end
 
     it "finds listings by author" do
       [@joe, @jack].each do |author|
         get :index, params: {community_id: @community.id, q: author.given_name}
-        expect(assigns("listings").size).to eq 3
-        expect(assigns("listings").map(&:author_id).uniq).to eq [author.id]
+        listings = assigns("listings")
+        expect(listings.size).to eq 3
+        expect(listings.map(&:author_id).uniq).to eq [author.id]
       end
     end
   end
@@ -90,41 +93,49 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it "filters open" do
       get :index, params: {community_id: @community.id, status: ["open"]}
-      expect(assigns("listings").size).to eq 2
-      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe1, @listing_jack1]
+      listings = assigns("listings")
+      expect(listings.size).to eq 4
+      expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3, @listing_jack1, @listing_jack3]
     end
 
     it "filters closed" do
       get :index, params: {community_id: @community.id, status: ["closed"]}
-      expect(assigns("listings").size).to eq 2
-      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe2, @listing_jack2]
+      listings = assigns("listings")
+      expect(listings.size).to eq 2
+      expect(listings.sort_by(&:id)).to eq [@listing_joe2, @listing_jack2]
     end
 
     it "filters expired" do
       get :index, params: {community_id: @community.id, status: ["expired"]}
-      expect(assigns("listings").size).to eq 2
-      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe3, @listing_jack3]
+      listings = assigns("listings")
+      expect(listings.size).to eq 2
+      expect(listings.sort_by(&:id)).to eq [@listing_joe3, @listing_jack3]
     end
 
     it "filters open + expired" do
       get :index, params: {community_id: @community.id, status: ["expired", "open"]}
-      expect(assigns("listings").size).to eq 2
-      expect(assigns("listings").sort_by(&:id)).to eq [@listing_joe3, @listing_jack3]
+      listings = assigns("listings")
+      expect(listings.size).to eq 4
+      expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3, @listing_jack1, @listing_jack3]
     end
 
     it "filters closed + expired" do
       get :index, params: {community_id: @community.id, status: ["expired", "closed"]}
-      expect(assigns("listings").size).to eq 0
+      listings = assigns("listings")
+      expect(listings.size).to eq 4
+      expect(listings.sort_by(&:id)).to eq [@listing_joe2, @listing_joe3, @listing_jack2, @listing_jack3]
     end
 
     it "applies both filter and query" do
-      get :index, params: {community_id: @community.id, status: ["expired", "open"], q: "a"}
-      expect(assigns("listings").size).to eq 1
-      expect(assigns("listings")).to eq [@listing_jack3]
+      get :index, params: {community_id: @community.id, status: ["expired", "open"], q: "won"}
+      listings = assigns("listings")
+      expect(listings.size).to eq 1
+      expect(listings).to eq [@listing_jack3]
 
       get :index, params: {community_id: @community.id, status: ["expired", "open"], q: "p"}
-      expect(assigns("listings").size).to eq 1
-      expect(assigns("listings")).to eq [@listing_joe3]
+      listings = assigns("listings")
+      expect(listings.size).to eq 1
+      expect(listings).to eq [@listing_joe3]
     end
   end
 end

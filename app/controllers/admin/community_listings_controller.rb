@@ -14,17 +14,19 @@ class Admin::CommunityListingsController < Admin::AdminBaseController
       scope = scope.search_title_author_category(params[:q])
     end
     if params[:status].present?
-      # when both "open" and "closed" are selected - do not change scope
-      unless params[:status].include?("open") && params[:status].include?("closed")
-        scope = scope.status_open    if params[:status].include?("open")
-        scope = scope.status_closed  if params[:status].include?("closed")
-      end
-      scope = if params[:status].include?("expired")
-        scope.status_expired
+      statuses = []
+      statuses.push(Listing.status_open) if params[:status].include?('open')
+      statuses.push(Listing.status_closed) if params[:status].include?('closed')
+      statuses.push(Listing.status_expired) if params[:status].include?('expired')
+      if statuses.size > 1
+        status_scope = statuses.slice!(0)
+        statuses.map{|x| status_scope = status_scope.or(x)}
+        scope = scope.merge(status_scope)
       else
-        scope.status_active
-              end
+        scope = scope.merge(statuses.first)
+      end
     end
+
     scope
   end
 
