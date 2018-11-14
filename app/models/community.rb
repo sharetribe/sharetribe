@@ -92,6 +92,9 @@
 #  end_user_analytics                         :boolean          default(TRUE)
 #  show_slogan                                :boolean          default(TRUE)
 #  show_description                           :boolean          default(TRUE)
+#  footer_theme                               :integer          default("dark")
+#  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -113,7 +116,8 @@ class Community < ApplicationRecord
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :menu_links, -> { order("sort_priority") }, :dependent => :destroy
+  has_many :menu_links, -> { for_topbar.sorted }, :dependent => :destroy
+  has_many :footer_menu_links, -> { for_footer.sorted }, :class_name => "MenuLink",  :dependent => :destroy
 
   has_many :categories, -> { order("sort_priority") }
   has_many :top_level_categories, -> { where("parent_id IS NULL").order("sort_priority") }, :class_name => "Category"
@@ -140,8 +144,11 @@ class Community < ApplicationRecord
 
   has_one :configuration, class_name: 'MarketplaceConfigurations'
   has_one :social_logo, :dependent => :destroy
+  has_many :social_links, -> { sorted }, :dependent => :destroy
 
   accepts_nested_attributes_for :social_logo
+  accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
+  accepts_nested_attributes_for :social_links, allow_destroy: true
 
   after_create :initialize_settings
 
@@ -270,6 +277,14 @@ class Community < ApplicationRecord
   process_in_background :favicon
 
   before_save :cache_previous_image_urls
+
+  FOOTER_DARK = 'dark'.freeze
+  FOOTER_LIGHT = 'light'.freeze
+  FOOTER_THEMES = {
+    FOOTER_DARK => 0,
+    FOOTER_LIGHT => 1
+  }.freeze
+  enum footer_theme: FOOTER_THEMES
 
   def uuid_object
     if self[:uuid].nil?

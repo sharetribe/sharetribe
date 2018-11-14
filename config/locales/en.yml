@@ -437,6 +437,34 @@ en:
         expired: Expired
       user_fields:
         user_fields: "User fields"
+      footer:
+        footer: "Footer"
+        offer_pro: "Customize and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrading to the Pro plan or higher"
+        menu_links: "Footer links"
+        language: "Language"
+        title: "Title"
+        url: "URL"
+        add: "Add footer menu link"
+        save: "Save"
+        footer_style: "Footer style"
+        footer_copyright: "Footer copyright"
+        footer_enabled: "Footer enabled"
+        social_links: "Footer social links"
+        style:
+          dark: "dark"
+          light: "light"
+        social:
+          facebook: "Facebook"
+          twitter: "Twitter"
+          instagram: "Instagram"
+          youtube: "YouTube"
+          googleplus: "Google+"
+          linkedin: "LinkedIn"
+          pinterest: "Pinterest"
+          soundcloud: "SoundCloud"
+          title: "Title"
+          url: "URL"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

@@ -438,6 +438,16 @@ module ApplicationHelper
       }
     ]
 
+    links += [
+      {
+        :topic => :configure,
+        :text => t("admin.communities.footer.footer"),
+        :icon_class => icon_class("footer_menu"),
+        :path => admin_footer_edit_path,
+        :name => "footer"
+      }
+    ]
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
