@@ -329,7 +329,7 @@ en:
         export_all_as_csv: "Export all as CSV"
         processing_export: "Processing export to CSV..."
         transactions: Transactions
-        search_by_title_parties: "Search for a transaction title or parties involved "
+        search_by_title_parties: "Search for a transaction title or parties involved"
         search: "Search"
         reset_search: "Show all"
         status_filter:
@@ -439,21 +439,21 @@ en:
         user_fields: "User fields"
       footer:
         footer: "Footer"
-        offer_pro: "Customize and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
+        offer_pro: "Configure and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
         upgrade_plan_link: "upgrading to the Pro plan or higher"
         menu_links: "Footer links"
         language: "Language"
         title: "Title"
         url: "URL"
-        add: "Add footer menu link"
-        save: "Save"
+        add: "Add a new link to the footer"
+        save: "Save settings"
         footer_style: "Footer style"
         footer_copyright: "Footer copyright"
         footer_enabled: "Footer enabled"
         social_links: "Footer social links"
         style:
-          dark: "dark"
-          light: "light"
+          dark: "Dark"
+          light: "Light"
         social:
           facebook: "Facebook"
           twitter: "Twitter"
