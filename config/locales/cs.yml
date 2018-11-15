@@ -334,6 +334,19 @@ cs:
         export_all_as_csv: "Exportovat vše do formátu CSV"
         processing_export: "Probíhá export do CSV ..."
         transactions: Transakce
+        search_by_title_parties: "Vyhledejte název transakce nebo zúčastněných stran"
+        search: Hledat
+        reset_search: "Zobrazit vše"
+        status_filter:
+          all: "Všechny stavy"
+          selected: "Vybrané stavy: %{count}"
+          selected_js: "Vybrané stavy: "
+          free: "Volná transakce"
+          confirmed: Hotovo
+          paid: Zaplaceno
+          canceled: Zrušeno
+          preauthorized: Předschváleno
+          rejected: ~
         headers:
           conversation: "Vlákno konverzace"
           listing: Inzerát
@@ -418,6 +431,15 @@ cs:
           blocking_info: ~
       listings:
         listings: "Seznam inzerátů"
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: Nadpis
           author: Autor
@@ -430,6 +452,34 @@ cs:
         expired: "Platnost vypršela"
       user_fields:
         user_fields: "Uživatelská pole"
+      footer:
+        footer: Zápatí
+        offer_pro: "Nakonfigurujte a odeberte všechny značky značky Sharetribe ze zápatí vašeho webu %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "přejděte na program Pro nebo vyšší"
+        menu_links: "Zápatí linky"
+        language: Jazyk
+        title: Nadpis
+        url: URL
+        add: "Přidejte nový odkaz do zápatí"
+        save: "Uložit nastavení"
+        footer_style: "Styl zápatí"
+        footer_copyright: "Copyright zápatí"
+        footer_enabled: "Zápatí povoleno"
+        social_links: "Zápatí sociálních linků"
+        style:
+          dark: Tmavý
+          light: Světlý
+        social:
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: "You Tube"
+          googleplus: Google+
+          linkedin: Linkedln
+          pinterest: Pinterest
+          soundcloud: SoundCloud
+          title: Nadpis
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"

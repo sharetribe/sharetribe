@@ -314,6 +314,19 @@ bn-BD:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: ~
@@ -398,6 +411,15 @@ bn-BD:
           blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -410,6 +432,34 @@ bn-BD:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: ~

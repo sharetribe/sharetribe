@@ -155,7 +155,7 @@ ja:
         this_is_how_it_will_look: ~
         send_verification_button: 認証メールを送信
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: 送信者アドレスの保存に成功しました。認証メールが間もなく送信されます。
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
@@ -169,7 +169,7 @@ ja:
         resend_link: 再送
         invalid_email_error: ~
         invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain_read_more_link: 詳細についてはヘルプセンターの記事をご覧ください。
         unknown_error: エラーが起きました
         white_label_offer: ~
         upgrade_plan_link: ~
@@ -213,8 +213,8 @@ ja:
         keyword_and_location_search: キーワードと位置で検索
         location_search: 位置検索
         select_distance_unit: "距離表示%{distance_units_selector}"
-        km: ~
-        miles: ~
+        km: km
+        miles: miles
         show_only_nearby: 位置検索で近隣の投稿のみ表示する
         listing_preferences: 優先リスト
         transaction_preferences: 課金の設定
@@ -324,6 +324,19 @@ ja:
         export_all_as_csv: CSVで全て出力
         processing_export: ~
         transactions: お支払い履歴の表示
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: 会話のスレッド
           listing: 投稿
@@ -408,6 +421,15 @@ ja:
           blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -420,6 +442,34 @@ ja:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "「%{field_name}」項目を編集する"
@@ -1415,7 +1465,7 @@ ja:
       default_content: "ここで、%{marketplace_name}の概要を説明できます。"
   landing_page:
     hero:
-      search: ~
+      search: 検索
       signup: 新規登録
       search_placeholder: 何をお探しですか？
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
@@ -1950,7 +2000,7 @@ ja:
     paypal_receive_funds_info: "もしPaypalアカウントと%{service_name}を接続する際にエラーが出る場合には、PayPalアカウントを%{upgrade_paypal_account_link}からアップグレードして下さい。アップグレードは無料で手続きは簡単です。あなたが個人であれば、氏名を事業者名として使用することを推奨します。"
     upgrade_paypal_account_link_text: ログインしてアップグレードのリンクをクリックする
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: "%{service_name} チームにご連絡ください。"
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
     commission: "%{commission}％"
     not_now: ~
@@ -1987,12 +2037,12 @@ ja:
       something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
-    paypal_account_connected_title: ~
+    paypal_account_connected_title: ペイパルアカウントに接続しました。
     paypal_account_connected: ~
     change_account: Paypalアカウントの変更
     missing: "公開されている投稿がありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続し、%{service_name}への課金許可を与えてください。"
     from_your_payment_settings_link_text: お支払い設定
-    redirect_message: ~
+    redirect_message: "ペイパルにリダイレクトしています。何も起きない場合は%{redirect_link} をクリックして下さい。"
     redirect_link_text: こちら
     paypal_account_all_set_up: すべてのセットアップが完了しました！
     can_receive_payments: これであなたは支払いを受け取ることができるようになりました。
@@ -2405,8 +2455,8 @@ ja:
       page_of_pages: ~
     topbar:
       menu: メニュー
-      more: ~
-      search_placeholder: ~
+      more: More
+      search_placeholder: 検索中...
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
       user: メンバー
       inbox: メール受信箱

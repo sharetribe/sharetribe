@@ -329,6 +329,19 @@ fr:
         export_all_as_csv: "Exporter au format CSV"
         processing_export: "Export au format CSV en cours..."
         transactions: Transactions
+        search_by_title_parties: "Rechercher une annonce ou un participant"
+        search: Rechercher
+        reset_search: "Voir tous"
+        status_filter:
+          all: "Tous les statuts"
+          selected: "Statuts sélectionnés : %{count}"
+          selected_js: "Statuts sélectionnés : "
+          free: "Transaction gratuite"
+          confirmed: Réalisée
+          paid: Payée
+          canceled: Annulée
+          preauthorized: Pré-autorisée
+          rejected: Rejetée
         headers:
           conversation: "Fil de conversation"
           listing: Annonce
@@ -413,6 +426,15 @@ fr:
           blocking_info: "Bloquer un avis lors de sa suppression empêche son auteur d'en laisser un nouveau pour la même transaction."
       listings:
         listings: Annonces
+        search_by_title_author_category: "Rechercher une annonce, un auteur ou une catégorie"
+        search: Rechercher
+        reset_search: "Voir tous"
+        status:
+          all: "Tous les statuts"
+          selected_js: "Statuts sélectionnés : "
+          open: Ouverte
+          closed: Close
+          expired: Expirée
         headers:
           title: Titre
           author: Auteur
@@ -425,6 +447,34 @@ fr:
         expired: Expirée
       user_fields:
         user_fields: "Champs d'utilisateurs"
+      footer:
+        footer: "Pied de page"
+        offer_pro: "Paramétrez et supprimez toute mention de Sharetribe dans le pied de page en %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "vous abonnant à l'offre Pro ou supérieure"
+        menu_links: "Liens du pied de page"
+        language: Langue
+        title: Titre
+        url: URL
+        add: "Ajouter un nouveau lien au pied de page"
+        save: "Sauvegarder les paramètres"
+        footer_style: "Style du pied de page"
+        footer_copyright: "Texte copyright dans le pied de page"
+        footer_enabled: "Footer activé"
+        social_links: "Liens de réseaux sociaux"
+        style:
+          dark: Sombre
+          light: Clair
+        social:
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: YouTube
+          googleplus: Google+
+          linkedin: LinkedIn
+          pinterest: Pinterest
+          soundcloud: SoundCloud
+          title: Titre
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
