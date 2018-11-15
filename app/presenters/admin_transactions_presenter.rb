@@ -29,7 +29,7 @@ class AdminTransactionsPresenter
     end
   end
 
-  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized)
+  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected)
 
   def sorted_statuses
     collator = cldr_collator
