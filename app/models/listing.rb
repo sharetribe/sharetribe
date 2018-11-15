@@ -108,6 +108,22 @@ class Listing < ApplicationRecord
 
   scope :exist, -> { where(deleted: false) }
 
+  scope :search_title_author_category, ->(pattern) do
+    joins(:author)
+      .joins(:category => :translations)
+      .where("listings.title like :pattern
+        OR (category_translations.locale = :locale AND category_translations.name like :pattern)
+        OR (people.given_name like :pattern OR people.family_name like :pattern OR people.display_name like :pattern)",
+        locale: I18n.locale,
+        pattern: "%#{pattern}%")
+  end
+
+  scope :status_open, ->   { where(open: true) }
+  scope :status_closed, -> { where(open: false) }
+  scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
+  scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
+
+
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
     self.sort_date ||= Time.now

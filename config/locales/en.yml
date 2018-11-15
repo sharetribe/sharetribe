@@ -425,6 +425,15 @@ en:
           blocking_info: "Blocking the review after deletion prevents its author from leaving another one for the same transaction."
       listings:
         listings: Listings
+        search_by_title_author_category: "Search for a listing title, author or category name"
+        search: Search
+        reset_search: "Show all"
+        status:
+          all: "All statuses"
+          selected_js: "Selected statuses: "
+          open: "Open"
+          closed: "Closed"
+          expired: "Expired"
         headers:
           title: Title
           author: Author
