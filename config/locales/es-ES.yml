@@ -329,18 +329,18 @@ es-ES:
         export_all_as_csv: "Exportar todos en formato CSV"
         processing_export: "Procesando la exportación a CSV..."
         transactions: Transacciones
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Busca por título de transacción o nombre de usuarios"
+        search: Buscar
+        reset_search: "Mostrar todas"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          preauthorized: ~
+          all: Todo
+          selected: "Estatus seleccionados: %{count}"
+          selected_js: "Estatus seleccionados: "
+          free: Gratuita
+          confirmed: Completada
+          paid: Pagada
+          canceled: Cancelada
+          preauthorized: Preautorizada
           rejected: ~
         headers:
           conversation: Conversación
@@ -448,22 +448,22 @@ es-ES:
       user_fields:
         user_fields: "Datos de usuarios"
       footer:
-        footer: ~
+        footer: "Pie de página"
         offer_pro: ~
         upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
+        menu_links: Vínculos
+        language: Idioma
+        title: Título
+        url: URL
+        add: "Añade un nuevo vínculo"
+        save: Guardar
+        footer_style: Estilo
+        footer_copyright: "Texto para derechos de autor"
+        footer_enabled: "Habilitar pie de página"
+        social_links: "Vínculos de social media"
         style:
-          dark: ~
-          light: ~
+          dark: Oscuro
+          light: Claro
         social:
           facebook: ~
           twitter: ~
@@ -473,8 +473,8 @@ es-ES:
           linkedin: ~
           pinterest: ~
           soundcloud: ~
-          title: ~
-          url: ~
+          title: Título
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"

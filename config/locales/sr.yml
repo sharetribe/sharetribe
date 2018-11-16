@@ -1699,7 +1699,7 @@ sr:
       departure_time_radio_buttons:
         repeated: ~
       description:
-        detailed_description: ~
+        detailed_description: "Detaljni opis"
         youtube_info: ~
       destination:
         destination: Odredište
@@ -2243,40 +2243,40 @@ sr:
       invisible: ~
       image_is_processing: ~
       shown_in_your_public_profile: ~
-    save_information: ~
+    save_information: "Sačuvaj informaciju"
   shipping_address:
     shipping_address: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "Sadrži tag"
+      without_tag: "Nema tag"
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: "Prihvatam uslove %{service_name} servisa"
+      here: "klikom na"
+      i_accept_new_terms: "Prihvatam nove uslove"
+      i_accept_terms: "Prihvatam uslove"
+      terms: "Uslovi korišćenja %{service_name}"
+      terms_have_changed: "Uslovi korišćenja su promenjeni"
+      you_can_view_the_new_terms: "Možeš pogledati nove uslove"
+      you_need_to_accept: "Dobrodošli na %{service_name}! Ako je ovo prvi put da koristite naš servis trebalo bi da prihvatite"
+      you_need_to_accept_new_terms: "Uslovi korišćenja %{service_name} su izmenjeni. Trebate prihvatiti izmene kako bi nastavili korišćenje %{service_name} servisa. Novi uslovi imaju za cilj da omoguće održavanje usluge nakon završetka istraživačkog projekta."
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: "Prikaz svih komentara"
+      feedback_altogether: "Sveukupni komentar: "
+      loading_more_testimonials: "Učitavanje komentara"
+      no_testimonials: "Nema komentara."
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: "Kao što je očekivano"
+      exceeded_expectations: "Prevazilazi očekivanja"
+      give_feedback_to: "Ocenite %{person}"
+      grade: "Koja je tvoja ukupna ocena?"
+      less_than_expected: "Lošije od očekivanog"
+      send_feedback: "Pošalji ocenu"
+      slightly_better_than_expected: "Malo bolje od očekivanog"
+      slightly_less_than_expected: "Malo lošije od očekivanog"
+      textual_feedback: "Kakvi su vaši utisci?"
       this_will_be_shown_in_profile: ~
       positive: ~
       negative: ~
