@@ -15,8 +15,6 @@ services:
     ports:
       - "3000:3000"
     env_file: .env
-    links:
-      - mysql:mysql
     depends_on:
       - mysql
   worker:
@@ -32,8 +30,6 @@ services:
     # command: bundle exec rake jobs:work # use with existing databases
     depends_on:
       - mysql
-    links:
-      - mysql:mysql
   memcached:
     image: memcached:latest
 networks:

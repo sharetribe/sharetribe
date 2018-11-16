@@ -19,17 +19,3 @@ staging:
 
 production:
   # Add local `production` environment configuration overrides here
-  aws_access_key_id: ""
-  aws_secret_access_key: ""
-
-  # AWS S3 region
-  s3_region: ""
-  s3_bucket_name: ""
-
-  # Cache-Control: max-age time in seconds for assets uploaded to S3.
-  # Default is one day. Normally, you can use the default. Links to images have
-  # modification timestamp appended as query parameter and that should be enough for cache invalidation.
-  s3_cache_max_age: 86400
-
-  # Bucket for files users upload directly to S3. You can add an expiration policy to these files.
-  s3_upload_bucket_name: ""
