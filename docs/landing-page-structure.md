@@ -83,6 +83,9 @@ Values to set:
   * `dark`: 50% darkening (default)
   * `light`: 30% darkening
   * `transparent`: no darkening
+* `variation` can be used to enable the sign-up button in place of the search bar, also on non-private marketplaces. In order to achieve this, set:
+    * "variation": {"value":"private"}
+* `signup_path` You can change this to redirect the sign-up button (see above) to another location.
 
 Normally, the only keys that you need to modify in a `hero` section are the `background_image`, which links to an asset, and the `background_image_variation`, which sets the amount of darkening applied. For example:
 
