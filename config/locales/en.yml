@@ -330,18 +330,18 @@ en:
         processing_export: "Processing export to CSV..."
         transactions: Transactions
         search_by_title_parties: "Search for a transaction title or parties involved"
-        search: "Search"
+        search: Search
         reset_search: "Show all"
         status_filter:
           all: "All statuses"
           selected: "Selected statuses: %{count}"
           selected_js: "Selected statuses: "
           free: "Free transaction"
-          confirmed: "Completed"
-          paid: "Paid"
-          canceled: "Canceled"
-          preauthorized: "Preauthorized"
-          rejected: "Rejected"
+          confirmed: Completed
+          paid: Paid
+          canceled: Canceled
+          preauthorized: Preauthorized
+          rejected: Rejected
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -432,9 +432,9 @@ en:
         status:
           all: "All statuses"
           selected_js: "Selected statuses: "
-          open: "Open"
-          closed: "Closed"
-          expired: "Expired"
+          open: Open
+          closed: Closed
+          expired: Expired
         headers:
           title: Title
           author: Author
@@ -448,13 +448,13 @@ en:
       user_fields:
         user_fields: "User fields"
       footer:
-        footer: "Footer"
+        footer: Footer
         offer_pro: "Configure and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
         upgrade_plan_link: "upgrading to the Pro plan or higher"
         menu_links: "Footer links"
-        language: "Language"
-        title: "Title"
-        url: "URL"
+        language: Language
+        title: Title
+        url: URL
         add: "Add a new link to the footer"
         save: "Save settings"
         footer_style: "Footer style"
@@ -462,19 +462,19 @@ en:
         footer_enabled: "Footer enabled"
         social_links: "Footer social links"
         style:
-          dark: "Dark"
-          light: "Light"
+          dark: Dark
+          light: Light
         social:
-          facebook: "Facebook"
-          twitter: "Twitter"
-          instagram: "Instagram"
-          youtube: "YouTube"
-          googleplus: "Google+"
-          linkedin: "LinkedIn"
-          pinterest: "Pinterest"
-          soundcloud: "SoundCloud"
-          title: "Title"
-          url: "URL"
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: YouTube
+          googleplus: Google+
+          linkedin: LinkedIn
+          pinterest: Pinterest
+          soundcloud: SoundCloud
+          title: Title
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
