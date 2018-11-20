@@ -1044,7 +1044,7 @@ ro:
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
       create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
-      learn_more: ~
+      learn_more: "Vezi mai mult"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Inca nu ati finalizat sau nu ati anulat comanda %{request_link}. Daca comanda a fost finalizata ar trebui sa confirmati acest lucru. Dupa asta puteti oferi feedback catre %{other_party_given_name}."
       remember_to_confirm_request: "Nu uitați să confirmați sau să revocați o solicitare"
@@ -1093,7 +1093,7 @@ ro:
       unsubscribe_from_these_emails_info: "Primesti acest e-mail deoarece esti membru %{service_name}."
       unsubscribe_from_these_emails: "dezabonați-vă de aceste e-mailul."
       unsubscribe_from_invitation_emails_info: "Ai primit acest e-mail deoarece un membru %{service_name} te-a invitat sa te inregistrezi."
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails: "Dezaboneaza-te de la email-urile de invitatie %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ți-a acceptat oferta %{listing}."
       has_accepted_your_request: "%{accepter} ți-a acceptat cererea %{listing}."
@@ -1109,10 +1109,10 @@ ro:
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: Salut!
-      you_have_been_invited_to_kassi: "%{inviter} te-a invitat la %{service_name}"
-      here_is_a_message_from: "Ai un mesaj personal de la %{inviter}:"
-      join_now: "Participă acum"
-      invitation_code: "Invitaţie code: %{code}"
+      you_have_been_invited_to_kassi: "%{inviter} te invita pe %{service_name}."
+      here_is_a_message_from: "Ai un mesaj privat de la %{inviter}:"
+      join_now: "Inregistreaza-te acum"
+      invitation_code: "Codul de invitatie: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} a comentat la listarea dvs. '%{listing}'."
       view_comment: "Vedeți comentariu"
@@ -1284,8 +1284,8 @@ ro:
     error_410_title: ~
     error_500:
       temporary_unavailable: "Marketplace-ul este indisponibil momentan"
-      unable_to_process: ~
-      we_hate_this: ~
+      unable_to_process: "Nu putem procesa cererea ta in acest moment. Te rugam sa incerci inca o data in cateva momente."
+      we_hate_this: "Ne cerem scuze! Am fost informati despre aceasta eroare si lucram intens pentru o rezolvare rapida."
       refer_to_error_id: ~
     error_500_title: "incarcarea paginii nu a reusit"
     error_description: "Descrierea erorii"
@@ -1391,7 +1391,7 @@ ro:
     grid_item:
       processing_uploaded_image: "(Procesarea imaginilor încărcate...)"
     index:
-      no_listings_with_your_search_criteria: "Ne pare rău, nu s-au găsit oferte pentru criteriile dvs. de căutare. Poate încercați alți termeni de căutare?"
+      no_listings_with_your_search_criteria: "Ne pare rău, nu s-au găsit oferte pentru criteriile dvs. de căutare. Incercați alți termeni de căutare"
       no_listings_notification: "Fără anunțuri. %{add_listing_link}."
       add_listing_link_text: "Adăugați o postare nouă"
       open_listing: "deschideți anunțul"
@@ -1479,7 +1479,7 @@ ro:
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
       create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
-      learn_more: ~
+      learn_more: "Vezi mai mult"
     no_tribe:
       inbox: Inbox
       settings: Setări
@@ -1567,7 +1567,7 @@ ro:
       feedback_sent_to: "Feedback trimis lui %{target_person}"
       feedback_skipped: "Feedback omis"
       invitation_cannot_be_sent: "Invitatia nu a putut fi trimisa"
-      invitation_cannot_unsubscribe: ~
+      invitation_cannot_unsubscribe: "Nu te putem dezabona de la email-urile de invitatie"
       invitation_limit_reached: ~
       invitation_sent: "Invitatia a fost trimisa cu succes"
       invitation_successfully_unsubscribed: ~
@@ -1662,7 +1662,7 @@ ro:
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
       stripe_you_account_balance_is_not_0: ~
       visit_admin: "Vrei sa %{link}?"
-      visit_admin_link: ~
+      visit_admin_link: "vizitezi Tabloul de Administrare"
     settings:
       account: Cont
       notifications: Notificari
@@ -2364,7 +2364,7 @@ ro:
       december: Dec
     today: Astăzi
     clear: Șterge
-    format: ll/zz/aaaa
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %Y at %H:%M"
@@ -2477,7 +2477,7 @@ ro:
     branding:
       powered_by: "%{service_name} este dezvoltat de platforma de marketplace-uri %{sharetribe_link}."
       create_own: "Vrei sa-ti creezi propriul marketplace similar cu %{service_name}? %{learn_more}."
-      learn_more: ~
+      learn_more: "Vezi mai mult"
   will_paginate:
     models:
       person:

@@ -1,0 +1,57 @@
+az-AZ:
+  errors:
+    messages:
+      expired: "vaxtı ötürülüb, sorğunuzu yenidən göndərməyinizi xahiş edirik"
+      not_found: tapılmadı
+      already_confirmed: "artıq təsdiglənib. Zəhmət olmasa, daxil etməyə çalışın"
+      not_locked: "blokda deyildi"
+      not_saved:
+        other: "%{count} səhv %{resource}-nun yadda saxlamağına qadağa qoydu:"
+  devise:
+    failure:
+      already_authenticated: "Siz artıq qeydiyyatdan keçmisiniz."
+      unauthenticated: "Davam etməyinizdən əvvəl, siz hesabınıza daxil olmalısınız və ya qeydiyyatdan keşməlisiniz."
+      unconfirmed: "Davam etməyinizdən əvvəl, siz hesabınızı təsdiqləməlisiniz."
+      locked: "Sizin hesabınız bloklaşdırılıb."
+      invalid: "Yanlış email və ya parol."
+      invalid_token: "Yanlış \"authentication token\"."
+      timeout: "Sizin sessiyanız sona çatdı. Zəhmət olmasa, davam etmək üçün yenidən daxil edin."
+      inactive: "Sizin hesabınız hələ də aktivləşməyib."
+    passwords:
+      updated_not_active: "Sizin parolunuz uğurla dəyişdi."
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      updated: "Sizin parolunuz uğurla dəyişdi. Siz artıq daxil olmuşsunuz."
+    sessions:
+      signed_in: "Uğurla daxil olmuşsunuz."
+      signed_out: "Uğurla çıxmısınız."
+    confirmations:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      confirmed: "Hesabınız uğurla təsdiqləndi."
+    registrations:
+      signed_up_but_unconfirmed: ~
+      signed_up_but_inactive: ~
+      signed_up_but_locked: ~
+      reasons:
+        inactive: "aktiv deyil"
+        unconfirmed: təsdiqlənməyib
+        locked: bloklaşdırılıb
+      update_needs_confirmation: ~
+      signed_up: "Xoş qəlmişsiniz! Siz uğurla qeydiyyatdan keçmisiniz."
+      updated: "Siz hesabınızı uğurla yeniləmisiniz."
+      destroyed: ~
+    unlocks:
+      send_paranoid_instructions: ~
+      send_instructions: ~
+      unlocked: ~
+    omniauth_callbacks:
+      success: ~
+      failure: ~
+    mailer:
+      confirmation_instructions:
+        subject: ~
+      reset_password_instructions:
+        subject: ~
+      unlock_instructions:
+        subject: ~
