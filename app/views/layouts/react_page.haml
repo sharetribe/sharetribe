@@ -11,7 +11,10 @@
   %meta{content: "width=device-width, initial-scale=1.0, user-scalable=no", name: "viewport"}
   %meta{ :property => "og:type", :content =>"website"}
   %meta{:"http-equiv" => "content-language", content: "#{I18n.locale}"}
-  %meta{name: "twitter:card", content: "summary"}
+  - if @current_community.social_logo&.image&.present?
+    %meta{name: "twitter:card", content: "summary_large_image"}
+  - else
+    %meta{name: "twitter:card", content: "summary"}
 
   / Additional meta tags for SEO, etc.
   = content_for :head

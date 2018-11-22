@@ -5,7 +5,6 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
   def index
     @selected_left_navi_link = "manage_members"
     @community = @current_community
-    user_fields = FeatureFlagHelper.feature_enabled?(:user_fields)
 
     respond_to do |format|
       format.html do
@@ -14,13 +13,11 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
                                            .paginate(page: params[:page], per_page: 50)
                                            .order("#{sort_column} #{sort_direction}")
         if params[:q].present?
-          query = <<-SQL
-          community_memberships.person_id IN
-          (SELECT p.id FROM people p LEFT OUTER JOIN emails e ON e.person_id = p.id
-           WHERE p.given_name like ? OR p.family_name like ? OR p.display_name like ? OR e.address like ?)
-          SQL
-          like_q = "%#{params[:q]}%"
-          @memberships = @memberships.where(query, like_q, like_q, like_q, like_q)
+          person_search_query = Person
+            .search_name_or_email(@current_community.id, "%#{params[:q]}%")
+            .select('people.id')
+
+          @memberships = @memberships.where(person_id: person_search_query)
         end
       end
       format.csv do
@@ -39,7 +36,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
         self.response.headers["Last-Modified"] = Time.now.ctime.to_s
 
         self.response_body = Enumerator.new do |yielder|
-          generate_csv_for(yielder, all_memberships, @community, user_fields)
+          generate_csv_for(yielder, all_memberships, @community)
         end
       end
     end
@@ -95,7 +92,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   private
 
-  def generate_csv_for(yielder, memberships, community, user_fields_enabled)
+  def generate_csv_for(yielder, memberships, community)
     # first line is column names
     header_row = %w{
       first_name
@@ -113,9 +110,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
       language
     }
     header_row.push("can_post_listings") if community.require_verification_to_post_listings
-    if user_fields_enabled
-      header_row += community.person_custom_fields.map{|f| f.name}
-    end
+    header_row += community.person_custom_fields.map{|f| f.name}
     yielder << header_row.to_csv(force_quotes: true)
     memberships.find_each do |membership|
       user = membership.person
@@ -136,11 +131,9 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
           language: user.locale
         }
         user_data[:can_post_listings] = membership.can_post_listings if community.require_verification_to_post_listings
-        if user_fields_enabled
-          community.person_custom_fields.each do |field|
-            field_value = user.custom_field_values.by_question(field).first
-            user_data[field.name] = field_value.try(:display_value)
-          end
+        community.person_custom_fields.each do |field|
+          field_value = user.custom_field_values.by_question(field).first
+          user_data[field.name] = field_value.try(:display_value)
         end
         user.emails.each do |email|
           accept_emails_from_admin = user.preferences["email_from_admins"] && email.send_notifications

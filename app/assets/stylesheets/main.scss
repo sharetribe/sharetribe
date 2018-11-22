@@ -345,6 +345,16 @@ form {
       &.disabled {
         color: #c3c3c3;
       }
+      &.error {
+        @include border-radius(em(5));
+        padding: em(5) em(10) em(10) em(10);
+        background: red;
+        color: $background;
+        display: block;
+        width: 100%;
+        margin: lines(0.5) 0 lines(0.5) 0;
+        position: relative;
+      }
     }
 
     label.radio {
@@ -651,6 +661,7 @@ a.lightbox-x {
   right: 0;
   top: 0;
   color: #aaacad;
+  z-index: 1;
 
   &:hover {
     color: #919294;
@@ -2008,10 +2019,16 @@ figure.fluidratio {
       @include huge-type;
       line-height: em(15);
     }
+    &.hidden-title-part {
+      opacity: 0 !important;
+    }
   }
 
   .marketplace-lander-content-description {
       color: $descriptioncolor;
+      &.hidden-title-part {
+        opacity: 0 !important;
+      }
   }
 
   .title-container {
@@ -2193,4 +2210,10 @@ figure.fluidratio {
       line-height: em(15);
     }
   }
+}
+.text-center {
+  text-align: center;
+}
+.ui-tooltip {
+  background-color: #ffffff;
 }

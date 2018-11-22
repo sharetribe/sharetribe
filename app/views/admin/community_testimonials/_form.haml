@@ -1,0 +1,45 @@
+- persisted = service.testimonial.persisted?
+.testimonial-edit-form
+  - url = persisted ? admin_community_testimonial_path(service.testimonial) : admin_community_testimonials_path()
+  = form_for service.testimonial, url: url,
+    remote: true, data: { confirm: t('admin.communities.testimonials.form.confirm_modify') } do |form|
+    = form.hidden_field :grade
+    .row
+      - positive = service.testimonial.positive?
+      .col-2
+        .testimonial-cell
+          #thumbs-up.testimonial-icon{:class => positive ? 'positive' : 'faded'}
+            = icon_tag("like")
+      .col-2
+        .testimonial-cell
+          #thumbs-down.testimonial-icon{:class => positive ? 'faded' : 'negative'}
+            = icon_tag("dislike")
+      .col-8
+        = form.label :text, t('admin.communities.testimonials.form.review_text')
+        = form.text_area :text
+    .row
+      .col-4
+      .col-8.testimonial-checkbox
+        %label{class: "#{persisted ? '' : 'disabled'}"}
+          = check_box_tag :delete_review, '1', false, disabled: persisted ? nil : true
+          = t('admin.communities.testimonials.form.delete_review')
+          %span.marketplace-color{title: t('admin.communities.testimonials.form.deleting_info')}
+            = icon_tag("information")
+        - disabled = service.testimonial_blocked_disabled?
+        %label{class: "#{disabled ? 'disabled' : ''}"}
+          = form.check_box :blocked, {disabled: disabled ? true : nil}
+          = t('admin.communities.testimonials.form.block_review')
+          %span.marketplace-color{title: t('admin.communities.testimonials.form.blocking_info')}
+            = icon_tag("information")
+    .row
+      .col-12.testimonial-save
+        = form.submit t('admin.communities.testimonials.form.save'), class: 'button'
+        .inline-button-container
+          %a#close_x1{:href => '#', :class => "cancel-button"}
+            .content
+              = t("admin.communities.testimonials.form.cancel")
+    - unless persisted
+      = hidden_field_tag :transaction_id, service.testimonial.tx.id
+      = hidden_field_tag :from_tx_author, params[:from_tx_author]
+      = hidden_field_tag :testimonial_index, params[:testimonial_index]
+

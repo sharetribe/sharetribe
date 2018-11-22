@@ -20,102 +20,106 @@ window.ST.stripe_form_i18n = {
   var TEST_IBAN = '89370400440532013000';
 
   var BANK_RULES = {
-    AU: { 
-      account_number: { format: 'format_varies_by_bank', regexp: '[0-9]{6,10}', test_regexp: '[0-9]{6,10}'}, 
-      routing_number: { title: 'bsb',  format: '123456', regexp: '[0-9]{6}', test_regexp: '[0-9]{6}'} 
+    AU: {
+      account_number: { format: 'format_varies_by_bank', regexp: '[0-9]{6,10}', test_regexp: '[0-9]{6,10}'},
+      routing_number: { title: 'bsb',  format: '123456', regexp: '[0-9]{6}', test_regexp: '[0-9]{6}'}
     },
-    AT: { 
+    AT: {
       account_number: { title: 'IBAN', format: 'AT611904300235473201', regexp: 'AT[0-9]{2}[0-9]{16}', test_regexp: 'AT'+TEST_IBAN }
     },
-    BE: { 
+    BE: {
       account_number: { title: 'IBAN', format: 'BE12345678912345', regexp: 'BE[0-9]{2}[0-9]{12}', test_regexp: 'BE'+TEST_IBAN }
     },
-    BR: { 
-      account_number: { format: 'format_varies_by_bank' }, 
-      routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
-      routing_2: { title: 'branch_code', regexp: '[0-9]{4,5}', test_regexp: '[0-9]{4,5}' }, 
-      separator: "-" 
+    BR: {
+      account_number: { format: 'format_varies_by_bank' },
+      routing_1: { title: "bank_code", format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
+      routing_2: { title: 'branch_code', regexp: '[0-9]{4,5}', test_regexp: '[0-9]{4,5}' },
+      separator: "-"
     },
-    CA: { 
-      account_number: { format: 'format_varies_by_bank' }, 
-      routing_1: { title: 'transit_number', format: '12345', regexp: '[0-9]{5}', test_regexp: '[0-9]{5}'  }, 
-      routing_2: { title: 'institution_number', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
-      separator: "-" 
+    CA: {
+      account_number: { format: 'format_varies_by_bank' },
+      routing_1: { title: 'transit_number', format: '12345', regexp: '[0-9]{5}', test_regexp: '[0-9]{5}'  },
+      routing_2: { title: 'institution_number', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
+      separator: "-"
     },
-    DK: { 
+    DK: {
       account_number: {title: 'IBAN', format: 'DK5000400440116243', regexp: 'DK[0-9]{2}[0-9]{14}', test_regexp: 'DK'+TEST_IBAN }
     },
-    FI: { 
+    FI: {
       account_number: {title: 'IBAN', format: 'FI2112345600000785', regexp: 'FI[0-9]{2}[0-9]{14}', test_regexp: 'FI'+TEST_IBAN }
     },
-    FR: { 
+    FR: {
       account_number: {title: 'IBAN', format: 'FR1420041010050500013M02606', regexp: 'FR[0-9]{2}[0-9]{10}[A-Z0-9]{11}[0-9]{2}', test_regexp: 'FR'+TEST_IBAN }
     },
-    DE: { 
+    DE: {
       account_number: {title: 'IBAN', format: 'DE89370400440532013000', regexp: 'DE[0-9]{2}[0-9]{18}', test_regexp: 'DE'+TEST_IBAN }
     },
-    GI: { 
+    GI: {
       account_number: { title: 'IBAN', format: 'GI75NWBK000000007099453', regexp: 'GI[0-9]{2}[A-Z]{4}[A-Z0-9]{15}', test_regexp: 'GI'+TEST_IBAN }
     },
-    HK: { 
-      account_number: { format: '123456-789', regexp: '[0-9]{5,6}-[0-9]{1,3}', test_regexp: '[0-9]{5,6}-[0-9]{1,3}' }, 
-      routing_1: { title: 'clearing_code', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
-      routing_2: { title: 'branch_code', format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' }, 
-      separator: "-" 
+    HK: {
+      account_number: { format: '123456-789', regexp: '[0-9]{5,6}-[0-9]{1,3}', test_regexp: '[0-9]{5,6}-[0-9]{1,3}' },
+      routing_1: { title: 'clearing_code', format: '123', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
+      routing_2: { title: 'branch_code', format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}' },
+      separator: "-"
     },
-    IE: { 
+    IE: {
       account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN },
     },
-    IT: { 
+    IT: {
       account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z]{1}[0-9]{5}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN },
     },
-    JP: { 
-      account_number: {format: '1234567', regexp: '[0-9]{6,8}', test_regexp: '[0-9]{6,8}' }, 
-      routing_1: {title: "bank_code", format: '0123', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}'}, 
-      routing_2: {title: "branch_code", format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'}, 
-      separator: "" 
+    JP: {
+      account_number: {format: '1234567', regexp: '[0-9]{6,8}', test_regexp: '[0-9]{6,8}' },
+      routing_1: {title: "bank_code", format: '0123', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}'},
+      routing_2: {title: "branch_code", format: '456', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'},
+      separator: ""
     },
-    LU: { 
+    LU: {
       account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}', test_regexp: 'LU'+TEST_IBAN },
     },
-    MX: { 
-      account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' } 
+    MX: {
+      account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' }
     },
-    NL: { 
+    NL: {
       account_number: {title: 'IBAN', format: 'NL39RABO0300065264', regexp: 'NL[0-9]{2}[A-Z]{4}[0-9]{10}', test_regexp: 'NL'+TEST_IBAN }
     },
-    NZ: { 
-      account_number: {format: '11-0000-0000000-010', regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}', test_regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}' }, 
+    NZ: {
+      account_number: {format: '11-0000-0000000-010', regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}', test_regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}' },
     },
-    NO: { 
+    NO: {
       account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN },
     },
-    PT: { 
+    PT: {
       account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN },
     },
-    SG: { 
-      account_number: {format: '123456789012', regexp: '[0-9]{6-12}', test_regexp: '[0-9]{6-12}' }, 
-      routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}' }, 
-      routing_2: {title: 'branch_code', format: '567', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'}, 
-      separator: "-" 
+    SG: {
+      account_number: {format: '123456789012', regexp: '[0-9]{6-12}', test_regexp: '[0-9]{6-12}' },
+      routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}' },
+      routing_2: {title: 'branch_code', format: '567', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'},
+      separator: "-"
     },
-    ES: { 
+    ES: {
       account_number: {title: 'IBAN', format: 'ES9121000418450200051332', regexp: 'ES[0-9]{2}[0-9]{20}', test_regexp: 'ES'+TEST_IBAN }
     },
-    SE: { 
+    SE: {
       account_number: {title: 'IBAN', format: 'SE3550000000054910000003', regexp: 'SE[0-9]{2}[0-9]{20}', test_regexp: 'SE'+TEST_IBAN }
     },
-    CH: { 
+    CH: {
       account_number: {title: 'IBAN', format: 'CH9300762011623852957', regexp: 'CH[0-9]{2}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'CH'+TEST_IBAN }
     },
-    GB: { 
-      account_number: {format: '01234567', regexp: '[0-9]{8}', test_regexp: '[0-9]{8}' }, 
-      routing_number: {title: 'sort_code', format: '12-34-56', regexp: '[0-9]{2}-[0-9]{2}-[0-9]{2}', test_regexp: '108800' } 
+    GB: {
+      account_number: {format: '01234567', regexp: '[0-9]{8}', test_regexp: '[0-9]{8}' },
+      routing_number: {title: 'sort_code', format: '12-34-56', regexp: '[0-9]{2}-[0-9]{2}-[0-9]{2}', test_regexp: '108800' }
     },
-    US: { 
-      account_number: {format: 'format_varies_by_bank' }, 
-      routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}', test_regexp: '[0-9]{9}' } 
-    }   
+    US: {
+      account_number: {format: 'format_varies_by_bank' },
+      routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}', test_regexp: '[0-9]{9}' }
+    },
+    PR: {
+      account_number: {format: 'format_varies_by_bank' },
+      routing_number: {title: 'routing_number', format: '111000000', regexp: '[0-9]{9}', test_regexp: '[0-9]{9}' }
+    }
   };
   var stripeApi, stripeFormData;
 
@@ -127,7 +131,7 @@ window.ST.stripe_form_i18n = {
 
   function show_if(element, value) {
     if(value['format']) {
-      element.show(); 
+      element.show();
     } else {
       element.hide();
       element.find("input").val("");
@@ -136,7 +140,7 @@ window.ST.stripe_form_i18n = {
 
   function update_bank_number_form(country) {
     var rule = BANK_RULES[country] || {};
-    
+
     var rule_account_number = rule['account_number'] || {};
     var rule_routing_number = rule['routing_number'] || {};
     var rule_routing_1      = rule['routing_1'] || {};
@@ -151,7 +155,7 @@ window.ST.stripe_form_i18n = {
     $(".bank-routing-number input").attr('placeholder', rule_routing_number['format']);
     $(".bank-routing-1 input").attr('placeholder', rule_routing_1['format']);
     $(".bank-routing-2 input").attr('placeholder', rule_routing_2['format']);
-    
+
     show_if($(".bank-routing-number"), rule_routing_number);
     show_if($(".bank-routing-1"), rule_routing_1);
     show_if($(".bank-routing-2"), rule_routing_2);
@@ -233,6 +237,7 @@ window.ST.stripe_form_i18n = {
       }
     });
     $("#stripe_account_form_address_country").trigger('change');
+    $('#stripe-europe-name').addClass('country-dependent');
     $("#stripe-account-form").validate({
       submitHandler: function(form) {
         removeSpaces();
@@ -270,7 +275,7 @@ window.ST.stripe_form_i18n = {
       var rule = BANK_RULES[country] || {};
       var re = (rule[field] || {} )['regexp'];
       if(window.ST.stripe_test_api_mode) {
-        re = (rule[field] || {})['test_regexp']; 
+        re = (rule[field] || {})['test_regexp'];
       }
       if(re) {
         var rx = new RegExp("^"+re+"$");
@@ -285,7 +290,7 @@ window.ST.stripe_form_i18n = {
       var title = (rule[field] || {} )['title'];
       var regexp = (rule[field] || {} )['regexp'];
       if(window.ST.stripe_test_api_mode) {
-        regexp = (rule[field] || {})['test_regexp']; 
+        regexp = (rule[field] || {})['test_regexp'];
       }
       var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
       return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
@@ -365,28 +370,66 @@ var stripeToken = (function() {
 
                   tos_shown_and_accepted: true
                 };
-                address = {
-                  address: {
-                    city: getValue("address_city"),
-                    state: getValue("address_state"),
-                    country: getValue("address_country"),
-                    postal_code: getValue("address_postal_code"),
-                    line1: getValue("address_line1")
+                if (country == 'JP') {
+                  address = {
+                    address_kana: {
+                      postal_code: getValue('address_kana_postal_code'),
+                      state: getValue('address_kana_state'),
+                      city: getValue('address_kana_city'),
+                      town: getValue('address_kana_town'),
+                      line1: getValue('address_kana_line1')
+                    },
+                    address_kanji: {
+                      postal_code: getValue('address_kanji_postal_code'),
+                      state: getValue('address_kanji_state'),
+                      city: getValue('address_kanji_city'),
+                      town: getValue('address_kanji_town'),
+                      line1: getValue('address_kanji_line1')
+                    }
+                  };
+                  person = {
+                    first_name_kana: getValue('first_name_kana'),
+                    last_name_kana: getValue('last_name_kana'),
+                    first_name_kanji: getValue('first_name_kanji'),
+                    last_name_kanji: getValue('last_name_kanji'),
+                    dob: {
+                      day: getValue('birth_date(3i)', 'int'),
+                      month: getValue('birth_date(2i)', 'int'),
+                      year: getValue('birth_date(1i)', 'int')
+                    },
+                    gender: getValue('gender'),
+                    phone_number: getValue('phone_number')
+                  };
+                } else {
+                  var fix_country = country;
+                  var fix_state = getValue('address_state');
+                  if (country == 'PR') {
+                    fix_country = 'US';
+                    fix_state = 'PR';
                   }
-                };
-                person = {
-                  first_name: firstName,
-                  last_name: lastName,
-                  dob: {
-                    day: getValue("birth_date(3i)", "int"),
-                    month: getValue("birth_date(2i)", "int"),
-                    year: getValue("birth_date(1i)", "int")
-                  },
-                  personal_id_number: ["US", "CA", "HK", "SG"].includes(country)
-                    ? getValue("personal_id_number")
-                    : null,
-                  ssn_last_4: country == "US" ? getValue("ssn_last_4") : null
-                };
+
+                  address = {
+                    address: {
+                      city: getValue('address_city'),
+                      state: fix_state,
+                      country: fix_country,
+                      postal_code: getValue('address_postal_code'),
+                      line1: getValue('address_line1')
+                    }
+                  };
+
+                  person = {
+                    first_name: firstName,
+                    last_name: lastName,
+                    dob: {
+                      day: getValue('birth_date(3i)', 'int'),
+                      month: getValue('birth_date(2i)', 'int'),
+                      year: getValue('birth_date(1i)', 'int')
+                    },
+                    personal_id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('personal_id_number') : null,
+                    ssn_last_4: country == 'US' ? getValue('ssn_last_4') : null
+                  };
+                }
 
                 $.extend(data.legal_entity, address, person);
 
@@ -456,4 +499,3 @@ var stripeToken = (function() {
   };
 })();
 })(window.ST);
-

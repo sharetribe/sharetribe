@@ -67,9 +67,13 @@ da-DK:
         community_name: "Navn på markedsplads"
         edit_community_name_description: "Navnet på din markedsplads. Dette vises til brugere i e-mails og flere andre steder."
         community_slogan: "Markedsplads' slogan"
+        community_slogan_display: ~
         edit_community_slogan_description: "Dette vises på markedspladsens forside til brugere som ikke er logget ind. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Beskrivelse af markedsplads"
+        community_description_display: ~
         edit_community_description_description: "Dette vises på markedspladsens forside til brugere som ikke er logget ind. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Hjælpetekst i søgefeltet"
         edit_community_search_placeholder_description: "Dette vises på markedspladsens forside som en tekstboks i søgefeltet. %{see_how_it_looks_like}."
         private_community_homepage_content: ~
@@ -95,6 +99,7 @@ da-DK:
         edit_community_look_and_feel: "Ret markedspladsens %{community_name} udseende"
         community_logo: "Logo vist på alm. computer"
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: Coverbillede
         small_community_cover_photo: "Lille coverbillede"
         favicon: Favicon
@@ -109,6 +114,7 @@ da-DK:
         logo_instructions_text_with_dimensions_no_placing: "Højden på logoet skal være %{height} %{width}px."
         logo_icon_instructions_text_with_dimensions: "Mobillogo skal være kvadratisk, %{width}x%{height}px. Det vil blive vist til brugere med små skærme."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dette firkantede logo vil blive vist når folk deler din side på Facebook eller når folk gemmer din side som en bogmærke. Dimensionerne på logoet bør være (mindst) %{height}%{width}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Coverbillede bliver vist på startsiden for dem som ikke er logget ind."
         cover_photo_instructions_text_with_dimensions: "Billedet vil blive skalleret til %{width}x%{height}px og større billede vil blive beskåret i midten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Det lille coverbillede bliver vist på alle sider undtagen forsiden, for dem som ikke er logget ind."
@@ -271,6 +277,8 @@ da-DK:
         searchpage: ~
       social_media:
         social_media: Social
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter konto"
         twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden."
         twitter_handle_info_text_with_instructions: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden. %{instructions_link}."
@@ -287,6 +295,7 @@ da-DK:
         invalid_facebook_connect_secret: "Client secret skal kun indehold tal og bogstaver fra a til f."
         enable_facebook_login: ~
         save: Gem
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics Sporingskode (tracking ID)"
@@ -320,6 +329,19 @@ da-DK:
         export_all_as_csv: "Eksporter alle som CSV"
         processing_export: ~
         transactions: "Vis transaktioner"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: Samtaletråd
           listing: Annonce
@@ -387,13 +409,32 @@ da-DK:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -406,6 +447,34 @@ da-DK:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annoncefelt '%{field_name}'"
@@ -467,6 +536,8 @@ da-DK:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -497,6 +568,7 @@ da-DK:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -600,6 +672,7 @@ da-DK:
         night: "Pr. nat"
         week: "Pr. uge"
         month: "Pr. måned"
+        unit: ~
       can_not_find: "Kan ikke finde ordre type med id: %{id}"
       add_custom_unit: "+ Tilføj en brugerdefineret prisenhed..."
       delete_custom_unit: slet
@@ -1601,6 +1674,8 @@ da-DK:
         other: "Dette website vil være offline for vedligeholdelse i %{count} minutter"
       automatically_logged_out_please_sign_in: "Du er blevet automatisk logget ud. Log venligst ind igen."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Konto
       notifications: Notifikationer
@@ -1815,6 +1890,7 @@ da-DK:
       night: "Antal nætter:"
       week: "Antal uger:"
       month: "Antal måneder:"
+      unit: ~
       custom: "Mængde:"
     quantity_placeholder: Mængde
     please_comment: Kommentar
@@ -1866,6 +1942,7 @@ da-DK:
       night: nat
       week: uge
       month: måned
+      unit: ~
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
@@ -2468,6 +2545,10 @@ da-DK:
       legal_name: "Kontohavers navn"
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: Fødselsdato
       ssn_last_4: ~
@@ -2483,6 +2564,20 @@ da-DK:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

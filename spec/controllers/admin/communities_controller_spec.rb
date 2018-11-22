@@ -49,34 +49,6 @@ describe Admin::CommunitiesController, type: :controller do
 
   end
 
-  describe "#update_topbar" do
-    before do
-      allow(TranslationService::API::Api.translations).to receive(:create)
-        .with(anything()).and_return(Result::Success.new("success"))
-    end
-
-    it "should update Post new listing button text" do
-      text_fi = "Modified fi"
-      text_en = "Modified en"
-      translations_group = [{
-        translation_key: "homepage.index.post_new_listing",
-        translations: [{ locale: "en", translation: text_en }, { locale: "fi", translation: text_fi } ]
-      }]
-
-      expect(TranslationService::API::Api.translations).to receive(:create)
-        .with(@community.id, translations_group)
-      put :update_topbar, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en} }
-    end
-
-    it "should not update Post new listing button text with an invalid translation param" do
-      text_fi = ""
-      text_en = "Modified en"
-
-      expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
-      patch :update_topbar, params: {post_new_listing_button: {fi: text_fi, en: text_en}}
-    end
-  end
-
   describe "#update_new_layout" do
     before do
       # mock NewLayoutViewUtils.enabled_features with params

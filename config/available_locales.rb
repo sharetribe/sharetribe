@@ -34,6 +34,7 @@ module Sharetribe
 
   # List of locales that are incomplete
   UNSUPPORTED_LOCALES = [
+    {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)

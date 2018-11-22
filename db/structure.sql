@@ -267,6 +267,11 @@ CREATE TABLE `communities` (
   `favicon_processing` tinyint(1) DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT NULL,
   `end_user_analytics` tinyint(1) DEFAULT '1',
+  `show_slogan` tinyint(1) DEFAULT '1',
+  `show_description` tinyint(1) DEFAULT '1',
+  `footer_theme` int(11) DEFAULT '0',
+  `footer_copyright` text,
+  `footer_enabled` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -320,6 +325,23 @@ CREATE TABLE `community_memberships` (
   UNIQUE KEY `index_community_memberships_on_person_id` (`person_id`) USING BTREE,
   KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `community_social_logos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `community_social_logos` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` bigint(20) DEFAULT NULL,
+  `image_file_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_content_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
+  `image_updated_at` datetime DEFAULT NULL,
+  `image_processing` tinyint(1) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_community_social_logos_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_translations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -915,6 +937,7 @@ CREATE TABLE `menu_links` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `sort_priority` int(11) DEFAULT '0',
+  `entity_type` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_menu_links_on_community_and_sort` (`community_id`,`sort_priority`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1250,6 +1273,22 @@ CREATE TABLE `shipping_addresses` (
   KEY `index_shipping_addresses_on_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `social_links`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `social_links` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `community_id` int(11) DEFAULT NULL,
+  `provider` int(11) DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sort_priority` int(11) DEFAULT '0',
+  `enabled` tinyint(1) DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_social_links_on_community_id` (`community_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_accounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -1303,6 +1342,7 @@ CREATE TABLE `testimonials` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `receiver_id` varchar(255) DEFAULT NULL,
+  `blocked` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_testimonials_on_author_id` (`author_id`) USING BTREE,
   KEY `index_testimonials_on_receiver_id` (`receiver_id`) USING BTREE,
@@ -2270,6 +2310,13 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180518073348'),
 ('20180523121344'),
 ('20180524075239'),
-('20180524081429');
+('20180524081429'),
+('20180904075653'),
+('20181012065625'),
+('20181024094615'),
+('20180717122957'),
+('20180720044534'),
+('20180720065907'),
+('20180723115548');
 
 

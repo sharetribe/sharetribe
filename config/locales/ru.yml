@@ -77,9 +77,13 @@ ru:
         community_name: "Название проекта"
         edit_community_name_description: "Название вашего проекта. Оно будет показано в emails и других местах."
         community_slogan: Девиз
+        community_slogan_display: ~
         edit_community_slogan_description: "Это будет показано на главной странице проекта для пользователей которые не вошли в систему. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: "Описание:"
+        community_description_display: ~
         edit_community_description_description: "Это будет показано на главной странице проекта для пользователей которые не вошли в систему. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Текст помощи поиска"
         edit_community_search_placeholder_description: "Это отображается на главной странице проекта как место для заполнения текстом в строке поиска. %{see_how_it_looks_like}"
         private_community_homepage_content: "Контент главной страницы приватного маркетплейс"
@@ -105,6 +109,7 @@ ru:
         edit_community_look_and_feel: "Редактировать оформление «%{community_name}»"
         community_logo: Логотип
         community_logo_icon: "Лого для соц сетей и мобильных устройств"
+        community_logo_icon_mobile: ~
         community_cover_photo: Обложка
         small_community_cover_photo: "Уменьшенное фото для обложки"
         favicon: "Значок для избранного и отображения во вкладке"
@@ -119,6 +124,7 @@ ru:
         logo_instructions_text_with_dimensions_no_placing: "Размер логотипа должен быть %{width} %{height}px."
         logo_icon_instructions_text_with_dimensions: "Этот квадратный лого будет показан когда люди делятся вашим проектом в Фейсбук, когда они просматривают ваш сайт на мобильных устройствах или когда они запоминают ваш сайт на главной странице их мобильного устройства. Размеры должны быть (по крайней мере) %{width}x%{height} px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Данный логотип будет виден тем, кто делиться вашей страницей на Facebook или когда добавляют в избранное на главном экране своего мобильного устройства. Размеры должны быть (минимум) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Уменьшенная обложка с фото будет показана на всех страницах исключаю главную страницу для не зарегистрированных пользователей."
@@ -281,6 +287,8 @@ ru:
         searchpage: "Новая страница поиска (необходима новая верхняя панель)"
       social_media:
         social_media: "Социальные медиа"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter аккаунт"
         twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице публикации."
         twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице публикации. %{instructions_link}."
@@ -297,6 +305,7 @@ ru:
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
         enable_facebook_login: ~
         save: "Сохранить настройки"
+        add_another_image: ~
       analytics:
         analytics: Аналитика
         google_analytics_key: "Google Analytics tracking ID"
@@ -330,6 +339,19 @@ ru:
         export_all_as_csv: "Экспортировать все как CSV"
         processing_export: ~
         transactions: "Посмотреть транзакции"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: Обсуждение
           listing: Публикация
@@ -397,13 +419,32 @@ ru:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -416,6 +457,34 @@ ru:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
@@ -477,6 +546,8 @@ ru:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: Зарегистрироваться
+        public: Публичный
         add_new_field: ~
         save: ~
         cancel: ~
@@ -507,6 +578,7 @@ ru:
           title: "Кому вы хотите отправить email?"
           options:
             all_users: "Все пользователи"
+            posting_allowed: ~
             with_listing: "Пользователи, которые разместили хотя бы один каталог"
             with_listing_no_payment: "Пользователи, которые разместили хотя бы один каталог, но не добавили свои платежные реквизиты"
             with_payment_no_listing: "Пользователи, которые добавили свои платежные реквизиты, но не разместили каталог"
@@ -618,6 +690,7 @@ ru:
         night: "За ночь"
         week: "За неделю"
         month: "За месяц"
+        unit: ~
       can_not_find: "Не удается найти тип заказа с ID: %{id}"
       add_custom_unit: "+ Добавить пользовательскую ценовую единицу..."
       delete_custom_unit: удалить
@@ -1619,6 +1692,8 @@ ru:
         other: "Сайт будет недоступен через %{count} минут по причине проведения профилактических работ"
       automatically_logged_out_please_sign_in: "Вы автоматически вышли из системы. Пожалуйста, войдите снова."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: "Учётная запись"
       notifications: Оповещения
@@ -1833,6 +1908,7 @@ ru:
       night: "Количество недель:"
       week: "Количество недель:"
       month: "Количество месяцев:"
+      unit: ~
       custom: "Количество:"
     quantity_placeholder: Количество
     please_comment: Комментарий
@@ -1884,6 +1960,7 @@ ru:
       night: ночь
       week: неделя
       month: месяц
+      unit: ~
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:
@@ -2039,8 +2116,8 @@ ru:
         other: "Доступ к %{service_name} ограничен. Вы должны иметь email адрес подтверждающий что вы имеете право на участие."
       family_name: "Фамилия:"
       given_name: "Имя:"
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Я согласен с %{terms} и %{privacy}"
+      admin_emails_consent: "Я хотел бы получать иногда оповещения от администраторов %{service_name} и понимаю, что я могу изменить свое мнение в любое время"
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
@@ -2048,8 +2125,8 @@ ru:
       password_again: "Подтвердите пароль"
       show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в %{service_name}"
-      terms: "условиями использования"
-      privacy: ~
+      terms: "Условиями использования"
+      privacy: Конфиденциальность
       username_is_in_use: "Это имя пользователя занято."
       username_is_invalid: "Можно использовать только латинские буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
@@ -2175,7 +2252,7 @@ ru:
         status_confirmed: Подтверждено
         status_pending: "В ожидании"
     notifications:
-      email_from_admins: "Я хотел бы получать иногда оповещения от администраторов этого сообщества"
+      email_from_admins: "Я хотел бы получать иногда оповещения от администраторов %{service_name}"
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       newsletters: "Рассылка от администраторов"
       community_updates: "Новостная рассылка"
@@ -2208,7 +2285,7 @@ ru:
       display_name: "Отображаемое имя"
       display_name_description: "Если вы представляете организацию, вы можеть использовать данное имя в качестве отображаемого. Данное имя показывается другим пользователям вместо ваших настоящих имени и фамилии."
       location_description: "Вы можете ввести либо своё точное местоположение, либо почтовый индекс. Укажите как минимум свой индекс. Точное местоположение можно задать с помощью карты."
-      profile_picture_description: ~
+      profile_picture_description: "Изображение профиля должно быть в квадратном формате (соотношение 1: 1), например, 800x800 пикселей. В противном случае он будет обрезан, чтобы соответствовать."
       phone_number: "Номер телефона:"
       profile_picture: "Изображение профиля"
       postal_code: "Индекс:"
@@ -2508,6 +2585,10 @@ ru:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2523,6 +2604,20 @@ ru:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

@@ -98,8 +98,13 @@ module PlanService::API
     def with_statuses(plan)
       plan.merge(
         expired: plan_expired?(plan),
-        closed: plan_closed?(plan)
+        closed: plan_closed?(plan),
+        hold: plan_hold?(plan)
       )
+    end
+
+    def plan_hold?(plan)
+      Maybe(plan).map { |p| p[:status] == :hold }.or_else(false)
     end
 
     # Return true, if plan is closed, i.e.

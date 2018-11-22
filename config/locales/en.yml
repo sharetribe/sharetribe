@@ -67,9 +67,13 @@ en:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
+        community_slogan_display: "Display the slogan in the homepage"
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Marketplace description"
+        community_description_display: "Display the description in the homepage"
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the homepage of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"
@@ -95,6 +99,7 @@ en:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
         community_logo_icon: "Logo for social networks and mobile devices"
+        community_logo_icon_mobile: "Logo for home screen on mobile devices"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
@@ -105,14 +110,15 @@ en:
         community_description_color: "Marketplace description color"
         community_description_color_instructions_text: "You can change the color of the description on the homepage by entering a hex color value. The description is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Post a new listing button color"
-        logo_instructions_text_with_dimensions: "The logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
-        logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
+        logo_instructions_text_with_dimensions: "The logo size should be %{width}x%{height} pixels. It will be shown to users with bigger screens."
+        logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
+        logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
-        cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
+        cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
-        small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
+        small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
         custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
         new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here."
@@ -227,7 +233,7 @@ en:
         twitter_handle: "Twitter handle (used with tweet button in listing page)"
         update_settings: "Save settings"
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
-        automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to providers are delayed until the order is marked as completed. %{learn_more}."
+        automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed. %{learn_more}."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -271,6 +277,8 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
+        logo: Logo
+        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
@@ -287,6 +295,7 @@ en:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
+        add_another_image: "Add another image"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -320,6 +329,19 @@ en:
         export_all_as_csv: "Export all as CSV"
         processing_export: "Processing export to CSV..."
         transactions: Transactions
+        search_by_title_parties: "Search for a transaction title or parties involved"
+        search: Search
+        reset_search: "Show all"
+        status_filter:
+          all: "All statuses"
+          selected: "Selected statuses: %{count}"
+          selected_js: "Selected statuses: "
+          free: "Free transaction"
+          confirmed: Completed
+          paid: Paid
+          canceled: Canceled
+          preauthorized: Preauthorized
+          rejected: Rejected
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -350,7 +372,7 @@ en:
             accepted: Accepted
             rejected: Rejected
             paid: Paid
-            confirmed: Confirmed
+            confirmed: Completed
             canceled: Canceled
             initiated: "Waiting PayPal payment"
             pending_ext: "Waiting PayPal payment"
@@ -361,7 +383,7 @@ en:
             accepted: Accepted
             rejected: Rejected
             paid: Paid
-            confirmed: Confirmed
+            confirmed: Completed
             canceled: Canceled
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
@@ -387,13 +409,32 @@ en:
           receiver: Receiver
           status: Status
           grade: Grade
-          note: Note
+          text: Text
         status:
           waiting: "Waiting for review"
           skipped: Skipped
           published: Published
+          blocked: Blocked
+        form:
+          review_text: "Review text"
+          save: Save
+          cancel: Cancel
+          delete_review: "Delete review"
+          block_review: "Block review"
+          confirm_modify: "Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover any of the old data."
+          deleting_info: "Deleting a review allows its author to leave another one for the same transaction."
+          blocking_info: "Blocking the review after deletion prevents its author from leaving another one for the same transaction."
       listings:
         listings: Listings
+        search_by_title_author_category: "Search for a listing title, author or category name"
+        search: Search
+        reset_search: "Show all"
+        status:
+          all: "All statuses"
+          selected_js: "Selected statuses: "
+          open: Open
+          closed: Closed
+          expired: Expired
         headers:
           title: Title
           author: Author
@@ -406,6 +447,34 @@ en:
         expired: Expired
       user_fields:
         user_fields: "User fields"
+      footer:
+        footer: Footer
+        offer_pro: "Configure and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrading to the Pro plan or higher"
+        menu_links: "Footer links"
+        language: Language
+        title: Title
+        url: URL
+        add: "Add a new link to the footer"
+        save: "Save settings"
+        footer_style: "Footer style"
+        footer_copyright: "Footer copyright"
+        footer_enabled: "Footer enabled"
+        social_links: "Footer social links"
+        style:
+          dark: Dark
+          light: Light
+        social:
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: YouTube
+          googleplus: Google+
+          linkedin: LinkedIn
+          pinterest: Pinterest
+          soundcloud: SoundCloud
+          title: Title
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -467,6 +536,8 @@ en:
         user_fields: "User fields"
         field_title: "Field title"
         field_type: "Field type"
+        signup: Signup
+        public: Public
         add_new_field: "Add new field:"
         save: Save
         cancel: Cancel
@@ -497,6 +568,7 @@ en:
           title: "Who do you want to email?"
           options:
             all_users: "All users"
+            posting_allowed: "Users who are allowed to post listings"
             with_listing: "Users who have posted at least one listing"
             with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
             with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
@@ -524,7 +596,7 @@ en:
       availability_title: Availability
       read_more: "Read more about automatic availability management."
       read_more_availability_management: "Read more about availability management."
-      allow_providers_to_manage_availability: "Allow providers to manage their availability from a calendar"
+      allow_providers_to_manage_availability: "Allow sellers to manage their availability from a calendar"
       per_hour_availability: "\"Per hour\" availability"
       per_day_availability: "\"Per day\" availability"
       per_night_availability: "\"Per night\" availability"
@@ -600,6 +672,7 @@ en:
         night: "Per night"
         week: "Per week"
         month: "Per month"
+        unit: "Per unit"
       can_not_find: "Can't find order type with id: %{id}"
       add_custom_unit: "+ Add a custom pricing unit…"
       delete_custom_unit: delete
@@ -655,8 +728,8 @@ en:
       choose_popup_text: |-
           If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
           You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
-          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your providers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your providers to create a PayPal Business Account to accept payments.
-          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the provider separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
+          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your sellers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your sellers to create a PayPal Business Account to accept payments.
+          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the seller separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
       invalid_api_keys: "Invalid Stripe API keys"
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
@@ -668,7 +741,7 @@ en:
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
-      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, providers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If providers haven't configured another payment method, buyers will not be able to buy from them."
+      confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       stripe_connected:
         title: "Stripe connected"
         disable: "Disable Stripe"
@@ -1051,7 +1124,7 @@ en:
       remember_to_confirm: "When the order is fulfilled, remember to mark it as completed. If the order is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
     invitation_to_kassi:
       hi: Hi!
-      you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}"
+      you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}."
       here_is_a_message_from: "Here is a personal message from %{inviter}:"
       join_now: "Join now"
       invitation_code: "Invitation code: %{code}"
@@ -1607,6 +1680,8 @@ en:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: "You account balance is not 0 so it cannot be deleted. This might mean that you have transactions waiting to be completed or that there is money waiting to be paid out to your bank account. Please contact the %{service_name} team to learn more."
+      visit_admin: "Would you like to %{link}?"
+      visit_admin_link: "visit your admin panel"
     settings:
       account: Account
       notifications: Notifications
@@ -1682,7 +1757,7 @@ en:
         googlemap_updatemap: "Update Map"
       images:
         image: Image
-        best_result: "For best results, use JPG, GIF or PNG images that are %{width} by %{height} pixels"
+        best_result: "For best results, use JPG, GIF or PNG images that are %{width}x%{height} pixels"
         no_file_selected: "No file selected"
         remove_image: "Remove image"
         select_file: "Select file"
@@ -1821,6 +1896,7 @@ en:
       night: "Number of nights:"
       week: "Number of weeks:"
       month: "Number of months:"
+      unit: "Number of units:"
       custom: "Quantity:"
     quantity_placeholder: Quantity
     please_comment: Comment
@@ -1872,6 +1948,7 @@ en:
       night: night
       week: week
       month: month
+      unit: unit
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -2201,7 +2278,7 @@ en:
       profile_page: "in your profile page"
       profilemap: Mapview
       street_address: Location
-      these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
+      these_fields_are_shown_in_your: "Some of this information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
       visible_to_registered_users: "(visible to users that have logged in)"
       default_in_listing: "(used only as a default when creating a new listing)"
@@ -2494,6 +2571,10 @@ en:
       legal_name: "Legal name"
       first_name: "First name"
       last_name: "Last name"
+      first_name_kana: "First name kana"
+      last_name_kana: "Last name kana"
+      first_name_kanji: "First name kanji"
+      last_name_kanji: "Last name kanji"
       country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
@@ -2509,6 +2590,20 @@ en:
       save_details: "Save details"
       edit: "Edit details"
       cancel: Cancel
+      gender: Gender
+      phone_number: "Phone number"
+      address_kana_postal_code: "Postal code kana"
+      address_kana_state: "State kana"
+      address_kana_city: "City kana"
+      address_kana_town: "Town kana"
+      address_kana_line1: "Street address kana"
+      address_kanji_postal_code: "Postal code kanji"
+      address_kanji_state: "State kanji"
+      address_kanji_city: "City kanji"
+      address_kanji_town: "Town kanji"
+      address_kanji_line1: "Street address kanji"
+      male: male
+      female: female
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"
@@ -2554,6 +2649,6 @@ en:
     can_accept_stripe_and_paypal: "You can receive money to your bank account or your PayPal account."
     to_accept_paypal: "To receive money to your PayPal account, you need to connect your PayPal account. Your customers will be able to pay with PayPal."
     connect_paypal: "Connect PayPal account"
-    wrong_setup: "There is something wrong with the payment system setup in this marketplace: the platform has not been registered. Please contact the team to let them know that they should register their platform at Stripe."
+    wrong_setup: "There is something wrong with the payment system setup in this marketplace: Stripe Connect has not been enabled. Please contact the team to let them know that they should enable Stripe Connect in their Stripe Dashboard."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"

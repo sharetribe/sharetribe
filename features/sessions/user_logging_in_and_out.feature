@@ -60,3 +60,14 @@ Feature: User logging in and out
     And I click "#main_log_in_button"
     Then I should see "Welcome, Kassi!"
     Then I should be logged in
+
+  Scenario: Marketplace's admin logging in successfully
+    Given "kassi_testperson1" has admin rights in community "test"
+    Given I am not logged in
+    And I am on the login page
+    When I fill in "main_person_login" with "kassi_testperson1@example.com"
+    And I fill in "main_person_password" with "testi"
+    And I click "#main_log_in_button"
+    Then I should see "Welcome, Kassi! Would you like to visit your admin panel?"
+    Then I should be logged in
+

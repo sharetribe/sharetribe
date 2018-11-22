@@ -111,6 +111,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def social_media
     @selected_left_navi_link = "social_media"
     @community = @current_community
+    @community.build_social_logo unless @community.social_logo
     render "social_media", :locals => {
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
@@ -158,54 +159,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     redirect_to admin_new_layout_path
   end
 
-  def topbar
-    @selected_left_navi_link = "topbar"
-
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = @current_community.configuration&.limit_priority_links
-      all = view_context.t("admin.communities.menu_links.all")
-      limit_priority_links_options = (0..5).to_a.map {|o| [o, o]}.concat([[all, -1]])
-      limit_priority_links_selected = Maybe(limit_priority_links).or_else(-1)
-    end
-
-    # Limits are by default nil
-    render :topbar, locals: {
-             community: @current_community,
-             limit_priority_links: limit_priority_links,
-             limit_priority_links_options: limit_priority_links_options,
-             limit_priority_links_selected: limit_priority_links_selected
-           }
-  end
-
-  def update_topbar
-    @community = @current_community
-    h_params = params.to_unsafe_hash
-
-    menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
-
-    if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = params[:limit_priority_links].to_i
-      @current_community.configuration.update(limit_priority_links: limit_priority_links)
-    end
-
-    translations = h_params[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
-
-    if translations.any?{ |t| t[:translation].blank? }
-      flash[:error] = t("admin.communities.topbar.invalid_post_listing_button_label")
-      redirect_to admin_topbar_edit_path and return
-    end
-
-    translations_group = [{
-      translation_key: "homepage.index.post_new_listing",
-      translations: translations
-    }]
-    TranslationService::API::Api.translations.create(@community.id, translations_group)
-
-    update(@community,
-            menu_links_params,
-            admin_topbar_edit_path,
-            :topbar)
-  end
 
   def landing_page
     @selected_left_navi_link = "landing_page"
@@ -307,7 +260,11 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     end
 
     social_media_params = params.require(:community).permit(
-      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled
+      :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled,
+      social_logo_attributes: [
+        :id,
+        :image
+      ]
     )
 
     update(@current_community,

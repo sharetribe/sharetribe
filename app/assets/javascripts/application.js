@@ -21,7 +21,6 @@
 //
 //= require jquery
 //= require jquery-ui-1.9.2.custom
-//= require jquery-ui-1.9.2.sortable
 //= require jquery.ui.touch-punch.min.js
 //= require jquery_ujs
 //= require jquery.form
@@ -69,12 +68,15 @@
 //= require admin/categories
 //= require admin/manage_members
 //= require admin/topbar_menu
+//= require admin/footer_menu
 //= require admin/community_customizations
+//= require admin/listings.js
 //= require admin/listing_shapes
 //= require admin/settings.js
 //= require admin/emails.js
 //= require admin/payment_preferences.js
 //= require admin/transactions.js
+//= require admin/testimonials.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

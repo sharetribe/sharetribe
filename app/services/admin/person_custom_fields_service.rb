@@ -71,6 +71,10 @@ class Admin::PersonCustomFieldsService
     @fixed_phone_field ||= resource_scope.phone_number.empty?
   end
 
+  def public_family_name?
+    community.name_display_type == 'full_name'
+  end
+
   private
 
   def resource_scope

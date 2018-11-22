@@ -20,6 +20,49 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+## [7.4.0] - 2018-10-09
+
+### Added
+
+- View Listings page in the admin panel [#3340](https://github.com/sharetribe/sharetribe/pull/3340)
+- Locations section in the custom landing pages [#3341](https://github.com/sharetribe/sharetribe/pull/3341)
+- Background color and image for any section [#3296](https://github.com/sharetribe/sharetribe/pull/3296)
+- Custom fields for user profiles [#3332](https://github.com/sharetribe/sharetribe/pull/3332)
+- Add a section button for info-2-columns and info-3-columns in the custom landing pages [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- File name in the design tab and profile settings to show the stored file [#3364](https://github.com/sharetribe/sharetribe/pull/3364)
+- Allow markdown in user profiles "About you" section [#3370](https://github.com/sharetribe/sharetribe/pull/3370)
+- "Expired" status in View listings page [#3387](https://github.com/sharetribe/sharetribe/pull/3387)
+- Allow spaces at the end of the e-mails in signup form [#3394](https://github.com/sharetribe/sharetribe/pull/3394)
+- Added Puerto Rico as a Stripe supported country [#3399](https://github.com/sharetribe/sharetribe/pull/3399)
+- Added support for INR with PayPal [#3416](https://github.com/sharetribe/sharetribe/pull/3416)
+- Added support for ARS with PayPal [#3415](https://github.com/sharetribe/sharetribe/pull/3415)
+- Direct link to the admin panel when logging in as admin user[#3414](https://github.com/sharetribe/sharetribe/pull/3414)
+- Added checkmarks to the user fields [#3441](https://github.com/sharetribe/sharetribe/pull/3441)
+- Added the use of session token in Google's autocomplete feature [#3401](https://github.com/sharetribe/sharetribe/pull/3401)
+- Icons to payment provider's page [#3444](https://github.com/sharetribe/sharetribe/pull/3444)
+
+### Changed
+
+- Rename admin panel sections [#3350](https://github.com/sharetribe/sharetribe/pull/3350)
+- Rename save listings button [#3355](https://github.com/sharetribe/sharetribe/pull/3355)
+- Video section variations on the custom landing pages [#3367](https://github.com/sharetribe/sharetribe/pull/3367)
+- Renamed the default category to "default category" [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- Allow links in the custom user text fields [#3373](https://github.com/sharetribe/sharetribe/pull/3373)
+- Google maps dynamic map for static maps in the listing page [#3382](https://github.com/sharetribe/sharetribe/pull/3382)
+- Change Static map for embedded maps in the listing page [#3395](https://github.com/sharetribe/sharetribe/pull/3395)
+- Update to Circle CI 2.0 [#3360](https://github.com/sharetribe/sharetribe/pull/3360)
+- Profile image is only used once it has been processed [#3427](https://github.com/sharetribe/sharetribe/pull/3427)
+
+### Fixed
+
+- Fix data deletion task to handle missing images [#3349](https://github.com/sharetribe/sharetribe/pull/3349)
+- Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
+- Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
+- Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
+- Display bug in checkbox user fields [#3385](https://github.com/sharetribe/sharetribe/pull/3385)
+- Fixed a broken link when no date was selected for free "per day" and "per night" listings [#3410](https://github.com/sharetribe/sharetribe/pull/3410)
+- Allow to leave dropdown option unselected if it is not mandatory [#3446](https://github.com/sharetribe/sharetribe/pull/3446)
+
 ## [7.3.1] - 2018-06-07
 
 ### Added
@@ -524,7 +567,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...HEAD
+[7.4.0]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...v7.4.0
 [7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
 [7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0

@@ -22,6 +22,7 @@ module TopbarHelper
     })
 
     given_name, family_name = *PersonViewUtils.person_display_names(user, community)
+    avatar_image = user&.image&.present? && !user.image_processing ? { url: user.image.url(:thumb) } : nil
 
     {
       logo: {
@@ -47,7 +48,7 @@ module TopbarHelper
       locales: landing_page ? nil : locale_props(community, I18n.locale, path_after_locale_change, user.present?),
       avatarDropdown: {
         avatar: {
-          image: user&.image.present? ? { url: user.image.url(:thumb) } : nil,
+          image: avatar_image,
           givenName: given_name,
           familyName: family_name,
         },

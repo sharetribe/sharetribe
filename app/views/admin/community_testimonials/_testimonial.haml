@@ -1,6 +1,8 @@
 - for_author = participant == :author
 - testimonial = for_author ? tx.testimonial_from_author : tx.testimonial_from_starter
-%tr
+- testimonial_index = defined?(index) ? "new-#{index}" : (Time.current.to_f * 1000).to_i
+- id = testimonial.try(:persisted?) ? testimonial.id : testimonial_index
+%tr{id: "testimonial-#{id}"}
   - unless for_author
     %td{rowspan: "2", class: 'testimonial-title'}
       - listing_title = tx.listing_title || t("admin.communities.transactions.not_available")
@@ -21,7 +23,10 @@
       - else
         = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
     %td
-      = t("admin.communities.testimonials.status.published")
+      - if testimonial.blocked?
+        = t("admin.communities.testimonials.status.blocked")
+      - else
+        = t("admin.communities.testimonials.status.published")
     %td
       .testimonial-cell
         .testimonial-icon{:class => testimonial.positive? ? 'positive' : 'negative'}
@@ -31,6 +36,9 @@
             = icon_tag("dislike", ["negative"])
     %td
       = truncate(strip_tags(testimonial.text), length: 100)
+    %td
+      = link_to edit_admin_community_testimonial_path(id: testimonial.id), remote: true, class: 'edit' do
+        = icon_tag("edit", ["icon-fix"])
   - else
     %td
       - p = for_author ? tx.author : tx.starter
@@ -47,3 +55,9 @@
         = t("admin.communities.testimonials.status.waiting")
     %td
     %td
+    %td
+      - unless skipped_feedback
+        = link_to new_admin_community_testimonial_path(transaction_id: tx.id, from_tx_author: for_author, testimonial_index: testimonial_index),
+          remote: true, class: 'edit' do
+          = icon_tag("edit", ["icon-fix"])
+

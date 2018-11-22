@@ -58,9 +58,13 @@ he-IL:
         community_name: "שם האתר"
         edit_community_name_description: "שם האתר שלך. זה מוצג למשתמשים בהודעות דוא\"ל ובמקומות אחרים."
         community_slogan: "סיסמת האתר"
+        community_slogan_display: ~
         edit_community_slogan_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים.‎%{see_how_it_looks_like}‎"
+        edit_community_slogan_description_hideable: ~
         community_description: "תיאור האתר"
+        community_description_display: ~
         edit_community_description_description: "זה מוצג בדף הבית של האתר עבור משתמשים שאינם מחוברים. ‎%{see_how_it_looks_like}‎"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "חפש טקסט עזרה"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -86,6 +90,7 @@ he-IL:
         edit_community_look_and_feel: "ערוך את המראה והתחושה של האתר \"‎%{community_name}‎\""
         community_logo: לוגו
         community_logo_icon: "לוגו עבור רשתות חברתיות ומכשירים ניידים"
+        community_logo_icon_mobile: ~
         community_cover_photo: "תמונת רקע"
         small_community_cover_photo: "תמונת שער קטנה"
         favicon: ~
@@ -100,6 +105,7 @@ he-IL:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "לוגו מרובע זה יוצג כאשר אנשים משתפים את האתר שלך ב- Facebook, כאשר הם מציגים את האתר שלך במכשיר נייד או כאשר הם מסמלים את האתר שלך למסך דף הבית של המכשיר הנייד. על המאפיינים להיות (לפחות)‎%{height}‎‎%{width}‎."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "תמונת השער מוצגת בדף הבית עבור משתמשים שאינם מחוברים."
         cover_photo_instructions_text_with_dimensions: "התמונה תשנה את גודלה ל - ‎%{height}‎‎%{width}‎ פיקסל ותמונות גבוהות יותר ייחתכו באמצע. ‎%{see_how_it_looks_like}‎"
         small_cover_photo_visibility: "תמונת שער קטנה מוצגת בכל הדפים, למעט בדף הבית עבור משתמשים שאינם מחוברים."
@@ -262,6 +268,8 @@ he-IL:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -278,6 +286,7 @@ he-IL:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -311,6 +320,19 @@ he-IL:
         export_all_as_csv: ~
         processing_export: ~
         transactions: "הצג עסקאות"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: שירות
@@ -378,13 +400,32 @@ he-IL:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -397,6 +438,34 @@ he-IL:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -458,6 +527,8 @@ he-IL:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -488,6 +559,7 @@ he-IL:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -579,6 +651,7 @@ he-IL:
         night: ללילה
         week: לשבוע
         month: לחודש
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1576,6 +1649,8 @@ he-IL:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: חשבון
       notifications: התראות
@@ -1790,6 +1865,7 @@ he-IL:
       night: ~
       week: "מספר שבועות:"
       month: "מספר חודשים:"
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: תגובה
@@ -1841,6 +1917,7 @@ he-IL:
       night: ~
       week: שבוע
       month: חודש
+      unit: ~
     verification_required:
       verification_required: "נדרש אימות"
   listing_conversations:
@@ -2418,6 +2495,10 @@ he-IL:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2433,6 +2514,20 @@ he-IL:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

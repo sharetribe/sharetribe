@@ -40,6 +40,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 7.3.1 to 7.4.0
+
+Nothing special. See the [#general-update-instructions].
+
 ## Upgrade from 7.3.0 to 7.3.1
 
 Nothing special. See the [#general-update-instructions].

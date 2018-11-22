@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 FILE="./client/app/i18n/all.js"
 
 if [ -f $FILE ];

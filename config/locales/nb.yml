@@ -67,9 +67,13 @@ nb:
         community_name: "Navn markedsplass"
         edit_community_name_description: "Navnet på din markedsplass er vist til brukere i epost og forskjellige andre steder."
         community_slogan: "Slogan markedsplass"
+        community_slogan_display: ~
         edit_community_slogan_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: "Beskrivelse markedsplass"
+        community_description_display: ~
         edit_community_description_description: "Dette vises på din forside for brukere på din markedsplass som ikke er logget inn. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Søk hjelpe tekst"
         edit_community_search_placeholder_description: "Dette vises på forsiden som forklaringstekst i søkefeltet. %{see_how_it_looks_like}."
         private_community_homepage_content: "Privat markedsplassinhold"
@@ -95,6 +99,7 @@ nb:
         edit_community_look_and_feel: "Redigere markedsplass \"%{community_name}\" uttrykk og følelse"
         community_logo: Skrivebordslogo
         community_logo_icon: "Logo for sosiale nettverk og mindre skjermer."
+        community_logo_icon_mobile: ~
         community_cover_photo: Forsidebilde
         small_community_cover_photo: "Lite forsidebilde"
         favicon: Favicon
@@ -109,6 +114,7 @@ nb:
         logo_instructions_text_with_dimensions_no_placing: "Størrelsen på logoen burde være %{height} x %{width} piksler."
         logo_icon_instructions_text_with_dimensions: "Denne firkantede logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør (minst) være %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Denne kvadratiske logoen blir vist når siden blir delt på Facebook, vist på moblie enheter og når de bokmerker siden på mobil. Dimensjonene bør være (minst) %{width} x %{height} piskler."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
         cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
@@ -271,6 +277,8 @@ nb:
         searchpage: "Ny søkeside (krever toppmeny)"
       social_media:
         social_media: "Sosiale medier"
+        logo: ~
+        logo_info: ~
         twitter_handle: Twitternavn
         twitter_handle_info_text: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden."
         twitter_handle_info_text_with_instructions: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden. %{instructions_link}."
@@ -287,6 +295,7 @@ nb:
         invalid_facebook_connect_secret: "Client secret kan kun inneholde tall og bokstaver fra a til f."
         enable_facebook_login: ~
         save: "Lagre innstillinger"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -320,6 +329,19 @@ nb:
         export_all_as_csv: "Eksportér alle i CSV-fil"
         processing_export: ~
         transactions: "Vis transaksjoner"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Samtale tråd"
           listing: Annonse
@@ -387,13 +409,32 @@ nb:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -406,6 +447,34 @@ nb:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annonse felt'%{field_name}'"
@@ -467,6 +536,8 @@ nb:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -497,6 +568,7 @@ nb:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -600,6 +672,7 @@ nb:
         night: "Per natt"
         week: "Per uke"
         month: "Per måned"
+        unit: ~
       can_not_find: "Kan ikke finne transaksjonstype med ID: %{id}"
       add_custom_unit: "+ Legg til en spesiell prisenhet…"
       delete_custom_unit: slette
@@ -1603,6 +1676,8 @@ nb:
         other: "Nettstedet vil være offline i %{count} minutter"
       automatically_logged_out_please_sign_in: "Du har blitt logget ut automatisk. Vennligst logg inn igjen."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Brukerkonto
       notifications: Varslinger
@@ -1817,6 +1892,7 @@ nb:
       night: "Antall netter:"
       week: "Antall uker:"
       month: "Antall måneder:"
+      unit: ~
       custom: "Antall:"
     quantity_placeholder: Antall
     please_comment: Kommenter
@@ -1868,6 +1944,7 @@ nb:
       night: natt
       week: uke
       month: måned
+      unit: ~
     verification_required:
       verification_required: "Verifisering påkrevd"
   listing_conversations:
@@ -2470,6 +2547,10 @@ nb:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2485,6 +2566,20 @@ nb:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

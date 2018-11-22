@@ -5,51 +5,56 @@ sr:
       not_found: "nije pronađeno"
       already_confirmed: "već je potvrđen, pokušajte da se prijavite"
       not_locked: "nije zaključano"
+      not_saved:
+        one: "Greška je sprečila %{resource} da bude sačuvano:"
+        few: "%{count} greške su sprečile %{resource} da bude sačuvano:"
+        many: "%{count} greške su sprečile %{resource} da bude sačuvano:"
+        other: "%{count} greška je sprečila da %{resource} bude sačuvano:"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
-      unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      already_authenticated: "Već ste prijavljeni."
+      unauthenticated: "Da bi ste nastavili prvo se prijavite ili registrujte."
+      unconfirmed: "Prvo morate potvrditi nalog."
+      locked: "Vaš nalog je zaključan."
+      invalid: "Nevažeći email ili šifra."
+      invalid_token: "Pogrešan token za autentifikaciju."
+      timeout: "Prijavite se ponovo pošto je vaša sesija istekla."
+      inactive: "Vaš nalog još uvek nije aktiviran."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Uspešno ste promenili lozinku."
+      send_paranoid_instructions: "Ako je email u našoj bazi dobićete link za izmenu lozinke."
+      send_instructions: "Za par minuta će te primiti email sa uputstvom za promenu lozinke."
+      updated: "Uspešno ste promenili lozinku. Sada ste prijavljeni."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Uspešno ste se prijavili."
+      signed_out: "Uspešno odjavljivanje."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Ako je email u našoj bazi, kroz par minuta dobićete email poruku sa uputstvom kako da potvrdite nalog."
+      send_instructions: "Kroz par minuta dobićete email sa uputstvom kako da potvrdite nalog."
+      confirmed: "Vaš nalog je uspešno potvrđen."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Poslata vam je email poruka sa linkom za potvrdu. Klikom na link aktivirajte vaš nalog."
+      signed_up_but_inactive: "Uspešno ste se registrovali ali još uvek ne možete da se prijavite jer vaš nalog nije aktiviran."
+      signed_up_but_locked: "Uspešno ste se registrovali ali ne možete da se prijavite jer je vaš nalog zaključan."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: neaktivan
+        unconfirmed: "nije potvrđeno"
+        locked: zaključano
+      update_needs_confirmation: "Uspešno ste izmenili nalog ali prvo moramo proveriti vašu novu email adresu. Proverite email sanduče i klikom na link potvrdite promenu email adrese."
+      signed_up: "Dobrodošli. Uspešno ste kreirali nalog."
+      updated: "Uspešno ste izmenili vaš nalog."
+      destroyed: "Zbogom. Vaš nalog je uspešno uklonjen. Nadamo se skorom viđenju."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Ako vaš nalog postoji, za par minura dobićete email poruku sa uputstvom za otključavanje."
+      send_instructions: "Za par minuta dobićete email sa uputstvom kako da odblokirate svoj nalog."
+      unlocked: "Vaš nalog je uspešno otključan. Prijavite se kako bi ste nastavili dalje."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Uspešna %{kind} autorizacija naloga."
+      failure: "Nije moguća %{kind} autorizacija zbog %{reason} ."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Uputstvo za prijavu na %{service_name}"
       reset_password_instructions:
-        subject: ~
+        subject: "Uputstvo za promenu lozinke"
       unlock_instructions:
-        subject: ~
+        subject: "Uputstvo za deblokadu"

@@ -67,9 +67,13 @@ fr-CA:
         community_name: "Nom de la place de marché"
         edit_community_name_description: "Le nom de votre place de marché. Ceci est visible par les utilisateurs dans les emails et plusieurs autres endroits."
         community_slogan: "Slogan de la place de marché"
+        community_slogan_display: ~
         edit_community_slogan_description: "Ceci est affiché sur la page d'accueil de votre place de marché aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Description de la place de marché"
+        community_description_display: ~
         edit_community_description_description: "Ceci est affiché sur la page d'accueil de votre place de marché aux utilisateurs qui ne sont pas connectés. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Texte d'aide à la recherche"
         edit_community_search_placeholder_description: "Ceci est affiché sur la page d'accueil de la place de marché dans la barre de recherche. %{see_how_it_looks_like}."
         private_community_homepage_content: "Page d'accueil de la place de marché privée"
@@ -95,6 +99,7 @@ fr-CA:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la place de marché \"%{community_name}\""
         community_logo: "Logo large"
         community_logo_icon: "Logo pour les réseaux sociaux et appareils mobiles"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Photo de couverture"
         small_community_cover_photo: "Photo de couverture réduite"
         favicon: Favicon
@@ -109,6 +114,7 @@ fr-CA:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Ce logo carré sera utilisé lorsque des gens partageront votre site sur Facebook, quand ils navigueront sur votre site depuis un appareil mobile ou en tant qu'image lorsqu'ils mettront le site en favori. Les dimensions doivent être d'au moins %{width}x%{height} pixels."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "La photo de couverture est affichée aux utilisateurs non connectés sur la page d'accueil."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté pour les visiteurs non connectés sur la page d'accueil."
@@ -271,6 +277,8 @@ fr-CA:
         searchpage: ~
       social_media:
         social_media: "Réseaux sociaux"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Nom Twitter"
         twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
         twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
@@ -287,6 +295,7 @@ fr-CA:
         invalid_facebook_connect_secret: "La clé secrète ne devrait contenir que des chiffres et des lettre de a à f."
         enable_facebook_login: ~
         save: "Sauvegarder les paramètres"
+        add_another_image: ~
       analytics:
         analytics: Analyses
         google_analytics_key: "Code de suivi Google Analytics"
@@ -320,6 +329,19 @@ fr-CA:
         export_all_as_csv: ~
         processing_export: ~
         transactions: "Voir les transactions"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Fil de conversation"
           listing: Annonce
@@ -387,13 +409,32 @@ fr-CA:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -406,6 +447,34 @@ fr-CA:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -467,6 +536,8 @@ fr-CA:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -497,6 +568,7 @@ fr-CA:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -588,6 +660,7 @@ fr-CA:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1585,6 +1658,8 @@ fr-CA:
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Compte
       notifications: Notifications
@@ -1799,6 +1874,7 @@ fr-CA:
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: "Faire un commentaire"
@@ -1850,6 +1926,7 @@ fr-CA:
       night: ~
       week: ~
       month: ~
+      unit: ~
     verification_required:
       verification_required: "Vérification nécessaire"
   listing_conversations:
@@ -2433,6 +2510,10 @@ fr-CA:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2448,6 +2529,20 @@ fr-CA:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

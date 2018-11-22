@@ -67,9 +67,13 @@ en-NZ:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
+        community_slogan_display: ~
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Marketplace description"
+        community_description_display: ~
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the homepage of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"
@@ -95,6 +99,7 @@ en-NZ:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
         community_logo_icon: "Logo for social networks and mobile devices"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
@@ -109,6 +114,7 @@ en-NZ:
         logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
@@ -271,6 +277,8 @@ en-NZ:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
@@ -287,6 +295,7 @@ en-NZ:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         enable_facebook_login: ~
         save: "Save settings"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -320,6 +329,19 @@ en-NZ:
         export_all_as_csv: "Export all as CSV"
         processing_export: ~
         transactions: "View transactions"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -387,13 +409,32 @@ en-NZ:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -406,6 +447,34 @@ en-NZ:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          facebook: ~
+          twitter: ~
+          instagram: ~
+          youtube: ~
+          googleplus: ~
+          linkedin: ~
+          pinterest: ~
+          soundcloud: ~
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -467,6 +536,8 @@ en-NZ:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -497,6 +568,7 @@ en-NZ:
           title: "Who do you want to email?"
           options:
             all_users: "All users"
+            posting_allowed: ~
             with_listing: "Users who have posted at least one listing"
             with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
             with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
@@ -600,6 +672,7 @@ en-NZ:
         night: "Per night"
         week: "Per week"
         month: "Per month"
+        unit: ~
       can_not_find: "Can't find order type with id: %{id}"
       add_custom_unit: "+ Add a custom pricing unit…"
       delete_custom_unit: delete
@@ -1607,6 +1680,8 @@ en-NZ:
         other: "The website will be offline for maintenance in %{count} minutes"
       automatically_logged_out_please_sign_in: "You have been automatically logged out. Please log in again."
       stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Account
       notifications: Notifications
@@ -1821,6 +1896,7 @@ en-NZ:
       night: "Number of nights:"
       week: "Number of weeks:"
       month: "Number of months:"
+      unit: ~
       custom: "Quantity:"
     quantity_placeholder: Quantity
     please_comment: Comment
@@ -1872,6 +1948,7 @@ en-NZ:
       night: night
       week: week
       month: month
+      unit: ~
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -2488,6 +2565,10 @@ en-NZ:
       legal_name: "Legal name"
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
@@ -2503,6 +2584,20 @@ en-NZ:
       save_details: "Save details"
       edit: "Edit details"
       cancel: Cancel
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"

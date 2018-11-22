@@ -39,7 +39,20 @@ class TransactionTypeCreator
       price_enabled: false
     },
     "Sell" => {
-      price_enabled: true
+      none: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::UNIT, quantity_selector: 'number', kind: 'quantity'}
+        ]
+      },
+      preauthorize: {
+        price_enabled: true,
+        availability: ListingShape::AVAILABILITY_NONE,
+        units: [
+          {unit_type: ListingUnit::UNIT, quantity_selector: 'number', kind: 'quantity'}
+        ]
+      }
     },
     "Service" => {
       none: {

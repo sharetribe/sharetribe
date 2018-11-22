@@ -54,21 +54,24 @@
                       %h3.paypal-account-connected
                         =icon_tag("check", ["icon-fix"])
                         =t("admin.payment_preferences.stripe_connected.title")
-                      = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_stripe_toggle"
-                      - if paypal_connected && paypal_enabled_by_admin
-                        %br
-                        = link_to t("admin.payment_preferences.stripe_connected.disable"),
-                          disable_admin_payment_preference_path(payment_gateway: :stripe),
-                          data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'STRIPE')},
-                          id: "disable_stripe"
+                      = link_to "#", id: "config_stripe_toggle" do
+                        = icon_tag("edit", ["icon-fix"])
+                        = t("admin.payment_preferences.change_settings")
+                      %br
+                      = link_to disable_admin_payment_preference_path(payment_gateway: :stripe),
+                        data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'STRIPE')},
+                        id: "disable_stripe" do
+                        = icon_tag("cross", ["icon-fix"])
+                        = t("admin.payment_preferences.stripe_connected.disable")
                   - else
                     .col-6
                       %h3.paypal-account-disabled
                         =icon_tag("cross", ["icon-fix"])
                         =t("admin.payment_preferences.stripe_connected.disabled")
-                      = link_to t("admin.payment_preferences.stripe_connected.enable"),
-                        enable_admin_payment_preference_path(payment_gateway: :stripe),
-                        id: "enable_stripe"
+                      = link_to enable_admin_payment_preference_path(payment_gateway: :stripe),
+                        id: "enable_stripe" do
+                        = icon_tag("unlock", ["icon-fix"])
+                        = t("admin.payment_preferences.stripe_connected.enable")
                 - else
                   .col-6
                     = link_to t("admin.payment_preferences.configure_stripe"), "#", class: "button", id: "config_stripe_toggle"
@@ -80,21 +83,24 @@
                       %h3.paypal-account-connected
                         =icon_tag("check", ["icon-fix"])
                         =t("admin.payment_preferences.paypal_connected.title")
-                      = link_to t("admin.payment_preferences.change_settings"), "#", id: "config_paypal_toggle"
-                      - if stripe_connected && stripe_enabled_by_admin
-                        %br
-                        = link_to t("admin.payment_preferences.paypal_connected.disable"),
-                          disable_admin_payment_preference_path(payment_gateway: :paypal),
-                          data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'PAYPAL')},
-                          id: "disable_paypal"
+                      = link_to "#", id: "config_paypal_toggle" do
+                        = icon_tag("edit", ["icon-fix"])
+                        = t("admin.payment_preferences.change_settings")
+                      %br
+                      = link_to disable_admin_payment_preference_path(payment_gateway: :paypal),
+                        data: {confirm: t("admin.payment_preferences.confirm_disable", gateway: 'PAYPAL')},
+                        id: "disable_paypal" do
+                        = icon_tag("cross", ["icon-fix"])
+                        = t("admin.payment_preferences.paypal_connected.disable")
                   - else
                     .col-6
                       %h3.paypal-account-disabled
                         =icon_tag("cross", ["icon-fix"])
                         =t("admin.payment_preferences.paypal_connected.disabled")
-                      = link_to t("admin.payment_preferences.paypal_connected.enable"),
-                        enable_admin_payment_preference_path(payment_gateway: :paypal),
-                        id: "enable_paypal"
+                      = link_to enable_admin_payment_preference_path(payment_gateway: :paypal),
+                        id: "enable_paypal" do
+                        = icon_tag("unlock", ["icon-fix"])
+                        = t("admin.payment_preferences.paypal_connected.enable")
 
                 - else
                   .col-6

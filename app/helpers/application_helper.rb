@@ -438,6 +438,16 @@ module ApplicationHelper
       }
     ]
 
+    links += [
+      {
+        :topic => :configure,
+        :text => t("admin.communities.footer.footer"),
+        :icon_class => icon_class("footer_menu"),
+        :path => admin_footer_edit_path,
+        :name => "footer"
+      }
+    ]
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
@@ -448,17 +458,15 @@ module ApplicationHelper
       }
     end
 
-    if FeatureFlagHelper.feature_enabled?(:user_fields)
-      links += [
-        {
-          :topic => :configure,
-          :text => t("admin.communities.user_fields.user_fields"),
-          :icon_class => icon_class("user_edit"),
-          :path => admin_person_custom_fields_path,
-          :name => "user_fields"
-        }
-      ]
-    end
+    links += [
+      {
+        :topic => :configure,
+        :text => t("admin.communities.user_fields.user_fields"),
+        :icon_class => icon_class("user_edit"),
+        :path => admin_person_custom_fields_path,
+        :name => "user_fields"
+      }
+    ]
 
     links += [
       {
