@@ -993,6 +993,7 @@ en:
       quantity_label: "Quantity:"
       sum_label: "Subtotal:"
       service_fee_label: "%{service_name} fee:"
+      buyer_service_fee_label: "%{service_name} service fee:"
       you_will_get_label: "You will get:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1264,6 +1265,7 @@ en:
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
       service_fee: "%{service_name} service fee:"
+      buyer_service_fee: "%{service_name} service fee:"
       you_will_get: "Total:"
       new_payment: "You have received a new payment"
       price_per_unit_type: "Price per %{unit_type}"
@@ -1279,7 +1281,7 @@ en:
       duration: Duration
       quantity: Quantity
       subtotal: Subtotal
-      service_fee: "%{service_name} service fee:"
+      buyer_service_fee: "%{service_name} service fee:"
       total: Total
       price: Price
       service_fee: "Service fee"
@@ -1304,7 +1306,7 @@ en:
       subtotal: Subtotal
       total: Total
       price: Price
-      service_fee: "Service fee"
+      buyer_service_fee: "Service fee"
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
