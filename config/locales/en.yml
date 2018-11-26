@@ -867,6 +867,7 @@ en:
         enable: "Enable PayPal again"
       cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
       cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
       stripe_form:
         add_your_api_keys: "Add your Stripe API keys"
         how_to_get_these: "How to get these?"
