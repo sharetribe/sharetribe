@@ -52,7 +52,7 @@ RUN curl -sfSL \
 #
 
 # Install nginx - used to serve maintenance mode page
-RUN apt-get install -y nginx
+RUN apt-get install -y nginx build-essential mysql-client libmysqlclient-dev libxslt-dev libxml2-dev
 
 # Install latest bundler
 ENV BUNDLE_BIN=

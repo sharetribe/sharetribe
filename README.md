@@ -46,6 +46,32 @@ Would you like to set up your marketplace in one minute without touching code? [
 
 ## Installation
 
+### docker-compose
+
+Obtain the `SECRET_KEY` and `SECRET_KEY_BASE` environment variables values, and add them to the `.env` file. You can use the sample `.env.sample`.
+
+After that:
+
+```
+docker-compose up --build
+```
+
+Note that you can modify the `docker-compose.yml` file, without building the images every time:
+
+```
+docker-compose up
+```
+
+### Importing data
+
+You can import a database dump, exported from another instance, and then use the second command from `docker-compose.yml` file, to execute the `Worker`, i.e.:
+
+```
+bundle exec rake jobs:work
+```
+
+After switching the commands in the Compose file, start normally, using `docker-compose up`.
+
 ### Requirements
 
 Before you get started, the following needs to be installed:

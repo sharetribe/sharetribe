@@ -1,10 +1,22 @@
 version: '2'
 services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: sharetribe
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: sharetribe_production
+      MYSQL_ROOT_PASSWORD: secret
+
   web:
     build: .
     ports:
       - "3000:3000"
     env_file: .env
+    depends_on:
+      - mysql
   worker:
     build: .
     env_file: .env
@@ -13,7 +25,11 @@ services:
       - MAGICK_MAP_LIMIT=64MiB
       - MAGICK_MEMORY_LIMIT=256MiB
       - MAGICK_TIME_LIMIT=30
-    command: bundle exec rake jobs:work
+      - DISABLE_DATABASE_ENVIRONMENT_CHECK=1 # remove restrictions on clearing db in prod env
+    command: bundle exec rake db:structure:load jobs:work # use to create new instances
+    # command: bundle exec rake jobs:work # use with existing databases
+    depends_on:
+      - mysql
   memcached:
     image: memcached:latest
 networks:

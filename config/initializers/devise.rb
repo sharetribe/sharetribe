@@ -264,4 +264,7 @@ Devise.setup do |config|
 
   # ==> Warden configuration
   # see config/initializers/warden.rb
+
+  config.secret_key = ENV["SECRET_KEY"]
+
 end
