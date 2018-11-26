@@ -48,15 +48,19 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def enable
-    result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
-    error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway])
-    redirect_to admin_payment_preferences_path, error: error_message
+    if can_enable_gateway?
+      result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
+      error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway])
+    else
+      error_message = t("admin.payment_preferences.cannot_enable_gateway_because_of_buyer_commission", gateway: params[:payment_gateway])
+    end
+    redirect_to admin_payment_preferences_path, flash: {error: error_message}
   end
 
   def disable
     result = tx_settings_api.disable(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
     error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_disable_gateway", gateway: params[:payment_gateway])
-    redirect_to admin_payment_preferences_path, error: error_message
+    redirect_to admin_payment_preferences_path, flash: {error: error_message}
   end
 
   private
@@ -352,5 +356,16 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def ensure_params_payment_gateway
     ['stripe', 'paypal'].include?(params[:payment_gateway])
+  end
+
+  def can_enable_gateway?
+    if params[:payment_gateway] == 'paypal'
+      commission_from_buyer = stripe_tx_settings[:commission_from_buyer]
+      minimum_buyer_transaction_fee_cents = stripe_tx_settings[:minimum_buyer_transaction_fee_cents]
+      !((commission_from_buyer.present? && commission_from_buyer >0) ||
+        (minimum_buyer_transaction_fee_cents.present? && minimum_buyer_transaction_fee_cents > 0))
+    else
+      true
+    end
   end
 end
