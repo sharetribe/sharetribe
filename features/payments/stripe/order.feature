@@ -33,7 +33,7 @@ Feature: Buyer initiate order and pays
     And the price of that listing is 100.00 EUR
     And I go to the listing page
     When I press "Buy For Money"
-    Then I should see "Sharetribe fee: €10"
+    Then I should see "Sharetribe service fee: €10"
     Then I should see "Total: €110"
     And I pay with stripe
     Then I should see "Payment authorized"
