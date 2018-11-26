@@ -52,13 +52,13 @@ Feature: Buyer initiate order and pays for listing per hour
     Then I should see "Booked hours: Mon, Nov 28, 2050 - 9:00 am to 12:00 pm (3 hours)"
     Then I should see "Price per hour: $1.55"
     Then I should see "Subtotal: $4.65"
-    Then I should see "Sharetribe fee: $0.46"
+    Then I should see "Sharetribe service fee: $0.46"
     Then I should see "Total: $5.11"
     And I pay with stripe
     Then I should see "Payment authorized"
     Then I should see "Booked hours: Mon, Nov 28, 2050 - 9:00 am to 12:00 pm (3 hours)"
     Then I should see "Price per hour: $1.55"
     Then I should see "Subtotal: $4.65"
-    Then I should see "Sharetribe fee: $0.46"
+    Then I should see "Sharetribe service fee: $0.46"
     Then I should see "Total: $5.11"
 
