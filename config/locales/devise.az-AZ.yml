@@ -1,57 +1,57 @@
 az-AZ:
   errors:
     messages:
-      expired: "vaxtı ötürülüb, sorğunuzu yenidən göndərməyinizi xahiş edirik"
+      expired: "sona çatdı, yeni bir tələb edin"
       not_found: tapılmadı
       already_confirmed: "artıq təsdiglənib. Zəhmət olmasa, daxil etməyə çalışın"
-      not_locked: "blokda deyildi"
+      not_locked: bloklamamışdır
       not_saved:
-        other: "%{count} səhv %{resource}-nun yadda saxlamağına qadağa qoydu:"
+        other: "%{count} səhv %{resource}-nun yadda saxlamağına qadağan etdi:"
   devise:
     failure:
-      already_authenticated: "Siz artıq qeydiyyatdan keçmisiniz."
-      unauthenticated: "Davam etməyinizdən əvvəl, siz hesabınıza daxil olmalısınız və ya qeydiyyatdan keşməlisiniz."
+      already_authenticated: "Siz artıq daxil olumusunuz."
+      unauthenticated: "Davam etməyinizdən əvvəl sistemə daxil olun və ya qeydiyyatdan keçin."
       unconfirmed: "Davam etməyinizdən əvvəl, siz hesabınızı təsdiqləməlisiniz."
-      locked: "Sizin hesabınız bloklaşdırılıb."
-      invalid: "Yanlış email və ya parol."
-      invalid_token: "Yanlış \"authentication token\"."
-      timeout: "Sizin sessiyanız sona çatdı. Zəhmət olmasa, davam etmək üçün yenidən daxil edin."
-      inactive: "Sizin hesabınız hələ də aktivləşməyib."
+      locked: "Sizin hesabınız bloklaşdırılmişdır."
+      invalid: "Yanlış e-poçt və ya parol."
+      invalid_token: "Yanlış identifikasiya simgəsi."
+      timeout: "Sessiyanın müddəti bitdi. Davam etmək üçün yenidən daxil edin."
+      inactive: "Hesabınız hələ aktivləşdirilməyib."
     passwords:
-      updated_not_active: "Sizin parolunuz uğurla dəyişdi."
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: "Sizin parolunuz uğurla dəyişdi. Siz artıq daxil olmuşsunuz."
+      updated_not_active: "Parolunuz uğurla dəyişdirildi."
+      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, e-poçtunuzda parol bərpası üçün linki alacaqsınız"
+      send_instructions: "Bir neçə dəqiqə ərzində parolunuzu necə sıfırlamaq barədə təlimatlara dair bir e-poçt alacaqsınız."
+      updated: "Parolunuz uğurla dəyişdirildi. İndi sistemə daxilsiniz."
     sessions:
-      signed_in: "Uğurla daxil olmuşsunuz."
+      signed_in: "Uğurla daxil olmusunuz."
       signed_out: "Uğurla çıxmısınız."
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
+      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimat verən bir e-poçt alacaqsınız."
+      send_instructions: "Bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimatlara dair bir e-poçt alacaqsınız."
       confirmed: "Hesabınız uğurla təsdiqləndi."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "E-poçt ünvanınıza təsdiq linki olan mesaj göndərildi. Hesabınızı aktivləşdirmək üçün link açın."
+      signed_up_but_inactive: "Siz uğurla qeydiyyatdan keçmisniz. Halbuki, hesabınız hələ aktiv olmadığına görə, biz sizi daxil etdirə bilməmişik."
+      signed_up_but_locked: "Siz uğurla qeydiyyatdan keçmisniz. Halbuki, hesabınız blokda olduğuna görə, biz sizi daxil etdirə bilməmişik."
       reasons:
         inactive: "aktiv deyil"
-        unconfirmed: təsdiqlənməyib
-        locked: bloklaşdırılıb
-      update_needs_confirmation: ~
+        unconfirmed: təsdiqlənməmiş
+        locked: bloklaşdırılmış
+      update_needs_confirmation: "Siz hesabınızı uğurla yeniləmisiniz, lakin yeni e-poçt ünvanınızı təsdiqləməyiniz lazımdır. Xahiş edirik e-poçtunuzu yoxlayın və yeni e-poçt ünvanınızı təsdiqləməyiniz üçün təsdiqləmə linkinə vurun."
       signed_up: "Xoş qəlmişsiniz! Siz uğurla qeydiyyatdan keçmisiniz."
       updated: "Siz hesabınızı uğurla yeniləmisiniz."
-      destroyed: ~
+      destroyed: "Hesabınız uğurla ləğv edildi. Sizi tezliklə yenidən görüşməyə ümid edirik."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Hesabınız mövcuddursa, bir neçə dəqiqə ərzində onu necə açmaq barədə təlimatlara malik bir e-poçt alacaqsınız."
+      send_instructions: "Hesabınızı bir neçə dəqiqə ərzində necə açmaq barədə təlimatlara dair bir e-poçt alacaqsınız."
+      unlocked: "Hesabınız uğurla açıldı. Davam etmək üçün daxil edin."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "%{kind} hesabından uğurla icazə verildi."
+      failure: "%{kind}-dan sizə icazə verilmədi, çünki \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "%{service_name}-a qoşulmaq üçün təlimat"
       reset_password_instructions:
-        subject: ~
+        subject: "Parolu yenidən təyin edilməsi üçün təlimat"
       unlock_instructions:
-        subject: ~
+        subject: "Blokdan çıxarma üzrə təlimatları"

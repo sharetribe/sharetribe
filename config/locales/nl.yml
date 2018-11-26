@@ -331,19 +331,19 @@ nl:
         export_all_as_csv: "Exporteer alles als CSV"
         processing_export: "Export naar CSV wordt verwerkt."
         transactions: Transacties
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Zoek op transactie titel of betrokken partijen"
+        search: Zoek
+        reset_search: "Toon alles"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          preauthorized: ~
-          rejected: ~
+          all: "Alle statussen"
+          selected: "Gekozen statussen: %{count}"
+          selected_js: "Gekozen statussen: "
+          free: "Vrije transactie"
+          confirmed: Voltooid
+          paid: Betaald
+          canceled: Geannuleerd
+          preauthorized: "Vooraf geauthoriseerd"
+          rejected: Geweigerd
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -428,15 +428,15 @@ nl:
           blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
       listings:
         listings: Advertenties
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search_by_title_author_category: "Zoek op advertentietitel, auteur of categorienaam"
+        search: Zoek
+        reset_search: "Toon alles"
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          all: "Alle statussen"
+          selected_js: "Gekozen statussen: "
+          open: Open
+          closed: Gesloten
+          expired: Verlopen
         headers:
           title: Titel
           author: Auteur
@@ -450,33 +450,33 @@ nl:
       user_fields:
         user_fields: Gebruikersvelden
       footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
+        footer: Voettekst
+        offer_pro: "Configureer en verwijder alle Sharetribe branding van de voettekst van je marktplaats door %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "te upgraden naar het Pro plan of hoger"
+        menu_links: "Voettekst links"
+        language: Taal
+        title: Titel
+        url: URL
+        add: "Voeg nieuwe link aan de voettekst toe"
+        save: "Sla instellingen op"
+        footer_style: "Voettekst stijl"
+        footer_copyright: "Voettekst copyright"
+        footer_enabled: "Voettekst ingeschakeld"
+        social_links: "Voettekst sociale links"
         style:
-          dark: ~
-          light: ~
+          dark: Donker
+          light: Licht
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
-          title: ~
-          url: ~
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: YouTube
+          googleplus: Google+
+          linkedin: LinkedIn
+          pinterest: Pinterest
+          soundcloud: SoundCloud
+          title: Titel
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"

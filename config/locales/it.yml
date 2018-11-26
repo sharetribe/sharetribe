@@ -248,7 +248,7 @@ it:
         ban_user_confirmation: ~
         unban_user_confirmation: ~
         ban_me_error: ~
-        search: ~
+        search: Cerca
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
@@ -315,7 +315,7 @@ it:
         processing_export: ~
         transactions: "Visualizza transazioni"
         search_by_title_parties: ~
-        search: ~
+        search: Cerca
         reset_search: ~
         status_filter:
           all: ~
@@ -412,7 +412,7 @@ it:
       listings:
         listings: ~
         search_by_title_author_category: ~
-        search: ~
+        search: Cerca
         reset_search: ~
         status:
           all: ~
@@ -1449,7 +1449,7 @@ it:
       default_content: "Qui puoi trovare informazioni di come %{marketplace_name} funziona."
   landing_page:
     hero:
-      search: ~
+      search: Cerca
       signup: ~
       search_placeholder: "Che cosa stai cercando?"
       search_location_placeholder: Area

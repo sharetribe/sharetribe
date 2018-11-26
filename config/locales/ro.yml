@@ -144,7 +144,7 @@ ro:
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
-        welcome_email_content: "Bun venit e-mail"
+        welcome_email_content: "Continut e-mail de \"Bun venit\""
         welcome_email_content_description: "Mesajul de mai jos va fi trimis fiecarui utilizator nou cand se alatura. Puteți personaliza mesajul astfel încât să se potrivească marketplace-ului dvs. Făcând clic pe \"%{send_test_message_link}\" puteți trimite un mesaj de previzualizare la adresa dvs. de e-mail, astfel încât să puteți vedea cum arată într-un client de e-mail."
         edit_message: "Editați mesaj"
         send_test_message: "Trimiteți mesaj test"
@@ -186,7 +186,7 @@ ro:
         verification_sent_from: "E-mailul de verificare a fost trimis de %{verification_sender_name}."
         follow_the_instructions: ~
       getting_started:
-        getting_started: ~
+        getting_started: "Incepe aici"
       available_languages:
         en: ~
         en-AU: ~
@@ -253,7 +253,7 @@ ro:
         delete_this_marketplace: ~
         payment_preferences: ~
       manage_members:
-        manage_members: ~
+        manage_members: Utilizatori
         email: Email
         name: Nume
         display_name: "Nume publicat"
@@ -333,7 +333,7 @@ ro:
       transactions:
         export_all_as_csv: "Exportă tot in formatul CSV"
         processing_export: ~
-        transactions: ~
+        transactions: Tranzactii
         search_by_title_parties: ~
         search: ~
         reset_search: ~
@@ -405,7 +405,7 @@ ro:
         participants: ~
         profile: ~
       testimonials:
-        testimonials: ~
+        testimonials: Recenzii
         no_testimonials_found: ~
         displaying_xx_reviews: ~
         headers:
@@ -592,11 +592,11 @@ ro:
         hello_firstname_text: ~
     left_hand_navigation:
       general: ~
-      users_and_transactions: ~
-      configure: ~
-      emails_title: ~
-      subscription: ~
-      preview: ~
+      users_and_transactions: Administreaza
+      configure: Configureaza
+      emails_title: Emailuri
+      subscription: Abonament
+      preview: "Previzualizeaza site"
     listing_shapes:
       availability_title: ~
       read_more: ~
@@ -1192,12 +1192,12 @@ ro:
     community_updates:
       added_offer: "%{name_link} a adăugat un anunț:"
       added_request: "%{name_link} a adăugat un anunț:"
-      added_listing: "%{name_link} a adăugat o postare:"
-      update_mail_title: "actualizare %{title_link}"
+      added_listing: "%{name_link} a adaugat o noua listare:"
+      update_mail_title: "Noutati %{title_link}"
       title_link_text: "%{community_name}"
-      intro_paragraph: "Iată câteva dintre lucrurile care au avut loc în %{community_link} în timpul ultimelor %{time_since_last_update}."
+      intro_paragraph: "Iata cateva noutati %{community_link} din ultimele %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name}"
-      reduce_email_footer_text: "Prea multe e-mailuri %{settings_link} sau %{unsubscribe_link}."
+      reduce_email_footer_text: "Primesti prea multe e-mailuri? %{settings_link} sau %{unsubscribe_link}."
       settings_link_text: "Editaţi-vă setările de e-mail aici"
       unsubscribe_link_text: dezabonare
     newsletter:

@@ -341,7 +341,7 @@ es-ES:
           paid: Pagada
           canceled: Cancelada
           preauthorized: Preautorizada
-          rejected: ~
+          rejected: Rechazada
         headers:
           conversation: Conversación
           listing: Anuncio
@@ -426,15 +426,15 @@ es-ES:
           blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
       listings:
         listings: Anuncios
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search_by_title_author_category: "Buscar por título del anuncio, autor o categoría"
+        search: Buscar
+        reset_search: "Mostrar todos"
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          all: Todos
+          selected_js: "Estatus seleccionados: "
+          open: Abierto
+          closed: Cerrado
+          expired: Expirado
         headers:
           title: Título
           author: Autor
@@ -449,8 +449,8 @@ es-ES:
         user_fields: "Datos de usuarios"
       footer:
         footer: "Pie de página"
-        offer_pro: ~
-        upgrade_plan_link: ~
+        offer_pro: "Configura el píe de página y remueve el branding de Sharetribe de tu marketplace al %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "suscribirte al plan Pro o mejor"
         menu_links: Vínculos
         language: Idioma
         title: Título
@@ -465,14 +465,14 @@ es-ES:
           dark: Oscuro
           light: Claro
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
+          facebook: Facebook
+          twitter: Twitter
+          instagram: Instagram
+          youtube: YouTube
+          googleplus: Google+
+          linkedin: LinkedIn
+          pinterest: Pinterest
+          soundcloud: SoundCloud
           title: Título
           url: URL
     custom_fields:

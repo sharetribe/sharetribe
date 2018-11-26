@@ -1,4 +1,4 @@
-az-AZ:
+crp:
   number:
     currency:
       format:
@@ -766,53 +766,53 @@ az-AZ:
         offer: ~
         inquiry: ~
   common:
-    edit_page: "Səhifəni redaktə et"
+    edit_page: ~
     default_community_slogan: ~
     default_community_description: ~
-    cancel: "Ləğv et"
-    fields_that_are_mandatory: "Ulduz (*) ilə qeyd olunmuş xanalar məcburidir."
-    or: "və ya"
-    password: Parol
-    service_name: "%{service_name}"
+    cancel: ~
+    fields_that_are_mandatory: ~
+    or: ~
+    password: ~
+    service_name: ~
     share_types:
-      request: istək
-      offer: təklif
-      borrow: "borc götürmək"
-      buy: "satın almaq"
-      give_away: "bəxşiş vermək"
-      lend: "kirayəyə vermək"
-      receive: "pulsuz almaq"
-      rent: "kirayəyə vermək"
-      rent_out: "kirayəyə vermək"
-      sell: satmaq
-      offer_to_swap: dəyişmə
-      request_to_swap: dəyişmə
+      request: ~
+      offer: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      offer_to_swap: ~
+      request_to_swap: ~
       share_for_free: ~
       accept_for_free: ~
     categories:
-      item: Əşyalar
-      favor: Xidmətlər
+      item: ~
+      favor: ~
       rideshare: ~
       housing: ~
-      tools: Alətlər
-      sports: İdman
-      music: Musiqi
-      books: "Kitablar və Jurnallar"
-      games: "Oyunlar və oyuncağlar"
-      furniture: Mebel
-      outdoors: "Təbiət & Açıq Hava"
-      food: "Qida və Mətbəx"
-      electronics: "Elektron cığazlar"
-      pets: Heyvanlar
-      film: "Filmlər və Kinolar"
-      clothes: "Geyim və Aksesuarlar"
-      garden: Bağ
-      travel: Səyahət
-      other: Digər
-    username: "İstifadəçi adı"
-    username_or_email: "E-poçt və ya istifadəçi adı"
-    what_is_this: "Bu nədir?"
-    removed_user: "Silinmiş istifadəçi"
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+    username: ~
+    username_or_email: ~
+    what_is_this: ~
+    removed_user: ~
     payment_fee_info:
       title: ~
       stripe: ~
@@ -831,14 +831,14 @@ az-AZ:
     accept:
       details: ~
       order_by: ~
-      accept_offer: "Təklifi qəbul et"
-      accept_request: "İstəyi qəbul et"
-      reject_offer: "Bu zaman yox"
-      reject_request: "Bu zaman yox"
-      close_listing: "%{listing_title_link} elanı bağla"
-      update_later: "Elanı açıq burax"
-      optional_message: "Əlavə mesaj"
-      price_to_pay: "Ödəniləcək ümumi qiymət"
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+      close_listing: ~
+      update_later: ~
+      optional_message: ~
+      price_to_pay: ~
       accept: ~
       decline: ~
       quantity_label: ~
@@ -854,8 +854,8 @@ az-AZ:
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:
-      confirm_description: "Sifarişiniz yerinə yetirildiyi təqdirdə, onu qəbul edilmiş şəkildə təsdiqləməlisiniz. Ondan sonra, siz digər tərəfə geribildirim verə bilərsiniz."
-      cancel_description: "Sifarişiniz yerinə yetirilməmişdirsə, onu 'mübahisəli' kimi qeyd edə bilərsiniz. Hələ də digər tərəfə geribilidirim vermək və baş verənləri təsvir edə bilərsiniz."
+      confirm_description: ~
+      cancel_description: ~
       cancel_payed_description: ~
       canceling_payed_transaction: ~
       confirm: ~
@@ -868,11 +868,11 @@ az-AZ:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: "Daha çox mesaj yüklənir"
-      message_partitive: mesaj
-      messages_partitive: mesaj
-      no_received_messages: "Mesaj yoxdur"
-      no_sent_messages: "Göndərilmiş mesaj yoxdur"
+      loading_more_messages: ~
+      message_partitive: ~
+      messages_partitive: ~
+      no_received_messages: ~
+      no_sent_messages: ~
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -902,28 +902,28 @@ az-AZ:
         held_payment: ~
         confirmed_request: ~
     new:
-      message: Mesaj
+      message: ~
       message_to: ~
       optional_message_to: ~
-      send_message: "Mesaj göndər"
+      send_message: ~
       send: ~
-      this_message_is_private: "Bu mesaj siz və %{person} arasında gizlidir. %{person} bu mesaj barədə e-poçt vasitəsilə məlumatlandırılacaq."
-      you_will_get_notified_of_acceptance: "%{person} təklifinizi qəbul və ya rədd etdiyində, siz bir e-poçt bildiriş əldə edəcəksiniz."
-      you_will_get_notified: "%{person} cavablandırdığınızda, siz bir e-poçt bildiriş əldə edəcəksiniz."
-      title: Başlıq
-      send_message_to_user: "%{person} -a mesaj göndər"
+      this_message_is_private: ~
+      you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: ~
+      send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
     show:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: "Cavab göndərin"
-      write_a_reply: "Cavab verin:"
-      conversation_about_listing: "%{person} ilə %{listing} haqqında"
-      conversation_with_user: "%{person} ilə"
+      send_reply: ~
+      write_a_reply: ~
+      conversation_about_listing: ~
+      conversation_with_user: ~
       conversation_with: ~
-      last_message_at: "(son mesaj %{time})"
+      last_message_at: ~
       price: ~
       sum: ~
       total: ~
@@ -932,11 +932,11 @@ az-AZ:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: "Geribildirim verilmişdir"
-      feedback_skipped: "Geribildirim ötürülmüşdür"
-      give_feedback: "Geribildirimi ver"
-      offer_accepted: "Qəbul olunmuşdur"
-      offer_rejected: "Rədd olunmuşdur"
+      feedback_given: ~
+      feedback_skipped: ~
+      give_feedback: ~
+      offer_accepted: ~
+      offer_rejected: ~
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -952,13 +952,13 @@ az-AZ:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: "Qəbul olunmuşdur"
-      request_rejected: "Rədd olunmuşdur"
+      request_accepted: ~
+      request_rejected: ~
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: "Geribildirimi ötür"
+      skip_feedback: ~
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -976,10 +976,10 @@ az-AZ:
       stripe:
         waiting_confirmation_from_requester: ~
     status_link:
-      accept_offer: "Təklifi qəbul et"
-      accept_request: "İstəyi qəbul et"
-      reject_offer: "Bu dəfə yox"
-      reject_request: "Bu dəfə yox"
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -993,33 +993,33 @@ az-AZ:
     anonymous_user: ~
   community_memberships:
     access_denied:
-      access_denied: "Giriş qadağandır"
-      you_are_banned_in_this_community: "Komandanın %{service_name}-ya daxil olmağın qarşısını aldı. %{service_name} komandasına müraciət etmək istəyirsinizsə, %{link_to_contact_page} edə bilərsiniz."
-      contact_page_link: "onlara müraciət edin"
+      access_denied: ~
+      you_are_banned_in_this_community: ~
+      contact_page_link: ~
     new:
-      welcome_fb_user: "%{service_name}-a xoş gəlmişsiniz, %{name}!"
-      fb_join_accept_terms: "%{service_name}-a qoşulmaq üçün bir addım da var: istifadə şərtlərini qəbul etməlisiniz."
-      join_community: "%{service_name}-a qoşul"
-      you_can_join: "Siz, istifadə şərtlərini qəbul edib və \"%{service_name}-a qoşul\" basıb %{service_name}-a qoşula bilərsiniz."
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
+      join_community: ~
+      you_can_join: ~
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: "%{service_name}-a qoşulmaq üçün başqa bir üzvdən dəvət almanız lazımdır. Dəvətnamə kodunuz varsa, kodu istifadə etmək şərtlərini qəbul edərək və aşağıdakı \"%{service_name}-a qoşul\" düyməsinə basıb qoşula bilərsiniz."
+      you_can_join_with_invite_only: ~
       if_want_to_view_content: ~
-      log_out: çıxış
-      join_community_button: "%{service_name}-a qoşul"
+      log_out: ~
+      join_community_button: ~
     give_consent:
-      invitation_code_invalid_or_used: "Dəvət kodu etibarsızdır və ya artıq istifadə olunur."
-      email_not_allowed: "Bu e-poçta %{service_name}-da icazə verilmir."
-      email_not_available: "Verdiyiniz e-poçt artıq istifadə olunur."
-      consent_not_given: "Şərtlər qəbul edilməmişdir."
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: "%{sender_name}-dan gəlmiş təklifi qəbul və ya rədd etməyi unutmayın"
-      remember_to_accept_request: "%{sender_name}-dan gəlmiş istəyi qəbul və ya rədd etməyi unutmayın"
-      you_can_accept_or_reject_offer_at: "Siz təklifi qəbul və ya rədd edə bilərsiniz"
-      you_can_accept_or_reject_request_at: "Siz istəyi qəbul və ya rədd edə bilərsiniz:"
-      you_have_not_yet_accepted_or_rejected_offer: "Siz %{date} tarixində aldığınız %{title} təklifini hələ qəbul və ya rədd etməmisiniz."
-      you_have_not_yet_accepted_or_rejected_request: "Siz %{date} tarixində aldığınız %{title} istəyini hələ qəbul və ya rədd etməmisiniz."
+      remember_to_accept_offer: ~
+      remember_to_accept_request: ~
+      you_can_accept_or_reject_offer_at: ~
+      you_can_accept_or_reject_request_at: ~
+      you_have_not_yet_accepted_or_rejected_offer: ~
+      you_have_not_yet_accepted_or_rejected_request: ~
       show_thread: ~
     branding:
       powered_by: ~
@@ -1062,9 +1062,9 @@ az-AZ:
       confirmation_link_text: ~
       or_paste_link: ~
     common:
-      hey: "Salam, %{name},"
-      kassi_team: "%{service_name} komandası"
-      thanks: "Təşəkkürlər,"
+      hey: ~
+      kassi_team: ~
+      thanks: ~
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -1075,17 +1075,17 @@ az-AZ:
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} sizin %{listing} təklifinizi qəbul etdi."
-      has_accepted_your_request: "%{accepter} sizin %{listing} istəyinizi qəbul etdi."
-      has_rejected_your_offer: "%{accepter} sizin %{listing} təklifinizi rədd etdi."
-      has_rejected_your_request: "%{accepter} sizin %{listing} istəyinizi rədd etdi."
+      has_accepted_your_offer: ~
+      has_accepted_your_request: ~
+      has_rejected_your_offer: ~
+      has_rejected_your_request: ~
       view_thread: ~
-      your_offer_was_accepted: "Təklifiniz qəbul edildi"
-      your_offer_was_rejected: "Təklifiniz rədd edildi"
-      your_request_was_accepted: "İstəyiniz qəbul edildi"
-      your_request_was_rejected: "İstəyiniz rədd edildi"
+      your_offer_was_accepted: ~
+      your_offer_was_rejected: ~
+      your_request_was_accepted: ~
+      your_request_was_rejected: ~
       you_can_now_pay_to: ~
-      pay_now: "İndi ödə"
+      pay_now: ~
       remember_to_confirm: ~
     invitation_to_kassi:
       hi: ~
@@ -1096,13 +1096,13 @@ az-AZ:
     new_comment:
       has_commented_your_listing_in_kassi: ~
       view_comment: ~
-      you_have_a_new_comment: "%{author} sizin %{service_name}-daki elanızla əlaqədar şərh etdi"
+      you_have_a_new_comment: ~
       listing_you_follow_has_a_new_comment: ~
       has_commented_listing_you_follow_in_kassi: ~
     new_message:
       view_message: ~
-      has_sent_you_a_message_in_kassi: "%{sender} sizə %{service_name}-da mesaj göndərib."
-      you_have_a_new_message: "%{service_name}-da %{sender_name}-dan yeni mesaj var"
+      has_sent_you_a_message_in_kassi: ~
+      you_have_a_new_message: ~
     new_payment:
       new_payment: ~
       price_per_unit_type: ~
@@ -1162,8 +1162,8 @@ az-AZ:
       stripe:
         you_have_made_new_payment: ~
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} sizə %{service_name}-də geribildirim verdi"
-      you_can_give_feedback_to: "Siz hələ %{name}-a geribildirim vermədiniz."
+      has_given_you_feedback_in_kassi: ~
+      you_can_give_feedback_to: ~
       view_feedback: ~
     new_update_to_listing:
       listing_you_follow_has_been_updated: ~
@@ -1189,7 +1189,7 @@ az-AZ:
       change_my_password: ~
       reset_password_instructions: ~
     testimonial_reminder:
-      remember_to_give_feedback_to: "Xatırlatma: %{name}-a geribildirim verməyiniz unutmayın"
+      remember_to_give_feedback_to: ~
       you_have_not_given_feedback_yet: ~
     transaction_preauthorized:
       subject: ~
@@ -1228,12 +1228,12 @@ az-AZ:
       server_rendering: ~
     listings:
       departure_time: ~
-      share_type: "Birini seçməlisiniz."
-      valid_until: "Bu tarix bu gündən 6 aya qədər olmalıdır."
+      share_type: ~
+      valid_until: ~
       price: ~
       minimum_price: ~
     testimonials:
-      you_must_explain_not_neutral_feedback: "Neytral olmayan geribildirim vermək istəsəniz, onun səbəbinin açığlaması lazımdır."
+      you_must_explain_not_neutral_feedback: ~
       you_must_select_a_grade: ~
     transaction_agreement:
       required_error: ~
@@ -1251,12 +1251,12 @@ az-AZ:
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
-    back_to_kassi_front_page: "Baş səhifəyə qayıt"
+    back_to_kassi_front_page: ~
     error_404:
       if_you_believe: ~
-      page_can_not_be_found: "Səhifə tapılmadı!"
+      page_can_not_be_found: ~
       page_you_requested_can_not_be_found: ~
-    error_404_title: "səhifə tapılmadı"
+    error_404_title: ~
     error_410:
       page_removed: ~
       page_you_requested_has_been_removed: ~
@@ -1268,15 +1268,15 @@ az-AZ:
       we_hate_this: ~
       refer_to_error_id: ~
     error_500_title: ~
-    error_description: "Səhvin təsviri"
+    error_description: ~
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
       contact_us: ~
-      send_feedback: "Mesaj göndər"
-      your_feedback_to_admins: "Sizin %{service_name} komandasına mesajınız"
-    send: Göndər
-    your_email_address: "Email ünvanınız"
+      send_feedback: ~
+      your_feedback_to_admins: ~
+    send: ~
+    your_email_address: ~
   errors:
     messages:
       invalid_date: ~
@@ -1314,39 +1314,39 @@ az-AZ:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: Haqqında
-    home: "Ana səhifə"
-    members: İcma
-    new_listing: "Yeni elan"
-    mobile_version: "Mobil versiya"
-    offers: Təkliflər
-    requests: İstəklər
-    search_kassi: "%{service_name}-da axtar"
+    about: ~
+    home: ~
+    members: ~
+    new_listing: ~
+    mobile_version: ~
+    offers: ~
+    requests: ~
+    search_kassi: ~
     create_new_marketplace: ~
-    contact_us: "Bizimlə əlaqə"
-    profile: Profil
-    manage_listings: "Elanları idarə et"
-    invite: "Yeni üzvləri dəvət et"
-    login: "Daxil ol"
-    signup: "Qeydiyyatdan keç"
-    menu: Menü
+    contact_us: ~
+    profile: ~
+    manage_listings: ~
+    invite: ~
+    login: ~
+    signup: ~
+    menu: ~
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "Bundan əlavə, <b>bir təklif var</b>,"
-      additionally_one_private_request_exists: "Bundan əlavə, <b>bir istək var</b>,"
-      additionally_some_private_offers_exist: "Bundan əlavə, <b>%{number_of_listings} digər təklif var</b>,"
-      additionally_some_private_requests_exist: "Bundan əlavə, <b>%{number_of_listings} digər istək var</b>,"
+      additionally_one_private_offer_exists: ~
+      additionally_one_private_request_exists: ~
+      additionally_some_private_offers_exist: ~
+      additionally_some_private_requests_exist: ~
     blank_slate:
-      add_first: "Birini əlavə edin!"
-      but_that_is_visible_only_to_registered_members: "lakin o, ancaq qeydiyyatdan keçmiş üzvlərə aiddir."
-      but_those_are_visible_only_to_registered_members: "lakin bunlar ancaq qeydiyyatdan keçmiş üzvlərə aiddir."
-      create_new_account_for_yourself: "Özünüzə yeni bir hesab yaradın"
-      examples_of_what_you_could_offer_to_others: "Başqalara nə təklif edə bilərsiniz?"
-      examples_of_what_you_could_request_to_others: "Başqalardan nə tələb edə bilərsiniz?"
+      add_first: ~
+      but_that_is_visible_only_to_registered_members: ~
+      but_those_are_visible_only_to_registered_members: ~
+      create_new_account_for_yourself: ~
+      examples_of_what_you_could_offer_to_others: ~
+      examples_of_what_you_could_request_to_others: ~
       favor_offer_list: ~
       favor_request_list: ~
-      favors_to_offer: "Kömək: "
-      favors_to_request: "Kömək: "
+      favors_to_offer: ~
+      favors_to_request: ~
       item_offer_list: ~
       item_request_list: ~
       items_to_offer: ~
@@ -1386,7 +1386,7 @@ az-AZ:
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
-      news: Xəbərlər
+      news: ~
       no_news: ~
       more_news: ~
       or: ~
@@ -1447,12 +1447,12 @@ az-AZ:
       default_content: ~
   landing_page:
     hero:
-      search: Axtar
-      signup: "Qeydiyyatdan keç"
-      search_placeholder: "Siz nə axtarırsınız?"
-      search_location_placeholder: Yer
+      search: ~
+      signup: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
     listings:
-      no_listing_image: "Şəkil yoxdur"
+      no_listing_image: ~
   layouts:
     admin:
       admin: ~
@@ -1761,73 +1761,73 @@ az-AZ:
         save_listing: ~
       share_type:
         select: ~
-        borrow: "Borc götürmək"
-        buy: "Satın almaq"
-        give_away: "Bəxşiş vermək"
-        lend: "Kirayəyə vermək"
-        offer_type: "Təklifin növü"
-        receive: "Ödənişsiz qəbul edilir"
-        rent: "Kirayəyə vermək"
-        rent_out: "Kirayəyə vermək"
-        request_type: "İstəyin növü"
-        sell: Satmaq
+        borrow: ~
+        buy: ~
+        give_away: ~
+        lend: ~
+        offer_type: ~
+        receive: ~
+        rent: ~
+        rent_out: ~
+        request_type: ~
+        sell: ~
         share_for_free: ~
         accept_for_free: ~
-        trade: Dəyişmək
+        trade: ~
       tag_list:
-        comma_separate: "(vergül ayrı)"
-        tags: Teqlər
+        comma_separate: ~
+        tags: ~
       title:
         listing_title: ~
       valid_until:
-        valid_until: "Son tarix"
+        valid_until: ~
       valid_until_radio_buttons:
-        for_the_time_being: Hal-hazırda
+        for_the_time_being: ~
       privacy:
         privacy: ~
         private: ~
         public: ~
     help_texts:
-      help_share_type_title: "Təklifin və ya istəyin növü"
-      help_tags_title: Teqlər
-      help_valid_until_title: "Son tarix"
+      help_share_type_title: ~
+      help_tags_title: ~
+      help_valid_until_title: ~
     index:
-      all_categories: "Bütün kateqoriyalar"
-      all_offer_types: "Bütün təklif növləri"
-      all_request_types: "Bütün istək növləri"
-      category: Kateqoriya
-      did_not_found_what_you_were_looking_for: "Sizə lazım olan şeyi tapmamısınız?"
-      favors: Xidmətlər
-      housing: Məkanlar
-      items: Əşyalar
-      list_view: "Siyahı görünüşü"
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
       listings: ~
-      map_view: "Xəritə görünüşü"
-      offer_something: "Başqaları bilsinlər!"
-      offer_type: "Təklifin növü"
-      offers: Təkliflər
-      request_something: "Bir şey istəyin!"
-      request_type: "İstəyin növü"
-      requests: İstəklər
-      rideshare: Rideshare
-      you_have_something_others_do_not: "Təklif etməli bir şey var?"
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      you_have_something_others_do_not: ~
       feed_title: ~
     left_panel_link:
-      borrows: "Borc götürmək"
-      buys: "Satın almaq"
-      favors: Xidmətlər
-      give_aways: "Bəxşiş vermək"
-      housings: Məkanlar
-      items: Əşyalar
-      lends: "Kirayəyə vermə"
-      receives: "Ödənişsiz alma"
-      rent_outs: "Kirayəyə vermə"
-      rents: "Kirayəyə vermə"
-      rideshares: Rideshare
-      sells: Satılma
+      borrows: ~
+      buys: ~
+      favors: ~
+      give_aways: ~
+      housings: ~
+      items: ~
+      lends: ~
+      receives: ~
+      rent_outs: ~
+      rents: ~
+      rideshares: ~
+      sells: ~
       share_for_frees: ~
       accept_for_frees: ~
-      trades: Barter
+      trades: ~
     listing_actions:
       booking_from: ~
       booking_to: ~
@@ -1860,36 +1860,36 @@ az-AZ:
       unit: ~
       custom: ~
     quantity_placeholder: ~
-    please_comment: "Şərh əlavə et"
+    please_comment: ~
     reply_link:
       listing_closed: ~
     show:
       add_your_phone_number: ~
       add_profile_picture: ~
-      comments: "Açıq müzakirə"
+      comments: ~
       contact_by_phone: ~
       contact: ~
-      favor_offer: "Xidmət təklifi"
-      favor_request: "Xidmət istəyi"
+      favor_offer: ~
+      favor_request: ~
       inquiry: ~
       item_offer_trade: ~
       item_request_trade: ~
-      no_description: "Bu elanın təsviri yoxdur"
+      no_description: ~
       no_image: ~
       no_reviews: ~
-      offer: Təklif
+      offer: ~
       listing_created: ~
       open_until: ~
       feedback: ~
       qr_code: ~
-      request: İstək
-      rideshare_offer: "Rideshare təklifi"
-      rideshare_request: "Rideshare istəyi"
+      request: ~
+      rideshare_offer: ~
+      rideshare_request: ~
       send_private_message: ~
-      tags: Teqlər
-      time: dəfə
-      times: dəfə
-      times_viewed: Baxıldı
+      tags: ~
+      time: ~
+      times: ~
+      times_viewed: ~
       processing_uploaded_image: ~
       listing_created_at: ~
       price:
@@ -1941,25 +1941,25 @@ az-AZ:
       address_postal_code: ~
   mapview:
     index:
-      all_categories: "Bütün kateqoriyalar"
-      all_offer_types: "Bütün təklif növləri"
-      all_request_types: "Bütün istək növləri"
-      category: Kateqoriya
-      did_not_found_what_you_were_looking_for: "Sizə lazım olan şeyi tapmamısınız?"
-      favors: Xidmətlər
-      housing: Məkanlar
-      items: Əşyalar
-      list_view: "Siyah görünüşü"
-      map_view: "Xəritə görünüşü"
-      offer_something: "Başqaları bilsinlər!"
-      offer_type: "Təklifin növü"
-      offers: Təkliflər
-      request_something: "Bir şey istəyin!"
-      request_type: "İstəyin növü"
-      requests: İstəklər
-      rideshare: Rideshare
-      you_have_something_others_do_not: "Təklif etməli bir şey var?"
-    please_comment: "Şərh əlavə et"
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
   mercury:
     content_too_long: ~
   okl:
@@ -2043,32 +2043,32 @@ az-AZ:
       activate: ~
       deactivate: ~
     help_texts:
-      feedback_description_title: Geribildirim
+      feedback_description_title: ~
       help_invitation_code_title: ~
-      terms_title: "%{service_name}-ın istifadə şərtləri"
+      terms_title: ~
       invite_only_help_text: ~
       invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      create_new_account: "Hesab yarat"
-      email: "E-poçt ünvanı"
-      email_is_in_use: "Verdiyiniz e-poçt artıq istifadə olunur."
+      create_new_account: ~
+      email: ~
+      email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       invalid_username_or_email: ~
-      family_name: Soyad
-      given_name: Ad
+      family_name: ~
+      given_name: ~
       i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ", tələb olunmur"
+      not_required: ~
       notification_is_mandatory: ~
-      password_again: "Parolu təsdiqləyin"
+      password_again: ~
       show_my_name_to_others: ~
-      sign_up: "Yeni %{service_name} hesabı yarat"
+      sign_up: ~
       terms: ~
       privacy: ~
       username_is_in_use: ~
@@ -2097,15 +2097,15 @@ az-AZ:
       edit_profile_info: ~
       exceeded_expectations: ~
       positive: ~
-      hide_description: "Az göstər"
+      hide_description: ~
       less_than_expected: ~
       phone_number: ~
       show_all_feedback: ~
       show_all_testimonials: ~
-      show_full_description: "Daha çox göstər"
+      show_full_description: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
-      what_are_these: "Bunlar nədir?"
+      what_are_these: ~
       review: ~
       reviews: ~
       listing: ~
@@ -2289,58 +2289,58 @@ az-AZ:
     first_day_of_week: ~
   datepicker:
     days:
-      sunday: Bazar
-      monday: "Bazar ertəsi"
-      tuesday: "Çərşənbə axşamı"
-      wednesday: Çərşənbə
-      thursday: "Cümə axşamı"
-      friday: Cümə
-      saturday: Şənbə
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     days_short:
-      sunday: Bazar
-      monday: "Bazar ertəsi"
-      tuesday: "Çərşənbə axşamı"
-      wednesday: Çərşənbə
-      thursday: "Cümə axşamı"
-      friday: Cümə
-      saturday: Şənbə
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     days_min:
-      sunday: Bazar
-      monday: "Bazar ertəsi"
-      tuesday: "Çərşənbə axşamı"
-      wednesday: Çərşənbə
-      thursday: "Cümə axşamı"
-      friday: Cümə
-      saturday: Şənbə
+      sunday: ~
+      monday: ~
+      tuesday: ~
+      wednesday: ~
+      thursday: ~
+      friday: ~
+      saturday: ~
     months:
-      january: Yanvar
-      february: Fevral
-      march: Mart
-      april: Aprel
-      may: May
-      june: İyun
-      july: İyul
-      august: Avqust
-      september: Sentyabr
-      october: Oktyabr
-      november: Noyabr
-      december: Dekabr
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
     months_short:
-      january: Yan.
-      february: Fev.
-      march: Mar.
-      april: Apr.
-      may: May
-      june: İyun
-      july: İyul
-      august: Avq.
-      september: Sen.
-      october: Okt.
-      november: Noy.
-      december: Dek.
-    today: "Bu gün"
-    clear: Sil
-    format: dd.mm.yyyy
+      january: ~
+      february: ~
+      march: ~
+      april: ~
+      may: ~
+      june: ~
+      july: ~
+      august: ~
+      september: ~
+      october: ~
+      november: ~
+      december: ~
+    today: ~
+    clear: ~
+    format: ~
   time:
     formats:
       short: ~
@@ -2385,24 +2385,24 @@ az-AZ:
     listings:
       errors:
         availability:
-          something_went_wrong: "Mövcudluq haqqında məlumatların göstərilməsi mümkün deyil. Səhifəni yenidən yükləməyə cəhd edin."
-          saving_failed: "Mövcudluq haqqında məlumatların yadda saxlaması mümkün deyil. Səhifəni yenidən yükləməyə cəhd edin."
+          something_went_wrong: ~
+          saving_failed: ~
         working_hours:
-          required: məcburi
+          required: ~
           overlaps: ~
           covers: ~
       pricing_units:
-        piece: ədəd
-        hour: saat
-        day: gün
-        night: gecə
-        week: həftə
-        month: ay
-      edit_availability_header: Mövcudluq
-      save_and_close_availability_editing: "Yadda saxla və bağla"
-      confirm_discarding_unsaved_availability_changes_explanation: "Mövcudluq məlumatlarınıza dəyişikliklər yadda saxlamamışdır. Əgər davam etsəniz, həmin dəyişikliklər itiriləcəkdir."
-      confirm_discarding_unsaved_availability_changes_question: "Dəyişikliklərinizi ləğv etmək istədiyinizə əminsiniz?"
-      edit_listing_availability: "Elanın mövcudluğunu dəyiş"
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
       working_hours:
         default_schedule: ~
         i_am_available_on: ~
@@ -2411,36 +2411,36 @@ az-AZ:
         add_another_time_slot: ~
         save: ~
     no_listings:
-      sorry: "Təsaddüfən, verdiyiniz axtarış kriteriyalara uyğun elanlar tapılmadı."
-      try_other_search_terms: "Bəlkə digər sözləri axtaraq?"
+      sorry: ~
+      try_other_search_terms: ~
     listing_card:
-      add_picture: "Şəkili əlavə et"
-      no_picture: "Şəkil yoxdur"
+      add_picture: ~
+      no_picture: ~
     search:
-      page: Səhifə
-      page_of_pages: "cəmi %{total_number_of_pages} səhifədən"
+      page: ~
+      page_of_pages: ~
     topbar:
-      menu: Menü
-      more: "Daha çox"
-      search_placeholder: Axtar...
-      search_location_placeholder: Yer
-      user: İstifadəçi
-      inbox: "Daxil olanlar qutusu"
-      profile: Profil
-      manage_listings: "Elanları idarə et"
-      settings: Ayarlar
-      logout: "Hesabdan çıx"
-      login: "Daxil ol"
-      signup: "Qeydiyyatdan keç"
-      admin_dashboard: "Admin paneli"
-      language: Dil
+      menu: ~
+      more: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
+      user: ~
+      inbox: ~
+      profile: ~
+      manage_listings: ~
+      settings: ~
+      logout: ~
+      login: ~
+      signup: ~
+      admin_dashboard: ~
+      language: ~
     utils:
-      km: km
-      mi: mi
+      km: ~
+      mi: ~
     branding:
       powered_by: ~
       create_own: ~
-      learn_more: "Daha ətraflı öyrən"
+      learn_more: ~
   will_paginate:
     previous_label: ~
     next_label: ~

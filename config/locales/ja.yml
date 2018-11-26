@@ -375,11 +375,11 @@ ja:
             free: ~
             pending: ~
             preauthorized: ~
-            accepted: ~
+            accepted: 承認済み
             rejected: ~
             paid: ~
             confirmed: ~
-            canceled: ~
+            canceled: キャンセルされました
             initiated: ~
             pending_ext: ~
         not_available: ご利用できません
@@ -1952,14 +1952,14 @@ ja:
     stripe_payment:
       payment: ~
       pay_with_card: ~
-      address: ~
-      address_country: ~
+      address: 配送先住所
+      address_country: 国
       address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      address_city: 市町村
+      address_state: 都道府県
+      address_street1: 住所１
+      address_street2: 住所２
+      address_postal_code: 郵便番号
   mapview:
     index:
       all_categories: すべてのカテゴリー
@@ -2500,14 +2500,14 @@ ja:
     you_are_ready_to_accept_payments: ~
     commission: ~
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: お支払い確認
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
+    paypal: ペイパル
+    paypal_connected: ペイパルアカウントは正常に接続されました
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
     form_new:
@@ -2520,21 +2520,21 @@ ja:
       last_name_kana: "担当者氏名 (姓・かな)"
       first_name_kanji: "担当者氏名 (名・漢字)"
       last_name_kanji: "担当者氏名 (姓・漢字)"
-      country: ~
-      birth_date: ~
+      country: 国
+      birth_date: 生年月日
       ssn_last_4: ~
       personal_id_number: ~
-      address_country: ~
-      address_state: ~
+      address_country: 国
+      address_state: 都道府県
       address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      address_city: 市町村
+      address_postal_code: 郵便番号
+      address_line1: 住所
       tos_link: ~
       tos_link_title: ~
       save_details: ~
       edit: ~
-      cancel: ~
+      cancel: キャンセル
       gender: 性別
       phone_number: ~
       address_kana_postal_code: "郵便番号 (会社住所)"
@@ -2550,17 +2550,17 @@ ja:
       male: ~
       female: ~
     form_bank:
-      bank_account_number: ~
+      bank_account_number: 口座番号
       bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_routing_1: 銀行コード
+      bank_routing_2: 支店コード
+      bank_currency: 通貨
       update_also_bank_account: ~
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
+        account_number: 口座番号
+        routing_number: ルーティングナンバー
+        bank_code: 銀行コード
+        branch_code: 支店コード
         transit_number: ~
         institution_number: ~
         format_varies_by_bank: ~
