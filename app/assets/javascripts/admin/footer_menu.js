@@ -70,6 +70,8 @@ window.ST = window.ST || {};
         down: $(".menu-link-action-down", entry)
       };
       orderManager.add(newField);
+      fieldCount++;
+      updateTableVisibility();
       return event.preventDefault();
     });
 
