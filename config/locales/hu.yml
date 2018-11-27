@@ -43,7 +43,7 @@ hu:
         warning_subcategory_will_be_removed:
           other: "%{count} számú alkategória van a kategórián belül. Ez törlésre fog kerülni."
         warning_with_subcategories_listing_will_be_moved:
-          other: "%{count} számú hírdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
+          other: "%{count} számú hirdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "%{count} számú egyedi mező található a kategóriában és az alkategóriákban. A kiválasztott kategóriába fog átkerülni."
         select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
@@ -124,7 +124,7 @@ hu:
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
         new_listing_button_instructions_text: "Megváltoztathatja az Új hirdetés feladása gomb színét amennyiben megadja a szín értékét. A Színválasztó - %{link_to_colorpicker} segít ebben."
         default_browse_view: "Alapértelmezett keresési nézet"
-        default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hírdetések alapértelmezett nézetét."
+        default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hirdetések alapértelmezett nézetét."
         grid: "Magazin nézet"
         list: "Lista nézet"
         map: "Térkép nézet"
@@ -212,7 +212,7 @@ hu:
         join_with_invite_only: "Új felhasználók csak a régi felhasználók meghívására csatlakozhatnak"
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
         private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
-        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hírdetéseket"
+        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
         search_preferences: "Keresési beállítások"
         default_search_type: "Keresés típusa: %{select_search_type}"
         keyword_search: "Keresés kulcsszóra"
@@ -224,9 +224,9 @@ hu:
         show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: "Rendelési preferenciák"
-        show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
-        show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
-        listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
+        show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
+        show_category_in_listing_list: "A hirdetés típusának kijelzése lista nézetben"
+        listing_comments_in_use: "Hirdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
         email_preferences: "E-mail beállítások"
         automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
         email_admins_about_new_members: "E-mail küldése a rendszergazdáknak minden új felhasználó felíratkozásakor"
@@ -522,7 +522,7 @@ hu:
         maximum_value: Maximum
         allow_decimals: "Tizedes tört engedélyezése"
       new:
-        new_listing_field: "Új hírdetés mezeje"
+        new_listing_field: "Új hirdetés mezeje"
       field_types:
         text: Szöveg
         number: Szám
@@ -861,7 +861,7 @@ hu:
       accept_request: "Kérés elfogadása"
       reject_offer: "Nem most"
       reject_request: "Most nem"
-      close_listing: "Zárja be a hírdetést %{listing_title_link}"
+      close_listing: "Zárja be a hirdetést %{listing_title_link}"
       update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
@@ -1063,7 +1063,7 @@ hu:
       automatic_confirmation: "Amennyiben ön nem erősíti meg és nem is törli a rendelését %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
     payment_settings_reminder:
       remember_to_add_payment_details: "Ne felejtse megadni fizetési információit, annak érdekében, hogy megkapja az önnek küldött átutalásokat"
-      you_have_added_listing_with_payment: "Ön a következő hírdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
+      you_have_added_listing_with_payment: "Ön a következő hirdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
       please_go_to_payment_settings: "Kérjük, töltse ki a fizetési információkat ide kattintva: %{payment_settings_link}."
       payment_settings_link: "Fizetési beállítások"
     transaction_confirmed:
@@ -1128,7 +1128,7 @@ hu:
       view_comment: "Hozzászólás megtekintése"
       you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
       listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hírdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
+      has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hirdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
       view_message: "Üzenet megtekintése"
       has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
@@ -1197,7 +1197,7 @@ hu:
       view_feedback: "Értékelés megtekintése"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
-      has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hírdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
+      has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hirdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
       view_changes: "Változások megtekintése"
     community_updates:
       added_offer: "%{name_link} feladott egy hirdetést:"
@@ -1404,7 +1404,7 @@ hu:
       processing_uploaded_image: "(Képek feltöltése folyamatban)"
     index:
       no_listings_with_your_search_criteria: "Sajnáljuk, de nem található hirdetés az ön által beállított keresés alapján. Próbálta már más kifejezéseket használva?"
-      no_listings_notification: "Nics hírdetés. %{add_listing_link}"
+      no_listings_notification: "Nincs hirdetés. %{add_listing_link}"
       add_listing_link_text: "Új hirdetés hozzáadása"
       open_listing: "Aktuális hirdetés"
       open_listings: "Aktuális hirdetések"
@@ -1878,7 +1878,7 @@ hu:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"
       selected_subcategory: "Alkategória: %{subcategory}"
-      selected_transaction_type: "Hírdetés típusa: %{transaction_type}"
+      selected_transaction_type: "Hirdetés típusa: %{transaction_type}"
       select_category: "Válasszon kategóriát"
       select_subcategory: "Válasszon alkategóriát"
       select_transaction_type: "Válassza ki a hirdetés típusát"

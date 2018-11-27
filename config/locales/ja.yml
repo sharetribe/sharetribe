@@ -728,10 +728,10 @@ ja:
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
       stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: ストライプに接続されました
+        disable: ストライプを無効にする
+        disabled: ストライプが無効になりました
+        enable: ストライプを有効にする
       paypal_connected:
         title: ~
         disable: ~
@@ -740,13 +740,13 @@ ja:
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
-        add_your_api_keys: ~
+        add_your_api_keys: ストライプAPIキーを追加する
         how_to_get_these: ~
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
+        save_api_keys: ストライプAPIキーを保存する
+        invalid_secret: "正しい%{secret_key} ではないようです"
+        invalid_publishable: "正しい%{publishable_key} ではないようです"
       index:
         header: ~
         info: ~
@@ -844,7 +844,7 @@ ja:
     stripe_fee_info:
       title: ~
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: こちら
   conversations:
     accept:
       details: 注文情報
@@ -870,7 +870,7 @@ ja:
       paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は別途かかります"
       payment_fee_info: ~
       shipping_price_label: 送料：
-      stripe-fee_label: ~
+      stripe-fee_label: 支払処理手数料
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -1151,7 +1151,7 @@ ja:
       total: ~
       price: ~
       service_fee: ~
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
     paypal_new_payment:
@@ -1173,7 +1173,7 @@ ja:
       total: 合計
       price: 価格
       service_fee: ご利用料金
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: ~
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
       listing_per_unit_title: ~
@@ -1670,7 +1670,7 @@ ja:
       profile: プロフィール
       settings: 設定
       paypal_payments: ~
-      stripe_payments: ~
+      stripe_payments: ストライプペイメント
       payments: お支払い
   listings:
     bubble_listing_not_visible:
@@ -1950,11 +1950,11 @@ ja:
     transaction_agreement_checkbox:
       read_more: 表示
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
+      payment: お支払い
+      pay_with_card: クレジットカード、デビットカードでお支払いする
       address: 配送先住所
       address_country: 国
-      address_name: ~
+      address_name: 氏名
       address_city: 市町村
       address_state: 都道府県
       address_street1: 住所１
@@ -2496,26 +2496,26 @@ ja:
         multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: "%{service_name} チームにコンタクトする"
     you_are_ready_to_accept_payments: ~
     commission: ~
-    pay_with_stripe: ~
+    pay_with_stripe: "%{card} を使ってストライプにてお支払いする"
     add_and_pay: お支払い確認
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
-    stripe_credit_card: ~
+    stripe_credit_card: クレジットカード
     paypal: ペイパル
     paypal_connected: ペイパルアカウントは正常に接続されました
-    paypal_can_accept: ~
+    paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
       select_country: ~
       legal_name: ~
-      first_name: ~
-      last_name: ~
+      first_name: 名
+      last_name: 姓
       first_name_kana: "担当者氏名 (名・かな)"
       last_name_kana: "担当者氏名 (姓・かな)"
       first_name_kanji: "担当者氏名 (名・漢字)"
@@ -2526,7 +2526,7 @@ ja:
       personal_id_number: ~
       address_country: 国
       address_state: 都道府県
-      address_province: ~
+      address_province: 都道府県
       address_city: 市町村
       address_postal_code: 郵便番号
       address_line1: 住所
@@ -2536,7 +2536,7 @@ ja:
       edit: ~
       cancel: キャンセル
       gender: 性別
-      phone_number: ~
+      phone_number: 電話番号
       address_kana_postal_code: "郵便番号 (会社住所)"
       address_kana_state: "都道府県 (かな)"
       address_kana_city: "市区郡 (かな)"
@@ -2547,8 +2547,8 @@ ja:
       address_kanji_city: "市区郡 (漢字)"
       address_kanji_town: "町村名、丁目を含む (漢字)"
       address_kanji_line1: "番地 (漢字)"
-      male: ~
-      female: ~
+      male: 男性
+      female: 女性
     form_bank:
       bank_account_number: 口座番号
       bank_routing_number: ~
@@ -2561,11 +2561,11 @@ ja:
         routing_number: ルーティングナンバー
         bank_code: 銀行コード
         branch_code: 支店コード
-        transit_number: ~
-        institution_number: ~
+        transit_number: 支店番号
+        institution_number: 銀行番号
         format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
+        bsb: BSB
+        error_message: 無効なフォーマット
         clearing_code: ~
         sort_code: ~
         must_match: ~
@@ -2573,7 +2573,7 @@ ja:
         digits: ~
         digits_or_chars: ~
     form_verification:
-      personal_id_number: ~
+      personal_id_number: パーソナルID番号
       document: ~
       send_verification: ~
       need_verification: ~
@@ -2591,7 +2591,7 @@ ja:
     paypal: ~
     bank_account_details: ~
     add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
+    can_accept_stripe_and_paypal: 銀行口座またはペイパルにてお金をお受け取りできます
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~

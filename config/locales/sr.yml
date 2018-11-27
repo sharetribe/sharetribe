@@ -314,17 +314,17 @@ sr:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Traži po naslovu transakcije ili platiocu."
+        search: Traži
+        reset_search: "Prikaži sve"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
+          all: "Svi statusi"
+          selected: "Izabrano statusa: %{count}"
+          selected_js: "Izabrano statusa: "
+          free: "Besplatna transakcija"
+          confirmed: Završeno
+          paid: Plaćeno
+          canceled: Otkazano
           preauthorized: ~
           rejected: ~
         headers:
