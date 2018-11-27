@@ -95,6 +95,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
   def generate_csv_for(yielder, memberships, community)
     # first line is column names
     header_row = %w{
+      user_id
       first_name
       last_name
       display_name
@@ -116,6 +117,7 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
       user = membership.person
       unless user.blank?
         user_data = {
+          id: user.id,
           first_name: user.given_name,
           last_name: user.family_name,
           display_name: user.display_name,
