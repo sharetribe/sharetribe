@@ -159,6 +159,39 @@ describe "Landing page", type: :request do
       end
     end
 
+    describe "hsts" do
+      it "HSTS header is not set" do
+        get "http://#{@domain}"
+
+        expect(response.status).to eq(200)
+        expect(response.headers['Strict-Transport-Security']).to eq(nil)
+      end
+
+      describe "enabled" do
+
+        before(:each) do
+          APP_CONFIG.always_use_ssl = true
+          @orig_hsts_max_age = @community.hsts_max_age
+          @hsts_max_age = 10
+          @community.hsts_max_age = @hsts_max_age
+          @community.save
+        end
+
+        after(:each) do
+          @community.hsts_max_age = @orig_hsts_max_age
+          @community.save
+          APP_CONFIG.always_use_ssl = false
+        end
+
+        it "HSTS header is set" do
+          get "https://#{@domain}"
+
+          expect(response.status).to eq(200)
+          expect(response.headers['Strict-Transport-Security']).to eq("max-age=#{@hsts_max_age}")
+        end
+      end
+    end
+
     describe "caching" do
       before(:all) do
         Rails.cache.clear
