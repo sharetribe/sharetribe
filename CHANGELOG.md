@@ -20,6 +20,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Transaction search and filter [#3484](https://github.com/sharetribe/sharetribe/pull/3484)
 - Listing search and filter [#3496](https://github.com/sharetribe/sharetribe/pull/3496)
 - Customizable footer for Pro subscriptions [#3374](https://github.com/sharetribe/sharetribe/pull/3374)
+- HSTS support [#3512](https://github.com/sharetribe/sharetribe/pull/3512)
 
 ### Changed
 - Make "Per unit" the default pricing unit for product marketplace [#3462](https://github.com/sharetribe/sharetribe/pull/3462)
