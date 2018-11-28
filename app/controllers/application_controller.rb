@@ -39,7 +39,8 @@ class ApplicationController < ActionController::Base
     :ensure_user_belongs_to_community,
     :set_display_expiration_notice,
     :setup_intercom_user,
-    :setup_custom_footer
+    :setup_custom_footer,
+    :disarm_custom_head_script
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -632,5 +633,11 @@ class ApplicationController < ActionController::Base
 
   def admin_controller?
     self.class.name =~ /^Admin/
+  end
+
+  def disarm_custom_head_script
+    if params[:disarm].present? && !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:disarm])
+      @disable_custom_head_script = true
+    end
   end
 end
