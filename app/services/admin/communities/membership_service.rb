@@ -3,6 +3,8 @@ class Admin::Communities::MembershipService
 
   PER_PAGE = 50
 
+  delegate :selected_statuses_title, :sorted_statuses, to: :presenter, prefix: true, allow_nil: false
+
   def initialize(community:, params:, current_user:)
     @params = params
     @community = community
@@ -10,7 +12,7 @@ class Admin::Communities::MembershipService
   end
 
   def memberships
-    @memberships ||= filtered_scope.where(status: ["accepted", "banned"])
+    @memberships ||= filtered_scope.accepted_or_banned
                                    .paginate(page: params[:page], per_page: PER_PAGE)
                                    .order("#{sort_column} #{sort_direction}")
   end
@@ -60,11 +62,14 @@ class Admin::Communities::MembershipService
     # rubocop:enable Rails/SkipsModelValidations
   end
 
+  def presenter
+    @presenter ||= Admin::MembershipPresenter.new(params)
+  end
+
   private
 
   def all_memberships
-    resource_scope.where("status != 'deleted_user'")
-                  .includes(person: [:emails, :location])
+    resource_scope.not_deleted_user.includes(person: [:emails, :location])
   end
 
   def generate_csv_for(yielder)
@@ -161,6 +166,19 @@ class Admin::Communities::MembershipService
         .select('people.id')
 
       scope = scope.where(person_id: person_ids)
+    end
+    if params[:status].present? && params[:status].is_a?(Array)
+      statuses = []
+      statuses.push(CommunityMembership.admin) if params[:status].include?('admin')
+      statuses.push(CommunityMembership.banned) if params[:status].include?(CommunityMembership::BANNED)
+      statuses.push(CommunityMembership.posting_allowed) if params[:status].include?('posting_allowed')
+      if statuses.size > 1
+        status_scope = statuses.slice!(0)
+        statuses.map{|x| status_scope = status_scope.or(x)}
+        scope = scope.merge(status_scope)
+      elsif statuses.size == 1
+        scope = scope.merge(statuses.first)
+      end
     end
     scope
   end

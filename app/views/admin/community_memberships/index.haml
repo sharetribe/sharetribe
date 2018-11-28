@@ -28,9 +28,20 @@
 
   = form_tag '', :method => :get do
     .row
-      .col-8
+      .col-6
         = text_field_tag :q, params[:q], placeholder: t('admin.communities.manage_members.search_by_name_email')
-      .col-4
+      .col-3.status-select-wrapper
+        .status-select-button
+          = @service.presenter_selected_statuses_title
+
+        .status-select-dropdown
+          .status-select-line.reset{data: {status: 'all'}}
+            = @service.presenter_selected_statuses_title
+          - @service.presenter_sorted_statuses.each do |status, status_translation, checked|
+            .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+              = check_box_tag "status[]", status, checked, id: "status-#{status}"
+              = status_translation
+      .col-3
         = submit_tag t("admin.communities.manage_members.search"), class: 'button search-button'
         = link_to    t("admin.communities.manage_members.reset_search"), admin_community_community_memberships_path(@current_community.id)
 
@@ -83,4 +94,11 @@
       = will_paginate @service.memberships
 - js_t(['admin.communities.manage_members.ban_user_confirmation',
   'admin.communities.manage_members.unban_user_confirmation',
-  'admin.communities.manage_members.this_makes_the_user_an_admin'])
+  'admin.communities.manage_members.this_makes_the_user_an_admin',
+  'admin.communities.manage_members.status_filter.all',
+  'admin.communities.manage_members.status_filter.selected_js'])
+
+- content_for :extra_javascript do
+  :javascript
+    window.ST.Memberships.init();
+
