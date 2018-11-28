@@ -776,5 +776,20 @@ module ApplicationHelper
   def regex_definition_to_js(string)
     string.gsub('\A', '^').gsub('\z', '$').gsub('\\', '\\\\')
   end
+
+  SOCIAL_LINKS = {
+    facebook: "Facebook",
+    twitter: "Twitter",
+    instagram: "Instagram",
+    youtube: "YouTube",
+    googleplus: "Google+",
+    linkedin: "LinkedIn",
+    pinterest: "Pinterest",
+    soundcloud: "SoundCloud"
+  }.freeze
+
+  def social_link_name(provider)
+    SOCIAL_LINKS[provider.to_sym]
+  end
 end
 # rubocop:enable Metrics/ModuleLength

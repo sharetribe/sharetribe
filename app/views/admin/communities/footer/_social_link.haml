@@ -8,7 +8,7 @@
       .col-6
         = f.check_box :enabled, { disabled: disabled }
         %span.provider
-          = t("admin.communities.footer.social.#{social_link.provider}")
+          = social_link_name(social_link.provider)
 
       .col-6
         %span.hidden-tablet
