@@ -4,12 +4,12 @@
     = "-"
     = t("admin.communities.conversations.conversations")
 
-= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(service.community) }
 
 .left-navi-section
-  %h2= t("admin.communities.conversations.conversations", community_name: community.name(I18n.locale))
+  %h2= t("admin.communities.conversations.conversations", community_name: service.community.name(I18n.locale))
 
-  %span#admin_transactions_count= page_entries_info(conversations, :model => "Conversation")
+  %span#admin_transactions_count= page_entries_info(service.conversations, :model => "Conversation")
 
   %table#admin_transactions
     %thead
@@ -22,7 +22,7 @@
         %th=t("admin.communities.conversations.headers.other_party")
 
     %tbody
-      - conversations.each do |conversation|
+      - service.conversations.each do |conversation|
         - starter = conversation.starter
         - starter_name = PersonViewUtils.person_display_name_for_type(starter, 'first_name_with_initial')
         - recipient = conversation.recipient
@@ -47,4 +47,4 @@
               = link_to recipient_name, person_path(recipient.username)
   .row
     .col-12
-      = will_paginate conversations
+      = will_paginate service.conversations
