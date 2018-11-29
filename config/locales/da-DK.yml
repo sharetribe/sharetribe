@@ -268,6 +268,13 @@ da-DK:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
       new_layout:
         new_layout: "Nyt layout"
         description_roadmap_new: ~
@@ -465,14 +472,6 @@ da-DK:
           dark: ~
           light: ~
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
           title: ~
           url: ~
     custom_fields:

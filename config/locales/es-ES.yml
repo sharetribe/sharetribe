@@ -268,6 +268,13 @@ es-ES:
         reset_search: "Mostrar todos"
         for_search_terms: "relacionados con: %{terms}"
         this_makes_the_user_an_admin: "Esto hará a este usuario un administrador. Deberías de dejarle saber sus responsabilidades y pedirle que revisen los términos de uso de Sharetribe al igual que los de tu marketplace. ¿Estás seguro de querer continuar?"
+        status_filter:
+          all: Todo
+          selected: "Estatus seleccionados: %{count}"
+          selected_js: "Estatus seleccionados: "
+          admin: ~
+          banned: ~
+          posting_allowed: "Publicación permitida"
       new_layout:
         new_layout: "Nuevo diseño"
         description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
@@ -465,14 +472,6 @@ es-ES:
           dark: Oscuro
           light: Claro
         social:
-          facebook: Facebook
-          twitter: Twitter
-          instagram: Instagram
-          youtube: YouTube
-          googleplus: Google+
-          linkedin: LinkedIn
-          pinterest: Pinterest
-          soundcloud: SoundCloud
           title: Título
           url: URL
     custom_fields:

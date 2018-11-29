@@ -268,6 +268,13 @@ nb:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "Når nye layout-komponenter er tilgjengelige for markedsplassen din, kan du velge om du vil begynne å bruke de nye komponentene eller fortsette å bruke de gamle. Du kan aktivere valgene dine når som helst på denne siden. Det er anbefalt å alltid bruke nyeste versjon, siden de gamle komponentene kan bli faset ut etter hvert. Hvis en komponent som du bruker vil bli faset ut, vil du bli kontaktet i forkant."
@@ -465,14 +472,6 @@ nb:
           dark: ~
           light: ~
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
           title: ~
           url: ~
     custom_fields:

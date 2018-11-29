@@ -263,6 +263,13 @@ ko:
         reset_search: "전체 보기"
         for_search_terms: "%{terms}동안"
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
       new_layout:
         new_layout: "새 레이아웃"
         description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
@@ -460,14 +467,6 @@ ko:
           dark: ~
           light: ~
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
           title: ~
           url: ~
     custom_fields:

@@ -273,6 +273,13 @@ cs:
         reset_search: "Zobrazit vše"
         for_search_terms: "pro: %{terms}"
         this_makes_the_user_an_admin: "Tím je uživatel administrátor. Měli byste uživatele informovat o svých odpovědnostech a měli byste zkontrolovat podmínky použití Sharetribe. Opravdu chcete pokračovat?"
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
       new_layout:
         new_layout: "Nové uspořádání"
         description_roadmap_new: "Když jsou pro váš trh k dispozici nové komponenty, můžete zvolit, zda chcete začít používat novou komponentu nebo používat stávající. Volbu můžete kdykoli přepínat z této stránky. Doporučuje se používat vždy novou verzi, protože staré součásti mohou být vyřazeny. V případě, že součást, kterou právě používáte, má být vyřazena, budete kontaktováni předem."
@@ -470,14 +477,6 @@ cs:
           dark: Tmavý
           light: Světlý
         social:
-          facebook: Facebook
-          twitter: Twitter
-          instagram: Instagram
-          youtube: "You Tube"
-          googleplus: Google+
-          linkedin: Linkedln
-          pinterest: Pinterest
-          soundcloud: SoundCloud
           title: Nadpis
           url: URL
     custom_fields:

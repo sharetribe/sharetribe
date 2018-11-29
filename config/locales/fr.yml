@@ -268,6 +268,13 @@ fr:
         reset_search: "Voir tous"
         for_search_terms: "pour : %{terms}"
         this_makes_the_user_an_admin: "Ce membre va devenir un administrateur. Vous devriez l'en informer, lui rappeler ses responsabilités et leur demander de lire les conditions d'utilisations de Sharetribe. Voulez-vous vraiment continuer ?"
+        status_filter:
+          all: "Tous les statuts"
+          selected: "Statuts sélectionnés : %{count}"
+          selected_js: "Statuts sélectionnés : "
+          admin: Admin
+          banned: Banni
+          posting_allowed: "Dépôt d'annonce autorisé"
       new_layout:
         new_layout: "Nouveau design"
         description_roadmap_new: "Lorsque de nouveaux éléments de design sont disponibles pour votre place de marché, vous pouvez choisir de les utiliser sans attendre ou bien de continuer à utiliser les anciens. Vous pouvez modifier votre choix à tout moment depuis cette page. Il est préférable de toujours utiliser les versions les plus récentes, puisque les anciens éléments seront rendus obsolètes à un moment. Si un élément que vous utilisez devenait obsolète, vous serez contacté au préalable."
@@ -465,14 +472,6 @@ fr:
           dark: Sombre
           light: Clair
         social:
-          facebook: Facebook
-          twitter: Twitter
-          instagram: Instagram
-          youtube: YouTube
-          googleplus: Google+
-          linkedin: LinkedIn
-          pinterest: Pinterest
-          soundcloud: SoundCloud
           title: Titre
           url: URL
     custom_fields:

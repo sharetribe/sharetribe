@@ -268,6 +268,13 @@ fi:
         reset_search: "Näytä kaikki"
         for_search_terms: "hakutermille: %{terms}"
         this_makes_the_user_an_admin: "Tämä tekee käyttäjästä ylläpitäjän. Sinun kannattaa kertoa käyttäjälle hänen vastuustaan ylläpitäjänä, ja hänen kannattaa lukea Sharetriben käyttöehdot. Oletko varma että haluat jatkaa?"
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: "Hyväksytty ilmoittaja"
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -465,14 +472,6 @@ fi:
           dark: ~
           light: ~
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
           title: ~
           url: ~
     custom_fields:

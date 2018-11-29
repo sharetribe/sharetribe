@@ -268,6 +268,13 @@ de:
         reset_search: "Alle anzeigen"
         for_search_terms: "für: %{terms}"
         this_makes_the_user_an_admin: "Das macht den Nutzer zu einem Administrator. Du solltest den Nutzer über seinen Verantwortung informieren und auf die Sharetribe Nutzungsbedingungen hinweisen. Möchtest Du fortfahren?"
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: "Veröffentlichen von Einträgen erlaubt"
       new_layout:
         new_layout: "Neues Layout"
         description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
@@ -465,14 +472,6 @@ de:
           dark: ~
           light: ~
         social:
-          facebook: ~
-          twitter: ~
-          instagram: ~
-          youtube: ~
-          googleplus: ~
-          linkedin: ~
-          pinterest: ~
-          soundcloud: ~
           title: ~
           url: ~
     custom_fields:
