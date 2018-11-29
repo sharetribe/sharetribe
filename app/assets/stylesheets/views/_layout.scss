@@ -18,3 +18,11 @@
 .undo-mobile-wrapper-margin {
   @include undo-mobile-wrapper-margin;
 }
+
+.left-navi-section {
+  p { 
+    img, iframe {
+      max-width: 100%;
+    }
+  }
+}
