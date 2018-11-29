@@ -17,13 +17,15 @@
             = t("admin.communities.footer.title")
           = text_field_tag "community[footer_menu_links_attributes][#{f.index}][translation_attributes][#{locale_value}][title]",
             f.object.title(locale_value), required: true, maxlength: 255,
+            placeholder: t("admin.communities.footer.title_placeholder", locale: locale_value),
             disabled: disabled
 
         %div{:class => show_locales ? "col-5" : "col-6"}
           %span.hidden-tablet
             = t("admin.communities.footer.url")
           = text_field_tag "community[footer_menu_links_attributes][#{f.index}][translation_attributes][#{locale_value}][url]",
-            f.object.url(locale_value), required: true, maxlength: 255,
+            f.object.url(locale_value), required: true, maxlength: 255, url: true,
+            placeholder: t("admin.communities.footer.url_placeholder", locale: locale_value),
             disabled: disabled
 
   .col-2.menu-links-actions

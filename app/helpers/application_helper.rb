@@ -778,18 +778,46 @@ module ApplicationHelper
   end
 
   SOCIAL_LINKS = {
-    facebook: "Facebook",
-    twitter: "Twitter",
-    instagram: "Instagram",
-    youtube: "YouTube",
-    googleplus: "Google+",
-    linkedin: "LinkedIn",
-    pinterest: "Pinterest",
-    soundcloud: "SoundCloud"
+    facebook: {
+      name: "Facebook",
+      placeholder: "https://www.facebook.com/CHANGEME",
+    },
+    twitter: {
+      name: "Twitter",
+      placeholder: "https://www.twitter.com/CHANGEME",
+    },
+    instagram: {
+      name: "Instagram",
+      placeholder: "https://www.instagram.com/CHANGEME",
+    },
+    youtube: {
+      name: "YouTube",
+      placeholder: "https://www.youtube.com/channel/CHANGEME",
+    },
+    googleplus: {
+      name: "Google+",
+      placeholder: "https://plus.google.com/CHANGEME",
+    },
+    linkedin: {
+      name: "LinkedIn",
+      placeholder: "https://www.linkedin.com/company/CHANGEME",
+    },
+    pinterest: {
+      name: "Pinterest",
+      placeholder: "https://www.pinterest.com/CHANGEME",
+    },
+    soundcloud: {
+      name: "SoundCloud",
+      placeholder: "https://soundcloud.com/CHANGEME",
+    }
   }.freeze
 
   def social_link_name(provider)
-    SOCIAL_LINKS[provider.to_sym]
+    SOCIAL_LINKS[provider.to_sym][:name]
+  end
+
+  def social_link_placeholder(provider)
+    SOCIAL_LINKS[provider.to_sym][:placeholder]
   end
 end
 # rubocop:enable Metrics/ModuleLength
