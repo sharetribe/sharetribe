@@ -282,6 +282,7 @@ Rails.application.routes.draw do
         end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
         resources :testimonials, controller: :community_testimonials, only: [:index, :edit, :update, :new, :create]
+        resources :invitations, controller: :community_invitations, only: [:index]
         resources :emails
         resources :community_memberships do
           member do
