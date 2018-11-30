@@ -41,11 +41,9 @@ describe IntApi::ListingsController, type: :controller do
       get :update_working_time_slots, params: {id: listing.id, format: :json}.merge(listing_params)
       listing.reload
       expect(listing.working_time_slots.count).to eq 0
-      body = JSON.parse(response.body)
-      expect(body).to eq({
-        "id" => 2,
-        "title" => "Sledgehammer",
-        "working_time_slots" => [{"id"=>nil, "week_day"=>"mon", "from"=>"18:00", "till"=>"17:00", "errors"=>{"from"=>["From must be less than till"], "till"=>["From must be less than till"]}}],
+      working_time_slot = JSON.parse(response.body)["working_time_slots"].first
+      expect(working_time_slot["errors"]).to eq({
+        "from"=>["From must be less than till"], "till"=>["From must be less than till"]
       })
     end
   end

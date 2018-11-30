@@ -490,6 +490,8 @@ FactoryGirl.define do
 
   factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
     listing_id 123
+    from       '09:00'
+    till       '17:00'
   end
 
   factory :billing_agreement do
