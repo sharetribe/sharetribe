@@ -1322,6 +1322,7 @@ en:
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
+      from_must_be_less_than_till: "From must be less than till"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
