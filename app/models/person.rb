@@ -121,11 +121,10 @@ class Person < ApplicationRecord
             deprecator: MethodDeprecator.new
 
   scope :by_community, ->(community_id) { where(community_id: community_id) }
-  scope :search_name_or_email, ->(community_id, pattern) {
-    by_community(community_id)
-      .joins(:emails)
-      .where("#{Person.search_by_pattern_sql('people')}
-        OR emails.address like :pattern", pattern: pattern)
+  scope :search_name_or_email, ->(pattern) {
+    joins(:emails)
+    .where('given_name like :pattern OR family_name like :pattern OR display_name like :pattern
+      OR emails.address like :pattern', pattern: pattern)
   }
 
   accepts_nested_attributes_for :custom_field_values
