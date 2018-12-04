@@ -67,13 +67,13 @@ fi:
         community_name: "Kauppapaikan nimi"
         edit_community_name_description: "Kauppapaikan nimi näytetään käyttäjille lähetettävissä sähköposteissa ja useissa muissa paikoissa."
         community_slogan: "Kauppapaikan slogan"
-        community_slogan_display: ~
+        community_slogan_display: "Näytä slogan kotisivulla"
         edit_community_slogan_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "Tämä näkyy selaimissa, hakukoneissa, ja sosiaalisessa mediassa. Voit myös näyttää sen kotisivullasi niille käyttäjille, jotka eivät ole kirjautuneena sisään. %{see_how_it_looks_like}."
         community_description: "Kauppapaikan kuvaus"
-        community_description_display: ~
+        community_description_display: "Näytä kuvaus kotisivulla"
         edit_community_description_description: "Näytetään etusivulla kirjautumattomille käyttäjille. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: ~
+        edit_community_description_description_hideable: "Tämä näkyy selaimissa, hakukoneissa, ja sosiaalisessa mediassa. Voit myös näyttää sen kotisivullasi niille käyttäjille, jotka eivät ole kirjautuneena sisään. %{see_how_it_looks_like}."
         community_search_placeholder: "Haun ohjeteksti"
         edit_community_search_placeholder_description: "Näytetään etusivulla hakupalkin ohjetekstinä. %{see_how_it_looks_like}."
         private_community_homepage_content: "Suljetun kauppapaikan etusivun sisältö"
@@ -111,10 +111,10 @@ fi:
         community_description_color_instructions_text: "Voit vaihtaa kuvauksen väriä antamalla värin heksakoodin. Kuvaus näytetään etusivulla käyttäjille, jotka eivät ole kirjautuneina sisään. %{colorpicker} auttaa sinua valitsemaan värin ja antaa sen heksakoodin. Voit kopioida värin tähän. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Lisää uusi ilmoitus -napin väri"
         logo_instructions_text_with_dimensions: "Peruslogon koon tulee olla %{width}x%{height} pikseliä. Se näytetään käyttäjille, jotka katsovat sivua suuremmalta näytöltä."
-        logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width}px."
+        logo_instructions_text_with_dimensions_no_placing: "Login koon tulisi olla %{height}x%{width} pikseliä."
         logo_icon_instructions_text_with_dimensions: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
         logo_icon_instructions_text_with_dimensions_no_placing: "Tämä neliönmuotoinen logo näytetään, kun käyttäjät jakavat sivustosi Facebookissa, vierailevat sivustollasi mobiililaitteellaan tai lisäävät sivustosi kirjanmerkiksi mobiililaitteensa aloitusnäytölle. Tämän logon koon tulee olla (vähintään) %{width}x%{height} pikseliä."
-        logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on %{width} x %{height} pikseliä."
+        logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
@@ -269,11 +269,11 @@ fi:
         for_search_terms: "hakutermille: %{terms}"
         this_makes_the_user_an_admin: "Tämä tekee käyttäjästä ylläpitäjän. Sinun kannattaa kertoa käyttäjälle hänen vastuustaan ylläpitäjänä, ja hänen kannattaa lukea Sharetriben käyttöehdot. Oletko varma että haluat jatkaa?"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
+          all: "Kaikki tilat"
+          selected: "Valitut tilat: %{count}"
+          selected_js: "Valitut tilat: "
+          admin: Ylläpitäjä
+          banned: Estetty
           posting_allowed: "Hyväksytty ilmoittaja"
       new_layout:
         new_layout: "Uusi ulkoasu"
@@ -302,7 +302,7 @@ fi:
         invalid_facebook_connect_secret: "Salainen avain muodostuu voi sisältää vain kirjaimia väliltä a-f ja numeroita väliltä 0-9."
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
-        add_another_image: ~
+        add_another_image: "Lisää uusi kuva"
       analytics:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
@@ -336,19 +336,19 @@ fi:
         export_all_as_csv: "Lataa tiedot CSV-tiedostona"
         processing_export: "Prosessoidaan vientiä CSV-tiedostoon..."
         transactions: Tilaukset
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Etsi tilauksen otsikkoa tai osapuolia"
+        search: Etsi
+        reset_search: "Näytä kaikki"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          preauthorized: ~
-          rejected: ~
+          all: "Kaikki tilat"
+          selected: "Valitut tilat: %{count}"
+          selected_js: "Valitut tilat: "
+          free: Keskustelu
+          confirmed: Toteutunut
+          paid: Maksettu
+          canceled: Peruutettu
+          preauthorized: "Katevaraus tehty"
+          rejected: Hylätty
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -433,15 +433,15 @@ fi:
           blocking_info: "Palautteen estäminen estää sen kirjoittajaa kirjoittamasta uutta palautetta samasta ostotapahtumasta."
       listings:
         listings: Ilmoitukset
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search_by_title_author_category: "Etsi ilmoituksen otsikkoa, tekijää, tai kategorian nimeä"
+        search: Etsi
+        reset_search: "Näytä kaikki"
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          all: "Kaikki tilat"
+          selected_js: "Valitut tilat: "
+          open: Avoin
+          closed: Suljettu
+          expired: Vanhentunut
         headers:
           title: Otsikko
           author: Laatija
@@ -455,25 +455,25 @@ fi:
       user_fields:
         user_fields: Käyttäjäkentät
       footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
+        footer: Footer
+        offer_pro: "Muokkaa footeria ja poista Sharetribe-brändäys %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "päivittämällä tilauksesi Pro-tasolle tai korkeammalle"
+        menu_links: Footer-linkit
+        language: Kieli
+        title: Otsikko
+        url: URL
+        add: "Lisää uusi linkki footeriin"
+        save: "Tallenna asetukset"
+        footer_style: "Footerin tyyppi"
+        footer_copyright: "Footer copyright-teksti"
+        footer_enabled: "Footer päällä"
+        social_links: "Footerin sosiaaliset linkit"
         style:
-          dark: ~
-          light: ~
+          dark: Tumma
+          light: Vaalea
         social:
-          title: ~
-          url: ~
+          title: Otsikko
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -567,7 +567,7 @@ fi:
           title: "Kenelle haluat lähettää sähköpostia?"
           options:
             all_users: "Kaikille käyttäjille"
-            posting_allowed: ~
+            posting_allowed: "Käyttäjät jotka saavat lisätä ilmoituksia"
             with_listing: "Käyttäjille jotka ovat lisänneet ainakin yhden ilmoituksen"
             with_listing_no_payment: "Käyttäjille jotka ovat jättäneet ainakin yhden ilmoituksen mutta eivät ole lisänneet maksutietojaan"
             with_payment_no_listing: "Käyttäjille jotka ovat lisänneet maksutietonsa mutta eivät ole jättäneet yhtään ilmoitusta"
@@ -671,7 +671,7 @@ fi:
         night: "Per yö"
         week: "Per viikko"
         month: "Per kuukausi"
-        unit: ~
+        unit: "Per yksikkö"
       can_not_find: "Tyyppiä ID:llä %{id} ei löytynyt"
       add_custom_unit: "+ Lisää uusi yksikkö…"
       delete_custom_unit: Poista
@@ -1322,6 +1322,7 @@ fi:
       after: "täytyy olla %{restriction} jälkeen"
       on_or_after: "täytyy olla %{restriction} tai ennen sitä"
       positive_number: "Käytä kokonaislukuja."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -1756,7 +1757,7 @@ fi:
         googlemap_updatemap: "Päivitä karttaa"
       images:
         image: Kuva
-        best_result: "Parhaan lopputuloksen saat kun käytät JPG-, GIF- tai PNG-tiedostoja, joiden koko on %{width} kertaa %{height} pikseliä."
+        best_result: "Parhaan lopputuloksen saat kun käytät JPG-, GIF- tai PNG-tiedostoja, joiden koko on %{width} kertaa %{height} pikseliä"
         no_file_selected: "Ei tiedostoa valittuna"
         remove_image: "Poista kuva"
         select_file: "Valitse tiedosto"
@@ -1895,7 +1896,7 @@ fi:
       night: "Öiden määrä:"
       week: "Viikkojen määrä:"
       month: "Kuukausien määrä:"
-      unit: ~
+      unit: "Yksiköiden lukumäärä:"
       custom: "Määrä:"
     quantity_placeholder: Määrä
     please_comment: Kommentoi
@@ -1947,7 +1948,7 @@ fi:
       night: yö
       week: viikko
       month: kuukausi
-      unit: ~
+      unit: yksikkö
     verification_required:
       verification_required: "Vahvistus vaaditaan"
   listing_conversations:
@@ -2569,10 +2570,10 @@ fi:
       legal_name: Nimi
       first_name: Etunimi
       last_name: Sukunimi
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
+      first_name_kana: "Etunimi kana"
+      last_name_kana: "Sukunimi kana"
+      first_name_kanji: "Etunimi kanji"
+      last_name_kanji: "Sukunimi kanji"
       country: Maa
       birth_date: Syntymäaika
       ssn_last_4: "Henkilötunnuksen 4 viimeistä numeroa"
@@ -2588,20 +2589,20 @@ fi:
       save_details: "Tallenna tiedot"
       edit: "Muokkaa tietoja"
       cancel: Peruuta
-      gender: ~
-      phone_number: ~
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
-      address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
-      address_kanji_state: ~
-      address_kanji_city: ~
-      address_kanji_town: ~
-      address_kanji_line1: ~
-      male: ~
-      female: ~
+      gender: Sukupuoli
+      phone_number: Puhelinnumero
+      address_kana_postal_code: "Postinumero kana"
+      address_kana_state: "Osavaltio kana"
+      address_kana_city: "Kaupunki kana"
+      address_kana_town: "Kaupunki kana"
+      address_kana_line1: "Katuosoite kana"
+      address_kanji_postal_code: "Postinumero kanji"
+      address_kanji_state: "Osavaltio kanji"
+      address_kanji_city: "Kaupunki kanji"
+      address_kanji_town: "Kaupunki kanji"
+      address_kanji_line1: "Katuosoite kanji"
+      male: mies
+      female: nainen
     form_bank:
       bank_account_number: Tilinumero
       bank_routing_number: Reititysnumero

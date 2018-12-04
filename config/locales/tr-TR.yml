@@ -266,12 +266,12 @@ tr-TR:
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
-          posting_allowed: ~
+          all: "Tüm durumlar"
+          selected: "Seçilen durumlar: %{count}"
+          selected_js: "Seçilen durumlar: "
+          admin: Yönetici
+          banned: Yasaklı
+          posting_allowed: "Gönderim izni verildi"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -1302,6 +1302,7 @@ tr-TR:
       after: "%{restriction} sonrasında olmalı"
       on_or_after: "%{restriction} içinde ya da sonrasında olmalı"
       positive_number: "Rakam giriniz"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name} üyesine ödünç vermeyi kabul etti."

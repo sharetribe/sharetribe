@@ -1334,6 +1334,7 @@ pl:
       after: "musi być po %{restriction}"
       on_or_after: "musi być na lub po %{restriction}"
       positive_number: "Wprowadź liczbę."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} zgodził się, aby pożyczyć %{listing_title} do %{requester_name} %{time_ago}"

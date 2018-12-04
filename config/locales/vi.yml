@@ -1311,6 +1311,7 @@ vi:
       after: "phải sau %{restriction}"
       on_or_after: "phải ở mức hoặc sau %{restriction}"
       positive_number: "Chèn một số."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."

@@ -1307,6 +1307,7 @@ ka:
       after: "უნდა იყოს %{restriction} შემდეგ"
       on_or_after: "უნდა იყოს ასე ან %{restriction}ის შემდეგ"
       positive_number: "შეიყვანეთ ნომერი:"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} დაეთანხმა რომ გააქირაოს %{listing_title} %{requester_name}ზე %{time_ago}."

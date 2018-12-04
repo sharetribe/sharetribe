@@ -1294,6 +1294,7 @@ es:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."

@@ -1332,6 +1332,7 @@ ru:
       after: "Должно быть после %{restriction}"
       on_or_after: "Должно быть в или после %{restriction}"
       positive_number: "Укажите цифру"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."

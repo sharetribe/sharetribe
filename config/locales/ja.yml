@@ -1305,6 +1305,7 @@ ja:
       after: "%{restriction}より後でなければなりません"
       on_or_after: "%{restriction}以後でなければなりません"
       positive_number: 数字を入力。
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -1343,7 +1344,7 @@ ja:
     contact_us: お問い合わせ
     profile: プロフィール
     manage_listings: 投稿を管理する
-    invite: お友だち紹介
+    invite: メンバーを招待
     login: ログイン
     signup: 新規登録
     menu: メニュー
@@ -2510,15 +2511,15 @@ ja:
     paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: ~
     form_new:
-      need_info: ~
+      need_info: 必要事項ご記載後、送金が可能になります。
       select_country: ~
       legal_name: ~
       first_name: 名
       last_name: 姓
-      first_name_kana: "担当者氏名 (名・かな)"
-      last_name_kana: "担当者氏名 (姓・かな)"
-      first_name_kanji: "担当者氏名 (名・漢字)"
-      last_name_kanji: "担当者氏名 (姓・漢字)"
+      first_name_kana: 名（かな）
+      last_name_kana: 姓（かな）
+      first_name_kanji: 名
+      last_name_kanji: 姓
       country: 国
       birth_date: 生年月日
       ssn_last_4: ~
@@ -2529,23 +2530,23 @@ ja:
       address_city: 市町村
       address_postal_code: 郵便番号
       address_line1: 住所
-      tos_link: ~
+      tos_link: "お受取り詳細を追加しますと、%{stripe_link} を承認致します。"
       tos_link_title: ~
-      save_details: ~
+      save_details: 詳細を保存
       edit: ~
       cancel: キャンセル
       gender: 性別
       phone_number: 電話番号
-      address_kana_postal_code: "郵便番号 (会社住所)"
+      address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (かな)"
-      address_kana_city: "市区郡 (かな)"
-      address_kana_town: "町村名、丁目を含む (かな)"
-      address_kana_line1: "番地 (かな)"
-      address_kanji_postal_code: "郵便番号 (会社住所)"
-      address_kanji_state: "都道府県 (漢字)"
-      address_kanji_city: "市区郡 (漢字)"
-      address_kanji_town: "町村名、丁目を含む (漢字)"
-      address_kanji_line1: "番地 (漢字)"
+      address_kana_city: 市町村（かな）
+      address_kana_town: 住所１（かな）
+      address_kana_line1: 住所２（かな）
+      address_kanji_postal_code: 郵便番号
+      address_kanji_state: 都道府県
+      address_kanji_city: 市町村
+      address_kanji_town: 住所１
+      address_kanji_line1: 住所２
       male: 男性
       female: 女性
     form_bank:
@@ -2585,10 +2586,10 @@ ja:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
+    title: お受け取り方法
     bank_account: ~
     paypal: ~
-    bank_account_details: ~
+    bank_account_details: 銀行口座への直接入金をご希望の場合、入金用口座詳細情報のご提出が必要です。完了後、購入者はクレジットカードでのお支払いが可能になります。
     add_bank_details: ~
     can_accept_stripe_and_paypal: 銀行口座またはペイパルにてお金をお受け取りできます
     to_accept_paypal: ~

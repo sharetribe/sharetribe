@@ -67,13 +67,13 @@ de:
         community_name: "Name des Marktplatzes"
         edit_community_name_description: "Der Name deines Marktplatzes. Dieser wird allen Nutzern in E-Mails und an verschiedenen anderen Stellen angezeigt."
         community_slogan: "Slogan des Marktplatzes"
-        community_slogan_display: ~
+        community_slogan_display: "Slogan auf der Startseite anzeigen"
         edit_community_slogan_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_description: "Beschreibung des Marktplatzes"
-        community_description_display: ~
+        community_description_display: "Beschreibung auf der Startseite anzeigen"
         edit_community_description_description: "Dies wird den Nutzern auf der Startseite des Marktplatzes angezeigt, die nicht angemeldet sind. %{see_how_it_looks_like}."
-        edit_community_description_description_hideable: ~
+        edit_community_description_description_hideable: "Das hier wird auf Webbrowsern, Suchmaschinen, und sozialen Netzwerken angezeigt. Du kannst es auch auf der Startseite deines Marktplatzes den Nutzern anzeigen, die nicht angemeldet sind. %{see_how_it_looks_like}."
         community_search_placeholder: "Hilfe-Text durchsuchen"
         edit_community_search_placeholder_description: "Dies wird auf der Homepage des Marktes als Platzhaltertext in der Suchleiste angezeigt. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privater Inhalt der Marktplatz Startseite"
@@ -110,10 +110,10 @@ de:
         community_description_color: "Farbe der Marktplatz-Beschreibung"
         community_description_color_instructions_text: "Du kannst die Farbe der Beschreibung ändern, indem du den Hex-Wert einer Farbe eingibst. Die Beschreibung wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Farbe der \"Neuen Eintrag erstellen\" Taste"
-        logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height}px betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
-        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height}px betragen."
-        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixels betragen."
+        logo_instructions_text_with_dimensions: "Die Größe des Desktop-Logos sollte %{width}x%{height} Pixel betragen. Es wird Benutzern mit größeren Bildschirmen angezeigt."
+        logo_instructions_text_with_dimensions_no_placing: "Die Größe des Logos sollte %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions: "Dieses quadratisches Logo wird angezeigt, wenn Leute deinen Marktplatz auf soziale Netzwerke teilen, wenn sie deinen Marktplatz auf einem Mobilgerät ansehen oder wenn sie ein Lesezeichen für deinen Marktplatz zum Hauptbildschirm ihres Mobilgeräten anheften. Die Größe dieses Icon-Logos sollte (mindestens) %{width}x%{height} Pixel betragen."
+        logo_icon_instructions_text_with_dimensions_no_placing: "Dieses viereckige Logo wird angezeigt, wenn Leute deine Webseite auf Facebook teilen oder wenn sie deine Seite auf dem Startbildschirm ihres Mobilgerätes als Lesezeichen anheften. Die Bildgröße sollte (zumindest) %{width}x%{height} Pixel betragen."
         logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
@@ -233,7 +233,7 @@ de:
         twitter_handle: "Twittername (wird mit dem Tweet-Button auf der Angebotsseite verwendet)"
         update_settings: "Einstellungen speichern"
         automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"erledigt\" %{days_dropdown} Tage nach der Bezahlung markiert."
-        automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Anbieter-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
+        automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Verkäufer-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -269,11 +269,11 @@ de:
         for_search_terms: "für: %{terms}"
         this_makes_the_user_an_admin: "Das macht den Nutzer zu einem Administrator. Du solltest den Nutzer über seinen Verantwortung informieren und auf die Sharetribe Nutzungsbedingungen hinweisen. Möchtest Du fortfahren?"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          admin: Administrator
+          banned: Gesperrt
           posting_allowed: "Veröffentlichen von Einträgen erlaubt"
       new_layout:
         new_layout: "Neues Layout"
@@ -285,7 +285,7 @@ de:
       social_media:
         social_media: "Social media"
         logo: Logo
-        logo_info: "Dieses Bild wird auf soziale Netzwerke (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} px."
+        logo_info: "Dieses Bild wird auf soziale Netzwerke (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
         twitter_handle: Twittername
         twitter_handle_info_text: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
         twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintrag-Seite klickt. %{instructions_link}."
@@ -302,7 +302,7 @@ de:
         invalid_facebook_connect_secret: "Der App-Secret sollte nur aus Nummern und Buchstaben a-f bestehen."
         enable_facebook_login: "Nutzern erlauben, sich mit ihrem Facebook Account anzumelden"
         save: "Einstellungen speichern"
-        add_another_image: ~
+        add_another_image: "Zusätzliches Bild hinzufügen"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -336,19 +336,19 @@ de:
         export_all_as_csv: "Exportiere Alles als CSV Datei"
         processing_export: "CSV Export wird erstellt..."
         transactions: Transaktionen
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Nach einem Tltel der Transaktion oder beteiligten Parteien suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          preauthorized: ~
-          rejected: ~
+          all: "Alle Status"
+          selected: "Gewählte Status: %{count}"
+          selected_js: "Gewählte Status: "
+          free: Unterhaltung
+          confirmed: Bestätigt
+          paid: Bezahlt
+          canceled: Abgebrochen
+          preauthorized: Vorautorisiert
+          rejected: Abgelehnt
         headers:
           conversation: Unterhaltungsverlauf
           listing: Eintrag
@@ -433,15 +433,15 @@ de:
           blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
       listings:
         listings: Einträge
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search_by_title_author_category: "Nach dem Titel oder Autor des Eintrags, oder Kategoriename suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          all: "Alle Status"
+          selected_js: "Gewählte Status: "
+          open: Geöffnet
+          closed: Geschlossen
+          expired: Abgelaufen
         headers:
           title: Titel
           author: Author
@@ -455,25 +455,25 @@ de:
       user_fields:
         user_fields: "Benutzer Feld"
       footer:
-        footer: ~
-        offer_pro: ~
-        upgrade_plan_link: ~
-        menu_links: ~
-        language: ~
-        title: ~
-        url: ~
-        add: ~
-        save: ~
-        footer_style: ~
-        footer_copyright: ~
-        footer_enabled: ~
-        social_links: ~
+        footer: Fußzeile
+        offer_pro: "Sharetribe-Branding aus der Fußzeile entfernen und die Fußzeile konfigurieren durch %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "ein Upgrade auf den Pro Plan oder höher"
+        menu_links: Fußzeile-Links
+        language: Sprache
+        title: Titel
+        url: URL
+        add: "Füge einen Link der Fußzeile hinzu"
+        save: "Einstellungen speichern"
+        footer_style: "Stil der Fußzeile"
+        footer_copyright: "Urheberrecht (Fußzeilentext)"
+        footer_enabled: "Fußzeile aktiviert"
+        social_links: "Sozial-Links der Fußzeile"
         style:
-          dark: ~
-          light: ~
+          dark: Dunkel
+          light: Hell
         social:
-          title: ~
-          url: ~
+          title: Titel
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -567,7 +567,7 @@ de:
           title: "Wem willst du eine E-Mail schicken?"
           options:
             all_users: "Alle Benutzer"
-            posting_allowed: ~
+            posting_allowed: "Nutzer die Anzeigen veröffentlichen dürfen"
             with_listing: "Benutzer, die mindestens einen Eintrag erstellt haben"
             with_listing_no_payment: "Benutzer, die mindestens einen Eintrag erstellt haben, aber ihre Zahlungsdaten nicht eingetragen haben"
             with_payment_no_listing: "Benutzer, die ihre Zahlungsdaten eingetragen haben, aber keine Einträge erstellt haben"
@@ -671,7 +671,7 @@ de:
         night: "Pro Nacht"
         week: "Pro Woche"
         month: "Pro Monat"
-        unit: ~
+        unit: "Pro Einheit"
       can_not_find: "Kann die Auftragsart mit dieser ID nicht finden: %{id}"
       add_custom_unit: "+ Füge eine angepasste Preis Einheit hinzu"
       delete_custom_unit: löschen
@@ -1123,7 +1123,7 @@ de:
       remember_to_confirm: "Wenn der Auftrag erfüllt ist, denke daran, ihn als erledigt zu markieren. Wenn der Auftrag noch nicht erfüllt ist, hast du %{days_to_automatic_confirmation} Tage, um ihn abzubrechen. Sonst wird er automatisch als erledigt markiert."
     invitation_to_kassi:
       hi: Hallo!
-      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen"
+      you_have_been_invited_to_kassi: "%{inviter} hat dich eingeladen, %{service_name} zu benutzen."
       here_is_a_message_from: "Persönliche Nachricht von %{inviter}:"
       join_now: "Jetzt Mitglied werden"
       invitation_code: "Einladungscode %{code}"
@@ -1322,6 +1322,7 @@ de:
       after: "muss nach %{restriction} sein"
       on_or_after: "muss genau oder nach %{restriction} sein"
       positive_number: "Bitte eine Zahl eingeben."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1895,7 +1896,7 @@ de:
       night: "Anzahl Nächte:"
       week: "Anzahl Wochen:"
       month: "Anzahl Monate:"
-      unit: ~
+      unit: Stückzahl
       custom: "Anzahl:"
     quantity_placeholder: Anzahl
     please_comment: Kommentar
@@ -1947,7 +1948,7 @@ de:
       night: Nacht
       week: Woche
       month: Monat
-      unit: ~
+      unit: Einheit
     verification_required:
       verification_required: "Verifizierung erforderlich"
   listing_conversations:
@@ -2568,10 +2569,10 @@ de:
       legal_name: "Gesetzlicher Name"
       first_name: Vorname
       last_name: Nachname
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
+      first_name_kana: "Vorname kana"
+      last_name_kana: "Nachname kana"
+      first_name_kanji: "Vorname kanji"
+      last_name_kanji: "Nachname kanji"
       country: Land
       birth_date: Geburtsdatum
       ssn_last_4: "Sozialversicherungsnummer, letzte 4 Ziffern"
@@ -2587,20 +2588,20 @@ de:
       save_details: "Details speichern"
       edit: "Details bearbeiten"
       cancel: Abbrechen
-      gender: ~
-      phone_number: ~
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
-      address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
-      address_kanji_state: ~
-      address_kanji_city: ~
-      address_kanji_town: ~
-      address_kanji_line1: ~
-      male: ~
-      female: ~
+      gender: Geschlecht
+      phone_number: Telefonnummer
+      address_kana_postal_code: "Postleitzahl kana"
+      address_kana_state: "Staat kana"
+      address_kana_city: "Stadt kana"
+      address_kana_town: "Stadt kana"
+      address_kana_line1: "Adresse kana"
+      address_kanji_postal_code: "Postleitzahl kanji"
+      address_kanji_state: "Staat kanji"
+      address_kanji_city: "Stadt kanji"
+      address_kanji_town: "Stadt kanji"
+      address_kanji_line1: "Adresse kanji"
+      male: männlich
+      female: weiblich
     form_bank:
       bank_account_number: Kontonummer
       bank_routing_number: Bankleitzahl
@@ -2646,6 +2647,6 @@ de:
     can_accept_stripe_and_paypal: "Du kannst deinen Kunden Kreditkartenzahlungen, PayPal-Zahlungen oder beides anbieten."
     to_accept_paypal: "Um PayPal Zahlungen von Kunden empfangen zu können, musst du dein PayPal Konto hier verknüpfen."
     connect_paypal: "PayPal-Konto verknüpfen"
-    wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes: Plattform wurde nicht registriert. Bitte kontaktiere die Marktplatz-Administratoren und erzähle ihnen, dass sie ihre Plattform bei Stripe registrieren sollten."
+    wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes: Stripe Connect ist nicht aktiviert. Bitte kontaktiere die Marktplatz-Administratoren und erzähle ihnen, dass sie Stripe Connect auf ihrem Stripe Dashboard aktivieren sollten."
     invalid_bank_account_number: "Bitte sicherstellen, dass dein Bankkonto ist richtig eingetragen und mit deinem Land zustimmt."
     invalid_postal_code: "Ungültige Postleitzahl für %{country}"

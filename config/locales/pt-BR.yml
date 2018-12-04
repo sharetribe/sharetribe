@@ -1316,6 +1316,7 @@ pt-BR:
       after: "deve ser depois %{restriction}"
       on_or_after: "deve ser igual ou depois %{restriction}"
       positive_number: "Insira um número."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} à %{requester_name} %{time_ago}"

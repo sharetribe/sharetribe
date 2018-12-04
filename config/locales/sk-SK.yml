@@ -1327,6 +1327,7 @@ sk-SK:
       after: "musí byť po %{restriction}"
       on_or_after: "musí byt na alebo po %{restriction}"
       positive_number: "Vložte číslo."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} súhlasil s pôžičkou %{listing_title} pre %{requester_name} %{time_ago}."

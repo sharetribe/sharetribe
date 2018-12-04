@@ -272,8 +272,8 @@ es-ES:
           all: Todo
           selected: "Estatus seleccionados: %{count}"
           selected_js: "Estatus seleccionados: "
-          admin: ~
-          banned: ~
+          admin: Admin
+          banned: Bloqueado
           posting_allowed: "Publicación permitida"
       new_layout:
         new_layout: "Nuevo diseño"
@@ -1322,6 +1322,7 @@ es-ES:
       after: "Debe ser después de %{restriction}"
       on_or_after: "Debe ser a las %{restriction} o después"
       positive_number: "Ingresa un número."
+      from_must_be_less_than_till: "La hora inicial debe ser menor que la final"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."

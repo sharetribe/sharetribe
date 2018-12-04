@@ -1295,6 +1295,7 @@ he-IL:
       after: "חייב להיות אחרי ‎%{restriction}‎"
       on_or_after: "חייב להיות על או אחרי ‎%{restriction}‎"
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{offerer_name}‎ הסכים להשאיל ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"

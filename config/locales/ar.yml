@@ -1310,6 +1310,7 @@ ar:
       after: "‎%{restriction}‎ يجب أن يكون بعد"
       on_or_after: "‎%{restriction}‎ يجب أن يكون عند أو بعد"
       positive_number: "أدخل رقم."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"

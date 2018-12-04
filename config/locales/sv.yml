@@ -1324,6 +1324,7 @@ sv:
       after: "måste vara efter %{restriction}"
       on_or_after: "måste vara exakt på eller efter %{restriction}"
       positive_number: "Lägg in ett nummer."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."

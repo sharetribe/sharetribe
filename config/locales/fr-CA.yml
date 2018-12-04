@@ -1304,6 +1304,7 @@ fr-CA:
       after: "doit être après %{restriction}"
       on_or_after: "doit être au ou après %{restriction}"
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."

@@ -1298,6 +1298,7 @@ hr:
       after: "mora biti poslije %{restriction}"
       on_or_after: "mora biti na ili poslije %{restriction}"
       positive_number: "Unesite broj."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} je pristao na posudbu %{listing_title} prema %{requester_name} %{time_ago}."

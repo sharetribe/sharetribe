@@ -1289,6 +1289,7 @@ it:
       after: "deve essere dopo %{restriction}"
       on_or_after: "deve essere durante o dopo %{restriction}"
       positive_number: "Inserisci un numero"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ha accettato il prestito di %{listing_title} a %{requester_name} %{time_ago}."

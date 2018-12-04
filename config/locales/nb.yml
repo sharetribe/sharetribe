@@ -1318,6 +1318,7 @@ nb:
       after: "må være etter %{restriction}"
       on_or_after: "må være på eller etter %{restriction}"
       positive_number: "Skriv inn et tall."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aksepterte å låne ut %{listing_title} til %{requester_name} %{time_ago}."

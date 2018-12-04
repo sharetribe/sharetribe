@@ -1307,6 +1307,7 @@ th-TH:
       after: "ต้องเป็นหลัง %{restriction}"
       on_or_after: "ต้องเป็นเท่ากับหรือหลัง %{restriction}"
       positive_number: ใส่หมายเลข
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} ได้ตกลงที่จะให้ %{requester_name} ยืม เมื่อ%{time_ago}"

@@ -1316,6 +1316,7 @@ da-DK:
       after: "skal være efter %{restriction}"
       on_or_after: "skal være på eller efter %{restriction}"
       positive_number: "Indsæt et tal."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} indvilligede i at udlåne %{listing_title} til %{requester_name}%{time_ago}"

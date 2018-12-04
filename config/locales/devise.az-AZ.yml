@@ -19,18 +19,18 @@ az-AZ:
       inactive: "Hesabınız hələ aktivləşdirilməyib."
     passwords:
       updated_not_active: "Parolunuz uğurla dəyişdirildi."
-      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, e-poçtunuzda parol bərpası üçün linki alacaqsınız"
-      send_instructions: "Bir neçə dəqiqə ərzində parolunuzu necə sıfırlamaq barədə təlimatlara dair bir e-poçt alacaqsınız."
+      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, e-poçtunuza parol bərpası üçün linki alacaqsınız"
+      send_instructions: "Bir neçə dəqiqə ərzində parolunuzu necə sıfırlamaq barədə təlimatlara dair bir məktub alacaqsınız."
       updated: "Parolunuz uğurla dəyişdirildi. İndi sistemə daxilsiniz."
     sessions:
       signed_in: "Uğurla daxil olmusunuz."
       signed_out: "Uğurla çıxmısınız."
     confirmations:
-      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimat verən bir e-poçt alacaqsınız."
-      send_instructions: "Bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimatlara dair bir e-poçt alacaqsınız."
+      send_paranoid_instructions: "E-poçtunuz bizim bazamıza malikdirsə, bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimat verən bir məktub alacaqsınız."
+      send_instructions: "Bir neçə dəqiqə ərzində hesabınızı təsdiqləməyinizlə bağlı təlimatlara dair bir məktub alacaqsınız."
       confirmed: "Hesabınız uğurla təsdiqləndi."
     registrations:
-      signed_up_but_unconfirmed: "E-poçt ünvanınıza təsdiq linki olan mesaj göndərildi. Hesabınızı aktivləşdirmək üçün link açın."
+      signed_up_but_unconfirmed: "E-poçt ünvanınıza təsdiq linki olan məktub göndərildi. Hesabınızı aktivləşdirmək üçün link açın."
       signed_up_but_inactive: "Siz uğurla qeydiyyatdan keçmisniz. Halbuki, hesabınız hələ aktiv olmadığına görə, biz sizi daxil etdirə bilməmişik."
       signed_up_but_locked: "Siz uğurla qeydiyyatdan keçmisniz. Halbuki, hesabınız blokda olduğuna görə, biz sizi daxil etdirə bilməmişik."
       reasons:
@@ -42,8 +42,8 @@ az-AZ:
       updated: "Siz hesabınızı uğurla yeniləmisiniz."
       destroyed: "Hesabınız uğurla ləğv edildi. Sizi tezliklə yenidən görüşməyə ümid edirik."
     unlocks:
-      send_paranoid_instructions: "Hesabınız mövcuddursa, bir neçə dəqiqə ərzində onu necə açmaq barədə təlimatlara malik bir e-poçt alacaqsınız."
-      send_instructions: "Hesabınızı bir neçə dəqiqə ərzində necə açmaq barədə təlimatlara dair bir e-poçt alacaqsınız."
+      send_paranoid_instructions: "Hesabınız mövcuddursa, bir neçə dəqiqə ərzində onu necə açmaq barədə təlimatlara malik bir məktub alacaqsınız."
+      send_instructions: "Hesabınızı bir neçə dəqiqə ərzində necə açmaq barədə təlimatlara dair bir məktub alacaqsınız."
       unlocked: "Hesabınız uğurla açıldı. Davam etmək üçün daxil edin."
     omniauth_callbacks:
       success: "%{kind} hesabından uğurla icazə verildi."
@@ -52,6 +52,6 @@ az-AZ:
       confirmation_instructions:
         subject: "%{service_name}-a qoşulmaq üçün təlimat"
       reset_password_instructions:
-        subject: "Parolu yenidən təyin edilməsi üçün təlimat"
+        subject: "Parolun sıfırlaşması üzrə təlimat"
       unlock_instructions:
         subject: "Blokdan çıxarma üzrə təlimatları"

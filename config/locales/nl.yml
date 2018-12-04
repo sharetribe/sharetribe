@@ -1325,6 +1325,7 @@ nl:
       after: "moet zijn na %{restriction}"
       on_or_after: "moet zijn op of na %{restriction}"
       positive_number: "Voer een getal in."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."

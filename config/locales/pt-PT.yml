@@ -1305,6 +1305,7 @@ pt-PT:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceitou emprestar %{listing_title} a %{requester_name} %{time_ago}"

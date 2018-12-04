@@ -1322,6 +1322,7 @@ fr:
       after: "doit être après %{restriction}"
       on_or_after: "doit être au ou après %{restriction}"
       positive_number: "Vous devez saisir un nombre entier."
+      from_must_be_less_than_till: "La date de début doit être antérieur à la date de fin"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} a accepté de prêter %{listing_title} à %{requester_name} %{time_ago}."

@@ -1301,6 +1301,7 @@ lv:
       after: "jābūt pēc %{restriction}"
       on_or_after: ~
       positive_number: "Ievietojiet numuru."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} piekrita aizdot %{listing_title} %{requester_name} %{time_ago}."

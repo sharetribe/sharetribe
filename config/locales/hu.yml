@@ -1319,6 +1319,7 @@ hu:
       after: "Ezt követően %{restriction}"
       on_or_after: "Ekkor vagy ezt követően %{restriction}"
       positive_number: "Szám megadása"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} engedélyezte %{listing_title} kölcsönadását %{requester_name} számára %{time_ago}"

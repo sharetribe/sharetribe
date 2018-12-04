@@ -1305,6 +1305,7 @@ zh:
       after: "必须在%{restriction}之后"
       on_or_after: "必须在%{restriction}时或之后"
       positive_number: 填入一个数字
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
