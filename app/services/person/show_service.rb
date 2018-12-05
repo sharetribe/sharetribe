@@ -74,4 +74,8 @@ class Person::ShowService
       ))
       }.data
   end
+
+  def admin?
+    current_user.has_admin_rights?(community)
+  end
 end

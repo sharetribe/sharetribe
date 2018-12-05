@@ -11,7 +11,7 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community) }
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community, @service.restrict_for_admin?) }
 
 #person_settings_form.left-navi-section.settings-section
   %p
