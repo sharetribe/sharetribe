@@ -34,3 +34,11 @@ services:
       # Uncomment when deploying own installation of Sharetribe
       #- convox.cron.test-task=0 9 * * ? bundle exec rails runner CommunityMailer.deliver_community_updates
     command: [ "script/startup.sh", "worker" ]
+  shredder:
+    build: .
+    mem_limit: 512m
+    labels:
+      - convox.environment.secure=true
+      - convox.deployment.minimum=0
+      - convox.deployment.maximum=100
+    command: [ "script/startup.sh", "shredder" ]
