@@ -1,7 +1,4 @@
 class PeopleController < Devise::RegistrationsController
-  class PersonDeleted < StandardError; end
-  class PersonBanned < StandardError; end
-
   skip_before_action :verify_authenticity_token, :only => [:creates]
   skip_before_action :require_no_authentication, :only => [:new]
 
@@ -22,56 +19,10 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
-    raise PersonDeleted if @person.deleted?
-    raise PersonBanned if @person.banned?
-
+    @service = Person::ShowService.new(community: @current_community, params: params, current_user: @current_user)
+    @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
-    @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
-
-    include_closed = @current_user == @person && params[:show_closed]
-    search = {
-      author_id: @person.id,
-      include_closed: include_closed,
-      page: 1,
-      per_page: 6
-    }
-
-    includes = [:author, :listing_images]
-    raise_errors = Rails.env.development?
-
-    listings =
-      ListingIndexService::API::Api
-      .listings
-      .search(
-        community_id: @current_community.id,
-        search: search,
-        engine: FeatureFlagHelper.search_engine,
-        raise_errors: raise_errors,
-        includes: includes
-      ).and_then { |res|
-      Result::Success.new(
-        ListingIndexViewUtils.to_struct(
-        result: res,
-        includes: includes,
-        page: search[:page],
-        per_page: search[:per_page]
-      ))
-    }.data
-
-    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(@person, @current_community)
-    received_positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(@person, @current_community)
-    feedback_positive_percentage = @person.feedback_positive_percentage_in_community(@current_community)
-    community_person_custom_fields = @current_community.person_custom_fields.is_public
-
-    render locals: { listings: listings,
-                     followed_people: @person.followed_people,
-                     received_testimonials: received_testimonials,
-                     received_positive_testimonials: received_positive_testimonials,
-                     feedback_positive_percentage: feedback_positive_percentage,
-                     community_person_custom_fields: community_person_custom_fields
-                   }
   end
 
   def new

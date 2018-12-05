@@ -1,31 +1,33 @@
+- person = @service.person
+
 - content_for :javascript do
-  initialize_profile_view("#{@person.username}");
+  initialize_profile_view("#{person.username}");
 
 - content_for :title_header do
   %h1
-    %span.profile-title= PersonViewUtils.person_display_name(@person, @current_community)
+    %span.profile-title= PersonViewUtils.person_display_name(person, @service.community)
 
 .row
   .col-8
 
     .row.relative
       .people-image-mobile
-        = huge_avatar_thumb(@person)
+        = huge_avatar_thumb(person)
       .profile-action-buttons-mobile
-        = render :partial => "profile_action_buttons"
+        = render "profile_action_buttons", service: @service
 
     .row.profile-about-me
-      - if @person.description && !@person.description.blank?
-        = markdown(@person.description)
-      - elsif current_user?(@person)
-        %a{href: person_settings_path(@person)}
+      - if person.description && !person.description.blank?
+        = markdown(person.description)
+      - elsif current_user?(person)
+        %a{href: person_settings_path(person)}
           .icon-with-text-container
             .ss-chat.icon-part
             .ss.text-part= t(".add_description")
 
-    - if community_person_custom_fields.any?
-      - community_person_custom_fields.each do |custom_field|
-        - custom_field_value = @person.custom_field_value_for(custom_field)
+    - if @service.community_person_custom_fields.any?
+      -  @service.community_person_custom_fields.each do |custom_field|
+        - custom_field_value = person.custom_field_value_for(custom_field)
         - if custom_field_value
           - if custom_field.required? || custom_field_value.display_value.to_s.present?
             .row
@@ -44,50 +46,50 @@
 
     .row
       %h2.people-header
-        - if listings.total_entries > 0
-          - if current_user?(@person) && params[:show_closed]
-            = pluralize(listings.total_entries, t(".listing"), t(".listings"))
+        - if @service.listings.total_entries > 0
+          - if current_user?(person) && params[:show_closed]
+            = pluralize(@service.listings.total_entries, t(".listing"), t(".listings"))
           - else
-            = pluralize(listings.total_entries, t(".open_listing"), t(".open_listings"))
+            = pluralize(@service.listings.total_entries, t(".open_listing"), t(".open_listings"))
         - else
-          - if current_user?(@person) && params[:show_closed]
+          - if current_user?(person) && params[:show_closed]
             = t(".no_listings")
           - else
             = t(".no_open_listings")
         %span.people-show-closed-link
-          - if current_user?(@person)
+          - if current_user?(person)
             - if params[:show_closed]
-              = link_to t("people.profile_listings.show_only_open"), person_path(@person)
+              = link_to t("people.profile_listings.show_only_open"), person_path(person)
             - else
-              = link_to t("people.profile_listings.show_also_closed"), person_path(@person, :show_closed => true)
+              = link_to t("people.profile_listings.show_also_closed"), person_path(person, :show_closed => true)
 
     #profile-listings-list
       - limit = 6
-      = render :partial => 'listings/profile_listings', :locals => {person: @person, limit: limit, listings: listings}
+      = render :partial => 'listings/profile_listings', :locals => {person: person, limit: limit, listings: @service.listings}
 
-    - if @current_community.follow_in_use?
-      = render :partial => "followed_people", :locals => { person: @person, followed_people: followed_people, limit: 6 }
+    - if @service.community.follow_in_use?
+      = render :partial => "followed_people", :locals => { person: person, followed_people: @service.followed_people, limit: 6 }
 
     #people-testimonials.listing-main
       .row
         %h2.people-header
-          - if received_testimonials.size > 0
-            = pluralize(received_testimonials.size, t(".review"), t(".reviews"))
-            = "(#{feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{received_positive_testimonials.size}/#{received_testimonials.size})"
+          - if @service.received_testimonials?
+            = pluralize(@service.received_testimonials.size, t(".review"), t(".reviews"))
+            = "(#{@service.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@service.received_positive_testimonials.size}/#{@service.received_testimonials.size})"
           - else
             = t(".no_reviews")
-        - if received_testimonials.size > 0
+        - if @service.received_testimonials?
           #profile-testimonials-list
-            = render :partial => "testimonials", :locals => {:received_testimonials => received_testimonials, :limit => 3}
+            = render :partial => "testimonials", :locals => {:received_testimonials => @service.received_testimonials, :limit => 3}
 
   .col-4
     .row
       .people-image
-        = huge_avatar_thumb(@person)
+        = huge_avatar_thumb(person)
 
     .row
       .profile-action-buttons-desktop
-        = render :partial => "profile_action_buttons"
+        = render "profile_action_buttons", service: @service
 
 - content_for :extra_javascript do
   :javascript

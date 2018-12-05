@@ -380,6 +380,41 @@ describe PeopleController, type: :controller do
     end
   end
 
+  describe "#show" do
+    let(:community) do
+      community = FactoryGirl.create(:community)
+      FactoryGirl.create(:custom_text_field, community: community,
+                                             public: true, entity_type: :for_person)
+      community
+    end
+    let(:person1) do
+      person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 0)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 1)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 1)
+      followed_person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
+      followed_person.followers << person
+      person
+    end
+    let(:person2) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
+    let(:person3) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
+
+    it 'works' do
+      community_host(community)
+      get :show, params: {username: person1.username}
+      service = assigns(:service)
+      expect(service.person).to eq person1
+      expect(service.received_testimonials?).to eq true
+      expect(service.received_testimonials.count).to eq 3
+      expect(service.received_positive_testimonials.count).to eq 2
+      expect(service.feedback_positive_percentage).to eq 67
+      expect(service.community_person_custom_fields.count).to eq 1
+      expect(service.followed_people.count).to eq 1
+    end
+  end
 
   def community_host(community)
     @request.host = "#{community.ident}.lvh.me"
