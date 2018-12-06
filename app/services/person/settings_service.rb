@@ -47,7 +47,7 @@ class Person::SettingsService
     @fixed_phone_field ||= community_person_custom_fields.phone_number.empty?
   end
 
-  def restrict_for_admin?
+  def admin_acts_as_person?
     current_user && current_user != person
   end
 

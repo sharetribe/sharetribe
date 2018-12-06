@@ -38,6 +38,11 @@
         = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
 
     - content_for(:page_content) do
+      - if content_for?(:banner_warning)
+        %section.banner.banner--warning
+          .banner--title-wrapper
+            .banner--title
+              = yield :banner_warning
       %section.marketplace-lander
         - if @big_cover_photo
           .coverimage
