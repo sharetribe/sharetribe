@@ -1,5 +1,6 @@
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
+  include Rails.application.routes.url_helpers
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
   attr_reader :shape
 
@@ -286,6 +287,31 @@ class ListingPresenter < MemoisticPresenter
 
   def payments_enabled?
     process == :preauthorize
+  end
+
+  def acts_as_person
+    params[:person_id].present? ? Person.find_by!(username: params[:person_id]) : nil
+  end
+
+  def new_listing_author
+    acts_as_person || @current_user
+  end
+
+  def listing_form_menu_titles
+    {
+      "category" => I18n.t("listings.new.select_category"),
+      "subcategory" => I18n.t("listings.new.select_subcategory"),
+      "listing_shape" => I18n.t("listings.new.select_transaction_type")
+    }
+  end
+
+  def new_listing_form
+    {
+      locale: I18n.locale,
+      category_tree: category_tree,
+      menu_titles: listing_form_menu_titles,
+      new_form_content_path: acts_as_person ? new_form_content_person_listings_path(person_id: new_listing_author.username, locale: I18n.locale) : new_form_content_listings_path(locale: I18n.locale)
+    }
   end
 
   memoize_all_reader_methods
