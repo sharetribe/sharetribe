@@ -296,6 +296,10 @@ SQL
     }
   end
 
+  def progress(completed, total)
+    "#{completed} / #{total}, #{(completed  * 100 / total).round(2)}%"
+  end
+
   def delete_marketplace_data!(community_id, sleep_time, query_sleep_time)
     community = Community.find_by_id(community_id)
 
@@ -311,10 +315,14 @@ SQL
     # Bulk delete non-indexed data
     delete_marketplace_db!(delete_marketplace_queries(community.id), query_sleep_time)
 
+    total_count = community.listings.count + Person.where(community_id: community.id).count
+    deleted_count = 1
+
     Listing.where(community_id: community.id).pluck(:id).each do |listing_id|
       begin
         sleep sleep_time
-        puts "Deleting listing #{listing_id} from community #{community.id}"
+        puts "Deleting listing #{listing_id} from community #{community.id} (#{progress(deleted_count, total_count)})"
+        deleted_count += 1
 
         # Listing images that have error are not destroyed when listing is
         # destroyed so delete them manually
@@ -329,7 +337,9 @@ SQL
     Person.where(community_id: community.id).pluck(:id).each do |person_id|
       begin
         sleep sleep_time
-        puts "Deleting #{person_id} from community #{community.id}"
+        puts "Deleting person #{person_id} from community #{community.id} (#{progress(deleted_count, total_count)})"
+        deleted_count += 1
+
         Person.find(person_id).destroy
       rescue => e
         puts "Destroy person failed for #{person_id}: #{e.message}"
