@@ -50,6 +50,8 @@ class CommunityMembership < ApplicationRecord
   scope :not_banned, -> { where("community_memberships.status <> ?", [BANNED]) }
   scope :not_deleted_user, -> { where.not(status: DELETED_USER) }
   scope :not_accepted, -> { where.not(status: ACCEPTED) }
+  scope :pending_email_confirmation, -> { where(status: PENDING_EMAIL_CONFIRMATION) }
+  scope :pending_consent, -> { where(status: PENDING_CONSENT) }
 
   def person_can_join_community_only_once
     if CommunityMembership.find_by_person_id_and_community_id(person_id, community_id)

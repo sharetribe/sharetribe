@@ -4,6 +4,18 @@ describe Admin::CommunityMembershipsController, type: :controller do
   let(:community) { FactoryGirl.create(:community) }
   let(:person1) { FactoryGirl.create(:person, member_of: community) }
   let(:person2) { FactoryGirl.create(:person, member_of: community) }
+  let(:person_with_unconfirmed_email) do
+    person = FactoryGirl.create(:person, member_of: community)
+    email = person.emails.first
+    email.update_column(:confirmed_at, nil)
+    person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
+    person
+  end
+  let(:person_with_pending_consent) do
+    person = FactoryGirl.create(:person, member_of: community)
+    person.community_membership.update_column(:status, CommunityMembership::PENDING_CONSENT)
+    person
+  end
 
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
@@ -71,6 +83,33 @@ describe Admin::CommunityMembershipsController, type: :controller do
       memberships = service.memberships
       expect(memberships.size).to eq 3
     end
+
+    it 'filters unconfirmed' do
+      person1
+      person_with_unconfirmed_email
+      get :index, params: {community_id: community.id, status: ['unconfirmed']}
+      service = assigns(:service)
+      memberships = service.memberships
+      expect(memberships.size).to eq 1
+    end
+
+    it 'filters pending' do
+      person1
+      person_with_pending_consent
+      get :index, params: {community_id: community.id, status: ['pending']}
+      service = assigns(:service)
+      memberships = service.memberships
+      expect(memberships.size).to eq 1
+    end
+
+    it 'filters accepted' do
+      person1
+      person_with_pending_consent
+      get :index, params: {community_id: community.id, status: ['accepted']}
+      service = assigns(:service)
+      memberships = service.memberships
+      expect(memberships.size).to eq 2
+    end
   end
 
   describe "#ban" do
@@ -121,14 +160,6 @@ describe Admin::CommunityMembershipsController, type: :controller do
   end
 
   describe "#resend_confirmation" do
-    let(:person_with_unconfirmed_email) do
-      person = FactoryGirl.create(:person, member_of: community)
-      email = person.emails.first
-      email.update_column(:confirmed_at, nil)
-      person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
-      person
-    end
-
     it 'works' do
       person = person_with_unconfirmed_email
       membership = person.community_membership

@@ -178,6 +178,9 @@ class Admin::Communities::MembershipService
       statuses.push(CommunityMembership.admin) if params[:status].include?('admin')
       statuses.push(CommunityMembership.banned) if params[:status].include?(CommunityMembership::BANNED)
       statuses.push(CommunityMembership.posting_allowed) if params[:status].include?('posting_allowed')
+      statuses.push(CommunityMembership.accepted) if params[:status].include?(CommunityMembership::ACCEPTED)
+      statuses.push(CommunityMembership.pending_email_confirmation) if params[:status].include?('unconfirmed')
+      statuses.push(CommunityMembership.pending_consent) if params[:status].include?('pending')
       if statuses.size > 1
         status_scope = statuses.slice!(0)
         statuses.map{|x| status_scope = status_scope.or(x)}

@@ -275,12 +275,13 @@ en:
           admin: "Admin"
           banned: "Banned"
           posting_allowed: "Posting allowed"
+          accepted: Accepted
+          unconfirmed: Unconfirmed
+          pending: Pending
         this_user_hasnt_confirmed_their_email_address: "This user hasn't confirmed their email address. It might be possible that the user didn't receive the confirmation email. Click the resend button if you want to send it again."
         unconfirmed_user: "Unconfirmed user: %{name}"
         resend: Resend
         cancel: Cancel
-        unconfirmed: Unconfirmed
-        pending: Pending
         user_didnt_complete_the_signup_process: "This user signed up through Facebook but didn't complete the signup process. After connecting a Facebook account, users still need to accept your terms of use and fill any mandatory user fields."
         pending_user: "Pending: %{name}"
       new_layout:
