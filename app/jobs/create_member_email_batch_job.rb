@@ -56,10 +56,10 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
   end
 
   def has_listings_person_ids(community)
-    community.members.joins(:listings).distinct.map(&:id)
+    community.members.joins("INNER JOIN listings ON listings.community_id = people.community_id AND listings.author_id = people.id AND listings.deleted = 0").distinct.pluck(:id)
   end
 
   def has_no_listings_person_ids(community)
-    community.members.left_outer_joins(:listings).where(listings: {author_id: nil}).distinct.map(&:id)
+    community.members.joins("LEFT OUTER JOIN listings ON listings.community_id = people.community_id AND listings.author_id = people.id AND listings.deleted = 0").where(listings: {author_id: nil}).distinct.pluck(:id)
   end
 end
