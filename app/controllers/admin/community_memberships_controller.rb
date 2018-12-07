@@ -62,6 +62,11 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
     render body: nil, status: 200
   end
 
+  def resend_confirmation
+    @service.resend_confirmation
+    render body: nil, status: 200
+  end
+
   private
 
   def set_selected_left_navi_link

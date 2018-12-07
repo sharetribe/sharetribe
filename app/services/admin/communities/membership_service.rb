@@ -12,7 +12,7 @@ class Admin::Communities::MembershipService
   end
 
   def memberships
-    @memberships ||= filtered_scope.accepted_or_banned
+    @memberships ||= filtered_scope.not_deleted_user
                                    .paginate(page: params[:page], per_page: PER_PAGE)
                                    .order("#{sort_column} #{sort_direction}")
   end
@@ -60,6 +60,12 @@ class Admin::Communities::MembershipService
     resource_scope.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
     resource_scope.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
     # rubocop:enable Rails/SkipsModelValidations
+  end
+
+  def resend_confirmation
+    email_to_confirm = membership.person.latest_pending_email_address(community)
+    to_confirm = Email.find_by_address_and_community_id(email_to_confirm, community.id)
+    Email.send_confirmation(to_confirm, community)
   end
 
   def presenter

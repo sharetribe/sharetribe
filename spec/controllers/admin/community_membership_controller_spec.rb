@@ -119,4 +119,25 @@ describe Admin::CommunityMembershipsController, type: :controller do
       expect(membership.can_post_listings).to eq false
     end
   end
+
+  describe "#resend_confirmation" do
+    let(:person_with_unconfirmed_email) do
+      person = FactoryGirl.create(:person, member_of: community)
+      email = person.emails.first
+      email.update_column(:confirmed_at, nil)
+      person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
+      person
+    end
+
+    it 'works' do
+      person = person_with_unconfirmed_email
+      membership = person.community_membership
+      ActionMailer::Base.deliveries.clear
+      put :resend_confirmation, params: {community_id: community.id, id: membership.id}
+      Delayed::Worker.new.work_off
+      expect(ActionMailer::Base.deliveries.count).to eq 1
+      delivered_email = ActionMailer::Base.deliveries.last
+      expect(delivered_email.to).to eq [person.emails.first.address]
+    end
+  end
 end
