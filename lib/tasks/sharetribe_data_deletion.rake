@@ -315,6 +315,11 @@ SQL
       begin
         sleep sleep_time
         puts "Deleting listing #{listing_id} from community #{community.id}"
+
+        # Listing images that have error are not destroyed when listing is
+        # destroyed so delete them manually
+        ListingImage.where(listing_id: listing_id).delete_all
+
         Listing.find(listing_id).destroy
       rescue => e
         puts "Destroy listing failed for #{listing_id}: #{e.message}"
