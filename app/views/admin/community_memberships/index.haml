@@ -82,7 +82,7 @@
                 - if accepted_or_banned
                   %span= l(membership.created_at, format: :short_date)
                 - elsif membership.pending_consent?
-                  %span= 'pending consent'
+                  = render 'pending_consent', membership: membership, member: member
                 - elsif membership.pending_email_confirmation?
                   = render 'pending_confirmation', membership: membership, member: member
               - if @current_community.require_verification_to_post_listings
