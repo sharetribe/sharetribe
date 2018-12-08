@@ -208,10 +208,10 @@ en:
         settings: Settings
         general: General
         access: "Access preferences"
-        join_with_invite_only: "Allow users to join only with an invite from another user"
-        users_can_invite_new_users: "Allow all users to invite new users"
+        join_with_invite_only: "Allow new users to join only with an invite from a registered user"
+        users_can_invite_new_users: "Allow all registered users, and not only admins, to invite new users"
         private: "Allow only registered users to see listings and user profiles (make marketplace private)"
-        require_verification_to_post_listings: "Allow only users verified by admin to post new listings"
+        require_verification_to_post_listings: "Allow only users verified by admins to post new listings"
         search_preferences: "Search preferences"
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
