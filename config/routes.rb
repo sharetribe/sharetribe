@@ -51,7 +51,6 @@ Rails.application.routes.draw do
   # Internal API
   namespace :int_api do
     post "/create_trial_marketplace" => "marketplaces#create"
-    post "/prospect_emails" => "marketplaces#create_prospect_email"
     resources :listings, only: [], defaults: { format: :json } do
       member do
         post :update_working_time_slots

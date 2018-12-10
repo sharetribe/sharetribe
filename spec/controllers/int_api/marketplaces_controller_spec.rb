@@ -25,7 +25,7 @@ describe IntApi::MarketplacesController, type: :controller do
 
   describe "#create" do
     it "should create a marketplace and an admin user" do
-      post :create, params: { admin_email: "eddie.admin@example.com", 
+      post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -68,7 +68,7 @@ describe IntApi::MarketplacesController, type: :controller do
     end
 
     it "should handle emails starting with info@" do
-      post :create, params: { admin_email: "info@example.com", 
+      post :create, params: { admin_email: "info@example.com",
                      admin_first_name: "Eddiè",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -104,7 +104,7 @@ describe IntApi::MarketplacesController, type: :controller do
     end
 
     it "should handle short emails like fo@barbar.com" do
-      post :create, params: { admin_email: "fo@example.com", 
+      post :create, params: { admin_email: "fo@example.com",
                      admin_first_name: "Eddie_",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -175,23 +175,5 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-  end
-
-  describe "#create_prospect_email" do
-    it "should add given email as prospect email" do
-      post :create_prospect_email, params: { :email => "something.not.used@example.com" }
-
-      expect(response.status).to eql 200
-      expect(response.body).to eql ""
-      expect(ProspectEmail.last.email).to eql "something.not.used@example.com"
-    end
-    it "should return with an error when an email is not provided" do
-      post :create_prospect_email, params: { }
-
-      expect(response.status).to eql 400
-      r = JSON.parse(response.body)
-      expect(r[0]).to eql "Email missing from payload"
-      expect(ProspectEmail.last).to be_nil
-    end
   end
 end
