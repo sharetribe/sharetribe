@@ -61,30 +61,30 @@ RSpec.describe CreateMemberEmailBatchJob, type: :job do
     end
 
     it '#works' do
-      members = CreateMemberEmailBatchJob.new.members('nonexisting', community)
+      members = CreateMemberEmailBatchJob.new.community_members('nonexisting', community)
       expect(members.count).to eq 0
-      members = CreateMemberEmailBatchJob.new.members('all_users', community)
+      members = CreateMemberEmailBatchJob.new.community_members('all_users', community)
       expect(members.count).to eq 7
-      members = CreateMemberEmailBatchJob.new.members('posting_allowed', community)
+      members = CreateMemberEmailBatchJob.new.community_members('posting_allowed', community)
       expect(members.count).to eq 1
       expect(members.first).to eq person_posting_allowed
-      members = CreateMemberEmailBatchJob.new.members('with_listing', community)
+      members = CreateMemberEmailBatchJob.new.community_members('with_listing', community)
       expect(members.count).to eq 2
       expect(members.include?(person_with_listing_with_payments)).to eq true
       expect(members.include?(person_with_listing_no_payments)).to eq true
-      members = CreateMemberEmailBatchJob.new.members('with_listing_no_payment', community)
+      members = CreateMemberEmailBatchJob.new.community_members('with_listing_no_payment', community)
       expect(members.count).to eq 1
       expect(members.first).to eq person_with_listing_no_payments
-      members = CreateMemberEmailBatchJob.new.members('with_payment_no_listing', community)
+      members = CreateMemberEmailBatchJob.new.community_members('with_payment_no_listing', community)
       expect(members.count).to eq 2
       expect(members.include?(person_with_paypal_no_listing)).to eq true
       expect(members.include?(person_with_stripe_no_listing)).to eq true
-      members = CreateMemberEmailBatchJob.new.members('no_listing_no_payment', community)
+      members = CreateMemberEmailBatchJob.new.community_members('no_listing_no_payment', community)
       expect(members.count).to eq 3
       expect(members.include?(person_no_listing_no_payments)).to eq true
       expect(members.include?(person_started_transaction)).to eq true
       expect(members.include?(person_posting_allowed)).to eq true
-      members = CreateMemberEmailBatchJob.new.members('customers', community)
+      members = CreateMemberEmailBatchJob.new.community_members('customers', community)
       expect(members.count).to eq 0 # disabled at the moment
     end
   end

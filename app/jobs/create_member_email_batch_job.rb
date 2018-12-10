@@ -14,13 +14,13 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
     current_community = Community.where(id: community_id).first
 
     Delayed::Job.transaction do
-      members(mode, current_community).find_each do |recipient|
+      community_members(mode, current_community).find_each do |recipient|
         Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient.id, community_id, content, locale))
       end
     end
   end
 
-  def members(mode, community)
+  def community_members(mode, community)
     mode_options = Admin::EmailsController::ADMIN_EMAIL_OPTIONS
     mode = mode.to_sym
     scope = community.members
