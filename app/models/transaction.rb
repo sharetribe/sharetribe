@@ -133,6 +133,7 @@ class Transaction < ApplicationRecord
       OR `transactions`.`id` IN (#{with_testimonial_ids.to_sql})
       ", pattern: pattern).distinct
   end
+  scope :paid_or_confirmed, -> { where(current_state: ['paid', 'confirmed']) }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
