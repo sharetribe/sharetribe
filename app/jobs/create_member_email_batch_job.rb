@@ -14,52 +14,37 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
     current_community = Community.where(id: community_id).first
 
     Delayed::Job.transaction do
-      recipient_ids(mode, current_community).each do |recipient_id|
-        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, content, locale))
+      members(mode, current_community).find_each do |recipient|
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient.id, community_id, content, locale))
       end
     end
   end
 
-  def recipient_ids(mode, community)
+  def members(mode, community)
     mode_options = Admin::EmailsController::ADMIN_EMAIL_OPTIONS
     mode = mode.to_sym
+    scope = community.members
     if mode_options.include?(mode)
       case mode
       when :all_users
-        community.members.map(&:id)
+        scope
       when :posting_allowed
-        community.members.merge(CommunityMembership.posting_allowed).map(&:id)
+        scope = scope.merge(CommunityMembership.posting_allowed)
       when :with_listing
-        has_listings_person_ids(community)
+        scope = scope.has_listings
       when :with_listing_no_payment
-        has_listings_person_ids(community) - paypal_person_ids(community) - stripe_person_ids(community)
+        scope = scope.has_no_stripe_account.has_no_paypal_account.has_listings
       when :with_payment_no_listing
-        (paypal_person_ids(community) + stripe_person_ids(community)) - has_listings_person_ids(community)
+        scope = scope.has_payment_account.has_no_listings
       when :no_listing_no_payment
-        has_no_listings_person_ids(community) - paypal_person_ids(community) - stripe_person_ids(community)
+        scope = scope.has_no_stripe_account.has_no_paypal_account.has_no_listings
       when :customers
-        community.transactions.where(current_state: ['paid', 'confirmed']).select(:starter_id).distinct.map(&:starter_id)
+        scope = scope.has_started_transactions
       else
-        []
+        scope.none
       end
     else
-      []
+      scope.none
     end
-  end
-
-  def paypal_person_ids(community)
-    PaypalService::API::Api.accounts.get_active_users(community_id: community.id)
-  end
-
-  def stripe_person_ids(community)
-    StripeService::API::Api.accounts.get_active_users(community_id: community.id)
-  end
-
-  def has_listings_person_ids(community)
-    community.members.joins("INNER JOIN listings ON listings.community_id = people.community_id AND listings.author_id = people.id AND listings.deleted = 0").distinct.pluck(:id)
-  end
-
-  def has_no_listings_person_ids(community)
-    community.members.joins("LEFT OUTER JOIN listings ON listings.community_id = people.community_id AND listings.author_id = people.id AND listings.deleted = 0").where(listings: {author_id: nil}).distinct.pluck(:id)
   end
 end

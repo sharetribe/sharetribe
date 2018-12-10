@@ -14,7 +14,8 @@
 
 class StripeAccount < ApplicationRecord
 
-  belongs_to :customer
+  belongs_to :person
   belongs_to :community
 
+  scope :active_users, -> { where.not(person_id: nil) }
 end

@@ -118,6 +118,8 @@ class Transaction < ApplicationRecord
             OR listing_authors_transactions.family_name like :pattern
             OR listing_authors_transactions.display_name like :pattern)", pattern: pattern)
   }
+  scope :paid_or_confirmed, -> { where(current_state: ['paid', 'confirmed']) }
+
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
