@@ -131,19 +131,20 @@ class Person < ApplicationRecord
       .where("#{Person.search_by_pattern_sql('people')}
         OR emails.address like :pattern", pattern: pattern)
   }
-  scope :has_listings, ->  do
-    joins(:listings).distinct
+  scope :has_listings, ->(community) do
+    joins("INNER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0").distinct
   end
-  scope :has_no_listings, -> do
-    left_outer_joins(:listings).where(listings: {author_id: nil}).distinct
+  scope :has_no_listings, ->(community) do
+    joins("LEFT OUTER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0")
+    .where(listings: {author_id: nil}).distinct
   end
   scope :has_stripe_account, -> { where(id: StripeAccount.active_users.select(:person_id)) }
   scope :has_no_stripe_account, -> { where.not(id: StripeAccount.active_users.select(:person_id)) }
   scope :has_paypal_account, -> { where(id: PaypalAccount.active_users.select(:person_id)) }
   scope :has_no_paypal_account, -> { where.not(id: PaypalAccount.active_users.select(:person_id)) }
   scope :has_payment_account, -> { has_stripe_account.or(has_paypal_account) }
-  scope :has_started_transactions, -> do
-    joins(:starter_transactions).merge(Transaction.paid_or_confirmed).distinct
+  scope :has_started_transactions, ->(community) do
+    joins("INNER JOIN `transactions` ON `transactions`.`starter_id` = `people`.`id` AND `transactions`.`community_id` = #{community.id} AND `transactions`.`current_state` IN ('paid', 'confirmed')").distinct
   end
 
   accepts_nested_attributes_for :custom_field_values

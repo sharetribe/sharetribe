@@ -31,15 +31,15 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
       when :posting_allowed
         scope = scope.merge(CommunityMembership.posting_allowed)
       when :with_listing
-        scope = scope.has_listings
+        scope = scope.has_listings(community)
       when :with_listing_no_payment
-        scope = scope.has_no_stripe_account.has_no_paypal_account.has_listings
+        scope = scope.has_no_stripe_account.has_no_paypal_account.has_listings(community)
       when :with_payment_no_listing
-        scope = scope.has_payment_account.has_no_listings
+        scope = scope.has_payment_account.has_no_listings(community)
       when :no_listing_no_payment
-        scope = scope.has_no_stripe_account.has_no_paypal_account.has_no_listings
+        scope = scope.has_no_stripe_account.has_no_paypal_account.has_no_listings(community)
       when :customers
-        scope = scope.has_started_transactions
+        scope = scope.has_started_transactions(community)
       else
         scope.none
       end

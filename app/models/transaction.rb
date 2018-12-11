@@ -46,6 +46,7 @@
 #  index_transactions_on_listing_author_id   (listing_author_id)
 #  index_transactions_on_listing_id          (listing_id)
 #  index_transactions_on_starter_id          (starter_id)
+#  starter_community_state                   (community_id,starter_id,current_state)
 #  transactions_on_cid_and_deleted           (community_id,deleted)
 #
 
