@@ -327,7 +327,8 @@ CREATE TABLE `community_memberships` (
   `can_post_listings` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_community_memberships_on_person_id` (`person_id`) USING BTREE,
-  KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE
+  KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE,
+  KEY `person_community_status` (`community_id`,`person_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_social_logos`;
@@ -814,6 +815,7 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
   KEY `index_listings_on_open` (`open`) USING BTREE,
   KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`)
+  KEY `person_community_exist` (`community_id`,`author_id`,`deleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
@@ -1450,7 +1452,8 @@ CREATE TABLE `transactions` (
   KEY `transactions_on_cid_and_deleted` (`community_id`,`deleted`) USING BTREE,
   KEY `index_transactions_on_deleted` (`deleted`) USING BTREE,
   KEY `index_transactions_on_starter_id` (`starter_id`) USING BTREE,
-  KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE
+  KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE,
+  KEY `starter_community_state` (`community_id`,`starter_id`,`current_state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2326,4 +2329,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20181024094615'),
 ('20181106212306'),
 ('20181211125306');
+('20181211094456');
 
