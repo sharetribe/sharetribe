@@ -59,3 +59,6 @@ td.center {
 .has-stripe .paypal-wizard-content.no-padding {
   padding: 0;
 }
+.payment-settings input[disabled] {
+  background-color: #dadada;
+}
