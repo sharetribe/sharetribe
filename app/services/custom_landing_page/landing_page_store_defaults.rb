@@ -5,6 +5,12 @@ module CustomLandingPage
       "paragraph_link_color"       => { "type" => "marketplace_data", "id" => "primary_color" },
       "paragraph_link_color_hover" => { "type" => "marketplace_data", "id" => "primary_color_darken" }
     }
+    DEFAULT_SOCIAL_DATA = {
+      "page" => {
+        "social_media_title"       => { "type" => "marketplace_data", "id" => "social_media_title" },
+        "social_media_description" => { "type" => "marketplace_data", "id" => "social_media_description" }
+      }
+    }.freeze
 
     module_function
 
@@ -26,6 +32,7 @@ module CustomLandingPage
         end
       }
 
+      structure.deep_merge!(DEFAULT_SOCIAL_DATA)
       structure.merge("sections" => sections)
     end
   end

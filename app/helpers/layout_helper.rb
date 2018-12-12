@@ -12,4 +12,20 @@ module LayoutHelper
 
     local_assigns[key]
   end
+
+  def social_media_title
+    if @current_community.social_media_title.present?
+      @current_community.social_media_title
+    else
+      "#{@current_community.full_name(I18n.locale)} - #{community_slogan}"
+    end
+  end
+
+  def social_media_description
+    if @current_community.social_media_description.present?
+      @current_community.social_media_description
+    else
+      "#{community_description(false)} - #{community_slogan}"
+    end
+  end
 end

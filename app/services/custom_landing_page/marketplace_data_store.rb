@@ -8,8 +8,11 @@ module CustomLandingPage
     def marketplace_data(cid, locale)
       primary_color,
       twitter_handle,
-      name_display_type = Community.where(id: cid)
-                               .pluck(:custom_color1, :twitter_handle, :name_display_type)
+      name_display_type,
+      social_media_title,
+      social_media_description = Community.where(id: cid)
+                               .pluck(:custom_color1, :twitter_handle, :name_display_type,
+                                     :social_media_title, :social_media_description)
                                .first
 
       name,
@@ -23,6 +26,8 @@ module CustomLandingPage
       slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
       description        ||= I18n.t("common.default_community_description", locale: locale)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
+      social_media_title ||= "#{name} - #{slogan}"
+      social_media_description ||= description
 
       # In :keyword_and_location mode, we use fixed translation for location input.
       search_location_with_keyword_placeholder = I18n.t("landing_page.hero.search_location_placeholder", locale: locale)
@@ -57,7 +62,9 @@ module CustomLandingPage
         "search_placeholder" => search_placeholder,
         "search_location_with_keyword_placeholder" => search_location_with_keyword_placeholder,
         "twitter_handle" => twitter_handle,
-        "name_display_type" => name_display_type
+        "name_display_type" => name_display_type,
+        "social_media_title" => social_media_title,
+        "social_media_description" => social_media_description
       }
     end
 

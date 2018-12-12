@@ -3,7 +3,7 @@
 - if content_for?(:title)
   - title = "#{content_for(:title)} - #{title_service_name}"
 - else
-  - title = "#{title_service_name} - #{community_slogan}"
+  - title = social_media_title
 
 - if content_for?(:keywords)
   - keywords = content_for(:keywords)
@@ -20,7 +20,7 @@
 - if content_for?(:meta_description)
   - meta_description = "#{content_for(:meta_description)}"
 - else
-  - meta_description = "#{community_description(false)} - #{community_slogan}"
+  - meta_description = social_media_description
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
@@ -34,7 +34,7 @@
   - else
     - meta_image = image_path("sharetribe_icon.png")
 
-%title= title
+%title= content_for?(:title) ? "#{content_for(:title)} - #{title_service_name}" : "#{title_service_name} - #{community_slogan}"
 %meta{ :property => "og:title", :content => title}
 %meta{ :name => "twitter:title", :content => title}
 %meta{ :name => "author", :content=> meta_author }
