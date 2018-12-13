@@ -453,6 +453,8 @@ az-AZ:
         footer_copyright: ~
         footer_enabled: ~
         social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
         style:
           dark: ~
           light: ~
@@ -1278,9 +1280,9 @@ az-AZ:
     your_email_address: "Email ünvanınız"
   errors:
     messages:
-      invalid_date: ~
+      invalid_date: "tarixi yanlışdır"
       invalid_time: ~
-      invalid_datetime: ~
+      invalid_datetime: "tarixi-vaxtı yanlışdır"
       is_at: ~
       before: ~
       on_or_before: ~
@@ -1679,8 +1681,8 @@ az-AZ:
       reopen_listing: "Elanı yenidən aktivləşdir"
       move_to_top: "Ana səhifənin yuxarısına qoy"
       show_in_updates_email: "Növbəti bülletendə göstər"
-      show_in_updates_email_loading: ~
-      show_in_updates_email_error: ~
+      show_in_updates_email_loading: Yüklənir...
+      show_in_updates_email_error: "Server cavab vermir. Zəhmət olmasa, səhifəni yeniləyin və yenidən cəhd edin."
       show_in_updates_email_success: ~
     map:
       open_in_google_maps: "Google Maps-da aç"
@@ -1882,7 +1884,7 @@ az-AZ:
       no_reviews: "Heç bir şərh verilməyib"
       offer: Təklif
       listing_created: ~
-      open_until: ~
+      open_until: "%{date} tarixədək aktiv olan"
       feedback: ~
       qr_code: ~
       request: İstək
@@ -1917,7 +1919,7 @@ az-AZ:
       verification_required: "Doğrulama tələb olunur"
   listing_conversations:
     preauthorize:
-      dates_not_available: ~
+      dates_not_available: "Seçilmiş günlər mövcud deyil"
       error_in_checking_availability: ~
       details: ~
       by: ~
@@ -2350,7 +2352,7 @@ az-AZ:
     formats:
       short: "%b %e, %Y saat %H:%M"
       shorter: "%b %e saat %H:%M"
-      short_date: "%b %e, %Y"
+      short_date: "%e.%m.%y"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} gün əvvəl"

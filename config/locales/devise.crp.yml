@@ -2,7 +2,7 @@ crp:
   errors:
     messages:
       expired: ~
-      not_found: ~
+      not_found: "pa jwenn"
       already_confirmed: ~
       not_locked: ~
   devise:
@@ -11,7 +11,7 @@ crp:
       unauthenticated: ~
       unconfirmed: ~
       locked: ~
-      invalid: ~
+      invalid: "move modpas"
       invalid_token: ~
       timeout: ~
       inactive: ~
@@ -26,7 +26,7 @@ crp:
     confirmations:
       send_paranoid_instructions: ~
       send_instructions: ~
-      confirmed: ~
+      confirmed: "kont ou te konfirme"
     registrations:
       signed_up_but_unconfirmed: ~
       signed_up_but_inactive: ~
@@ -36,7 +36,7 @@ crp:
         unconfirmed: ~
         locked: ~
       update_needs_confirmation: ~
-      signed_up: ~
+      signed_up: "Akeyi! Ou anrejistre kòrèkteman"
       updated: ~
       destroyed: ~
     unlocks:

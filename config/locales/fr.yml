@@ -208,8 +208,8 @@ fr:
         settings: Paramètres
         general: Général
         access: "Paramètres d'accès"
-        join_with_invite_only: "Autoriser un utilisateur à s'inscrire uniquement s'il est invité par un autre utilisateur"
-        users_can_invite_new_users: "Autoriser tous les utilisateurs à inviter d'autres utilisateurs"
+        join_with_invite_only: "Autoriser un utilisateur à s'inscrire uniquement s'il est invité par un autre utilisateur déjà inscrit"
+        users_can_invite_new_users: "Autoriser tous les utilisateurs déjà inscrits, et pas uniquement les administrateur, à inviter d'autres utilisateurs"
         private: "Autoriser uniquement les utilisateurs connectés à voir les annonces et profils (rendre la place de marché privée)"
         require_verification_to_post_listings: "Autoriser uniquement les utilisateurs validés par un administrateur à poster de nouvelles annonces"
         search_preferences: "Paramètres de recherche"
@@ -468,6 +468,8 @@ fr:
         footer_copyright: "Texte copyright dans le pied de page"
         footer_enabled: "Footer activé"
         social_links: "Liens de réseaux sociaux"
+        title_placeholder: "Titre du lien"
+        url_placeholder: "http://example.com/username"
         style:
           dark: Sombre
           light: Clair
@@ -1373,8 +1375,8 @@ fr:
       additionally_some_private_requests_exist: "Il y a aussi <b>%{number_of_listings} autres demandes</b>,"
     blank_slate:
       add_first: "Ajouter !"
-      but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres enregistrés."
-      but_those_are_visible_only_to_registered_members: "mais elles sont visibles uniquement aux membres enregistrés."
+      but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres inscrits."
+      but_those_are_visible_only_to_registered_members: "mais elles sont visibles uniquement aux membres inscrits."
       create_new_account_for_yourself: "Créez un nouveau compte"
       examples_of_what_you_could_offer_to_others: "Que pourriez-vous proposer aux autres"
       examples_of_what_you_could_request_to_others: "Que pourriez-vous demander aux autres"

@@ -91,8 +91,8 @@ ro:
         see_how_it_looks_like: "Vedeți cum arată"
         verification_to_post_listings_info_content: "Textul de informare utilizatorilor care nu au fost verificați"
         verification_to_post_listings_info_content_description: ~
-        verification_to_post_listings_info_content_default: ~
-        contact_admin_link_text: ~
+        verification_to_post_listings_info_content_default: "%{service_name} solicita ca datele persoanelor sa fie verificate manual de catre administratori inainte de a lista produse. Inca nu ai fost verificat. Te rugam sa %{contact_admin_link} pentru verificare."
+        contact_admin_link_text: "contactezi echipa %{service_name}"
         save: "Salvează setările"
         transaction_agreement: "Acordul tranzactiei"
         transaction_agreement_checkbox: "Solicita utilizatorilor sa confirme inainte de efectuarea tranzactiilor"
@@ -362,7 +362,7 @@ ro:
           started: Început
           last_activity: "Ultima activitate"
           initiated_by: Inițiator
-          other_party: "Cealaltă parte"
+          other_party: "Parte contractuala"
         status:
           conversation: ~
           free: ~
@@ -423,7 +423,7 @@ ro:
           grade: ~
           text: ~
         status:
-          waiting: ~
+          waiting: "Asteptam recenzie"
           skipped: ~
           published: ~
           blocked: ~
@@ -473,6 +473,8 @@ ro:
         footer_copyright: ~
         footer_enabled: ~
         social_links: ~
+        title_placeholder: "Titlu link"
+        url_placeholder: "http://exemplu.com/numeutilizator"
         style:
           dark: ~
           light: ~
@@ -588,7 +590,7 @@ ro:
         email_subject_text: "Un mesaj nou de la echipa %{service_name}"
         firstname_cannot_be_removed: "\"Prenume\" nu poate fi sters si va fi inlocuit cu prenumele fiecarui utilizator."
         hello_firstname: "Salut \"Prenume\","
-        hello_firstname_text: ~
+        hello_firstname_text: "Salut %{person},"
     left_hand_navigation:
       general: ~
       users_and_transactions: Administreaza
@@ -597,7 +599,7 @@ ro:
       subscription: Abonament
       preview: "Previzualizeaza site"
     listing_shapes:
-      availability_title: ~
+      availability_title: Disponibilitate
       read_more: ~
       read_more_availability_management: ~
       allow_providers_to_manage_availability: ~
@@ -833,15 +835,19 @@ ro:
     what_is_this: "Ce înseamnă asta?"
     removed_user: ~
     payment_fee_info:
-      title: ~
+      title: "Comisioane si taxe de procesare plati"
       stripe: ~
       paypal: ~
-      info: ~
+      info: "Pe %{service_name} platile sunt procesate folosind procesatorul de plati mentionat mai jos. %{service_name} va debita un comision, in functie de procesatorul de plati. Procesatorul de plati poate sa debiteze de asemenea o taxa pentru fiecare tranzactie, dupa cum descriem mai jos."
     paypal_fee_info:
       title: ~
-      body_text: ~
-      body_text_accept: ~
-      link_to_paypal_text: ~
+      body_text: |-
+          Pentru platile prin PayPal, %{service_name} debiteaza un comision de %{paypal_commission}%. Comisionul minim pe tranzactie este de %{minimum_transaction_fee}. Comisionul perceput de PayPal nu este inclus in acest comision. In plus fata de comisionul %{service_name}, vei plati comisionul PayPal pe fiecare tranzactie. Comisionul PayPal este intre 2% si 5% din pretul total de inchiriere, in functie de volumul de inchirieri lunare si de tara de rezidenta a clientului tau. In general, tranzactiile domestice au comisioane mai mici decat cele internationale si volumele mai mari de inchirieri lunare iti aduc discounturi la aceste comisioane. 
+          Poti sa vezi exact aceste comisioane, autentificandu-te in contul tau Paypal si accesand acest link: %{link_to_paypal}. Dupa fiecare tranzactie vei primi o chitanta care iti va mentiona comisionul exact.
+      body_text_accept: |-
+          Aceasta tranzactie este procesata de Paypal. PayPal debiteaza un comision pentru fiecare tranzactie. Acest comision este intre 2% si 5% din pretul total de inchiriere. Comisionul PayPal este intre 2% si 5% din pretul total de inchiriere, in functie de volumul de inchirieri lunare si de tara de rezidenta a clientului tau. In general, tranzactiile domestice au comisioane mai mici decat cele internationale si volumele mai mari de inchirieri lunare iti aduc discounturi la aceste comisioane. 
+          Poti sa vezi exact aceste comisioane, autentificandu-te in contul tau Paypal si accesand acest link: %{link_to_paypal}. Dupa fiecare tranzactie vei primi o chitanta care iti va mentiona comisionul exact.
+      link_to_paypal_text: "Comisioane Paypal"
     stripe_fee_info:
       title: ~
       body_text: ~
@@ -862,7 +868,7 @@ ro:
       decline: Refuza
       quantity_label: ~
       sum_label: ~
-      service_fee_label: ~
+      service_fee_label: "Comision %{service_name}:"
       you_will_get_label: ~
       total_label: ~
       total_value: ~
@@ -871,13 +877,13 @@ ro:
       paypal_fee_info: ~
       payment_fee_info: ~
       shipping_price_label: ~
-      stripe-fee_label: ~
+      stripe-fee_label: "Comision procesare plati"
     confirm:
-      confirm_description: "Daca comanda dvs. a fost finalizata ar trebui sa o confirmati. Apoi puteti oferi feedback catre cealalta parte."
+      confirm_description: "Daca comanda dvs. a fost finalizata ar trebui sa o confirmati ca fiind completa. Apoi puteti oferi feedback catre cealalta persoana."
       cancel_description: "Daca comanda dvs. nu a fost finalizata o puteti marca ca fiind 'disputata'. Totusi, puteti oferi feedback catre cealalta parte si puteti descrie ce s-a intamplat."
       cancel_payed_description: "Dacă cererea dumneavoastră a fost acceptată, dar aveţi îndoieli, puteţi anula în continuare cererea înainte de plată."
       canceling_payed_transaction: "Anulare tranzacție"
-      confirm: "Marcare finalizată"
+      confirm: "Marcheaza finalizată"
       cancel: Disputa
       continue: Continuați
       give_feedback_to: "Oferiti feedback catre %{person_link}"
@@ -907,7 +913,7 @@ ro:
       message_content_not_available: ~
     message:
       accepted_request: "a acceptat cererea"
-      received_payment: ~
+      received_payment: "cerere acceptata, plata de %{sum} primita"
       accepted_offer: "acceptat oferta"
       rejected_request: "a refuzat cererea, a anulat plata"
       rejected_offer: "respins oferta"
@@ -916,7 +922,7 @@ ro:
       canceled_request: "a anulat comanda"
       canceled_offer: "anulat oferta"
       paid: "plătit %{sum}"
-      payment_preauthorized: ~
+      payment_preauthorized: "Plata autorizata: %{sum}"
       stripe:
         held_payment: ~
         confirmed_request: ~
@@ -970,7 +976,7 @@ ro:
           verify: "Nu puteti accepta aceasta tranzactie pentru ca nu v-ati verificat contul PayPal. Accesati %{paypal_url} pentru a va verifica contul."
           intl: "Nu am putut procesa plata prin PayPal deoarece contul dvs. de PayPal nu are un mecanism de retragere. Accesati link-ul %{paypal_url} si conectati-va pentru a putea accepta sau rejecta manual plata."
       waiting_for_current_user_to_deliver_listing: "Asteptam sa livrezi comanda pentru %{listing_title}"
-      waiting_for_listing_author_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: "Il asteptam pe %{listing_author_name} sa livreze comanda pentru %{listing_title}"
       request_accepted: "Cerere acceptată"
       request_rejected: Refuzat
       request_confirmed: Finalizat
@@ -979,10 +985,10 @@ ro:
       request_preauthorized: "Plata autorizata"
       skip_feedback: "Omiteti feedback"
       waiting_for_listing_author_to_accept_offer: "Aşteptare pentru %{listing_author_name} pentru a accepta oferta"
-      waiting_for_listing_author_to_accept_request: "Așteptat %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, veți fi taxat/ă."
+      waiting_for_listing_author_to_accept_request: "Asteapta ca %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, suma iti va fi debitata."
       waiting_for_you_to_accept_request: "Vă așteaptă să acceptați solicitarea"
-      waiting_confirmation_from_requester: "Așteptând %{requester_name} sa marcheze comanda ca finalizată"
-      waiting_confirmation_from_you: ~
+      waiting_confirmation_from_requester: "Îl/O asteptam pe %{requester_name} sa marcheze comanda ca finalizat"
+      waiting_confirmation_from_you: "Te asteptam ca sa marchezi comanda ca fiind completa"
       waiting_payment_from_requester: "Aşteptare pentru %{requester_name} să plătească"
       waiting_payment_from_you: "Vă aștept să plătiți"
       waiting_feedback_from_you: "Asteptam sa oferiti feedback"
@@ -1003,7 +1009,7 @@ ro:
       accept_preauthorized_request: "Acceptă cererea"
       reject_preauthorized_offer: "Nu de data aceasta"
       reject_preauthorized_request: "Nu de data aceasta"
-      confirm: "Marcare finalizată"
+      confirm: "Marcheaza finalizată"
       cancel: Disputa
   feedback:
     feedback_subject: "Feedback nou de la %{service_name}"
@@ -1013,8 +1019,8 @@ ro:
   community_memberships:
     access_denied:
       access_denied: "Acces interzis"
-      you_are_banned_in_this_community: ~
-      contact_page_link: ~
+      you_are_banned_in_this_community: "Accesul tau la %{service_name} a fost blocat. Daca vrei sa contactezi echipa %{service_name} o poti face %{link_to_contact_page}."
+      contact_page_link: aici
     new:
       welcome_fb_user: "Bine ați venit %{service_name},%{name}!"
       fb_join_accept_terms: "Mai este un pas pentru a vă alătura %{service_name}: trebuie să acceptați termenii de utilizare."
@@ -1061,7 +1067,7 @@ ro:
       request_marked_as_canceled: "Comanda anulata"
       has_marked_request_as_confirmed: "%{other_party_full_name} a bifat comanda pentru %{request} ca fiind finalizata. Puteti oferi acum feedback catre %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} a anulat comanda pentru %{request}. Totusi, puteti oferi feedback catre %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Oferirea de feedback este intotdeauna o idee buna. Daca totul a decurs bine ar trebui sa-i lasati pe ceilalti sa stie ca %{other_party_given_name} poate fi de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
+      giving_feedback_is_good_idea: "Feedback-ul este intotdeauna o idee buna. Daca totul a decurs bine comunitatea ar trebui sa stie ca %{other_party_given_name} este de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
       give_feedback_to: "Oferiti feedback catre %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: ~
@@ -1072,14 +1078,14 @@ ro:
       subject: "Comanda a fost finalizata automat - nu uitati sa oferiti feedback"
       we_have_marked_request_as_confirmed: "Am marcat comanda despre '%{request}' finalizată. Solicitarea a fost completată automat, deoarece a trecut o zi de la încheierea perioadei de rezervare."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Puteti acum sa oferiti feedback catre %{other_party_given_name}. Oferirea de feedback este intotdeauna o idee buna. Daca totul a decurs bine ar trebui sa-i lasati pe ceilalti sa stie ca %{other_party_given_name} poate fi de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
+      giving_feedback_is_good_idea: "Puteti acum sa oferiti feedback catre %{other_party_given_name}.Feedback-ul este intotdeauna o idee buna. Daca totul a decurs bine comunitatea ar trebui sa stie ca %{other_party_given_name} este de incredere. Daca au fost probleme este bine sa mentionati si aceste aspecte."
       give_feedback_to: "Oferiti feedback catre %{other_party_given_name}"
       show_thread: "Arată conversația"
     confirmation_instructions:
       confirmation_instructions_signature: "Toate cele bune, <br/> echipa %{service_name}"
-      need_to_confirm: "Pentru a vă alătura %{service_name}, confirmați adresa dvs. de e-mail făcând clic pe butonul de mai jos."
-      confirmation_link_text: "Confirmați adresa mea"
-      or_paste_link: "Alternativ, puteți să copiați următorul link în bara de adrese a browserului:"
+      need_to_confirm: "Pentru a te inscrie pe %{service_name}, confirma adresa ta de e-mail accesand butonul de mai jos."
+      confirmation_link_text: Confirma
+      or_paste_link: "Alternativ, poți să copiezi următorul link în bara de adrese a browserului tau:"
     common:
       hey: "Salut %{name}"
       kassi_team: "Echipa %{service_name}"
@@ -1124,34 +1130,34 @@ ro:
       you_have_a_new_message: "Un nou mesaj in %{service_name} de la %{sender_name}"
     new_payment:
       new_payment: "Aţi primit o nouă plată"
-      price_per_unit_type: ~
+      price_per_unit_type: "Pret pe %{unit_type}"
       quantity: ~
-      you_have_received_new_payment: "Ai fost plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de %{payer_full_name}. Poftim chitanţa."
+      you_have_received_new_payment: "Ai incasat <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de la %{payer_full_name}. Ai aici chitanţa:"
       listing_per_unit_title: ~
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
+      payment_gateway_fee: "Comision procesare plati:"
       shipping_total: ~
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
+      product: "Produs:"
+      price_payer_paid: "Pret platit de %{payer_full_name}:"
+      service_fee: "Comision %{service_name}:"
       you_will_get: ~
       new_payment: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Pret pe %{unit_type}"
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Ai incasat <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> de la %{payer_full_name}. Ai aici chitanţa:"
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
       product: ~
-      price_per_unit_type: ~
-      duration: ~
+      price_per_unit_type: "Pret pe %{unit_type}"
+      duration: Durata
       quantity: ~
       subtotal: ~
       total: ~
       price: ~
-      service_fee: ~
+      service_fee: Comision
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat tranzactia ca fiind completa b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
@@ -1160,15 +1166,15 @@ ro:
       shipping_total: ~
     braintree_new_payment:
       product: "Produs:"
-      price_payer_paid: "Preț %{payer_full_name} plătit:"
-      service_fee: "%{service_name} service fee:"
+      price_payer_paid: "Preț platit de %{payer_full_name}:"
+      service_fee: "Comision %{service_name}:"
       you_will_get: "Total:"
     receipt_to_payer:
       receipt_of_payment: "Primirea plății"
-      you_have_made_new_payment: "Dvs. ați plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> la %{recipient_full_name}. Aici este chitanța plății."
+      you_have_made_new_payment: "Ai plătit <b>%{payment_sum}</b> pentru <b>%{listing_title}</b> la %{recipient_full_name}. Aici este chitanța plății."
       product: Produs
-      price_per_unit_type: ~
-      duration: ~
+      price_per_unit_type: "Pret pe %{unit_type}"
+      duration: Durata
       quantity: ~
       subtotal: ~
       total: Total
@@ -1212,17 +1218,17 @@ ro:
       you_have_not_given_feedback_yet: "Inca nu ati oferit feedback pentru %{name} cu privire la tranzactia %{event}. Nu uitati sa oferiti feedback despre modul in care %{given_name} a colaborat in tranzactie."
     transaction_preauthorized:
       subject: ~
-      transaction_requested_by_user: ~
-      you_have_time_to_accept: ~
-      if_you_do_accept: ~
+      transaction_requested_by_user: "Avem vesti bune! %{requester} este interesat de \"%{listing_title}\" si a autorizat o plata pentru acest produs."
+      you_have_time_to_accept: "Trebuie sa accepti sau sa refuzi plata in termen de %{payment_expires_in}."
+      if_you_do_accept: "Daca accepti cererea in acest termen, vei primi banii imediat in cont."
       if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
-      click_here_to_reply: "Faceți clic aici pentru a răspunde solicitării"
+      if_you_do_not_accept: "Daca refuzi cererea sau daca nu raspunzi in termenul mentionat, tranzactia va fi anulata automat, %{requester} nu va plati iar tu nu vei incasa nicio suma."
+      click_here_to_reply: "Apasati aici pentru a raspunde solicitării"
     transaction_preauthorized_reminder:
       subject: "Nu uitați să acceptați solicitarea din %{requester} despre înregistrarea %{listing_title}"
       remember_to_accept: "Nu uitați să acceptați solicitarea din %{requester} despre înregistrarea \"%{listing_title}\". %{requester} a plătit deja pentru înregistrare. Trebuie să acceptați solicitarea pentru a primi plata."
       one_day_left: "Dacă nu acceptați solicitarea în termen de o zi, cererea va fi respinsă automat și nu veți fi plătit /a."
-      click_here_to_reply: "Faceți clic aici pentru a răspunde solicitării"
+      click_here_to_reply: "Apasati aici pentru a raspunde solicitării"
     welcome_email:
       welcome_email_subject: "Bine ai venit la %{service_name}"
       welcome_to_marketplace: "Bine ați venit la %{service_name}! Ne bucurăm să vă avem alături."
@@ -1258,7 +1264,7 @@ ro:
       required_error: "Trebuie sa accepti termenii din acord"
     paypal:
       transaction_cannot_complete: ~
-      buyer_cannot_pay_error: ~
+      buyer_cannot_pay_error: "Plata a fost refuzata de catre PayPal. Pentru mai multe informatii, va rugam contactati serviciul lor de relatii cu clientii: %{customer_service_link}"
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       generic_error: "O eroare a aparut in timpul platii. Plata ta prin PayPal nu a fost finalizata"
@@ -1483,7 +1489,7 @@ ro:
     no_tribe:
       inbox: Inbox
       settings: Setări
-      feedback: "Contactati echipa %{service_name}"
+      feedback: "Contactezi echipa %{service_name}"
     application:
       join_this_community: "Alăturați-vă marketplace-ului"
       read_more: "Citiți mai mult"
@@ -1543,7 +1549,7 @@ ro:
       sign_up: "Cont nou"
     notifications:
       listing_could_not_be_saved: "Afișarea nu a putut fi salvată. Vă rugăm să încercați din nou. Dacă problema persistă, vă rugăm să %{contact_admin_link}."
-      contact_admin_link_text: ~
+      contact_admin_link_text: "contactezi echipa %{service_name}"
       test_welcome_email_delivered_to: "Mesaj test a fost trimis către %{email}."
       something_went_wrong: "Ceva nu a functionat"
       community_updated: "Detalii actualizate"
@@ -1598,7 +1604,7 @@ ro:
       payment_successful: "Plata cu succes"
       payment_canceled: "Plată anulată"
       error_in_payment: "Eroare la efectuarea platii. Daca nu ati efectuat plata inca, incercati din nou. Daca ati efectuat-o, va rugam sa ne trimiteti feedback."
-      cannot_receive_payment: "Cealaltă persoana nu poate primi plata datorată unor erori. Contactați echipa %{service_name} pentru a clarifica situația"
+      cannot_receive_payment: "Cealaltă persoana nu poate receptiona plata din cauza unei erori. Contactați echipa %{service_name} pentru a clarifica situația"
       payment_waiting_for_later_accomplishment: "Când aţi plătit, vom notifica vânzătorul şi veţi primi o chitanţă în e-mail"
       password_recovery_sent: "Instructiunile de schimbare a parolei v-au fost trimise prin e-mail."
       person_activated: "Utilizator activat"
@@ -1767,8 +1773,8 @@ ro:
         after_service_fee_you_will_get: "Dupa %{service_name} si comisionul procesorului de plati, vei primi %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} va fi dedusa din pret."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} va fi dedus din pret."
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        after_service_fee_you_will_get_payment_text: "Cand cineva plaseaza o comanda, vei primi aceasta suma minus %{payment_fee_info_link}"
+        payment_fee_info_link_text: "comisioane si taxe de procesare %{service_name}"
         delivery: ~
         shipping: ~
         shipping_price: ~
@@ -1867,7 +1873,7 @@ ro:
       select_subcategory: "Selectati subcategoria"
       select_transaction_type: "Selectați tipul listarii"
       you_need_to_fill_payout_details_before_accepting: "Trebuie să completați detaliile de plată înainte de a putea posta o listare. Accesați %{payment_settings_link} pentru a completa detaliile."
-      contact_admin_link_text: "Contacteaza echipa %{service_name}"
+      contact_admin_link_text: "contactezi echipa %{service_name}"
       community_not_configured_for_payments: ~
       payment_settings_link: "setările de plată"
       community_not_configured_for_payments_admin: ~
@@ -1940,14 +1946,14 @@ ro:
       by: "%{listing} de %{author}"
       payment: Plată
       exp: ~
-      you_will_be_charged: ~
+      you_will_be_charged: "Suma iti va fi debitata doar daca %{author} accepta tranzactia. %{author} trebuie sa accepte tranzactia in termen de %{expiration_period} zile. Daca %{author} refuza tranzactia sau nu raspunde, suma nu iti va fi debitata."
       day: zi
       days: zile
       night: ~
       nights: ~
       invalid_parameters: ~
     transaction_agreement_checkbox:
-      read_more: Afiseaza
+      read_more: Afiseaza.
     stripe_payment:
       payment: ~
       pay_with_card: ~
@@ -1999,7 +2005,7 @@ ro:
     paypal_receive_funds_info: ~
     upgrade_paypal_account_link_text: "conectati-va la PayPal si modificati-va contul intr-unul de business."
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: "contactati echipa %{service_name}"
     you_are_ready_to_accept_payments: "Nu sunteti pregatit sa acceptati plati!"
     commission: "%{commission} %"
     not_now: ~
@@ -2033,13 +2039,13 @@ ro:
       billing_agreement_canceled: "Acordul de facturare a fost anulat"
       billing_agreement_not_accepted: "Nu ati acceptat acordul de facturare in PayPal."
       billing_agreement_wrong_account: "Conturile PayPal nu se potrivesc. Utilizati acelasi cont PayPal pe care l-ati conectat in primul pas."
-      something_went_wrong: "Ceva nu a mers bine. Va rugam sa incercati inca o data. Daca problema persista va rugam contactati echipa %{service_name}."
+      something_went_wrong: "Ceva nu a functionat. Va rugam sa incercati inca o data. Daca problema persista va rugam contactati echipa %{service_name}."
       account_not_verified: "Nu v-ati verificat contul PayPal. Trebuie sa accesati paypal.com si sa va verificati contul inainte de a putea continua."
       account_restricted: "Contul dvs. de PayPal este restrictionat si nu poate fi conectat. Va rugam sa va conectati pe paypal.com pentru a afla mai multe detalii sau sa luati legatura cu serviciul de relatii cu clientii al PayPal pentru a rezolva problema."
     paypal_account_connected_title: ~
     paypal_account_connected: ~
     change_account: ~
-    missing: "Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat pentru a primi plati. Conectati contul dumneavoastra Paypal si acordati permisiunea %{service_name} de a percepe o taxa de tranzactie din%{settings_link}."
+    missing: "Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat pentru a receptiona plati. Conectati contul dumneavoastra Paypal si acordati permisiunea %{service_name} de a percepe o taxa de tranzactie din %{settings_link}."
     from_your_payment_settings_link_text: "Setarile sistemului de plati"
     redirect_message: ~
     redirect_link_text: ~
@@ -2048,7 +2054,7 @@ ro:
     paypal_account_connected_summary: ~
     paypal_permission_granted_summary: ~
   paypal:
-    pay_with_paypal: ~
+    pay_with_paypal: "Continua cu plata"
     checkout_with: ~
     or_pay_with_paypal: ~
     checkout_with_paypal: "Finalizeaza tranzactia prin PayPal"
@@ -2409,12 +2415,12 @@ ro:
       shipping-price: ~
       stripe-fee: ~
       start_end_time: ~
-    price_per_quantity: ~
-    price: ~
+    price_per_quantity: "Pret pe %{unit_type}:"
+    price: "Pret:"
     quantity: ~
     unit_price: ~
     total: ~
-    total_to_pay: ~
+    total_to_pay: "Suma totala:"
   unit:
     day: zi
     days: zile
@@ -2435,11 +2441,11 @@ ro:
         night: ~
         week: ~
         month: ~
-      edit_availability_header: ~
+      edit_availability_header: Disponibilitate
       save_and_close_availability_editing: ~
       confirm_discarding_unsaved_availability_changes_explanation: ~
       confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      edit_listing_availability: "Ajusteaza disponibilitatea produsului"
       working_hours:
         default_schedule: ~
         i_am_available_on: ~
@@ -2513,7 +2519,7 @@ ro:
     pay_with_stripe: ~
     add_and_pay: ~
     card_not_stored: ~
-    missing_payment: ~
+    missing_payment: "Ai produse listate insa contul tau nu este setat pentru a incasa bani. Ca sa iti configurezi preferintele de plati, viziteaza %{settings_link}"
     stripe_bank_connected: ~
     stripe_can_accept: ~
     stripe_credit_card: ~

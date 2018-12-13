@@ -473,6 +473,8 @@ cs:
         footer_copyright: "Copyright zápatí"
         footer_enabled: "Zápatí povoleno"
         social_links: "Zápatí sociálních linků"
+        title_placeholder: ~
+        url_placeholder: ~
         style:
           dark: Tmavý
           light: Světlý
@@ -584,7 +586,7 @@ cs:
         any_language: "Jakýkoliv jazyk"
         message_will_be_sent_only_to_people_with_this_language: "Poznámka: e-mail bude poslán pouze uživatelům, kteří používají  %{service_name} v jazyce, který vyberete."
         email_sent: "E-mail byl odeslán."
-        to_improve_email_deliverability: ~
+        to_improve_email_deliverability: "Chcete-li zlepšit zprostředkování e-mailu, předmět e-mailu se generuje automaticky a nelze jej měnit."
         email_subject_text: "Nová zpráva od %{service_name}"
         firstname_cannot_be_removed: "\"Jméno\" nelze odstranit, bude nahrazeno skutečným jménem každého příjemce."
         hello_firstname: "Dobrý den,"
