@@ -61,5 +61,9 @@ class FooterPresenter < MemoisticPresenter
     community.footer_theme == Community::FOOTER_DARK
   end
 
+  def custom_color
+    community.custom_color1 || '4a90e2'
+  end
+
   memoize_all_reader_methods
 end

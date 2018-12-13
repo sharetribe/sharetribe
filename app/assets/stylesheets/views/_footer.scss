@@ -86,7 +86,7 @@ $footer__link-margin-tablet: 16px;
   @include typography__medium;
   color: inherit;
 
-  .footer__container--dark & {
+  .footer__container--dark &, .footer__container--marketplace_color & {
     color: #FFFFFF;
 
     &:hover {
