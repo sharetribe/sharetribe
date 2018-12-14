@@ -65,5 +65,17 @@ class FooterPresenter < MemoisticPresenter
     community.custom_color1 || '4a90e2'
   end
 
+  def theme_logo?
+    community.footer_theme == Community::FOOTER_LOGO
+  end
+
+  def show_logo?
+    theme_logo? && community.wide_logo.file?
+  end
+
+  def logo
+    community.wide_logo.url(:header_highres)
+  end
+
   memoize_all_reader_methods
 end
