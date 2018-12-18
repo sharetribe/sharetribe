@@ -33,7 +33,6 @@ class Email < ApplicationRecord
                        :with => /\A[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]+\z/i
 
   scope :confirmed, -> { where.not(confirmed_at: nil) }
-  scope :send_notifications, -> { where(send_notifications: true) }
 
   before_save do
     #force email to be lower case

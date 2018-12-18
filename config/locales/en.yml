@@ -275,15 +275,6 @@ en:
           admin: "Admin"
           banned: "Banned"
           posting_allowed: "Posting allowed"
-          accepted: Accepted
-          unconfirmed: Unconfirmed
-          pending: Pending
-        this_user_hasnt_confirmed_their_email_address: "This user hasn't confirmed their email address. It might be possible that the user didn't receive the confirmation email. Click the resend button if you want to send it again."
-        unconfirmed_user: "Unconfirmed user: %{name}"
-        resend: Resend
-        cancel: Cancel
-        user_didnt_complete_the_signup_process: "This user signed up through Facebook but didn't complete the signup process. After connecting a Facebook account, users still need to accept your terms of use and fill any mandatory user fields."
-        pending_user: "Pending: %{name}"
       new_layout:
         new_layout: "New layout"
         description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
@@ -2552,14 +2543,14 @@ en:
       community_members_entries_info:
         single_page:
           zero: "No %{model} found"
-          one: "Displaying %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
-          other: "Displaying %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
+          one: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+          other: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
         single_page_html:
           zero: "No %{model} found"
-          one: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
-          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
-        multi_page: "Displaying %{model} %{from} - %{to} of %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
-        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
+          one: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+        multi_page: "Displaying %{model} %{from} - %{to} of %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
   stripe_accounts:
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
     contact_admin_link_text: "contact the %{service_name} team"

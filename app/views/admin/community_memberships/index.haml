@@ -67,46 +67,31 @@
           %th= t("admin.communities.manage_members.ban_user")
       %tbody
         - @service.memberships.each do |membership|
-          - accepted_or_banned = membership.accepted? || membership.banned?
           - member = membership.person
           - unless member.blank?
             %tr{class: "member-#{membership.status}"}
               %td.admin-members-full-name
-                = link_to member.full_name, member
+                = link_to [member.given_name, member.family_name].join(" "), member
               %td
                 = member.display_name
               %td
-                - email = member.confirmed_notification_emails.any? ? member.confirmed_notification_email_addresses.first : member.emails.first.try(:address)
-                = mail_to email
+                = mail_to member.confirmed_notification_email_addresses.first
               %td
-                - if accepted_or_banned
-                  %span= l(membership.created_at, format: :short_date)
-                - elsif membership.pending_consent?
-                  = render 'pending_consent', membership: membership, member: member
-                - elsif membership.pending_email_confirmation?
-                  = render 'pending_confirmation', membership: membership, member: member
+                %span= l(membership.created_at, format: :short_date)
               - if @current_community.require_verification_to_post_listings
-                %td{:style => "text-align: center"}
-                  - if accepted_or_banned
-                    = check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
+                %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
               %td{:style => "text-align: center"}
-                - if accepted_or_banned
-                  = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@current_community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || member.banned?
+                = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@current_community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || membership.status == 'banned'
 
               %td{:style => "text-align: center"}
-                - if accepted_or_banned
-                  = check_box_tag "is_banned[#{member.id}]", member.id, member.banned?,
-                    data: {ban_url: ban_admin_community_community_membership_path(@current_community.id, membership.id),
-                    unban_url: unban_admin_community_community_membership_path(@current_community.id, membership.id)},
-                    class: "admin-members-ban-toggle"
+                = check_box_tag "is_banned[#{member.id}]", member.id, membership.status == 'banned',
+                  data: {ban_url: ban_admin_community_community_membership_path(@current_community.id, membership.id),
+                  unban_url: unban_admin_community_community_membership_path(@current_community.id, membership.id)},
+                  class: "admin-members-ban-toggle"
 
   .row
     .col-12
       = will_paginate @service.memberships
-
-= render layout: "layouts/lightbox", locals: { id: "membership-popup"} do
-  #membership-popup-content
-
 - js_t(['admin.communities.manage_members.ban_user_confirmation',
   'admin.communities.manage_members.unban_user_confirmation',
   'admin.communities.manage_members.this_makes_the_user_an_admin',
