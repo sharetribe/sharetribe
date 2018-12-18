@@ -275,6 +275,15 @@ en-NZ:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "New layout"
         description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
@@ -2535,16 +2544,8 @@ en-NZ:
       multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "No %{model} found"
-          one: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-          other: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        single_page_html:
-          zero: "No %{model} found"
-          one: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        multi_page: "Displaying %{model} %{from} - %{to} of %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
     contact_admin_link_text: "contact the %{service_name} team"

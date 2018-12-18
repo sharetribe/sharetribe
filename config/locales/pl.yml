@@ -285,6 +285,15 @@ pl:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Nowy układ"
         description_roadmap_new: "Kiedy nowy elementy układu graficznego będą dostępne dla Twojej platformy, możesz wybrać czy chcesz zacząć używać nowego elementu, czy pozostać przy starym. Możesz zmienić ten wybór zawsze na tej stronie. Rekomenduje się zawsze używanie nowych wersji, gdyż stare mogą stać się niepasujące w pewnym momencie. W przypadku gdy element, którego używasz stanie się niepasujący zostaniesz powiadomiony z wyprzedzeniem."

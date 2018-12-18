@@ -285,6 +285,15 @@ ru:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Новй макет"
         description_roadmap_new: "Когда для вашего маркетплейса будут доступны новые компоненты макета, вы сможите выбрать, использовать новые или старые компоненты. Вы сможете переключать свои настройки в любое время с этой страницы. Рекомендуется всегда использовать новую версию, поскольку старые компоненты со временем могут быть отключены. В случае, если компонент, который вы используете в настоящее время, будет планироваться отключить, вам сообщат заранее."

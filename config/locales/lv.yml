@@ -272,6 +272,15 @@ lv:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -2519,14 +2528,6 @@ lv:
       multi_page_html: "Parādot %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> no <b>%{count}</b> kopā"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "%{model} netika atrasts"
-          one: "Parāda %{accepted_count} apstiprinātus %{accepted_model} un %{banned_count} aizliegtus %{banned_model}"
-          other: "Parāda %{accepted_count} apstiprinātus %{accepted_model} un %{banned_count} aizliegtus %{banned_model}"
-        single_page_html:
-          zero: "%{model} netika atrasts"
-          one: "Parāda <b>%{accepted_count}</b> apstiprinātus %{accepted_model} un %{banned_count} aizliegtus %{banned_model}"
-          other: "Parāda <b>%{accepted_count}</b> apstiprinātus %{accepted_model} un %{banned_count} aizliegtus %{banned_model}"
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:

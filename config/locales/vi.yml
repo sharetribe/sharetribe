@@ -270,6 +270,15 @@ vi:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Bố cục mới"
         description_roadmap_new: "Khi các thành phần bố cục mới được tạo sẵn cho thị trường của bạn, bạn có thể chọn xem bạn muốn bắt đầu sử dụng thành phần mới hay tiếp tục sử dụng thành phần mới. Bạn có thể bật / tắt vùng chọn ở bất kỳ điểm nào từ trang này. Bạn nên luôn luôn sử dụng phiên bản mới vì các thành phần cũ có thể được loại bỏ tại một số điểm. Trong trường hợp một thành phần mà bạn hiện đang sử dụng sẽ được loại bỏ, bạn sẽ được liên hệ trước."

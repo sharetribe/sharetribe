@@ -270,6 +270,15 @@ zh-TW:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: 新的排列設計
         description_roadmap_new: "當新的佈局組件可用於您的市場時，您可以選擇是開始使用新組件還是繼續使用舊組件。 您可以在此頁面的任意位置切換選擇。 建議始終使用新版本，因為舊版組件可能會在某個時間點被淘汰。 如果您正在使用的組件將被逐步淘汰，則會提前與您聯繫。"
@@ -2511,9 +2520,6 @@ zh-TW:
       multi_page_html: "显示 %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> 总共 <b>%{count}</b> 个"
     person:
       community_members_entries_info:
-        single_page:
-          zero: 找不到
-          other: "顯示%{accepted_count}接受%{accepted_model}和%{banned_count}禁止%{banned_model}"
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:

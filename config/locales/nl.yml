@@ -274,9 +274,18 @@ nl:
           all: "Alle statussen"
           selected: "Gekozen statussen: %{count}"
           selected_js: "Gekozen statussen: "
-          admin: ~
-          banned: ~
+          admin: Beheerder
+          banned: Verbannen
           posting_allowed: "Plaatsen toegestaan"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -470,8 +479,8 @@ nl:
         footer_copyright: "Voettekst copyright"
         footer_enabled: "Voettekst ingeschakeld"
         social_links: "Voettekst sociale links"
-        title_placeholder: ~
-        url_placeholder: ~
+        title_placeholder: Linktitel
+        url_placeholder: http.//voorbeeld.com/gebruikersnaam
         style:
           dark: Donker
           light: Licht
@@ -1327,7 +1336,7 @@ nl:
       after: "moet zijn na %{restriction}"
       on_or_after: "moet zijn op of na %{restriction}"
       positive_number: "Voer een getal in."
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "\"Vanaf\" moet minder zijn dan \"tot\""
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -2542,16 +2551,8 @@ nl:
       multi_page_html: "Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b> in totaal"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Geen %{model} gevonden"
-          one: "Geeft weer %{accepted_count} geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-          other: "Geeft weer %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-        single_page_html:
-          zero: "Geen %{model} gevonden"
-          one: "Geeft weer <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-          other: "Geeft weer <b>%{accepted_count}</b> geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-        multi_page: "Geeft weer %{model}%{from} - %{to} van %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen%{banned_model}"
-        multi_page_html: "Geeft weer %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Het gebruiken van het betalingsysteem van %{service_name} is niet mogelijk om dat online betalingen nog niet zijn ingesteld. Gelieve%{contact_admin_link} voor details."
     contact_admin_link_text: "neem contact op met het %{service_name} team"

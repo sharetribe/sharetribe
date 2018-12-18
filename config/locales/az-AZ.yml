@@ -260,6 +260,15 @@ az-AZ:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -2489,14 +2498,8 @@ az-AZ:
       multi_page_html: "<b>%{count}-dan</b> <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} göstərilir"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "%{model} tapılmadı"
-          other: "%{accepted_count} qəbul edilmiş %{accepted_model} və %{banned_count} qadağan edilmiş %{banned_model} göstərilir"
-        single_page_html:
-          zero: "%{model} tapılmadı"
-          other: "<b>%{accepted_count}</b> qəbul edilmiş %{accepted_model} və %{banned_count} qadağan edilmiş %{banned_model} göstırilir"
-        multi_page: "%{accepted_count} qəbul edilmiş %{accepted_model} və %{banned_count} qadağan edilmiş %{banned_model}-dan %{from} - %{to} %{model} göstərilir"
-        multi_page_html: "<b>%{accepted_count}</b> qəbul edilmiş %{accepted_model} və %{banned_count} qadağan edilmiş %{banned_model}-dan <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} göstərilir"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "%{service_name} komandasına müraciət edin"

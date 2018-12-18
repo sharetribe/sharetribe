@@ -280,6 +280,15 @@ cs:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Nové uspořádání"
         description_roadmap_new: "Když jsou pro váš trh k dispozici nové komponenty, můžete zvolit, zda chcete začít používat novou komponentu nebo používat stávající. Volbu můžete kdykoli přepínat z této stránky. Doporučuje se používat vždy novou verzi, protože staré součásti mohou být vyřazeny. V případě, že součást, kterou právě používáte, má být vyřazena, budete kontaktováni předem."
@@ -2557,8 +2566,8 @@ cs:
       multi_page_html: "Nalezen %{model} <b> %{from}&nbsp;-&nbsp;%{to} <b> z <b> %{count} <b> celkem"
     person:
       community_members_entries_info:
-        multi_page: "Zobrazí se %{model} %{from} - %{to} z %{accepted_count} přijal %{accepted_model} a %{banned_count} zakázal %{banned_model}zakázalzí se"
-        multi_page_html: "Zobrazí se %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> přijal %{accepted_model} a %{banned_count} zakázal %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: "kontaktujte správce %{service_name}"

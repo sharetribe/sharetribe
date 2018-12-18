@@ -275,6 +275,15 @@ fr:
           admin: Admin
           banned: Banni
           posting_allowed: "Dépôt d'annonce autorisé"
+          accepted: Confirmés
+          unconfirmed: "Non confirmés"
+          pending: "En attente"
+        this_user_hasnt_confirmed_their_email_address: "Cet utilisateur n'a pas confirmé son adresse email. Il se peut que l'utilisateur n'ai pas reçu l'email de confirmation. Cliquez sur le bouton \"Renvoyer\" si vous souhaiter l'envoyer de nouveau."
+        unconfirmed_user: "Utilisateur non confirmé : %{name}"
+        resend: Renvoyer
+        cancel: Annuler
+        user_didnt_complete_the_signup_process: "Cet utilisateur s'est inscrit via Facebook mais n'a pas terminé le processus d'inscription. Après avoir connecté un compte Facebook, les utilisateurs doivent encore accepter vos conditions d'utilisation et compléter les éventuels champs obligatoires."
+        pending_user: "En attente : %{name}"
       new_layout:
         new_layout: "Nouveau design"
         description_roadmap_new: "Lorsque de nouveaux éléments de design sont disponibles pour votre place de marché, vous pouvez choisir de les utiliser sans attendre ou bien de continuer à utiliser les anciens. Vous pouvez modifier votre choix à tout moment depuis cette page. Il est préférable de toujours utiliser les versions les plus récentes, puisque les anciens éléments seront rendus obsolètes à un moment. Si un élément que vous utilisez devenait obsolète, vous serez contacté au préalable."
@@ -2539,16 +2548,16 @@ fr:
       multi_page_html: "Affichage des %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total de <b>%{count}</b>"
     person:
       community_members_entries_info:
+        multi_page: "Affichage des %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} et %{other_count} autres %{other_model}"
+        multi_page_html: "Affichage des %{model} <b>%{from} - %{to}</b> de <b>%{accepted_count}</b> %{accepted_model} et %{other_count} autres %{other_model}"
         single_page:
           zero: "Aucun %{model} trouvé"
-          one: "Affichage de %{accepted_count} %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
-          other: "Affichage de %{accepted_count} %{accepted_model} confirmés et de %{banned_count} %{banned_model} bannis"
+          one: "Affichage d'%{accepted_count} %{accepted_model} confirmé et de %{other_count} autres %{other_model}"
+          other: "Affichage de %{accepted_count} %{accepted_model} confirmés et de %{other_count} autres %{other_model}"
         single_page_html:
           zero: "Aucun %{model} trouvé"
-          one: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmé et de %{banned_count} %{banned_model} banni"
-          other: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmés et de %{banned_count} %{banned_model} bannis"
-        multi_page: "Affichage des %{model} %{from} - %{to} des %{accepted_count} %{accepted_model} et %{banned_count} %{banned_model} banni"
-        multi_page_html: "Affichage des %{model} <b>%{from} - %{to}</b> des <b>%{accepted_count}</b> %{accepted_model} et %{banned_count} %{banned_model} banni"
+          one: "Affichage d'<b>%{accepted_count}</b> %{accepted_model} confirmé et de %{other_count} autres %{other_model}"
+          other: "Affichage de <b>%{accepted_count}</b> %{accepted_model} confirmés et de %{other_count} autres %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Utiliser le système de paiement de %{service_name} pour recevoir des paiements est impossible tant que celui-ci n'a pas été activé. Veuillez %{contact_admin_link} pour en savoir plus."
     contact_admin_link_text: "contacter l'équipe %{service_name}"

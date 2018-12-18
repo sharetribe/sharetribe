@@ -275,6 +275,15 @@ fi:
           admin: Ylläpitäjä
           banned: Estetty
           posting_allowed: "Hyväksytty ilmoittaja"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -2540,16 +2549,8 @@ fi:
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Ei %{model}"
-          one: "Näytetään %{accepted_count} hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
-          other: "Näytetään %{accepted_count} hyväksyttyä %{accepted_model}ä ja %{banned_count} estettyä %{banned_model}ä"
-        single_page_html:
-          zero: "Ei %{model}"
-          one: "Näytetään <b>%{accepted_count}</b> hyväksytty %{accepted_model} ja %{banned_count} estetty %{banned_model}"
-          other: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model} ja %{banned_count} estettyä %{banned_model}"
-        multi_page: "Näytetään %{model} %{from} - %{to} yhteensä %{accepted_count} hyväksytystä %{accepted_model} ja %{banned_count} estetystä %{banned_model}"
-        multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> käyttäjää yhteensä <b>%{accepted_count}</b> hyväksytystä ja %{banned_count} estetystä käyttäjästä"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"

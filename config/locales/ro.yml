@@ -280,6 +280,15 @@ ro:
           admin: Administrator
           banned: Blocat
           posting_allowed: "Listarea permisa"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -874,8 +883,8 @@ ro:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: ~
-      payment_fee_info: ~
+      paypal_fee_info: "* Exclude <a id='%{fee_info_link_id}' href='#'>Comisionul de procesare PayPal</a>"
+      payment_fee_info: "* Exclude <a id='%{fee_info_link_id}' href='#'>comision de procesare</a>"
       shipping_price_label: ~
       stripe-fee_label: "Comision procesare plati"
     confirm:
@@ -986,8 +995,8 @@ ro:
       skip_feedback: "Omiteti feedback"
       waiting_for_listing_author_to_accept_offer: "Aşteptare pentru %{listing_author_name} pentru a accepta oferta"
       waiting_for_listing_author_to_accept_request: "Asteapta ca %{listing_author_name} să accepte solicitarea. Imediat ce %{listing_author_name} acceptă, suma iti va fi debitata."
-      waiting_for_you_to_accept_request: "Vă așteaptă să acceptați solicitarea"
-      waiting_confirmation_from_requester: "Îl/O asteptam pe %{requester_name} sa marcheze comanda ca finalizat"
+      waiting_for_you_to_accept_request: "Te asteapta sa accepti solicitarea"
+      waiting_confirmation_from_requester: "Asteptam ca %{requester_name} sa marcheze comanda ca finalizata"
       waiting_confirmation_from_you: "Te asteptam ca sa marchezi comanda ca fiind completa"
       waiting_payment_from_requester: "Aşteptare pentru %{requester_name} să plătească"
       waiting_payment_from_you: "Vă aștept să plătiți"
@@ -1217,7 +1226,7 @@ ro:
       remember_to_give_feedback_to: "Memento: nu uitati sa oferiti feedback pentru %{name}"
       you_have_not_given_feedback_yet: "Inca nu ati oferit feedback pentru %{name} cu privire la tranzactia %{event}. Nu uitati sa oferiti feedback despre modul in care %{given_name} a colaborat in tranzactie."
     transaction_preauthorized:
-      subject: ~
+      subject: "%{requester} este interesat si a autorizat plata pentru %{listing_title} publicat pe %{service_name}"
       transaction_requested_by_user: "Avem vesti bune! %{requester} este interesat de \"%{listing_title}\" si a autorizat o plata pentru acest produs."
       you_have_time_to_accept: "Trebuie sa accepti sau sa refuzi plata in termen de %{payment_expires_in}."
       if_you_do_accept: "Daca accepti cererea in acest termen, vei primi banii imediat in cont."
@@ -1994,16 +2003,16 @@ ro:
   paypal_accounts:
     payout_info_title: "Acceptare fonduri"
     paypal_account_email_connected: "<del> Conectati-va contul PayPal</del> Finalizat!"
-    payout_info_paypal: ~
+    payout_info_paypal: "%{service_name} foloseste Paypal ca si procesator de plati. Un %{create_paypal_account_link} este necesar pentru a incasa plati pentru listarile tale, iar acesta trebuie conectat la %{service_name}."
     paypal_billing_agreement_made: "<del>Perimiteti %{service_name} sa incaseze un comision din tranzactie</del> Finalizat!"
-    commission_permission_needed: ~
-    create_paypal_account_link_text: ~
+    commission_permission_needed: "De asemenea, va trebui sa acorzi permisiunea %{service_name} sa incaseze automat un comision din fiecare inchiriere pe care o operezi."
+    create_paypal_account_link_text: "cont de PayPal"
     connected_account: "%{email} pentru contul PayPal conectat cu succes"
     paypal_receive_funds_info_label_australia_only: ~
-    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_label: "Contul tau PayPal trebuie sa fie capabil sa accepte plati. Acest lucru poate presupune crearea unui cont PayPal Business."
     paypal_receive_funds_info_australia_only: ~
-    paypal_receive_funds_info: ~
-    upgrade_paypal_account_link_text: "conectati-va la PayPal si modificati-va contul intr-unul de business."
+    paypal_receive_funds_info: "Daca vezi o eroare cand incerci sa iti conectezi contul cu %{service_name}, %{upgrade_paypal_account_link}. Este gratuit si usor. Daca esti persoana fizica, PayPal recomanda sa folosesti numele tau complet in campul in care se solicita numele afacerii \"Business name\"."
+    upgrade_paypal_account_link_text: "conecteaza-te la PayPal si modifica-ti contul intr-unul de business."
     admin_account_not_connected: ~
     contact_admin_link_text: "contactati echipa %{service_name}"
     you_are_ready_to_accept_payments: "Nu sunteti pregatit sa acceptati plati!"
@@ -2020,17 +2029,17 @@ ro:
       create_paypal_account: "daca faceti click aici"
       upgrade_paypal_account: "autentificati-va in contul de PayPal"
       paypal_account_billing_agreement: "Permiteti %{service_name} sa incaseze un comision din tranzactie"
-      follow_steps: ~
-      connect_paypal_account_title: ~
-      connect_paypal_account_title_with_step: ~
+      follow_steps: "Urmeaza pasii de mai jos pentru a putea incepe sa incasezi bani:"
+      connect_paypal_account_title: "Conecteaza contul tau de PayPal"
+      connect_paypal_account_title_with_step: "Pasul %{current_step}/%{total_steps}: Conecteaza contul PayPal"
       connect_paypal_account_instructions: "Faceti click pe butonul de mai jos pentru a va conecta la PayPal si legati-va contul de PayPal cu %{service_name}."
       connect_paypal_account: "Conectati-va contul PayPal"
-      paypal_account_billing_agreement_with_step: ~
-      paypal_account_billing_agreement_info_both: "Dupa ce realizezi o tranzactie pe %{service_name}, un comision (%{commission_from_seller} din pretul total, minimum %{minimum_commission}) va fi debitat din contul tau de PayPal. Permission de a debita acest comision este necesara pentru a accepta plati pe %{service_name}. Comisionul nu include %{paypal_info_link}."
+      paypal_account_billing_agreement_with_step: "Pasul %{current_step}/%{total_steps}: Acorda permisiunea pentru debitare comision"
+      paypal_account_billing_agreement_info_both: "Dupa ce realizezi o tranzactie pe %{service_name}, un comision (%{commission_from_seller} din pretul total, minimum %{minimum_commission}) va fi debitat din contul tau de PayPal. Permisiunea de a debita acest comision este necesara pentru a accepta plati pe %{service_name}. Comisionul nu include %{paypal_info_link}."
       paypal_account_billing_agreement_info_fixed: ~
       paypal_account_billing_agreement_info_relative: ~
       paypal_account_billing_agreement_info_none: ~
-      paypal_info_link_text: ~
+      paypal_info_link_text: "Comisioanele de procesare plati PayPal"
       billing_agreement_description: "Permiteti %{service_name} sa incaseze un comision din tranzactie."
       billing_agreement: Permiteti
       permissions_not_granted: "Permisiunea de a va conecta contul PayPal nu a fost acceptata"
@@ -2042,17 +2051,17 @@ ro:
       something_went_wrong: "Ceva nu a functionat. Va rugam sa incercati inca o data. Daca problema persista va rugam contactati echipa %{service_name}."
       account_not_verified: "Nu v-ati verificat contul PayPal. Trebuie sa accesati paypal.com si sa va verificati contul inainte de a putea continua."
       account_restricted: "Contul dvs. de PayPal este restrictionat si nu poate fi conectat. Va rugam sa va conectati pe paypal.com pentru a afla mai multe detalii sau sa luati legatura cu serviciul de relatii cu clientii al PayPal pentru a rezolva problema."
-    paypal_account_connected_title: ~
-    paypal_account_connected: ~
-    change_account: ~
+    paypal_account_connected_title: "Cont PayPal conectat"
+    paypal_account_connected: "Contul PayPal <%{email}> a fost conectat cu %{service_name}."
+    change_account: "Schimba contul de PayPal"
     missing: "Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat pentru a receptiona plati. Conectati contul dumneavoastra Paypal si acordati permisiunea %{service_name} de a percepe o taxa de tranzactie din %{settings_link}."
     from_your_payment_settings_link_text: "Setarile sistemului de plati"
-    redirect_message: ~
+    redirect_message: "Te redirectionam catre PayPal. Daca nu se intampla nimic, click %{redirect_link}."
     redirect_link_text: ~
-    paypal_account_all_set_up: ~
-    can_receive_payments: ~
+    paypal_account_all_set_up: "Uraaa, totul este pregatit!"
+    can_receive_payments: "Acum poti primi bani din listarile tale."
     paypal_account_connected_summary: ~
-    paypal_permission_granted_summary: ~
+    paypal_permission_granted_summary: "Permisiunea pentru comision acordata"
   paypal:
     pay_with_paypal: "Continua cu plata"
     checkout_with: ~
@@ -2063,7 +2072,7 @@ ro:
       commission_payment_name: ~
       commission_payment_description: "Marketplace-ul %{service_name} a perceput acest comision din tranzactia referitoare la %{listing_title}"
     wait_while_loading: "Te rugam sa astepti."
-    chatting_with_paypal: ~
+    chatting_with_paypal: "Ne conectam cu PayPal."
   people:
     edit_links:
       activate: Activeaza
@@ -2525,7 +2534,7 @@ ro:
     stripe_credit_card: ~
     paypal: ~
     paypal_connected: ~
-    paypal_can_accept: ~
+    paypal_can_accept: "Acum ai toate setarile corecte pentru a primi bani in contul tau PayPal"
     paypal_connected_give_permission: ~
     form_new:
       need_info: ~
@@ -2610,7 +2619,7 @@ ro:
     add_bank_details: ~
     can_accept_stripe_and_paypal: ~
     to_accept_paypal: ~
-    connect_paypal: ~
+    connect_paypal: "Conecteaza contul de PayPal"
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~

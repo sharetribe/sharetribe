@@ -275,6 +275,15 @@ es-ES:
           admin: Admin
           banned: Bloqueado
           posting_allowed: "Publicación permitida"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Nuevo diseño"
         description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
@@ -2539,16 +2548,8 @@ es-ES:
       multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> en total"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Ningún %{model} encontrado"
-          one: "Mostrando %{accepted_count} %{accepted_model} aceptado y %{banned_count} %{banned_model} bloqueado"
-          other: "Mostrando %{accepted_count} %{accepted_model} aceptados y %{banned_count} %{banned_model} bloqueados"
-        single_page_html:
-          zero: "Ningún %{model} encontrado"
-          one: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptado y %{banned_count} %{banned_model} bloqueado"
-          other: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptados y %{banned_count} %{banned_model} bloqueados"
-        multi_page: "Mostrando %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} acceptados y %{banned_count} %{banned_model} bloqueados"
-        multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{accepted_count}</b> %{accepted_model} acceptados y %{banned_count} %{banned_model} bloqueados"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"

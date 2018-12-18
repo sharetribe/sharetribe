@@ -275,6 +275,15 @@ de:
           admin: Administrator
           banned: Gesperrt
           posting_allowed: "Veröffentlichen von Einträgen erlaubt"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Neues Layout"
         description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
@@ -2539,16 +2548,8 @@ de:
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Keine %{model} gefunden"
-          one: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
-          other: "%{accepted_count} aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt. "
-        single_page_html:
-          zero: "Keine %{model} gefunden"
-          one: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
-          other: "<b>%{accepted_count}</b> aktive %{accepted_model} und %{banned_count} gesperrte %{banned_model} werden angezeigt."
-        multi_page: "%{model} %{from} - %{to} von %{accepted_count} aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
-        multi_page_html: "%{model} <b>%{from}&nbsp;-%nbsp;%{to}</b> von <b>%{accepted_count}</b> aktiven %{accepted_model}n und %{banned_count} gesperrten %{banned_model}n werden angezeigt."
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"

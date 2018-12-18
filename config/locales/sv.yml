@@ -275,6 +275,15 @@ sv:
           admin: ~
           banned: ~
           posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -2541,16 +2550,8 @@ sv:
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Ingen %{model} hittad"
-          one: "Visar %{accepted_count} accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar %{accepted_count} accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        single_page_html:
-          zero: "Ingen %{model} hittad"
-          one: "Visar <b> %{accepted_count} </b> accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        multi_page: "Visar %{model} %{from} till %{to} av %{accepted_count} accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
-        multi_page_html: "Visar %{model} <b>%{from} till %{to} </b> av <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Att använda %{service_name} betalningssystem för att ta emot betalningar är inte möjligt på grund av att online betalningar har inte blivit aktivetar för marknadsplatsen. Vänligen kontakta %{contact_admin_link} för information."
     contact_admin_link_text: "kontakta %{service_name} administratör"
