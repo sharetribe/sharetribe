@@ -22,5 +22,5 @@ Rails.application.config.assets.precompile += %w(
 )
 
 if Rails.env == 'test'
-  Rails.application.config.assets.precompile += %w(test/timecop')
+  Rails.application.config.assets.precompile += %w(test/timecop)
 end
