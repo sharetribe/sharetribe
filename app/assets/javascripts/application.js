@@ -74,7 +74,6 @@
 //= require admin/listing_shapes
 //= require admin/settings.js
 //= require admin/emails.js
-//= require admin/memberships.js
 //= require admin/payment_preferences.js
 //= require admin/transactions.js
 //= require admin/testimonials.js
