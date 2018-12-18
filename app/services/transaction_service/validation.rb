@@ -136,7 +136,10 @@ module TransactionService
         validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
           .and_then { validate_booking(tx_params: tx_params, quantity_selector: quantity_selector, stripe_in_use: stripe_in_use) }
           .and_then { |result|
-            # Dublication of initiate validation becouse of bug when use click 'back' in browser after successfull payment and redirection to dialog page, browser just render previous initiate page and if user pay agian he create second transaction with same params & make payment
+            # Dublication of initiate validation becouse of bug when use click
+            # 'back' in browser after successfull payment and redirection to
+            # dialog page, browser just render previous initiate page and if
+            # user pay agian he create second transaction with same params & make payment
             if tx_params[:per_hour]
               validate_booking_per_hour_timeslots(listing: listing, tx_params: tx_params)
             elsif availability_enabled
