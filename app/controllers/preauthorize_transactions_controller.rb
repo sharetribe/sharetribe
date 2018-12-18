@@ -21,13 +21,12 @@ class PreauthorizeTransactionsController < ApplicationController
 
       TransactionService::Validation::Validator.validate_initiate_params(
         marketplace_uuid: @current_community.uuid_object,
-        listing_uuid: listing.uuid_object,
+        listing: listing,
         tx_params: tx_params,
         quantity_selector: listing.quantity_selector&.to_sym,
         shipping_enabled: listing.require_shipping_address,
         pickup_enabled: listing.pickup_enabled,
         availability_enabled: listing.availability.to_sym == :booking,
-        listing: listing,
         stripe_in_use: StripeHelper.user_and_community_ready_for_payments?(listing.author_id, @current_community.id))
     }
 
@@ -49,7 +48,7 @@ class PreauthorizeTransactionsController < ApplicationController
       TransactionService::Validation::Validator.validate_initiated_params(
         tx_params: tx_params,
         marketplace_uuid: @current_community.uuid_object,
-        listing_uuid: listing.uuid_object,
+        listing: listing,
         quantity_selector: listing.quantity_selector&.to_sym,
         shipping_enabled: listing.require_shipping_address,
         availability_enabled: listing.availability.to_sym == :booking,

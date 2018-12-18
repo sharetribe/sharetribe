@@ -98,13 +98,12 @@ module TransactionService
       module_function
 
       def validate_initiate_params(marketplace_uuid:,
-                                   listing_uuid:,
+                                   listing:,
                                    tx_params:,
                                    quantity_selector:,
                                    shipping_enabled:,
                                    pickup_enabled:,
                                    availability_enabled:,
-                                   listing:,
                                    stripe_in_use:)
 
         validate_delivery_method(tx_params: tx_params, shipping_enabled: shipping_enabled, pickup_enabled: pickup_enabled)
@@ -115,7 +114,7 @@ module TransactionService
             elsif availability_enabled
               validate_booking_timeslots(tx_params: tx_params,
                                          marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing_uuid,
+                                         listing_uuid: listing.uuid_object,
                                          quantity_selector: quantity_selector)
             else
               Result::Success.new(result)
@@ -125,7 +124,7 @@ module TransactionService
 
       def validate_initiated_params(marketplace_uuid:,
                                     tx_params:,
-                                    listing_uuid:,
+                                    listing:,
                                     quantity_selector:,
                                     shipping_enabled:,
                                     pickup_enabled:,
@@ -145,7 +144,7 @@ module TransactionService
             elsif availability_enabled
               validate_booking_timeslots(tx_params: tx_params,
                                          marketplace_uuid: marketplace_uuid,
-                                         listing_uuid: listing_uuid,
+                                         listing_uuid: listing.uuid_object,
                                          quantity_selector: quantity_selector)
             else
               Result::Success.new(result)
