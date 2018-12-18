@@ -473,7 +473,9 @@ class Person < ApplicationRecord
   end
 
   def confirmed_notification_emails
-    emails.send_notifications.confirmed
+    emails.select do |email|
+      email.send_notifications && email.confirmed_at.present?
+    end
   end
 
   def confirmed_notification_email_addresses

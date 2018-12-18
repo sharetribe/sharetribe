@@ -287,7 +287,6 @@ Rails.application.routes.draw do
           member do
             put :ban
             put :unban
-            put :resend_confirmation
           end
           collection do
             post :promote_admin

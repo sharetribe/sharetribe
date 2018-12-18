@@ -12,7 +12,7 @@ class Admin::Communities::MembershipService
   end
 
   def memberships
-    @memberships ||= filtered_scope.not_deleted_user
+    @memberships ||= filtered_scope.accepted_or_banned
                                    .paginate(page: params[:page], per_page: PER_PAGE)
                                    .order("#{sort_column} #{sort_direction}")
   end
@@ -60,12 +60,6 @@ class Admin::Communities::MembershipService
     resource_scope.where(person_id: params[:allowed_to_post]).update_all("can_post_listings = 1")
     resource_scope.where(person_id: params[:disallowed_to_post]).update_all("can_post_listings = 0")
     # rubocop:enable Rails/SkipsModelValidations
-  end
-
-  def resend_confirmation
-    email_to_confirm = membership.person.latest_pending_email_address(community)
-    to_confirm = Email.find_by_address_and_community_id(email_to_confirm, community.id)
-    Email.send_confirmation(to_confirm, community)
   end
 
   def presenter
@@ -178,9 +172,6 @@ class Admin::Communities::MembershipService
       statuses.push(CommunityMembership.admin) if params[:status].include?('admin')
       statuses.push(CommunityMembership.banned) if params[:status].include?(CommunityMembership::BANNED)
       statuses.push(CommunityMembership.posting_allowed) if params[:status].include?('posting_allowed')
-      statuses.push(CommunityMembership.accepted) if params[:status].include?(CommunityMembership::ACCEPTED)
-      statuses.push(CommunityMembership.pending_email_confirmation) if params[:status].include?('unconfirmed')
-      statuses.push(CommunityMembership.pending_consent) if params[:status].include?('pending')
       if statuses.size > 1
         status_scope = statuses.slice!(0)
         statuses.map{|x| status_scope = status_scope.or(x)}

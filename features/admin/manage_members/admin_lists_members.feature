@@ -44,14 +44,12 @@ Feature: Admin lists members
       | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
 
   Scenario: Admin views member count
-    Given there are 3 banned users with name prefix "Hazel" "Banned %d"
-    Given there are 2 unconfirmed users with name prefix "Bertha" "Unconfirmed %d"
     Given there are 50 users with name prefix "User" "Number %d"
     And I go to the manage members admin page
-    Then I should see a range from 1 to 50 with total 53 accepted and 5 other users
+    Then I should see a range from 1 to 50 with total 53 accepted and 0 banned users
     And I fill in "q" with "Number 4"
     And I click ".search-button"
-    Then I should see "Displaying 11 accepted users and 0 other users for: Number 4"
+    Then I should see "Displaying 11 accepted users and 0 banned users for: Number 4"
 
   Scenario: Admin views multiple users with pagination
     Given there are 50 users with name prefix "User" "Number 50"
