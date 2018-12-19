@@ -435,6 +435,17 @@ ko:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1609,7 +1620,7 @@ ko:
       listing_updated_successfully: "목록이 성공적으로 업데이트되었습니다."
       listing_updated_availability_management_enabled: "목록이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "목록이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
-      only_kassi_administrators_can_access_this_area: "%{service_name}팀에서만 이 영역을 접근할 수 있습니다."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "게시자만 편집할 수 있습니다."
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
       payment_successful: "성공적으로 결제되었습니다"

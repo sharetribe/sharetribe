@@ -440,6 +440,17 @@ es-ES:
           confirm_modify: "¿Estás seguro de querer modificar/borrar esta reseña? Una vez modificada/borrada no es possible recuperar la información en el futuro."
           deleting_info: "Borrar la reseña le permite al autor dejar otra para la misma transacción."
           blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: Anuncios
         search_by_title_author_category: "Buscar por título del anuncio, autor o categoría"
@@ -1618,7 +1629,7 @@ es-ES:
       listing_updated_successfully: "Anuncio actualizado"
       listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
       listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
-      only_kassi_administrators_can_access_this_area: "Sólo el equipo de %{service_name} puede acceder a esta sección"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
       payment_successful: "Pago existoso"

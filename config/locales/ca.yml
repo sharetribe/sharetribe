@@ -425,6 +425,17 @@ ca:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1583,7 +1594,7 @@ ca:
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Només els administradors de %{service_name} poden accedir aquí"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Només el creador d'una llista pot tancar-la"
       only_listing_author_can_edit_a_listing: "Només el creador d'una llista pot editar-la"
       payment_successful: ~

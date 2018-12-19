@@ -442,6 +442,17 @@ nl:
           confirm_modify: "Weet je zeker dat je deze recensie wilt aanpassen/verwijderen? Wanneer je een recensie aanpast/verwijdert, is het niet mogelijk om de oude gegevens terug te krijgen."
           deleting_info: "Het verwijderen van een recensie stelt de schrijver in staat om opnieuw een recensie voor dezelfde transactie achter te laten."
           blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: Advertenties
         search_by_title_author_category: "Zoek op advertentietitel, auteur of categorienaam"
@@ -1621,7 +1632,7 @@ nl:
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
       listing_updated_availability_management_enabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement ingesteld."
       listing_updated_availability_management_disabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement uitgezet."
-      only_kassi_administrators_can_access_this_area: "Alleen het %{service_name} team heeft toegang tot dit gedeelte"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
       payment_successful: "Betaling succesvol"

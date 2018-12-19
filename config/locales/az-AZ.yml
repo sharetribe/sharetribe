@@ -425,6 +425,17 @@ az-AZ:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1583,7 +1594,7 @@ az-AZ:
       listing_updated_successfully: "Elan uğurla yeniləndi"
       listing_updated_availability_management_enabled: "Elan uğurla yeniləndi. Mövcudluğun idarə edilməsi aktivdir."
       listing_updated_availability_management_disabled: "Elan uğurla yeniləndi. Mövcudluğun idarə edilməsi aktiv deyil."
-      only_kassi_administrators_can_access_this_area: "Bu sahəyə giriş icazəsi yalnız %{service_name} komandasına malikdir."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Bir elanın bağlama icazəsi yalnız onu yaratdığı istifadəçiyə malikdir"
       only_listing_author_can_edit_a_listing: "Bir elanın düzəltmə icazəsi yalnız onu yaratdığı istifadəçiyə malikdir"
       payment_successful: "Ödəniş uğrla keçdi"

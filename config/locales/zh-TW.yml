@@ -435,6 +435,17 @@ zh-TW:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1605,7 +1616,7 @@ zh-TW:
       listing_updated_successfully: 信息更新成功
       listing_updated_availability_management_enabled: 列表已成功更新，啟用預約時間管理。
       listing_updated_availability_management_disabled: 信息更新成功
-      only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: 仅作者可以关闭发布的信息
       only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
       payment_successful: 付款成功

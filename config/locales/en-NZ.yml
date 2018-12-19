@@ -440,6 +440,17 @@ en-NZ:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1618,7 +1629,7 @@ en-NZ:
       listing_updated_successfully: "Listing updated successfully"
       listing_updated_availability_management_enabled: "Listing updated successfully. Availability management enabled."
       listing_updated_availability_management_disabled: "Listing updated successfully. Availability management disabled."
-      only_kassi_administrators_can_access_this_area: "Only the %{service_name} team can access this area"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
       payment_successful: "Payment successful"

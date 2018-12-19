@@ -425,6 +425,17 @@ ar:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1606,7 +1617,7 @@ ar:
       listing_updated_successfully: "تم تحديث الإعلان بنجاح"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "يستطيعون دخول هذه الصفحة ‎%{service_name}‎ مسؤولي"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "فقط من وضع الاعلان يمكنه إغلاقه"
       only_listing_author_can_edit_a_listing: "فقط من وضع الإعلان يمكنه تعديله"
       payment_successful: "تم الدفع بنجاح"

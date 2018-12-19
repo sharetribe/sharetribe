@@ -425,6 +425,17 @@ it:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1585,7 +1596,7 @@ it:
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
       listing_updated_availability_management_enabled: "Inserzioni aggiornate con successo. Gestione delle disponibilità abilitate con successo."
       listing_updated_availability_management_disabled: ""
-      only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
       payment_successful: "Pagamento riuscito"

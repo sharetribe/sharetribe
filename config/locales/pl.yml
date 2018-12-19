@@ -450,6 +450,17 @@ pl:
           confirm_modify: "Czy jesteś pewny, że chcesz skasować/modyfikować tą recenzję? Jeśli zmodyfikujesz lub skasujesz recenzję nie będzie możliwe przywrócenie wcześniejszej treści."
           deleting_info: "Skasowanie opini pozwala autorowi wystawić kolejną za tą samą transakcję"
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1630,7 +1641,7 @@ pl:
       listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
       listing_updated_availability_management_enabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością włączone."
       listing_updated_availability_management_disabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością wyłączone."
-      only_kassi_administrators_can_access_this_area: "Tylko adminstratorzy %{service_name} mogą przejść do tej sekcji"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
       only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
       payment_successful: "Płatność dokonana"

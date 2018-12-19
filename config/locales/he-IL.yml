@@ -431,6 +431,17 @@ he-IL:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1591,7 +1602,7 @@ he-IL:
       listing_updated_successfully: "המודעה עודכנה בהצלחה"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "הגישה ניתנת רק למנהלי ‎%{service_name}‎"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
       only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
       payment_successful: "התשלום הצליח"

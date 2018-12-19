@@ -425,6 +425,17 @@ is:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1583,7 +1594,7 @@ is:
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Einungis stjórnendur %{service_name} hafa aðgang að þessu svæði"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Notandi sem skráir auglýsingu er eini sem getur eytt henni"
       only_listing_author_can_edit_a_listing: "Notandi sem skráir auglýsingu er eini sem getur breytt henni"
       payment_successful: ~

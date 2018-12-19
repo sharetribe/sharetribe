@@ -260,15 +260,15 @@ bg:
           admin: Администратор
           banned: Забранено
           posting_allowed: "Публикуването позволено"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+          accepted: Прието
+          unconfirmed: Непотвърден
+          pending: Изчакване
+        this_user_hasnt_confirmed_their_email_address: "Този потребител не е потвърдил своя имейл адрес. Възможно е да не е получил имейл за потвърждение. Натисни ботона препрати за да го изпратиш отново."
+        unconfirmed_user: "Непотвърден потребител: %{name}"
+        resend: Препрати
+        cancel: Откажи
+        user_didnt_complete_the_signup_process: "Този потребител се регистрира чрез Фейсбук но не довърши регистрационния процес. След свързването към своя Фейсбук профил, потребителите трябва също да приемат условията на ползване на сайта, както и да попълнят задължителните полета."
+        pending_user: "Изчакване: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -425,6 +425,17 @@ bg:
           confirm_modify: "Сигурен ли си че искаш да промениш/изтриеш този коментар? След промяната/истриването няма да имаш възможност да възстановиш тази информация"
           deleting_info: "Изтриването на коментар позволява на неговия автор да остави нов коментар за дадената транзакция."
           blocking_info: "Блокирането на коментара след неговото изтриване не позволява на неговия автор да остави нов коментар за същата транзакция."
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1583,7 +1594,7 @@ bg:
       listing_updated_successfully: ~
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Само екипът %{service_name} има достъп до тази област"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Само авторът на обява може да я закрие"
       only_listing_author_can_edit_a_listing: "Само авторът на обява може да я редактира"
       payment_successful: ~

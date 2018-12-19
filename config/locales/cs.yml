@@ -445,6 +445,17 @@ cs:
           confirm_modify: "Opravdu chcete tuto recenzi upravit nebo smazat? Jakmile upravíte / odstraníte recenzi, nelze obnovit žádné staré údaje."
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: "Seznam inzerátů"
         search_by_title_author_category: ~
@@ -1621,7 +1632,7 @@ cs:
       listing_updated_successfully: "Inzerát byl úspěšně vytvořen"
       listing_updated_availability_management_enabled: "Výpis byl úspěšně aktualizován. Správa dostupnosti byla povolena."
       listing_updated_availability_management_disabled: "Výpis byl úspěšně aktualizován. Správa dostupnosti byla zakázána."
-      only_kassi_administrators_can_access_this_area: "Pouze %{service_name} mohou vstoupit do této oblasti"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Pouze autor inzerátu může inzerát uzavřít"
       only_listing_author_can_edit_a_listing: "Pouze autor inzerátu může inzerát upravit"
       payment_successful: "Platba proběhla úspěšně"

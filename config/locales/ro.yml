@@ -280,15 +280,15 @@ ro:
           admin: Administrator
           banned: Blocat
           posting_allowed: "Listarea permisa"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+          accepted: Acceptat
+          unconfirmed: Neconfirmat
+          pending: "In asteptare"
+        this_user_hasnt_confirmed_their_email_address: "Utilizatorul nu si-a confirmat adresa de email. Este posibil ca utilizatorul sa nu fi primit email-ul de confirmare. Click pe butonul de retrimitrere pentru a-l trimite inca o data."
+        unconfirmed_user: "Utilizator neconfirmat: %{name}"
+        resend: Retrimite
+        cancel: Anuleaza
+        user_didnt_complete_the_signup_process: "Acest utilizator s-a inscris prin Facebook dar nu a completat procesul de inscriere. Dupa ce conecteaza un cont Facebook, utilizatorii trebuie sa accepte Termenii de utilizare si sa completeze orice alt camp obligatoriu."
+        pending_user: "In asteptare: %{name}"
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -445,6 +445,17 @@ ro:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1607,7 +1618,7 @@ ro:
       listing_updated_successfully: "Postare actualizată cu succes"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Numai administratorii %{service_name} pot accesa aceasta zona."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Numai autorul anuntului poate sa inchida acest anunt"
       only_listing_author_can_edit_a_listing: "Numai autorul anuntului poate edita un anunt"
       payment_successful: "Plata cu succes"

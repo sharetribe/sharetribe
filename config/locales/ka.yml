@@ -435,6 +435,17 @@ ka:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1603,7 +1614,7 @@ ka:
       listing_updated_successfully: "ჩამონათვალი წარმატებით განახლდა"
       listing_updated_availability_management_enabled: "ჩამონათვალი წარმატებით განახლდა"
       listing_updated_availability_management_disabled: "ჩამონათვალი წარმატებით განახლდა"
-      only_kassi_administrators_can_access_this_area: "მხოლოდ %{service_name}ს ადმინისტრატორს შეუძლია შევიდეს ამ ადგილას"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "მხოლოდ სიის ავტორს შეუძლია დახუროს ეს სია"
       only_listing_author_can_edit_a_listing: "მხოლოდ სიის ავტორს შეუძლია მისი დარედაქტირება."
       payment_successful: "წარმატებით გადახდა"

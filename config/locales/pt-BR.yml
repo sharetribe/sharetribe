@@ -440,6 +440,17 @@ pt-BR:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1612,7 +1623,7 @@ pt-BR:
       listing_updated_successfully: "Anúncio atualizado com sucesso"
       listing_updated_availability_management_enabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade ativado."
       listing_updated_availability_management_disabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade desativado."
-      only_kassi_administrators_can_access_this_area: "Só %{service_name} administradores podem acessar esta área"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Somente o autor do anúncio pode fechar o mesmo"
       only_listing_author_can_edit_a_listing: "Somente o autor do anúncio pode editar o mesmo"
       payment_successful: "Pagamento efetuado com sucesso"

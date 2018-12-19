@@ -435,6 +435,17 @@ ja:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1601,7 +1612,7 @@ ja:
       listing_updated_successfully: 更新されました
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "こちらは%{service_name}の管理者だけがアクセス出来ます"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: 投稿者のみがこの投稿を編集出来ます
       only_listing_author_can_edit_a_listing: 投稿者のみがこの投稿を編集出来ます
       payment_successful: お支払い手続きが完了しました

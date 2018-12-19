@@ -440,6 +440,17 @@ fi:
           confirm_modify: "Oletko varma, että haluat muuttaa palautetta tai poistaa sen? Tämän toiminnon jälkeen palautteen vanhoja tietoja ei voida enää palauttaa."
           deleting_info: "Palautteen poistaminen antaa sen kirjoittajalle mahdollisuuden kirjoittaa uusi palaute samasta ostotapahtumasta."
           blocking_info: "Palautteen estäminen estää sen kirjoittajaa kirjoittamasta uutta palautetta samasta ostotapahtumasta."
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: Ilmoitukset
         search_by_title_author_category: "Etsi ilmoituksen otsikkoa, tekijää, tai kategorian nimeä"
@@ -1618,7 +1629,7 @@ fi:
       listing_updated_successfully: "Ilmoitus päivitetty onnistuneesti"
       listing_updated_availability_management_enabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta aktivoitu."
       listing_updated_availability_management_disabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta pois käytöstä."
-      only_kassi_administrators_can_access_this_area: "Vain %{service_name}-palvelun ylläpitäjillä on pääsy tähän sisältöön"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
       payment_successful: "Maksu suoritettu"

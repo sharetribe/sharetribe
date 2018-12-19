@@ -441,6 +441,17 @@ hu:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1615,7 +1626,7 @@ hu:
       listing_updated_successfully: "Hidetését frissítette"
       listing_updated_availability_management_enabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser aktiválva."
       listing_updated_availability_management_disabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser kikapcsolva."
-      only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
       payment_successful: "Sikeres fizetés"

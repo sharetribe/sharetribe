@@ -440,6 +440,17 @@ sv:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1620,7 +1631,7 @@ sv:
       listing_updated_successfully: "Annons uppdaterades"
       listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
       listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
-      only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna sida"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
       payment_successful: "Betalningen lyckades"

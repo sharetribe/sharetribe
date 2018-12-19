@@ -445,6 +445,17 @@ sk-SK:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
         search_by_title_author_category: ~
@@ -1623,7 +1634,7 @@ sk-SK:
       listing_updated_successfully: "Inzerát bol úspešne aktualizovaný."
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Iba %{service_name} administrátory majú prístup k tejto oblasti"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
       only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"
       payment_successful: "Platba prebehla úspešne"
