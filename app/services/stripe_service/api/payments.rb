@@ -137,7 +137,7 @@ module StripeService::API
               community: tx.community_id,
               account_id: seller_account[:stripe_seller_id],
               amount_cents: seller_gets.cents,
-              currency: payment[:sum].currency,
+              amount_currency: payment[:sum].currency,
               initial_amount: payment[:subtotal].cents,
               charge_id: payment[:stripe_charge_id],
               metadata: {sharetribe_transaction_id: tx.id}
