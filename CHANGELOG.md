@@ -85,6 +85,7 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
 - Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
 - Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
+- Fixed displaying design page [#3451](https://github.com/sharetribe/sharetribe/pull/3451)
 - Display bug in checkbox user fields [#3385](https://github.com/sharetribe/sharetribe/pull/3385)
 - Fixed a broken link when no date was selected for free "per day" and "per night" listings [#3410](https://github.com/sharetribe/sharetribe/pull/3410)
 - Allow to leave dropdown option unselected if it is not mandatory [#3446](https://github.com/sharetribe/sharetribe/pull/3446)
