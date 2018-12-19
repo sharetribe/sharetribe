@@ -67,9 +67,13 @@ sv:
         community_name: Marknadsplatsnamn
         edit_community_name_description: "Namnet på din marknadsplats. Detta ser användarna i e-postmeddelanden och på många andra ställen."
         community_slogan: "Marknadsplats slogan"
+        community_slogan_display: ~
         edit_community_slogan_description: "Detta visas på startsidan av marknadsplatsen för användare som inte är inloggade. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Marknadsplats beskrivning"
+        community_description_display: ~
         edit_community_description_description: "Detta visas på startsidan av marknadsplatsen och för användarna som inte är inloggade. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Sök hjälp text"
         edit_community_search_placeholder_description: "Detta visas på startsidan av marknadsplatsen som en text i sökfältet. %{see_how_it_looks_like}"
         private_community_homepage_content: "Privat marknadsplats startsidans innehåll"
@@ -95,6 +99,7 @@ sv:
         edit_community_look_and_feel: "Redigera marknadsplatsen \"%{community_name}\""
         community_logo: Logotyp
         community_logo_icon: "Logotyp för sociala nätverk och mobila enheter"
+        community_logo_icon_mobile: ~
         community_cover_photo: Omslagsbild
         small_community_cover_photo: "Liten omslagsbild"
         favicon: Favicon
@@ -109,6 +114,7 @@ sv:
         logo_instructions_text_with_dimensions_no_placing: "Logotypens storlek skall vara %{height}x%{width} pixlar"
         logo_icon_instructions_text_with_dimensions: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions_no_placing: "Denna fyrkantiga logotyp kommer att visas när folk delar din sida på Facebook, när de ser din sida på en mobil enhet eller när de lägger ett bokmärke av din sida till hemmaskärmen på mobila enheter. Dimensionerna måste vara (minst) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Omslagsbilden visas på startsidan för personer som inte är inloggade."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Den lilla omslagsbilden visas på alla sidor förutom på startsidan för de som inte är inloggade."
@@ -262,6 +268,22 @@ sv:
         reset_search: "Visa alla"
         for_search_terms: "för: %{terms}"
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -271,6 +293,8 @@ sv:
         searchpage: "Ny sök sida (kräver den nya menyn)"
       social_media:
         social_media: "Social media"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter användarnamn"
         twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
         twitter_handle_info_text_with_instructions: "Användarnamnet på Twitterkontot på din marknadsplats (om du har ett). Det kommer att nämnas när folk använder tweetknappen på annonssidan. %{instructions_link}."
@@ -287,6 +311,7 @@ sv:
         invalid_facebook_connect_secret: "Klientsäkerhet ska bara innehålla nummer och bokstäver från a till f."
         enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -320,6 +345,19 @@ sv:
         export_all_as_csv: "Exportera alla som CSV"
         processing_export: "Bearbetar export till CSV"
         transactions: "Visa transaktioner"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: Konversationstråd
           listing: Annons
@@ -387,13 +425,32 @@ sv:
           receiver: Mottagare
           status: Status
           grade: Betyg
-          note: Recension
+          text: ~
         status:
           waiting: "Väntar på recension"
           skipped: "Hoppade över"
           published: Publicerad
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -406,6 +463,28 @@ sv:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -467,6 +546,8 @@ sv:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -497,6 +578,7 @@ sv:
           title: "Vem vill du skicka e-post till?"
           options:
             all_users: "Alla användare"
+            posting_allowed: ~
             with_listing: "Användare som har skapat åtminstone en annons"
             with_listing_no_payment: "Användare som har skapat åtminstone en annons men inte satt till sin betalinformation"
             with_payment_no_listing: "Användare som har satt till sin betalinformation men inte skapat en annons"
@@ -600,6 +682,7 @@ sv:
         night: "Per natt"
         week: "Per vecka"
         month: "Per månad"
+        unit: ~
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
       add_custom_unit: "+ Lägg till en anpassningsbar prisenhet..."
       delete_custom_unit: "ta bort"
@@ -1252,6 +1335,7 @@ sv:
       after: "måste vara efter %{restriction}"
       on_or_after: "måste vara exakt på eller efter %{restriction}"
       positive_number: "Lägg in ett nummer."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -1517,7 +1601,7 @@ sv:
       invitation_successfully_unsubscribed: "Avslutade prenumerationen av inbjudningsemail framgångsrikt"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
-      login_failed: "Inloggning misslyckades. Vänligen använd rätt upgifter."
+      login_failed: "Inloggning misslyckades. Vänligen använd rätt uppgifter."
       account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
       account_deleted: "Ditt konto är nu borttaget."
       login_successful: "Välkommen, %{person_name}!"
@@ -1825,6 +1909,7 @@ sv:
       night: "Antal nätter:"
       week: "Antal veckor:"
       month: "Antal månader:"
+      unit: ~
       custom: "Antal:"
     quantity_placeholder: Antal
     please_comment: Kommentar
@@ -1876,6 +1961,7 @@ sv:
       night: natt
       week: vecka
       month: månad
+      unit: ~
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -2464,16 +2550,8 @@ sv:
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Ingen %{model} hittad"
-          one: "Visar %{accepted_count} accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar %{accepted_count} accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        single_page_html:
-          zero: "Ingen %{model} hittad"
-          one: "Visar <b> %{accepted_count} </b> accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        multi_page: "Visar %{model} %{from} till %{to} av %{accepted_count} accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
-        multi_page_html: "Visar %{model} <b>%{from} till %{to} </b> av <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Att använda %{service_name} betalningssystem för att ta emot betalningar är inte möjligt på grund av att online betalningar har inte blivit aktivetar för marknadsplatsen. Vänligen kontakta %{contact_admin_link} för information."
     contact_admin_link_text: "kontakta %{service_name} administratör"
@@ -2496,6 +2574,10 @@ sv:
       legal_name: Namn
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: Land
       birth_date: Födelsedatum
       ssn_last_4: "Personnumrets fyra sista tecken"
@@ -2511,6 +2593,20 @@ sv:
       save_details: Spara
       edit: Redigera
       cancel: Avbryt
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: Bankkontonummer
       bank_routing_number: Clearingnummer

@@ -62,9 +62,13 @@ vi:
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
+        community_slogan_display: ~
         edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: ~
         community_description: ~
+        community_description_display: ~
         edit_community_description_description: ~
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Tìm kiếm văn bản trợ giúp"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -90,6 +94,7 @@ vi:
         edit_community_look_and_feel: ~
         community_logo: Logo
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: "Ảnh bìa"
         small_community_cover_photo: "Ảnh bìa nhỏ"
         favicon: "Biểu tượng yêu thích"
@@ -104,6 +109,7 @@ vi:
         logo_instructions_text_with_dimensions_no_placing: "Kích thước logo phải là %{width}x%{height}px."
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: "Logo hình vuông này sẽ được hiển thị khi mọi người chia sẻ trang web của bạn trên Facebook hoặc khi họ đánh dấu trang web của bạn vào màn hình chính của thiết bị di động của họ. Kích thước phải là (ít nhất) %{width}x%{height}px."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Ảnh sẽ được thu nhỏ về kích thước %{width}x%{height} pixel. Những ảnh quá cao sẽ được cắt ngay giữa. %{see_how_it_looks_like}"
         small_cover_photo_visibility: ~
@@ -257,6 +263,22 @@ vi:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Bố cục mới"
         description_roadmap_new: "Khi các thành phần bố cục mới được tạo sẵn cho thị trường của bạn, bạn có thể chọn xem bạn muốn bắt đầu sử dụng thành phần mới hay tiếp tục sử dụng thành phần mới. Bạn có thể bật / tắt vùng chọn ở bất kỳ điểm nào từ trang này. Bạn nên luôn luôn sử dụng phiên bản mới vì các thành phần cũ có thể được loại bỏ tại một số điểm. Trong trường hợp một thành phần mà bạn hiện đang sử dụng sẽ được loại bỏ, bạn sẽ được liên hệ trước."
@@ -266,6 +288,8 @@ vi:
         searchpage: "Trang tìm kiếm mới (yêu cầu thanh trên cùng mới)"
       social_media:
         social_media: "Mạng xã hội"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Tài khoản Twitter"
         twitter_handle_info_text: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng."
         twitter_handle_info_text_with_instructions: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng. %{instructions_link}."
@@ -282,6 +306,7 @@ vi:
         invalid_facebook_connect_secret: "Khách hàng bí mật chỉ chứa số và chữ cái từ a tới f."
         enable_facebook_login: ~
         save: "Lưu thiết lâp"
+        add_another_image: ~
       analytics:
         analytics: "Phân tích"
         google_analytics_key: "ID theo dõi Google Analytics"
@@ -315,6 +340,19 @@ vi:
         export_all_as_csv: "Xuất tất cả dưới dạng CSV"
         processing_export: ~
         transactions: "Xem giao dịch"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Chủ đề đối thoại"
           listing: "Bài đăng"
@@ -382,13 +420,32 @@ vi:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -401,6 +458,28 @@ vi:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
@@ -462,6 +541,8 @@ vi:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +573,7 @@ vi:
           title: "Bạn muốn gửi email cho ai?"
           options:
             all_users: "Tất cả thành viên"
+            posting_allowed: ~
             with_listing: "Thành viên đã đăng ít nhất một bài"
             with_listing_no_payment: "Thành viên đã đăng ít nhất một bài nhưng chưa nhập thông tin thanh toán"
             with_payment_no_listing: "Thành viên đã có thông tin thanh toán nhưng chưa đăng bài nào"
@@ -591,6 +673,7 @@ vi:
         night: "Mỗi đêm"
         week: "Mỗi tuần"
         month: "Mỗi tháng"
+        unit: ~
       can_not_find: "Không tìm thấy loại đơn hàng có mã: %{id}"
       add_custom_unit: "+ Thêm đơn vị đặt giá tùy chỉnh…"
       delete_custom_unit: xóa
@@ -1239,6 +1322,7 @@ vi:
       after: "phải sau %{restriction}"
       on_or_after: "phải ở mức hoặc sau %{restriction}"
       positive_number: "Chèn một số."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
@@ -1811,6 +1895,7 @@ vi:
       night: "Số đêm:"
       week: "Số tuần:"
       month: "Số tháng:"
+      unit: ~
       custom: "Số lượng:"
     quantity_placeholder: "Số lượng"
     please_comment: "Bình luận"
@@ -1862,6 +1947,7 @@ vi:
       night: đêm
       week: tuần
       month: tháng
+      unit: ~
     verification_required:
       verification_required: "Yêu cầu xác minh"
   listing_conversations:
@@ -2451,6 +2537,10 @@ vi:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2466,6 +2556,20 @@ vi:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

@@ -61,3 +61,195 @@ describe ApplicationController, type: :controller do
     end
   end
 end
+
+describe ApplicationController, type: :controller do
+  render_views
+  controller do
+    def index
+      # should be intercepted in filter
+    end
+  end
+
+  describe "showing not available message" do
+    it "redirects to /not_available for deleted community" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: true,
+          closed: false,
+          hold: false,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+
+      get :index
+      expect(response).to redirect_to("http://#{community.ident}.lvh.me:9887/not_available?locale=en")
+    end
+
+    it "redirects to /not_available for closed community" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: false,
+          closed: true,
+          hold: false,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+      request.env[:current_plan] = {status: :active, expired: false, closed: true}
+
+      get :index
+      expect(response).to redirect_to("http://#{community.ident}.lvh.me:9887/not_available?locale=en")
+    end
+
+    it "redirects to /not_available for community on hold" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: false,
+          closed: false,
+          hold: true,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+      request.env[:current_plan] = {status: :hold, expired: false, closed: false}
+
+      get :index
+      expect(response).to redirect_to("http://#{community.ident}.lvh.me:9887/not_available?locale=en")
+    end
+
+  end
+end
+
+describe ApplicationController, type: :controller do
+  render_views
+
+  describe "showing not available message" do
+    it "renders message on request /not_available for deleted community" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: true,
+          closed: false,
+          hold: false,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+
+      get :not_available
+      expect(response.body).to match(/team has decided to close this platform/)
+    end
+
+    it "renders message on request to /not_available for closed community" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: false,
+          closed: true,
+          hold: false,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+      request.env[:current_plan] = {status: :active, expired: false, closed: true}
+
+      get :not_available
+      expect(response.body).to match(/team has decided to close this platform/)
+    end
+
+    it "renders message on request to /not_available for community on hold" do
+      community = FactoryGirl.create(:community)
+      community.update(deleted: true)
+
+      # stub request.env like MarketplaceLookup middleware
+      request.host = "#{community.ident}.lvh.me:9887"
+      redirect_reason = ::MarketplaceRouter.redirect_reason(
+        community: {
+          use_domain: false,
+          deleted: false,
+          closed: false,
+          hold: true,
+          expired: false,
+          ident: community.ident
+        },
+        host: request.host,
+        no_communities: false,
+        app_domain: 'lvh.me')
+      request.env[:redirect_reason] = redirect_reason
+      request.env[:current_marketplace] = community
+      request.env[:current_plan] = {status: :hold, expired: false, closed: false}
+
+      get :not_available
+      expect(response.body).to match(/team has decided to pause things/)
+    end
+
+  end
+end
+
+describe ApplicationController, type: :controller do
+  render_views
+  controller do
+    def index
+      head :ok
+    end
+  end
+
+  describe '#disarm_custom_head_script' do
+    it "disables custom head script if disarm param present" do
+      get :index, params: {}
+      expect(assigns("disable_custom_head_script")).to eq(nil)
+      get :index, params: {:disarm => "true"}
+      expect(assigns("disable_custom_head_script")).to eq(true)
+    end
+  end
+end
+

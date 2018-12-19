@@ -438,6 +438,16 @@ module ApplicationHelper
       }
     ]
 
+    links += [
+      {
+        :topic => :configure,
+        :text => t("admin.communities.footer.footer"),
+        :icon_class => icon_class("footer_menu"),
+        :path => admin_footer_edit_path,
+        :name => "footer"
+      }
+    ]
+
     if APP_CONFIG.show_landing_page_admin
       links << {
         :topic => :configure,
@@ -765,6 +775,49 @@ module ApplicationHelper
 
   def regex_definition_to_js(string)
     string.gsub('\A', '^').gsub('\z', '$').gsub('\\', '\\\\')
+  end
+
+  SOCIAL_LINKS = {
+    facebook: {
+      name: "Facebook",
+      placeholder: "https://www.facebook.com/CHANGEME",
+    },
+    twitter: {
+      name: "Twitter",
+      placeholder: "https://www.twitter.com/CHANGEME",
+    },
+    instagram: {
+      name: "Instagram",
+      placeholder: "https://www.instagram.com/CHANGEME",
+    },
+    youtube: {
+      name: "YouTube",
+      placeholder: "https://www.youtube.com/channel/CHANGEME",
+    },
+    googleplus: {
+      name: "Google+",
+      placeholder: "https://plus.google.com/CHANGEME",
+    },
+    linkedin: {
+      name: "LinkedIn",
+      placeholder: "https://www.linkedin.com/company/CHANGEME",
+    },
+    pinterest: {
+      name: "Pinterest",
+      placeholder: "https://www.pinterest.com/CHANGEME",
+    },
+    soundcloud: {
+      name: "SoundCloud",
+      placeholder: "https://soundcloud.com/CHANGEME",
+    }
+  }.freeze
+
+  def social_link_name(provider)
+    SOCIAL_LINKS[provider.to_sym][:name]
+  end
+
+  def social_link_placeholder(provider)
+    SOCIAL_LINKS[provider.to_sym][:placeholder]
   end
 end
 # rubocop:enable Metrics/ModuleLength

@@ -19,6 +19,7 @@
 
 class ListingUnit < ApplicationRecord
   UNIT_TYPES = [
+    UNIT = 'unit'.freeze,
     HOUR = 'hour'.freeze,
     DAY = 'day'.freeze,
     NIGHT = 'night'.freeze,

@@ -62,9 +62,13 @@ ja:
         community_name: マーケットプレイスの名前
         edit_community_name_description: これはユーザへのメールや色々な場所で表示されます。
         community_slogan: マーケットプレイスのスローガン
+        community_slogan_display: ~
         edit_community_slogan_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: マーケットプレイスの詳細内容
+        community_description_display: ~
         edit_community_description_description: "これはログインしていないユーザのマーケットプレイスのトップページに表示されます。%{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: ヘルプを検索
         edit_community_search_placeholder_description: "これはマーケットプレイスのトップページに表示される検索バーの中にとりあえず入れておくテキストです。%{see_how_it_looks_like}"
         private_community_homepage_content: プライベートマーケットプレイスホームページコンテンツ
@@ -90,6 +94,7 @@ ja:
         edit_community_look_and_feel: "%{community_name}のカスタマイズ"
         community_logo: デスクトップロゴ
         community_logo_icon: モバイル用ロゴ
+        community_logo_icon_mobile: ~
         community_cover_photo: カバー写真
         small_community_cover_photo: 小さいカバー写真
         favicon: ファビコン
@@ -104,6 +109,7 @@ ja:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "モバイル用ロゴは出来れば、%{width}ｘ%{height}ピクセルの正方形にしてください。それは特に小さいスクリーンを使用しているユーザに表示されます。"
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
         cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
@@ -149,7 +155,7 @@ ja:
         this_is_how_it_will_look: ~
         send_verification_button: 認証メールを送信
         change_sender_email: ~
-        successfully_saved: ~
+        successfully_saved: 送信者アドレスの保存に成功しました。認証メールが間もなく送信されます。
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
@@ -163,7 +169,7 @@ ja:
         resend_link: 再送
         invalid_email_error: ~
         invalid_email_domain: ~
-        invalid_email_domain_read_more_link: ~
+        invalid_email_domain_read_more_link: 詳細についてはヘルプセンターの記事をご覧ください。
         unknown_error: エラーが起きました
         white_label_offer: ~
         upgrade_plan_link: ~
@@ -207,8 +213,8 @@ ja:
         keyword_and_location_search: キーワードと位置で検索
         location_search: 位置検索
         select_distance_unit: "距離表示%{distance_units_selector}"
-        km: ~
-        miles: ~
+        km: km
+        miles: miles
         show_only_nearby: 位置検索で近隣の投稿のみ表示する
         listing_preferences: 優先リスト
         transaction_preferences: 課金の設定
@@ -257,6 +263,22 @@ ja:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -266,6 +288,8 @@ ja:
         searchpage: 新検索ページ(新トップメニューが必要)
       social_media:
         social_media: ソーシャルメディア
+        logo: ~
+        logo_info: ~
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: "あなたのマーケットプレイスのTwitterのユーザー名 (お持ちであれば) 。投稿ページのツイートボタンを使うときに言及されます。"
         twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
@@ -282,6 +306,7 @@ ja:
         invalid_facebook_connect_secret: フェイスプックユーザーの秘密は、数字とアルファベットaからｆを含むものです。
         enable_facebook_login: ~
         save: 設定を保存する
+        add_another_image: ~
       analytics:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
@@ -315,6 +340,19 @@ ja:
         export_all_as_csv: CSVで全て出力
         processing_export: ~
         transactions: お支払い履歴の表示
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: 会話のスレッド
           listing: 投稿
@@ -353,11 +391,11 @@ ja:
             free: ~
             pending: ~
             preauthorized: ~
-            accepted: ~
+            accepted: 承認済み
             rejected: ~
             paid: ~
             confirmed: ~
-            canceled: ~
+            canceled: キャンセルされました
             initiated: ~
             pending_ext: ~
         not_available: ご利用できません
@@ -382,13 +420,32 @@ ja:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -401,6 +458,28 @@ ja:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "「%{field_name}」項目を編集する"
@@ -462,6 +541,8 @@ ja:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -492,6 +573,7 @@ ja:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -589,6 +671,7 @@ ja:
         night: １泊
         week: １週
         month: １ヵ月
+        unit: ~
       can_not_find: "id: %{id} の課金タイプは見つかりません"
       add_custom_unit: +独自の価格単位を追加…
       delete_custom_unit: 削除
@@ -655,10 +738,10 @@ ja:
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
       stripe_connected:
-        title: ~
-        disable: ~
-        disabled: ~
-        enable: ~
+        title: ストライプに接続されました
+        disable: ストライプを無効にする
+        disabled: ストライプが無効になりました
+        enable: ストライプを有効にする
       paypal_connected:
         title: ~
         disable: ~
@@ -667,13 +750,13 @@ ja:
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
-        add_your_api_keys: ~
+        add_your_api_keys: ストライプAPIキーを追加する
         how_to_get_these: ~
         publishable_key_example: ~
         secret_key_example: ~
-        save_api_keys: ~
-        invalid_secret: ~
-        invalid_publishable: ~
+        save_api_keys: ストライプAPIキーを保存する
+        invalid_secret: "正しい%{secret_key} ではないようです"
+        invalid_publishable: "正しい%{publishable_key} ではないようです"
       index:
         header: ~
         info: ~
@@ -771,7 +854,7 @@ ja:
     stripe_fee_info:
       title: ~
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: こちら
   conversations:
     accept:
       details: 注文情報
@@ -797,7 +880,7 @@ ja:
       paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は別途かかります"
       payment_fee_info: ~
       shipping_price_label: 送料：
-      stripe-fee_label: ~
+      stripe-fee_label: 支払処理手数料
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
@@ -1078,7 +1161,7 @@ ja:
       total: ~
       price: ~
       service_fee: ~
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
     paypal_new_payment:
@@ -1100,7 +1183,7 @@ ja:
       total: 合計
       price: 価格
       service_fee: ご利用料金
-      stripe_gateway_fee: ~
+      stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: ~
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
       listing_per_unit_title: ~
@@ -1233,6 +1316,7 @@ ja:
       after: "%{restriction}より後でなければなりません"
       on_or_after: "%{restriction}以後でなければなりません"
       positive_number: 数字を入力。
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{time_ago}に%{offerer_name}さんは%{requester_name}さんに%{listing_title}を貸すことに同意しました。"
@@ -1271,7 +1355,7 @@ ja:
     contact_us: お問い合わせ
     profile: プロフィール
     manage_listings: 投稿を管理する
-    invite: お友だち紹介
+    invite: メンバーを招待
     login: ログイン
     signup: 新規登録
     menu: メニュー
@@ -1392,7 +1476,7 @@ ja:
       default_content: "ここで、%{marketplace_name}の概要を説明できます。"
   landing_page:
     hero:
-      search: ~
+      search: 検索
       signup: 新規登録
       search_placeholder: 何をお探しですか？
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
@@ -1597,7 +1681,7 @@ ja:
       profile: プロフィール
       settings: 設定
       paypal_payments: ~
-      stripe_payments: ~
+      stripe_payments: ストライプペイメント
       payments: お支払い
   listings:
     bubble_listing_not_visible:
@@ -1805,6 +1889,7 @@ ja:
       night: 宿泊日数：
       week: 週間：
       month: 月間：
+      unit: ~
       custom: 数量：
     quantity_placeholder: 数量
     please_comment: コメント
@@ -1856,6 +1941,7 @@ ja:
       night: 泊
       week: 週
       month: 月
+      unit: ~
     verification_required:
       verification_required: 認証が必要です
   listing_conversations:
@@ -1875,16 +1961,16 @@ ja:
     transaction_agreement_checkbox:
       read_more: 表示
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
-      address_country: ~
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      payment: お支払い
+      pay_with_card: クレジットカード、デビットカードでお支払いする
+      address: 配送先住所
+      address_country: 国
+      address_name: 氏名
+      address_city: 市町村
+      address_state: 都道府県
+      address_street1: 住所１
+      address_street2: 住所２
+      address_postal_code: 郵便番号
   mapview:
     index:
       all_categories: すべてのカテゴリー
@@ -1925,7 +2011,7 @@ ja:
     paypal_receive_funds_info: "もしPaypalアカウントと%{service_name}を接続する際にエラーが出る場合には、PayPalアカウントを%{upgrade_paypal_account_link}からアップグレードして下さい。アップグレードは無料で手続きは簡単です。あなたが個人であれば、氏名を事業者名として使用することを推奨します。"
     upgrade_paypal_account_link_text: ログインしてアップグレードのリンクをクリックする
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: "%{service_name} チームにご連絡ください。"
     you_are_ready_to_accept_payments: お支払いの受諾が出来ます！
     commission: "%{commission}％"
     not_now: ~
@@ -1962,12 +2048,12 @@ ja:
       something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
-    paypal_account_connected_title: ~
+    paypal_account_connected_title: ペイパルアカウントに接続しました。
     paypal_account_connected: ~
     change_account: Paypalアカウントの変更
     missing: "公開されている投稿がありますが、Paypalに接続できていないようなのでお支払いを受け取れません。%{settings_link}からPaypal口座に接続し、%{service_name}への課金許可を与えてください。"
     from_your_payment_settings_link_text: お支払い設定
-    redirect_message: ~
+    redirect_message: "ペイパルにリダイレクトしています。何も起きない場合は%{redirect_link} をクリックして下さい。"
     redirect_link_text: こちら
     paypal_account_all_set_up: すべてのセットアップが完了しました！
     can_receive_payments: これであなたは支払いを受け取ることができるようになりました。
@@ -2380,8 +2466,8 @@ ja:
       page_of_pages: ~
     topbar:
       menu: メニュー
-      more: ~
-      search_placeholder: ~
+      more: More
+      search_placeholder: 検索中...
       search_location_placeholder: "場所 （地区、郵便番号、市町村名...）"
       user: メンバー
       inbox: メール受信箱
@@ -2421,58 +2507,76 @@ ja:
         multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: ~
-    contact_admin_link_text: ~
+    contact_admin_link_text: "%{service_name} チームにコンタクトする"
     you_are_ready_to_accept_payments: ~
     commission: ~
-    pay_with_stripe: ~
-    add_and_pay: ~
+    pay_with_stripe: "%{card} を使ってストライプにてお支払いする"
+    add_and_pay: お支払い確認
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
-    stripe_credit_card: ~
-    paypal: ~
-    paypal_connected: ~
-    paypal_can_accept: ~
+    stripe_credit_card: クレジットカード
+    paypal: ペイパル
+    paypal_connected: ペイパルアカウントは正常に接続されました
+    paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: ~
     form_new:
-      need_info: ~
+      need_info: 必要事項ご記載後、送金が可能になります。
       select_country: ~
       legal_name: ~
-      first_name: ~
-      last_name: ~
-      country: ~
-      birth_date: ~
+      first_name: 名
+      last_name: 姓
+      first_name_kana: 名（かな）
+      last_name_kana: 姓（かな）
+      first_name_kanji: 名
+      last_name_kanji: 姓
+      country: 国
+      birth_date: 生年月日
       ssn_last_4: ~
       personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
+      address_country: 国
+      address_state: 都道府県
+      address_province: 都道府県
+      address_city: 市町村
+      address_postal_code: 郵便番号
+      address_line1: 住所
+      tos_link: "お受取り詳細を追加しますと、%{stripe_link} を承認致します。"
       tos_link_title: ~
-      save_details: ~
+      save_details: 詳細を保存
       edit: ~
-      cancel: ~
+      cancel: キャンセル
+      gender: 性別
+      phone_number: 電話番号
+      address_kana_postal_code: 郵便番号
+      address_kana_state: "都道府県 (かな)"
+      address_kana_city: 市町村（かな）
+      address_kana_town: 住所１（かな）
+      address_kana_line1: 住所２（かな）
+      address_kanji_postal_code: 郵便番号
+      address_kanji_state: 都道府県
+      address_kanji_city: 市町村
+      address_kanji_town: 住所１
+      address_kanji_line1: 住所２
+      male: 男性
+      female: 女性
     form_bank:
-      bank_account_number: ~
+      bank_account_number: 口座番号
       bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
+      bank_routing_1: 銀行コード
+      bank_routing_2: 支店コード
+      bank_currency: 通貨
       update_also_bank_account: ~
       messages:
-        account_number: ~
-        routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
-        institution_number: ~
+        account_number: 口座番号
+        routing_number: ルーティングナンバー
+        bank_code: 銀行コード
+        branch_code: 支店コード
+        transit_number: 支店番号
+        institution_number: 銀行番号
         format_varies_by_bank: ~
-        bsb: ~
-        error_message: ~
+        bsb: BSB
+        error_message: 無効なフォーマット
         clearing_code: ~
         sort_code: ~
         must_match: ~
@@ -2480,7 +2584,7 @@ ja:
         digits: ~
         digits_or_chars: ~
     form_verification:
-      personal_id_number: ~
+      personal_id_number: パーソナルID番号
       document: ~
       send_verification: ~
       need_verification: ~
@@ -2493,12 +2597,12 @@ ja:
       messages:
         social_insurance_number: ~
   payment_settings:
-    title: ~
-    bank_account: ~
+    title: お受け取り方法
+    bank_account: 銀行口座
     paypal: ~
-    bank_account_details: ~
-    add_bank_details: ~
-    can_accept_stripe_and_paypal: ~
+    bank_account_details: 銀行口座へ直接入金をご希望する場合、入金用口座詳細情報のご提出が必要です。完了後、購入者はクレジットカードでのお支払いが可能になります。
+    add_bank_details: 銀行口座詳細を追加
+    can_accept_stripe_and_paypal: 銀行口座またはペイパルにてお金をお受け取りできます
     to_accept_paypal: ~
     connect_paypal: ~
     wrong_setup: ~

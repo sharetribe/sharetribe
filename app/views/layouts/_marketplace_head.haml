@@ -27,7 +27,9 @@
   - meta_image_width = content_for(:meta_image_width)
   - meta_image_height = content_for(:meta_image_height)
 - else
-  - if @current_community.logo?
+  - if @current_community.social_logo.try(:image).try(:file?)
+    - meta_image = @current_community.social_logo.image.url(:original)
+  - elsif @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
   - else
     - meta_image = image_path("sharetribe_icon.png")
@@ -66,6 +68,9 @@
 - if @current_community.has_customizations?
   = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
 
+- if @custom_footer.try(:display?)
+  = render 'layouts/footer/css'
+
 = stylesheet_link_tag "app-bundle"
 
 / Modernizr, in the head tag, right after stylesheets, for best performance:
@@ -97,5 +102,5 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-- unless on_admin?
+- unless @disable_custom_head_script || on_admin?
   = @current_community.custom_head_script.try(:html_safe)

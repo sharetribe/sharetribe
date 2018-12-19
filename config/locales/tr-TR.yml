@@ -62,9 +62,13 @@ tr-TR:
         community_name: "Pazar adı"
         edit_community_name_description: "Pazarınızın adı. Bu ad kullanıcılara e-postalarda ve diğer bazı alanlarda gösterilecektir."
         community_slogan: "Pazar sloganı"
+        community_slogan_display: ~
         edit_community_slogan_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: ~
         community_description: "Pazar tanımı"
+        community_description_display: ~
         edit_community_description_description: "Bu, ana sayfadaki giriş yapmamış kullanıcılara gösterilecektir. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Yardım metni ara"
         edit_community_search_placeholder_description: "Bu metin, pazarın ana sayfasındaki arama çubuğunda yer tutucu olarak gösterilecektir. %{see_how_it_looks_like}"
         private_community_homepage_content: "Özel pazar ana sayfa içeriği"
@@ -90,6 +94,7 @@ tr-TR:
         edit_community_look_and_feel: "%{community_name} pazar görünümü ve özelliklerini düzenle"
         community_logo: "Masaüstü logosu"
         community_logo_icon: "Mobil logo"
+        community_logo_icon_mobile: ~
         community_cover_photo: "Kapak fotoğrafı"
         small_community_cover_photo: "Küçük kapak fotoğrafı"
         favicon: Favicon
@@ -106,6 +111,7 @@ tr-TR:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "Mobil logo kare şeklinde, tercihen %{width}x%{height} px ebatlarında olmalıdır. Küçük ekrana sahip kullanıcılara gösterilecektir."
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kapak fotoğrafı ana sayfada giriş yapmamış kullanıcılara gösterilecektir."
         cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Küçük kapak fotoğrafı ana sayfadaki giriş yapmamış kullanıcılar hariç bütün sayfalarda gösterilir."
@@ -259,6 +265,22 @@ tr-TR:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: "Tüm durumlar"
+          selected: "Seçilen durumlar: %{count}"
+          selected_js: "Seçilen durumlar: "
+          admin: Yönetici
+          banned: Yasaklı
+          posting_allowed: "Gönderim izni verildi"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -268,6 +290,8 @@ tr-TR:
         searchpage: ~
       social_media:
         social_media: "Sosyal medya"
+        logo: ~
+        logo_info: ~
         twitter_handle: "Twitter aracı"
         twitter_handle_info_text: "Pazarınızın Twitter hesabının kullanıcı adı (mevcutsa). Kişiler listeleme sayfasındaki tweet butonunu kullandığında bahsedilecek."
         twitter_handle_info_text_with_instructions: "(Varsa) pazarınızın Twitter hesabının kullanıcı adı. Misafirler ilan sayfasındaki Twitter butonunu kullanınca görüntülenecektir. %{instructions_link}."
@@ -284,6 +308,7 @@ tr-TR:
         invalid_facebook_connect_secret: "Gizli anahtar sadece rakam ve A-F arası harfleri içerebilir."
         enable_facebook_login: ~
         save: "Ayarları kaydet"
+        add_another_image: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics takip kimliği"
@@ -317,6 +342,19 @@ tr-TR:
         export_all_as_csv: ~
         processing_export: ~
         transactions: "İşlemleri görüntüle"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Konuşma başlığı"
           listing: Listeleme
@@ -384,13 +422,32 @@ tr-TR:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -403,6 +460,28 @@ tr-TR:
         expired: ~
       user_fields:
         user_fields: "Kullanıcı alanları"
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -464,6 +543,8 @@ tr-TR:
         user_fields: "Kullanıcı alanları"
         field_title: "Alan başlığı"
         field_type: "Alan türü"
+        signup: ~
+        public: ~
         add_new_field: "Yeni alan ekle"
         save: Kaydet
         cancel: "İptal et"
@@ -494,6 +575,7 @@ tr-TR:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -585,6 +667,7 @@ tr-TR:
         night: "her bir gece"
         week: "Her bir hafta"
         month: "Her bir ay"
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: Sil
@@ -1230,6 +1313,7 @@ tr-TR:
       after: "%{restriction} sonrasında olmalı"
       on_or_after: "%{restriction} içinde ya da sonrasında olmalı"
       positive_number: "Rakam giriniz"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name} üyesine ödünç vermeyi kabul etti."
@@ -1799,6 +1883,7 @@ tr-TR:
       night: "Gece sayısı:"
       week: "Hafta sayısı:"
       month: "Ay sayısı:"
+      unit: ~
       custom: Miktar
     quantity_placeholder: Adet
     please_comment: Yorum
@@ -1850,6 +1935,7 @@ tr-TR:
       night: gece
       week: hafta
       month: ay
+      unit: ~
     verification_required:
       verification_required: "Doğrulama gerekli"
   listing_conversations:
@@ -2437,6 +2523,10 @@ tr-TR:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2452,6 +2542,20 @@ tr-TR:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

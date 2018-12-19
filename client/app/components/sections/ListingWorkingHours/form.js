@@ -362,7 +362,9 @@ class ListingWorkingHoursForm extends Component {
     };
     const days = [];
     values.days.forEach((day, index) => {
-      days.push(validateDay(day, index));
+      if (day.enabled) {
+        days.push(validateDay(day, index));
+      }
     });
     const errors = { days: days }; // eslint-disable-line babel/object-shorthand
     if (currentSlot) {

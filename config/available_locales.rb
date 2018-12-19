@@ -34,6 +34,7 @@ module Sharetribe
 
   # List of locales that are incomplete
   UNSUPPORTED_LOCALES = [
+    {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
@@ -60,7 +61,8 @@ module Sharetribe
     {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil}, # Arabic (Saudi Arabia)
     {ident: "he-IL", name: "עברית‎", language: "he", region: "IL", fallback: nil}, # Hebrew (Israel)
     {ident: "lv", name: "Latviešu valoda", language: "lv", region: "LV", fallback: nil}, # Latvian
-    {ident: "ko", name: "한국어", language: "ko", region: "KR", fallback: nil} # Korean
+    {ident: "ko", name: "한국어", language: "ko", region: "KR", fallback: nil}, # Korean
+    {ident: "crp", name: "Kreyòl ayisyen", language: "crp", region: "HT", fallback: nil} # Haitian Creole
   ]
 
   AVAILABLE_LOCALES = SUPPORTED_LOCALES + UNSUPPORTED_LOCALES

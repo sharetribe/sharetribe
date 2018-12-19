@@ -464,7 +464,7 @@ window.ST = window.ST || {};
       },
       debug: false,
       rules: _.extend(numericRules, {
-        "listing[title]": {required: true, minlength: 2, maxlength: 60},
+        "listing[title]": {required: true, minlength: 2, maxlength: 65},
         "listing[origin]": {address_validator: true},
         "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
         "listing[shipping_price]": {money: true},

@@ -52,9 +52,13 @@ ar:
         community_name: "اسم السوق الإلكتروني"
         edit_community_name_description: ~
         community_slogan: "شعار السوق الإلكتروني"
+        community_slogan_display: ~
         edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: ~
         community_description: "وصف السوق الإلكتروني"
+        community_description_display: ~
         edit_community_description_description: ~
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "ابحث في نص المساعدة"
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -80,6 +84,7 @@ ar:
         edit_community_look_and_feel: "‎%{community_name}‎ تحرير مظهر السوق الإلكتروني"
         community_logo: الشعار
         community_logo_icon: "شعار لوسائل التواصل الاجتماعي وأجهزة المحمول"
+        community_logo_icon_mobile: ~
         community_cover_photo: "صورة الواجهة"
         small_community_cover_photo: "صورة غطاء صغيرة"
         favicon: "شعار المتصفح"
@@ -94,6 +99,7 @@ ar:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "صورة الغطاء تظهر في الصفحة الرئيسية للمستخدمين الغير مسجلين."
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: "صورة الغطاء المصغرة تظهر في كل الصفحات ما عدا الصفحة الرئيسية للمستخدمين المسجلين"
@@ -247,6 +253,22 @@ ar:
         reset_search: "أظهر الكل"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "تصميم جديد"
         description_roadmap_new: ~
@@ -256,6 +278,8 @@ ar:
         searchpage: "صفحة بحث جديدة تحتاج إلى شريط علوي جديد"
       social_media:
         social_media: "وسائل التواصل الاجتماعي"
+        logo: ~
+        logo_info: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -272,6 +296,7 @@ ar:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: "حفظ الإعدادات"
+        add_another_image: ~
       analytics:
         analytics: تحليلات
         google_analytics_key: ~
@@ -305,6 +330,19 @@ ar:
         export_all_as_csv: "استخرج الكل في ملف إكسل"
         processing_export: "جاري المعالجة..."
         transactions: "أظهر العملية"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: إعلان
@@ -372,13 +410,32 @@ ar:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -391,6 +448,28 @@ ar:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
@@ -452,6 +531,8 @@ ar:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -482,6 +563,7 @@ ar:
           title: "لمن تريد أن ترسل الرسالة؟"
           options:
             all_users: "كل المستخدمين"
+            posting_allowed: ~
             with_listing: "االمستخدمون الذين وضعو إعلان واحد على الأقل"
             with_listing_no_payment: "المستخدمون الذين وضعو إعلان واحد على الأقل ولكن دون تفاصيل طريقة الدفع"
             with_payment_no_listing: "المستخدمون الذين وضعو تفاصيل طريقة الدفع ولكن دون الإعلان"
@@ -587,6 +669,7 @@ ar:
         night: بالليلة
         week: بالأسبوع
         month: بالشهر
+        unit: ~
       can_not_find: ~
       add_custom_unit: "+أضف وحدة سعر خاصة..."
       delete_custom_unit: حذف
@@ -1238,6 +1321,7 @@ ar:
       after: "‎%{restriction}‎ يجب أن يكون بعد"
       on_or_after: "‎%{restriction}‎ يجب أن يكون عند أو بعد"
       positive_number: "أدخل رقم."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "‎%{time_ago}‎ ‎%{listing_title}‎ ‎%{requester_name}‎ وافق على إعارة ‎%{offerer_name}‎"
@@ -1807,6 +1891,7 @@ ar:
       night: "عدد الليالي:"
       week: "عدد الأسابيع"
       month: "عدد الأشهر"
+      unit: ~
       custom: "الكمية:"
     quantity_placeholder: الكمية
     please_comment: تعليق
@@ -1858,6 +1943,7 @@ ar:
       night: ليلة
       week: أسبوع
       month: شهر
+      unit: ~
     verification_required:
       verification_required: "يحتاج إلى تأكيد"
   listing_conversations:
@@ -2468,6 +2554,10 @@ ar:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2483,6 +2573,20 @@ ar:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

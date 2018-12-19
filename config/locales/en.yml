@@ -67,9 +67,13 @@ en:
         community_name: "Marketplace name"
         edit_community_name_description: "The name of your marketplace. This is shown to users in emails and various other places."
         community_slogan: "Marketplace slogan"
+        community_slogan_display: "Display the slogan in the homepage"
         edit_community_slogan_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_description: "Marketplace description"
+        community_description_display: "Display the description in the homepage"
         edit_community_description_description: "This is shown on the homepage of the marketplace for the users who are not logged in. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "This is shown in browsers, search engines and social media. You can also display it on on the homepage of your marketplace for the users who are not logged in. %{see_how_it_looks_like}."
         community_search_placeholder: "Search help text"
         edit_community_search_placeholder_description: "This is shown on the homepage of the marketplace as a placeholder text in the search bar. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marketplace homepage content"
@@ -95,6 +99,7 @@ en:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
         community_logo_icon: "Logo for social networks and mobile devices"
+        community_logo_icon_mobile: "Logo for home screen on mobile devices"
         community_cover_photo: "Cover photo"
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
@@ -105,14 +110,15 @@ en:
         community_description_color: "Marketplace description color"
         community_description_color_instructions_text: "You can change the color of the description on the homepage by entering a hex color value. The description is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
         new_listing_button_custom_color: "Post a new listing button color"
-        logo_instructions_text_with_dimensions: "The logo size should be %{width}x%{height}px. It will be shown to users with bigger screens."
-        logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
-        logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height}px."
+        logo_instructions_text_with_dimensions: "The logo size should be %{width}x%{height} pixels. It will be shown to users with bigger screens."
+        logo_instructions_text_with_dimensions_no_placing: "The logo size should be %{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions: "This square logo will be shown when people share your site in Facebook, when they view your site on a mobile device or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
+        logo_icon_instructions_text_with_dimensions_no_placing: "This square logo will be shown when people share your site in Facebook or when they bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
+        logo_mobile_icon_instructions_text_with_dimensions: "This square logo will be shown when people bookmark your site to the home screen of their mobile device. The dimensions should be (at least) %{width}x%{height} pixels."
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
-        cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
+        cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle. %{see_how_it_looks_like}."
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
-        small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
+        small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
         custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
         new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here."
@@ -202,10 +208,10 @@ en:
         settings: Settings
         general: General
         access: "Access preferences"
-        join_with_invite_only: "Allow users to join only with an invite from another user"
-        users_can_invite_new_users: "Allow all users to invite new users"
+        join_with_invite_only: "Allow new users to join only with an invite from a registered user"
+        users_can_invite_new_users: "Allow all registered users, and not only admins, to invite new users"
         private: "Allow only registered users to see listings and user profiles (make marketplace private)"
-        require_verification_to_post_listings: "Allow only users verified by admin to post new listings"
+        require_verification_to_post_listings: "Allow only users verified by admins to post new listings"
         search_preferences: "Search preferences"
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
@@ -262,6 +268,22 @@ en:
         reset_search: "Show all"
         for_search_terms: "for: %{terms}"
         this_makes_the_user_an_admin: "This makes the user an admin. You should notify the user about their responsibilities and that they should review the Sharetribe terms of use. Are you sure you want to proceed?"
+        status_filter:
+          all: "All statuses"
+          selected: "Selected statuses: %{count}"
+          selected_js: "Selected statuses: "
+          admin: "Admin"
+          banned: "Banned"
+          posting_allowed: "Posting allowed"
+          accepted: Accepted
+          unconfirmed: Unconfirmed
+          pending: Pending
+        this_user_hasnt_confirmed_their_email_address: "This user hasn't confirmed their email address. It might be possible that the user didn't receive the confirmation email. Click the resend button if you want to send it again."
+        unconfirmed_user: "Unconfirmed user: %{name}"
+        resend: Resend
+        cancel: Cancel
+        user_didnt_complete_the_signup_process: "This user signed up through Facebook but didn't complete the signup process. After connecting a Facebook account, users still need to accept your terms of use and fill any mandatory user fields."
+        pending_user: "Pending: %{name}"
       new_layout:
         new_layout: "New layout"
         description_roadmap_new: "When new layout components are made available for your marketplace, you can choose whether you want to start using the new component or continue using the old one. You can toggle the selection at any point from this page. It's recommended to always be using the new version, as the old components might be phased out at some point. In case a component you're currently using is going to be phased out, you will be contacted in advance."
@@ -271,6 +293,8 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
+        logo: Logo
+        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
@@ -287,6 +311,7 @@ en:
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
+        add_another_image: "Add another image"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -320,6 +345,19 @@ en:
         export_all_as_csv: "Export all as CSV"
         processing_export: "Processing export to CSV..."
         transactions: Transactions
+        search_by_title_parties: "Search for a transaction title or parties involved"
+        search: Search
+        reset_search: "Show all"
+        status_filter:
+          all: "All statuses"
+          selected: "Selected statuses: %{count}"
+          selected_js: "Selected statuses: "
+          free: "Free transaction"
+          confirmed: Completed
+          paid: Paid
+          canceled: Canceled
+          preauthorized: Preauthorized
+          rejected: Rejected
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -387,13 +425,32 @@ en:
           receiver: Receiver
           status: Status
           grade: Grade
-          note: Note
+          text: Text
         status:
           waiting: "Waiting for review"
           skipped: Skipped
           published: Published
+          blocked: Blocked
+        form:
+          review_text: "Review text"
+          save: Save
+          cancel: Cancel
+          delete_review: "Delete review"
+          block_review: "Block review"
+          confirm_modify: "Are you sure you want to modify/delete this review? Once you edit/delete a review it is not possible to recover any of the old data."
+          deleting_info: "Deleting a review allows its author to leave another one for the same transaction."
+          blocking_info: "Blocking the review after deletion prevents its author from leaving another one for the same transaction."
       listings:
         listings: Listings
+        search_by_title_author_category: "Search for a listing title, author or category name"
+        search: Search
+        reset_search: "Show all"
+        status:
+          all: "All statuses"
+          selected_js: "Selected statuses: "
+          open: Open
+          closed: Closed
+          expired: Expired
         headers:
           title: Title
           author: Author
@@ -406,6 +463,28 @@ en:
         expired: Expired
       user_fields:
         user_fields: "User fields"
+      footer:
+        footer: Footer
+        offer_pro: "Configure and remove all Sharetribe branding from the footer of your marketplace by %{upgrade_pro_plan_link}."
+        upgrade_plan_link: "upgrading to the Pro plan or higher"
+        menu_links: "Footer links"
+        language: Language
+        title: Title
+        url: URL
+        add: "Add a new link to the footer"
+        save: "Save settings"
+        footer_style: "Footer style"
+        footer_copyright: "Footer copyright"
+        footer_enabled: "Footer enabled"
+        social_links: "Footer social links"
+        title_placeholder: "Link title"
+        url_placeholder: "http://example.com/username"
+        style:
+          dark: Dark
+          light: Light
+        social:
+          title: "Title"
+          url: "URL"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -467,8 +546,8 @@ en:
         user_fields: "User fields"
         field_title: "Field title"
         field_type: "Field type"
-        signup: "Signup"
-        public: "Public"
+        signup: Signup
+        public: Public
         add_new_field: "Add new field:"
         save: Save
         cancel: Cancel
@@ -499,6 +578,7 @@ en:
           title: "Who do you want to email?"
           options:
             all_users: "All users"
+            posting_allowed: "Users who are allowed to post listings"
             with_listing: "Users who have posted at least one listing"
             with_listing_no_payment: "Users who have posted at least one listing but haven't added their payment details"
             with_payment_no_listing: "Users who have added their payment details but haven't posted a listing"
@@ -602,6 +682,7 @@ en:
         night: "Per night"
         week: "Per week"
         month: "Per month"
+        unit: "Per unit"
       can_not_find: "Can't find order type with id: %{id}"
       add_custom_unit: "+ Add a custom pricing unit…"
       delete_custom_unit: delete
@@ -1252,6 +1333,7 @@ en:
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
+      from_must_be_less_than_till: "From must be less than till"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -1686,7 +1768,7 @@ en:
         googlemap_updatemap: "Update Map"
       images:
         image: Image
-        best_result: "For best results, use JPG, GIF or PNG images that are %{width} by %{height} pixels"
+        best_result: "For best results, use JPG, GIF or PNG images that are %{width}x%{height} pixels"
         no_file_selected: "No file selected"
         remove_image: "Remove image"
         select_file: "Select file"
@@ -1825,6 +1907,7 @@ en:
       night: "Number of nights:"
       week: "Number of weeks:"
       month: "Number of months:"
+      unit: "Number of units:"
       custom: "Quantity:"
     quantity_placeholder: Quantity
     please_comment: Comment
@@ -1876,6 +1959,7 @@ en:
       night: night
       week: week
       month: month
+      unit: unit
     verification_required:
       verification_required: "Verification required"
   listing_conversations:
@@ -2205,7 +2289,7 @@ en:
       profile_page: "in your profile page"
       profilemap: Mapview
       street_address: Location
-      these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
+      these_fields_are_shown_in_your: "Some of this information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
       visible_to_registered_users: "(visible to users that have logged in)"
       default_in_listing: "(used only as a default when creating a new listing)"
@@ -2468,14 +2552,14 @@ en:
       community_members_entries_info:
         single_page:
           zero: "No %{model} found"
-          one: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-          other: "Displaying %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+          one: "Displaying %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
+          other: "Displaying %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
         single_page_html:
           zero: "No %{model} found"
-          one: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        multi_page: "Displaying %{model} %{from} - %{to} of %{accepted_count} accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
-        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{banned_count} banned %{banned_model}"
+          one: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
+          other: "Displaying <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
+        multi_page: "Displaying %{model} %{from} - %{to} of %{accepted_count} accepted %{accepted_model} and %{other_count} other %{other_model}"
+        multi_page_html: "Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> accepted %{accepted_model} and %{other_count} other %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Using %{service_name}'s payment system in order to receive payments is not possible since payments have not been set up. Please %{contact_admin_link} for details."
     contact_admin_link_text: "contact the %{service_name} team"
@@ -2498,6 +2582,10 @@ en:
       legal_name: "Legal name"
       first_name: "First name"
       last_name: "Last name"
+      first_name_kana: "First name kana"
+      last_name_kana: "Last name kana"
+      first_name_kanji: "First name kanji"
+      last_name_kanji: "Last name kanji"
       country: Country
       birth_date: "Birth date"
       ssn_last_4: "SSN Last 4"
@@ -2513,6 +2601,20 @@ en:
       save_details: "Save details"
       edit: "Edit details"
       cancel: Cancel
+      gender: Gender
+      phone_number: "Phone number"
+      address_kana_postal_code: "Postal code kana"
+      address_kana_state: "State kana"
+      address_kana_city: "City kana"
+      address_kana_town: "Town kana"
+      address_kana_line1: "Street address kana"
+      address_kanji_postal_code: "Postal code kanji"
+      address_kanji_state: "State kanji"
+      address_kanji_city: "City kanji"
+      address_kanji_town: "Town kanji"
+      address_kanji_line1: "Street address kanji"
+      male: male
+      female: female
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"

@@ -120,11 +120,13 @@ Given /^there are following users:$/ do |person_table|
 end
 
 Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
-  FactoryGirl.create_list(:person, user_count.to_i,
-                          given_name: given_name,
-                          family_name: "#{family_name_prefix} #{user_count}",
-                          community_id: @current_community.id,
-                          communities: [@current_community])
+  1.upto(user_count.to_i).map do |counter|
+    FactoryGirl.create(:person,
+                        given_name: given_name,
+                        family_name: format(family_name_prefix, counter),
+                        community_id: @current_community.id,
+                        communities: [@current_community])
+  end
 end
 
 # Filling in with random strings
@@ -236,5 +238,29 @@ Given /^I have confirmed stripe account(?: as "([^"]*)")?(?: for community "([^"
   person = Person.find_by(username: username)
   community = Community.where(ident: community_name || "test").first
   FactoryGirl.create(:stripe_account, person_id: person.id, community_id: community.id, stripe_seller_id: 'ABC')
+end
+
+Given(/^there are (\d+) unconfirmed users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    email = person.emails.first
+    email.update_column(:confirmed_at, nil)
+    person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
+  end
+end
+
+Given(/^there are (\d+) banned users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    person.community_membership.update_column(:status, CommunityMembership::BANNED)
+  end
 end
 

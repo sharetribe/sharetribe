@@ -52,9 +52,13 @@ bg:
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
+        community_slogan_display: "Покажи слогана в своята начална страница"
         edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
         community_description: ~
+        community_description_display: "Покажи описанието в своята начална страница"
         edit_community_description_description: ~
+        edit_community_description_description_hideable: "Това се показва в браузери, търсачки и социални мрежи. Можеш също да го покажеш в своята начална страница за онези потребители които не са логнати. %{see_how_it_looks_like}"
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -80,6 +84,7 @@ bg:
         edit_community_look_and_feel: ~
         community_logo: ~
         community_logo_icon: ~
+        community_logo_icon_mobile: "Лого за началния екран при мобилни устройства"
         community_cover_photo: ~
         small_community_cover_photo: ~
         favicon: ~
@@ -94,6 +99,7 @@ bg:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: "Това квадратно лого ще бъде показано в мобилните устройства когато хората добавят Вашия сайт като любим \"bookmark\". Препоръчителните размери са %{width}x%{height}px."
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: ~
@@ -247,6 +253,22 @@ bg:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: "Всички статуси"
+          selected: "Избрани статуси: %{count}"
+          selected_js: "Избрани статуси: "
+          admin: Администратор
+          banned: Забранено
+          posting_allowed: "Публикуването позволено"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -256,6 +278,8 @@ bg:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: Лого
+        logo_info: "Тази снимка се използва когато някой споделя Вашия домейн в социалните мрежи (Facebook, Twitter, LinkedIn).За по-добри резултати е препоръчително да бъде в съотношение 2:1 и минимален размер от %{width} x %{height} px"
         twitter_handle: ~
         twitter_handle_info_text: "Потребителско име в Twitter на Вашият пазар(Ако имате такова). Ще бъде видимо, когато някой използва tweet бутона на страницата на Вашата обява."
         twitter_handle_info_text_with_instructions: ~
@@ -272,6 +296,7 @@ bg:
         invalid_facebook_connect_secret: ~
         enable_facebook_login: ~
         save: ~
+        add_another_image: "Добави снимка"
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -305,6 +330,19 @@ bg:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: ~
@@ -372,13 +410,32 @@ bg:
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: Текст
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: Блокирано
+        form:
+          review_text: "Прегледай текста"
+          save: Запази
+          cancel: Отмени
+          delete_review: "Изтрий коментара"
+          block_review: "Блокирай коментара"
+          confirm_modify: "Сигурен ли си че искаш да промениш/изтриеш този коментар? След промяната/истриването няма да имаш възможност да възстановиш тази информация"
+          deleting_info: "Изтриването на коментар позволява на неговия автор да остави нов коментар за дадената транзакция."
+          blocking_info: "Блокирането на коментара след неговото изтриване не позволява на неговия автор да остави нов коментар за същата транзакция."
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -391,6 +448,28 @@ bg:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: "Заглавие на линк"
+        url_placeholder: "http://example.com/username"
+        style:
+          dark: ~
+          light: ~
+        social:
+          title: ~
+          url: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -452,6 +531,8 @@ bg:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: Регистация
+        public: Публично
         add_new_field: ~
         save: ~
         cancel: ~
@@ -482,6 +563,7 @@ bg:
           title: ~
           options:
             all_users: ~
+            posting_allowed: "Потребители които имат позволение да публикуват обяви"
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -573,6 +655,7 @@ bg:
         night: "За нощ"
         week: "За седмица"
         month: "За месец"
+        unit: "За единица"
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -1215,6 +1298,7 @@ bg:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1784,6 +1868,7 @@ bg:
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: Коментар
@@ -1835,6 +1920,7 @@ bg:
       night: ~
       week: ~
       month: ~
+      unit: Единица
     verification_required:
       verification_required: ~
   listing_conversations:
@@ -2399,6 +2485,10 @@ bg:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: Име
+      last_name_kana: Фамилия
+      first_name_kanji: Име
+      last_name_kanji: Фамилия
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2414,6 +2504,20 @@ bg:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: Пол
+      phone_number: "Телефонен номер"
+      address_kana_postal_code: "Пощенски код"
+      address_kana_state: Щат
+      address_kana_city: Град
+      address_kana_town: Град
+      address_kana_line1: Адрес
+      address_kanji_postal_code: "Пощенски код"
+      address_kanji_state: Щат
+      address_kanji_city: Град
+      address_kanji_town: Град
+      address_kanji_line1: Адрес
+      male: Мъж
+      female: Жена
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

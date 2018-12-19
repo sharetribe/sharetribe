@@ -661,6 +661,7 @@ a.lightbox-x {
   right: 0;
   top: 0;
   color: #aaacad;
+  z-index: 1;
 
   &:hover {
     color: #919294;
@@ -2018,10 +2019,16 @@ figure.fluidratio {
       @include huge-type;
       line-height: em(15);
     }
+    &.hidden-title-part {
+      opacity: 0 !important;
+    }
   }
 
   .marketplace-lander-content-description {
       color: $descriptioncolor;
+      &.hidden-title-part {
+        opacity: 0 !important;
+      }
   }
 
   .title-container {
@@ -2206,4 +2213,7 @@ figure.fluidratio {
 }
 .text-center {
   text-align: center;
+}
+.ui-tooltip {
+  background-color: #ffffff;
 }

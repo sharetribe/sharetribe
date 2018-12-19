@@ -1,0 +1,61 @@
+= fields_for stripe_account_form do |form|
+  - if stripe_seller_ready
+    = form.date_select :birth_date, { discard_day: true, discard_month: true, discard_year: true }
+  .row
+    .col-12
+      = form.error_messages
+
+  - name_class = stripe_seller_account[:address_country] == 'JP' ? 'hidden' : ''
+  #stripe-europe-name{class: name_class, "data-country-except" => 'JP'}
+    .row
+      .col-6
+        = form.label :first_name, t("stripe_accounts.form_new.first_name")+"*"
+        = form.text_field :first_name, class: 'required'
+      .col-6
+        = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
+        = form.text_field :last_name, class: 'required'
+
+  - name_jp_class = "#{stripe_seller_ready ? '' : 'country-dependent'}"
+  - if (stripe_seller_ready && stripe_seller_account[:address_country] == 'JP') || !stripe_seller_ready
+    %div{class: name_jp_class, "data-country-only" => 'JP'}
+      .row
+        .col-6
+          = form.label :first_name_kana, t("stripe_accounts.form_new.first_name_kana")+"*"
+          = form.text_field :first_name_kana, class: 'required'
+        .col-6
+          = form.label :last_name_kana, t("stripe_accounts.form_new.last_name_kana")+"*"
+          = form.text_field :last_name_kana, class: 'required'
+      .row
+        .col-6
+          = form.label :first_name_kanji, t("stripe_accounts.form_new.first_name_kanji")+"*"
+          = form.text_field :first_name_kanji, class: 'required'
+        .col-6
+          = form.label :last_name_kanji, t("stripe_accounts.form_new.last_name_kanji")+"*"
+          = form.text_field :last_name_kanji, class: 'required'
+      .row
+        .col-12
+          = form.label :gender, t("stripe_accounts.form_new.gender")+"*"
+          - choices = [[t("stripe_accounts.form_new.male"), 'male'], [t("stripe_accounts.form_new.female"), 'female']]
+          = form.select :gender, choices, { include_blank: true }, class: 'required'
+      .row
+        .col-12
+          = form.label :phone_number, t("stripe_accounts.form_new.phone_number")+"*"
+          = form.text_field :phone_number, class: 'required'
+
+  - unless stripe_seller_ready
+    .row
+      .col-12
+        = form.label :birth_date, t("stripe_accounts.form_new.birth_date")+"*"
+        = form.date_select :birth_date, {:start_year => Date.current.year-18, :end_year => 1920, order: [:day, :month, :year], :use_month_names => I18n.t("datepicker.months").values}, class: 'required'
+
+  .row
+    .col-12
+      - if stripe_seller_ready
+        = label_tag t("stripe_accounts.form_new.country")
+        = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
+        = form.hidden_field :address_country, value: stripe_seller_account[:address_country]
+      - else
+        = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
+        = form.select :address_country, available_countries, {prompt: t("stripe_accounts.form_new.select_country")}, {style: "min-width: 200px"}
+
+

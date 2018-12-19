@@ -94,9 +94,9 @@ class Person < ApplicationRecord
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy
-  has_many :received_testimonials, -> { order("id DESC")}, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
-  has_many :received_positive_testimonials, -> { where("grade IN (0.5,0.75,1)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
-  has_many :received_negative_testimonials, -> { where("grade IN (0.0,0.25)").order("id DESC") }, :class_name => "Testimonial", :foreign_key => "receiver_id"
+  has_many :received_testimonials, -> { id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
+  has_many :received_positive_testimonials, -> { positive.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
+  has_many :received_negative_testimonials, -> { negative.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
   has_many :messages, :foreign_key => "sender_id"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   belongs_to :community
@@ -119,6 +119,14 @@ class Person < ApplicationRecord
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
             deprecator: MethodDeprecator.new
+
+  scope :by_community, ->(community_id) { where(community_id: community_id) }
+  scope :search_name_or_email, ->(community_id, pattern) {
+    by_community(community_id)
+      .joins(:emails)
+      .where('given_name like :pattern OR family_name like :pattern OR display_name like :pattern
+        OR emails.address like :pattern', pattern: pattern)
+  }
 
   accepts_nested_attributes_for :custom_field_values
 
@@ -465,9 +473,7 @@ class Person < ApplicationRecord
   end
 
   def confirmed_notification_emails
-    emails.select do |email|
-      email.send_notifications && email.confirmed_at.present?
-    end
+    emails.send_notifications.confirmed
   end
 
   def confirmed_notification_email_addresses

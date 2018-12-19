@@ -6,12 +6,6 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-*****
-
-Would you like to contribute to the development of Sharetribe? Our equity crowdfunding campaign is now open for people around the world! Check out [our campaign page](https://www.invesdor.com/en/pitches/903) for more info.
-
-*****
-
 ### Contents
 
 - [Technology stack](#technology-stack)
@@ -333,6 +327,8 @@ You need to configure a couple scheduled tasks in order to properly run your mar
 1. In your database, change the value of the `domain` column in the `communities` table to match the hostname of your domain. For example, if the URL for your marketplace is http://mymarketplace.myhosting.com, then the domain is `mymarketplace.myhosting.com`.
 
 1. Change the value of the `use_domain` column to `true` (or `1`) in the `communities` table.
+
+1. If you wish to enable [HTTP Strict Transport Security](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) (recommended), set also the `hsts_max_age` column in `communities` table to a non-zero number of seconds. For instance `31536000 ` (1 year).
 
 
 #### Setting up S3

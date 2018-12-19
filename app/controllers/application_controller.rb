@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
   include IconHelper
   include DefaultURLOptions
   include Analytics
+  include RefererHider
+  include HSTS::Concern
   protect_from_forgery
   layout 'application'
 
@@ -37,7 +39,9 @@ class ApplicationController < ActionController::Base
     :ensure_consent_given,
     :ensure_user_belongs_to_community,
     :set_display_expiration_notice,
-    :setup_intercom_user
+    :setup_intercom_user,
+    :setup_custom_footer,
+    :disarm_custom_head_script
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_action :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
@@ -289,9 +293,20 @@ class ApplicationController < ActionController::Base
     }
 
     MarketplaceRouter.perform_redirect(redirect_params) do |target|
-      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-      redirect_to(url, status: target[:status])
+      if target[:message] && params[:action] != 'not_available'
+        redirect_to community_not_available_path
+      elsif target[:message]
+        render 'layouts/marketplace_router_error', layout: false, locals: {message: target[:message]}
+      else
+        url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+        redirect_to(url, status: target[:status])
+      end
     end
+  end
+
+  # plain stub for routes, intercepted in perfom_redirect
+  def not_available
+    render action: 'errors/community_not_found', status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   def fetch_community_membership
@@ -456,6 +471,7 @@ class ApplicationController < ActionController::Base
     if person
       sign_in(person)
       @current_user = person
+      force_hide_referer
 
       # Clean the URL from the used token
       path_without_auth_token = URLUtils.remove_query_param(request.fullpath, "auth")
@@ -612,7 +628,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def setup_custom_footer
+    @custom_footer = admin_controller? ? nil : FooterPresenter.new(@current_community, @current_plan)
+  end
+
   def admin_controller?
     self.class.name =~ /^Admin/
+  end
+
+  def disarm_custom_head_script
+    if params[:disarm].present? && !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:disarm])
+      @disable_custom_head_script = true
+    end
   end
 end
