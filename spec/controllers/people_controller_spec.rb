@@ -176,9 +176,9 @@ describe PeopleController, type: :controller do
                     { type: "#{field2.class}Value", custom_field_id: field2.id, selected_option_ids: [field2.options.first.id] },
                     { type: "#{field3.class}Value", custom_field_id: field3.id, numeric_value: '22' },
                     { type: "#{field4.class}Value", custom_field_id: field4.id,
-                      selected_option_ids: [field2.options[0].id, field2.options[1].id] },
+                      selected_option_ids: [field4.options[0].id, field4.options[1].id] },
                     { type: "#{field5.class}Value", custom_field_id: field5.id,
-                      :'date_value(1i)' => 2000, :'date_value(2i)' => 0o1, :'date_value(3i)' => 25 },
+                      :'date_value(1i)' => '2000', :'date_value(2i)' => '01', :'date_value(3i)' => '25' },
                   ]
       },
         community: "test"
@@ -190,7 +190,7 @@ describe PeopleController, type: :controller do
       expect(person.custom_field_value_for(field1).display_value).to eq 'text1'
       expect(person.custom_field_value_for(field2).display_value).to eq field2.options.first.title
       expect(person.custom_field_value_for(field3).display_value).to eq 22
-      expect(person.custom_field_value_for(field4).display_value).to eq field2.options.map(&:title).join(', ')
+      expect(person.custom_field_value_for(field4).display_value).to eq field4.options.map(&:title).join(', ')
       expect(person.custom_field_value_for(field5).display_value).to eq 'Jan 25, 2000'
     end
 
@@ -258,6 +258,128 @@ describe PeopleController, type: :controller do
     end
 
   end
+
+  describe "#update" do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:field1) do
+      FactoryGirl.create(:person_custom_text_field, community: community)
+    end
+    let(:field2) do
+      FactoryGirl.create(:person_custom_dropdown_field, community: community)
+    end
+    let(:field3) do
+      FactoryGirl.create(:custom_numeric_field, community: community)
+    end
+    let(:field4) do
+      FactoryGirl.create(:custom_checkbox_field, community: community)
+    end
+    let(:field5) do
+      FactoryGirl.create(:custom_date_field, community: community)
+    end
+    let(:person) do
+      FactoryGirl.create(:person,
+                         member_of: community,
+                         custom_field_values_attributes: [
+                           { type: "#{field1.class}Value", custom_field_id: field1.id, text_value: 'text1' },
+                           { type: "#{field2.class}Value", custom_field_id: field2.id, selected_option_ids: [field2.options.first.id] },
+                           { type: "#{field3.class}Value", custom_field_id: field3.id, numeric_value: '22' },
+                           { type: "#{field4.class}Value", custom_field_id: field4.id,
+                             selected_option_ids: [field4.options[0].id, field4.options[1].id] },
+                           { type: "#{field5.class}Value", custom_field_id: field5.id,
+                             :'date_value(1i)' => '2000', :'date_value(2i)' => '01', :'date_value(3i)' => '25' },
+                         ])
+    end
+
+    before :each do
+      sign_in_for_spec(person)
+      community_host(community)
+    end
+
+    it 'works' do
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field1).display_value).to eq 'text1'
+      expect(person.custom_field_value_for(field2).display_value).to eq field2.options.first.title
+      expect(person.custom_field_value_for(field3).display_value).to eq 22
+      expect(person.custom_field_value_for(field4).display_value).to eq field4.options.map(&:title).join(', ')
+      expect(person.custom_field_value_for(field5).display_value).to eq 'Jan 25, 2000'
+      post :update, params: {
+        id: person.username,
+        person: {
+                  given_name: "Kim", family_name: "Wise",
+                  custom_field_values_attributes: [
+                    { id: person.custom_field_value_for(field1), type: "#{field1.class}Value", custom_field_id: field1.id, text_value: 'would break faith' },
+                    { id: person.custom_field_value_for(field2), type: "#{field2.class}Value", custom_field_id: field2.id, selected_option_ids: [field2.options.last.id] },
+                    { id: person.custom_field_value_for(field3), type: "#{field3.class}Value", custom_field_id: field3.id, numeric_value: '33' },
+                    { id: person.custom_field_value_for(field4), type: "#{field4.class}Value", custom_field_id: field4.id,
+                      selected_option_ids: [field4.options[0].id] },
+                    { id: person.custom_field_value_for(field5), type: "#{field5.class}Value", custom_field_id: field5.id,
+                      :'date_value(1i)' => '2001', :'date_value(2i)' => '03', :'date_value(3i)' => '18' },
+                  ]
+      },
+        community: "test"
+      }
+      person.reload
+      expect(person.given_name).to eq "Kim"
+      expect(person.family_name).to eq "Wise"
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field1).display_value).to eq 'would break faith'
+      expect(person.custom_field_value_for(field2).display_value).to eq field2.options.last.title
+      expect(person.custom_field_value_for(field3).display_value).to eq 33
+      expect(person.custom_field_value_for(field4).display_value).to eq field4.options.first.title
+      expect(person.custom_field_value_for(field5).display_value).to eq 'Mar 18, 2001'
+    end
+
+    it 'should update custom fields checkbox value when all options are unselected' do
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field4).display_value).to eq field4.options.map(&:title).join(', ')
+      post :update, params: {
+        id: person.username,
+        person: {
+                  given_name: "Kim", family_name: "Wise",
+                  custom_field_values_attributes: [
+                    { id: person.custom_field_value_for(field1), type: "#{field1.class}Value", custom_field_id: field1.id, text_value: 'would break faith' },
+                    { id: person.custom_field_value_for(field2), type: "#{field2.class}Value", custom_field_id: field2.id, selected_option_ids: [field2.options.last.id] },
+                    { id: person.custom_field_value_for(field3), type: "#{field3.class}Value", custom_field_id: field3.id, numeric_value: '33' },
+                    { id: person.custom_field_value_for(field4), type: "#{field4.class}Value", custom_field_id: field4.id,
+                      selected_option_ids: [""] },
+                    { id: person.custom_field_value_for(field5), type: "#{field5.class}Value", custom_field_id: field5.id,
+                      :'date_value(1i)' => '2001', :'date_value(2i)' => '03', :'date_value(3i)' => '18' },
+                  ]
+      },
+        community: "test"
+      }
+      person.reload
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field4).display_value).to eq ''
+    end
+
+    it 'should update custom fields dropdown value when all options are unselected' do
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field2).display_value).to eq field2.options.first.title
+      post :update, params: {
+        id: person.username,
+        person: {
+                  given_name: "Kim", family_name: "Wise",
+                  custom_field_values_attributes: [
+                    { id: person.custom_field_value_for(field1), type: "#{field1.class}Value", custom_field_id: field1.id, text_value: 'would break faith' },
+                    { id: person.custom_field_value_for(field2), type: "#{field2.class}Value", custom_field_id: field2.id, selected_option_ids: [""] },
+                    { id: person.custom_field_value_for(field3), type: "#{field3.class}Value", custom_field_id: field3.id, numeric_value: '33' },
+                    { id: person.custom_field_value_for(field4), type: "#{field4.class}Value", custom_field_id: field4.id,
+                      selected_option_ids: [""] },
+                    { id: person.custom_field_value_for(field5), type: "#{field5.class}Value", custom_field_id: field5.id,
+                      :'date_value(1i)' => '2001', :'date_value(2i)' => '03', :'date_value(3i)' => '18' },
+                  ]
+      },
+        community: "test"
+      }
+      person.reload
+      expect(person.given_name).to eq "Kim"
+      expect(person.family_name).to eq "Wise"
+      expect(person.custom_field_values.count).to eq 5
+      expect(person.custom_field_value_for(field2).display_value).to eq ''
+    end
+  end
+
 
   def community_host(community)
     @request.host = "#{community.ident}.lvh.me"

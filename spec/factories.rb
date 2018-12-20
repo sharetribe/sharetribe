@@ -109,6 +109,7 @@ FactoryGirl.define do
       if evaluator.member_of
         person.create_community_membership(community: evaluator.member_of,
                                            admin: evaluator.member_is_admin)
+        person.update_column(:community_id, evaluator.member_of.id)
       end
     end
   end
