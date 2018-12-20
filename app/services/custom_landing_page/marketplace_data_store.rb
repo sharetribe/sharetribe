@@ -8,20 +8,19 @@ module CustomLandingPage
     def marketplace_data(cid, locale)
       primary_color,
       twitter_handle,
-      name_display_type,
-      social_media_title,
-      social_media_description = Community.where(id: cid)
-                               .pluck(:custom_color1, :twitter_handle, :name_display_type,
-                                     :social_media_title, :social_media_description)
-                               .first
+      name_display_type = Community.where(id: cid)
+                          .pluck(:custom_color1, :twitter_handle, :name_display_type)
+                          .first
 
       name,
       slogan,
       description,
-      search_placeholder = CommunityCustomization
-                           .where(community_id: cid, locale: locale)
-                           .pluck(:name, :slogan, :description, :search_placeholder)
-                           .first
+      search_placeholder,
+      social_media_title,
+      social_media_description = CommunityCustomization
+                                 .where(community_id: cid, locale: locale)
+                                 .pluck(:name, :slogan, :description, :search_placeholder, :social_media_title, :social_media_description)
+                                 .first
 
       slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
       description        ||= I18n.t("common.default_community_description", locale: locale)

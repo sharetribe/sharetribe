@@ -71,6 +71,44 @@ module CommunitiesHelper
     }
   end
 
+  def social_media_title_locals
+    translations = find_community_customizations(:social_media_title)
+    facebook_preview_link = link_to(t('admin.communities.social_media.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
+    linkedin_preview_link = link_to(t('admin.communities.social_media.link_for_linkedin'), 'https://www.linkedin.com/post-inspector/', target: '_blank')
+    twitter_preview_link = link_to(t('admin.communities.social_media.link_for_twitter'), 'https://cards-dev.twitter.com/validator', target: '_blank')
+
+    {
+      header: "",
+      input_classes: "text_field",
+      info_text: t('admin.communities.social_media.social_media_title_info',
+        :facebook_preview_link => facebook_preview_link,
+        :linkedin_preview_link => linkedin_preview_link,
+        :twitter_preview_link => twitter_preview_link),
+      input_name: "social_media_title",
+      placeholder: "#{@community.full_name(I18n.locale)} - #{community_slogan}",
+      translations: translations
+    }
+  end
+
+  def social_media_description_locals
+    translations = find_community_customizations(:social_media_description)
+    facebook_preview_link = link_to(t('admin.communities.social_media.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
+    linkedin_preview_link = link_to(t('admin.communities.social_media.link_for_linkedin'), 'https://www.linkedin.com/post-inspector/', target: '_blank')
+    twitter_preview_link = link_to(t('admin.communities.social_media.link_for_twitter'), 'https://cards-dev.twitter.com/validator', target: '_blank')
+
+    {
+      header: "",
+      input_classes: "text_field",
+      info_text: t('admin.communities.social_media.social_media_title_info',
+        :facebook_preview_link => facebook_preview_link,
+        :linkedin_preview_link => linkedin_preview_link,
+        :twitter_preview_link => twitter_preview_link),
+      input_name: "social_media_description",
+      placeholder: "#{community_description(false)} - #{community_slogan}",
+      translations: translations
+    }
+  end
+
   def find_community_customizations(customization_key)
     available_locales.inject({}) do |translations, (locale_name, locale_value)|
       translation = @community_customizations[locale_value][customization_key] || ""

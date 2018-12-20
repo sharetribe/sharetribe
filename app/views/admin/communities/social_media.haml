@@ -19,25 +19,12 @@
       = form.fields_for :social_logo do |logo_form|
         = logo_form.label :image, t('admin.communities.social_media.add_another_image')
         = logo_form.file_field(:image, :class => "file-field-button")
-    - facebook_preview_link = link_to(t('.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
-    - linkedin_preview_link = link_to(t('.link_for_linkedin'), 'https://www.linkedin.com/post-inspector/', target: '_blank')
-    - twitter_preview_link = link_to(t('.link_for_twitter'), 'https://cards-dev.twitter.com/validator', target: '_blank')
     .row
       %h3= t(".social_media_title")
-      = render :partial => "layouts/info_text", :locals => { :text => t('.social_media_title_info',
-        :facebook_preview_link => facebook_preview_link,
-        :linkedin_preview_link => linkedin_preview_link,
-        :twitter_preview_link => twitter_preview_link).html_safe }
-      = form.text_field :social_media_title, :maxlength => "255", :class => "text_field",
-        :placeholder => "#{@community.full_name(I18n.locale)} - #{community_slogan}"
+      = render partial: "admin/community_customizations/locale_input_fields", locals: social_media_title_locals
     .row
       %h3= t(".social_media_description")
-      = render :partial => "layouts/info_text", :locals => { :text => t('.social_media_title_info',
-        :facebook_preview_link => facebook_preview_link,
-        :linkedin_preview_link => linkedin_preview_link,
-        :twitter_preview_link => twitter_preview_link).html_safe }
-      = form.text_area :social_media_description, :class => "text_field",
-        :placeholder => "#{community_description(false)} - #{community_slogan}"
+      = render partial: "admin/community_customizations/locale_input_textarea", locals: social_media_description_locals
     .row
       %h3= t(".twitter_handle")
     .row
