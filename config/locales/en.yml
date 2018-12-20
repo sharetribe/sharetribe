@@ -1912,6 +1912,7 @@ en:
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
+      you_are_now_posting_a_listing_on_behalf_of: "You are now posting a listing on behalf of %{name}"
     quantity:
       hour: "Number of hours:"
       day: "Number of days:"
@@ -2309,7 +2310,7 @@ en:
       invisible: "(not shown to other users)"
       image_is_processing: "Hang on tight. We are processing your profile picture. It will be ready in a minute or two."
       shown_in_your_public_profile: "(shown in your public profile)"
-      editing_profile_of: "Editing profile of: %{name}"
+      editing_profile_of: "You are now editing the profile of %{name}"
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"

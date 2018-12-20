@@ -10,6 +10,10 @@
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
   = javascript_include_tag "//maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
+- if @listing_presenter.acts_as_person
+  - content_for :banner_warning do
+    = t('.you_are_now_posting_a_listing_on_behalf_of', name: @listing_presenter.new_listing_author.full_name)
+
 - content_for :title_header do
   %h1= t("homepage.index.post_new_listing")
 #new_listing_form.new-listing-form.centered-section

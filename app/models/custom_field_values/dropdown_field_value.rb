@@ -22,5 +22,16 @@
 #
 
 class DropdownFieldValue < OptionFieldValue
-  validates_length_of :custom_field_option_selections, :is => 1
+  validate :validate_selections
+
+  private
+
+  def validate_selections
+    if question && question.for_person?
+      return true unless question.required?
+    end
+    unless custom_field_option_selections.size == 1
+      errors.add(:custom_field_option_selections, :'wrong_length.one')
+    end
+  end
 end
