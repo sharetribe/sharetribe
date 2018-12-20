@@ -274,8 +274,6 @@ CREATE TABLE `communities` (
   `footer_theme` int(11) DEFAULT '0',
   `footer_copyright` text,
   `footer_enabled` tinyint(1) DEFAULT '0',
-  `social_media_title` varchar(255) DEFAULT NULL,
-  `social_media_description` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -306,6 +304,8 @@ CREATE TABLE `community_customizations` (
   `search_placeholder` varchar(255) DEFAULT NULL,
   `transaction_agreement_label` varchar(255) DEFAULT NULL,
   `transaction_agreement_content` mediumtext,
+  `social_media_title` varchar(255) DEFAULT NULL,
+  `social_media_description` text,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
