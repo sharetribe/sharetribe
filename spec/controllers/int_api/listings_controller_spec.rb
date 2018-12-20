@@ -43,7 +43,7 @@ describe IntApi::ListingsController, type: :controller do
       expect(listing.working_time_slots.count).to eq 0
       working_time_slot = JSON.parse(response.body)["working_time_slots"].first
       expect(working_time_slot["errors"]).to eq({
-        "from"=>["From must be less than till"], "till"=>["From must be less than till"]
+        "from"=>["\"Start time\" must be less than \"End time\""], "till"=>["\"Start time\" must be less than \"End time\""]
       })
     end
   end
