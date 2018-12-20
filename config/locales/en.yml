@@ -329,6 +329,11 @@ en:
         sharetribe_analytics_instructions_link_text: "Read more about Sharetribe's analytics."
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
+      logo_link:
+        title: "Logo link"
+        info: "This link will be used to navigate the marketplace users when they click the logo image"
+        url: "URL"
+        placeholder: "http://www.yoursite.com"
       menu_links:
         menu_links: "Custom menu links"
         save: "Save settings"

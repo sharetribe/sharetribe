@@ -97,6 +97,7 @@
 #  footer_copyright                           :text(65535)
 #  footer_enabled                             :boolean          default(FALSE)
 #  hsts_max_age                               :integer
+#  logo_link                                  :string(255)
 #
 # Indexes
 #

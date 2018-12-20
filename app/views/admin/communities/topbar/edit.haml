@@ -18,6 +18,8 @@
 
     = render partial: "menu_links", locals: { community: community, show_locales: show_locales, limit_priority_links: limit_priority_links, limit_priority_links_options: limit_priority_links_options, limit_priority_links_selected: limit_priority_links_selected }
 
+    = render partial: "logo_link"
+
     .row
       .col-12
         = form.button t("admin.communities.menu_links.save")
