@@ -1,0 +1,9 @@
+%h3= t("admin.communities.logo_link.title")
+.row
+  .col-12
+    = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.logo_link.info") }
+  .row
+    .col-5
+      = label_tag :logo_link, t("admin.communities.logo_link.url")
+      = text_field_tag :logo_link, @current_community.logo_link, "placeholder" => t("admin.communities.logo_link.placeholder"), "data-rule-url" => true
+

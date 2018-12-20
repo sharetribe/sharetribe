@@ -30,7 +30,8 @@ module TopbarHelper
           community_id: community.id,
           default_locale: community.default_locale,
           logged_in: user.present?,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
@@ -92,7 +93,8 @@ module TopbarHelper
           community_id: community.id,
           logged_in: user.present?,
           default_locale: community.default_locale,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         title: I18n.t("header.home"),
         priority: -1
