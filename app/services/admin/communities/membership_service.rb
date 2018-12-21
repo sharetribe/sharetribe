@@ -167,8 +167,8 @@ class Admin::Communities::MembershipService
   def filtered_scope
     scope = resource_scope.includes(person: :emails)
     if params[:q].present?
-      person_ids = Person.by_community(community.id)
-        .search_name_or_email("%#{params[:q]}%")
+      person_ids = Person
+        .search_name_or_email(community.id, "%#{params[:q]}%")
         .select('people.id')
 
       scope = scope.where(person_id: person_ids)
