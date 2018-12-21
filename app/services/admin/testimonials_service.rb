@@ -7,7 +7,7 @@ class Admin::TestimonialsService
   end
 
   def transactions
-    @transactions ||= filtered_scope.order("#{sort_column} #{sort_direction}")
+    @transactions ||= transactions_scope.order("#{sort_column} #{sort_direction}")
       .paginate(page: params[:page], per_page: 30)
   end
 
@@ -63,26 +63,14 @@ class Admin::TestimonialsService
     @testimonial.tx.reload
   end
 
-  def filter?
-    params[:q].present?
-  end
-
   private
-
-  def filtered_scope
-    scope = transactions_scope
-    if params[:q].present?
-      scope = scope.search_for_testimonials("%#{params[:q]}%")
-    end
-    scope
-  end
 
   def transactions_scope
     Transaction.exist.by_community(community.id).for_testimonials
   end
 
   def testimonials_scope
-    Testimonial.joins(:tx).where(transaction_id: filtered_scope.select('transactions.id'))
+    Testimonial.merge(transactions_scope).joins(:tx)
   end
 
   def sort_column
