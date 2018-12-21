@@ -100,11 +100,19 @@ $footer__link-margin-tablet: 16px;
     }
   }
 
-  .footer__container--light &, .footer__container--logo & {
+  .footer__container--light & {
     color: #7A7D80;
 
     &:hover {
       color: #555759;
+    }
+  }
+
+  .footer__container--logo & {
+    color: #3c3c3c;
+
+    &:hover {
+      color: #D9D9D9;
     }
   }
 
@@ -182,6 +190,10 @@ $footer__link-margin-tablet: 16px;
     line-height: 18px;
   }
 
+  .footer__container--marketplace_color .footer__content > & {
+    color: #ffffff;
+  }
+
   .footer__container--logo .footer__content > & {
     @media #{$desktop} {
       display: none;
@@ -213,6 +225,10 @@ $footer__social-media-margin: 18px;
 .footer__social-media-link {
   padding: $footer__clickarea-y-padding-desktop $footer__social-media-margin;
   display: inline-block;
+
+  .footer__container--logo .footer__content & {
+    padding: 10px 12px;
+  }
 }
 
 
