@@ -275,15 +275,15 @@ es-ES:
           admin: Admin
           banned: Bloqueado
           posting_allowed: "Publicación permitida"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
+          accepted: Aceptado
+          unconfirmed: "No confirmado"
+          pending: Pendiente
         this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
+        unconfirmed_user: "Usuario no confirmado: %{name}"
+        resend: Reenviar
+        cancel: Cancelar
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "Pendiente: %{name}"
       new_layout:
         new_layout: "Nuevo diseño"
         description_roadmap_new: "Cuando hay nuevos componentes de diseño disponibles, puedes elegir entre usar un nuevo componente o continuar usando el viejo. Puedes cambiar la selección en cualquier momento, en esta pagina. Es recomendable siempre usar el componente más nuevo, ya que los componentes viejos podrán ser removidos en el futuro. En caso de que estés usando algún componente que vayamos a remover, te contactaremos por adelantado."
@@ -415,10 +415,18 @@ es-ES:
           other_party: "Otro usuario"
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: Transacción
           author: Autor
@@ -441,10 +449,10 @@ es-ES:
           deleting_info: "Borrar la reseña le permite al autor dejar otra para la misma transacción."
           blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
       invitations:
-        invitations: ~
+        invitations: Invitaciones
         used:
-          "yes": ~
-          "no": ~
+          "yes": Sí
+          "no": "No"
         headers:
           sent_by: ~
           message: ~
@@ -488,8 +496,8 @@ es-ES:
         footer_copyright: "Texto para derechos de autor"
         footer_enabled: "Habilitar pie de página"
         social_links: "Vínculos de social media"
-        title_placeholder: ~
-        url_placeholder: ~
+        title_placeholder: Título
+        url_placeholder: "http://ejemplo.com/usuario"
         style:
           dark: Oscuro
           light: Claro
@@ -1629,7 +1637,7 @@ es-ES:
       listing_updated_successfully: "Anuncio actualizado"
       listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
       listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Por favor, inicia sesión con una cuenta de administrador para acceder a esta area"
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
       payment_successful: "Pago existoso"
@@ -2561,6 +2569,14 @@ es-ES:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
+        single_page:
+          zero: "Ningún %{model} encontrado"
+          one: "Mostrando %{accepted_count} %{accepted_model} aceptado y %{other_count} otro %{other_model}"
+          other: "Mostrando %{accepted_count} %{accepted_model} aceptados y %{other_count} otros %{other_model}"
+        single_page_html:
+          zero: "Ningún %{model} encontrado"
+          one: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptado y %{other_count} otro %{other_model} "
+          other: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptados y%{other_count} otros %{other_model} "
   stripe_accounts:
     admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"

@@ -410,10 +410,18 @@ ko:
           other_party: 제3자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: 리뷰
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: 거래
           author: 저자

@@ -400,10 +400,18 @@ it:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -882,7 +890,7 @@ it:
       cancel_payed_description: "Se la tua richiesta è stata accettata ma ci stai ripensando, puoi ancora cancellare la richiesta prima del pagamento."
       canceling_payed_transaction: "Cancella la transazione"
       confirm: "Segna come completato"
-      cancel: Contesa
+      cancel: Contesta
       continue: Continua
       give_feedback_to: "Dai il feedback a %{person_link}"
       do_not_give_feedback: "Salta il feedback"
@@ -923,7 +931,7 @@ it:
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
       stripe:
         held_payment: "Richiesta accettata. Il pagamento di %{sum} è tenuto da %{service_name} finchè l'ordine non è contrassegnato come completato."
-        confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}"
+        confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}."
     new:
       message: Messaggio
       message_to: "Messaggio a %{author_name}"
@@ -1008,7 +1016,7 @@ it:
       reject_preauthorized_offer: "Non questa volta"
       reject_preauthorized_request: "Non questa volta"
       confirm: "Segna come completato"
-      cancel: Contesa
+      cancel: Contesta
   feedback:
     feedback_subject: "Nuovo feedback da %{service_name}"
     feedback_body: "%{author_name_and_email} ha inviato il seguente feedback da %{service_name}"

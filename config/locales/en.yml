@@ -272,8 +272,8 @@ en:
           all: "All statuses"
           selected: "Selected statuses: %{count}"
           selected_js: "Selected statuses: "
-          admin: "Admin"
-          banned: "Banned"
+          admin: Admin
+          banned: Banned
           posting_allowed: "Posting allowed"
           accepted: Accepted
           unconfirmed: Unconfirmed
@@ -443,14 +443,14 @@ en:
       invitations:
         invitations: Invitations
         used:
-          'yes': 'Yes'
-          'no': 'No'
+          "yes": "Yes"
+          "no": "No"
         headers:
-          sent_by: Sent by
+          sent_by: "Sent by"
           message: Message
-          sent_to: Sent to
+          sent_to: "Sent to"
           used: Used
-          date_sent: Date sent
+          date_sent: "Date sent"
       listings:
         listings: Listings
         search_by_title_author_category: "Search for a listing title, author or category name"
@@ -494,8 +494,8 @@ en:
           dark: Dark
           light: Light
         social:
-          title: "Title"
-          url: "URL"
+          title: Title
+          url: URL
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

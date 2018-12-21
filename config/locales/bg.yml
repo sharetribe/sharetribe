@@ -426,16 +426,16 @@ bg:
           deleting_info: "Изтриването на коментар позволява на неговия автор да остави нов коментар за дадената транзакция."
           blocking_info: "Блокирането на коментара след неговото изтриване не позволява на неговия автор да остави нов коментар за същата транзакция."
       invitations:
-        invitations: ~
+        invitations: Покани
         used:
-          "yes": ~
-          "no": ~
+          "yes": Да
+          "no": Не
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Изпратено от"
+          message: Съобщение
+          sent_to: "Изпратено до"
+          used: Използвано
+          date_sent: "Дата на изпращане"
       listings:
         listings: ~
         search_by_title_author_category: ~

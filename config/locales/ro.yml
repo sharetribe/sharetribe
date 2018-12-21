@@ -420,10 +420,18 @@ ro:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Recenzii
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -446,16 +454,16 @@ ro:
           deleting_info: ~
           blocking_info: ~
       invitations:
-        invitations: ~
+        invitations: Invitatii
         used:
-          "yes": ~
-          "no": ~
+          "yes": Da
+          "no": Nu
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Trimis de"
+          message: Mesaj
+          sent_to: "Trimis catre"
+          used: Utilizat
+          date_sent: "Data expedierii"
       listings:
         listings: ~
         search_by_title_author_category: ~
