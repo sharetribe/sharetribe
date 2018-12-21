@@ -328,6 +328,7 @@ class ListingsController < ApplicationController
 
     shape = get_shape(Maybe(params)[:listing_shape].to_i.or_else(nil))
     process = @listing_presenter.get_transaction_process(community_id: @current_community.id, transaction_process_id: shape[:transaction_process_id])
+    listing_presenter.listing_shape = shape
 
     @listing.transaction_process_id = shape[:transaction_process_id]
     @listing.listing_shape_id = shape[:id]
