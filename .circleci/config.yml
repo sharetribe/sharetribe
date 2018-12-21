@@ -68,11 +68,17 @@ jobs:
           name: db setup
           command: bundle exec rake db:create db:structure:load ts:configure ts:index ts:start --trace
       - run:
+          name: rspec tests to run
+          command: shopt -s globstar && echo $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)
+      - run:
           name: rspec
-          command: bundle exec rspec --format progress --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)
+          command: shopt -s globstar && bundle exec rspec --format progress --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml $(circleci tests glob spec/**/*_spec.rb | circleci tests split --split-by=timings)
+      - run:
+          name: cucumber tests to run
+          command: shopt -s globstar && echo $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
       - run:
           name: cucumber
-          command: bundle exec cucumber -p ci --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
+          command: shopt -s globstar && bundle exec cucumber -p ci --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
           environment:
             PHANTOMJS: true
       - run:
