@@ -9,13 +9,15 @@ class Admin::ConversationsService
   end
 
   def conversations
-    @conversations ||= filtered_scope
-      .order("#{simple_sort_column(params[:sort])} #{sort_direction}")
+    @conversations ||= Conversation.free_for_community(
+      community,
+      simple_sort_column(params[:sort]),
+      sort_direction)
       .paginate(page: params[:page], per_page: params[:per_page] || PER_PAGE)
   end
 
   def conversation
-    @conversation ||= resource_scope.find(params[:id])
+    @conversation ||= Conversation.find(params[:id])
   end
 
   def conversation_messages
@@ -30,24 +32,7 @@ class Admin::ConversationsService
     conversation_transaction.present?
   end
 
-  def filter?
-    params[:q].present?
-  end
-
   private
-
-  def resource_scope
-    Conversation.non_payment_or_free(community)
-  end
-
-  def filtered_scope
-    scope = resource_scope
-    if params[:q].present?
-      ids = Conversation.by_keyword("%#{params[:q]}%").pluck(:id)
-      scope = scope.where(id: ids)
-    end
-    scope
-  end
 
   def simple_sort_column(sort_column)
     case sort_column
