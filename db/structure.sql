@@ -50,7 +50,8 @@ CREATE TABLE `auth_tokens` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `index_auth_tokens_on_token` (`token`) USING BTREE
+  UNIQUE KEY `index_auth_tokens_on_token` (`token`) USING BTREE,
+  KEY `index_on_person_id` (`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `billing_agreements`;
@@ -809,7 +810,8 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_community_id` (`community_id`) USING BTREE,
   KEY `index_listings_on_listing_shape_id` (`listing_shape_id`) USING BTREE,
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
-  KEY `index_listings_on_open` (`open`) USING BTREE
+  KEY `index_listings_on_open` (`open`) USING BTREE,
+  KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
@@ -2319,4 +2321,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180720044534'),
 ('20180720065907'),
 ('20180723115548'),
-('20181106212306');
+('20181106212306'),
+('20181221120927');
