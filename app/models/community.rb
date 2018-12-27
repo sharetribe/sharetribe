@@ -150,6 +150,7 @@ class Community < ApplicationRecord
   accepts_nested_attributes_for :social_logo
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
   accepts_nested_attributes_for :social_links, allow_destroy: true
+  accepts_nested_attributes_for :community_customizations
 
   after_create :initialize_settings
 
