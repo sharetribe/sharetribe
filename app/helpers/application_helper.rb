@@ -400,13 +400,6 @@ module ApplicationHelper
       },
       {
         :topic => :manage,
-        :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => icon_class("invite"),
-        :path => new_invitation_path,
-        :name => "invite_people"
-      },
-      {
-        :topic => :manage,
         :text => t("admin.communities.invitations.invitations"),
         :icon_class => icon_class("invitations"),
         :path => admin_community_invitations_path(@current_community),
