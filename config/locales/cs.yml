@@ -274,21 +274,21 @@ cs:
         for_search_terms: "pro: %{terms}"
         this_makes_the_user_an_admin: "Tím je uživatel administrátor. Měli byste uživatele informovat o svých odpovědnostech a měli byste zkontrolovat podmínky použití Sharetribe. Opravdu chcete pokračovat?"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          admin: ~
-          banned: ~
-          posting_allowed: ~
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+          all: "Všechny stavy"
+          selected: "Vybrané stavy: %{count}"
+          selected_js: "Vybrané stavy: "
+          admin: Administrátor
+          banned: Zakázán
+          posting_allowed: "Přidávání povoleno"
+          accepted: Přijatí
+          unconfirmed: Nepotvrzení
+          pending: Čekající
+        this_user_hasnt_confirmed_their_email_address: "Tento uživatel nepotvrdil svou e-mailovou adresu. Je možné, že uživatel neobdržel potvrzovací e-mail. Pokud ho chcete odeslat znovu, klikněte na tlačítko Odeslat."
+        unconfirmed_user: "Nepotvrzený uživatel: %{name}"
+        resend: Přeposlat
+        cancel: Zrušit
+        user_didnt_complete_the_signup_process: "Tento uživatel se zaregistroval prostřednictvím Facebooku, ale nedokončil proces registrace. Po připojení k účtu Facebook, uživatelé musí ještě přijmout vaše podmínky používání a vyplnit všechna povinná pole uživatelů."
+        pending_user: "Čekající: %{name}"
       new_layout:
         new_layout: "Nové uspořádání"
         description_roadmap_new: "Když jsou pro váš trh k dispozici nové komponenty, můžete zvolit, zda chcete začít používat novou komponentu nebo používat stávající. Volbu můžete kdykoli přepínat z této stránky. Doporučuje se používat vždy novou verzi, protože staré součásti mohou být vyřazeny. V případě, že součást, kterou právě používáte, má být vyřazena, budete kontaktováni předem."
@@ -362,7 +362,7 @@ cs:
           paid: Zaplaceno
           canceled: Zrušeno
           preauthorized: Předschváleno
-          rejected: ~
+          rejected: Odmítnuto
         headers:
           conversation: "Vlákno konverzace"
           listing: Inzerát
@@ -446,27 +446,27 @@ cs:
           deleting_info: ~
           blocking_info: ~
       invitations:
-        invitations: ~
+        invitations: Pozvánky
         used:
-          "yes": ~
-          "no": ~
+          "yes": Ano
+          "no": Ne
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: Zaslal
+          message: Zpráva
+          sent_to: Odesláno
+          used: Použito
+          date_sent: "Datum odeslání"
       listings:
         listings: "Seznam inzerátů"
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search_by_title_author_category: "Vyhledejte název inzerátu, autora nebo název kategorie"
+        search: Hledat
+        reset_search: "Zobrazit vše"
         status:
-          all: ~
-          selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          all: "Všechny stavy"
+          selected_js: "Vybrané stavy: "
+          open: Otevřeno
+          closed: Zavřeno
+          expired: Vypršel
         headers:
           title: Nadpis
           author: Autor
@@ -493,8 +493,8 @@ cs:
         footer_copyright: "Copyright zápatí"
         footer_enabled: "Zápatí povoleno"
         social_links: "Zápatí sociálních linků"
-        title_placeholder: ~
-        url_placeholder: ~
+        title_placeholder: "Název odkazu"
+        url_placeholder: "http://example.com/username"
         style:
           dark: Tmavý
           light: Světlý
@@ -1347,7 +1347,7 @@ cs:
       after: "musí být po %{restriction}"
       on_or_after: "musí být na nebo po %{restriction}"
       positive_number: "Vložit číslo:"
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "\"Počáteční čas\" musí být menší než \" Koncový čas\""
   event_feed_events:
     accept:
       has_accepted_lend_item: "Uživatel %{offerer_name} souhlasil s propůjčením %{listing_title} uživateli %{requester_name} %{time_ago}."

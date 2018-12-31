@@ -277,15 +277,15 @@ nl:
           admin: Beheerder
           banned: Verbannen
           posting_allowed: "Plaatsen toegestaan"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+          accepted: Geaccepteerd
+          unconfirmed: Onbevestigd
+          pending: "In afwachting"
+        this_user_hasnt_confirmed_their_email_address: "Deze gebruiker heeft haar/zijn emailadres nog niet bevestigd. Het is mogelijk dat ze de bevestigingsemail niet hebben ontvangen. Klik op de Zend opnieuw knop als je het opnieuw wilt verzenden."
+        unconfirmed_user: "Onbevestigde gebruiker: %{name}"
+        resend: "Zend opnieuw"
+        cancel: Annuleer
+        user_didnt_complete_the_signup_process: "Deze gebruiker heeft geregistreerd via Facebook maar het proces niet voltooid. Na het koppelen van een Facebook account moeten gebruikers nog steeds de gebruikersvoorwaarden accepteren en eventuele verplichte velden invullen."
+        pending_user: "In afwachting: %{name}"
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -417,18 +417,10 @@ nl:
           other_party: "Andere partij"
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
       testimonials:
         testimonials: Recensies
         no_testimonials_found: "Geen recensies gevonden"
         displaying_xx_reviews: "Geeft weer <b>%{count}</b> recensies in transacties %{tx_from} - %{tx_to} van <b>%{all_count}</b> recensies in totaal"
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
         headers:
           transaction: Transactie
           author: Auteur
@@ -451,16 +443,16 @@ nl:
           deleting_info: "Het verwijderen van een recensie stelt de schrijver in staat om opnieuw een recensie voor dezelfde transactie achter te laten."
           blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
       invitations:
-        invitations: ~
+        invitations: Uitnodigingen
         used:
-          "yes": ~
-          "no": ~
+          "yes": Ja
+          "no": Nee
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Verzonden door"
+          message: Bericht
+          sent_to: "Verzonden naar"
+          used: Gebruikt
+          date_sent: "Datum verzonden"
       listings:
         listings: Advertenties
         search_by_title_author_category: "Zoek op advertentietitel, auteur of categorienaam"
@@ -1640,7 +1632,7 @@ nl:
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
       listing_updated_availability_management_enabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement ingesteld."
       listing_updated_availability_management_disabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement uitgezet."
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Voor toegang tot dit gedeelte gelieve in te loggen met een beheerderaccount"
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
       payment_successful: "Betaling succesvol"
@@ -2133,9 +2125,9 @@ nl:
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
-      family_name: Familienaam
+      family_name: Achternaam
       given_name: Voornaam
-      i_accept_the_terms_and_privacy: "I accepteer de %{terms} en %{privacy}"
+      i_accept_the_terms_and_privacy: "Ik accepteer de %{terms} en %{privacy}"
       admin_emails_consent: "Ik geef hierbij toestemming voor het ontvangen van emails van %{service_name}, en ik begrijp dat ik dit later altijd kan veranderen."
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
@@ -2570,8 +2562,16 @@ nl:
       multi_page_html: "Tonen %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{count}</b> in totaal"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Geen %{model} gevonden"
+          one: "Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+          other: "Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+        single_page_html:
+          zero: "Geen %{model} gevonden"
+          one: "Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+          other: "Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+        multi_page: "Weergegeven %{model} %{from} - %{to} van %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere%{other_model}"
+        multi_page_html: "Weergegeven%{model}<b>%{from} &nbsp;-&nbsp;%{to}</b> van <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en%{other_count}  andere %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Het gebruiken van het betalingsysteem van %{service_name} is niet mogelijk om dat online betalingen nog niet zijn ingesteld. Gelieve%{contact_admin_link} voor details."
     contact_admin_link_text: "neem contact op met het %{service_name} team"

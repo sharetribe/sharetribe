@@ -415,18 +415,10 @@ es-ES:
           other_party: "Otro usuario"
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
       testimonials:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
         headers:
           transaction: Transacción
           author: Autor
@@ -2567,8 +2559,6 @@ es-ES:
       multi_page_html: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> en total"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
         single_page:
           zero: "Ningún %{model} encontrado"
           one: "Mostrando %{accepted_count} %{accepted_model} aceptado y %{other_count} otro %{other_model}"
@@ -2577,6 +2567,8 @@ es-ES:
           zero: "Ningún %{model} encontrado"
           one: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptado y %{other_count} otro %{other_model} "
           other: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptados y%{other_count} otros %{other_model} "
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"
