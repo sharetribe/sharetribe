@@ -109,7 +109,7 @@ module TopbarHelper
       }
     ]
 
-    if user&.has_admin_rights?(community) || community.users_can_invite_new_users
+    if community.users_can_invite_new_users
       links << {
         link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),
