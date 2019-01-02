@@ -308,7 +308,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -397,13 +397,6 @@ module ApplicationHelper
         :icon_class => icon_class("send"),
         :path => new_admin_community_email_path(:community_id => @current_community.id),
         :name => "email_members"
-      },
-      {
-        :topic => :manage,
-        :text => t("admin.communities.edit_details.invite_people"),
-        :icon_class => icon_class("invite"),
-        :path => new_invitation_path,
-        :name => "invite_people"
       },
       {
         :topic => :manage,
@@ -550,7 +543,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)

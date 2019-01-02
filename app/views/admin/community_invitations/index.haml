@@ -9,8 +9,13 @@
 .left-navi-section
   %h2= t("admin.communities.invitations.invitations")
 
-  %span#admin_invitations_count
-    = page_entries_info(@service.invitations, :model => "Invitation").html_safe
+  .row
+    .col-9
+      %span#admin_invitations_count
+        = page_entries_info(@service.invitations, :model => "Invitation").html_safe
+    .col-3
+      = link_to new_invitation_path do
+        = "+ " + t("admin.communities.edit_details.invite_people")
 
   %table#admin_invitations
     %thead

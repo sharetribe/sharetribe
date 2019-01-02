@@ -162,7 +162,7 @@ ICON_MAP = {
       "user_edit" => "ss-userprofile",
       "picture" => "ss-picture",
       "footer_menu" => "ss-downloadbox",
-      "invitations" => "ss-users",
+      "invitations" => "ss-adduser",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
