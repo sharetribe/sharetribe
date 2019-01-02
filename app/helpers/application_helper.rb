@@ -308,7 +308,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -543,7 +543,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil)
