@@ -23,7 +23,7 @@ class InboxesController < ApplicationController
       extended_inbox = inbox_row.merge(
         path: path_to_conversation_or_transaction(inbox_row),
         last_activity_ago: time_ago(inbox_row[:last_activity_at]),
-        title: inbox_title(inbox_row, inbox_payment(inbox_row))
+        title: inbox_title(inbox_row)
       )
 
       if inbox_row[:type] == :transaction
@@ -55,7 +55,7 @@ class InboxesController < ApplicationController
 
   private
 
-  def inbox_title(inbox_item, payment_sum)
+  def inbox_title(inbox_item)
     title = if InboxService.last_activity_type(inbox_item) == :message
       inbox_item[:last_message_content]
     else
@@ -63,17 +63,12 @@ class InboxesController < ApplicationController
         inbox_item[:transitions],
         inbox_item[:other],
         inbox_item[:starter],
-        payment_sum,
-        inbox_item[:payment_gateway],
-        inbox_item[:community_id]
+        Maybe(inbox_item)[:payment_total].or_else(nil),
+        inbox_item[:payment_gateway]
       )
 
       action_messages.last[:content]
     end
-  end
-
-  def inbox_payment(inbox_item)
-    Maybe(inbox_item)[:payment_total].or_else(nil)
   end
 
   def path_to_conversation_or_transaction(inbox_item)
