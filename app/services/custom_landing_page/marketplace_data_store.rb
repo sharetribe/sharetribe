@@ -44,6 +44,9 @@ module CustomLandingPage
       color = primary_color.present? ? primary_color : DEFAULT_COLOR
       color_darken = ColorUtils.brightness(color, 85)
 
+      slogan = split_long_words(slogan)
+      description = split_long_words(description)
+
       { "primary_color" => ColorUtils.css_to_rgb_array(color),
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
         "name" => name,
@@ -56,6 +59,12 @@ module CustomLandingPage
         "twitter_handle" => twitter_handle,
         "name_display_type" => name_display_type
       }
+    end
+
+    UNICODE_ZERO_WIDTH_SPACE = "\u200b"
+
+    def split_long_words(value)
+      value.to_s.gsub(/\S{18,}/){ |word| word.split(//).join(UNICODE_ZERO_WIDTH_SPACE) }
     end
   end
 end
