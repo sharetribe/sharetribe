@@ -17,14 +17,19 @@ module TransactionService::Gateway
       currency = opts_tx[:unit_price].currency
       p_set = PaymentSettingsStore.get_active_by_gateway(community_id: opts_tx[:community_id], payment_gateway: :stripe)
 
-      {
+      result = {
         minimum_commission: Money.new(p_set[:minimum_transaction_fee_cents], currency),
         commission_from_seller: p_set[:commission_from_seller],
-        automatic_confirmation_after_days: p_set[:confirmation_after_days],
-        commission_from_buyer: p_set[:commission_from_buyer],
-        minimum_buyer_fee_cents: p_set[:minimum_buyer_transaction_fee_cents] || 0,
-        minimum_buyer_fee_currency: p_set[:minimum_buyer_transaction_fee_currency]
+        automatic_confirmation_after_days: p_set[:confirmation_after_days]
       }
+      if FeatureFlagHelper.feature_enabled?(:buyer_commission)
+        result.merge!({
+          commission_from_buyer: p_set[:commission_from_buyer],
+          minimum_buyer_fee_cents: p_set[:minimum_buyer_transaction_fee_cents] || 0,
+          minimum_buyer_fee_currency: p_set[:minimum_buyer_transaction_fee_currency]
+        })
+      end
+      result
     end
 
     private
