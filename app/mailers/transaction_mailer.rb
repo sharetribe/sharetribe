@@ -77,6 +77,7 @@ class TransactionMailer < ActionMailer::Base
     service_fee = Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
     buyer_service_fee = payment[:buyer_commission] || Money.new(0, payment_total.currency)
     gateway_fee = payment[:payment_gateway_fee]
+    subtotal = payment_total - buyer_service_fee
 
     prepare_template(community, seller_model, "email_about_new_payments")
     with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
@@ -104,7 +105,7 @@ class TransactionMailer < ActionMailer::Base
                    listing_price: MoneyViewUtils.to_humanized(transaction.unit_price),
                    listing_quantity: transaction.listing_quantity,
                    duration: transaction.booking.present? ? transaction.listing_quantity: nil,
-                   subtotal: MoneyViewUtils.to_humanized(payment_total),
+                   subtotal: MoneyViewUtils.to_humanized(subtotal),
                    payment_total: MoneyViewUtils.to_humanized(payment_total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),

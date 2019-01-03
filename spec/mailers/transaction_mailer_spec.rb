@@ -28,7 +28,8 @@ describe TransactionMailer, type: :mailer do
                                                      current_state: 'paid', payment_gateway: 'stripe',
                                                      unit_price_cents: 200,
                                                      unit_price_currency: "EUR")
-      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction)
+      FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
+                                          buyer_commission: 0)
       service_name(transaction.community_id)
       transaction
     end
@@ -57,7 +58,8 @@ describe TransactionMailer, type: :mailer do
                                                      listing_quantity: 3,
                                                      unit_type: 'hour')
       FactoryGirl.create(:stripe_payment, community_id: community.id, tx: transaction,
-                                          sum_cents: 600)
+                                          sum_cents: 600,
+                                          buyer_commission: 0)
       service_name(transaction.community_id)
       FactoryGirl.create(:booking, tx: transaction, start_time: '2017-11-14 09:00',
                                    end_time: '2017-11-14 12:00', per_hour: true)
@@ -132,8 +134,8 @@ describe TransactionMailer, type: :mailer do
         it 'works with stripe payment gateway' do
           email = TransactionMailer.payment_receipt_to_seller(stripe_transaction_with_buyer_commission)
           expect(email.body).to have_text('The amount of €110 has been paid for Sledgehammer by Proto. The money is being held by Sharetribe until the order is marked as completed. Here is your receipt.')
+          expect(email.body).to have_text('Subtotal: €102')
           expect(email.body).to have_text('Sharetribe service fee: -€12')
-          expect(email.body).to have_text('Sharetribe service fee: -€8')
           expect(email.body).to have_text('Total: €90')
         end
       end

@@ -1,3 +1,4 @@
+- has_buyer_fee = buyer_fee.present? && buyer_fee > 0
 .initiate-transaction-totals
   - if booking
     .initiate-transaction-per-unit-wrapper
@@ -68,11 +69,12 @@
         = MoneyViewUtils.to_humanized(shipping_price)
 
   - if is_author
-    .initiate-transaction-sum-wrapper#tx-total-to-pay
-      %span.initiate-transaction-sum-label
-        = t("transactions.total_to_pay")
-      %span.initiate-transaction-sum-value
-        = MoneyViewUtils.to_humanized(total)
+    - unless has_buyer_fee
+      .initiate-transaction-sum-wrapper#tx-total-to-pay
+        %span.initiate-transaction-sum-label
+          = t("transactions.total_to_pay")
+        %span.initiate-transaction-sum-value
+          = MoneyViewUtils.to_humanized(total)
 
     - if fee.present? && fee > 0
       .initiate-transaction-sum-wrapper#tx-fee
@@ -81,8 +83,8 @@
         %span.initiate-transaction-sum-value
           = "-#{MoneyViewUtils.to_humanized(fee)}"
 
-  - if buyer_fee.present? && buyer_fee > 0
-    .initiate-transaction-sum-wrapper
+  - if has_buyer_fee && !is_author
+    .initiate-transaction-sum-wrapper#tx-buyer-fee
       %span.initiate-transaction-sum-label
         = t("conversations.accept.buyer_service_fee_label")
       %span.initiate-transaction-sum-value

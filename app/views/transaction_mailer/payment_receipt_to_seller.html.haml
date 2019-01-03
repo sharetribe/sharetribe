@@ -33,17 +33,24 @@
               = quantity_selector_label || t("emails.new_payment.quantity")
             %td
               = listing_quantity
-        %tr{:style => "border-top: 1px solid black"}
-          %td
-            %b= t("emails.payment_receipt_to_seller.price_payer_paid", :payer_full_name => payer_given_name)
-          %td
-            %b= subtotal
+        - if payment_buyer_service_fee.present?
+          %tr{:style => "border-top: 1px solid black"}
+            %td
+              %b= t("emails.payment_receipt_to_seller.subtotal")
+            %td
+              %b= subtotal
+        - else
+          %tr{:style => "border-top: 1px solid black"}
+            %td
+              %b= t("emails.payment_receipt_to_seller.price_payer_paid", :payer_full_name => payer_given_name)
+            %td
+              %b= payment_total
         %tr
           %td
             = t("emails.payment_receipt_to_seller.service_fee")
           %td= "#{payment_service_fee}"
 
-        - if payment_buyer_service_fee.present?
+        -# if payment_buyer_service_fee.present?
           %tr
             %td
               = t("emails.payment_receipt_to_seller.buyer_service_fee")
