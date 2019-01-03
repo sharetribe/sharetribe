@@ -1039,6 +1039,7 @@ en:
     message:
       accepted_request: "accepted the request"
       received_payment: "accepted the request, received payment for %{sum}"
+      received_payment_wo_sum: "accepted the request, received payment"
       accepted_offer: "accepted the offer"
       rejected_request: "rejected the request, canceled the payment"
       rejected_offer: "rejected the offer"
@@ -1048,8 +1049,10 @@ en:
       canceled_offer: "canceled the offer"
       paid: "paid %{sum}"
       payment_preauthorized: "Payment authorized: %{sum}"
+      payment_preauthorized_wo_sum: "Payment authorized"
       stripe:
         held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
+        held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
     new:
       message: Message
@@ -1264,6 +1267,7 @@ en:
       shipping_total: "Shipping:"
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
+      subtotal: "Subtotal:"
       service_fee: "%{service_name} service fee:"
       buyer_service_fee: "%{service_name} service fee:"
       you_will_get: "Total:"
