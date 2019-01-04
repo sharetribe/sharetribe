@@ -355,6 +355,9 @@ form {
         margin: lines(0.5) 0 lines(0.5) 0;
         position: relative;
       }
+      &.label-normal {
+        font-weight: normal;
+      }
     }
 
     label.radio {

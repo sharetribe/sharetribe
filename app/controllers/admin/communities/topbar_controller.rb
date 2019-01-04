@@ -22,8 +22,8 @@ class Admin::Communities::TopbarController < Admin::AdminBaseController
     menu_links_params = Maybe(params)[:menu_links].permit!.or_else({menu_link_attributes: {}})
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
-      limit_priority_links = params[:limit_priority_links].to_i
-      @current_community.configuration.update(limit_priority_links: limit_priority_links)
+      configuration_params = params[:configuration].permit(:limit_priority_links, :display_about_menu, :display_contact_menu, :display_invite_menu)
+      @current_community.configuration.update(configuration_params)
     end
 
     translations = params.to_unsafe_hash[:post_new_listing_button].map{ |k, v| {locale: k, translation: v}}
