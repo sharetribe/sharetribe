@@ -845,6 +845,9 @@ CREATE TABLE `marketplace_configurations` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `limit_search_distance` tinyint(1) NOT NULL DEFAULT '1',
+  `display_about_menu` tinyint(1) NOT NULL DEFAULT '1',
+  `display_contact_menu` tinyint(1) NOT NULL DEFAULT '1',
+  `display_invite_menu` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `index_marketplace_configurations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2319,4 +2322,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180720044534'),
 ('20180720065907'),
 ('20180723115548'),
-('20181106212306');
+('20181106212306'),
+('20190104083132');
