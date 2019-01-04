@@ -546,7 +546,7 @@ module ApplicationHelper
   # rubocop:enable Metrics/MethodLength
 
   # Settings view left hand navigation content
-  def settings_links_for(person, community=nil)
+  def settings_links_for(person, community=nil, restrict_for_admin=false)
     links = [
       {
         :id => "settings-tab-profile",
@@ -554,27 +554,32 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),
         :path => person_settings_path(person),
         :name => "profile"
-      },
-      {
-        :id => "settings-tab-account",
-        :text => t("layouts.settings.account"),
-        :icon_class => icon_class("account_settings"),
-        :path => account_person_settings_path(person) ,
-        :name => "account"
-      },
-      {
-        :id => "settings-tab-notifications",
-        :text => t("layouts.settings.notifications"),
-        :icon_class => icon_class("notification_settings"),
-        :path => notifications_person_settings_path(person),
-        :name => "notifications"
       }
     ]
+    unless restrict_for_admin
+      links +=
+        [
+          {
+            :id => "settings-tab-account",
+            :text => t("layouts.settings.account"),
+            :icon_class => icon_class("account_settings"),
+            :path => account_person_settings_path(person) ,
+            :name => "account"
+          },
+          {
+            :id => "settings-tab-notifications",
+            :text => t("layouts.settings.notifications"),
+            :icon_class => icon_class("notification_settings"),
+            :path => notifications_person_settings_path(person),
+            :name => "notifications"
+          }
+        ]
+    end
 
     paypal_ready = PaypalHelper.community_ready_for_payments?(@current_community.id)
     stripe_ready = StripeHelper.community_ready_for_payments?(@current_community.id)
 
-    if paypal_ready || stripe_ready
+    if !restrict_for_admin && (paypal_ready || stripe_ready)
       links << {
         :id => "settings-tab-payments",
         :text => t("layouts.settings.payments"),

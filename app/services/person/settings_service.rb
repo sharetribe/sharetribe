@@ -1,11 +1,12 @@
 class Person::SettingsService
-  attr_reader :community, :params, :required_fields_only
+  attr_reader :community, :params, :required_fields_only, :current_user
 
-  def initialize(community:, params:, required_fields_only: false, person: nil)
+  def initialize(community:, params:, required_fields_only: false, person: nil, current_user: nil)
     @params = params
     @community = community
     @required_fields_only = required_fields_only
     @person = person
+    @current_user = current_user
   end
 
   delegate :person_custom_fields, to: :community, prefix: true
@@ -44,6 +45,10 @@ class Person::SettingsService
 
   def fixed_phone_field?
     @fixed_phone_field ||= community_person_custom_fields.phone_number.empty?
+  end
+
+  def admin_acts_as_person?
+    current_user && current_user != person
   end
 
   private

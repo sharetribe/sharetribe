@@ -4,11 +4,12 @@ class SettingsController < ApplicationController
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_settings")
   end
 
-  before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: :unsubscribe
+  before_action EnsureCanAccessPerson.new(:person_id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), except: [:unsubscribe, :show]
+  before_action EnsureCanAccessPerson.new(:person_id, allow_admin: true, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: :show
 
   def show
     @selected_left_navi_link = "profile"
-    @service = Person::SettingsService.new(community: @current_community, params: params)
+    @service = Person::SettingsService.new(community: @current_community, params: params, current_user: @current_user)
     @service.add_location_to_person
     flash.now[:notice] = t("settings.profile.image_is_processing") if @service.image_is_processing?
   end

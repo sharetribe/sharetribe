@@ -1,9 +1,22 @@
-- if current_user?(@person)
+- if current_user?(service.person)
   = render :partial => "people/edit_profile_button"
 - else
-  %a.profile-contact-link{href: new_person_person_message_path(@person)}
+  %a.profile-contact-link{href: new_person_person_message_path(service.person)}
     .content
-      = t("people.show.contact", :person => PersonViewUtils.person_display_name_for_type(@person, "first_name_only"))
+      = t("people.show.contact", :person => PersonViewUtils.person_display_name_for_type(service.person, "first_name_only"))
 
-- if @current_community.follow_in_use? && @current_user && !current_user?(@person)
-  = render :partial => "follow_button", :locals => { :person => @person }
+- if @current_community.follow_in_use? && @current_user && !current_user?(service.person)
+  = render :partial => "follow_button", :locals => { :person => service.person }
+
+- if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) && service.admin?
+  .admin-actions
+    %label= t("people.show.admin_actions")
+
+    %a.profile-edit-link{href: person_settings_path(service.person)}
+      .content
+        = t("people.show.edit_profile_info")
+
+    %a.profile-edit-link{href: new_person_listing_path(person_id: service.person.username)}
+      .content
+        = t("people.show.post_listing_as")
+

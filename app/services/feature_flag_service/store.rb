@@ -23,6 +23,7 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :buyer_commission,
+      :admin_acts_as_user,
     ].to_set
 
     def initialize(additional_flags:)
