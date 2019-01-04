@@ -39,7 +39,7 @@ class Admin::Communities::TopbarController < Admin::AdminBaseController
     }]
     TranslationService::API::Api.translations.create(@current_community.id, translations_group)
 
-    @current_community.update_attributes(logo_link: params[:logo_link])
+    menu_links_params.merge!(logo_link: params[:logo_link])
 
     if @current_community.update_attributes(menu_links_params)
       flash[:notice] = t("layouts.notifications.community_updated")
