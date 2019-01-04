@@ -502,6 +502,13 @@ class ListingsController < ApplicationController
   end
 
   def new_listing_author
-    @new_listing_author ||= params[:person_id].present? ? Person.find_by!(username: params[:person_id]) : @current_user
+    @new_listing_author ||=
+      if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
+         params[:person_id].present? &&
+         @current_user.has_admin_rights?(@current_community)
+        @current_community.members.find_by!(username: params[:person_id])
+      else
+        @current_user
+      end
   end
 end

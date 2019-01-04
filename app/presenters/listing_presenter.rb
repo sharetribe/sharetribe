@@ -2,7 +2,7 @@ class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
   include Rails.application.routes.url_helpers
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
-  attr_reader :shape
+  attr_reader :shape, :current_user
 
   def initialize(listing, current_community, params, current_user)
     @listing = listing
@@ -290,7 +290,11 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def acts_as_person
-    params[:person_id].present? ? Person.find_by!(username: params[:person_id]) : nil
+    if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
+       params[:person_id].present? &&
+       current_user.has_admin_rights?(current_community)
+      current_community.members.find_by!(username: params[:person_id])
+    end
   end
 
   def new_listing_author
