@@ -278,11 +278,11 @@ es-ES:
           accepted: Aceptado
           unconfirmed: "No confirmado"
           pending: Pendiente
-        this_user_hasnt_confirmed_their_email_address: ~
+        this_user_hasnt_confirmed_their_email_address: "Este usuario no ha confirmado su dirección de correo electrónico. Es posible que el usuario no haya recibido el correo de confirmación. Haz click en el botón de re-enviar si lo quieres enviar otra vez."
         unconfirmed_user: "Usuario no confirmado: %{name}"
         resend: Reenviar
         cancel: Cancelar
-        user_didnt_complete_the_signup_process: ~
+        user_didnt_complete_the_signup_process: "Este usuario se registro por medio de Facebook pero no completo el proceso de registro. Después de conectar una cuenta de Facebook, los usuarios tienen que aceptar los términos de uso y llenar los campos obligatorios."
         pending_user: "Pendiente: %{name}"
       new_layout:
         new_layout: "Nuevo diseño"
@@ -446,11 +446,11 @@ es-ES:
           "yes": Sí
           "no": "No"
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: Remitente
+          message: Mensaje
+          sent_to: Destinatario
+          used: Usada
+          date_sent: Fecha
       listings:
         listings: Anuncios
         search_by_title_author_category: "Buscar por título del anuncio, autor o categoría"
@@ -2567,8 +2567,8 @@ es-ES:
           zero: "Ningún %{model} encontrado"
           one: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptado y %{other_count} otro %{other_model} "
           other: "Mostrando <b>%{accepted_count}</b> %{accepted_model} aceptados y%{other_count} otros %{other_model} "
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Mostrando %{model} %{from} - %{to} de %{accepted_count} %{accepted_model} aceptados y %{other_count} otros %{other_model}"
+        multi_page_html: "Mostrando %{model} <b>%{from} - %{to}</b> de <b>%{accepted_count}</b> %{accepted_model} aceptados y %{other_count} otros %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Usar el sistema de pagos de %{service_name} para recibir pagos en línea no es posible, ya que el sistema de pagos no ha sido configurado. Por favor %{contact_admin_link} para más información."
     contact_admin_link_text: "contacta al equipo de %{service_name}"
