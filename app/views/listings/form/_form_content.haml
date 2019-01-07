@@ -1,16 +1,30 @@
 = render :partial => "listings/form/javascripts", :locals => { listing_id: @listing.id || "false", minimum_price_cents: @listing_presenter.commission[:minimum_price_cents], run_js_immediately: run_js_immediately, shape: shape}
 
-= form_for @listing, :html => {:multipart => true} do |form|
-  = render :partial => "listings/form/title", :locals => { :form => form }
-  = render :partial => "listings/form/price", :locals => { :form => form, :run_js_immediately => run_js_immediately }
-  = render :partial => "listings/form/shipping", :locals => { :form => form }
-  = render :partial => "listings/form/description", :locals => { :form => form }
-  = render :partial => "listings/form/custom_fields", :locals => { :form => form }
-  = render :partial => "listings/form/valid_until", :locals => { :form => form }
-  = render :partial => "listings/form/origin", :locals => { :form => form }
-  = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
-  = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
-  = render :partial => "listings/form/send_button", :locals => { :form => form }
-  = hidden_field_tag 'listing_ordered_images'
+- if @listing_presenter.acts_as_person
+  = form_for [@listing_presenter.acts_as_person, @listing], :html => {:multipart => true} do |form|
+    = render :partial => "listings/form/title", :locals => { :form => form }
+    = render :partial => "listings/form/price", :locals => { :form => form, :run_js_immediately => run_js_immediately }
+    = render :partial => "listings/form/shipping", :locals => { :form => form }
+    = render :partial => "listings/form/description", :locals => { :form => form }
+    = render :partial => "listings/form/custom_fields", :locals => { :form => form }
+    = render :partial => "listings/form/valid_until", :locals => { :form => form }
+    = render :partial => "listings/form/origin", :locals => { :form => form }
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
+    = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
+    = render :partial => "listings/form/send_button", :locals => { :form => form }
+    = hidden_field_tag 'listing_ordered_images'
+- else
+  = form_for @listing, :html => {:multipart => true} do |form|
+    = render :partial => "listings/form/title", :locals => { :form => form }
+    = render :partial => "listings/form/price", :locals => { :form => form, :run_js_immediately => run_js_immediately }
+    = render :partial => "listings/form/shipping", :locals => { :form => form }
+    = render :partial => "listings/form/description", :locals => { :form => form }
+    = render :partial => "listings/form/custom_fields", :locals => { :form => form }
+    = render :partial => "listings/form/valid_until", :locals => { :form => form }
+    = render :partial => "listings/form/origin", :locals => { :form => form }
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :run_js_immediately => run_js_immediately}
+    = render :partial => "listings/form/images", :locals => { :form => form, :run_js_immediately => run_js_immediately }
+    = render :partial => "listings/form/send_button", :locals => { :form => form }
+    = hidden_field_tag 'listing_ordered_images'
 
 = render :partial => "listings/help_texts", :collection => ["help_valid_until"], :as => :field
