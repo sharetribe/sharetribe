@@ -79,4 +79,13 @@ module CommunitiesHelper
     end
   end
 
+  def customizations_sorted_by_locale
+    available_locales.map do |language, locale|
+      customization = @current_community.community_customizations.where(locale: locale).first
+      if customization
+        [customization, language, locale]
+      end
+    end.compact
+  end
+
 end

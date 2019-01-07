@@ -9,4 +9,5 @@
         .name-locale-label.col-2
           = label_tag "community_customizations[#{language_key}][#{input_name}]", value[:language], class: input_classes + ' label'
       .name-locale-textarea.col-10
-        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes
+        = text_area_tag "community_customizations[#{language_key}][#{input_name}]", value[:translation], class: input_classes,
+          placeholder: defined?(placeholder) ? placeholder : ""

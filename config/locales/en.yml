@@ -293,15 +293,21 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
-        logo: Logo
-        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
+        logo: "Social media image"
+        logo_info: "This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
+        social_media_title: "Social media title"
+        social_media_title_info: "This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. You can preview how it looks %{facebook_preview_link}, %{twitter_preview_link} and %{linkedin_preview_link}."
+        link_for_facebook: "for Facebook"
+        link_for_linkedin: "for LinkedIn"
+        link_for_twitter: "for Twitter"
+        social_media_description: "Social media description"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
         twitter_instructions_link_text: "Read more"
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "In order to enable Facebook Login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_info_text_with_instructions: "In order to enable Facebook Login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here. %{instructions_link}"
         facebook_instructions_link_text: "See instructions for configuring Facebook Connect."
