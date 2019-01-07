@@ -152,6 +152,10 @@ $footer__link-margin-tablet: 16px;
   .footer__container--light & {
     background-color: #D4D5D7;
   }
+
+  .footer__container--marketplace_color & {
+    background-color: #ffffff;
+  }
 }
 
 .footer__copyrights--markdown {
