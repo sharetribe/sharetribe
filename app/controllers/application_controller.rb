@@ -306,7 +306,7 @@ class ApplicationController < ActionController::Base
 
   # plain stub for routes, intercepted in perfom_redirect
   def not_available
-    render action: 'errors/community_not_found', status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
+    render 'errors/community_not_found', layout: false, status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   def fetch_community_membership
