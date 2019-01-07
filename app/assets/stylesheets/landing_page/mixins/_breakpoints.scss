@@ -1,4 +1,5 @@
 // Landing page content
+$mobile: "(max-width: 767px)";
 $mobile-landscape: "(max-width: 767px) and (orientation: landscape)"; // same font-sizes as the mobile, but layout/grid structure from $tablet
 $tablet: "(min-width: 768px) and (max-width: 1024px)";
 $desktop: "(min-width: 1025px)";

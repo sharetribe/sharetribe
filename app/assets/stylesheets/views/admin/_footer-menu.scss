@@ -14,8 +14,16 @@
 }
 
 #footer-menu-form {
-  input[type="radio"] {
-    margin-left: 0.75em
+  .footer-theme-radio-buttons {
+    input[type="radio"] {
+      margin-left: 0.75em
+    }
+    label {
+      display: inline-block;
+      width: auto;
+      font-weight: normal;
+      margin: 0 0 0 0.5em;
+    }
   }
   input[disabled] {
     background-color: #e8e8e8;

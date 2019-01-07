@@ -24,10 +24,6 @@ class Admin::Communities::FooterService
       community.footer_menu_links.map(&:save).all?
   end
 
-  def footer_theme_dark?
-    community.footer_theme == Community::FOOTER_DARK
-  end
-
   def social_links
     return @social_links if defined?(@social_links)
     SocialLink.social_provider_list.each do |provider|
@@ -35,6 +31,12 @@ class Admin::Communities::FooterService
       community.social_links.build(provider: provider)
     end
     @social_links = community.social_links
+  end
+
+  def foter_themes
+    Community::FOOTER_THEMES.keys.map do |theme|
+      OpenStruct.new(key: theme, value: I18n.t("admin.communities.footer.style.#{theme}"))
+    end
   end
 
   private
