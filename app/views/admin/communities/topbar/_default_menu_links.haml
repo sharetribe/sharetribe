@@ -26,6 +26,7 @@
           = config_fields.check_box :display_invite_menu
           = config_fields.label :display_invite_menu, t("admin.communities.default_menu_links.display_invite").html_safe, class: "label-normal"
         - else
-          = config_fields.check_box :display_invite_menu, 1, false, disabled: "disabled"
+          - config_fields.object.display_invite_menu = false
+          = config_fields.check_box :display_invite_menu, disabled: "disabled"
           = config_fields.label :display_invite_link, t("admin.communities.default_menu_links.display_invite").html_safe, class: "label-normal disabled", disabled: "disabled"
 
