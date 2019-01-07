@@ -36,8 +36,5 @@
     .col-12
       .checkbox-container
         .settings-checkbox-label.label
-        - select_max_number = select_tag 'limit_priority_links', options_for_select(limit_priority_links_options, limit_priority_links_selected), class: 'inline-select'
+        - select_max_number = select_tag 'configuration[limit_priority_links]', options_for_select(limit_priority_links_options, limit_priority_links_selected), class: 'inline-select'
         = t("admin.communities.menu_links.max_number_of_links", select_max_number: select_max_number).html_safe
-  .row
-    .col-12
-      = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.menu_links.max_number_of_links_info", about_page: link_to(t("admin.communities.menu_links.about_page"), about_infos_path)).html_safe }
