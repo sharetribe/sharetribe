@@ -40,7 +40,7 @@ class ErrorsController < ActionController::Base
 
   def title(status)
     community_name = Maybe(@current_community).map { |c|
-      c.name(community_locale)
+      c.name(community_locale) rescue nil
     }.or_else(nil)
 
     [community_name, t("error_pages.error_#{status}_title")].compact.join(' - ')
