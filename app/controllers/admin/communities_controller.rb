@@ -112,6 +112,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @selected_left_navi_link = "social_media"
     @community = @current_community
     @community.build_social_logo unless @community.social_logo
+    find_or_initialize_customizations
     render "social_media", :locals => {
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
       knowledge_base_url: APP_CONFIG.knowledge_base_url}
@@ -264,6 +265,11 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       social_logo_attributes: [
         :id,
         :image
+      ],
+      community_customizations_attributes: [
+        :id,
+        :social_media_title,
+        :social_media_description
       ]
     )
 
@@ -440,5 +446,17 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     } unless community_disabled.blank?
 
     Result.all(*updates)
+  end
+
+  def find_or_initialize_customizations
+    @current_community.locales.each do |locale|
+      next if @current_community.community_customizations.find_by_locale(locale)
+      @current_community.community_customizations.create(
+        slogan: @current_community.slogan,
+        description: @current_community.description,
+        search_placeholder: t("homepage.index.what_do_you_need", locale: locale),
+        locale: locale
+      )
+    end
   end
 end
