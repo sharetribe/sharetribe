@@ -10,16 +10,20 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
   end
 
+  # This was designed keeping in mind that the number of members is less than 10,000.
+  # members.pluck(:id) is more efficient than members.find_each
   def perform
     current_community = Community.where(id: community_id).first
 
     Delayed::Job.transaction do
-      community_members(mode, current_community).find_each do |recipient|
-        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient.id, community_id, content, locale))
+      community_members(mode, current_community).pluck(:id).each do |recipient_id|
+        Delayed::Job.enqueue(CommunityMemberEmailSentJob.new(sender_id, recipient_id, community_id, content, locale))
       end
     end
   end
 
+  # Here, every SQL query was fine-tuned. If changes are made, please make sure
+  # that the SQL queries are executed fast enough.
   def community_members(mode, community)
     mode_options = Admin::EmailsController::ADMIN_EMAIL_OPTIONS
     mode = mode.to_sym
@@ -33,11 +37,11 @@ class CreateMemberEmailBatchJob < Struct.new(:sender_id, :community_id, :content
       when :with_listing
         scope = scope.has_listings(community)
       when :with_listing_no_payment
-        scope = scope.has_no_stripe_account.has_no_paypal_account.has_listings(community)
+        scope = scope.has_no_stripe_account(community).has_no_paypal_account(community).has_listings(community)
       when :with_payment_no_listing
-        scope = scope.has_payment_account.has_no_listings(community)
+        scope = scope.has_payment_account(community).has_no_listings(community)
       when :no_listing_no_payment
-        scope = scope.has_no_stripe_account.has_no_paypal_account.has_no_listings(community)
+        scope = scope.has_no_stripe_account(community).has_no_paypal_account(community).has_no_listings(community)
       when :customers
         scope = scope.has_started_transactions(community)
       else

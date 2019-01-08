@@ -31,4 +31,5 @@ class PaypalAccount < ApplicationRecord
   scope :active_users, -> {
     active.has_permission_and_agreement.where.not(person_id: nil)
   }
+  scope :by_community, ->(community) { where(community: community) }
 end

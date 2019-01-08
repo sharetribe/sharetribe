@@ -329,7 +329,7 @@ CREATE TABLE `community_memberships` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_community_memberships_on_person_id` (`person_id`) USING BTREE,
   KEY `index_community_memberships_on_community_id` (`community_id`) USING BTREE,
-  KEY `person_community_status` (`community_id`,`person_id`,`status`)
+  KEY `community_person_status` (`community_id`,`person_id`,`status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `community_social_logos`;
@@ -815,8 +815,8 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_listing_shape_id` (`listing_shape_id`) USING BTREE,
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
   KEY `index_listings_on_open` (`open`) USING BTREE,
-  KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`)
-  KEY `person_community_exist` (`community_id`,`author_id`,`deleted`)
+  KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`),
+  KEY `community_author_deleted` (`community_id`,`author_id`,`deleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
@@ -1312,7 +1312,9 @@ CREATE TABLE `stripe_accounts` (
   `stripe_customer_id` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_stripe_accounts_on_community_id` (`community_id`),
+  KEY `index_stripe_accounts_on_person_id` (`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `stripe_payments`;
@@ -1457,7 +1459,7 @@ CREATE TABLE `transactions` (
   KEY `index_transactions_on_deleted` (`deleted`) USING BTREE,
   KEY `index_transactions_on_starter_id` (`starter_id`) USING BTREE,
   KEY `index_transactions_on_listing_author_id` (`listing_author_id`) USING BTREE,
-  KEY `starter_community_state` (`community_id`,`starter_id`,`current_state`)
+  KEY `community_starter_state` (`community_id`,`starter_id`,`current_state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2327,7 +2329,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20180720044534'),
 ('20180720065907'),
 ('20180723115548'),
-('20181221120927'),
 ('20180904075653'),
 ('20181012065625'),
 ('20181024094615'),
@@ -2335,5 +2336,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20181211125306'),
 ('20190104083132'),
 ('20181219090801'),
-('20181211094456');
+('20181211094456'),
+('20181221120927'),
+('20190108075512');
 

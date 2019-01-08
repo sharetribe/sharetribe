@@ -138,11 +138,19 @@ class Person < ApplicationRecord
     joins("LEFT OUTER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0")
     .where(listings: {author_id: nil}).distinct
   end
-  scope :has_stripe_account, -> { where(id: StripeAccount.active_users.select(:person_id)) }
-  scope :has_no_stripe_account, -> { where.not(id: StripeAccount.active_users.select(:person_id)) }
-  scope :has_paypal_account, -> { where(id: PaypalAccount.active_users.select(:person_id)) }
-  scope :has_no_paypal_account, -> { where.not(id: PaypalAccount.active_users.select(:person_id)) }
-  scope :has_payment_account, -> { has_stripe_account.or(has_paypal_account) }
+  scope :has_stripe_account, ->(community) do
+    where(id: StripeAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_no_stripe_account, ->(community) do
+    where.not(id: StripeAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_paypal_account, ->(community) do
+    where(id: PaypalAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_no_paypal_account, ->(community) do
+    where.not(id: PaypalAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_payment_account, ->(community) { has_stripe_account(community).or(has_paypal_account(community)) }
   scope :has_started_transactions, ->(community) do
     joins("INNER JOIN `transactions` ON `transactions`.`starter_id` = `people`.`id` AND `transactions`.`community_id` = #{community.id} AND `transactions`.`current_state` IN ('paid', 'confirmed')").distinct
   end
