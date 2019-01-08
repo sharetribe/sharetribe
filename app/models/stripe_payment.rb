@@ -13,13 +13,13 @@
 #  currency           :string(255)
 #  stripe_charge_id   :string(255)
 #  stripe_transfer_id :string(255)
-#  transfered_at      :datetime
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
 #  fee_cents          :integer
 #  real_fee_cents     :integer
 #  subtotal_cents     :integer
+#  transfered_at      :datetime
 #  available_on       :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 class StripePayment < ApplicationRecord

@@ -51,6 +51,7 @@
 #
 # Indexes
 #
+#  community_author_deleted            (community_id,author_id,deleted)
 #  homepage_query                      (community_id,open,sort_date,deleted)
 #  homepage_query_valid_until          (community_id,open,valid_until,sort_date,deleted)
 #  index_listings_on_category_id       (old_category_id)
@@ -60,7 +61,6 @@
 #  index_listings_on_open              (open)
 #  index_listings_on_uuid              (uuid) UNIQUE
 #  index_on_author_id_and_deleted      (author_id,deleted)
-#  person_community_exist              (community_id,author_id,deleted)
 #  person_listings                     (community_id,author_id)
 #  updates_email_listings              (community_id,open,updates_email_at)
 #

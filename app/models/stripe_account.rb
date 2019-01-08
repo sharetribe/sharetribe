@@ -11,6 +11,11 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
+# Indexes
+#
+#  index_stripe_accounts_on_community_id  (community_id)
+#  index_stripe_accounts_on_person_id     (person_id)
+#
 
 class StripeAccount < ApplicationRecord
 
@@ -18,4 +23,5 @@ class StripeAccount < ApplicationRecord
   belongs_to :community
 
   scope :active_users, -> { where.not(person_id: nil) }
+  scope :by_community, ->(community) { where(community: community) }
 end
