@@ -33,16 +33,8 @@
 
     %h3= t("admin.communities.footer.footer_style")
     .row
-      .col-12
-        = radio_button_tag 'community[footer_theme]', 'dark', @service.footer_theme_dark?,
-          id: 'configuration-dark', disabled: disabled
-        %label.checkbox-row-label{for: 'configuration-dark'}
-          = t("admin.communities.footer.style.dark")
-        = radio_button_tag 'community[footer_theme]', 'light', !@service.footer_theme_dark?,
-          id: 'configuration-light', disabled: disabled
-        %label.checkbox-row-label{for: 'configuration-light'}
-          = t("admin.communities.footer.style.light")
-
+      .col-12.footer-theme-radio-buttons
+        = form.collection_radio_buttons :footer_theme, @service.foter_themes, :key, :value
 
     %h3= t("admin.communities.footer.menu_links")
     #menu-links-table

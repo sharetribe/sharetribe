@@ -280,11 +280,11 @@ class Community < ApplicationRecord
 
   before_save :cache_previous_image_urls
 
-  FOOTER_DARK = 'dark'.freeze
-  FOOTER_LIGHT = 'light'.freeze
   FOOTER_THEMES = {
-    FOOTER_DARK => 0,
-    FOOTER_LIGHT => 1
+    FOOTER_DARK = 'dark'.freeze => 0,
+    FOOTER_LIGHT = 'light'.freeze => 1,
+    FOOTER_MARKETPLACE_COLOR = 'marketplace_color'.freeze => 2,
+    FOOTER_LOGO = 'logo'.freeze => 3
   }.freeze
   enum footer_theme: FOOTER_THEMES
 
