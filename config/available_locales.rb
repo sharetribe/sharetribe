@@ -15,8 +15,8 @@ module Sharetribe
     {ident: "en", name: "English", language: "en", region: "US", fallback: nil}, # English (United States)
     {ident: "en-AU", name: "English (Australia)", language: "en", region: "AU", fallback: nil}, # English (Australia)
     {ident: "en-GB", name: "English (United Kingdom)", language: "en", region: "GB", fallback: nil}, # English (United Kingdom)
-    {ident: "es-ES", name: "Español (España)", language: "es", region: "ES", fallback: nil}, # Spanish (Spain)
-    {ident: "es", name: "Español", language: "es", region: "ES", fallback: "es-ES"}, # Spanish
+    {ident: "es-ES", name: "Español (España)", language: "es", region: "ES", fallback: "es"}, # Spanish (Spain)
+    {ident: "es", name: "Español", language: "es", region: "ES", fallback: "nil"}, # Spanish
     {ident: "fi", name: "Suomi", language: "fi", region: "FI", fallback: nil}, # Finnish (Finland)
     {ident: "fr", name: "Français", language: "fr", region: "FR", fallback: nil}, # French (France)
     {ident: "fr-CA", name: "Français (Canada)", language: "fr", region: "CA", fallback: "fr"}, # French (Canada)
@@ -37,7 +37,7 @@ module Sharetribe
     {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "ca", name: "Catalan", language: "ca", region: "ES", fallback: nil}, # Catalan (Spain)
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
-    {ident: "es-CL", name: "Español (Chile)", language: "es", region: "CL", fallback: "es-ES"}, # Spanish (Chile)
+    {ident: "es-CL", name: "Español (Chile)", language: "es", region: "CL", fallback: "es"}, # Spanish (Chile)
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
     {ident: "id", name: "Bahasa Indonesia", language: "id", region: "ID", fallback: nil}, # Indonesian (Indonesia)
