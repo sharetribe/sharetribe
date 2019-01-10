@@ -331,6 +331,11 @@ nl:
         sharetribe_analytics_instructions_link_text: "Lees meer over Sharetribes analytics."
         end_user_analytics: "Sta Sharetribe toe om activiteit van de leden te volgen om de service te verbeteren"
         save: "Instellingen opslaan"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "Menu koppelingen"
         save: "Instellingen opslaan"
@@ -345,6 +350,15 @@ nl:
         all: Alle
         max_number_of_links_info: "Link naar %{about_page} wordt altijd weergegeven als de eerste link in het menu"
         about_page: "\"Over\" pagina"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Menubalk boven"
         new_listing_button_label: "Tekst voor \"Plaats een nieuwe advertentie\"-button."
@@ -423,6 +437,10 @@ nl:
           other_party: "Andere partij"
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Recensies
         no_testimonials_found: "Geen recensies gevonden"

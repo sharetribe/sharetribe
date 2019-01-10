@@ -12,7 +12,7 @@ pl:
       index:
         listing_categories: "Kategorie ofert"
         create_a_new_category: "+ Dodaj nową kategorię"
-        remove_category_confirmation: "Czy jesteś pewien, że chcesz usunąć kategorię '%{category_name}'?"
+        remove_category_confirmation: "Czy jesteś pewien, że chcesz usunąć kategorię '%{category_name}'? Tej akcji nie można cofnąć."
         saving_order: "Zapisywanie kolejności kategorii"
         save_order_successful: "Zapisywanie kategorii zakończyło się pomyślnie"
         save_order_error: "Wystąpił błąd w zapisywaniu porządku kategorii. Proszę odśwież stronę i spróbuj ponownie."
@@ -114,7 +114,7 @@ pl:
         small_community_cover_photo: "Małe zdjęcie w tle"
         favicon: "Ikona strony, tzw. favicon"
         favicon_info_text: "Favicon zastąpi domyślne logo Sharetribe. Wymiary powinny wynosić 32x32 piksele więc załadowany obrazek będzie przycięty do tych wymiarów."
-        community_custom_color1: "Główny kolor"
+        community_custom_color1: "Główny kolor strony"
         community_slogan_color: "Kolor sloganu platformy"
         community_slogan_color_instructions_text: "Możesz zmienić kolor sloganu na stronie głównej poprzez wpisanie kodu koloru. Slogan jest pokazywany użytkownikom niezalogowanym. %{colorpicker} może ci pomóc wybrać kolor i poda ci kod koloru. Możesz następnie skopiować ten kod tutaj. %{see_how_it_looks_like}."
         community_description_color: "Kolor opisu platformy"
@@ -339,6 +339,11 @@ pl:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Zapisz ustawienia"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "Linki menu"
         save: "Zapisz ustawienia"
@@ -353,6 +358,15 @@ pl:
         all: Wszystkie
         max_number_of_links_info: "Link do %{about_page} jest zawsze wyświetlany jako pierwszy w menu"
         about_page: "o stronie"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Górny pasek"
         new_listing_button_label: "Opublikuj nowy tekst na guziku oferty"
@@ -431,6 +445,10 @@ pl:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -541,7 +559,7 @@ pl:
         listing_fields: "Pola oferty i filtry"
         listing_fields_help: "W tym miejscu możesz edytować pola, które użytkownicy muszą wypełnić, kiedy tworzą nową ofertę. Zwróć uwagę, że niektóre pola są predefiniowane i nie mogą być edytowane."
         add_new_field: "Dodaj nowe pole:"
-        remove_field_confirmation: "Na pewno chcesz usunąć pole '%{field_name}'?"
+        remove_field_confirmation: "Na pewno chcesz usunąć pole '%{field_name} i wszystkie informacje z nim związane? Tej akcji nie można cofnąć."
         cancel: Anuluj
         save: Zapisz
         field_title: "Tytuł pola"

@@ -334,6 +334,11 @@ sk-SK:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Uložiť nastavenia"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "Menu odkazy"
         save: "Uložiť nastavenia"
@@ -348,6 +353,15 @@ sk-SK:
         all: Všetky
         max_number_of_links_info: "Odkaz na %{about_page} je vždy zobrazený ako prvá možnosť v menu."
         about_page: "o nás"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Horná lišta"
         new_listing_button_label: "Text tlačítka Pridať nový inzerát"
@@ -426,6 +440,10 @@ sk-SK:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~

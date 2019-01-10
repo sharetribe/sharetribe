@@ -330,6 +330,11 @@ hu:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Beállítások mentése"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "Menü linkek"
         save: "Beállítások mentése"
@@ -344,6 +349,15 @@ hu:
         all: Összes
         max_number_of_links_info: "A link a %{about_page} oldalhoz mindig az első menüpontban kerül megjelenínétésre."
         about_page: rólunk
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Új hirdetés feladása gomb szövege"
@@ -422,6 +436,10 @@ hu:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~

@@ -120,7 +120,7 @@ fr:
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
-        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface en entrant une valeur hexadécimale. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
         new_listing_button_instructions_text: "Vous pouvez changer la couleur du bouton Déposer une nouvelle annonce en entrant une valeur hexadécimale. %{link_to_colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici."
         default_browse_view: "Vue par défaut"
         default_browse_view_instructions_text: "La vue par défaut est utilisée sur la page d'accueil pour définir comment sont affichées les annonces par défaut."
@@ -329,12 +329,17 @@ fr:
         sharetribe_analytics_instructions_link_text: "En apprendre plus sur les analyses Sharetribe."
         end_user_analytics: "Autoriser Sharetribe à suivre l'activité des membres pour améliorer le service Sharetribe"
         save: "Sauvegarder les paramètres"
+      logo_link:
+        title: "Lien du logo"
+        info: "Vous pouvez personnaliser le lien du logo (et du lien \"Accueil\" dans le menu). Par défaut le logo redirige vers la page d'accueil."
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
         menu_links: "Liens personnalisés du menu"
         save: "Sauvegarder les paramètres"
         add_menu_link: "Ajouter un nouveau lien au menu"
         title_placeholder: "Titre du lien"
-        url_placeholder: "http://example.fr/fr"
+        url_placeholder: "https://example.com/fr"
         title: Titre
         language: Langue
         url: URL
@@ -508,7 +513,7 @@ fr:
         footer_enabled: "Footer activé"
         social_links: "Liens de réseaux sociaux"
         title_placeholder: "Titre du lien"
-        url_placeholder: "http://example.com/username"
+        url_placeholder: "https://example.com/nomdutilisateur"
         style:
           dark: Sombre
           light: Clair

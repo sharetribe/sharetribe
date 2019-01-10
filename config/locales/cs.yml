@@ -12,7 +12,7 @@ cs:
       index:
         listing_categories: "Kategorie inzerátů"
         create_a_new_category: "+ Vytvořit novou kategorii"
-        remove_category_confirmation: "Jste si jisti, že chcete odstranit kategorii \"%{category_name}\"?"
+        remove_category_confirmation: "Jste si opravdu jisti, že chcete odstranit kategorii \"%{category_name}\"?"
         saving_order: "Uložit uspořádání kategorií"
         save_order_successful: "Uspořádání kategorií bylo úspěšně uloženo"
         save_order_error: "Došlo k chybě při ukládání uspořádání kategorií. Prosíme, aktualizujte stránku a zkuste to znovu."
@@ -302,9 +302,9 @@ cs:
         logo_info: "Tento obrázek se používá, když někdo sdílí vaši doménu na sociálních sítích (Facebook, Twitter, Linkedin). Pro lepší výsledek by měl mít poměr 2:1 a minimální rozlišení %{width} x%{height} pixelů"
         social_media_title: ~
         social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
+        link_for_facebook: "pro Facebook"
+        link_for_linkedin: "Pro LinkedIn"
+        link_for_twitter: "pro Twitter"
         social_media_description: ~
         twitter_handle: Twitter
         twitter_handle_info_text: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky."
@@ -334,6 +334,11 @@ cs:
         sharetribe_analytics_instructions_link_text: "Přečtěte si více o analytické službě Sharetribe."
         end_user_analytics: "Umožněte společnosti Sharetribe sledovat činnost členů s cílem zlepšit služby Sharetribe"
         save: "Uložit nastavení"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: Odkazy
         save: "Uložit nastavení"
@@ -350,9 +355,9 @@ cs:
         about_page: "o nás"
       default_menu_links:
         title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
+        about_link_title: "O nás"
+        contact_link_title: "Kontaktujte nás"
+        invite_link_title: "Pozvat nové členy"
         info: ~
         display_about: ~
         display_contact: ~
@@ -435,9 +440,9 @@ cs:
           other_party: "Další strana"
         participants: "Konverzace:  %{author} s %{starter}"
         profile: "Profil %{author}"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search_by_keyword: "Hledat podle jména, emailu nebo klíčového slova"
+        search: Hledat
+        reset_search: "Zobrazit vše"
         for_keyword: ~
       testimonials:
         testimonials: "Zobrazit recenze"
@@ -517,8 +522,8 @@ cs:
         style:
           dark: Tmavý
           light: Světlý
-          marketplace_color: ~
-          logo: ~
+          marketplace_color: "Barva webu"
+          logo: Logo
         social:
           title: Nadpis
           url: URL
@@ -549,7 +554,7 @@ cs:
         listing_fields: "Seznam polí & filtrů"
         listing_fields_help: "Zde můžete upravit pole, která uživatelé musí vyplnit při vytváření nového inzerátu. Vezměte na vědomí, že některá pole jsou předepsaná a nemohou být upravena."
         add_new_field: "Přidat nové pole:"
-        remove_field_confirmation: "Jste si jisti, že chcete odstranit pole %{field_name}?"
+        remove_field_confirmation: "Jste si opravdu jisti, že chcete odstranit pole %{field_name}?"
         cancel: Zrušit
         save: Uložit
         field_title: "Název pole"

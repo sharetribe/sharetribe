@@ -324,6 +324,11 @@ ko:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "설정 저장"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: 메뉴링크
         save: "설정 저장"
@@ -338,6 +343,15 @@ ko:
         all: 모든
         max_number_of_links_info: "%{about_page}에 대한 링크는 항상 첫번째 메뉴 링크로 표시됩니다."
         about_page: "페이지에 대해"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: 탑바
         new_listing_button_label: "새 목록 버튼 텍스트 게시"
@@ -416,6 +430,10 @@ ko:
           other_party: 제3자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: 리뷰
         no_testimonials_found: ~
