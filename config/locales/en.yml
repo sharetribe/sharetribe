@@ -329,6 +329,11 @@ en:
         sharetribe_analytics_instructions_link_text: "Read more about Sharetribe's analytics."
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
+      logo_link:
+        title: "Logo link"
+        info: "You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the home page or the landing page."
+        url: "URL"
+        placeholder: "http://www.example.com"
       menu_links:
         menu_links: "Custom menu links"
         save: "Save settings"
