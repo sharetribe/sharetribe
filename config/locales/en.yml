@@ -12,7 +12,7 @@ en:
       index:
         listing_categories: "Listing categories"
         create_a_new_category: "+ Create a new category"
-        remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+        remove_category_confirmation: "Are you sure you want to remove the category '%{category_name}'? This cannot be undone."
         saving_order: "Saving category order"
         save_order_successful: "Successfully saved category order"
         save_order_error: "An error occurred while saving category order. Please refresh the page and try again."
@@ -104,7 +104,7 @@ en:
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
         favicon_info_text: "Favicon will replace the default Sharetribe logo. The dimensions should be 32x32 pixels and the uploaded image will be resized to these dimensions."
-        community_custom_color1: "Main color"
+        community_custom_color1: "Marketplace main color"
         community_slogan_color: "Marketplace slogan color"
         community_slogan_color_instructions_text: "You can change the color of the slogan on the homepage by entering a hex color value. The slogan is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
         community_description_color: "Marketplace description color"
@@ -349,9 +349,9 @@ en:
         contact_link_title: "Contact us"
         invite_link_title: "Invite new members"
         info: "By default, the links to the following pages are not displayed anywhere else in your marketplace: %{about_link}, %{contact_link}, %{invite_link}."
-        display_about: "Display link to <i>About</i> and other static pages (first position)"
-        display_contact: "Display link to <i>Contact us</i> page in top bar (second to last position)"
-        display_invite: "Display link to <i>Invite new members</i> page in top bar (last position)"
+        display_about: "Display link to <i>About</i> and other static pages"
+        display_contact: "Display link to <i>Contact us</i> page in top bar"
+        display_invite: "Display link to <i>Invite new members</i> page in top bar"
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Post a new listing button text"
@@ -512,7 +512,7 @@ en:
         style:
           dark: Dark
           light: Light
-          marketplace_color: Marketplace Color
+          marketplace_color: "Marketplace Color"
           logo: Logo
         social:
           title: Title
@@ -544,7 +544,7 @@ en:
         listing_fields: "Listing fields & filters"
         listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited."
         add_new_field: "Add new field:"
-        remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
+        remove_field_confirmation: "Are you sure you want to remove the field '%{field_name}' and all its data? This cannot be undone."
         cancel: Cancel
         save: Save
         field_title: "Field title"
