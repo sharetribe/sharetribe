@@ -5,6 +5,7 @@ describe Admin::Communities::TopbarController, type: :controller do
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @user = create_admin_for(@community)
+    @user.update(is_admin: true)
     sign_in_for_spec(@user)
   end
 
@@ -36,4 +37,37 @@ describe Admin::Communities::TopbarController, type: :controller do
     end
   end
 
+  describe "update default menu links" do
+    it "should update default menu link settings" do
+      text_fi = "Modified fi"
+      text_en = "Modified en"
+      RequestStore.store[:feature_flags] = nil
+
+      menu_config = {limit_priority_links: "-1", display_about_menu: "1", display_contact_menu: "1", display_invite_menu: "1"}
+      patch :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, configuration: menu_config, enable_feature: "topbar_v1"}
+      @community.reload
+      expect(@community.configuration.display_about_menu).to eq true
+      expect(@community.configuration.display_contact_menu).to eq true
+      expect(@community.configuration.display_invite_menu).to eq true
+
+      default_links = [
+        {:link=>"/", :title=>"Home", :priority=>-1},
+        {:link=>"/infos/about", :title=>"About", :priority=>0},
+        {:link=>"/user_feedbacks/new", :title=>"Contact us", :priority=>1},
+        {:link=>"/invitations/new", :title=>"Invite new members", :priority=>2}
+      ]
+      links = TopbarHelper.links(community: @community, user: @user, locale_param: nil, host_with_port: "http://#{@community.ident}.lvh.me")
+      expect(links).to eq(default_links)
+
+      menu_config = {limit_priority_links: "-1", display_about_menu: "0", display_contact_menu: "0", display_invite_menu: "0"}
+      patch :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, configuration: menu_config, enable_feature: "topbar_v1"}
+      @community.reload
+      expect(@community.configuration.display_about_menu).to eq false
+      expect(@community.configuration.display_contact_menu).to eq false
+      expect(@community.configuration.display_invite_menu).to eq false
+
+      links = TopbarHelper.links(community: @community, user: @user, locale_param: nil, host_with_port: "http://#{@community.ident}.lvh.me")
+      expect(links).to eq [{:link=>"/", :title=>"Home", :priority=>-1}]
+    end
+  end
 end

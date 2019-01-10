@@ -96,20 +96,26 @@ module TopbarHelper
         ),
         title: I18n.t("header.home"),
         priority: -1
-      },
-      {
+      }
+    ]
+
+    if community.configuration.display_about_menu
+      links << {
         link: paths.about_infos_path(locale: locale_param),
         title: I18n.t("header.about"),
         priority: 0
-      },
-      {
+      }
+    end
+
+    if community.configuration.display_contact_menu
+      links << {
         link: paths.new_user_feedback_path(locale: locale_param),
         title: I18n.t("header.contact_us"),
         priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
-    ]
+    end
 
-    if community.users_can_invite_new_users
+    if community.users_can_invite_new_users && community.configuration.display_invite_menu
       links << {
         link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),

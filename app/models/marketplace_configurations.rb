@@ -10,6 +10,9 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  limit_search_distance :boolean          default(TRUE), not null
+#  display_about_menu    :boolean          default(TRUE)
+#  display_contact_menu  :boolean          default(TRUE)
+#  display_invite_menu   :boolean          default(TRUE)
 #
 # Indexes
 #

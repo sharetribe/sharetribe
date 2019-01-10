@@ -330,7 +330,7 @@ en:
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
       menu_links:
-        menu_links: "Menu links"
+        menu_links: "Custom menu links"
         save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
@@ -343,6 +343,15 @@ en:
         all: All
         max_number_of_links_info: "Link to %{about_page} is always displayed as the first menu link"
         about_page: "about page"
+      default_menu_links:
+        title: "Default menu links"
+        about_link_title: "About"
+        contact_link_title: "Contact us"
+        invite_link_title: "Invite new members"
+        info: "By default, the links to the following pages are not displayed anywhere else in your marketplace: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Display link to <i>About</i> and other static pages (first position)"
+        display_contact: "Display link to <i>Contact us</i> page in top bar (second to last position)"
+        display_invite: "Display link to <i>Invite new members</i> page in top bar (last position)"
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Post a new listing button text"
