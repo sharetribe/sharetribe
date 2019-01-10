@@ -280,6 +280,12 @@ az-AZ:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -322,6 +328,15 @@ az-AZ:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -400,6 +415,10 @@ az-AZ:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -478,6 +497,8 @@ az-AZ:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1876,6 +1897,7 @@ az-AZ:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: "Günlərin sayı:"
@@ -2145,6 +2167,8 @@ az-AZ:
       show_all_listings: "Bütün elanları göstər"
       show_all_open_listings: "Bütün aktiv elanları göstər"
       show_all_reviews: "Bütün şərhləri göstər"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Siz %{count} istifadəçi zləyirsiniz"
       you_follow_singular: "Siz %{count} istifadəçi izləyirsiniz"
@@ -2270,6 +2294,7 @@ az-AZ:
       invisible: "(digər istifadəçilərə göstərilmir)"
       image_is_processing: "Gözləyin. Profil şəklinizi bir dəqiqənin içində hazır olacaq."
       shown_in_your_public_profile: "(ictimai profilinizdə göstərilir)"
+      editing_profile_of: ~
     save_information: "Məlumatı yadda saxla"
   shipping_address:
     shipping_address: "Çatdırılma ünvanı"

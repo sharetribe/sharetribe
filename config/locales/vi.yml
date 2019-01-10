@@ -290,6 +290,12 @@ vi:
         social_media: "Mạng xã hội"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Tài khoản Twitter"
         twitter_handle_info_text: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng."
         twitter_handle_info_text_with_instructions: "Tên tài khoản Twitter cho chợ điện tử của bạn (nếu có). Tên này dùng cho nút tweet trong trang bài đăng. %{instructions_link}."
@@ -488,6 +494,8 @@ vi:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1900,6 +1908,7 @@ vi:
       community_not_configured_for_payments: "%{service_name} chưa được định cấu hình nhận thanh toán, vì vậy bạn không thể đăng bài mới. Vui lòng %{contact_admin_link} để được hỗ trợ."
       payment_settings_link: "Cài đặt thanh toán"
       community_not_configured_for_payments_admin: "%{service_name} chưa được cấu hình thanh toán vì vậy bạn không thể đăng bài mới. Truy cập %{payment_settings_link} để điền các thông tin cần thiết."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Số giờ:"
       day: "Số ngày"
@@ -2167,6 +2176,8 @@ vi:
       show_all_listings: "Hiện tất cả sản phẩm/dịch vụ đang bán"
       show_all_open_listings: "Hiện tất cả các bài đăng đang mở"
       show_all_reviews: "Hiện tất cả phản hồi"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Bạn theo dõi %{count} người"
       you_follow_singular: "Bạn theo dõi %{count} người"
@@ -2292,6 +2303,7 @@ vi:
       invisible: "(Không hiển thị cho người dùng khác)"
       image_is_processing: "Xin chờ. Chúng tôi đang xử lý ảnh tiểu sử của bạn. Nó sẽ được sẵn sàng trong một hoặc hai phút."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Lưu thông tin"
   shipping_address:
     shipping_address: "Địa chỉ giao hàng"

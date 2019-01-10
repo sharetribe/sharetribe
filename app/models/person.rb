@@ -360,22 +360,18 @@ class Person < ApplicationRecord
     listings.requests
   end
 
-  # The percentage of received testimonials with positive grades
-  # (grades between 3 and 5 are positive, 1 and 2 are negative)
   def feedback_positive_percentage_in_community(community)
-    # NOTE the filtering with communinity can be removed when
-    # user accounts are no more shared among communities
-    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(self, community)
-    positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(self, community)
-    negative_testimonials = TestimonialViewUtils.received_negative_testimonials_in_community(self, community)
+    received = received_testimonials.by_community(community)
+    positive = received_positive_testimonials.by_community(community)
+    negative = received_negative_testimonials.by_community(community)
 
-    if positive_testimonials.size > 0
-      if negative_testimonials.size > 0
-        (positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
+    if positive.size > 0
+      if negative.size > 0
+        (positive.size.to_f/received.size.to_f*100).round
       else
         return 100
       end
-    elsif negative_testimonials.size > 0
+    elsif negative.size > 0
       return 0
     end
   end

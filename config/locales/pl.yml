@@ -305,6 +305,12 @@ pl:
         social_media: "Media społecznościowe"
         logo: logo
         logo_info: "To zdjęcie jest używane kiedy ktoś udostępnia Twoją strona w social media (Facebook, Twitter, Linkedin). Dla Lepszego rezultatu powinno mieć rozmiar : 2:1, a minimalny rozmiar %{width} x %{height} px"
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Obsługa Twitter"
         twitter_handle_info_text: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty."
         twitter_handle_info_text_with_instructions: "Nazwa konta Twitter Twojej platformy (jeśli takie masz). Będzie wspomniana gdy ludzie użyją przycisku \"Tweet\" na stronie oferty. %{instructions_link}"
@@ -503,6 +509,8 @@ pl:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1926,6 +1934,7 @@ pl:
       community_not_configured_for_payments: "%{service_name} nie został jeszcze skonfigurowany dla płatności, więc nie możesz jeszcze umieszczać nowych ofert. Proszę %{contact_admin_link} aby uzyskać więcej informacji."
       payment_settings_link: "ustawienia płatności"
       community_not_configured_for_payments_admin: "%{service_name} nie został jeszcze skonfigurowany dla płatności, więc nie możesz jeszcze umieszczać nowych ofert. Idź do %{payment_settings_link} aby wypełnić szczegóły dotyczące płatności."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Liczba godzin:"
       day: "Liczba dni:"
@@ -2198,6 +2207,8 @@ pl:
       show_all_listings: "Pokaż wszystkie oferty"
       show_all_open_listings: "Pokaż wszystkie otwarte oferty"
       show_all_reviews: "Pokaż wszystkie recenzje"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Śledzisz %{count} ludzi"
       you_follow_singular: "Śledzisz %{count} osób"
@@ -2323,6 +2334,7 @@ pl:
       invisible: "(nie widoczne dla innych użytkowników)"
       image_is_processing: "Trzymaj się mocno. Przetwarzamy właśnie Twoje zdjęcie profilowe. Będzie gotowe za minutę lub dwie."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Zapisz informacje"
   shipping_address:
     shipping_address: "Adres dostawy"

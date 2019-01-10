@@ -300,6 +300,12 @@ sk-SK:
         social_media: "Sociálne médiá"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter účet"
         twitter_handle_info_text: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorý používajú Twitter tlačítko stránke."
         twitter_handle_info_text_with_instructions: "Užívateľské meno Twitter účtu Vašeho trhoviska (pokiaľ nejaké máte). To sa zobrazí ľuďom, ktorí používajú Twitter tlačítko na stránke. %{instructions_link}."
@@ -498,6 +504,8 @@ sk-SK:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1918,6 +1926,7 @@ sk-SK:
       community_not_configured_for_payments: "%{service_name} ešte nebol nakonfigurovaný pre platby, takže ešte nemôžete pridávať nové inzeráty. Prosíme, %{contact_admin_link} pre viac informácií."
       payment_settings_link: "nastavenia platieb"
       community_not_configured_for_payments_admin: "%{service_name} ešte nebol nakonfigurovaný pre platby, takže ešte nemôžete pridávať nové inzeráty. Choďte na %{payment_settings_link} a vyplňte podrobnosti o platbách."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Počet hodín:"
       day: "Počet dní:"
@@ -2189,6 +2198,8 @@ sk-SK:
       show_all_listings: "Zobraz všetky inzeráty"
       show_all_open_listings: "Zobraziť všetky otvorené inzeráty"
       show_all_reviews: "Zobraziť všetky hodnotenia"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Sledujete %{count} ľudí"
       you_follow_singular: "Sledujete %{count} osôb"
@@ -2314,6 +2325,7 @@ sk-SK:
       invisible: "(nezobrazuje sa ostatným užívateľom)"
       image_is_processing: "Váš profilový obrázok sa práve generuje, bude o chvíľu hotový."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Ulož informácie"
   shipping_address:
     shipping_address: "Adresa doručenia"

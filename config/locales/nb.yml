@@ -295,6 +295,12 @@ nb:
         social_media: "Sosiale medier"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitternavn
         twitter_handle_info_text: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden."
         twitter_handle_info_text_with_instructions: "Twitternavn til din markedsplass (hvis du har). Det vil bli mentioned når brukere bruker tweet-knappen på annonsesiden. %{instructions_link}."
@@ -493,6 +499,8 @@ nb:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1908,6 +1916,7 @@ nb:
       community_not_configured_for_payments: "%{service_name} har ikke blitt konfigurert for betalinger så du kan ikke opprette annonser enda. Vennligst %{contact_admin_link} for mer detaljer."
       payment_settings_link: "Innstillinger betaling"
       community_not_configured_for_payments_admin: "%{service_name} har ikke blitt konfigurert for betalinger, så du kan ikke opprette annonser enda. Gå til %{payment_settings_link} for å fylle inn utbetalingsdetaljer."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Antall timer:"
       day: "Antall dager:"
@@ -2178,6 +2187,8 @@ nb:
       show_all_listings: "Vis alle annonser"
       show_all_open_listings: "Vis alle åpne annonser"
       show_all_reviews: "Vis alle vurderinger"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Du følger %{count} brukere"
       you_follow_singular: "Du følger %{count} bruker"
@@ -2303,6 +2314,7 @@ nb:
       invisible: "(vises ikke til andre brukere)"
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Lagre innstillinger"
   shipping_address:
     shipping_address: Leveringsadresse

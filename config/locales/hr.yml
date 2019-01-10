@@ -286,6 +286,12 @@ hr:
         social_media: "Društvene mreže"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter oznaka"
         twitter_handle_info_text: "Korisničko ime Twitter računa od vašeg marketplacea (ako imate svoj marketplace). Biti će spomenuto kada će ljudi koristiti tweet gumb na stranici oglasa."
         twitter_handle_info_text_with_instructions: "Korisničko ime Twitter računa od vašeg marketplacea (ako imate svoj marketplace). Biti će spomenuto kada će ljudi koristiti tweet gumb na stranici oglasa. %{instructions_link}."
@@ -484,6 +490,8 @@ hr:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1890,6 +1898,7 @@ hr:
       community_not_configured_for_payments: "%{service_name} nije konfiguriran za plaćnja i zato još uvijek ne možete postaviti nove oglase. Molimo %{contact_admin_link} za detalje."
       payment_settings_link: "postavke plaćanja"
       community_not_configured_for_payments_admin: "%{service_name} nije podešen za plaćanja i zato još uvijek ne možete postaviti nove oglase. Molimo otiđite %{payment_settings_link} kako bi upisali detalje plaćanja."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Broj sati"
       day: "Broj dana:"
@@ -2160,6 +2169,8 @@ hr:
       show_all_listings: "Prikaži sve oglase"
       show_all_open_listings: "Prikaži sve otvorene oglase"
       show_all_reviews: "Prikaži sve recenzije"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Pratite %{count} ljudi"
       you_follow_singular: "Pratite %{count} osobu"
@@ -2285,6 +2296,7 @@ hr:
       invisible: "(nije prikazano ostalim korisnicima)"
       image_is_processing: "Molimo za strpljenje. Obrađujemo vašu profilnu sliku. Biti će spremna za minutu ili dvije."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Spremite informacije"
   shipping_address:
     shipping_address: "Adresa isporuke"

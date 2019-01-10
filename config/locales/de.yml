@@ -275,15 +275,15 @@ de:
           admin: Administrator
           banned: Gesperrt
           posting_allowed: "Veröffentlichen von Einträgen erlaubt"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
-        this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
-        user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+          accepted: Genehmigt
+          unconfirmed: Unbestätigt
+          pending: Ausstehend
+        this_user_hasnt_confirmed_their_email_address: "Dieser Benutzer hat nicht seine/ihre E-Mail-Adresse bestätigt. Möglicherweise hat er/sie die Bestätigungsmail nicht bekommen. Klicke bitte auf 'Erneut senden' om du sie erneut senden möchtest."
+        unconfirmed_user: "Unbestätigter Benutzer: %{name}"
+        resend: "Erneut senden"
+        cancel: Abbrechen
+        user_didnt_complete_the_signup_process: "Der/Die Benutzer registrierte sich mit Facebook, hat aber nicht den Registrierungsprozess beendet. Nachdem man sich mit Facebook registriert, muss man noch die Nutzungsbedingungen akzeptieren und die Benutzerfelder ausfüllen."
+        pending_user: "Ausstehend: %{name}"
       new_layout:
         new_layout: "Neues Layout"
         description_roadmap_new: "Sobald neue Layout-Komponenten für deinen Marktplatz verfügbar sind, kannst du wählen, ob du die neue Komponente verwenden möchtest, oder ob du weiterhin die alte verwenden willst. Du kannst die Auswahl auf dieser Seite jederzeit ändern. Es ist empfohlen, jederzeit die neuen Komponente zu verwenden, denn die alten Komponente können in der Zukunft auslaufen. Wenn eine Komponente, die du verwendest, auslaufen wird, werden wir jedoch dir im Voraus natürlich eine Nachricht schicken."
@@ -295,6 +295,12 @@ de:
         social_media: "Social media"
         logo: Logo
         logo_info: "Dieses Bild wird auf soziale Netzwerke (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
+        social_media_title: "Soziale Netzwerke -Titel"
+        social_media_title_info: "Dieser Text wird auf den sozialen Netzwerken Facebook, Twitter, und Linkedin angezeigt, wenn jemand deinen Marktplatz teilt. Du kannst eine Vorschau ansehen %{facebook_preview_link}, %{twitter_preview_link} und %{linkedin_preview_link}."
+        link_for_facebook: "für Facebook"
+        link_for_linkedin: "für Linkedin"
+        link_for_twitter: "für Twitter"
+        social_media_description: "Soziales Netzwerk -Beschreibung"
         twitter_handle: Twittername
         twitter_handle_info_text: "Der Twitter Nutzername deines Marktplatzes (wenn du einen hast). Er wird genannt, wenn jemand den Tweet Button in einem Angebot nutzt."
         twitter_handle_info_text_with_instructions: "Der Twitter Nutzername deines Marktplatzes (wenn Du einen hast). Er wird genannt, wenn jemand den Tweet Button auf einer Eintrag-Seite klickt. %{instructions_link}."
@@ -337,6 +343,15 @@ de:
         all: Alle
         max_number_of_links_info: "Der Link zu %{about_page} wird immer als der erste Menu-Link angezeigt."
         about_page: "Über uns Seite"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
@@ -415,6 +430,10 @@ de:
           other_party: "Anderer Beteiligter"
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Bewertungen
         no_testimonials_found: "Keine Bewertungen gefunden."
@@ -441,16 +460,16 @@ de:
           deleting_info: "Wird die Bewertung gelöscht, kann der/die Käufer/in eine neue Bewertung für dieselbe Transaktion schreiben."
           blocking_info: "Wird die Bewertung gesperrt, kann der/die Käufer/in nicht mehr eine neue Bewertung für dieselbe Transaktion schreiben."
       invitations:
-        invitations: ~
+        invitations: Einladungen
         used:
-          "yes": ~
-          "no": ~
+          "yes": Ja
+          "no": Nein
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Gesendet von"
+          message: Nachricht
+          sent_to: "Gesendet an"
+          used: Verwendet
+          date_sent: Sendungsdatum
       listings:
         listings: Einträge
         search_by_title_author_category: "Nach dem Titel oder Autor des Eintrags, oder Kategoriename suchen"
@@ -488,11 +507,13 @@ de:
         footer_copyright: "Urheberrecht (Fußzeilentext)"
         footer_enabled: "Fußzeile aktiviert"
         social_links: "Sozial-Links der Fußzeile"
-        title_placeholder: ~
-        url_placeholder: ~
+        title_placeholder: "Link Titel"
+        url_placeholder: "http://beispiel.com/benutzername"
         style:
           dark: Dunkel
           light: Hell
+          marketplace_color: "Farbe des Marktplatzes"
+          logo: Logo
         social:
           title: Titel
           url: URL
@@ -1344,7 +1365,7 @@ de:
       after: "muss nach %{restriction} sein"
       on_or_after: "muss genau oder nach %{restriction} sein"
       positive_number: "Bitte eine Zahl eingeben."
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "\"Startzeit\" muss vor der \"Endzeit\" sein"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} hat zugestimmt %{listing_title} an %{requester_name}% zu verleihen vor {time_ago}."
@@ -1629,7 +1650,7 @@ de:
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       listing_updated_availability_management_enabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung aktiviert."
       listing_updated_availability_management_disabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung deaktiviert."
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Bitte mit einem Administratorkonto einloggen, um diesen Bereich zu betreten"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
       payment_successful: "erfolgreiche Bezahlung"
@@ -1912,6 +1933,7 @@ de:
       community_not_configured_for_payments: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Bitte kontaktiere %{contact_admin_link} für Einzelheiten."
       payment_settings_link: Zahlungseinstellungen
       community_not_configured_for_payments_admin: "%{service_name} wurde nicht für Zahlungen konfiguriert, deswegen kannst Du keine Angebote veröffentlichen. Gehe zu %{payment_settings_link} um die Zahlungsangaben einzutragen."
+      you_are_now_posting_a_listing_on_behalf_of: "Du veröffentlichst jetzt einen Eintrag im Auftrag von %{name}"
     quantity:
       hour: "Anzahl Stunden:"
       day: "Anzahl Tage:"
@@ -2182,6 +2204,8 @@ de:
       show_all_listings: "Alle Einträge anzeigen"
       show_all_open_listings: "Zeige alle offenen Einträge an"
       show_all_reviews: "Alle Bewertungen anzeigen"
+      admin_actions: Admin-Maßnahmen
+      post_listing_as: "Eintrag veröffentlichen als"
     followed_people:
       you_follow_plural: "Du folgst %{count} Personen"
       you_follow_singular: "Du folgst %{count} Person"
@@ -2307,6 +2331,7 @@ de:
       invisible: "(wird anderen Benutzern nicht angezeigt)"
       image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
       shown_in_your_public_profile: "(wird im öffentlichen Profil angezeigt)"
+      editing_profile_of: "Du bearbeitest jetzt das Profil von %{name}"
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse
@@ -2559,8 +2584,16 @@ de:
       multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{count}</b> gesamt wird dargestellt"
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        single_page:
+          zero: "Keine %{model} gefunden"
+          one: "%{accepted_count} genehmigter %{accepted_model} und %{other_count} anderer %{other_model} werden angezeigt"
+          other: "%{accepted_count} genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
+        single_page_html:
+          zero: "Keine %{model} gefunden"
+          one: "<b>%{accepted_count} </b> genehmigter %{accepted_model} und %{other_count} anderer %{other_model} werden angezeigt"
+          other: "<b>%{accepted_count} </b> genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
+        multi_page: "%{model} %{from} - %{to} von %{accepted_count} genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
+        multi_page_html: "%{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> von <b>%{accepted_count}</b> genehmigte %{accepted_model} und %{other_count} andere %{other_model} werden angezeigt"
   stripe_accounts:
     admin_account_not_connected: "Die Nutzung des Zahlungssystem von %{service_name} zum Empfang von Zahlungen ist nicht möglich, da es noch nicht konfiguriert wurde. Bitte %{contact_admin_link} für Details."
     contact_admin_link_text: "kontaktiere den Administrator von %{service_name}"

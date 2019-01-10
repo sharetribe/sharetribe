@@ -290,6 +290,12 @@ zh-HK:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: 當人們使用信息頁面上的tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。
         twitter_handle_info_text_with_instructions: "當人們使用信息頁面上的Tweet按鈕時，你的集市Twitter帳號的用戶名（如果你有的話）將被提及。%{instructions_link}"
@@ -488,6 +494,8 @@ zh-HK:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1894,6 +1902,7 @@ zh-HK:
       community_not_configured_for_payments: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息，請到%{contact_admin_link}查詢詳情。"
       payment_settings_link: 付款設置
       community_not_configured_for_payments_admin: "%{service_name}未有配置支付方式，所以你不能發佈新的訊息。請到%{payment_settings_link}填寫詳細的付款詳情。"
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: 小時：
       day: 日：
@@ -2163,6 +2172,8 @@ zh-HK:
       show_all_listings: 顯示所有已發布的訊息
       show_all_open_listings: 顯示所有公開訊息
       show_all_reviews: 展示所有評價
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "你關注了%{count}個人"
       you_follow_singular: "你關注了%{count}個人"
@@ -2288,6 +2299,7 @@ zh-HK:
       invisible: （不顯示给其他用户）
       image_is_processing: "我們正在處理你的個人頭像, 請於稍後時間重新整理頁面  "
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: 保存訊息
   shipping_address:
     shipping_address: ~

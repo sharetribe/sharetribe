@@ -280,6 +280,12 @@ ar:
         social_media: "وسائل التواصل الاجتماعي"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -322,6 +328,15 @@ ar:
         all: "إظهار الكل"
         max_number_of_links_info: ~
         about_page: نبذة
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "القائمة العلوية"
         new_listing_button_label: "أدخل نص جديد لزر الإضافة الجديدة"
@@ -400,6 +415,10 @@ ar:
           other_party: "الجهة الأخرى"
         participants: "‎%{author}‎ مع ‎%{starter}‎ :المحادثه"
         profile: "الشخصي ‎%{author}‎‎ ملف"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -478,6 +497,8 @@ ar:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1896,6 +1917,7 @@ ar:
       community_not_configured_for_payments: ~
       payment_settings_link: "إعدادات طريقة الدفع"
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ":عدد الساعات"
       day: "عدد الأيام:"
@@ -2165,6 +2187,8 @@ ar:
       show_all_listings: "أظهر كل الإعلانات"
       show_all_open_listings: "أظهر كل الإعلانات المفتوحة"
       show_all_reviews: "أظهر كل المراجعات"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "من الأشخاص ‎%{count}‎ أنت تتابع"
       you_follow_singular: "شخص ‎%{count}‎ أنت تتابع"
@@ -2290,6 +2314,7 @@ ar:
       invisible: "غير مرئي للمشتركين الآخرين"
       image_is_processing: ~
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "حفظ المعلومات"
   shipping_address:
     shipping_address: "عنوان الشحن"

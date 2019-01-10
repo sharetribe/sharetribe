@@ -1,12 +1,11 @@
 class PeopleController < Devise::RegistrationsController
-  class PersonDeleted < StandardError; end
-  class PersonBanned < StandardError; end
-
   skip_before_action :verify_authenticity_token, :only => [:creates]
   skip_before_action :require_no_authentication, :only => [:new]
 
   before_action EnsureCanAccessPerson.new(
-    :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: [:update, :destroy]
+    :id, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: :destroy
+  before_action EnsureCanAccessPerson.new(
+    :id, allow_admin: true, error_message_key: "layouts.notifications.you_are_not_authorized_to_view_this_content"), only: :update
 
   LOOSER_ACCESS_CONTROL = [
     :check_email_availability,
@@ -22,56 +21,10 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
-    @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
-    raise PersonDeleted if @person.deleted?
-    raise PersonBanned if @person.banned?
-
+    @service = Person::ShowService.new(community: @current_community, params: params, current_user: @current_user)
+    @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
-    @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
-
-    include_closed = @current_user == @person && params[:show_closed]
-    search = {
-      author_id: @person.id,
-      include_closed: include_closed,
-      page: 1,
-      per_page: 6
-    }
-
-    includes = [:author, :listing_images]
-    raise_errors = Rails.env.development?
-
-    listings =
-      ListingIndexService::API::Api
-      .listings
-      .search(
-        community_id: @current_community.id,
-        search: search,
-        engine: FeatureFlagHelper.search_engine,
-        raise_errors: raise_errors,
-        includes: includes
-      ).and_then { |res|
-      Result::Success.new(
-        ListingIndexViewUtils.to_struct(
-        result: res,
-        includes: includes,
-        page: search[:page],
-        per_page: search[:per_page]
-      ))
-    }.data
-
-    received_testimonials = TestimonialViewUtils.received_testimonials_in_community(@person, @current_community)
-    received_positive_testimonials = TestimonialViewUtils.received_positive_testimonials_in_community(@person, @current_community)
-    feedback_positive_percentage = @person.feedback_positive_percentage_in_community(@current_community)
-    community_person_custom_fields = @current_community.person_custom_fields.is_public
-
-    render locals: { listings: listings,
-                     followed_people: @person.followed_people,
-                     received_testimonials: received_testimonials,
-                     received_positive_testimonials: received_positive_testimonials,
-                     feedback_positive_percentage: feedback_positive_percentage,
-                     community_person_custom_fields: community_person_custom_fields
-                   }
   end
 
   def new
@@ -222,6 +175,9 @@ class PeopleController < Devise::RegistrationsController
 
   def update
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
+    if @current_user != target_user
+      logger.info "ADMIN ACTION: admin='#{@current_user.id}' update person='#{target_user.id}' params=#{params.inspect}"
+    end
     # If setting new location, delete old one first
     if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
@@ -239,7 +195,7 @@ class PeopleController < Devise::RegistrationsController
     target_user.set_emails_that_receive_notifications(params[:person][:send_notifications])
 
     begin
-      person_params = person_update_params(params)
+      person_params = person_update_params(params, target_user)
 
       Maybe(person_params)[:location].each { |loc|
         person_params[:location] = loc.merge(location_type: :person)
@@ -254,7 +210,7 @@ class PeopleController < Devise::RegistrationsController
       if target_user.update_attributes(person_params.except(:email_attributes))
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
-          sign_in target_user, :bypass => true
+          bypass_sign_in(target_user)
         end
 
         m_email_address.each {
@@ -411,8 +367,8 @@ class PeopleController < Devise::RegistrationsController
     )
   end
 
-  def person_update_params(params)
-    params.require(:person).permit(
+  def restricted_for_admin_update_permit
+    [
       :given_name,
       :family_name,
       :display_name,
@@ -420,10 +376,25 @@ class PeopleController < Devise::RegistrationsController
       :phone_number,
       :image,
       :description,
+      location: [:address, :google_address, :latitude, :longitude],
+      custom_field_values_attributes: [
+        :id,
+        :type,
+        :custom_field_id,
+        :person_id,
+        :text_value,
+        :numeric_value,
+        :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
+        selected_option_ids: []
+      ]
+    ]
+  end
+
+  def person_update_permit
+    [
       :password,
       :password2,
       :min_days_between_community_updates,
-      location: [:address, :google_address, :latitude, :longitude],
       send_notifications: [],
       email_attributes: [:address],
       preferences: [
@@ -439,18 +410,16 @@ class PeopleController < Devise::RegistrationsController
         :email_about_new_payments,
         :email_about_new_listings_by_followed_people,
         :empty_notification
-      ],
-      custom_field_values_attributes: [
-        :id,
-        :type,
-        :custom_field_id,
-        :person_id,
-        :text_value,
-        :numeric_value,
-        :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
-        selected_option_ids: []
       ]
-    )
+    ]
+  end
+
+  def person_update_params(params, target_user)
+    permit_values = restricted_for_admin_update_permit
+    if @current_user == target_user
+      permit_values += person_update_permit
+    end
+    params.require(:person).permit(permit_values)
   end
 
   def email_not_valid(params, error_redirect_path)

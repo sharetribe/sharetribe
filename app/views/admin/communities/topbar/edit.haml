@@ -14,7 +14,11 @@
 
     = render partial: "new_listing_button", locals: { show_locales: show_locales }
 
+    = render partial: "default_menu_links"
+
     = render partial: "menu_links", locals: { community: community, show_locales: show_locales, limit_priority_links: limit_priority_links, limit_priority_links_options: limit_priority_links_options, limit_priority_links_selected: limit_priority_links_selected }
+
+    = render partial: "logo_link"
 
     .row
       .col-12

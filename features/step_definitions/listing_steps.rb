@@ -233,3 +233,9 @@ Then(/^(?:|I )should see payment logos$/) do
   expect(page).to have_css('.submit-payment-form-link')
 end
 
+Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
+  listing = Listing.find_by(title: title)
+  author = Person.find_by(username: username)
+  expect(listing.author).to eq author
+end
+

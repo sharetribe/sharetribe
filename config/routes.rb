@@ -446,6 +446,9 @@ Rails.application.routes.draw do
             put :move_to_top
             put :show_in_updates_email
           end
+          collection do
+            get :new_form_content
+          end
         end
         resources :person_messages
 

@@ -20,6 +20,38 @@
         = logo_form.label :image, t('admin.communities.social_media.add_another_image')
         = logo_form.file_field(:image, :class => "file-field-button")
     .row
+      %h3= t(".social_media_title")
+      - facebook_preview_link = link_to(t('admin.communities.social_media.link_for_facebook'), 'https://developers.facebook.com/tools/debug/', target: '_blank')
+      - linkedin_preview_link = link_to(t('admin.communities.social_media.link_for_linkedin'), 'https://www.linkedin.com/post-inspector/', target: '_blank')
+      - twitter_preview_link = link_to(t('admin.communities.social_media.link_for_twitter'), 'https://cards-dev.twitter.com/validator', target: '_blank')
+      - info_text = t('admin.communities.social_media.social_media_title_info', :facebook_preview_link => facebook_preview_link, :linkedin_preview_link => linkedin_preview_link, :twitter_preview_link => twitter_preview_link).html_safe
+      - sorted_customizations = customizations_sorted_by_locale
+
+      .translation-wrapper
+        = render partial: "layouts/info_text", locals: {text: info_text}
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :social_media_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :social_media_title, placeholder:  "#{@community.full_name(locale)} - #{community_slogan}", class: "text_field"
+
+    .row
+      %h3= t(".social_media_description")
+      .translation-wrapper
+        = render partial: "layouts/info_text", locals: {text: info_text}
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :social_media_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :social_media_description, placeholder:  "#{community_description(false)} - #{community_slogan}", class: "text_field"
+
+    .row
       %h3= t(".twitter_handle")
     .row
       .col-6

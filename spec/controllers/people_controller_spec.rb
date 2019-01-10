@@ -380,6 +380,114 @@ describe PeopleController, type: :controller do
     end
   end
 
+  describe "#show" do
+    let(:community) do
+      community = FactoryGirl.create(:community)
+      FactoryGirl.create(:custom_text_field, community: community,
+                                             public: true, entity_type: :for_person)
+      community
+    end
+    let(:person1) do
+      person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 0)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 1)
+      FactoryGirl.create(:testimonial, tx: FactoryGirl.create(:transaction, community: community),
+                                       receiver: person, grade: 1)
+      followed_person = FactoryGirl.create(:person, member_of: community, community_id: community.id)
+      followed_person.followers << person
+      person
+    end
+    let(:person2) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
+    let(:person3) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
+
+    it 'works' do
+      community_host(community)
+      get :show, params: {username: person1.username}
+      service = assigns(:service)
+      expect(service.person).to eq person1
+      expect(service.received_testimonials?).to eq true
+      expect(service.received_testimonials.count).to eq 3
+      expect(service.received_positive_testimonials.count).to eq 2
+      expect(service.feedback_positive_percentage).to eq 67
+      expect(service.community_person_custom_fields.count).to eq 1
+      expect(service.followed_people.count).to eq 1
+    end
+  end
+
+  describe "#update" do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:field1) do
+      FactoryGirl.create(:custom_numeric_field, community: community, entity_type: :for_person)
+    end
+    let(:admin) {
+      FactoryGirl.create(:person, member_of: community,
+                                  member_is_admin: true,
+                                  community_id: community.id)
+    }
+    let(:person) do
+      person = FactoryGirl.create(:person, member_of: community,
+                                           community_id: community.id,
+                                           username: 'louisemorris',
+                                           given_name: 'Louise',
+                                           family_name: 'Morris',
+                                           display_name: 'Morris Ltd'
+                                          )
+      person.custom_field_values << FactoryGirl.create(:custom_numeric_field_value,
+                                                       question: field1,
+                                                       listing: nil,
+                                                       numeric_value: 77)
+      person
+    end
+
+    it 'person updates itself' do
+      sign_in_for_spec(person)
+      community_host(community)
+      expect(person.custom_field_value_for(field1).display_value).to eq 77
+      value_id = person.custom_field_value_for(field1).id
+      patch :update, params: {
+        id: 'louisemorris',
+        person: { password: "12345678", password2: "12345678",
+                  given_name: "Norma", family_name: "Scott", display_name: 'Scott Ltd',
+                  custom_field_values_attributes: [
+                    {id: value_id, type: "#{field1.class}Value", custom_field_id: field1.id, numeric_value: '22' },
+                  ]
+      },
+        community: "test"
+      }
+      person.reload
+      expect(person.valid_password?('12345678')).to eq true
+      expect(person.given_name).to eq "Norma"
+      expect(person.family_name).to eq "Scott"
+      expect(person.display_name).to eq "Scott Ltd"
+      expect(person.custom_field_value_for(field1).display_value).to eq 22
+    end
+
+    it 'person updated by admin' do
+      allow(FeatureFlagHelper).to receive(:feature_flags).and_return([:admin_acts_as_user])
+      sign_in_for_spec(admin)
+      community_host(community)
+      expect(person.custom_field_value_for(field1).display_value).to eq 77
+      value_id = person.custom_field_value_for(field1).id
+      patch :update, params: {
+        id: 'louisemorris',
+        person: {
+                  given_name: "Norma", family_name: "Scott", display_name: 'Scott Ltd',
+                  custom_field_values_attributes: [
+                    {id: value_id, type: "#{field1.class}Value", custom_field_id: field1.id, numeric_value: '22' },
+                  ]
+      },
+        community: "test"
+      }
+      person.reload
+      expect(person.given_name).to eq "Norma"
+      expect(person.family_name).to eq "Scott"
+      expect(person.display_name).to eq "Scott Ltd"
+      expect(person.custom_field_value_for(field1).display_value).to eq 22
+    end
+
+  end
 
   def community_host(community)
     @request.host = "#{community.ident}.lvh.me"

@@ -12,7 +12,7 @@ en:
       index:
         listing_categories: "Listing categories"
         create_a_new_category: "+ Create a new category"
-        remove_category_confirmation: "Are you sure you want to remove category '%{category_name}'?"
+        remove_category_confirmation: "Are you sure you want to remove the category '%{category_name}'? This cannot be undone."
         saving_order: "Saving category order"
         save_order_successful: "Successfully saved category order"
         save_order_error: "An error occurred while saving category order. Please refresh the page and try again."
@@ -104,7 +104,7 @@ en:
         small_community_cover_photo: "Small cover photo"
         favicon: Favicon
         favicon_info_text: "Favicon will replace the default Sharetribe logo. The dimensions should be 32x32 pixels and the uploaded image will be resized to these dimensions."
-        community_custom_color1: "Main color"
+        community_custom_color1: "Marketplace main color"
         community_slogan_color: "Marketplace slogan color"
         community_slogan_color_instructions_text: "You can change the color of the slogan on the homepage by entering a hex color value. The slogan is shown to users that are not logged in. %{colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here. %{see_how_it_looks_like}."
         community_description_color: "Marketplace description color"
@@ -120,7 +120,7 @@ en:
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
-        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
+        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
         new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
@@ -293,15 +293,21 @@ en:
         searchpage: "New search page (requires the new top bar)"
       social_media:
         social_media: "Social media"
-        logo: Logo
-        logo_info: "This image will be shown in social media (Facebook, Twitter, LinkedIn) when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
+        logo: "Social media image"
+        logo_info: "This image will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. For the best results, it should have a 2:1 aspect ratio and a minimum size of %{width}x%{height} pixels."
+        social_media_title: "Social media title"
+        social_media_title_info: "This text will be shown in social media for Facebook, for Twitter, and for LinkedIn when someone shares your website. You can preview how it looks %{facebook_preview_link}, %{twitter_preview_link} and %{linkedin_preview_link}."
+        link_for_facebook: "for Facebook"
+        link_for_linkedin: "for LinkedIn"
+        link_for_twitter: "for Twitter"
+        social_media_description: "Social media description"
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page."
         twitter_handle_info_text_with_instructions: "Username of the Twitter account of your marketplace (if you have one). It will be mentioned when people use the tweet button on the listing page. %{instructions_link}."
         twitter_instructions_link_text: "Read more"
         twitter_handle_placeholder: username
         invalid_twitter_handle: "Twitter handle should contain only at maximum 15 alphanumeric (letters A-Z and numbers 0-9) characters."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "In order to enable Facebook Login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here."
         facebook_connect_info_text_with_instructions: "In order to enable Facebook Login, create an application for your marketplace in the <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Add the generated id and secret key of the application here. %{instructions_link}"
         facebook_instructions_link_text: "See instructions for configuring Facebook Connect."
@@ -323,12 +329,17 @@ en:
         sharetribe_analytics_instructions_link_text: "Read more about Sharetribe's analytics."
         end_user_analytics: "Allow Sharetribe to track members activity in order to improve Sharetribe's services"
         save: "Save settings"
+      logo_link:
+        title: "Logo link"
+        info: "You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page."
+        url: "URL"
+        placeholder: "https://www.example.com"
       menu_links:
-        menu_links: "Menu links"
+        menu_links: "Custom menu links"
         save: "Save settings"
         add_menu_link: "Add a new link to menu"
         title_placeholder: "Link title"
-        url_placeholder: "http://example.com/en"
+        url_placeholder: "https://example.com/en"
         title: Title
         language: Language
         url: URL
@@ -337,6 +348,15 @@ en:
         all: All
         max_number_of_links_info: "Link to %{about_page} is always displayed as the first menu link"
         about_page: "about page"
+      default_menu_links:
+        title: "Default menu links"
+        about_link_title: About
+        contact_link_title: "Contact us"
+        invite_link_title: "Invite new members"
+        info: "By default, the links to the following pages are not displayed anywhere else in your marketplace: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Display link to <i>About</i> and other static pages"
+        display_contact: "Display link to <i>Contact us</i> page"
+        display_invite: "Display link to <i>Invite new members</i> page"
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Post a new listing button text"
@@ -415,6 +435,10 @@ en:
           other_party: "Other party"
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
+        search_by_keyword: "Search for a name, email or keyword"
+        search: Search
+        reset_search: "Show all"
+        for_keyword: "for: <b>%{keyword}</b>"
       testimonials:
         testimonials: Reviews
         no_testimonials_found: "No reviews found"
@@ -489,10 +513,12 @@ en:
         footer_enabled: "Footer enabled"
         social_links: "Footer social links"
         title_placeholder: "Link title"
-        url_placeholder: "http://example.com/username"
+        url_placeholder: "https://example.com/username"
         style:
           dark: Dark
           light: Light
+          marketplace_color: "Marketplace Color"
+          logo: Logo
         social:
           title: Title
           url: URL
@@ -523,7 +549,7 @@ en:
         listing_fields: "Listing fields & filters"
         listing_fields_help: "Here you can edit the fields that users have to fill in when they create a new listing. Please note that some fields are predefined and cannot be edited."
         add_new_field: "Add new field:"
-        remove_field_confirmation: "Are you sure you want to remove field '%{field_name}'?"
+        remove_field_confirmation: "Are you sure you want to remove the field '%{field_name}' and all its data? This cannot be undone."
         cancel: Cancel
         save: Save
         field_title: "Field title"
@@ -1912,6 +1938,7 @@ en:
       community_not_configured_for_payments: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Please %{contact_admin_link} for details."
       payment_settings_link: "payment settings"
       community_not_configured_for_payments_admin: "%{service_name} hasn't been configured for payments, so you cannot post new listings yet. Go to %{payment_settings_link} to fill in the payment details."
+      you_are_now_posting_a_listing_on_behalf_of: "You are now posting a listing on behalf of %{name}"
     quantity:
       hour: "Number of hours:"
       day: "Number of days:"
@@ -2182,6 +2209,8 @@ en:
       show_all_listings: "Show all listings"
       show_all_open_listings: "Show all open listings"
       show_all_reviews: "Show all reviews"
+      admin_actions: "Admin actions"
+      post_listing_as: "Post listing as"
     followed_people:
       you_follow_plural: "You follow %{count} people"
       you_follow_singular: "You follow %{count} person"
@@ -2307,6 +2336,7 @@ en:
       invisible: "(not shown to other users)"
       image_is_processing: "Hang on tight. We are processing your profile picture. It will be ready in a minute or two."
       shown_in_your_public_profile: "(shown in your public profile)"
+      editing_profile_of: "You are now editing the profile of %{name}"
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"

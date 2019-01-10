@@ -296,6 +296,12 @@ hu:
         social_media: "Közösségi média"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter név"
         twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
         twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
@@ -494,6 +500,8 @@ hu:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1909,6 +1917,7 @@ hu:
       community_not_configured_for_payments: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. Kérjük vegye fel a kapcsolatot a rendszergazdával %{contact_admin_link} a részletekért."
       payment_settings_link: "Fizetési beállítások"
       community_not_configured_for_payments_admin: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. A fizetési információk kitöltéséhez kattintson ide: %{payment_settings_link}."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Órák száma:"
       day: "Napok száma:"
@@ -2180,6 +2189,8 @@ hu:
       show_all_listings: "Mutassa az összes hirdetést"
       show_all_open_listings: "Összes nyitott hirdetés mutatása"
       show_all_reviews: "Az összes értékelés megjelenítése"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Ön követ %{count} felhasználót"
       you_follow_singular: "Ön követ %{count} felhasználót"
@@ -2305,6 +2316,7 @@ hu:
       invisible: "(a többi felhasználó számára nem látható)"
       image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"

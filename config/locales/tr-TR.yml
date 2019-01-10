@@ -292,6 +292,12 @@ tr-TR:
         social_media: "Sosyal medya"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter aracı"
         twitter_handle_info_text: "Pazarınızın Twitter hesabının kullanıcı adı (mevcutsa). Kişiler listeleme sayfasındaki tweet butonunu kullandığında bahsedilecek."
         twitter_handle_info_text_with_instructions: "(Varsa) pazarınızın Twitter hesabının kullanıcı adı. Misafirler ilan sayfasındaki Twitter butonunu kullanınca görüntülenecektir. %{instructions_link}."
@@ -490,6 +496,8 @@ tr-TR:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1888,6 +1896,7 @@ tr-TR:
       community_not_configured_for_payments: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{contact_admin_link} ile detaylar için bağlantıya geçiniz."
       payment_settings_link: "ödeme ayarları"
       community_not_configured_for_payments_admin: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{payment_settings_link} adresine giderek gerekli ödeme alanlarını doldurunuz."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Aylık saat:"
       day: "Gün sayısı"
@@ -2157,6 +2166,8 @@ tr-TR:
       show_all_listings: "Tüm ilanları göster"
       show_all_open_listings: "Tüm açık ilanları göster"
       show_all_reviews: "Tüm yorumları göster"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "%{count} kişiyi takip ediyorsunuz"
       you_follow_singular: "%{count} kişiyi takip ediyorsunuz"
@@ -2282,6 +2293,7 @@ tr-TR:
       invisible: "(Diğer kullanıcılara gösterilmez.)"
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
+      editing_profile_of: ~
     save_information: "Bu bilgiyi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"

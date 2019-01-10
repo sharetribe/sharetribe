@@ -96,6 +96,7 @@
 #  footer_copyright                           :text(65535)
 #  footer_enabled                             :boolean          default(FALSE)
 #  hsts_max_age                               :integer
+#  logo_link                                  :string(255)
 #
 # Indexes
 #
@@ -150,6 +151,7 @@ class Community < ApplicationRecord
   accepts_nested_attributes_for :social_logo
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true
   accepts_nested_attributes_for :social_links, allow_destroy: true
+  accepts_nested_attributes_for :community_customizations
 
   after_create :initialize_settings
 
@@ -279,11 +281,11 @@ class Community < ApplicationRecord
 
   before_save :cache_previous_image_urls
 
-  FOOTER_DARK = 'dark'.freeze
-  FOOTER_LIGHT = 'light'.freeze
   FOOTER_THEMES = {
-    FOOTER_DARK => 0,
-    FOOTER_LIGHT => 1
+    FOOTER_DARK = 'dark'.freeze => 0,
+    FOOTER_LIGHT = 'light'.freeze => 1,
+    FOOTER_MARKETPLACE_COLOR = 'marketplace_color'.freeze => 2,
+    FOOTER_LOGO = 'logo'.freeze => 3
   }.freeze
   enum footer_theme: FOOTER_THEMES
 

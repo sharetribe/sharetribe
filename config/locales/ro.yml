@@ -300,6 +300,12 @@ ro:
         social_media: "Retele sociale"
         logo: ~
         logo_info: ~
+        social_media_title: "Titlu retele sociale"
+        social_media_title_info: "Acest text va fi afisat pe retelele sociale Facebook, Twitter si LinkedIn cand cineva distribuie site-ul tau. Poti sa previzualizezi aspectul %{facebook_preview_link}, %{twitter_preview_link} si %{linkedin_preview_link}."
+        link_for_facebook: "pentru Facebook"
+        link_for_linkedin: "pentru LinkedIn"
+        link_for_twitter: "pentru Twitter"
+        social_media_description: "Descriere retele sociale"
         twitter_handle: "Nume utilizator Twitter"
         twitter_handle_info_text: "Numele de utilizator al contului Twitter pentru platforma dumneavoastra (daca aveti unul). Va fi mentionat cand oamenii folosesc butonul de tweet pe pagina de afisari."
         twitter_handle_info_text_with_instructions: ~
@@ -498,6 +504,8 @@ ro:
         style:
           dark: ~
           light: ~
+          marketplace_color: "Culoarea marketplace-ului"
+          logo: Logo
         social:
           title: ~
           url: ~
@@ -727,7 +735,7 @@ ro:
       general_settings: ~
       connect_a_payment_provider: ~
       contact_support: ~
-      no_payments_link_text: ~
+      no_payments_link_text: aici
       your_country: ~
       you_cannot_use_online_payments: ~
       which_to_choose: ~
@@ -871,7 +879,7 @@ ro:
     stripe_fee_info:
       title: ~
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: aici
   conversations:
     accept:
       details: ~
@@ -1897,6 +1905,7 @@ ro:
       community_not_configured_for_payments: ~
       payment_settings_link: "setările de plată"
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Postezi pentru %{name}"
     quantity:
       hour: ~
       day: "Numar de zile:"
@@ -2068,7 +2077,7 @@ ro:
     missing: "Aveti listari deschise, dar contul dumneavoastra Paypal nu este configurat pentru a receptiona plati. Conectati contul dumneavoastra Paypal si acordati permisiunea %{service_name} de a percepe o taxa de tranzactie din %{settings_link}."
     from_your_payment_settings_link_text: "Setarile sistemului de plati"
     redirect_message: "Te redirectionam catre PayPal. Daca nu se intampla nimic, click %{redirect_link}."
-    redirect_link_text: ~
+    redirect_link_text: aici
     paypal_account_all_set_up: "Uraaa, totul este pregatit!"
     can_receive_payments: "Acum poti primi bani din listarile tale."
     paypal_account_connected_summary: ~
@@ -2168,6 +2177,8 @@ ro:
       show_all_listings: "Arătați toate postările"
       show_all_open_listings: "Arătați toate anunțurile deschise"
       show_all_reviews: "Arătați toate recenziile"
+      admin_actions: "Actiuni admin"
+      post_listing_as: "Posteaza listare ca"
     followed_people:
       you_follow_plural: "Urmăriți %{count} de persoane"
       you_follow_singular: "Urmăriți %{count} persoana"
@@ -2293,6 +2304,7 @@ ro:
       invisible: "(nu este afișat altor utilizatori)"
       image_is_processing: "Aveti rabdare. Procesam poza dvs. de profil . Va fi gata in cateva minute"
       shown_in_your_public_profile: ~
+      editing_profile_of: "Acum editezi profilul %{name}"
     save_information: "Salveaza informatia"
   shipping_address:
     shipping_address: ~

@@ -22,6 +22,8 @@
 #  search_placeholder                         :string(255)
 #  transaction_agreement_label                :string(255)
 #  transaction_agreement_content              :text(16777215)
+#  social_media_title                         :string(255)
+#  social_media_description                   :text(65535)
 #
 # Indexes
 #

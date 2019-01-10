@@ -1,7 +1,8 @@
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
+  include Rails.application.routes.url_helpers
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
-  attr_reader :shape
+  attr_reader :shape, :current_user
 
   def initialize(listing, current_community, params, current_user)
     @listing = listing
@@ -54,11 +55,11 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def received_testimonials
-    TestimonialViewUtils.received_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_testimonials.by_community(@current_community)
   end
 
   def received_positive_testimonials
-    TestimonialViewUtils.received_positive_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_positive_testimonials.by_community(@current_community)
   end
 
   def feedback_positive_percentage
@@ -286,6 +287,35 @@ class ListingPresenter < MemoisticPresenter
 
   def payments_enabled?
     process == :preauthorize
+  end
+
+  def acts_as_person
+    if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
+       params[:person_id].present? &&
+       current_user.has_admin_rights?(current_community)
+      current_community.members.find_by!(username: params[:person_id])
+    end
+  end
+
+  def new_listing_author
+    acts_as_person || @current_user
+  end
+
+  def listing_form_menu_titles
+    {
+      "category" => I18n.t("listings.new.select_category"),
+      "subcategory" => I18n.t("listings.new.select_subcategory"),
+      "listing_shape" => I18n.t("listings.new.select_transaction_type")
+    }
+  end
+
+  def new_listing_form
+    {
+      locale: I18n.locale,
+      category_tree: category_tree,
+      menu_titles: listing_form_menu_titles,
+      new_form_content_path: acts_as_person ? new_form_content_person_listings_path(person_id: new_listing_author.username, locale: I18n.locale) : new_form_content_listings_path(locale: I18n.locale)
+    }
   end
 
   memoize_all_reader_methods
