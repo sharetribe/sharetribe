@@ -2,20 +2,6 @@
 
 OmniAuth.config.test_mode = true
 
-# OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
-#     :provider => 'facebook',
-#     :uid => '597013691',
-#     :extra =>{
-#       :raw_info => {
-#         :first_name => "Markus",
-#         :last_name => "Sugarberg",
-#         :username => "markus.sharer-123",
-#         :email => "markus@example.com",
-#         :id => '597013691'
-#       }
-#     }
-#   })
-
 module OmniAuthTestHelpers
   def oauth_mock(provider, options = {})
     OmniAuth.config.add_mock(provider, oauth_provider_data(provider, options))
@@ -127,4 +113,7 @@ module OmniAuthTestHelpers
   # rubocop:enable Metrics/MethodLength, Metrics/LineLength
 end
 
-World(OmniAuthTestHelpers)
+RSpec.configure do |config|
+  config.include OmniAuthTestHelpers
+end
+

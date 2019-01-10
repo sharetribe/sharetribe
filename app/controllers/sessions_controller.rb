@@ -18,10 +18,11 @@ class SessionsController < ApplicationController
     end
 
     @selected_tribe_navi_tab = "members"
-    @facebook_merge = session["devise.facebook_data"].present?
+    omniauth = session["devise.omniauth_data"]
+    @facebook_merge = omniauth.present?
     if @facebook_merge
-      @facebook_email = session["devise.facebook_data"]["email"]
-      @facebook_name = "#{session["devise.facebook_data"]["given_name"]} #{session["devise.facebook_data"]["family_name"]}"
+      @facebook_email = omniauth["email"]
+      @facebook_name = "#{omniauth["given_name"]} #{omniauth["family_name"]}"
     end
   end
 
@@ -43,8 +44,8 @@ class SessionsController < ApplicationController
     flash[:error] = nil
 
     # Store Facebook ID and picture if connecting with FB
-    if session["devise.facebook_data"]
-      @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"])
+    if session["devise.omniauth_data"]
+      @current_user.update_attribute(:facebook_id, session["devise.omniauth_data"]["id"])
       # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
       if @current_user.image_file_size.nil?
         @current_user.store_picture_from_facebook!
@@ -114,40 +115,27 @@ class SessionsController < ApplicationController
   end
 
   def facebook
-    data = request.env["omniauth.auth"].extra.raw_info
     origin_locale = get_origin_locale(request, available_locales())
     I18n.locale = origin_locale if origin_locale
 
-    persons = Person
-              .includes(:emails, :community_memberships)
-              .references(:emails)
-              .where(["people.facebook_id = ? OR emails.address = ?", data.id, data.email]).uniq
+    service = Person::OmniauthService.new(
+      community: @current_community,
+      request: request,
+      provider: Person::OmniauthService::FACEBOOK)
 
-    people_in_this_community = persons.select { |p| p.is_admin? || p.community_memberships.map(&:community_id).include?(@current_community.id) }
-    person_by_fb_id = people_in_this_community.find { |p| p.facebook_id == data.id }
-    person_by_email = people_in_this_community.find { |p| p.emails.any? { |e| e.address == data.email && e.confirmed_at.present? } }
-    email_unconfirmed = people_in_this_community.flat_map(&:emails).find { |e| e.address == data.email && e.confirmed_at.blank? }.present?
-
-    person = person_by_fb_id || person_by_email
-
-    if person
-      person.update_facebook_data(data.id)
+    if service.person
+      service.update_person_provider_uid
       flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
-      sign_in_and_redirect person, :event => :authentication
-    elsif data.email.blank?
+      sign_in_and_redirect service.person, :event => :authentication
+    elsif service.no_ominauth_email?
       flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
       redirect_to sign_up_path and return
-    elsif email_unconfirmed
+    elsif service.person_email_unconfirmed
       flash[:error] = t("layouts.notifications.facebook_email_unconfirmed", email: data.email)
       redirect_to login_path and return
     else
-      facebook_data = {"email" => data.email,
-                       "given_name" => data.first_name,
-                       "family_name" => data.last_name,
-                       "username" => data.username,
-                       "id"  => data.id}
-
-      session["devise.facebook_data"] = facebook_data
+      @service_session_data = service.session_data.dup # expose for tests
+      session["devise.omniauth_data"] = service.session_data
       redirect_to :action => :create_facebook_based, :controller => :people
     end
   end
@@ -181,7 +169,7 @@ class SessionsController < ApplicationController
     flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
     redirect_to search_path
   end
-  
+
   def passthru
     render status: 404, plain: "Not found. Authentication passthru."
   end
