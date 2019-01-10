@@ -63,6 +63,7 @@ require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
 
+# rubocop: disable Metrics/ClassLength
 class Person < ApplicationRecord
 
   include ErrorsHelper
@@ -86,7 +87,7 @@ class Person < ApplicationRecord
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
-  has_many :listings, -> { where(deleted: 0) }, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :listings, -> { exist }, :dependent => :destroy, :foreign_key => "author_id"
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
   has_one :location, -> { where(location_type: :person) }, :dependent => :destroy
@@ -115,6 +116,9 @@ class Person < ApplicationRecord
   has_many :custom_field_values, :dependent => :destroy
   has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
   has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
+  has_one :stripe_account
+  has_one :paypal_account
+  has_many :starter_transactions, :class_name => "Transaction", :foreign_key => "starter_id"
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
@@ -127,6 +131,29 @@ class Person < ApplicationRecord
       .where("#{Person.search_by_pattern_sql('people')}
         OR emails.address like :pattern", pattern: pattern)
   }
+  scope :has_listings, ->(community) do
+    joins("INNER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0").distinct
+  end
+  scope :has_no_listings, ->(community) do
+    joins("LEFT OUTER JOIN `listings` ON `listings`.`author_id` = `people`.`id` AND `listings`.`community_id` = #{community.id} AND `listings`.`deleted` = 0")
+    .where(listings: {author_id: nil}).distinct
+  end
+  scope :has_stripe_account, ->(community) do
+    where(id: StripeAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_no_stripe_account, ->(community) do
+    where.not(id: StripeAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_paypal_account, ->(community) do
+    where(id: PaypalAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_no_paypal_account, ->(community) do
+    where.not(id: PaypalAccount.active_users.by_community(community).select(:person_id))
+  end
+  scope :has_payment_account, ->(community) { has_stripe_account(community).or(has_paypal_account(community)) }
+  scope :has_started_transactions, ->(community) do
+    joins("INNER JOIN `transactions` ON `transactions`.`starter_id` = `people`.`id` AND `transactions`.`community_id` = #{community.id} AND `transactions`.`current_state` IN ('paid', 'confirmed')").distinct
+  end
 
   accepts_nested_attributes_for :custom_field_values
 
@@ -662,3 +689,4 @@ class Person < ApplicationRecord
     end
   end
 end
+# rubocop: enable Metrics/ClassLength

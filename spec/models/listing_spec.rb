@@ -50,6 +50,7 @@
 #
 # Indexes
 #
+#  community_author_deleted            (community_id,author_id,deleted)
 #  homepage_query                      (community_id,open,sort_date,deleted)
 #  homepage_query_valid_until          (community_id,open,valid_until,sort_date,deleted)
 #  index_listings_on_category_id       (old_category_id)
