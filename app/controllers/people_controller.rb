@@ -122,36 +122,10 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create_facebook_based
-    username = UserService::API::Users.username_from_fb_data(
-      username: session["devise.facebook_data"]["username"],
-      given_name: session["devise.facebook_data"]["given_name"],
-      family_name: session["devise.facebook_data"]["family_name"],
-      community_id: @current_community.id)
-
-    person_hash = {
-      :username => username,
-      :given_name => session["devise.facebook_data"]["given_name"],
-      :family_name => session["devise.facebook_data"]["family_name"],
-      :facebook_id => session["devise.facebook_data"]["id"],
-      :locale => I18n.locale,
-      :test_group_number => 1 + rand(4),
-      :password => Devise.friendly_token[0,20],
-      community_id: @current_community.id
-    }
-
-    ActiveRecord::Base.transaction do
-      @person = Person.create!(person_hash)
-      # We trust that Facebook has already confirmed these and save the user few clicks
-      Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
-
-      @person.set_default_preferences
-
-      # By default no email consent is given
-      @person.preferences["email_from_admins"] = false
-      @person.save
-
-      CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
-    end
+    service = Person::OmniauthService::Creator.new(
+      community: @current_community,
+      omniauth: session["devise.omniauth_data"])
+    @person = service.create_person
 
     begin
       @person.store_picture_from_facebook!
