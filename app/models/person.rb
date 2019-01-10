@@ -154,6 +154,13 @@ class Person < ApplicationRecord
   scope :has_started_transactions, ->(community) do
     joins("INNER JOIN `transactions` ON `transactions`.`starter_id` = `people`.`id` AND `transactions`.`community_id` = #{community.id} AND `transactions`.`current_state` IN ('paid', 'confirmed')").distinct
   end
+  scope :is_admin, -> { where(is_admin: 1) }
+  scope :by_email, ->(email) do
+    joins(:emails).merge(Email.confirmed.by_address(email))
+  end
+  scope :by_unconfirmed_email, ->(email) do
+    joins(:emails).merge(Email.unconfirmed.by_address(email))
+  end
 
   accepts_nested_attributes_for :custom_field_values
 
@@ -539,20 +546,6 @@ class Person < ApplicationRecord
 
   def has_valid_email_for_community?(community)
     community.can_accept_user_based_on_email?(self)
-  end
-
-  def update_facebook_data(facebook_id)
-    self.update_attribute(:facebook_id, facebook_id)
-    if self.image_file_size.nil?
-      begin
-        self.store_picture_from_facebook!
-      rescue StandardError => e
-        # We can just catch and log the error, because if the profile picture upload fails
-        # we still want to make the user creation pass, just without the profile picture,
-        # which user can upload later
-        logger.error(e.message, :facebook_existing_user_profile_picture_upload_failed, { person_id: self.id })
-      end
-    end
   end
 
   def self.find_by_email_address_and_community_id(email_address, community_id)
