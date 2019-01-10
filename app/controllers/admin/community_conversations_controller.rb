@@ -1,50 +1,27 @@
 class Admin::CommunityConversationsController < Admin::AdminBaseController
-  def index
-    @selected_left_navi_link = "conversations"
-    pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
+  before_action :set_selected_left_navi_link
+  before_action :set_service
 
-    conversations = Conversation.free_for_community(
-      @current_community,
-      simple_sort_column(params[:sort]),
-      sort_direction)
-      .paginate(page: pagination_opts[:page], per_page: pagination_opts[:per_page])
-    render "index", { locals: { community: @current_community, conversations: conversations } }
+  def index
+    render locals: {service: @service}
   end
 
   def show
-    @selected_left_navi_link = "conversations"
-    conversation = Conversation.find(params[:id])
-    transaction = conversation.tx
-
-    if transaction.present?
-      redirect_to person_transaction_url(@current_user, {:id => transaction.id}) and return
+    if @service.conversation_transaction?
+      redirect_to person_transaction_url(@current_user, {:id => @service.conversation_transaction.id}) and return
     end
-
-    messages = TransactionViewUtils.conversation_messages(conversation.messages.latest, @current_community.name_display_type)
-    render locals: {
-      messages: messages,
-      conversation: conversation
-    }
+    render locals: {service: @service}
   end
 
   private
 
-  def simple_sort_column(sort_column)
-    case sort_column
-    when "last_activity"
-      "last_message_at"
-    when "started"
-      "created_at"
-    else
-      "created_at"
-    end
+  def set_selected_left_navi_link
+    @selected_left_navi_link = "conversations"
   end
 
-  def sort_direction
-    if params[:direction] == "asc"
-      "asc"
-    else
-      "desc" #default
-    end
+  def set_service
+    @service = Admin::ConversationsService.new(
+      community: @current_community,
+      params: params)
   end
 end
