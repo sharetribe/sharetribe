@@ -4,6 +4,9 @@ Feature: Facebook connect
   As a user
   I want to do Facebook connect to link the accounts
 
+  Background:
+    Given provider "facebook" is mocked
+
   @javascript
   Scenario: Facebook connect first time, with same email in Sharetribe DB
     Given there are following users:

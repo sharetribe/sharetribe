@@ -629,14 +629,6 @@ module ApplicationHelper
     APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
   end
 
-  def facebook_connect_in_use?
-    community = Maybe(@current_community)
-
-    (APP_CONFIG.fb_connect_id || community.facebook_connect_id.or_else(false)) &&
-     !@facebook_merge &&
-     community.facebook_connect_enabled?.or_else(false)
-  end
-
   def community_slogan
     if @community_customization  && !@community_customization.slogan.blank?
       @community_customization.slogan
