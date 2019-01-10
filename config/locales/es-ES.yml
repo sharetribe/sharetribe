@@ -293,15 +293,21 @@ es-ES:
         searchpage: "Nueva página de búsqueda (requiere de la nueva barra superior)"
       social_media:
         social_media: "Social media"
-        logo: Logo
+        logo: "Imagen para medios sociales"
         logo_info: "Esta imagen se mostrará en medios sociales (Facebook, Twitter, LinkedIn) cuando alguien comparta tu dominio. Para mejores resultados, la imagen deberá tener una proporción de 2:1 y un tamaño mínimo de %{width} x%{height} pixeles."
+        social_media_title: "Título para redes sociales"
+        social_media_title_info: "Este texto se mostrará en redes sociales (Facebook, Twitter y LinkedIn) cuando alguien comparta tu sitio. Puedes ver como se ve en %{facebook_preview_link}, en %{twitter_preview_link}  y en %{linkedin_preview_link}"
+        link_for_facebook: "para Facebook"
+        link_for_linkedin: "para LinkedIn"
+        link_for_twitter: "para Twitter"
+        social_media_description: "Descripción para redes sociales"
         twitter_handle: Twitter
         twitter_handle_info_text: "El nombre de usuario de la cuenta de Twitter de tu comunidad (si es que tienes uno). Será mencionado cuando alguien publique su anuncio en Twitter."
         twitter_handle_info_text_with_instructions: "El nombre de usuario de tu cuenta de Twitter en tu marketplace (si es que tienes uno). Será mencionado cuando alguien use el botón para twittear desde la página del anuncio. %{instructions_link}"
         twitter_instructions_link_text: "Leer más"
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Para que la conexión a través de Facebook funcione, debes crear una aplicación para tu comunidad en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade el ID y la clave secreta que se haya generado aquí."
         facebook_connect_info_text_with_instructions: "Para habilitar la conexión con Facebook, crea una aplicación para tu comunidad en <a href='https://developers.facebook.com/'>Facebook para desarrolladores</a>. Añade entonces el ID y la clave secreta de la aplicación que se han generado aquí. %{instructions_link}"
         facebook_instructions_link_text: "Ver instrucciones para configurar la conexión con Facebook."
@@ -337,6 +343,15 @@ es-ES:
         all: Todos
         max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
         about_page: "página Acerca de"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Barra superior"
         new_listing_button_label: "Texto del botón para Publicar Anuncio"
@@ -415,6 +430,10 @@ es-ES:
           other_party: "Otro usuario"
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
@@ -493,6 +512,8 @@ es-ES:
         style:
           dark: Oscuro
           light: Claro
+          marketplace_color: "Color del marketplace"
+          logo: Logo
         social:
           title: Título
           url: URL
@@ -1912,6 +1933,7 @@ es-ES:
       community_not_configured_for_payments: "%{service_name} no se ha configurado para los pagos, por lo que aún no puedes publicar nuevos anuncios. Por favor %{contact_admin_link} para más detalles."
       payment_settings_link: "configuración de pagos"
       community_not_configured_for_payments_admin: "%{service_name} no se ha configurado para pagos, por lo que aún no puedes publicar nuevos anuncios. Ve a la %{payment_settings_link} para proporcionar los detalles necesarios."
+      you_are_now_posting_a_listing_on_behalf_of: "Estas publicando un anuncio para %{name}"
     quantity:
       hour: "Número de horas:"
       day: "Número de días:"
@@ -2182,6 +2204,8 @@ es-ES:
       show_all_listings: "Mostrar todos los anuncios"
       show_all_open_listings: "Mostrar todas los anuncios abiertos"
       show_all_reviews: "Mostrar todas las reseñas"
+      admin_actions: "Acciones de administradores"
+      post_listing_as: "Publicar anuncio"
     followed_people:
       you_follow_plural: "Sigues a %{count} personas"
       you_follow_singular: "Sigues a %{count} persona"
@@ -2307,6 +2331,7 @@ es-ES:
       invisible: "(no se mostrará a otros usuarios)"
       image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
       shown_in_your_public_profile: "(se muestra en tu perfil público)"
+      editing_profile_of: "Estás editando el perfil de %{name}"
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

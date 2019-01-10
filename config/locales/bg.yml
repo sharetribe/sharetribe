@@ -280,6 +280,12 @@ bg:
         social_media: ~
         logo: Лого
         logo_info: "Тази снимка се използва когато някой споделя Вашия домейн в социалните мрежи (Facebook, Twitter, LinkedIn).За по-добри резултати е препоръчително да бъде в съотношение 2:1 и минимален размер от %{width} x %{height} px"
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: "Потребителско име в Twitter на Вашият пазар(Ако имате такова). Ще бъде видимо, когато някой използва tweet бутона на страницата на Вашата обява."
         twitter_handle_info_text_with_instructions: ~
@@ -322,6 +328,15 @@ bg:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -400,6 +415,10 @@ bg:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -478,6 +497,8 @@ bg:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1873,6 +1894,7 @@ bg:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
@@ -2140,6 +2162,8 @@ bg:
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2265,6 +2289,7 @@ bg:
       invisible: ~
       image_is_processing: ~
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: ~
   shipping_address:
     shipping_address: ~

@@ -290,6 +290,12 @@ zh:
         social_media: 社交媒体
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitter用户名
         twitter_handle_info_text: 当人们使用信息页面上的tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。
         twitter_handle_info_text_with_instructions: "当人们使用信息页面上的Tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
@@ -488,6 +494,8 @@ zh:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1891,6 +1899,7 @@ zh:
       community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "小时数:"
       day: "天数:"
@@ -2163,6 +2172,8 @@ zh:
       show_all_listings: 显示所有已发布的信息
       show_all_open_listings: 显示所有公开的信息
       show_all_reviews: 显示所有评论
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "你关注了%{count}个人"
       you_follow_singular: "你关注了%{count}个人"
@@ -2288,6 +2299,7 @@ zh:
       invisible: （不显示给其他用户）
       image_is_processing: 你的个人头像图片正在准备。请过一会重新刷新页面。
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址

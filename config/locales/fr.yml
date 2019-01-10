@@ -12,7 +12,7 @@ fr:
       index:
         listing_categories: "Catégories d'annonces"
         create_a_new_category: "+ Créer une nouvelle catégorie"
-        remove_category_confirmation: "Voulez-vous vraiment supprimer la catégorie '%{category_name}' ?"
+        remove_category_confirmation: "Voulez-vous vraiment supprimer la catégorie '%{category_name}' ? Cela ne peut pas être annulé."
         saving_order: "Sauvegarde de l'ordre des catégories"
         save_order_successful: "Ordre des catégories sauvegardé avec succès"
         save_order_error: "Une erreur s'est produite lors de la sauvegarde de l'ordre des catégories. Veuillez actualiser la page et essayer de nouveau."
@@ -104,7 +104,7 @@ fr:
         small_community_cover_photo: "Photo de couverture réduite"
         favicon: Favicon
         favicon_info_text: "Le favicon remplacera celui par défaut dans Sharetribe. Les dimensions doivent être de 32x32 pixels et l'image téléchargée sera redimensionnée à ces dimensions."
-        community_custom_color1: "Couleur principale"
+        community_custom_color1: "Couleur principale de la place de marché"
         community_slogan_color: "Couleur du slogan de la place de marché"
         community_slogan_color_instructions_text: "Vous pouvez changer la couleur du slogan sur la page d'accueil en entrant une valeur hexadécimale. %{colorpicker} peut vous être utile pour choisir une couleur et obtenir sa valeur hexadécimale. Vous pourrez alors copier cette valeur ici. %{see_how_it_looks_like}."
         community_description_color: "Couleur de la description de la place de marché"
@@ -293,15 +293,21 @@ fr:
         searchpage: "Nouvelle page de recherche (nouvelle barre des menus requise)"
       social_media:
         social_media: "Réseaux sociaux"
-        logo: Logo
-        logo_info: "Cette image est utilisée lorsque quelqu'un partage votre place de marché sur un réseau social (Facebook, Twitter, LinkedIn). Idéalement, elle devrait avoir un ratio de 2:1 et des dimensions minimum de %{width}x%{height} pixels."
+        logo: "Image sur les réseaux sociaux"
+        logo_info: "Cette image est affichée lorsque quelqu'un partage votre site sur Facebook, Twitter et LinkedIn. Idéalement, elle devrait avoir un ratio de 2:1 et des dimensions minimum de %{width}x%{height} pixels."
+        social_media_title: "Titre sur les réseaux sociaux"
+        social_media_title_info: "Ce texte est affiché lorsqu'un utilisateur partage votre site sur Facebook, Twitter ou LinkedIn. Vous pouvez prévisualiser le rendu %{facebook_preview_link}, %{twitter_preview_link} et %{linkedin_preview_link}."
+        link_for_facebook: "pour Facebook"
+        link_for_linkedin: "pour LinkedIn"
+        link_for_twitter: "pour Twitter"
+        social_media_description: "Description sur les réseaux sociaux"
         twitter_handle: "Nom Twitter"
         twitter_handle_info_text: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces."
         twitter_handle_info_text_with_instructions: "Nom Twitter du compte de votre place de marché (si vous en avez un). Il sera mentionné lorsque des utilisateurs utiliseront le bouton de partage Twitter sur les pages d'annonces. %{instructions_link}."
         twitter_instructions_link_text: "En savoir plus"
         twitter_handle_placeholder: nomtwitter
         invalid_twitter_handle: "Le nom Twitter ne peut contenir qu'au maximum 15 caractères alpha-numériques (lettres A-Z et chiffre 0-9)."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici."
         facebook_connect_info_text_with_instructions: "Pour activer la connexion avec Facebook, créez une application pour votre place de marché sur <a href='https://developers.facebook.com/'>Facebook developers</a>. Ajoutez l'id et la clé secrète de l'application ici. %{instructions_link}"
         facebook_instructions_link_text: "Lire les instructions pour configurer Facebook Connect."
@@ -324,7 +330,7 @@ fr:
         end_user_analytics: "Autoriser Sharetribe à suivre l'activité des membres pour améliorer le service Sharetribe"
         save: "Sauvegarder les paramètres"
       menu_links:
-        menu_links: "Liens du menu"
+        menu_links: "Liens personnalisés du menu"
         save: "Sauvegarder les paramètres"
         add_menu_link: "Ajouter un nouveau lien au menu"
         title_placeholder: "Titre du lien"
@@ -337,6 +343,15 @@ fr:
         all: Tous
         max_number_of_links_info: "Le lien vers %{about_page} sera toujours affiché en premier"
         about_page: "la page A propos"
+      default_menu_links:
+        title: "Liens par défaut du menu"
+        about_link_title: "A propos"
+        contact_link_title: "Nous contacter"
+        invite_link_title: "Inviter des nouveaux membres"
+        info: "Par défaut, les liens des pages suivantes ne sont pas affichés ailleurs dans votre place de marché : %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Afficher le lien vers la page <i>A propos</i> et les autres pages statiques"
+        display_contact: "Afficher le lien vers la page <i>Nous contacter</i>"
+        display_invite: "Afficher le lien vers la page <i>Inviter des nouveaux membres</i>"
       topbar:
         topbar: "Barre des menus"
         new_listing_button_label: "Texte du bouton Déposer une annonce"
@@ -415,6 +430,10 @@ fr:
           other_party: "Autre participant"
         participants: "Conversation : %{starter} avec %{author}"
         profile: "Profil de %{author}"
+        search_by_keyword: "Rechercher un nom, un email ou un mot-clé"
+        search: Rechercher
+        reset_search: "Voir tous"
+        for_keyword: "pour : <b>%{keyword}</b>"
       testimonials:
         testimonials: Avis
         no_testimonials_found: "Aucun avis trouvé"
@@ -493,6 +512,8 @@ fr:
         style:
           dark: Sombre
           light: Clair
+          marketplace_color: "Couleur principale de la place de marché"
+          logo: Logo
         social:
           title: Titre
           url: URL
@@ -523,7 +544,7 @@ fr:
         listing_fields: "Champs et filtres d'annonces"
         listing_fields_help: "Vous pouvez ici modifier les champs qu'un utilisateur doit compléter lors de la création d'une annonce. Notez que certains champs sont prédéfinis et ne peuvent être modifiés."
         add_new_field: "Ajouter un nouveau champ : "
-        remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' ?"
+        remove_field_confirmation: "Voulez-vous vraiment supprimer le champ '%{field_name}' et toutes les données associées ? Cela ne peut pas être annulé."
         cancel: Annuler
         save: Sauvegarder
         field_title: "Nom du champ"
@@ -1912,6 +1933,7 @@ fr:
       community_not_configured_for_payments: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Veuillez %{contact_admin_link} pour en savoir plus."
       payment_settings_link: "paramètres de paiement"
       community_not_configured_for_payments_admin: "%{service_name} n'a pas encore été configuré pour les paiements, vous ne pouvez donc pas déposer d'annonce pour le moment. Rendez-vous dans les %{payment_settings_link} pour y compléter les informations de paiements."
+      you_are_now_posting_a_listing_on_behalf_of: "Vous êtes en train de publier une annonce en tant que %{name}"
     quantity:
       hour: "Nombre d'heures : "
       day: "Nombre de jours : "
@@ -2158,7 +2180,7 @@ fr:
       add_phone_number: "Ajoutez un numéro de téléphone"
       address: "Adresse : "
       as_expected: "Correspondait à mes attentes"
-      edit_profile_info: "Modifier votre profil"
+      edit_profile_info: "Modifier le profil"
       exceeded_expectations: "Dépassait mes attentes"
       positive: positif
       hide_description: Réduire
@@ -2182,6 +2204,8 @@ fr:
       show_all_listings: "Voir toutes les annonces"
       show_all_open_listings: "Voir toutes les annonces en ligne"
       show_all_reviews: "Voir tous les avis"
+      admin_actions: Administration
+      post_listing_as: "Publier une annonce en tant que"
     followed_people:
       you_follow_plural: "Vous suivez %{count} personnes"
       you_follow_singular: "Vous suivez %{count} personne"
@@ -2307,6 +2331,7 @@ fr:
       invisible: "(non visible par les autres utilisateurs)"
       image_is_processing: "C'est presque prêt ! Nous sommes en train de traiter votre photo de profil. Elle sera visible dans une ou deux minutes."
       shown_in_your_public_profile: "(Visible dans votre profile public)"
+      editing_profile_of: "Vous êtes en train d'éditer le profil de %{name}"
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"

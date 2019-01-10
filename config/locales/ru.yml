@@ -305,6 +305,12 @@ ru:
         social_media: "Социальные медиа"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter аккаунт"
         twitter_handle_info_text: "Twitter аккаунт вашего проекта (если есть). Будет упоминаться когда люди используют кнопку tweet на странице публикации."
         twitter_handle_info_text_with_instructions: "Login Twitter аккаунта вашего маркетплейс (если сть). Он будет упоминаться когда люди используют кнопку tweet на странице публикации. %{instructions_link}."
@@ -503,6 +509,8 @@ ru:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1924,6 +1932,7 @@ ru:
       community_not_configured_for_payments: "Сайт %{service_name} не был настроен для платежей, поэтому вы пока не можете размещать новые объявления. Пожалуйста, %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Количество часов:"
       day: "Количество дней:"
@@ -2196,6 +2205,8 @@ ru:
       show_all_listings: "Показать все предложения"
       show_all_open_listings: "Показать все открытые публикации"
       show_all_reviews: "Показать все обзоры"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Вы подписаны на %{count} участников"
       you_follow_singular: "Вы подписаны на %{count} участников"
@@ -2321,6 +2332,7 @@ ru:
       invisible: "(не видно другим участникам)"
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"

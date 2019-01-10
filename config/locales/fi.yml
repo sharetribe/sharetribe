@@ -295,6 +295,12 @@ fi:
         social_media: "Sosiaalinen media"
         logo: Logo
         logo_info: "Tätä kuvaa käytetään, kun joku jakaa sinun domainisi sosiaalisessa mediassa (Facebook, Twitter, Linkedin). Parhaan tuloksen saamiseksi sen kuvasuhteen tulisi olla 2:1, ja sen vähimmäiskoko tulisi olla %{width} x %{height} pikseliä."
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
         twitter_handle_info_text_with_instructions: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia. %{instructions_link}."
@@ -337,6 +343,15 @@ fi:
         all: Kaikki
         max_number_of_links_info: "Linkki sivulle %{about_page} näytetään aina ensimmäisenä valikkolinkkinä"
         about_page: "tietoa palvelusta"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: Yläpalkki
         new_listing_button_label: "Lisää uusi ilmoitus -napin teksti"
@@ -415,6 +430,10 @@ fi:
           other_party: "Toinen osapuoli"
         participants: "Keskustelu: %{starter} sekä %{author}"
         profile: "Käyttäjän %{author} profiili"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: Arviot
         no_testimonials_found: "Arvosteluja ei löytynyt"
@@ -493,6 +512,8 @@ fi:
         style:
           dark: Tumma
           light: Vaalea
+          marketplace_color: ~
+          logo: ~
         social:
           title: Otsikko
           url: URL
@@ -1912,6 +1933,7 @@ fi:
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
       community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Tuntien määrä:"
       day: "Päivien määrä:"
@@ -2182,6 +2204,8 @@ fi:
       show_all_listings: "Näytä kaikki ilmoitukset"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "%{count} seurattua käyttäjää"
       you_follow_singular: "%{count} seurattu käyttäjä"
@@ -2307,6 +2331,7 @@ fi:
       invisible: "(ei näytetä muille käyttäjille)"
       image_is_processing: "Profiilikuvaasi valmistellaan taustalla. Lataa sivu uudelleen hetken kuluttua."
       shown_in_your_public_profile: "(Näkyy julkisessa profiilissasi)"
+      editing_profile_of: ~
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite

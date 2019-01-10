@@ -290,6 +290,12 @@ ko:
         social_media: "소셜 미디어"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "트위터 핸들"
         twitter_handle_info_text: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다."
         twitter_handle_info_text_with_instructions: "귀하의 마켓 플레이스의 트위터 계정의 사용자 이름 (있는 경우). 사람들이 목록 페이지에서 트윗 버튼을 사용할 때 언급됩니다. %{instructions_link}."
@@ -488,6 +494,8 @@ ko:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1902,6 +1910,7 @@ ko:
       community_not_configured_for_payments: "%{service_name}이(가) 지불을 위해 구성되지 않았으므로 새로운 목록을 아직 게시 할 수 없습니다. 자세한 내용은 %{contact_admin_link}하시기 바랍니다."
       payment_settings_link: "결제 설정"
       community_not_configured_for_payments_admin: "%{service_name}이(가) 결제를 위해 구성되지 않았으므로 새로운 목록을 아직 게시 할 수 없습니다. 결제 세부 사항을 기입 하시려면 %{payment_settings_link} (으)로 이동하십시오."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "시간 수 :"
       day: 일수
@@ -2172,6 +2181,8 @@ ko:
       show_all_listings: "모든 목록보기"
       show_all_open_listings: "모든 개방된 목록들 보기"
       show_all_reviews: "모든 리뷰 보기"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "당신은 %{count} 명을 팔로우합니다."
       you_follow_singular: "당신은 %{count} 명을 팔로우합니다."
@@ -2297,6 +2308,7 @@ ko:
       invisible: "(다른 사용자에게는 표시되지 않음)"
       image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소

@@ -98,16 +98,16 @@ da-DK:
       edit_look_and_feel:
         edit_community_look_and_feel: "Ret markedspladsens %{community_name} udseende"
         community_logo: "Logo vist på alm. computer"
-        community_logo_icon: ~
+        community_logo_icon: "Logo for sociale medier og mobile enheder"
         community_logo_icon_mobile: ~
         community_cover_photo: Coverbillede
         small_community_cover_photo: "Lille coverbillede"
         favicon: Favicon
         favicon_info_text: "Dit favicon vil erstatte vores standard Sharetribe logo. Størrelsen på dit favicon skal være 32x32 pixels."
         community_custom_color1: Farvekode
-        community_slogan_color: ~
-        community_slogan_color_instructions_text: ~
-        community_description_color: ~
+        community_slogan_color: "Markedspladsens slogans farve"
+        community_slogan_color_instructions_text: "Du kan ændre farven for sloganet på hjemmesiden ved at skrive hexkoden. Sloganet vises til brugere der ikke er logget ind. %{colorpicker} kan hjælpe dig med at vælge farve og give dig hexkoden. Du kan så kopierer koden her. %{see_how_it_looks_like}"
+        community_description_color: "Markedspladens beskrivelsesfarve."
         community_description_color_instructions_text: ~
         new_listing_button_custom_color: "Farven af knappen \"Opret annonce\"."
         logo_instructions_text_with_dimensions: "Størrelsen på logoet, som vises på alm. computer, skal være %{height}x%{width}px. Det vil blive vist til brugere med større skærme."
@@ -156,7 +156,7 @@ da-DK:
         sender_name_placeholder: "Afsender navn"
         sender_email_label: "E-mail adresse"
         sender_email_placeholder: din-markedsplads@eksempel.com
-        amazon_ses_notification: ~
+        amazon_ses_notification: "Du vil modtage en mail fra %{email_sender} for at bekræfte din mail. Emailens subjekt er %{email_subject}. Følg vejledningen for at bekræfte mailen."
         this_is_how_it_will_look: "Dette er, hvordan det vil se ud:"
         send_verification_button: "Send bekræftelsesmail"
         change_sender_email: ~
@@ -290,11 +290,17 @@ da-DK:
         enabled_for_you: "Tilladt for dig."
         enabled_for_all: "Tilladt for alle."
         new_topbar: "Ny top bjælke (synlig på alle sider)."
-        searchpage: ~
+        searchpage: "Ny søgeside (kræver ny top bar)"
       social_media:
         social_media: Social
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter konto"
         twitter_handle_info_text: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden."
         twitter_handle_info_text_with_instructions: "Bruger navn (@navn) til din Twitter konto for din markedsplads. (hvis du har en). Din konto vil blive nævnt hver gang nogen klikker på tweet knappen på siden. %{instructions_link}."
@@ -337,6 +343,15 @@ da-DK:
         all: Alle
         max_number_of_links_info: "Link til %{about_page} vises altid som det første menu link"
         about_page: "om side"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Top bjælke"
         new_listing_button_label: "Tekst på knappen \"Opret annonce\""
@@ -415,6 +430,10 @@ da-DK:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -493,6 +512,8 @@ da-DK:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -509,7 +530,7 @@ da-DK:
         edit_location_field: "Rediger placerings feltet"
         this_field_is_required: "Dette felt er påkrævet"
       edit_expiration:
-        edit_expiration_field: ~
+        edit_expiration_field: "Ændr annoncefelt: 'Udløbsdato'"
         enable: "Aktiver udløbsdato"
       form:
         field_required:
@@ -580,11 +601,11 @@ da-DK:
         send_email_to_members: "Send email til brugere"
         send_email_to_members_title: "Send email til alle dine brugere"
         send_email: "Send email"
-        send_email_or: ~
+        send_email_or: eller
         send_test_email: ~
         test_sent: ~
-        send_email_article_title: ~
-        send_email_article_text: ~
+        send_email_article_title: "denne artikel"
+        send_email_article_text: "Du kan lære mere om bruger segmenter her %{article_link}."
         recipients:
           title: ~
           options:
@@ -615,14 +636,14 @@ da-DK:
       preview: "Vis eksempel på min hjemmeside"
     listing_shapes:
       availability_title: Tilgængelighed
-      read_more: ~
-      read_more_availability_management: ~
-      allow_providers_to_manage_availability: ~
+      read_more: "Læs mere om automatisk tilgængelighed."
+      read_more_availability_management: "Læs mere om tilgængelighedsstyring."
+      allow_providers_to_manage_availability: "Tillad sælgere at ændre deres tilgængelighed fra en kalender"
       per_hour_availability: ~
       per_day_availability: "\"Pr. dag\" tilgængelighed"
       per_night_availability: "\"Pr. nat\" tilgængelighed"
-      pricing_units_disabled_info: ~
-      can_not_find_name: ~
+      pricing_units_disabled_info: "Prisenheder kan ikke blive brugt når kalenderen er i brug."
+      can_not_find_name: "Kan ikke finde ordre type med navnet: %{name}"
       index:
         listing_shapes: "Ordre typer"
         description: "Ordre typer bestemmer hvordan ordreprocessen fungerer på dit site. Du kan beslutte om dine brugere lejer, sælger - eller måske blot poster opslag og kommunikerer via meddelelser."
@@ -719,10 +740,10 @@ da-DK:
       link_paypal_and_stripe_personal_account: ~
       personal_payment_preferences_link_text: "din personlige markedsplads konto"
       read_more_about_paypal: "Læs mere om Sharetribe's betalingssystem"
-      edit_payment_settings: ~
-      supported_currencies_information_text: ~
-      currency_change_warning_text: ~
-      marketplace_currency_label: ~
+      edit_payment_settings: "Ændr betalingsinformation"
+      supported_currencies_information_text: "Sharetribe's online betalingssystem understøtter 24 valutaer. Hvis din valuta ikke er på listen, så kontakt %{contact_support_link}. Hvis du ændrer markedspladsens valuta vil nuværende annoncer beholde deres gamle valuta. Du skal ændre disse annoncer individuelt til den nye valuta."
+      currency_change_warning_text: "Note: Hvis du går videre med valutaændringen, så glem ikke at fortælle dine sælgere de skal ændre deres annoncer for opdatere valutaen."
+      marketplace_currency_label: "Markedspladsens valuta:"
       minimum_listing_price_label: "Minimums pris:"
       transaction_fee_label: "Servicegebyr:"
       minimum_transaction_fee_label: "Mindste transaktionsafgift:"
@@ -862,19 +883,19 @@ da-DK:
     what_is_this: "Hvad er dette?"
     removed_user: "Fjernet bruger"
     payment_fee_info:
-      title: ~
-      stripe: ~
+      title: "Handelsomkostninger og Betalingsgebyr"
+      stripe: Stripe
       paypal: PayPal
-      info: ~
+      info: "Betalinger i %{service_name} behandles af betalingsgatewayen nedenfor. %{service_name} vil opkræve en provision afhængig af betalings gateway. Betalingsgatewayen kan også opkræve et gebyr for hver betaling som beskrevet nedenfor."
     paypal_fee_info:
       title: PayPal-gebyr
       body_text: "PayPal opkræver et ekspeditionsgebyr på 2-5% pr. transaktion – som er faldende jo flere transaktioner man har. Betalinger fra udlandet koster lidt mere. Du kan altid se de nøjagtige gebyrer via din PayPal-konto %{link_to_paypal}. Gebyrbeløbet fremgår af din kvittering."
       body_text_accept: ~
       link_to_paypal_text: her
     stripe_fee_info:
-      title: ~
-      body_text: ~
-      link_to_stripe_text: ~
+      title: "Stripe's betalingsgebyr"
+      body_text: "For Stripe betalinger tager %{service_name} et gebyr af %{stripe_commission}%. Mimimums gebyret per transaktion er %{minimum_transaction_fee}. Stripe's gebyr er inkluderet i dette gebyr."
+      link_to_stripe_text: her
   conversations:
     accept:
       details: Ordredetaljer
@@ -895,12 +916,12 @@ da-DK:
       you_will_get_label: "Du vil få:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets}"
       paypal_fee_info: "* Eksklusiv <a id='%{fee_info_link_id}' href='#'>PayPal-gebyr</a>"
       payment_fee_info: ~
       shipping_price_label: "Levering:"
-      stripe-fee_label: ~
+      stripe-fee_label: Betalingsomkostninger
     confirm:
       confirm_description: "Hvis din ordre er blevet gennemført, bør du markere den som så. Derefter kan du vurdere handlen."
       cancel_description: "Hvis din ordre ikke blev gennemført, kan du markere den som 'ikke gennemført'. Du kan stadig vurdere den anden part."
@@ -947,8 +968,8 @@ da-DK:
       paid: "betalt %{sum}"
       payment_preauthorized: "Betaling godkendt: %{sum}"
       stripe:
-        held_payment: ~
-        confirmed_request: ~
+        held_payment: "Accepteret anmodningen. Betalingen på %{sum} tilbageholdes af %{service_name} indtil ordren er blevet markeret som gennemført."
+        confirmed_request: "Markeret ordren som gennemført. Betalingen er ny blevet overført til %{author_name} konto eller vil blive overført snarrest."
     new:
       message: Besked
       message_to: "Besked til %{author_name}"
@@ -1022,7 +1043,7 @@ da-DK:
           unknown_reason: "Din betaling er undervejs. Log ind på din PayPal-konto for at se flere detaljer."
           verify: "Venter på at du bekræfter din PayPal-konto"
       stripe:
-        waiting_confirmation_from_requester: ~
+        waiting_confirmation_from_requester: "Venter på at %{requester_name} skal markere ordren som færdiggjort. Når det er gjort vil betalingen gå igennem til din konto."
     status_link:
       accept_offer: "Accepter tilbud"
       accept_request: "Accepter forespørgsel"
@@ -1093,7 +1114,7 @@ da-DK:
       giving_feedback_is_good_idea: "Det er altid en god idé at vurdere hinanden. Hvis alt gik godt, kan du fortælle andre, at de kan have tillid til %{other_party_given_name}. Hvis der var nogen problemer, kan du nævne dem også."
       give_feedback_to: "Giv feedback til %{other_party_given_name}"
       stripe:
-        has_marked_request_as_confirmed: ~
+        has_marked_request_as_confirmed: "%{other_party_full_name} har markeret ordren om %{request} som færdiggjort. Betalingen for denne transaktion er blevet overført til din konto. Du kan nu give feedback til %{other_party_given_name}."
     transaction_automatically_confirmed:
       subject: "Anmodningen blev automatisk godkendt - husk at give feedback"
       we_have_marked_request_as_confirmed: "Vi har markeret anmodningen om '%{request}' som godkendt. Anmodningen blev automatisk godkendt fordi der er gået %{days_passed} dage, siden anmodningen blev accepteret."
@@ -1120,8 +1141,8 @@ da-DK:
       or: eller
       unsubscribe_from_these_emails_info: ~
       unsubscribe_from_these_emails: "afmeld disse emails"
-      unsubscribe_from_invitation_emails_info: ~
-      unsubscribe_from_invitation_emails: ~
+      unsubscribe_from_invitation_emails_info: "Du har modtaget denne mail fordi en bruger fra %{service_name} har inviteret dig."
+      unsubscribe_from_invitation_emails: "Unsubscribe fra invitationsmail til %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} har accepteret dit tilbud %{listing}"
       has_accepted_your_request: "%{accepter} har accepteret din anmodning %{listing}"
@@ -1156,34 +1177,34 @@ da-DK:
       price_per_unit_type: "Pris pr. %{unit_type}"
       quantity: "Mængde:"
       you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
     payment_receipt_to_seller:
-      payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
-      price_payer_paid: ~
-      service_fee: ~
-      you_will_get: ~
-      new_payment: ~
-      price_per_unit_type: ~
-      quantity: ~
-      you_have_received_new_payment: ~
+      payment_gateway_fee: Betalingsomkostninger
+      shipping_total: "Levering:"
+      product: "Produkt:"
+      price_payer_paid: "Pris %{payer_full_name} betalte:"
+      service_fee: "%{service_name} serviceomkostninger:"
+      you_will_get: "Total:"
+      new_payment: "Du har modtaget en ny betaling"
+      price_per_unit_type: "Pris per %{unit_type}"
+      quantity: "Mængde:"
+      you_have_received_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{payer_full_name}. Her er din kvittering."
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "Beløbet <b>%{payment_sum}</b> er blevet betalt for <b>%{listing_title}</b> af %{payer_full_name}. Pengene bliver tilbageholdt af %{service_name} indtil ordren er blevet markeret som færdiggjort. Her er din kvittering."
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
-      product: ~
-      price_per_unit_type: ~
-      duration: ~
-      quantity: ~
-      subtotal: ~
-      total: ~
-      price: ~
-      service_fee: ~
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      receipt_of_payment: "Kvittering for betaling"
+      you_have_made_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b> af %{recipient_full_name} . Her er din kvittering."
+      product: Produkt
+      price_per_unit_type: "Pris per %{unit_type}"
+      duration: Varighed
+      quantity: Mængde
+      subtotal: Subtotal
+      total: Total
+      price: Pris
+      service_fee: Serviceomkostninger
+      stripe_gateway_fee: "Stripe's omkostninger:"
+      paypal_gateway_fee: "PayPal's omkostninger:"
+      money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når du enten har markeret anmodningen som fuldført eller at der er gået %{automatic_confirmation_days} dage siden du har betalt."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal-gebyr:"
       shipping_total: "Levering:"
@@ -1203,12 +1224,12 @@ da-DK:
       total: Total
       price: Pris
       service_fee: Servicegebyr
-      stripe_gateway_fee: ~
-      paypal_gateway_fee: ~
+      stripe_gateway_fee: "Stripe's omkostninger:"
+      paypal_gateway_fee: "PayPal-gebyr:"
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
-      listing_per_unit_title: ~
+      listing_per_unit_title: "%{title}, per %{unit_type}"
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "Du er blevet betalt <b>%{payment_sum}</b> for <b>%{listing_title}</b>. Pengene bliver tilbageholdt af %{service_name} og vil blive overført til %{recipient_full_name} når du har markeret ordren som gennemført. Her er en kvittering på ordren."
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} har givet dig feedback på %{service_name}"
       you_can_give_feedback_to: "Du har endnu ikke givet feedback til %{name}"
@@ -1243,9 +1264,9 @@ da-DK:
       subject: "%{requester} har anmodet og betalt for %{listing_title}"
       transaction_requested_by_user: "%{requester} har anmodet og betalt for \"%{listing_title}\""
       you_have_time_to_accept: "Du skal acceptere eller afvise anmodningen inden for %{payment_expires_in}. Hvis du accepterer inden for denne tidsramme, vil betalingen gå igennem. Hvis du ikke accepterer, vil anmodningen automatisk blive afvist, og du vil ikke blive betalt."
-      if_you_do_accept: ~
-      if_you_do_accept_stripe: ~
-      if_you_do_not_accept: ~
+      if_you_do_accept: "Hvis du accepterer anmodningen inden dette tidsrum, vil du modtage betalingen med det samme."
+      if_you_do_accept_stripe: "Hvis du accepterer anmodningen indenfor tidsfristen vil betalingen gå igennem. Du vil modtage pengene på din bankkonto efter du har udført %{listing_title} til %{requester}."
+      if_you_do_not_accept: "Hvis du afviser denne anmodning eller ikke accepterer inden tidsfristen, så vil transaktionen automatisk blive annulleret og %{requester} vil ikke blive trukket og du vil ikke blive betalt."
       click_here_to_reply: "Klik her for at sende dit svar"
     transaction_preauthorized_reminder:
       subject: "Husk at godkende ansøgningen fra %{requester} omhandlende annoncen %{listing_title}"
@@ -1273,7 +1294,7 @@ da-DK:
       booking_failed_payment_voided: |-
           Booking mislykkedes på grund af en uventet fejl. Prøv igen senere.
           Du er ikke blevet debiteret.
-      double_booking_payment_voided: ~
+      double_booking_payment_voided: "Dagene du har valgt er ikke længere tilgængelige. Vælg venligst andre dage. Du er ikke blevet trukket."
     onboarding:
       server_rendering: "Kom godt i gang guide kunne ikke indlæses. Vi er blevet informeret om situationen, og vi løser det."
     listings:
@@ -1288,7 +1309,7 @@ da-DK:
     transaction_agreement:
       required_error: "Du skal godkende kontrakten"
     paypal:
-      transaction_cannot_complete: ~
+      transaction_cannot_complete: "Transaktionen kan ikke fuldføres. Dette skyldes højst sandsynligt den kreditkortfejlende bankgodkendelse. Prøv venligst at købe igen med en alternativ betalingsmetode."
       buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
       seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret. Kontakt sælger og fortæl dem, at der er et problem med deres PayPal-konto. Opfordr dem evt. til at kontakte PayPal kundeservice."
@@ -1297,9 +1318,9 @@ da-DK:
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."
       reject_authorization_error: "Der skete en fejl da vi prøvede at afvise PayPal betalingen. Prøv venligst igen."
     stripe:
-      generic_error: ~
-      accept_authorization_error: ~
-      reject_authorization_error: ~
+      generic_error: "Der skete en teknisk fejl under betalingsprocessen."
+      accept_authorization_error: "En fejl opstod under godkendelse af Stripe betalingen. Prøv igen senere."
+      reject_authorization_error: "En fejl opstod under afvisning af Stripe betalingen. Prøv igen senere."
   error_pages:
     back_to_kassi_front_page: "Tilbage til forsiden"
     error_404:
@@ -1324,7 +1345,7 @@ da-DK:
       kassi_does_not_currently_work_without_javascript: "%{service_name} virker ikke korrekt uden javascript. Prøv at aktivere javascript fra din browsers indstillinger og derefter genindlæse denne side igen."
       contact_us: "kontakt os"
       send_feedback: "Send besked"
-      your_feedback_to_admins: "Din besked til %{service_name} team"
+      your_feedback_to_admins: "Din besked til %{service_name}"
     send: Send
     your_email_address: "Din email"
   errors:
@@ -1338,7 +1359,7 @@ da-DK:
       after: "skal være efter %{restriction}"
       on_or_after: "skal være på eller efter %{restriction}"
       positive_number: "Indsæt et tal."
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "\"Starttidspunkt\" skal være tidligere end \"Sluttidspunkt\""
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} indvilligede i at udlåne %{listing_title} til %{requester_name}%{time_ago}"
@@ -1377,7 +1398,7 @@ da-DK:
     contact_us: "Kontakt os"
     profile: Profil
     manage_listings: "Administrer annoncer"
-    invite: "Inviter nye medlemmer"
+    invite: "Referer til ven"
     login: "Log ind"
     signup: Tilmeld
     menu: Menu
@@ -1598,10 +1619,10 @@ da-DK:
       feedback_sent_to: "Feedback sendt til %{target_person}."
       feedback_skipped: "Feedback sprunget over"
       invitation_cannot_be_sent: "Invitation kunne ikke sendes"
-      invitation_cannot_unsubscribe: ~
+      invitation_cannot_unsubscribe: "Kan ikke unsubscribe fra invitationsmails"
       invitation_limit_reached: "Du prøvede at sende invitationer, men har sendt for mange. Den daglige grænse er nået."
       invitation_sent: "Invitation sendt"
-      invitation_successfully_unsubscribed: ~
+      invitation_successfully_unsubscribed: "Succesfuldt afmeldt fra invitation e-mails"
       inviting_new_users_is_not_allowed_in_this_community: "Det er ikke tilladt at invitere nye brugere."
       login_again: "Log venligst ind igen"
       login_failed: "Login mislykkedes. Indtast de korrekte oplysninger."
@@ -1621,8 +1642,8 @@ da-DK:
       offer_rejected: "Tilbud afslået"
       offer_canceled: "Tilbud annulleret"
       listing_updated_successfully: "Annoncen blev opdateret"
-      listing_updated_availability_management_enabled: ~
-      listing_updated_availability_management_disabled: ~
+      listing_updated_availability_management_enabled: "Annoncen blev opdateret. Tilgængelighedsstyring er aktiveret."
+      listing_updated_availability_management_disabled: "Annoncen blev opdateret. Tilgængelighedsstyring er deaktiveret."
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Kun notering forfatter kan lukke en liste"
       only_listing_author_can_edit_a_listing: "Kun notering forfatter kan redigere en liste"
@@ -1695,8 +1716,8 @@ da-DK:
         one: "Dette website vil være offline for vedligeholdelse i %{count} minut"
         other: "Dette website vil være offline for vedligeholdelse i %{count} minutter"
       automatically_logged_out_please_sign_in: "Du er blevet automatisk logget ud. Log venligst ind igen."
-      stripe_you_account_balance_is_not_0: ~
-      visit_admin: ~
+      stripe_you_account_balance_is_not_0: "Din kontobalance er ikke 0 og kan derfor ikke blive slettet. Det betyder du måske har transaktioner der venter på at blive gennemført eller at der er penge der venter på at blive overført til din konto. Kontakt venligst %{service_name} for at lære mere."
+      visit_admin: "Kunne du tænke dig at %{link}?"
       visit_admin_link: ~
     settings:
       account: Konto
@@ -1704,7 +1725,7 @@ da-DK:
       profile: Profilinfo
       settings: Indstillinger
       paypal_payments: "PayPal betalinger"
-      stripe_payments: ~
+      stripe_payments: "Stripe betaling"
       payments: Betalinger
   listings:
     bubble_listing_not_visible:
@@ -1739,8 +1760,8 @@ da-DK:
     error:
       something_went_wrong: "Noget gik galt, error code: %{error_code}"
       something_went_wrong_plain: "Noget gik galt"
-      create_failed_to_connect_to_booking_service: ~
-      update_failed_to_connect_to_booking_service: ~
+      create_failed_to_connect_to_booking_service: "Fejl i oprettelsen: Kunne ikke forbinde til booking service. Prøv igen."
+      update_failed_to_connect_to_booking_service: "Fejl i oprettelsen: Kunne ikke forbinde til booking service. Prøv igen."
     follow_links:
       follow: "Modtag emails om nye kommentarer"
       unfollow: "Afmeld emails om nye kommentarer"
@@ -1801,9 +1822,9 @@ da-DK:
         long_time: "uge, måned, ..."
         after_service_fee_you_will_get: "Efter %{service_name}'s servicegebyr, vil du få %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} vil blive fratrukket prisen."
-        no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: ~
-        payment_fee_info_link_text: ~
+        no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} vil blive fratrukket prisen."
+        after_service_fee_you_will_get_payment_text: "Når nogle placerer en ordre vil du modtage dette beløb minus %{payment_fee_info_link}"
+        payment_fee_info_link_text: "%{service_name} gebyr og en betalingsomkostning"
         delivery: Leveringsform
         shipping: Forsendelse
         shipping_price: Porto
@@ -1888,11 +1909,11 @@ da-DK:
       booking_to: Til
       how_paypal_works: "Sådan virker PayPal"
       payment_help: Betalingshjælp
-      unable_load_availability: ~
-      booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      unable_load_availability: "Kunne ikke hente data. Prøv igen senere."
+      booking_date: "Booking dato"
+      select_one: "Vælg en"
+      start_time: "Start tidspunkt"
+      end_time: "Slut tidspunkt"
     new:
       listing: annonce
       selected_category: "Kategori: %{category}"
@@ -1906,6 +1927,7 @@ da-DK:
       community_not_configured_for_payments: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke oprette nye annoncer endnu. Venligst %{contact_admin_link} for yderligere info."
       payment_settings_link: "betalings indstillinger"
       community_not_configured_for_payments_admin: "%{service_name} er ikke blevet konfigureret til betalinger, så du kan ikke oprette nye annoncer endnu. Gå til %{payment_settings_link} for at udfylde betalingsoplysninger."
+      you_are_now_posting_a_listing_on_behalf_of: "Du laver nu en annonce på vegne af %{name}"
     quantity:
       hour: "Antal timer:"
       day: "Antal dage:"
@@ -1964,7 +1986,7 @@ da-DK:
       night: nat
       week: uge
       month: måned
-      unit: ~
+      unit: Enhed
     verification_required:
       verification_required: "Godkendelse påkrævet"
   listing_conversations:
@@ -1984,16 +2006,16 @@ da-DK:
     transaction_agreement_checkbox:
       read_more: Vis.
     stripe_payment:
-      payment: ~
-      pay_with_card: ~
-      address: ~
+      payment: Betaling
+      pay_with_card: "Betal med credit eller debit kort"
+      address: Leveringsadresse
       address_country: Land
-      address_name: ~
-      address_city: ~
-      address_state: ~
-      address_street1: ~
-      address_street2: ~
-      address_postal_code: ~
+      address_name: "For- og efternavne"
+      address_city: "By *"
+      address_state: "By *"
+      address_street1: "Adresselinje 1 *"
+      address_street2: "Adresselinje 2 *"
+      address_postal_code: "Postnummer *"
   mapview:
     index:
       all_categories: "Alle kategorier"
@@ -2112,14 +2134,14 @@ da-DK:
       email_is_in_use: "Email allerede i brug."
       email_is_in_use_or_not_allowed: "Denne email er ikke tilladt, eller det er allerede registreret. Hvis du ikke kan logge ind, så kontakt os."
       email_not_allowed: ~
-      invalid_username_or_email: ~
+      invalid_username_or_email: "Brugernavnet eller mail ugyldigt eller allerede i brug"
       email_restriction_instructions:
         one: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en %{allowed_emails} email adresse."
         other: "Du har ikke adgang til serveren %{service_name}. For at få adgang skal du bruge en godkendt emailadresse."
       family_name: Efternavn
       given_name: Fornavn
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "Jeg accepterer %{terms} og %{privacy}"
+      admin_emails_consent: "Jeg accepterer at modtage mails fra %{service_name} og forstår at jeg kan ændre mine indstillinger når som helst."
       invalid_invitation_code: "Invitationskode er ikke gyldig."
       invitation_code: Invitationskode
       not_required: ", ikke nødvendig."
@@ -2128,7 +2150,7 @@ da-DK:
       show_my_name_to_others: "Vis mit rigtige navn til andre %{service_name} brugere"
       sign_up: "Opret ny %{service_name} konto"
       terms: Brugervilkår
-      privacy: ~
+      privacy: Privatlivspolitik
       username_is_in_use: "Dette brugernavn er allerede i brug."
       username_is_invalid: "Brugernavn er ugyldig. Tilladte tegn er bogstaver, tal og understregning."
       visible_only_to_you: "kun synlige for dig og markedspladsens admin"
@@ -2136,7 +2158,7 @@ da-DK:
       create_account_with_facebook: "Opret med Facebook"
       OR: ELLER
       signup_with_email: "Opret med email"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Dette felt vil vises offentligt)"
     profile_feedback:
       grade: "klasse:"
       and_gave_following_feedback: "og gav følgende feedback"
@@ -2176,6 +2198,8 @@ da-DK:
       show_all_listings: "Vis alle annoncer"
       show_all_open_listings: "Vis alle åbne annoncer"
       show_all_reviews: "Vis alle anmeldelser"
+      admin_actions: "Admin aktioner"
+      post_listing_as: "Post annonce som"
     followed_people:
       you_follow_plural: "Du følger %{count} personer"
       you_follow_singular: "Du følger %{count} person"
@@ -2217,8 +2241,8 @@ da-DK:
       confirm_your_email: "Bekræft din mail"
       account_confirmation_instructions: "Du modtager snart en e-mail med et link til at bekræfte din e-mailadresse. Husk at tjekke din spammappe! Efter at have bekræftet din adresse, kan du tilslutte dig %{service_name}."
       account_confirmation_instructions_title_admin: "Velkommen til din markedsplads!"
-      before_full_access_you_need_to_confirm_email: ~
-      before_confirmation_only_access_admin_dashboard: ~
+      before_full_access_you_need_to_confirm_email: "Før vi kan give dig fuld adgang til din markedsplads, så skal du validere din email."
+      before_confirmation_only_access_admin_dashboard: "Før bekræftelse kan du kun gå til %{admin_dashboard_link}."
       admin_dashboard_link_text: "admin dashboard"
       account_confirmation_instructions_admin: "Du vil nu modtage en mail med et link som du skal klikke på for at bekræfte din indtastede mailadresse. Efter at have godkendt din email, kan du starte med at foretage ændringer på din nye markedsplads."
       contact_support_link_text: "kontakt Sharetribe support"
@@ -2287,7 +2311,7 @@ da-DK:
       display_name: "Vist navn"
       display_name_description: "Hvis du repræsenterer en virksomhed eller organisation, kan du benytte dennes navn som brugernavn. Brugernavnet vises til andre brugere i stedet for dit for- og efternavn."
       location_description: "Angiv enten nøjagtig placering eller postnummer, eller vælg en placering på kortet."
-      profile_picture_description: ~
+      profile_picture_description: "Profilbilledet bør være kvadratisk (1:1 ratio), fx 800x800 pixels ellers bliver det beskæret."
       phone_number: Telefonnnummer
       profile_picture: Profilbillede
       postal_code: Postnummer
@@ -2300,7 +2324,8 @@ da-DK:
       default_in_listing: "(bruges kun som standard når du opretter nye annoncer)"
       invisible: "(vises ikke til andre brugere)"
       image_is_processing: "Din profil er ved at blive forberedt. Opdatér venligst siden om et øjeblik."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(vises på din profil)"
+      editing_profile_of: "Du ændre nu %{name}s profil"
     save_information: Gem
   shipping_address:
     shipping_address: Forsendelsesadresse
@@ -2443,21 +2468,27 @@ da-DK:
       booked_nights_label:
         one: "Reserveret nat:"
         other: "Reserverede nætter:"
+      booked_hours_label:
+        one: "Booket time:"
+        other: "Booket timer:"
       price_per_day: "Pris pr. dag:"
       price_per_night: "Pris per nat:"
-      price_per_hour: ~
-      price_per_unit: ~
+      price_per_hour: "Pris per time:"
+      price_per_unit: "Pris per enhed:"
       quantity: "Mængde:"
       subtotal: "Subtotal:"
       shipping-price: "Porto:"
-      stripe-fee: ~
-      start_end_time: ~
+      stripe-fee: "Stripe gebyr (anslået til):"
+      duration_in_hours:
+        one: "(1 time)"
+        other: "(%{count} timer)"
+      start_end_time: "%{start_time} til %{end_time}"
     price_per_quantity: "Pris pr. %{unit_type}:"
     price: "Pris:"
     quantity: "Mængde: %{quantity}"
     unit_price: "Enhedspris: %{unit_price}"
     total: "Total:"
-    total_to_pay: ~
+    total_to_pay: "Betaling total:"
   unit:
     day: dag
     days: dage
@@ -2465,12 +2496,12 @@ da-DK:
     listings:
       errors:
         availability:
-          something_went_wrong: ~
-          saving_failed: ~
+          something_went_wrong: "Vi kan ikke vise tilgængelighedsoplysninger. Prøv at genindlæse siden."
+          saving_failed: "Vi kan ikke gemme tilgængelighedsændringer. Prøv at genindlæse siden."
         working_hours:
-          required: ~
-          overlaps: ~
-          covers: ~
+          required: påkrævet
+          overlaps: overlapninger
+          covers: Dækker
       pricing_units:
         piece: styk
         hour: time
@@ -2480,25 +2511,25 @@ da-DK:
         month: måned
       edit_availability_header: Tilgængelighed
       save_and_close_availability_editing: "Gem og luk"
-      confirm_discarding_unsaved_availability_changes_explanation: ~
-      confirm_discarding_unsaved_availability_changes_question: ~
-      edit_listing_availability: ~
+      confirm_discarding_unsaved_availability_changes_explanation: "Du har ikke-gemte ændringer i dine tilgængelighedsoplysninger. Hvis du fortsætter, vil disse ændringer gå tabt."
+      confirm_discarding_unsaved_availability_changes_question: "Er du sikker på, at du vil droppe dine ændringer?"
+      edit_listing_availability: "Ændr annoncens tilgængelighed"
       working_hours:
-        default_schedule: ~
-        i_am_available_on: ~
-        start_time: ~
-        end_time: ~
-        add_another_time_slot: ~
-        save: ~
+        default_schedule: "Standard skema"
+        i_am_available_on: "Jeg er tilgængelig på..."
+        start_time: "Start tidspunkt"
+        end_time: "Slut tidspunkt"
+        add_another_time_slot: "+ Tilføj endnu et tidsinterval"
+        save: Gem
     no_listings:
       sorry: "Beklager, ingen annoncer blev fundet til dine søgekriterier."
-      try_other_search_terms: ~
+      try_other_search_terms: "Måske du skulle prøve andre søgeord?"
     listing_card:
       add_picture: "Tilføj billede"
       no_picture: "Intet billede"
     search:
       page: Side
-      page_of_pages: ~
+      page_of_pages: "af %{total_number_of_pages}"
     topbar:
       menu: Menu
       more: Mere
@@ -2546,48 +2577,48 @@ da-DK:
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
-    admin_account_not_connected: ~
-    contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
-    pay_with_stripe: ~
-    add_and_pay: ~
+    admin_account_not_connected: "Brug af %{service_name}s betalingssystem, til brug for modtagelse af betalinger, er ikke muligt, da betalinger ikke er sat op. Venligst %{contact_admin_link} for detaljer."
+    contact_admin_link_text: "Kontakt %{service_name} holdet"
+    you_are_ready_to_accept_payments: "Du er klar til at modtage betalinger!"
+    commission: "%{commission} %"
+    pay_with_stripe: "Betal med Stripe med %{card}"
+    add_and_pay: "Bekræft betaling"
     card_not_stored: ~
-    missing_payment: ~
-    stripe_bank_connected: ~
-    stripe_can_accept: ~
-    stripe_credit_card: ~
+    missing_payment: "Du har en offentlig annonce men din konto er ikke sat op til at modtage betalinger. Du kan konfigurere dine betalingsindstillinger ved at gå til %{settings_link}"
+    stripe_bank_connected: "Bankdetaljer tilføjet!"
+    stripe_can_accept: "Du kan nu modtage betalinger"
+    stripe_credit_card: "Credit kort"
     paypal: PayPal
     paypal_connected: "PayPal-kontoen blev tilknyttet."
     paypal_can_accept: "Du er nu klar til at modtage betaling på din PayPal konto"
-    paypal_connected_give_permission: ~
+    paypal_connected_give_permission: "For at afslutte opsætningen og begynde at modtage penge på din PayPal-konto <%{email}>, giv venligst tilladelse til at opkræve et transaktionsgebyr."
     form_new:
-      need_info: ~
+      need_info: "Vi har brug for nogle oplysninger om dig for at kunne sende dig penge."
       select_country: "Vælg land"
       legal_name: "Kontohavers navn"
-      first_name: ~
-      last_name: ~
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
-      country: ~
+      first_name: Fornavn
+      last_name: Efternavn
+      first_name_kana: "Fornavn kana"
+      last_name_kana: "Efternavn kana"
+      first_name_kanji: "Fornavn kanji"
+      last_name_kanji: "Efternavn kanji"
+      country: Land
       birth_date: Fødselsdato
-      ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
-      tos_link: ~
+      ssn_last_4: "Sidste 4-ciffer i CPR"
+      personal_id_number: "CPR nummer"
+      address_country: Land
+      address_state: By
+      address_province: By
+      address_city: By
+      address_postal_code: Postnummer
+      address_line1: Adresse
+      tos_link: "Ved at tilføje dine udbetalingsdetaljer accepterer du %{stripe_link}."
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
-      gender: ~
-      phone_number: ~
+      save_details: Gem
+      edit: Rediger
+      cancel: Annuller
+      gender: Køn
+      phone_number: Telefonnummer
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -2598,21 +2629,21 @@ da-DK:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: Mand
+      female: Kvinde
     form_bank:
-      bank_account_number: ~
+      bank_account_number: "Bankkonto nummer"
       bank_routing_number: ~
-      bank_routing_1: ~
-      bank_routing_2: ~
-      bank_currency: ~
-      update_also_bank_account: ~
+      bank_routing_1: "Bank kode"
+      bank_routing_2: "Branche kode"
+      bank_currency: "Konto valuta"
+      update_also_bank_account: "Opdater også bankinformationer"
       messages:
-        account_number: ~
+        account_number: Kontonummer
         routing_number: ~
-        bank_code: ~
-        branch_code: ~
-        transit_number: ~
+        bank_code: "Bank kode"
+        branch_code: "Branche kode"
+        transit_number: "Transit nummer"
         institution_number: ~
         format_varies_by_bank: ~
         bsb: ~
@@ -2631,7 +2662,7 @@ da-DK:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
-      ssn_last_4: ~
+      ssn_last_4: "Sidste 4-ciffer i CPR"
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:

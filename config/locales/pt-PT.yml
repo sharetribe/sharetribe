@@ -286,6 +286,12 @@ pt-PT:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: "Nome de utilizador da conta do Twitter do seu mercado virtual (se tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: "Nome de utilizador da conta de Twitter do seu mercado virtual (se tiver um). Será mencionado quando as pessoas clicarem o botão 'tweet' na página de anúncios. %{instructions_link}."
@@ -484,6 +490,8 @@ pt-PT:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1891,6 +1899,7 @@ pt-PT:
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, pelo que (ainda) não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: ~
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para os pagamentos, pelo que não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
@@ -2161,6 +2170,8 @@ pt-PT:
       show_all_listings: "Mostrar todos os anúncios"
       show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: ~
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2286,6 +2297,7 @@ pt-PT:
       invisible: "(não será mostrado a outros utilizadores)"
       image_is_processing: ~
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Salvar informação"
   shipping_address:
     shipping_address: ~

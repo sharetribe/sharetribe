@@ -292,6 +292,12 @@ lv:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -490,6 +496,8 @@ lv:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1891,6 +1899,7 @@ lv:
       community_not_configured_for_payments: "%{service_name} nav konfigurēts maksājumiem, tāpēc Jūs vēl nevarat ievietot jaunus sludinājumus. Lai iegūtu sīkāku informāciju, lūdzu,%{contact_admin_link}"
       payment_settings_link: "maksājumu iestatījumi"
       community_not_configured_for_payments_admin: "%{service_name} nav konfigurēts maksājumiem, tāpēc Jūs vēl nevarat ievietot jaunus sludinājumus. Ejiet uz %{payment_settings_link}, lai aizpildītu maksājumu informāciju."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Stundu skaits:"
       day: "Dienu skaits:"
@@ -2161,6 +2170,8 @@ lv:
       show_all_listings: "Parādīt visus sludinājumus"
       show_all_open_listings: "Parādīt visus atvērtos sludinājumus"
       show_all_reviews: "Parādīt visas atsauksmes"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Jūs sekojat %{count} cilvēkiem"
       you_follow_singular: "Jūs sekojat %{count} personām"
@@ -2286,6 +2297,7 @@ lv:
       invisible: "(netiek rādīts citiem lietotājiem)"
       image_is_processing: "Mēs apstrādājam Jūsu profila attēlu. Tas būs gatavs pēc minūtes vai divām."
       shown_in_your_public_profile: "(parādīts jūsu publiskā profilā)"
+      editing_profile_of: ~
     save_information: "Saglabā informāciju"
   shipping_address:
     shipping_address: "Piegādes adrese"

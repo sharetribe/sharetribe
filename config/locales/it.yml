@@ -280,6 +280,12 @@ it:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Nome utente di Twitter"
         twitter_handle_info_text: "Il nominativo del profilo Twitter del tuo negozio online (se ne hai uno). Sarà menzionato quando le persone premeranno il bottone di Twitter nella pagina dell'annuncio."
         twitter_handle_info_text_with_instructions: ~
@@ -478,6 +484,8 @@ it:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1879,6 +1887,7 @@ it:
       community_not_configured_for_payments: "%{service_name} non è stato configurato per i pagamenti e quindi non puoi inserire nuovi annunci ancora. Contattare %{contact_admin_link} per ulteriori dettagli."
       payment_settings_link: "Impostazioni dei pagamenti"
       community_not_configured_for_payments_admin: "%{service_name} non è ancora stato configurato per i pagamenti, quindi non puoi pubblicare inserzioni. Vai a %{payment_settings_link} per inserire i dettagli."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Numero di ore:"
       day: "Numero di giorni:"
@@ -2149,6 +2158,8 @@ it:
       show_all_listings: "Mostra tutte le inserzioni"
       show_all_open_listings: "Mostra tutte le inserzioni aperte"
       show_all_reviews: "Mostra tutte le recensioni"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Stai seguendo %{count} persone"
       you_follow_singular: "Stai seguendo %{count} persona"
@@ -2276,6 +2287,7 @@ it:
       invisible: "(non visibile ad altri utenti)"
       image_is_processing: "L'immagine di profilo è pronta. Per favore, ricarica tra un po' di tempo la pagina."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Salva le informazioni"
   shipping_address:
     shipping_address: "Indirizzo di consegna"

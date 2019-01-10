@@ -300,6 +300,12 @@ cs:
         social_media: "Sociální média"
         logo: Logo
         logo_info: "Tento obrázek se používá, když někdo sdílí vaši doménu na sociálních sítích (Facebook, Twitter, Linkedin). Pro lepší výsledek by měl mít poměr 2:1 a minimální rozlišení %{width} x%{height} pixelů"
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitter
         twitter_handle_info_text: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky."
         twitter_handle_info_text_with_instructions: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky. %{instructions_link}."
@@ -342,6 +348,15 @@ cs:
         all: Vše
         max_number_of_links_info: "Odkaz na %{about_page} se vždy zobrazí v menu jako první"
         about_page: "o nás"
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Horní lišta"
         new_listing_button_label: "Text tlačítka pro přidání nové položky"
@@ -420,6 +435,10 @@ cs:
           other_party: "Další strana"
         participants: "Konverzace:  %{author} s %{starter}"
         profile: "Profil %{author}"
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: "Zobrazit recenze"
         no_testimonials_found: "Žádné hodnocení nenalezeno"
@@ -498,6 +517,8 @@ cs:
         style:
           dark: Tmavý
           light: Světlý
+          marketplace_color: ~
+          logo: ~
         social:
           title: Nadpis
           url: URL
@@ -1916,6 +1937,7 @@ cs:
       community_not_configured_for_payments: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Prosíme, %{contact_admin_link} pro více informací."
       payment_settings_link: "nastavení plateb"
       community_not_configured_for_payments_admin: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Jděte na %{payment_settings_link} a vyplňte podrobnosti o platbách."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Počet hodin:"
       day: "Počet dní:"
@@ -2187,6 +2209,8 @@ cs:
       show_all_listings: "Zobrazit všechny inzeráty"
       show_all_open_listings: "Zobrazit všechny inzeráty"
       show_all_reviews: "Zobrazit všechna hodnocení"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Sledujete %{count} lidí"
       you_follow_singular: "Sledujete %{count} osobu"
@@ -2312,6 +2336,7 @@ cs:
       invisible: "(nezobrazuje se ostatním uživatelům)"
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
       shown_in_your_public_profile: "( zobrazeno ve vašem veřejném profilu)"
+      editing_profile_of: ~
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"

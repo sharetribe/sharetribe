@@ -297,6 +297,12 @@ nl:
         social_media: "Sociale media"
         logo: Logo
         logo_info: "Deze afbeelding verschijnt in sociale media (Facebook, Twitter, LinkedIn) wanneer iemand jouw website deelt. Voor het beste resultaat dient het een beeldverhouding van 2:1 te hebben en een minimum grootte van %{width}x%{height} pixels."
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter account"
         twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
@@ -495,6 +501,8 @@ nl:
         style:
           dark: Donker
           light: Licht
+          marketplace_color: ~
+          logo: ~
         social:
           title: Titel
           url: URL
@@ -1915,6 +1923,7 @@ nl:
       community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Neem a.u.b. contact op met %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Aantal uur:"
       day: "Aantal dagen:"
@@ -2185,6 +2194,8 @@ nl:
       show_all_listings: "Toon alle advertenties"
       show_all_open_listings: "Toon alle actuele advertenties"
       show_all_reviews: "Toon alle evaluaties"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
       you_follow_singular: "Je volgt %{count} persoon"
@@ -2310,6 +2321,7 @@ nl:
       invisible: "(niet getoond aan andere gebruikers)"
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
       shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
+      editing_profile_of: ~
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

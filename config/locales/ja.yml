@@ -290,6 +290,12 @@ ja:
         social_media: ソーシャルメディア
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitterのハンドル
         twitter_handle_info_text: "あなたのマーケットプレイスのTwitterのユーザー名 (お持ちであれば) 。投稿ページのツイートボタンを使うときに言及されます。"
         twitter_handle_info_text_with_instructions: "あなたのマーケットプレイスのツイッターのユーザ名（お持ちの場合）。ツイートボタンを使ってツイートすることが出来ます。%{instructions_link}。"
@@ -488,6 +494,8 @@ ja:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1894,6 +1902,7 @@ ja:
       community_not_configured_for_payments: "%{service_name}はお支払いを確定できませんでしたので、まだ新しい投稿を掲載が出来ていません。%{contact_admin_link}から詳細についてお問い合わせください。"
       payment_settings_link: お支払い設定
       community_not_configured_for_payments_admin: "%{service_name}はお支払いを確定できませんでしたので、まだ新しい投稿の掲載が出来ていません。%{payment_settings_link}で、お支払いの詳細について記入してください。"
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: 時間数：
       day: 日数：
@@ -2163,6 +2172,8 @@ ja:
       show_all_listings: 投稿を表示する
       show_all_open_listings: 公開された投稿をすべて表示
       show_all_reviews: すべてのレビューを表示
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "あなたは%{count}人フォロー中です。"
       you_follow_singular: "あなたは%{count}人フォロー中です。"
@@ -2288,6 +2299,7 @@ ja:
       invisible: （他のユーザーに表示されません）
       image_is_processing: プロフィール画像を準備中です。しばらく経ってからご確認ください。
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: 保存する
   shipping_address:
     shipping_address: 届け先住所

@@ -295,6 +295,12 @@ pt-BR:
         social_media: "Mídia social"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Nome Twitter"
         twitter_handle_info_text: "Nome de usuário da conta do Twitter do seu mercado virtual (se você tiver uma). Será mencionado quando as pessoas usarem o botão tweet na página do anúncio."
         twitter_handle_info_text_with_instructions: "Nome de usuário da conta de Twitter de seu mercado virtual (se você tiver um). Ele será mencionado quando as pessoas usarem o botão 'tweet' na página de anúncios. %{instructions_link}."
@@ -493,6 +499,8 @@ pt-BR:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1906,6 +1914,7 @@ pt-BR:
       community_not_configured_for_payments: "%{service_name} não foi configurado para os pagamentos, então você ainda não pode criar novos anúncios. Por favor, %{contact_admin_link} para mais detalhes."
       payment_settings_link: "configurações de pagamento"
       community_not_configured_for_payments_admin: "%{service_name} não foi configurado para receber os pagamentos, por isso você não pode criar novos anúncios. Ir para %{payment_settings_link} para preencher os detalhes de pagamento."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Número de horas:"
       day: "Número de dias:"
@@ -2178,6 +2187,8 @@ pt-BR:
       show_all_listings: "Mostrar todos os anúncios"
       show_all_open_listings: "Listar todos os anúncios ativos"
       show_all_reviews: "Mostrar todas as avaliações"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Você segue %{count} pessoas"
       you_follow_singular: "Você segue %{count} pessoa"
@@ -2303,6 +2314,7 @@ pt-BR:
       invisible: "(não será mostrado a outros usuários)"
       image_is_processing: "Seu imagem de perfil está sendo preparada. Por favor, atualize a página daqui a pouco."
       shown_in_your_public_profile: "(mostrado no seu perfil público)"
+      editing_profile_of: ~
     save_information: "Salvar informações"
   shipping_address:
     shipping_address: "Endereço para envio"
