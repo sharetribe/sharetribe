@@ -15,8 +15,8 @@ module Sharetribe
     {ident: "en", name: "English", language: "en", region: "US", fallback: nil}, # English (United States)
     {ident: "en-AU", name: "English (Australia)", language: "en", region: "AU", fallback: nil}, # English (Australia)
     {ident: "en-GB", name: "English (United Kingdom)", language: "en", region: "GB", fallback: nil}, # English (United Kingdom)
-    {ident: "es-ES", name: "Español (España)", language: "es", region: "ES", fallback: "es"}, # Spanish (Spain)
     {ident: "es", name: "Español", language: "es", region: "ES", fallback: "nil"}, # Spanish
+    {ident: "es-ES", name: "Español (España)", language: "es", region: "ES", fallback: "es"}, # Spanish (Spain)
     {ident: "fi", name: "Suomi", language: "fi", region: "FI", fallback: nil}, # Finnish (Finland)
     {ident: "fr", name: "Français", language: "fr", region: "FR", fallback: nil}, # French (France)
     {ident: "fr-CA", name: "Français (Canada)", language: "fr", region: "CA", fallback: "fr"}, # French (Canada)
