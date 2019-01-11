@@ -73,12 +73,12 @@ describe SessionsController, type: :controller do
       post :facebook, params: { provider: 'facebook' }
       session_data = assigns(:service_session_data)
       expect(session_data).to eq({"provider"=>"facebook", "email"=>"markus@example.com", "given_name"=>"Markus", "family_name"=>"Sugarberg", "username"=>"markus.sharer-123", "id"=>"597013691"})
-      expect(subject).to redirect_to action: :create_facebook_based, controller: :people
+      expect(subject).to redirect_to action: :create_omniauth_based, controller: :people
     end
 
     it 'sign in if FB uid fits for global admin' do
       person_global_admin_with_facebook_id
-      oauth_mock('facebook', {extra: {raw_info: {id: '123'}}})
+      oauth_mock('facebook', {uid: '123'})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:facebook]
       post :facebook, params: { provider: 'facebook' }
       expect(warden.authenticated?(:person)).to eq true
@@ -96,7 +96,7 @@ describe SessionsController, type: :controller do
 
     it 'sign in if FB uid fits for person' do
       person_with_facebook_id
-      oauth_mock('facebook', {extra: {raw_info: {id: '345'}}})
+      oauth_mock('facebook', {uid: '345'})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:facebook]
       post :facebook, params: { provider: 'facebook' }
       expect(warden.authenticated?(:person)).to eq true
