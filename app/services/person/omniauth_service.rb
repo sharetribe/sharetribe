@@ -67,7 +67,7 @@ class Person::OmniauthService
   end
 
   def update_facebook_data
-    person.update_attribute(:facebook_id, data.id)
+    person.update_attribute(:facebook_id, data.id) # rubocop:disable Rails/SkipsModelValidations
     if person.image_file_size.nil?
       begin
         person.store_picture_from_facebook!
@@ -109,7 +109,7 @@ class Person::OmniauthService
       ActiveRecord::Base.transaction do
         person = Person.create!(person_hash)
         # We trust that Facebook has already confirmed these and save the user few clicks
-        Email.create!(:address => omniauth["email"], :send_notifications => true, :person => person, :confirmed_at => Time.now, community_id: community.id)
+        Email.create!(:address => omniauth["email"], :send_notifications => true, :person => person, :confirmed_at => Time.zone.now, community_id: community.id)
 
         person.set_default_preferences
 
