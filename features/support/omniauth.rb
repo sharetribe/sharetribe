@@ -34,7 +34,7 @@ module OmniAuthTestHelpers
   def oauth_facebook_data
     {
       provider: 'facebook',
-      uid: '1234567',
+      uid: '597013691',
       info: {
         nickname: 'markussharer',
         email: 'markus@example.com',
