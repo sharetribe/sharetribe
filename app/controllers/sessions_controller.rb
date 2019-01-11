@@ -121,7 +121,7 @@ class SessionsController < ApplicationController
     service = Person::OmniauthService.new(
       community: @current_community,
       request: request,
-      provider: Person::OmniauthService::FACEBOOK)
+      logger: logger)
 
     if service.person
       service.update_person_provider_uid
@@ -136,27 +136,40 @@ class SessionsController < ApplicationController
     else
       @service_session_data = service.session_data.dup # expose for tests
       session["devise.omniauth_data"] = service.session_data
-      redirect_to :action => :create_facebook_based, :controller => :people
+      redirect_to :action => :create_omniauth_based, :controller => :people
     end
   end
 
-  # Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
-  def facebook_setup
-    request.env["omniauth.strategy"].options[:iframe] = true
-    request.env["omniauth.strategy"].options[:scope] = "public_profile,email"
-    request.env["omniauth.strategy"].options[:info_fields] = "name,email,last_name,first_name"
+  def google_oauth2
+    origin_locale = get_origin_locale(request, available_locales())
+    I18n.locale = origin_locale if origin_locale
 
-    if @current_community.facebook_connect_enabled?
-      request.env["omniauth.strategy"].options[:client_id] = @current_community.facebook_connect_id || APP_CONFIG.fb_connect_id
-      request.env["omniauth.strategy"].options[:client_secret] = @current_community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
+    service = Person::OmniauthService.new(
+      community: @current_community,
+      request: request,
+      logger: logger)
+
+    if service.person
+      service.update_person_provider_uid
+      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Google")
+      sign_in_and_redirect service.person, :event => :authentication
+    elsif service.no_ominauth_email?
+      flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
+      redirect_to sign_up_path and return
+    elsif service.person_email_unconfirmed
+      flash[:error] = t("layouts.notifications.facebook_email_unconfirmed", email: data.email)
+      redirect_to login_path and return
     else
-      # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
-      request.env["omniauth.strategy"].options[:client_id] = ""
-      request.env["omniauth.strategy"].options[:client_secret] = ""
-      request.env["omniauth.strategy"].options[:client_options][:authorize_url] = login_url
-      request.env["omniauth.strategy"].options[:client_options][:site_url] = login_url
+      @service_session_data = service.session_data.dup # expose for tests
+      session["devise.omniauth_data"] = service.session_data
+      redirect_to :action => :create_omniauth_based, :controller => :people
     end
+  end
 
+  # Omniauth setup phase hook, that is used to dynamically set up a omniauth strategy for provider on customer basis
+  def auth_setup
+    service = Person::OmniauthService::SetupPhase.new(community: @current_community, params: params, request: request)
+    service.run
     render :plain => "Setup complete.", :status => 404 #This notifies the ominauth to continue
   end
 
