@@ -6,5 +6,9 @@ module SocialNetworkHelper
       !@facebook_merge &&
       community.facebook_connect_enabled?.or_else(false)
   end
+
+  def google_connect_in_use?
+    @current_community && @current_community.google_connect_enabled? && @current_community.google_connect_id
+  end
 end
 

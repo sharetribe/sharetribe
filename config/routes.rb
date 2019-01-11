@@ -424,7 +424,7 @@ Rails.application.routes.draw do
 
       # List few specific routes here for Devise to understand those
       get "/signup" => "people#new", :as => :sign_up
-      get '/people/auth/:provider/setup' => 'sessions#facebook_setup' #needed for devise setup phase hook to work
+      get '/people/auth/:provider/setup' => 'sessions#auth_setup' #needed for devise setup phase hook to work
 
       resources :people, param: :username, :path => "", :only => :show, :constraints => { :username => /[_a-z0-9]{3,20}/ }
 
@@ -434,7 +434,7 @@ Rails.application.routes.draw do
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
-          get :create_facebook_based
+          get :create_omniauth_based
         end
       end
 
