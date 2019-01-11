@@ -262,6 +262,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
     social_media_params = params.require(:community).permit(
       :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled,
+      :google_connect_enabled, :google_connect_id, :google_connect_secret,
       social_logo_attributes: [
         :id,
         :image

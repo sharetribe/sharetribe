@@ -86,5 +86,26 @@
         = form.label :facebook_connect_secret, t(".facebook_connect_secret"), {:class => "input"}.merge(disabled_connect)
         = form.text_field :facebook_connect_secret, {:maxlength => "32", :class => "text_field", :placeholder => "#{Digest::MD5.hexdigest('1')}"}.merge(disabled_connect)
 
+    - if FeatureFlagHelper.feature_enabled?(:login_google_linkedin)
+      .row
+        %h3= t('.google_connect')
+        - if display_knowledge_base_articles
+          - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-google-connect" )
+          = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text_with_instructions", :instructions_link => google_instructions_link).html_safe}
+        - else
+          = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text").html_safe }
+      .row
+        .checkbox-container
+          = form.check_box :google_connect_enabled
+          = form.label :google_connect_enabled, t(".enable_google_login"), :class => "settings-checkbox-label"
+      .row
+        - disabled_connect = @community.google_connect_enabled? ? {} : {disabled: 'disabled'}
+        .col-6
+          = form.label :google_connect_id, t(".google_connect_id"), {:class => "input"}.merge(disabled_connect)
+          = form.text_field :google_connect_id, {:class => "text_field", :placeholder => ""}.merge(disabled_connect)
+        .col-6
+          = form.label :google_connect_secret, t(".google_connect_secret"), {:class => "input"}.merge(disabled_connect)
+          = form.text_field :google_connect_secret, {:class => "text_field", :placeholder => ""}.merge(disabled_connect)
+
     .row
       = form.button t("admin.communities.social_media.save")

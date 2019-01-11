@@ -103,6 +103,48 @@ describe Admin::CommunitiesController, type: :controller do
     end
   end
 
+  describe "#update_social_media"  do
+    it 'works' do
+      put :update_social_media, params: {
+        id: @community.id,
+        community: {
+          twitter_handle: 'ABC',
+          facebook_connect_enabled: true,
+          facebook_connect_id: '123',
+          facebook_connect_secret: '46a4591952bdc5c00cfba5a607885f8a',
+          google_connect_enabled: true,
+          google_connect_id: '345',
+          google_connect_secret: 'FGH'
+        }
+      }
+      @community.reload
+      expect(@community.twitter_handle).to eql('ABC')
+      expect(@community.facebook_connect_enabled).to eql(true)
+      expect(@community.facebook_connect_id).to eql('123')
+      expect(@community.facebook_connect_secret).to eql('46a4591952bdc5c00cfba5a607885f8a')
+      expect(@community.google_connect_enabled).to eql(true)
+      expect(@community.google_connect_id).to eql('345')
+      expect(@community.google_connect_secret).to eql('FGH')
+    end
+
+    it 'updates social media title, description' do
+      community_customization = @community.community_customizations.first
+      put :update_social_media, params: {
+        id: @community.id,
+        community: {
+          community_customizations_attributes: {
+            id: community_customization.id,
+            social_media_title: 'Hard Pill to Swallow',
+            social_media_description: 'I think I will buy the red car, or I will lease the blue one.',
+          }
+        }
+      }
+      community_customization.reload
+      expect(community_customization.social_media_title).to eql('Hard Pill to Swallow')
+      expect(community_customization.social_media_description).to eql('I think I will buy the red car, or I will lease the blue one.')
+    end
+  end
+
   def attempt_to_update_different_community_with(action, params)
     different_community = FactoryGirl.create(:community)
     put action, params: {id: different_community.id, community: params}

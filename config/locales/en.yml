@@ -324,6 +324,13 @@ en:
         enable_facebook_login: "Allow users to log in with their Facebook account"
         save: "Save settings"
         add_another_image: "Add another image"
+        google_connect: "Google Login"
+        google_instructions_link_text: "See instructions for configuring Google Connect."
+        google_connect_info_text_with_instructions: "In order to enable Google Login, create an application for your marketplace in the <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google developers dashboard</a>. Add the generated id and secret key of the application here. %{instructions_link}"
+        google_connect_info_text: "In order to enable Google Login, create an application for your marketplace in the <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google developers dashboard</a>. Add the generated id and secret key of the application here."
+        enable_google_login: "Allow users to log in with their Google account"
+        google_connect_id: ""
+        google_connect_secret: ""
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"

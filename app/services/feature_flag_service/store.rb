@@ -23,6 +23,7 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :admin_acts_as_user,
+      :login_google_linkedin,
     ].to_set
 
     def initialize(additional_flags:)
