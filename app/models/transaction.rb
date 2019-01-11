@@ -113,11 +113,26 @@ class Transaction < ApplicationRecord
   scope :search_by_party_or_listing_title, ->(pattern) {
     joins(:starter, :listing_author)
     .where("listing_title like :pattern
-        OR (people.given_name like :pattern OR people.family_name like :pattern OR people.display_name like :pattern)
-        OR (listing_authors_transactions.given_name like :pattern
-            OR listing_authors_transactions.family_name like :pattern
-            OR listing_authors_transactions.display_name like :pattern)", pattern: pattern)
+        OR (#{Person.search_by_pattern_sql('people')})
+        OR (#{Person.search_by_pattern_sql('listing_authors_transactions')})", pattern: pattern)
   }
+  scope :search_for_testimonials, ->(community, pattern) do
+    with_testimonial_ids = by_community(community.id)
+    .left_outer_joins(testimonials: [:author, :receiver])
+    .where("
+      testimonials.text like :pattern
+      OR #{Person.search_by_pattern_sql('people')}
+      OR #{Person.search_by_pattern_sql('receivers_testimonials')}
+    ", pattern: pattern).select("`transactions`.`id`")
+
+    for_testimonials.joins(:listing, :starter, :listing_author)
+    .where("
+      `listings`.`title` like :pattern
+      OR #{Person.search_by_pattern_sql('people')}
+      OR #{Person.search_by_pattern_sql('listing_authors_transactions')}
+      OR `transactions`.`id` IN (#{with_testimonial_ids.to_sql})
+      ", pattern: pattern).distinct
+  end
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
