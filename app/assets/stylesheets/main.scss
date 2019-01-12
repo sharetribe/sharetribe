@@ -39,6 +39,7 @@ body {
     // Zooms out on tiny screens
     font-size: em(13);
   }
+  overflow-x: hidden;
 }
 
 .page-content {
