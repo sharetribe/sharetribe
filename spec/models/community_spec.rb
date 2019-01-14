@@ -101,6 +101,9 @@
 #  google_connect_enabled                     :boolean
 #  google_connect_id                          :string(255)
 #  google_connect_secret                      :string(255)
+#  linkedin_connect_enabled                   :boolean
+#  linkedin_connect_id                        :string(255)
+#  linkedin_connect_secret                    :string(255)
 #
 # Indexes
 #
