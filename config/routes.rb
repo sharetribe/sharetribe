@@ -109,7 +109,7 @@ Rails.application.routes.draw do
   resources :communities, only: [:new, :create]
 
 
-  devise_for :people, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "sessions" }
+  devise_for :people, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "omniauth" }
 
   # Adds locale to every url right after the root path
   scope "(/:locale)", :constraints => { :locale => locale_matcher } do
@@ -415,7 +415,7 @@ Rails.application.routes.draw do
       get :message_arrived
     end
 
-    devise_for :people, skip: :omniauth_callbacks, controllers: { confirmations: "confirmations", registrations: "people", omniauth_callbacks: "sessions"}, :path_names => { :sign_in => 'login'}
+    devise_for :people, skip: :omniauth_callbacks, controllers: { confirmations: "confirmations", registrations: "people", omniauth_callbacks: "omniauth"}, :path_names => { :sign_in => 'login'}
     devise_scope :person do
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
@@ -424,7 +424,7 @@ Rails.application.routes.draw do
 
       # List few specific routes here for Devise to understand those
       get "/signup" => "people#new", :as => :sign_up
-      get '/people/auth/:provider/setup' => 'sessions#auth_setup' #needed for devise setup phase hook to work
+      get '/people/auth/:provider/setup' => 'omniauth#auth_setup' #needed for devise setup phase hook to work
 
       resources :people, param: :username, :path => "", :only => :show, :constraints => { :username => /[_a-z0-9]{3,20}/ }
 
@@ -434,7 +434,6 @@ Rails.application.routes.draw do
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code
-          get :create_omniauth_based
         end
       end
 

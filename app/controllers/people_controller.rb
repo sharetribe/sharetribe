@@ -121,24 +121,6 @@ class PeopleController < Devise::RegistrationsController
     resource
   end
 
-  def create_omniauth_based
-    service = Person::OmniauthService::Creator.new(
-      community: @current_community,
-      omniauth: session["devise.omniauth_data"],
-      logger: logger)
-    @person = service.create_person
-
-    sign_in(resource_name, @person)
-    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(PersonViewUtils.person_display_name_for_type(@person, "first_name_only"), person_path(@person))).html_safe
-
-
-    session[:fb_join] = "pending_analytics"
-
-    record_event(flash, "SignUp", method: :facebook)
-
-    redirect_to pending_consent_path
-  end
-
   def update
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
     if @current_user != target_user
