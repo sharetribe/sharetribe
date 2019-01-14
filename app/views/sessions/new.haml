@@ -24,7 +24,7 @@
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
     %p= t(".or_sign_up_with_your_username")
   - if google_connect_in_use?
-    = link_to 'Login with Google', person_google_oauth2_omniauth_authorize_path
+    = link_to 'Login with Google', person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login'
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     %label{:for => "login"}
       = username_or_email_label + ":"
