@@ -124,6 +124,7 @@ describe Listing, type: :model do
     let(:community) { FactoryGirl.create(:community, private: true) }
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community]) }
+    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
     let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
 
     it "is not visible, if the listing doesn't belong to the given community" do
@@ -152,6 +153,13 @@ describe Listing, type: :model do
 
       expect(listing.visible_to?(person, community)).to be_falsey
       expect(listing.visible_to?(nil, community)).to be_falsey
+    end
+
+    it "is visible to admin if the listing is closed" do
+      listing.update_attribute(:open, false)
+
+      expect(listing.visible_to?(person, community)).to be_falsey
+      expect(listing.visible_to?(admin, community)).to be_truthy
     end
   end
 
