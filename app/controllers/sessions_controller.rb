@@ -114,75 +114,6 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
-  def facebook
-    origin_locale = get_origin_locale(request, available_locales())
-    I18n.locale = origin_locale if origin_locale
-
-    service = Person::OmniauthService.new(
-      community: @current_community,
-      request: request,
-      logger: logger)
-
-    if service.person
-      service.update_person_provider_uid
-      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
-      sign_in_and_redirect service.person, :event => :authentication
-    elsif service.no_ominauth_email?
-      flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
-      redirect_to sign_up_path and return
-    elsif service.person_email_unconfirmed
-      flash[:error] = t("layouts.notifications.facebook_email_unconfirmed", email: data.email)
-      redirect_to login_path and return
-    else
-      @service_session_data = service.session_data.dup # expose for tests
-      session["devise.omniauth_data"] = service.session_data
-      redirect_to :action => :create_omniauth_based, :controller => :people
-    end
-  end
-
-  def google_oauth2
-    origin_locale = get_origin_locale(request, available_locales())
-    I18n.locale = origin_locale if origin_locale
-
-    service = Person::OmniauthService.new(
-      community: @current_community,
-      request: request,
-      logger: logger)
-
-    if service.person
-      service.update_person_provider_uid
-      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Google")
-      sign_in_and_redirect service.person, :event => :authentication
-    elsif service.no_ominauth_email?
-      flash[:error] = t("layouts.notifications.could_not_get_email_from_facebook")
-      redirect_to sign_up_path and return
-    elsif service.person_email_unconfirmed
-      flash[:error] = t("layouts.notifications.facebook_email_unconfirmed", email: data.email)
-      redirect_to login_path and return
-    else
-      @service_session_data = service.session_data.dup # expose for tests
-      session["devise.omniauth_data"] = service.session_data
-      redirect_to :action => :create_omniauth_based, :controller => :people
-    end
-  end
-
-  # Omniauth setup phase hook, that is used to dynamically set up a omniauth strategy for provider on customer basis
-  def auth_setup
-    service = Person::OmniauthService::SetupPhase.new(community: @current_community, params: params, request: request)
-    service.run
-    render :plain => "Setup complete.", :status => 404 #This notifies the ominauth to continue
-  end
-
-  # Callback from Omniauth failures
-  def failure
-    origin_locale = get_origin_locale(request, available_locales())
-    I18n.locale = origin_locale if origin_locale
-    error_message = params[:error_reason] || "login error"
-    kind = request.env["omniauth.error.strategy"].name.to_s || "Facebook"
-    flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
-    redirect_to search_path
-  end
-
   def passthru
     render status: 404, plain: "Not found. Authentication passthru."
   end
@@ -191,12 +122,4 @@ class SessionsController < ApplicationController
   def terms_accepted?(user, community)
     user && community.consent.eql?(user.consent)
   end
-
-  def get_origin_locale(request, available_locales)
-    locale_string ||= URLUtils.extract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
-    if locale_string && available_locales.include?(locale_string)
-      locale_string
-    end
-  end
-
 end

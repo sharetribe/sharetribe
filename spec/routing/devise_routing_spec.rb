@@ -9,8 +9,8 @@ describe "routes for devise", type: :routing do
   it "routes /people/auth/facebook/setup to sessions controller" do
     expect(get "/people/auth/facebook/setup").to(
       route_to({
-                 :controller => "sessions",
-                 :action => "facebook_setup",
+                 :controller => "omniauth",
+                 :action => "auth_setup",
                  :provider => "facebook"
                })
     )
