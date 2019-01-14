@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Admin::Communities::TopbarController, type: :controller do
 
   before(:each) do
@@ -37,17 +39,6 @@ describe Admin::Communities::TopbarController, type: :controller do
     end
   end
 
-  describe "update logo" do
-    it "should update logo link" do
-      text_fi = "Modified fi"
-      text_en = "Modified en"
-
-      patch :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, logo_link: "http://example.com"}
-      @community.reload
-      expect(@community.logo_link).to eq "http://example.com"
-    end
-  end
-
   describe "update default menu links" do
     it "should update default menu link settings" do
       text_fi = "Modified fi"
@@ -79,6 +70,17 @@ describe Admin::Communities::TopbarController, type: :controller do
 
       links = TopbarHelper.links(community: @community, user: @user, locale_param: nil, host_with_port: "http://#{@community.ident}.lvh.me")
       expect(links).to eq [{:link=>"/", :title=>"Home", :priority=>-1}]
+    end
+  end
+
+  describe "update logo" do
+    it "should update logo link" do
+      text_fi = "Modified fi"
+      text_en = "Modified en"
+
+      patch :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, logo_link: "http://example.com", configuration: {limit_priority_links: "-1"} }
+      @community.reload
+      expect(@community.logo_link).to eq "http://example.com"
     end
   end
 end

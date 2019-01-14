@@ -290,6 +290,12 @@ ka:
         social_media: "სოციალური მედია"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter handle"
         twitter_handle_info_text: "თქვენი ბაზრის Twitter-ის ანგარიშის მომხმარებლის სახელი (თუ გაქვთ ესეთი). ეს გამოყენებული იქნება მაშინ როცა ხალხი გამოიყენებს tweet ღილაკს ჩამონათვალის გვერდზე."
         twitter_handle_info_text_with_instructions: "თქვენი ბაზრის Twitter-ის ანგარიშის მომხმარებლის სახელი (თუ გაქვთ ესეთი). ეს გამოყენებული იქნება მაშინ რომცა ხალხი გამოიყენებს tweet ღილაკს ჩამონათვალის გვერდზე. %{instructions_link}."
@@ -318,6 +324,11 @@ ka:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "დაიმახსოვრე პარამეტრები"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "მენიუს ბმულები"
         save: "დაიმახსოვრე პარამეტრები"
@@ -332,6 +343,15 @@ ka:
         all: ყველა
         max_number_of_links_info: "%{about_page}ის ბმული ყოველთვის პირველ ბმულად იქნება ნაჩვენები მენიუში"
         about_page: შესახებ
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "ზედა ბარი"
         new_listing_button_label: "დაპოსტე ახალი ჩამონათვალის ღილაკის ტექსტი."
@@ -410,6 +430,10 @@ ka:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
@@ -488,6 +512,8 @@ ka:
         style:
           dark: ~
           light: ~
+          marketplace_color: ~
+          logo: ~
         social:
           title: ~
           url: ~
@@ -1896,6 +1922,7 @@ ka:
       community_not_configured_for_payments: "%{service_name} არ არის დაყენებული გადახდები, ასე რომ თქვენ ვერ დაპოსტავთ ახალ ჩამინათვალს ჯერ. გთხოვთ %{contact_admin_link} დეტალებისთვის."
       payment_settings_link: "გადახდის პარამეტრები"
       community_not_configured_for_payments_admin: "%{service_name} არ არის დაყენებული გადახდები, ასე რომ თქვენ ვერ დაპოსტავთ ახალ ჩამონათვალს ჯერ. გადადით %{payment_settings_link} რომ შეავსოთ გადახდის დეტალები."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "საათების რაოდენობა:"
       day: "დღეების რაოდენობა"
@@ -2165,6 +2192,8 @@ ka:
       show_all_listings: "მანახე ყველა ჩამონათვლები"
       show_all_open_listings: "მანახე ყველა გახსნილი ჩამონათვლები"
       show_all_reviews: "მანახე ყველა მიმოხილვები"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "თქვენ მისდევთ %{count} ადამიანს"
       you_follow_singular: "თქვენ მისდევთ %{count} ადამიანს"
@@ -2290,6 +2319,7 @@ ka:
       invisible: "(სხვა მომხმარებლებისთვის არ არის ხილული)"
       image_is_processing: "თქვენი პროფილის სურათი იტვირთება. დაელოდეთ ცოტა ხანი, 1-2 წუთში მზად იქნება."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "ინფორმაციის შენახვა"
   shipping_address:
     shipping_address: "ტრანსპორტირების მისამართი"
