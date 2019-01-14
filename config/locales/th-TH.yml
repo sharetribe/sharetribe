@@ -178,27 +178,33 @@ th-TH:
       getting_started:
         getting_started: เริ่มต้นการใช้งาน
       available_languages:
+        cs: ~
+        da-DK: เดนมาร์ก
+        de: เยอรมัน
         en: อังกฤษ
         en-AU: "อังกฤษ (ออสเตรเลีย)"
         en-GB: "อังกฤษ (สหราชอาณาจักร)"
+        es: ~
+        es-ES: ~
+        fi: ฟินแลนด์
         fr: ฝรั่งเศส
         fr-CA: "ฝรั่งเศส (แคนาดา)"
-        es: "สเปน (ชิลี)"
-        es-ES: สเปน
-        pt-PT: ~
-        pt-BR: "โปรตุเกส (บราซิล)"
-        nb: นอร์เวย์บุคมอล
-        sv: สวีเดน
-        da-DK: เดนมาร์ก
-        fi: ฟินแลนด์
-        ru: รัสเซีย
-        de: เยอรมัน
         el: กรีก
-        nl: ดัตช์
-        tr-TR: ตุรกี
-        zh: จีน
-        ja: ญี่ปุ่น
         it: อิตาลี
+        ja: ญี่ปุ่น
+        ko: ~
+        nb: นอร์เวย์บุคมอล
+        nl: ดัตช์
+        pl: ~
+        pt-BR: "โปรตุเกส (บราซิล)"
+        pt-PT: ~
+        ru: รัสเซีย
+        sv: สวีเดน
+        th-TH: ~
+        tr-TR: ตุรกี
+        vi: ~
+        zh: จีน
+        zh-TW: ~
       settings:
         settings: ตั้งค่า
         general: ทั่วไป
@@ -331,6 +337,7 @@ th-TH:
         placeholder: ~
       menu_links:
         menu_links: ลิงค์เมนู
+        menu_links_display: ~
         save: บันทึกการตั้งค่า
         add_menu_link: เพิ่มลิงค์ใหม่ในเมนู
         title_placeholder: ชื่อลิงค์
@@ -438,6 +445,10 @@ th-TH:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~

@@ -193,27 +193,33 @@ pl:
       getting_started:
         getting_started: "Poradnik początkujących"
       available_languages:
+        cs: ~
+        da-DK: Duński
+        de: Niemiecki
         en: Angielski
         en-AU: "Angielski (Australia)"
         en-GB: "Angielski (Wielka Brytania)"
+        es: ~
+        es-ES: ~
+        fi: Fiński
         fr: Francuski
         fr-CA: "Francuski (Kanada)"
-        es: "Hiszpański (Chile)"
-        es-ES: Hiszpański
-        pt-PT: Portugalski
-        pt-BR: "Portugalski (Brazylijski)"
-        nb: "Norweski Bokmål"
-        sv: Szwedzki
-        da-DK: Duński
-        fi: Fiński
-        ru: Rosyjski
-        de: Niemiecki
         el: Grecki
-        nl: Holenderski
-        tr-TR: Turecki
-        zh: Chiński
-        ja: Japoński
         it: Włoski
+        ja: Japoński
+        ko: ~
+        nb: "Norweski Bokmål"
+        nl: Holenderski
+        pl: ~
+        pt-BR: "Portugalski (Brazylijski)"
+        pt-PT: Portugalski
+        ru: Rosyjski
+        sv: Szwedzki
+        th-TH: ~
+        tr-TR: Turecki
+        vi: ~
+        zh: Chiński
+        zh-TW: ~
       settings:
         settings: Ustawienia
         general: Główne
@@ -346,6 +352,7 @@ pl:
         placeholder: ~
       menu_links:
         menu_links: "Linki menu"
+        menu_links_display: ~
         save: "Zapisz ustawienia"
         add_menu_link: "Dodaj nowy link do menu"
         title_placeholder: "Nazwa linku"
@@ -453,6 +460,10 @@ pl:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~

@@ -193,27 +193,33 @@ ru:
       getting_started:
         getting_started: "Гид для начала работы"
       available_languages:
+        cs: ~
+        da-DK: Датский
+        de: Немецкий
         en: Английский
         en-AU: "Английский (Австралия)"
         en-GB: "Английский (Великобритания)"
+        es: ~
+        es-ES: ~
+        fi: Финский
         fr: Французский
         fr-CA: "Французский (Канадский)"
-        es: "Испанский (Чили)"
-        es-ES: Испанский
-        pt-PT: Португальский
-        pt-BR: ~
-        nb: "Норвежский букмол"
-        sv: Шведский
-        da-DK: Датский
-        fi: Финский
-        ru: Русский
-        de: Немецкий
         el: Греческий
-        nl: Датский
-        tr-TR: Турецкий
-        zh: Китайский
-        ja: Японский
         it: Итальянский
+        ja: Японский
+        ko: ~
+        nb: "Норвежский букмол"
+        nl: Датский
+        pl: ~
+        pt-BR: ~
+        pt-PT: Португальский
+        ru: Русский
+        sv: Шведский
+        th-TH: ~
+        tr-TR: Турецкий
+        vi: ~
+        zh: Китайский
+        zh-TW: ~
       settings:
         settings: Настройки
         general: Основные
@@ -346,6 +352,7 @@ ru:
         placeholder: ~
       menu_links:
         menu_links: "Ссылки меню"
+        menu_links_display: ~
         save: "Сохранить настройки"
         add_menu_link: "Добавить новую ссылку к меню"
         title_placeholder: "Название ссылки"
@@ -453,6 +460,10 @@ ru:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~

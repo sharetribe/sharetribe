@@ -178,27 +178,33 @@ ko:
       getting_started:
         getting_started: 시작하기
       available_languages:
+        cs: ~
+        da-DK: 덴마크어
+        de: 독일어
         en: 영어
         en-AU: 영어(호주)
         en-GB: 영어(영국)
+        es: ~
+        es-ES: ~
+        fi: 핀란드어
         fr: 프랑스어
         fr-CA: 영어(캐나다)
-        es: 스페인어(칠레)
-        es-ES: 스페인어
-        pt-PT: 포루투갈어
-        pt-BR: 포르투갈어(브라질)
-        nb: 노르웨이어
-        sv: 스웨덴어
-        da-DK: 덴마크어
-        fi: 핀란드어
-        ru: 러시아어
-        de: 독일어
         el: 그리스어
-        nl: 네덜란드어
-        tr-TR: 터키어
-        zh: 중국어
-        ja: 일본어
         it: 이탈리아어
+        ja: 일본어
+        ko: ~
+        nb: 노르웨이어
+        nl: 네덜란드어
+        pl: ~
+        pt-BR: 포르투갈어(브라질)
+        pt-PT: 포루투갈어
+        ru: 러시아어
+        sv: 스웨덴어
+        th-TH: ~
+        tr-TR: 터키어
+        vi: ~
+        zh: 중국어
+        zh-TW: ~
       settings:
         settings: 설정
         general: 일반
@@ -331,6 +337,7 @@ ko:
         placeholder: ~
       menu_links:
         menu_links: 메뉴링크
+        menu_links_display: ~
         save: "설정 저장"
         add_menu_link: "메뉴에 새 링크 추가"
         title_placeholder: "링크 제목"
@@ -438,6 +445,10 @@ ko:
         testimonials: 리뷰
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: 거래
           author: 저자

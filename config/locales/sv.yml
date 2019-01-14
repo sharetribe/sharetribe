@@ -183,27 +183,33 @@ sv:
       getting_started:
         getting_started: "Kom igång"
       available_languages:
+        cs: ~
+        da-DK: Danska
+        de: Tyska
         en: Engelska
         en-AU: "Engelska (Australien)"
         en-GB: "Engelska (Storbritannien)"
+        es: ~
+        es-ES: ~
+        fi: Finska
         fr: Franska
         fr-CA: "Franska (Kanada)"
-        es: "Spanska (Chile)"
-        es-ES: Spanska
-        pt-PT: Portugisiska
-        pt-BR: "Brasiliansk portugisiska"
-        nb: Norska
-        sv: Svenska
-        da-DK: Danska
-        fi: Finska
-        ru: Ryska
-        de: Tyska
         el: Grekiska
-        nl: Holländska
-        tr-TR: Turkiska
-        zh: Kinesiska
-        ja: Japanska
         it: Italienska
+        ja: Japanska
+        ko: ~
+        nb: Norska
+        nl: Holländska
+        pl: ~
+        pt-BR: "Brasiliansk portugisiska"
+        pt-PT: Portugisiska
+        ru: Ryska
+        sv: Svenska
+        th-TH: ~
+        tr-TR: Turkiska
+        vi: ~
+        zh: Kinesiska
+        zh-TW: ~
       settings:
         settings: Inställningar
         general: Allmänt
@@ -336,6 +342,7 @@ sv:
         placeholder: ~
       menu_links:
         menu_links: Menylänkar
+        menu_links_display: ~
         save: "Spara inställningar"
         add_menu_link: "Lägg till en ny länk till menyn"
         title_placeholder: Länktitel
@@ -443,6 +450,10 @@ sv:
         testimonials: "Visa recensioner"
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: Transaktion
           author: Författare

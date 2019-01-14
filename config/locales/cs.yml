@@ -188,27 +188,33 @@ cs:
       getting_started:
         getting_started: "Příručka pro začátečníky"
       available_languages:
+        cs: ~
+        da-DK: Dánština
+        de: Němčina
         en: Angličtina
         en-AU: "Angličtina (Austrálie)"
         en-GB: "Angličtina (Spojené království)"
+        es: ~
+        es-ES: ~
+        fi: Finština
         fr: Francouzština
         fr-CA: "Francouzština (Kanada)"
-        es: "Španělština (Chile)"
-        es-ES: Španělština
-        pt-PT: Portugalština
-        pt-BR: "Portugalština (Brazílie)"
-        nb: "Norština (Bokmål)"
-        sv: Švédština
-        da-DK: Dánština
-        fi: Finština
-        ru: Ruština
-        de: Němčina
         el: Řečtina
-        nl: Holandština
-        tr-TR: Turečtina
-        zh: Čínština
-        ja: Japonština
         it: Italština
+        ja: Japonština
+        ko: ~
+        nb: "Norština (Bokmål)"
+        nl: Holandština
+        pl: ~
+        pt-BR: "Portugalština (Brazílie)"
+        pt-PT: Portugalština
+        ru: Ruština
+        sv: Švédština
+        th-TH: ~
+        tr-TR: Turečtina
+        vi: ~
+        zh: Čínština
+        zh-TW: ~
       settings:
         settings: Nastavení
         general: Obecné
@@ -341,6 +347,7 @@ cs:
         placeholder: ~
       menu_links:
         menu_links: Odkazy
+        menu_links_display: "Odkazy na nabídky"
         save: "Uložit nastavení"
         add_menu_link: "Přidat nový odkaz do menu"
         title_placeholder: "Název odkazu"
@@ -448,6 +455,10 @@ cs:
         testimonials: "Zobrazit recenze"
         no_testimonials_found: "Žádné hodnocení nenalezeno"
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: Transakce
           author: Autor

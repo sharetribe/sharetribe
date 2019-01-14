@@ -12,7 +12,7 @@ tr-TR:
       index:
         listing_categories: "İlan kategorileri"
         create_a_new_category: "+ Yeni kategori oluştur"
-        remove_category_confirmation: "'%{category_name}' kategorisini kaldırmak istediğinizden emin misiniz?"
+        remove_category_confirmation: "Bu kategoriyi silmek istediğinizden emin misiniz%{category_name} ? Bu geri alınamaz."
         saving_order: "Kategori düzeni kaydediliyor"
         save_order_successful: "Kategori düzeni başarıyla kaydedildi"
         save_order_error: "Kategori düzeni kaydedilirken hata meydana geldi. Sayfayı yenileyin ve tekrar deneyin."
@@ -99,7 +99,7 @@ tr-TR:
         small_community_cover_photo: "Küçük kapak fotoğrafı"
         favicon: Favicon
         favicon_info_text: "Favicon default Sharetribe logosunun yerini alacaktır. Ebatlar 32x32 piksel olmalıdır ve yüklenen görseller bu boya getirilecektir."
-        community_custom_color1: "Ana renk"
+        community_custom_color1: "Pazaryeri ana renk"
         community_slogan_color: "Pazar yeri slogan rengi"
         community_slogan_color_instructions_text: "Bir hex renk değeri girerek ana sayfa slogan rengini değiştirebilirsiniz. Slogan rengi kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} renk seçmenize ve hex renk kodu elde etmenize yardımcı olur. Sonrasında renk kodunu buradan kopyalayabilirsiniz  %{see_how_it_looks_like}."
         community_description_color: "Pazar yeri açıklama rengi"
@@ -180,27 +180,33 @@ tr-TR:
       getting_started:
         getting_started: "Hızlı Başlangıç"
       available_languages:
+        cs: "Çek dili"
+        da-DK: Danca
+        de: Almanca
         en: İngilizce
         en-AU: "İngilizce (Avustralya)"
         en-GB: "İngilizce (Birleşik Krallık)"
+        es: ~
+        es-ES: ~
+        fi: Fince
         fr: Fransızca
         fr-CA: "Fransızca (Kanada)"
-        es: "İspanyolca (Şili)"
-        es-ES: İspanyolca
-        pt-PT: Portekizce
-        pt-BR: "Portekizce (Brezilya)"
-        nb: "Norveççe Bokmål"
-        sv: İsveççe
-        da-DK: Danca
-        fi: Fince
-        ru: Rusça
-        de: Almanca
         el: Yunanca
-        nl: Flamanca
-        tr-TR: Türkçe
-        zh: Çince
-        ja: Japonca
         it: İtalyanca
+        ja: Japonca
+        ko: "Kore dili"
+        nb: "Norveççe Bokmål"
+        nl: Flamanca
+        pl: "Polonya dili"
+        pt-BR: "Portekizce (Brezilya)"
+        pt-PT: Portekizce
+        ru: Rusça
+        sv: İsveççe
+        th-TH: "Tai dili (Tayland)"
+        tr-TR: Türkçe
+        vi: "Vietnam dili"
+        zh: Çince
+        zh-TW: "Çince (Tayvan)"
       settings:
         settings: Ayarlar
         general: Genel
@@ -327,12 +333,13 @@ tr-TR:
         end_user_analytics: ~
         save: "Ayarları kaydet"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Logo bağlantısı"
+        info: "Logonun bağlantısını (ve üstte varsayılan ana butonu ) özelleştirebilirsiniz. Varsayılan olarak logo kullanıcıları ana sayfaya veya Özel Açılış Sayfasına götürür."
+        url: URL
+        placeholder: "https://www.örnek.com"
       menu_links:
-        menu_links: "Menü bağlantıları"
+        menu_links: "Özel menü bağlantıları"
+        menu_links_display: "Menü bağlantıları ekranı"
         save: "Ayarları kaydet"
         add_menu_link: "Menüye yeni link ekle"
         title_placeholder: "Bağlantı adı"
@@ -346,14 +353,14 @@ tr-TR:
         max_number_of_links_info: ~
         about_page: "hakkında sayfası"
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Varsayılan menü bağlantıları"
+        about_link_title: Hakkında
+        contact_link_title: İletişim
+        invite_link_title: "Yeni üyeler davet edin"
+        info: "Varsayılan olarak, takip edilen bağlantılar pazaryerinizin herhangi bir yerinde gözükmez:  %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Bağlantıyı göster<i> Hakkında</i>  ve diğer sabit sayfalara"
+        display_contact: "Bağlantıyı göster<i> İletişim</i> sayfa"
+        display_invite: "Bağlantıyı göster<i> Yeni üyeler davet edin</i> sayfa"
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -440,6 +447,10 @@ tr-TR:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -546,7 +557,7 @@ tr-TR:
         listing_fields: "Listelenen alan & filtreleri"
         listing_fields_help: "Buradan kullanıcıların yeni listeleme oluştururken doldurmaları gereken alanları düzenleyebilirsiniz. Lütfen bazı alanların önceden belirlenmiş ve değiştirilemez olduğunu unutmayın."
         add_new_field: "Yeni alan ekle:"
-        remove_field_confirmation: "%{field_name} alanını kaldırmak istediğinizden emin misiniz?"
+        remove_field_confirmation: "Bu dosyayı silmek istediğinizden emin misiniz%{field_name} ve bunun bütün datalarını? Bu işlem geri alınamaz."
         cancel: İptal
         save: Kaydet
         field_title: "Alan adı"

@@ -12,7 +12,7 @@ es:
       index:
         listing_categories: "Categorías de anuncios"
         create_a_new_category: "+ Crear nueva categoría"
-        remove_category_confirmation: "¿Seguro que quieres borrar la categoría '%{category_name}'?"
+        remove_category_confirmation: "¿Seguro que quieres borrar la categoría '%{category_name}'? Esta operación no puede ser revertida."
         saving_order: "Guardando el orden de las categorías"
         save_order_successful: "Orden de las categorías guardado con éxito"
         save_order_error: "Se ha producido un error al guardar el orden de las categorías. Por favor, actualiza la página y vuelve a intentarlo."
@@ -183,27 +183,33 @@ es:
       getting_started:
         getting_started: "Empieza aquí"
       available_languages:
+        cs: Checo
+        da-DK: Danés
+        de: Alemán
         en: Inglés
         en-AU: "Inglés (Australia)"
         en-GB: "Inglés (Reino Unido)"
+        es: Español
+        es-ES: "Español (España)"
+        fi: Finés
         fr: Francés
         fr-CA: "Francés (Canadá)"
-        es: "Español (Chile)"
-        es-ES: Español
-        pt-PT: Portugués
-        pt-BR: "Portugués (Brasil)"
-        nb: "Noruego Bokmål"
-        sv: Sueco
-        da-DK: Danés
-        fi: Finés
-        ru: Ruso
-        de: Alemán
         el: Griego
-        nl: Holandés
-        tr-TR: Turco
-        zh: Chino
-        ja: Japonés
         it: Italiano
+        ja: Japonés
+        ko: Coreano
+        nb: "Noruego Bokmål"
+        nl: Holandés
+        pl: Polaco
+        pt-BR: "Portugués (Brasil)"
+        pt-PT: Portugués
+        ru: Ruso
+        sv: Sueco
+        th-TH: "Tailandés (Tailandia)"
+        tr-TR: Turco
+        vi: Vietnamita
+        zh: Chino
+        zh-TW: "Chino (Taiwán)"
       settings:
         settings: Configuración
         general: General
@@ -330,12 +336,13 @@ es:
         end_user_analytics: "Permitir a Sharetribe el rastrear la actividad de los miembros para poder mejorar los servicios de Sharetribe"
         save: "Guardar configuración"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Link del logo"
+        info: "Puedes personalizar el link del logo (y el botón de inicio del menu en le barra superior). Por defecto el logo te dirige a la página de inicio o a la página personalizada de inicio."
+        url: URL
+        placeholder: "https://www.ejemplo.com"
       menu_links:
-        menu_links: "Menú de enlaces"
+        menu_links: "Enlaces personalizados"
+        menu_links_display: "Visualización de los links del menú"
         save: "Guardar configuración"
         add_menu_link: "Añadir nuevo enlace al menú"
         title_placeholder: "Título del enlace"
@@ -349,14 +356,14 @@ es:
         max_number_of_links_info: "Vinculo para la %{about_page} se muestra siempre como el primer vínculo del menu."
         about_page: "página Acerca de"
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Enlaces predeterminados"
+        about_link_title: "Acerca de"
+        contact_link_title: Contáctanos
+        invite_link_title: "Invitar a nuevos miembros"
+        info: "Por defecto, los links de las siguientes páginas no se muestran en ningún otro  lugar en tu marketplace: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Mostrar el link a la página <i>Acerca de</i> y otras páginas de contenido"
+        display_contact: "Mostrar el link a la página de <i>Contáctanos</i>"
+        display_invite: "Mostrar el link para la página de <i>Invitar a nuevos miembros</i>"
       topbar:
         topbar: "Barra superior"
         new_listing_button_label: "Texto del botón para Publicar Anuncio"
@@ -435,14 +442,18 @@ es:
           other_party: "Otro usuario"
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_by_keyword: "Buscar por nombre, email o palabra clave"
+        search: Buscar
+        reset_search: "Mostrar todas"
+        for_keyword: "para: <b>%{keyword}</b>"
       testimonials:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
+        search_keyword: "Busca por nombre, email o palabra clave"
+        search: Buscar
+        reset_search: "Mostrar todas"
+        for_keyword: "para: <b>%{keyword}</b>"
         headers:
           transaction: Transacción
           author: Autor
@@ -549,7 +560,7 @@ es:
         listing_fields: "Campos & filtros de los anuncios"
         listing_fields_help: "Aquí puedes editar y añadir los campos que los usuarios han de completar al publicar un nuevo anuncio. Por favor, recuerda que algunos campos están predeterminados y no pueden ser editados."
         add_new_field: "Añadir un campo nuevo:"
-        remove_field_confirmation: "¿Seguro que quieres eliminar el campo %{field_name} ?"
+        remove_field_confirmation: "¿Seguro que quieres eliminar el campo '%{field_name}' y toda la información referente a este campo? Esta operación no puede ser revertida."
         cancel: Cancelar
         save: Guardar
         field_title: "Título del campo"
@@ -1408,7 +1419,7 @@ es:
     create_new_marketplace: "Crear una nueva comunidad"
     contact_us: Contáctanos
     profile: Perfil
-    manage_listings: "Administrar anuncios"
+    manage_listings: "Mis anuncios"
     invite: "Invitar a nuevos miembros"
     login: "Iniciar sesión"
     signup: Registrarse
@@ -2549,7 +2560,7 @@ es:
       user: Usuario
       inbox: "Bandeja de Entrada"
       profile: Perfil
-      manage_listings: "Administrar anuncios"
+      manage_listings: "Mis anuncios"
       settings: Configuración
       logout: "Cerrar sesión"
       login: "Iniciar sesión"
