@@ -278,6 +278,9 @@ CREATE TABLE `communities` (
   `google_connect_enabled` tinyint(1) DEFAULT NULL,
   `google_connect_id` varchar(255) DEFAULT NULL,
   `google_connect_secret` varchar(255) DEFAULT NULL,
+  `linkedin_connect_enabled` tinyint(1) DEFAULT NULL,
+  `linkedin_connect_id` varchar(255) DEFAULT NULL,
+  `linkedin_connect_secret` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -2336,5 +2339,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20181211094456'),
 ('20190108075512'),
 ('20190111072711'),
-('20190111122204');
+('20190111122204'),
+('20190114141250');
 

@@ -107,5 +107,26 @@
           = form.label :google_connect_secret, t(".google_connect_secret"), {:class => "input"}.merge(disabled_connect)
           = form.text_field :google_connect_secret, {:class => "text_field", :placeholder => ""}.merge(disabled_connect)
 
+    - if FeatureFlagHelper.feature_enabled?(:login_google_linkedin)
+      .row
+        %h3= t('.linkedin_connect')
+        - if display_knowledge_base_articles
+          - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-linkedin-connect" )
+          = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text_with_instructions", :instructions_link => linkedin_instructions_link).html_safe}
+        - else
+          = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text").html_safe }
+      .row
+        .checkbox-container
+          = form.check_box :linkedin_connect_enabled
+          = form.label :linkedin_connect_enabled, t(".enable_linkedin_login"), :class => "settings-checkbox-label"
+      .row
+        - disabled_connect = @community.linkedin_connect_enabled? ? {} : {disabled: 'disabled'}
+        .col-6
+          = form.label :linkedin_connect_id, t(".linkedin_connect_id"), {:class => "input"}.merge(disabled_connect)
+          = form.text_field :linkedin_connect_id, {:class => "text_field", :placeholder => ""}.merge(disabled_connect)
+        .col-6
+          = form.label :linkedin_connect_secret, t(".linkedin_connect_secret"), {:class => "input"}.merge(disabled_connect)
+          = form.text_field :linkedin_connect_secret, {:class => "text_field", :placeholder => ""}.merge(disabled_connect)
+
     .row
       = form.button t("admin.communities.social_media.save")
