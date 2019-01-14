@@ -8,7 +8,8 @@ module SocialNetworkHelper
   end
 
   def google_connect_in_use?
-    @current_community && @current_community.google_connect_enabled? && @current_community.google_connect_id
+    FeatureFlagHelper.feature_enabled?(:login_google_linkedin) &&
+      @current_community && @current_community.google_connect_enabled? && @current_community.google_connect_id
   end
 end
 
