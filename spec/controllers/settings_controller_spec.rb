@@ -96,13 +96,13 @@ describe SettingsController, type: :controller do
     describe "#listings search" do
       it "retrieves all author's listings in no query given" do
         get :listings, params: {person_id: @joe.username}
-        expect(assigns("listings").size).to eq 3
+        expect(assigns("presenter").listings.size).to eq 3
       end
 
       it "finds listings by title" do
         @joe_listings.each do |listing|
           get :listings, params: {person_id: @joe.username, q: listing.title}
-          listings = assigns("listings")
+          listings = assigns("presenter").listings
           expect(listings.size).to eq 1
           expect(listings).to eq [listing]
         end
@@ -110,12 +110,12 @@ describe SettingsController, type: :controller do
 
       it "finds listings by category title" do
         get :listings, params: {person_id: @joe.username, q: @category1.translations.first.name}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 3
         expect(listings.map(&:category_id).uniq).to eq [@category1.id]
 
         get :listings, params: {person_id: @joe.username, q: @category2.translations.first.name}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 0
       end
     end
@@ -123,54 +123,54 @@ describe SettingsController, type: :controller do
     describe "#listings status filter" do
       it "retrieves all when status not present" do
         get :listings, params: {person_id: @joe.username, status: []}
-        expect(assigns("listings").size).to eq 3
+        expect(assigns("presenter").listings.size).to eq 3
 
         get :listings, params: {person_id: @joe.username}
-        expect(assigns("listings").size).to eq 3
+        expect(assigns("presenter").listings.size).to eq 3
       end
 
       it "filters open" do
         get :listings, params: {person_id: @joe.username, status: ["open"]}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 2
         expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3]
       end
 
       it "filters closed" do
         get :listings, params: {person_id: @joe.username, status: ["closed"]}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 1
         expect(listings.sort_by(&:id)).to eq [@listing_joe2]
       end
 
       it "filters expired" do
         get :listings, params: {person_id: @joe.username, status: ["expired"]}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 1
         expect(listings.sort_by(&:id)).to eq [@listing_joe3]
       end
 
       it "filters open + expired" do
         get :listings, params: {person_id: @joe.username, status: ["expired", "open"]}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 2
         expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3]
       end
 
       it "filters closed + expired" do
         get :listings, params: {person_id: @joe.username, status: ["expired", "closed"]}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 2
         expect(listings.sort_by(&:id)).to eq [@listing_joe2, @listing_joe3]
       end
 
       it "applies both filter and query" do
         get :listings, params: {person_id: @joe.username, status: ["expired", "open"], q: "won"}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 0
 
         get :listings, params: {person_id: @joe.username, status: ["expired", "open"], q: "p"}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 1
         expect(listings).to eq [@listing_joe3]
       end

@@ -18,13 +18,13 @@
       = submit_tag t("admin.communities.listings.search"), class: 'button search-button'
       = link_to t("admin.communities.listings.reset_search"), admin_community_listings_path(@current_community.id)
 
-%span#admin_listings_count= page_entries_info(@listings, :model => "Listing").html_safe
+%span#admin_listings_count= page_entries_info(@presenter.listings, :model => "Listing").html_safe
 
 %table#admin_listings
   %thead
     %tr
       %th= t("admin.communities.listings.headers.title")
-      - if @admin_mode
+      - if @presenter.admin_mode?
         %th= t("admin.communities.listings.headers.author")
       %th
         = render partial: "layouts/sort_link", locals: { column: "started",
@@ -39,11 +39,11 @@
       %th
 
   %tbody
-    - @listings.each do |listing|
+    - @presenter.listings.each do |listing|
       %tr
         %td
           = link_to listing.title, listing_path(listing)
-        - if @admin_mode
+        - if @presenter.admin_mode?
           %td
             - p = listing.author
             - if p.deleted
@@ -65,7 +65,7 @@
 
 .row
   .col-12
-    = will_paginate @listings
+    = will_paginate @presenter.listings
 
 - content_for :extra_javascript do
   = js_t ["admin.communities.listings.status.all", "admin.communities.listings.status.selected_js"], true

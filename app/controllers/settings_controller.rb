@@ -50,11 +50,7 @@ class SettingsController < ApplicationController
 
   def listings
     @selected_left_navi_link = "listings"
-    @admin_mode = false
-
-    @listings = ListingsListView.new(@current_community, @current_user, params)
-      .resource_scope
-      .paginate(:page => params[:page], :per_page => 30)
+    @presenter = Listing::ListPresenter.new(@current_community, @current_user, params, false)
   end
 
   private

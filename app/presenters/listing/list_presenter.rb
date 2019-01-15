@@ -1,14 +1,25 @@
-class ListingsListView
-  def initialize(community, author, params)
+class Listing::ListPresenter
+  def initialize(community, author, params, admin_mode)
     @author = author
     @community = community
     @params = params
+    @admin_mode = admin_mode
   end
+
+  def admin_mode?
+    @admin_mode
+  end
+
+  def listings
+    @listings ||= resource_scope.order("#{sort_column} #{sort_direction}").paginate(:page => @params[:page], :per_page => 30)
+  end
+
+  private
 
   def resource_scope
     scope = @community.listings.exist.includes(:author, :category)
 
-    if @author
+    unless @admin_mode
       scope = scope.where(author: @author)
     end
 
@@ -30,7 +41,7 @@ class ListingsListView
       end
     end
 
-    scope.order("#{sort_column} #{sort_direction}")
+    scope
   end
 
   def sort_column
