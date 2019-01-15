@@ -2203,7 +2203,7 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and the %{service_name} team"
       visible_to_everybody: "visible to everybody"
-      create_account_with_facebook: "Sign up with Facebook"
+      create_account_with_provider: "Sign up with %{provider}"
       OR: OR
       signup_with_email: "Sign up with email"
       this_field_will_be_publicly_visible: "(This field will be publicly visible)"
@@ -2271,7 +2271,7 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
-      log_in_with_your_facebook_account: "Log in with Facebook"
+      log_in_with_your_provider_account: "Log in with %{provider}"
       or_sign_up_with_your_username: "...or with your username or email:"
       we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:
