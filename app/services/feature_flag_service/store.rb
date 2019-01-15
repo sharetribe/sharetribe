@@ -24,6 +24,7 @@ module FeatureFlagService::Store
       :footer,
       :buyer_commission,
       :admin_acts_as_user,
+      :login_google_linkedin,
     ].to_set
 
     def initialize(additional_flags:)

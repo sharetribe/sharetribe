@@ -168,27 +168,33 @@ bg:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: ~
         general: ~
@@ -315,12 +321,13 @@ bg:
         end_user_analytics: ~
         save: ~
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Линк от логото"
+        info: "Можете да персонализирате линка от логото (както и на бутона на началната страница на горното меню). По подразбиране логото води потребителите до началната страница или персонализираната целева страница."
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
         menu_links: ~
+        menu_links_display: ~
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -334,14 +341,14 @@ bg:
         max_number_of_links_info: ~
         about_page: ~
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Линкове на менюто по подразбиране"
+        about_link_title: Относно
+        contact_link_title: "Свържете се с нас"
+        invite_link_title: "Покани нови потребители"
+        info: "По подразбиране линковете към следните страници не се показват никъде другаде в страницата: %{about_link}, %{contact_link}, %{invite_link}"
+        display_about: "Покажи линк към <i> About </i> и други статични страници"
+        display_contact: "Покажи линк към страницата <i> Contact us </i>"
+        display_invite: "Покажи линк към страницата <i> Invite new members </i>"
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -428,6 +435,10 @@ bg:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -502,8 +513,8 @@ bg:
         style:
           dark: ~
           light: ~
-          marketplace_color: ~
-          logo: ~
+          marketplace_color: "Цвят на твоята страница"
+          logo: Лого
         social:
           title: ~
           url: ~

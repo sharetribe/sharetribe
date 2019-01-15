@@ -183,27 +183,33 @@ es-ES:
       getting_started:
         getting_started: "Empieza aquí"
       available_languages:
+        cs: ~
+        da-DK: Danés
+        de: Alemán
         en: Inglés
         en-AU: "Inglés (Australia)"
         en-GB: "Inglés (Reino Unido)"
+        es: ~
+        es-ES: ~
+        fi: Finés
         fr: Francés
         fr-CA: "Francés (Canadá)"
-        es: "Español (Chile)"
-        es-ES: Español
-        pt-PT: Portugués
-        pt-BR: "Portugués (Brasil)"
-        nb: "Noruego Bokmål"
-        sv: Sueco
-        da-DK: Danés
-        fi: Finés
-        ru: Ruso
-        de: Alemán
         el: Griego
-        nl: Holandés
-        tr-TR: Turco
-        zh: Chino
-        ja: Japonés
         it: Italiano
+        ja: Japonés
+        ko: ~
+        nb: "Noruego Bokmål"
+        nl: Holandés
+        pl: ~
+        pt-BR: "Portugués (Brasil)"
+        pt-PT: Portugués
+        ru: Ruso
+        sv: Sueco
+        th-TH: ~
+        tr-TR: Turco
+        vi: ~
+        zh: Chino
+        zh-TW: ~
       settings:
         settings: Configuración
         general: General
@@ -336,6 +342,7 @@ es-ES:
         placeholder: ~
       menu_links:
         menu_links: "Menú de enlaces"
+        menu_links_display: ~
         save: "Guardar configuración"
         add_menu_link: "Añadir nuevo enlace al menú"
         title_placeholder: "Título del enlace"
@@ -443,6 +450,10 @@ es-ES:
         testimonials: Reseñas
         no_testimonials_found: "No hay feedback"
         displaying_xx_reviews: "Mostrando <b>%{count}</b> feedbacks en las transacciones %{tx_from} - %{tx_to} de <b>%{all_count}</b> feedbacks en total"
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: Transacción
           author: Autor

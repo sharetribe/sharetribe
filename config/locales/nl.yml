@@ -185,27 +185,33 @@ nl:
       getting_started:
         getting_started: "Begin hier"
       available_languages:
+        cs: Tsjechisch
+        da-DK: Deens
+        de: Duits
         en: Engels
         en-AU: "Engels (Austrialie)"
         en-GB: "Engels (Groot-Brittanie)"
+        es: Spaans
+        es-ES: "Spaans (Spanje)"
+        fi: Fins
         fr: Frans
         fr-CA: "Frans (Canada)"
-        es: "Spaans (Chili)"
-        es-ES: Spaans
-        pt-PT: Portugees
-        pt-BR: "Portugees (Brazilliaans)"
-        nb: "Noors Bokmål"
-        sv: Zweeds
-        da-DK: Deens
-        fi: Fins
-        ru: Russisch
-        de: Duits
         el: Grieks
-        nl: Nederlands
-        tr-TR: Turks
-        zh: Chinees
-        ja: Japans
         it: Italiaans
+        ja: Japans
+        ko: Koreaans
+        nb: "Noors Bokmål"
+        nl: Nederlands
+        pl: Pools
+        pt-BR: "Portugees (Brazilliaans)"
+        pt-PT: Portugees
+        ru: Russisch
+        sv: Zweeds
+        th-TH: "Thais (Thailand)"
+        tr-TR: Turks
+        vi: Vietnamees
+        zh: Chinees
+        zh-TW: "Chinees (Taiwan)"
       settings:
         settings: Instellingen
         general: Algemeen
@@ -297,12 +303,12 @@ nl:
         social_media: "Sociale media"
         logo: Logo
         logo_info: "Deze afbeelding verschijnt in sociale media (Facebook, Twitter, LinkedIn) wanneer iemand jouw website deelt. Voor het beste resultaat dient het een beeldverhouding van 2:1 te hebben en een minimum grootte van %{width}x%{height} pixels."
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
+        social_media_title: "Sociale media titel"
+        social_media_title_info: "Deze tekst wordt getoond in sociale media voor Facebook, Twitter en LinkedIn als iemand je website deelt. Je kunt kijken hoe het eruitziet %{facebook_preview_link}, %{twitter_preview_link} en %{linkedin_preview_link}."
+        link_for_facebook: "voor Facebook"
+        link_for_linkedin: "voor LinkedIn"
+        link_for_twitter: "voor Twitter"
+        social_media_description: "Sociale media beschrijving"
         twitter_handle: "Twitter account"
         twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
@@ -332,12 +338,13 @@ nl:
         end_user_analytics: "Sta Sharetribe toe om activiteit van de leden te volgen om de service te verbeteren"
         save: "Instellingen opslaan"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Logo link"
+        info: "Je kunt de link van het logo aanpassen (en de standaard \"Home\" knop op de menubalk boven). Het logo linkt standaard naar de Home pagina of de Custom Landing Pagina."
+        url: URL
+        placeholder: "https://www.voorbeeld.com"
       menu_links:
         menu_links: "Menu koppelingen"
+        menu_links_display: "Menu links weergave"
         save: "Instellingen opslaan"
         add_menu_link: "Voeg een nieuwe koppeling toe aan menu"
         title_placeholder: "Titel koppeling"
@@ -351,14 +358,14 @@ nl:
         max_number_of_links_info: "Link naar %{about_page} wordt altijd weergegeven als de eerste link in het menu"
         about_page: "\"Over\" pagina"
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Standaard menu links"
+        about_link_title: "Over ons"
+        contact_link_title: "Neem contact op"
+        invite_link_title: "Nodig nieuwe leden uit"
+        info: "De links naar de volgende pagina's worden standaard nergens anders in je marktplaats getoond: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Toon link naar <i>Over ons</i> en andere statisch pagina's."
+        display_contact: "Toon link naar <i>Neem contact op</i> pagina"
+        display_invite: "Toon link naar <i>Nodig nieuwe leden uit</i> pagina"
       topbar:
         topbar: "Menubalk boven"
         new_listing_button_label: "Tekst voor \"Plaats een nieuwe advertentie\"-button."
@@ -437,14 +444,18 @@ nl:
           other_party: "Andere partij"
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_by_keyword: "Zoek voor een naam, email of trefwoord"
+        search: Zoek
+        reset_search: "Toon alle"
+        for_keyword: "voor: <b>%{keyword}</b>"
       testimonials:
         testimonials: Recensies
         no_testimonials_found: "Geen recensies gevonden"
         displaying_xx_reviews: "Geeft weer <b>%{count}</b> recensies in transacties %{tx_from} - %{tx_to} van <b>%{all_count}</b> recensies in totaal"
+        search_keyword: "Zoek voor een naam, email of trefwoord"
+        search: Zoek
+        reset_search: "Toon alle"
+        for_keyword: "voor: <b>%{keyword}</b>"
         headers:
           transaction: Transactie
           author: Auteur
@@ -519,8 +530,8 @@ nl:
         style:
           dark: Donker
           light: Licht
-          marketplace_color: ~
-          logo: ~
+          marketplace_color: "Kleur marktplaats"
+          logo: Logo
         social:
           title: Titel
           url: URL
@@ -1941,7 +1952,7 @@ nl:
       community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Neem a.u.b. contact op met %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Je plaatst nu een advertentie op naam van %{name}"
     quantity:
       hour: "Aantal uur:"
       day: "Aantal dagen:"
@@ -2212,8 +2223,8 @@ nl:
       show_all_listings: "Toon alle advertenties"
       show_all_open_listings: "Toon alle actuele advertenties"
       show_all_reviews: "Toon alle evaluaties"
-      admin_actions: ~
-      post_listing_as: ~
+      admin_actions: Beheerderacties
+      post_listing_as: "Plaats advertentie als"
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
       you_follow_singular: "Je volgt %{count} persoon"
@@ -2339,7 +2350,7 @@ nl:
       invisible: "(niet getoond aan andere gebruikers)"
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
       shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
-      editing_profile_of: ~
+      editing_profile_of: "Je wijzigt nu het profiel van %{name}"
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

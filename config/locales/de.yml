@@ -12,7 +12,7 @@ de:
       index:
         listing_categories: Kategorien
         create_a_new_category: "+ Neue Kategorie erstellen"
-        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest?"
+        remove_category_confirmation: "Bist du sicher, dass du die Kategorie '%{category_name}' entfernen möchtest? Dies kann nicht rückgängig gemacht werden."
         saving_order: "Reihenfolge der Kategorien speichern"
         save_order_successful: "Reihenfolge der Kategorien erfolgreich gespeichert"
         save_order_error: "Während des Speicherns der Kategorienreihenfolge ist ein Fehler aufgetreten. Bitte lade die Seite neu und versuche es noch einmal."
@@ -104,7 +104,7 @@ de:
         small_community_cover_photo: "Kleines Titelbild"
         favicon: Favicon
         favicon_info_text: "Das Favicon ersetzt das Standard Sharetribe Logo. Es sollte 32x32 Pixel groß sein. Hochgeladene Bilder werden auf diese Größe geändert."
-        community_custom_color1: Hauptfarbe
+        community_custom_color1: "Hauptfarbe des Marktplatzes"
         community_slogan_color: "Farbe des Marktplatz-Slogans"
         community_slogan_color_instructions_text: "Du kannst die Farbe des Slogans ändern, indem du den Hex-Wert einer Farbe eingibst. Der Slogan wird den nicht angemeldeten Benutzern angezeigt. %{colorpicker} kann dir helfen, die Farbe zu wählen und den Hex-Wert dieser Farbe zu bekommen. Danach kannst du den Hex-Wert hier kopieren. %{see_how_it_looks_like}."
         community_description_color: "Farbe der Marktplatz-Beschreibung"
@@ -120,7 +120,7 @@ de:
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
-        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
+        custom_color1_instructions_text: "Du kannst die Hauptfarbe der Benutzeroberfläche ändern, indem du einen neuen Farbwert eingibst. <a href=\"http://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kann dir helfen die Farbe auszuwählen, und den Hex-Wert der Farbe zu finden. Kopiere den Code hier ein."
         new_listing_button_instructions_text: "Du kannst die Farbe des \"Neuen Eintrag erstellen\" Knopfes ändern, indem du den Hex-Wert einer neuen Farbe eingibst. %{link_to_colorpicker} kann dir helfen, eine Farbe zu wählen, und den Hex-Code der Farbe zu finden. Du musst nur den Code hier einfügen!"
         default_browse_view: Standardansicht
         default_browse_view_instructions_text: "Die Standardansicht legt fest, wie die Angebote auf der Webseite standardmäßig angezeigt werden."
@@ -183,35 +183,41 @@ de:
       getting_started:
         getting_started: Kurzanleitung
       available_languages:
+        cs: ~
+        da-DK: Dänisch
+        de: Deutsch
         en: Englisch
         en-AU: "Englisch (Australien)"
         en-GB: "Englisch (Großbritannien)"
+        es: Spanisch
+        es-ES: "Spanisch (Spanien)"
+        fi: Finnisch
         fr: Französisch
         fr-CA: "Französisch (Canada)"
-        es: "Spanisch (Chile)"
-        es-ES: Spanisch
-        pt-PT: Portugiesisch
-        pt-BR: "Portugiesisch (Brasilien)"
-        nb: "Norwegisch Bokmål"
-        sv: Schwedisch
-        da-DK: Dänisch
-        fi: Finnisch
-        ru: Russisch
-        de: Deutsch
         el: Griechisch
-        nl: Holländisch
-        tr-TR: Türkisch
-        zh: Chinesisch
-        ja: Japanisch
         it: Italienisch
+        ja: Japanisch
+        ko: ~
+        nb: "Norwegisch Bokmål"
+        nl: Holländisch
+        pl: ~
+        pt-BR: "Portugiesisch (Brasilien)"
+        pt-PT: Portugiesisch
+        ru: Russisch
+        sv: Schwedisch
+        th-TH: ~
+        tr-TR: Türkisch
+        vi: ~
+        zh: Chinesisch
+        zh-TW: ~
       settings:
         settings: Einstellungen
         general: Allgemein
         access: Zugriffseinstellungen
-        join_with_invite_only: "Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
-        users_can_invite_new_users: "Alle Mitglieder können neue Benutzer zu diesem Marktplatz einladen"
+        join_with_invite_only: "Neue Benutzer können diesem Marktplatz nur mit der Einladung eines Mitglieds beitreten"
+        users_can_invite_new_users: "Alle Mitglieder, nicht nur Admins, können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
-        require_verification_to_post_listings: "Nur verifizierte Benutzer können neue Einträge veröffentlichen"
+        require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
         search_preferences: Sucheinstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
@@ -293,8 +299,8 @@ de:
         searchpage: "Neue Suchseite (benötigt das neue Top Bar)"
       social_media:
         social_media: "Social media"
-        logo: Logo
-        logo_info: "Dieses Bild wird auf soziale Netzwerke (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
+        logo: "Bild für soziale Netzwerke"
+        logo_info: "Dieses Bild wird auf sozialen Netzwerken (Facebook, Twitter, Linkedin) angezeigt, wenn jemand deine Domain teilt. Optimal sollte das Bild ein Seitenverhältnis von 2:1 haben, und eine minimale Größe von %{width} x %{height} Pixel."
         social_media_title: "Soziale Netzwerke -Titel"
         social_media_title_info: "Dieser Text wird auf den sozialen Netzwerken Facebook, Twitter, und Linkedin angezeigt, wenn jemand deinen Marktplatz teilt. Du kannst eine Vorschau ansehen %{facebook_preview_link}, %{twitter_preview_link} und %{linkedin_preview_link}."
         link_for_facebook: "für Facebook"
@@ -307,7 +313,7 @@ de:
         twitter_instructions_link_text: Weiterlesen
         twitter_handle_placeholder: Benutzername
         invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Um die Facebook-Authentifizierung zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
         facebook_connect_info_text_with_instructions: "Um die Facebook-Anmeldung zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
         facebook_instructions_link_text: "Siehe die Anleitung für die Einrichtung von Facebook Connect."
@@ -330,16 +336,17 @@ de:
         end_user_analytics: "Sharetribe die Aufzeichnung von Mitglieder Aktivitäten zur Verbesserung des Sharetribe Services erlauben."
         save: "Einstellungen speichern"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: Logo-Link
+        info: "Du kannst den Link des Logos anpassen (und die standardmäßige Home-Taste auf dem Top Bar). Normalerweise leitet das Logo zu der Homeseite oder zu dem Landing Page."
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
-        menu_links: Menü-Links
+        menu_links: "Benutzerdefinierte Menü-Links"
+        menu_links_display: ~
         save: "Einstellungen speichern"
         add_menu_link: "Einen neuen Link zum Menü hinzufügen"
         title_placeholder: "Link Titel"
-        url_placeholder: "http://example.com/de"
+        url_placeholder: "https://example.com/de"
         title: Titel
         language: Sprache
         url: URL
@@ -349,14 +356,14 @@ de:
         max_number_of_links_info: "Der Link zu %{about_page} wird immer als der erste Menu-Link angezeigt."
         about_page: "Über uns Seite"
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Standard Menü-Links"
+        about_link_title: Über
+        contact_link_title: Kontakt
+        invite_link_title: "Neue Mitglieder einladen"
+        info: "Links zu den folgenden Seiten werden standardmäßig nicht anderswo auf deinem Marktplatz angezeigt: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Link zu der <i>Über</i>-Seite und anderen statischen Seiten anzeigen"
+        display_contact: "Link zu der <i>Kontakt</i>-Seite anzeigen"
+        display_invite: "Link zu der <i>neue Mitglieder einladen</i>-Seite anzeigen"
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
@@ -435,14 +442,18 @@ de:
           other_party: "Anderer Beteiligter"
         participants: "Unterhaltung: %{starter} mit %{author}"
         profile: "%{author}s Profil"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_by_keyword: "Nach Name, E-mail oder Schlagwort suchen"
+        search: Suchen
+        reset_search: "Alle anzeigen"
+        for_keyword: "für: <b>%{keyword}</b>"
       testimonials:
         testimonials: Bewertungen
         no_testimonials_found: "Keine Bewertungen gefunden."
         displaying_xx_reviews: "<b>%{count}</b> Bewertungen werden angezeigt, unter Transaktionen %{tx_from} - %{tx_to} von insgesamt <b>%{all_count}</b> Transaktionen."
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: Transaktion
           author: Author
@@ -513,7 +524,7 @@ de:
         footer_enabled: "Fußzeile aktiviert"
         social_links: "Sozial-Links der Fußzeile"
         title_placeholder: "Link Titel"
-        url_placeholder: "http://beispiel.com/benutzername"
+        url_placeholder: "https://beispiel.com/benutzername"
         style:
           dark: Dunkel
           light: Hell
@@ -549,7 +560,7 @@ de:
         listing_fields: "Eintragsfelder & Filter"
         listing_fields_help: "Hier kannst du die Felder bearbeiten, die Nutzer ausfüllen müssen, wenn sie einen neuen Eintrag erstellen. Bitte beachte, dass einige Felder vorgegeben sind und nicht geändert werden können."
         add_new_field: "Neues Feld hinzufügen:"
-        remove_field_confirmation: "Willst du das Feld '%{field_name}' wirklich entfernen?"
+        remove_field_confirmation: "Willst du das Feld '%{field_name}' und sämtliche Inhalte wirklich entfernen? Dies kann nicht rückgängig gemacht werden."
         cancel: Abbrechen
         save: Speichern
         field_title: "Name des Feldes"
@@ -1554,7 +1565,7 @@ de:
       dont_use_to_contact_support: "Wir haben gemerkt, dass du ein Administrator von %{service_name} bist. Durch dieses Formular werden deine Kunden dir Nachrichten senden. Du kannst dieses Formular nicht verwenden, um Sharetribe Support zu kontaktieren. Stattdessen kannst du den Support-Widget in der unterer rechten Ecke verwenden, um Sharetribe zu kontaktieren."
       feedback_forum: Feedback-Forum
       feedback_handle: Feedback
-      give_feedback: "Kontaktiere uns"
+      give_feedback: Kontakt
       or_check_our: "...oder überprüfe unser"
       send_feedback_to_admin: "Nachricht senden"
       to_see_what_others_have_suggested: "um zu sehen, was andere Benutzer vorgeschlagen haben und um die für die Ideen zu stimmen."

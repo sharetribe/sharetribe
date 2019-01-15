@@ -125,7 +125,7 @@ ro:
         small_cover_photo_visibility: "Fotografia cu copertă mică este afișată în toate paginile, cu excepția paginii de pornire pentru utilizatorii care nu sunt conectați."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai mari vor fi tăiate la mijloc."
         main_content_width: "Când alegeți fotografii de copertă, rețineți că conținutul principal al paginii este cel mult %{main_width} pixeli. Amintiți-vă, de asemenea, să verificați modul în care imaginea de pe copertă arată pe ecranele mai mici (de exemplu, utilizând o fereastră mai îngustă a browserului)."
-        custom_color1_instructions_text: "Puteți modifica culoarea principală a interfeței de utilizator introducând o valoare de culoare hexagonală. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> ColorPicker.com </a> vă poate ajuta să alegeți culoarea și să vă obtineti codul culorii hexagonale. Puteți apoi copia codul aici."
+        custom_color1_instructions_text: "Puteți modifica culoarea principală a interfeței de utilizator introducând o valoare pentru culoarea hexagonală. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\"> WebFx.com </a> vă poate ajuta să alegeți culoarea și să obtineti codul culorii hexagonale. Puteți apoi copia codul aici."
         new_listing_button_instructions_text: ~
         default_browse_view: "Vizualizarea implicită a parcurgerii"
         default_browse_view_instructions_text: "Afișarea implicită a parcurgerii este utilizată în pagina de pornire pentru a stabili modul în care listele sunt afișate în mod prestabilit."
@@ -188,27 +188,33 @@ ro:
       getting_started:
         getting_started: "Incepe aici"
       available_languages:
+        cs: Ceha
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: Coreeana
+        nb: ~
+        nl: ~
+        pl: Polona
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: "Thailandeza (Thailanda)"
+        tr-TR: ~
+        vi: Vietnameza
+        zh: ~
+        zh-TW: "Chineza (Taiwan)"
       settings:
         settings: Setări
         general: General
@@ -335,16 +341,17 @@ ro:
         end_user_analytics: ~
         save: "Salveaza setari"
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Link logo"
+        info: "Poti customiza link-ul logo-ului (si al butonului de Pagina Initiala din bara de meniu de sus). Implicit, logo-ul duce utilizatorii catre Pagina Initiala sau catre Pagina Initiala customizata."
+        url: URL
+        placeholder: "https://www.exemplu.com"
       menu_links:
         menu_links: "Llegături in meniu"
+        menu_links_display: ~
         save: "Salvare setări"
         add_menu_link: "Adăugați un nou link în meniu"
         title_placeholder: "Titlul link-ului"
-        url_placeholder: "http://exemplu.com/ro"
+        url_placeholder: "https://exemplu.com/ro"
         title: Titlu
         language: Limba
         url: URL
@@ -448,6 +455,10 @@ ro:
         testimonials: Recenzii
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -518,7 +529,7 @@ ro:
         footer_enabled: ~
         social_links: ~
         title_placeholder: "Titlu link"
-        url_placeholder: "http://exemplu.com/numeutilizator"
+        url_placeholder: "https://exemplu.com/numeutilizator"
         style:
           dark: ~
           light: ~
@@ -1254,8 +1265,8 @@ ro:
     newsletter:
       hi: "Salut %{name}"
       newest_offers: "Ce oferte sunt disponibile"
-      newest_requests: "Ce nevoi au oamenii"
-      text_version_text: "Poti oferi ceva de care altii au nevoie? Sau ai nevoie de ceva ce altii pot oferi? Adauga o oferta sau o cerere sau verifica ceea ce alti ofera sau cer la %{url}"
+      newest_requests: "De ce au nevoie oamenii"
+      text_version_text: "Poti oferi ceva de care altii au nevoie? Sau ai nevoie de ceva ce altii pot oferi? Adauga o oferta sau o cerere sau verifica toata cererea si oferta aici %{url}"
     reset_password_instructions:
       change_my_password: "Modifica-mi parola"
       reset_password_instructions: "<p>Ai indicat ca ai uitat parola sau numele de utilizator pentru serviciul %{service_name}.</p><p>Numele de utilizator este %{username}</p><p>Daca trebuie sa resetezi parola, fa click pe link-ul%{password_reset_link}</p><br/><p>Daca nu ai cerut asta, ignora acest email. Parola ta nu se va schimba pana nu accesezi link-ul de mai sus si pana cand nu creezi una noua.</p>"
