@@ -31,3 +31,73 @@
     background-color: $border;
   }
 }
+
+.google-login-button {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  display: block;
+  text-align: left;
+  text-shadow: 0px 0px 1px #aaaaaa;
+  background: rgb(222,75,57);
+  min-height: 42px;
+  -moz-border-radius: 0.3125em;
+  -webkit-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  padding: 0.625em 2% 0.375em 2%;
+  width: 100%;
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+  &:hover {
+    background: rgba(222,75,57, 0.5);
+    color: #ffffff;
+  }
+  > div {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    background-color: #ffffff;
+    padding: 5px 5px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    img {
+      max-width: 25px;
+    }
+  }
+  .google-text {
+    margin-left: 40px;
+  }
+}
+
+.linkedin-login-button {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  display: block;
+  text-align: left;
+  text-shadow: 0px 0px 1px #aaaaaa;
+  background: rgb(0,115,181);
+  min-height: 42px;
+  -moz-border-radius: 0.3125em;
+  -webkit-border-radius: 0.3125em;
+  border-radius: 0.3125em;
+  padding: 0.625em 2% 0.375em 2%;
+  width: 100%;
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+  &:hover {
+    background: rgba(0,115,181, 0.5);
+    color: #ffffff;
+  }
+  .linkedin-icon {
+    position: absolute;
+    font-size: 1.625em;
+    font-weight: 600;
+    top: 0.3125em;
+    left: 0.3125em;
+  }
+  .linkedin-text {
+    padding: 0.0625em 0.625em 0.4375em 2.1875em;
+  }
+}
