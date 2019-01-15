@@ -1,9 +1,11 @@
 class Person::OmniauthService
   FACEBOOK = 'facebook'.freeze
   GOOGLE_OAUTH2 = 'google_oauth2'.freeze
+  LINKEDIN = 'linkedin'.freeze
   NAMES = {
     FACEBOOK => 'Facebook',
-    GOOGLE_OAUTH2 => 'Google+'
+    GOOGLE_OAUTH2 => 'Google+',
+    LINKEDIN => 'LinkedIn'
   }.freeze
 
   attr_reader :community, :request, :logger
@@ -16,13 +18,13 @@ class Person::OmniauthService
   delegate :person, :person_email_unconfirmed, to: :finder, prefix: false
 
   def no_ominauth_email?
-    data.email.blank?
+    email.blank?
   end
 
   def session_data
     {
       "provider" => provider,
-      "email" => data.email,
+      "email" => email,
       "given_name" => info.first_name,
       "family_name" => info.last_name,
       "username" => data.username,
@@ -36,6 +38,8 @@ class Person::OmniauthService
       update_facebook_data
     when GOOGLE_OAUTH2
       update_google_data
+    when LINKEDIN
+      update_linkedin_data
     end
   end
 
@@ -59,6 +63,8 @@ class Person::OmniauthService
       person_hash[:facebook_id] = uid
     elsif google_oauth2?
       person_hash[:google_oauth2_id] = uid
+    elsif linkedin?
+      person_hash[:linkedin_id] = uid
     end
 
 
@@ -88,12 +94,16 @@ class Person::OmniauthService
     provider == GOOGLE_OAUTH2
   end
 
+  def linkedin?
+    provider == LINKEDIN
+  end
+
   def provider_name
     NAMES[provider]
   end
 
   def email # rubocop:disable Rails/Delegate
-    data.email
+    info.email
   end
 
   def provider
@@ -121,6 +131,11 @@ class Person::OmniauthService
 
   def update_google_data
     person.update_attribute(:google_oauth2_id, uid) # rubocop:disable Rails/SkipsModelValidations
+    store_picture(person)
+  end
+
+  def update_linkedin_data
+    person.update_attribute(:linkedin_id, uid) # rubocop:disable Rails/SkipsModelValidations
     store_picture(person)
   end
 
@@ -178,6 +193,8 @@ class Person::OmniauthService
         members.find_by(facebook_id: uid)
       when GOOGLE_OAUTH2
         members.find_by(google_oauth2_id: uid)
+      when LINKEDIN
+        members.find_by(linkedin_id: uid)
       end
     end
 
@@ -191,6 +208,8 @@ class Person::OmniauthService
         global_admins.find_by(facebook_id: uid)
       when GOOGLE_OAUTH2
         global_admins.find_by(google_oauth2_id: uid)
+      when LINKEDIN
+        global_admins.find_by(linkedin_id: uid)
       end
     end
 
@@ -209,7 +228,7 @@ class Person::OmniauthService
 
     def run
       case params[:provider]
-      when Person::OmniauthService::FACEBOOK
+      when FACEBOOK
         # Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
         request.env["omniauth.strategy"].options[:iframe] = true
         request.env["omniauth.strategy"].options[:scope] = "public_profile,email"
@@ -225,10 +244,18 @@ class Person::OmniauthService
           request.env["omniauth.strategy"].options[:client_options][:authorize_url] = login_url
           request.env["omniauth.strategy"].options[:client_options][:site_url] = login_url
         end
-      when Person::OmniauthService::GOOGLE_OAUTH2
+      when GOOGLE_OAUTH2
         if community.google_connect_enabled?
           request.env["omniauth.strategy"].options[:client_id] = community.google_connect_id
           request.env["omniauth.strategy"].options[:client_secret] = community.google_connect_secret
+        else
+          request.env["omniauth.strategy"].options[:client_id] = ""
+          request.env["omniauth.strategy"].options[:client_secret] = ""
+        end
+      when LINKEDIN
+        if community.linkedin_connect_enabled?
+          request.env["omniauth.strategy"].options[:client_id] = community.linkedin_connect_id
+          request.env["omniauth.strategy"].options[:client_secret] = community.linkedin_connect_secret
         else
           request.env["omniauth.strategy"].options[:client_id] = ""
           request.env["omniauth.strategy"].options[:client_secret] = ""

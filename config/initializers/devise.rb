@@ -263,6 +263,7 @@ Devise.setup do |config|
                   }
 
   config.omniauth :google_oauth2, setup: true
+  config.omniauth :linkedin, setup: true
 
   # ==> Warden configuration
   # see config/initializers/warden.rb
