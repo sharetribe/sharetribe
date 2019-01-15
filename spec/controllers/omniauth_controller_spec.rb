@@ -48,6 +48,26 @@ describe OmniauthController, type: :controller do
     end
   end
 
+  describe "#linkedin" do
+    it 'creates and sign-in person if LinkedIn user login first time' do
+      enable_login_google_linkedin('linkedin', community)
+      oauth_mock('linkedin')
+      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:linkedin]
+      post :linkedin
+      session_data = assigns(:service_session_data)
+      expect(session_data).to eq({"provider"=>"linkedin", "email"=>"devel@example.com", "given_name"=>"Tony", "family_name"=>"Testmen", "username"=>nil, "id"=>"50k-SSSS99"})
+      expect(warden.authenticated?(:person)).to eq true
+      new_person = assigns(:new_person)
+      expect(new_person.username).to eq 'tonyt'
+      expect(new_person.given_name).to eq 'Tony'
+      expect(new_person.family_name).to eq 'Testmen'
+      expect(new_person.display_name).to eq nil
+      expect(new_person.linkedin_id).to eq '50k-SSSS99'
+      expect(new_person.has_email?("devel@example.com")).to eq true
+      expect(subject).to redirect_to pending_consent_path
+    end
+  end
+
   shared_examples_for 'multi-provider authentication' do
     it "sign in if provider uid fits for global admin" do
       enable_login_google_linkedin(provider, community)
@@ -62,7 +82,7 @@ describe OmniauthController, type: :controller do
     it 'sign in if provider email fits for global admin' do
       enable_login_google_linkedin(provider, community)
       person_global_admin_with_provider_email
-      oauth_mock(provider, {extra: {raw_info: {email: 'global_admin@example.com'}}})
+      oauth_mock(provider, {info: {email: 'global_admin@example.com'}})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
       post provider.to_sym, params: { provider: provider }
       expect(warden.authenticated?(:person)).to eq true
@@ -82,7 +102,7 @@ describe OmniauthController, type: :controller do
     it 'sign in if provider email fits for person' do
       enable_login_google_linkedin(provider, community)
       person_with_provider_email
-      oauth_mock(provider, {extra: {raw_info: {email: 'alejandra@example.com'}}})
+      oauth_mock(provider, {info: {email: 'alejandra@example.com'}})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
       post provider.to_sym, params: { provider: provider }
       expect(warden.authenticated?(:person)).to eq true
@@ -132,8 +152,29 @@ describe OmniauthController, type: :controller do
     it_behaves_like 'multi-provider authentication'
   end
 
+  context 'LinkedIn' do
+    let(:provider) { 'linkedin' }
+    let(:person_global_admin_with_provider_id) do
+      FactoryGirl.create(:person, is_admin: true, linkedin_id: '123')
+    end
+    let(:person_global_admin_with_provider_email) do
+      person = FactoryGirl.create(:person, is_admin: true)
+      person.emails << FactoryGirl.create(:email, address: 'global_admin@example.com')
+      person
+    end
+    let(:person_with_provider_id) do
+      FactoryGirl.create(:person, member_of: community, linkedin_id: '345')
+    end
+    let(:person_with_provider_email) do
+      person = FactoryGirl.create(:person, member_of: community)
+      person.emails << FactoryGirl.create(:email, address: 'alejandra@example.com')
+      person
+    end
+    it_behaves_like 'multi-provider authentication'
+  end
+
   def enable_login_google_linkedin(provider, community)
-    if ['google_oauth2'].include?(provider)
+    if ['google_oauth2', 'linkedin'].include?(provider)
       RequestStore.store[:feature_flags] = [:login_google_linkedin]
     end
   end

@@ -11,5 +11,10 @@ module SocialNetworkHelper
     FeatureFlagHelper.feature_enabled?(:login_google_linkedin) &&
       @current_community && @current_community.google_connect_enabled? && @current_community.google_connect_id
   end
+
+  def linkedin_connect_in_use?
+    FeatureFlagHelper.feature_enabled?(:login_google_linkedin) &&
+      @current_community && @current_community.linkedin_connect_enabled? && @current_community.linkedin_connect_id
+  end
 end
 
