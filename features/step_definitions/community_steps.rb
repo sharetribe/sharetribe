@@ -259,6 +259,10 @@ Given /^community "(.*?)" has social network "(.*?)" enabled$/ do |community, pr
     community.google_connect_enabled = true
     community.google_connect_id = '123'
     community.google_connect_secret = 'ABC'
+  elsif provider == 'linkedin'
+    community.linkedin_connect_enabled = true
+    community.linkedin_connect_id = '123'
+    community.linkedin_connect_secret = 'ABC'
   end
   community.save
 end
