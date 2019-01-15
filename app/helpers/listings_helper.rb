@@ -122,4 +122,11 @@ module ListingsHelper
     t(listing.action_button_tr_key)
   end
 
+  def listing_search_status_titles
+    if params[:status].present?
+      I18n.t("admin.communities.listings.status.selected_js") + params[:status].size.to_s
+    else
+      I18n.t("admin.communities.listings.status.all")
+    end
+  end
 end

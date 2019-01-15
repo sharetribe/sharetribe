@@ -51,13 +51,13 @@ describe Admin::CommunityListingsController, type: :controller do
   describe "#index search" do
     it "retrieves all listings in no query given" do
       get :index, params: {community_id: @community.id}
-      expect(assigns("listings").size).to eq 6
+      expect(assigns("presenter").listings.size).to eq 6
     end
 
     it "finds listings by title" do
       @all_listings.each do |listing|
         get :index, params: {community_id: @community.id, q: listing.title}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 1
         expect(listings).to eq [listing]
       end
@@ -66,7 +66,7 @@ describe Admin::CommunityListingsController, type: :controller do
     it "finds listings by category title" do
       [@category1, @category2].each do |category|
         get :index, params: {community_id: @community.id, q: category.translations.first.name}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 3
         expect(listings.map(&:category_id).uniq).to eq [category.id]
       end
@@ -75,7 +75,7 @@ describe Admin::CommunityListingsController, type: :controller do
     it "finds listings by author" do
       [@joe, @jack].each do |author|
         get :index, params: {community_id: @community.id, q: author.given_name}
-        listings = assigns("listings")
+        listings = assigns("presenter").listings
         expect(listings.size).to eq 3
         expect(listings.map(&:author_id).uniq).to eq [author.id]
       end
@@ -85,55 +85,55 @@ describe Admin::CommunityListingsController, type: :controller do
   describe "#index status filter" do
     it "retrieves all when status not present" do
       get :index, params: {community_id: @community.id, status: []}
-      expect(assigns("listings").size).to eq 6
+      expect(assigns("presenter").listings.size).to eq 6
 
       get :index, params: {community_id: @community.id}
-      expect(assigns("listings").size).to eq 6
+      expect(assigns("presenter").listings.size).to eq 6
     end
 
     it "filters open" do
       get :index, params: {community_id: @community.id, status: ["open"]}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 4
       expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3, @listing_jack1, @listing_jack3]
     end
 
     it "filters closed" do
       get :index, params: {community_id: @community.id, status: ["closed"]}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 2
       expect(listings.sort_by(&:id)).to eq [@listing_joe2, @listing_jack2]
     end
 
     it "filters expired" do
       get :index, params: {community_id: @community.id, status: ["expired"]}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 2
       expect(listings.sort_by(&:id)).to eq [@listing_joe3, @listing_jack3]
     end
 
     it "filters open + expired" do
       get :index, params: {community_id: @community.id, status: ["expired", "open"]}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 4
       expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3, @listing_jack1, @listing_jack3]
     end
 
     it "filters closed + expired" do
       get :index, params: {community_id: @community.id, status: ["expired", "closed"]}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 4
       expect(listings.sort_by(&:id)).to eq [@listing_joe2, @listing_joe3, @listing_jack2, @listing_jack3]
     end
 
     it "applies both filter and query" do
       get :index, params: {community_id: @community.id, status: ["expired", "open"], q: "won"}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 1
       expect(listings).to eq [@listing_jack3]
 
       get :index, params: {community_id: @community.id, status: ["expired", "open"], q: "p"}
-      listings = assigns("listings")
+      listings = assigns("presenter").listings
       expect(listings.size).to eq 1
       expect(listings).to eq [@listing_joe3]
     end
