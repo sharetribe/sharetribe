@@ -79,7 +79,7 @@ Then(/^I should not see price box on top of the message list$/) do
   expect(page).to have_no_css('.initiate-transaction-totals')
 end
 
-def create_paid_transaction(community, listing, starter, message, payment_gateway = :none, state = :not_started )
+def create_paid_transaction(community, listing, starter, message, payment_gateway = :none, state = :not_started, buyer_commission = false )
   process = TransactionProcess.find(listing.transaction_process_id).process
   settings = PaymentSettings.where(active: true, community_id: community.id, payment_gateway: payment_gateway, payment_process: process).first
   booking = listing.availability == 'booking'
@@ -104,6 +104,12 @@ def create_paid_transaction(community, listing, starter, message, payment_gatewa
       unit_price_cents: listing.price.cents,
       unit_price_currency: listing.price.currency)
   end
+  if buyer_commission
+    tx_attributes.merge!(
+      commission_from_buyer: 15,
+      minimum_buyer_fee_cents: 100,
+      minimum_buyer_fee_currency: listing.price.currency)
+  end
   tx = FactoryGirl.create(:transaction, tx_attributes)
   if booking
     FactoryGirl.create(:booking, tx: tx, start_on: nil, end_on: nil,
@@ -122,4 +128,9 @@ end
 Then(/^I visit transaction page of that listing$/) do
   visit_transaction_of_listing(@listing)
 end
+
+Given(/^there is a "([^"]*)" transaction with buyer commission from "([^"]*)" with message "([^"]*)" about that listing$/)do |state, sender, message|
+  create_paid_transaction(@current_community, @listing, @people[sender], message, 'stripe', state, true)
+end
+
 
