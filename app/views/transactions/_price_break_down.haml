@@ -54,7 +54,7 @@
           = quantity
 
   - if subtotal.present?
-    .initiate-transaction-sum-wrapper
+    .initiate-transaction-sum-wrapper#tx-subtotal
       %span.initiate-transaction-sum-label
         = t("transactions.initiate.subtotal")
       %span.initiate-transaction-sum-value
@@ -68,14 +68,14 @@
         = MoneyViewUtils.to_humanized(shipping_price)
 
   - if is_author
-    .initiate-transaction-sum-wrapper
+    .initiate-transaction-sum-wrapper#tx-total-to-pay
       %span.initiate-transaction-sum-label
         = t("transactions.total_to_pay")
       %span.initiate-transaction-sum-value
         = MoneyViewUtils.to_humanized(total)
 
     - if fee.present? && fee > 0
-      .initiate-transaction-sum-wrapper
+      .initiate-transaction-sum-wrapper#tx-fee
         %span.initiate-transaction-sum-label
           = t("conversations.accept.service_fee_label")
         %span.initiate-transaction-sum-value
