@@ -39,7 +39,19 @@ Given(/^community "(.*?)" has new order type "(.*?)" with action button "(.*?)"$
     name_translation: name,
     button_translation: button_name,
     unit_types: nil
- )
+  )
+end
+
+Given(/^community "(.*?)" has paid listing shape "(.*?)" "(.*?)"$/) do |community_name, name, button_name|
+  community = Community.where(ident: community_name).first
+  create_listing_shape(
+    community: community,
+    name: 'offering',
+    availability: 'none',
+    name_translation: name,
+    button_translation: button_name,
+    unit_types: nil
+  )
 end
 
 def create_listing_shape(community:, name:, availability:, name_translation:, button_translation:, unit_types:, custom_unit_types: nil)
