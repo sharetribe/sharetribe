@@ -21,17 +21,6 @@ class Person::OmniauthService
     email.blank?
   end
 
-  def session_data
-    {
-      "provider" => provider,
-      "email" => email,
-      "given_name" => info.first_name,
-      "family_name" => info.last_name,
-      "username" => data.username,
-      "id"  => uid
-    }
-  end
-
   def update_person_provider_uid
     case provider
     when FACEBOOK

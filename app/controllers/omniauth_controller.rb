@@ -69,8 +69,6 @@ class OmniauthController < ApplicationController
       flash[:error] = t("layouts.notifications.social_network_email_unconfirmed", email: service.email, provider: service.provider_name)
       redirect_to login_path and return
     else
-      @service_session_data = service.session_data.dup # expose for tests
-      session["devise.omniauth_data"] = service.session_data
       @new_person = service.create_person
 
       sign_in(:person, @new_person)
