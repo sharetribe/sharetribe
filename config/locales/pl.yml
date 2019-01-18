@@ -884,7 +884,7 @@ pl:
       buy: kupować
       give_away: rozdawać
       lend: pożyczyć
-      receive: "wziąść za darmo"
+      receive: "wziąć za darmo"
       rent: wynajmować
       rent_out: wynająć
       sell: sprzedawać
@@ -1121,8 +1121,8 @@ pl:
     accept_reminder:
       remember_to_accept_offer: "Pamiętaj, aby zaakceptować bądź odrzucić ofertę od %{sender_name}"
       remember_to_accept_request: "Pamiętaj, aby zaakceptować bądź odrzucić zapytanie od %{sender_name}"
-      you_can_accept_or_reject_offer_at: "Możesz zaakceptować bądź odrzucić ofertę na"
-      you_can_accept_or_reject_request_at: "Możesz zaakceptować bądź odrzucić ofertę na"
+      you_can_accept_or_reject_offer_at: "Możesz zaakceptować lub odrzucić ofertę na"
+      you_can_accept_or_reject_request_at: "Możesz zaakceptować lub odrzucić ofertę na"
       you_have_not_yet_accepted_or_rejected_offer: "Jeszcze nie zaakceptowałeś, ani nie odrzuciłeś oferty %{title}, którą otrzymałeś %{date}"
       you_have_not_yet_accepted_or_rejected_request: "Jeszcze nie zaakceptowałeś, ani nie odrzuciłeś oferty %{title}, którą otrzymałeś %{date}"
       show_thread: "Pokaż konwersację"
@@ -1167,7 +1167,7 @@ pl:
       confirmation_link_text: "Potwierdź mój adres"
       or_paste_link: "Ewentualnie możesz skopiować poniższy link do paska adresowego Twojej przeglądarki:"
     common:
-      hey: "Witaj %{name}"
+      hey: "Cześć %{name}"
       kassi_team: "Zespół %{service_name}"
       thanks: "Dziękuję,"
       dont_want_to_receive_these_emails: "Nie chcesz otrzymywać takich wiadomości email?"
@@ -1294,7 +1294,7 @@ pl:
       change_my_password: "Zmień moje hasło"
       reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Twoja nazwa użytkownika to: %{username}</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
     testimonial_reminder:
-      remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby przekazać opinię do %{name}"
+      remember_to_give_feedback_to: "Przypomnienie: pamiętaj, aby przesłać opinię do %{name}"
       you_have_not_given_feedback_yet: "Jeszcze nie przekazałeś opinii do %{name} o wydarzeniu %{event}. Pamiętaj, aby przekazać opinię jak %{given_name} spisał się podczas wydarzenia."
     transaction_preauthorized:
       subject: "%{requester} zażądał i autoryzował płatność dla %{listing_title}"
@@ -1333,7 +1333,7 @@ pl:
       server_rendering: "Poradnik początkujących się nie załadował. Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
     listings:
       departure_time: "Czas rozpoczęcia musi być pomiędzy aktualny czasem, a datą za rok od dziś."
-      share_type: "Musisz wybrać przynajmniej jedną."
+      share_type: "Musisz wybrać jedną"
       valid_until: "Data musi być pomiędzy aktualnym czasem, a sześć miesięcy od dziś."
       price: "Cena musi być liczbą całkowitą."
       minimum_price: "Cena minimum to %{minimum_price} %{currency}"
@@ -1373,7 +1373,7 @@ pl:
       we_hate_this: "Nie cierpimy gdy tak się dzieje! Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
       refer_to_error_id: "Jeśli chcesz skontaktować się z pomocą w tej kwestii, proszę dodaj ID błędu \"%{error_id}\" w swojej wiadomości."
     error_500_title: "załadowanie strony nie powiodło się"
-    error_description: "Opis problemu"
+    error_description: "Opis błędu"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript jest wyłączony w Twojej przeglądarce"
       kassi_does_not_currently_work_without_javascript: "%{service_name} nie działa poprawnie bez javascript. Spróbuj włączyć javascript w ustawieniach preferencji Twojej przeglądarki i później odśwież stronę."
@@ -1431,7 +1431,7 @@ pl:
     create_new_marketplace: "Stwórz nową platformę"
     contact_us: "Skontaktuj się z nami"
     profile: Profil
-    manage_listings: "Zarządzaj ofertami"
+    manage_listings: "Moje oferty"
     invite: "Zaproś nowych członków"
     login: "Zaloguj się"
     signup: "Zarejestruj się"
@@ -2584,7 +2584,7 @@ pl:
       user: Użytkownik
       inbox: "Skrzynka odbiorcza"
       profile: Profil
-      manage_listings: "Zarządzaj ofertami"
+      manage_listings: "Moje oferty"
       settings: Ustawienia
       logout: Wyloguj
       login: Zaloguj
