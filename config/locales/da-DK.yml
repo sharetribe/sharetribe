@@ -985,7 +985,7 @@ da-DK:
       payment_preauthorized: "Betaling godkendt: %{sum}"
       stripe:
         held_payment: "Accepteret anmodningen. Betalingen på %{sum} tilbageholdes af %{service_name} indtil ordren er blevet markeret som gennemført."
-        confirmed_request: "Markeret ordren som gennemført. Betalingen er ny blevet overført til %{author_name} konto eller vil blive overført snarrest."
+        confirmed_request: "Markeret ordren som gennemført. Betalingen er nu blevet overført til %{author_name} konto eller vil blive overført snarrest."
     new:
       message: Besked
       message_to: "Besked til %{author_name}"
@@ -2376,7 +2376,7 @@ da-DK:
       slightly_better_than_expected: "Lidt bedre end forventet"
       slightly_less_than_expected: "Lidt værrere end forventet"
       textual_feedback: "Hvordan gik det?"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Din feedback du giver vil være synlig på %{person} profil. Det vil fremadrettet hjælpe andre til at vurdere om %{person} er en troværdig person."
       positive: Positivt
       negative: Negativt
       default_textual_feedback: "Alt gik godt, mange tak!"

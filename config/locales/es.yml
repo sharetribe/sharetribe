@@ -906,11 +906,11 @@ es:
       title: "Comisión y cuota de procesamiento de pago"
       stripe: Stripe
       paypal: PayPal
-      info: "Los pagos en %{service_name} son procesados la plataforma de pagos que se nombra abajo. %{service_name} cobra una comisión que depende de la plataforma usada. La plataforma de pagos puede cobrar una comisión adicional."
+      info: "Los pagos en %{service_name} son procesados la plataforma de pagos que se nombra abajo. %{service_name} cobra una comisión dependiendo de la plataforma de pagos usada."
     paypal_fee_info:
       title: "Comisión de procesamiento de pago de PayPal"
       body_text: |-
-          Para pagos con PayPal, %{service_name} cobra una comisión de %{paypal_commission}%. La cuota mínima por transacción es %{minimum_transaction_fee}. Las cuotas adicionales de PayPal no están incluidas en esta comisión, así que además de la comisión de %{service_name}, también deberás pagar las cuota de PayPal por cada pago procesado por PayPal. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
+          %{service_name} cobra una comisión de %{paypal_commission}%, o %{minimum_transaction_fee} como mínimo, cuando los pagos se hacen por medio de PayPal. Las cuotas adicionales de PayPal no están incluidas en esta comisión, así que además de la comisión de %{service_name}, también deberás pagar las cuota de PayPal por cada pago procesado por PayPal. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
           Puedes ver las cuotas exactas al conectarte a tu cuenta de PayPal y yendo a %{link_to_paypal}. Después de cada venta recibirás un recibo con la cuota exacta.
       body_text_accept: |-
           Esta transacción será procesada por PayPal. PayPal cobra una cuota de procesamiento por cada pago. Esta cuota es de entre el 2% y el 5% del precio total de venta, dependiendo del volumen total de ventas y del país de residencia del comprador. En general, las cuotas para pagos domésticos son menores que para pagos internacionales y un mayor volumen de ventas te da descuentos en las cuotas.
@@ -918,7 +918,7 @@ es:
       link_to_paypal_text: aquí
     stripe_fee_info:
       title: "Cuota de procesamiento de pago de Stripe"
-      body_text: "Para pagos por medio de Stripe, %{service_name} cobra una comisión de %{stripe_commission}%. La cuota mínima por transacción es de %{minimum_transaction_fee}. Las cuotas de Stripe están incluidas en esta cuota/comisión."
+      body_text: "%{service_name} cobra una comisión de %{stripe_commission}, o %{minimum_transaction_fee} como mínimo cuando los pagos se hacen por medio de Stripe. La comisión de Stripe ya está incluida en esta cantidad y no se te cobrará ningún valor adicional."
       link_to_stripe_text: aquí
   conversations:
     accept:

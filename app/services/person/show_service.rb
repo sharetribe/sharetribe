@@ -78,4 +78,15 @@ class Person::ShowService
   def admin?
     current_user.has_admin_rights?(community)
   end
+
+  def can_post_listing?
+    membership = person && person.community_membership
+    if membership
+      if community.require_verification_to_post_listings
+        membership.accepted? && membership.can_post_listings
+      else
+        membership.accepted?
+      end
+    end
+  end
 end

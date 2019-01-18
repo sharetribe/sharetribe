@@ -72,9 +72,9 @@ cs:
         community_name: "Název tržiště"
         edit_community_name_description: "Název Vašeho tržiště. Tento název se zobrazí uživatelům v e-mailech a na jiných místech."
         community_slogan: "Slogan tržiště"
-        community_slogan_display: ~
+        community_slogan_display: "Slogan na domovské stránce"
         edit_community_slogan_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
-        edit_community_slogan_description_hideable: ~
+        edit_community_slogan_description_hideable: "To je zobrazeno v prohlížečích, vyhledávačích a sociálních médiích. Můžete jej také zobrazit na domovské stránce vašeho trhu pro uživatele, kteří nejsou přihlášeni %{see_how_it_looks_like}."
         community_description: "Popis tržiště"
         community_description_display: "Zobrazit popis na domovské stránce"
         edit_community_description_description: "Toto se zobrazí na domovské stránce tržiště nepřihlášeným uživatelům. %{see_how_it_looks_like}"
@@ -188,33 +188,33 @@ cs:
       getting_started:
         getting_started: "Příručka pro začátečníky"
       available_languages:
-        cs: ~
+        cs: Čeština
         da-DK: Dánština
         de: Němčina
         en: Angličtina
         en-AU: "Angličtina (Austrálie)"
         en-GB: "Angličtina (Spojené království)"
-        es: ~
-        es-ES: ~
+        es: Špaňelština
+        es-ES: "Špaňelština (Španělsky)"
         fi: Finština
         fr: Francouzština
         fr-CA: "Francouzština (Kanada)"
         el: Řečtina
         it: Italština
         ja: Japonština
-        ko: ~
+        ko: Korejština
         nb: "Norština (Bokmål)"
         nl: Holandština
-        pl: ~
+        pl: Polština
         pt-BR: "Portugalština (Brazílie)"
         pt-PT: Portugalština
         ru: Ruština
         sv: Švédština
-        th-TH: ~
+        th-TH: "Thajsky (thajština)"
         tr-TR: Turečtina
-        vi: ~
+        vi: Vietnamsky
         zh: Čínština
-        zh-TW: ~
+        zh-TW: "Čínština (Tchaj-wan)"
       settings:
         settings: Nastavení
         general: Obecné
@@ -306,12 +306,12 @@ cs:
         social_media: "Sociální média"
         logo: Logo
         logo_info: "Tento obrázek se používá, když někdo sdílí vaši doménu na sociálních sítích (Facebook, Twitter, Linkedin). Pro lepší výsledek by měl mít poměr 2:1 a minimální rozlišení %{width} x%{height} pixelů"
-        social_media_title: ~
-        social_media_title_info: ~
+        social_media_title: "Sociální média název"
+        social_media_title_info: "Tento text se zobrazí na sociálních sítích Facebook, Twitter a LinkedIn, když někdo sdílí vaše webové stránky. Můžete zobrazit náhled, jak vypadá %{facebook_preview_link}, %{twitter_preview_link} a %{linkedin_preview_link}."
         link_for_facebook: "pro Facebook"
         link_for_linkedin: "Pro LinkedIn"
         link_for_twitter: "pro Twitter"
-        social_media_description: ~
+        social_media_description: "Sociální média popis"
         twitter_handle: Twitter
         twitter_handle_info_text: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky."
         twitter_handle_info_text_with_instructions: "Uživatelské jméno Twitter účtu Vašeho tržiště (pokud nějaké máte). To se zobrazí lidem, kteří používají Twitter tlačítko na straně stránky. %{instructions_link}."
@@ -343,8 +343,8 @@ cs:
       logo_link:
         title: ~
         info: ~
-        url: ~
-        placeholder: ~
+        url: URL
+        placeholder: "https://www.example.com"
       menu_links:
         menu_links: Odkazy
         menu_links_display: "Odkazy na nabídky"
@@ -450,15 +450,15 @@ cs:
         search_by_keyword: "Hledat podle jména, emailu nebo klíčového slova"
         search: Hledat
         reset_search: "Zobrazit vše"
-        for_keyword: ~
+        for_keyword: "pro: <b>%{keyword}</b>"
       testimonials:
         testimonials: "Zobrazit recenze"
         no_testimonials_found: "Žádné hodnocení nenalezeno"
         displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_keyword: "Hledat podle jména, emailu nebo klíčového slova"
+        search: Hledat
+        reset_search: "Zobrazit vše"
+        for_keyword: "pro: <b>%{keyword}</b>"
         headers:
           transaction: Transakce
           author: Autor
@@ -767,7 +767,7 @@ cs:
       read_more_about_paypal: "Přečtěte si více o Sharetribe platebním systému"
       edit_payment_settings: "Upravte nastavení platby"
       supported_currencies_information_text: "Online platební systém Sharetribe podporuje 24 měn. Pokud se vaše měna v tomto seznamu nenachází, kontaktujte prosím %{contact_support_link}. Pokud změníte měnu, zůstanou stávající položky v původní měně. U těchto položek musíte měnu změnit ručně."
-      currency_change_warning_text: ~
+      currency_change_warning_text: "Upozornění: Pokud se budete pokračovat s touto změnou měny, nezapomeňte požádat prodejce, aby ručně upravili své stávající záznamy, aby aktualizoval měnu."
       marketplace_currency_label: "Měna :"
       minimum_listing_price_label: "Minimální částka transakce:"
       transaction_fee_label: "Transakční poplatek:"
@@ -2225,7 +2225,7 @@ cs:
       show_all_listings: "Zobrazit všechny inzeráty"
       show_all_open_listings: "Zobrazit všechny inzeráty"
       show_all_reviews: "Zobrazit všechna hodnocení"
-      admin_actions: ~
+      admin_actions: Akce
       post_listing_as: ~
     followed_people:
       you_follow_plural: "Sledujete %{count} lidí"
@@ -2642,10 +2642,10 @@ cs:
       legal_name: "Legální jméno"
       first_name: Jméno
       last_name: Příjmení
-      first_name_kana: ~
-      last_name_kana: ~
-      first_name_kanji: ~
-      last_name_kanji: ~
+      first_name_kana: Jméno
+      last_name_kana: Příjmení
+      first_name_kanji: Jméno
+      last_name_kanji: Příjmení
       country: Země
       birth_date: "Datum narození"
       ssn_last_4: "SSN poslední 4"
@@ -2663,16 +2663,16 @@ cs:
       cancel: Zrušit
       gender: Pohlaví
       phone_number: "Telefonní číslo"
-      address_kana_postal_code: ~
-      address_kana_state: ~
-      address_kana_city: ~
-      address_kana_town: ~
-      address_kana_line1: ~
-      address_kanji_postal_code: ~
-      address_kanji_state: ~
-      address_kanji_city: ~
-      address_kanji_town: ~
-      address_kanji_line1: ~
+      address_kana_postal_code: PSČ
+      address_kana_state: Stát
+      address_kana_city: Město
+      address_kana_town: Čtvrť
+      address_kana_line1: Ulice
+      address_kanji_postal_code: PSČ
+      address_kanji_state: Stát
+      address_kanji_city: Město
+      address_kanji_town: Čtvrť
+      address_kanji_line1: Ulice
       male: muž
       female: žena
     form_bank:
