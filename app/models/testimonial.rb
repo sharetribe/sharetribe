@@ -32,6 +32,8 @@ class Testimonial < ApplicationRecord
   scope :negative, -> { where("grade < 0.5") }
   scope :id_order, -> { order("id DESC") }
   scope :non_blocked, -> { where(blocked: false) }
+  scope :blocked, -> { where(blocked: true) }
+
   scope :by_community, -> (community) {
     joins(:tx).merge(Transaction.by_community(community.id).exist)
   }
