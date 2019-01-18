@@ -918,7 +918,7 @@ es:
       link_to_paypal_text: aquí
     stripe_fee_info:
       title: "Cuota de procesamiento de pago de Stripe"
-      body_text: "%{service_name} cobra una comisión de %{stripe_commission}, o %{minimum_transaction_fee} como mínimo cuando los pagos se hacen por medio de Stripe. La comisión de Stripe ya está incluida en esta cantidad y no se te cobrará ningún valor adicional."
+      body_text: "%{service_name} cobra una comisión de %{stripe_commission}%, o %{minimum_transaction_fee} como mínimo cuando los pagos se hacen por medio de Stripe. La comisión de Stripe ya está incluida en esta cantidad y no se te cobrará ningún valor adicional."
       link_to_stripe_text: aquí
   conversations:
     accept:
