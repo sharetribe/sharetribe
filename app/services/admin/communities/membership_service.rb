@@ -3,8 +3,6 @@ class Admin::Communities::MembershipService
 
   PER_PAGE = 50
 
-  delegate :selected_statuses_title, :sorted_statuses, to: :presenter, prefix: true, allow_nil: false
-
   def initialize(community:, params:, current_user:)
     @params = params
     @community = community
@@ -66,10 +64,6 @@ class Admin::Communities::MembershipService
     email_to_confirm = membership.person.latest_pending_email_address(community)
     to_confirm = Email.find_by_address_and_community_id(email_to_confirm, community.id)
     Email.send_confirmation(to_confirm, community)
-  end
-
-  def presenter
-    @presenter ||= Admin::MembershipPresenter.new(params)
   end
 
   private

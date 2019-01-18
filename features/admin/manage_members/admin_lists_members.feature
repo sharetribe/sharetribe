@@ -3,10 +3,10 @@ Feature: Admin lists members
 
   Background:
     Given there are following users:
-      | person            | given_name | family_name | email               | membership_created_at     |
-      | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0000 |
-      | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0000 |
-      | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0000 |
+      | person            | given_name | family_name | email               | membership_created_at     | display_name |
+      | manager           | matti      | manager     | manager@example.com | 2014-03-01 00:12:35 +0000 |              |
+      | kassi_testperson1 | john       | doe         | test2@example.com   | 2013-03-01 00:12:35 +0000 |              |
+      | kassi_testperson2 | jane       | doe         | test1@example.com   | 2012-03-01 00:00:00 +0000 | Puckett      |
     And I am logged in as "manager"
     And "manager" has admin rights in community "test"
     And "kassi_testperson1" has admin rights in community "test"
@@ -17,11 +17,11 @@ Feature: Admin lists members
       | Name          | Display name | Email               | Joined      | Posting allowed | Remove User |
       | matti manager |              | manager@example.com | Mar 1, 2014 |                 |             |
       | john doe      |              | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      |              | test1@example.com   | Mar 1, 2012 |                 |             |
+      | jane doe      | Puckett      | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
       | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
       | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
       | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
     When I follow "Name"
@@ -29,17 +29,17 @@ Feature: Admin lists members
       | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
       | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
       | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Email"
     Then I should see list of users with the following details:
       | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
       | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
-      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
       | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
     When I follow "Joined"
     Then I should see list of users with the following details:
       | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      |               | test1@example.com   | Mar 1, 2012 |                 |             |
+      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
       | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
       | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
 
@@ -110,3 +110,13 @@ Feature: Admin lists members
     And I should see that I can remove admin rights of "jane doe"
     Then I should see that "manager" has admin rights in this community
     And I should see that I can not remove admin rights of "manager"
+
+  Scenario: Admin views list of members
+    Given community "test" has feature flag "admin_acts_as_user" enabled
+    And I am on the manage members admin page
+    Then I should see list of users with the following details:
+      | Name              | Email               | Joined      | Posting allowed | Ban | Actions |
+      | matti manager     | manager@example.com | Mar 1, 2014 |                 |     |         |
+      | john doe          | test2@example.com   | Mar 1, 2013 |                 |     |         |
+      | jane doe (Puckett)| test1@example.com   | Mar 1, 2012 |                 |     |         |
+

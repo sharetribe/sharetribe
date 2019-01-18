@@ -2220,3 +2220,13 @@ figure.fluidratio {
 .ui-tooltip {
   background-color: #ffffff;
 }
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  a {
+    color: currentColor;
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+  }
+}

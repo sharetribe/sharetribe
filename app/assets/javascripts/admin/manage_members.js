@@ -50,7 +50,7 @@ window.ST.initializeManageMembers = function() {
   var initBanToggle = function () {
     $(document).on("click", ".admin-members-ban-toggle", function(){
       var banned = this.checked;
-      var row = $(this).parent().parent()[0];
+      var row = $(this).parent().parent();
       var confirmation, url;
       if(banned) {
         confirmation = ST.t('admin.communities.manage_members.ban_user_confirmation');
@@ -66,7 +66,13 @@ window.ST.initializeManageMembers = function() {
           url: url,
           dataType: "JSON",
           success: function(resp) {
-            row.className = "member-"+resp.status;
+            var actions = row.find('.membership-actions span');
+            row[0].className = "member-"+resp.status;
+            if( resp.status == 'banned' ) {
+              actions.addClass('is-disabled');
+            } else {
+              actions.removeClass('is-disabled');
+            }
             showUpdateSuccess();
           },
           error: showUpdateError,
@@ -96,6 +102,12 @@ window.ST.initializeManageMembers = function() {
 
     var postingAllowedStreams = $(".admin-members-can-post-listings").asEventStream('change')
       .map(function (ev) {
+        var postListing = $(ev.target).parent().parent().find('.post-listing');
+        if (ev.target.checked) {
+          postListing.removeClass('post-listing-is-disabled');
+        } else {
+          postListing.addClass('post-listing-is-disabled');
+        }
         return ev.target;
       });
 
