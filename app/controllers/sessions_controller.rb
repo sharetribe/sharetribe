@@ -18,12 +18,6 @@ class SessionsController < ApplicationController
     end
 
     @selected_tribe_navi_tab = "members"
-    omniauth = session["devise.omniauth_data"]
-    @facebook_merge = omniauth.present?
-    if @facebook_merge
-      @facebook_email = omniauth["email"]
-      @facebook_name = "#{omniauth["given_name"]} #{omniauth["family_name"]}"
-    end
   end
 
   def create
@@ -42,15 +36,6 @@ class SessionsController < ApplicationController
     @current_user = person
 
     flash[:error] = nil
-
-    # Store Facebook ID and picture if connecting with FB
-    if session["devise.omniauth_data"]
-      @current_user.update_attribute(:facebook_id, session["devise.omniauth_data"]["id"])
-      # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
-      if @current_user.image_file_size.nil?
-        @current_user.store_picture_from_facebook!
-      end
-    end
 
     sign_in @current_user
 
