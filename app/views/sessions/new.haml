@@ -5,21 +5,6 @@
   %h1= @facebook_merge ? t('.connect_your_facebook_to_kassi') : t('.login_to_kassi')
 
 .login-form.centered-section-narrow
-  - if @facebook_merge
-    .facebook-account-info
-      = icon_tag("facebook", ["fb-icon"])
-      .link-text
-        = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
-        = "#{@facebook_name} (#{@facebook_email})"
-    %p
-      = t('.log_in_to_link_account')
-    %p
-      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
-    %p
-      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
-    %p
-      = t(".we_will_not_post_without_asking_you")
-    %br/
   - if facebook_connect_in_use?
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_provider_account", provider: 'Facebook') }
   - if google_connect_in_use?
