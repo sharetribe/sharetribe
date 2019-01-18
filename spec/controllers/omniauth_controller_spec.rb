@@ -14,8 +14,6 @@ describe OmniauthController, type: :controller do
       oauth_mock('facebook')
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:facebook]
       post :facebook
-      session_data = assigns(:service_session_data)
-      expect(session_data).to eq({"provider"=>"facebook", "email"=>"markus@example.com", "given_name"=>"Markus", "family_name"=>"Sugarberg", "username"=>"markus.sharer-123", "id"=>"597013691"})
       expect(warden.authenticated?(:person)).to eq true
       new_person = assigns(:new_person)
       expect(new_person.username).to eq 'markusdotsharer123'
@@ -34,8 +32,6 @@ describe OmniauthController, type: :controller do
       oauth_mock('google_oauth2')
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
       post :google_oauth2
-      session_data = assigns(:service_session_data)
-      expect(session_data).to eq({"provider"=>"google_oauth2", "email"=>"john@ithouse.lv", "given_name"=>"John", "family_name"=>"Due", "username"=>nil, "id"=>"123456789012345678901"})
       expect(warden.authenticated?(:person)).to eq true
       new_person = assigns(:new_person)
       expect(new_person.username).to eq 'johnd'
@@ -54,8 +50,6 @@ describe OmniauthController, type: :controller do
       oauth_mock('linkedin')
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:linkedin]
       post :linkedin
-      session_data = assigns(:service_session_data)
-      expect(session_data).to eq({"provider"=>"linkedin", "email"=>"devel@example.com", "given_name"=>"Tony", "family_name"=>"Testmen", "username"=>nil, "id"=>"50k-SSSS99"})
       expect(warden.authenticated?(:person)).to eq true
       new_person = assigns(:new_person)
       expect(new_person.username).to eq 'tonyt'
