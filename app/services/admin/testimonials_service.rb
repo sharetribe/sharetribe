@@ -7,7 +7,8 @@ class Admin::TestimonialsService
   end
 
   def transactions
-    @transactions ||= filtered_scope.order("#{sort_column} #{sort_direction}")
+    @transactions ||= filtered_scope
+      .order("#{sort_column} #{sort_direction}")
       .paginate(page: params[:page], per_page: 30)
   end
 
@@ -64,17 +65,55 @@ class Admin::TestimonialsService
   end
 
   def filter?
-    params[:q].present?
+    params[:q].present? || params[:status].present?
+  end
+
+  def selected_statuses_title
+    if params[:status].present?
+      I18n.t("admin.communities.testimonials.status_filter.selected", count: params[:status].size)
+    else
+      I18n.t("admin.communities.testimonials.status_filter.all")
+    end
+  end
+
+  FILTER_STATUSES = %w(published positive negative skipped waiting blocked)
+
+  def sorted_statuses
+    FILTER_STATUSES.map {|status|
+      [status, I18n.t("admin.communities.testimonials.status_filter.#{status}"), status_checked?(status)]
+    }
   end
 
   private
 
   def filtered_scope
     scope = transactions_scope
-    if params[:q].present?
-      scope = scope.search_for_testimonials(community, "%#{params[:q]}%")
+
+    tx_statuses = []
+    tx_statuses.push(Transaction.skipped_feedback) if status_checked?('skipped')
+    tx_statuses.push(Transaction.waiting_feedback) if status_checked?('waiting')
+    scope = merge_statuses(scope, tx_statuses)
+
+    review_statuses = []
+    review_statuses.push(Testimonial.non_blocked.positive) if status_checked?('positive')
+    review_statuses.push(Testimonial.non_blocked.negative) if status_checked?('negative')
+    review_statuses.push(Testimonial.blocked) if status_checked?('blocked')
+    review_statuses.push(Testimonial.non_blocked) if status_checked?('published')
+
+    if review_statuses.present?
+      review_scope = merge_statuses(Testimonial.by_community(community), review_statuses)
+      if tx_statuses.present?
+        scope = scope.or(Transaction.for_testimonials.where(id: review_scope.select('transaction_id')))
+      else
+        scope = scope.where(id: review_scope.select('transaction_id'))
+      end
     end
-    scope
+
+    if params[:q].present?
+      scope.search_for_testimonials(community, "%#{params[:q]}%")
+    else
+      scope
+    end
   end
 
   def transactions_scope
@@ -83,6 +122,14 @@ class Admin::TestimonialsService
 
   def testimonials_scope
     Testimonial.joins(:tx).where(transaction_id: filtered_scope.select('transactions.id'))
+  end
+
+  def merge_statuses(scope, statuses)
+    return scope unless statuses.present?
+
+    status_scope = statuses.shift
+    statuses.each{|x| status_scope = status_scope.or(x)}
+    scope.merge(status_scope)
   end
 
   def sort_column
@@ -107,4 +154,9 @@ class Admin::TestimonialsService
   def params_true?(key)
     !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[key])
   end
+
+  def status_checked?(status)
+    params[:status].present? && params[:status].include?(status)
+  end
+
 end

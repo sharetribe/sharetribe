@@ -133,6 +133,20 @@ class Transaction < ApplicationRecord
       OR `transactions`.`id` IN (#{with_testimonial_ids.to_sql})
       ", pattern: pattern).distinct
   end
+  scope :skipped_feedback, -> { where('starter_skipped_feedback OR author_skipped_feedback') }
+
+  WAITING_FEEDBACK_SQL = <<-SQL
+    NOT starter_skipped_feedback AND NOT EXISTS (
+      SELECT 1 FROM testimonials WHERE testimonials.author_id = transactions.starter_id
+        AND testimonials.transaction_id = transactions.id
+    )
+    OR
+    NOT author_skipped_feedback AND NOT EXISTS (
+      SELECT 1 FROM testimonials WHERE testimonials.author_id = transactions.listing_author_id
+        AND testimonials.transaction_id = transactions.id
+    )
+  SQL
+  scope :waiting_feedback, -> { where(WAITING_FEEDBACK_SQL) }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
