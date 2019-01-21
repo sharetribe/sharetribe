@@ -102,11 +102,12 @@ class Admin::TestimonialsService
 
     if review_statuses.present?
       review_scope = merge_statuses(Testimonial.by_community(community), review_statuses)
-      if tx_statuses.present?
-        scope = scope.or(Transaction.for_testimonials.where(id: review_scope.select('transaction_id')))
-      else
-        scope = scope.where(id: review_scope.select('transaction_id'))
-      end
+      scope =
+        if tx_statuses.present?
+          scope.or(Transaction.for_testimonials.where(id: review_scope.select('transaction_id')))
+        else
+          scope.where(id: review_scope.select('transaction_id'))
+        end
     end
 
     if params[:q].present?
