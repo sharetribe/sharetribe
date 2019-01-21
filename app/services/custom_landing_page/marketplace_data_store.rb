@@ -57,7 +57,6 @@ module CustomLandingPage
       description = split_long_words(description)
       title = [meta_title, "#{name} - #{slogan}"].find(&:present?)
 
-      logo_image = community.wide_logo.file? ? community.wide_logo.url(:header_highres) : nil
 
       { "primary_color" => ColorUtils.css_to_rgb_array(color),
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
@@ -73,7 +72,7 @@ module CustomLandingPage
         "social_media_title" => social_media_title,
         "social_media_description" => social_media_description,
         "meta_description" => meta_description,
-        "logo" => logo_image
+        "logo" => logo_image(cid)
       }
     end
 
@@ -81,6 +80,11 @@ module CustomLandingPage
 
     def split_long_words(value)
       value.to_s.gsub(/\S{18,}/){ |word| word.split(//).join(UNICODE_ZERO_WIDTH_SPACE) }
+    end
+
+    def logo_image(cid)
+      community = Community.where(id: cid).first
+      community && community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
     end
   end
 end
