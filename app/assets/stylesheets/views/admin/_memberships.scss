@@ -36,5 +36,11 @@
 }
 
 td.membership-actions {
-  min-width: 60px;
+  min-width: 65px;
+  span {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
