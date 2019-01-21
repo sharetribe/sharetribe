@@ -38,6 +38,10 @@ class Testimonial < ApplicationRecord
     joins(:tx).merge(Transaction.by_community(community.id).exist)
   }
 
+  scope :with_tx_subquery, -> { where("testimonials.transaction_id = transactions.id") }
+  scope :with_tx_author, -> { with_tx_subquery.where("testimonials.author_id = transactions.listing_author_id") }
+  scope :with_tx_starter, -> { with_tx_subquery.where("testimonials.author_id = transactions.starter_id") }
+
   # Formats grade so that it can be displayed in the UI
   def displayed_grade
     (grade * 4 + 1).to_i

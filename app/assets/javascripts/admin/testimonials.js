@@ -11,6 +11,7 @@ window.ST = window.ST || {};
       $('#thumbs-up').removeClass('positive').addClass('faded');
       $('#testimonial_grade').val('0');
     });
+    window.ST.initializeTestimonialSearchFormSelector();
   };
 
   var edit = function(options) {
