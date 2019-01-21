@@ -48,8 +48,12 @@ class SettingsController < ApplicationController
     end
   end
 
-  private
+  def listings
+    @selected_left_navi_link = "listings"
+    @presenter = Listing::ListPresenter.new(@current_community, @current_user, params, false)
+  end
 
+  private
 
   def find_person_to_unsubscribe(current_user, auth_token)
     current_user || Maybe(AuthToken.find_by_token(auth_token)).person.or_else { nil }

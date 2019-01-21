@@ -496,6 +496,7 @@ Rails.application.routes.draw do
             get :account
             get :notifications
             get :unsubscribe
+            get :listings
           end
         end
         resources :testimonials

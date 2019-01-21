@@ -1,0 +1,73 @@
+= form_tag '', :method => :get do
+  .row
+    .col-6
+      = text_field_tag :q, params[:q], placeholder: placeholder
+    .col-3.status-select-wrapper
+      .status-select-button
+        = listing_search_status_titles
+
+      .status-select-dropdown
+        .status-select-line.reset{data: {status: 'all'}}
+          = listing_search_status_titles
+        - %w(open closed expired).each do |status|
+          - checked = params[:status].present? && params[:status].include?(status)
+          .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+            = check_box_tag "status[]", status, checked, id: "status-#{status}"
+            = t("admin.communities.listings.status.#{status}")
+    .col-3
+      = submit_tag t("admin.communities.listings.search"), class: 'button search-button'
+      = link_to t("admin.communities.listings.reset_search"), @presenter.reset_search_path
+
+%span#admin_listings_count= page_entries_info(@presenter.listings, :model => "Listing").html_safe
+
+%table#admin_listings
+  %thead
+    %tr
+      %th= t("admin.communities.listings.headers.title")
+      - if @presenter.admin_mode
+        %th= t("admin.communities.listings.headers.author")
+      %th
+        = render partial: "layouts/sort_link", locals: { column: "started",
+          direction: sort_link_direction("started"),
+          title: t("admin.communities.listings.headers.created") }
+      %th
+        = render partial: "layouts/sort_link", locals: { column: "updated",
+          direction: sort_link_direction("updated"),
+          title: t("admin.communities.listings.headers.updated") }
+      %th= t("admin.communities.listings.headers.category")
+      %th= t("admin.communities.listings.headers.status")
+      %th
+
+  %tbody
+    - @presenter.listings.each do |listing|
+      %tr
+        %td
+          = link_to listing.title, listing_path(listing)
+        - if @presenter.admin_mode
+          %td
+            - p = listing.author
+            - if p.deleted
+              = ''
+            - else
+              = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+        %td= l(listing.created_at, format: :short)
+        %td= l(listing.updated_at, format: :short)
+        %td
+          - category = listing.category
+          = link_to category.display_name(I18n.locale), search_path(category: category.url)
+        %td
+          - expired = listing.valid_until && listing.valid_until < DateTime.current
+          - key = expired ? 'expired' : (listing.open? ? 'open' : 'closed')
+          = t("admin.communities.listings.#{key}")
+        %td
+          = link_to edit_listing_path(listing) do
+            = icon_tag("edit")
+
+.row
+  .col-12
+    = will_paginate @presenter.listings
+
+- content_for :extra_javascript do
+  = js_t ["admin.communities.listings.status.all", "admin.communities.listings.status.selected_js"], true
+  :javascript
+    window.ST.initializeListingSearchFormSelector();

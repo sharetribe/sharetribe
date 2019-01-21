@@ -1,0 +1,12 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.settings.settings")
+    = "-"
+    = t("layouts.settings.listings")
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.listings.listings")
+
+  = render partial: 'admin/community_listings/table', locals: {placeholder: t('layouts.settings.listings_search_placeholder')}
