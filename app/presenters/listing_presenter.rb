@@ -289,10 +289,6 @@ class ListingPresenter < MemoisticPresenter
     process == :preauthorize
   end
 
-  def buyer_fee?
-    FeatureFlagHelper.feature_enabled?(:buyer_commission) && stripe_in_use && !paypal_in_use
-  end
-
   def acts_as_person
     if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
        params[:person_id].present? &&
