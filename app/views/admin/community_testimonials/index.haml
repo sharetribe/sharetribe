@@ -16,7 +16,18 @@
     .row
       .col-6
         = text_field_tag :q, params[:q], placeholder: t('admin.communities.testimonials.search_keyword')
-      .col-6
+      .col-3.status-select-wrapper
+        .status-select-button
+          = @service.selected_statuses_title
+
+        .status-select-dropdown
+          .status-select-line.reset{data: {status: 'all'}}
+            = @service.selected_statuses_title
+          - @service.sorted_statuses.each do |status, translation, checked|
+            .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+              = check_box_tag "status[]", status, checked, id: "status-#{status}"
+              = translation
+      .col-3
         = submit_tag t("admin.communities.testimonials.search"), class: 'button search-button'
         = link_to t("admin.communities.testimonials.reset_search"), admin_community_testimonials_path(@current_community.id)
 
@@ -58,4 +69,5 @@
 = render layout: "layouts/lightbox", locals: { id: "testimonial_popup"} do
   #testimonial-form
 
-
+- content_for :extra_javascript do
+  = js_t ["admin.communities.testimonials.status_filter.all", "admin.communities.testimonials.status_filter.selected_js"], true

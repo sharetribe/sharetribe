@@ -32,4 +32,5 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
       community: @current_community,
       params: params)
   end
+
 end
