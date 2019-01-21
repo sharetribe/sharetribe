@@ -137,8 +137,10 @@ class Transaction < ApplicationRecord
   scope :paid_or_confirmed, -> { where(current_state: ['paid', 'confirmed']) }
   scope :skipped_feedback, -> { where('starter_skipped_feedback OR author_skipped_feedback') }
 
-  scope :waiting_feedback, -> { where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.exists.to_sql}
-                                      OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.exists.to_sql}") }
+  scope :waiting_feedback, -> {
+    where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.exists.to_sql}
+           OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.exists.to_sql}")
+  }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
