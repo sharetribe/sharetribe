@@ -338,6 +338,25 @@ en:
         enable_linkedin_login: "Allow users to log in with their LinkedIn account"
         linkedin_connect_id: "LinkedIn Client ID"
         linkedin_connect_secret: "LinkedIn Client Secret"
+      seo_settings:
+        seo: "SEO"
+        title: Homepage
+        meta_title_label: "Homepage title meta tag"
+        meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link}"
+        meta_title_link_text: "Learn more about meta tags."
+        meta_description_label: "Homepage description meta tag"
+        meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link}"
+        meta_description_link_text: "Learn more about meta tags."
+        sitemap_label: "Sitemap"
+        sitemap_info: "Sitemaps are an easy way to inform search engines about pages on your site that are available for crawling. %{link}"
+        sitemap_info_link_text: "Learn more about sitemaps."
+        sitemap_info_public: "A sitemap is automatically generated for your marketplace: it references up to the 500 most recent listings in your website. You can access your sitemap anytime at %{link}"
+        sitemap_info_private: "As your marketplace is private, there is no sitemap."
+        robots_label: "Robots.txt"
+        robots_info: "Robots.txt is a text file to instruct web robots (typically search engine robots) how to crawl pages on your website. A robots.txt file is automatically generated for your marketplace. %{link}"
+        robots_info_link_text: "Learn more about the robots.txt file."
+        robots_info_2: "You can access your robots.txt at %{link}"
+        save: "Save settings"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"

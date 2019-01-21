@@ -520,6 +520,14 @@ module ApplicationHelper
 
     links << {
       :topic => :configure,
+      :text => t("admin.communities.seo_settings.seo"),
+      :icon_class => icon_class("seo"),
+      :path => admin_community_seo_settings_path,
+      :name => "seo"
+    }
+
+    links << {
+      :topic => :configure,
       :text => t("admin.communities.analytics.analytics"),
       :icon_class => icon_class("analytics"),
       :path => analytics_admin_community_path(@current_community),
