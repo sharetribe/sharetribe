@@ -72,6 +72,7 @@ ICON_MAP = {
       "download" => "ss-download",
       "credit_card" => "ss-creditcard",
       "academy" => "ss-bookmark",
+      "plus" => "ss-plus",
 
 
       # Default category & share type icons
@@ -276,5 +277,6 @@ ICON_MAP = {
       "picture" => "icon-picture",
       "footer_menu" => "icon-download-alt",
       "invitations" => "icon-random",
+      "plus" => "icon-plus",
     }
   }

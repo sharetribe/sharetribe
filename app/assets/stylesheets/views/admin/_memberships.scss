@@ -23,3 +23,24 @@
     }
   }
 }
+
+.post-listing-is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  a {
+    color: currentColor;
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+
+td.membership-actions {
+  min-width: 65px;
+  span {
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
