@@ -51,6 +51,6 @@ class ListingVisibilityGuard
   end
 
   def is_admin?
-    @user.has_admin_rights?(@community)
+    @user && @user.has_admin_rights?(@community)
   end
 end
