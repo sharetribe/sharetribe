@@ -307,6 +307,8 @@ CREATE TABLE `community_customizations` (
   `transaction_agreement_content` mediumtext,
   `social_media_title` varchar(255) DEFAULT NULL,
   `social_media_description` text,
+  `meta_title` varchar(255) DEFAULT NULL,
+  `meta_description` text,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2328,4 +2330,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20181211094456'),
 ('20181221120927'),
 ('20190108075512'),
-('20190208032229');
+('20190208032229'),
+('20190121064002');
+
