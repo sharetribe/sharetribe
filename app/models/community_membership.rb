@@ -44,7 +44,6 @@ class CommunityMembership < ApplicationRecord
   scope :accepted, -> { where(status: ACCEPTED) }
   scope :banned, -> { where(status: BANNED) }
   scope :accepted_or_banned, -> { where(status: [ACCEPTED, BANNED]) }
-  scope :banned, -> { where(status: 'banned') }
   scope :admin, -> { where(admin: true) }
   scope :posting_allowed, -> { where(can_post_listings: true) }
   scope :not_banned, -> { where("community_memberships.status <> ?", [BANNED]) }
