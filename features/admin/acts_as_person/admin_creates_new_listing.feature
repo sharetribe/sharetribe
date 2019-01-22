@@ -6,7 +6,6 @@ Feature: Admin creates a new listing as another user
       | kassi_testperson2 |
     Given "kassi_testperson1" has admin rights in community "test"
     And I am logged in as "kassi_testperson1"
-    Given community "test" has feature flag "admin_acts_as_user" enabled
 
   @javascript
   Scenario: Creating a new item request without image successfully

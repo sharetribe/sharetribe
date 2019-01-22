@@ -465,7 +465,6 @@ describe PeopleController, type: :controller do
     end
 
     it 'person updated by admin' do
-      allow(FeatureFlagHelper).to receive(:feature_flags).and_return([:admin_acts_as_user])
       sign_in_for_spec(admin)
       community_host(community)
       expect(person.custom_field_value_for(field1).display_value).to eq 77
