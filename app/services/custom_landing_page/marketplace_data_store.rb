@@ -16,14 +16,18 @@ module CustomLandingPage
       slogan,
       description,
       search_placeholder,
+      meta_title,
+      meta_description,
       social_media_title,
       social_media_description = CommunityCustomization
                                  .where(community_id: cid, locale: locale)
-                                 .pluck(:name, :slogan, :description, :search_placeholder, :social_media_title, :social_media_description)
+                                 .pluck(:name, :slogan, :description, :search_placeholder,
+                                        :meta_title, :meta_description,
+                                        :social_media_title, :social_media_description)
                                  .first
 
       slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
-      description        ||= I18n.t("common.default_community_description", locale: locale)
+      description        = [meta_description, description, I18n.t("common.default_community_description", locale: locale)].find(&:present?)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
       social_media_title ||= "#{name} - #{slogan}"
       social_media_description ||= description
@@ -50,12 +54,13 @@ module CustomLandingPage
 
       slogan = split_long_words(slogan)
       description = split_long_words(description)
+      title = [meta_title, "#{name} - #{slogan}"].find(&:present?)
 
       { "primary_color" => ColorUtils.css_to_rgb_array(color),
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
         "name" => name,
         "slogan" => slogan,
-        "page_title" => "#{name} - #{slogan}",
+        "page_title" => title,
         "description" => description,
         "search_type" => search_type,
         "search_placeholder" => search_placeholder,

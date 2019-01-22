@@ -34,7 +34,8 @@
   - else
     - meta_image = image_path("sharetribe_icon.png")
 
-%title= content_for?(:title) ? "#{content_for(:title)} - #{title_service_name}" : "#{title_service_name} - #{community_slogan}"
+- default_title = content_for?(:title) ? "#{content_for(:title)} - #{title_service_name}" : "#{title_service_name} - #{community_slogan}"
+%title= homepage_meta_title(default_title)
 %meta{ :property => "og:title", :content => title}
 %meta{ :name => "twitter:title", :content => title}
 %meta{ :name => "author", :content=> meta_author }
@@ -44,7 +45,7 @@
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => strip_tags(meta_description)}
+%meta{ :name => "description", :content => strip_tags(homepage_meta_description(meta_description))}
 %meta{ :property => "og:description", :content => strip_tags(meta_description)}
 %meta{ :name => "twitter:description", :content => strip_tags(meta_description)}
 %meta{ :property => "og:image", :content => meta_image}
