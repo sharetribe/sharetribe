@@ -392,7 +392,7 @@ class ListingsController < ApplicationController
 
   def is_authorized_to_post
     if new_listing_author != @current_user
-      unless FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) && @current_user.has_admin_rights?(@current_community)
+      unless @current_user.has_admin_rights?(@current_community)
         flash[:error] = t("layouts.notifications.you_are_not_authorized_to_do_this")
         redirect_to root_path
       end
@@ -503,8 +503,7 @@ class ListingsController < ApplicationController
 
   def new_listing_author
     @new_listing_author ||=
-      if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
-         params[:person_id].present? &&
+      if params[:person_id].present? &&
          @current_user.has_admin_rights?(@current_community)
         @current_community.members.find_by!(username: params[:person_id])
       else

@@ -290,8 +290,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def acts_as_person
-    if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) &&
-       params[:person_id].present? &&
+    if params[:person_id].present? &&
        current_user.has_admin_rights?(current_community)
       current_community.members.find_by!(username: params[:person_id])
     end

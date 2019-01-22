@@ -23,7 +23,6 @@ module FeatureFlagService::Store
       :stripe,
       :footer,
       :buyer_commission,
-      :admin_acts_as_user,
       :login_google_linkedin,
     ].to_set
 
