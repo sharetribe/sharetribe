@@ -58,16 +58,13 @@
       %thead
         %tr
           %th= render partial: "layouts/sort_link", locals: { column: "name", direction: sort_link_direction("name"), title: t("admin.communities.manage_members.name") }
-          - unless @presenter.admin_acts_as_user
-            %th= render partial: "layouts/sort_link", locals: { column: "display_name", direction: sort_link_direction("display_name"), title: t("admin.communities.manage_members.display_name")}
           %th= render partial: "layouts/sort_link", locals: { column: "email", direction: sort_link_direction("email"), title: t("admin.communities.manage_members.email") }
           %th= render partial: "layouts/sort_link", locals: { column: "join_date", direction: sort_link_direction("join_date"), title: t("admin.communities.manage_members.join_date") }
           - if @presenter.require_verification_to_post_listings
             %th{:style => "text-align: center"}= render partial: "layouts/sort_link", locals: { column: "posting_allowed", direction: sort_link_direction("posting_allowed"), title: t("admin.communities.manage_members.posting_allowed") }
           %th= t("admin.communities.manage_members.admin")
           %th= t("admin.communities.manage_members.ban_user")
-          - if @presenter.admin_acts_as_user
-            %th
+          %th
       %tbody
         - @presenter.memberships.each do |membership|
           - accepted_or_banned = membership.accepted? || membership.banned?
@@ -76,9 +73,6 @@
             %tr{class: "member-#{membership.status}"}
               %td.admin-members-full-name
                 = link_to @presenter.person_name(member), member
-              - unless @presenter.admin_acts_as_user
-                %td
-                  = member.display_name
               %td
                 - email = member.confirmed_notification_emails.any? ? member.confirmed_notification_email_addresses.first : member.emails.first.try(:address)
                 = mail_to email
@@ -103,16 +97,15 @@
                     data: {ban_url: ban_admin_community_community_membership_path(@presenter.community.id, membership.id),
                     unban_url: unban_admin_community_community_membership_path(@presenter.community.id, membership.id)},
                     class: "admin-members-ban-toggle"
-              - if @presenter.admin_acts_as_user
-                %td.membership-actions
-                  - edit_class = membership.banned?  ? 'is-disabled' : ''
-                  %span{class: edit_class}
-                    = link_to person_settings_path(member) do
-                      = icon_tag("edit")
-                  - post_klass = @presenter.can_post_listing(membership) ? '' : 'post-listing-is-disabled'
-                  %span.post-listing{class: "#{edit_class} #{post_klass}"}
-                    = link_to new_person_listing_path(person_id: member.username) do
-                      = icon_tag("plus")
+              %td.membership-actions
+                - edit_class = membership.banned?  ? 'is-disabled' : ''
+                %span{class: edit_class}
+                  = link_to person_settings_path(member) do
+                    = icon_tag("edit")
+                - post_klass = @presenter.can_post_listing(membership) ? '' : 'post-listing-is-disabled'
+                %span.post-listing{class: "#{edit_class} #{post_klass}"}
+                  = link_to new_person_listing_path(person_id: member.username) do
+                    = icon_tag("plus")
 
 
   .row

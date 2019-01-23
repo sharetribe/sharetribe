@@ -14,34 +14,34 @@ Feature: Admin lists members
 
   Scenario: Admin views & sorts list of members
     Then I should see list of users with the following details:
-      | Name          | Display name | Email               | Joined      | Posting allowed | Remove User |
-      | matti manager |              | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe      |              | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      | Puckett      | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name               | Email               | Joined      | Posting allowed | Remove User |
+      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
+      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name               | Email               | Joined      | Posting allowed | Remove User |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
+      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
     When I follow "Name"
     Then I should see list of users with the following details:
-      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
-      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
-      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
+      | Name               | Email               | Joined      | Posting allowed | Remove User |
+      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
+      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
     When I follow "Email"
     Then I should see list of users with the following details:
-      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
-      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
+      | Name               | Email               | Joined      | Posting allowed | Remove User |
+      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
     When I follow "Joined"
     Then I should see list of users with the following details:
-      | Name          |  Display name | Email               | Joined     | Posting allowed  | Remove User |
-      | jane doe      | Puckett       | test1@example.com   | Mar 1, 2012 |                 |             |
-      | john doe      |               | test2@example.com   | Mar 1, 2013 |                 |             |
-      | matti manager |               | manager@example.com | Mar 1, 2014 |                 |             |
+      | Name               | Email               | Joined      | Posting allowed | Remove User |
+      | jane doe (Puckett) | test1@example.com   | Mar 1, 2012 |                 |             |
+      | john doe           | test2@example.com   | Mar 1, 2013 |                 |             |
+      | matti manager      | manager@example.com | Mar 1, 2014 |                 |             |
 
   Scenario: Admin views member count
     Given there are 3 banned users with name prefix "Hazel" "Banned %d"
@@ -110,13 +110,4 @@ Feature: Admin lists members
     And I should see that I can remove admin rights of "jane doe"
     Then I should see that "manager" has admin rights in this community
     And I should see that I can not remove admin rights of "manager"
-
-  Scenario: Admin views list of members
-    Given community "test" has feature flag "admin_acts_as_user" enabled
-    And I am on the manage members admin page
-    Then I should see list of users with the following details:
-      | Name              | Email               | Joined      | Posting allowed | Ban | Actions |
-      | matti manager     | manager@example.com | Mar 1, 2014 |                 |     |         |
-      | john doe          | test2@example.com   | Mar 1, 2013 |                 |     |         |
-      | jane doe (Puckett)| test1@example.com   | Mar 1, 2012 |                 |     |         |
 

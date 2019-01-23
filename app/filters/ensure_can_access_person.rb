@@ -13,9 +13,7 @@ class EnsureCanAccessPerson
     username = controller.params[param_name]
 
     allow = current_user && current_user.username == username
-    if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user)
-      allow ||= (allow_admin && current_user.has_admin_rights?(current_community))
-    end
+    allow ||= (allow_admin && current_user.has_admin_rights?(current_community))
     unless allow
       controller.flash[:error] = I18n.t(error_message_key)
       controller.redirect_to controller.root and return

@@ -80,7 +80,6 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
       current_user: @current_user)
     @presenter = Admin::MembershipPresenter.new(
       service: @service,
-      params: params,
-      admin_acts_as_user: FeatureFlagHelper.feature_enabled?(:admin_acts_as_user))
+      params: params)
   end
 end

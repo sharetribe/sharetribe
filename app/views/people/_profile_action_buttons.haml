@@ -8,7 +8,7 @@
 - if @current_community.follow_in_use? && @current_user && !current_user?(service.person)
   = render :partial => "follow_button", :locals => { :person => service.person }
 
-- if FeatureFlagHelper.feature_enabled?(:admin_acts_as_user) && service.admin?
+- if service.admin?
   .admin-actions
     %label= t("people.show.admin_actions")
 

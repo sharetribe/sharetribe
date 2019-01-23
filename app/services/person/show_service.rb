@@ -76,7 +76,7 @@ class Person::ShowService
   end
 
   def admin?
-    current_user.has_admin_rights?(community)
+    current_user && current_user.has_admin_rights?(community)
   end
 
   def can_post_listing?

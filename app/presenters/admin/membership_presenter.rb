@@ -7,14 +7,11 @@ class Admin::MembershipPresenter
 
   public
 
-  attr_reader :admin_acts_as_user
-
   delegate :memberships, :community, to: :service, prefix: false, allow_nil: false
 
-  def initialize(service:, params:, admin_acts_as_user:)
+  def initialize(service:, params:)
     @service = service
     @params = params
-    @admin_acts_as_user = admin_acts_as_user
   end
 
   def selected_statuses_title
@@ -38,12 +35,8 @@ class Admin::MembershipPresenter
   end
 
   def person_name(person)
-    if admin_acts_as_user
-      display_name = person.display_name.present? ? " (#{person.display_name})" : ''
-      "#{person.given_name} #{person.family_name}#{display_name}"
-    else
-      "#{person.given_name} #{person.family_name}"
-    end
+    display_name = person.display_name.present? ? " (#{person.display_name})" : ''
+    "#{person.given_name} #{person.family_name}#{display_name}"
   end
 
   def can_post_listing(membership)
