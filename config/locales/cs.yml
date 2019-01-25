@@ -1753,6 +1753,8 @@ cs:
       paypal_payments: "PayPal platba"
       stripe_payments: "Stripe platba"
       payments: Platby
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nemáte oprávnění k zobrazení tohoto inzerátu."

@@ -1710,6 +1710,8 @@ ca:
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "No tens autorització per veure aquest anunci."

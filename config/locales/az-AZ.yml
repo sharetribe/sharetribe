@@ -1713,6 +1713,8 @@ az-AZ:
       paypal_payments: ~
       stripe_payments: ~
       payments: Ödənişlər
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1920,7 +1922,7 @@ az-AZ:
       night: ~
       week: "Həftə sayı"
       month: ~
-      unit: ~
+      unit: "Miqdarı:"
       custom: ~
     quantity_placeholder: ~
     please_comment: "Şərh ver"
@@ -1966,13 +1968,13 @@ az-AZ:
       pickup_no_price: ~
       youtube_video_player: "YouTube video pleyer"
     unit_types:
-      piece: ~
-      hour: ~
+      piece: ədəd
+      hour: saat
       day: gün
-      night: ~
+      night: gecə
       week: həftə
-      month: ~
-      unit: ~
+      month: ay
+      unit: ədəd
     verification_required:
       verification_required: "Doğrulama tələb olunur"
   listing_conversations:

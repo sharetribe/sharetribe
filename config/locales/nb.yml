@@ -1745,6 +1745,8 @@ nb:
       paypal_payments: ~
       stripe_payments: ~
       payments: Betalinger
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har ikke tillatelse til å se denne annonsen."
