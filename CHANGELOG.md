@@ -10,6 +10,20 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [7.5.0] - 2019-01-30
+
+### Added
+
 - Social media sharing specific image [#3455](https://github.com/sharetribe/sharetribe/pull/3455)
 - Edit reviews feature [#3422](https://github.com/sharetribe/sharetribe/pull/3422)
 - New user segment for sending e-mails to users: "User who are allowed to post listings" [#3461](https://github.com/sharetribe/sharetribe/pull/3461)
@@ -17,15 +31,30 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 - Japan as supported country for Stripe [#3472](https://github.com/sharetribe/sharetribe/pull/3472)
 - Puerto Rico as supported country for Stripe [#3474](https://github.com/sharetribe/sharetribe/pull/3474)
 - Possibility to hide slogan and description from the cover photo [#3477](https://github.com/sharetribe/sharetribe/pull/3477)
-- Transaction search and filter [#3484](https://github.com/sharetribe/sharetribe/pull/3484)
+- Transaction search and filter [#3484](https://github.com/sharetribe/sharetribe/pull/3484) and [#3504](https://github.com/sharetribe/sharetribe/pull/3504)
 - Listing search and filter [#3496](https://github.com/sharetribe/sharetribe/pull/3496)
 - Customizable footer for Pro subscriptions [#3374](https://github.com/sharetribe/sharetribe/pull/3374)
+- New section in admin panel to view and manage invitations [#3505](https://github.com/sharetribe/sharetribe/pull/3505)
+- Add user_id to the listing CSV export [#3511](https://github.com/sharetribe/sharetribe/pull/3511)
 - HSTS support [#3512](https://github.com/sharetribe/sharetribe/pull/3512)
+- Add filters in User search and filters [#3515](https://github.com/sharetribe/sharetribe/pull/3515)
+- Add Conversations search in admin panel [#3521](https://github.com/sharetribe/sharetribe/pull/3521)
+- Admin can act as another user (post listings as, edit profile) [#3525](https://github.com/sharetribe/sharetribe/pull/3525)
+- Admin can resend confirmation email [#3529](https://github.com/sharetribe/sharetribe/pull/3529)
+- Add Review search in admin panel [#3537](https://github.com/sharetribe/sharetribe/pull/3537)
+- Social media sharing specific texts [#3538](https://github.com/sharetribe/sharetribe/pull/3538)
+- Custom link behind marketplace logo [#3564](https://github.com/sharetribe/sharetribe/pull/3564)
+- Ability to edit default top bar menu links [#3565](https://github.com/sharetribe/sharetribe/pull/3565)
+- Admins should be able to see closed listings [#3582](https://github.com/sharetribe/sharetribe/pull/3582)
+- User can browse all their listings in a table [#3584](https://github.com/sharetribe/sharetribe/pull/3584)
+
 
 ### Changed
 - Make "Per unit" the default pricing unit for product marketplace [#3462](https://github.com/sharetribe/sharetribe/pull/3462)
 - Better messaging for closed marketplaces [#3465](https://github.com/sharetribe/sharetribe/pull/3465)
 - Allow 65 characters in the listing title [#3497](https://github.com/sharetribe/sharetribe/pull/3497)
+- Characters are escaped in URLs [#3546](https://github.com/sharetribe/sharetribe/pull/3546)
+- Updated list of supported and unsupported languages [#3577](https://github.com/sharetribe/sharetribe/pull/3577)
 
 ### Deprecated
 
