@@ -2429,7 +2429,7 @@ th-TH:
       december: ธ.ค.
     today: วันนี้
     clear: ล้าง
-    format: (วว/ดด/ปปปป)
+    format: dd/mm/yyyy
   time:
     formats:
       short: "%b %e, %Y เวลา %H:%M"

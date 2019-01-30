@@ -234,7 +234,7 @@ ja:
         twitter_handle: "Twitter ハンドルネーム （リストページのtweetボタンを使用します）"
         update_settings: 設定を保存する
         automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
-        automatically_confirmed_no_escrow_stripe_info: "Stripeによって処理された取引の場合、売り手への支払いは、注文が完了とマークされるまで遅延します。%{learn_more} 。"
+        automatically_confirmed_no_escrow_stripe_info: "Stripeによって処理された取引の場合、売り手への支払いは、注文が完了とマークされるまで保留されます。%{learn_more} 。"
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
@@ -743,7 +743,7 @@ ja:
       integration_info_text: Sharetribeのお支払いシステムはPayPalを導入しています。あなたのマーケットプレイスで、お支払いが発生するようなサービスをご検討の場合は、PayPalと連携させる必要がございます。最小価格を設定し、取引毎にいただく手数料を設定します。
       link_paypal_personal_account_label: ~
       link_paypal_personal_account: "もしそうなら、あなたのPayPalアカウントを%{personal_payment_preferences_link} に接続する必要があります。"
-      link_stripe_personal_account: "もしそうなら、あなたは支払いの詳細を%{personal_payment_preferences_link} に加える必要があるでしょう。"
+      link_stripe_personal_account: "もしその場合あなたは支払いの詳細を%{personal_payment_preferences_link} に加える必要があります。"
       link_paypal_and_stripe_personal_account: "その場合は、PayPalアカウントまたはStripeアカウントを%{personal_payment_preferences_link} に接続する必要があります。"
       personal_payment_preferences_link_text: あなた個人のマーケットプレイスアカウント
       read_more_about_paypal: Sharetribeのお支払い方法にについてさらに読む
@@ -768,7 +768,7 @@ ja:
       which_to_choose: ~
       you_can_use_stripe_or_paypal: ~
       you_can_use_stripe_only: ~
-      read_more_stripe: ~
+      read_more_stripe: Stripeについてもっと読む
       you_can_use_paypal_only: ~
       read_more_paypal: ~
       read_more_about_paypal_and_stripe: ~
@@ -787,12 +787,12 @@ ja:
       configure_paypal: ~
       transaction_fee_settings: ~
       transaction_fee_save: ~
-      stripe_fee: ~
-      stripe_fee_notice: ~
+      stripe_fee: Stripeの手数料
+      stripe_fee_notice: "請求している取引手数料から%{stripe_fee_link} が差し引かれます。"
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
       stripe_connected:
-        title: ストライプに接続されました
+        title: Stripeに接続されました
         disable: ストライプを無効にする
         disabled: ストライプが無効になりました
         enable: ストライプを有効にする
@@ -804,7 +804,7 @@ ja:
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
       stripe_form:
-        add_your_api_keys: ストライプAPIキーを追加する
+        add_your_api_keys: StripeAPIキーを追加する
         how_to_get_these: ~
         publishable_key_example: ~
         secret_key_example: ~
@@ -906,8 +906,8 @@ ja:
       body_text_accept: ~
       link_to_paypal_text: こちら
     stripe_fee_info:
-      title: ストライプの支払い手数料
-      body_text: "Stripeでお支払いの場合、%{service_name}は%{stripe_commission} の手数料を請求します。取引毎の最低手数料は%{minimum_transaction_fee} です。Stripeの手数料はこのコミッションに含まれています。"
+      title: Stripeの支払い手数料
+      body_text: "Stripeでお支払いの場合、%{service_name}は%{stripe_commission} ％の手数料を請求します。1回あたりの最低手数料は%{minimum_transaction_fee} です。Stripeの手数料はこのコミッションに含まれています。"
       link_to_stripe_text: こちら
   conversations:
     accept:
@@ -1056,7 +1056,7 @@ ja:
           unknown_reason: お支払いは承認待ちの状態です。今一度、PayPalアカウントにログインして詳細をご確認ください。
           verify: あなたのPayPalアカウントの確認待ち
       stripe:
-        waiting_confirmation_from_requester: "%{requester_name} さんの取引完了待ちです。注文完了後に、代金はあなたの銀行口座に支払われることになります。"
+        waiting_confirmation_from_requester: "%{requester_name} さんの取引完了待ちです。注文完了後に、代金はあなたの銀行口座に支払われます。"
     status_link:
       accept_offer: オファーを承認する
       accept_request: リクエストを受け入れる
@@ -1203,7 +1203,7 @@ ja:
       quantity: ~
       you_have_received_new_payment: "%{payer_full_name} から<b>%{listing_title}  </b>に<b>%{payment_sum} </b>が支払われました。こちらはその領収書です。"
       stripe:
-        you_have_received_new_payment: ~
+        you_have_received_new_payment: "<b>%{payment_sum}  </b>の金額が、%{payer_full_name} から<b>%{listing_title}  </b>に支払われました。注文が完了としてマークされるまで、お金は%{service_name} によって保持されています。こちらは領収書です。"
     payment_receipt_to_payer:
       receipt_of_payment: お支払いの領収書
       you_have_made_new_payment: "<b>%{listing_title} </b>の<b>%{payment_sum}  </b>を%{recipient_full_name} に支払いました。これが支払いの領収書です。"
@@ -1242,7 +1242,7 @@ ja:
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: ~
+        you_have_made_new_payment: "<b>%{listing_title}  </b>に<b>%{payment_sum} </b>を支払いました。お金は%{service_name} によって保持されており、注文に完了のマークを付けると%{recipient_full_name} に支払い処理されます。こちらは領収書です。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"
@@ -1329,7 +1329,7 @@ ja:
       accept_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
       reject_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
     stripe:
-      generic_error: ~
+      generic_error: "支払い処理中にエラーが発生しました。 Stripeの支払いを完了できませんでした。"
       accept_authorization_error: ~
       reject_authorization_error: ~
   error_pages:
@@ -1735,7 +1735,7 @@ ja:
       profile: プロフィール
       settings: 設定
       paypal_payments: ~
-      stripe_payments: ストライプペイメント
+      stripe_payments: Stripeペイメント
       payments: お支払い
       listings: リスティング
       listings_search_placeholder: リスティングのタイトルを検索する
@@ -2019,7 +2019,7 @@ ja:
       read_more: 表示
     stripe_payment:
       payment: お支払い
-      pay_with_card: クレジットカード、デビットカードでお支払いする
+      pay_with_card: クレジットカード、デビットカードで支払う
       address: 配送先住所
       address_country: 国
       address_name: 氏名
@@ -2335,7 +2335,7 @@ ja:
       default_in_listing: （新規リスト作成時の初期設定）
       invisible: （他のユーザーに表示されません）
       image_is_processing: プロフィール画像を準備中です。しばらく経ってからご確認ください。
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: （公開プロフィールに表示されます）
       editing_profile_of: "あなたは現在%{name} のプロフィールを編集しています"
     save_information: 保存する
   shipping_address:
@@ -2574,7 +2574,7 @@ ja:
     contact_admin_link_text: "%{service_name} チームにコンタクトする"
     you_are_ready_to_accept_payments: あなたは支払いを受け取る準備ができています！
     commission: "%{commission} ％"
-    pay_with_stripe: "%{card} を使ってストライプにてお支払いする"
+    pay_with_stripe: "%{card} を使ってStripeで支払う"
     add_and_pay: お支払い確認
     card_not_stored: "あなたの支払いは安全にStripeによって処理されます。%{service_name} はあなたのクレジットカードやデビットカードの情報を保存していません。"
     missing_payment: "あなたの投稿は公開されていますが、あなたのアカウントはお金を受け取るように設定されていません。お支払い設定を設定するには%{settings_link} にアクセスしてください。"
@@ -2605,7 +2605,7 @@ ja:
       address_city: 市町村
       address_postal_code: 郵便番号
       address_line1: 住所
-      tos_link: "お受取り詳細を追加しますと、%{stripe_link} を承認致します。"
+      tos_link: "支払いの詳細を追加することによりあなたは%{stripe_link} を受け入れます。"
       tos_link_title: "Stripe Connectアカウント契約"
       save_details: 詳細を保存
       edit: 詳細の編集
@@ -2630,7 +2630,7 @@ ja:
       bank_routing_1: 銀行コード
       bank_routing_2: 支店コード
       bank_currency: 通貨
-      update_also_bank_account: ~
+      update_also_bank_account: 銀行口座も更新する
       messages:
         account_number: 口座番号
         routing_number: ルーティングナンバー
@@ -2669,6 +2669,6 @@ ja:
     can_accept_stripe_and_paypal: 銀行口座またはペイパルにてお金をお受け取りできます
     to_accept_paypal: ~
     connect_paypal: ~
-    wrong_setup: ~
+    wrong_setup: "このサイトでの支払いシステムの設定に問題があります。StripeConnectが有効になっていません。 Stripe DashboardでStripe Connectを有効にする必要があることをチームに連絡してください。"
     invalid_bank_account_number: ~
     invalid_postal_code: ~

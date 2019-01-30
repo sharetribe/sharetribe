@@ -33,7 +33,7 @@ ja:
     registrations:
       signed_up_but_unconfirmed: あなたのメールアドレスに認証リンクの記載されたメッセージが送信されています。あなたのアカウントを有効にするリンクを開いてください。
       signed_up_but_inactive: ご登録手続きが完了しています。しかし、アカウントがまだ有効になっておりませんので、サインインが出来ませんでした。
-      signed_up_but_locked: ご登録手続きが完了しています。しかし、アカウントがロックされているため、ログインが出来ませんでした。
+      signed_up_but_locked: ご登録手続きは完了していますがアカウントがロックされているため、ログインができませんでした。
       reasons:
         inactive: 停止中
         unconfirmed: 認証前

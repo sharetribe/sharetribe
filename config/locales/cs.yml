@@ -341,8 +341,8 @@ cs:
         end_user_analytics: "Umožněte společnosti Sharetribe sledovat činnost členů s cílem zlepšit služby Sharetribe"
         save: "Uložit nastavení"
       logo_link:
-        title: ~
-        info: ~
+        title: Odkaz
+        info: "Můžete přizpůsobit propojení loga (a výchozího domovského tlačítka v horní liště). Ve výchozím nastavení logo přenáší uživatele na domovskou stránku nebo na vlastní cílovou stránku."
         url: URL
         placeholder: "https://www.example.com"
       menu_links:
@@ -361,7 +361,7 @@ cs:
         max_number_of_links_info: "Odkaz na %{about_page} se vždy zobrazí v menu jako první"
         about_page: "o nás"
       default_menu_links:
-        title: ~
+        title: "Výchozí odkazy v nabídce"
         about_link_title: "O nás"
         contact_link_title: "Kontaktujte nás"
         invite_link_title: "Pozvat nové členy"
@@ -1231,7 +1231,7 @@ cs:
       service_fee: "Servisní poplatek"
       stripe_gateway_fee: "Stripe poplatek :"
       paypal_gateway_fee: "PayPal poplatek :"
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name} , a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní od zaplacení."
     paypal_new_payment:
       paypal_gateway_fee: "PayPal poplatek:"
       shipping_total: "Doprava:"
@@ -1753,8 +1753,8 @@ cs:
       paypal_payments: "PayPal platba"
       stripe_payments: "Stripe platba"
       payments: Platby
-      listings: ~
-      listings_search_placeholder: ~
+      listings: "Seznam mých inzerátů"
+      listings_search_placeholder: "Hledej podle názvu inzerátu"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Nemáte oprávnění k zobrazení tohoto inzerátu."
@@ -1955,7 +1955,7 @@ cs:
       community_not_configured_for_payments: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Prosíme, %{contact_admin_link} pro více informací."
       payment_settings_link: "nastavení plateb"
       community_not_configured_for_payments_admin: "%{service_name} ještě nebyl nakonfigurován pro platby, takže ještě nemůžete přidávat nové inzeráty. Jděte na %{payment_settings_link} a vyplňte podrobnosti o platbách."
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Nyní uveřejňujete seznam jménem %{name}"
     quantity:
       hour: "Počet hodin:"
       day: "Počet dní:"
@@ -2228,7 +2228,7 @@ cs:
       show_all_open_listings: "Zobrazit všechny inzeráty"
       show_all_reviews: "Zobrazit všechna hodnocení"
       admin_actions: Akce
-      post_listing_as: ~
+      post_listing_as: "Přidat položku jako"
     followed_people:
       you_follow_plural: "Sledujete %{count} lidí"
       you_follow_singular: "Sledujete %{count} osobu"
@@ -2354,7 +2354,7 @@ cs:
       invisible: "(nezobrazuje se ostatním uživatelům)"
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
       shown_in_your_public_profile: "( zobrazeno ve vašem veřejném profilu)"
-      editing_profile_of: ~
+      editing_profile_of: "Nyní upravujete profil %{name}"
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"
@@ -2620,6 +2620,11 @@ cs:
       multi_page_html: "Nalezen %{model} <b> %{from}&nbsp;-&nbsp;%{to} <b> z <b> %{count} <b> celkem"
     person:
       community_members_entries_info:
+        single_page_html:
+          zero: "Žádný %{model} nenalezen"
+          one: "Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a %{other_count} jiné %{other_model}"
+          few: "Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a %{other_count} jiné %{other_model}"
+          other: "Zobrazení <b>%{accepted_count}</b> odsouhlaseno %{accepted_model} a %{other_count} jiné %{other_model}"
         multi_page: ~
         multi_page_html: ~
   stripe_accounts:
