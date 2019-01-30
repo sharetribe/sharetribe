@@ -623,7 +623,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...HEAD
+[7.5.0]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...v7.5.0
 [7.4.0]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...v7.4.0
 [7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
 [7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
