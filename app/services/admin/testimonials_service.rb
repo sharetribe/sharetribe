@@ -87,11 +87,13 @@ class Admin::TestimonialsService
   private
 
   def filtered_scope
+    return @filtered_scope if defined?(@filtered_scope)
     scope = transactions_scope
 
     tx_statuses = []
     tx_statuses.push(Transaction.skipped_feedback) if status_checked?('skipped')
     tx_statuses.push(Transaction.waiting_feedback) if status_checked?('waiting')
+    tx_statuses_present = tx_statuses.any?
     scope = merge_statuses(scope, tx_statuses)
 
     review_statuses = []
@@ -103,14 +105,14 @@ class Admin::TestimonialsService
     if review_statuses.present?
       review_scope = merge_statuses(Testimonial.by_community(community), review_statuses)
       scope =
-        if tx_statuses.present?
+        if tx_statuses_present
           scope.or(Transaction.for_testimonials.where(id: review_scope.select('transaction_id')))
         else
           scope.where(id: review_scope.select('transaction_id'))
         end
     end
 
-    if params[:q].present?
+    @filtered_scope = if params[:q].present?
       scope.search_for_testimonials(community, "%#{params[:q]}%")
     else
       scope

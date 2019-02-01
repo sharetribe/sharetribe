@@ -1710,6 +1710,8 @@ el:
       paypal_payments: ~
       stripe_payments: ~
       payments: Πληρωμές
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Δεν έχεις δικαίωμα να δεις αυτή την καταχώρηση."

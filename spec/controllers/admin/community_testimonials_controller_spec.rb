@@ -171,6 +171,11 @@ describe Admin::CommunityTestimonialsController, type: :controller do
       service = assigns(:service)
       expect(service.transactions.count).to eq 0
       expect(service.testimonials[:all_count]).to eq 0
+
+      get :index, params: {community_id: community.id, status: ['published', 'waiting'] }
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 3
+      expect(service.testimonials[:all_count]).to eq 4
     end
   end
 end

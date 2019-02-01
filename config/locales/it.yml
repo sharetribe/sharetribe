@@ -1716,6 +1716,8 @@ it:
       paypal_payments: "Pagamenti PayPal"
       stripe_payments: "Pagamenti Stripe"
       payments: Pagamenti
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Non hai il permesso per visualizzare questo annuncio."
@@ -1901,8 +1903,8 @@ it:
       unable_load_availability: "Non si possono avere informazioni disponibili. Per favore riprova più tardi."
       booking_date: "Data prenotazione"
       select_one: "Seleziona una"
-      start_time: "Data di inizio"
-      end_time: "Data di partenza"
+      start_time: "Ora di inizio"
+      end_time: "Ora di fine"
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"

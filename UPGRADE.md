@@ -40,10 +40,14 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 7.4.0 to 7.5.0
+
 HTTP Strict Transport Security is now enabled by default for sites that do not
 use custom domain (`communities.use_domain = false`) when `always_use_ssl` is
 set to `true` in the configuration. If you wish to disable it, set
 `hsts_max_age` to `0`.
+
+Nothing else special. See the [#general-update-instructions].
 
 ## Upgrade from 7.3.1 to 7.4.0
 
