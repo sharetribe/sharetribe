@@ -138,8 +138,8 @@ class Transaction < ApplicationRecord
   scope :skipped_feedback, -> { where('starter_skipped_feedback OR author_skipped_feedback') }
 
   scope :waiting_feedback, -> {
-    where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.exists.to_sql}
-           OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.exists.to_sql}")
+    where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.select('1').exists.to_sql}
+           OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.select('1').exists.to_sql}")
   }
 
   def booking_uuid_object
