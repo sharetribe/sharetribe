@@ -23,4 +23,13 @@ class PaypalAccount < ApplicationRecord
   belongs_to :community
   has_one :order_permission, dependent: :destroy
   has_one :billing_agreement, dependent: :destroy
+
+  scope :has_permission_and_agreement, -> {
+    joins(:order_permission, :billing_agreement)
+  }
+  scope :active, -> { where(active: true) }
+  scope :active_users, -> {
+    active.has_permission_and_agreement.where.not(person_id: nil)
+  }
+  scope :by_community, ->(community) { where(community: community) }
 end

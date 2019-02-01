@@ -39,6 +39,7 @@
 #
 # Indexes
 #
+#  community_starter_state                   (community_id,starter_id,current_state)
 #  index_transactions_on_community_id        (community_id)
 #  index_transactions_on_conversation_id     (conversation_id)
 #  index_transactions_on_deleted             (deleted)
@@ -133,6 +134,7 @@ class Transaction < ApplicationRecord
       OR `transactions`.`id` IN (#{with_testimonial_ids.to_sql})
       ", pattern: pattern).distinct
   end
+  scope :paid_or_confirmed, -> { where(current_state: ['paid', 'confirmed']) }
 
   def booking_uuid_object
     if self[:booking_uuid].nil?
