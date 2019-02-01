@@ -46,12 +46,29 @@ module DatabaseAuthenticatableHelpers
 
   # private
 
-  def find_by_username_or_email(login, community_id)
+  def find_person_by_username(login, community_id)
     Person
-      .joins("LEFT OUTER JOIN emails ON emails.person_id = people.id")
-      .where("(people.is_admin = '1' OR people.community_id = :cid) AND (people.username = :login OR emails.address = :login)",
+      .where("(people.is_admin = '1' OR people.community_id = :cid) AND people.username = :login ",
              cid: community_id, login: login)
       .first
+  end
+
+  def find_person_by_email(login, community_id)
+    Person
+      .joins("LEFT OUTER JOIN emails ON emails.person_id = people.id")
+      .where("(people.is_admin = '1' OR people.community_id = :cid) AND emails.address = :login",
+             cid: community_id, login: login)
+      .first
+  end
+
+  def find_by_username_or_email(login, community_id)
+    if login && login.include?("@")
+      find_person_by_email(login, community_id) ||
+        find_person_by_username(login, community_id)
+    else
+      find_person_by_username(login, community_id) ||
+        find_person_by_email(login, community_id)
+    end
   end
 end
 
