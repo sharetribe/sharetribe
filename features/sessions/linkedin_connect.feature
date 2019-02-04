@@ -20,7 +20,7 @@ Feature: LinkedIn connect
     And user "tonyt" should have "family_name" with value "Testmen"
     And user "tonyt" should have email "devel@example.com"
     And user "tonyt" should have "linkedin_id" with value "50k-SSSS99"
-    And user "tonyt" should have "image_file_size" with value "nil"
+    And user "tonyt" should have "image_file_size" with value "70"
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"

@@ -10,14 +10,13 @@
   - if google_connect_in_use?
     = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
       class: 'google-login-button' do
-      %div
-        = image_tag('google-48.png', alt: 'G')
+      = image_tag('google-sign-in.png', alt: 'G')
       %span.google-text
         = t('.log_in_with_your_provider_account', provider: 'Google')
   - if linkedin_connect_in_use?
     = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
       class: 'linkedin-login-button' do
-      = icon_tag("linkedin", ["linkedin-icon"])
+      = image_tag('In-2C-48px-TM.png', alt: 'in')
       %span.linkedin-text
         = t('.log_in_with_your_provider_account', provider: 'LinkedIn')
   - if facebook_connect_in_use? || google_connect_in_use? || linkedin_connect_in_use?
