@@ -173,6 +173,7 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
+  value = 70 if value == "70"
   user.send(attribute).send(verb) == value
 end
 
