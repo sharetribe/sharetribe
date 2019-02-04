@@ -20,7 +20,7 @@ Feature: Google connect
     And user "johnd" should have "family_name" with value "Due"
     And user "johnd" should have email "john@ithouse.lv"
     And user "johnd" should have "google_oauth2_id" with value "123456789012345678901"
-    And user "johnd" should have "image_file_size" with value "nil"
+    And user "johnd" should have "image_file_size" with value "70"
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"

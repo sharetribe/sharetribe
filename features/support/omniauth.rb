@@ -25,9 +25,11 @@ module OmniAuthTestHelpers
     data = if provider == 'facebook'
              oauth_facebook_data
            elsif provider == 'google_oauth2'
-            oauth_google_data
+             stub_google_image_request
+             oauth_google_data
            elsif provider == 'linkedin'
-            oauth_linkedin_data
+             stub_linkedin_image_request
+             oauth_linkedin_data
            end
     data.dup.deep_merge(options)
   end
@@ -260,6 +262,30 @@ module OmniAuthTestHelpers
                    "identifierExpiresInSeconds"=>1553126400}]}],
              "paging"=>{"count"=>10, "start"=>0, "links"=>[]}}},
          "id"=>"50k-SSSS99"}}}
+  end
+
+  def stub_linkedin_image_request
+    stub_request(:get, "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_800_800/0?e=1553126400&t=9Zg8_GZwAKl_Za2CF5IgC-gD2XvHjupCm_8wqdQjvVk&v=beta")
+      .with(  headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent'=>'Ruby'
+         })
+      .to_return(status: 200, body: png_image, headers: {'Content-Type'=>'image/png'})
+  end
+
+  def stub_google_image_request
+    stub_request(:get, "https://lh3.googleusercontent.com/-BILLeKNfUNs/AAAAAAAAAAI/AAAAAAAAAAA/bk9ax13dM2E/photo.jpg")
+      .with(  headers: {
+        'Accept'=>'*/*',
+        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent'=>'Ruby',
+       })
+      .to_return(status: 200, body: png_image, headers: {'Content-Type'=>'image/png'})
+  end
+
+  def png_image
+    Base64.decode64('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg==')
   end
   # rubocop:enable Metrics/MethodLength, Metrics/LineLength
 end

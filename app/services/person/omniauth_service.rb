@@ -131,9 +131,7 @@ class Person::OmniauthService
   def store_picture(new_person)
     if new_person.image_file_size.nil?
       begin
-        if facebook?
-          new_person.store_picture_from_facebook!
-        end
+        store_picture_from_provider(new_person)
       rescue StandardError => e
         # We can just catch and log the error, because if the profile picture upload fails
         # we still want to make the user creation pass, just without the profile picture,
@@ -145,6 +143,19 @@ class Person::OmniauthService
 
   def finder
     @finder ||= Finder.new(community: community, provider: provider, uid: uid, email: email)
+  end
+
+  def store_picture_from_provider(new_person)
+    url = if facebook? && new_person.facebook_id
+      resp = RestClient.get(
+        "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{new_person.facebook_id}/picture?type=large&redirect=false")
+      JSON.parse(resp)["data"]["url"]
+    elsif google_oauth2? && new_person.google_oauth2_id
+      info.image
+    elsif linkedin? && new_person.linkedin_id
+      info.picture_url
+    end
+    new_person.picture_from_url(url)
   end
 
   class Finder
