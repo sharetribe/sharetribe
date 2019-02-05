@@ -79,7 +79,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction with buyer commission from "kassi_testperson2" with message "Son of a Gun" about that listing
     Given I am logged in as "kassi_testperson2"
     When I go to the messages page
-    Then I should see "Payment authorized: €115"
+    Then I should see "Payment authorized"
     Then I should see "About listing Let Her Rip"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged."
 
@@ -91,7 +91,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction with buyer commission from "kassi_testperson2" with message "Cut To The Chase" about that listing
     Given I am logged in as "kassi_testperson2"
     When I go to the messages page
-    Then I should see "Payment authorized: €5.65"
+    Then I should see "Payment authorized"
     Then I should see "About listing Close But No Cigar"
     Then I should see "Waiting for Kassi T to accept the request. As soon as Kassi T accepts, you will be charged."
 
@@ -101,7 +101,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction with buyer commission from "kassi_testperson2" with message "Son of a Gun" about that listing
     Given I am logged in as "kassi_testperson1"
     When I go to the messages page
-    Then I should see "Payment authorized: €115"
+    Then I should see "Payment authorized"
     Then I should see "About listing Let Her Rip"
     Then I should see "Waiting for you to accept the request"
 
@@ -113,7 +113,7 @@ Feature: Inbox list of transactions
     And there is a "preauthorized" transaction with buyer commission from "kassi_testperson2" with message "Cut To The Chase" about that listing
     Given I am logged in as "kassi_testperson1"
     When I go to the messages page
-    Then I should see "Payment authorized: €5.65"
+    Then I should see "Payment authorized"
     Then I should see "About listing Close But No Cigar"
     Then I should see "Waiting for you to accept the request"
 
