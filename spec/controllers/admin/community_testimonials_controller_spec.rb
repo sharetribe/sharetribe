@@ -41,10 +41,12 @@ describe Admin::CommunityTestimonialsController, type: :controller do
     FactoryGirl.create(:testimonial, tx: transaction,
                                      author: listing1.author,
                                      receiver: person2,
+                                     grade: 0,
                                      text: 'Hi from author')
     FactoryGirl.create(:testimonial, tx: transaction,
                                      author: person2,
                                      receiver: listing1.author,
+                                     grade: 0,
                                      text: 'Hi from starter')
     transaction
   end
@@ -139,6 +141,41 @@ describe Admin::CommunityTestimonialsController, type: :controller do
       expect(transactions.first).to eq transaction3
       testimonials = service.testimonials
       expect(testimonials[:all_count]).to eq 0
+
+      get :index, params: {community_id: community.id, status: 'published'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 2
+      expect(service.testimonials[:all_count]).to eq 4
+
+      get :index, params: {community_id: community.id, status: 'positive'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 1
+      expect(service.testimonials[:all_count]).to eq 2
+
+      get :index, params: {community_id: community.id, status: 'negative'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 1
+      expect(service.testimonials[:all_count]).to eq 2
+
+      get :index, params: {community_id: community.id, status: 'skipped'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 0
+      expect(service.testimonials[:all_count]).to eq 0
+
+      get :index, params: {community_id: community.id, status: 'waiting'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 1
+      expect(service.testimonials[:all_count]).to eq 0
+
+      get :index, params: {community_id: community.id, status: 'blocked'}
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 0
+      expect(service.testimonials[:all_count]).to eq 0
+
+      get :index, params: {community_id: community.id, status: ['published', 'waiting'] }
+      service = assigns(:service)
+      expect(service.transactions.count).to eq 3
+      expect(service.testimonials[:all_count]).to eq 4
     end
   end
 end

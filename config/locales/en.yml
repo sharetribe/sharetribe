@@ -466,6 +466,16 @@ en:
           skipped: Skipped
           published: Published
           blocked: Blocked
+        status_filter:
+          selected: "Selected filters: %{count}"
+          all: "Filters"
+          published: "Published"
+          positive: "Positive"
+          negative: "Negative"
+          skipped: "Skipped"
+          waiting: "Waiting"
+          blocked: "Blocked"
+          selected_js: "Selected filters: "
         form:
           review_text: "Review text"
           save: Save
