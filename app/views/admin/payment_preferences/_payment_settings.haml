@@ -103,7 +103,7 @@
                         = t("admin.payment_preferences.paypal_connected.enable")
 
                 - else
-                  .col-6
+                  .col-6{class: buyer_commission ? 'is-disabled' : ''}
                     = link_to t("admin.payment_preferences.configure_paypal"), "#", class: "button", id: "config_paypal_toggle"
 
 
@@ -128,7 +128,7 @@
       - if paypal_enabled && paypal_allowed
         .tab-content.hidden#paypal_tab
           - if !paypal_connected
-            = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action}
+            = render partial: 'paypal_connect_account', locals: {order_permission_action: order_permission_action, buyer_commission: buyer_commission}
           - else
             = render partial: 'paypal_connected', locals: {paypal_account: paypal_account, order_permission_action: order_permission_action}
             .paypal-wizard-divider

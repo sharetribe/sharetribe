@@ -64,7 +64,8 @@ class InboxesController < ApplicationController
         inbox_item[:other],
         inbox_item[:starter],
         Maybe(inbox_item)[:payment_total].or_else(nil),
-        inbox_item[:payment_gateway]
+        inbox_item[:payment_gateway],
+        !inbox_item[:buyer_commission]
       )
 
       action_messages.last[:content]
