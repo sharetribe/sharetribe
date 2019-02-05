@@ -10,13 +10,17 @@
   - if google_connect_in_use?
     = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
       class: 'google-login-button' do
-      = image_tag('google-sign-in.png', alt: 'G')
+      %span.google-icon
+        %svg{:height => "100%", :space => "preserve", :style => "fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;", :version => "1.1", :viewbox => "0 0 99 100", :width => "100%", :xmlns => "http://www.w3.org/2000/svg", "xmlns:serif" => "http://www.serif.com/", "xmlns:xlink" => "http://www.w3.org/1999/xlink"}
+          %g{:transform => "matrix(1,0,0,1,-0.989086,-1.77636e-15)"}
+            %g{:transform => "matrix(5.09322,0,0,5.09322,0.989086,-11.1187)"}
+              %path{:d => "M19.246,12.228C19.246,14.085 18.857,15.739 18.08,17.19C17.304,18.641 16.196,19.775 14.759,20.592C13.321,21.408 11.674,21.817 9.817,21.817C8.487,21.817 7.214,21.558 6,21.04C4.786,20.522 3.741,19.826 2.866,18.951C1.991,18.076 1.295,17.031 0.777,15.817C0.259,14.603 0,13.33 0,12C0,10.67 0.259,9.397 0.777,8.183C1.295,6.969 1.991,5.924 2.866,5.049C3.741,4.174 4.786,3.478 6,2.96C7.214,2.442 8.487,2.183 9.817,2.183C12.371,2.183 14.563,3.04 16.393,4.754L13.728,7.313C12.683,6.304 11.379,5.799 9.817,5.799C8.719,5.799 7.703,6.076 6.77,6.629C5.837,7.183 5.098,7.935 4.554,8.886C4.009,9.837 3.737,10.875 3.737,12C3.737,13.125 4.009,14.163 4.554,15.114C5.098,16.065 5.837,16.817 6.77,17.371C7.703,17.924 8.719,18.201 9.817,18.201C10.558,18.201 11.239,18.098 11.859,17.893C12.48,17.688 12.991,17.431 13.393,17.123C13.795,16.815 14.145,16.464 14.444,16.071C14.743,15.679 14.962,15.308 15.1,14.96C15.239,14.612 15.335,14.281 15.388,13.969L9.817,13.969L9.817,10.594L19.085,10.594C19.192,11.156 19.246,11.701 19.246,12.228Z", :style => "fill:white;fill-rule:nonzero;"}
       %span.google-text
         = t('.log_in_with_your_provider_account', provider: 'Google')
   - if linkedin_connect_in_use?
     = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
       class: 'linkedin-login-button' do
-      = image_tag('In-2C-48px-TM.png', alt: 'in')
+      = icon_tag("linkedin", ["linkedin-icon"])
       %span.linkedin-text
         = t('.log_in_with_your_provider_account', provider: 'LinkedIn')
   - if facebook_connect_in_use? || google_connect_in_use? || linkedin_connect_in_use?
