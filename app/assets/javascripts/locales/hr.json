@@ -7,7 +7,7 @@
     "dateISO": "Molimo unesite valjani datum (ISO).",
     "digits": "Molimo unesite samo brojke.",
     "email": "Unesite ispravnu email adresu.",
-    "equalTo": "Unesite ponovno istu vrijednost",
+    "equalTo": "Unesite ponovno istu vrijednost.",
     "max": "Unesite vrijednost manju ili jednaku {0}.",
     "maxlength": "Unesite najviše {0} znakova.",
     "min": "Unesite vrijednost veću ili jednaku {0}.",
@@ -19,12 +19,12 @@
     "required": "Ovo polje je obavezno.",
     "url": "Unesite ispravni URL.",
     "address_validator": "Lokacija nije pronađena.",
-    "money": "Morate navesti točnu monetarnu vrijednost",
-    "night_selected": "Morate odabrati barem jednu noć",
+    "money": "Morate navesti točnu novčanu vrijednost",
+    "night_selected": "Potrebno je odabrati minimalno jednu noć",
     "availability_range": "Odabrani opseg uključuje dane koji nisu dostupni",
-    "min_bound": "Please enter a value less than max value ({0})",
-    "max_bound": "Please enter a value more than min value ({0})",
+    "min_bound": "Molimo unesite vrijednost manju od maksimalne vrijednosti ({0})",
+    "max_bound": "Molimo unesite vrijednost veću od minimalne vrijednosti ({0})",
     "number_no_decimals": "Molimo unesite cijeli broj",
-    "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator"
+    "number_decimals": "Molimo unesite broj s točkom (.) ili zarezom (,) za oznaku decimalnog broja"
   }
 }

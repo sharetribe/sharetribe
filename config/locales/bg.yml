@@ -451,6 +451,16 @@ bg:
           skipped: ~
           published: ~
           blocked: Блокирано
+        status_filter:
+          selected: "Избрани филтри: %{count}"
+          all: Филтри
+          published: Публикувано
+          positive: Положително
+          negative: Отрицателно
+          skipped: Подминато
+          waiting: Изчакване
+          blocked: Блокирано
+          selected_js: "Избрани филтри: "
         form:
           review_text: "Прегледай текста"
           save: Запази

@@ -189,8 +189,8 @@ en:
         en: English
         en-AU: "English (Australia)"
         en-GB: "English (United Kingdom)"
-        es: "Spanish"
-        es-ES: Spanish (Spain)
+        es: Spanish
+        es-ES: "Spanish (Spain)"
         fi: Finnish
         fr: French
         fr-CA: "French (Canada)"
@@ -338,7 +338,7 @@ en:
       logo_link:
         title: "Logo link"
         info: "You can customize the link of the logo (and the default home button of the top bar menu). By default the logo takes users to the homepage or Custom Landing Page."
-        url: "URL"
+        url: URL
         placeholder: "https://www.example.com"
       menu_links:
         menu_links: "Custom menu links"
@@ -468,13 +468,13 @@ en:
           blocked: Blocked
         status_filter:
           selected: "Selected filters: %{count}"
-          all: "Filters"
-          published: "Published"
-          positive: "Positive"
-          negative: "Negative"
-          skipped: "Skipped"
-          waiting: "Waiting"
-          blocked: "Blocked"
+          all: Filters
+          published: Published
+          positive: Positive
+          negative: Negative
+          skipped: Skipped
+          waiting: Waiting
+          blocked: Blocked
           selected_js: "Selected filters: "
         form:
           review_text: "Review text"

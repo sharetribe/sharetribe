@@ -466,6 +466,16 @@ es-ES:
           skipped: Omitida
           published: Publicada
           blocked: Bloqueada
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: "Texto de la reseña"
           save: Guardar

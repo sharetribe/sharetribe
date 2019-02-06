@@ -466,6 +466,16 @@ de:
           skipped: Übersprungen
           published: Veröffentlicht
           blocked: Gesperrt
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: Bewertungstext
           save: Speichern

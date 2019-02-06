@@ -476,6 +476,16 @@ pl:
           skipped: ~
           published: ~
           blocked: zablokowany
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: "treść opinii"
           save: Zapisz
