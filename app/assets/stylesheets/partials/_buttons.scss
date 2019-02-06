@@ -99,34 +99,33 @@
   a.linkedin-login-button {
     display: table;
     height: 46px;
-    padding: 0 12px;
+    padding: 0 12px 0 5px;
 
     .fb-icon,
     .google-icon,
     .linkedin-icon {
       display: table-cell;
       vertical-align: middle;
-      width: 22px;
+      width: 40px;
     }
 
     .fb-icon {
-      font-weight: 400;
+      height: 25px;
       left: initial;
-      line-height: 1;
-      margin: 0;
-      padding: 3px 0 0;
+      padding: 4px 0 0;
       position: relative;
       text-align: center;
-      top: inherit;
+      top: initial;
     }
 
     .google-icon {
-      padding: 5px 0 0;
-      height: 22px;
+      height: 40px;
+      padding: 6px 0 0;
     }
 
     .linkedin-icon {
-      font-size: 1.375em;
+      height: 22px;
+      padding: 3px 0 0;
       text-align: center;
     }
     

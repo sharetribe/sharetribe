@@ -1,3 +1,5 @@
 %a#fb-login.fb-connect{:href => person_facebook_omniauth_authorize_path}
-  = icon_tag("facebook", ["fb-icon"])
+  -# = icon_tag("facebook", ["fb-icon"])
+  %span.fb-icon
+    = render :partial => "layouts/facebook_icon"
   .fb-text= button_text
