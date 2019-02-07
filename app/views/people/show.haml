@@ -58,10 +58,7 @@
             = t(".no_open_listings")
         %span.people-show-closed-link
           - if current_user?(person)
-            - if params[:show_closed]
-              = link_to t("people.profile_listings.show_only_open"), person_path(person)
-            - else
-              = link_to t("people.profile_listings.show_also_closed"), person_path(person, :show_closed => true)
+            = link_to t("people.profile_listings.manage_listings"), listings_person_settings_path(person.username)
 
     #profile-listings-list
       - limit = 6
