@@ -21,6 +21,7 @@ export default (props) => {
     'admin',
     'login',
     'sign_up',
+    'listings_person_settings',
   ], { locale });
 
   const avatarImage = _.get(props, 'avatarDropdown.avatar.image.url');
