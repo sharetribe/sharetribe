@@ -31,7 +31,7 @@ Feature: Admin create, update, destroy listing shapes
      And I follow "Delete order type"
     Then I should see "Successfully deleted order type 'Requesting'"
     Given I am on the profile page of "kassi_testperson1"
-     And I follow "Show also closed"
+     And I follow "Manage all my listings"
      And I follow "Hammer"
     When I follow "Reopen listing"
      And I select subcategory "Tools"
