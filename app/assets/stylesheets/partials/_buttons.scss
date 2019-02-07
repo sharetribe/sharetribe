@@ -91,3 +91,50 @@
     line-height: 40px;
   }
 }
+
+.login-form,
+.signup-form {
+  a.fb-connect,
+  a.google-login-button,
+  a.linkedin-login-button {
+    display: table;
+    height: 46px;
+    padding: 0 12px 0 5px;
+
+    .fb-icon,
+    .google-icon,
+    .linkedin-icon {
+      display: table-cell;
+      vertical-align: middle;
+      width: 40px;
+    }
+
+    .fb-icon {
+      height: 25px;
+      left: initial;
+      padding: 4px 0 0;
+      position: relative;
+      text-align: center;
+      top: initial;
+    }
+
+    .google-icon {
+      height: 40px;
+      padding: 6px 0 0;
+    }
+
+    .linkedin-icon {
+      height: 22px;
+      padding: 3px 0 0;
+      text-align: center;
+    }
+    
+    .fb-text,
+    .google-text,
+    .linkedin-text {
+      display: table-cell;
+      padding: 0 0 0 10px;
+      vertical-align: middle;
+    }
+  }
+}
