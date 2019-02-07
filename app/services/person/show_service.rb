@@ -1,7 +1,4 @@
 class Person::ShowService
-  class PersonDeleted < StandardError; end
-  class PersonBanned < StandardError; end
-
   attr_reader :community, :params, :current_user
 
   def initialize(community:, params:, current_user:)
@@ -13,9 +10,7 @@ class Person::ShowService
   def person
     return @person if defined?(@person)
     person = Person.find_by!(username: params[:username], community_id: community.id)
-    raise PersonDeleted if person.deleted?
-    raise PersonBanned if person.banned?
-    @person = person
+    @person = person.deleted? || person.banned? ? nil : person
   end
 
   def received_testimonials

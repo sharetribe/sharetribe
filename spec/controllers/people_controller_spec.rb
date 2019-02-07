@@ -399,8 +399,12 @@ describe PeopleController, type: :controller do
       followed_person.followers << person
       person
     end
-    let(:person2) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
-    let(:person3) { FactoryGirl.create(:person, member_of: community, community_id: community.id) }
+    let(:person_banned) do
+      person = FactoryGirl.create(:person, community_id: community.id)
+      person.create_community_membership(community: community, status: CommunityMembership::BANNED)
+      person
+    end
+    let(:person_deleted) { FactoryGirl.create(:person, member_of: community, community_id: community.id, deleted: true) }
 
     it 'works' do
       community_host(community)
@@ -413,6 +417,18 @@ describe PeopleController, type: :controller do
       expect(service.feedback_positive_percentage).to eq 67
       expect(service.community_person_custom_fields.count).to eq 1
       expect(service.followed_people.count).to eq 1
+    end
+
+    it 'does not show banned person' do
+      community_host(community)
+      get :show, params: {username: person_banned.username}
+      expect(response).to redirect_to('/')
+    end
+
+    it 'does not show deleted person' do
+      community_host(community)
+      get :show, params: {username: person_deleted.username}
+      expect(response).to redirect_to('/')
     end
   end
 
