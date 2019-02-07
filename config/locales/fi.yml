@@ -466,6 +466,16 @@ fi:
           skipped: "Arvio jätetty väliin"
           published: Julkaistu
           blocked: Estetty
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: "Palautteen sisältö"
           save: Tallenna

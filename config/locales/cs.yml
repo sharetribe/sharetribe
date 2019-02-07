@@ -471,6 +471,16 @@ cs:
           skipped: Vynecháno
           published: Zveřejněno
           blocked: Blokováno
+        status_filter:
+          selected: "Vybrané filtry: %{count}"
+          all: Filtry
+          published: Zveřejněno
+          positive: Pozitivní
+          negative: Negativní
+          skipped: Vynecháno
+          waiting: Čekání
+          blocked: Blokováno
+          selected_js: "Vybrané filtry: "
         form:
           review_text: Hodnocení
           save: Uložit

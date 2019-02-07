@@ -466,6 +466,16 @@ fr:
           skipped: Ignorée
           published: Publiée
           blocked: Bloquée
+        status_filter:
+          selected: "Filtres sélectionnés :%{count}"
+          all: Filtres
+          published: Publiées
+          positive: Positive
+          negative: Négative
+          skipped: Ignorées
+          waiting: "En attente"
+          blocked: Bloquées
+          selected_js: "Filtres sélectionnés : "
         form:
           review_text: "Texte de l'avis"
           save: Sauvegarder

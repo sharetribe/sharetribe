@@ -468,6 +468,16 @@ nl:
           skipped: Overgeslagen
           published: Gepubliceerd
           blocked: Geblokkeerd
+        status_filter:
+          selected: "Geselecteerde filters: %{count}"
+          all: Filters
+          published: Gepubliceerd
+          positive: Positief
+          negative: Negatief
+          skipped: Overgeslagen
+          waiting: "In afwachting"
+          blocked: Geblokkeerd
+          selected_js: "Geselecteerde filters "
         form:
           review_text: "Herzie tekst"
           save: "Sla op"
