@@ -30,6 +30,18 @@ Given(/^community "(.*?)" has a listing shape offering services per hour, day, n
   )
 end
 
+Given(/^community "(.*?)" has new order type "(.*?)" with action button "(.*?)"$/) do |community_name, name, button_name|
+  community = Community.where(ident: community_name).first
+  create_listing_shape(
+    community: community,
+    name: name.camelize,
+    availability: 'none',
+    name_translation: name,
+    button_translation: button_name,
+    unit_types: nil
+ )
+end
+
 def create_listing_shape(community:, name:, availability:, name_translation:, button_translation:, unit_types:, custom_unit_types: nil)
   transaction_process = TransactionProcess.where(community_id: community, process: :preauthorize).first
   cached_translations = TranslationService::API::Api.translations.create(
