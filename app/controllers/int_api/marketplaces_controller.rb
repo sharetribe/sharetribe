@@ -67,15 +67,6 @@ class IntApi::MarketplacesController < ApplicationController
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace.id}
   end
 
-  def create_prospect_email
-    email = params[:email]
-    render json: [ "Email missing from payload" ], :status => 400 and return if email.blank?
-
-    ProspectEmail.create(:email => email)
-
-    head 200, content_type: "application/json"
-  end
-
   private
 
   def set_access_control_headers

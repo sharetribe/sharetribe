@@ -30,8 +30,17 @@ describe "HTTP basic auth", type: :request do
   end
 
   it "is bypassed for internal API" do
-    post "/int_api/prospect_emails", params: {email: "test123@example.com"}
-    expect(response.status).to eq(200)
+    post "/int_api/create_trial_marketplace", params: {
+           admin_email: "test123@example.com",
+           admin_first_name: "Test",
+           admin_last_name: "Admin",
+           admin_password: "foo-test",
+           marketplace_country: "FI",
+           marketplace_language: "en",
+           marketplace_name: "TestMp",
+           marketplace_type: "service"
+         }
+    expect(response.status).to eq(201)
   end
 
   it "is not required when disabled" do

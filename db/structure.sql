@@ -1244,17 +1244,6 @@ CREATE TABLE `people` (
   KEY `index_people_on_community_id_and_linkedin_id` (`community_id`,`linkedin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `prospect_emails`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `prospect_emails` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `schema_migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -2364,5 +2353,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190111072711'),
 ('20190111122204'),
 ('20190114141250'),
-('20190115083941');
-
+('20190115083941'),
+('20190208032229');
