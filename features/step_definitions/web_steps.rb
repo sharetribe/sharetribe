@@ -356,3 +356,7 @@ Then(/^I should see selected "([^"]*)" in the "([^"]*)" dropdown$/) do |content,
    expect(page).to have_select(field, selected: content)
 end
 
+Then(/^I should see page source$/) do
+  puts page.driver.html
+end
+
