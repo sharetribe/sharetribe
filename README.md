@@ -37,7 +37,7 @@ Would you like to set up your marketplace in one minute without touching code? [
 - Gems:
     -  [devise](https://github.com/plataformatec/devise) | Authentication
     -  [omniauth-facebook](https://github.com/mkdynamic/omniauth-facebook) | Third party login: Facebook
-    -  [haml](https://github.com/haml/haml) and ERB | HTML teamplating
+    -  [haml](https://github.com/haml/haml) and ERB | HTML templating
     -  [mysql2](https://github.com/brianmario/mysql2) | MySQL library for Ruby
     -  [paperclip](https://github.com/thoughtbot/paperclip) | Image upload management
     -  [passenger](https://github.com/phusion/passenger) | Web application server
