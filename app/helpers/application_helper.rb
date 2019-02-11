@@ -308,7 +308,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -513,6 +513,14 @@ module ApplicationHelper
 
     links << {
       :topic => :configure,
+      :text => t("admin.communities.seo_settings.seo"),
+      :icon_class => icon_class("seo"),
+      :path => admin_community_seo_settings_path,
+      :name => "seo"
+    }
+
+    links << {
+      :topic => :configure,
       :text => t("admin.communities.analytics.analytics"),
       :icon_class => icon_class("analytics"),
       :path => analytics_admin_community_path(@current_community),
@@ -543,7 +551,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil, restrict_for_admin=false)
