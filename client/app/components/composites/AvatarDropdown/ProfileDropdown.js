@@ -6,6 +6,7 @@ import css from './ProfileDropdown.css';
 import inboxEmptyIcon from './images/inboxEmptyIcon.svg';
 import profileIcon from './images/profileIcon.svg';
 import settingsIcon from './images/settingsIcon.svg';
+import listingsIcon from './images/listingsIcon.svg';
 import { className } from '../../../utils/PropTypes';
 
 const actionProps = function actionProps(action) {
@@ -47,6 +48,7 @@ class ProfileDropdown extends Component {
       div({ className: css.box }, [
         div({ className: css.profileActions }, [
           r(ProfileActionCard, { label: this.props.translations.inbox, icon: inboxEmptyIcon, action: this.props.actions.inboxAction, notificationCount: this.props.notificationCount }),
+          r(ProfileActionCard, { label: this.props.translations.listings, icon: listingsIcon, action: this.props.actions.listingsAction }),
           r(ProfileActionCard, { label: this.props.translations.profile, icon: profileIcon, action: this.props.actions.profileAction }),
           r(ProfileActionCard, { label: this.props.translations.settings, icon: settingsIcon, action: this.props.actions.settingsAction }),
         ]),
@@ -69,6 +71,7 @@ class ProfileDropdown extends Component {
 ProfileDropdown.propTypes = {
   actions: PropTypes.shape({
     inboxAction: eitherStringOrFunc.isRequired,
+    listingsAction: eitherStringOrFunc.isRequired,
     profileAction: eitherStringOrFunc.isRequired,
     settingsAction: eitherStringOrFunc.isRequired,
     adminDashboardAction: eitherStringOrFunc.isRequired,
@@ -76,6 +79,7 @@ ProfileDropdown.propTypes = {
   }).isRequired,
   translations: PropTypes.shape({
     inbox: PropTypes.string.isRequired,
+    listings: PropTypes.string.isRequired,
     profile: PropTypes.string.isRequired,
     settings: PropTypes.string.isRequired,
     adminDashboard: PropTypes.string.isRequired,

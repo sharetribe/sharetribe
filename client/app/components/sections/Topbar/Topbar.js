@@ -47,6 +47,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
   const color = customColor || styleVariables['--customColorFallback'];
   const actions = {
     inboxAction: () => false,
+    listingsAction: () => false,
     profileAction: () => false,
     settingsAction: () => false,
     adminDashboardAction: () => false,
@@ -55,6 +56,7 @@ const avatarDropdownProps = (avatarDropdown, customColor, username, isAdmin, not
   };
   const translations = {
     inbox: t('web.topbar.inbox'),
+    listings: t('web.topbar.listings'),
     profile: t('web.topbar.profile'),
     settings: t('web.topbar.settings'),
     adminDashboard: t('web.topbar.admin_dashboard'),
