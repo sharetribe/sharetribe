@@ -20,6 +20,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- Update passenger gem to latest version [3609](https://github.com/sharetribe/sharetribe/pull/3609)
+
 ## [7.5.0] - 2019-01-30
 
 ### Added
