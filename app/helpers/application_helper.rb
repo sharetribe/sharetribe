@@ -554,18 +554,18 @@ module ApplicationHelper
         :icon_class => icon_class("profile"),
         :path => person_settings_path(person),
         :name => "profile"
-      },
-      {
-        :id => "settings-tab-listings",
-        :text => t("layouts.settings.listings"),
-        :icon_class => icon_class("thumbnails"),
-        :path => listings_person_settings_path(person, sort: "updated"),
-        :name => "listings"
       }
     ]
     unless restrict_for_admin
       links +=
         [
+          {
+            :id => "settings-tab-listings",
+            :text => t("layouts.settings.listings"),
+            :icon_class => icon_class("thumbnails"),
+            :path => listings_person_settings_path(person, sort: "updated"),
+            :name => "listings"
+          },
           {
             :id => "settings-tab-account",
             :text => t("layouts.settings.account"),
