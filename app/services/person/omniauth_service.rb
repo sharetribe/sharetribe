@@ -4,7 +4,7 @@ class Person::OmniauthService
   LINKEDIN = 'linkedin'.freeze
   NAMES = {
     FACEBOOK => 'Facebook',
-    GOOGLE_OAUTH2 => 'Google+',
+    GOOGLE_OAUTH2 => 'Google',
     LINKEDIN => 'LinkedIn'
   }.freeze
 
