@@ -308,7 +308,7 @@ module ApplicationHelper
     }
   end
 
-  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
   # Admin view left hand navigation content
   def admin_links_for(community)
     links = [
@@ -418,6 +418,13 @@ module ApplicationHelper
         :icon_class => icon_class("looknfeel"),
         :path => admin_look_and_feel_edit_path,
         :name => "tribe_look_and_feel"
+      },
+      {
+        :topic => :configure,
+        :text => t("admin.communities.domain.domain"),
+        :icon_class => icon_class("domain"),
+        :path => admin_domain_path,
+        :name => "domain"
       },
       {
         :topic => :configure,
@@ -543,7 +550,7 @@ module ApplicationHelper
 
     links
   end
-  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   # Settings view left hand navigation content
   def settings_links_for(person, community=nil, restrict_for_admin=false)
