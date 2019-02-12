@@ -421,6 +421,13 @@ module ApplicationHelper
       },
       {
         :topic => :configure,
+        :text => t("admin.communities.domain.domain"),
+        :icon_class => icon_class("domain"),
+        :path => admin_domain_path,
+        :name => "domain"
+      },
+      {
+        :topic => :configure,
         :text => t("admin.communities.new_layout.new_layout"),
         :icon_class => icon_class("layout"),
         :path => admin_new_layout_path,

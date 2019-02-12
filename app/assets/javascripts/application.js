@@ -77,6 +77,7 @@
 //= require admin/payment_preferences.js
 //= require admin/transactions.js
 //= require admin/testimonials.js
+//= require admin/domains.js
 //= require payment_math
 //= require dropdown
 //= require jquery.nouislider

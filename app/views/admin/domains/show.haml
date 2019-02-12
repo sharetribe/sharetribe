@@ -1,0 +1,51 @@
+- content_for :javascript do
+  ST.Domains.init();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.domain.domain")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  - if @presenter.domain_disabled?
+    .row
+      .col-12
+        .alert-box-warning
+          %p
+            %span.alert-box-icon
+              = icon_tag("alert", ["icon-fix"])
+            %span
+              = t("admin.communities.domain.offer_pro", upgrade_pro_plan_link: link_to(t("admin.communities.footer.upgrade_plan_link"), admin_plan_path)).html_safe
+
+  %h2= t("admin.communities.domain.marketplace_domain")
+
+  - if @presenter.domain_disabled?
+    %p.marketplace-address-is
+      = t("admin.communities.domain.your_marketplace_address_is",
+        address: @presenter.domain_address)
+
+    %p
+      - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
+      = t("admin.communities.domain.would_you_like_to_change_address", contact_us: link).html_safe
+
+  - elsif @presenter.domain_possible?
+    %p.marketplace-address-is
+      = t("admin.communities.domain.your_marketplace_address_is",
+        address: @presenter.domain_address)
+
+    %p
+      - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
+      = t("admin.communities.domain.you_can_now_use_a_custom_domain", contact_us: link).html_safe
+
+  - elsif @presenter.domain_used?
+    %p.marketplace-address-is
+      = t("admin.communities.domain.your_marketplace_address_is",
+        address: @presenter.domain_address)
+
+    %p
+      - link = link_to t("admin.communities.domain.contact_us"), '#', 'show-intercom': true
+      = t("admin.communities.domain.would_you_like_to_change_domain", contact_us: link).html_safe
+

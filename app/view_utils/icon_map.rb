@@ -166,6 +166,7 @@ ICON_MAP = {
       "picture" => "ss-picture",
       "footer_menu" => "ss-downloadbox",
       "invitations" => "ss-adduser",
+      "domain" => "ss-globe",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -281,5 +282,6 @@ ICON_MAP = {
       "footer_menu" => "icon-download-alt",
       "invitations" => "icon-random",
       "plus" => "icon-plus",
+      "domain" => "icon-globe",
     }
   }
