@@ -543,6 +543,16 @@ fi:
         social:
           title: Otsikko
           url: URL
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -1750,7 +1760,7 @@ fi:
       automatically_logged_out_please_sign_in: "Sinut kirjattiin ulos automaattisesti. Kirjaudu uudelleen sisään."
       stripe_you_account_balance_is_not_0: "Tilisi saldo ei ole 0, joten sitä ei voi poistaa. Tämä saattaa tarkoittaa sitä, että sinulla on ostotapahtumia, joita ei ole vielä saatettu loppuun, tai että tililläsi on rahaa, jota ei ole vielä siirretty pankkitilillesi. Ole hyvä ja ota yhteyttä %{service_name} -tiimiin saadaksesi lisätietoja."
       visit_admin: "Haluaisitko %{link}?"
-      visit_admin_link: "siirtyä ylläpitonäkymään?"
+      visit_admin_link: "siirtyä ylläpitonäkymään"
     settings:
       account: "Tilin tiedot"
       notifications: Tiedotteet
@@ -2197,9 +2207,8 @@ fi:
       grade: "arvio:"
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
     profile_listings:
-      show_also_closed: "Näytä myös suljetut"
-      show_only_open: "Näytä vain avoimet"
       no_image: "Ei kuvaa"
+      manage_listings: ~
     show:
       contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"
@@ -2579,6 +2588,7 @@ fi:
       signup: Liity
       admin_dashboard: Ylläpitonäkymä
       language: Kieli
+      listings: ~
     utils:
       km: km
       mi: mi

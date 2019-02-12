@@ -538,6 +538,16 @@ zh-TW:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "編輯刊登名稱“%{field_name}”"
@@ -2182,9 +2192,8 @@ zh-TW:
       grade: 評分：
       and_gave_following_feedback: 並且給出以下反饋
     profile_listings:
-      show_also_closed: 顯示所有
-      show_only_open: 僅顯示開放的
       no_image: 沒有圖片
+      manage_listings: ~
     show:
       contact: "聯絡%{person}"
       about_me: 關於我：
@@ -2555,6 +2564,7 @@ zh-TW:
       signup: 註冊
       admin_dashboard: 管理員控制台
       language: 語言
+      listings: ~
     utils:
       km: 公里
       mi: 英里

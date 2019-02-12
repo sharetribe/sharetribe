@@ -543,6 +543,16 @@ de:
         social:
           title: Titel
           url: URL
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Eintragsfeld '%{field_name}' bearbeiten"
@@ -1249,7 +1259,7 @@ de:
       you_will_get: "Du wirst erhalten:"
     receipt_to_payer:
       receipt_of_payment: Zahlungsbestätigung
-      you_have_made_new_payment: "Du hast %{payment_sum} bezahlt für %{listing_title} an %{recipient_full_name}. Hier ist ein Beleg Deiner Zahlung."
+      you_have_made_new_payment: "Du hast <b>%{payment_sum}</b> bezahlt für <b>%{listing_title}</b> an %{recipient_full_name}. Hier ist ein Beleg deiner Zahlung."
       product: Produkt
       price_per_unit_type: "Preis pro %{unit_type}"
       duration: Dauer
@@ -2197,9 +2207,8 @@ de:
       grade: "Note:"
       and_gave_following_feedback: "und gab das folgende Feedback"
     profile_listings:
-      show_also_closed: "Auch pausierte Angebote anzeigen"
-      show_only_open: "Nur aktive Angebote anzeigen"
       no_image: "Kein Bild"
+      manage_listings: ~
     show:
       contact: "%{person} kontaktieren"
       about_me: "Über mich:"
@@ -2579,6 +2588,7 @@ de:
       signup: Registrieren
       admin_dashboard: "Administrator Dashboard"
       language: Sprache
+      listings: ~
     utils:
       km: km
       mi: Meilen

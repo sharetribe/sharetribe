@@ -545,6 +545,16 @@ nl:
         social:
           title: Titel
           url: URL
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -2200,9 +2210,8 @@ nl:
       grade: "cijfer:"
       and_gave_following_feedback: "en gaf de volgende feedback"
     profile_listings:
-      show_also_closed: "Laat ook gesloten zien"
-      show_only_open: "Laat alleen open zien"
       no_image: "Geen afbeelding"
+      manage_listings: ~
     show:
       contact: "Contacteer %{person}"
       about_me: "Over mij:"
@@ -2582,6 +2591,7 @@ nl:
       signup: "Schrijf je in"
       admin_dashboard: "Beheerder dashboard"
       language: Taal
+      listings: ~
     utils:
       km: km
       mi: mi.

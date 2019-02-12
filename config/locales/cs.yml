@@ -548,6 +548,16 @@ cs:
         social:
           title: Nadpis
           url: URL
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Upravit pole inzerát %{field_name}"
@@ -2202,9 +2212,8 @@ cs:
       grade: "známka:"
       and_gave_following_feedback: "a byla poskytnuta následující zpětná vazba"
     profile_listings:
-      show_also_closed: "Zobrazit pouze uzavřené inzeráty"
-      show_only_open: "Zobrazit pouze otevřené inzeráty"
       no_image: "Žádný obrázek"
+      manage_listings: ~
     show:
       contact: "Kontaktovat uživatele %{person}"
       about_me: "O mně:"
@@ -2593,6 +2602,7 @@ cs:
       signup: Registrace
       admin_dashboard: "Administrátorský panel"
       language: Jazyk
+      listings: ~
     utils:
       km: km
       mi: míle

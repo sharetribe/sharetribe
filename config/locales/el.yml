@@ -528,6 +528,16 @@ el:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2158,9 +2168,8 @@ el:
       grade: "βαθμός:"
       and_gave_following_feedback: "και έδωσε αυτή την κριτική"
     profile_listings:
-      show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
-      show_only_open: "Εμφάνισε μόνο ενεργές καταχωρήσεις"
       no_image: "Δεν επιλέχθηκε εικόνα"
+      manage_listings: ~
     show:
       contact: "Επικοινωνήστε μαζί του/της"
       about_me: "Περιγραφή:"
@@ -2515,6 +2524,7 @@ el:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~

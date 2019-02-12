@@ -538,6 +538,16 @@ vi:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Chỉnh sửa trường liệt kê %{field_name}"
@@ -2182,9 +2192,8 @@ vi:
       grade: "xếp loại:"
       and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
     profile_listings:
-      show_also_closed: "Hiển thị cả những bài đăng đang đóng"
-      show_only_open: "Chỉ hiển thị mở"
       no_image: "Không có hình ảnh"
+      manage_listings: ~
     show:
       contact: "Liên hệ %{person}"
       about_me: "Về tôi:"
@@ -2551,6 +2560,7 @@ vi:
       signup: "Đăng ký"
       admin_dashboard: "Bảng điều khiển quản trị"
       language: "Ngôn ngữ"
+      listings: ~
     utils:
       km: km
       mi: mi

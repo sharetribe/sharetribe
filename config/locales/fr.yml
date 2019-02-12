@@ -543,6 +543,16 @@ fr:
         social:
           title: Titre
           url: URL
+      domain:
+        domain: Domaine
+        marketplace_domain: "Domaine de la place de marché"
+        offer_pro: "Configurez votre propre domaine en %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "vous abonnant à l'offre Pro ou supérieure"
+        your_marketplace_address_is: "L'adresse de votre place de marché est : %{address}"
+        would_you_like_to_change_address: "Souhaitez-vous modifier l'adresse de votre place de marché ? %{contact_us} !"
+        contact_us: Contactez-nous
+        you_can_now_use_a_custom_domain: "Avec votre offre actuelle, vous pouvez dès à présent utiliser votre propre domaine. Configurons le ensemble. %{contact_us} !"
+        would_you_like_to_change_domain: "Souhaitez-vous modifier le domaine de votre place de marché ? %{contact_us} !"
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -2197,9 +2207,8 @@ fr:
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
     profile_listings:
-      show_also_closed: "Voir également les offres et demandes closes"
-      show_only_open: "Voir uniquement les offres et demandes en cours"
       no_image: "Aucune image"
+      manage_listings: "Gérer toutes mes annonces"
     show:
       contact: "Contacter %{person}"
       about_me: "A propos de moi : "
@@ -2579,6 +2588,7 @@ fr:
       signup: S'inscrire
       admin_dashboard: "Panneau d'administration"
       language: Langue
+      listings: "Mes annonces"
     utils:
       km: km
       mi: mi

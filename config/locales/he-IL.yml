@@ -534,6 +534,16 @@ he-IL:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "ערוך את ‎%{field_name}‎"
@@ -2166,9 +2176,8 @@ he-IL:
       grade: "ציון:"
       and_gave_following_feedback: "ונתן את המשוב הבא"
     profile_listings:
-      show_also_closed: "הצג שירותים לא פעילים"
-      show_only_open: "הצג שירותים פעילים בלבד"
       no_image: "אין תמונה"
+      manage_listings: ~
     show:
       contact: "‎%{person}‎ שלח/י הודעה ל‎"
       about_me: "קצת עלי:"
@@ -2530,6 +2539,7 @@ he-IL:
       signup: "הרשמו עכשיו"
       admin_dashboard: "ניהול אדמיין"
       language: שפה
+      listings: ~
     utils:
       km: ~
       mi: ~

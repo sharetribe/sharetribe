@@ -528,6 +528,16 @@ es-CL:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2165,9 +2175,8 @@ es-CL:
       grade: "puntaje:"
       and_gave_following_feedback: "Feedbacks dados"
     profile_listings:
-      show_also_closed: "Mostrar los cerrados"
-      show_only_open: "Mostrar los abiertos"
       no_image: "Sin imagen"
+      manage_listings: ~
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
@@ -2522,6 +2531,7 @@ es-CL:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~

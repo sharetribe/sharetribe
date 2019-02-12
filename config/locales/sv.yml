@@ -543,6 +543,16 @@ sv:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -2199,9 +2209,8 @@ sv:
       grade: "betyg:"
       and_gave_following_feedback: "och gav följande feedback"
     profile_listings:
-      show_also_closed: "Visa avslutade också"
-      show_only_open: "Visa bara öppnade"
       no_image: "Ingen bild"
+      manage_listings: ~
     show:
       contact: "Kontakta %{person}"
       about_me: "Om mig:"
@@ -2581,6 +2590,7 @@ sv:
       signup: "Gå med"
       admin_dashboard: "Admin panel"
       language: Språk
+      listings: ~
     utils:
       km: km
       mi: ml

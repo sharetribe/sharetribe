@@ -538,6 +538,16 @@ zh:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "编辑信息字段“%{field_name}”"
@@ -2178,9 +2188,8 @@ zh:
       grade: 评分：
       and_gave_following_feedback: 并且给出以下反馈
     profile_listings:
-      show_also_closed: 显示已关闭的
-      show_only_open: 仅显示开放的
       no_image: 没有图片
+      manage_listings: ~
     show:
       contact: "联系%{person}"
       about_me: 关于我：
@@ -2543,6 +2552,7 @@ zh:
       signup: 注册
       admin_dashboard: 管理员空间
       language: 语言
+      listings: ~
     utils:
       km: ~
       mi: ~

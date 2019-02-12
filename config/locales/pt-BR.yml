@@ -543,6 +543,16 @@ pt-BR:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Alterar anúncio '%{field_name}'"
@@ -2193,9 +2203,8 @@ pt-BR:
       grade: "nota :"
       and_gave_following_feedback: "deu a opinião seguinte"
     profile_listings:
-      show_also_closed: "Mostar também anúncios invisíveis"
-      show_only_open: "Exibir apenas os abertos"
       no_image: "Sem imagem"
+      manage_listings: ~
     show:
       contact: "Contate %{person}"
       about_me: "Sobre mim:"
@@ -2569,6 +2578,7 @@ pt-BR:
       signup: "Criar conta"
       admin_dashboard: "Painel de administração"
       language: Idioma
+      listings: ~
     utils:
       km: km
       mi: mi

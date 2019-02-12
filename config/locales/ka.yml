@@ -538,6 +538,16 @@ ka:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "დაარედაქტირე ჩამონათვალის დარგი %{field_name}"
@@ -2180,9 +2190,8 @@ ka:
       grade: "შეფასება:"
       and_gave_following_feedback: "და მისცა შემდეგი შეფასება"
     profile_listings:
-      show_also_closed: "აჩვენე ასევე დახურულები"
-      show_only_open: "აჩვენე მხოლოდ ღია"
       no_image: "არ არის სურათი"
+      manage_listings: ~
     show:
       contact: "დაეკონტაქტე %{person}ს"
       about_me: "ჩემ შესახებ:"
@@ -2549,6 +2558,7 @@ ka:
       signup: დარეგისტრირება
       admin_dashboard: "ადმინისტრატორის პანელი"
       language: ენა
+      listings: ~
     utils:
       km: კილომეტრი
       mi: მილი

@@ -543,6 +543,16 @@ da-DK:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annoncefelt '%{field_name}'"
@@ -2191,9 +2201,8 @@ da-DK:
       grade: "klasse:"
       and_gave_following_feedback: "og gav følgende feedback"
     profile_listings:
-      show_also_closed: "Vis lukkede annoncer"
-      show_only_open: "Vis kun åbne annoncer"
       no_image: "Intet billede"
+      manage_listings: ~
     show:
       contact: "Kontakt %{person}"
       about_me: "Om mig:"
@@ -2573,6 +2582,7 @@ da-DK:
       signup: Tilmeld
       admin_dashboard: "Admin panel"
       language: Sprog
+      listings: ~
     utils:
       km: km
       mi: mi

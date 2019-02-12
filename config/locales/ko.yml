@@ -538,6 +538,16 @@ ko:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "항목 '%{field_name}' 편집"
@@ -2187,9 +2197,8 @@ ko:
       grade: "등급:"
       and_gave_following_feedback: "그리고 다음과 같은 피드백을 주었다."
     profile_listings:
-      show_also_closed: "또한 폐쇄되어졌다고 보여줍니다"
-      show_only_open: "단지 개방되어졌다고 보여줍니다"
       no_image: "이미지가 없음"
+      manage_listings: ~
     show:
       contact: "연락처 %{person}"
       about_me: "내 소개:"
@@ -2560,6 +2569,7 @@ ko:
       signup: 가입하기
       admin_dashboard: "관리 대시보드"
       language: 언어
+      listings: ~
     utils:
       km: 킬로미터
       mi: mi

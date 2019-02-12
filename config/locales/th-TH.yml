@@ -538,6 +538,16 @@ th-TH:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "แก้ไขข้อมูลรายการ '%{field_name}'"
@@ -2177,9 +2187,8 @@ th-TH:
       grade: "เกรด:"
       and_gave_following_feedback: และให้ข้อเสนอแนะดังต่อไปนี้
     profile_listings:
-      show_also_closed: โชว์ประกาศที่ปิดไปแล้วด้วย
-      show_only_open: แสดงเฉพาะที่เปิด
       no_image: ไม่มีรูปภาพ
+      manage_listings: ~
     show:
       contact: "ติดต่อ%{person}"
       about_me: "เกี่ยวกับฉัน:"
@@ -2358,7 +2367,7 @@ th-TH:
       you_can_view_the_new_terms: คุณสามารถดูเงื่อนไขใหม่
       you_need_to_accept: "ยินดีต้อนรับสู่ %{service_name}! น่าจะเป็นครั้งแรกที่คุณใช้บริการของเรา ก่อนที่จะเริ่ม คุณจะต้องยอมรับ"
       you_need_to_accept_new_terms: |-
-          เงื่อนไขในการใช้งานใน %{service_name} ได้ถูกเปลี่ยนแปลง
+          เงื่อนไขในการใช้งานใน %{service_name} ได้ถูกเปลี่ยนแปลง 
           คุณต้องยอมรับเงื่อนไขใหม่เพื่อที่จะใช้ %{service_name} ต่อไป เงื่อนไขใหม่มีวัตถุประสงค์เพื่อช่วยให้มีการดำเนินการให้บริการ หลังการโครงการวิจัยได้สิ้นสุดลง
   testimonials:
     index:
@@ -2544,6 +2553,7 @@ th-TH:
       signup: สมัครสมาชิก
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2552,20 +2562,10 @@ th-TH:
       create_own: ~
       learn_more: ~
   will_paginate:
-    models:
-      person:
-        zero: ~
-        other: ~
     previous_label: "&#8592; ก่อนหน้านี้"
     next_label: "ถัดไป &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      single_page:
-        zero: "ไม่พบ  %{model}"
-        other: "กำลังแสดง %{count} %{model} "
-      single_page_html:
-        zero: "ไม่พบ %{model} "
-        other: "กำลังแสดง <b>1</b> %{model}"
       multi_page: "กำลังแสดง %{model} %{from} - %{to} จาก %{count} ของทั้งหมด"
       multi_page_html: "กำลังแสดง %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> จาก <b>%{count}</b> ของทั้งหมด"
     person:

@@ -548,6 +548,16 @@ ro:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Editați câmpul %{field_name}"
@@ -2183,9 +2193,8 @@ ro:
       grade: "nota:"
       and_gave_following_feedback: "și a oferit următorul feedback"
     profile_listings:
-      show_also_closed: "Arata si anunturile nevalabile"
-      show_only_open: "Arata doar anunturile valabile"
       no_image: "Fără imagine"
+      manage_listings: "Administreaza toate listarile mele"
     show:
       contact: "Contact %{person}"
       about_me: "Despre mine:"
@@ -2550,6 +2559,7 @@ ro:
       signup: "Cont nou"
       admin_dashboard: "Tablou administrativ"
       language: Limba
+      listings: "Listarile mele"
     utils:
       km: ~
       mi: ~

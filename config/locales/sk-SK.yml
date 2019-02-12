@@ -548,6 +548,16 @@ sk-SK:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Upraviť pole inzerátu '%{field_name}'"
@@ -2204,9 +2214,8 @@ sk-SK:
       grade: "stupeň:"
       and_gave_following_feedback: "a poskytnite spätnú väzbu"
     profile_listings:
-      show_also_closed: "Zobraz aj uzavreté"
-      show_only_open: "Zobraz iba otvorené"
       no_image: "Žiadny obrázok"
+      manage_listings: ~
     show:
       contact: "Kontaktovať užívateľa %{person}"
       about_me: "O mne:"
@@ -2587,6 +2596,7 @@ sk-SK:
       signup: "Zaregistrovať sa"
       admin_dashboard: "Konzola správcu"
       language: Jazyk
+      listings: ~
     utils:
       km: km
       mi: míl

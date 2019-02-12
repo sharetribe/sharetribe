@@ -528,6 +528,16 @@ az-AZ:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2160,9 +2170,8 @@ az-AZ:
       grade: "qiymətləndirmə:"
       and_gave_following_feedback: "və aşağıdakı geribildirim verdi."
     profile_listings:
-      show_also_closed: "Bağlı elanları də göstər"
-      show_only_open: "Yalnız açıq elanları göstər"
       no_image: "Şəkil yoxdur"
+      manage_listings: ~
     show:
       contact: "%{person} ilə əlaqə saxla"
       about_me: "Mənim haqqımda:"
@@ -2533,6 +2542,7 @@ az-AZ:
       signup: "Qeydiyyatdan keç"
       admin_dashboard: "Admin paneli"
       language: Dil
+      listings: ~
     utils:
       km: km
       mi: mi

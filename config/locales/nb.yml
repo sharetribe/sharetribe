@@ -543,6 +543,16 @@ nb:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediger annonse felt'%{field_name}'"
@@ -2193,9 +2203,8 @@ nb:
       grade: "karakter:"
       and_gave_following_feedback: "og gav følgende tilbakemelding"
     profile_listings:
-      show_also_closed: "Vis også lukkede"
-      show_only_open: "Vis kun åpne"
       no_image: "Uten bilder"
+      manage_listings: ~
     show:
       contact: "Kontakt %{person}"
       about_me: "Om meg:"
@@ -2569,6 +2578,7 @@ nb:
       signup: "Registrer deg"
       admin_dashboard: Administrasjonspanel
       language: Språk
+      listings: ~
     utils:
       km: km
       mi: miles

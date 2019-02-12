@@ -544,6 +544,16 @@ hu:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Mező szerkesztése %{field_name}"
@@ -2195,9 +2205,8 @@ hu:
       grade: "fokozat:"
       and_gave_following_feedback: "és következő értékelést adta"
     profile_listings:
-      show_also_closed: "Mutassa a lezártakat is"
-      show_only_open: "Mutassa csak a nyitottakat"
       no_image: "Nincs kép"
+      manage_listings: ~
     show:
       contact: "Lépjen kapcsolatba ezzel a személlyel: %{person}"
       about_me: "Rólam:"
@@ -2564,6 +2573,7 @@ hu:
       signup: Regisztráció
       admin_dashboard: "Rendszergazda kezelőpult"
       language: Nyelv
+      listings: ~
     utils:
       km: km
       mi: mérföld

@@ -553,6 +553,16 @@ ru:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Редактировать поле публикации \"%{field_name}\""
@@ -2211,9 +2221,8 @@ ru:
       grade: "Оценка:"
       and_gave_following_feedback: "и оставил отзыв"
     profile_listings:
-      show_also_closed: "Показывать закрытые"
-      show_only_open: "Показывать только открытые"
       no_image: "Нет изображения"
+      manage_listings: ~
     show:
       contact: "Связаться с %{person}"
       about_me: "Обо мне:"
@@ -2601,6 +2610,7 @@ ru:
       signup: Регистрация
       admin_dashboard: "Панель администратора"
       language: Язык
+      listings: ~
     utils:
       km: км
       mi: миль

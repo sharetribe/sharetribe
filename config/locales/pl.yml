@@ -553,6 +553,16 @@ pl:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Edytuje pole %{field_name} oferty"
@@ -2213,9 +2223,8 @@ pl:
       grade: "stopień:"
       and_gave_following_feedback: "oraz daj następującą opinię"
     profile_listings:
-      show_also_closed: "Pokaż także zamknięte"
-      show_only_open: "Pokaż tylko otwarte"
       no_image: "Brak zdjęcia"
+      manage_listings: ~
     show:
       contact: "Skontaktuj się z %{person}"
       about_me: "O mnie:"
@@ -2603,6 +2612,7 @@ pl:
       signup: "Zarejestruj się"
       admin_dashboard: "Panel administracyjny"
       language: Język
+      listings: ~
     utils:
       km: km
       mi: mi

@@ -540,6 +540,16 @@ lv:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Rediģēt sludinājuma lauku '%{field_name}'"
@@ -2176,9 +2186,8 @@ lv:
       grade: "vērtējums:"
       and_gave_following_feedback: "un sniedza tālāk norādītās atsauksmes"
     profile_listings:
-      show_also_closed: "Parādīt arī slēgtos"
-      show_only_open: "Rādīt tikai aktīvus"
       no_image: "Nav attēla"
+      manage_listings: ~
     show:
       contact: "Sazināties ar %{person}"
       about_me: "Par mani:"
@@ -2559,6 +2568,7 @@ lv:
       signup: Reģistrēties
       admin_dashboard: "Administratora informācijas panelis"
       language: Valoda
+      listings: ~
     utils:
       km: km
       mi: mi

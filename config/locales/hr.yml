@@ -71,7 +71,7 @@ hr:
         default_language: "Zadan jezik"
         language_selection_disabled: "Odabir jezika nije omogućen za vaš marketplace jer koristite neslužbene jezike. %{languages}. Molimo kontaktirajte Sharetribe podršku ako želite izmijeniti jezične postavke."
         community_name: Naziv
-        edit_community_name_description: ~
+        edit_community_name_description: "Ime Vaše Zajednice/Tržišta. Ono će biti prikazano korisnicima u mail-ovima i raznim ostalim mjestima."
         community_slogan: slogan
         community_slogan_display: ~
         edit_community_slogan_description: ~
@@ -118,12 +118,14 @@ hr:
         new_listing_button_custom_color: "Postavite novu boju gumba za novi oglas"
         logo_instructions_text_with_dimensions: "Veličina loga bi trebala biti %{width} x %{height} pixela. Biti će prikazana korisnicima s većim ekranima."
         logo_instructions_text_with_dimensions_no_placing: "Veličina loga bi trebala biti %{width}x%{height} piksela."
-        logo_icon_instructions_text_with_dimensions: ~
+        logo_icon_instructions_text_with_dimensions: "Ovaj logo će biti prikazan kada korisnici podjele Vašu stranicu na facebooku,kada vide Vašu stranicu preko mobilnog uređaja ili kada spreme Vašu stranicu na početni zaslon. Dimenzije bi trebale biti %{width} x%{height} pixela"
         logo_icon_instructions_text_with_dimensions_no_placing: ~
         logo_mobile_icon_instructions_text_with_dimensions: ~
-        cover_photo_visibility: ~
+        cover_photo_visibility: |-
+            Naslovna fotografija biti će prikazana na početnoj stranici korisnicima koji nisu 
+            prijavljeni.
         cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini. %{see_how_it_looks_like}."
-        small_cover_photo_visibility: ~
+        small_cover_photo_visibility: "Umanjena naslovna fotografija biti će prikazana na svim stranicama osim na početnoj stranici za korisnike koji nisu prijavljeni."
         small_cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini."
         main_content_width: "Kada odabirete profilne fotografije molimo imajte na umu da glavni sadržaj stranice je najviše %{main_width} piksela širine. Zapamtite također provjeriti kako Vaša profilna fotografija izgleda na manjim zaslonima (npr. koristeći uži prozor preglednika)."
         custom_color1_instructions_text: "Možete promijeniti primarnu boju stranice unošenjem hex vrijednosti.  <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> Vam može pomoći u pronalasku hex vrijednosti boje. Nakon toga samo kopirajte kod"
@@ -549,6 +551,16 @@ hr:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Izmijeni oglasno polje '%{field_name}'"
@@ -1247,7 +1259,7 @@ hr:
       product: "Proizvod:"
       price_payer_paid: "Cijena %{payer_full_name} plaćena:"
       service_fee: "%{service_name} naknada za uslugu:"
-      you_will_get: ~
+      you_will_get: Ukupno
     receipt_to_payer:
       receipt_of_payment: "Potvrda uplate"
       you_have_made_new_payment: "Platili ste <b>%{payment_sum}</b> za <b>%{listing_title}</b> prema %{recipient_full_name}. Ovdje je potvrda uplate."
@@ -1484,8 +1496,8 @@ hr:
       private_listing_notification_log_in: "prijavi se"
       is: je
       are: su
-      what_do_you_need: "Što trebate?"
-      post_new_listing: "Napiši oglas!"
+      what_do_you_need: "Što tražite?"
+      post_new_listing: "Objavi novi oglas!"
       are_offering: ponuda
       add_news_item: "Dodaj članak"
       lend_rent_help_carpool: "Prodaj, posudi, pomozi, podijeli mjesto u autu"
@@ -1620,7 +1632,7 @@ hr:
       admin: Administrator
       go_to_your_profile_page: Profil
       hi: Pozdrav
-      login: ~
+      login: "prijavi se"
       logout: Odjava
       notifications: Obavijesti
       requests: "Zahtjevi za prijateljstvo"
@@ -1637,7 +1649,7 @@ hr:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Hvala što ste se pridružili %{service_name}. Molimo potvrdite Vašu email adresu."
       comment_cannot_be_empty: "Komentar ne može ostati prazan"
       comment_sent: "Komentar poslan"
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: "Link za potvrđivanje je Već iskorišten ili je istekao. Pokušajte se prijaviti, ili nas kontaktirajte ukoliko problem nije uklonjen"
       additional_email_confirmed: "Email koji ste upisali je sad potvrđen."
       could_not_get_email_from_facebook: "Nismo mogli zaprimiti email adresu od Facebooka te ne možemo kreirati korisnički račun bez emaila."
       facebook_email_unconfirmed: "Email adresa '%{email}' povezana sa vašim Facebook profilom se već koristi  ali još uvijek nije potvrđena. Molimo potvrdite email adresu prije prijave na Facebook."
@@ -1857,7 +1869,7 @@ hr:
         mass: "komadu, kg, l, m2, ..."
         time: "sat, dan, tjedan..."
         long_time: "tjedan, mjesec..."
-        after_service_fee_you_will_get: ~
+        after_service_fee_you_will_get: "Nakon provizije uzete od strane %{service_name}  i pružatelja usluga naplate Vaša dobit je %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} će biti oduzet od cijene"
         no_service_fee_you_will_get_payment_text: ~
         after_service_fee_you_will_get_payment_text: ~
@@ -2200,9 +2212,8 @@ hr:
       grade: "ocjena:"
       and_gave_following_feedback: "i dao je sljedeću povratnu informaciju"
     profile_listings:
-      show_also_closed: "Pokažite isto zatvoreno"
-      show_only_open: "Pokažite samo otvoreno"
       no_image: "Nema slike"
+      manage_listings: ~
     show:
       contact: "Kontaktirajte %{person}"
       about_me: "O meni:"
@@ -2252,7 +2263,7 @@ hr:
     new:
       create_new_account: "Kreirajte novi korisnički račun"
       i_forgot_my_password: "Zaboravljeno korisničko ime ili lozinka"
-      login: ~
+      login: Prijava
       login_to_kassi: "Prijavite se na %{service_name}"
       connect_your_facebook_to_kassi: "Pridružite Vaš Facebook korisnički račun sa %{service_name}."
       facebook_account: "Facebook korisnički račun:"
@@ -2463,8 +2474,8 @@ hr:
     format: mm/dd/gggg
   time:
     formats:
-      short: ~
-      shorter: ~
+      short: "%b %e, %Y at %H:%M"
+      shorter: "%b %e at %H:%M"
       short_date: ~
       hours_only: "%H:%M"
   timestamps:
@@ -2578,6 +2589,7 @@ hr:
       signup: Registracija
       admin_dashboard: "Administratorsko sučelje"
       language: Jezik
+      listings: ~
     utils:
       km: km
       mi: milja

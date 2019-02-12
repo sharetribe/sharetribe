@@ -538,6 +538,16 @@ ja:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "「%{field_name}」項目を編集する"
@@ -1561,7 +1571,7 @@ ja:
       join_this_community: マーケットプレイスに参加する
       read_more: もっと読む
       feedback: "%{service_name}運営チームへのメッセージ"
-      dont_use_to_contact_support: ~
+      dont_use_to_contact_support: "あなたは ％{SERVICE_NAME} の管理者です。このフォームはあなたのユーザーがあなたに連絡するために使うものです。このフォームを使用してSharetribeサポートに連絡することはできません。代わりに、管理パネルの右下にあるサポートウィジェットを使ってそれを行うことができます。"
       feedback_forum: レビューフォーラム
       feedback_handle: レビューを書く
       give_feedback: お問い合わせ
@@ -2184,9 +2194,8 @@ ja:
       grade: 評価：
       and_gave_following_feedback: 次のレビューを書く
     profile_listings:
-      show_also_closed: クローズ済のリストも表示
-      show_only_open: 現在進行のリストのみ表示
       no_image: 写真なし
+      manage_listings: ~
     show:
       contact: "%{person}さんに連絡する"
       about_me: 私について：
@@ -2551,6 +2560,7 @@ ja:
       signup: 新規登録
       admin_dashboard: 管理画面
       language: 言語
+      listings: ~
     utils:
       km: ~
       mi: ~

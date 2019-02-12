@@ -543,6 +543,16 @@ en-NZ:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -2197,9 +2207,8 @@ en-NZ:
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"
     profile_listings:
-      show_also_closed: "Show also closed"
-      show_only_open: "Show only open"
       no_image: "No image"
+      manage_listings: ~
     show:
       contact: "Contact %{person}"
       about_me: "About me:"
@@ -2573,6 +2582,7 @@ en-NZ:
       signup: "Sign up"
       admin_dashboard: "Admin dashboard"
       language: Language
+      listings: ~
     utils:
       km: km
       mi: mi

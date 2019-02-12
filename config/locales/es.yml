@@ -543,6 +543,16 @@ es:
         social:
           title: Título
           url: URL
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -2197,9 +2207,8 @@ es:
       grade: "puntaje:"
       and_gave_following_feedback: "e hizo los siguientes comentarios"
     profile_listings:
-      show_also_closed: "Mostrar anuncios desactivados"
-      show_only_open: "Mostrar anuncios activados"
       no_image: "Sin imagen"
+      manage_listings: ~
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
@@ -2579,6 +2588,7 @@ es:
       signup: Registrarse
       admin_dashboard: "Panel de administración"
       language: Idioma
+      listings: ~
     utils:
       km: km
       mi: mi

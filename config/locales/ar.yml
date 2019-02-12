@@ -528,6 +528,16 @@ ar:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "‎%{field_name}‎ تعديل حقل الإعلان"
@@ -2180,9 +2190,8 @@ ar:
       grade: "الدرجة:"
       and_gave_following_feedback: "وقام بإعطاء الرأي التالي"
     profile_listings:
-      show_also_closed: "أظهر أيضا المغلقة"
-      show_only_open: "أظهر فقط المفتوحة"
       no_image: "لا يوجد صورة"
+      manage_listings: ~
     show:
       contact: "‎%{person}‎ اتصل بـ"
       about_me: "تحدث عن نفسك:"
@@ -2570,6 +2579,7 @@ ar:
       signup: "إنشاء حساب"
       admin_dashboard: "لوحة التحكم"
       language: اللغة
+      listings: ~
     utils:
       km: كلم
       mi: ميل

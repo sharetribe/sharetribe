@@ -543,6 +543,16 @@ fr-CA:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Modifier le champ d'annonce '%{field_name}'"
@@ -2175,9 +2185,8 @@ fr-CA:
       grade: "note :"
       and_gave_following_feedback: "et a donné l'avis suivant"
     profile_listings:
-      show_also_closed: "Voir également les offres et demandes closes"
-      show_only_open: "Voir uniquement les offres et demandes en cours"
       no_image: "Aucune image"
+      manage_listings: ~
     show:
       contact: "Contacter %{person}"
       about_me: "A propos de moi : "
@@ -2532,6 +2541,7 @@ fr-CA:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~

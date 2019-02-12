@@ -528,6 +528,16 @@ bg:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2155,9 +2165,8 @@ bg:
       grade: "оценка:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: "Показване също е затворено"
-      show_only_open: ~
       no_image: ~
+      manage_listings: "Управление на моите обяви"
     show:
       contact: ~
       about_me: "За мен:"
@@ -2509,6 +2518,7 @@ bg:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: "Моите обяви"
     utils:
       km: ~
       mi: ~

@@ -528,6 +528,16 @@ it:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2164,9 +2174,8 @@ it:
       grade: "grado:"
       and_gave_following_feedback: "e dare il successivo feedback"
     profile_listings:
-      show_also_closed: "Mostra anche quelle chiuse"
-      show_only_open: "Mostra solo quelle attive"
       no_image: "Nessuna immagine"
+      manage_listings: ~
     show:
       contact: "contatta %{person}"
       about_me: "Su di me:"
@@ -2542,6 +2551,7 @@ it:
       signup: Registrati
       admin_dashboard: ~
       language: Lingua
+      listings: ~
     utils:
       km: km
       mi: miglia

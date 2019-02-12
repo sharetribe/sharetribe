@@ -528,6 +528,16 @@ ca:
         social:
           title: ~
           url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -2155,9 +2165,8 @@ ca:
       grade: "puntuació:"
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: "Mostra com tancada"
-      show_only_open: "Mostra com oberta"
       no_image: "No hi ha cap imatge"
+      manage_listings: ~
     show:
       contact: ~
       about_me: "Sobre mi:"
@@ -2509,6 +2518,7 @@ ca:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~
