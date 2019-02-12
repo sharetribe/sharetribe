@@ -28,7 +28,6 @@ describe OmniauthController, type: :controller do
 
   describe "#google_oauth2" do
     it 'creates and sign-in person if Google user login first time' do
-      enable_login_google_linkedin('google_oauth2', community)
       oauth_mock('google_oauth2')
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
       post :google_oauth2
@@ -46,7 +45,6 @@ describe OmniauthController, type: :controller do
 
   describe "#linkedin" do
     it 'creates and sign-in person if LinkedIn user login first time' do
-      enable_login_google_linkedin('linkedin', community)
       oauth_mock('linkedin')
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:linkedin]
       post :linkedin
@@ -64,7 +62,6 @@ describe OmniauthController, type: :controller do
 
   shared_examples_for 'multi-provider authentication' do
     it "sign in if provider uid fits for global admin" do
-      enable_login_google_linkedin(provider, community)
       person_global_admin_with_provider_id
       oauth_mock(provider, {uid: '123'})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
@@ -74,7 +71,6 @@ describe OmniauthController, type: :controller do
     end
 
     it 'sign in if provider email fits for global admin' do
-      enable_login_google_linkedin(provider, community)
       person_global_admin_with_provider_email
       oauth_mock(provider, {info: {email: 'global_admin@example.com'}})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
@@ -84,7 +80,6 @@ describe OmniauthController, type: :controller do
     end
 
     it 'sign in if provider uid fits for person' do
-      enable_login_google_linkedin(provider, community)
       person_with_provider_id
       oauth_mock(provider, {uid: '345'})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
@@ -94,7 +89,6 @@ describe OmniauthController, type: :controller do
     end
 
     it 'sign in if provider email fits for person' do
-      enable_login_google_linkedin(provider, community)
       person_with_provider_email
       oauth_mock(provider, {info: {email: 'alejandra@example.com'}})
       request.env['omniauth.auth'] = OmniAuth.config.mock_auth[provider.to_sym]
@@ -165,11 +159,5 @@ describe OmniauthController, type: :controller do
       person
     end
     it_behaves_like 'multi-provider authentication'
-  end
-
-  def enable_login_google_linkedin(provider, community)
-    if ['google_oauth2', 'linkedin'].include?(provider)
-      RequestStore.store[:feature_flags] = [:login_google_linkedin]
-    end
   end
 end

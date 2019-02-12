@@ -4,19 +4,11 @@ class OmniauthController < ApplicationController
   end
 
   def google_oauth2
-    if FeatureFlagHelper.feature_enabled?(:login_google_linkedin)
-      create_omniauth
-    else
-      head :unauthorized
-    end
+    create_omniauth
   end
 
   def linkedin
-    if FeatureFlagHelper.feature_enabled?(:login_google_linkedin)
-      create_omniauth
-    else
-      head :unauthorized
-    end
+    create_omniauth
   end
 
   # Omniauth setup phase hook, that is used to dynamically set up a omniauth strategy for provider on customer basis

@@ -2,7 +2,6 @@ Feature: LinkedIn connect
 
   Background:
     Given provider "linkedin" is mocked
-    Given community "test" has feature flag "login_google_linkedin" enabled
     Given community "test" has social network "linkedin" enabled
 
   @javascript

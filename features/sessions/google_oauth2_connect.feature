@@ -2,7 +2,6 @@ Feature: Google connect
 
   Background:
     Given provider "google_oauth2" is mocked
-    Given community "test" has feature flag "login_google_linkedin" enabled
     Given community "test" has social network "google_oauth2" enabled
 
   @javascript
