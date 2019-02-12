@@ -342,6 +342,7 @@ Rails.application.routes.draw do
         end
       end
       resource :plan, only: [:show]
+      resource :domain, only: [:show]
     end
 
     resources :invitations, only: [:new, :create ] do

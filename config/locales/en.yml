@@ -543,6 +543,16 @@ en:
         social:
           title: Title
           url: URL
+      domain:
+        domain: Domain
+        marketplace_domain: Marketplace Domain
+        offer_pro: Configure your own custom domain by %{upgrade_pro_plan_link}
+        upgrade_pro_plan_link: upgrading to the Pro plan or higher
+        your_marketplace_address_is: "Your marketplace address is: %{address}"
+        would_you_like_to_change_address: Would you like to change your marketplace address? %{contact_us}!
+        contact_us: Contact us
+        you_can_now_use_a_custom_domain: You can now use a custom domain. Let's move forward with the setup. %{contact_us}!
+        would_you_like_to_change_domain: Would you like to change your marketplace custom domain? %{contact_us}!
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
