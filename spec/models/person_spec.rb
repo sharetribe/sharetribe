@@ -251,4 +251,76 @@ describe Person, type: :model do
 
   end
 
+  describe "delete_person" do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:field1) do
+      FactoryGirl.create(:custom_numeric_field, community: community, entity_type: :for_person)
+    end
+    let(:person) do
+      person = FactoryGirl.create(:person, member_of: community,
+                                  display_name: 'Jack of All Trades',
+                                  facebook_id: '123',
+                                  google_oauth2_id: '345',
+                                  linkedin_id: '678',
+                                  phone_number: '1234567890',
+                                  description: 'What Goes Up Must Come Down',
+                                  current_sign_in_ip: '1.1.1.1',
+                                  last_sign_in_ip: '1.1.1.1',
+                                  image: StringIO.new(png_image)
+                                 )
+      person.emails << FactoryGirl.create(:email)
+      person.location = FactoryGirl.create(:location)
+      person.followers << FactoryGirl.create(:person, member_of: community)
+      person.followed_people << FactoryGirl.create(:person, member_of: community)
+      person.auth_tokens << FactoryGirl.create(:auth_token)
+      person.custom_field_values << FactoryGirl.create(:custom_numeric_field_value,
+                                                       question: field1,
+                                                       listing: nil,
+                                                       numeric_value: 77)
+      person
+    end
+
+    it 'works' do
+      expect(person.deleted).to eq false
+      expect(person.given_name.present?).to eq true
+      expect(person.family_name.present?).to eq true
+      expect(person.display_name.present?).to eq true
+      expect(person.phone_number.present?).to eq true
+      expect(person.description.present?).to eq true
+      expect(person.facebook_id.present?).to eq true
+      expect(person.username.present?).to eq true
+      expect(person.current_sign_in_ip.present?).to eq true
+      expect(person.last_sign_in_ip.present?).to eq true
+      expect(person.google_oauth2_id.present?).to eq true
+      expect(person.linkedin_id.present?).to eq true
+      expect(person.encrypted_password.present?).to eq true
+      expect(person.location.present?).to eq true
+      expect(person.image.file?).to eq true
+      expect(person.emails.count).to be > 0
+      expect(person.followers.count).to be > 0
+      expect(person.followed_people.count).to be > 0
+      expect(person.custom_field_values.count).to be > 0
+      Person.delete_user(person.id)
+      person.reload
+      expect(person.deleted).to eq true
+      expect(person.given_name.blank?).to eq true
+      expect(person.family_name.blank?).to eq true
+      expect(person.display_name.blank?).to eq true
+      expect(person.phone_number.blank?).to eq true
+      expect(person.description.blank?).to eq true
+      expect(person.facebook_id.blank?).to eq true
+      expect(person.username).to match(/^deleted_/)
+      expect(person.current_sign_in_ip.blank?).to eq true
+      expect(person.last_sign_in_ip.blank?).to eq true
+      expect(person.google_oauth2_id.blank?).to eq true
+      expect(person.linkedin_id.blank?).to eq true
+      expect(person.encrypted_password.blank?).to eq true
+      expect(person.location.blank?).to eq true
+      expect(person.image.file?).to eq false
+      expect(person.emails.count).to eq 0
+      expect(person.followers.count).to eq 0
+      expect(person.followed_people.count).to eq 0
+      expect(person.custom_field_values.count).to eq 0
+    end
+  end
 end

@@ -18,6 +18,8 @@ module DeletePerson
             description: nil,
             email: nil,
             facebook_id: nil,
+            google_oauth2_id: nil,
+            linkedin_id: nil,
             username: "deleted_#{SecureRandom.hex(5)}",
             current_sign_in_ip: nil,
             last_sign_in_ip: nil,
