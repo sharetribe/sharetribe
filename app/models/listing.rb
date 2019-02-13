@@ -48,6 +48,7 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
+#  approval                        :integer          default("approved")
 #
 # Indexes
 #
@@ -124,7 +125,14 @@ class Listing < ApplicationRecord
   scope :status_closed, -> { where(open: false) }
   scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
   scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
+  scope :currently_open, -> { status_open.approved.where(["valid_until IS NULL OR valid_until > ?", DateTime.now]) }
 
+  APPROVALS = {
+    APPROVED = 'approved'.freeze => 0,
+    APPROVAL_PENDING = 'approval_pending'.freeze => 1,
+    APPROVAL_REJECTED = 'approval_rejected'.freeze => 2
+  }
+  enum approval: APPROVALS
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
@@ -164,18 +172,6 @@ class Listing < ApplicationRecord
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-
-  def self.currently_open(status="open")
-    status = "open" if status.blank?
-    case status
-    when "all"
-      where([])
-    when "open"
-      where(["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now])
-    when "closed"
-      where(["open = '0' OR (valid_until IS NOT NULL AND valid_until < ?)", DateTime.now])
-    end
-  end
 
   def visible_to?(current_user, current_community)
     # DEPRECATED
