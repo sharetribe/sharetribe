@@ -20,17 +20,6 @@ describe Admin::CommunitiesController, type: :controller do
     end
   end
 
-  describe "#update_settings" do
-    it "should allow changing 'private'" do
-      update_community_with(:update_settings, private: true)
-    end
-
-    it "should not allow changes to a different community" do
-      attempt_to_update_different_community_with(:update_settings, private: true)
-    end
-
-  end
-
   describe "#update_look_and_feel" do
     it "should allow changing custom_color1" do
       update_community_with(:update_look_and_feel, custom_color1: "8C1515")
