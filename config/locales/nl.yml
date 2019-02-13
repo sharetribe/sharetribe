@@ -12,7 +12,7 @@ nl:
       index:
         listing_categories: "Advertentie categorieën"
         create_a_new_category: "+ Nieuwe categorie toevoegen"
-        remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wil verwijderen?"
+        remove_category_confirmation: "Weet je zeker dat je de categorie '%{category_name}' wil verwijderen? Dit kan niet ongedaan worden gemaakt."
         saving_order: "Opslaan volgorde categorieën"
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
         save_order_error: "Fout tijdens het opslaan van de volgorde van de categorieën. Vernieuw de pagina en probeer opnieuw."
@@ -104,7 +104,7 @@ nl:
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
         favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
-        community_custom_color1: Hoofdkleur
+        community_custom_color1: "Marktplaats hoofdkleur"
         community_slogan_color: "Kleur marktplaats slogan"
         community_slogan_color_instructions_text: "Je kunt de kleur van de slogan op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waar te vinden. Die vul je vervolgens hier in. %{see_how_it_looks_like}"
         community_description_color: "Kleur marktplaats beschrijving"
@@ -120,7 +120,7 @@ nl:
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
         new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen. Je kunt de code dan hier kopieren."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de advertenties standaard weergegeven worden."
@@ -301,7 +301,7 @@ nl:
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
       social_media:
         social_media: "Sociale media"
-        logo: Logo
+        logo: "Sociale media afbeelding"
         logo_info: "Deze afbeelding verschijnt in sociale media (Facebook, Twitter, LinkedIn) wanneer iemand jouw website deelt. Voor het beste resultaat dient het een beeldverhouding van 2:1 te hebben en een minimum grootte van %{width}x%{height} pixels."
         social_media_title: "Sociale media titel"
         social_media_title_info: "Deze tekst wordt getoond in sociale media voor Facebook, Twitter en LinkedIn als iemand je website deelt. Je kunt kijken hoe het eruitziet %{facebook_preview_link}, %{twitter_preview_link} en %{linkedin_preview_link}."
@@ -315,10 +315,10 @@ nl:
         twitter_instructions_link_text: "Lees meer"
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
         facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
-        facebook_instructions_link_text: "Zie instructies om Facebook Connect te configureren."
+        facebook_instructions_link_text: "Zie instructies om Facebook Login te configureren."
         facebook_connect_id: "Facebook client ID"
         invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
         facebook_connect_secret: "Facebook client geheim"
@@ -326,20 +326,20 @@ nl:
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
         add_another_image: "Voeg nog een afbeelding toe"
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
+        google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
+        google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe."
+        enable_google_login: "Sta gebruikers toe om in te loggen met hun Google account"
+        google_connect_id: "Google client id"
+        google_connect_secret: "Google client secret"
+        linkedin_connect: "LinkedIn Sign in"
+        linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In"
+        linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
+        linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
+        enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
+        linkedin_connect_id: "LinkedIn client id"
+        linkedin_connect_secret: "LinkedIn client secret"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -357,12 +357,12 @@ nl:
         url: URL
         placeholder: "https://www.voorbeeld.com"
       menu_links:
-        menu_links: "Menu koppelingen"
+        menu_links: "Zelfgemaakte menu links"
         menu_links_display: "Menu links weergave"
         save: "Instellingen opslaan"
         add_menu_link: "Voeg een nieuwe koppeling toe aan menu"
         title_placeholder: "Titel koppeling"
-        url_placeholder: "http://example.com/en"
+        url_placeholder: "http://voorbeeld.nl"
         title: Titel
         language: Taal
         url: URL
@@ -560,15 +560,15 @@ nl:
           title: Titel
           url: URL
       domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        domain: Domein
+        marketplace_domain: "Marktplaats domein"
+        offer_pro: "Configureer je eigen domein door %{upgrade_pro_plan_link}"
+        upgrade_pro_plan_link: "te upgraden naar een Pro plan of hoger"
+        your_marketplace_address_is: "Je martkplaatsadres is: %{address}"
+        would_you_like_to_change_address: "Wil je je marktplaatsadres veranderen? %{contact_us}"
+        contact_us: "Neem contact op met ons"
+        you_can_now_use_a_custom_domain: "Met je huidige plan kun je nu een eigen domein instellen. Om verder te gaan met de setup: %{contact_us}!"
+        would_you_like_to_change_domain: "Wil je je eigen marktplaats domein veranderen? %{contact_us}!"
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -596,7 +596,7 @@ nl:
         listing_fields: "Advertentie velden en filters"
         listing_fields_help: "Hier kan je de velden aanpassen die gebruikers moeten invullen wanneer ze een nieuwe advertentie aanmaken. Merk op dat sommige velden gepredefinieerd zijn en niet gewijzigd kunnen worden."
         add_new_field: "Voeg een nieuw veld toe:"
-        remove_field_confirmation: "Weet u zeker dat u het veld '%{field_name}' wilt verwijderen?"
+        remove_field_confirmation: "Weet je zeker dat je het veld '%{field_name}' en alle bijbehorende data wilt verwijderen? Dit kan niet ongedaan worden gemaakt."
         cancel: Annuleer
         save: Opslaan
         field_title: "Veld titel"
@@ -1456,7 +1456,7 @@ nl:
     create_new_marketplace: "Maak een nieuwe marktplaats"
     contact_us: "Neem contact op"
     profile: Profiel
-    manage_listings: "Beheer advertenties"
+    manage_listings: "Mijn advertenties"
     invite: "Nodig nieuwe leden uit"
     login: "Log in"
     signup: Registreer
@@ -1665,8 +1665,8 @@ nl:
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: "De bevestigingslink is al gebruikt of is niet geldig. Probeer in te loggen en neem contact met ons op als het probleem zich blijft voordoen."
       additional_email_confirmed: "Het e-mail adres dat je hebt ingegeven is nu bevestigd."
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      could_not_get_email_from_social_network: "Het was niet mogelijk om het emailadres van %{provider} te krijgen en kan geen account creeeren zonder email."
+      social_network_email_unconfirmed: "Het emailadres '%{email}' gekoppeld met je %{provider} account is al in gebruik, maar nog niet bevestigd. Gelieve het emailadres te bevestigen alvorens in te loggen met %{provider}."
       create_new_listing: "Een andere advertentie aanmaken"
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
@@ -1786,8 +1786,8 @@ nl:
       paypal_payments: "PayPal betalingen"
       stripe_payments: "Stripe betalingen"
       payments: Betalingen
-      listings: ~
-      listings_search_placeholder: ~
+      listings: Advertenties
+      listings_search_placeholder: "Zoek een advertentie op titel"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Je hebt geen toestemming om deze advertentie te bekijken."
@@ -2216,7 +2216,7 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn letters, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en het %{service_name} team"
       visible_to_everybody: "zichtbaar voor iedereen"
-      create_account_with_provider: ~
+      create_account_with_provider: "Schrijf je in met %{provider}"
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
       this_field_will_be_publicly_visible: "(Dit veld wordt publiekelijk zichtbaar)"
@@ -2225,7 +2225,7 @@ nl:
       and_gave_following_feedback: "en gaf de volgende feedback"
     profile_listings:
       no_image: "Geen afbeelding"
-      manage_listings: ~
+      manage_listings: "Beheer al mijn advertenties"
     show:
       contact: "Contacteer %{person}"
       about_me: "Over mij:"
@@ -2284,7 +2284,7 @@ nl:
       account_creation_link_text: "klik hier"
       cancle_facebook_connect: "Klik %{cancel_link} als u niet wilt linken met dit account."
       facebook_cancel_link_text: annuleer
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Log in met %{provider}"
       or_sign_up_with_your_username: "... of met uw gebruikersnaam of e-mail adres:"
       we_will_not_post_without_asking_you: "We zullen nooit iets op Facebook zetten zonder jouw toestemming."
     password_forgotten:
@@ -2598,14 +2598,14 @@ nl:
       user: Gebruiker
       inbox: Inbox
       profile: Profiel
-      manage_listings: "Beheer advertenties"
+      manage_listings: "Mijn advertenties"
       settings: Instellingen
       logout: "Log uit"
       login: "Log in"
       signup: "Schrijf je in"
       admin_dashboard: "Beheerder dashboard"
       language: Taal
-      listings: ~
+      listings: "Mijn advertenties"
     utils:
       km: km
       mi: mi.

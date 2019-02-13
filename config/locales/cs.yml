@@ -1665,8 +1665,8 @@ cs:
       comment_sent: "Komentář odeslán"
       confirmation_link_is_wrong_or_used: "Odkaz pro potvrzení je již použitý nebo poškozený. Zkuste se přihlásit nebo nám napsat v případě, že problém přetrvá."
       additional_email_confirmed: "Zadaný e-mail byl potvrzen."
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      could_not_get_email_from_social_network: "Nelze získat e-mailovou adresu z %{provider} a nemůžeme vytvořit účet bez e-mailu."
+      social_network_email_unconfirmed: "E-mailová adresa '%{email}' přidružená k vašemu účtu %{provider} je již použita, ale dosud nebyla potvrzena. Před přihlášením pomocí účtu %{provider} potvrďte e-mailovou adresu."
       create_new_listing: "Vytvořit další inzerát"
       create_one_here: "můžete ho vytvořit zde"
       email_confirmation_sent_to_new_address: "Potvrzení e-mailu bylo právě odesláno na novou adresu."
@@ -2218,7 +2218,7 @@ cs:
       username_is_invalid: "Uživatelské jméno je neplatné. Povolenými znaky jsou písmena, číslice a podtržítko."
       visible_only_to_you: "viditelné pouze pro Vás a pro správce tržiště"
       visible_to_everybody: "viditelné pro všechny"
-      create_account_with_provider: ~
+      create_account_with_provider: "Registrovat se s %{provider}"
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
       this_field_will_be_publicly_visible: "(Toto pole bude zveřejněno)"
@@ -2227,7 +2227,7 @@ cs:
       and_gave_following_feedback: "a byla poskytnuta následující zpětná vazba"
     profile_listings:
       no_image: "Žádný obrázek"
-      manage_listings: ~
+      manage_listings: "Spravovat všechny moje inzeráty"
     show:
       contact: "Kontaktovat uživatele %{person}"
       about_me: "O mně:"
@@ -2286,7 +2286,7 @@ cs:
       account_creation_link_text: "klikněte zde"
       cancle_facebook_connect: "Pokud nechcete propojit tento účet, klikněte na uvedený odkaz pro zrušení %{cancel_link}."
       facebook_cancel_link_text: zrušit
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Přihlásit se s %{provider}"
       or_sign_up_with_your_username: "...nebo pomocí Vašeho uživatelského jména či e-mailu:"
       we_will_not_post_without_asking_you: "Nikdy nebudeme přispívat na Facebook, aniž bychom se Vás zeptali."
     password_forgotten:
@@ -2616,7 +2616,7 @@ cs:
       signup: Registrace
       admin_dashboard: "Administrátorský panel"
       language: Jazyk
-      listings: ~
+      listings: "Moje inzeráty"
     utils:
       km: km
       mi: míle

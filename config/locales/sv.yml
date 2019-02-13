@@ -135,7 +135,7 @@ sv:
         invalid_color_code: "Färgkod bör innehålla 6 siffror eller bokstäver A-F t ex D96E21"
         custom_head_script: "Anpassat script"
         custom_head_script_instructions_text: "Detta script finns under <head> taggen för varje sida och kan användas för att lägga in anpassad CSS, Javascript eller HTML. Vänligen notera att framtida ändringar av Sharetribe kan göra ditt script inkomplett."
-        current_image: ~
+        current_image: "Nuvarande bild:"
       edit_text_instructions:
         edit_text_instructions: Instruktionstext
       edit_welcome_email:
@@ -371,9 +371,9 @@ sv:
         about_page: "\"om\" sidan"
       default_menu_links:
         title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
+        about_link_title: Om
+        contact_link_title: "Kontakta oss"
+        invite_link_title: "Bjud in nya användare"
         info: ~
         display_about: ~
         display_contact: ~
@@ -386,18 +386,18 @@ sv:
         export_all_as_csv: "Exportera alla som CSV"
         processing_export: "Bearbetar export till CSV"
         transactions: "Visa transaktioner"
-        search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search_by_title_parties: "Sök efter en transaktionstitel eller involverade parter"
+        search: Sök
+        reset_search: "Visa alla"
         status_filter:
-          all: ~
-          selected: ~
-          selected_js: ~
-          free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
-          preauthorized: ~
+          all: "Alla statusar"
+          selected: "Valda statusar: %{count}"
+          selected_js: "Valda statusar: "
+          free: "Gratis transaktion"
+          confirmed: Färdig
+          paid: Betald
+          canceled: Avbruten
+          preauthorized: Auktoriserad
           rejected: ~
         headers:
           conversation: Konversationstråd
@@ -456,17 +456,17 @@ sv:
           other_party: Motpart
         participants: "Konversation: %{starter} med %{author}"
         profile: "%{author}s profil"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search_by_keyword: "Sök efter namn, epost eller sökord"
+        search: Sök
+        reset_search: "Visa alla"
         for_keyword: ~
       testimonials:
         testimonials: "Visa recensioner"
         no_testimonials_found: ~
         displaying_xx_reviews: ~
-        search_keyword: ~
-        search: ~
-        reset_search: ~
+        search_keyword: "Sök efter namn, epost eller sökord"
+        search: Sök
+        reset_search: "Visa alla"
         for_keyword: ~
         headers:
           transaction: Transaktion
@@ -492,57 +492,57 @@ sv:
           selected_js: ~
         form:
           review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
+          save: Spara
+          cancel: Avbryt
+          delete_review: "Ta bort recension"
+          block_review: "Blockera recension"
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
       invitations:
-        invitations: ~
+        invitations: Inbjudningar
         used:
-          "yes": ~
-          "no": ~
+          "yes": Ja
+          "no": Nej
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Skickat av"
+          message: Meddelande
+          sent_to: "Skickat till"
+          used: Använd
+          date_sent: "Datum skickat"
       listings:
-        listings: ~
+        listings: Annonser
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: Sök
+        reset_search: "Visa alla"
         status:
           all: ~
           selected_js: ~
-          open: ~
+          open: Öppen
           closed: ~
           expired: ~
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
+          title: Titel
+          author: Författare
+          created: Skapad
+          updated: Uppdaterad
+          category: Kategori
+          status: Status
+        open: Öppen
+        closed: Stängd
         expired: ~
       user_fields:
-        user_fields: ~
+        user_fields: Användarfält
       footer:
-        footer: ~
+        footer: Footer
         offer_pro: ~
         upgrade_plan_link: ~
         menu_links: ~
         language: ~
-        title: ~
-        url: ~
+        title: Titel
+        url: URL
         add: ~
-        save: ~
+        save: "Spara inställningar"
         footer_style: ~
         footer_copyright: ~
         footer_enabled: ~
@@ -553,12 +553,12 @@ sv:
           dark: ~
           light: ~
           marketplace_color: ~
-          logo: ~
+          logo: Logga
         social:
           title: ~
           url: ~
       domain:
-        domain: ~
+        domain: Domän
         marketplace_domain: ~
         offer_pro: ~
         upgrade_pro_plan_link: ~
@@ -628,24 +628,24 @@ sv:
         user_fields: ~
         field_title: ~
         field_type: ~
-        signup: ~
-        public: ~
+        signup: Registrera
+        public: Offentlig
         add_new_field: ~
         save: ~
         cancel: ~
         minimum_value: ~
         maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        allow_decimals: "Tillåt decimaler"
+        add_option: "Lägg till val"
       new:
-        new_user_field: ~
+        new_user_field: "Nytt användarfält"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Gör det obligatoriskt att fylla i detta fält när man registrerar sig till marknadsplatsen"
+          this_field_is_required_checkbox: "Gör det obligatoriskt att fylla i detta fält när man registrerar sig till marknadsplatsen (användare måste välja minst ett alternativ)"
+          this_field_is_public: "Visa detta fält på den offentliga profilsidan"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Redigera användarfält '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Skicka e-post till användare"
@@ -764,7 +764,7 @@ sv:
         night: "Per natt"
         week: "Per vecka"
         month: "Per månad"
-        unit: ~
+        unit: "Per enhet"
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
       add_custom_unit: "+ Lägg till en anpassningsbar prisenhet..."
       delete_custom_unit: "ta bort"
@@ -1776,7 +1776,7 @@ sv:
       automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
       stripe_you_account_balance_is_not_0: ~
       visit_admin: ~
-      visit_admin_link: ~
+      visit_admin_link: "besök din adminpanel"
     settings:
       account: Konto
       notifications: Aviseringar
@@ -1987,14 +1987,14 @@ sv:
       community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte skapa nya annonser än. Vänligen %{contact_admin_link} för mer information."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Du skapar nu en annons åt %{name}"
     quantity:
       hour: "Antal timmar:"
       day: "Antal dagar:"
       night: "Antal nätter:"
       week: "Antal veckor:"
       month: "Antal månader:"
-      unit: ~
+      unit: "Antal enheter:"
       custom: "Antal:"
     quantity_placeholder: Antal
     please_comment: Kommentar
@@ -2046,7 +2046,7 @@ sv:
       night: natt
       week: vecka
       month: månad
-      unit: ~
+      unit: enhet
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -2218,13 +2218,13 @@ sv:
       create_account_with_provider: ~
       OR: ELLER
       signup_with_email: "Registrering med e-post"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Detta fält kommer att visas i din offentliga profil)"
     profile_feedback:
       grade: "betyg:"
       and_gave_following_feedback: "och gav följande feedback"
     profile_listings:
       no_image: "Ingen bild"
-      manage_listings: ~
+      manage_listings: "Hantera alla mina annonser"
     show:
       contact: "Kontakta %{person}"
       about_me: "Om mig:"
@@ -2258,7 +2258,7 @@ sv:
       show_all_open_listings: "Visa alla öppna annonser"
       show_all_reviews: "Visa alla recensioner"
       admin_actions: ~
-      post_listing_as: ~
+      post_listing_as: "Skapa annons som"
     followed_people:
       you_follow_plural: "Du följer %{count} person"
       you_follow_singular: "Du följer %{count} personer"
@@ -2370,7 +2370,7 @@ sv:
       display_name: "Synligt namn"
       display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
       location_description: "Du kan antingen ange hela din address eller t ex bara ditt postnummer eller stad. Det är också bra att lägga till ditt land då du väljer en plats. Till exempel: 753 20 Uppsala Sverige\" Eller \"Gustav Adolfsgatan 34,Malmö, Sverige\"."
-      profile_picture_description: ~
+      profile_picture_description: "Profilbilden bör vara i ett kvadratiskt format (1:1 ratio), till exempel, 800x800 pixlar. Annars kommer den att beskäras för att passa."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postnummer
@@ -2383,8 +2383,8 @@ sv:
       default_in_listing: "(används endast som standard när man skapar en ny annons)"
       invisible: "(visas inte för andra användare)"
       image_is_processing: "Din profilbild förbereds. Den kommer vara klar om några minuter."
-      shown_in_your_public_profile: ~
-      editing_profile_of: ~
+      shown_in_your_public_profile: "(visas i din offentliga profil)"
+      editing_profile_of: "Du redigerar nu %{name}s profil"
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress
@@ -2604,7 +2604,7 @@ sv:
       signup: "Gå med"
       admin_dashboard: "Admin panel"
       language: Språk
-      listings: ~
+      listings: "Mina annonser"
     utils:
       km: km
       mi: ml
