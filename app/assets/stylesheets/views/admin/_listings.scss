@@ -1,0 +1,16 @@
+@import "mixins/all";
+
+#listing_popup {
+  @include media(desktop) {
+    min-width: 600px;
+  }
+}
+#listing-form {
+  .listing-save {
+    text-align: center;
+    .button {
+      display: initial;
+      margin-left: 6px;
+    }
+  }
+}
