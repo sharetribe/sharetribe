@@ -2,20 +2,6 @@
 
 OmniAuth.config.test_mode = true
 
-# OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
-#     :provider => 'facebook',
-#     :uid => '597013691',
-#     :extra =>{
-#       :raw_info => {
-#         :first_name => "Markus",
-#         :last_name => "Sugarberg",
-#         :username => "markus.sharer-123",
-#         :email => "markus@example.com",
-#         :id => '597013691'
-#       }
-#     }
-#   })
-
 module OmniAuthTestHelpers
   def oauth_mock(provider, options = {})
     OmniAuth.config.add_mock(provider, oauth_provider_data(provider, options))
@@ -266,7 +252,7 @@ module OmniAuthTestHelpers
 
   def stub_linkedin_image_request
     stub_request(:get, "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_800_800/0?e=1553126400&t=9Zg8_GZwAKl_Za2CF5IgC-gD2XvHjupCm_8wqdQjvVk&v=beta")
-      .with(  headers: {
+      .with(headers: {
         'Accept'=>'*/*',
         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
         'User-Agent'=>'Ruby'
@@ -276,10 +262,10 @@ module OmniAuthTestHelpers
 
   def stub_google_image_request
     stub_request(:get, "https://lh3.googleusercontent.com/-BILLeKNfUNs/AAAAAAAAAAI/AAAAAAAAAAA/bk9ax13dM2E/photo.jpg")
-      .with(  headers: {
+      .with(headers: {
         'Accept'=>'*/*',
         'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-        'User-Agent'=>'Ruby',
+        'User-Agent'=>'Ruby'
        })
       .to_return(status: 200, body: png_image, headers: {'Content-Type'=>'image/png'})
   end
@@ -290,4 +276,7 @@ module OmniAuthTestHelpers
   # rubocop:enable Metrics/MethodLength, Metrics/LineLength
 end
 
-World(OmniAuthTestHelpers)
+RSpec.configure do |config|
+  config.include OmniAuthTestHelpers
+end
+

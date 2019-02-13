@@ -42,19 +42,25 @@
 #  min_days_between_community_updates :integer          default(1)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
+#  google_oauth2_id                   :string(255)
+#  linkedin_id                        :string(255)
 #
 # Indexes
 #
-#  index_people_on_authentication_token          (authentication_token)
-#  index_people_on_community_id                  (community_id)
-#  index_people_on_email                         (email) UNIQUE
-#  index_people_on_facebook_id                   (facebook_id)
-#  index_people_on_facebook_id_and_community_id  (facebook_id,community_id) UNIQUE
-#  index_people_on_id                            (id)
-#  index_people_on_reset_password_token          (reset_password_token) UNIQUE
-#  index_people_on_username                      (username)
-#  index_people_on_username_and_community_id     (username,community_id) UNIQUE
-#  index_people_on_uuid                          (uuid) UNIQUE
+#  index_people_on_authentication_token               (authentication_token)
+#  index_people_on_community_id                       (community_id)
+#  index_people_on_community_id_and_google_oauth2_id  (community_id,google_oauth2_id)
+#  index_people_on_community_id_and_linkedin_id       (community_id,linkedin_id)
+#  index_people_on_email                              (email) UNIQUE
+#  index_people_on_facebook_id                        (facebook_id)
+#  index_people_on_facebook_id_and_community_id       (facebook_id,community_id) UNIQUE
+#  index_people_on_google_oauth2_id                   (google_oauth2_id)
+#  index_people_on_id                                 (id)
+#  index_people_on_linkedin_id                        (linkedin_id)
+#  index_people_on_reset_password_token               (reset_password_token) UNIQUE
+#  index_people_on_username                           (username)
+#  index_people_on_username_and_community_id          (username,community_id) UNIQUE
+#  index_people_on_uuid                               (uuid) UNIQUE
 #
 
 require 'json'
@@ -153,6 +159,13 @@ class Person < ApplicationRecord
   scope :has_payment_account, ->(community) { has_stripe_account(community).or(has_paypal_account(community)) }
   scope :has_started_transactions, ->(community) do
     joins("INNER JOIN `transactions` ON `transactions`.`starter_id` = `people`.`id` AND `transactions`.`community_id` = #{community.id} AND `transactions`.`current_state` IN ('paid', 'confirmed')").distinct
+  end
+  scope :is_admin, -> { where(is_admin: 1) }
+  scope :by_email, ->(email) do
+    joins(:emails).merge(Email.confirmed.by_address(email))
+  end
+  scope :by_unconfirmed_email, ->(email) do
+    joins(:emails).merge(Email.unconfirmed.by_address(email))
   end
 
   accepts_nested_attributes_for :custom_field_values
@@ -370,15 +383,6 @@ class Person < ApplicationRecord
     self.save
   end
 
-  def store_picture_from_facebook!()
-    if self.facebook_id
-      resp = RestClient.get(
-        "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{self.facebook_id}/picture?type=large&redirect=false")
-      url = JSON.parse(resp)["data"]["url"]
-      self.picture_from_url(url)
-    end
-  end
-
   def offers
     listings.offers
   end
@@ -539,20 +543,6 @@ class Person < ApplicationRecord
 
   def has_valid_email_for_community?(community)
     community.can_accept_user_based_on_email?(self)
-  end
-
-  def update_facebook_data(facebook_id)
-    self.update_attribute(:facebook_id, facebook_id)
-    if self.image_file_size.nil?
-      begin
-        self.store_picture_from_facebook!
-      rescue StandardError => e
-        # We can just catch and log the error, because if the profile picture upload fails
-        # we still want to make the user creation pass, just without the profile picture,
-        # which user can upload later
-        logger.error(e.message, :facebook_existing_user_profile_picture_upload_failed, { person_id: self.id })
-      end
-    end
   end
 
   def self.find_by_email_address_and_community_id(email_address, community_id)

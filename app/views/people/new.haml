@@ -17,8 +17,25 @@
             :count => (@current_community.allowed_emails.split(",").count))
 
   - unless !facebook_connect_in_use? || params[:no_fb]
-    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
+    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_provider", provider: 'Facebook') }
 
+  - if google_connect_in_use?
+    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
+      class: 'google-login-button' do
+      %span.google-icon
+        = render :partial => "layouts/google_icon"
+      %span.google-text
+        = t('.create_account_with_provider', provider: 'Google')
+        
+  - if linkedin_connect_in_use?
+    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
+      class: 'linkedin-login-button' do
+      %span.linkedin-icon
+        = render :partial => "layouts/linkedin_icon"
+      %span.linkedin-text
+        = t('.create_account_with_provider', provider: 'LinkedIn')
+
+  - if facebook_connect_in_use? || google_connect_in_use? || linkedin_connect_in_use?
     .signup-horizontal-line
       .signup-horizontal-line-text=t(".OR")
 

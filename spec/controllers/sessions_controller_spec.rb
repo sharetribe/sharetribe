@@ -35,3 +35,4 @@ describe SessionsController, "POST create", type: :controller do
     expect(response).to redirect_to "http://#{@request.host}/"
   end
 end
+

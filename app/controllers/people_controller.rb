@@ -121,58 +121,6 @@ class PeopleController < Devise::RegistrationsController
     resource
   end
 
-  def create_facebook_based
-    username = UserService::API::Users.username_from_fb_data(
-      username: session["devise.facebook_data"]["username"],
-      given_name: session["devise.facebook_data"]["given_name"],
-      family_name: session["devise.facebook_data"]["family_name"],
-      community_id: @current_community.id)
-
-    person_hash = {
-      :username => username,
-      :given_name => session["devise.facebook_data"]["given_name"],
-      :family_name => session["devise.facebook_data"]["family_name"],
-      :facebook_id => session["devise.facebook_data"]["id"],
-      :locale => I18n.locale,
-      :test_group_number => 1 + rand(4),
-      :password => Devise.friendly_token[0,20],
-      community_id: @current_community.id
-    }
-
-    ActiveRecord::Base.transaction do
-      @person = Person.create!(person_hash)
-      # We trust that Facebook has already confirmed these and save the user few clicks
-      Email.create!(:address => session["devise.facebook_data"]["email"], :send_notifications => true, :person => @person, :confirmed_at => Time.now, community_id: @current_community.id)
-
-      @person.set_default_preferences
-
-      # By default no email consent is given
-      @person.preferences["email_from_admins"] = false
-      @person.save
-
-      CommunityMembership.create(person: @person, community: @current_community, status: "pending_consent")
-    end
-
-    begin
-      @person.store_picture_from_facebook!
-    rescue StandardError => e
-      # We can just catch and log the error, because if the profile picture upload fails
-      # we still want to make the user creation pass, just without the profile picture,
-      # which user can upload later
-      logger.error(e.message, :facebook_new_user_profile_picture_upload_failed, { person_id: @person.id })
-    end
-
-    sign_in(resource_name, @person)
-    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(PersonViewUtils.person_display_name_for_type(@person, "first_name_only"), person_path(@person))).html_safe
-
-
-    session[:fb_join] = "pending_analytics"
-
-    record_event(flash, "SignUp", method: :facebook)
-
-    redirect_to pending_consent_path
-  end
-
   def update
     target_user = Person.find_by!(username: params[:id], community_id: @current_community.id)
     if @current_user != target_user

@@ -96,8 +96,13 @@
 #  footer_theme                               :integer          default("dark")
 #  footer_copyright                           :text(65535)
 #  footer_enabled                             :boolean          default(FALSE)
-#  hsts_max_age                               :integer
 #  logo_link                                  :string(255)
+#  google_connect_enabled                     :boolean
+#  google_connect_id                          :string(255)
+#  google_connect_secret                      :string(255)
+#  linkedin_connect_enabled                   :boolean
+#  linkedin_connect_id                        :string(255)
+#  linkedin_connect_secret                    :string(255)
 #
 # Indexes
 #
@@ -116,6 +121,7 @@ class Community < ApplicationRecord
   has_many :community_memberships, :dependent => :destroy
   has_many :members, -> { merge(CommunityMembership.accepted) }, :through => :community_memberships, :source => :person
   has_many :admins, -> { merge(CommunityMembership.admin.not_banned) }, :through => :community_memberships, :source => :person
+  has_many :members_all_statuses, :through => :community_memberships, :source => :person
   has_many :invitations, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy

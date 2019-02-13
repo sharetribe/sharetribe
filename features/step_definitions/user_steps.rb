@@ -51,9 +51,16 @@ Given /^there will be and error in my Facebook login$/ do
 end
 
 Given /^there will be no email returned in my Facebook login$/ do
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
+  oauth_mock('facebook', {
       :provider => 'facebook',
       :uid => '597015435',
+      info: {
+        nickname: 'jackety-jack',
+        email: nil,
+        name: 'Jackie Brownie',
+        first_name: 'Jackie',
+        last_name: 'Brownie'
+      },
       :extra =>{
         :raw_info => {
           :first_name => "Jackie",
@@ -166,6 +173,7 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
+  value = 70 if value == "70"
   user.send(attribute).send(verb) == value
 end
 

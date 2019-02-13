@@ -51,6 +51,8 @@ gem 'rails-i18n', '~> 5.0.4'
 gem 'devise', '~> 4.3.0'
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", '~> 4.0.0'
+gem "omniauth-google-oauth2", '>= 0.6.0'
+gem "omniauth-linkedin-oauth2", '>= 1.0.0'
 
 # Dynamic form adds helpers that are needed, e.g. error_messages
 gem 'dynamic_form', '~> 1.1.4'
@@ -72,10 +74,6 @@ gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 6.1.2'
 gem 'stripe', '~> 3.0.0'
-
-gem 'jwt', '~> 1.5.6'
-
-gem 'oauth2', '~> 1.3.1'
 
 gem 'lograge', '~> 0.5.1'
 gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, probably not

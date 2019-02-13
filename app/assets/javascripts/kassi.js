@@ -638,6 +638,12 @@ function initialize_admin_social_media_form(locale, community_id, invalid_twitte
   $("#community_facebook_connect_enabled").click(function(){
     $("#community_facebook_connect_id, #community_facebook_connect_secret").prop('disabled', !this.checked);
   });
+  $("#community_google_connect_enabled").click(function(){
+    $("#community_google_connect_id, #community_google_connect_secret").prop('disabled', !this.checked);
+  });
+  $("#community_linkedin_connect_enabled").click(function(){
+    $("#community_linkedin_connect_id, #community_linkedin_connect_secret").prop('disabled', !this.checked);
+  });
   $(form_id).validate({
      rules: {
        "community[twitter_handle]": {required: false, minlength: 1, maxlength: 15, regex: "^([A-Za-z0-9_]+)?$"},
