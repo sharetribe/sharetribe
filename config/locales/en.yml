@@ -571,6 +571,8 @@ en:
           open: Open
           closed: Closed
           expired: Expired
+          approval_pending: Pending
+          approval_rejected: Rejected
         headers:
           title: Title
           author: Author
@@ -581,6 +583,14 @@ en:
         open: Open
         closed: Closed
         expired: Expired
+        approved: Approved
+        approval_pending: Pending
+        approval_rejected: Rejected
+        form:
+          this_listing_has_not_not_been_approved_yet: "This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public"
+          approve: Approve
+          reject: Reject
+          cancel: Cancel
       user_fields:
         user_fields: "User fields"
       footer:

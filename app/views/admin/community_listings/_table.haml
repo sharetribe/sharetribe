@@ -9,7 +9,7 @@
       .status-select-dropdown
         .status-select-line.reset{data: {status: 'all'}}
           = listing_search_status_titles
-        - %w(open closed expired).each do |status|
+        - @presenter.statuses.each do |status|
           - checked = params[:status].present? && params[:status].include?(status)
           .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
             = check_box_tag "status[]", status, checked, id: "status-#{status}"
@@ -40,34 +40,15 @@
 
   %tbody
     - @presenter.listings.each do |listing|
-      %tr
-        %td
-          = link_to listing.title, listing_path(listing)
-        - if @presenter.admin_mode
-          %td
-            - p = listing.author
-            - if p.deleted
-              = ''
-            - else
-              = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
-        %td= l(listing.created_at, format: :short)
-        %td= l(listing.updated_at, format: :short)
-        %td
-          - category = listing.category
-          = link_to category.display_name(I18n.locale), search_path(category: category.url)
-        %td
-          - expired = listing.valid_until && listing.valid_until < DateTime.current
-          - key = expired ? 'expired' : (listing.open? ? 'open' : 'closed')
-          = t("admin.communities.listings.#{key}")
-        %td
-          = link_to edit_listing_path(listing) do
-            = icon_tag("edit")
-
+      = render 'listing', presenter: @presenter, listing: listing
 .row
   .col-12
     = will_paginate @presenter.listings
 
+= render layout: "layouts/lightbox", locals: { id: "listing_popup"} do
+  #listing-form
+
 - content_for :extra_javascript do
   = js_t ["admin.communities.listings.status.all", "admin.communities.listings.status.selected_js"], true
   :javascript
-    window.ST.initializeListingSearchFormSelector();
+    window.ST.Listings.init();
