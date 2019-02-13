@@ -1,0 +1,5 @@
+- if listing.errors.any?
+  = render 'admin/community_listings/form', presenter: presenter, listing: listing
+- else
+  = render 'admin/community_listings/listing', presenter: presenter, listing: listing
+
