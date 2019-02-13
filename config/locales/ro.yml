@@ -329,6 +329,20 @@ ro:
         enable_facebook_login: "Permiteti utilizatorilor sa se autentifice folosind contul de Facebook"
         save: "Salveaza setarile"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analiza
         google_analytics_key: "Cod de urmarire Google Analytics"
@@ -1637,8 +1651,8 @@ ro:
       comment_sent: "Comentariu trimis"
       confirmation_link_is_wrong_or_used: "Link-ul de confirmare este deja folosit sau corupt. Incercati sa va autentificati sau trimiteti feedback daca problema persista."
       additional_email_confirmed: "Adresa de email pe care ai introdus-o a fost confirmata"
-      could_not_get_email_from_facebook: "Nu s-a gasit adresa de e-mail de pe Facebook si fara e-mail nu se poate crea un cont."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Creați o altă postare"
       create_one_here: "creaza aici"
       email_confirmation_sent_to_new_address: "Email-ul de confirmare a fost trimis la noua adresa."
@@ -2185,7 +2199,7 @@ ro:
       username_is_invalid: "Numele de utilizator nu este valid. Caracterele permise sunt litere, numere si \"underscore\""
       visible_only_to_you: "vizibil numai pentru dvs. și echipa %{service_name}"
       visible_to_everybody: "vizibil tuturor"
-      create_account_with_facebook: "Inregistrare cu contul de Facebook"
+      create_account_with_provider: ~
       OR: SAU
       signup_with_email: "Inregistrare cu email"
       this_field_will_be_publicly_visible: ~
@@ -2253,7 +2267,7 @@ ro:
       account_creation_link_text: "Click aici"
       cancle_facebook_connect: "Daca nu vrei sa conectezi acest cont, poti anula folosing %{cancel_link}"
       facebook_cancel_link_text: Anulare
-      log_in_with_your_facebook_account: "Conectati-va cu Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...sau cu numele de utilizator sau adresa de email:"
       we_will_not_post_without_asking_you: "Noi nu vom posta pe Facebook fără acordul dvs."
     password_forgotten:

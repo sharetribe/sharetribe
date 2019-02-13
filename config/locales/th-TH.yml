@@ -319,6 +319,20 @@ th-TH:
         enable_facebook_login: ~
         save: บันทึกการตั้งค่า
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: การวิเคราะห์ข้อมูลหรือสถิติ
         google_analytics_key: " ID ติดตามของ Google Analytics"
@@ -1633,8 +1647,8 @@ th-TH:
       comment_sent: ข้อคิดเห็นถูกจัดส่งแล้ว
       confirmation_link_is_wrong_or_used: "ลิงก์การยืนยันถูกใช้ไปแล้ว หรือเสียหาย กรุณาลองเข้าระบบอีกครั้ง หรือส่งความคิดเห็น ถ้ายังคงมีปัญหาอยู่"
       additional_email_confirmed: อีเมล์ที่คุณป้อนได้รับการยืนยันแล้วในขณะนี้
-      could_not_get_email_from_facebook: "ไม่สามารถรับอีเมล์จาก Facebook และไม่สามารถสร้างบัญชีโดยไม่ต้องใช้อีเมล์ "
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: สร้างรายการใหม่อีก
       create_one_here: สร้างที่นี่
       email_confirmation_sent_to_new_address: อีเมล์ยืนยันถูกส่งไปไปยังที่อยู่ใหม่แล้ว
@@ -2179,7 +2193,7 @@ th-TH:
       username_is_invalid: "ชื่อผู้ใช้ไม่ถูกต้อง ตัวอักษร ตัวเลข และเส้นใต้เท่านั้นที่สามารถใช้ได้"
       visible_only_to_you: "ปรากฎให้เห็นเฉพาะกับคุณ และแอดมิน %{service_name}"
       visible_to_everybody: ปรากฎให้เห็นกับทุกคน
-      create_account_with_facebook: "สมัครสมาชิกด้วย Facebook"
+      create_account_with_provider: ~
       OR: หรือ
       signup_with_email: สมัครสมาชิกด้วยอีเมล์
       this_field_will_be_publicly_visible: ~
@@ -2247,7 +2261,7 @@ th-TH:
       account_creation_link_text: คลิ๊กที่นี่
       cancle_facebook_connect: "หากคุณไม่ต้องการที่จะเชื่อมโยงบัญชีนี้ คุณสามารถ %{cancel_link}"
       facebook_cancel_link_text: ยกเลิก
-      log_in_with_your_facebook_account: "ลงทะเบียนด้วย Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...หรือด้วยชื่อผู้ใช้ หรืออีเมล์ของคุณ:"
       we_will_not_post_without_asking_you: "เราจะไม่โพสต์ไปยัง Facebook ได้โดยไม่ขออนุญาตจากคุณ"
     password_forgotten:

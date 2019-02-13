@@ -326,6 +326,20 @@ nl:
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
         add_another_image: "Voeg nog een afbeelding toe"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -1651,8 +1665,8 @@ nl:
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: "De bevestigingslink is al gebruikt of is niet geldig. Probeer in te loggen en neem contact met ons op als het probleem zich blijft voordoen."
       additional_email_confirmed: "Het e-mail adres dat je hebt ingegeven is nu bevestigd."
-      could_not_get_email_from_facebook: "Kon uw Facebook e-mail adres niet ophalen. Kan geen account aanmaken zonder e-mail adres."
-      facebook_email_unconfirmed: "Het emailadres '%{email}' geassocieerd met je Facebook account is al gebruikt, maar is nog niet bevestigd. Bevestig het emailadres voordat je met Facebook inlogt."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Een andere advertentie aanmaken"
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
@@ -2202,7 +2216,7 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn letters, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en het %{service_name} team"
       visible_to_everybody: "zichtbaar voor iedereen"
-      create_account_with_facebook: "Maak een account met Facebook"
+      create_account_with_provider: ~
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
       this_field_will_be_publicly_visible: "(Dit veld wordt publiekelijk zichtbaar)"
@@ -2270,7 +2284,7 @@ nl:
       account_creation_link_text: "klik hier"
       cancle_facebook_connect: "Klik %{cancel_link} als u niet wilt linken met dit account."
       facebook_cancel_link_text: annuleer
-      log_in_with_your_facebook_account: "Log in met Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... of met uw gebruikersnaam of e-mail adres:"
       we_will_not_post_without_asking_you: "We zullen nooit iets op Facebook zetten zonder jouw toestemming."
     password_forgotten:

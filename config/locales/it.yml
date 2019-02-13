@@ -309,6 +309,20 @@ it:
         enable_facebook_login: ~
         save: "Salva impostazioni"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1615,8 +1629,8 @@ it:
       comment_sent: "Commento inviato"
       confirmation_link_is_wrong_or_used: "Il link di conferma è già stato utilizzato o altrimenti non funziona. Prova ad accedere nuovamente, o inviaci un'email se il problema persiste."
       additional_email_confirmed: "L'email specificata è ora confermata."
-      could_not_get_email_from_facebook: "Non è possibile ricevere l'indirizzo email da Facebook, e non è possibile creare un account senza indirizzo email."
-      facebook_email_unconfirmed: "L'indirizzo email %{email} del tuo account di Facebook è già in uso, ma non è confermato. Prima di poterti collegare tramite Facebook devi confermare l'indirizzo email."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Crea una nuova inserzione"
       create_one_here: "creane uno qui"
       email_confirmation_sent_to_new_address: "l'email di conferma è stata inviata al nuovo indirizzo email"
@@ -2166,7 +2180,7 @@ it:
       username_is_invalid: "Nome utente non valido. I caratteri ammessi sono lettere, numeri e underscore."
       visible_only_to_you: "visibile solo a te ed all'amministratore della community"
       visible_to_everybody: "visibile a tutti"
-      create_account_with_facebook: "Crea un account tramite Facebook"
+      create_account_with_provider: ~
       OR: O
       signup_with_email: "Iscriviti con l'indirizzo e-mail"
       this_field_will_be_publicly_visible: ~
@@ -2234,7 +2248,7 @@ it:
       account_creation_link_text: "clicca qui"
       cancle_facebook_connect: "Se non vuoi collegare questo account, puoi %{cancel_link}"
       facebook_cancel_link_text: annulla
-      log_in_with_your_facebook_account: "Accedi con Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...o con il tuo nome utente o password"
       we_will_not_post_without_asking_you: "Non pubblicheremo mai post su Facebook senza il tuo consenso."
     password_forgotten:

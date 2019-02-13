@@ -324,6 +324,20 @@ sv:
         enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -1650,8 +1664,8 @@ sv:
       comment_sent: "Kommentar skickad"
       confirmation_link_is_wrong_or_used: "Bekräftelselänken har redan används eller är trasig. Försök logga in eller skicka oss feedback om problemet kvarstår."
       additional_email_confirmed: "E-postadressen du skrev in är nu bekräftad."
-      could_not_get_email_from_facebook: "Kunde inte hitta någon e-postadress från Facebook. Det går inte att skapa ett konto utan e-postadress."
-      facebook_email_unconfirmed: "E-postadressen %{email} som är kopplat till ditt Facebook konto används redan men har inte blivit bekräftad. Vänligen bekräfta e-postadressen innan du loggar in via Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Skapa en ny annons"
       create_one_here: "skapa ett här"
       email_confirmation_sent_to_new_address: "E-postbekräftelse har nu skickats till den nya adressen."
@@ -2201,7 +2215,7 @@ sv:
       username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
       visible_only_to_you: "endast synlig för dig och %{service_name} admin"
       visible_to_everybody: "synlig för alla"
-      create_account_with_facebook: "Registrera dig med Facebook"
+      create_account_with_provider: ~
       OR: ELLER
       signup_with_email: "Registrering med e-post"
       this_field_will_be_publicly_visible: ~
@@ -2269,7 +2283,7 @@ sv:
       account_creation_link_text: "klicka här"
       cancle_facebook_connect: "Om du inte vill länka detta konto så kan du %{cancel_link}."
       facebook_cancel_link_text: avbryt
-      log_in_with_your_facebook_account: "Logga in via Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...eller med användarnamn och e-post:"
       we_will_not_post_without_asking_you: "Vi kommer aldrig att lägga ut något på Facebook utan att fråga dig."
     password_forgotten:

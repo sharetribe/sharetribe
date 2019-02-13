@@ -319,6 +319,20 @@ ko:
         enable_facebook_login: "페이스북 계정으로 로그인 허용"
         save: "설정 저장"
         add_another_image: "새 이미지 추가"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: 분석
         google_analytics_key: "구글 분석 추적 ID"
@@ -1639,8 +1653,8 @@ ko:
       comment_sent: "의견 발송"
       confirmation_link_is_wrong_or_used: "확인 링크가 이미 사용되었거나 그렇지 않으면 깨졌습니다. 문제가 계속되면 로그인하거나 피드백을 보내십시오."
       additional_email_confirmed: "입력하신 이메일이 확인되었습니다."
-      could_not_get_email_from_facebook: "Facebook에서 이메일 주소를 가져올 수 없으며 이메일이 없는 계정을 만들 수 없습니다."
-      facebook_email_unconfirmed: "Facebook 계정과 연결된 이메일 주소 '%{email}'은 이미 사용되었지만 아직 확인되지 않았습니다. Facebook에 로그인하기 전에 이메일 주소를 확인하십시오."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "다른 목록 만들기"
       create_one_here: "신규 작성"
       email_confirmation_sent_to_new_address: "이제 전자 메일 확인이 새 주소로 전송됩니다."
@@ -2189,7 +2203,7 @@ ko:
       username_is_invalid: "사용자 이름이 잘못되었습니다. 문자, 숫자 및 밑줄만 허용되어집니다"
       visible_only_to_you: "귀하와 %{service_name} 팀에게만 보여집니다"
       visible_to_everybody: "모든사람에게 보여집니다"
-      create_account_with_facebook: "페이스북으로 로그인하기"
+      create_account_with_provider: ~
       OR: 또는
       signup_with_email: "이메일 가입"
       this_field_will_be_publicly_visible: ~
@@ -2257,7 +2271,7 @@ ko:
       account_creation_link_text: "여기를 클릭하세요"
       cancle_facebook_connect: "이 계정을 연결하지 않으려면 %{cancel_link} 할 수 있습니다."
       facebook_cancel_link_text: 취소
-      log_in_with_your_facebook_account: "페이스북으로 로그인"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... 또는 사용자 이름 또는 이메일 :"
       we_will_not_post_without_asking_you: "우리는 귀하에게 묻지 않고 페이스북에 결코 게시하지 않을 것입니다."
     password_forgotten:

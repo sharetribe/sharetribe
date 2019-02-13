@@ -329,6 +329,20 @@ sk-SK:
         enable_facebook_login: ~
         save: "Uložiť nastavenia"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: "Google Analytics"
         google_analytics_key: "Google Analytics sledovacie ID"
@@ -1653,8 +1667,8 @@ sk-SK:
       comment_sent: "Komentár odoslaný"
       confirmation_link_is_wrong_or_used: "Potvrdzujúci odkaz sa už používa alebo je neplatný. Skúste sa prihlásiť, alebo v prípade problémov nám zanechajte odkaz."
       additional_email_confirmed: "Zadaný e-mail nebol potvrdený."
-      could_not_get_email_from_facebook: "Nepodarilo sa nám získať Vašu e-mailovú adresu z účtu na Facebooku a teda nemôžeme vytvoriť účet bez e-mailu."
-      facebook_email_unconfirmed: "E-mailová adresa %{email} združená s Vašim Facebook účtom sa už používa, ale ešte nebola potvrdená. Prosím potvrďte e-mailovú adresu pred prihlásením do Facebook účtu."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Vytvoriť ďalší inzerát"
       create_one_here: "vytvoriť tu"
       email_confirmation_sent_to_new_address: "Potvrdzujúci e-mail bol odoslaný na novú adresu."
@@ -2206,7 +2220,7 @@ sk-SK:
       username_is_invalid: "Používateľské meno je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
       visible_only_to_you: "viditeľné iba pre Vás a pre admin použivateľa"
       visible_to_everybody: "videiteľné pre každích"
-      create_account_with_facebook: "Prihlásiť sa cez Facebook"
+      create_account_with_provider: ~
       OR: ALEBO
       signup_with_email: "Zaregistrovať sa cez e-mail"
       this_field_will_be_publicly_visible: ~
@@ -2274,7 +2288,7 @@ sk-SK:
       account_creation_link_text: "Kliknite sem"
       cancle_facebook_connect: "Pokiaľ nechcete prepojiť tento účet, kliknite na nasledujúci odkaz pre zrušenie %{cancel_link}."
       facebook_cancel_link_text: zrušit
-      log_in_with_your_facebook_account: "Prihlásiť sa s Facebook účtom"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...alebo pomocou Vašeho užívateľského mena a hesla:"
       we_will_not_post_without_asking_you: "Nikdy nebudeme prispievať na Facebook, bez toho aby sme sa Vás spýtali."
     password_forgotten:

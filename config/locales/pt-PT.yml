@@ -315,6 +315,20 @@ pt-PT:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1631,8 +1645,8 @@ pt-PT:
       comment_sent: "Comentário enviado"
       confirmation_link_is_wrong_or_used: "O link de confirmação já está a ser usado ou está com problemas. Tente fazer login ou entre em contacto conosco se o problema persistir."
       additional_email_confirmed: "O email que introduziu está agora confirmado."
-      could_not_get_email_from_facebook: ~
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Criar um outro anúncio"
       create_one_here: "criar uma aqui"
       email_confirmation_sent_to_new_address: "Email de confirmação é agora enviado para o novo endereço."
@@ -2178,7 +2192,7 @@ pt-PT:
       username_is_invalid: "Nome de utilizador é inválido. Os caracteres permitidos são letras, números e sublinhado."
       visible_only_to_you: "visível apenas para si e para o administrador do mercado virtual"
       visible_to_everybody: "visível para todos"
-      create_account_with_facebook: "Registe-se com seu Facebook"
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: "Registe-se com seu e-mail"
       this_field_will_be_publicly_visible: ~
@@ -2246,7 +2260,7 @@ pt-PT:
       account_creation_link_text: "clique aqui"
       cancle_facebook_connect: "Se não quiser associar esta conta, pode %{cancel_link}."
       facebook_cancel_link_text: Cancelar
-      log_in_with_your_facebook_account: "Iniciar sessão com o Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...ou com o seu nome de utilizador ou email"
       we_will_not_post_without_asking_you: ~
     password_forgotten:

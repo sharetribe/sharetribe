@@ -321,6 +321,20 @@ lv:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1627,8 +1641,8 @@ lv:
       comment_sent: "Komentārs nosūtīs"
       confirmation_link_is_wrong_or_used: "Apstiprinājuma saite jau ir izmantota vai bojāta. Ja problēma atkārtojas, mēģiniet ienākt vai arī sūtiet ziņu."
       additional_email_confirmed: "Pievienotais e-pasts ir apstiprināts."
-      could_not_get_email_from_facebook: "Nevarēja saņemt e-pasta adresi no Facebook un tāpēc nevar izveidot kontu bez e-pasta."
-      facebook_email_unconfirmed: "E-pasta adrese '%{email}', kas ir sasaistīta ar Jūsu Facebook kontu, jau tiek izmantota, taču tā vēl nav apstiprināta. Lūdzu, apstipriniet e-pasta adresi pirms ienākšanas ar Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Izveidot jaunu sludinājumu"
       create_one_here: "izveidot šeit"
       email_confirmation_sent_to_new_address: "E-pasta apstiprinājums ir nosūtīts uz jauno adresi."
@@ -2178,7 +2192,7 @@ lv:
       username_is_invalid: "Lietotājvārds nav derīgs. Atļautās rakstu zīmes ir burti, cipari un pasvītrojums."
       visible_only_to_you: "redzams tikai Jums un %{service_name} komandai"
       visible_to_everybody: "redzams visiem"
-      create_account_with_facebook: "Reģistrēties ar Facebook"
+      create_account_with_provider: ~
       OR: VAI
       signup_with_email: "Reģistrējieties ar e-pastu"
       this_field_will_be_publicly_visible: "(Šis lauks būs visiem redzams)"
@@ -2246,7 +2260,7 @@ lv:
       account_creation_link_text: "spied šeit"
       cancle_facebook_connect: "Ja nevēlaties saistīt šo kontu, varat %{cancel_link}."
       facebook_cancel_link_text: atcelt
-      log_in_with_your_facebook_account: "Ienākt ar Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...vai ar Jūsu lietotājvārdu vai e-pastu:"
       we_will_not_post_without_asking_you: "Mēs nekad neko neievietosim Facebook bez pajautāšanas Jums."
     password_forgotten:

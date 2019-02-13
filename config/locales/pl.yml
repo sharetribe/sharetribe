@@ -334,6 +334,20 @@ pl:
         enable_facebook_login: ~
         save: "Zapisz ustawienia"
         add_another_image: "dodaj kolejne zdjęcie"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analizy
         google_analytics_key: "ID śledzenia z usługi Google Analytics"
@@ -1660,8 +1674,8 @@ pl:
       comment_sent: "Komentarz wysłany"
       confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam opinię jeżeli problem wciąż występuje."
       additional_email_confirmed: "Adres email, który wprowadziłeś jest potwierdzony."
-      could_not_get_email_from_facebook: "Nie mogliśmy pobrać adresu z Facebooka i nie możemy stworzyć konta bez adresu email."
-      facebook_email_unconfirmed: "Adres e-mailowy '%{email}' powiązany z Twoim kontem Facebook jest już wykorzystywany, ale nie został jeszcze potwierdzony. Proszę, potwierdź adres e-mail przed logowaniem za pomocą Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Stwórz kolejną ofertę"
       create_one_here: "stwórz nowy tutaj"
       email_confirmation_sent_to_new_address: "Email potwierdzający został wysłany na nowy adres."
@@ -2215,7 +2229,7 @@ pl:
       username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery, cyfry i podkreślnik."
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
-      create_account_with_facebook: "Zarejestruj się poprzez Facebooka"
+      create_account_with_provider: ~
       OR: LUB
       signup_with_email: "Zarejestruj się przez email"
       this_field_will_be_publicly_visible: ~
@@ -2283,7 +2297,7 @@ pl:
       account_creation_link_text: "kliknij tutaj"
       cancle_facebook_connect: "Jeżeli nie chcesz łączyć tego konta, możesz %{cancel_link}."
       facebook_cancel_link_text: anuluj
-      log_in_with_your_facebook_account: "Zaloguj się kontem Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...lub Twoim kontem użytkownika lub adresem email:"
       we_will_not_post_without_asking_you: "Nigdy nie opublikujemy niczego na Facebooku bez zapytania Ciebie."
     password_forgotten:

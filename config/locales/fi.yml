@@ -324,6 +324,20 @@ fi:
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
         add_another_image: "Lisää uusi kuva"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
@@ -1648,8 +1662,8 @@ fi:
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
-      could_not_get_email_from_facebook: "Ei saatu sähköpostiosoitetta Facebookista, eikä uuden tunnuksen luonti onnistu ilman sitä."
-      facebook_email_unconfirmed: "Sähköpostiosoite '%{email}', joka on yhdistetty Facebook-tiliisi, on jo käytössä, mutta sitä ei ole vahvistettu. Ole hyvä ja vahvista sähköpostiosoitteesi päästäksesi kirjautumaan Facebookin avulla."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
@@ -2199,7 +2213,7 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja %{service_name}-palvelun ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
-      create_account_with_facebook: "Rekisteröidy Facebook-tunnuksesi avulla"
+      create_account_with_provider: ~
       OR: TAI
       signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
       this_field_will_be_publicly_visible: "(Tämä kenttä tulee olemaan näkyvillä julkisesti)"
@@ -2267,7 +2281,7 @@ fi:
       account_creation_link_text: "klikkaa tästä"
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
       facebook_cancel_link_text: "perua yhdistämisen"
-      log_in_with_your_facebook_account: "Kirjaudu Facebook-tililläsi"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...tai käyttäjätunnuksellasi ja salasanallasi:"
       we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:

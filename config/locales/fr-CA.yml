@@ -324,6 +324,20 @@ fr-CA:
         enable_facebook_login: ~
         save: "Sauvegarder les paramètres"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analyses
         google_analytics_key: "Code de suivi Google Analytics"
@@ -1630,8 +1644,8 @@ fr-CA:
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation a déjà été utilisé ou est erroné. Essayez de vous connecter ou contactez-nous si le problème persiste."
       additional_email_confirmed: "Votre adresse email est désormais confirmée."
-      could_not_get_email_from_facebook: "Impossible de récupérer l'adresse email depuis Facebook et impossible de créer un compte sans adresse email."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Créer une autre annonce"
       create_one_here: "en créer un ici"
       email_confirmation_sent_to_new_address: "Un email de confirmation est envoyé à la nouvelle adresse."
@@ -2177,7 +2191,7 @@ fr-CA:
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement par vous et l'administrateur de la place de marché"
       visible_to_everybody: "visible à tout le monde"
-      create_account_with_facebook: "S'inscrire avec Facebook"
+      create_account_with_provider: ~
       OR: OU
       signup_with_email: "S'inscrire avec un email"
       this_field_will_be_publicly_visible: ~
@@ -2245,7 +2259,7 @@ fr-CA:
       account_creation_link_text: "cliquez ici"
       cancle_facebook_connect: "Si vous ne voulez pas lier ce compte, vous pouvez %{cancel_link}."
       facebook_cancel_link_text: annuler
-      log_in_with_your_facebook_account: "Se connecter avec Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...ou avec votre nom d'utilisateur et votre mot de passe : "
       we_will_not_post_without_asking_you: "Nous ne publierons jamais sur Facebook sans vous poser la question avant."
     password_forgotten:

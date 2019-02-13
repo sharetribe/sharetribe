@@ -309,6 +309,20 @@ ar:
         enable_facebook_login: ~
         save: "حفظ الإعدادات"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: تحليلات
         google_analytics_key: ~
@@ -1636,8 +1650,8 @@ ar:
       comment_sent: "تم إرسال التعليق"
       confirmation_link_is_wrong_or_used: "رابط التفعيل استخدم من قبل أو لم يعد صالحا. حاول التسجيل مرة أخرى، أو قم بالتواصل معنا في حال استمرار المشكلة."
       additional_email_confirmed: "تم تأكيد البريد الإلكتروني بنجاح"
-      could_not_get_email_from_facebook: "تعذر الحصول على بريد إلكتروني من فيسبوك، ولا يمكن إنشاء حساب دون بريد إلكتروني."
-      facebook_email_unconfirmed: "‎%{email}‎ مربوط مع حسابك في فيسبوك مسبقا ولكن يبدو أنه لم يتم تأكيده بعد. يرجى تأكيد البريد الإلكتروني أولا قبل تسجيل الدخول باستخدام حساب فيسبوك"
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "أضف إعلان جديد"
       create_one_here: "إنشاء جديد هنا"
       email_confirmation_sent_to_new_address: "رسالة التأكيد تم إرسالها إلى البريد الإلكتروني الجديد"
@@ -2182,7 +2196,7 @@ ar:
       username_is_invalid: "اسم المستخدم غير صحيح، الرموز المسموحة هي الأحرف، الأرقام والشرطة السفلية"
       visible_only_to_you: "‎%{service_name}‎ مرئية فقط لك ولمشرفي"
       visible_to_everybody: "مرئية للكل"
-      create_account_with_facebook: "سجل باستخدام حساب فيسبوك"
+      create_account_with_provider: ~
       OR: أو
       signup_with_email: "تسجيل الدخول بالبريد الإلكتروني"
       this_field_will_be_publicly_visible: ~
@@ -2250,7 +2264,7 @@ ar:
       account_creation_link_text: "اضغط هنا"
       cancle_facebook_connect: "‎%{cancel_link}‎ إذا لا تريد ربط هذا الحساب يمكنك"
       facebook_cancel_link_text: إلغاء
-      log_in_with_your_facebook_account: "قم بالدخول عبر فيسبوك"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...أو بإسم الدخول الخاص بك والبريد الإلكتروني:"
       we_will_not_post_without_asking_you: "لن نقوم أبدا بالنشر على حساب فيسبوك الخاص بك دون إذنك"
     password_forgotten:

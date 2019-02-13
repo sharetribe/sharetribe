@@ -319,6 +319,20 @@ vi:
         enable_facebook_login: ~
         save: "Lưu thiết lâp"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: "Phân tích"
         google_analytics_key: "ID theo dõi Google Analytics"
@@ -1637,8 +1651,8 @@ vi:
       comment_sent: "Bình luận đã gửi"
       confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
       additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
-      could_not_get_email_from_facebook: "Tài khoảng Facebook không chứa địa chỉ mail. Bạn cần ít nhất 1 địa chỉ mail để tạo tài khoản trên trang này."
-      facebook_email_unconfirmed: "Địa chỉ email '%{email}' liên kết với tài khoản Facebook của bạn đã được sử dụng nhưng chưa được xác nhận. Vui lòng xác nhận địa chỉ email trước khi đăng nhập vào Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Đăng một sản phẩm khác"
       create_one_here: "tạo một ở đây"
       email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
@@ -2184,7 +2198,7 @@ vi:
       username_is_invalid: "Tên người dùng không hợp lệ. Cho phép các ký tự là chữ cái, số và gạch dưới."
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
       visible_to_everybody: "hiển thị đối với mọi người"
-      create_account_with_facebook: "Đăng nhập bằng Facebook"
+      create_account_with_provider: ~
       OR: HOẶC
       signup_with_email: "Đăng ký với email"
       this_field_will_be_publicly_visible: ~
@@ -2252,7 +2266,7 @@ vi:
       account_creation_link_text: "nhấn vào đây"
       cancle_facebook_connect: "Nếu bạn không muốn liên kết tài khoản này, bạn có thể %{cancel_link}."
       facebook_cancel_link_text: "hủy bỏ"
-      log_in_with_your_facebook_account: "Đăng nhập với tài khoản Facebook của bạn:"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...hoặc với tên người dùng và mật khẩu của bạn:"
       we_will_not_post_without_asking_you: "Chúng tôi sẽ không bao giờ đăng tin lên Facebook của bạn mà không hỏi ý bạn trước."
     password_forgotten:

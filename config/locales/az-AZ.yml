@@ -309,6 +309,20 @@ az-AZ:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1613,8 +1627,8 @@ az-AZ:
       comment_sent: "Şərh verildi"
       confirmation_link_is_wrong_or_used: "Təsdiq linki artıq istifadə edilmiş və ya başqa şəkildə deaktivləşmişdir. Xahiş edirik təkrar daxil edin. Səhv davam edərsə bizə müraciət etməyinizi xahiş edirik."
       additional_email_confirmed: "Daxil etdiyiniz e-poçt təsdiqlənmişdir."
-      could_not_get_email_from_facebook: "Facebook-dan e-poçt ünvanını əldə edilmədi və buna görə də e-poçt olmadan hesab yaradılmamışdır"
-      facebook_email_unconfirmed: "Facebook hesabınızla əlaqəli '%{email}' e-poçt ünvanı artıq istifadə olunur, lakin hələ təsdiqlənilməyib. Facebookla giriş etmədən əvvəl e-poçt ünvanınızı təsdiqləyin."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Daha bir elan ver"
       create_one_here: "burada yeni birini yaradın"
       email_confirmation_sent_to_new_address: "Təsdiqləmə məktubu yeni ünvanınıza göndırildi."
@@ -2162,7 +2176,7 @@ az-AZ:
       username_is_invalid: "İstifadəçi adı etibarsızdır. İzin verilən simvollar məktublar, nömrələr və altçizdirlər. Yalnız hərflər, rəqəmlər və \"_\" işarəsi istifadə edilə bilər."
       visible_only_to_you: "yalnız sizə və %{service_name} komandasına görünür"
       visible_to_everybody: "hər kəsə görünür"
-      create_account_with_facebook: "Facebook ilə qeydiyyatdan keç"
+      create_account_with_provider: ~
       OR: "VƏ YA"
       signup_with_email: "E-poçt vasitəsilə qeydiyyatdan keç"
       this_field_will_be_publicly_visible: ~
@@ -2230,7 +2244,7 @@ az-AZ:
       account_creation_link_text: "bura klikləyin"
       cancle_facebook_connect: "Bu hesabı qoşmaq istəmirsinizsə,%{cancel_link} klik edə bilərsiniz."
       facebook_cancel_link_text: imtina
-      log_in_with_your_facebook_account: "Facebook ilə daxil et"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... və ya istifadəçi adınız və ya e-poçtunuzla:"
       we_will_not_post_without_asking_you: "Biz sizdən soruşmadan Facebook-da heç vaxt yazmayacağıq."
     password_forgotten:

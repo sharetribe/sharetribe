@@ -319,6 +319,20 @@ zh:
         enable_facebook_login: ~
         save: 保存设置
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: 分析
         google_analytics_key: "Google Analytics Tracking ID"
@@ -1631,8 +1645,8 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接已使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的电子邮件已被确认。
-      could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: 发布另一条消息
       create_one_here: 创建新用户
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
@@ -2180,7 +2194,7 @@ zh:
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 仅对你和集市管理员可见
       visible_to_everybody: 所有人可见
-      create_account_with_facebook: 用Facebook帐号注册
+      create_account_with_provider: ~
       OR: 或
       signup_with_email: 使用你自己的邮箱注册
       this_field_will_be_publicly_visible: ~
@@ -2248,7 +2262,7 @@ zh:
       account_creation_link_text: 点击这里
       cancle_facebook_connect: "如果你不想关联此帐号，你可以%{cancel_link}。"
       facebook_cancel_link_text: 取消
-      log_in_with_your_facebook_account: 用你Facebook账号登录
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: ……或者用你的用户名或电子邮件：
       we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:

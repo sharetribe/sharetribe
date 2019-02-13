@@ -315,6 +315,20 @@ he-IL:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1621,8 +1635,8 @@ he-IL:
       comment_sent: "תגובה נשלחה"
       confirmation_link_is_wrong_or_used: "קישור האישור כבר בשימוש או לא תקין. נסה להיכנס או צור קשר אם הבעיה נמשכת."
       additional_email_confirmed: "המייל שהזנת כעת מאושר."
-      could_not_get_email_from_facebook: "לא ניתן היה לקבל כתובת דוא\"ל מ- Facebook ולא ניתן ליצור חשבון ללא דוא\"ל."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "צור מודעה נוספת"
       create_one_here: "להרשם כאן"
       email_confirmation_sent_to_new_address: "אישור דוא\"ל נשלח כעת לכתובת החדשה."
@@ -2168,7 +2182,7 @@ he-IL:
       username_is_invalid: "שם משתמש לא חוקי. תווים מותרים הם אותיות, מספרים וקו תחתון."
       visible_only_to_you: "גלוי רק לך ולמנהל האתר"
       visible_to_everybody: "פתוח לכולם"
-      create_account_with_facebook: "התחבר באמצעות פייסבוק"
+      create_account_with_provider: ~
       OR: או
       signup_with_email: "צור/י חשבון באמצעות כתובת הדואר האלקטרוני"
       this_field_will_be_publicly_visible: ~
@@ -2236,7 +2250,7 @@ he-IL:
       account_creation_link_text: "לחף כאן"
       cancle_facebook_connect: "‎%{cancel_link}‎ אם אינך רוצה לקשר חשבון זה, תוכל לבצע את ‎"
       facebook_cancel_link_text: ביטול
-      log_in_with_your_facebook_account: "התחבר באמצעות פייסבוק"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "או באמצעות שם משתמש וכתובת הדואר האלקטרוני"
       we_will_not_post_without_asking_you: "לעולם לא נפרסם בפייסבוק מבלי לשאול אותך."
     password_forgotten:

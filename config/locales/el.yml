@@ -309,6 +309,20 @@ el:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1613,8 +1627,8 @@ el:
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       additional_email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας επιβεβαιώθηκε."
-      could_not_get_email_from_facebook: "Δεν μπορέσαμε να λάβουμε τη διεύθυνση email σας από το Facebook και δεν γίνεται να δημιουργηθεί λογαριασμός χωρίς μια διεύθυνση email."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Δημιουργείστε άλλη μία καταχώρηση"
       create_one_here: "δημιουργήσετε ένα"
       email_confirmation_sent_to_new_address: "Η επιβεβαίωση στέλνεται τώρα στη νέα διεύθυνση."
@@ -2160,7 +2174,7 @@ el:
       username_is_invalid: "Αυτό το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατό σε όλους"
-      create_account_with_facebook: "Συνδεθείτε μέσω Facebook"
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2228,7 +2242,7 @@ el:
       account_creation_link_text: "κάντε κλικ εδώ"
       cancle_facebook_connect: "Αν δεν θέλετε να συνδέσετε αυτό το λογαριασμό, μπορείτε να το %{cancel_link}."
       facebook_cancel_link_text: ακυρώσετε
-      log_in_with_your_facebook_account: "Συνδεθείτε μέσω Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... ή με το όνομα χρήστη ή το email σας:"
       we_will_not_post_without_asking_you: "Δε θα δημοσιευτεί τίποτα στο Facebook χωρίς την άδειά σας."
     password_forgotten:

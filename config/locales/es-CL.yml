@@ -309,6 +309,20 @@ es-CL:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1620,8 +1634,8 @@ es-CL:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
-      could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de email en Facebook. Sin ella no podemos crearte una cuenta en el sistema."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Crear otro listado."
       create_one_here: "Crear una aquí"
       email_confirmation_sent_to_new_address: "El e-mail de confirmación ya fue enviado a la nueva dirección."
@@ -2167,7 +2181,7 @@ es-CL:
       username_is_invalid: "Nombre de usuario no válido. Los caracteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
-      create_account_with_facebook: "Crear una cuenta con Facebook"
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2235,7 +2249,7 @@ es-CL:
       account_creation_link_text: "haz clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
-      log_in_with_your_facebook_account: "Inicia sesión con tu cuenta de Facebook:"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... o con tu nombre de usuario y contraseña:"
       we_will_not_post_without_asking_you: "Nunca postearemos en Facebook sin preguntarte."
     password_forgotten:

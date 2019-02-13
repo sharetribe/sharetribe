@@ -309,6 +309,20 @@ ab:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -1613,8 +1627,8 @@ ab:
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: ~
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
@@ -2157,7 +2171,7 @@ ab:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: ~
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2225,7 +2239,7 @@ ab:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:

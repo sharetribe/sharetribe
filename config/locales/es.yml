@@ -324,6 +324,20 @@ es:
         enable_facebook_login: "Permitir a los usuarios conectarse con su cuenta de Facebook"
         save: "Guardar configuración"
         add_another_image: "Cambia la imagen"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -1648,8 +1662,8 @@ es:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto el enlace. Intenta iniciar sesión o contáctanos si el problema persiste."
       additional_email_confirmed: "El correo electrónico que nos proporcionaste ya ha sido confirmado."
-      could_not_get_email_from_facebook: "No pudimos acceder a tu dirección de correo electrónico de Facebook. No es posible crear una cuenta sin una dirección de correo electrónico."
-      facebook_email_unconfirmed: "El correo electrónico %{email} asociado con tu cuenta de Facebook ya ha sido registrado pero no ha sido confirmado. Por favor confirma la cuenta de correo antes de iniciar sesión con Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Crear otro anuncio"
       create_one_here: "crear una aquí"
       email_confirmation_sent_to_new_address: "El correo de confirmación ha sido enviado a la nueva dirección."
@@ -2199,7 +2213,7 @@ es:
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el equipo de %{service_name}"
       visible_to_everybody: "Visible para todos"
-      create_account_with_facebook: "Registrate con tu cuenta de Facebook"
+      create_account_with_provider: ~
       OR: O
       signup_with_email: "Regístrate con tu correo electrónico"
       this_field_will_be_publicly_visible: "(Esta campo será público)"
@@ -2267,7 +2281,7 @@ es:
       account_creation_link_text: "clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
-      log_in_with_your_facebook_account: "Inicia sesión con Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...o con tu nombre de usuario o email:"
       we_will_not_post_without_asking_you: "Nunca publicaremos en Facebook sin preguntarte."
     password_forgotten:

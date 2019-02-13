@@ -319,6 +319,20 @@ ja:
         enable_facebook_login: ~
         save: 設定を保存する
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
@@ -1637,8 +1651,8 @@ ja:
       comment_sent: コメントを送信しました
       confirmation_link_is_wrong_or_used: 認証リンクがすでに使用されていたか、壊れていたようです。ログインを試してみて、問題が解決しない場合はサイト管理者にお問い合わせください。
       additional_email_confirmed: 入力したメールアドレスは承認されました。
-      could_not_get_email_from_facebook: Facebookからメールアドレスを取得出来ませんでした。メールアドレスなしでアカウント作成が出来ません
-      facebook_email_unconfirmed: "あなたのFACEBOOKアカウントのメールアドレス%{email}は既に登録されておりますが、メールアドレスの承認が完了しておりません。メールアドレスの承認を完了してからFACEBOOKでログインを行ってください。"
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: 続けて投稿する
       create_one_here: こちらでご登録
       email_confirmation_sent_to_new_address: 新しいメールアドレスへ認証メールを送りました。
@@ -2186,7 +2200,7 @@ ja:
       username_is_invalid: 無効なユーザ名です。文字と数字とアンダーバーが使用可能です。
       visible_only_to_you: あなただけに表示されるマーケットプレイスの管理ページ
       visible_to_everybody: 全員に表示
-      create_account_with_facebook: "Facebook IDで会員登録"
+      create_account_with_provider: ~
       OR: それとも
       signup_with_email: メールアドレスで新規登録する
       this_field_will_be_publicly_visible: ~
@@ -2254,7 +2268,7 @@ ja:
       account_creation_link_text: ここをクリック
       cancle_facebook_connect: "もしこのアカウントをリンクしたくない場合は、%{cancel_link}が出来ます。"
       facebook_cancel_link_text: キャンセル
-      log_in_with_your_facebook_account: "Facebook IDでログイン"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "または、ユーザー名 or メールアドレスで："
       we_will_not_post_without_asking_you: あなたに断りなくFacebookに投稿することは、決してありません。
     password_forgotten:

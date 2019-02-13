@@ -334,6 +334,20 @@ ru:
         enable_facebook_login: ~
         save: "Сохранить настройки"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Аналитика
         google_analytics_key: "Google Analytics tracking ID"
@@ -1658,8 +1672,8 @@ ru:
       comment_sent: "Комментарий отправлен"
       confirmation_link_is_wrong_or_used: "Ссылка для подтверждения уже была использована, либо неправильна. Попробуйте войти в систему, или отправьте отзыв, если проблема повторяется."
       additional_email_confirmed: "Адрес электронной почты, указанный вами теперь подтвержден."
-      could_not_get_email_from_facebook: "Не смогли получить email адрес от Facebook и не можем создать аккаунт без email."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Создать другую публикацию"
       create_one_here: "создать её"
       email_confirmation_sent_to_new_address: "Письмо с ссылкой подтверждения отправлено на новый адрес."
@@ -2213,7 +2227,7 @@ ru:
       username_is_invalid: "Можно использовать только латинские буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
-      create_account_with_facebook: "Создать учётную запись с помощью Facebook"
+      create_account_with_provider: ~
       OR: или
       signup_with_email: "Зарегистрируйте используя адрес электронной почты"
       this_field_will_be_publicly_visible: ~
@@ -2281,7 +2295,7 @@ ru:
       account_creation_link_text: "нажмите здесь"
       cancle_facebook_connect: "Если вы не хотите привязывать эту учётную запись, вы можете %{cancel_link}."
       facebook_cancel_link_text: "отменить это действие"
-      log_in_with_your_facebook_account: "Войти через Facebook:"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "…или с помощью логина и пароля:"
       we_will_not_post_without_asking_you: "Мы никогда не будем размещать сообщения в Facebook без вашего разрешения."
     password_forgotten:

@@ -329,6 +329,20 @@ cs:
         enable_facebook_login: "Povolit uživatelům přihlásit se pomocí Facebookového účtu"
         save: "Uložit nastavení"
         add_another_image: "Přidat další obrázek"
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: "Google Analytics"
         google_analytics_key: "sledování identifikačního čísla pomocí Google Analytics"
@@ -1651,8 +1665,8 @@ cs:
       comment_sent: "Komentář odeslán"
       confirmation_link_is_wrong_or_used: "Odkaz pro potvrzení je již použitý nebo poškozený. Zkuste se přihlásit nebo nám napsat v případě, že problém přetrvá."
       additional_email_confirmed: "Zadaný e-mail byl potvrzen."
-      could_not_get_email_from_facebook: "Nepodařilo se nám získat Vaši e-mailovou adresu z účtu na Facebooku a nemůžeme tedy vytvořit účet bez e-mailu."
-      facebook_email_unconfirmed: "E-mailová adresa %{email}  přidružená k vašemu Facebook účtu je již použita, ale dosud nebyla potvrzena. Před přihlášením do služby potvrďte vaši e-mailovou adresu."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Vytvořit další inzerát"
       create_one_here: "můžete ho vytvořit zde"
       email_confirmation_sent_to_new_address: "Potvrzení e-mailu bylo právě odesláno na novou adresu."
@@ -2204,7 +2218,7 @@ cs:
       username_is_invalid: "Uživatelské jméno je neplatné. Povolenými znaky jsou písmena, číslice a podtržítko."
       visible_only_to_you: "viditelné pouze pro Vás a pro správce tržiště"
       visible_to_everybody: "viditelné pro všechny"
-      create_account_with_facebook: "Přihlásit se přes Facebook"
+      create_account_with_provider: ~
       OR: NEBO
       signup_with_email: "Zaregistrovat se přes e-mail"
       this_field_will_be_publicly_visible: "(Toto pole bude zveřejněno)"
@@ -2272,7 +2286,7 @@ cs:
       account_creation_link_text: "klikněte zde"
       cancle_facebook_connect: "Pokud nechcete propojit tento účet, klikněte na uvedený odkaz pro zrušení %{cancel_link}."
       facebook_cancel_link_text: zrušit
-      log_in_with_your_facebook_account: "Přihlásit se přes Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...nebo pomocí Vašeho uživatelského jména či e-mailu:"
       we_will_not_post_without_asking_you: "Nikdy nebudeme přispívat na Facebook, aniž bychom se Vás zeptali."
     password_forgotten:

@@ -321,6 +321,20 @@ tr-TR:
         enable_facebook_login: ~
         save: "Ayarları kaydet"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics takip kimliği"
@@ -1628,8 +1642,8 @@ tr-TR:
       comment_sent: "Yorumuzun gönderildi"
       confirmation_link_is_wrong_or_used: "Doğrulama linki kullanılmış ya da hatalı. Giriş yapmaya çalışın veya sorun devam ederse, bize ulaşın."
       additional_email_confirmed: "Girmiş olduğunuz e-posta adresi doğrulandı."
-      could_not_get_email_from_facebook: "Facebook'tan e-posta adresinizi alamadık ve bu adres olmaksınız hesap oluşturulamıyor."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Yeni ilan oluştur"
       create_one_here: "buradan bir tane oluşturabilirsiniz."
       email_confirmation_sent_to_new_address: "E-posta doğrulamanız yeni adresinize gönderildi."
@@ -2174,7 +2188,7 @@ tr-TR:
       username_is_invalid: "Kullanıcı adı geçersiz. Kullanıcı adı harf, rakam ve altçizgiden oluşabilir."
       visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
-      create_account_with_facebook: "Facebook hesabınla kayıt ol"
+      create_account_with_provider: ~
       OR: "YA DA"
       signup_with_email: "E-posta ile kayıt ol"
       this_field_will_be_publicly_visible: "(Bu alan herkese görünür olacak)"
@@ -2242,7 +2256,7 @@ tr-TR:
       account_creation_link_text: "buraya tıklayın"
       cancle_facebook_connect: "Bu hesabı bağlamak istemiyorsanız, %{cancel_link} adresine tıklayın."
       facebook_cancel_link_text: iptal
-      log_in_with_your_facebook_account: "Facebook ile giriş yap"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...ya da kullanıcı adı/e-posta ile giriş yap:"
       we_will_not_post_without_asking_you: "Size sormadan Facebook'ta kesinlikle hiçbir şey paylaşmayacağız."
     password_forgotten:
