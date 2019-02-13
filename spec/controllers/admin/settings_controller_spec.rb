@@ -13,7 +13,8 @@ describe Admin::SettingsController, type: :controller do
                         automatic_confirmation_after_days: 14,
                         automatic_newsletters: false,
                         default_min_days_between_community_updates: 5,
-                        email_admins_about_new_members: false)
+                        email_admins_about_new_members: false,
+                        pre_approved_listings: false)
     FactoryGirl.create(:payment_settings,
                        community_id: community.id,
                        payment_gateway: 'paypal')
@@ -43,7 +44,8 @@ describe Admin::SettingsController, type: :controller do
         automatic_confirmation_after_days: 15,
         automatic_newsletters: true,
         default_min_days_between_community_updates: 10,
-        email_admins_about_new_members: true
+        email_admins_about_new_members: true,
+        pre_approved_listings: true
       }
 
       expect(community.join_with_invite_only).to eq false
@@ -57,6 +59,7 @@ describe Admin::SettingsController, type: :controller do
       expect(community.automatic_newsletters).to eq false
       expect(community.default_min_days_between_community_updates).to eq 5
       expect(community.email_admins_about_new_members).to eq false
+      expect(community.pre_approved_listings).to eq false
 
       put :update, params: {community: params}
       community.reload
@@ -76,6 +79,7 @@ describe Admin::SettingsController, type: :controller do
       expect(paypal_settings.confirmation_after_days).to eq 15
       stripe_settings = PaymentSettings.stripe.find_by(community_id: community.id)
       expect(stripe_settings.confirmation_after_days).to eq 15
+      expect(community.pre_approved_listings).to eq true
     end
 
   end
