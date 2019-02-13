@@ -552,7 +552,7 @@ module ApplicationHelper
       :topic => :configure,
       :text => t("admin.communities.settings.settings"),
       :icon_class => icon_class("settings"),
-      :path => admin_settings_path,
+      :path => admin_setting_path,
       :name => "admin_settings"
     }
 
