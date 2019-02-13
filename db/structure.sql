@@ -821,6 +821,7 @@ CREATE TABLE `listings` (
   `shipping_price_additional_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
+  `approval` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -2369,5 +2370,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190208032229'),
 ('20190228084827'),
 ('20190227111355'),
-('20190213073532');
+('20190213073532'),
+('20190213082646');
 
