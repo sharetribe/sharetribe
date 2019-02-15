@@ -283,5 +283,6 @@ ICON_MAP = {
       "invitations" => "icon-random",
       "plus" => "icon-plus",
       "domain" => "icon-globe",
+      "seo" => "icon-external-link",
     }
   }

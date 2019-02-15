@@ -28,7 +28,8 @@
                 .name-locale-label.col-2
                   = fields.label :meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :meta_title, placeholder:  "#{@current_community.full_name(locale)} - #{community_slogan}", class: "text_field"
+                - slogan = customization.slogan.present? ? customization.slogan : t("common.default_community_slogan")
+                = fields.text_field :meta_title, placeholder:  "#{@current_community.full_name(locale)} - #{slogan}", class: "text_field"
 
     .row
       %h3= t('admin.communities.seo_settings.meta_description_label')
@@ -48,7 +49,9 @@
                 .name-locale-label.col-2
                   = fields.label :meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :meta_description, placeholder:  "#{@current_community.full_name(locale)} - #{community_slogan}", class: "text_field"
+                - slogan = customization.slogan.present? ? customization.slogan : t("common.default_community_slogan")
+                - description = customization.description.present? ? customization.description : t("common.default_community_description")
+                = fields.text_area :meta_description, placeholder:  "#{description} - #{slogan}", class: "text_field"
 
     .row
       %h2= t('admin.communities.seo_settings.sitemap_label')
