@@ -344,6 +344,7 @@ Rails.application.routes.draw do
       resource :plan, only: [:show]
       resource :community_seo_settings, only: [:show, :update]
       resource :domain, only: [:show]
+      resource :community_seo_settings, only: [:show, :update]
     end
 
     resources :invitations, only: [:new, :create ] do

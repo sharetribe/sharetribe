@@ -353,9 +353,9 @@ en:
         sitemap_info_public: "A sitemap is automatically generated for your marketplace: it references up to the 500 most recent listings in your website. You can access your sitemap anytime at %{link}"
         sitemap_info_private: "As your marketplace is private, there is no sitemap."
         robots_label: "Robots.txt"
-        robots_info: "Robots.txt is a text file to instruct web robots (typically search engine robots) how to crawl pages on your website. A robots.txt file is automatically generated for your marketplace. %{link}"
+        robots_info: "Robots.txt is a text file to instruct web robots (typically search engine robots) how to crawl pages on your website. %{link}"
         robots_info_link_text: "Learn more about the robots.txt file."
-        robots_info_2: "You can access your robots.txt at %{link}"
+        robots_info_2: "A robots.txt file is automatically generated for your marketplace. You can access your robots.txt at %{link}"
         save: "Save settings"
       analytics:
         analytics: Analytics
