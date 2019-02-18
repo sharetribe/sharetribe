@@ -333,6 +333,25 @@ ja:
         enable_linkedin_login: ~
         linkedin_connect_id: ~
         linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: アナリティクス
         google_analytics_key: "Google アナリティクス トラッキング コード"
@@ -972,7 +991,7 @@ ja:
     confirm:
       confirm_description: あなたのリクエストに適していた場合、取引は完了したと承認してください。そうすると相手方のレビューを書くことができます。
       cancel_description: リクエストに適していなかった場合、「適合しませんでした」とマークすることが出来ます。何が起きていたかについて相手方にレビューを書くことが出来ます。
-      cancel_payed_description: リクエストが受諾され、しかしながら疑念を持ち始めた場合、お支払い前の段階でリクエストをキャンセルが出来ます。
+      cancel_payed_description: あなたのリクエストは受け入れられましたが、あなたが再検討している場合は、支払い前にリクエストをキャンセルすることができます。
       canceling_payed_transaction: 課金キャンセル
       confirm: 取引完了
       cancel: クレーム通知
@@ -1134,8 +1153,8 @@ ja:
       remember_to_accept_request: "%{sender_name}さんからのリクエストを受け入れるか、却下するのを忘れないでください"
       you_can_accept_or_reject_offer_at: で、このオファーを受諾するか却下するか出来ます
       you_can_accept_or_reject_request_at: で、このリクエストを受諾するか却下するか出来ます
-      you_have_not_yet_accepted_or_rejected_offer: "%{date}に%{title}のオファーがありました。これに対し、受諾するか却下するかをまだしていません。"
-      you_have_not_yet_accepted_or_rejected_request: "%{date}に%{title}のリクエストがありました。これに対し、受諾するか却下するかをまだしていません。"
+      you_have_not_yet_accepted_or_rejected_offer: "%{date}に%{title}のオファーがありました。これに対しあなたはまだ受諾も却下もしていません。"
+      you_have_not_yet_accepted_or_rejected_request: "%{date}に%{title}のリクエストがありました。これに対しあなたはまだ受諾も却下していません。"
       show_thread: 会話を表示
     branding:
       powered_by: ~
@@ -1228,8 +1247,8 @@ ja:
     payment_receipt_to_seller:
       payment_gateway_fee: 支払い手数料：
       shipping_total: 送料：
-      product: 製品：
-      price_payer_paid: ~
+      product: 商品：
+      price_payer_paid: "%{payer_full_name} の支払い額"
       service_fee: "%{service_name} 利用料"
       you_will_get: 合計
       new_payment: 新しい支払いを受け取りました
@@ -1257,7 +1276,7 @@ ja:
       shipping_total: 送料：
     braintree_new_payment:
       product: 商品・サービス名：
-      price_payer_paid: "価格 %{payer_full_name}さん 支払い済み："
+      price_payer_paid: "%{payer_full_name}さんの支払い額："
       service_fee: "%{service_name}のご利用料金："
       you_will_get: あなたに支払われる金額：
     receipt_to_payer:
@@ -1303,7 +1322,7 @@ ja:
       text_version_text: "他の人が必要としているかもしれない何かを共有してもらえますか。あるいは、他の人がもてあましているかもしれない何かを必要としますか。オファーまたはリクエストをしてみてください。%{url}で投稿内容をすべてチェックできます。"
     reset_password_instructions:
       change_my_password: パスワードの変更
-      reset_password_instructions: "<p>あなたは%{service_name}のサービスにおいて、パスワードかユーザ名を忘れのお手続き中です。</p><p>あなたのユーザ名：%{username}</p><p>もしパスワードのリセットが必要な場合は、こちらをクリックしてください：%{password_reset_link}</p><br><p>もしそれをしない場合は、このメールを無視してください。パスワードは上記のリンクをクリックしない限り変更されることはありません。<p>"
+      reset_password_instructions: "<p>あなたは%{service_name} のサービスにおいてパスワードまたはユーザー名のいずれかの再発行手続き中です。</p><p>あなたのユーザー名は次のとおりです%{username} </p><p>パスワードの再設定が必要な場合は次のリンクをクリックしてください%{password_reset_link}  </p><br/><p>このリクエストを行なっていない場合、このメールは無視してください。上記のリンクにアクセスして新しいパスワードを作成するまでパスワードは変更されません。</p> "
     testimonial_reminder:
       remember_to_give_feedback_to: "ご注意：%{name}さんにレビューを書くのを忘れないでください"
       you_have_not_given_feedback_yet: "%{name}さんに「%{event}」の件でまだレビューを書いていないようです。この際に、%{given_name}さんのレビューを是非お願いします。"
@@ -1866,11 +1885,11 @@ ja:
         mass: 個、キロ、リットル、坪
         time: 時間、日、ヶ月
         long_time: 週、ヶ月、...
-        after_service_fee_you_will_get: "%{service_name}のご利用手数、お支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料など発生する場合は、送料込みの価格にしてください。"
+        after_service_fee_you_will_get: "%{service_name}のご利用手数料、支払い手数料を引いて、あなたに%{sum_with_currency}が支払われます。送料などが発生する場合は、送料込みの価格にしてください。"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}は料金から控除されます。"
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} は価格から差し引かれます。"
         after_service_fee_you_will_get_payment_text: "誰かが注文すると、この金額から%{payment_fee_info_link} が差し引かれます。"
-        payment_fee_info_link_text: "%{service_name} 利用料金と支払い手数料"
+        payment_fee_info_link_text: "%{service_name} 利用料と支払い手数料"
         delivery: 配送
         shipping: 発送する
         shipping_price: 送料
@@ -2501,6 +2520,9 @@ ja:
     initiate:
       booked_days: 予約日数
       booked_nights: ~
+      booked_days_label:
+        zero: "予約日:"
+        other: "予約日数:"
       booked_hours_label:
         other: 予約時間
       price_per_day: 日割り料金
