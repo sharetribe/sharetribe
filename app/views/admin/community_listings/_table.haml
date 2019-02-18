@@ -40,7 +40,7 @@
 
   %tbody
     - @presenter.listings.each do |listing|
-      = render 'listing', presenter: @presenter, listing: listing
+      = render 'admin/community_listings/listing', presenter: @presenter, listing: listing
 .row
   .col-12
     = will_paginate @presenter.listings
