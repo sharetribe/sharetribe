@@ -11,7 +11,7 @@ class Admin::ListingsService
   end
 
   def update
-    listing.update_column(:approval, params[:listing][:approval]) # rubocop::disable Rails/SkipsModelValidations
+    listing.update_column(:approval, params[:listing][:approval]) # rubocop:disable Rails/SkipsModelValidations
   end
 
   private
