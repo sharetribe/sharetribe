@@ -57,7 +57,7 @@
       %h2= t('admin.communities.seo_settings.sitemap_label')
 
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.sitemap_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.sitemap_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-sitemapxml-file-for-my-marketplace", target: '_blank'
         %p= t('admin.communities.seo_settings.sitemap_info', link: meta_info_link).html_safe
       - else
         %p= t('admin.communities.seo_settings.sitemap_info', link: "")
@@ -73,7 +73,7 @@
       %h2= t('admin.communities.seo_settings.robots_label')
 
       - if APP_CONFIG.display_knowledge_base_articles
-        - meta_info_link = link_to t('admin.communities.seo_settings.robots_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        - meta_info_link = link_to t('admin.communities.seo_settings.robots_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-robotstxt-file-for-my-marketplace", target: '_blank'
         %p= t('admin.communities.seo_settings.robots_info', link: meta_info_link).html_safe
       - else
         %p= t('admin.communities.seo_settings.robots_info', link: "")
