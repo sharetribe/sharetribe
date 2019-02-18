@@ -239,3 +239,8 @@ Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
   expect(listing.author).to eq author
 end
 
+Given(/^that listing is pending for admin approval$/)do
+  @listing.update_column(:approval, Listing::APPROVAL_PENDING)
+end
+
+
