@@ -67,6 +67,7 @@ ICON_MAP = {
       "link" => "ss-link",
       "external_link" => "ss-action",
       "social_media" => "ss-share",
+      "seo" => "ss-desktop",
       "analytics" => "ss-analytics",
       "openbook" => "ss-openbook",
       "order_types" => "ss-cart",
@@ -282,5 +283,6 @@ ICON_MAP = {
       "invitations" => "icon-random",
       "plus" => "icon-plus",
       "domain" => "icon-globe",
+      "seo" => "icon-external-link",
     }
   }
