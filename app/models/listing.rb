@@ -173,17 +173,6 @@ class Listing < ApplicationRecord
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
 
-  def visible_to?(current_user, current_community)
-    # DEPRECATED
-    #
-    # Consider removing the `visible_to?` method.
-    #
-    # Reason: Authorization logic should be in the controller layer (filters etc.),
-    # not in the model layer.
-    #
-    ListingVisibilityGuard.new(self, current_community, current_user).visible?
-  end
-
   # sets the time to midnight
   def set_valid_until_time
     if valid_until
