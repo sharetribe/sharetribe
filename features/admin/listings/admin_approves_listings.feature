@@ -1,4 +1,4 @@
-Feature: Admin sees list of listings
+Feature: Admin approves listing
 
   Background:
     Given there are following users:
@@ -6,9 +6,10 @@ Feature: Admin sees list of listings
       | kassi_testperson1 |
       | kassi_testperson2 |
     Given "kassi_testperson1" has admin rights in community "test"
+    Given community "test" has feature flag "approve_listings" enabled
 
   @javascript
-  Scenario: List of listings
+  Scenario: Approval of listing
     Given community "test" has new order type "Selling2" with action button "Buy"
     And there is a listing with title "car spare parts" from "kassi_testperson2" with category "Items" and with listing shape "Selling2"
     And that listing is pending for admin approval
