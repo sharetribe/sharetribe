@@ -317,5 +317,14 @@ class ListingPresenter < MemoisticPresenter
     }
   end
 
+  def pending_admin_approval?
+    is_marketplace_admin && listing.approval_pending?
+  end
+
+  def approval_in_use?
+    FeatureFlagHelper.feature_enabled?(:approve_listings) &&
+      current_community.pre_approved_listings
+  end
+
   memoize_all_reader_methods
 end

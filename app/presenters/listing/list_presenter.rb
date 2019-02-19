@@ -44,7 +44,7 @@ class Listing::ListPresenter
   end
 
   def show_approval_link?(listing)
-    admin_mode && listing_wait_for_approval?(listing)
+    FeatureFlagHelper.feature_enabled?(:approve_listings) && admin_mode && listing_wait_for_approval?(listing)
   end
 
   private
