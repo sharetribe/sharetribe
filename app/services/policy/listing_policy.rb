@@ -32,7 +32,7 @@ class Policy::ListingPolicy
   private
 
   def open?
-    !listing.closed?
+    !listing.closed? && listing.approved?
   end
 
   def listing_belongs_to_community?

@@ -6,7 +6,11 @@ describe Policy::ListingPolicy do
     let(:community2) { FactoryGirl.create(:community) }
     let(:person) { FactoryGirl.create(:person, communities: [community]) }
     let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
+    let(:author) { FactoryGirl.create(:person, communities: [community]) }
+    let(:listing) do
+      FactoryGirl.create(:listing, community_id: community.id,
+                                   listing_shape_id: 123, author: author)
+    end
 
     it "is not visible, if the listing doesn't belong to the given community" do
       expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_truthy
@@ -41,6 +45,30 @@ describe Policy::ListingPolicy do
 
       expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_falsey
       expect(Policy::ListingPolicy.new(listing, community, admin).visible?).to be_truthy
+    end
+
+    it "is not visible, if the listing is not approved" do
+      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+
+      expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_falsey
+      expect(Policy::ListingPolicy.new(listing, community, nil).visible?).to be_falsey
+
+      listing.update_attribute(:approval, Listing::APPROVAL_REJECTED)
+
+      expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_falsey
+      expect(Policy::ListingPolicy.new(listing, community, nil).visible?).to be_falsey
+    end
+
+    it "is visible to admin if the listing not approved" do
+      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+
+      expect(Policy::ListingPolicy.new(listing, community, admin).visible?).to be_truthy
+    end
+
+    it "is visible to author if the listing not approved" do
+      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+
+      expect(Policy::ListingPolicy.new(listing, community, listing.author).visible?).to be_truthy
     end
   end
 end
