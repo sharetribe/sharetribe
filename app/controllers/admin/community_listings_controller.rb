@@ -9,6 +9,16 @@ class Admin::CommunityListingsController < Admin::AdminBaseController
     @service.update
   end
 
+  def approve
+    @service.approve
+    redirect_to listing_path(@service.listing)
+  end
+
+  def reject
+    @service.reject
+    redirect_to listing_path(@service.listing)
+  end
+
   private
 
   def set_selected_left_navi_link
