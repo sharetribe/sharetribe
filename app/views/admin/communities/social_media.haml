@@ -89,7 +89,7 @@
     .row
       %h3= t('.google_connect')
       - if display_knowledge_base_articles
-        - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-google-signin" )
+        - google_instructions_link = link_to(t("admin.communities.social_media.google_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-google-sign-in" )
         = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text_with_instructions", :instructions_link => google_instructions_link).html_safe}
       - else
         = render :partial => "layouts/info_text", :locals => { :text => t(".google_connect_info_text").html_safe }
@@ -113,7 +113,7 @@
     .row
       %h3= t('.linkedin_connect')
       - if display_knowledge_base_articles
-        - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/configuration-and-how-to/how-to-configure-linkedin-sign-in" )
+        - linkedin_instructions_link = link_to(t("admin.communities.social_media.linkedin_instructions_link_text"), "#{knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/third-party-sign-up-services/how-to-configure-linkedin-sign-in" )
         = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text_with_instructions", :instructions_link => linkedin_instructions_link).html_safe}
       - else
         = render :partial => "layouts/info_text", :locals => { :text => t(".linkedin_connect_info_text").html_safe }
