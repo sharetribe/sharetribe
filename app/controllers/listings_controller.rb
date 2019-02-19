@@ -58,7 +58,7 @@ class ListingsController < ApplicationController
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])
-      if @listing.visible_to?(@current_user, @current_community)
+      if Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
         render :partial => "homepage/listing_bubble", :locals => { :listing => @listing }
       else
         render :partial => "bubble_listing_not_visible"
@@ -363,7 +363,7 @@ class ListingsController < ApplicationController
 
     raise ListingDeleted if @listing.deleted?
 
-    unless @listing.visible_to?(@current_user, @current_community)
+    unless Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
       if @current_user
         flash[:error] = if @listing.closed?
           t("layouts.notifications.listing_closed")
