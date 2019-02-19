@@ -1197,7 +1197,7 @@ es-ES:
       we_have_marked_request_as_confirmed: "Hemos marcado tu solicitud sobre '%{request}' como completada de forma automática ya que han pasado %{days_passed} días desde que fue aceptada."
     booking_transaction_automatically_confirmed:
       subject: "Transacción completada automáticamente - Recuerda dar una valoración"
-      we_have_marked_request_as_confirmed: "Hemos marcado tu transacción sobre '%{request}' como completada de forma automática ya que ha pasado 1 día desde que se acabó el periodo de la reservación."
+      we_have_marked_request_as_confirmed: "Hemos marcado tu transacción sobre '%{request}' como completada de forma automática ya que ha pasado 1 día desde que se acabó el periodo de la reserva."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: "Ahora puedes escribir una valoración sobre %{other_party_given_name}. Dejar una valoración es siempre una buena idea. Si todo fue bien, deberías contar a otros que %{other_party_given_name} es de confianza. Si hubo algún problema, también es bueno que lo menciones."
       give_feedback_to: "Escribir una valoración sobre %{other_party_given_name}"

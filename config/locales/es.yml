@@ -314,49 +314,49 @@ es:
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
         facebook_connect: "Facebook Login"
-        facebook_connect_info_text: "Para que la conexión a través de Facebook funcione, debes crear una aplicación para tu comunidad en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade el ID y la clave secreta que se haya generado aquí."
-        facebook_connect_info_text_with_instructions: "Para habilitar la conexión con Facebook, crea una aplicación para tu comunidad en <a href='https://developers.facebook.com/'>Facebook para desarrolladores</a>. Añade entonces el ID y la clave secreta de la aplicación que se han generado aquí. %{instructions_link}"
-        facebook_instructions_link_text: "Ver instrucciones para configurar la conexión con Facebook."
-        facebook_connect_id: "ID de cliente de Facebook"
-        invalid_facebook_connect_id: "La ID de cliente debe incluir sólo números"
-        facebook_connect_secret: "Facebook client secret"
-        invalid_facebook_connect_secret: "Client secret debe incluir sólo números y letras desde la A a la F."
+        facebook_connect_info_text: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado."
+        facebook_connect_info_text_with_instructions: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado. %{instructions_link}"
+        facebook_instructions_link_text: "Ver instrucciones para configurar Facebook Login."
+        facebook_connect_id: "App ID de Facebook"
+        invalid_facebook_connect_id: "El app ID debe incluir sólo números."
+        facebook_connect_secret: "App Secret de Facebook"
+        invalid_facebook_connect_secret: "El App Secret debe incluir sólo números y letras de la a a la f."
         enable_facebook_login: "Permitir a los usuarios conectarse con su cuenta de Facebook"
         save: "Guardar configuración"
         add_another_image: "Cambia la imagen"
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
-        linkedin_instructions_link_text: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Ver las instrucciones para configurar Google Sign-In."
+        google_connect_info_text_with_instructions: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto. %{instructions_link}"
+        google_connect_info_text: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto."
+        enable_google_login: "Permitir a los usuarios que inicien sesión con su cuenta de Google"
+        google_connect_id: "Client ID de Google"
+        google_connect_secret: "Llave secreta (client secret) de Google"
+        linkedin_connect: "LinkedIn Sign In"
+        linkedin_instructions_link_text: "Ver las instrucciones para configurar LinkedIn Sign In."
+        linkedin_connect_info_text_with_instructions: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app. %{instructions_link}"
+        linkedin_connect_info_text: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app."
+        enable_linkedin_login: "Permitir a los usuarios iniciar sesión con su cuenta de LinkedIn"
+        linkedin_connect_id: "Client ID de LinkedIn"
+        linkedin_connect_secret: "Llave secreta (client secret) de LinkedIn"
       seo_settings:
-        seo: ~
-        title: ~
-        meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
-        meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        save: ~
+        seo: SEO
+        title: "Página de inicio"
+        meta_title_label: "Meta tag del título para la página de inicio"
+        meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados como el título del sitio. %{link}."
+        meta_title_link_text: "Aprender más acerca de meta tags"
+        meta_description_label: "Meta tag de la descripción para la página de inicio"
+        meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados debajo del título. %{link}."
+        meta_description_link_text: "Aprender más acerca de meta tags"
+        sitemap_label: "Mapa del sitio"
+        sitemap_info: "Mapas de sitio son una manera fácil de informar a los buscadores web acerca de las páginas en tu sitio que están disponibles para rastreo web. %{link}."
+        sitemap_info_link_text: "Aprender más acerca del archivo XML del mapa del sitio"
+        sitemap_info_public: "Un mapa del sitio es generado automáticamente para tu marketplace: este hace referencia a los 500 anuncios más recientes de tu sitio. Puedes acceder a tu mapa del sitio en %{link}."
+        sitemap_info_private: "Como tu marketplace es privado no hay mapa de sitio."
+        robots_label: Robots.txt
+        robots_info: "El archivo robots.txt le da instrucciones a los robots web (típicamente robots de buscadores) acerca de como rastrear las páginas de tu sitio. %{link}."
+        robots_info_link_text: "Aprender már acerca del archivo robots.txt"
+        robots_info_2: "Un archivo robots.txt se genera automaticamente para tu marketplace. Puedes acceder a tu archive de robots.txt en %{link}."
+        save: "Guardar configuración"
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -500,15 +500,15 @@ es:
           published: Publicada
           blocked: Bloqueada
         status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
+          selected: "Filtros seleccionados: %{count}"
+          all: Filtros
+          published: Publicada
+          positive: Positiva
+          negative: Negativa
+          skipped: Saltada
+          waiting: Esperando
+          blocked: Bloqueada
+          selected_js: "Filtros seleccionados: "
         form:
           review_text: "Texto de la reseña"
           save: Guardar
@@ -577,15 +577,15 @@ es:
           title: Título
           url: URL
       domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        domain: Dominio
+        marketplace_domain: "Dominio del marketplace"
+        offer_pro: "Configura tu propio dominio al %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "subscribirte al plan Pro o superior"
+        your_marketplace_address_is: "La dirección de tu marketplace es: %{address}"
+        would_you_like_to_change_address: "¿Te gustaría cambiar la dirección de tu marketplace? %{contact_us}!"
+        contact_us: Contáctanos
+        you_can_now_use_a_custom_domain: "Con tu plan actual, puedes habilitar un dominio personalizado. ¿Quieres hacerlo? %{contact_us}!"
+        would_you_like_to_change_domain: "¿Te gustaría cambiar el dominio personalizado de tu marketplace? %{contact_us}!"
     custom_fields:
       edit:
         edit_listing_field: "Editar campo '%{field_name}'"
@@ -1681,8 +1681,8 @@ es:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto el enlace. Intenta iniciar sesión o contáctanos si el problema persiste."
       additional_email_confirmed: "El correo electrónico que nos proporcionaste ya ha sido confirmado."
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      could_not_get_email_from_social_network: "No pudimos obtener la dirección de correo de %{provider} y no se puede crear una cuenta sin correo."
+      social_network_email_unconfirmed: "La dirección de correo '%{email}' asociada con tu cuenta de %{provider} ya está siendo usada pero no está confirmada aún. Por favor, confirma la dirección antes de iniciar sesión con %{provider}."
       create_new_listing: "Crear otro anuncio"
       create_one_here: "crear una aquí"
       email_confirmation_sent_to_new_address: "El correo de confirmación ha sido enviado a la nueva dirección."
@@ -2232,7 +2232,7 @@ es:
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el equipo de %{service_name}"
       visible_to_everybody: "Visible para todos"
-      create_account_with_provider: ~
+      create_account_with_provider: "Registrarse con %{provider}"
       OR: O
       signup_with_email: "Regístrate con tu correo electrónico"
       this_field_will_be_publicly_visible: "(Esta campo será público)"
@@ -2241,7 +2241,7 @@ es:
       and_gave_following_feedback: "e hizo los siguientes comentarios"
     profile_listings:
       no_image: "Sin imagen"
-      manage_listings: ~
+      manage_listings: "Administrar mis anuncios"
     show:
       contact: "Contactar a %{person}"
       about_me: "Acerca de mí:"
@@ -2300,7 +2300,7 @@ es:
       account_creation_link_text: "clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Iniciar sesión con %{provider}"
       or_sign_up_with_your_username: "...o con tu nombre de usuario o email:"
       we_will_not_post_without_asking_you: "Nunca publicaremos en Facebook sin preguntarte."
     password_forgotten:
@@ -2621,7 +2621,7 @@ es:
       signup: Registrarse
       admin_dashboard: "Panel de administración"
       language: Idioma
-      listings: ~
+      listings: "Mis anuncios"
     utils:
       km: km
       mi: mi
