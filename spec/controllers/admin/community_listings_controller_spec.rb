@@ -171,7 +171,7 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it '#reject' do
       get :reject, params: {community_id: community.id, id: listing.id},
-                    format: :js
+                   format: :js
       listing.reload
       expect(listing.approval).to eq Listing::APPROVAL_REJECTED
     end

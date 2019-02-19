@@ -146,6 +146,12 @@ class ListingsController < ApplicationController
 
     ActiveRecord::Base.transaction do
       @listing.author = new_listing_author
+      if FeatureFlagHelper.feature_enabled?(:approve_listings) &&
+         @current_community.pre_approved_listings?
+        unless @current_user.has_admin_rights?(@current_community)
+          @listing.approval = Listing::APPROVAL_PENDING
+        end
+      end
 
       if @listing.save
         @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
@@ -209,6 +215,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = result.data.merge(@listing.closed? ? {open: true} : {})
+    listing_params.merge!(auto_approve_params)
 
     old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
@@ -510,5 +517,16 @@ class ListingsController < ApplicationController
       else
         @current_user
       end
+  end
+
+  # If the community.pre_approved_listings is later disabled
+  # If a rejected or pending listing is edited, then it would automatically
+  # be opened (the pending status should not be assigned).
+  def auto_approve_params
+    if @current_community.pre_approved_listings?
+      {}
+    else
+      {approval: Listing::APPROVED}
+    end
   end
 end
