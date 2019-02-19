@@ -167,6 +167,7 @@ ICON_MAP = {
       "footer_menu" => "ss-downloadbox",
       "invitations" => "ss-adduser",
       "domain" => "ss-globe",
+      "pending" => "ss-clockwise",
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -284,5 +285,6 @@ ICON_MAP = {
       "plus" => "icon-plus",
       "domain" => "icon-globe",
       "seo" => "icon-external-link",
+      "pending" => "icon-time",
     }
   }

@@ -113,6 +113,17 @@
 
   - if @listing_presenter.is_authorized
     .listing-view-admin-links
+      - unless @listing_presenter.is_marketplace_admin
+        - if @listing.approval_pending?
+          .listing-view-admin-link
+            %a.icon-with-text-container
+              = icon_tag("pending", ["icon-part"])
+              .text-part= t("listings.edit_links.listing_is_pending")
+        - elsif @listing.approval_rejected?
+          .listing-view-admin-link
+            %a.icon-with-text-container
+              = icon_tag("cross", ["icon-part"])
+              .text-part= t("listings.edit_links.listing_is_rejected")
       .listing-view-admin-link
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
