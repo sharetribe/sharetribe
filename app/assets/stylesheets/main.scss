@@ -1572,12 +1572,10 @@ input[type=text].delivery-price-field {
   .conversation-service-fee-value,
   .conversation-total-value,
   .conversation-shipping-price-value,
-  .conversation-stripe-fee-value {
-    float: right;
-    margin-right: lines(0.25);
-  }
+  .conversation-stripe-fee-value,
   .conversation-total-paypal-value {
     float: right;
+    margin-right: lines(0.25);
   }
   .conversation-total-wrapper {
     font-weight: bold;

@@ -89,8 +89,6 @@
       - if @listing_presenter.buyer_fee?
         .row
           .col-12
-            %span.alert-box-icon
-              = icon_tag("information", ["icon-fix"])
             %span.buyer-fees
               = t('.marketplace_fees_may_apply')
       - if @listing_presenter.quantity_per_day_or_night?
