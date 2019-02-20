@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ithouse/fake_stripe.git
-  revision: 6848daab104333b2c0c493ab069731d4a0b87f6f
-  ref: 6848daab104333b2c0c493ab069731d4a0b87f6f
+  revision: cc6dacb2455c8f9be22b05d1931790e3b02ef367
+  ref: cc6dacb2455c8f9be22b05d1931790e3b02ef367
   specs:
     fake_stripe (0.1.0)
       capybara
@@ -246,7 +246,7 @@ GEM
     haml (5.0.1)
       temple (>= 0.8.0)
       tilt
-    hashdiff (0.3.7)
+    hashdiff (0.3.8)
     hashie (3.6.0)
     hiredis (0.6.1)
     htmlentities (4.3.4)
@@ -319,7 +319,7 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mustermann (1.0.2)
+    mustermann (1.0.3)
     mysql2 (0.4.10)
     nenv (0.3.0)
     netrc (0.11.0)
@@ -393,7 +393,7 @@ GEM
       rack
     rack-contrib (1.2.0)
       rack (>= 0.9.1)
-    rack-protection (2.0.2)
+    rack-protection (2.0.5)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -493,7 +493,7 @@ GEM
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
-    safe_yaml (1.0.4)
+    safe_yaml (1.0.5)
     sass (3.4.24)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -506,10 +506,10 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
-    sinatra (2.0.2)
+    sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.2)
+      rack-protection (= 2.0.5)
       tilt (~> 2.0)
     sitemap_generator (5.3.1)
       builder (~> 3.0)
@@ -572,7 +572,7 @@ GEM
       multi_json
       multipart-post (~> 2.0)
       trollop (~> 2.0)
-    webmock (3.3.0)
+    webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff

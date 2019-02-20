@@ -200,11 +200,6 @@ class ListingPresenter < MemoisticPresenter
         .map {|res| res[:data]}
         .or_else({})
 
-      stripe_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
-        .select {|res| res[:success]}
-        .map {|res| res[:data]}
-        .or_else({})
-
       paypal_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
@@ -224,6 +219,13 @@ class ListingPresenter < MemoisticPresenter
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
     end
+  end
+
+  def stripe_settings
+    Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
+      .select {|res| res[:success]}
+      .map {|res| res[:data]}
+      .or_else({})
   end
 
   def payment_settings_api
@@ -318,7 +320,10 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def buyer_fee?
-    FeatureFlagHelper.feature_enabled?(:buyer_commission) && stripe_in_use && !paypal_in_use
+    FeatureFlagHelper.feature_enabled?(:buyer_commission) &&
+      stripe_in_use && !paypal_in_use &&
+      (stripe_settings[:commission_from_buyer].to_i > 0 ||
+      stripe_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
   end
 
   memoize_all_reader_methods

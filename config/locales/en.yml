@@ -240,6 +240,7 @@ en:
         update_settings: "Save settings"
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
         automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed. %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: "Buyer transaction fees are only supported with Stripe. You will not be able to use PayPal if you configure a Buyer transaction fee with Stripe."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -853,8 +854,8 @@ en:
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
-      commission_from_buyer_label: Buyer transaction fee
-      minimum_buyer_transaction_fee_label: Buyer minimum transaction fee
+      commission_from_buyer_label: "Buyer transaction fee:"
+      minimum_buyer_transaction_fee_label: "Buyer minimum transaction fee:"
       stripe_connected:
         title: "Stripe connected"
         disable: "Disable Stripe"
@@ -1310,7 +1311,7 @@ en:
       subtotal: Subtotal
       total: Total
       price: Price
-      buyer_service_fee: "Service fee"
+      buyer_service_fee: "%{service_name} service fee"
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
