@@ -106,7 +106,7 @@ class TransactionMailer < ActionMailer::Base
                    listing_quantity: transaction.listing_quantity,
                    duration: transaction.booking.present? ? transaction.listing_quantity: nil,
                    subtotal: MoneyViewUtils.to_humanized(subtotal),
-                   payment_total: MoneyViewUtils.to_humanized(payment_total),
+                   payment_total: MoneyViewUtils.to_humanized(buyer_service_fee > 0 ? subtotal : payment_total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),
                    payment_buyer_service_fee: buyer_service_fee > 0 ? MoneyViewUtils.to_humanized(-1 * buyer_service_fee) : nil,
