@@ -334,12 +334,31 @@ nl:
         google_connect_id: "Google client id"
         google_connect_secret: "Google client secret"
         linkedin_connect: "LinkedIn Sign in"
-        linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In"
+        linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In."
         linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
         linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
         enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
         linkedin_connect_id: "LinkedIn client id"
         linkedin_connect_secret: "LinkedIn client secret"
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"

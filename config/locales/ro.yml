@@ -329,7 +329,7 @@ ro:
         enable_facebook_login: "Permiteti utilizatorilor sa se autentifice folosind contul de Facebook"
         save: "Salveaza setarile"
         add_another_image: ~
-        google_connect: ~
+        google_connect: "Conectare cu Google"
         google_instructions_link_text: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
@@ -343,6 +343,25 @@ ro:
         enable_linkedin_login: ~
         linkedin_connect_id: ~
         linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Analiza
         google_analytics_key: "Cod de urmarire Google Analytics"
@@ -2199,7 +2218,7 @@ ro:
       username_is_invalid: "Numele de utilizator nu este valid. Caracterele permise sunt litere, numere si \"underscore\""
       visible_only_to_you: "vizibil numai pentru dvs. și echipa %{service_name}"
       visible_to_everybody: "vizibil tuturor"
-      create_account_with_provider: ~
+      create_account_with_provider: "Inscrie-te cu %{provider}"
       OR: SAU
       signup_with_email: "Inregistrare cu email"
       this_field_will_be_publicly_visible: ~
@@ -2267,7 +2286,7 @@ ro:
       account_creation_link_text: "Click aici"
       cancle_facebook_connect: "Daca nu vrei sa conectezi acest cont, poti anula folosing %{cancel_link}"
       facebook_cancel_link_text: Anulare
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Autentifica-te cu %{provider}"
       or_sign_up_with_your_username: "...sau cu numele de utilizator sau adresa de email:"
       we_will_not_post_without_asking_you: "Noi nu vom posta pe Facebook fără acordul dvs."
     password_forgotten:
