@@ -271,7 +271,7 @@ pt-BR:
         ban_me_error: "Você não pode se banir."
         search: ~
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Mostrar todos"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
@@ -407,7 +407,7 @@ pt-BR:
         transactions: "Ver transações"
         search_by_title_parties: ~
         search: ~
-        reset_search: ~
+        reset_search: "Mostrar todos"
         status_filter:
           all: ~
           selected: ~
@@ -477,7 +477,7 @@ pt-BR:
         profile: ~
         search_by_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Mostrar todos"
         for_keyword: ~
       testimonials:
         testimonials: ~
@@ -485,7 +485,7 @@ pt-BR:
         displaying_xx_reviews: ~
         search_keyword: ~
         search: ~
-        reset_search: ~
+        reset_search: "Mostrar todos"
         for_keyword: ~
         headers:
           transaction: ~
@@ -530,26 +530,26 @@ pt-BR:
           used: ~
           date_sent: ~
       listings:
-        listings: ~
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        listings: Anúncios
+        search_by_title_author_category: "Buscar um anúncio por título"
+        search: Buscar
+        reset_search: "Mostrar todos"
         status:
-          all: ~
+          all: "Todos os status"
           selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          open: Ativo
+          closed: Encerrado
+          expired: Expirado
         headers:
-          title: ~
+          title: Título
           author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
+          created: "Criado em"
+          updated: "Atualizado em"
+          category: Categoria
+          status: Status
+        open: Ativo
+        closed: Encerrado
+        expired: Expirado
       user_fields:
         user_fields: ~
       footer:
@@ -1050,7 +1050,7 @@ pt-BR:
       this_message_is_private: "Esta mensagem é particular entre você e %{person}. %{person} será notificado sobre esta mensagem por e-mail."
       you_will_get_notified_of_acceptance: "Você receberá uma notificação por e-mail quando %{person} aceitar ou rejeitar a sua proposta."
       you_will_get_notified: "Você receberá uma notificação por e-mail quando %{person} responder você."
-      title: Titulo
+      title: Título
       send_message_to_user: "Enviar mensagem para %{person}"
       about_listing: "Sobre o anúncio %{listing_title}"
       author_has_to_accept_request: "%{author_name} precisa aceitar o pedido antes que você possa pagar"
@@ -2026,7 +2026,7 @@ pt-BR:
       no_image: "Sem imagem"
       no_reviews: "Nenhuma avaliação recebida"
       offer: Oferta
-      listing_created: Criado
+      listing_created: "Criado em"
       open_until: "Válido até %{date}"
       feedback: Feedback
       qr_code: "QR Code"
@@ -2237,7 +2237,7 @@ pt-BR:
       and_gave_following_feedback: "deu a opinião seguinte"
     profile_listings:
       no_image: "Sem imagem"
-      manage_listings: ~
+      manage_listings: "Gerencie todos os meus anúncios"
     show:
       contact: "Contate %{person}"
       about_me: "Sobre mim:"
