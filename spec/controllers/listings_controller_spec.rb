@@ -48,7 +48,7 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
-#  approval                        :integer          default("approved")
+#  state                           :string(255)      default("approved")
 #
 # Indexes
 #
@@ -60,6 +60,7 @@
 #  index_listings_on_listing_shape_id  (listing_shape_id)
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
+#  index_listings_on_state             (state)
 #  index_listings_on_uuid              (uuid) UNIQUE
 #  index_on_author_id_and_deleted      (author_id,deleted)
 #  person_listings                     (community_id,author_id)
