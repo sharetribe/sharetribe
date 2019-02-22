@@ -1,5 +1,6 @@
 class AddApprovalToListings < ActiveRecord::Migration[5.1]
   def change
-    add_column :listings, :approval, :integer, default: 0
+    add_column :listings, :state, :string, default: 'approved'
+    add_index :listings, :state
   end
 end

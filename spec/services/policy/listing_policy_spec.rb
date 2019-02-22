@@ -48,25 +48,25 @@ describe Policy::ListingPolicy do
     end
 
     it "is not visible, if the listing is not approved" do
-      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+      listing.update_attribute(:state, Listing::APPROVAL_PENDING)
 
       expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_falsey
       expect(Policy::ListingPolicy.new(listing, community, nil).visible?).to be_falsey
 
-      listing.update_attribute(:approval, Listing::APPROVAL_REJECTED)
+      listing.update_attribute(:state, Listing::APPROVAL_REJECTED)
 
       expect(Policy::ListingPolicy.new(listing, community, person).visible?).to be_falsey
       expect(Policy::ListingPolicy.new(listing, community, nil).visible?).to be_falsey
     end
 
     it "is visible to admin if the listing not approved" do
-      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+      listing.update_attribute(:state, Listing::APPROVAL_PENDING)
 
       expect(Policy::ListingPolicy.new(listing, community, admin).visible?).to be_truthy
     end
 
     it "is visible to author if the listing not approved" do
-      listing.update_attribute(:approval, Listing::APPROVAL_PENDING)
+      listing.update_attribute(:state, Listing::APPROVAL_PENDING)
 
       expect(Policy::ListingPolicy.new(listing, community, listing.author).visible?).to be_truthy
     end
