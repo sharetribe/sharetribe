@@ -240,7 +240,7 @@ Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
 end
 
 Given(/^that listing is pending for admin approval$/)do
-  @listing.update_column(:approval, Listing::APPROVAL_PENDING)
+  @listing.update_column(:state, Listing::APPROVAL_PENDING)
 end
 
 

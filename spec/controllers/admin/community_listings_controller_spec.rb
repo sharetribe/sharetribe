@@ -145,7 +145,7 @@ describe Admin::CommunityListingsController, type: :controller do
     let(:community) { FactoryGirl.create(:community) }
     let(:listing) {
       FactoryGirl.create(:listing, community_id: community.id,
-                                   approval: Listing::APPROVAL_PENDING)
+                                   state: Listing::APPROVAL_PENDING)
     }
 
     before(:each) do
@@ -156,24 +156,24 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it 'approves listing' do
       post :update, params: {community_id: community.id, id: listing.id,
-                             listing: {approval: Listing::APPROVED}},
+                             listing: {state: Listing::APPROVED}},
                     format: :js
       listing.reload
-      expect(listing.approval).to eq Listing::APPROVED
+      expect(listing.state).to eq Listing::APPROVED
     end
 
     it '#approve' do
       get :approve, params: {community_id: community.id, id: listing.id},
                     format: :js
       listing.reload
-      expect(listing.approval).to eq Listing::APPROVED
+      expect(listing.state).to eq Listing::APPROVED
     end
 
     it '#reject' do
       get :reject, params: {community_id: community.id, id: listing.id},
                    format: :js
       listing.reload
-      expect(listing.approval).to eq Listing::APPROVAL_REJECTED
+      expect(listing.state).to eq Listing::APPROVAL_REJECTED
     end
   end
 end
