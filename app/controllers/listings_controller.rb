@@ -519,12 +519,9 @@ class ListingsController < ApplicationController
       end
   end
 
-  # If the community.pre_approved_listings is later disabled
-  # If a rejected or pending listing is edited, then it would automatically
-  # be opened (the pending status should not be assigned).
   def auto_approve_params
-    if @current_community.pre_approved_listings?
-      {}
+    if @current_community.pre_approved_listings? && !@current_user.has_admin_rights?(@current_community)
+      @listing.approved? ? {state: Listing::APPROVAL_PENDING} : {}
     else
       {state: Listing::APPROVED}
     end
