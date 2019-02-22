@@ -821,7 +821,7 @@ CREATE TABLE `listings` (
   `shipping_price_additional_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
-  `approval` int(11) DEFAULT '0',
+  `state` varchar(255) DEFAULT 'approved',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
@@ -834,7 +834,8 @@ CREATE TABLE `listings` (
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
   KEY `index_listings_on_open` (`open`) USING BTREE,
   KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`),
-  KEY `community_author_deleted` (`community_id`,`author_id`,`deleted`)
+  KEY `community_author_deleted` (`community_id`,`author_id`,`deleted`),
+  KEY `index_listings_on_state` (`state`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
@@ -2372,4 +2373,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190227111355'),
 ('20190213073532'),
 ('20190213082646');
+
 

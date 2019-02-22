@@ -73,7 +73,7 @@ describe HomepageController, type: :controller do
     let(:listing) { FactoryGirl.create(:listing, community_id: community.id) }
     let(:pending_listing) do
       FactoryGirl.create(:listing, community_id: community.id,
-                                   approval: Listing::APPROVAL_PENDING)
+                                   state: Listing::APPROVAL_PENDING)
     end
 
     it 'shows approved listing' do

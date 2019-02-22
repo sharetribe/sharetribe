@@ -149,7 +149,7 @@ class ListingsController < ApplicationController
       if FeatureFlagHelper.feature_enabled?(:approve_listings) &&
          @current_community.pre_approved_listings?
         unless @current_user.has_admin_rights?(@current_community)
-          @listing.approval = Listing::APPROVAL_PENDING
+          @listing.state = Listing::APPROVAL_PENDING
         end
       end
 
@@ -526,7 +526,7 @@ class ListingsController < ApplicationController
     if @current_community.pre_approved_listings?
       {}
     else
-      {approval: Listing::APPROVED}
+      {state: Listing::APPROVED}
     end
   end
 end

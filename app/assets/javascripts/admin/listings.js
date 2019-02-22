@@ -45,7 +45,7 @@ window.ST = window.ST || {};
     $('#listing-form').html(options.content);
     $('#listing_popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
     $('#listing-form input[type="submit"]').on('click', function() {
-      $('#listing_approval').val($(this).data('approval'));
+      $('#listing_state').val($(this).data('state'));
     });
   };
 
