@@ -53,7 +53,7 @@
 
             - content_for :extra_javascript do
               :javascript
-                var listingImages = #{raw listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+                var listingImages = #{raw listing_images.map { |image| ListingImageJsAdapter.new(image) }.to_json }
                 var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
                 ST.listingImages(listingImages, currentImage);
           - else
