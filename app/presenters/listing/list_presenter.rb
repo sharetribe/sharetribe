@@ -22,6 +22,31 @@ class Listing::ListPresenter
     end
   end
 
+  def statuses
+    return @statuses if defined?(@statuses)
+    result = ['open', 'closed', 'expired']
+    result += [Listing::APPROVAL_PENDING, Listing::APPROVAL_REJECTED] if community.pre_approved_listings
+    @statuses = result
+  end
+
+  def listing_status(listing)
+    if listing.approval_pending? || listing.approval_rejected?
+      listing.state
+    elsif listing.valid_until && listing.valid_until < DateTime.current
+      'expired'
+    else
+      listing.open? ? 'open' : 'closed'
+    end
+  end
+
+  def listing_wait_for_approval?(listing)
+    listing.approval_pending?
+  end
+
+  def show_approval_link?(listing)
+    FeatureFlagHelper.feature_enabled?(:approve_listings) && admin_mode && listing_wait_for_approval?(listing)
+  end
+
   private
 
   def resource_scope
@@ -40,6 +65,8 @@ class Listing::ListPresenter
       statuses.push(Listing.status_open) if params[:status].include?('open')
       statuses.push(Listing.status_closed) if params[:status].include?('closed')
       statuses.push(Listing.status_expired) if params[:status].include?('expired')
+      statuses.push(Listing.approval_pending) if params[:status].include?(Listing::APPROVAL_PENDING)
+      statuses.push(Listing.approval_rejected) if params[:status].include?(Listing::APPROVAL_REJECTED)
       if statuses.size > 1
         status_scope = statuses.slice!(0)
         statuses.map{|x| status_scope = status_scope.or(x)}

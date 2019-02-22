@@ -31,6 +31,9 @@
 #
 
 class PaymentSettings < ApplicationRecord
-
   validates_presence_of(:community_id)
+
+  scope :preauthorize, -> { where(payment_process: :preauthorize) }
+  scope :paypal, -> { preauthorize.where(payment_gateway: :paypal) }
+  scope :stripe, -> { preauthorize.where(payment_gateway: :stripe) }
 end

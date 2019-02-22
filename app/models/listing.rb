@@ -48,6 +48,7 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
+#  state                           :string(255)      default("approved")
 #
 # Indexes
 #
@@ -59,6 +60,7 @@
 #  index_listings_on_listing_shape_id  (listing_shape_id)
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
+#  index_listings_on_state             (state)
 #  index_listings_on_uuid              (uuid) UNIQUE
 #  index_on_author_id_and_deleted      (author_id,deleted)
 #  person_listings                     (community_id,author_id)
@@ -124,7 +126,14 @@ class Listing < ApplicationRecord
   scope :status_closed, -> { where(open: false) }
   scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
   scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
+  scope :currently_open, -> { status_open.approved.where(["valid_until IS NULL OR valid_until > ?", DateTime.now]) }
 
+  APPROVALS = {
+    APPROVED = 'approved'.freeze => 'approved'.freeze,
+    APPROVAL_PENDING = 'approval_pending'.freeze => 'pending_admin_approval'.freeze,
+    APPROVAL_REJECTED = 'approval_rejected'.freeze => 'rejected'.freeze
+  }
+  enum state: APPROVALS
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
@@ -164,29 +173,6 @@ class Listing < ApplicationRecord
   validates_presence_of :category
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
-
-  def self.currently_open(status="open")
-    status = "open" if status.blank?
-    case status
-    when "all"
-      where([])
-    when "open"
-      where(["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now])
-    when "closed"
-      where(["open = '0' OR (valid_until IS NOT NULL AND valid_until < ?)", DateTime.now])
-    end
-  end
-
-  def visible_to?(current_user, current_community)
-    # DEPRECATED
-    #
-    # Consider removing the `visible_to?` method.
-    #
-    # Reason: Authorization logic should be in the controller layer (filters etc.),
-    # not in the model layer.
-    #
-    ListingVisibilityGuard.new(self, current_community, current_user).visible?
-  end
 
   # sets the time to midnight
   def set_valid_until_time

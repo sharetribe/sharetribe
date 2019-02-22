@@ -16,17 +16,17 @@ describe HomepageController, type: :controller do
     }
   end
 
-  before(:each) do
-    @community = FactoryGirl.create(:community)
-    @request.host = "#{@community.ident}.lvh.me"
-    @request.env[:current_marketplace] = @community
-    @request.env[:current_plan] = plan
-    @user = create_admin_for(@community)
-    @user.update(is_admin: true)
-    sign_in_for_spec(@user)
-  end
-
   describe "#index" do
+    before(:each) do
+      @community = FactoryGirl.create(:community)
+      @request.host = "#{@community.ident}.lvh.me"
+      @request.env[:current_marketplace] = @community
+      @request.env[:current_plan] = plan
+      @user = create_admin_for(@community)
+      @user.update(is_admin: true)
+      sign_in_for_spec(@user)
+    end
+
     it "renders default title and description" do
       get :index
       expect(response.body).to match('<title>Sharetribe - Test slogan</title>')
@@ -38,6 +38,36 @@ describe HomepageController, type: :controller do
       get :index
       expect(response.body).to match('<title>SEO Title</title>')
       expect(response.body).to match("<meta content='SEO Description' name='description'>")
+    end
+  end
+
+  describe '#index' do
+    let(:community) { FactoryGirl.create(:community) }
+
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:person]
+      @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
+    end
+
+    let(:listing) { FactoryGirl.create(:listing, community_id: community.id) }
+    let(:pending_listing) do
+      FactoryGirl.create(:listing, community_id: community.id,
+                                   state: Listing::APPROVAL_PENDING)
+    end
+
+    it 'shows approved listing' do
+      listing
+      get :index
+      listings = assigns(:listings)
+      expect(listings.count).to eq 1
+    end
+
+    it 'does not show pending listing' do
+      pending_listing
+      get :index
+      listings = assigns(:listings)
+      expect(listings.count).to eq 0
     end
   end
 end

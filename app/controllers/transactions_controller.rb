@@ -272,7 +272,7 @@ class TransactionsController < ApplicationController
         "layouts.notifications.you_cannot_reply_to_a_closed_offer"
       elsif listing_model.author == current_user
        "layouts.notifications.you_cannot_send_message_to_yourself"
-      elsif !listing_model.visible_to?(current_user, current_community)
+      elsif !Policy::ListingPolicy.new(listing_model, current_community, current_user).visible?
         "layouts.notifications.you_are_not_authorized_to_view_this_content"
       end
 

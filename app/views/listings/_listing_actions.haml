@@ -113,6 +113,26 @@
 
   - if @listing_presenter.is_authorized
     .listing-view-admin-links
+      - if @listing_presenter.approval_in_use?
+        - if @listing.approval_pending?
+          .listing-view-admin-link
+            %span.icon-with-text-container
+              = icon_tag("pending", ["icon-part"])
+              .text-part= t("listings.edit_links.listing_is_pending")
+        - elsif @listing.approval_rejected?
+          .listing-view-admin-link
+            %span.icon-with-text-container
+              = icon_tag("cross", ["icon-part"])
+              .text-part= t("listings.edit_links.listing_is_rejected")
+        - if @listing_presenter.pending_admin_approval?
+          .listing-view-admin-link
+            %a.icon-with-text-container{href: approve_admin_community_listing_path(@current_community, @listing)}
+              = icon_tag("check", ["icon-part"])
+              .text-part= t("listings.edit_links.approve_listing")
+          .listing-view-admin-link
+            %a.icon-with-text-container{href: reject_admin_community_listing_path(@current_community, @listing)}
+              = icon_tag("cross", ["icon-part"])
+              .text-part= t("listings.edit_links.reject_listing")
       .listing-view-admin-link
         %a.icon-with-text-container{href: edit_listing_path(@listing)}
           = icon_tag("edit", ["icon-part"])
