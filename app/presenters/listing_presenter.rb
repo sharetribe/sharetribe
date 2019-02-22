@@ -326,5 +326,13 @@ class ListingPresenter < MemoisticPresenter
       current_community.pre_approved_listings
   end
 
+  def listing_form_object
+    if acts_as_person
+      [acts_as_person, listing]
+    else
+      listing
+    end
+  end
+
   memoize_all_reader_methods
 end
