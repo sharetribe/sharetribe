@@ -27,7 +27,8 @@ module CustomLandingPage
                                  .first
 
       slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
-      description        = [meta_description, description, I18n.t("common.default_community_description", locale: locale)].find(&:present?)
+      description        ||= I18n.t("common.default_community_description", locale: locale)
+      meta_description   = [meta_description, description, I18n.t("common.default_community_description", locale: locale)].find(&:present?)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
       social_media_title ||= "#{name} - #{slogan}"
       social_media_description ||= description
@@ -68,7 +69,8 @@ module CustomLandingPage
         "twitter_handle" => twitter_handle,
         "name_display_type" => name_display_type,
         "social_media_title" => social_media_title,
-        "social_media_description" => social_media_description
+        "social_media_description" => social_media_description,
+        "meta_description" => meta_description
       }
     end
 
