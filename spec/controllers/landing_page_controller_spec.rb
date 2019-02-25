@@ -18,7 +18,6 @@ describe LandingPageController, type: :controller do
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
     @request.env[:current_marketplace] = community
-    sign_in_for_spec(create_admin_for(community))
   end
 
   describe '#index' do
@@ -29,10 +28,16 @@ describe LandingPageController, type: :controller do
     end
 
     it 'renders updated meta title and description' do
-      community.community_customizations.first.update(meta_title: 'SEO Title', meta_description: 'SEO Description')
+      community.community_customizations.first.update(
+        meta_title: 'SEO Title', meta_description: 'SEO Description',
+        social_media_title: 'Social Title', social_media_description: 'Social Description')
       get :index
       expect(response.body).to match('<title>SEO Title</title>')
       expect(response.body).to match('<meta name="description" content="SEO Description" />')
+      expect(response.body).to match('<meta property="og:title" content="Social Title" />')
+      expect(response.body).to match('<meta property="og:description" content="Social Description" />')
+      expect(response.body).to match('<meta name="twitter:title" content="Social Title" />')
+      expect(response.body).to match('<meta name="twitter:description" content="Social Description" />')
     end
   end
 end

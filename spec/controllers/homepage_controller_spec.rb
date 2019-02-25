@@ -16,7 +16,7 @@ describe HomepageController, type: :controller do
     }
   end
 
-  describe "#index" do
+  describe "title and description" do
     before(:each) do
       @community = FactoryGirl.create(:community)
       @request.host = "#{@community.ident}.lvh.me"
