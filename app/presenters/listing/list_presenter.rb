@@ -30,7 +30,7 @@ class Listing::ListPresenter
   end
 
   def listing_status(listing)
-    if listing_wait_for_approval?(listing)
+    if listing.approval_pending? || listing.approval_rejected?
       listing.state
     elsif listing.valid_until && listing.valid_until < DateTime.current
       'expired'
@@ -40,7 +40,7 @@ class Listing::ListPresenter
   end
 
   def listing_wait_for_approval?(listing)
-    listing.approval_pending? || listing.approval_rejected?
+    listing.approval_pending?
   end
 
   def show_approval_link?(listing)

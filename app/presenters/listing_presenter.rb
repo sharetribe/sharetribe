@@ -335,5 +335,17 @@ class ListingPresenter < MemoisticPresenter
       current_community.pre_approved_listings
   end
 
+  def show_submit_for_review?
+    approval_in_use? && !current_user.has_admin_rights?(current_community)
+  end
+
+  def listing_form_object
+    if acts_as_person
+      [acts_as_person, listing]
+    else
+      listing
+    end
+  end
+
   memoize_all_reader_methods
 end

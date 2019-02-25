@@ -116,12 +116,12 @@
       - if @listing_presenter.approval_in_use?
         - if @listing.approval_pending?
           .listing-view-admin-link
-            %a.icon-with-text-container
+            %span.icon-with-text-container
               = icon_tag("pending", ["icon-part"])
               .text-part= t("listings.edit_links.listing_is_pending")
         - elsif @listing.approval_rejected?
           .listing-view-admin-link
-            %a.icon-with-text-container
+            %span.icon-with-text-container
               = icon_tag("cross", ["icon-part"])
               .text-part= t("listings.edit_links.listing_is_rejected")
         - if @listing_presenter.pending_admin_approval?
