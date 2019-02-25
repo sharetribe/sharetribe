@@ -1322,7 +1322,7 @@ en:
       subtotal: Subtotal
       total: Total
       price: Price
-      buyer_service_fee: "Service fee"
+      buyer_service_fee: "%{service_name} service fee"
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."

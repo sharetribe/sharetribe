@@ -190,7 +190,7 @@ describe TransactionMailer, type: :mailer do
         it 'works with stripe payment gateway' do
           email = TransactionMailer.payment_receipt_to_buyer(stripe_transaction_with_buyer_commission)
           expect(email.body).to have_text('You have paid €110 for Sledgehammer. The money is being held by Sharetribe and will be released to Joan once you mark the order as completed. Here is a receipt of the payment.')
-          expect(email.body).to have_text('Service fee €8')
+          expect(email.body).to have_text('Sharetribe service fee €8')
           expect(email.body).to have_text('Total €110')
         end
       end

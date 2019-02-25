@@ -54,6 +54,7 @@ Given(/^community "(.*?)" has new order type "(.*?)" with action button "(.*?)"$
   )
 end
 
+
 def create_listing_shape(community:, name:, availability:, name_translation:, button_translation:, unit_types:, custom_unit_types: nil)
   transaction_process = TransactionProcess.where(community_id: community, process: :preauthorize).first
   cached_translations = TranslationService::API::Api.translations.create(
