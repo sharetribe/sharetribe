@@ -521,7 +521,11 @@ class ListingsController < ApplicationController
 
   def auto_approve_params
     if @current_community.pre_approved_listings? && !@current_user.has_admin_rights?(@current_community)
-      @listing.approved? ? {state: Listing::APPROVAL_PENDING} : {}
+      if @listing.approved? || @listing.approval_rejected?
+        {state: Listing::APPROVAL_PENDING}
+      else
+        {}
+      end
     else
       {state: Listing::APPROVED}
     end

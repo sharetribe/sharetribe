@@ -587,7 +587,7 @@ en:
         approval_pending: Pending
         approval_rejected: Rejected
         form:
-          this_listing_has_not_not_been_approved_yet: "This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public"
+          this_listing_has_not_not_been_approved_yet: "This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public."
           approve: Approve
           reject: Reject
           cancel: Cancel
@@ -1883,7 +1883,7 @@ en:
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
       show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the users"
-      listing_is_pending: "Listing is pending"
+      listing_is_pending: "Listing is pending approval"
       listing_is_rejected: "Listing is rejected"
       approve_listing: "Approve listing"
       reject_listing: "Reject listing"
@@ -1967,6 +1967,9 @@ en:
         origin: Origin
       send_button:
         save_listing: "Post listing"
+        submit_for_review: Submit for review
+        will_be_reviewed: "All listings on %{service_name} will be reviewed before publishing. Once your listing has been approved, it will be visible to all."
+        we_noticed_youre_an_admin: "We noticed you're an admin of %{service_name}. Your changes will be automatically applied and will not need a review or approval."
       share_type:
         select: Select
         borrow: Borrowing

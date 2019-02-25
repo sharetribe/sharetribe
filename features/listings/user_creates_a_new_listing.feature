@@ -270,7 +270,7 @@ Scenario: User creates a new listing with date field
     And I select "Requesting" from listing type menu
     And I fill in "listing_title" with "Birds of a Feather Flock Together"
     And I fill in "listing_description" with "My description"
-    And I press "Post listing"
+    And I press "Submit for review"
     Then I should see "Birds of a Feather Flock Together" within "#listing-title"
     Then I should see "Listing is pending"
 

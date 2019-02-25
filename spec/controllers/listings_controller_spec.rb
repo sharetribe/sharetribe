@@ -292,6 +292,16 @@ describe ListingsController, type: :controller do
                                    action_button_tr_key: sell_shape[:action_button_tr_key]
                         )
     }
+    let(:rejected_listing) {
+      FactoryGirl.create(:listing, community_id: community.id,
+                                   author: person,
+                                   state: Listing::APPROVAL_REJECTED,
+                                   transaction_process_id: sell_shape[:transaction_process_id],
+                                   listing_shape_id: sell_shape[:id],
+                                   shape_name_tr_key: sell_shape[:name_tr_key],
+                                   action_button_tr_key: sell_shape[:action_button_tr_key]
+                        )
+    }
 
     before :each do
       @request.host = "#{community.ident}.lvh.me"
@@ -340,6 +350,36 @@ describe ListingsController, type: :controller do
       }}
       pending_listing.reload
       expect(pending_listing.state).to eq Listing::APPROVED
+    end
+
+    it 'If the community.pre_approved_listings is on
+        If a rejected listing is edited, then it would automatically
+        should be assigned the pending status.' do
+      sign_in_for_spec(person)
+      community.update_column(:pre_approved_listings, true)
+      patch :update, params: { id: rejected_listing.id, listing: {
+        title: 'Easy As Pie',
+        listing_shape_id: rejected_listing.listing_shape_id,
+        price: "1.00",
+        unit: "{\"unit_type\":\"unit\",\"kind\":\"quantity\",\"quantity_selector\":\"number\"}"
+      }}
+      rejected_listing.reload
+      expect(rejected_listing.state).to eq Listing::APPROVAL_PENDING
+    end
+
+    it 'If the community.pre_approved_listings is on
+        If a rejected listing is edited by admin, then it would automatically
+        should be assigned the pending status.' do
+      sign_in_for_spec(create_admin_for(community))
+      community.update_column(:pre_approved_listings, true)
+      patch :update, params: { id: rejected_listing.id, listing: {
+        title: 'Easy As Pie',
+        listing_shape_id: rejected_listing.listing_shape_id,
+        price: "1.00",
+        unit: "{\"unit_type\":\"unit\",\"kind\":\"quantity\",\"quantity_selector\":\"number\"}"
+      }}
+      rejected_listing.reload
+      expect(rejected_listing.state).to eq Listing::APPROVED
     end
   end
 
