@@ -25,6 +25,7 @@ describe Admin::Communities::TopbarController, type: :controller do
         translations: [{ locale: "en", translation: text_en }, { locale: "fi", translation: text_fi } ]
       }]
 
+      RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to receive(:create)
         .with(@community.id, translations_group)
       put :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en} }
@@ -34,6 +35,7 @@ describe Admin::Communities::TopbarController, type: :controller do
       text_fi = ""
       text_en = "Modified en"
 
+      RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
       patch :update, params: {post_new_listing_button: {fi: text_fi, en: text_en}}
     end
