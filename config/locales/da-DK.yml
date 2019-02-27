@@ -240,6 +240,7 @@ da-DK:
         update_settings: "Gem indstillinger"
         automatically_confirmed_no_escrow: "Transaktioner vil automatisk blive markeret som godkendt %{days_dropdown} dage efter betaling er foretaget"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Send automatiske nyhedsbreve: %{frequency_dropdown}"
         newsletter_daily: Dagligt
         newsletter_weekly: Ugentligt
@@ -849,6 +850,8 @@ da-DK:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -861,6 +864,7 @@ da-DK:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -982,6 +986,7 @@ da-DK:
       quantity_label: "Mængde:"
       sum_label: "Subtotal:"
       service_fee_label: "%{service_name} gebyr:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Du vil få:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1027,6 +1032,7 @@ da-DK:
     message:
       accepted_request: "accepter anmodningen"
       received_payment: "accepteret anmodningen, modtaget betaling for %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "accepter tilbudet"
       rejected_request: "afvis anmodningen"
       rejected_offer: "afvis tilbudet"
@@ -1036,8 +1042,10 @@ da-DK:
       canceled_offer: "afvis tilbudet"
       paid: "betalt %{sum}"
       payment_preauthorized: "Betaling godkendt: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Accepteret anmodningen. Betalingen på %{sum} tilbageholdes af %{service_name} indtil ordren er blevet markeret som gennemført."
+        held_payment_wo_sum: ~
         confirmed_request: "Markeret ordren som gennemført. Betalingen er nu blevet overført til %{author_name} konto eller vil blive overført snarrest."
     new:
       message: Besked
@@ -1252,7 +1260,9 @@ da-DK:
       shipping_total: "Levering:"
       product: "Produkt:"
       price_payer_paid: "Pris %{payer_full_name} betalte:"
+      subtotal: ~
       service_fee: "%{service_name} serviceomkostninger:"
+      buyer_service_fee: ~
       you_will_get: "Total:"
       new_payment: "Du har modtaget en ny betaling"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1268,6 +1278,7 @@ da-DK:
       duration: Varighed
       quantity: Mængde
       subtotal: Subtotal
+      buyer_service_fee: ~
       total: Total
       price: Pris
       service_fee: Serviceomkostninger
@@ -1292,7 +1303,7 @@ da-DK:
       subtotal: "Subtotal:"
       total: Total
       price: Pris
-      service_fee: Servicegebyr
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripe's omkostninger:"
       paypal_gateway_fee: "PayPal-gebyr:"
       money_will_be_transferred: "Pengene vil blive overført til %{recipient_name} når a) du har markeret handlen som gennemført eller b) %{automatic_confirmation_days} dage er gået siden du betalte."
@@ -1985,6 +1996,7 @@ da-DK:
       select_one: "Vælg en"
       start_time: "Start tidspunkt"
       end_time: "Slut tidspunkt"
+      marketplace_fees_may_apply: ~
     new:
       listing: annonce
       selected_category: "Kategori: %{category}"

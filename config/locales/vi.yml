@@ -235,6 +235,7 @@ vi:
         update_settings: "Lưu thiết lập"
         automatically_confirmed_no_escrow: "Đơn đặt hàng sẽ được tự động đánh dấu là %{days_dropdown} ngày hoàn thành sau khi thanh toán đã được thực hiện"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Gửi bản tin tự động: %{frequency_dropdown}"
         newsletter_daily: "Hằng ngày"
         newsletter_weekly: "Hằng tuần"
@@ -844,6 +845,8 @@ vi:
       stripe_fee_notice: "%{stripe_fee_link} sẽ được trích ra từ phí giao dịch bạn thu được."
       fee_should_be_less_than_minimum_price: "Phí giao dịch tối thiểu phải nhỏ hơn giá trị giao dịch tối thiểu"
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Đã kết nối Stripe"
         disable: ~
@@ -856,6 +859,7 @@ vi:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Nhập API keys của Stripe"
         how_to_get_these: "Lấy các thông tin này ở đâu?"
@@ -979,6 +983,7 @@ vi:
       quantity_label: "Số lượng:"
       sum_label: "Tổng phụ:"
       service_fee_label: "%{service_name} phí:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Bạn sẽ nhận được:"
       total_label: "Tổng:"
       total_value: "%{seller_gets}*"
@@ -1024,6 +1029,7 @@ vi:
     message:
       accepted_request: ~
       received_payment: "Chấp nhận yêu cầu, đã nhận được thanh toán cho %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "đã chấp nhận yêu cầu"
       rejected_request: "đã từ chối yêu cầu và hủy thanh toán"
       rejected_offer: "đã từ chối yêu cầu"
@@ -1033,8 +1039,10 @@ vi:
       canceled_offer: "đã hủy đề nghị"
       paid: "Thanh toán %{sum}"
       payment_preauthorized: "Thanh toán đã được cho phép: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: "Tin nhắn"
@@ -1249,7 +1257,9 @@ vi:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1265,6 +1275,7 @@ vi:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1289,7 +1300,7 @@ vi:
       subtotal: "Tổng phụ:"
       total: "Tổng cộng"
       price: Giá
-      service_fee: "Phí dịch vụ"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Số tiền này sẽ được chuyển đến %{recipient_name} khi a) bạn đã đánh dấu yêu cầu hoàn thành hoặc b) %{automatic_confirmation_days} ngày đã trôi qua kể từ khi bạn trả tiền."
@@ -1979,6 +1990,7 @@ vi:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: "sản phẩm"
       selected_category: "Danh mục : %{category}"

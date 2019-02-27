@@ -237,6 +237,7 @@ lv:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -834,6 +835,8 @@ lv:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: "Atslēgt Stripe"
@@ -846,6 +849,7 @@ lv:
         enable: "Pieslēgt PayPal atkārtoti"
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -969,6 +973,7 @@ lv:
       quantity_label: "Daudzums:"
       sum_label: "Starpsumma:"
       service_fee_label: "Maksa par %{service_name}"
+      buyer_service_fee_label: ~
       you_will_get_label: "Jūs saņemsiet:"
       total_label: "Kopā:"
       total_value: "%{seller_gets}*"
@@ -1014,6 +1019,7 @@ lv:
     message:
       accepted_request: "apstiprināja  pieprasījumu"
       received_payment: "apstiprināja pieprasījumu, saņēma maksājumu par %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "piedāvājumu pieņēma"
       rejected_request: "noraidīja pieprasījumu, atcēla maksājumu"
       rejected_offer: "piedāvājumu noraidīja"
@@ -1023,8 +1029,10 @@ lv:
       canceled_offer: "atcēla piedāvājumu"
       paid: "apmaksāts %{sum}"
       payment_preauthorized: "Maksājums atļauts: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Apstiprināja pieprasījumu. %{service_name} pieturēs maksājumu par summu %{sum} līdz pasūtījums būs atzīmēts kā izpildīts."
+        held_payment_wo_sum: ~
         confirmed_request: "Pasūtījums atzīmēts kā izpildīts. Maksājums ir pārskaitīts uz %{author_name} bankas kontu vai arī drīz tiks pārskaitīts."
     new:
       message: Ziņa
@@ -1239,7 +1247,9 @@ lv:
       shipping_total: "Piegāde:"
       product: "Prece:"
       price_payer_paid: "%{payer_full_name} samaksāja cenu:"
+      subtotal: ~
       service_fee: "%{service_name} pakalpojuma komisijas maksa:"
+      buyer_service_fee: ~
       you_will_get: "Kopā:"
       new_payment: "Jūs esat saņēmis jaunu maksājumu"
       price_per_unit_type: "Cena par %{unit_type}"
@@ -1255,6 +1265,7 @@ lv:
       duration: Ilgums
       quantity: Daudzums
       subtotal: Starpsumma
+      buyer_service_fee: ~
       total: Kopā
       price: Cena
       service_fee: "Pakalpojuma komisijas maksa"
@@ -1279,7 +1290,7 @@ lv:
       subtotal: Starpsumma
       total: Kopā
       price: Cena
-      service_fee: "Pakalpojuma maksa"
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripe komisijas maksa:"
       paypal_gateway_fee: "PayPal komisijas maksa:"
       money_will_be_transferred: "Nauda tiks pārskaitīta %{recipient_name} ja a) esat pieprasījumu atzīmējis kā izpildītu vai b) %{automatic_confirmation_days} dienas ir pagājušas kopš Jūsu samaksas."
@@ -1970,6 +1981,7 @@ lv:
       select_one: "Izvēlies vienu"
       start_time: "Sākuma laiks"
       end_time: "Beigu laiks"
+      marketplace_fees_may_apply: ~
     new:
       listing: Piedāvājums
       selected_category: "Kategorija: %{category}"

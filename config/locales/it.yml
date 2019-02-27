@@ -225,6 +225,7 @@ it:
         update_settings: "Salva le impostazioni"
         automatically_confirmed_no_escrow: "L'ordine sarà automaticamente segnato come completo %{days_dropdown} giorni dopo che il pagamento è stato eseguito."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -822,6 +823,8 @@ it:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -834,6 +837,7 @@ it:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -957,6 +961,7 @@ it:
       quantity_label: "Quantità:"
       sum_label: "Subtotale:"
       service_fee_label: "Commissione di %{service_name}:"
+      buyer_service_fee_label: ~
       you_will_get_label: Riceverai
       total_label: "Totale:"
       total_value: ~
@@ -1002,6 +1007,7 @@ it:
     message:
       accepted_request: "Richiesta accettata."
       received_payment: "Richiesta accettata. Ricevuto il pagamento di %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "Offerta accettata"
       rejected_request: "Richiesta respinta"
       rejected_offer: "Offerta respinta"
@@ -1011,8 +1017,10 @@ it:
       canceled_offer: "Offerta cancellata"
       paid: "pagati %{sum}"
       payment_preauthorized: "Pagamento autorizzato: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Richiesta accettata. Il pagamento di %{sum} è tenuto da %{service_name} finchè l'ordine non è contrassegnato come completato."
+        held_payment_wo_sum: ~
         confirmed_request: "Contrassegnato l'ordine come completato. Il pagamento verrà ora trasferito al conto corrente di %{author_name}."
     new:
       message: Messaggio
@@ -1227,7 +1235,9 @@ it:
       shipping_total: "Spedizione:"
       product: "Prodotto:"
       price_payer_paid: "Prezzo pagato da %{payer_full_name}:"
+      subtotal: ~
       service_fee: "Commissione di %{service_name}:"
+      buyer_service_fee: ~
       you_will_get: Totale
       new_payment: "Hai ricevuto un nuovo pagamento"
       price_per_unit_type: "Prezzo per %{unit_type}"
@@ -1243,6 +1253,7 @@ it:
       duration: "Periodo:"
       quantity: Quantità
       subtotal: Subtotale
+      buyer_service_fee: ~
       total: Totale
       price: Prezzo
       service_fee: Commissione
@@ -1267,7 +1278,7 @@ it:
       subtotal: "Subtotale:"
       total: Totale
       price: Prezzo
-      service_fee: Commissione
+      buyer_service_fee: ~
       stripe_gateway_fee: "Tariffa di Stripe:"
       paypal_gateway_fee: "Tariffa di Paypal"
       money_will_be_transferred: "I soldi saranno trasferiti a %{recipient_name} quando a) avrai segnato la richiesta completata or b) %{automatic_confirmation_days} giorni sono passati da quando hai pagato."
@@ -1958,6 +1969,7 @@ it:
       select_one: "Seleziona una"
       start_time: "Ora di inizio"
       end_time: "Ora di fine"
+      marketplace_fees_may_apply: ~
     new:
       listing: inserzione
       selected_category: "Categoria: %{category}"

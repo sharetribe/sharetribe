@@ -235,6 +235,7 @@ zh-HK:
         update_settings: 保存設定
         automatically_confirmed_no_escrow: "在付款後%{days_dropdown}天內交易將被自動標記為完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "自動發送電子報: %{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -840,6 +841,8 @@ zh-HK:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -852,6 +855,7 @@ zh-HK:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -973,6 +977,7 @@ zh-HK:
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: "總計:"
       total_value: ~
@@ -1018,6 +1023,7 @@ zh-HK:
     message:
       accepted_request: 已接受請求
       received_payment: "接受請求，已收取款項%{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: 已接納貨品
       rejected_request: 拒絕請求，取消付款
       rejected_offer: 已拒絕
@@ -1027,8 +1033,10 @@ zh-HK:
       canceled_offer: 已取消
       paid: "已支付%{sum}"
       payment_preauthorized: "已授權款項：%{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: 訊息
@@ -1243,7 +1251,9 @@ zh-HK:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1259,6 +1269,7 @@ zh-HK:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1283,7 +1294,7 @@ zh-HK:
       subtotal: 小計：
       total: 總計
       price: 價格
-      service_fee: 服務費
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下兩種情況發生時，款項將被轉帳至%{recipient_name}： a) 你標記請求為完成後；或 b) 在你付款%{automatic_confirmation_days}天後。"
@@ -1973,6 +1984,7 @@ zh-HK:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: 訊息
       selected_category: "類別：%{category}"

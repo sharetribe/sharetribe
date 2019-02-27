@@ -240,6 +240,7 @@ es:
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los vendedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -340,7 +341,7 @@ es:
         linkedin_connect_secret: "Llave secreta (client secret) de LinkedIn"
       seo_settings:
         seo: SEO
-        title: "Página de inicio"
+        title: "Página de inicio (básica o personalizada)"
         meta_title_label: "Meta tag del título para la página de inicio"
         meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados como el título del sitio. %{link}."
         meta_title_link_text: "Aprender más acerca de meta tags"
@@ -853,6 +854,8 @@ es:
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
       confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe conectado"
         disable: "Deshabilitar Stripe"
@@ -865,6 +868,7 @@ es:
         enable: "Habilitar PayPal nuevamente"
       cannot_enable_gateway: "No es posible habilitar %{gateway}"
       cannot_disable_gateway: "No es posible habilitar %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Añade tus API keys de Stripe"
         how_to_get_these: "¿Cómo obtenerlas?"
@@ -990,6 +994,7 @@ es:
       quantity_label: "Cantidad:"
       sum_label: "Subtotal:"
       service_fee_label: "Comisión de %{service_name}:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Recibirás:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1035,6 +1040,7 @@ es:
     message:
       accepted_request: "aceptó la solicitud"
       received_payment: "solicitud aceptada, pago por la cantidad de %{sum} recibido"
+      received_payment_wo_sum: ~
       accepted_offer: "aceptó la oferta"
       rejected_request: "rechazó la solicitud, se canceló el pago"
       rejected_offer: "rechazó la oferta"
@@ -1044,8 +1050,10 @@ es:
       canceled_offer: "canceló la oferta"
       paid: "pagó %{sum}"
       payment_preauthorized: "Pago autorizado: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
+        held_payment_wo_sum: ~
         confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
     new:
       message: Mensaje
@@ -1260,7 +1268,9 @@ es:
       shipping_total: "Envío:"
       product: "Producto:"
       price_payer_paid: "Precio que %{payer_full_name} pagó:"
+      subtotal: ~
       service_fee: "Cuota de servicio de %{service_name}:"
+      buyer_service_fee: ~
       you_will_get: "Total:"
       new_payment: "Has recibido un nuevo pago"
       price_per_unit_type: "Precio por %{unit_type}"
@@ -1276,6 +1286,7 @@ es:
       duration: Duración
       quantity: Cantidad
       subtotal: Subtotal
+      buyer_service_fee: ~
       total: Total
       price: Precio
       service_fee: "Cuota de servicio"
@@ -1300,7 +1311,7 @@ es:
       subtotal: Subtotal
       total: Total
       price: Precio
-      service_fee: "Cuota de servicio"
+      buyer_service_fee: ~
       stripe_gateway_fee: "Cuota de Stripe:"
       paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
@@ -1991,6 +2002,7 @@ es:
       select_one: Selecciona...
       start_time: "Hora de inicio"
       end_time: "Hora de fin"
+      marketplace_fees_may_apply: ~
     new:
       listing: anuncio
       selected_category: "Categoría: %{category}"

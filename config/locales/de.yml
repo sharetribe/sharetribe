@@ -240,6 +240,7 @@ de:
         update_settings: "Einstellungen speichern"
         automatically_confirmed_no_escrow: "Der Auftrag wird automatisch als \"erledigt\" %{days_dropdown} Tage nach der Bezahlung markiert."
         automatically_confirmed_no_escrow_stripe_info: "Kreditkartenzahlungen über Stripe werden erst auf das Verkäufer-Bankkonto übertragen, sobald der Käufer die Transaktion als \"erledigt\" gekennzeichnet hat.%{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Newsletter automatisch verschicken: %{frequency_dropdown}"
         newsletter_daily: Täglich
         newsletter_weekly: Wöchentlich
@@ -853,6 +854,8 @@ de:
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
       fee_should_be_less_than_minimum_price: "Der Mindestgebühr muss weniger als der Mindestbetrag einer Transaktion sein"
       confirm_disable: "Bist du sicher, dass du %{gateway} deaktivieren willst? Wenn du es deaktivierst, können Verkäufer und Käufer es nicht mehr verwenden, um Geld zu empfangen oder zu bezahlen. Wenn ein Verkäufer keine alternative Bezahlungsmethode eingerichtet hat, können Käufer nicht mehr von ihnen kaufen."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe verbunden"
         disable: "Stripe deaktivieren"
@@ -865,6 +868,7 @@ de:
         enable: "PayPal erneut aktivieren"
       cannot_enable_gateway: "Das Aktivieren von %{gateway} ist fehlgeschlagen."
       cannot_disable_gateway: "Das Deaktivieren von %{gateway} ist fehlgeschlagen."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Deine Stripe API Keys hinzufügen"
         how_to_get_these: "Wie bekomme ich sie?"
@@ -990,6 +994,7 @@ de:
       quantity_label: "Anzahl:"
       sum_label: "Zwischensumme:"
       service_fee_label: "%{service_name} Servicegebühr:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Du wirst erhalten:"
       total_label: "Summe:"
       total_value: "%{seller_gets}*"
@@ -1035,6 +1040,7 @@ de:
     message:
       accepted_request: "Anfrage akzeptiert"
       received_payment: "Hat die Anfrage angenommen und eine Zahlung in Höhe von %{sum} erhalten."
+      received_payment_wo_sum: ~
       accepted_offer: "Angebot akzeptieren"
       rejected_request: "Anfrage abgelehnt, Bezahlung widerrufen"
       rejected_offer: "Angebot ablehnen"
@@ -1044,8 +1050,10 @@ de:
       canceled_offer: "Angebot abgebrochen"
       paid: "bezahlt %{sum}"
       payment_preauthorized: "Zahlung wurde autorisiert: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Die Anfrage wurde akzeptiert. Die Zahlung in Höhe von %{sum} wird von %{service_name} verwahrt bis der Auftrag als erledigt markiert wird."
+        held_payment_wo_sum: ~
         confirmed_request: "Hat den Auftrag als erledigt markiert. Die Zahlung wurde oder wird in Kürze auf das Bankkonto von %{author_name} transferiert."
     new:
       message: Nachricht
@@ -1260,7 +1268,9 @@ de:
       shipping_total: "Versand:"
       product: "Produkt:"
       price_payer_paid: "Betrag bezahlt von %{payer_full_name}:"
+      subtotal: ~
       service_fee: "%{service_name} Servicegebühr:"
+      buyer_service_fee: ~
       you_will_get: "Summe:"
       new_payment: "Du hast eine neue Zahlung erhalten"
       price_per_unit_type: "Preis pro %{unit_type}"
@@ -1276,6 +1286,7 @@ de:
       duration: Dauer
       quantity: Menge
       subtotal: Zwischensumme
+      buyer_service_fee: ~
       total: Summe
       price: Preis
       service_fee: Servicegebühr
@@ -1300,7 +1311,7 @@ de:
       subtotal: Zwischensumme
       total: Gesamtbetrag
       price: Preis
-      service_fee: Servicegebühr
+      buyer_service_fee: ~
       stripe_gateway_fee: "Gebühr von Stripe:"
       paypal_gateway_fee: "Gebühr von PayPal:"
       money_will_be_transferred: "Das Geld wird an %{recipient_name} übertragen werden, wenn a) Du die Anfrage als abgeschlossen markiert hast, oder b) %{automatic_confirmation_days} Tage sind vergangen, seit du bezahlt hast."
@@ -1991,6 +2002,7 @@ de:
       select_one: "Bitte auswählen"
       start_time: Startzeit
       end_time: Endzeit
+      marketplace_fees_may_apply: ~
     new:
       listing: Eintrag
       selected_category: "Kategorie: %{category}"

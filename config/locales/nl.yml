@@ -242,6 +242,7 @@ nl:
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatically_confirmed_no_escrow_stripe_info: "Voor transacties die worden verwerkt met Stripe wordt de betaling aan de leveranciers uitgesteld totdat de bestelling als voltooid is gemarkeerd. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
@@ -856,6 +857,8 @@ nl:
       stripe_fee_notice: "%{stripe_fee_link} wordt afgetrokken van de commissie die jij in rekening brengt."
       fee_should_be_less_than_minimum_price: "Minimale transactiekosten dienen lager te zijn dan de minimale transactieomvang."
       confirm_disable: "Weet je zeker dat je %{gateway} wilt uitschakelen? Als je dit uitschakelt, zijn leveranciers niet meer in staat geld te ontvangen en kopers niet meer in staat te betalen met deze methode. Als leveranciers nog geen andere methoden hebben geconfigureerd, kan er van hen niet gekocht worden."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe gekoppeld"
         disable: "Schakel Stripe uit"
@@ -868,6 +871,7 @@ nl:
         enable: "Schakel PayPal weer in"
       cannot_enable_gateway: "Kan betaalmethode %{gateway} niet inschakelen."
       cannot_disable_gateway: "Kan betaalmethode %{gateway} niet uitschakelen."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Voeg je Stripe API keys toe"
         how_to_get_these: "Hoe krijg ik deze?"
@@ -993,6 +997,7 @@ nl:
       quantity_label: "Aantal:"
       sum_label: "Subtotaal:"
       service_fee_label: "%{service_name} kost:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Je krijgt:"
       total_label: "Totaal:"
       total_value: "%{seller_gets}*"
@@ -1038,6 +1043,7 @@ nl:
     message:
       accepted_request: "heeft het verzoek aanvaard"
       received_payment: "accepteerde het verzoek, ontving betaling voor %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "heeft het voorstel aanvaard"
       rejected_request: "heeft het verzoek niet aanvaard, betaling geannuleerd"
       rejected_offer: "heeft het voorstel niet aanvaard"
@@ -1047,8 +1053,10 @@ nl:
       canceled_offer: "heeft het voorstel geannuleerd"
       paid: "betaald %{sum}"
       payment_preauthorized: "Betaling gemachtigd: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Verzoek geaccepteerd. De betaling voor %{sum} wordt vastgehouden door %{service_name} totdat de bestelling als voltooid wordt gemarkeerd."
+        held_payment_wo_sum: ~
         confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
     new:
       message: Bericht
@@ -1263,7 +1271,9 @@ nl:
       shipping_total: "Verzenden:"
       product: "Product:"
       price_payer_paid: "Prijs die %{payer_full_name} betaalde:ie"
+      subtotal: ~
       service_fee: "%{service_name} service toeslag:"
+      buyer_service_fee: ~
       you_will_get: "Totaal:"
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       price_per_unit_type: "Prijs per %{unit_type}"
@@ -1279,6 +1289,7 @@ nl:
       duration: Duur
       quantity: Aantal
       subtotal: Subtotaal
+      buyer_service_fee: ~
       total: Totaal
       price: Prijs
       service_fee: Servicetoeslag
@@ -1303,7 +1314,7 @@ nl:
       subtotal: Subtotaal
       total: Totaal
       price: Prijs
-      service_fee: "Service toeslag"
+      buyer_service_fee: ~
       stripe_gateway_fee: "toeslag Stripe"
       paypal_gateway_fee: "toeslag Stripe"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
@@ -1994,6 +2005,7 @@ nl:
       select_one: "Selecteer er een"
       start_time: Starttijd
       end_time: Eindtijd
+      marketplace_fees_may_apply: ~
     new:
       listing: advertentie
       selected_category: "Categorie: %{category}"

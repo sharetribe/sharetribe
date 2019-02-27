@@ -250,6 +250,7 @@ pl:
         update_settings: "Zapisz ustawienia"
         automatically_confirmed_no_escrow: "Zlecenie zostanie automatycznie oznaczone jako zrealizowane %{days_dropdown} dni po dokonaniu płatności"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Wysyłaj automatycznie newsletter: %{frequency_dropdown}"
         newsletter_daily: Codziennie
         newsletter_weekly: Tygodniowo
@@ -867,6 +868,8 @@ pl:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -879,6 +882,7 @@ pl:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -1002,6 +1006,7 @@ pl:
       quantity_label: "Ilość:"
       sum_label: "Suma częściowa:"
       service_fee_label: "Opłata serwisowa %{service_name}:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Otrzymasz:"
       total_label: "Łącznie:"
       total_value: "%{seller_gets}*"
@@ -1047,6 +1052,7 @@ pl:
     message:
       accepted_request: "zapytanie zaakceptowane"
       received_payment: "żądanie zaakceptowane, płatność %{sum} otrzymana"
+      received_payment_wo_sum: ~
       accepted_offer: "oferta zaakceptowana"
       rejected_request: "odrzucone zapytanie, anulowana płatność"
       rejected_offer: "odrzucono ofertę"
@@ -1056,8 +1062,10 @@ pl:
       canceled_offer: "anulowano ofertę"
       paid: "zapłacono %{sum}"
       payment_preauthorized: "Płatność zautoryzowana: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Wiadomość
@@ -1272,7 +1280,9 @@ pl:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1288,6 +1298,7 @@ pl:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1312,7 +1323,7 @@ pl:
       subtotal: Podsumowanie
       total: Suma
       price: Cena
-      service_fee: "Opłata serwisowa"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Pieniądze zostaną przesłane do %{recipient_name} kiedy: a) zaznaczysz zlecenie jako zrealizowane lub b) minie %{automatic_confirmation_days} dni od kiedy dokonałeś płatności."
@@ -2005,6 +2016,7 @@ pl:
       select_one: ~
       start_time: Początek
       end_time: Koniec
+      marketplace_fees_may_apply: ~
     new:
       listing: oferta
       selected_category: "Kategoria: %{category}"

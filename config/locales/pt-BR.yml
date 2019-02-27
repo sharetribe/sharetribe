@@ -240,6 +240,7 @@ pt-BR:
         update_settings: "Salvar configurações"
         automatically_confirmed_no_escrow: "A operação será automaticamente marcada como concluída %{days_dropdown} dias após o pagamento ter sido confirmado"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Enviar boletim automático: %{frequency_dropdown}"
         newsletter_daily: Diaramente
         newsletter_weekly: Semanal
@@ -849,6 +850,8 @@ pt-BR:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -861,6 +864,7 @@ pt-BR:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -984,6 +988,7 @@ pt-BR:
       quantity_label: "Quantidade:"
       sum_label: "Subtotal:"
       service_fee_label: "taxa de %{service_name}:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Você receberá:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1029,6 +1034,7 @@ pt-BR:
     message:
       accepted_request: "aceitou o pedido"
       received_payment: "O pedido foi aceito, pagamento de %{sum} recebido"
+      received_payment_wo_sum: ~
       accepted_offer: "aceitou a oferta"
       rejected_request: "rejeitou o pedido"
       rejected_offer: "rejeitou a oferta"
@@ -1038,8 +1044,10 @@ pt-BR:
       canceled_offer: "cancelou a oferta"
       paid: "pago %{sum}"
       payment_preauthorized: "Pagamento autorizado: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Mensagem
@@ -1254,7 +1262,9 @@ pt-BR:
       shipping_total: ~
       product: "Produto:"
       price_payer_paid: "Preço pago por %{payer_full_name} :"
+      subtotal: ~
       service_fee: "Taxa de serviço de %{service_name}:"
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: "Você recebeu um novo pagamento"
       price_per_unit_type: ~
@@ -1270,6 +1280,7 @@ pt-BR:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: Preço
       service_fee: "Taxa de serviço"
@@ -1294,7 +1305,7 @@ pt-BR:
       subtotal: "Subtotal:"
       total: Total
       price: Preço
-      service_fee: "Despesas de serviço"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "O dinheiro será transferido para %{recipient_name} quando a) você tenha marcado o pedido como concluído ou b) %{automatic_confirmation_days} dias se passaram desde que você pagou."
@@ -1985,6 +1996,7 @@ pt-BR:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: anúncio
       selected_category: "Categoria: %{category}"
