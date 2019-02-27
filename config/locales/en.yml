@@ -2331,7 +2331,7 @@ en:
       account_confirmation_instructions_title_admin: "Confirm your email address"
       before_full_access_you_need_to_confirm_email: "Before we can give you full access to your marketplace, there's just one more thing we need to do: confirm your email address."
       before_confirmation_only_access_admin_dashboard: "Before confirmation you can only access the %{admin_dashboard_link}."
-      admin_dashboard_link_text: "admin dashboard"
+      admin_dashboard_link_text: "admin panel"
       account_confirmation_instructions_admin: "You should have received an email at %{email_address} with a confirmation link. If you don't see it, check your spam folder or click the button below to resend the email. Once it arrives, open the included link to confirm your address, after which you'll get full access to your marketplace. If you need any help, don't hesitate to %{support_link}."
       contact_support_link_text: "contact Sharetribe support"
   settings:
@@ -2631,7 +2631,7 @@ en:
       logout: "Log out"
       login: "Log in"
       signup: "Sign up"
-      admin_dashboard: "Admin dashboard"
+      admin_dashboard: "Admin panel"
       language: Language
       listings: "My listings"
     utils:
