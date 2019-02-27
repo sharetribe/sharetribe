@@ -516,6 +516,7 @@ FactoryGirl.define do
     fee_cents         0
     real_fee_cents    31
     subtotal_cents    200
+    buyer_commission  111
   end
 
   factory :stripe_account do

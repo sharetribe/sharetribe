@@ -11,6 +11,7 @@ module StripeService::Store::StripePayment
     [:currency, :mandatory, :string],
     [:sum_cents, :fixnum],
     [:commission_cents, :fixnum],
+    [:buyer_commission_cents, :fixnum],
     [:fee_cents, :fixnum],
     [:subtotal_cents, :fixnum],
     [:stripe_charge_id, :string]
@@ -24,6 +25,7 @@ module StripeService::Store::StripePayment
     [:status, :mandatory, :to_symbol],
     [:sum, :money],
     [:commission, :money],
+    [:buyer_commission, :money],
     [:fee, :money],
     [:real_fee, :money],
     [:subtotal, :money],
@@ -66,6 +68,7 @@ module StripeService::Store::StripePayment
           sum: stripe_payment.sum,
           fee: stripe_payment.fee,
           commission: stripe_payment.commission,
+          buyer_commission: stripe_payment.buyer_commission,
           subtotal: stripe_payment.subtotal,
           real_fee: stripe_payment.real_fee,
         }))

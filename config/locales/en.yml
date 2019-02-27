@@ -240,6 +240,7 @@ en:
         update_settings: "Save settings"
         automatically_confirmed_no_escrow: "Order will be automatically marked as completed %{days_dropdown} days after the payment has been made"
         automatically_confirmed_no_escrow_stripe_info: "For transactions processed by Stripe, payments to sellers are delayed until the order is marked as completed. %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: "Buyer transaction fees are only supported with Stripe. You will not be able to use PayPal if you configure a Buyer transaction fee with Stripe."
         automatic_newsletter_frequency: "Send automatic newsletter: %{frequency_dropdown}"
         newsletter_daily: Daily
         newsletter_weekly: Weekly
@@ -814,8 +815,8 @@ en:
       currency_change_warning_text: "Heads up: if you move forward with this currency change, don't forget to ask your sellers to manually edit their existing listings to get the currency update."
       marketplace_currency_label: "Marketplace currency:"
       minimum_listing_price_label: "Minimum transaction size:"
-      transaction_fee_label: "Transaction fee:"
-      minimum_transaction_fee_label: "Minimum transaction fee:"
+      transaction_fee_label: "Seller transaction fee:"
+      minimum_transaction_fee_label: "Seller minimum transaction fee:"
       save_settings: "Save settings"
       minimum_listing_price_below_tx_fee: "The minimum transaction size has to be greater than or equal to the minimum transaction fee: %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "The minimum transaction size has to be greater than the minimum commission %{minimum_commission}."
@@ -853,6 +854,8 @@ en:
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
+      commission_from_buyer_label: "Buyer transaction fee:"
+      minimum_buyer_transaction_fee_label: "Buyer minimum transaction fee:"
       stripe_connected:
         title: "Stripe connected"
         disable: "Disable Stripe"
@@ -865,6 +868,7 @@ en:
         enable: "Enable PayPal again"
       cannot_enable_gateway: "Cannot enable payment gateway %{gateway}."
       cannot_disable_gateway: "Cannot disable payment gateway %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: "Cannot enable payment gateway %{gateway} because the buyer's commission is used"
       stripe_form:
         add_your_api_keys: "Add your Stripe API keys"
         how_to_get_these: "How to get these?"
@@ -990,6 +994,7 @@ en:
       quantity_label: "Quantity:"
       sum_label: "Subtotal:"
       service_fee_label: "%{service_name} fee:"
+      buyer_service_fee_label: "%{service_name} service fee:"
       you_will_get_label: "You will get:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1035,6 +1040,7 @@ en:
     message:
       accepted_request: "accepted the request"
       received_payment: "accepted the request, received payment for %{sum}"
+      received_payment_wo_sum: "accepted the request, received payment"
       accepted_offer: "accepted the offer"
       rejected_request: "rejected the request, canceled the payment"
       rejected_offer: "rejected the offer"
@@ -1044,8 +1050,10 @@ en:
       canceled_offer: "canceled the offer"
       paid: "paid %{sum}"
       payment_preauthorized: "Payment authorized: %{sum}"
+      payment_preauthorized_wo_sum: "Payment authorized"
       stripe:
         held_payment: "Accepted the request. Payment for %{sum} is being held by %{service_name} until the order is marked as completed."
+        held_payment_wo_sum: "Accepted the request. Payment is being held by %{service_name} until the order is marked as completed."
         confirmed_request: "Marked the order as completed. The payment has now been transferred to %{author_name} bank account or will be transferred soon."
     new:
       message: Message
@@ -1260,7 +1268,9 @@ en:
       shipping_total: "Shipping:"
       product: "Product:"
       price_payer_paid: "Price %{payer_full_name} paid:"
+      subtotal: "Subtotal:"
       service_fee: "%{service_name} service fee:"
+      buyer_service_fee: "%{service_name} service fee:"
       you_will_get: "Total:"
       new_payment: "You have received a new payment"
       price_per_unit_type: "Price per %{unit_type}"
@@ -1276,6 +1286,7 @@ en:
       duration: Duration
       quantity: Quantity
       subtotal: Subtotal
+      buyer_service_fee: "%{service_name} service fee:"
       total: Total
       price: Price
       service_fee: "Service fee"
@@ -1300,7 +1311,7 @@ en:
       subtotal: Subtotal
       total: Total
       price: Price
-      service_fee: "Service fee"
+      buyer_service_fee: "%{service_name} service fee"
       stripe_gateway_fee: "Stripe's fee:"
       paypal_gateway_fee: "PayPal's fee:"
       money_will_be_transferred: "The money will be transferred to %{recipient_name} when a) you have marked the request completed or b) %{automatic_confirmation_days} days have passed since you paid."
@@ -1991,6 +2002,7 @@ en:
       select_one: "Select one"
       start_time: "Start time"
       end_time: "End time"
+      marketplace_fees_may_apply: "%{service_name} fees may apply"
     new:
       listing: listing
       selected_category: "Category: %{category}"

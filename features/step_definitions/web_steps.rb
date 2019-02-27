@@ -360,3 +360,7 @@ Then(/^I should see page source$/) do
   puts page.driver.html
 end
 
+Then(/^I should see disabled "([^"]*)" input$/) do |field|
+  expect(!!find_field(field, disabled: true)).to eq true
+end
+

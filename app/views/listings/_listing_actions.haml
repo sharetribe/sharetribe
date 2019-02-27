@@ -86,6 +86,11 @@
 
       = hidden_field_tag(:listing_id, @listing.id)
 
+      - if @listing_presenter.buyer_fee?
+        .row
+          .col-12
+            %span.buyer-fees
+              = t('.marketplace_fees_may_apply')
       - if @listing_presenter.quantity_per_day_or_night?
         - @listing_presenter.blocked_dates_result.on_success do
           %button.enabled-book-button

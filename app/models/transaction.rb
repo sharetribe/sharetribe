@@ -36,6 +36,9 @@
 #  availability                      :string(32)       default("none")
 #  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
+#  commission_from_buyer             :integer
+#  minimum_buyer_fee_cents           :integer          default(0)
+#  minimum_buyer_fee_currency        :string(3)
 #
 # Indexes
 #
@@ -85,6 +88,7 @@ class Transaction < ApplicationRecord
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
+  monetize :minimum_buyer_fee_cents, with_model_currency: :minimum_buyer_fee_currency
 
   scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
@@ -289,6 +293,14 @@ class Transaction < ApplicationRecord
       .max
   end
 
+  def buyer_commission
+    [(item_total * (commission_from_buyer / 100.0) unless commission_from_buyer.nil?),
+     (minimum_buyer_fee unless minimum_buyer_fee.nil? || minimum_buyer_fee.zero?),
+     Money.new(0, item_total.currency)]
+      .compact
+      .max
+  end
+
   def waiting_testimonial_from?(person_id)
     if starter_id == person_id && starter_skipped_feedback
       false
@@ -310,7 +322,7 @@ class Transaction < ApplicationRecord
     unit_price       = self.unit_price || 0
     quantity         = self.listing_quantity || 1
     shipping_price   = self.shipping_price || 0
-    (unit_price * quantity) + shipping_price
+    (unit_price * quantity) + shipping_price + buyer_commission
   end
 
 end

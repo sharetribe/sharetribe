@@ -15,7 +15,10 @@ module TransactionService::Store::PaymentSettings
     [:confirmation_after_days, :fixnum, default: 14],
     [:api_client_id, :string],
     [:api_private_key, :string],
-    [:api_publishable_key, :string]
+    [:api_publishable_key, :string],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string]
   )
 
   PaymentSettingsUpdate = EntityUtils.define_builder(
@@ -32,7 +35,10 @@ module TransactionService::Store::PaymentSettings
     [:api_client_id, :string],
     [:api_private_key, :string],
     [:api_publishable_key, :string],
-    [:confirmation_after_days_after_end_time, :fixnum]
+    [:confirmation_after_days_after_end_time, :fixnum],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string]
   )
 
   PaymentSettings = EntityUtils.define_builder(
@@ -52,7 +58,10 @@ module TransactionService::Store::PaymentSettings
     [:api_publishable_key, :string],
     [:api_visible_private_key, :string],
     [:api_verified, :to_bool],
-    [:api_country, :string]
+    [:api_country, :string],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string]
   )
 
   module_function
@@ -118,7 +127,10 @@ module TransactionService::Store::PaymentSettings
   def from_model(model)
     Maybe(model)
       .map { |m| EntityUtils.model_to_hash(m) }
-      .map { |hash| PaymentSettings.call(hash.merge({commission_type: commission_type(hash)})) }
+      .map { |hash|
+      PaymentSettings.call(hash.merge({
+        commission_type: commission_type(hash)
+      })) }
       .or_else(nil)
   end
 
