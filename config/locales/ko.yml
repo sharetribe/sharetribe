@@ -235,6 +235,7 @@ ko:
         update_settings: "설정 저장"
         automatically_confirmed_no_escrow: "결제가 완료되면 주문서에 %{days_dropdown}일 이내에 완료로 표시됩니다."
         automatically_confirmed_no_escrow_stripe_info: "결제 수단으로 Stripe을 선택하신 경우 대금 지급은 구매가 완료될 때까지 보류됩니다. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "자동으로 뉴스레터 보내기 : %{frequency_dropdown}"
         newsletter_daily: 매일
         newsletter_weekly: 매주
@@ -844,6 +845,8 @@ ko:
       stripe_fee_notice: "%{stripe_fee_link}는 귀하가 청구하는 거래 수수료에서 공제됩니다."
       fee_should_be_less_than_minimum_price: "최소 거래 수수료는 최소 거래 규모보다 작아야합니다."
       confirm_disable: "%{gateway}을(를) 비활성화 하시겠습니까? 이 기능을 사용 중지하면 제공 업체는 더 이상 돈을받을 수 없으며 구매자는 더 이상이 지불 방법으로 지불 할 수 없습니다. 공급자가 다른 지불 방법을 구성하지 않으면 구매자가 구매할 수 없습니다."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "스트라이프가 연결됨"
         disable: "스트라이프 비활성화"
@@ -856,6 +859,7 @@ ko:
         enable: "페이팔 재활성화"
       cannot_enable_gateway: "결제 게이트웨이 %{gateway}을(를) 활성화 할 수 없습니다."
       cannot_disable_gateway: "결제 게이트웨이 %{gateway}을(를) 비활성화 할 수 없습니다."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Stripe API 키 추가"
         how_to_get_these: "이것들을 어떻게 얻습니까?"
@@ -981,6 +985,7 @@ ko:
       quantity_label: "수량:"
       sum_label: "소계 :"
       service_fee_label: "%{service_name} 수수료 :"
+      buyer_service_fee_label: ~
       you_will_get_label: "당신은 얻을 것이다 :"
       total_label: "총:"
       total_value: "%{seller_gets} *"
@@ -1026,6 +1031,7 @@ ko:
     message:
       accepted_request: "요청이 승인되어졌습니다"
       received_payment: "요청을 수락하였고, %{sum}에 대한 결제를 받았습니다."
+      received_payment_wo_sum: ~
       accepted_offer: "제안이 승인되어졌습니다"
       rejected_request: "요청을 거절되고 결제가 취소되어졌습니다"
       rejected_offer: "제안이 거절되어졌습니다"
@@ -1035,8 +1041,10 @@ ko:
       canceled_offer: "제안이 취소되어졌습니다"
       paid: "%{sum}이 결제되었습니다"
       payment_preauthorized: "승인된 결제 : %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: 메세지
@@ -1251,7 +1259,9 @@ ko:
       shipping_total: "배송:"
       product: "제품:"
       price_payer_paid: "가격 %{payer_full_name} 지불 :"
+      subtotal: ~
       service_fee: "%{service_name} 수수료 :"
+      buyer_service_fee: ~
       you_will_get: "총:"
       new_payment: "새 결제를 받았습니다"
       price_per_unit_type: "%{unit_type} 당 가격 :"
@@ -1267,6 +1277,7 @@ ko:
       duration: 기간
       quantity: 수량
       subtotal: 소계
+      buyer_service_fee: ~
       total: 총
       price: 가격
       service_fee: "서비스 수수료"
@@ -1291,7 +1302,7 @@ ko:
       subtotal: 소계
       total: 총
       price: 가격
-      service_fee: "서비스 수수료"
+      buyer_service_fee: ~
       stripe_gateway_fee: "스트라이프 수수료"
       paypal_gateway_fee: "페이팔 수수료"
       money_will_be_transferred: "a) 귀하가 요청 완료를 표시했거나 b) 결제한 날 %{automatic_confirmation_days} 일이 경과하면 %{recipient_name}(으)로 이체됩니다."
@@ -1981,6 +1992,7 @@ ko:
       select_one: "하나를 선택하기"
       start_time: "시작 시간"
       end_time: "마침 시간"
+      marketplace_fees_may_apply: ~
     new:
       listing: 목록
       selected_category: "카테고리: %{category}"

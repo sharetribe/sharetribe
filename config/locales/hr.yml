@@ -248,6 +248,7 @@ hr:
         update_settings: "Spremiti postavke"
         automatically_confirmed_no_escrow: "Narudžba će automatski biti označena kao dovršena %{days_dropdown} dana nakon što je uplaćeno"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Poslati automatski newsletter: %{frequency_dropdown}"
         newsletter_daily: Dnevno
         newsletter_weekly: Tjedno
@@ -860,6 +861,8 @@ hr:
       stripe_fee_notice: "%{stripe_fee_link} biti će skinuto s cijene koju naplaćujete"
       fee_should_be_less_than_minimum_price: "Minimalna naknada za transakciju mora biti niža od minimalne visine transakcije."
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe povezan"
         disable: ~
@@ -872,6 +875,7 @@ hr:
         enable: "Ponovno omogući PayPal"
       cannot_enable_gateway: "Nije moguće omogućiti opciju plaćanja %{gateway} "
       cannot_disable_gateway: "Nije moguće onemogućiti opciju plaćanja %{gateway} "
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Dodaj Stripe API ključ"
         how_to_get_these: "Kako ih dobiti?"
@@ -993,6 +997,7 @@ hr:
       quantity_label: "Količina:"
       sum_label: Sveukupno
       service_fee_label: "%{service_name} naknada:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Dobit ćete:"
       total_label: "Ukupno:"
       total_value: "%{seller_gets}*"
@@ -1038,6 +1043,7 @@ hr:
     message:
       accepted_request: "Prihvatio zahtjev"
       received_payment: "Prihvatite zahtjev, prihvaćena uplata %{sum} "
+      received_payment_wo_sum: ~
       accepted_offer: "prihvatili ponudu"
       rejected_request: "Zahtjev odbijen, Plaćanje je poništeno"
       rejected_offer: "odbili ponudu"
@@ -1047,8 +1053,10 @@ hr:
       canceled_offer: "otkazali ponudu"
       paid: "plaćeno %{sum}"
       payment_preauthorized: "Uplata autorizirana: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Poruka
@@ -1263,7 +1271,9 @@ hr:
       shipping_total: "Dostava:"
       product: "Proizvod:"
       price_payer_paid: "Iznos %{payer_full_name} plaćen."
+      subtotal: ~
       service_fee: "%{service_name} provizija:"
+      buyer_service_fee: ~
       you_will_get: "Ukupno:"
       new_payment: "Zaprimili ste novu uplatu"
       price_per_unit_type: "Cijena po %{unit_type} "
@@ -1281,6 +1291,7 @@ hr:
       duration: Trajanje
       quantity: Količina
       subtotal: Sveukupno
+      buyer_service_fee: ~
       total: Ukupno
       price: Cijena
       service_fee: "Naknada za uslugu"
@@ -1305,7 +1316,7 @@ hr:
       subtotal: Sveukupno
       total: Ukupno
       price: Cijena
-      service_fee: "Naknada za uslugu"
+      buyer_service_fee: ~
       stripe_gateway_fee: "Strip-ova naknada"
       paypal_gateway_fee: "PayPal-ova naknada"
       money_will_be_transferred: "Novac će biti prebačen na %{recipient_name} kada a) označite zahtjev kao dovršen ili b) %{automatic_confirmation_days} dana je prošlo otkad ste platili."
@@ -1998,6 +2009,7 @@ hr:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: oglas
       selected_category: "Kategorija: %{category}"

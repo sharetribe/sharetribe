@@ -235,6 +235,7 @@ ja:
         update_settings: 設定を保存する
         automatically_confirmed_no_escrow: "お支払いは%{days_dropdown}日後、完了済みとして処理されます。"
         automatically_confirmed_no_escrow_stripe_info: "Stripeによって処理された取引の場合、売り手への支払いは、注文が完了とマークされるまで保留されます。%{learn_more} 。"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "%{frequency_dropdown}の☆速報☆を自動で送信する"
         newsletter_daily: 毎日
         newsletter_weekly: 毎週
@@ -844,6 +845,8 @@ ja:
       stripe_fee_notice: "請求している取引手数料から%{stripe_fee_link} が差し引かれます。"
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: Stripeに接続されました
         disable: ストライプを無効にする
@@ -856,6 +859,7 @@ ja:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: StripeAPIキーを追加する
         how_to_get_these: ~
@@ -979,6 +983,7 @@ ja:
       quantity_label: 数量：
       sum_label: 合計：
       service_fee_label: "%{service_name}のご利用手数料："
+      buyer_service_fee_label: ~
       you_will_get_label: 受け取り額：
       total_label: 合計：
       total_value: "%{seller_gets}*"
@@ -1024,6 +1029,7 @@ ja:
     message:
       accepted_request: リクエストを受け入れました
       received_payment: "リクエストを受け入れ、%{sum} のお支払いを確認できました"
+      received_payment_wo_sum: ~
       accepted_offer: 受諾されたオファー
       rejected_request: リクエストは却下されました
       rejected_offer: 却下されたオファー
@@ -1033,8 +1039,10 @@ ja:
       canceled_offer: キャンセルされたオファー
       paid: "%{sum}をお支払いしました"
       payment_preauthorized: "%{sum}のお支払い手続きが完了しました"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "リクエストを受け入れました。取引が完了としてマークされるまで%{sum} の支払いは%{service_name} により保留されています。"
+        held_payment_wo_sum: ~
         confirmed_request: "お取引が正常に完了しました。代金は現在%{author_name} 銀行口座に振り込まれているか、まもなく振り込まれます。"
     new:
       message: メッセージ
@@ -1249,7 +1257,9 @@ ja:
       shipping_total: 送料：
       product: 商品：
       price_payer_paid: "%{payer_full_name} の支払い額"
+      subtotal: ~
       service_fee: "%{service_name} 利用料"
+      buyer_service_fee: ~
       you_will_get: 合計
       new_payment: 新しい支払いを受け取りました
       price_per_unit_type: "%{unit_type} あたりの価格"
@@ -1265,6 +1275,7 @@ ja:
       duration: 期間
       quantity: 数
       subtotal: 小計
+      buyer_service_fee: ~
       total: 合計
       price: 価格
       service_fee: サービス料
@@ -1289,7 +1300,7 @@ ja:
       subtotal: 小計：
       total: 合計
       price: 価格
-      service_fee: ご利用料金
+      buyer_service_fee: ~
       stripe_gateway_fee: ストライプ手数料
       paypal_gateway_fee: PayPalの支払い手数料
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
@@ -1979,6 +1990,7 @@ ja:
       select_one: 一つ選択してください。
       start_time: 開始時間
       end_time: 終了時刻
+      marketplace_fees_may_apply: ~
     new:
       listing: 投稿
       selected_category: "カテゴリー： %{category}"
@@ -2216,7 +2228,7 @@ ja:
       terms: 利用規約
       privacy: プライバシーポリシー
       username_is_in_use: そのユーザ名はすでに使用されています。
-      username_is_invalid: 無効なユーザ名です。文字と数字とアンダーバーが使用可能です。
+      username_is_invalid: 無効なユーザ名です。英字と数字とアンダーバーが使用可能です。
       visible_only_to_you: あなただけに表示されるマーケットプレイスの管理ページ
       visible_to_everybody: 全員に表示
       create_account_with_provider: ~
@@ -2324,7 +2336,7 @@ ja:
       only_admin: ~
       new_password: 新しいパスワード
       save: 保存
-      these_fields_are_shown_only_to_you: ユーザ名はあなたの名前を公表している場合を除いて、あなたのプロフィールに表示されます。他の情報はあなただけに表示されています。
+      these_fields_are_shown_only_to_you: ユーザ名はあなたの名前を公開している場合を除き、プロフィールに表示されます。他の情報はあなただけに表示されています。
       email_already_confirmed: あなたのメールアドレスは既に認証済みです。
       email:
         address_title: メールアドレス

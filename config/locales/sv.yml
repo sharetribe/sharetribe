@@ -240,6 +240,7 @@ sv:
         update_settings: "Spara inställningar"
         automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen har gjorts"
         automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till försäljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -853,6 +854,8 @@ sv:
       stripe_fee_notice: "%{stripe_fee_link} kommer dras av från transaktionsavgiften du tar."
       fee_should_be_less_than_minimum_price: "Lägsta transaktionsavgiften måste vara lägre än lägsta annonspriset"
       confirm_disable: "Är du säker du vill inaktivera %{gateway}? Om du inaktiverar detta betalningssystem kommer dina försäljare inte kunna ta emot pengar och köpare kommer inte kunna göra köp via detta betalningssystem. Om dina försäljare inte har aktiverat det andra betalsystemet kommer användare inte kunna köpa från dem."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe är kopplat"
         disable: "Inaktivera Stripe"
@@ -865,6 +868,7 @@ sv:
         enable: "Aktivera PayPal igen"
       cannot_enable_gateway: "Kan inte aktivera betalningssystemet %{gateway}"
       cannot_disable_gateway: "Kan inte inaktivera betalningssystemet %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Lägg till dina Stripe API nycklar"
         how_to_get_these: "Hur får jag dessa?"
@@ -990,6 +994,7 @@ sv:
       quantity_label: "Antal:"
       sum_label: "Delsumma:"
       service_fee_label: "%{service_name} avgift:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Du kommer att få:"
       total_label: "Totalt:"
       total_value: "%{seller_gets}*"
@@ -1035,6 +1040,7 @@ sv:
     message:
       accepted_request: "accepterade förfrågan"
       received_payment: "accepterade förfrågan, mottog betalningen för %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan, betalningen är avbruten"
       rejected_offer: "avslagit erbjudandet"
@@ -1044,8 +1050,10 @@ sv:
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
       payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills förfrågan har blivit markerad som slutförd."
+        held_payment_wo_sum: ~
         confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bankkonto eller kommer snart att överföras."
     new:
       message: Meddelande
@@ -1260,7 +1268,9 @@ sv:
       shipping_total: "Leverans:"
       product: "Produkt:"
       price_payer_paid: "Pris som %{payer_full_name} har betalat:"
+      subtotal: ~
       service_fee: "%{service_name} serviceavgift:"
+      buyer_service_fee: ~
       you_will_get: "Totalt:"
       new_payment: "Du har fått en ny inbetalning"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1276,6 +1286,7 @@ sv:
       duration: Varaktighet
       quantity: "Antal:"
       subtotal: "Delsumma:"
+      buyer_service_fee: ~
       total: Totalt
       price: Pris
       service_fee: Serviceavgift
@@ -1300,7 +1311,7 @@ sv:
       subtotal: "Delsumma:"
       total: Totalt
       price: Pris
-      service_fee: Serviceavgift
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
@@ -1993,6 +2004,7 @@ sv:
       select_one: "Välj en"
       start_time: Starttid
       end_time: Sluttid
+      marketplace_fees_may_apply: ~
     new:
       listing: annons
       selected_category: "Kategori: %{category}"

@@ -225,6 +225,7 @@ ar:
         update_settings: "حفظ الإعدادات"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: "للعمليات الشرائية التي تتم من خلال سترب يتم تأخير الدفعات لمزود الخدمة إلى أن يتم تحديد الطلب بالمكتمل. ‎%{learn_more}‎"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "‎%{frequency_dropdown}‎: أرسل نشرات إخبارية تلقائيا"
         newsletter_daily: يومي
         newsletter_weekly: أسبوعي
@@ -836,6 +837,8 @@ ar:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: "تعطيل سترب"
@@ -848,6 +851,7 @@ ar:
         enable: "إعادة تفعيل باي بال"
       cannot_enable_gateway: "‎%{gateway}‎ لا يمكنك تفعيل طريقة الدفع ."
       cannot_disable_gateway: "‎%{gateway}‎ لا يمكنك تعطيل طريقة الدفع ."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -971,6 +975,7 @@ ar:
       quantity_label: "الكمية:"
       sum_label: "المجموع الفرعي:"
       service_fee_label: ":‎%{service_name}‎ رسوم خدمة"
+      buyer_service_fee_label: ~
       you_will_get_label: "ستحصل على:"
       total_label: "المجموع:"
       total_value: "*‎%{seller_gets}‎"
@@ -1016,6 +1021,7 @@ ar:
     message:
       accepted_request: "قَبِل الطلب"
       received_payment: "‎%{sum}‎ قبل الطلب وتم استقبال دفعة بقيمة"
+      received_payment_wo_sum: ~
       accepted_offer: "قَبِل العرض"
       rejected_request: "رفض الطلب، وألغى عملية الشراء"
       rejected_offer: "ألغى العرض"
@@ -1025,8 +1031,10 @@ ar:
       canceled_offer: "ألغى العرض"
       paid: "‎%{sum}‎ تم دفع"
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: رسالة
@@ -1244,7 +1252,9 @@ ar:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1260,6 +1270,7 @@ ar:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1284,7 +1295,7 @@ ar:
       subtotal: "المجموع الجزئي"
       total: المجموع
       price: السعر
-      service_fee: "رسوم الخدمة"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1975,6 +1986,7 @@ ar:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: إعلان
       selected_category: "‎%{category}‎ :قسم"

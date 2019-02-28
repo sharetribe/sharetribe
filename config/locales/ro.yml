@@ -245,6 +245,7 @@ ro:
         update_settings: "Salvează setările"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Trimiteți buletinul informativ automat: %{frequency_dropdown}"
         newsletter_daily: Zilnic
         newsletter_weekly: Săptămânal
@@ -842,6 +843,8 @@ ro:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -854,6 +857,7 @@ ro:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -979,6 +983,7 @@ ro:
       quantity_label: ~
       sum_label: ~
       service_fee_label: "Comision %{service_name}:"
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: ~
       total_value: ~
@@ -1024,6 +1029,7 @@ ro:
     message:
       accepted_request: "a acceptat cererea"
       received_payment: "cerere acceptata, plata de %{sum} primita"
+      received_payment_wo_sum: ~
       accepted_offer: "acceptat oferta"
       rejected_request: "a refuzat cererea, a anulat plata"
       rejected_offer: "respins oferta"
@@ -1033,8 +1039,10 @@ ro:
       canceled_offer: "anulat oferta"
       paid: "plătit %{sum}"
       payment_preauthorized: "Plata autorizata: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Mesaj
@@ -1249,7 +1257,9 @@ ro:
       shipping_total: ~
       product: "Produs:"
       price_payer_paid: "Pret platit de %{payer_full_name}:"
+      subtotal: ~
       service_fee: "Comision %{service_name}:"
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: "Pret pe %{unit_type}"
@@ -1265,6 +1275,7 @@ ro:
       duration: Durata
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: Comision
@@ -1289,7 +1300,7 @@ ro:
       subtotal: ~
       total: Total
       price: Preț
-      service_fee: "Service fee"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1976,6 +1987,7 @@ ro:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: Postați
       selected_category: "Categoria: %{category}"

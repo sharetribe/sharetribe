@@ -245,6 +245,7 @@ cs:
         update_settings: "Uložit nastavení"
         automatically_confirmed_no_escrow: "Transakce bude automaticky označena jako vyřízená za %{days_dropdown} dní od doby, kdy byla platba provedena."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Automaticky posílat newsletter: %{frequency_dropdown}"
         newsletter_daily: Denně
         newsletter_weekly: Týdně
@@ -858,6 +859,8 @@ cs:
       stripe_fee_notice: "%{stripe_fee_link} bude odečten od poplatku, který účtujete."
       fee_should_be_less_than_minimum_price: "Minimální transakční poplatek musí být nižší než minimální transakce"
       confirm_disable: "Opravdu chcete zakázat%{gateway}? Zakážete-li to, prodávající již nebudou moci přijímat peníze a zákazníci již nebudou moci platit prostřednictvím této platební metody. Pokud prodávající nenakonfigurovali jiný způsob platby, zákazníci od nich nebudou moci kupovat."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe připojeno"
         disable: "Zakázat Stripe"
@@ -870,6 +873,7 @@ cs:
         enable: "Znovu povolit PayPal"
       cannot_enable_gateway: "Nelze povolit platební bránu %{gateway}"
       cannot_disable_gateway: "Nelze zakázat platební bránu %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Vložte váš Stripe API klíč"
         how_to_get_these: "Jak je získat?"
@@ -993,6 +997,7 @@ cs:
       quantity_label: "Množství:"
       sum_label: "Mezisoučet:"
       service_fee_label: "%{service_name} poplatek:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Obdržíte:"
       total_label: "Celkem:"
       total_value: "%{seller_gets}*"
@@ -1038,6 +1043,7 @@ cs:
     message:
       accepted_request: "přijatá žádost"
       received_payment: "přijal požadavek, obdržel platbu za %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "přijatá nabídka"
       rejected_request: "odmítnutá žádost"
       rejected_offer: "odmítnutá nabídka"
@@ -1047,8 +1053,10 @@ cs:
       canceled_offer: "zrušená nabídka"
       paid: "zaplaceno %{sum}"
       payment_preauthorized: "Platba schválena: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: "Objednávka byla označena jako dokončená. Platba byla nyní převedena na bankovní účet %{author_name}  nebo bude brzy převedena."
     new:
       message: Zpráva
@@ -1263,7 +1271,9 @@ cs:
       shipping_total: "Doprava:"
       product: "Produkt:"
       price_payer_paid: "Cena zaplacena uživatelem %{payer_full_name} :"
+      subtotal: ~
       service_fee: "%{service_name} servisní poplatek :"
+      buyer_service_fee: ~
       you_will_get: "Celkem:"
       new_payment: "Obdrželi jste novou platbu"
       price_per_unit_type: "Cena za %{unit_type}"
@@ -1279,6 +1289,7 @@ cs:
       duration: Trvání
       quantity: Množství
       subtotal: Mezisoučet
+      buyer_service_fee: ~
       total: Celkem
       price: Cena
       service_fee: "Servisní poplatek"
@@ -1303,7 +1314,7 @@ cs:
       subtotal: "Mezisoučet:"
       total: Celkem
       price: Cena
-      service_fee: "Servisní poplatek"
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripe poplatek :"
       paypal_gateway_fee: "PayPal poplatek :"
       money_will_be_transferred: "Peníze budou převedeny uživateli %{recipient_name}, a) pokud označíte žádost jako vyřízenou nebo b) pokud uplynulo %{automatic_confirmation_days} dní ode dne, kdy jste zaplatili."
@@ -1995,6 +2006,7 @@ cs:
       select_one: "Vyberte jeden"
       start_time: Začátek
       end_time: Konec
+      marketplace_fees_may_apply: ~
     new:
       listing: inzerát
       selected_category: "Kategorie: %{category}"

@@ -231,6 +231,7 @@ he-IL:
         update_settings: "שמור הגדרות"
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "שלח עלון אוטומטי: ‎%{frequency_dropdown}‎"
         newsletter_daily: יומי
         newsletter_weekly: שבועי
@@ -828,6 +829,8 @@ he-IL:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -840,6 +843,7 @@ he-IL:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -961,6 +965,7 @@ he-IL:
       quantity_label: "כמות:"
       sum_label: ~
       service_fee_label: "מחיר ‎%{service_name}‎ :"
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: סה"כ
       total_value: ~
@@ -1006,6 +1011,7 @@ he-IL:
     message:
       accepted_request: "אישר את הבקשה"
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: "אישר את ההצעה"
       rejected_request: "דחה את הבקשה, התשלום בוטל"
       rejected_offer: "דחה את ההצעה"
@@ -1015,8 +1021,10 @@ he-IL:
       canceled_offer: "ביטל את ההזמנה"
       paid: "שולם ‎%{sum}‎"
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: הודעה
@@ -1231,7 +1239,9 @@ he-IL:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1247,6 +1257,7 @@ he-IL:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1271,7 +1282,7 @@ he-IL:
       subtotal: ~
       total: סה"כ
       price: מחיר
-      service_fee: "עמלת שירות"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1960,6 +1971,7 @@ he-IL:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: מודעה
       selected_category: "‎%{category}‎"

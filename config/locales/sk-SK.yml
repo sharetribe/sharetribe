@@ -245,6 +245,7 @@ sk-SK:
         update_settings: "Uložiť nastavenia"
         automatically_confirmed_no_escrow: "Transakcia bude automaticky označená ako vybavená za %{days_dropdown} dní od doby, kedy bola platba prevedená."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Automaticky posielať novinky: %{frequency_dropdown}"
         newsletter_daily: Denne
         newsletter_weekly: Týždenne
@@ -858,6 +859,8 @@ sk-SK:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -870,6 +873,7 @@ sk-SK:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -993,6 +997,7 @@ sk-SK:
       quantity_label: "Množstvo:"
       sum_label: "Medzisúčet:"
       service_fee_label: "%{service_name} poplatok:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Obdržíte:"
       total_label: "Celkovo:"
       total_value: "%{seller_gets}*"
@@ -1038,6 +1043,7 @@ sk-SK:
     message:
       accepted_request: "prijal žiadosť"
       received_payment: "prijal žiadosť, dostal platbu celkovo %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "prijal ponuku"
       rejected_request: "zamietol žiadosť, zrušil platbu"
       rejected_offer: "zamietol ponuku"
@@ -1047,8 +1053,10 @@ sk-SK:
       canceled_offer: "zrušil ponuku"
       paid: "zaplatil %{sum}"
       payment_preauthorized: "Platba schválená: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Správa
@@ -1263,7 +1271,9 @@ sk-SK:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1279,6 +1289,7 @@ sk-SK:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1303,7 +1314,7 @@ sk-SK:
       subtotal: Medzisúčet
       total: Celkovo
       price: Cena
-      service_fee: "Poplatok sa službu"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Peniaze budú prevedené užívateľovi %{recipient_name}, a) pokiaľ označíte žiadosť ako vybavenú nebo b) pokiaľ uplynulo %{automatic_confirmation_days} dní od dňa, kedy ste zaplatili."
@@ -1997,6 +2008,7 @@ sk-SK:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: inzerát
       selected_category: "Kategória: %{category}"

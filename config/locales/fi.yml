@@ -240,6 +240,7 @@ fi:
         update_settings: Tallenna
         automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatically_confirmed_no_escrow_stripe_info: "Stripe-alustalla tehdyt maksut siirtyvät myyjälle vasta kun tilaus merkitään toteutuneeksi. %{learn_more}."
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -853,6 +854,8 @@ fi:
       stripe_fee_notice: "%{stripe_fee_link} vähennetään välityspalkkiostasi."
       fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
       confirm_disable: "Oletko varma että haluat ottaa maksualustan %{gateway} pois käytöstä? Jos otat sen pois käytöstä, myyjät eivät voi enää vastaanottaa sillä rahaa, eivätkä asiakkaat enää voi maksaa sen kautta. Mikäli myyjät eivät ole ottaneet käyttöön jotain toista maksualustaa, asiakkaat eivät voi ostaa heiltä mitään."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe yhdistetty"
         disable: "Poista Stripe käytöstä"
@@ -865,6 +868,7 @@ fi:
         enable: "Ota PayPal uudelleen käyttöön"
       cannot_enable_gateway: "Ei voitu ottaa seuraavaa maksualustaa käyttöön: %{gateway}."
       cannot_disable_gateway: "Ei voitu ottaa seuraavaa maksualustaa pois käytöstä: %{gateway}."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Lisää Stripen API-avaimet"
         how_to_get_these: "Mistä nämä löytyvät?"
@@ -990,6 +994,7 @@ fi:
       quantity_label: "Määrä:"
       sum_label: "Välisumma:"
       service_fee_label: "%{service_name} palvelumaksu:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Sinä saat:"
       total_label: "Loppusumma:"
       total_value: "%{seller_gets}*"
@@ -1035,6 +1040,7 @@ fi:
     message:
       accepted_request: "hyväksyi pyynnön"
       received_payment: "hyväksyi tilauksen, otti vastaan maksun %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "hyväksyi tarjouksen"
       rejected_request: "hylkäsi pyynnön, perui maksun"
       rejected_offer: "hylkäsi tarjouksen"
@@ -1044,8 +1050,10 @@ fi:
       canceled_offer: "peruutti tarjouksen"
       paid: "maksoi %{sum}"
       payment_preauthorized: "Katevaraus tehty: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
+        held_payment_wo_sum: ~
         confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
     new:
       message: Viesti
@@ -1260,7 +1268,9 @@ fi:
       shipping_total: "Toimitus:"
       product: "Tuote:"
       price_payer_paid: "Hinta jonka %{payer_full_name} maksoi:"
+      subtotal: ~
       service_fee: "%{service_name} välityspalkkio:"
+      buyer_service_fee: ~
       you_will_get: "Loppusumma:"
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
@@ -1276,6 +1286,7 @@ fi:
       duration: Kesto
       quantity: Määrä
       subtotal: Välisumma
+      buyer_service_fee: ~
       total: Loppusumma
       price: Hinta
       service_fee: Välityspalkkio
@@ -1300,7 +1311,7 @@ fi:
       subtotal: Välisumma
       total: Yhteensä
       price: Hinta
-      service_fee: Palvelumaksu
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripe palvelumaksu"
       paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
@@ -1991,6 +2002,7 @@ fi:
       select_one: "Valitse yksi"
       start_time: Aloitusaika
       end_time: Lopetusaika
+      marketplace_fees_may_apply: ~
     new:
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"

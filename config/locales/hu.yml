@@ -241,6 +241,7 @@ hu:
         update_settings: "Beállítások mentése"
         automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
         newsletter_weekly: Heti
@@ -848,6 +849,8 @@ hu:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -860,6 +863,7 @@ hu:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -981,6 +985,7 @@ hu:
       quantity_label: "Mennyiség:"
       sum_label: "Végösszeg:"
       service_fee_label: "%{service_name} szolgáltatás díja:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Ön kapni fog:"
       total_label: "Összesen:"
       total_value: "%{seller_gets}*"
@@ -1026,6 +1031,7 @@ hu:
     message:
       accepted_request: "ajánlat elfogadva"
       received_payment: "a felkérés elfogadva, %{sum} összegű átutalás megérkezett"
+      received_payment_wo_sum: ~
       accepted_offer: "Ajánlat elfogadva"
       rejected_request: "a felkérés elutasítva, utalás törölve"
       rejected_offer: "Az ajánlat visszautasítva"
@@ -1035,8 +1041,10 @@ hu:
       canceled_offer: "Ajánlat törlése"
       paid: "Fizetve %{sum}"
       payment_preauthorized: "Fizetés engedélyezve: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Üzenet
@@ -1255,7 +1263,9 @@ hu:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1271,6 +1281,7 @@ hu:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1295,7 +1306,7 @@ hu:
       subtotal: "Végösszeg:"
       total: Összesen
       price: Ár
-      service_fee: "Szolgáltatás díja"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta ön fizetett."
@@ -1988,6 +1999,7 @@ hu:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"

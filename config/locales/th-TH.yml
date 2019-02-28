@@ -235,6 +235,7 @@ th-TH:
         update_settings: บันทึกการตั้งค่า
         automatically_confirmed_no_escrow: "คำสั่งซื้อจะถูกทำเครื่องหมายว่าเสร็จสมบูรณ์ภายใน %{days_dropdown} วันหลังจากวันที่ชำระเงินเสร็จสิ้น"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "ส่งจดหมายข่าวโดยอัตโนมัติ: %{frequency_dropdown}"
         newsletter_daily: รายวัน
         newsletter_weekly: รายสัปดาห์
@@ -840,6 +841,8 @@ th-TH:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -852,6 +855,7 @@ th-TH:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -975,6 +979,7 @@ th-TH:
       quantity_label: "ปริมาณ:"
       sum_label: ผลรวมย่อย
       service_fee_label: "ค่าธรรมเนียม: %{service_name}"
+      buyer_service_fee_label: ~
       you_will_get_label: "คุณจะได้รับ:"
       total_label: "รวมทั้งหมด:"
       total_value: "%{seller_gets}*"
@@ -1020,6 +1025,7 @@ th-TH:
     message:
       accepted_request: ตอบรับออเดอร์
       received_payment: "ตอบรับออเดอร์แล้ว และได้รับเงินจำนวน %{sum} แล้ว"
+      received_payment_wo_sum: ~
       accepted_offer: ยอมรับข้อเสนอ
       rejected_request: "ปฏิเสธคำขอ ยกเลิกการชำระเงิน"
       rejected_offer: ปฏิเสธข้อเสนอ
@@ -1029,8 +1035,10 @@ th-TH:
       canceled_offer: ยกเลิกข้อเสนอ
       paid: "ชำระเงิน %{sum}"
       payment_preauthorized: "การชำระเงินได้รับอนุญาตแล้ว: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: ข้อความ
@@ -1245,7 +1253,9 @@ th-TH:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1261,6 +1271,7 @@ th-TH:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1285,7 +1296,7 @@ th-TH:
       subtotal: ผลรวมย่อย
       total: รวมทั้งหมด
       price: ราคา
-      service_fee: "ค่าบริการ "
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "เงินจะถูกโอนไปยัง %{recipient_name} เมื่อ ก.) คุณได้ทำเครื่องหมายให้คำขอเสร็จสมบูรณ์ หรือ ข.) คุณจ่ายเงินมาแล้ว %{automatic_confirmation_days} วัน"
@@ -1972,6 +1983,7 @@ th-TH:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: รายการ
       selected_category: "หมวดหมู่: %{category}"

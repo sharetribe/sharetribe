@@ -237,6 +237,7 @@ tr-TR:
         update_settings: "Ayarları kaydet"
         automatically_confirmed_no_escrow: "Ödemenin üzerinden %{days_dropdown} gün geçtikten sonra, işlem otomatik olarak tamamlandı olarak işaretlenecektir."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Otomatik bülten gönder: %{frequency_dropdown}"
         newsletter_daily: Günlük
         newsletter_weekly: Haftalık
@@ -834,6 +835,8 @@ tr-TR:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -846,6 +849,7 @@ tr-TR:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -970,6 +974,7 @@ tr-TR:
       quantity_label: "Adet:"
       sum_label: "Ara Toplam:"
       service_fee_label: "%{service_name} ücreti:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Alacağınız:"
       total_label: "Toplam:"
       total_value: "%{seller_gets}"
@@ -1015,6 +1020,7 @@ tr-TR:
     message:
       accepted_request: "talebi kabul etti"
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: "teklifi kabul etti"
       rejected_request: "talebi reddetti"
       rejected_offer: "teklifi reddetti"
@@ -1024,8 +1030,10 @@ tr-TR:
       canceled_offer: "teklifi iptal etti"
       paid: "%{sum} ödedi"
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Mesaj
@@ -1240,7 +1248,9 @@ tr-TR:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1256,6 +1266,7 @@ tr-TR:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1280,7 +1291,7 @@ tr-TR:
       subtotal: "Ara Toplam:"
       total: Toplam
       price: Fiyat
-      service_fee: "Hizmet bedeli"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Ödeme %{recipient_name}'in hesabına a) talebi tamamlandı olarak işaretlediğinizde ya da b) ödeme yapmanızın ardından %{automatic_confirmation_days} gün geçtikten sonra aktarılacak."
@@ -1967,6 +1978,7 @@ tr-TR:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: ilan
       selected_category: "Kategori: %{category}"
