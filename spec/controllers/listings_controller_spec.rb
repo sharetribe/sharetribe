@@ -76,6 +76,19 @@ describe ListingsController, type: :controller do
     Rails.cache.clear
   end
 
+  let(:plan) do
+    {
+      expired: false,
+      features: {
+        whitelabel: true,
+        admin_email: true,
+        footer: false
+      },
+      created_at: Time.zone.now,
+      updated_at: Time.zone.now
+    }
+  end
+
   def create_shape(community_id, type, process, translations = [], categories = [])
     defaults = TransactionTypeCreator::DEFAULTS[type][process.process] || TransactionTypeCreator::DEFAULTS[type]
 
@@ -96,7 +109,7 @@ describe ListingsController, type: :controller do
         shipping_enabled: false,
         transaction_process_id: process.id,
         name_tr_key: name_tr_key,
-        action_button_tr_key: 'something.here',
+        action_button_tr_key: 'admin.transaction_types.default_action_button_labels.sell',
         translations: translations_with_default,
         basename: Maybe(translations).first[:name].or_else(type)
       })
@@ -146,6 +159,8 @@ describe ListingsController, type: :controller do
       :sort_date => 3.days.ago,
       :author => @p1,
       :community_id => @c1.id,
+      :unit_type => 'hour',
+      :price => Money.new(4567, 'USD')
     )
 
     FactoryGirl.create(
@@ -205,6 +220,7 @@ describe ListingsController, type: :controller do
 
     @request.host = "#{@c1.ident}.lvh.me"
     @request.env[:current_marketplace] = @c1
+    @request.env[:current_plan] = plan
   end
 
   describe "ATOM feed" do
@@ -245,6 +261,19 @@ describe ListingsController, type: :controller do
       doc = Nokogiri::XML::Document.parse(response.body)
       expect(doc.at("feed/entry/content").text).to match(/&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at/)
       expect(doc.at("feed/entry/content").text).to match(/http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/)
+    end
+  end
+
+  describe "custom meta tags" do
+    it "shows renders custom meta tags with placeholders" do
+      @c1.community_customizations.first.update(listing_meta_title: "{{listing_title}} - {{marketplace_name}}", listing_meta_description: "{{listing_title}} for {{listing_price}} by {{listing_author}} in {{marketplace_name}}")
+      get :show, params: {id: @l1.id}
+      expect(response.body).to match('<title>bike - Sharetribe</title>')
+      expect(response.body).to match("<meta content='bike - Sharetribe' property='og:title'>")
+      expect(response.body).to match("<meta content='bike - Sharetribe' name='twitter:title'>")
+      expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' name='description'>")
+      expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' name='twitter:description'>")
+      expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' property='og:description'>")
     end
   end
 end

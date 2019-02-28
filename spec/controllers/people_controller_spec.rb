@@ -387,6 +387,25 @@ describe PeopleController, type: :controller do
   end
 
   describe "#show" do
+    render_views
+
+    let(:plan) do
+      {
+        expired: false,
+        features: {
+          whitelabel: true,
+          admin_email: true,
+          footer: false
+        },
+        created_at: Time.zone.now,
+        updated_at: Time.zone.now
+      }
+    end
+
+    before(:each) do
+      @request.env[:current_plan] = plan
+    end
+
     let(:community) do
       community = FactoryGirl.create(:community)
       FactoryGirl.create(:custom_text_field, community: community,
@@ -435,6 +454,15 @@ describe PeopleController, type: :controller do
       community_host(community)
       get :show, params: {username: person_deleted.username}
       expect(response).to redirect_to('/')
+    end
+
+    it "shows specific meta title and description" do
+      community_host(community)
+      community.community_customizations.first.update(profile_meta_title: "Profile for {{user_display_name}}", profile_meta_description: "Want to know more about {{user_display_name}}")
+      get :show, params: {username: person1.username}
+      user_name = person1.name_or_username(community)
+      expect(response.body).to match("<title>Profile for #{user_name}</title>")
+      expect(response.body).to match("<meta content='Want to know more about #{user_name}' name='description'>")
     end
   end
 

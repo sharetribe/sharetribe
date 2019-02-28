@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
     :fetch_community_plan_expiration_status,
     :perform_redirect,
     :fetch_logged_in_user,
+    :setup_seo_service,
     :initialize_feature_flags,
     :save_current_host_with_port,
     :fetch_community_membership,
@@ -640,5 +641,9 @@ class ApplicationController < ActionController::Base
     if params[:disarm].present? && !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:disarm])
       @disable_custom_head_script = true
     end
+  end
+
+  def setup_seo_service
+    @seo_service = SeoService.new(@current_community, params)
   end
 end
