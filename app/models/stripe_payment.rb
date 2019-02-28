@@ -20,7 +20,7 @@
 #  available_on           :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  buyer_commission_cents :integer
+#  buyer_commission_cents :integer          default(0)
 #
 
 class StripePayment < ApplicationRecord
