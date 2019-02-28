@@ -26,12 +26,15 @@ module CustomLandingPage
                                         :social_media_title, :social_media_description)
                                  .first
 
+
       slogan             ||= I18n.t("common.default_community_slogan", locale: locale)
       description        ||= I18n.t("common.default_community_description", locale: locale)
       meta_description   = [meta_description, description, I18n.t("common.default_community_description", locale: locale)].find(&:present?)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
-      social_media_title ||= "#{name} - #{slogan}"
-      social_media_description ||= description
+
+      seo_service = SeoService.new(Community.find(cid))
+      social_media_title ||= seo_service.title("#{name} - #{slogan}", :social)
+      social_media_description ||= seo_service.description(description, :social)
 
       # In :keyword_and_location mode, we use fixed translation for location input.
       search_location_with_keyword_placeholder = I18n.t("landing_page.hero.search_location_placeholder", locale: locale)

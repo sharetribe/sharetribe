@@ -31,25 +31,11 @@ module LayoutHelper
     end
   end
 
-  def homepage_meta_title(default)
-    customization = @current_community.community_customizations.where(locale: I18n.locale).first
-    if is_homepage? && customization&.meta_title.present?
-      customization.meta_title
-    else
-      default
-    end
+  def custom_meta_title(default, extra_mode = nil)
+    @seo_service.title(default, extra_mode)
   end
 
-  def homepage_meta_description(default)
-    customization = @current_community.community_customizations.where(locale: I18n.locale).first
-    if is_homepage? && customization&.meta_description.present?
-      customization.meta_description
-    else
-      default
-    end
-  end
-
-  def is_homepage?
-    params[:controller] == "homepage" && params[:action] == "index"
+  def custom_meta_description(default, extra_mode = nil)
+    @seo_service.description(default, extra_mode)
   end
 end
