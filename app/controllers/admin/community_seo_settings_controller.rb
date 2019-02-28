@@ -11,7 +11,15 @@ class Admin::CommunitySeoSettingsController < Admin::AdminBaseController
       community_customizations_attributes: [
         :id,
         :meta_title,
-        :meta_description
+        :meta_description,
+        :search_meta_title,
+        :search_meta_description,
+        :listing_meta_title,
+        :listing_meta_description,
+        :profile_meta_title,
+        :profile_meta_description,
+        :category_meta_title,
+        :category_meta_description,
       ]
     )
     @current_community.update_attributes(meta_params)

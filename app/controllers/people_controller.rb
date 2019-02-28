@@ -25,6 +25,7 @@ class PeopleController < Devise::RegistrationsController
     redirect_to landing_page_path and return unless @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
+    @seo_service.user = @service.person
   end
 
   def new
