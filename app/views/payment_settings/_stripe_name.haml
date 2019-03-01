@@ -39,8 +39,9 @@
           = form.select :gender, choices, { include_blank: true }, class: 'required'
       .row
         .col-12
-          = form.label :phone_number, t("stripe_accounts.form_new.phone_number")+"*"
-          = form.text_field :phone_number, class: 'required'
+          - phone_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :phone : :phone_number
+          = form.label phone_field, t("stripe_accounts.form_new.phone_number")+"*"
+          = form.text_field phone_field, class: 'required'
 
   - unless stripe_seller_ready
     .row

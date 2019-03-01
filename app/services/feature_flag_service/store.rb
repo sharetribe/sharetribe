@@ -24,6 +24,7 @@ module FeatureFlagService::Store
       :footer,
       :buyer_commission,
       :approve_listings,
+      :new_stripe_api,
     ].to_set
 
     def initialize(additional_flags:)
