@@ -2,16 +2,17 @@
   %h3
     = t("stripe_accounts.form_verification.need_verification")
 
+  - id_number_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :id_number : :personal_id_number
   = fields_for :stripe_account_form do |form|
     .row.country-dependent{"data-country-only" => "CA"}
       .col-12
-        = label_tag :personal_id_number, t("stripe_accounts.form_pin.social_insurance_number")+"*"
-        = form.text_field :personal_id_number, placeholder: '123456789', 'ca-social-insurance-number': true,
+        = label_tag id_number_field, t("stripe_accounts.form_pin.social_insurance_number")+"*"
+        = form.text_field id_number_field, placeholder: '123456789', 'ca-social-insurance-number': true,
           data: {'msg-ca-social-insurance-number': t('stripe_accounts.form_pin.messages.social_insurance_number')}
     .row.country-dependent{"data-country-only" => "US"}
       .col-12
-        = label_tag :personal_id_number, t("stripe_accounts.form_pin.social_security_number")+"*"
-        = form.text_field :personal_id_number, placeholder: '123456789', required: true
+        = label_tag id_number_field, t("stripe_accounts.form_pin.social_security_number")+"*"
+        = form.text_field id_number_field, placeholder: '123456789', required: true
     .row
       .col-12
         = label_tag :document, t("stripe_accounts.form_verification.document")
