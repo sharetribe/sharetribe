@@ -9,7 +9,11 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      Stripe.api_version = '2017-06-05'
+      Stripe.api_version = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+        '2019-02-19'
+      else
+        '2017-06-05'
+                           end
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key)
     end
 
@@ -107,11 +111,23 @@ class StripeService::API::StripeApiWrapper
           payout_mode = {}
         when :destination
           # managed accounts, make payout after completion om funds availability date
-          payout_mode = {
-            payout_schedule: {
-              interval: 'manual'
+          payout_mode = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+            {
+              settings: {
+                payouts: {
+                  schedule: {
+                    interval: 'manual'
+                  }
+                }
+              }
             }
-          }
+          else
+            {
+              payout_schedule: {
+                interval: 'manual'
+              }
+            }
+          end
         end
         data = {
           type: 'custom',
@@ -119,6 +135,9 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token],
         }
+        if FeatureFlagHelper.feature_enabled?(:new_stripe_api) && account_info[:address_country] == 'US'
+          data[:requested_capabilities] = ['platform_payments']
+        end
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
       end
@@ -128,7 +147,7 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Balance.retrieve
       end
-    rescue => e
+    rescue
       nil
     end
 

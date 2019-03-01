@@ -85,9 +85,14 @@ class PaymentSettingsController < ApplicationController
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
 
     need_verification = false
-    if @stripe_account_ready
-      seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
-      need_verification = seller_account && seller_account.verification.fields_needed.present? && seller_account.verification.due_by.present?
+    if @stripe_account_ready && @api_seller_account
+      if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+        requirements = @api_seller_account.requirements
+        need_verification = requirements.currently_due.any? && requirements.disabled_reason.present?
+      else
+        verification = @api_seller_account.verification
+        need_verification = verification.fields_needed.present? && verification.due_by.present?
+      end
     end
 
     {
@@ -98,7 +103,7 @@ class PaymentSettingsController < ApplicationController
       currency: community_currency,
       stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,
-      seller_account: seller_account,
+      seller_account: @api_seller_account,
       seller_needs_verification: need_verification,
       paypal_commission: paypal_tx_settings[:commission_from_seller]
     }
@@ -206,7 +211,9 @@ class PaymentSettingsController < ApplicationController
         :address_kanji_state,
         :address_kanji_city,
         :address_kanji_town,
-        :address_kanji_line1
+        :address_kanji_line1,
+        :id_number,
+        :phone
         ).with_validations do
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
     validates_presence_of :address_country
@@ -353,7 +360,7 @@ class PaymentSettingsController < ApplicationController
       :address_kana_postal_code, :address_kana_state, :address_kana_city,
       :address_kana_town, :address_kana_line1, :address_kanji_postal_code,
       :address_kanji_state, :address_kanji_city, :address_kanji_town,
-      :address_kanji_line1, :address_country
+      :address_kanji_line1, :address_country, :id_number, :phone
     )
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     address_attrs = mask_puerto_rico_as_us_pr(address_attrs)
@@ -372,10 +379,15 @@ class PaymentSettingsController < ApplicationController
     bank_number = if bank_record.present?
       [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
     end
-    dob = account[:legal_entity][:dob]
+    entity = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+               account.individual
+             else
+               account.legal_entity
+             end
+    dob = entity.dob
     result = {
-      first_name: account.legal_entity.first_name,
-      last_name: account.legal_entity.last_name,
+      first_name: entity.first_name,
+      last_name: entity.last_name,
       birth_date: Date.new(dob[:year], dob[:month], dob[:day]),
 
       bank_number_info: bank_number,
@@ -383,33 +395,34 @@ class PaymentSettingsController < ApplicationController
       bank_routing_number: bank_record ? bank_record[:routing_number] : nil
     }
 
-    if account.legal_entity.respond_to?(:address)
+    if entity.respond_to?(:address)
       result.merge!({
-        address_city: account.legal_entity.address.city,
-        address_state: account.legal_entity.address.state,
-        address_country: account.legal_entity.address.country,
-        address_line1: account.legal_entity.address.line1,
-        address_postal_code: account.legal_entity.address.postal_code,
+        address_city: entity.address.city,
+        address_state: entity.address.state,
+        address_country: entity.address.country,
+        address_line1: entity.address.line1,
+        address_postal_code: entity.address.postal_code,
       })
-    elsif account.legal_entity.respond_to?(:address_kana) # supposed to be Japan
+    elsif entity.respond_to?(:address_kana) # supposed to be Japan
       result.merge!({
-        address_country: account.legal_entity.address_kana.country,
-        first_name_kana: account.legal_entity.first_name_kana,
-        first_name_kanji: account.legal_entity.first_name_kanji,
-        gender: account.legal_entity.gender,
-        last_name_kana: account.legal_entity.last_name_kana,
-        last_name_kanji: account.legal_entity.last_name_kanji,
-        phone_number: account.legal_entity.phone_number,
-        address_kana_postal_code: account.legal_entity.address_kana.postal_code,
-        address_kana_state: account.legal_entity.address_kana.state,
-        address_kana_city: account.legal_entity.address_kana.city,
-        address_kana_town: account.legal_entity.address_kana.town,
-        address_kana_line1: account.legal_entity.address_kana.line1,
-        address_kanji_postal_code: account.legal_entity.address_kanji.postal_code,
-        address_kanji_state: account.legal_entity.address_kanji.state,
-        address_kanji_city: account.legal_entity.address_kanji.city,
-        address_kanji_town: account.legal_entity.address_kanji.town,
-        address_kanji_line1: account.legal_entity.address_kanji.line1,
+        address_country: entity.address_kana.country,
+        first_name_kana: entity.first_name_kana,
+        first_name_kanji: entity.first_name_kanji,
+        gender: entity.gender,
+        last_name_kana: entity.last_name_kana,
+        last_name_kanji: entity.last_name_kanji,
+        phone_number: entity.phone_number,
+        address_kana_postal_code: entity.address_kana.postal_code,
+        address_kana_state: entity.address_kana.state,
+        address_kana_city: entity.address_kana.city,
+        address_kana_town: entity.address_kana.town,
+        address_kana_line1: entity.address_kana.line1,
+        address_kanji_postal_code: entity.address_kanji.postal_code,
+        address_kanji_state: entity.address_kanji.state,
+        address_kanji_city: entity.address_kanji.city,
+        address_kanji_town: entity.address_kanji.town,
+        address_kanji_line1: entity.address_kanji.line1,
+        phone: entity.phone,
       })
     end
     mask_us_pr_as_puerto_rico(result)

@@ -46,6 +46,11 @@ describe StripeService::API::Accounts do
       finished_account
 
       stub_stripe_success
+      FeatureFlagHelper.init(community_id: community.id,
+                             user_id: nil,
+                             request: OpenStruct.new(params: {}, session: {}),
+                             is_admin: false,
+                             is_marketplace_admin: false)
       res = StripeService::API::Accounts.new.delete_seller_account(community_id: community.id,
                                                                    person_id: person.id)
       expect(res[:success]).to eq true

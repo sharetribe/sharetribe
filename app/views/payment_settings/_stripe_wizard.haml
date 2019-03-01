@@ -84,11 +84,20 @@
 
               = button_tag t('stripe_accounts.form_new.save_details')
 
-- stripe_data = stripe_default_data
-- stripe_data = stripe_data.merge(update: true) if stripe_seller_ready
-- content_for :extra_javascript do
-  :javascript
-    $(function() {
-      window.ST.initStripeBankForm(#{stripe_data.to_json.html_safe});
-    });
+- if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+  - stripe_data = stripe_default_data2.dup
+  - stripe_data = stripe_data.merge(update: true) if stripe_seller_ready
+  - content_for :extra_javascript do
+    :javascript
+      $(function() {
+        window.ST.StripeBankForm.init(#{stripe_data.to_json.html_safe});
+      });
+- else
+  - stripe_data = stripe_default_data.dup
+  - stripe_data = stripe_data.merge(update: true) if stripe_seller_ready
+  - content_for :extra_javascript do
+    :javascript
+      $(function() {
+        window.ST.initStripeBankForm(#{stripe_data.to_json.html_safe});
+      });
 
