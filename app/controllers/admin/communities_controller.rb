@@ -254,12 +254,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @community = @current_community
     @selected_left_navi_link = "social_media"
 
-    [:twitter_handle,
-     :facebook_connect_id,
-     :facebook_connect_secret].each do |param|
-      params[:community][param] = nil if params[:community][param] == ""
-    end
-
     social_media_params = params.require(:community).permit(
       :twitter_handle, :facebook_connect_id, :facebook_connect_secret, :facebook_connect_enabled,
       :google_connect_enabled, :google_connect_id, :google_connect_secret,
@@ -274,6 +268,19 @@ class Admin::CommunitiesController < Admin::AdminBaseController
         :social_media_description
       ]
     )
+
+    [
+      :twitter_handle,
+      :facebook_connect_id, :facebook_connect_secret,
+      :linkedin_connect_id, :linkedin_connect_secret,
+      :google_connect_id, :google_connect_secret
+    ].each do |connect_field|
+      if social_media_params[connect_field].present?
+        social_media_params[connect_field].strip!
+      else
+        social_media_params[connect_field] = nil
+      end
+    end
 
     update(@current_community,
             social_media_params,
