@@ -17,7 +17,7 @@ gem 'jquery-rails', '~> 4.3.1'
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", '~> 5.1.4'
 
-gem "mysql2", '~> 0.4.6'
+gem 'mysql2', '~> 0.4.10'
 gem 'haml', '~> 5.0.1'
 gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 5.0.1'
@@ -124,6 +124,8 @@ group :development do
   gem 'web-console', '~> 3.5.1'
   gem 'awesome_print', '~> 1.7.0'
   gem 'binding_of_caller'
+  gem "rails-erd"
+
 end
 
 group :test do

@@ -15,6 +15,8 @@
         - if(!show_distance || distance.blank?)
           = link_to(person_path(username: listing.author.username), :class => "home-fluid-thumbnail-grid-author-name", title: name) do
             = name
+            is
+            = shape_name(listing)
         - else
           .home-fluid-thumbnail-grid-details
             = link_to(person_path(username: listing.author.username), class: "home-fluid-thumbnail-grid-details-author-name", title: name) do

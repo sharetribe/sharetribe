@@ -53,9 +53,10 @@ module TopbarHelper
           familyName: family_name,
         },
       },
-      newListingButton: {
-        text: I18n.t("homepage.index.post_new_listing"),
-      },
+      ##  Removed Listing Button from Header
+      #newListingButton: {
+      #  text: I18n.t("homepage.index.post_new_listing"),
+      #},
       i18n: {
         locale: I18n.locale,
         defaultLocale: I18n.default_locale

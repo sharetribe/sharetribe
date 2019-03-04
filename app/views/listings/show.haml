@@ -76,7 +76,7 @@
             - @listing_presenter.youtube_link_ids.each do |youtube_id|
               .listing-description-youtube-wrapper
                 %iframe.listing-description-youtube-iframe{ title: t("listings.show.youtube_video_player"), width: 640, height:390, src: "//www.youtube.com/embed/#{ youtube_id }", frameborder: 0, allowfullscreen: true}
-
+                
     - @listing.custom_field_values.each do |custom_field_value|
       .row
         .col-12
@@ -134,11 +134,7 @@
 
     .row-with-divider
       .col-12
-        #listing-message-links
-          = render :partial => "listing_actions"
-
-    .row-with-divider
-      .col-12
+      
         .listing-author
           .listing-author-avatar
             = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
@@ -165,6 +161,13 @@
                 = t(".no_reviews")
             .listing-author-activity-description
               = t(".feedback")
+
+    .row-with-divider
+      .col-12
+        #listing-message-links
+          = render :partial => "listing_actions"
+
+
 
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       .row

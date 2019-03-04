@@ -314,6 +314,7 @@ ul {
     top: em(2);
   }
   .text-part {
+    @include source-sans-pro;
     padding-left: em(23);
     min-height: em(30);
   }
