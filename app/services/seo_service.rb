@@ -1,18 +1,21 @@
 class SeoService
 
-  # You can use the following variables:
-  VARIABLES = [
-    'marketplace_name', # the marketplace name
-    'marketplace_slogan', # the marketplace slogan
-    'marketplace_description', # the marketplace description
-    'keywords_searched', # the keywords that were typed in the search field (if enabled/available)
-    'location_searched', # the location that was typed/selected in the location search field (if enabled/available)
-    'listing_title', # the listing title
-    'listing_author', # the listing title, according to the Display name preferences
-    'listing_price', # the listing price + pricing unit (for example "$20 per person")
-    'category_name', # the category name
-    'user_display_name', # user display name
-  ].freeze
+=begin
+
+One can use the following variables as placeholders for SEO title and meta tags:
+
+  {{marketplace_name}} - the marketplace name
+  {{marketplace_slogan}} - the marketplace slogan
+  {{marketplace_description}} - the marketplace description
+  {{keywords_searched}} - the keywords that were typed in the search field (if enabled/available)
+  {{location_searched}} - the location that was typed/selected in the location search field (if enabled/available)
+  {{listing_title}} - the listing title
+  {{listing_author}} - the listing author title, according to the Display name preferences
+  {{listing_price}} - the listing price + pricing unit (for example "$20 per person")
+  {{category_name}} - the category name
+  {{user_display_name}} - user display name
+
+=end
 
   # user, category and listing are set in appropriate controllers
   attr_accessor :user, :category, :listing
