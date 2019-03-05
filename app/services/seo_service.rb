@@ -12,14 +12,14 @@ class SeoService
     'listing_price', # the listing price + pricing unit (for example "$20 per person")
     'category_name', # the category name
     'user_display_name', # user display name
-  ]
+  ].freeze
 
-  attr_accessor :community, :mode, :params, :user, :category, :listing
+  # user, category and listing are set in appropriate controllers
+  attr_accessor :user, :category, :listing
 
   def initialize(community, params = {})
     @community = community
     @params = params
-    @mode = mode_from_params
   end
 
   def i18n_variables(section)
@@ -55,11 +55,11 @@ class SeoService
   def title(default_value, extra_mode = nil)
     customization = @community.community_customizations.where(locale: I18n.locale).first
     custom_value =
-      if @mode == 'default' && extra_mode == :social
+      if mode == 'default' && extra_mode == :social
         # social media title is passed here from layout
         default_value
       elsif customization.present?
-        case @mode
+        case mode
         when 'homepage'
           customization.meta_title
         when 'listing'
@@ -80,11 +80,11 @@ class SeoService
   def description(default_value, extra_mode = nil)
     customization = @community.community_customizations.where(locale: I18n.locale).first
     custom_value =
-      if @mode == 'default' && extra_mode == :social
+      if mode == 'default' && extra_mode == :social
         # social media description is passed here from layout
         default_value
       elsif customization.present?
-        case @mode
+        case mode
         when 'homepage'
           customization.meta_description
         when 'listing'
@@ -104,20 +104,24 @@ class SeoService
 
   private
 
+  def mode
+    @mode ||= mode_from_params
+  end
+
   def mode_from_params
-    if params.blank?
+    if @params.blank?
       'default'
-    elsif params[:action] == 'index' && params[:controller] == 'homepage'
-      if params[:q].present? || params[:lq].present?
+    elsif @params[:action] == 'index' && @params[:controller] == 'homepage'
+      if @params[:q].present? || @params[:lq].present?
         'search'
-      elsif params[:category].present?
+      elsif @params[:category].present?
         'category'
       else
         'homepage'
       end
-    elsif params[:action] == 'show' && params[:controller] == 'people'
+    elsif @params[:action] == 'show' && @params[:controller] == 'people'
       'profile'
-    elsif params[:action] == 'show' && params[:controller] == 'listings'
+    elsif @params[:action] == 'show' && @params[:controller] == 'listings'
       'listing'
     else
       'default'
