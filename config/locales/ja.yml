@@ -983,7 +983,7 @@ ja:
       quantity_label: 数量：
       sum_label: 合計：
       service_fee_label: "%{service_name}のご利用手数料："
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "％{service_name} 利用料:"
       you_will_get_label: 受け取り額：
       total_label: 合計：
       total_value: "%{seller_gets}*"
@@ -1306,7 +1306,7 @@ ja:
       money_will_be_transferred: "a) あなたがリクエストを完了しステータスを変更したとき、あるいは b) あなたがお支払い後、%{automatic_confirmation_days}日が経過したとき、お代金は%{recipient_name}さんの口座に送金されます。"
       listing_per_unit_title: ~
       stripe:
-        you_have_made_new_payment: "<b>%{listing_title}  </b>に<b>%{payment_sum} </b>を支払いました。お金は%{service_name} によって保持されており、注文に完了のマークを付けると%{recipient_full_name} に支払い処理されます。こちらは領収書です。"
+        you_have_made_new_payment: "<b>%{listing_title}  </b>に<b>%{payment_sum} </b>を支払いました。代金は%{service_name} によって保持されており、注文に完了のマークを付けると%{recipient_full_name} に支払い処理がされます。こちらは領収書です。"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name}さんは%{service_name}であなたにレビューを書きました"
       you_can_give_feedback_to: "%{name}さんにまだレビューを書いていません。"

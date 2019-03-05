@@ -325,24 +325,24 @@ bg:
         linkedin_connect_id: ~
         linkedin_connect_secret: ~
       seo_settings:
-        seo: ~
-        title: ~
-        meta_title_label: ~
-        meta_title_info: ~
-        meta_title_link_text: ~
-        meta_description_label: ~
-        meta_description_info: ~
-        meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        save: ~
+        seo: SEO
+        title: "Начална страница или персонализирана целева страница"
+        meta_title_label: "Meta tag на заглавие на начална страница или персонализирана целева страница"
+        meta_title_info: "Съдържанието на този етикет е препоръчано на търсачките и е изобразено в резултатите под формата на заглавие на което да се кликне. %{link}"
+        meta_title_link_text: "Научи още за meta tags"
+        meta_description_label: "Meta tag на описание на начална страница или персонализирана целева страница"
+        meta_description_info: "Съдържанието на този етикет е препоръчано на търсачките и се появява под сините линкове в страницата с резултати на търсачките. %{link}"
+        meta_description_link_text: "Научи още за meta tags"
+        sitemap_label: "Карта на сайта"
+        sitemap_info: "Картата на сайта е един лесен начин да информираш търсачките относно страниците на сайта ти които са достъпни за обхождане. %{link}"
+        sitemap_info_link_text: "Научи още за карта на сайта файл XML"
+        sitemap_info_public: "Карта на сайт е автоматично създадена за твоя онлайн пазар: тя описва до 500 от последните обяви създадени през твоя уебсайт. Можеш да влезеш в твоята карта на сайт през %{link}."
+        sitemap_info_private: "След като твоят онлайн пазар е частен, няма карта на сайт."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt e един текстов файл който инструктира роботи (става въпрос за роботите които посещават търсачките) как да обхождат страниците в твоя уебсайт. %{link}."
+        robots_info_link_text: "Научи още за файла robots.txt"
+        robots_info_2: "Robots.txt файлът е автоматично създадена за твоя онлайн пазар. Можеш да го посетиш през %{link}."
+        save: "Запази настройките"
       analytics:
         analytics: ~
         google_analytics_key: ~
