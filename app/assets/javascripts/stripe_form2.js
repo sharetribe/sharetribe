@@ -159,8 +159,16 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           year: getValue('birth_date(1i)', 'int'),
         },
         id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('id_number') : null,
-        ssn_last_4: country == 'US' ? getValue('ssn_last_4') : null
+        ssn_last_4: country == 'US' ? getValue('ssn_last_4') : null,
+        phone: getValue('phone'),
+        email: getValue('email')
       };
+    }
+    if (['US', 'PR'].includes(country)) {
+      $.extend(data.individual, {
+        phone: getValue('phone'),
+        email: getValue('email')
+      });
     }
 
     if (options.update) {

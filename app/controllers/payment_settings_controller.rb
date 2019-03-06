@@ -213,7 +213,10 @@ class PaymentSettingsController < ApplicationController
         :address_kanji_town,
         :address_kanji_line1,
         :id_number,
-        :phone
+        :phone,
+        :email,
+        :mcc,
+        :url
         ).with_validations do
     validates_inclusion_of :address_country, in: StripeService::Store::StripeAccount::COUNTRIES
     validates_presence_of :address_country
@@ -360,13 +363,14 @@ class PaymentSettingsController < ApplicationController
       :address_kana_postal_code, :address_kana_state, :address_kana_city,
       :address_kana_town, :address_kana_line1, :address_kanji_postal_code,
       :address_kanji_state, :address_kanji_city, :address_kanji_town,
-      :address_kanji_line1, :address_country, :id_number, :phone
+      :address_kanji_line1, :address_country, :id_number, :phone, :email, :mcc,
+      :url
     )
     address_attrs[:birth_date] = account_params['birth_date(1i)'].present? ? parse_date(account_params) : nil
     address_attrs = mask_puerto_rico_as_us_pr(address_attrs)
     @extra_forms[:stripe_account_form] = StripeAccountForm.new(address_attrs)
 
-    result = stripe_accounts_api.update_account(community_id: @current_community.id, person_id: @current_user.id, token: address_attrs[:token])
+    result = stripe_accounts_api.update_account(community_id: @current_community.id, person_id: @current_user.id, attrs: address_attrs)
     if result[:success]
       load_stripe_account
     else
@@ -394,6 +398,14 @@ class PaymentSettingsController < ApplicationController
       bank_currency: bank_record ? bank_record["currency"] : nil,
       bank_routing_number: bank_record ? bank_record[:routing_number] : nil
     }
+    if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+      result.merge!({
+        email: entity[:email],
+        phone: entity[:phone],
+        mcc: account.business_profile[:mcc],
+        url: account.business_profile[:url],
+      })
+    end
 
     if entity.respond_to?(:address)
       result.merge!({
