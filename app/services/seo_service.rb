@@ -55,8 +55,8 @@ One can use the following variables as placeholders for SEO title and meta tags:
     end
   end
 
-  def title(default_value, extra_mode = nil)
-    customization = @community.community_customizations.where(locale: I18n.locale).first
+  def title(default_value, extra_mode = nil, locale = I18n.locale)
+    customization = @community.community_customizations.where(locale: locale).first
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media title is passed here from layout
@@ -77,11 +77,11 @@ One can use the following variables as placeholders for SEO title and meta tags:
       else
         default_value
       end
-    custom_value.present? ? interpolate(custom_value) : default_value
+    custom_value.present? ? interpolate(custom_value, locale) : default_value
   end
 
-  def description(default_value, extra_mode = nil)
-    customization = @community.community_customizations.where(locale: I18n.locale).first
+  def description(default_value, extra_mode = nil, locale = I18n.locale)
+    customization = @community.community_customizations.where(locale: locale).first
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media description is passed here from layout
@@ -102,7 +102,13 @@ One can use the following variables as placeholders for SEO title and meta tags:
       else
         default_value
       end
-    custom_value.present? ? interpolate(custom_value) : default_value
+    custom_value.present? ? interpolate(custom_value, locale) : default_value
+  end
+
+  def interpolate(text, locale = I18n.locale)
+    text.to_s.gsub(/\{\{(\w+?)\}\}/) do |s|
+      eval_single(Regexp.last_match[1], locale)
+    end
   end
 
   private
@@ -143,12 +149,6 @@ One can use the following variables as placeholders for SEO title and meta tags:
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'category_name']
     when :profile_title, :profile_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'user_display_name']
-    end
-  end
-
-  def interpolate(text, locale = I18n.locale)
-    text.to_s.gsub(/\{\{(\w+?)\}\}/) do |s|
-      eval_single(Regexp.last_match[1], locale)
     end
   end
 
