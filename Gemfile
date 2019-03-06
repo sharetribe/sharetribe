@@ -73,7 +73,7 @@ gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 6.1.2'
-gem 'stripe', '~> 3.0.0'
+gem 'stripe', '~> 4.9.0'
 
 gem 'lograge', '~> 0.5.1'
 gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, probably not
@@ -82,7 +82,7 @@ gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, pro
 # Session store was removed from Rails 4
 gem 'activerecord-session_store', '~> 1.1.0'
 
-gem 'faraday', '~> 0.11.0'
+gem 'faraday', '~> 0.13.0'
 gem 'faraday_middleware', '~> 0.11.0'
 gem 'faraday-encoding', '~> 0.0.4'
 

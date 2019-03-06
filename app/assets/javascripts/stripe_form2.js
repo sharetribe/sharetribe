@@ -149,6 +149,10 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
           line1: getValue('address_line1'),
         }
       };
+      if (['PR'].includes(country)) {
+        address.address.country = 'US';
+        address.address.state = country;
+      }
 
       person = {
         first_name: firstName,

@@ -9,7 +9,7 @@
         = label_tag id_number_field, t("stripe_accounts.form_pin.social_insurance_number")+"*"
         = form.text_field id_number_field, placeholder: '123456789', 'ca-social-insurance-number': true,
           data: {'msg-ca-social-insurance-number': t('stripe_accounts.form_pin.messages.social_insurance_number')}
-    .row.country-dependent{"data-country-only" => "US"}
+    .row.country-dependent{"data-country-only" => "US,PR"}
       .col-12
         = label_tag id_number_field, t("stripe_accounts.form_pin.social_security_number")+"*"
         = form.text_field id_number_field, placeholder: '123456789', required: true
