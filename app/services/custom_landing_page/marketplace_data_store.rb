@@ -33,8 +33,8 @@ module CustomLandingPage
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
 
       seo_service = SeoService.new(Community.find(cid))
-      social_media_title ||= seo_service.title("#{name} - #{slogan}", :social)
-      social_media_description ||= seo_service.description(description, :social)
+      social_media_title ||= seo_service.title("#{name} - #{slogan}", :social, locale)
+      social_media_description ||= seo_service.description(description, :social, locale)
 
       # In :keyword_and_location mode, we use fixed translation for location input.
       search_location_with_keyword_placeholder = I18n.t("landing_page.hero.search_location_placeholder", locale: locale)
@@ -56,8 +56,8 @@ module CustomLandingPage
       color = primary_color.present? ? primary_color : DEFAULT_COLOR
       color_darken = ColorUtils.brightness(color, 85)
 
-      slogan = split_long_words(slogan)
-      description = split_long_words(description)
+      slogan = split_long_words(seo_service.interpolate(slogan, locale))
+      description = split_long_words(seo_service.interpolate(description, locale))
       title = [meta_title, "#{name} - #{slogan}"].find(&:present?)
 
 
@@ -65,16 +65,16 @@ module CustomLandingPage
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
         "name" => name,
         "slogan" => slogan,
-        "page_title" => title,
+        "page_title" => seo_service.interpolate(title, locale),
         "description" => description,
         "search_type" => search_type,
         "search_placeholder" => search_placeholder,
         "search_location_with_keyword_placeholder" => search_location_with_keyword_placeholder,
         "twitter_handle" => twitter_handle,
         "name_display_type" => name_display_type,
-        "social_media_title" => social_media_title,
-        "social_media_description" => social_media_description,
-        "meta_description" => meta_description,
+        "social_media_title" => seo_service.interpolate(social_media_title, locale),
+        "social_media_description" => seo_service.interpolate(social_media_description, locale),
+        "meta_description" => seo_service.interpolate(meta_description, locale),
         "logo" => logo_image(cid)
       }
     end
