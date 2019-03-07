@@ -402,8 +402,8 @@ class PaymentSettingsController < ApplicationController
       result.merge!({
         email: entity[:email],
         phone: entity[:phone],
-        mcc: account.business_profile[:mcc],
-        url: account.business_profile[:url],
+        mcc: account.try(:business_profile).try(:[], :mcc),
+        url: account.try(:business_profile).try(:[], :url),
       })
     end
 

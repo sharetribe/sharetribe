@@ -187,6 +187,7 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     BANK_RULES = options.bank_rules;
     window.ST.stripe_test_api_mode = options.stripe_test_mode;
     stripeApi = Stripe(options.api_publishable_key);
+    add_validators();
     $("#stripe_account_form_address_country").change(function(){
       var showElement = function (el, show) {
         if (show) {
@@ -270,53 +271,55 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
     });
   };
 
-  function explain_regexp(value) {
-    var t = value;
-    t = t.replace(/-\[/g, ';'+i18n_label('a_dash', 'a dash')+';[');
-    t = t.replace(/\[0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits', 'digits')+';');
-    t = t.replace(/\[A-Z0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits_or_chars', 'digits or chars')+';');
-    t = t.replace(/\[0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits', 'digits')+';');
-    t = t.replace(/\[A-Z0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits_or_chars', 'digits or chars')+';');
-    t = t.replace(/\[A-Z\]\{(\d+)}/g, ';$1 letter country code;');
-    t = t.replace(/;+/g, ', ').replace(/^,\s*/,'').replace(/,\s*$/, '');
-    return t;
-  }
-  $.validator.addMethod(
-    "country_regexp",
-    function(value, element, field) {
-      var country = $("#stripe_account_form_address_country").val();
-      var rule = BANK_RULES[country] || {};
-      var re = (rule[field] || {} ).regexp;
-      if(window.ST.stripe_test_api_mode) {
-        re = (rule[field] || {}).test_regexp;
-      }
-      if(re) {
-        var rx = new RegExp("^"+re+"$");
-        var testValue = value.replace(/\s+/g, '').toUpperCase();
-        return rx.test(testValue);
-      }
-      return this.optional(element) || $(element).val();
-    },
-    function(field, element) {
-      var country = $("#stripe_account_form_address_country").val();
-      var rule = BANK_RULES[country] || {};
-      var title = (rule[field] || {} ).title;
-      var regexp = (rule[field] || {} ).regexp;
-      if(window.ST.stripe_test_api_mode) {
-        regexp = (rule[field] || {}).test_regexp;
-      }
-      var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
-      return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
+  var add_validators = function() {
+    function explain_regexp(value) {
+      var t = value;
+      t = t.replace(/-\[/g, ';'+i18n_label('a_dash', 'a dash')+';[');
+      t = t.replace(/\[0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits', 'digits')+';');
+      t = t.replace(/\[A-Z0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits_or_chars', 'digits or chars')+';');
+      t = t.replace(/\[0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits', 'digits')+';');
+      t = t.replace(/\[A-Z0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits_or_chars', 'digits or chars')+';');
+      t = t.replace(/\[A-Z\]\{(\d+)}/g, ';$1 letter country code;');
+      t = t.replace(/;+/g, ', ').replace(/^,\s*/,'').replace(/,\s*$/, '');
+      return t;
     }
-  );
-  // Canada
-  $.validator.addMethod(
-    "ca-social-insurance-number",
-    function(value, element, field) {
-      var sin = new SocialInsuranceNumber(value);
-      return sin.isValid();
-    }
-  );
+    $.validator.addMethod(
+      "country_regexp",
+      function(value, element, field) {
+        var country = $("#stripe_account_form_address_country").val();
+        var rule = BANK_RULES[country] || {};
+        var re = (rule[field] || {} ).regexp;
+        if(window.ST.stripe_test_api_mode) {
+          re = (rule[field] || {}).test_regexp;
+        }
+        if(re) {
+          var rx = new RegExp("^"+re+"$");
+          var testValue = value.replace(/\s+/g, '').toUpperCase();
+          return rx.test(testValue);
+        }
+        return this.optional(element) || $(element).val();
+      },
+      function(field, element) {
+        var country = $("#stripe_account_form_address_country").val();
+        var rule = BANK_RULES[country] || {};
+        var title = (rule[field] || {} ).title;
+        var regexp = (rule[field] || {} ).regexp;
+        if(window.ST.stripe_test_api_mode) {
+          regexp = (rule[field] || {}).test_regexp;
+        }
+        var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
+        return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
+      }
+    );
+    // Canada
+    $.validator.addMethod(
+      "ca-social-insurance-number",
+      function(value, element, field) {
+        var sin = new SocialInsuranceNumber(value);
+        return sin.isValid();
+      }
+    );
+  };
 
   module.StripeBankForm = {
     init: init
