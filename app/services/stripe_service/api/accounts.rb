@@ -86,7 +86,7 @@ module StripeService::API
     end
 
     def allow_stripe_exceptions(e)
-      if e.class.name.match(/^Stripe/)
+      if e.class.name =~ /^Stripe/
         Result::Error.new(e.message)
       else
         raise e
