@@ -43,21 +43,13 @@
       - phone_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :phone : :phone_number
       = form.label phone_field, t("stripe_accounts.form_new.phone_number")+"*"
       = form.text_field phone_field, class: 'required'
-  - show_email = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? 'US,PR' : 'XX'
-  .row.country-dependent{"data-country-only" => show_email}
-    .col-12
-      = form.label :email, t("stripe_accounts.form_new.email")+"*"
-      = form.text_field :email, class: 'required'
   - show_mcc = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? 'US,PR' : 'XX'
   .row.country-dependent{"data-country-only" => show_mcc}
     .col-12
       = form.label :mcc, t("stripe_accounts.form_new.mcc")+"*"
       = form.select :mcc, mcc_codes_options, {include_blank: true}, {class: 'required'}
-  - show_url = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? 'US,PR' : 'XX'
-  .row.country-dependent{"data-country-only" => show_url}
-    .col-12
-      = form.label :url, t("stripe_accounts.form_new.url")+"*"
-      = form.text_field :url, class: 'required'
+  = form.hidden_field :email
+  = form.hidden_field :url
 
   - unless stripe_seller_ready
     .row

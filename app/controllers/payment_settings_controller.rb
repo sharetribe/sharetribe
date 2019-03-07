@@ -175,7 +175,10 @@ class PaymentSettingsController < ApplicationController
       @api_seller_account = stripe_api.get_seller_account(community: @current_community.id, account_id: @stripe_account[:stripe_seller_id])
       @parsed_seller_account = parse_stripe_seller_account(@api_seller_account)
     else
-      @parsed_seller_account = {}
+      @parsed_seller_account = {
+        email: @current_user.confirmed_notification_emails.any? ? @current_user.confirmed_notification_email_addresses.first : @current_user.emails.first.try(:address),
+        url: person_url(@current_user.username)
+      }
     end
   end
 
