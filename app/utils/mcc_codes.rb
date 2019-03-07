@@ -1,5 +1,5 @@
 module MccCodes
-  MCC_CODES_FILE = File.join(Rails.root, 'config', 'mcc_codes.json')
+  MCC_CODES_FILE = Rails.root.join('config', 'mcc_codes.json')
 
   class << self
     def codes
@@ -10,7 +10,7 @@ module MccCodes
 
     def read_from_file
       result = {}
-      if File.exists?(MCC_CODES_FILE)
+      if File.exist?(MCC_CODES_FILE)
         result = JSON.parse(File.read(MCC_CODES_FILE))
       end
       result

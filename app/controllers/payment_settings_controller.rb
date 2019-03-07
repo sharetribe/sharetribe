@@ -423,7 +423,7 @@ class PaymentSettingsController < ApplicationController
         gender: entity.gender,
         last_name_kana: entity.last_name_kana,
         last_name_kanji: entity.last_name_kanji,
-        phone_number: entity.phone_number,
+        phone_number: entity[:phone_number],
         address_kana_postal_code: entity.address_kana.postal_code,
         address_kana_state: entity.address_kana.state,
         address_kana_city: entity.address_kana.city,
@@ -434,7 +434,7 @@ class PaymentSettingsController < ApplicationController
         address_kanji_city: entity.address_kanji.city,
         address_kanji_town: entity.address_kanji.town,
         address_kanji_line1: entity.address_kanji.line1,
-        phone: entity.phone,
+        phone: entity[:phone],
       })
     end
     mask_us_pr_as_puerto_rico(result)
