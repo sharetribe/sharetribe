@@ -127,6 +127,6 @@ module PaymentsHelper
   end
 
   def mcc_codes_options
-    MccCodes.codes.map{|x| [x['edited_description'], x['mcc']]}.uniq{|s| s.first}
+    MccCodes::CODES.map{|x| [x[:decription], x[:mcc]]}
   end
 end
