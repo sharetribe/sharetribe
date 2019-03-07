@@ -23,6 +23,11 @@ module FeatureTests
         payment_settings.fill_in("stripe_account_form[first_name]", with: "Jane")
         payment_settings.fill_in("stripe_account_form[last_name]", with: "Seller")
 
+        payment_settings.fill_in("stripe_account_form[phone]", with: "+1 (555) 123-12345")
+        payment_settings.fill_in("stripe_account_form[email]", with: "jane@example.com")
+        select_option("stripe_account_form_mcc", "8049")
+        payment_settings.fill_in("stripe_account_form[url]", with: "https://example.com")
+
         select_option("stripe_account_form_birth_date_1i", "1990")
         select_option("stripe_account_form_birth_date_2i", "10")
         select_option("stripe_account_form_birth_date_3i", "12")
