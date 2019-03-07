@@ -136,7 +136,11 @@ class StripeService::API::StripeApiWrapper
           account_token: account_info[:token],
         }
         if FeatureFlagHelper.feature_enabled?(:new_stripe_api) && account_info[:address_country] == 'US'
-          data[:requested_capabilities] = ['platform_payments']
+          data[:requested_capabilities] = ['card_payments']
+          data[:business_profile] = {
+            mcc: account_info[:mcc],
+            url: account_info[:url]
+          }
         end
         data.deep_merge!(payout_mode).deep_merge!(metadata: metadata)
         Stripe::Account.create(data)
@@ -266,10 +270,14 @@ class StripeService::API::StripeApiWrapper
       end
     end
 
-    def update_account(community:, account_id:, token:)
+    def update_account(community:, account_id:, attrs:)
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
-        account.account_token = token
+        account.account_token = attrs[:token]
+        if FeatureFlagHelper.feature_enabled?(:new_stripe_api) && attrs[:address_country] == 'US'
+          account.business_profile.mcc = attrs[:mcc]
+          account.business_profile.url = attrs[:url]
+        end
         account.save
       end
     end

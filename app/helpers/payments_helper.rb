@@ -125,4 +125,8 @@ module PaymentsHelper
       api_publishable_key: payment_settings.try(:api_publishable_key),
     }
   end
+
+  def mcc_codes_options
+    MccCodes.codes.map{|x| [x['edited_description'], x['mcc']]}.uniq{|s| s.first}
+  end
 end
