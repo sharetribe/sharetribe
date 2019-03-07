@@ -47,6 +47,7 @@ module Sharetribe
     {ident: "el", name: "Ελληνικά", language: "el", region: "GR", fallback: nil}, # Greek (Greece)
     {ident: "en-NZ", name: "English (New Zealand)", language: "en", region: "NZ", fallback: nil}, # English (New Zealand)
     {ident: "es-CL", name: "Español (Chile)", language: "es", region: "CL", fallback: "es"}, # Spanish (Chile)
+    {ident: "es-MX", name: "Español (México)", language: "es", region: "MX", fallback: "es"}, # Spanish (México)
     {ident: "et", name: "Eesti", language: "et", region: "EE", fallback: nil}, # Estonian (Estonia)
     {ident: "he-IL", name: "עברית‎", language: "he", region: "IL", fallback: nil}, # Hebrew (Israel)
     {ident: "hr", name: "Hrvatski", language: "hr", region: "HR", fallback: nil}, # Croatian (Croatia)
