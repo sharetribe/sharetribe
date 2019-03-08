@@ -15,7 +15,7 @@ module StripeService::API
       data = body.merge(stripe_seller_id: result.id, community_id: community_id, person_id: person_id)
       Result::Success.new(stripe_accounts_store.create(opts: data))
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def create_bank_account(community_id:, person_id:, body:)
@@ -24,29 +24,28 @@ module StripeService::API
       data = body.merge(stripe_bank_id: result.id)
       Result::Success.new(stripe_accounts_store.update_bank_account(community_id: community_id, person_id: person_id, opts: data))
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def create_customer(community_id:, person_id:, body:)
       data = { community_id: community_id, person_id: person_id}
       Result::Success.new(stripe_accounts_store.create_customer(opts: data))
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
-    def update_account(community_id:, person_id:, token:)
-      data = { community_id: community_id, person_id: person_id}
+    def update_account(community_id:, person_id:, attrs:)
       account = stripe_accounts_store.get(person_id: person_id, community_id: community_id).to_hash
-      stripe_api.update_account(community: community_id, account_id: account[:stripe_seller_id], token: token)
+      stripe_api.update_account(community: community_id, account_id: account[:stripe_seller_id], attrs: attrs)
       Result::Success.new(account)
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def update_field(community_id:, person_id:, field:, value:)
       Result::Success.new(stripe_accounts_store.update_field(community_id: community_id, person_id: person_id, field: field, value: value))
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def send_verification(community_id:, person_id:, personal_id_number:, file:)
@@ -54,13 +53,13 @@ module StripeService::API
       stripe_api.send_verification(community: community_id, account_id: account[:stripe_seller_id], personal_id_number: personal_id_number, file_path: file)
       Result::Success.new(account)
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def destroy(community_id:, person_id:)
       Result::Success.new(stripe_accounts_store.destroy(community_id: community_id, person_id: person_id))
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     def delete_seller_account(community_id:, person_id: nil)
@@ -73,7 +72,7 @@ module StripeService::API
         Result::Success.new()
       end
     rescue => e
-      Result::Error.new(e.message)
+      allow_stripe_exceptions(e)
     end
 
     private
@@ -84,6 +83,14 @@ module StripeService::API
 
     def stripe_accounts_store
       StripeService::Store::StripeAccount
+    end
+
+    def allow_stripe_exceptions(e)
+      if e.class.name =~ /^Stripe/ || e.message =~ /^Stripe/
+        Result::Error.new(e.message)
+      else
+        raise e
+      end
     end
   end
 end
