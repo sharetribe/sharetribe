@@ -1499,10 +1499,10 @@ ja:
       items_to_offer: "無料でものを貸す： "
       items_to_request: "無料でものを借りる： "
       log_in: ログイン！
-      no_offers_visible_unless_logged_in: もの、サービス、ライドシェアのオファー内容は、ログインしていないユーザに表示されません。
+      no_offers_visible_unless_logged_in: ログインしていないユーザーには、アイテム、サービス、またはrideshareのオファーは表示されません。
       no_open_offers_currently: もの、サービス、ライドシェアのオファーは公開されていません。
       no_open_requests_currently: もの、サービス、ライドシェアのオファーは公開されていません。
-      no_requests_visible_unless_logged_in: もの、サービス、ライドシェアのリクエスト内容は、ログインしていないユーザに表示されません。
+      no_requests_visible_unless_logged_in: ログインしていないユーザーには、アイテム、サービス、またはrideshareのオファーは表示されません。
       one_private_offer_exists: 既に<b>１件のオファーが</b>あります、
       one_private_request_exists: 既に<b>１件のリクエストが</b>あります、
       ride_offer: 子供達を習い事に連れて行ってください
@@ -1642,7 +1642,7 @@ ja:
       how_to_use: ご利用ガイド
       info_about_kassi: "%{service_name}について"
       news: ニュース
-      register_details: プライバシー
+      register_details: プライバシーポリシー
       terms: 利用規約
     logged_in:
       admin: サイト管理
@@ -1719,7 +1719,7 @@ ja:
       listing_updated_successfully: 更新されました
       listing_updated_availability_management_enabled: 投稿は正常に更新されました。空き状況の管理が有効になりました。
       listing_updated_availability_management_disabled: リスティングは正常に更新されました。在庫管理が無効になりました。
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "このエリアにアクセスするには管理者アカウントでログイン し て ください"
       only_listing_author_can_close_a_listing: 投稿者のみがこの投稿を編集出来ます
       only_listing_author_can_edit_a_listing: 投稿者のみがこの投稿を編集出来ます
       payment_successful: お支払い手続きが完了しました
@@ -2167,7 +2167,7 @@ ja:
       billing_agreement_canceled: お支払いへの同意はキャンセルされました
       billing_agreement_not_accepted: PayPalのお支払い同意書に受諾しませんでした。
       billing_agreement_wrong_account: PayPalアカウントが一致しませんでした。当初ご登録されたPayPalアカウントを使用してください。
-      something_went_wrong: 異常発生しました。もう一度やり直してください。もしこのまま問題が続くようであれば、サイト管理者にお問い合わせください。
+      something_went_wrong: "異常が発生しました。もう一度やり直してください。もしこのまま問題が続く場合％{service_name} チームまでお問い合わせください。"
       account_not_verified: あなたはPayPalアカウントを検証していません。ご利用を続けるには、paypal.comへ行って確認する必要があります。
       account_restricted: あなたのPayPalアカウントは、拒否され接続できないようです。paypal.comにログインしてから、この問題の詳細について、PayPalカスタマーサポートに問い合わせをして状況を改善してください。
     paypal_account_connected_title: ペイパルアカウントに接続しました。
