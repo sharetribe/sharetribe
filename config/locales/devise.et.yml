@@ -1,48 +1,48 @@
 et:
   errors:
     messages:
-      expired: ~
-      not_found: ~
-      already_confirmed: ~
-      not_locked: ~
+      expired: "on aegunud, küsi uus"
+      not_found: "pole leitav"
+      already_confirmed: "on juba kinnitatud, palun proovige sisse logida"
+      not_locked: "ei ole lukustatud"
   devise:
     failure:
-      already_authenticated: ~
-      unauthenticated: ~
+      already_authenticated: "Olete juba sisse logitud"
+      unauthenticated: "Jätkamiseks logige sisse või looge kasutajakonto"
       unconfirmed: ~
-      locked: ~
-      invalid: ~
-      invalid_token: ~
-      timeout: ~
-      inactive: ~
+      locked: "Teie konto on blokeeritud"
+      invalid: "Vale email või kasutaja nimi"
+      invalid_token: "Vigane autentimisvõti."
+      timeout: "Teie sessioon on aegunud. Palun logige uuesti sisse."
+      inactive: "Teie konto pole veel aktiveeritud"
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      updated: ~
+      updated_not_active: "Sinu parool on edukalt muudetud"
+      send_paranoid_instructions: "Kui teie e-posti aadress on meie andmebaasis olemas, saate oma e-postile parooli taastamise lingi"
+      send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
+      updated: "Sinu parool on edukalt muudetud. Oled nüüd sisse logitud."
     sessions:
-      signed_in: ~
-      signed_out: ~
+      signed_in: "Sisse logimine õnnestus"
+      signed_out: "Välja logimine õnnestus"
     confirmations:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      confirmed: ~
+      send_paranoid_instructions: "Kui teie e-posti aadress on meie andmebaasis olemas, saabub teile mõne minuti jooksul kiri juhistega, kuidas oma konto kinnitada."
+      send_instructions: "Saate mõne minuti jooksul e-kirja, milles on juhised, kuidas kinnitada oma konto."
+      confirmed: "Teie konto on edukalt kinnitatud."
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Teie e-posti aadressile on saadetud kinnituslinki sisaldav sõnum. Avage oma konto aktiveerimiseks link."
+      signed_up_but_inactive: "Olete edukalt loonud kasutajakonto. Siiski ei saanud me teid sisse logida, sest teie konto pole veel aktiveeritud."
+      signed_up_but_locked: "Olete edukalt loonud kasutajakonto. Siiski ei saanud me teid sisse logida, sest teie konto on lukustatud."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
-      signed_up: ~
-      updated: ~
-      destroyed: ~
+        inactive: "ei ole aktiivne"
+        unconfirmed: "ei ole kinnitatud"
+        locked: lukustatud
+      update_needs_confirmation: "Uuendasite oma kontot edukalt, kuid peame kinnitama teie uue e-posti aadressi. Palun kontrollige oma e-posti ning uue e-posti aadressi kinnitamiseks klõpsake lingile e-kirjas."
+      signed_up: "Tere tulemast! Teie konto loomine õnnestus."
+      updated: "Teie kasutajakonto uuendamine õnnestus"
+      destroyed: "Nägemist! Sinu konto on deaktiveeritud. Loodetavasti näeme sind varsti jälle."
     unlocks:
-      send_paranoid_instructions: ~
-      send_instructions: ~
-      unlocked: ~
+      send_paranoid_instructions: "Kui teie konto eksisteerib siis mõne minuti jooksul saate juhendi kuidas see lahti lukustada."
+      send_instructions: "Mõne minuti jooksul saate e-kirja juhistega kuidas on konto lahti lukustada."
+      unlocked: "Sinu konto on edukalt taasavatud. Jätkamiseks palun logi sisse."
     omniauth_callbacks:
       success: ~
       failure: ~
@@ -50,6 +50,6 @@ et:
       confirmation_instructions:
         subject: ~
       reset_password_instructions:
-        subject: ~
+        subject: "Salasõna uuendamise juhend"
       unlock_instructions:
-        subject: ~
+        subject: "Taasavamise juhend"
