@@ -253,3 +253,20 @@ describe ApplicationController, type: :controller do
   end
 end
 
+describe ApplicationController, type: :controller do
+  render_views
+  controller do
+    def index
+      head :ok
+    end
+  end
+
+  describe 'seo service for meta tags' do
+    it "initializes seo_service" do
+      community = FactoryGirl.create(:community)
+      request.env[:current_marketplace] = community
+      get :index, params: {}
+      expect(assigns("seo_service")).to be_kind_of(SeoService)
+    end
+  end
+end

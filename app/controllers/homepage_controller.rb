@@ -22,6 +22,7 @@ class HomepageController < ApplicationController
     filter_params[:categories] = m_selected_category.own_and_subcategory_ids.or_nil
     selected_category = m_selected_category.or_nil
     relevant_filters = select_relevant_filters(m_selected_category.own_and_subcategory_ids.or_nil)
+    @seo_service.category = selected_category
 
     if FeatureFlagHelper.feature_enabled?(:searchpage_v1)
       @view_type = "grid"

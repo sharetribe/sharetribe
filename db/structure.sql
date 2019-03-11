@@ -315,7 +315,15 @@ CREATE TABLE `community_customizations` (
   `social_media_title` varchar(255) DEFAULT NULL,
   `social_media_description` text,
   `meta_title` varchar(255) DEFAULT NULL,
-  `meta_description` text,
+  `meta_description` text DEFAULT NULL,
+  `search_meta_title` varchar(255) DEFAULT NULL,
+  `search_meta_description` text DEFAULT NULL,
+  `listing_meta_title` varchar(255) DEFAULT NULL,
+  `listing_meta_description` text DEFAULT NULL,
+  `category_meta_title` varchar(255) DEFAULT NULL,
+  `category_meta_description` text DEFAULT NULL,
+  `profile_meta_title` varchar(255) DEFAULT NULL,
+  `profile_meta_description` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2363,5 +2371,5 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190208032229'),
 ('20190213073532'),
 ('20190213082646'),
-('20190228084827');
-
+('20190228084827'),
+('20190227111355');
