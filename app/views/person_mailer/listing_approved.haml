@@ -1,0 +1,10 @@
+%tr
+  %td
+    = t("emails.listing_approved.listing_has_been_approved",
+      listing_title: @listing.title,
+      community: @community_name)
+
+%tr
+  %td
+    = render "action_button", text: t("emails.listing_approved.view_the_listing"), url: @listing_url
+
