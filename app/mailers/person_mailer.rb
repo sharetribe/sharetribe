@@ -375,7 +375,43 @@ class PersonMailer < ActionMailer::Base
                                    :community => @community_name)
                     )
     end
+  end
 
+  def listing_approved(listing)
+    community = listing.community
+    recipient = listing.author
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.name(I18n.locale)
+      @listing = listing
+      @author_name = PersonViewUtils.person_display_name(listing.author, community)
+      @listing_url = listing_url(@url_params.merge({:id => listing.id}))
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.listing_approved.subject",
+                                   :listing_title => @listing.title,
+                                   :community => @community_name)
+                    )
+    end
+  end
+
+  def listing_rejected(listing)
+    community = listing.community
+    recipient = listing.author
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.name(I18n.locale)
+      @listing = listing
+      @author_name = PersonViewUtils.person_display_name(listing.author, community)
+      @listing_url = listing_url(@url_params.merge({:id => listing.id}))
+      @contact_url = new_user_feedback_url(@url_params)
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.listing_rejected.subject",
+                                   :listing_title => @listing.title,
+                                   :community => @community_name)
+                    )
+    end
   end
 
   def premailer_mail(opts, &block)

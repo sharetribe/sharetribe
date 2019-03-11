@@ -1,0 +1,12 @@
+%tr
+  %td
+    - contact_link = link_to t("emails.listing_rejected.contact_link", community: @community_name), @contact_url
+    = t("emails.listing_rejected.listing_has_been_rejected",
+      listing_title: @listing.title,
+      community: @community_name,
+      contact_link: contact_link).html_safe
+
+%tr
+  %td
+    = render "action_button", text: t("emails.listing_rejected.edit_the_listing"), url: @listing_url
+

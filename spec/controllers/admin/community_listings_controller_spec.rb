@@ -162,18 +162,34 @@ describe Admin::CommunityListingsController, type: :controller do
       expect(listing.state).to eq Listing::APPROVED
     end
 
-    it '#approve' do
+    it '#approve. One email to the listing author immediately
+      when an admin has approved the listing' do
+      ActionMailer::Base.deliveries = []
       get :approve, params: {community_id: community.id, id: listing.id},
                     format: :js
       listing.reload
       expect(listing.state).to eq Listing::APPROVED
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.first
+      expect(email.to.include?(listing.author.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'The Sharetribe team has approved your listing "Sledgehammer"'
     end
 
-    it '#reject' do
+    it '#reject. One email to the listing author immediately
+      when an admin has rejected the listing' do
+      ActionMailer::Base.deliveries = []
       get :reject, params: {community_id: community.id, id: listing.id},
                    format: :js
       listing.reload
       expect(listing.state).to eq Listing::APPROVAL_REJECTED
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.first
+      expect(email.to.include?(listing.author.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'The Sharetribe team has rejected your listing "Sledgehammer"'
     end
   end
 end
