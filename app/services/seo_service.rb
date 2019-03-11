@@ -1,6 +1,6 @@
 class SeoService
 
-  #
+
   # One can use the following variables as placeholders for SEO title and meta tags:
   #
   #  {{marketplace_name}} - the marketplace name
@@ -13,7 +13,7 @@ class SeoService
   #  {{listing_price}} - the listing price + pricing unit (for example "$20 per person")
   #  {{category_name}} - the category name
   #  {{user_display_name}} - user display name
-  #
+
 
   # user, category and listing are set in appropriate controllers
   attr_accessor :user, :category, :listing

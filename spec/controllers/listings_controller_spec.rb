@@ -384,10 +384,37 @@ describe ListingsController, type: :controller do
   end
 
   describe "custom meta tags" do
-    let(:c1){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
+    let(:community){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
+    let(:offer_process) {
+      FactoryGirl.create(:transaction_process,
+                                               community_id: community.id,
+                                               process: :none)
+    }
+    let(:sell_shape) { create_shape(community.id, "Sell", offer_process) }
+    let(:person) { FactoryGirl.create(:person, member_of: community) }
+    let(:listing) {
+      FactoryGirl.create(:listing,
+                         community_id: community.id,
+                         author: person,
+                         transaction_process_id: sell_shape[:transaction_process_id],
+                         listing_shape_id: sell_shape[:id],
+                         shape_name_tr_key: sell_shape[:name_tr_key],
+                         action_button_tr_key: sell_shape[:action_button_tr_key],
+                         unit_type: 'hour',
+                         title: "bike",
+                         description: "A very nice bike",
+                         price: Money.new(4567, "USD")
+                        )
+    }
+
+    before :each do
+      @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
+    end
+
     it "shows renders custom meta tags with placeholders" do
-      c1.community_customizations.first.update(listing_meta_title: "{{listing_title}} - {{marketplace_name}}", listing_meta_description: "{{listing_title}} for {{listing_price}} by {{listing_author}} in {{marketplace_name}}")
-      get :show, params: {id: @l1.id}
+      community.community_customizations.first.update(listing_meta_title: "{{listing_title}} - {{marketplace_name}}", listing_meta_description: "{{listing_title}} for {{listing_price}} by {{listing_author}} in {{marketplace_name}}")
+      get :show, params: {id: listing.id}
       expect(response.body).to match('<title>bike - Sharetribe</title>')
       expect(response.body).to match("<meta content='bike - Sharetribe' property='og:title'>")
       expect(response.body).to match("<meta content='bike - Sharetribe' name='twitter:title'>")
