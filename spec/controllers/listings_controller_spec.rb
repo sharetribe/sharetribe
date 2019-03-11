@@ -302,6 +302,7 @@ describe ListingsController, type: :controller do
                                    action_button_tr_key: sell_shape[:action_button_tr_key]
                         )
     }
+    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
 
     before :each do
       @request.host = "#{community.ident}.lvh.me"
@@ -324,9 +325,12 @@ describe ListingsController, type: :controller do
 
     it 'If the community.pre_approved_listings is on
         If a open listing is edited, then it would automatically
-        should be assigned the pending status.' do
+        should be assigned the pending status.
+        Admin receives listing submited for review email.' do
+      admin
       sign_in_for_spec(person)
       community.update_column(:pre_approved_listings, true)
+      ActionMailer::Base.deliveries = []
       patch :update, params: { id: listing.id, listing: {
         title: 'Easy As Pie',
         listing_shape_id: listing.listing_shape_id,
@@ -335,6 +339,12 @@ describe ListingsController, type: :controller do
       }}
       listing.reload
       expect(listing.state).to eq Listing::APPROVAL_PENDING
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.first
+      expect(email.to.include?(admin.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'New listing to review: "Easy As Pie" by Proto T in Sharetribe'
     end
 
     it 'If the community.pre_approved_listings is on
@@ -380,6 +390,45 @@ describe ListingsController, type: :controller do
       }}
       rejected_listing.reload
       expect(rejected_listing.state).to eq Listing::APPROVED
+    end
+
+    it 'If the community.pre_approved_listings is on
+      user creates listing, then it would automatically
+        should be assigned the pending status.
+        Admin receives listing submited for review email.' do
+      RequestStore.store[:feature_flags] = [:approve_listings].to_set
+      admin
+      sign_in_for_spec(person)
+      community.update_column(:pre_approved_listings, true)
+      valid_until = Time.current + 3.months
+      ActionMailer::Base.deliveries = []
+      post :create, params: {
+        "listing"=>{
+          "title"=>"Mock-Duck and Chard Pie served with Oscar Meyer Squash",
+          "price"=>"100",
+          "shipping_price"=>"0",
+          "shipping_price_additional"=>"0",
+          "delivery_methods"=>["pickup"],
+          "description"=>"",
+          "valid_until(1i)"=>valid_until.year,
+          "valid_until(2i)"=>valid_until.month,
+          "valid_until(3i)"=>valid_until.day,
+          "origin"=>"",
+          "origin_loc_attributes"=>{"address"=>"", "google_address"=>"", "latitude"=>"", "longitude"=>""},
+          "category_id"=>"1",
+          "listing_shape_id"=>sell_shape[:id],
+          "unit"=> {:unit_type=>"unit", :kind=>"quantity"}.to_json
+        }
+      }
+      listing = assigns(:listing)
+      expect(listing.persisted?).to eq true
+      expect(listing.state).to eq Listing::APPROVAL_PENDING
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.first
+      expect(email.to.include?(admin.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'New listing to review: "Mock-Duck and Chard Pie served with Oscar Meyer Squash" by Proto T in Sharetribe'
     end
   end
 

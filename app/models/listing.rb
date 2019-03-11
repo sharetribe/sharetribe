@@ -74,6 +74,7 @@ class Listing < ApplicationRecord
   include Rails.application.routes.url_helpers
   include ManageAvailabilityPerHour
 
+  belongs_to :community
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 
   has_many :listing_images, -> { where("error IS NULL").order("position") }, :dependent => :destroy
