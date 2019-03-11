@@ -1417,6 +1417,11 @@ en:
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
       person_name: "Name:"
       person_email: "Email:"
+    listing_submited_for_review:
+      subject: 'New listing to review: "%{listing_title}" by %{author_name} in %{community}'
+      there_is_a_new_listing_to_review: 'There is a new listing to review: "%{listing_title}" by %{author_name}. You now have to approve or reject that listing.'
+      review_the_listing: Review the listing
+      this_is_automatic_message: This is an automatic message sent to administrators of %{community}.
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

@@ -1,0 +1,14 @@
+%tr
+  %td
+    = t("emails.listing_submited_for_review.there_is_a_new_listing_to_review",
+      listing_title: @listing.title,
+      author_name: @author_name)
+
+%tr
+  %td
+    = render "action_button", text: t("emails.listing_submited_for_review.review_the_listing"), url: @listing_url
+
+%tr
+  %td{ style: "padding-bottom: 10px; font-size: 12px" }
+    = t("emails.listing_submited_for_review.this_is_automatic_message", community: @community_name)
+
