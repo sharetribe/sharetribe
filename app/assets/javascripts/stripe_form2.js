@@ -131,14 +131,18 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
         last_name_kana: getValue('last_name_kana'),
         first_name_kanji: getValue('first_name_kanji'),
         last_name_kanji: getValue('last_name_kanji'),
-        dob: {
-          day: getValue('birth_date(3i)', 'int'),
-          month: getValue('birth_date(2i)', 'int'),
-          year: getValue('birth_date(1i)', 'int'),
-        },
-        gender: getValue('gender'),
         phone: getValue('phone')
       };
+      if (!options.update) {
+        $.extend(person, {
+          dob: {
+            day: getValue('birth_date(3i)', 'int'),
+            month: getValue('birth_date(2i)', 'int'),
+            year: getValue('birth_date(1i)', 'int'),
+          },
+          gender: getValue('gender')
+        });
+      }
     } else {
       address = {
         address: {
@@ -157,29 +161,23 @@ window.ST.stripe_form_i18n = window.ST.stripe_form_i18n || {
       person = {
         first_name: firstName,
         last_name: lastName,
-        dob: {
-          day: getValue('birth_date(3i)', 'int'),
-          month: getValue('birth_date(2i)', 'int'),
-          year: getValue('birth_date(1i)', 'int'),
-        },
+        phone: getValue('phone'),
+        email: getValue('email'),
         id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('id_number') : null,
         ssn_last_4: ['US', 'PR'].includes(country) ? getValue('ssn_last_4') : null,
-        phone: getValue('phone'),
-        email: getValue('email')
       };
-    }
-    if (['US', 'PR'].includes(country)) {
-      $.extend(data.individual, {
-        phone: getValue('phone'),
-        email: getValue('email')
-      });
+      if (!options.update) {
+        $.extend(person, {
+          dob: {
+            day: getValue('birth_date(3i)', 'int'),
+            month: getValue('birth_date(2i)', 'int'),
+            year: getValue('birth_date(1i)', 'int'),
+          }
+        });
+      }
     }
 
-    if (options.update) {
-      $.extend(data.individual, address);
-    } else {
-      $.extend(data.individual, address, person);
-    }
+    $.extend(data.individual, address, person);
     return data;
   };
 
