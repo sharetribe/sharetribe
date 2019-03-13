@@ -127,6 +127,14 @@ module PaymentsHelper
   end
 
   def mcc_codes_options
-    MccCodes::CODES.map{|x| [x[:decription], x[:mcc]]}
+    first_codes = [
+      'Equipment Rental',
+      'General Services',
+      'Miscellaneous Specialty Retail',
+      'Professional Services',
+      'Used Merchandise and Secondhand Stores']
+    result = MccCodes::CODES.select{|x| first_codes.include?(x[:decription])}.map{|x| [x[:decription], x[:mcc]]}
+    result += [['', '']]
+    result += MccCodes::CODES.map{|x| [x[:decription], x[:mcc]]}
   end
 end
