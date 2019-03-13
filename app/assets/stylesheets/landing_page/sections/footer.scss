@@ -290,6 +290,7 @@ $footer__social-media-margin: 18px;
     float: left;
     text-align: left;
     margin: 0;
+    line-height: 1.5em;
     @media #{$mobile}, #{$mobile-landscape}, #{$tablet} {
       display: none;
     }
