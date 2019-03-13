@@ -1074,9 +1074,9 @@ lt:
       offer_rejected: Atmestas
       offer_canceled: Atšauktas
       offer_confirmed: Baigtas
-      offer_paid: ~
-      offer_preauthorized: ~
-      offer_waiting_for_payment: ~
+      offer_paid: "Mokėjimas sėkmingas"
+      offer_preauthorized: "Mokėjimas sėkmingas"
+      offer_waiting_for_payment: "Laukiama, kol %{requester_name} sumokės"
       pay: Mokėti
       preauthorized: "Mokėjimas sėkmingas"
       paid: "Mokėjimas sėkmingas"
@@ -1091,7 +1091,7 @@ lt:
       request_rejected: Atmestas
       request_confirmed: Baigtas
       request_canceled: Atšauktas
-      request_paid: ~
+      request_paid: "Mokėjimas sėkmingas"
       request_preauthorized: ~
       skip_feedback: "Praleisti atsiliepimą"
       waiting_for_listing_author_to_accept_offer: "Laukiama kol %{listing_author_name} sutiks su pasiūlymu"
@@ -1190,7 +1190,7 @@ lt:
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
       give_feedback_to: ~
-      show_thread: ~
+      show_thread: "Rodyti pokalbį"
     confirmation_instructions:
       confirmation_instructions_signature: "Linkėjimai, <br/> %{service_name} Team"
       need_to_confirm: "Kad prisijungtumėte prie %{service_name}, patvirtinkite el. paštą paspausdami mygtuką žemiau."
@@ -1417,8 +1417,8 @@ lt:
     your_email_address: "Jūsų elektroninis paštas"
   errors:
     messages:
-      invalid_date: ~
-      invalid_time: ~
+      invalid_date: "nėra teisinga data"
+      invalid_time: "nėra teisingas laikas"
       invalid_datetime: ~
       is_at: ~
       before: ~
@@ -2064,8 +2064,8 @@ lt:
       payment: Mokėjimas
       exp: "Galiojimas:"
       you_will_be_charged: ~
-      day: ~
-      days: ~
+      day: diena
+      days: dienos
       night: ~
       nights: ~
       invalid_parameters: ~
@@ -2306,11 +2306,11 @@ lt:
       change_email: Pakeisti
       confirm_your_email: "Prašome patvirtinti jūsų el. pašto adresą."
       account_confirmation_instructions: "Greitai gausite laišką su nuoroda jūsų el. pašto patvirtinimui. Nepamirškite patikrinti šlamšto aplanko. Patvirtinus el. paštą, galite prisijungti prie %{service_name}."
-      account_confirmation_instructions_title_admin: ~
+      account_confirmation_instructions_title_admin: "Patvirtinkite savo el. pašto adresą"
       before_full_access_you_need_to_confirm_email: ~
       before_confirmation_only_access_admin_dashboard: ~
       admin_dashboard_link_text: ~
-      account_confirmation_instructions_admin: ~
+      account_confirmation_instructions_admin: "Turėjote gauti laišką %{email_address} su patvirtinimo nuoroda. Jei nematote laiško, patikrinkite šlamšto aplanką arba paspauskite mygtuką apačioje pakartotinam laiško siuntimui. Gavus laišką, atidarykite nuorodą, kad patvirtintumėte el. pašto adresą ir gausite pilną priėjimą prie turgaus. Jei reikia pagalbos, nedvejokite %{support_link}."
       contact_support_link_text: ~
   settings:
     account:
@@ -2475,20 +2475,20 @@ lt:
       november: Lapkritis
       december: Gruodis
     months_short:
-      january: ~
-      february: ~
-      march: ~
-      april: ~
-      may: ~
-      june: ~
-      july: ~
-      august: ~
-      september: ~
-      october: ~
-      november: ~
-      december: ~
-    today: ~
-    clear: ~
+      january: Sau.
+      february: Vas.
+      march: Kov.
+      april: Bal.
+      may: Geg.
+      june: Bir.
+      july: Lie.
+      august: Rug.
+      september: Rugs.
+      october: Spa.
+      november: Lap.
+      december: Gru.
+    today: Šiandien
+    clear: Išvalyti
     format: YYYY/mm/dd
   time:
     formats:
@@ -2532,8 +2532,8 @@ lt:
     total: ~
     total_to_pay: ~
   unit:
-    day: ~
-    days: ~
+    day: diena
+    days: dienos
   web:
     listings:
       errors:

@@ -68,13 +68,13 @@
             </div>
           </div>
           <% if has_links %>
-            <ul class="footer__link-list">
-              <% s['links'].each_slice(5) do |links| %>
+            <% s['links'].each_slice(5) do |links| %>
+              <ul class="footer__link-list">
                 <% links.each do |link| %>
                   <li class="footer__link-list-item"><a class="footer__link" href="<%= link['href']['value'] %>"><%= link["label"] %></a></li>
                 <% end %>
-              <% end %>
-            </ul>
+              </ul>
+            <% end %>
           <% end %>
         </div>
       <% end %>
