@@ -60,7 +60,7 @@ describe UserService::API::Users do
                                            service_name: ApplicationHelper.fetch_community_service_name_from_thread)
       # simple check that link to right community exists
       expect(email.body).to match @community.full_domain
-      expect(email.body).to match "Sharetribe Team"
+      expect(email.body).to match "Sharetribe team"
     end
 
     it "should send the confirmation email in right language" do
