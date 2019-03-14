@@ -1211,7 +1211,7 @@ es:
       give_feedback_to: "Escribir una valoración sobre %{other_party_given_name}"
       show_thread: "Ver conversación"
     confirmation_instructions:
-      confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
+      confirmation_instructions_signature: "Saludos cordiales,<br/>El equipo de %{service_name}"
       need_to_confirm: "Para unirte a %{service_name} confirma tu cuenta de correo electrónico haciendo click en el botón inferior."
       confirmation_link_text: "Confirmar mi dirección de correo electrónico"
       or_paste_link: "Si lo prefieres, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador:"
@@ -2732,6 +2732,7 @@ es:
       address_kanji_line1: "Dirección (Kanji)"
       male: masculino
       female: femenino
+      mcc: ~
     form_bank:
       bank_account_number: "Número de cuenta de banco"
       bank_routing_number: "Número de ruta/routing"
