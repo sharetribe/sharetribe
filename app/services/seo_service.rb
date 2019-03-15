@@ -140,7 +140,7 @@ class SeoService
     when :homepage_title, :homepage_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description']
     when :search_results_title, :search_results_description
-      ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'keywords_searceed', 'location_searched']
+      ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'keywords_searched', 'location_searched']
     when :listing_title, :listing_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'listing_title', 'listing_author', 'listing_price']
     when :category_title, :category_description
