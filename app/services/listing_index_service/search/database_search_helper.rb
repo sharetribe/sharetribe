@@ -46,6 +46,7 @@ module ListingIndexService::Search::DatabaseSearchHelper
       :distance_max,
       :sort,
       :listing_shape_id,
+      :listing_shape_ids,
       :categories,
       :fields,
       :price_cents
