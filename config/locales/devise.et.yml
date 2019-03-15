@@ -9,7 +9,7 @@ et:
     failure:
       already_authenticated: "Olete juba sisse logitud"
       unauthenticated: "Jätkamiseks logige sisse või looge kasutajakonto"
-      unconfirmed: ~
+      unconfirmed: "Enne jätkamist peate oma konto kinnitama."
       locked: "Teie konto on blokeeritud"
       invalid: "Vale email või kasutaja nimi"
       invalid_token: "Vigane autentimisvõti."
@@ -44,11 +44,11 @@ et:
       send_instructions: "Mõne minuti jooksul saate e-kirja juhistega kuidas on konto lahti lukustada."
       unlocked: "Sinu konto on edukalt taasavatud. Jätkamiseks palun logi sisse."
     omniauth_callbacks:
-      success: ~
-      failure: ~
+      success: "Konto edukalt kinnitatud %{kind}."
+      failure: "Autoriseerimine %{kind} kaudu ebaõnnestus kuna \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: ~
+        subject: "Kinnitus liitumiseks %{service_name}"
       reset_password_instructions:
         subject: "Salasõna uuendamise juhend"
       unlock_instructions:

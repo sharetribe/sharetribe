@@ -261,7 +261,7 @@ Section `kind` is `footer`.
 
 Values to set:
 
-* `theme` can be either `light` or `dark`
+* `theme` can be `light`, `dark`, `marketplace_color` or `logo`
 * `links` is an array of internal (links via Rails path helper) or external (hardcoded URL)
 
   **Internal links** have the form of `{"label": "<link label>", "href": {"type": "path", "id": "<id of the path>"} }`. For example:

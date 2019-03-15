@@ -897,9 +897,9 @@ et:
       give_away: "ära andmine"
       lend: "laenu andmine"
       receive: Tasuta
-      rent: ~
-      rent_out: ~
-      sell: ~
+      rent: Rentimine
+      rent_out: "Välja rentida"
+      sell: Müüa
       offer_to_swap: ~
       request_to_swap: ~
       share_for_free: ~
@@ -926,7 +926,7 @@ et:
       other: ~
     username: ~
     username_or_email: ~
-    what_is_this: ~
+    what_is_this: "Mis see on?"
     removed_user: ~
     payment_fee_info:
       title: ~
@@ -984,11 +984,11 @@ et:
       days: ~
       price_per_day: ~
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Laen täiendavaid sõnumeid"
+      message_partitive: sõnum
+      messages_partitive: sõnum
+      no_received_messages: "sõnumeid pole"
+      no_sent_messages: "Saadetuid sõnumeid pole"
     conversation:
       accepted_request: ~
       accepted_offer: ~
@@ -1029,7 +1029,7 @@ et:
       this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
       you_will_get_notified: ~
-      title: ~
+      title: Pealkiri
       send_message_to_user: ~
       about_listing: ~
       author_has_to_accept_request: ~
@@ -1037,8 +1037,8 @@ et:
       in_response_to_listing: ~
       message_sent_by: ~
       message_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Saada vastus"
+      write_a_reply: "Kirjuta vastus:"
       conversation_about_listing: ~
       conversation_with_user: ~
       conversation_with: ~
@@ -1051,11 +1051,11 @@ et:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
+      feedback_given: "Antud tagasiside"
+      feedback_skipped: "Tagasiside vahele jäetud"
+      give_feedback: "Anna tagasisidet"
+      offer_accepted: Aktsepteeritud
+      offer_rejected: "Tagasi lükatud"
       offer_canceled: ~
       offer_confirmed: ~
       offer_paid: ~
@@ -1071,13 +1071,13 @@ et:
           intl: ~
       waiting_for_current_user_to_deliver_listing: ~
       waiting_for_listing_author_to_deliver_listing: ~
-      request_accepted: ~
-      request_rejected: ~
+      request_accepted: "Vastu võetud"
+      request_rejected: "Tagasi lükatud"
       request_confirmed: ~
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Jäta tagasiside vahele"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -1095,10 +1095,10 @@ et:
       stripe:
         waiting_confirmation_from_requester: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Aktsepteeri pakkumist"
+      accept_request: "Aktsepteeri päringut"
+      reject_offer: "Mitte sel korral"
+      reject_request: "Mitte sel korral"
       accept_preauthorized_offer: ~
       accept_preauthorized_request: ~
       reject_preauthorized_offer: ~
@@ -1133,12 +1133,12 @@ et:
       consent_not_given: ~
   emails:
     accept_reminder:
-      remember_to_accept_offer: ~
-      remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
-      you_can_accept_or_reject_request_at: ~
-      you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      remember_to_accept_offer: "Pea meeles aktsepteerida või tagasi lükata pakkumine saatjalt %{sender_name}"
+      remember_to_accept_request: "Pea meeles aktsepteerida või tagasi lükata päring saatjalt %{sender_name}"
+      you_can_accept_or_reject_offer_at: "Pakkumist saad aktsepteerida või tagasi lükata"
+      you_can_accept_or_reject_request_at: "Päringut saad aktsepteerida või tagasi lükata"
+      you_have_not_yet_accepted_or_rejected_offer: "Sa ei ole veel aktsepteerinud või tagasi lükkanud pakkumist saatjalt %{title} mis saabus kuupäeval %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Sa ei ole veel aktsepteerinud või tagasi lükkanud päringut saatjalt %{title} mis saabus kuupäeval %{date}."
       show_thread: ~
     branding:
       powered_by: ~
@@ -1181,9 +1181,9 @@ et:
       confirmation_link_text: ~
       or_paste_link: ~
     common:
-      hey: ~
-      kassi_team: ~
-      thanks: ~
+      hey: "Tere %{name},"
+      kassi_team: "%{service_name} Meeskond"
+      thanks: "Tänud,"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
@@ -1194,15 +1194,15 @@ et:
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
+      has_accepted_your_offer: "%{accepter} aktsepteeris sinu pakkumist %{listing}."
+      has_accepted_your_request: "%{accepter} aktsepteeris sinu päringut %{listing}."
+      has_rejected_your_offer: "%{accepter} lükkas sinu %{listing} pakkumise tagasi."
+      has_rejected_your_request: "%{accepter} lükkas sinu %{listing} päringu tagasi."
       view_thread: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "Sinu pakkumine on vastu võetud"
+      your_offer_was_rejected: "Sinu pakkumine on tagasi lükatud"
+      your_request_was_accepted: "Sinu päring on vastu võetud"
+      your_request_was_rejected: "Sinu päring on tagasi lükatud"
       you_can_now_pay_to: ~
       pay_now: "Maksa nüüd"
       remember_to_confirm: ~
@@ -2637,6 +2637,7 @@ et:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

@@ -44,10 +44,6 @@ lt:
           one: "Šioje kategorijoje yra %{count} nestandartinis laukelis. Jis bus perkeltas į pasirinktą kategoriją."
           few: "Šioje kategorijoje yra %{count} nestandartiniai laukeliai. Jie bus perkeltas į pasirinktą kategoriją."
           other: "Šioje kategorijoje yra %{count} nestandartiniai laukeliai. Jie bus perkeltas į pasirinktą kategoriją."
-        select_new_category: "Pasirinkite naują kategoriją, į kurią bus perkelti skelbimai viršuje:"
-        buttons:
-          remove: Pašalinti
-          cancel: Atšaukti
         warning_subcategory_will_be_removed:
           one: "Kategorijoje yra %{count} subkategorija. Ji bus pašalinta."
           few: "Kategorijoje yra %{count} subkategorijos. Jos bus pašalintos."
@@ -56,6 +52,10 @@ lt:
           one: "Kategorijoje ir subkategorijose yra %{count} skelbimas. Jis bus perkeltas į pasirinktą kategoriją."
           few: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
           other: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
+        select_new_category: "Pasirinkite naują kategoriją, į kurią bus perkelti skelbimai viršuje:"
+        buttons:
+          remove: Pašalinti
+          cancel: Atšaukti
     communities:
       edit_details:
         community_details: "Pagrindiniai nustatymai"
@@ -2596,6 +2596,12 @@ lt:
       create_own: ~
       learn_more: ~
   will_paginate:
+    models:
+      person:
+        zero: vartotojai
+        one: vartotojai
+        few: vartotojai
+        other: vartotojai
     previous_label: "&#8592; Atgal"
     next_label: "Kitas &#8594;"
     page_gap: "&hellip;"
@@ -2606,12 +2612,6 @@ lt:
       community_members_entries_info:
         multi_page: ~
         multi_page_html: ~
-    models:
-      person:
-        zero: vartotojai
-        one: vartotojai
-        few: vartotojai
-        other: vartotojai
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
@@ -2667,6 +2667,7 @@ lt:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
