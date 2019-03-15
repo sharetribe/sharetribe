@@ -17,10 +17,12 @@ class SeoService
 
   # user, category and listing are set in appropriate controllers
   attr_accessor :user, :category, :listing
+  attr_reader :locale
 
   def initialize(community, params = {})
     @community = community
     @params = params
+    @locale = I18n.locale
   end
 
   def i18n_variables(section)
@@ -34,73 +36,53 @@ class SeoService
       '{{marketplace_name}} - {{marketplace_slogan}}'
     when :homepage_description
       '{{marketplace_description}} - {{marketplace_slogan}}'
-    when :search_results_title
+    when :search_meta_title
       I18n.t("seo_sections.placeholder.search_results", variable: '{{marketplace_name}}', locale: locale)
-    when :search_results_description
+    when :search_meta_description
       I18n.t("seo_sections.placeholder.search_results_for", placeholder1: '{{keywords_searched}} {{location_searched}}', placeholder2: '{{marketplace_name}}', locale: locale)
-    when :listing_title
+    when :listing_meta_title
       '{{listing_title}} - {{marketplace_name}}'
-    when :listing_description
+    when :listing_meta_description
       I18n.t("seo_sections.placeholder.listing_description", title: '{{listing_title}}', price: '{{listing_price}}', author: '{{listing_author}}', marketplace: '{{marketplace_name}}', locale: locale)
-    when :category_title
+    when :category_meta_title
       '{{category_name}} - {{marketplace_name}}'
-    when :category_description
+    when :category_meta_description
       I18n.t("seo_sections.placeholder.category_description", category: '{{category_name}}', marketplace: '{{marketplace_name}}', locale: locale)
-    when :profile_title
+    when :profile_meta_title
       I18n.t("seo_sections.placeholder.profile_title", user: '{{user_display_name}}', marketplace: '{{marketplace_name}}', locale: locale)
-    when :profile_description
+    when :profile_meta_description
       I18n.t("seo_sections.placeholder.profile_description", user: '{{user_display_name}}', marketplace: '{{marketplace_name}}', locale: locale)
     end
   end
 
   def title(default_value, extra_mode = nil, locale = I18n.locale)
-    customization = @community.community_customizations.where(locale: locale).first
+    return @title if defined?(@title)
+    @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media title is passed here from layout
         default_value
       elsif customization.present?
-        case mode
-        when 'homepage'
-          customization.meta_title
-        when 'listing'
-          customization.listing_meta_title
-        when 'profile'
-          customization.profile_meta_title
-        when 'search'
-          customization.search_meta_title
-        when 'category'
-          customization.category_meta_title
-        end
+        customization_title(mode)
       else
         default_value
       end
-    custom_value.present? ? interpolate(custom_value, locale) : default_value
+    @title = custom_value.present? ? interpolate(custom_value, locale) : default_value
   end
 
   def description(default_value, extra_mode = nil, locale = I18n.locale)
-    customization = @community.community_customizations.where(locale: locale).first
+    return @description if defined?(@description)
+    @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
         # social media description is passed here from layout
         default_value
       elsif customization.present?
-        case mode
-        when 'homepage'
-          customization.meta_description
-        when 'listing'
-          customization.listing_meta_description
-        when 'profile'
-          customization.profile_meta_description
-        when 'search'
-          customization.search_meta_description
-        when 'category'
-          customization.category_meta_description
-        end
+        customization_description(mode)
       else
         default_value
       end
-    custom_value.present? ? interpolate(custom_value, locale) : default_value
+    @description = custom_value.present? ? interpolate(custom_value, locale) : default_value
   end
 
   def interpolate(text, locale = I18n.locale)
@@ -110,6 +92,10 @@ class SeoService
   end
 
   private
+
+  def customization
+    @customization ||= @community.community_customizations.find_by(locale: locale)
+  end
 
   def mode
     @mode ||= mode_from_params
@@ -139,13 +125,13 @@ class SeoService
     case section
     when :homepage_title, :homepage_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description']
-    when :search_results_title, :search_results_description
+    when :search_meta_title, :search_meta_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'keywords_searched', 'location_searched']
-    when :listing_title, :listing_description
+    when :listing_meta_title, :listing_meta_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'listing_title', 'listing_author', 'listing_price']
-    when :category_title, :category_description
+    when :category_meta_title, :category_meta_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'category_name']
-    when :profile_title, :profile_description
+    when :profile_meta_title, :profile_meta_description
       ['marketplace_name', 'marketplace_slogan', 'marketplace_description', 'user_display_name']
     end
   end
@@ -168,10 +154,14 @@ class SeoService
       @listing ? PersonViewUtils.person_display_name(@listing.author, @community) : nil
     when 'listing_price'
       if @listing && @listing.price
-        [
-          MoneyViewUtils.to_humanized(@listing.price),
-          I18n.t("listings.show.price.per_quantity_unit", quantity_unit: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key, locale: locale))
-        ].join(" ")
+        if @listing.unit_type
+          [
+            MoneyViewUtils.to_humanized(@listing.price),
+            I18n.t("listings.show.price.per_quantity_unit", quantity_unit: ListingViewUtils.translate_unit(listing.unit_type, listing.unit_tr_key, locale: locale))
+          ].join(" ")
+        else
+          MoneyViewUtils.to_humanized(@listing.price)
+        end
       end
     when 'category_name'
       @category ? @category.display_name(locale) : nil
@@ -200,5 +190,40 @@ class SeoService
     else
       I18n.t("common.default_community_description")
     end
+  end
+
+  def customization_title(mode)
+    case mode
+    when 'homepage'
+      customization.meta_title
+    when 'listing'
+      customization_value_or_default(:listing_meta_title)
+    when 'profile'
+      customization_value_or_default(:profile_meta_title)
+    when 'search'
+      customization_value_or_default(:search_meta_title)
+    when 'category'
+      customization_value_or_default(:category_meta_title)
+    end
+  end
+
+  def customization_description(mode)
+    case mode
+    when 'homepage'
+      customization.meta_description
+    when 'listing'
+      customization_value_or_default(:listing_meta_description)
+    when 'profile'
+      customization_value_or_default(:profile_meta_description)
+    when 'search'
+      customization_value_or_default(:search_meta_description)
+    when 'category'
+      customization_value_or_default(:category_meta_description)
+    end
+  end
+
+  def customization_value_or_default(feature)
+    value = customization.send(feature)
+    value.present? ? value : placeholder(feature, locale)
   end
 end
