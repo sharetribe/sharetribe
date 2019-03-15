@@ -12,7 +12,6 @@
 - dimensions = @listing.listing_images.first.get_dimensions_for_style(:medium) if !@listing.listing_images.empty?
 - content_for :meta_image_width, dimensions[:width].to_s if !@listing.listing_images.empty?
 - content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
-- content_for :keywords, StringUtils.keywords(@listing.title)
 
 - content_for :title_header do
   %h1
