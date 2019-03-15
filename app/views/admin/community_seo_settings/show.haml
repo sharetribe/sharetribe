@@ -31,7 +31,9 @@
                 .name-locale-label.col-2
                   = fields.label :meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :meta_title, placeholder:  @seo_service.placeholder(:homepage_title, locale), class: "text_field"
+                = fields.text_field :meta_title,
+                  placeholder:  @seo_service.placeholder(:homepage_title, locale),
+                  class: "text_field", maxlength: 255
 
     .row
       %h3= t('admin.communities.seo_settings.meta_description_label')
@@ -49,7 +51,9 @@
                 .name-locale-label.col-2
                   = fields.label :meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :meta_description, placeholder:  @seo_service.placeholder(:homepage_description, locale), class: "text_field"
+                = fields.text_area :meta_description,
+                  placeholder:  @seo_service.placeholder(:homepage_description, locale),
+                  class: "text_field", maxlength: 65535
 
     / Search results page
     %h2= t('admin.communities.seo_settings.search_title')
@@ -70,7 +74,9 @@
                 .name-locale-label.col-2
                   = fields.label :search_meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :search_meta_title, placeholder:  @seo_service.placeholder(:search_results_title, locale), class: "text_field"
+                = fields.text_field :search_meta_title,
+                  placeholder:  @seo_service.placeholder(:search_results_title, locale),
+                  class: "text_field", maxlength: 255
 
     .row
       %h3= t('admin.communities.seo_settings.search_meta_description_label')
@@ -88,7 +94,9 @@
                 .name-locale-label.col-2
                   = fields.label :search_meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :search_meta_description, placeholder:  @seo_service.placeholder(:search_results_description, locale), class: "text_field"
+                = fields.text_area :search_meta_description,
+                  placeholder:  @seo_service.placeholder(:search_results_description, locale),
+                  class: "text_field", maxlength: 65535
 
     / Listing page
     %h2= t('admin.communities.seo_settings.listing_title')
@@ -109,7 +117,9 @@
                 .name-locale-label.col-2
                   = fields.label :listing_meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :listing_meta_title, placeholder:  @seo_service.placeholder(:listing_title, locale), class: "text_field"
+                = fields.text_field :listing_meta_title,
+                  placeholder:  @seo_service.placeholder(:listing_title, locale),
+                  class: "text_field", maxlength: 255
 
     .row
       %h3= t('admin.communities.seo_settings.listing_meta_description_label')
@@ -127,7 +137,9 @@
                 .name-locale-label.col-2
                   = fields.label :listing_meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :listing_meta_description, placeholder:  @seo_service.placeholder(:listing_description, locale), class: "text_field"
+                = fields.text_area :listing_meta_description,
+                  placeholder:  @seo_service.placeholder(:listing_description, locale),
+                  class: "text_field", maxlength: 65535
 
     / Category page
     %h2= t('admin.communities.seo_settings.category_title')
@@ -148,7 +160,9 @@
                 .name-locale-label.col-2
                   = fields.label :category_meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :category_meta_title, placeholder:  @seo_service.placeholder(:category_title, locale), class: "text_field"
+                = fields.text_field :category_meta_title,
+                  placeholder:  @seo_service.placeholder(:category_title, locale),
+                  class: "text_field", maxlength: 255
 
     .row
       %h3= t('admin.communities.seo_settings.category_meta_description_label')
@@ -166,7 +180,9 @@
                 .name-locale-label.col-2
                   = fields.label :category_meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :category_meta_description, placeholder:  @seo_service.placeholder(:category_description, locale), class: "text_field"
+                = fields.text_area :category_meta_description,
+                  placeholder:  @seo_service.placeholder(:category_description, locale),
+                  class: "text_field", maxlength: 65535
 
     / Profile page
     %h2= t('admin.communities.seo_settings.profile_title')
@@ -187,7 +203,9 @@
                 .name-locale-label.col-2
                   = fields.label :profile_meta_title, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_field :profile_meta_title, placeholder:  @seo_service.placeholder(:profile_title, locale), class: "text_field"
+                = fields.text_field :profile_meta_title,
+                  placeholder:  @seo_service.placeholder(:profile_title, locale),
+                  class: "text_field", maxlength: 255
 
     .row
       %h3= t('admin.communities.seo_settings.profile_meta_description_label')
@@ -205,7 +223,9 @@
                 .name-locale-label.col-2
                   = fields.label :profile_meta_description, language, class: 'text_field label'
               .name-locale-text_field.col-10
-                = fields.text_area :profile_meta_description, placeholder:  @seo_service.placeholder(:profile_description, locale), class: "text_field"
+                = fields.text_area :profile_meta_description,
+                  placeholder:  @seo_service.placeholder(:profile_description, locale),
+                  class: "text_field", maxlength: 65535
 
     / Sitemap
     .row
@@ -242,3 +262,6 @@
 
     .row
       = form.button t("admin.communities.seo_settings.save")
+
+- content_for :javascript do
+  $('form.edit_community').validate();

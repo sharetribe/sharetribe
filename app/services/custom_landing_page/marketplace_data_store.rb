@@ -6,11 +6,10 @@ module CustomLandingPage
     module_function
 
     def marketplace_data(cid, locale)
-      primary_color,
-      twitter_handle,
-      name_display_type = Community.where(id: cid)
-                          .pluck(:custom_color1, :twitter_handle, :name_display_type)
-                          .first
+      community = Community.find(cid)
+      primary_color = community.custom_color1
+      twitter_handle = community.twitter_handle
+      name_display_type = community.name_display_type
 
       name,
       slogan,
@@ -32,7 +31,7 @@ module CustomLandingPage
       meta_description   = [meta_description, description, I18n.t("common.default_community_description", locale: locale)].find(&:present?)
       search_placeholder ||= I18n.t("landing_page.hero.search_placeholder", locale: locale)
 
-      seo_service = SeoService.new(Community.find(cid))
+      seo_service = SeoService.new(community)
       social_media_title ||= seo_service.title("#{name} - #{slogan}", :social, locale)
       social_media_description ||= seo_service.description(description, :social, locale)
 
@@ -60,6 +59,7 @@ module CustomLandingPage
       description = split_long_words(seo_service.interpolate(description, locale))
       title = [meta_title, "#{name} - #{slogan}"].find(&:present?)
 
+      logo_image = community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
 
       { "primary_color" => ColorUtils.css_to_rgb_array(color),
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
@@ -75,7 +75,7 @@ module CustomLandingPage
         "social_media_title" => seo_service.interpolate(social_media_title, locale),
         "social_media_description" => seo_service.interpolate(social_media_description, locale),
         "meta_description" => seo_service.interpolate(meta_description, locale),
-        "logo" => logo_image(cid)
+        "logo" => logo_image
       }
     end
 
@@ -83,11 +83,6 @@ module CustomLandingPage
 
     def split_long_words(value)
       value.to_s.gsub(/\S{18,}/){ |word| word.split(//).join(UNICODE_ZERO_WIDTH_SPACE) }
-    end
-
-    def logo_image(cid)
-      community = Community.where(id: cid).first
-      community && community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
     end
   end
 end
