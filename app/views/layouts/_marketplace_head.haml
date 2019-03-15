@@ -5,11 +5,6 @@
 - else
   - title = social_media_title
 
-- if content_for?(:keywords)
-  - keywords = content_for(:keywords)
-- else
-  - keywords = StringUtils.keywords(community_slogan)
-
 - if content_for?(:meta_author)
   - meta_author = content_for(:meta_author)
 - else
@@ -39,7 +34,6 @@
 %meta{ :property => "og:title", :content => custom_meta_title(title, :social)}
 %meta{ :name => "twitter:title", :content => custom_meta_title(title, :social)}
 %meta{ :name => "author", :content=> meta_author }
-%meta{ :name => "keywords", :content => keywords }
 %meta{ :property => "og:url", :content => full_url}
 %meta{ :name => "identifier-url", :content => "#{@current_community.full_domain(with_protocol: true)}"}
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}

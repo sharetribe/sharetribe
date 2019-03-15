@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
     :redirect_removed_locale,
     :set_locale,
     :redirect_locale_param,
+    :setup_seo_service,
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
