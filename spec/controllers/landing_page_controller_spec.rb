@@ -21,8 +21,7 @@ describe LandingPageController, type: :controller do
   end
 
   after(:each) do
-    CustomLandingPage::LandingPageStoreDB::LandingPage.delete_all
-    CustomLandingPage::LandingPageStoreDB::LandingPageVersion.delete_all
+    RequestStore.clear!
   end
 
   describe '#index' do
