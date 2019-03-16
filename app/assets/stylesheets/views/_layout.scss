@@ -18,3 +18,24 @@
 .undo-mobile-wrapper-margin {
   @include undo-mobile-wrapper-margin;
 }
+
+.left-navi-section {
+  img, iframe {
+    max-width: 100%;
+  }
+}
+
+.banner {
+  &--warning {
+    background-color: #f5a623;
+    color: white;
+  }
+  &--title-wrapper {
+    margin: 0 auto;
+    max-width: 63em;
+    padding: 0 0.75em 0 0.75em;
+  }
+  &--title {
+    line-height: 50px;
+  }
+}

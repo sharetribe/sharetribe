@@ -1,0 +1,5 @@
+window.ST.Testimonials.update({
+id: #{@service.testimonial.id},
+content: "#{j render('admin/community_testimonials/update', service: @service)}",
+error: #{@service.testimonial_errors?}
+});

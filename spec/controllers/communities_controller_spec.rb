@@ -90,6 +90,19 @@
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
 #  end_user_analytics                         :boolean          default(TRUE)
+#  show_slogan                                :boolean          default(TRUE)
+#  show_description                           :boolean          default(TRUE)
+#  hsts_max_age                               :integer
+#  footer_theme                               :integer          default("dark")
+#  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
+#  logo_link                                  :string(255)
+#  google_connect_enabled                     :boolean
+#  google_connect_id                          :string(255)
+#  google_connect_secret                      :string(255)
+#  linkedin_connect_enabled                   :boolean
+#  linkedin_connect_id                        :string(255)
+#  linkedin_connect_secret                    :string(255)
 #
 # Indexes
 #

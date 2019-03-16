@@ -1,0 +1,59 @@
+lt:
+  errors:
+    messages:
+      expired: "galiojimas baigėsi, paprašykite naujo"
+      not_found: nerastas
+      already_confirmed: "jau patvirtinta, prašome prisijungti"
+      not_locked: "nebuvo užrakinta"
+      not_saved:
+        one: "1 klaida neleidžia išsaugoti %{resource}"
+        few: "saugant %{resource} rastas klaidų skaičius: %{count}"
+        other: "saugant %{resource} rastas klaidų skaičius: %{count}"
+  devise:
+    failure:
+      already_authenticated: "Jūs jau esate prisijungę"
+      unauthenticated: "Privalote užsiregistruoti arba prisijungti norint tęsti."
+      unconfirmed: "Privalote patvirtinti savo paskyrą norint tęsti."
+      locked: "Jūsų paskyra užrakinta."
+      invalid: "Neteisingas el. paštas arba slaptažodis."
+      invalid_token: "Neteisingas prisijungimo raktas."
+      timeout: "Jūsų sesija pasibaigė. Prašome prisijungti iš naujo."
+      inactive: "Jūsų paskyra dar neaktyvuota."
+    passwords:
+      updated_not_active: "Jūsų slaptažodis pakeistas sėkmingai."
+      send_paranoid_instructions: "Jei jūsų el. paštas egzistuoja mūsų duombazėje, gausite slaptažodžio atstatymo nuorodą paštu."
+      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip atkurti slaptažodį."
+      updated: "Jūsų slaptažodis pakeistas sėkmingai. Prisijungta."
+    sessions:
+      signed_in: "Prisijungimas sėkmingas."
+      signed_out: "Atsijungimas sėkmingas."
+    confirmations:
+      send_paranoid_instructions: "Jei jūsų el. paštas egzistuoja mūsų duombazėje, po poros minučių paštu gausite instrukcijas kaip patvirtinti paskyrą."
+      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip patvirtinti savo paskyrą."
+      confirmed: "Jūsų paskyra sėkmingai patvirtinta."
+    registrations:
+      signed_up_but_unconfirmed: "Laiškas su patvirtinimo nuoroda buvo išsiųstas jūsų paštu. Atidarykite nuorodą, kad patvirtintumėte paskyrą."
+      signed_up_but_inactive: "Užsiregistravote sėkmingai. Deja, prisijungimas negalimas, nes jūsų paskyra vis dar neaktyvuota."
+      signed_up_but_locked: "Užsiregistravote sėkmingai. Deja, prisijungimas negalimas, nes jūsų paskyra užrakinta."
+      reasons:
+        inactive: neaktyvus
+        unconfirmed: nepatvirtintas
+        locked: užrakintas
+      update_needs_confirmation: "Sėkmingai atnaujinote paskyrą, bet mums reikia patvirtinti jūsų naują el. paštą. Prašome pasitikrinti savo el. paštą ir paspausti ant patvirtinimo nuorodos, kad el. paštas būtų patvirtintas."
+      signed_up: "Sveiki! Užsiregistravote sėkmingai."
+      updated: "Sėkmingai atnaujinote paskyrą."
+      destroyed: "Iki! Jūsų paskyra sėkmingai išjungta. Tikimės greitai jus vėl pamatyti."
+    unlocks:
+      send_paranoid_instructions: "Jei jūsų paskyra egzistuoja, po poros minučių gausite laišką su instrukcijomis kaip ją atrakinti."
+      send_instructions: "Po poros minučių gausite laišką su instrukcijomis, kaip atrakinti savo paskyrą."
+      unlocked: "Jūsų paskyra atrakinta sėkmingai. Prašome prisijungti norint tęsti."
+    omniauth_callbacks:
+      success: "Sėkmingai autorizuota iš %{kind} paskyros."
+      failure: "Autorizacija iš %{kind} nepavyko, nes \"%{reason}\"."
+    mailer:
+      confirmation_instructions:
+        subject: "Patvirtinimo instrukcijos prisijungti prie %{service_name}"
+      reset_password_instructions:
+        subject: "Nurodymai, kaip atstatyti slaptažodį"
+      unlock_instructions:
+        subject: "Nurodymai, kaip atrakinti"

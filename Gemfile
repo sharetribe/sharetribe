@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.3.4'
 
-gem 'rails', '5.1.1'
+gem 'rails', '5.1.6.1'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -17,9 +17,13 @@ gem 'jquery-rails', '~> 4.3.1'
 # Bundle the extra gems:
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
-gem "passenger", '~> 5.1.4'
+gem "passenger", '~> 6.0.1'
+
 
 gem 'mysql2', '~> 0.4.10'
+
+
+
 gem 'haml', '~> 5.0.1'
 gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 5.0.1'
@@ -52,6 +56,8 @@ gem 'rails-i18n', '~> 5.0.4'
 gem 'devise', '~> 4.3.0'
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", '~> 4.0.0'
+gem "omniauth-google-oauth2", '>= 0.6.0'
+gem "omniauth-linkedin-oauth2", '>= 1.0.0'
 
 # Dynamic form adds helpers that are needed, e.g. error_messages
 gem 'dynamic_form', '~> 1.1.4'
@@ -72,11 +78,7 @@ gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 6.1.2'
-gem 'stripe', '~> 3.0.0'
-
-gem 'jwt', '~> 1.5.6'
-
-gem 'oauth2', '~> 1.3.1'
+gem 'stripe', '~> 4.9.0'
 
 gem 'lograge', '~> 0.5.1'
 gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, probably not
@@ -85,7 +87,7 @@ gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, pro
 # Session store was removed from Rails 4
 gem 'activerecord-session_store', '~> 1.1.0'
 
-gem 'faraday', '~> 0.11.0'
+gem 'faraday', '~> 0.13.0'
 gem 'faraday_middleware', '~> 0.11.0'
 gem 'faraday-encoding', '~> 0.0.4'
 
@@ -150,7 +152,7 @@ group :test do
   # required for CircleCI automatic test balancing
   gem 'rspec_junit_formatter'
 
-  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '6848daab104333b2c0c493ab069731d4a0b87f6f'
+  gem 'fake_stripe', git: 'https://github.com/ithouse/fake_stripe.git', ref: '42b9dd09a1db3fb2b7ec11809ac93647f178a115'
 end
 
 group :development, :test do
@@ -175,3 +177,5 @@ gem 'intercom'
 gem 'twitter_cldr'
 gem 'memoist'
 gem 'biz'
+gem 'ffi', '>= 1.9.25'
+gem 'rubyzip', '~> 1.2.2'

@@ -38,6 +38,11 @@
         = render partial: "layouts/expiration_notice", locals: {contact_owner_link: new_user_feedback_path}
 
     - content_for(:page_content) do
+      - if content_for?(:banner_warning)
+        %section.banner.banner--warning
+          .banner--title-wrapper
+            .banner--title
+              = yield :banner_warning
       %section.marketplace-lander
         - if @big_cover_photo
           .coverimage
@@ -77,6 +82,9 @@
         = content_for(:page_content)
     - else
       = content_for(:page_content)
+
+    - if @custom_footer.try(:display?)
+      = render 'layouts/footer'
 
     -# Most of the JavaScript should be for performance reasons at the end of the body
 

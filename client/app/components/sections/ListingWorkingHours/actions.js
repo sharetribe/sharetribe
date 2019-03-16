@@ -1,5 +1,8 @@
 import axios from 'axios';
 import * as actionTypes from './constants';
+import _ from 'lodash';
+import { addFlashNotification } from '../../../actions/FlashNotificationActions';
+import { t } from '../../../utils/i18n';
 
 export const EDIT_VIEW_OPEN_HASH = 'manage-working-hours';
 
@@ -23,6 +26,11 @@ const dataLoaded = (data) => ({
 });
 
 export const dataChanged = () => ({ type: actionTypes.DATA_CHANGED });
+
+const anyErrorsFromApi = (listing) => {
+  const errors = listing.working_time_slots.filter((x) => _.size(x.errors) > 0);
+  return errors.length > 0;
+};
 
 const csrfToken = () => {
   if (typeof document != 'undefined') {
@@ -48,12 +56,17 @@ export const saveChanges = (formData) =>
       withCredentials: true,
       headers: { 'X-CSRF-Token': csrfToken() },
     }).then((response) => {
-      dispatch(changesSaved());
+      if (anyErrorsFromApi(response.data)) {
+        dispatch(addFlashNotification('error', t('web.listings.errors.availability.saving_failed')));
+        dispatch(savingFailed('error'));
+      } else {
+        dispatch(changesSaved());
+      }
       dispatch(dataLoaded(response.data));
       console.log(response); // eslint-disable-line no-console
     })
     .catch((error) => {
-      savingFailed(error);
+      dispatch(savingFailed(error));
       console.log(error); // eslint-disable-line no-console
     });
 

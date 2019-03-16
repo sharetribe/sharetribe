@@ -1,18 +1,4 @@
 #login_form
-  - if @facebook_merge
-    %h2
-      = t('.connect_your_facebook_to_kassi')
-    %p
-      = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
-      <br />
-      = "#{@facebook_name} (#{@facebook_email})"
-    %p
-      = t('.log_in_to_link_account')
-      <br />
-      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
-      <br />
-      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
-
   %h2
     = t('.login_to_kassi')
   - if facebook_connect_in_use?

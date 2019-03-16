@@ -40,15 +40,22 @@ class Conversation < ApplicationRecord
     joins(:participations)
     .where( { participations: { person_id: person.id }} )
   }
-  scope :non_payment, -> { where(starting_page: nil).or(Conversation.where.not(starting_page: PAYMENT)) }
-  scope :payment, -> { where(starting_page: nil).or(Conversation.where(starting_page: PAYMENT)) }
+  scope :non_payment, -> { where('starting_page IS NULL OR starting_page!=?', [PAYMENT]) }
+  scope :payment, -> { where('starting_page IS NULL OR starting_page=?', [PAYMENT]) }
   scope :by_community, -> (community) { where(community: community) }
   scope :non_payment_or_free, -> (community) do
     subquery = Transaction.non_free.by_community(community.id).select('conversation_id').to_sql
-    by_community(community).where("id NOT IN (#{subquery})").non_payment
+    by_community(community).where("conversations.id NOT IN (#{subquery})").non_payment
   end
-  scope :free_for_community, -> (community, sort_field, sort_direction) do
-    non_payment_or_free(community).order("#{sort_field} #{sort_direction}")
+  scope :by_keyword, -> (community, pattern) do
+    person_ids_sql = Person.search_name_or_email(community.id, pattern).select('people.id').to_sql
+    person_conversations_subquery = joins(:participants).where("people.id IN (#{person_ids_sql})").select('conversations.id').to_sql
+    by_community(community)
+    .joins(:messages).where("
+      (conversations.id IN (#{person_conversations_subquery}))
+      OR
+      (messages.content LIKE :pattern)
+    ", pattern: pattern)
   end
 
   # Creates a new message to the conversation

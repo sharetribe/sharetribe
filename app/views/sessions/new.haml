@@ -5,25 +5,24 @@
   %h1= @facebook_merge ? t('.connect_your_facebook_to_kassi') : t('.login_to_kassi')
 
 .login-form.centered-section-narrow
-  - if @facebook_merge
-    .facebook-account-info
-      = icon_tag("facebook", ["fb-icon"])
-      .link-text
-        = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
-        = "#{@facebook_name} (#{@facebook_email})"
-    %p
-      = t('.log_in_to_link_account')
-    %p
-      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
-    %p
-      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
-    %p
-      = t(".we_will_not_post_without_asking_you")
-    %br/
   - if facebook_connect_in_use?
-    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
+    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_provider_account", provider: 'Facebook') }
+  - if google_connect_in_use?
+    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
+      class: 'google-login-button' do
+      %span.google-icon
+        = render :partial => "layouts/google_icon"
+      %span.google-text
+        = t('.log_in_with_your_provider_account', provider: 'Google')
+  - if linkedin_connect_in_use?
+    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
+      class: 'linkedin-login-button' do
+      %span.linkedin-icon
+        = render :partial => "layouts/linkedin_icon"
+      %span.linkedin-text
+        = t('.log_in_with_your_provider_account', provider: 'LinkedIn')
+  - if facebook_connect_in_use? || google_connect_in_use? || linkedin_connect_in_use?
     %p= t(".or_sign_up_with_your_username")
-
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     %label{:for => "login"}
       = username_or_email_label + ":"

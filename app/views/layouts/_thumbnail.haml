@@ -1,0 +1,13 @@
+- if file_field.file?
+  .info-text-container.filename-container
+    .info-thumbnail.marketplace-color
+      .thumbnail
+        - unless file_field.processing?
+          = image_tag file_field.url(:thumbnail)
+      .description
+        = icon_tag("picture")
+        %span.current-image
+          = t('admin.communities.edit_look_and_feel.current_image')
+          = ' '
+          = file_field.original_filename
+

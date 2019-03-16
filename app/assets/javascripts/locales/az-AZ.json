@@ -1,0 +1,30 @@
+{
+  "please_wait": "Zəhmət olmasa, gözləyin...",
+  "validation_messages": {
+    "accept": "Şəkil faylının GIF, JPG və ya PNG formatında olması lazımdır.",
+    "creditcard": "Düzgün bir kredit kartı nömrəsi daxil edin.",
+    "date": "Düzgün bir tarix daxil edin.",
+    "dateISO": "Düzgün bir tarix (ISO) daxil edin.",
+    "digits": "Yalnız rəqəmləri daxil edin.",
+    "email": "Düzgün bir e-poçt ünvanı daxil edin",
+    "equalTo": "Eyni parolu təkrar daxil edin.",
+    "max": "{0}-dan az və ya bərabər bir ədəd daxil edin.",
+    "maxlength": "Ən çox {0} simvol daxil edin.",
+    "min": "{0}-dan çox və ya bərabər bir ədəd daxil edin.",
+    "minlength": "Ən azı {0} simvol daxil edin.",
+    "number": "Düzgün bir sayı daxil edin.",
+    "range": "{0} və {1} arasında bir ədəd daxil edin.",
+    "rangelength": "Uzunluğu {0} və {1} arasında olan bir mətn daxil edin.",
+    "remote": "Bu xananı düzəldin.",
+    "required": "Bu xananın doldurulması məcburidir.",
+    "url": "Düzgün bir URL daxil edin.",
+    "address_validator": "Yer tapılmadı.",
+    "money": "Düzgün pul dəyərini əlavə etməlisiniz.",
+    "night_selected": "Ən azı bir gecəni seçməlisiniz",
+    "availability_range": "Seçilmiş məsafə mövcud olmayan tarixləri əhatə edir",
+    "min_bound": "Maksimum ədəddən ({0}) az olan bir ədəd daxil edin",
+    "max_bound": "Minimum ədəddən ({0}) az olmayan bir ədəd daxil edin",
+    "number_no_decimals": "Tam ədəd daxil edin",
+    "number_decimals": "Onluq ayırıcı olaraq nöqtə (.) və ya vergül (,) ilə düzgün bir sayı daxil edin"
+  }
+}

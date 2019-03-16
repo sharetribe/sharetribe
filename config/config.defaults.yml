@@ -147,6 +147,10 @@ default: &default_settings
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false
 
+  # If always_use_ssl is set to true, optionally set HTTP Strict Transport
+  # Security header with this max-age. Set to 0 to disable HSTS.
+  hsts_max_age: 31536000 # one year in seconds
+
   # The default locale (language) of the user interface
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
   # This setting here is the server wide default, and it's used if no community specific setting is found.
@@ -560,6 +564,7 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+  hsts_max_age: 0
 
   secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
   # Used to encrypt Stripe api keys

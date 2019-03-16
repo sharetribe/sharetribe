@@ -100,14 +100,17 @@ describe EmailService::SES::Synchronize do
       Timecop.freeze(now) do
 
         addresses = (Synchronize::BATCH_SIZE + 10).times.map { gen_address(:new_pending) }
-        verified_addresses = emails(addresses[0...Synchronize::BATCH_SIZE / 2])
+        verified_addresses = {}
+        addresses[0...Synchronize::BATCH_SIZE / 2].each do |address|
+          verified_addresses[address[:email]] = {verification_status: 'Success'}
+        end
 
         original_addresses = store_addresses(addresses)
         orig_updated_at_max = original_addresses.reduce(DateTime.new(0)) { |max, a| a[:updated_at] > max ? a[:updated_at]  : max }
 
-        stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
+        stubs = {get_identity_verification_attributes: {verification_attributes: verified_addresses}}
         ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
-                                                   stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
+                                                   stubs: stubs)
 
 
         Timecop.travel(now + 5.seconds) do
@@ -131,13 +134,16 @@ describe EmailService::SES::Synchronize do
       Timecop.freeze(now) do
 
         addresses = 10.times.map { gen_address(:new_pending) }
-        verified_addresses = emails(addresses[0...5])
+        verified_addresses = {}
+        addresses[0...5].each do |address|
+          verified_addresses[address[:email]] = {verification_status: 'Success'}
+        end
 
         store_addresses(addresses)
 
-        stubs = {list_verified_email_addresses: {verified_email_addresses: verified_addresses}}
+        stubs = {get_identity_verification_attributes: {verification_attributes: verified_addresses}}
         ses_client = EmailService::SES::Client.new(config: {region: "fake-region", access_key_id: "access_key", secret_access_key: "secret_access_key", sns_topic: "fake-sns-topic-arn"},
-                                                   stubs: {list_verified_email_addresses: {verified_email_addresses: verified_addresses}})
+                                                   stubs: stubs)
 
 
         Timecop.travel(now + 5.seconds) do

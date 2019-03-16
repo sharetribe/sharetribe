@@ -20,6 +20,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     paypal_connected =  view_locals[:paypal_enabled] && view_locals[:paypal_account].present?
 
     stripe_mode = stripe_api.charges_mode(@current_community.id)
+    buyer_commission = stripe_tx_settings[:active] && (stripe_tx_settings[:commission_from_buyer].to_i > 0 || stripe_tx_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
     payment_locals = {
       stripe_connected: stripe_connected,
       paypal_connected: paypal_connected,
@@ -30,6 +31,7 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
       paypal_enabled_by_admin: !!paypal_tx_settings[:active],
       stripe_enabled_by_admin: !!stripe_tx_settings[:active],
+      buyer_commission: buyer_commission
     }
 
     render 'index', locals: view_locals.merge(payment_locals)
@@ -48,15 +50,19 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
   end
 
   def enable
-    result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
-    error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway])
-    redirect_to admin_payment_preferences_path, error: error_message
+    if can_enable_gateway?
+      result = tx_settings_api.activate(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
+      error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_enable_gateway", gateway: params[:payment_gateway])
+    else
+      error_message = t("admin.payment_preferences.cannot_enable_gateway_because_of_buyer_commission", gateway: params[:payment_gateway])
+    end
+    redirect_to admin_payment_preferences_path, flash: {error: error_message}
   end
 
   def disable
     result = tx_settings_api.disable(community_id: @current_community.id, payment_gateway: params[:payment_gateway], payment_process: :preauthorize)
     error_message = result[:success] ? nil : t("admin.payment_preferences.cannot_disable_gateway", gateway: params[:payment_gateway])
-    redirect_to admin_payment_preferences_path, error: error_message
+    redirect_to admin_payment_preferences_path, flash: {error: error_message}
   end
 
   private
@@ -139,7 +145,9 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       commission_from_seller: tx_settings[:commission_from_seller],
       minimum_listing_price: Money.new(tx_settings[:minimum_price_cents], currency),
       minimum_transaction_fee: Money.new(tx_settings[:minimum_transaction_fee_cents], currency),
-      marketplace_currency: currency
+      marketplace_currency: currency,
+      commission_from_buyer: tx_settings[:commission_from_buyer],
+      minimum_buyer_transaction_fee: Money.new(tx_settings[:minimum_buyer_transaction_fee_cents], currency)
     )
   end
 
@@ -169,7 +177,9 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     :minimum_commission,
     :minimum_transaction_fee,
     :marketplace_currency,
-    :mode
+    :mode,
+    :commission_from_buyer,
+    :minimum_buyer_transaction_fee
     ).with_validations do
       validates_numericality_of(
         :commission_from_seller,
@@ -211,7 +221,10 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
             payment_process: :preauthorize,
             commission_from_seller: form.commission_from_seller,
             minimum_transaction_fee_cents: form.minimum_transaction_fee.try(:cents),
-            minimum_transaction_fee_currency: currency
+            minimum_transaction_fee_currency: currency,
+            commission_from_buyer: form.commission_from_buyer,
+            minimum_buyer_transaction_fee_cents: form.minimum_buyer_transaction_fee.try(:cents),
+            minimum_buyer_transaction_fee_currency: currency
           }.compact
         elsif form.mode == 'paypal'
           {
@@ -287,12 +300,17 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
     tx_commission = tx_commission.present? ? tx_commission.to_i : nil
     tx_min_price = parse_money_with_default(params[:minimum_listing_price], tx_settings[:minimum_price_cents], currency)
 
+    commission_from_buyer = params[:commission_from_buyer] || tx_settings[:commission_from_buyer]
+    commission_from_buyer = commission_from_buyer.present? ? commission_from_buyer.to_i : nil
+    minimum_buyer_transaction_fee = parse_money_with_default(params[:minimum_buyer_transaction_fee], tx_settings[:minimum_buyer_transaction_fee], currency)
     {
       minimum_listing_price: tx_min_price,
       minimum_transaction_fee: tx_fee,
       commission_from_seller: tx_commission,
       marketplace_currency: currency,
       mode: params[:mode],
+      commission_from_buyer: commission_from_buyer,
+      minimum_buyer_transaction_fee: minimum_buyer_transaction_fee
     }
   end
 
@@ -340,5 +358,16 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def ensure_params_payment_gateway
     ['stripe', 'paypal'].include?(params[:payment_gateway])
+  end
+
+  def can_enable_gateway?
+    if params[:payment_gateway] == 'paypal'
+      commission_from_buyer = stripe_tx_settings[:commission_from_buyer]
+      minimum_buyer_transaction_fee_cents = stripe_tx_settings[:minimum_buyer_transaction_fee_cents]
+      !((commission_from_buyer.present? && commission_from_buyer >0) ||
+        (minimum_buyer_transaction_fee_cents.present? && minimum_buyer_transaction_fee_cents > 0))
+    else
+      true
+    end
   end
 end

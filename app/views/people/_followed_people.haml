@@ -3,7 +3,7 @@
 .row
   %h2.people-header
     - if followed_people.count > 0
-      - if current_user?(@person)
+      - if current_user?(person)
         - if followed_people.count == 1
           = t(".you_follow_singular", :count => followed_people.count)
         - else

@@ -1,7 +1,8 @@
 class ListingPresenter < MemoisticPresenter
   include ListingAvailabilityManage
+  include Rails.application.routes.url_helpers
   attr_accessor :listing, :current_community, :form_path, :params, :current_image, :prev_image_id, :next_image_id
-  attr_reader :shape
+  attr_reader :shape, :current_user
 
   def initialize(listing, current_community, params, current_user)
     @listing = listing
@@ -54,11 +55,11 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def received_testimonials
-    TestimonialViewUtils.received_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_testimonials.by_community(@current_community)
   end
 
   def received_positive_testimonials
-    TestimonialViewUtils.received_positive_testimonials_in_community(@listing.author, @current_community)
+    @listing.author.received_positive_testimonials.by_community(@current_community)
   end
 
   def feedback_positive_percentage
@@ -199,11 +200,6 @@ class ListingPresenter < MemoisticPresenter
         .map {|res| res[:data]}
         .or_else({})
 
-      stripe_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
-        .select {|res| res[:success]}
-        .map {|res| res[:data]}
-        .or_else({})
-
       paypal_settings = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :paypal))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
@@ -223,6 +219,13 @@ class ListingPresenter < MemoisticPresenter
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")
     end
+  end
+
+  def stripe_settings
+    Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: :stripe))
+      .select {|res| res[:success]}
+      .map {|res| res[:data]}
+      .or_else({})
   end
 
   def payment_settings_api
@@ -286,6 +289,41 @@ class ListingPresenter < MemoisticPresenter
 
   def payments_enabled?
     process == :preauthorize
+  end
+
+  def acts_as_person
+    if params[:person_id].present? &&
+       current_user.has_admin_rights?(current_community)
+      current_community.members.find_by!(username: params[:person_id])
+    end
+  end
+
+  def new_listing_author
+    acts_as_person || @current_user
+  end
+
+  def listing_form_menu_titles
+    {
+      "category" => I18n.t("listings.new.select_category"),
+      "subcategory" => I18n.t("listings.new.select_subcategory"),
+      "listing_shape" => I18n.t("listings.new.select_transaction_type")
+    }
+  end
+
+  def new_listing_form
+    {
+      locale: I18n.locale,
+      category_tree: category_tree,
+      menu_titles: listing_form_menu_titles,
+      new_form_content_path: acts_as_person ? new_form_content_person_listings_path(person_id: new_listing_author.username, locale: I18n.locale) : new_form_content_listings_path(locale: I18n.locale)
+    }
+  end
+
+  def buyer_fee?
+    FeatureFlagHelper.feature_enabled?(:buyer_commission) &&
+      stripe_in_use && !paypal_in_use &&
+      (stripe_settings[:commission_from_buyer].to_i > 0 ||
+      stripe_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
   end
 
   memoize_all_reader_methods

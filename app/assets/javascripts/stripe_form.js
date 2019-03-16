@@ -200,6 +200,7 @@ window.ST.stripe_form_i18n = {
   module.initStripeBankForm = function(options) {
     window.ST.stripe_test_api_mode = options.stripe_test_mode;
     stripeApi = Stripe(options.api_publishable_key);
+    add_validators();
     $("#stripe_account_form_address_country").change(function(){
       var showElement = function (el, show) {
         if (show) {
@@ -237,6 +238,7 @@ window.ST.stripe_form_i18n = {
       }
     });
     $("#stripe_account_form_address_country").trigger('change');
+    $('#stripe-europe-name').addClass('country-dependent');
     $("#stripe-account-form").validate({
       submitHandler: function(form) {
         removeSpaces();
@@ -254,55 +256,58 @@ window.ST.stripe_form_i18n = {
         inputs.prop('disabled', true);
       }
     });
+
   };
 
-  function explain_regexp(value) {
-    var t = value;
-    t = t.replace(/-\[/g, ';'+i18n_label('a_dash', 'a dash')+';[');
-    t = t.replace(/\[0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits', 'digits')+';');
-    t = t.replace(/\[A-Z0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits_or_chars', 'digits or chars')+';');
-    t = t.replace(/\[0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits', 'digits')+';');
-    t = t.replace(/\[A-Z0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits_or_chars', 'digits or chars')+';');
-    t = t.replace(/\[A-Z\]\{(\d+)}/g, ';$1 letter country code;');
-    t = t.replace(/;+/g, ', ').replace(/^,\s*/,'').replace(/,\s*$/, '')
-    return t;
-  }
-  $.validator.addMethod(
-    "country_regexp",
-    function(value, element, field) {
-      var country = $("#stripe_account_form_address_country").val();
-      var rule = BANK_RULES[country] || {};
-      var re = (rule[field] || {} )['regexp'];
-      if(window.ST.stripe_test_api_mode) {
-        re = (rule[field] || {})['test_regexp'];
-      }
-      if(re) {
-        var rx = new RegExp("^"+re+"$");
-        var testValue = value.replace(/\s+/g, '').toUpperCase();
-        return rx.test(testValue);
-      }
-      return this.optional(element) || $(element).val();
-    },
-    function(field, element) {
-      var country = $("#stripe_account_form_address_country").val();
-      var rule = BANK_RULES[country] || {};
-      var title = (rule[field] || {} )['title'];
-      var regexp = (rule[field] || {} )['regexp'];
-      if(window.ST.stripe_test_api_mode) {
-        regexp = (rule[field] || {})['test_regexp'];
-      }
-      var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
-      return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
+  var add_validators = function() {
+    function explain_regexp(value) {
+      var t = value;
+      t = t.replace(/-\[/g, ';'+i18n_label('a_dash', 'a dash')+';[');
+      t = t.replace(/\[0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits', 'digits')+';');
+      t = t.replace(/\[A-Z0-9\]\{(\d+)}/g, ';$1 '+i18n_label('digits_or_chars', 'digits or chars')+';');
+      t = t.replace(/\[0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits', 'digits')+';');
+      t = t.replace(/\[A-Z0-9\]\{(\d+),(\d+)}/g, ';$1-$2 '+i18n_label('digits_or_chars', 'digits or chars')+';');
+      t = t.replace(/\[A-Z\]\{(\d+)}/g, ';$1 letter country code;');
+      t = t.replace(/;+/g, ', ').replace(/^,\s*/,'').replace(/,\s*$/, '')
+      return t;
     }
-  );
-  // Canada
-  $.validator.addMethod(
-    "ca-social-insurance-number",
-    function(value, element, field) {
-      var sin = new SocialInsuranceNumber(value);
-      return sin.isValid();
-    }
-  );
+    $.validator.addMethod(
+      "country_regexp",
+      function(value, element, field) {
+        var country = $("#stripe_account_form_address_country").val();
+        var rule = BANK_RULES[country] || {};
+        var re = (rule[field] || {} )['regexp'];
+        if(window.ST.stripe_test_api_mode) {
+          re = (rule[field] || {})['test_regexp'];
+        }
+        if(re) {
+          var rx = new RegExp("^"+re+"$");
+          var testValue = value.replace(/\s+/g, '').toUpperCase();
+          return rx.test(testValue);
+        }
+        return this.optional(element) || $(element).val();
+      },
+      function(field, element) {
+        var country = $("#stripe_account_form_address_country").val();
+        var rule = BANK_RULES[country] || {};
+        var title = (rule[field] || {} )['title'];
+        var regexp = (rule[field] || {} )['regexp'];
+        if(window.ST.stripe_test_api_mode) {
+          regexp = (rule[field] || {})['test_regexp'];
+        }
+        var def_title = field == 'account_number' ? i18n_label(field, 'Account number') : field;
+        return i18n_label(title, def_title) + " " + i18n_label("must_match", "must be in the following format:")+ " " + explain_regexp(regexp);
+      }
+    );
+    // Canada
+    $.validator.addMethod(
+      "ca-social-insurance-number",
+      function(value, element, field) {
+        var sin = new SocialInsuranceNumber(value);
+        return sin.isValid();
+      }
+    );
+  };
 
 //////////////////////////////////////////////////////////////////////
 // compiled by http://babeljs.io/repl/ from stripe_token_original.js
@@ -369,28 +374,66 @@ var stripeToken = (function() {
 
                   tos_shown_and_accepted: true
                 };
-                address = {
-                  address: {
-                    city: getValue("address_city"),
-                    state: getValue("address_state"),
-                    country: getValue("address_country"),
-                    postal_code: getValue("address_postal_code"),
-                    line1: getValue("address_line1")
+                if (country == 'JP') {
+                  address = {
+                    address_kana: {
+                      postal_code: getValue('address_kana_postal_code'),
+                      state: getValue('address_kana_state'),
+                      city: getValue('address_kana_city'),
+                      town: getValue('address_kana_town'),
+                      line1: getValue('address_kana_line1')
+                    },
+                    address_kanji: {
+                      postal_code: getValue('address_kanji_postal_code'),
+                      state: getValue('address_kanji_state'),
+                      city: getValue('address_kanji_city'),
+                      town: getValue('address_kanji_town'),
+                      line1: getValue('address_kanji_line1')
+                    }
+                  };
+                  person = {
+                    first_name_kana: getValue('first_name_kana'),
+                    last_name_kana: getValue('last_name_kana'),
+                    first_name_kanji: getValue('first_name_kanji'),
+                    last_name_kanji: getValue('last_name_kanji'),
+                    dob: {
+                      day: getValue('birth_date(3i)', 'int'),
+                      month: getValue('birth_date(2i)', 'int'),
+                      year: getValue('birth_date(1i)', 'int')
+                    },
+                    gender: getValue('gender'),
+                    phone_number: getValue('phone_number')
+                  };
+                } else {
+                  var fix_country = country;
+                  var fix_state = getValue('address_state');
+                  if (country == 'PR') {
+                    fix_country = 'US';
+                    fix_state = 'PR';
                   }
-                };
-                person = {
-                  first_name: firstName,
-                  last_name: lastName,
-                  dob: {
-                    day: getValue("birth_date(3i)", "int"),
-                    month: getValue("birth_date(2i)", "int"),
-                    year: getValue("birth_date(1i)", "int")
-                  },
-                  personal_id_number: ["US", "CA", "HK", "SG", "PR"].includes(country)
-                    ? getValue("personal_id_number")
-                    : null,
-                  ssn_last_4: country == "US" ? getValue("ssn_last_4") : null
-                };
+
+                  address = {
+                    address: {
+                      city: getValue('address_city'),
+                      state: fix_state,
+                      country: fix_country,
+                      postal_code: getValue('address_postal_code'),
+                      line1: getValue('address_line1')
+                    }
+                  };
+
+                  person = {
+                    first_name: firstName,
+                    last_name: lastName,
+                    dob: {
+                      day: getValue('birth_date(3i)', 'int'),
+                      month: getValue('birth_date(2i)', 'int'),
+                      year: getValue('birth_date(1i)', 'int')
+                    },
+                    personal_id_number: ['US', 'CA', 'HK', 'SG', 'PR'].includes(country) ? getValue('personal_id_number') : null,
+                    ssn_last_4: country == 'US' ? getValue('ssn_last_4') : null
+                  };
+                }
 
                 $.extend(data.legal_entity, address, person);
 

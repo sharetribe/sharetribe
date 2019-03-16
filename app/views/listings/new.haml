@@ -1,7 +1,7 @@
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() {
-      window.ST.initialize_new_listing_form_selectors("#{I18n.locale}", #{raw @listing_presenter.category_tree.to_json}, #{raw listing_form_menu_titles().to_json});
+      window.ST.initialize_new_listing_form_selectors(#{raw @listing_presenter.new_listing_form.to_json});
     });
 
 - content_for :extra_javascript do
@@ -9,6 +9,10 @@
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
   = javascript_include_tag "//maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
+
+- if @listing_presenter.acts_as_person
+  - content_for :banner_warning do
+    = t('.you_are_now_posting_a_listing_on_behalf_of', name: @listing_presenter.new_listing_author.full_name)
 
 - content_for :title_header do
   %h1= t("homepage.index.post_new_listing")

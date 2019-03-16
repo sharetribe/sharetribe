@@ -79,7 +79,8 @@ module InboxService
 
     [:author, :mandatory],
     [:waiting_feedback, :mandatory, transform_with: @tiny_int_to_bool],
-    [:transitions, :mandatory] # Could add Array validation
+    [:transitions, :mandatory], # Could add Array validation
+    [:buyer_commission, :bool, :optional]
   ]
 
   InboxConversation = EntityUtils.define_builder(*inbox_row_common_spec, *conversation_spec)
@@ -196,6 +197,7 @@ module InboxService
 
     payment_gateway = transaction[:payment_gateway]
 
+    buyer_commission = nil
     payment_total =
       case payment_gateway.to_sym
       when :paypal
@@ -204,6 +206,7 @@ module InboxService
       when :stripe
         stripe_payments = StripeService::API::Api.payments
         tx_model = Transaction.find(transaction[:transaction_id])
+        buyer_commission = tx_model.buyer_commission > 0
         stripe_payments.payment_details(tx_model)[:payment_total]
       end
 
@@ -217,7 +220,8 @@ module InboxService
       transitions: transitions,
       should_notify: should_notify,
       last_transition_at: transaction[:last_transition_at],
-      payment_total: payment_total
+      payment_total: payment_total,
+      buyer_commission: buyer_commission
     )
   end
 

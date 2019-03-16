@@ -32,6 +32,8 @@ describe CurrentMarketplaceResolver do
   describe "#resolve_from_id" do
 
     it "returns community by id" do
+      Community.find_by(id: 111).try(:destroy)
+      Community.find_by(id: 222).try(:destroy)
       foo = FactoryGirl.create(:community, id: 111)
       bar = FactoryGirl.create(:community, id: 222)
 

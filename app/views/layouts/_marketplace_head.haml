@@ -3,7 +3,7 @@
 - if content_for?(:title)
   - title = "#{content_for(:title)} - #{title_service_name}"
 - else
-  - title = "#{title_service_name} - #{community_slogan}"
+  - title = social_media_title
 
 - if content_for?(:keywords)
   - keywords = content_for(:keywords)
@@ -20,19 +20,22 @@
 - if content_for?(:meta_description)
   - meta_description = "#{content_for(:meta_description)}"
 - else
-  - meta_description = "#{community_description(false)} - #{community_slogan}"
+  - meta_description = social_media_description
 
 - if content_for?(:meta_image)
   - meta_image = content_for(:meta_image)
   - meta_image_width = content_for(:meta_image_width)
   - meta_image_height = content_for(:meta_image_height)
 - else
-  - if @current_community.logo?
+  - if @current_community.social_logo.try(:image).try(:file?)
+    - meta_image = @current_community.social_logo.image.url(:original)
+  - elsif @current_community.logo?
     - meta_image = @current_community.logo.url(:original)
   - else
     - meta_image = image_path("sharetribe_icon.png")
 
-%title= title
+- default_title = content_for?(:title) ? "#{content_for(:title)} - #{title_service_name}" : "#{title_service_name} - #{community_slogan}"
+%title= homepage_meta_title(default_title)
 %meta{ :property => "og:title", :content => title}
 %meta{ :name => "twitter:title", :content => title}
 %meta{ :name => "author", :content=> meta_author }
@@ -42,7 +45,7 @@
 %meta{ :name => "copyright", :content => "#{@current_community.name(I18n.locale)}"}
 %meta{ :name => "twitter:url", :content => full_url}
 %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name(locale)}"}
-%meta{ :name => "description", :content => strip_tags(meta_description)}
+%meta{ :name => "description", :content => strip_tags(homepage_meta_description(meta_description))}
 %meta{ :property => "og:description", :content => strip_tags(meta_description)}
 %meta{ :name => "twitter:description", :content => strip_tags(meta_description)}
 %meta{ :property => "og:image", :content => meta_image}
@@ -65,6 +68,9 @@
 
 - if @current_community.has_customizations?
   = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
+
+- if @custom_footer.try(:display?)
+  = render 'layouts/footer/css'
 
 = stylesheet_link_tag "app-bundle"
 
@@ -97,5 +103,5 @@
 
 = auto_discovery_link_tag(:atom, atom_feed_url )
 
-- unless on_admin?
+- unless @disable_custom_head_script || on_admin?
   = @current_community.custom_head_script.try(:html_safe)

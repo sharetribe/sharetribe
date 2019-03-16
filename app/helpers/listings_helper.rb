@@ -51,14 +51,6 @@ module ListingsHelper
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
-  def listing_form_menu_titles()
-    titles = {
-      "category" => t("listings.new.select_category"),
-      "subcategory" => t("listings.new.select_subcategory"),
-      "listing_shape" => t("listings.new.select_transaction_type")
-    }
-  end
-
   def major_currencies(hash)
     hash.inject([]) do |array, (id, attributes)|
       array ||= []
@@ -130,4 +122,11 @@ module ListingsHelper
     t(listing.action_button_tr_key)
   end
 
+  def listing_search_status_titles
+    if params[:status].present?
+      I18n.t("admin.communities.listings.status.selected_js") + params[:status].size.to_s
+    else
+      I18n.t("admin.communities.listings.status.all")
+    end
+  end
 end

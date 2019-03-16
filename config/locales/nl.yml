@@ -12,7 +12,7 @@ nl:
       index:
         listing_categories: "Advertentie categorieën"
         create_a_new_category: "+ Nieuwe categorie toevoegen"
-        remove_category_confirmation: "Weet u zeker dat u de categorie '%{category_name}' wil verwijderen?"
+        remove_category_confirmation: "Weet je zeker dat je de categorie '%{category_name}' wil verwijderen? Dit kan niet ongedaan worden gemaakt."
         saving_order: "Opslaan volgorde categorieën"
         save_order_successful: "Succesvol volgorde categorieën opgeslagen"
         save_order_error: "Fout tijdens het opslaan van de volgorde van de categorieën. Vernieuw de pagina en probeer opnieuw."
@@ -67,9 +67,13 @@ nl:
         community_name: "Naam marktplaats"
         edit_community_name_description: "De naam van je marktplaats. Deze wordt getoond aan gebruikers in e-mails en op diverse andere plaatsen."
         community_slogan: "Slogan marktplaats"
+        community_slogan_display: "Geef de slogan weer op de home pagina"
         edit_community_slogan_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        edit_community_slogan_description_hideable: "Dit wordt weergegeven in browsers, zoekmachines en sociale media. Je kunt het ook weergeven op de home pagina van je marktplaats voor bezoekers die niet zijn ingelogd. %{see_how_it_looks_like}"
         community_description: "Beschrijving marktplaats"
+        community_description_display: "Geef de beschrijving weer op de home pagina"
         edit_community_description_description: "Deze wordt getoond op de homepage van de marktplaats aan gebruikers die niet zijn ingelogd. %{see_how_it_looks_like}."
+        edit_community_description_description_hideable: "Dit wordt weergegeven in browsers, zoekmachines en sociale media. Je kunt het ook weergeven op de home pagina van je marktplaats voor bezoekers die niet zijn ingelogd. %{see_how_it_looks_like}"
         community_search_placeholder: "Zoek hulptekst"
         edit_community_search_placeholder_description: "Dit wordt getoond op de homepage van de marktplaats als een tijdelijke tekst in het zoekvenster. %{see_how_it_looks_like}."
         private_community_homepage_content: "Private marktplaats homepage inhoud"
@@ -95,26 +99,28 @@ nl:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
         community_logo_icon: "Logo voor sociale netwerken en mobiele toestellen"
+        community_logo_icon_mobile: "Logo voor home screen op mobiele apparaten"
         community_cover_photo: "Cover afbeelding"
         small_community_cover_photo: "Kleine cover afbeelding"
         favicon: Favicon
         favicon_info_text: "Favicon zal het standaard Sharetribe-logo vervangen. De afmetingen moeten 32x32 pixels zijn. De afbeelding die wordt opgeladen zal verkleind worden naar deze afmetingen."
-        community_custom_color1: Hoofdkleur
+        community_custom_color1: "Marktplaats hoofdkleur"
         community_slogan_color: "Kleur marktplaats slogan"
         community_slogan_color_instructions_text: "Je kunt de kleur van de slogan op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waar te vinden. Die vul je vervolgens hier in. %{see_how_it_looks_like}"
         community_description_color: "Kleur marktplaats beschrijving"
         community_description_color_instructions_text: "Je kunt de kleur van de beschrijving op de homepagina veranderen door hier een hex kleur waarde in te vullen. De slogan wordt getoond aan niet-ingelogde gebruikers.%{colorpicker} kan je helpen om een kleur en bijbehorende waarde te vinden. Die vul je vervolgens hier in.%{see_how_it_looks_like}"
         new_listing_button_custom_color: "Kleur van de \"Plaats een nieuwe advertentie\" button"
-        logo_instructions_text_with_dimensions: "Het desktop logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
+        logo_instructions_text_with_dimensions: "Het logo dient %{width}x%{height} pixels te zijn. Het zal getoond worden aan gebruikers met grotere schermen."
         logo_instructions_text_with_dimensions_no_placing: "Het logoformaat dient %{height}x%{width} pixels te zijn."
         logo_icon_instructions_text_with_dimensions: "Mobiele logo's dienen vierkant te zijn, bij voorkeur %{width}x%{height} pixels. Het zal getoond worden aan gebruikers met kleinere schermen."
         logo_icon_instructions_text_with_dimensions_no_placing: "Dit vierkante logo wordt vertoond wanneer mensen jouw site delen op Facebook, of wanneer ze je site bookmarken op het home screen van hun mobiele apparaat. De dimensies dienen (minstens) %{height}x%{width} pixels te zijn."
+        logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen minstens %{width}x%{height} pixels te zijn."
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
         new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen. Je kunt de code dan hier kopieren."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de advertenties standaard weergegeven worden."
@@ -179,27 +185,33 @@ nl:
       getting_started:
         getting_started: "Begin hier"
       available_languages:
+        cs: Tsjechisch
+        da-DK: Deens
+        de: Duits
         en: Engels
         en-AU: "Engels (Austrialie)"
         en-GB: "Engels (Groot-Brittanie)"
+        es: Spaans
+        es-ES: "Spaans (Spanje)"
+        fi: Fins
         fr: Frans
         fr-CA: "Frans (Canada)"
-        es: "Spaans (Chili)"
-        es-ES: Spaans
-        pt-PT: Portugees
-        pt-BR: "Portugees (Brazilliaans)"
-        nb: "Noors Bokmål"
-        sv: Zweeds
-        da-DK: Deens
-        fi: Fins
-        ru: Russisch
-        de: Duits
         el: Grieks
-        nl: Nederlands
-        tr-TR: Turks
-        zh: Chinees
-        ja: Japans
         it: Italiaans
+        ja: Japans
+        ko: Koreaans
+        nb: "Noors Bokmål"
+        nl: Nederlands
+        pl: Pools
+        pt-BR: "Portugees (Brazilliaans)"
+        pt-PT: Portugees
+        ru: Russisch
+        sv: Zweeds
+        th-TH: "Thais (Thailand)"
+        tr-TR: Turks
+        vi: Vietnamees
+        zh: Chinees
+        zh-TW: "Chinees (Taiwan)"
       settings:
         settings: Instellingen
         general: Algemeen
@@ -230,6 +242,7 @@ nl:
         update_settings: "Instellingen opslaan"
         automatically_confirmed_no_escrow: "%{days_dropdown} dagen nadat de betaling is uitgevoerd, zal de transactie automatisch als afgerond worden gemarkeerd"
         automatically_confirmed_no_escrow_stripe_info: "Voor transacties die worden verwerkt met Stripe wordt de betaling aan de leveranciers uitgesteld totdat de bestelling als voltooid is gemarkeerd. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Zend automatische nieuwsbrief: %{frequency_dropdown}"
         newsletter_daily: Dagelijks
         newsletter_weekly: Wekelijks
@@ -264,6 +277,22 @@ nl:
         reset_search: "Toon alles"
         for_search_terms: "voor: %{terms}"
         this_makes_the_user_an_admin: "Dit maakt de gebruiker een beheerder. Je dient de gebruiker op de hoogte te stellen van hun verantwoordelijkheden en de gebruiksvoorwaarden van Sharetribe. Weet je zeker dat je wilt doorgaan?"
+        status_filter:
+          all: "Alle statussen"
+          selected: "Gekozen statussen: %{count}"
+          selected_js: "Gekozen statussen: "
+          admin: Beheerder
+          banned: Verbannen
+          posting_allowed: "Plaatsen toegestaan"
+          accepted: Geaccepteerd
+          unconfirmed: Onbevestigd
+          pending: "In afwachting"
+        this_user_hasnt_confirmed_their_email_address: "Deze gebruiker heeft haar/zijn emailadres nog niet bevestigd. Het is mogelijk dat ze de bevestigingsemail niet hebben ontvangen. Klik op de Zend opnieuw knop als je het opnieuw wilt verzenden."
+        unconfirmed_user: "Onbevestigde gebruiker: %{name}"
+        resend: "Zend opnieuw"
+        cancel: Annuleer
+        user_didnt_complete_the_signup_process: "Deze gebruiker heeft geregistreerd via Facebook maar het proces niet voltooid. Na het koppelen van een Facebook account moeten gebruikers nog steeds de gebruikersvoorwaarden accepteren en eventuele verplichte velden invullen."
+        pending_user: "In afwachting: %{name}"
       new_layout:
         new_layout: "Nieuwe layout"
         description_roadmap_new: "Wanneer nieuwe componenten van de layout beschikbaar worden gemaakt voor je marktplaats, kun je kiezen of je de nieuwe wilt gebruiken of dat je de oude wilt blijven gebruiken. Je kunt altijd wisselen op deze pagina. Het is aan te raden om altijd de nieuwe versie te gebruiken, aangezien de oude componenten op een gegeven moment waarschijnlijk zullen verdwijnen. In die gevallen zul je uiteraard lang van te voren op de hoogte gesteld worden."
@@ -273,22 +302,64 @@ nl:
         searchpage: "Nieuwe zoekpagina (vereist de nieuwe top bar)"
       social_media:
         social_media: "Sociale media"
+        logo: "Sociale media afbeelding"
+        logo_info: "Deze afbeelding verschijnt in sociale media (Facebook, Twitter, LinkedIn) wanneer iemand jouw website deelt. Voor het beste resultaat dient het een beeldverhouding van 2:1 te hebben en een minimum grootte van %{width}x%{height} pixels."
+        social_media_title: "Sociale media titel"
+        social_media_title_info: "Deze tekst wordt getoond in sociale media voor Facebook, Twitter en LinkedIn als iemand je website deelt. Je kunt kijken hoe het eruitziet %{facebook_preview_link}, %{twitter_preview_link} en %{linkedin_preview_link}."
+        link_for_facebook: "voor Facebook"
+        link_for_linkedin: "voor LinkedIn"
+        link_for_twitter: "voor Twitter"
+        social_media_description: "Sociale media beschrijving"
         twitter_handle: "Twitter account"
         twitter_handle_info_text: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Deze zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertentie pagina."
         twitter_handle_info_text_with_instructions: "Gebruikersnaam van de Twitter account van je marktplaats (als je er een hebt). Het zal vermeld worden wanneer mensen de tweet-knop gebruiken op de advertenties pagina. %{instructions_link}."
         twitter_instructions_link_text: "Lees meer"
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
-        facebook_connect: Facebook
+        facebook_connect: "Facebook Login"
         facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
         facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
-        facebook_instructions_link_text: "Zie instructies om Facebook Connect te configureren."
+        facebook_instructions_link_text: "Zie instructies om Facebook Login te configureren."
         facebook_connect_id: "Facebook client ID"
         invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
         facebook_connect_secret: "Facebook client geheim"
         invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
+        add_another_image: "Voeg nog een afbeelding toe"
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
+        google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
+        google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe."
+        enable_google_login: "Sta gebruikers toe om in te loggen met hun Google account"
+        google_connect_id: "Google client id"
+        google_connect_secret: "Google client secret"
+        linkedin_connect: "LinkedIn Sign in"
+        linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In."
+        linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
+        linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
+        enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
+        linkedin_connect_id: "LinkedIn client id"
+        linkedin_connect_secret: "LinkedIn client secret"
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -300,12 +371,18 @@ nl:
         sharetribe_analytics_instructions_link_text: "Lees meer over Sharetribes analytics."
         end_user_analytics: "Sta Sharetribe toe om activiteit van de leden te volgen om de service te verbeteren"
         save: "Instellingen opslaan"
+      logo_link:
+        title: "Logo link"
+        info: "Je kunt de link van het logo aanpassen (en de standaard \"Home\" knop op de menubalk boven). Het logo linkt standaard naar de Home pagina of de Custom Landing Pagina."
+        url: URL
+        placeholder: "https://www.voorbeeld.com"
       menu_links:
-        menu_links: "Menu koppelingen"
+        menu_links: "Zelfgemaakte menu links"
+        menu_links_display: "Menu links weergave"
         save: "Instellingen opslaan"
         add_menu_link: "Voeg een nieuwe koppeling toe aan menu"
         title_placeholder: "Titel koppeling"
-        url_placeholder: "http://example.com/en"
+        url_placeholder: "http://voorbeeld.nl"
         title: Titel
         language: Taal
         url: URL
@@ -314,6 +391,15 @@ nl:
         all: Alle
         max_number_of_links_info: "Link naar %{about_page} wordt altijd weergegeven als de eerste link in het menu"
         about_page: "\"Over\" pagina"
+      default_menu_links:
+        title: "Standaard menu links"
+        about_link_title: "Over ons"
+        contact_link_title: "Neem contact op"
+        invite_link_title: "Nodig nieuwe leden uit"
+        info: "De links naar de volgende pagina's worden standaard nergens anders in je marktplaats getoond: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Toon link naar <i>Over ons</i> en andere statisch pagina's."
+        display_contact: "Toon link naar <i>Neem contact op</i> pagina"
+        display_invite: "Toon link naar <i>Nodig nieuwe leden uit</i> pagina"
       topbar:
         topbar: "Menubalk boven"
         new_listing_button_label: "Tekst voor \"Plaats een nieuwe advertentie\"-button."
@@ -322,6 +408,19 @@ nl:
         export_all_as_csv: "Exporteer alles als CSV"
         processing_export: "Export naar CSV wordt verwerkt."
         transactions: Transacties
+        search_by_title_parties: "Zoek op transactie titel of betrokken partijen"
+        search: Zoek
+        reset_search: "Toon alles"
+        status_filter:
+          all: "Alle statussen"
+          selected: "Gekozen statussen: %{count}"
+          selected_js: "Gekozen statussen: "
+          free: "Vrije transactie"
+          confirmed: Voltooid
+          paid: Betaald
+          canceled: Geannuleerd
+          preauthorized: "Vooraf geauthoriseerd"
+          rejected: Geweigerd
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -379,23 +478,71 @@ nl:
           other_party: "Andere partij"
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
+        search_by_keyword: "Zoek voor een naam, email of trefwoord"
+        search: Zoek
+        reset_search: "Toon alle"
+        for_keyword: "voor: <b>%{keyword}</b>"
       testimonials:
         testimonials: Recensies
         no_testimonials_found: "Geen recensies gevonden"
         displaying_xx_reviews: "Geeft weer <b>%{count}</b> recensies in transacties %{tx_from} - %{tx_to} van <b>%{all_count}</b> recensies in totaal"
+        search_keyword: "Zoek voor een naam, email of trefwoord"
+        search: Zoek
+        reset_search: "Toon alle"
+        for_keyword: "voor: <b>%{keyword}</b>"
         headers:
           transaction: Transactie
           author: Auteur
           receiver: Ontvanger
           status: Status
           grade: Cijfer
-          note: Aantekening
+          text: Tekst
         status:
           waiting: "In afwachting van recensie"
           skipped: Overgeslagen
           published: Gepubliceerd
+          blocked: Geblokkeerd
+        status_filter:
+          selected: "Geselecteerde filters: %{count}"
+          all: Filters
+          published: Gepubliceerd
+          positive: Positief
+          negative: Negatief
+          skipped: Overgeslagen
+          waiting: "In afwachting"
+          blocked: Geblokkeerd
+          selected_js: "Geselecteerde filters "
+        form:
+          review_text: "Herzie tekst"
+          save: "Sla op"
+          cancel: Annuleer
+          delete_review: "Verwijder recensie"
+          block_review: "Blokkeer recensie"
+          confirm_modify: "Weet je zeker dat je deze recensie wilt aanpassen/verwijderen? Wanneer je een recensie aanpast/verwijdert, is het niet mogelijk om de oude gegevens terug te krijgen."
+          deleting_info: "Het verwijderen van een recensie stelt de schrijver in staat om opnieuw een recensie voor dezelfde transactie achter te laten."
+          blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
+      invitations:
+        invitations: Uitnodigingen
+        used:
+          "yes": Ja
+          "no": Nee
+        headers:
+          sent_by: "Verzonden door"
+          message: Bericht
+          sent_to: "Verzonden naar"
+          used: Gebruikt
+          date_sent: "Datum verzonden"
       listings:
         listings: Advertenties
+        search_by_title_author_category: "Zoek op advertentietitel, auteur of categorienaam"
+        search: Zoek
+        reset_search: "Toon alles"
+        status:
+          all: "Alle statussen"
+          selected_js: "Gekozen statussen: "
+          open: Open
+          closed: Gesloten
+          expired: Verlopen
         headers:
           title: Titel
           author: Auteur
@@ -408,6 +555,40 @@ nl:
         expired: Verlopen
       user_fields:
         user_fields: Gebruikersvelden
+      footer:
+        footer: Voettekst
+        offer_pro: "Configureer en verwijder alle Sharetribe branding van de voettekst van je marktplaats door %{upgrade_pro_plan_link}"
+        upgrade_plan_link: "te upgraden naar het Pro plan of hoger"
+        menu_links: "Voettekst links"
+        language: Taal
+        title: Titel
+        url: URL
+        add: "Voeg nieuwe link aan de voettekst toe"
+        save: "Sla instellingen op"
+        footer_style: "Voettekst stijl"
+        footer_copyright: "Voettekst copyright"
+        footer_enabled: "Voettekst ingeschakeld"
+        social_links: "Voettekst sociale links"
+        title_placeholder: Linktitel
+        url_placeholder: http.//voorbeeld.com/gebruikersnaam
+        style:
+          dark: Donker
+          light: Licht
+          marketplace_color: "Kleur marktplaats"
+          logo: Logo
+        social:
+          title: Titel
+          url: URL
+      domain:
+        domain: Domein
+        marketplace_domain: "Marktplaats domein"
+        offer_pro: "Configureer je eigen domein door %{upgrade_pro_plan_link}"
+        upgrade_pro_plan_link: "te upgraden naar een Pro plan of hoger"
+        your_marketplace_address_is: "Je martkplaatsadres is: %{address}"
+        would_you_like_to_change_address: "Wil je je marktplaatsadres veranderen? %{contact_us}"
+        contact_us: "Neem contact op met ons"
+        you_can_now_use_a_custom_domain: "Met je huidige plan kun je nu een eigen domein instellen. Om verder te gaan met de setup: %{contact_us}!"
+        would_you_like_to_change_domain: "Wil je je eigen marktplaats domein veranderen? %{contact_us}!"
     custom_fields:
       edit:
         edit_listing_field: "Edit advertentie veld '%{field_name}'"
@@ -435,7 +616,7 @@ nl:
         listing_fields: "Advertentie velden en filters"
         listing_fields_help: "Hier kan je de velden aanpassen die gebruikers moeten invullen wanneer ze een nieuwe advertentie aanmaken. Merk op dat sommige velden gepredefinieerd zijn en niet gewijzigd kunnen worden."
         add_new_field: "Voeg een nieuw veld toe:"
-        remove_field_confirmation: "Weet u zeker dat u het veld '%{field_name}' wilt verwijderen?"
+        remove_field_confirmation: "Weet je zeker dat je het veld '%{field_name}' en alle bijbehorende data wilt verwijderen? Dit kan niet ongedaan worden gemaakt."
         cancel: Annuleer
         save: Opslaan
         field_title: "Veld titel"
@@ -469,6 +650,8 @@ nl:
         user_fields: Gebruikersvelden
         field_title: Veldtitel
         field_type: Veldtype
+        signup: Inschrijving
+        public: Openbaar
         add_new_field: "Voeg nieuw veld toe"
         save: "Sla op"
         cancel: Annuleer
@@ -499,6 +682,7 @@ nl:
           title: "Naar wie wil je een email sturen?"
           options:
             all_users: "Alle gebruikers"
+            posting_allowed: "Gebruikers die advertenties mogen plaatsen"
             with_listing: "Gebruikers die ten minste één advertentie hebben geplaatst"
             with_listing_no_payment: "Gebruikers die ten minste één advertentie hebben geplaatst, maar niet hun betalingsdetails hebben ingevuld"
             with_payment_no_listing: "Gebruikers die hun gebruikersdetails hebben ingevuld, maar nog geen advertentie hebben geplaatst."
@@ -602,6 +786,7 @@ nl:
         night: "Per nacht"
         week: "Per week"
         month: "Per maand"
+        unit: "Per eenheid"
       can_not_find: "Kan order type met het volgende id niet vinden: %{id}"
       add_custom_unit: "+ Voeg een eigen prijseenheid toe…"
       delete_custom_unit: verwijder
@@ -672,6 +857,8 @@ nl:
       stripe_fee_notice: "%{stripe_fee_link} wordt afgetrokken van de commissie die jij in rekening brengt."
       fee_should_be_less_than_minimum_price: "Minimale transactiekosten dienen lager te zijn dan de minimale transactieomvang."
       confirm_disable: "Weet je zeker dat je %{gateway} wilt uitschakelen? Als je dit uitschakelt, zijn leveranciers niet meer in staat geld te ontvangen en kopers niet meer in staat te betalen met deze methode. Als leveranciers nog geen andere methoden hebben geconfigureerd, kan er van hen niet gekocht worden."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe gekoppeld"
         disable: "Schakel Stripe uit"
@@ -684,6 +871,7 @@ nl:
         enable: "Schakel PayPal weer in"
       cannot_enable_gateway: "Kan betaalmethode %{gateway} niet inschakelen."
       cannot_disable_gateway: "Kan betaalmethode %{gateway} niet uitschakelen."
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Voeg je Stripe API keys toe"
         how_to_get_these: "Hoe krijg ik deze?"
@@ -809,6 +997,7 @@ nl:
       quantity_label: "Aantal:"
       sum_label: "Subtotaal:"
       service_fee_label: "%{service_name} kost:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Je krijgt:"
       total_label: "Totaal:"
       total_value: "%{seller_gets}*"
@@ -854,6 +1043,7 @@ nl:
     message:
       accepted_request: "heeft het verzoek aanvaard"
       received_payment: "accepteerde het verzoek, ontving betaling voor %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "heeft het voorstel aanvaard"
       rejected_request: "heeft het verzoek niet aanvaard, betaling geannuleerd"
       rejected_offer: "heeft het voorstel niet aanvaard"
@@ -863,8 +1053,10 @@ nl:
       canceled_offer: "heeft het voorstel geannuleerd"
       paid: "betaald %{sum}"
       payment_preauthorized: "Betaling gemachtigd: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Verzoek geaccepteerd. De betaling voor %{sum} wordt vastgehouden door %{service_name} totdat de bestelling als voltooid wordt gemarkeerd."
+        held_payment_wo_sum: ~
         confirmed_request: "Bestelling is gemarkeerd als voltooid. De betaling is nu of zal spoedig worden overgemaakt naar %{author_name}'s rekening."
     new:
       message: Bericht
@@ -1079,7 +1271,9 @@ nl:
       shipping_total: "Verzenden:"
       product: "Product:"
       price_payer_paid: "Prijs die %{payer_full_name} betaalde:ie"
+      subtotal: ~
       service_fee: "%{service_name} service toeslag:"
+      buyer_service_fee: ~
       you_will_get: "Totaal:"
       new_payment: "Je hebt een nieuwe betaling ontvangen"
       price_per_unit_type: "Prijs per %{unit_type}"
@@ -1095,6 +1289,7 @@ nl:
       duration: Duur
       quantity: Aantal
       subtotal: Subtotaal
+      buyer_service_fee: ~
       total: Totaal
       price: Prijs
       service_fee: Servicetoeslag
@@ -1119,7 +1314,7 @@ nl:
       subtotal: Subtotaal
       total: Totaal
       price: Prijs
-      service_fee: "Service toeslag"
+      buyer_service_fee: ~
       stripe_gateway_fee: "toeslag Stripe"
       paypal_gateway_fee: "toeslag Stripe"
       money_will_be_transferred: "Het geld zal overgemaakt worden naar %{recipient_name} wanneer a) je het verzoek als afgehandeld hebt gemarkeerd of b) wanneer er %{automatic_confirmation_days} dagen verstreken zijn sinds jouw betaling."
@@ -1253,6 +1448,7 @@ nl:
       after: "moet zijn na %{restriction}"
       on_or_after: "moet zijn op of na %{restriction}"
       positive_number: "Voer een getal in."
+      from_must_be_less_than_till: "\"Vanaf\" moet minder zijn dan \"tot\""
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} heeft ermee ingestemd om %{listing_title} te lenen aan %{requester_name} %{time_ago}."
@@ -1290,7 +1486,7 @@ nl:
     create_new_marketplace: "Maak een nieuwe marktplaats"
     contact_us: "Neem contact op"
     profile: Profiel
-    manage_listings: "Beheer advertenties"
+    manage_listings: "Mijn advertenties"
     invite: "Nodig nieuwe leden uit"
     login: "Log in"
     signup: Registreer
@@ -1499,8 +1695,8 @@ nl:
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: "De bevestigingslink is al gebruikt of is niet geldig. Probeer in te loggen en neem contact met ons op als het probleem zich blijft voordoen."
       additional_email_confirmed: "Het e-mail adres dat je hebt ingegeven is nu bevestigd."
-      could_not_get_email_from_facebook: "Kon uw Facebook e-mail adres niet ophalen. Kan geen account aanmaken zonder e-mail adres."
-      facebook_email_unconfirmed: "Het emailadres '%{email}' geassocieerd met je Facebook account is al gebruikt, maar is nog niet bevestigd. Bevestig het emailadres voordat je met Facebook inlogt."
+      could_not_get_email_from_social_network: "Het was niet mogelijk om het emailadres van %{provider} te krijgen en kan geen account creeeren zonder email."
+      social_network_email_unconfirmed: "Het emailadres '%{email}' gekoppeld met je %{provider} account is al in gebruik, maar nog niet bevestigd. Gelieve het emailadres te bevestigen alvorens in te loggen met %{provider}."
       create_new_listing: "Een andere advertentie aanmaken"
       create_one_here: "hier één maken"
       email_confirmation_sent_to_new_address: "E-mail bevestiging is nu gestuurd naar het nieuwe adres."
@@ -1537,7 +1733,7 @@ nl:
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
       listing_updated_availability_management_enabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement ingesteld."
       listing_updated_availability_management_disabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement uitgezet."
-      only_kassi_administrators_can_access_this_area: "Alleen het %{service_name} team heeft toegang tot dit gedeelte"
+      only_kassi_administrators_can_access_this_area: "Voor toegang tot dit gedeelte gelieve in te loggen met een beheerderaccount"
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
       payment_successful: "Betaling succesvol"
@@ -1610,8 +1806,8 @@ nl:
         other: "De website gaat over %{count} minuten offline voor onderhoud"
       automatically_logged_out_please_sign_in: "Je bent automatisch uitgelogd. Log opnieuw in."
       stripe_you_account_balance_is_not_0: "Je accountbalans is niet 0 en kan dus niet worden verwijdered. Dit kan betekenen dat je nog transacties hebt die moeten worden afgerond, of dat er nog geld is dat moet worden uitbetaald op jouw rekening. Gelieve contact op te nemen met het team van %{service_name} om meer te weten te komen."
-      visit_admin: ~
-      visit_admin_link: ~
+      visit_admin: "Wil je je %{link}?"
+      visit_admin_link: "beheerderpaneel bezoeken"
     settings:
       account: Account
       notifications: Notificaties
@@ -1620,6 +1816,8 @@ nl:
       paypal_payments: "PayPal betalingen"
       stripe_payments: "Stripe betalingen"
       payments: Betalingen
+      listings: Advertenties
+      listings_search_placeholder: "Zoek een advertentie op titel"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Je hebt geen toestemming om deze advertentie te bekijken."
@@ -1807,6 +2005,7 @@ nl:
       select_one: "Selecteer er een"
       start_time: Starttijd
       end_time: Eindtijd
+      marketplace_fees_may_apply: ~
     new:
       listing: advertentie
       selected_category: "Categorie: %{category}"
@@ -1820,12 +2019,14 @@ nl:
       community_not_configured_for_payments: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Neem a.u.b. contact op met %{contact_admin_link} voor details."
       payment_settings_link: "instellingen betalingen"
       community_not_configured_for_payments_admin: "%{service_name} is nog niet ingesteld voor betalingen, dus je kunt nog geen advertenties plaatsen. Ga naar %{payment_settings_link} om de betalingsgegevens in te stellen."
+      you_are_now_posting_a_listing_on_behalf_of: "Je plaatst nu een advertentie op naam van %{name}"
     quantity:
       hour: "Aantal uur:"
       day: "Aantal dagen:"
       night: "Aantal nachten:"
       week: "Aantal weken:"
       month: "Aantal maanden:"
+      unit: "Aantal eenheden"
       custom: "Aantal:"
     quantity_placeholder: Aantal
     please_comment: Reactie
@@ -1877,6 +2078,7 @@ nl:
       night: nacht
       week: week
       month: maand
+      unit: eenheid
     verification_required:
       verification_required: "Verificatie vereist"
   listing_conversations:
@@ -2028,9 +2230,9 @@ nl:
       email_restriction_instructions:
         one: "De toegang tot %{service_name} is beperkt. Om aan te sluiten heeft u een '%{allowed_emails}' e-mail adres nodig."
         other: "De toegang tot %{service_name} is beperkt. U heeft een e-mail adres nodig dat aantoont dat u gerechtigd bent om aan te sluiten."
-      family_name: Familienaam
+      family_name: Achternaam
       given_name: Voornaam
-      i_accept_the_terms_and_privacy: "I accepteer de %{terms} en %{privacy}"
+      i_accept_the_terms_and_privacy: "Ik accepteer de %{terms} en %{privacy}"
       admin_emails_consent: "Ik geef hierbij toestemming voor het ontvangen van emails van %{service_name}, en ik begrijp dat ik dit later altijd kan veranderen."
       invalid_invitation_code: "Deze invitatie code is niet geldig."
       invitation_code: "Invitatie code"
@@ -2045,7 +2247,7 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn letters, nummers en liggend streepje."
       visible_only_to_you: "alleen zichtbaar voor jou en het %{service_name} team"
       visible_to_everybody: "zichtbaar voor iedereen"
-      create_account_with_facebook: "Maak een account met Facebook"
+      create_account_with_provider: "Schrijf je in met %{provider}"
       OR: OF
       signup_with_email: "Meld je aan met je e-mail adres"
       this_field_will_be_publicly_visible: "(Dit veld wordt publiekelijk zichtbaar)"
@@ -2053,9 +2255,8 @@ nl:
       grade: "cijfer:"
       and_gave_following_feedback: "en gaf de volgende feedback"
     profile_listings:
-      show_also_closed: "Laat ook gesloten zien"
-      show_only_open: "Laat alleen open zien"
       no_image: "Geen afbeelding"
+      manage_listings: "Beheer al mijn advertenties"
     show:
       contact: "Contacteer %{person}"
       about_me: "Over mij:"
@@ -2088,6 +2289,8 @@ nl:
       show_all_listings: "Toon alle advertenties"
       show_all_open_listings: "Toon alle actuele advertenties"
       show_all_reviews: "Toon alle evaluaties"
+      admin_actions: Beheerderacties
+      post_listing_as: "Plaats advertentie als"
     followed_people:
       you_follow_plural: "Je volgt %{count} mensen"
       you_follow_singular: "Je volgt %{count} persoon"
@@ -2112,7 +2315,7 @@ nl:
       account_creation_link_text: "klik hier"
       cancle_facebook_connect: "Klik %{cancel_link} als u niet wilt linken met dit account."
       facebook_cancel_link_text: annuleer
-      log_in_with_your_facebook_account: "Log in met Facebook"
+      log_in_with_your_provider_account: "Log in met %{provider}"
       or_sign_up_with_your_username: "... of met uw gebruikersnaam of e-mail adres:"
       we_will_not_post_without_asking_you: "We zullen nooit iets op Facebook zetten zonder jouw toestemming."
     password_forgotten:
@@ -2206,13 +2409,14 @@ nl:
       profile_page: "op uw profielpagina"
       profilemap: "Overzicht op kaart"
       street_address: "Straat en huisnummer"
-      these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle %{service_name} gebruikers"
+      these_fields_are_shown_in_your: "Een gedeelte van deze informatie is zichtbaar voor alle %{service_name} gebruikers"
       visible_to_everybody: "zichtbaar voor iedereen"
       visible_to_registered_users: "(zichtbaar voor ingelogde gebruikers)"
       default_in_listing: "(enkel als standaard gebruikt bij het aanmaken van een nieuwe advertentie)"
       invisible: "(niet getoond aan andere gebruikers)"
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
       shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
+      editing_profile_of: "Je wijzigt nu het profiel van %{name}"
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"
@@ -2425,13 +2629,14 @@ nl:
       user: Gebruiker
       inbox: Inbox
       profile: Profiel
-      manage_listings: "Beheer advertenties"
+      manage_listings: "Mijn advertenties"
       settings: Instellingen
       logout: "Log uit"
       login: "Log in"
       signup: "Schrijf je in"
       admin_dashboard: "Beheerder dashboard"
       language: Taal
+      listings: "Mijn advertenties"
     utils:
       km: km
       mi: mi.
@@ -2467,14 +2672,14 @@ nl:
       community_members_entries_info:
         single_page:
           zero: "Geen %{model} gevonden"
-          one: "Geeft weer %{accepted_count} geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-          other: "Geeft weer %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+          one: "Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+          other: "Weergegeven %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
         single_page_html:
           zero: "Geen %{model} gevonden"
-          one: "Geeft weer <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-          other: "Geeft weer <b>%{accepted_count}</b> geaccepteerden %{accepted_model} en %{banned_count} verbannen %{banned_model}"
-        multi_page: "Geeft weer %{model}%{from} - %{to} van %{accepted_count} geaccepteerden %{accepted_model} en %{banned_count} verbannen%{banned_model}"
-        multi_page_html: "Geeft weer %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> van <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{banned_count} verbannen %{banned_model}"
+          one: "Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+          other: "Weergegeven <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en %{other_count} andere %{other_model}"
+        multi_page: "Weergegeven %{model} %{from} - %{to} van %{accepted_count} geaccepteerde %{accepted_model} en %{other_count} andere%{other_model}"
+        multi_page_html: "Weergegeven%{model}<b>%{from} &nbsp;-&nbsp;%{to}</b> van <b>%{accepted_count}</b> geaccepteerde %{accepted_model} en%{other_count}  andere %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Het gebruiken van het betalingsysteem van %{service_name} is niet mogelijk om dat online betalingen nog niet zijn ingesteld. Gelieve%{contact_admin_link} voor details."
     contact_admin_link_text: "neem contact op met het %{service_name} team"
@@ -2497,6 +2702,10 @@ nl:
       legal_name: "Officiele naam"
       first_name: Voornaam
       last_name: Achternaam
+      first_name_kana: "Voornaam (in Kana)"
+      last_name_kana: "Achternaam (in Kana)"
+      first_name_kanji: "Voornaam (in Kanji)"
+      last_name_kanji: "Achternaam (in Kanji)"
       country: Land
       birth_date: Geboortedatum
       ssn_last_4: Sofinummer
@@ -2512,6 +2721,21 @@ nl:
       save_details: "Sla informatie op"
       edit: "Informatie bewerken"
       cancel: Annuleer
+      gender: Geslacht
+      phone_number: Telefoonnummer
+      address_kana_postal_code: "Postcode (in Kana)"
+      address_kana_state: "Staat (in Kana)"
+      address_kana_city: "Stad (in Kana)"
+      address_kana_town: "Dorp (in Kana)"
+      address_kana_line1: "Adres (in Kana)"
+      address_kanji_postal_code: "Postcode (in Kanji)"
+      address_kanji_state: "Staat (in Kanji)"
+      address_kanji_city: "Stad (in Kanji)"
+      address_kanji_town: "Dorp (in Kanji)"
+      address_kanji_line1: "Adres (in Kanji)"
+      male: man
+      female: vrouw
+      mcc: ~
     form_bank:
       bank_account_number: Bankrekeningnummer
       bank_routing_number: "Routing nummer"
@@ -2557,6 +2781,6 @@ nl:
     can_accept_stripe_and_paypal: "Je kunt geld ontvangen op je bankrekening of op je PayPal account."
     to_accept_paypal: "Om geld te ontvangen op je PayPal account, dien je je PayPal account te koppelen. Je klanten kunnen dan met PayPal betalen."
     connect_paypal: "Koppel PayPal-account"
-    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: het platform is niet geregistreerd. Neem contact op met het team om ze te laten weten dat ze hun platform bij Stripe moeten registreren."
+    wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: Stripe Connect is niet ingeschakeld. Neem contact op met het team om ze te laten weten dat ze Stripe Connect moeten inschakelen op hun Stripe Dashboard."
     invalid_bank_account_number: "Controleer aub of je bankrekeningnummer correct is ingevoerd en met je land overeenkomt."
     invalid_postal_code: "Ongeldige postcode voor %{country}"

@@ -43,7 +43,7 @@ hu:
         warning_subcategory_will_be_removed:
           other: "%{count} számú alkategória van a kategórián belül. Ez törlésre fog kerülni."
         warning_with_subcategories_listing_will_be_moved:
-          other: "%{count} számú hírdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
+          other: "%{count} számú hirdetés található a kategóriában és alkategóriákban. Ez a kiválasztott kategóriába fog kerülni."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "%{count} számú egyedi mező található a kategóriában és az alkategóriákban. A kiválasztott kategóriába fog átkerülni."
         select_new_category: "Válasszon egy új kategóriát amelyben a fent listázott tételek törölve lesznek:"
@@ -62,9 +62,13 @@ hu:
         community_name: "Piactér neve"
         edit_community_name_description: "A piactere neve. Ez megjelenik a felhasználóknak e-mailekben és több más helyen."
         community_slogan: "Piactér jelmondata"
+        community_slogan_display: ~
         edit_community_slogan_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: "A piactér bemutatása"
+        community_description_display: ~
         edit_community_description_description: "A nem bejelentkezett felhasználók ezt fogják látni a honlapon. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: "Segítő szöveg keresése"
         edit_community_search_placeholder_description: "Ez piactér kezdőlapján a böngészőben fog megjelenni mint helyőrző szöveg %{see_how_it_looks_like}."
         private_community_homepage_content: "Magán piactér honlap tartalom"
@@ -94,6 +98,7 @@ hu:
         edit_community_look_and_feel: "Piactér szerkesztése \"%{community_name}\" nézet és érzet"
         community_logo: Logó
         community_logo_icon: "Logó közösségi hálózatokhoz és mobil eszközökhöz."
+        community_logo_icon_mobile: ~
         community_cover_photo: Háttérkép
         small_community_cover_photo: "Kis háttérkép"
         favicon: Favicon
@@ -108,6 +113,7 @@ hu:
         logo_instructions_text_with_dimensions_no_placing: "A logó megfelelő mérete a következő:%{width}x%{height}px"
         logo_icon_instructions_text_with_dimensions: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
         logo_icon_instructions_text_with_dimensions_no_placing: "Ez a négyzet alakú logó jelenik majd meg amikor a felhasználók megosztják oldalát a Facebook-on. Valamint amikor mobil eszközön tekintik meg az oldalt vagy könyvjelzővel a mobil eszközük kezdőlapján. A méretek (legalább) %{width}x%{height}pixel nagyságúak legyenek."
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "A borítókép a nyitóoldalon jelenik meg azok számára akik nincsenek bejelentkezve."
         cover_photo_instructions_text_with_dimensions: "A kép újr lesz méretve %{width}x%{height} pixel nagyságúra és a magasabb képek félbe lesznek vágva. %{see_how_it_looks_like}"
         small_cover_photo_visibility: "A kis borítókép az összes oldalon megjelenik a nyitóoldal kivételével ahol a felhasználók nincsenek bejelentkezve."
@@ -118,7 +124,7 @@ hu:
             A ColorPicker.com</a>  segítségével kiválaszthatja a színt és bemásohatja a színkódot ide.
         new_listing_button_instructions_text: "Megváltoztathatja az Új hirdetés feladása gomb színét amennyiben megadja a szín értékét. A Színválasztó - %{link_to_colorpicker} segít ebben."
         default_browse_view: "Alapértelmezett keresési nézet"
-        default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hírdetések alapértelmezett nézetét."
+        default_browse_view_instructions_text: "Az alapértelmezett keresési nézet a kezdőlapon arra használható, hogy beállítsuk a hirdetések alapértelmezett nézetét."
         grid: "Magazin nézet"
         list: "Lista nézet"
         map: "Térkép nézet"
@@ -178,27 +184,33 @@ hu:
       getting_started:
         getting_started: "Útmutató az első lépésekhez"
       available_languages:
+        cs: ~
+        da-DK: Dán
+        de: Német
         en: Angol
         en-AU: "Angol (Ausztrália)"
         en-GB: "Angol (Egyesült Királyság)"
+        es: ~
+        es-ES: ~
+        fi: Finn
         fr: Francia
         fr-CA: "Francia (Kanada)"
-        es: "Spanyol (Chile)"
-        es-ES: Spanyol
-        pt-PT: Portugál
-        pt-BR: "Portugál (Brazil)"
-        nb: "norvég bokmal"
-        sv: Svéd
-        da-DK: Dán
-        fi: Finn
-        ru: Orosz
-        de: Német
         el: Görög
-        nl: Holland
-        tr-TR: Török
-        zh: Kínai
-        ja: Japán
         it: Olasz
+        ja: Japán
+        ko: ~
+        nb: "norvég bokmal"
+        nl: Holland
+        pl: ~
+        pt-BR: "Portugál (Brazil)"
+        pt-PT: Portugál
+        ru: Orosz
+        sv: Svéd
+        th-TH: ~
+        tr-TR: Török
+        vi: ~
+        zh: Kínai
+        zh-TW: ~
       settings:
         settings: Beállítások
         general: Általános
@@ -206,7 +218,7 @@ hu:
         join_with_invite_only: "Új felhasználók csak a régi felhasználók meghívására csatlakozhatnak"
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
         private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
-        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hírdetéseket"
+        require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
         search_preferences: "Keresési beállítások"
         default_search_type: "Keresés típusa: %{select_search_type}"
         keyword_search: "Keresés kulcsszóra"
@@ -218,9 +230,9 @@ hu:
         show_only_nearby: "Csak közeli hirdetéseket mutasson a listázás hely szerinti keresés esetén"
         listing_preferences: "Hirdetési beállítások"
         transaction_preferences: "Rendelési preferenciák"
-        show_listing_publishing_date: "A hírdetés feladásának megmutatása a hírdető oldalon"
-        show_category_in_listing_list: "A hírdetés típusának kijelzése lista nézetben"
-        listing_comments_in_use: "Hírdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
+        show_listing_publishing_date: "A hirdetés feladásának megmutatása a hírdető oldalon"
+        show_category_in_listing_list: "A hirdetés típusának kijelzése lista nézetben"
+        listing_comments_in_use: "Hirdetésekhez való hozzászólás engedélyezése felhasználók részére (minden felhasználó számára látható)"
         email_preferences: "E-mail beállítások"
         automatic_newsletters: "Napi/heti hírlevél küldése minden felhasználónak (amennyiben nem kapcsolják ki)"
         email_admins_about_new_members: "E-mail küldése a rendszergazdáknak minden új felhasználó felíratkozásakor"
@@ -229,6 +241,7 @@ hu:
         update_settings: "Beállítások mentése"
         automatically_confirmed_no_escrow: "A rendelés automatikusan teljesítettnek lesz jelölve %{days_dropdown} nappal a kifizetést követően."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Automatikus hírlevél küldése: %{frequency_dropdown}"
         newsletter_daily: Napi
         newsletter_weekly: Heti
@@ -263,6 +276,22 @@ hu:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Új megjelenés"
         description_roadmap_new: ~
@@ -272,6 +301,14 @@ hu:
         searchpage: "Új keresési oldal"
       social_media:
         social_media: "Közösségi média"
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter név"
         twitter_handle_info_text: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon."
         twitter_handle_info_text_with_instructions: "A piactere Twitter fiókjának neve (ha van) megemlítésre fog kerülni ha a felhasználók megnyomják a Tweet gombot a hirdető oldalon.%{instructions_link}"
@@ -288,6 +325,40 @@ hu:
         invalid_facebook_connect_secret: "A kliens kulcs csak számokat tartalmazhat és betűket a-tól f-ig."
         enable_facebook_login: ~
         save: "Beállítások mentése"
+        add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Vizsgálat
         google_analytics_key: "Google Analytics követési azonosító"
@@ -299,8 +370,14 @@ hu:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Beállítások mentése"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: "Menü linkek"
+        menu_links_display: ~
         save: "Beállítások mentése"
         add_menu_link: "Új link hozzáadása a menühöz"
         title_placeholder: "Link cím"
@@ -313,6 +390,15 @@ hu:
         all: Összes
         max_number_of_links_info: "A link a %{about_page} oldalhoz mindig az első menüpontban kerül megjelenínétésre."
         about_page: rólunk
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Új hirdetés feladása gomb szövege"
@@ -321,6 +407,19 @@ hu:
         export_all_as_csv: "Az öszes exportálása CSV-ként"
         processing_export: ~
         transactions: "Mutassa a tranzakciókat"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Párbeszéd vonala"
           listing: Hirdetések
@@ -378,23 +477,71 @@ hu:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
           receiver: ~
           status: ~
           grade: ~
-          note: ~
+          text: ~
         status:
           waiting: ~
           skipped: ~
           published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
         headers:
           title: ~
           author: ~
@@ -407,6 +554,40 @@ hu:
         expired: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Mező szerkesztése %{field_name}"
@@ -453,7 +634,7 @@ hu:
         maximum_value: Maximum
         allow_decimals: "Tizedes tört engedélyezése"
       new:
-        new_listing_field: "Új hírdetés mezeje"
+        new_listing_field: "Új hirdetés mezeje"
       field_types:
         text: Szöveg
         number: Szám
@@ -468,6 +649,8 @@ hu:
         user_fields: ~
         field_title: ~
         field_type: ~
+        signup: ~
+        public: ~
         add_new_field: ~
         save: ~
         cancel: ~
@@ -498,6 +681,7 @@ hu:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -599,6 +783,7 @@ hu:
         night: Éjszakánként
         week: Hetente
         month: Havonta
+        unit: ~
       can_not_find: "Nem található hirdetés típus ezzel az azonosítóval: %{id}"
       add_custom_unit: "+Adjon meg egy egyedi árat ..."
       delete_custom_unit: töröl
@@ -664,6 +849,8 @@ hu:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -676,6 +863,7 @@ hu:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -788,7 +976,7 @@ hu:
       accept_request: "Kérés elfogadása"
       reject_offer: "Nem most"
       reject_request: "Most nem"
-      close_listing: "Zárja be a hírdetést %{listing_title_link}"
+      close_listing: "Zárja be a hirdetést %{listing_title_link}"
       update_later: "Maradjon a hirdetés aktív"
       optional_message: "Választható üzenet"
       price_to_pay: "Teljes ár fizetendő"
@@ -797,6 +985,7 @@ hu:
       quantity_label: "Mennyiség:"
       sum_label: "Végösszeg:"
       service_fee_label: "%{service_name} szolgáltatás díja:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Ön kapni fog:"
       total_label: "Összesen:"
       total_value: "%{seller_gets}*"
@@ -842,6 +1031,7 @@ hu:
     message:
       accepted_request: "ajánlat elfogadva"
       received_payment: "a felkérés elfogadva, %{sum} összegű átutalás megérkezett"
+      received_payment_wo_sum: ~
       accepted_offer: "Ajánlat elfogadva"
       rejected_request: "a felkérés elutasítva, utalás törölve"
       rejected_offer: "Az ajánlat visszautasítva"
@@ -851,8 +1041,10 @@ hu:
       canceled_offer: "Ajánlat törlése"
       paid: "Fizetve %{sum}"
       payment_preauthorized: "Fizetés engedélyezve: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Üzenet
@@ -990,7 +1182,7 @@ hu:
       automatic_confirmation: "Amennyiben ön nem erősíti meg és nem is törli a rendelését %{days_to_automatic_confirmation} napon belül miután az ajánlat elfogadásra került, automatikusan teljesültnek fogjuk azt jelölni."
     payment_settings_reminder:
       remember_to_add_payment_details: "Ne felejtse megadni fizetési információit, annak érdekében, hogy megkapja az önnek küldött átutalásokat"
-      you_have_added_listing_with_payment: "Ön a következő hírdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
+      you_have_added_listing_with_payment: "Ön a következő hirdetést adta fel: %{listing_link}, de még nem adott meg fizetési információt. Annak érdekében, hogy meg tudja kapni az önnek szánt átutalásokat kérjük adja meg fizetési információit."
       please_go_to_payment_settings: "Kérjük, töltse ki a fizetési információkat ide kattintva: %{payment_settings_link}."
       payment_settings_link: "Fizetési beállítások"
     transaction_confirmed:
@@ -1055,7 +1247,7 @@ hu:
       view_comment: "Hozzászólás megtekintése"
       you_have_a_new_comment: "%{author} megjegyzést fűzött az Ön %{service_name} hirdetéséhez"
       listing_you_follow_has_a_new_comment: "%{author} kommentálta a hirdetést amelyet követ %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hírdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
+      has_commented_listing_you_follow_in_kassi: "%{author} hozzászólt a hirdetéshez '%{listing}' amelyet ön is követ a %{service_name} oldalon."
     new_message:
       view_message: "Üzenet megtekintése"
       has_sent_you_a_message_in_kassi: "%{sender} üzenetet küldött Önnek itt: %{service_name}"
@@ -1071,7 +1263,9 @@ hu:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1087,6 +1281,7 @@ hu:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1111,7 +1306,7 @@ hu:
       subtotal: "Végösszeg:"
       total: Összesen
       price: Ár
-      service_fee: "Szolgáltatás díja"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Az összeg akkor utalódik %{recipient_name} számára amennyiben a) ön a rendelést teljesítettnek jelölte vagy b) %{automatic_confirmation_days} nap eltelt amióta ön fizetett."
@@ -1124,7 +1319,7 @@ hu:
       view_feedback: "Értékelés megtekintése"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Az ön által követett hirdetést frisssítették"
-      has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hírdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
+      has_updated_listing_you_follow_in_kassi: "%{author} frissítette a hirdetést '%{listing}' amelyet ön is követ a %{service_name} oldalon."
       view_changes: "Változások megtekintése"
     community_updates:
       added_offer: "%{name_link} feladott egy hirdetést:"
@@ -1247,6 +1442,7 @@ hu:
       after: "Ezt követően %{restriction}"
       on_or_after: "Ekkor vagy ezt követően %{restriction}"
       positive_number: "Szám megadása"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} engedélyezte %{listing_title} kölcsönadását %{requester_name} számára %{time_ago}"
@@ -1331,7 +1527,7 @@ hu:
       processing_uploaded_image: "(Képek feltöltése folyamatban)"
     index:
       no_listings_with_your_search_criteria: "Sajnáljuk, de nem található hirdetés az ön által beállított keresés alapján. Próbálta már más kifejezéseket használva?"
-      no_listings_notification: "Nics hírdetés. %{add_listing_link}"
+      no_listings_notification: "Nincs hirdetés. %{add_listing_link}"
       add_listing_link_text: "Új hirdetés hozzáadása"
       open_listing: "Aktuális hirdetés"
       open_listings: "Aktuális hirdetések"
@@ -1493,8 +1689,8 @@ hu:
       comment_sent: "Megjegyzés elküldve"
       confirmation_link_is_wrong_or_used: "A visszaigazoló link már használatban van vagy meghibásodott. Próbáljon meg belépni újra vagy jelezzen vissza ha a probléma folytatódik."
       additional_email_confirmed: "Az ön által megadott e-mailcím megerősítve."
-      could_not_get_email_from_facebook: "Nem kaptuk meg az e-mail címét a Facebook-tól és e-mail cím nélkül nem tudunk fiókot létrehozni."
-      facebook_email_unconfirmed: "Az e-mailcím %{email} amely a Facebook fiókjával lett társítva már használatban van de még nem lett visszaigazolva. Kérjük az e-mailcím visszaigazolását mielőtt bejelentkezne Facebook fiókjával."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Adjon fel még egy hirdetést"
       create_one_here: "Hozzon létre egyet itt"
       email_confirmation_sent_to_new_address: "E-mail megerősítését elküldtük az új címre"
@@ -1531,7 +1727,7 @@ hu:
       listing_updated_successfully: "Hidetését frissítette"
       listing_updated_availability_management_enabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser aktiválva."
       listing_updated_availability_management_disabled: "Hirdetés frissítése sikeres. Az elérhetőség menedzser kikapcsolva."
-      only_kassi_administrators_can_access_this_area: "Csak a %{service_name} adminisztrátoroknak van jogosultságuk ezt szerkeszteni."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Csak a hirdetés feladója törölheti a hirdetést\n"
       only_listing_author_can_edit_a_listing: "Csak a hirdetés feladója szerkesztheti a hirdetést\n"
       payment_successful: "Sikeres fizetés"
@@ -1614,6 +1810,8 @@ hu:
       paypal_payments: ~
       stripe_payments: ~
       payments: Fizetések
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Ehhez a hirdetéshez nincs hozzáférése"
@@ -1801,11 +1999,12 @@ hu:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: Hirdetés
       selected_category: "Kategória: %{category}"
       selected_subcategory: "Alkategória: %{subcategory}"
-      selected_transaction_type: "Hírdetés típusa: %{transaction_type}"
+      selected_transaction_type: "Hirdetés típusa: %{transaction_type}"
       select_category: "Válasszon kategóriát"
       select_subcategory: "Válasszon alkategóriát"
       select_transaction_type: "Válassza ki a hirdetés típusát"
@@ -1814,12 +2013,14 @@ hu:
       community_not_configured_for_payments: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. Kérjük vegye fel a kapcsolatot a rendszergazdával %{contact_admin_link} a részletekért."
       payment_settings_link: "Fizetési beállítások"
       community_not_configured_for_payments_admin: "%{service_name} oldalon a fizetési lehetőségek még nincsenek beállítva ezért ön még nem tud hirdetést feladni. A fizetési információk kitöltéséhez kattintson ide: %{payment_settings_link}."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Órák száma:"
       day: "Napok száma:"
       night: "Éjszakák száma:"
       week: "Hetek száma:"
       month: "Hónapok száma:"
+      unit: ~
       custom: "Mennyiség:"
     quantity_placeholder: Mennyiség
     please_comment: Megjegyzés
@@ -1871,6 +2072,7 @@ hu:
       night: éjszaka
       week: hét
       month: hónap
+      unit: ~
     verification_required:
       verification_required: "Visszaigazolás szükséges"
   listing_conversations:
@@ -2040,7 +2242,7 @@ hu:
       username_is_invalid: "Érvénytelen felhasználónév. Csak betűk, számok és alsó aláhúzás engedélyezett."
       visible_only_to_you: "csak Ön és az adminisztrátor látja"
       visible_to_everybody: "Mindenki számára látható"
-      create_account_with_facebook: "Regisztráció Facebookkal"
+      create_account_with_provider: ~
       OR: VAGY
       signup_with_email: "Bejelentkezés emaillel"
       this_field_will_be_publicly_visible: ~
@@ -2048,9 +2250,8 @@ hu:
       grade: "fokozat:"
       and_gave_following_feedback: "és következő értékelést adta"
     profile_listings:
-      show_also_closed: "Mutassa a lezártakat is"
-      show_only_open: "Mutassa csak a nyitottakat"
       no_image: "Nincs kép"
+      manage_listings: ~
     show:
       contact: "Lépjen kapcsolatba ezzel a személlyel: %{person}"
       about_me: "Rólam:"
@@ -2083,6 +2284,8 @@ hu:
       show_all_listings: "Mutassa az összes hirdetést"
       show_all_open_listings: "Összes nyitott hirdetés mutatása"
       show_all_reviews: "Az összes értékelés megjelenítése"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "Ön követ %{count} felhasználót"
       you_follow_singular: "Ön követ %{count} felhasználót"
@@ -2107,7 +2310,7 @@ hu:
       account_creation_link_text: "Kattintson ide"
       cancle_facebook_connect: "Amennyiben nem szeretné összekapcsolni ezzel a fiókjával akkor kattintson ide: %{cancel_link}"
       facebook_cancel_link_text: Törlés
-      log_in_with_your_facebook_account: "Bejelentkezés Facebookkal"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...vagy a felhasználó nevével vagy e-mailcímével:"
       we_will_not_post_without_asking_you: "Soha nem posztolunk az Ön Facebookján a beleegyezése nélkül"
     password_forgotten:
@@ -2208,6 +2411,7 @@ hu:
       invisible: "(a többi felhasználó számára nem látható)"
       image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"
@@ -2414,6 +2618,7 @@ hu:
       signup: Regisztráció
       admin_dashboard: "Rendszergazda kezelőpult"
       language: Nyelv
+      listings: ~
     utils:
       km: km
       mi: mérföld
@@ -2460,6 +2665,10 @@ hu:
       legal_name: ~
       first_name: ~
       last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
@@ -2475,6 +2684,21 @@ hu:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~

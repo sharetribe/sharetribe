@@ -36,9 +36,13 @@
 #  availability                      :string(32)       default("none")
 #  booking_uuid                      :binary(16)
 #  deleted                           :boolean          default(FALSE)
+#  commission_from_buyer             :integer
+#  minimum_buyer_fee_cents           :integer          default(0)
+#  minimum_buyer_fee_currency        :string(3)
 #
 # Indexes
 #
+#  community_starter_state                   (community_id,starter_id,current_state)
 #  index_transactions_on_community_id        (community_id)
 #  index_transactions_on_conversation_id     (conversation_id)
 #  index_transactions_on_deleted             (deleted)
@@ -62,6 +66,7 @@ class Transaction < ApplicationRecord
   belongs_to :starter, class_name: "Person", foreign_key: :starter_id
   belongs_to :conversation
   has_many :testimonials
+  belongs_to :listing_author, class_name: 'Person'
 
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true
@@ -72,7 +77,7 @@ class Transaction < ApplicationRecord
   validates :community_uuid, :listing_uuid, :starter_id, :starter_uuid, presence: true, on: :create
   validates :listing_quantity, numericality: {only_integer: true, greater_than_or_equal_to: 1}, on: :create
   validates :listing_title, :listing_author_id, :listing_author_uuid, presence: true, on: :create
-  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", nil, :hour, :day, :night, :week, :month, :custom], on: :create
+  validates :unit_type, inclusion: ["hour", "day", "night", "week", "month", "custom", "unit", nil, :hour, :day, :night, :week, :month, :custom, :unit], on: :create
   validates :availability, inclusion: ["none", "booking", :none, :booking], on: :create
   validates :delivery_method, inclusion: ["none", "shipping", "pickup", nil, :none, :shipping, :pickup], on: :create
   validates :payment_process, inclusion: [:none, :postpay, :preauthorize], on: :create
@@ -83,6 +88,7 @@ class Transaction < ApplicationRecord
   monetize :minimum_commission_cents, with_model_currency: :minimum_commission_currency
   monetize :unit_price_cents, with_model_currency: :unit_price_currency
   monetize :shipping_price_cents, allow_nil: true, with_model_currency: :unit_price_currency
+  monetize :minimum_buyer_fee_cents, with_model_currency: :minimum_buyer_fee_currency
 
   scope :exist, -> { where(deleted: false) }
   scope :for_person, -> (person){
@@ -108,6 +114,36 @@ class Transaction < ApplicationRecord
   scope :for_testimonials, -> {
     includes(:testimonials, testimonials: [:author, :receiver], listing: :author)
     .where(current_state: ['confirmed', 'canceled'])
+  }
+  scope :search_by_party_or_listing_title, ->(pattern) {
+    joins(:starter, :listing_author)
+    .where("listing_title like :pattern
+        OR (#{Person.search_by_pattern_sql('people')})
+        OR (#{Person.search_by_pattern_sql('listing_authors_transactions')})", pattern: pattern)
+  }
+  scope :search_for_testimonials, ->(community, pattern) do
+    with_testimonial_ids = by_community(community.id)
+    .left_outer_joins(testimonials: [:author, :receiver])
+    .where("
+      testimonials.text like :pattern
+      OR #{Person.search_by_pattern_sql('people')}
+      OR #{Person.search_by_pattern_sql('receivers_testimonials')}
+    ", pattern: pattern).select("`transactions`.`id`")
+
+    for_testimonials.joins(:listing, :starter, :listing_author)
+    .where("
+      `listings`.`title` like :pattern
+      OR #{Person.search_by_pattern_sql('people')}
+      OR #{Person.search_by_pattern_sql('listing_authors_transactions')}
+      OR `transactions`.`id` IN (#{with_testimonial_ids.to_sql})
+      ", pattern: pattern).distinct
+  end
+  scope :paid_or_confirmed, -> { where(current_state: ['paid', 'confirmed']) }
+  scope :skipped_feedback, -> { where('starter_skipped_feedback OR author_skipped_feedback') }
+
+  scope :waiting_feedback, -> {
+    where("NOT starter_skipped_feedback AND NOT #{Testimonial.with_tx_starter.select('1').exists.to_sql}
+           OR NOT author_skipped_feedback AND NOT #{Testimonial.with_tx_author.select('1').exists.to_sql}")
   }
 
   def booking_uuid_object
@@ -257,6 +293,14 @@ class Transaction < ApplicationRecord
       .max
   end
 
+  def buyer_commission
+    [(item_total * (commission_from_buyer / 100.0) unless commission_from_buyer.nil?),
+     (minimum_buyer_fee unless minimum_buyer_fee.nil? || minimum_buyer_fee.zero?),
+     Money.new(0, item_total.currency)]
+      .compact
+      .max
+  end
+
   def waiting_testimonial_from?(person_id)
     if starter_id == person_id && starter_skipped_feedback
       false
@@ -278,7 +322,7 @@ class Transaction < ApplicationRecord
     unit_price       = self.unit_price || 0
     quantity         = self.listing_quantity || 1
     shipping_price   = self.shipping_price || 0
-    (unit_price * quantity) + shipping_price
+    (unit_price * quantity) + shipping_price + buyer_commission
   end
 
 end

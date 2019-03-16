@@ -31,6 +31,8 @@ class LandingPageController < ActionController::Metal
   helper CLP::MarkdownHelper
   helper CLP::BackgroundHelper
 
+  include HSTS
+
   CACHE_TIME = APP_CONFIG[:clp_cache_time].to_i.seconds
   CACHE_HEADER = "X-CLP-Cache"
 
@@ -53,6 +55,12 @@ class LandingPageController < ActionController::Metal
       content = nil
       cache_meta = CLP::Caching.fetch_cache_meta(cid, version, locale_param, cta, script_digest)
       cache_hit = true
+
+      hsts_header, hsts_header_value = HSTS.hsts_header(request)
+
+      if hsts_header
+        headers[hsts_header] = hsts_header_value
+      end
 
       if cache_meta.nil?
         cache_hit = false
@@ -152,8 +160,12 @@ class LandingPageController < ActionController::Metal
     }
 
     MarketplaceRouter.perform_redirect(redirect_params) do |target|
-      url = target[:url] || send(target[:route_name], protocol: target[:protocol])
-      redirect_to(url, status: target[:status])
+      if target[:message]
+        redirect_to community_not_available_path
+      else
+        url = target[:url] || send(target[:route_name], protocol: target[:protocol])
+        redirect_to(url, status: target[:status])
+      end
     end
   end
 
@@ -260,7 +272,9 @@ class LandingPageController < ActionController::Metal
       facebook_connect_id: c.facebook_connect_id,
       google_maps_key: MarketplaceHelper.google_maps_key(c.id),
       end_user_analytics: c.end_user_analytics,
-      google_analytics_key: c.google_analytics_key }
+      google_analytics_key: c.google_analytics_key,
+      social_image: c.social_logo.present? && c.social_logo.image.present?
+    }
   end
 
   def render_landing_page(default_locale:, locale_param:, structure:, cta:)

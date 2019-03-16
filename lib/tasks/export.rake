@@ -30,7 +30,9 @@ namespace :export do
         print_image_urls(listing_image.image)
       end
     end
-
+    # Make sure this string is printed in the end. It is used to verify the
+    # image list export.
+    puts "\n# ::image-export-end::"
   end
 
 end
