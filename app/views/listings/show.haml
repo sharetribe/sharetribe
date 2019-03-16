@@ -92,6 +92,7 @@
               %b
                 = t(".listing_created_at")
                 = l @listing.created_at, :format => :short_date
+                
 
     - if !@current_community.private?
       .row
@@ -141,6 +142,7 @@
           .listing-author-details
             .listing-author-name
               = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
+            = @listing.author.description
             - if @listing.author != @current_user
               .listing-author-contact
                 %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
@@ -175,3 +177,6 @@
           #googlemap
             = render :partial => "googlemap", :locals => { :listing => @listing}
             = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
+
+
+            

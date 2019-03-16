@@ -438,6 +438,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    rb-readline (0.5.5)
     react_on_rails (6.9.3)
       addressable
       connection_pool
@@ -661,6 +662,7 @@ DEPENDENCIES
   rails-i18n (~> 5.0.4)
   rails_12factor (~> 0.0.3)
   rb-fsevent (~> 0.9.8)
+  rb-readline
   react_on_rails (~> 6.9.0)
   readthis (~> 2.0.2)
   redcarpet (~> 3.4.0)

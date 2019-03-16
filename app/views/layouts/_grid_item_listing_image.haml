@@ -22,7 +22,7 @@
       - if listing.price
         %span.fluid-thumbnail-grid-image-price
           %span.fluid-thumbnail-grid-image-type
-            = shape_name(listing)
+            
           = MoneyViewUtils.to_humanized(listing.price)
           - price_unit = price_quantity_slash_unit(listing)
         - if !price_unit.blank?
@@ -31,4 +31,4 @@
             = price_text
       - else
         %span.fluid-thumbnail-grid-image-type{:class => "#{modifier_class}"}
-          = shape_name(listing)
+         
