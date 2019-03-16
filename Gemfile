@@ -10,6 +10,8 @@ gem 'uglifier', '~> 3.2.0'
 gem 'sass-rails', '~> 5.0.6'
 gem 'compass-rails', '~> 3.0.2'
 
+gem 'rb-readline'
+
 gem 'jquery-rails', '~> 4.3.1'
 
 # Bundle the extra gems:
@@ -17,8 +19,11 @@ gem 'jquery-rails', '~> 4.3.1'
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 gem "passenger", '~> 6.0.1'
 
-gem "mysql2", '0.4.10'
-gem "bcrypt", '3.1.12'
+
+gem 'mysql2', '~> 0.4.10'
+
+
+
 gem 'haml', '~> 5.0.1'
 gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 5.0.1'
@@ -123,6 +128,8 @@ group :development do
   gem 'web-console', '~> 3.5.1'
   gem 'awesome_print', '~> 1.7.0'
   gem 'binding_of_caller'
+  gem "rails-erd"
+
 end
 
 group :test do

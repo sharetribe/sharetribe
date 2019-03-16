@@ -135,13 +135,13 @@ default: &default_settings
   paypal_ipn_protocol: https
 
   # PayPal implementation, either "real" or "fake"
-  paypal_implementation: real
+  paypal_implementation: fake
 
   # If "fake" implementation is used, specify the file where PayPal information
   # is saved
   # Examples: 'tmp/dev_fakepal.store'
   #           'tmp/test_fakepal.store'
-  fakepal_store:
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
@@ -381,7 +381,7 @@ default: &default_settings
   # The hosted version stores the landing page data in the database but for single
   # marketplace OS installations the database doesn't bring any benifits. That's why
   # the static version is used instead of database in OS installations.
-  clp_static_enabled: false
+  clp_static_enabled: true
 
   # Landing page is cached heavily.
   #
@@ -520,7 +520,7 @@ development:
 
   use_js_routes_middleware: true
 
-  paypal_implementation: real
+  paypal_implementation: fake
   fakepal_store: 'tmp/dev_fakepal.store'
 
 test:
