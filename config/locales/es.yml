@@ -240,7 +240,7 @@ es:
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los vendedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: "Las cuotas para el comprador sólo se pueden configurar con Stripe. No puedes usar PayPal si configuras las cuotas para el comprador."
         automatic_newsletter_frequency: "Enviar newsletter automático: %{frequency_dropdown}"
         newsletter_daily: Diariamente
         newsletter_weekly: Semanalmente
@@ -815,8 +815,8 @@ es:
       currency_change_warning_text: "Cuidado: si procedes con el cambio, no olvides pedirle a tus usuarios que actualicen sus anuncios para que la divisa cambie en estos anuncios."
       marketplace_currency_label: "Divisa de la comunidad:"
       minimum_listing_price_label: "Precio mínimo por anuncio:"
-      transaction_fee_label: "Comisión por transacción:"
-      minimum_transaction_fee_label: "Comisión mínima por transacción:"
+      transaction_fee_label: "Comisión por transacción para el vendedor:"
+      minimum_transaction_fee_label: "Comisión mínima por transacción para el vendedor:"
       save_settings: "Guardar configuración"
       minimum_listing_price_below_tx_fee: "El precio mínimo de transacción tiene que ser mayor o igual a la cuota mínima por transacción: %{minimum_transaction_fee}"
       minimum_listing_price_below_min: "El precio mínimo de transacción debe ser superior a la comisión mínima %{minimum_commission}"
@@ -854,8 +854,8 @@ es:
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
       confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
+      commission_from_buyer_label: "Cuota para el comprador:"
+      minimum_buyer_transaction_fee_label: "Cuota mínima para el comprador:"
       stripe_connected:
         title: "Stripe conectado"
         disable: "Deshabilitar Stripe"
@@ -868,7 +868,7 @@ es:
         enable: "Habilitar PayPal nuevamente"
       cannot_enable_gateway: "No es posible habilitar %{gateway}"
       cannot_disable_gateway: "No es posible habilitar %{gateway}"
-      cannot_enable_gateway_because_of_buyer_commission: ~
+      cannot_enable_gateway_because_of_buyer_commission: "No se puede habilitar %{gateway} porque las cuotas para el comprador están habilitadas"
       stripe_form:
         add_your_api_keys: "Añade tus API keys de Stripe"
         how_to_get_these: "¿Cómo obtenerlas?"
@@ -994,7 +994,7 @@ es:
       quantity_label: "Cantidad:"
       sum_label: "Subtotal:"
       service_fee_label: "Comisión de %{service_name}:"
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "Cuota de servicio de %{service_name}:"
       you_will_get_label: "Recibirás:"
       total_label: "Total:"
       total_value: "%{seller_gets}*"
@@ -1040,7 +1040,7 @@ es:
     message:
       accepted_request: "aceptó la solicitud"
       received_payment: "solicitud aceptada, pago por la cantidad de %{sum} recibido"
-      received_payment_wo_sum: ~
+      received_payment_wo_sum: "aceptó la solicitud y recibió el pago"
       accepted_offer: "aceptó la oferta"
       rejected_request: "rechazó la solicitud, se canceló el pago"
       rejected_offer: "rechazó la oferta"
@@ -1050,10 +1050,10 @@ es:
       canceled_offer: "canceló la oferta"
       paid: "pagó %{sum}"
       payment_preauthorized: "Pago autorizado: %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Pago autorizado"
       stripe:
         held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "Acepto la solicitud. El pago está siendo guardado por %{service_name} hasta que la transacción se marque completada."
         confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
     new:
       message: Mensaje
@@ -1211,7 +1211,7 @@ es:
       give_feedback_to: "Escribir una valoración sobre %{other_party_given_name}"
       show_thread: "Ver conversación"
     confirmation_instructions:
-      confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de %{service_name}"
+      confirmation_instructions_signature: "Saludos cordiales,<br/>El equipo de %{service_name}"
       need_to_confirm: "Para unirte a %{service_name} confirma tu cuenta de correo electrónico haciendo click en el botón inferior."
       confirmation_link_text: "Confirmar mi dirección de correo electrónico"
       or_paste_link: "Si lo prefieres, puedes copiar el siguiente enlace y pegarlo directamente en la barra de tu navegador:"
@@ -1268,9 +1268,9 @@ es:
       shipping_total: "Envío:"
       product: "Producto:"
       price_payer_paid: "Precio que %{payer_full_name} pagó:"
-      subtotal: ~
+      subtotal: "Subtotal:"
       service_fee: "Cuota de servicio de %{service_name}:"
-      buyer_service_fee: ~
+      buyer_service_fee: "Cuota de servicio de %{service_name}:"
       you_will_get: "Total:"
       new_payment: "Has recibido un nuevo pago"
       price_per_unit_type: "Precio por %{unit_type}"
@@ -1286,7 +1286,7 @@ es:
       duration: Duración
       quantity: Cantidad
       subtotal: Subtotal
-      buyer_service_fee: ~
+      buyer_service_fee: "Cuota de servicio de %{service_name}:"
       total: Total
       price: Precio
       service_fee: "Cuota de servicio"
@@ -1311,7 +1311,7 @@ es:
       subtotal: Subtotal
       total: Total
       price: Precio
-      buyer_service_fee: ~
+      buyer_service_fee: "Cuota de servicio de %{service_name}:"
       stripe_gateway_fee: "Cuota de Stripe:"
       paypal_gateway_fee: "Cuota de PayPal:"
       money_will_be_transferred: "El dinero será transferido a %{recipient_name} cuando a) hayas marcado la solicitud como completada o b) %{automatic_confirmation_days} días hayan pasado desde que hiciste el pago."
@@ -2002,7 +2002,7 @@ es:
       select_one: Selecciona...
       start_time: "Hora de inicio"
       end_time: "Hora de fin"
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "%{service_name} puede aplicar cuotas de servicio"
     new:
       listing: anuncio
       selected_category: "Categoría: %{category}"
@@ -2732,6 +2732,7 @@ es:
       address_kanji_line1: "Dirección (Kanji)"
       male: masculino
       female: femenino
+      mcc: ~
     form_bank:
       bank_account_number: "Número de cuenta de banco"
       bank_routing_number: "Número de ruta/routing"

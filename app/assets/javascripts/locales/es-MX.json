@@ -1,0 +1,30 @@
+{
+  "please_wait": "Por favor espera un momento...",
+  "validation_messages": {
+    "accept": "El archivo de imagen debe estar en formato GIF, JPG o PNG.",
+    "creditcard": "Por favor, introduce un número de tarjeta de crédito válido.",
+    "date": "Por favor ingresa una fecha válida.",
+    "dateISO": "Por favor ingresa una fecha válida (ISO).",
+    "digits": "Por favor ingresa sólo dígitos.",
+    "email": "Por favor introduce una dirección de correo electrónico válida.",
+    "equalTo": "Por favor introduce el mismo valor nuevamente.",
+    "max": "Por favor proporciona un valor inferior o igual a {0} .",
+    "maxlength": "Por favor no introduzcas más de {0} caracteres.",
+    "min": "Por favor proporciona un valor mayor o igual a {0} .",
+    "minlength": "Por favor proporciona al menos {0} caracteres.",
+    "number": "Por favor proporciona un número válido.",
+    "range": "Por favor ingresa un valor entre {0} y {1} .",
+    "rangelength": "Por favor introduce un valor entre {0} y {1} caracteres de longitud.",
+    "remote": "Por favor arregla este campo.",
+    "required": "Este campo es obligatorio.",
+    "url": "Por favor ingresa una URL válida.",
+    "address_validator": "No se encontró la ubicación.",
+    "money": "Debes ingresar un valor monetario válido.",
+    "night_selected": "Necesitas elegir por lo menos una noche",
+    "availability_range": "El tiempo elegido incluye fechas que no están disponibles",
+    "min_bound": "Por favor ingresa un valor menor que el valor máximo ({0})",
+    "max_bound": "Por favor ingresa un valor mayor que el valor mínimo ({0})",
+    "number_no_decimals": "Por favor ingresa un número sin decimales",
+    "number_decimals": "Por favor ingresa un número válido, puedes usar punto (.) o coma (,) como separador de decimales"
+  }
+}

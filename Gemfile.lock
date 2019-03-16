@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/ithouse/fake_stripe.git
-  revision: cc6dacb2455c8f9be22b05d1931790e3b02ef367
-  ref: cc6dacb2455c8f9be22b05d1931790e3b02ef367
+  revision: 42b9dd09a1db3fb2b7ec11809ac93647f178a115
+  ref: 42b9dd09a1db3fb2b7ec11809ac93647f178a115
   specs:
     fake_stripe (0.1.0)
       capybara
@@ -212,7 +212,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faraday (0.11.0)
+    faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     faraday-encoding (0.0.4)
       faraday
@@ -322,6 +322,8 @@ GEM
     mustermann (1.0.3)
     mysql2 (0.4.10)
     nenv (0.3.0)
+    net-http-persistent (3.0.0)
+      connection_pool (~> 2.2)
     netrc (0.11.0)
     newrelic_rpm (4.2.0.334)
     nio4r (2.3.1)
@@ -524,8 +526,9 @@ GEM
       sprockets (>= 3.0.0)
     statesman (2.0.1)
     stringex (2.7.1)
-    stripe (3.0.0)
-      faraday (~> 0.9)
+    stripe (4.9.0)
+      faraday (~> 0.13)
+      net-http-persistent (~> 3.0)
     temple (0.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -619,7 +622,7 @@ DEPENDENCIES
   email_spec (~> 2.1.1)
   factory_girl_rails (~> 4.8.0)
   fake_stripe!
-  faraday (~> 0.11.0)
+  faraday (~> 0.13.0)
   faraday-encoding (~> 0.0.4)
   faraday_middleware (~> 0.11.0)
   ffi (>= 1.9.25)
@@ -676,7 +679,7 @@ DEPENDENCIES
   sitemap_generator (~> 5.3.1)
   statesman (~> 2.0.1)
   stringex (~> 2.7.1)
-  stripe (~> 3.0.0)
+  stripe (~> 4.9.0)
   therubyracer (~> 0.12.3)
   thinking-sphinx (~> 3.3.0)
   timecop (~> 0.8.1)

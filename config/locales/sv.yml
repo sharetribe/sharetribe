@@ -2288,7 +2288,7 @@ sv:
       show_all_listings: "Visa alla annonser"
       show_all_open_listings: "Visa alla öppna annonser"
       show_all_reviews: "Visa alla recensioner"
-      admin_actions: ~
+      admin_actions: "Admin åtgärder"
       post_listing_as: "Skapa annons som"
     followed_people:
       you_follow_plural: "Du följer %{count} person"
@@ -2726,6 +2726,7 @@ sv:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: Bankkontonummer
       bank_routing_number: Clearingnummer

@@ -20,6 +20,11 @@ describe LandingPageController, type: :controller do
     @request.env[:current_marketplace] = community
   end
 
+  after(:each) do
+    CustomLandingPage::LandingPageStoreDB::LandingPage.delete_all
+    CustomLandingPage::LandingPageStoreDB::LandingPageVersion.delete_all
+  end
+
   describe '#index' do
     it 'renders default title and description' do
       get :index
