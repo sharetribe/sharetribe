@@ -3,8 +3,9 @@
 - key = @listing_presenter.show_submit_for_review? ? t(".submit_for_review") : t(".save_listing")
 = form.button key, :class => "send_button"
 
-- if @listing_presenter.show_submit_for_review?
-  = render "layouts/info_text", text: t('.will_be_reviewed')
-- else
-  = render "layouts/info_text", text: t('.we_noticed_youre_an_admin')
+- if FeatureFlagHelper.feature_enabled?(:approve_listings)
+  - if @listing_presenter.show_submit_for_review?
+    = render "layouts/info_text", text: t('.will_be_reviewed')
+  - else
+    = render "layouts/info_text", text: t('.we_noticed_youre_an_admin')
 
