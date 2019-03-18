@@ -68,6 +68,10 @@ class RobotsGenerator
 
   def self.index_content(req)
     [
+      "User-agent: MJ12bot",
+      "Disallow: /*auth$",
+      "Crawl-Delay: 20",
+      "",
       "User-agent: *",
       "Disallow: /*auth$",
       "Crawl-Delay: 5",
