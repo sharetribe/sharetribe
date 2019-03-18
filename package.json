@@ -11,5 +11,8 @@
   "cacheDirectories": [
     "node_modules",
     "client/node_modules"
-  ]
+  ],
+  "dependencies": {
+    "tooltip.js": "^1.3.1"
+  }
 }

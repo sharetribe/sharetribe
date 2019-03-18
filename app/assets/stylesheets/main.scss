@@ -11,7 +11,9 @@
   and include them in application.scss.erb
 */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   @include box-sizing(border-box);
 }
 
@@ -21,7 +23,9 @@
   For IE10, you can use -ms-touch-action: none to disable double-tap-to-zoom on certain elements
   (like links and buttons) as described in this MSDN blog post.
 */
-a, input, button {
+a,
+input,
+button {
   -ms-touch-action: none !important;
 }
 
@@ -69,7 +73,6 @@ body {
       padding-top: 33px;
     }
   }
-
 }
 
 /*
@@ -78,7 +81,13 @@ body {
   ---------------------
 */
 
-@mixin photoshop-text-shadow ($angle: 0, $distance: 0, $spread: 0, $size: 0, $color: #000) {
+@mixin photoshop-text-shadow(
+  $angle: 0,
+  $distance: 0,
+  $spread: 0,
+  $size: 0,
+  $color: #000
+) {
   // NOTE: $spread has no effect for text shadows
   $angle: (180 - $angle) * pi() / 180;
   $h-shadow: round(cos($angle) * $distance);
@@ -147,10 +156,12 @@ ul {
       padding: em(1) em(10) em(7) em(35);
     }
   }
-
 }
 
-.centered-section, .centered-section-wide, .centered-section-narrow, .left-navi-section {
+.centered-section,
+.centered-section-wide,
+.centered-section-narrow,
+.left-navi-section {
   margin-top: lines(0.25);
 
   textarea {
@@ -171,7 +182,9 @@ ul {
 }
 
 // User for simple centered views, mostly with forms
-.centered-section, .centered-section-wide, .centered-section-narrow {
+.centered-section,
+.centered-section-wide,
+.centered-section-narrow {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
@@ -204,7 +217,6 @@ ul {
   @include media(desktop) {
     padding: 0 lines(0.5);
   }
-
 }
 
 // Used for views with left hand navigation
@@ -230,7 +242,6 @@ ul {
     height: lines(8);
     margin-top: lines(0.5);
   }
-
 }
 
 // Left hand navigation menu
@@ -259,9 +270,10 @@ ul {
       &:after {
         display: block;
         position: absolute;
-        right: lines(0.5); top: em(7);
+        right: lines(0.5);
+        top: em(7);
         content: "→";
-      };
+      }
     }
     .left-navi-link-text {
       padding: 0 lines(1) 0 lines(1);
@@ -301,8 +313,12 @@ ul {
   position: relative;
   top: em(2);
 }
-.list-icon-margin { margin-top: em(3); }
-.text-with-icon { display: inline-block;}
+.list-icon-margin {
+  margin-top: em(3);
+}
+.text-with-icon {
+  display: inline-block;
+}
 
 .icon-with-text-container {
   position: relative;
@@ -321,18 +337,17 @@ ul {
 }
 
 form {
-
   .checkbox-container {
     position: relative;
 
-    input[type=checkbox] {
+    input[type="checkbox"] {
       position: absolute;
       top: lines(0.5) + em(3);
     }
 
-    input[type=radio] {
+    input[type="radio"] {
       position: absolute;
-      top: lines(0.5)
+      top: lines(0.5);
     }
 
     label {
@@ -368,17 +383,15 @@ form {
     a {
       display: inline-block;
     }
-
   }
 
   .select-tag-dropdown {
     margin-bottom: lines(0.5);
   }
-
 }
 
 .unwanted_text_field {
-  display:none;
+  display: none;
 }
 
 .inline-label-container {
@@ -417,7 +430,8 @@ label.radiobutton {
   cursor: pointer;
 }
 
-button, .button {
+button,
+.button {
   @include button($link);
   padding-top: lines(0.375);
   padding-bottom: lines(0.375);
@@ -461,9 +475,9 @@ label.error {
     border: em(8) solid transparent;
     border-bottom-color: red;
     position: absolute;
-    left: em(18); top: em(-16);
+    left: em(18);
+    top: em(-16);
   }
-
 }
 
 // Notification that doesn't disappear
@@ -499,7 +513,6 @@ label.error {
 */
 
 .tribe-actions {
-
   background: $link;
 
   // Hide texts in narrow viewports
@@ -535,7 +548,6 @@ label.error {
   }
 
   @include media(tablet) {
-
     // Tribe intro and search are always shown in wide viewports
     // so these toggles get hidden
     .about-toggle {
@@ -553,17 +565,14 @@ label.error {
     a.first-child {
       margin-left: lines(10.5);
     }
-
   }
 
   @include media(desktop) {
-
     // Show texts only in really wide viewports
     .hidden {
       display: inline-block;
     }
   }
-
 }
 
 /*
@@ -600,7 +609,8 @@ label.error {
   -----------
 */
 
-.lightbox, .expiration-notice {
+.lightbox,
+.expiration-notice {
   display: none;
   position: relative;
   margin: lines(10) auto;
@@ -619,7 +629,8 @@ label.error {
     margin-bottom: lines(0.25);
   }
 
-  h3, h4 {
+  h3,
+  h4 {
     margin-top: lines(0.5);
     margin-bottom: lines(0.25);
   }
@@ -628,7 +639,8 @@ label.error {
     margin-bottom: lines(0.5);
   }
 
-  p, li {
+  p,
+  li {
     @include small-type;
   }
 
@@ -640,7 +652,8 @@ label.error {
     h2 {
       @include big-type;
     }
-    p, li {
+    p,
+    li {
       @include normal-type;
     }
   }
@@ -701,7 +714,9 @@ $noscript-height: lines(4);
   color: white;
 
   .wrapper {
-    &, h2, p {
+    &,
+    h2,
+    p {
       background: $error-red;
       color: white;
     }
@@ -756,21 +771,22 @@ $noscript-height: lines(4);
     float: left;
     padding: em(10) em(15) em(10) em(15);
     color: $link;
-    &:hover { color: darken($link, 15%); }
+    &:hover {
+      color: darken($link, 15%);
+    }
   }
 
   @include media(tablet) {
-
     .request-link {
       @include big-button($link);
       padding: em(8) em(8) em(10) em(8);
       width: 100%;
       margin: 0 0 lines(0.5) 0;
-      &:hover { color: $background; }
+      &:hover {
+        color: $background;
+      }
     }
-
   }
-
 }
 
 .feed-filters {
@@ -802,19 +818,19 @@ $noscript-height: lines(4);
       }
     }
 
-    select, option {
+    select,
+    option {
       //-webkit-appearance: none;
       width: lines(11.4);
     }
-
   }
-
 }
 
 .feed-map-link {
   position: relative;
 
-  a.map-link, .hidden-text {
+  a.map-link,
+  .hidden-text {
     display: none;
   }
 
@@ -826,17 +842,18 @@ $noscript-height: lines(4);
       display: inline;
       cursor: pointer;
       position: absolute;
-      top: lines(0); right: 0;
+      top: lines(0);
+      right: 0;
       padding-top: em(9);
       color: $body;
-      &:hover { color: $link; }
+      &:hover {
+        color: $link;
+      }
       margin-right: lines(0.5);
     }
-
   }
 
   @include media(desktop) {
-
     // Show texts only in really wide viewports
 
     .hidden-text {
@@ -844,7 +861,6 @@ $noscript-height: lines(4);
       display: inline-block;
     }
   }
-
 }
 
 .feed-navigation {
@@ -863,11 +879,9 @@ $noscript-height: lines(4);
       display: block;
     }
   }
-
 }
 
 .feed {
-
   .map {
     display: block;
     width: 100%;
@@ -880,18 +894,19 @@ $noscript-height: lines(4);
       height: lines(18);
     }
   }
-
 }
 
 .view-item {
-
   .item-description {
     @include media(tablet) {
       padding-right: lines(16); // Makes horizontal space for image
-      min-height: lines(10); // Makes sure there's always enough vertical space for the image
+      min-height: lines(
+        10
+      ); // Makes sure there's always enough vertical space for the image
     }
 
-    p, li {
+    p,
+    li {
       @include small-type;
       @include media(small-tablet) {
         @include normal-type;
@@ -908,7 +923,8 @@ $noscript-height: lines(4);
       @include big-button($link);
       margin: 0;
       position: absolute;
-      right: 0; top: 0;
+      right: 0;
+      top: 0;
       width: lines(11) - em(2);
     }
   }
@@ -917,7 +933,9 @@ $noscript-height: lines(4);
     padding-top: lines(0.5);
     a {
       color: $body;
-      &:hover { color: $link; }
+      &:hover {
+        color: $link;
+      }
     }
   }
 
@@ -941,7 +959,8 @@ $noscript-height: lines(4);
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(4);
+      right: lines(0);
+      top: lines(4);
       width: lines(15);
       height: lines(11.25);
       img {
@@ -960,7 +979,8 @@ $noscript-height: lines(4);
 
     @include media(tablet) {
       position: absolute;
-      right: lines(0); top: lines(17);
+      right: lines(0);
+      top: lines(17);
       width: lines(15);
       height: lines(10);
     }
@@ -990,7 +1010,7 @@ $noscript-height: lines(4);
       top: lines(1);
       left: em(3);
       @include border-radius(em(5));
-      @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+      @include box-shadow(rgba(0, 0, 0, 0.2) 0 0 em(3) em(2));
       width: lines(2);
 
       img {
@@ -1002,8 +1022,8 @@ $noscript-height: lines(4);
     .listing-author-description {
       padding-left: lines(3.25);
 
-      .icon-with-text, .text-with-icon {
-
+      .icon-with-text,
+      .text-with-icon {
       }
 
       .icon-with-text {
@@ -1015,7 +1035,6 @@ $noscript-height: lines(4);
         margin-top: em(4);
         @include small-type;
       }
-
     }
 
     @include media(tablet) {
@@ -1038,9 +1057,7 @@ $noscript-height: lines(4);
           @include normal-type;
         }
       }
-
     }
-
   }
 
   .social {
@@ -1054,11 +1071,9 @@ $noscript-height: lines(4);
     .tweet-button-container {
       padding-left: lines(8.5);
     }
-
   }
 
   .discussion {
-
     h2 {
       margin-top: 0;
       margin-bottom: lines(0.25);
@@ -1077,13 +1092,15 @@ $noscript-height: lines(4);
 
       .avatar {
         position: absolute;
-        left: 0; top: lines(0.5);
+        left: 0;
+        top: lines(0.5);
         img {
           @include border-radius(em(5));
         }
       }
 
-      h3, small {
+      h3,
+      small {
         display: inline;
       }
 
@@ -1091,7 +1108,8 @@ $noscript-height: lines(4);
         color: $aside;
       }
 
-      .comment-content, .comment-icon {
+      .comment-content,
+      .comment-icon {
         @include small-type;
         @include media(small-tablet) {
           @include normal-type;
@@ -1107,7 +1125,6 @@ $noscript-height: lines(4);
         display: inline-block;
         margin-right: lines(0.5);
       }
-
     }
 
     .comment-form {
@@ -1119,7 +1136,6 @@ $noscript-height: lines(4);
         width: 95%;
         min-height: lines(4);
       }
-
     }
 
     @include media(tablet) {
@@ -1156,14 +1172,13 @@ $noscript-height: lines(4);
 }
 
 .view-profile {
-
   .profile-description {
-
     .profile-details {
       min-height: lines(5);
     }
 
-    p, li {
+    p,
+    li {
       @include small-type;
       @include media(small-tablet) {
         @include normal-type;
@@ -1188,7 +1203,8 @@ $noscript-height: lines(4);
       @include big-button($link);
       margin: 0;
       position: absolute;
-      right: 0; top: 0;
+      right: 0;
+      top: 0;
       width: lines(8.5) + em(5);
     }
   }
@@ -1211,7 +1227,8 @@ $noscript-height: lines(4);
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(4);
+      right: lines(0);
+      top: lines(4);
       width: lines(12);
       height: lines(12);
       img {
@@ -1236,7 +1253,8 @@ $noscript-height: lines(4);
       margin-top: 0;
       margin-bottom: lines(2);
       position: absolute;
-      right: lines(0); top: lines(17.5);
+      right: lines(0);
+      top: lines(17.5);
       width: lines(12);
       height: lines(10);
     }
@@ -1250,12 +1268,12 @@ $noscript-height: lines(4);
 
     @include media(tablet) {
       position: absolute;
-      right: 0; top: lines(17.5);
+      right: 0;
+      top: lines(17.5);
       width: lines(10.5);
       text-align: left;
       padding-bottom: lines(0.25);
     }
-
   }
 
   .add-profile-picture-link {
@@ -1291,7 +1309,6 @@ $noscript-height: lines(4);
 */
 
 .login-form {
-
   .facebook-account-info {
     color: $body;
     position: relative;
@@ -1311,7 +1328,6 @@ $noscript-height: lines(4);
       padding: em(6) 0 em(10) 0;
     }
   }
-
 }
 
 #password_forgotten {
@@ -1353,8 +1369,8 @@ $noscript-height: lines(4);
   ----------------
 */
 
-.new-listing-form, .edit-listing-form {
-
+.new-listing-form,
+.edit-listing-form {
   h2 {
     margin-top: lines(0.5);
   }
@@ -1386,14 +1402,12 @@ $noscript-height: lines(4);
     margin-left: lines(0.25);
   }
 
-  .selected-group, .option-group {
-
+  .selected-group,
+  .option-group {
     .hidden {
       display: none;
     }
-
   }
-
 }
 
 .price-title-field {
@@ -1419,7 +1433,7 @@ $noscript-height: lines(4);
   display: inline;
 }
 
-.delivery-options-container{
+.delivery-options-container {
   margin-top: lines(0.5);
 }
 
@@ -1472,7 +1486,7 @@ $noscript-height: lines(4);
   width: em(155);
 }
 
-input[type=text].delivery-price-field {
+input[type="text"].delivery-price-field {
   float: right;
   width: em(100);
 }
@@ -1489,7 +1503,6 @@ input[type=text].delivery-price-field {
 */
 
 .conversation-status {
-
   .status-links {
     display: inline-block;
   }
@@ -1504,7 +1517,9 @@ input[type=text].delivery-price-field {
     display: inline-block;
   }
 
-  .accept, .confirm, .accept_preauthorized {
+  .accept,
+  .confirm,
+  .accept_preauthorized {
     @include button(lighten($green, 40%));
     margin-right: lines(0.5);
     color: $green;
@@ -1515,7 +1530,9 @@ input[type=text].delivery-price-field {
     }
   }
 
-  .reject, .cancel, .reject_preauthorized {
+  .reject,
+  .cancel,
+  .reject_preauthorized {
     @include button(lighten($red, 40%));
     margin-right: lines(0.5);
     color: $red;
@@ -1525,7 +1542,6 @@ input[type=text].delivery-price-field {
       border-color: lighten($red, 10%);
     }
   }
-
 }
 
 /*
@@ -1535,7 +1551,6 @@ input[type=text].delivery-price-field {
 */
 
 .conversation-status-form {
-
   .conversation-action-description {
     padding: lines(0.25) 0;
   }
@@ -1590,9 +1605,9 @@ input[type=text].delivery-price-field {
 */
 
 .initiate-transaction-totals {
-    background-color: $highlight;
-    padding: lines(0.5);
-    margin-bottom: lines(0.5);
+  background-color: $highlight;
+  padding: lines(0.5);
+  margin-bottom: lines(0.5);
 }
 
 .initiate-transaction-per-unit-wrapper,
@@ -1602,7 +1617,7 @@ input[type=text].delivery-price-field {
 .initiate-transaction-shipping-price-wrapper,
 .initiate-transaction-stripe-fee-wrapper,
 .initiate-transaction-total-wrapper {
-    @include clearfix;
+  @include clearfix;
 }
 
 .initiate-transaction-per-unit-label,
@@ -1612,7 +1627,7 @@ input[type=text].delivery-price-field {
 .initiate-transaction-shipping-price-label,
 .initiate-transaction-stripe-fee-label,
 .initiate-transaction-total-label {
-    float: left;
+  float: left;
 }
 
 .initiate-transaction-per-unit-value,
@@ -1622,12 +1637,12 @@ input[type=text].delivery-price-field {
 .initiate-transaction-shipping-price-value,
 .initiate-transaction-stripe-fee-value,
 .initiate-transaction-total-value {
-    float: right;
-    margin-right: lines(0.25);
+  float: right;
+  margin-right: lines(0.25);
 }
 
 .initiate-transaction-total-wrapper {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /*
@@ -1637,14 +1652,14 @@ input[type=text].delivery-price-field {
 */
 
 .shipping-address-container {
-    background-color: $highlight;
-    padding: lines(0.5);
-    margin-bottom: lines(0.5);
-    margin-top: lines(0.5);
+  background-color: $highlight;
+  padding: lines(0.5);
+  margin-bottom: lines(0.5);
+  margin-top: lines(0.5);
 }
 
 .shipping-address-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /*
@@ -1662,7 +1677,7 @@ input[type=text].delivery-price-field {
   // Pushes content after about-section (mainly branding footer) down,
   // so that it doesn't overlap in any case with the left hand
   // navigation
-  @include media(tablet){
+  @include media(tablet) {
     min-height: 250px;
   }
 }
@@ -1673,9 +1688,11 @@ input[type=text].delivery-price-field {
   -----------------------------------------------
 */
 
-.testimonial-form, .conversation-status-form, .payment-form {
-
-  a.hidden, div.hidden {
+.testimonial-form,
+.conversation-status-form,
+.payment-form {
+  a.hidden,
+  div.hidden {
     display: none;
   }
 
@@ -1702,7 +1719,6 @@ input[type=text].delivery-price-field {
   }
 
   @include media(tablet) {
-
     .payment-row-headings {
       display: block;
       margin-bottom: lines(0.375);
@@ -1809,7 +1825,6 @@ input[type=text].delivery-price-field {
     .payment-sum-row {
       font-weight: bold;
     }
-
   }
 }
 
@@ -1832,7 +1847,6 @@ input[type=text].delivery-price-field {
 */
 
 .payment-form {
-
   small {
     margin-top: lines(0.5);
   }
@@ -1846,7 +1860,6 @@ input[type=text].delivery-price-field {
   .send-button {
     padding-top: lines(0.25);
   }
-
 }
 
 .paypal-loading {
@@ -1900,7 +1913,7 @@ $network-green: #00a26c;
     background: darken($color, 5%);
     color: $background;
     border-color: darken($color, 20%);
-  };
+  }
 
   @include media(tablet) {
     @include big-type;
@@ -1922,8 +1935,8 @@ $network-green: #00a26c;
   height: $height;
 
   background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
+  -moz-background-size: cover; /* Firefox 3.6 */
+  background-position: center; /* Internet Explorer 7/8 */
 }
 
 /* User both for marketplace and network landers */
@@ -1939,8 +1952,8 @@ figure.fluidratio {
   display: block;
   height: lines(4.3);
   background-size: cover;
-  -moz-background-size: cover;  /* Firefox 3.6 */
-  background-position: center;  /* Internet Explorer 7/8 */
+  -moz-background-size: cover; /* Firefox 3.6 */
+  background-position: center; /* Internet Explorer 7/8 */
   background-position: center center;
 }
 
@@ -1979,7 +1992,10 @@ figure.fluidratio {
     background-image: url(image-path($small-cover-photo-url));
     height: em($small-cover-photo-mobile-height);
     @include media(tablet) {
-      @include fluid-ratio(em(1920) em($small-cover-photo-height), em(300) em($small-cover-photo-height));
+      @include fluid-ratio(
+        em(1920) em($small-cover-photo-height),
+        em(300) em($small-cover-photo-height)
+      );
     }
   }
 
@@ -1999,7 +2015,10 @@ figure.fluidratio {
   figure.marketplace-cover-small-fade {
     height: em($small-cover-photo-mobile-height, 16);
     @include media(tablet) {
-      @include fluid-ratio(em(1920) em($small-cover-photo-height), em($small-cover-photo-height) em($small-cover-photo-height));
+      @include fluid-ratio(
+        em(1920) em($small-cover-photo-height),
+        em($small-cover-photo-height) em($small-cover-photo-height)
+      );
     }
   }
 
@@ -2027,10 +2046,10 @@ figure.fluidratio {
   }
 
   .marketplace-lander-content-description {
-      color: $descriptioncolor;
-      &.hidden-title-part {
-        opacity: 0 !important;
-      }
+    color: $descriptioncolor;
+    &.hidden-title-part {
+      opacity: 0 !important;
+    }
   }
 
   .title-container {
@@ -2088,7 +2107,7 @@ figure.fluidratio {
     }
   }
 
-  input[type=text] {
+  input[type="text"] {
     @include normal-type;
     padding: 0;
     border: 0;
@@ -2122,7 +2141,7 @@ figure.fluidratio {
     width: 100%;
     padding-top: lines(0.5);
 
-    input[type=text] {
+    input[type="text"] {
       @include normal-type;
       vertical-align: top;
       margin-right: em(-4);
@@ -2152,8 +2171,6 @@ figure.fluidratio {
   }
 
   @include media(tablet) {
-
-
     .marketplace-lander-content-title {
       margin-bottom: 0;
       margin-top: 0;
@@ -2167,7 +2184,7 @@ figure.fluidratio {
       max-width: lines(15);
     }
 
-    input[type=text] {
+    input[type="text"] {
       @include big-type;
       padding: em(11) em(14) em(11) em(14);
       width: lines(15);
@@ -2186,7 +2203,7 @@ figure.fluidratio {
     .browse-view-search-form {
       $search-bar-height: 48px;
 
-      input[type=text] {
+      input[type="text"] {
         @include normal-type;
         width: 77%;
         line-height: $search-bar-height;
@@ -2199,9 +2216,7 @@ figure.fluidratio {
         line-height: $search-bar-height - 2px; // -2 for finetuning vertical centering
         height: $search-bar-height;
       }
-
     }
-
   }
 
   @include media(desktop) {
@@ -2222,13 +2237,36 @@ figure.fluidratio {
 .is-disabled {
   cursor: not-allowed;
   opacity: 0.5;
-  a, button {
+  a,
+  button {
     color: currentColor;
-    display: inline-block;  /* For IE11/ MS Edge bug */
+    display: inline-block; /* For IE11/ MS Edge bug */
     pointer-events: none;
     text-decoration: none;
     &.button {
       background-color: #c3c3c3;
     }
+  }
+}
+
+.float {
+  position: fixed;
+  font-size: 20px;
+  bottom: 40px;
+  right: 40px;
+  color: #fff;
+  background: #008b8b !important;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  @media only screen and (max-width: 600px) {
+    position: fixed;
+    font-size: 10px;
+    bottom: 10px;
+    right: 20px;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
   }
 }

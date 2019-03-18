@@ -20,7 +20,7 @@
 
   #selected-groups
 
-    - if @listing_presenter.categories.size >= 1
+    - if @listing_presenter.categories.size >= 2
       .selected-group{:name => "category"}
         - @listing_presenter.categories.each do |value|
           %a.select.selected.hidden{:data => {:id => value.id}}

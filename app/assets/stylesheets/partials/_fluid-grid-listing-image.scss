@@ -26,6 +26,11 @@
   line-height: 1.2em;
 }
 
+.fluid-thumbnail-grid-image-type {
+  padding: lines(0.2) lines(0.5);
+  line-height: 1.2em;
+}
+
 .fluid-thumbnail-grid-image-overlay {
   @include border-top-radius($default-border-radius);
   @include overlay;

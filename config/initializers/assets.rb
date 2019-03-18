@@ -19,6 +19,7 @@ Rails.application.config.assets.precompile += %w(
   application.css
   react_page/styles.css
   design.css
+  tooltip.js
 )
 
 if Rails.env == 'test'

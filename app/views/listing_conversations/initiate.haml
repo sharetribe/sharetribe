@@ -37,13 +37,13 @@
       = hidden_field_tag(:per_hour, '1' )
 
     .preauthorize-section
-      %h2
-        = t("conversations.new.optional_message_to", author_name: author_link).html_safe
 
       .row
         .col-12
-          = text_area_tag :message, nil, :class => "text_area"
-
+        .listing-author-contact
+          %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
+            .content
+              = t("listing_conversations.preauthorize.contact", author: author.given_name)
       - if @current_community.transaction_agreement_in_use
         = render :partial => "listing_conversations/transaction_agreement_checkbox"
 

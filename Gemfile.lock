@@ -320,9 +320,7 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-
     mustermann (1.0.2)
-
     mysql2 (0.4.10)
     nenv (0.3.0)
     net-http-persistent (3.0.0)
@@ -609,7 +607,6 @@ DEPENDENCIES
   annotate (~> 2.7.1)
   awesome_print (~> 1.7.0)
   aws-sdk (~> 2.9.25)
-  bcrypt (= 3.1.12)
   better_errors (~> 2.1.1)
   binding_of_caller
   biz
@@ -654,7 +651,6 @@ DEPENDENCIES
   mercury-rails!
   meta_request (~> 0.4.3)
   money-rails (~> 1.8.0)
-
   mysql2 (~> 0.4.10)
   newrelic_rpm (~> 4.2.0.334)
   omniauth-facebook (~> 4.0.0)

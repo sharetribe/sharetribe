@@ -60,7 +60,7 @@
     - if listing_shape_menu_enabled || @category_menu_enabled
       .home-toolbar-show-filters-button-container
         .home-toolbar-show-filters-button#home-toolbar-show-filters
-          = t(".filter")
+          = t("homepage.filters.all_listing_types")
 
     .home-toolbar-button-group{:class => listing_shape_menu_enabled || @category_menu_enabled ? "filters-enabled" : ""}
       - ["grid", "list", "map"].each do |view_type|
@@ -77,18 +77,17 @@
             .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - if selected_shape
-                    = t(selected_shape[:name_tr_key])
-                  - else
-                    = t("homepage.filters.all_listing_types")
+                  - shapes.each do |shape|
+                    = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "home-toolbar-button-group-button-2" do
+                      = t(shape[:name_tr_key])
 
-                = icon_tag("dropdown", ["icon-dropdown"])
+                -# = icon_tag("dropdown", ["icon-dropdown"])
 
-            .home-toolbar-share-type-menu.toggle-menu.hidden
-              = link_to t("homepage.filters.all_listing_types"), search_path(search_params.merge({transaction_type: "all"}))
-              - shapes.each do |shape|
-                = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "toggle-menu-subitem" do
-                  = t(shape[:name_tr_key])
+            -# .home-toolbar-share-type-menu.toggle-menu.hidden
+            -#   = link_to t("homepage.filters.all_listing_types"), search_path(search_params.merge({transaction_type: "all"}))
+            -#   - shapes.each do |shape|
+            -#     = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "toggle-menu-subitem" do
+            -#       = t(shape[:name_tr_key])
 
         - if @show_categories
           .toggle-container.home-toolbar-toggle-container.hidden-tablet
@@ -137,6 +136,7 @@
 
     - main_container_class = if @category_menu_enabled then "col-9" else "col-12" end
     %div{:class => main_container_class}
+      = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "float button", :id => "new-listing-link"
       - if @listings.total_entries > 0
         - if @view_type.eql?("map")
           .home-map
