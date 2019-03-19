@@ -1,0 +1,100 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.settings.settings")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@presenter.community) }
+
+.left-navi-section
+  = form_for @presenter.community, url: admin_setting_path, method: :patch do |form|
+    %h2= t("admin.communities.settings.settings")
+
+    .row
+      .col-12
+        %h3= t("admin.communities.settings.access")
+        .checkbox-container
+          = form.check_box :join_with_invite_only
+          = form.label :join_with_invite_only, t("admin.communities.settings.join_with_invite_only"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :users_can_invite_new_users
+          = form.label :users_can_invite_new_users, t("admin.communities.settings.users_can_invite_new_users"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :private
+          = form.label :private, t("admin.communities.settings.private"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :require_verification_to_post_listings
+          = form.label :require_verification_to_post_listings, t("admin.communities.settings.require_verification_to_post_listings"), :class => "settings-checkbox-label"
+
+    - if(FeatureFlagHelper.location_search_available)
+      .row
+        .col-12
+          %h3= t("admin.communities.settings.search_preferences")
+          .checkbox-container
+            .settings-checkbox-label.label
+            - select_search_type = select_tag 'main_search', options_for_select(@presenter.main_search_select_options, @presenter.main_search), class: 'inline-select'
+            = t("admin.communities.settings.default_search_type", select_search_type: select_search_type).html_safe
+          .checkbox-container
+            .settings-checkbox-label.label
+            - select_distance_unit = select_tag 'distance_unit', options_for_select(@presenter.distance_unit_select_options, @presenter.distance_unit), class: 'inline-select'
+            = t("admin.communities.settings.select_distance_unit", distance_units_selector: select_distance_unit).html_safe
+          .checkbox-container
+            = check_box_tag :limit_distance, true, @presenter.limit_distance
+            = label_tag("limit_distance", t("admin.communities.settings.show_only_nearby"), {class: "settings-checkbox-label"})
+
+    .row
+      .col-12
+        %h3= t("admin.communities.settings.listing_preferences")
+        .checkbox-container
+          = form.check_box :show_category_in_listing_list
+          = form.label :show_category_in_listing_list, t("admin.communities.settings.show_category_in_listing_list"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :show_listing_publishing_date
+          = form.label :show_listing_publishing_date, t("admin.communities.settings.show_listing_publishing_date"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :listing_comments_in_use
+          = form.label :listing_comments_in_use, t("admin.communities.settings.listing_comments_in_use"), :class => "settings-checkbox-label"
+        - if FeatureFlagHelper.feature_enabled?(:approve_listings)
+          .checkbox-container
+            = form.check_box :pre_approved_listings
+            = form.label :pre_approved_listings, t("admin.communities.settings.pre_approved_listings"), :class => "settings-checkbox-label"
+
+    - if @presenter.community.payments_in_use?
+      .row
+        .col-12
+          %h3= t("admin.communities.settings.transaction_preferences")
+          .checkbox-container
+            .settings-checkbox-label.label
+              - day_dropdown = form.select :automatic_confirmation_after_days, (1..@presenter.max_automatic_confirmation_after_days), {}, :class => "inline-select"
+              = t("admin.communities.settings.automatically_confirmed_no_escrow", :days_dropdown => day_dropdown).html_safe
+            - if @presenter.stripe_available?
+              - learn_more = link_to(t('layouts.branding.learn_more'), ' https://help.sharetribe.com/how-to-delay-payments-and-hold-funds-with-stripe')
+              - help_text = t('admin.communities.settings.automatically_confirmed_no_escrow_stripe_info', learn_more: learn_more).html_safe
+              = render partial: 'layouts/info_text', locals: { text: help_text }
+              .info-text-container
+
+    .row
+      .col-12
+        %h3= t("admin.communities.settings.email_preferences")
+        .checkbox-container
+          = form.check_box :automatic_newsletters
+          = form.label :automatic_newsletters, t("admin.communities.settings.automatic_newsletters"), :class => "settings-checkbox-label"
+        .checkbox-container
+          .settings-checkbox-label.label
+            - frequence_dropdown = form.select :default_min_days_between_community_updates, [[t("admin.communities.settings.newsletter_daily"), 1], [t("admin.communities.settings.newsletter_weekly"), 7]], {}, :class => "inline-select"
+            = t("admin.communities.settings.automatic_newsletter_frequency", :frequency_dropdown => frequence_dropdown).html_safe
+        .checkbox-container
+          = form.check_box :email_admins_about_new_members
+          = form.label :email_admins_about_new_members, t("admin.communities.settings.email_admins_about_new_members"), :class => "settings-checkbox-label"
+
+    .row
+      .col-12
+        = form.button t("admin.communities.settings.update_settings")
+
+  - content_for :extra_javascript do
+    :javascript
+      window.ST.initializeDeleteMarketplace('#{@presenter.delete_confirmation}');
+
+  - if @presenter.can_delete_marketplace
+    .row.without-margin
+

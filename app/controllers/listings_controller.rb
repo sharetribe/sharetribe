@@ -58,7 +58,7 @@ class ListingsController < ApplicationController
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])
-      if @listing.visible_to?(@current_user, @current_community)
+      if Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
         render :partial => "homepage/listing_bubble", :locals => { :listing => @listing }
       else
         render :partial => "bubble_listing_not_visible"
@@ -146,6 +146,12 @@ class ListingsController < ApplicationController
 
     ActiveRecord::Base.transaction do
       @listing.author = new_listing_author
+      if FeatureFlagHelper.feature_enabled?(:approve_listings) &&
+         @current_community.pre_approved_listings?
+        unless @current_user.has_admin_rights?(@current_community)
+          @listing.state = Listing::APPROVAL_PENDING
+        end
+      end
 
       if @listing.save
         @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
@@ -209,6 +215,7 @@ class ListingsController < ApplicationController
     end
 
     listing_params = result.data.merge(@listing.closed? ? {open: true} : {})
+    listing_params.merge!(auto_approve_params)
 
     old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
@@ -363,7 +370,7 @@ class ListingsController < ApplicationController
 
     raise ListingDeleted if @listing.deleted?
 
-    unless @listing.visible_to?(@current_user, @current_community)
+    unless Policy::ListingPolicy.new(@listing, @current_community, @current_user).visible?
       if @current_user
         flash[:error] = if @listing.closed?
           t("layouts.notifications.listing_closed")
@@ -510,5 +517,17 @@ class ListingsController < ApplicationController
       else
         @current_user
       end
+  end
+
+  def auto_approve_params
+    if @current_community.pre_approved_listings? && !@current_user.has_admin_rights?(@current_community)
+      if @listing.approved? || @listing.approval_rejected?
+        {state: Listing::APPROVAL_PENDING}
+      else
+        {}
+      end
+    else
+      {state: Listing::APPROVED}
+    end
   end
 end

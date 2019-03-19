@@ -190,8 +190,7 @@ Rails.application.routes.draw do
       get  "/paypal_preferences/permissions_verified" => "paypal_preferences#permissions_verified"
 
       # Settings
-      get   "/settings" => "communities#settings",        as: :settings
-      patch "/settings" => "communities#update_settings", as: :update_settings
+      resource :setting, path: 'settings', only: [:show, :update]
 
       # Guide
       get "getting_started_guide"                        => "getting_started_guide#index",                  as: :getting_started_guide
@@ -272,7 +271,12 @@ Rails.application.routes.draw do
           get "getting_started_guide/invitation",             to: redirect("/admin/getting_started_guide/invitation")
 
         end
-        resources :listings, controller: :community_listings, only: [:index]
+        resources :listings, controller: :community_listings, only: [:index, :edit, :update] do
+          member do
+            get :approve
+            get :reject
+          end
+        end
         resources :transactions, controller: :community_transactions, only: :index do
           collection do
             get 'export'

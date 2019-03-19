@@ -1,0 +1,25 @@
+.listing-edit-form
+  - url = admin_community_listing_path(presenter.community.id, listing.id)
+  = form_for listing, url: url, remote: true do |form|
+    = form.hidden_field :state
+    .row
+      .col-12
+        %h2= listing.title
+    .row
+      .col-12
+        - if presenter.listing_wait_for_approval?(listing)
+          = t('admin.communities.listings.form.this_listing_has_not_not_been_approved_yet')
+        - else
+          = t('admin.communities.listings.approved')
+    .row
+      .col-12.listing-save
+        - if presenter.listing_wait_for_approval?(listing)
+          = form.submit t('admin.communities.listings.form.approve'),
+            class: 'button', data: {state: Listing::APPROVED}
+        = form.submit t('admin.communities.listings.form.reject'),
+          class: 'button', data: {state: Listing::APPROVAL_REJECTED}
+        .inline-button-container
+          %a#close_x1{:href => '#', :class => "cancel-button"}
+            .content
+              = t("admin.communities.listings.form.cancel")
+

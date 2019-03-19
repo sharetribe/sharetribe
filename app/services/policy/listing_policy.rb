@@ -2,7 +2,12 @@
 # Give `listing`, `community` and `user` and get back true or false
 # whether of not the listing can be shown to given user in the given community
 #
-class ListingVisibilityGuard
+class Policy::ListingPolicy
+  private
+
+  attr_reader :listing, :community, :user
+
+  public
 
   def initialize(listing, community, user)
     @listing = listing
@@ -18,7 +23,7 @@ class ListingVisibilityGuard
     return false unless listing_belongs_to_community?
 
     if user_logged_in?
-      user_member_of_community? || @user.has_admin_rights?(@community)
+      user_member_of_community? || user.has_admin_rights?(community)
     else
       public_community?
     end
@@ -27,30 +32,30 @@ class ListingVisibilityGuard
   private
 
   def open?
-    !@listing.closed?
+    !listing.closed? && listing.approved?
   end
 
   def listing_belongs_to_community?
-    @community && @listing.community_id == @community.id
+    community && listing.community_id == community.id
   end
 
   def user_logged_in?
-    !@user.nil?
+    !user.nil?
   end
 
   def user_member_of_community?
-    @user.accepted_community == @community
+    user.accepted_community == community
   end
 
   def public_community?
-    !@community.private?
+    !community.private?
   end
 
   def is_author?
-    @user == @listing.author
+    user == listing.author
   end
 
   def is_admin?
-    @user && @user.has_admin_rights?(@community)
+    user && user.has_admin_rights?(community)
   end
 end

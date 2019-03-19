@@ -326,5 +326,26 @@ class ListingPresenter < MemoisticPresenter
       stripe_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
   end
 
+  def pending_admin_approval?
+    is_marketplace_admin && listing.approval_pending?
+  end
+
+  def approval_in_use?
+    FeatureFlagHelper.feature_enabled?(:approve_listings) &&
+      current_community.pre_approved_listings
+  end
+
+  def show_submit_for_review?
+    approval_in_use? && !current_user.has_admin_rights?(current_community)
+  end
+
+  def listing_form_object
+    if acts_as_person
+      [acts_as_person, listing]
+    else
+      listing
+    end
+  end
+
   memoize_all_reader_methods
 end

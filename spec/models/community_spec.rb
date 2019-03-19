@@ -104,6 +104,7 @@
 #  linkedin_connect_enabled                   :boolean
 #  linkedin_connect_id                        :string(255)
 #  linkedin_connect_secret                    :string(255)
+#  pre_approved_listings                      :boolean          default(FALSE)
 #
 # Indexes
 #

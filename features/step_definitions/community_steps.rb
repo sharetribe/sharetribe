@@ -267,3 +267,7 @@ Given /^community "(.*?)" has social network "(.*?)" enabled$/ do |community, pr
   community.save
 end
 
+Given(/^community "(.*?)" has pre-approved listings$/)do |community|
+  Community.where(ident: community).first.update_attribute(:pre_approved_listings, true)
+end
+

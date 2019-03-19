@@ -47,21 +47,23 @@
 #  shipping_price_additional_cents :integer
 #  availability                    :string(32)       default("none")
 #  per_hour_ready                  :boolean          default(FALSE)
+#  state                           :string(255)      default("approved")
 #
 # Indexes
 #
 #  community_author_deleted            (community_id,author_id,deleted)
-#  homepage_query                      (community_id,open,sort_date,deleted)
 #  homepage_query_valid_until          (community_id,open,valid_until,sort_date,deleted)
 #  index_listings_on_category_id       (old_category_id)
 #  index_listings_on_community_id      (community_id)
 #  index_listings_on_listing_shape_id  (listing_shape_id)
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
+#  index_listings_on_state             (state)
 #  index_listings_on_uuid              (uuid) UNIQUE
 #  index_on_author_id_and_deleted      (author_id,deleted)
+#  listings_homepage_query             (community_id,open,state,deleted,valid_until,sort_date)
+#  listings_updates_email              (community_id,open,state,deleted,valid_until,updates_email_at,created_at)
 #  person_listings                     (community_id,author_id)
-#  updates_email_listings              (community_id,open,updates_email_at)
 #
 
 require 'spec_helper'
@@ -119,49 +121,6 @@ describe Listing, type: :model do
   it "should not be valid when valid until is more than one year after current time" do
     @listing.valid_until = DateTime.now + 1.year + 2.days
     expect(@listing).not_to be_valid
-  end
-
-  describe "#visible_to?" do
-    let(:community) { FactoryGirl.create(:community, private: true) }
-    let(:community2) { FactoryGirl.create(:community) }
-    let(:person) { FactoryGirl.create(:person, communities: [community]) }
-    let(:admin) { FactoryGirl.create(:person, member_of: community, member_is_admin: true) }
-    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, listing_shape_id: 123) }
-
-    it "is not visible, if the listing doesn't belong to the given community" do
-      expect(listing.visible_to?(person, community)).to be_truthy
-      expect(listing.visible_to?(person, community2)).to be_falsey
-    end
-
-    it "is visible, if user is a member of the given community in which the listing belongs" do
-      expect(listing.visible_to?(person, community)).to be_truthy
-    end
-
-    it "is visible, if user is not logged in and the listing and community are public" do
-      community.update_attribute(:private, false)
-
-      expect(listing.visible_to?(nil, community)).to be_truthy
-    end
-
-    it "is not visible, if user is not logged in but the community is private" do
-      community.update_attribute(:private, true)
-
-      expect(listing.visible_to?(nil, community)).to be_falsey
-    end
-
-    it "is not visible, if the listing is closed" do
-      listing.update_attribute(:open, false)
-
-      expect(listing.visible_to?(person, community)).to be_falsey
-      expect(listing.visible_to?(nil, community)).to be_falsey
-    end
-
-    it "is visible to admin if the listing is closed" do
-      listing.update_attribute(:open, false)
-
-      expect(listing.visible_to?(person, community)).to be_falsey
-      expect(listing.visible_to?(admin, community)).to be_truthy
-    end
   end
 
   context "with listing type 'offer'" do
