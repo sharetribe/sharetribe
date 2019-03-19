@@ -826,7 +826,6 @@ CREATE TABLE `listings` (
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
   KEY `person_listings` (`community_id`,`author_id`) USING BTREE,
-  KEY `homepage_query_valid_until` (`community_id`,`open`,`valid_until`,`sort_date`,`deleted`) USING BTREE,
   KEY `index_listings_on_community_id` (`community_id`) USING BTREE,
   KEY `index_listings_on_listing_shape_id` (`listing_shape_id`) USING BTREE,
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
@@ -2373,5 +2372,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190213082646'),
 ('20190227111355'),
 ('20190228084827'),
-('20190305112030');
+('20190305112030'),
+('20190319122745');
+
 
