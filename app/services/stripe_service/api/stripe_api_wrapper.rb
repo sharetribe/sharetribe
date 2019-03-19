@@ -14,7 +14,7 @@ class StripeService::API::StripeApiWrapper
       else
         '2017-06-05'
                            end
-      Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key)
+      Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
     def reset_configurations
