@@ -143,20 +143,17 @@ class ListingsController < ApplicationController
     end
 
     @listing = Listing.new(result.data)
+    service = Admin::ListingsService.new(community: @current_community, params: params, person: @current_user)
 
     ActiveRecord::Base.transaction do
       @listing.author = new_listing_author
-      if FeatureFlagHelper.feature_enabled?(:approve_listings) &&
-         @current_community.pre_approved_listings?
-        unless @current_user.has_admin_rights?(@current_community)
-          @listing.state = Listing::APPROVAL_PENDING
-        end
-      end
+      service.create_state(@listing)
 
       if @listing.save
         @listing.upsert_field_values!(params.to_unsafe_hash[:custom_fields])
         @listing.reorder_listing_images(params, @current_user.id)
         notify_about_new_listing
+        service.create_successful(@listing)
 
         if shape.booking?
           anchor = shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
@@ -215,7 +212,8 @@ class ListingsController < ApplicationController
     end
 
     listing_params = result.data.merge(@listing.closed? ? {open: true} : {})
-    listing_params.merge!(auto_approve_params)
+    service = Admin::ListingsService.new(community: @current_community, params: params, person: @current_user)
+    listing_params.merge!(service.update_by_author_params(@listing))
 
     old_availability = @listing.availability.to_sym
     update_successful = @listing.update_fields(listing_params)
@@ -232,6 +230,7 @@ class ListingsController < ApplicationController
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
       reprocess_missing_image_styles(@listing) if @listing.closed?
+      service.update_by_author_successful(@listing)
       redirect_to @listing
     else
       logger.error("Errors in editing listing: #{@listing.errors.full_messages.inspect}")
@@ -517,17 +516,5 @@ class ListingsController < ApplicationController
       else
         @current_user
       end
-  end
-
-  def auto_approve_params
-    if @current_community.pre_approved_listings? && !@current_user.has_admin_rights?(@current_community)
-      if @listing.approved? || @listing.approval_rejected?
-        {state: Listing::APPROVAL_PENDING}
-      else
-        {}
-      end
-    else
-      {state: Listing::APPROVED}
-    end
   end
 end

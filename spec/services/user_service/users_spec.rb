@@ -7,16 +7,6 @@ describe UserService::API::Users do
   include EmailSpec::Helpers
   include EmailSpec::Matchers
 
-  def process_jobs
-    success, failure = Delayed::Worker.new(
-               quiet: true # you might want to change this to false for debugging
-             ).work_off
-
-    if failure > 0
-      raise "Delayed job failed"
-    end
-  end
-
   PERSON_HASH = {
     given_name: "Raymond",
     family_name: "Xperiment",
