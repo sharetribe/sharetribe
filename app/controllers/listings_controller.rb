@@ -89,6 +89,7 @@ class ListingsController < ApplicationController
 
     make_listing_presenter
     @listing_presenter.form_path = new_transaction_path(listing_id: @listing.id)
+    @seo_service.listing = @listing
 
     record_event(
       flash.now,

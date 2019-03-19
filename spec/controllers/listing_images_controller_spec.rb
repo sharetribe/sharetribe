@@ -57,7 +57,7 @@ describe ListingImagesController, type: :controller do
         shipping_enabled: false,
         transaction_process_id: process_id,
         name_tr_key: name_tr_key,
-        action_button_tr_key: 'something.here',
+        action_button_tr_key: 'admin.transaction_types.default_action_button_labels.sell',
         translations: translations_with_default,
         basename: Maybe(translations).first[:name].or_else(type)
       })

@@ -14,11 +14,23 @@ describe Admin::CommunitySeoSettingsController, type: :controller do
   describe "#update" do
     it "updates meta description and title" do
       customization = @community.community_customizations.first
-      put :update, params: {community: {community_customizations_attributes: {id: customization.id, meta_title: "Modified EN title", meta_description: "Modified EN description"}}}
+      request_params = {
+        community: {
+          community_customizations_attributes: {
+            id: customization.id,
+            meta_title: "Modified EN title", meta_description: "Modified EN description",
+            search_meta_title: "Modified EN search title", search_meta_description: "Modified EN search description",
+            listing_meta_title: "Modified EN listing title", listing_meta_description: "Modified EN listing description",
+            profile_meta_title: "Modified EN profile title", profile_meta_description: "Modified EN profile description",
+            category_meta_title: "Modified EN category title", category_meta_description: "Modified EN category description",
+          }
+        }
+      }
+      put :update, params: request_params
       customization.reload
-      expect(customization.meta_title).to eq("Modified EN title")
-      expect(customization.meta_description).to eq("Modified EN description")
+      request_params[:community][:community_customizations_attributes].each do |key, value|
+        expect(customization[key]).to eq(value)
+      end
     end
   end
 end
-
