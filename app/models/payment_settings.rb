@@ -24,6 +24,7 @@
 #  commission_from_buyer                  :integer
 #  minimum_buyer_transaction_fee_cents    :integer
 #  minimum_buyer_transaction_fee_currency :string(3)
+#  key_encryption_padding                 :boolean          default(FALSE)
 #
 # Indexes
 #

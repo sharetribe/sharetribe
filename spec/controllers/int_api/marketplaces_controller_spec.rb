@@ -65,6 +65,11 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(p.emails.first.address).to eql "eddie.admin@example.com"
 
       expect_trial_plan(c.id)
+
+      stripe_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: 'stripe')[:data]
+      expect(stripe_settings[:payment_gateway]).to eql :stripe
+      expect(stripe_settings[:payment_process]).to eql :preauthorize
+      expect(stripe_settings[:key_encryption_padding]).to eql true
     end
 
     it "should handle emails starting with info@" do
