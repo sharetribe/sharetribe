@@ -18,7 +18,8 @@ module TransactionService::Store::PaymentSettings
     [:api_publishable_key, :string],
     [:commission_from_buyer, :fixnum],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
-    [:minimum_buyer_transaction_fee_currency, :string]
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool, default: true]
   )
 
   PaymentSettingsUpdate = EntityUtils.define_builder(
@@ -38,7 +39,8 @@ module TransactionService::Store::PaymentSettings
     [:confirmation_after_days_after_end_time, :fixnum],
     [:commission_from_buyer, :fixnum],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
-    [:minimum_buyer_transaction_fee_currency, :string]
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool]
   )
 
   PaymentSettings = EntityUtils.define_builder(
@@ -61,7 +63,8 @@ module TransactionService::Store::PaymentSettings
     [:api_country, :string],
     [:commission_from_buyer, :fixnum],
     [:minimum_buyer_transaction_fee_cents, :fixnum],
-    [:minimum_buyer_transaction_fee_currency, :string]
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool]
   )
 
   module_function
@@ -165,26 +168,26 @@ module TransactionService::Store::PaymentSettings
     end
     # store visible hint
     settings[:api_visible_private_key] = settings[:api_private_key].sub(/\A(.{7}).+(.{4})$/, '\1*********************\2')
-    settings[:api_private_key] = encrypt_value(settings[:api_private_key])
+    settings[:api_private_key] = encrypt_value(settings[:api_private_key], settings[:key_encryption_padding])
   end
 
-  def encrypt_value(value)
+  def encrypt_value(value, padding)
     raise "can not encrypt Stripe keys, add app_encryption_key to config/config.yml" if APP_CONFIG.app_encryption_key.nil?
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt
     cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
     iv = cipher.random_iv
-    cipher.padding = 0
+    cipher.padding = padding ? 1 : 0
     cipher.iv = iv
     text = cipher.update(value) + cipher.final
     Base64.strict_encode64(iv + text)
   end
 
-  def decrypt_value(value)
+  def decrypt_value(value, padding)
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.decrypt
     cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
-    cipher.padding = 0
+    cipher.padding = padding ? 1 : 0
     plain = Base64.decode64(value)
     cipher.iv = plain.slice!(0,16)
     cipher.update(plain) + cipher.final
@@ -194,6 +197,7 @@ module TransactionService::Store::PaymentSettings
     if model.api_verified?
       API_KEY_FIELDS.each{|key| new_settings.delete(key) }
     else
+      new_settings[:key_encryption_padding] = model.key_encryption_padding
       encrypt_api_keys(new_settings)
       new_settings[:api_verified] = false
     end
