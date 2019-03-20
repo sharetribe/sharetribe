@@ -1062,6 +1062,7 @@ CREATE TABLE `payment_settings` (
   `commission_from_buyer` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_cents` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_currency` varchar(3) DEFAULT NULL,
+  `key_encryption_padding` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2373,6 +2374,6 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190227111355'),
 ('20190228084827'),
 ('20190305112030'),
-('20190319122745');
-
+('20190319122745'),
+('20190319114719');
 
