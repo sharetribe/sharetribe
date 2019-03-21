@@ -9,11 +9,8 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      Stripe.api_version = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-        '2019-02-19'
-      else
-        '2017-06-05'
-                           end
+      new_stripe_api = FeatureFlag.feature_enabled?(settings.community_id, :new_stripe_api)
+      Stripe.api_version = new_stripe_api ? '2019-02-19' : '2017-06-05'
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
