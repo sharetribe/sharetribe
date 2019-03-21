@@ -16,6 +16,16 @@
 #
 
 class FeatureFlag < ApplicationRecord
+  belongs_to :community
+  belongs_to :person
 
   validates_presence_of(:community_id)
+
+  scope :enabled, -> { where(enabled: true) }
+
+  class << self
+    def feature_enabled?(community_id, feature)
+      enabled.where(community_id: community_id, feature: feature).any?
+    end
+  end
 end
