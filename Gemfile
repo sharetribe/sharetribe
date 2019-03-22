@@ -99,6 +99,8 @@ gem "request_store", '~> 1.3.2'
 # ActionMailer dependency that needs forced update for security patch
 gem 'mail', '~> 2.6.6.rc1'
 
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.2'
+
 group :staging, :production do
   gem 'newrelic_rpm', '~> 4.2.0.334'
   gem 'rails_12factor', '~> 0.0.3'
