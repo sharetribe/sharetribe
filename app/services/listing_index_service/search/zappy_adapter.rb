@@ -32,7 +32,7 @@ module ListingIndexService::Search
       end
 
       if DatabaseSearchHelper.needs_search?(search) ||
-         (APP_CONFIG.external_search_for_homepage && !DatabaseSearchHelper.needs_db_query?(search))
+         (APP_CONFIG.external_search_for_homepage.to_s.casecmp("true").zero? && !DatabaseSearchHelper.needs_db_query?(search))
         begin
           res = @conn.get do |req|
             req.url("/api/v1/marketplace/#{community_id}/listings", format_params(search))
