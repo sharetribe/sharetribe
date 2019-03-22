@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-echo 'deb http://deb.debian.org/debian jessie-backports main' | sudo tee -a /etc/apt/sources.list
+echo 'deb http://deb.debian.org/debian stretch-backports main' | sudo tee -a /etc/apt/sources.list
 
 sudo apt-get update && sudo apt-get install -y sphinxsearch mysql-client
 
