@@ -102,6 +102,22 @@ class Person::PaymentSettingsPresenter
       end
   end
 
+  def stripe_account_pending_verification?
+    stripe_account_verification == :pending_verification
+  end
+
+  def stripe_account_restricted?
+    stripe_account_verification == :restricted
+  end
+
+  def stripe_account_restricted_soon?
+    stripe_account_verification == :restricted_soon
+  end
+
+  def stripe_account_verified?
+    stripe_account_verification == :verified
+  end
+
   def stripe_seller_account
     return @stripe_seller_account if @stripe_seller_account
     @stripe_seller_account = if stripe_account_ready
