@@ -305,6 +305,9 @@ default: &default_settings
   external_search_url:
   external_search_apikey:
 
+  # Use excternal search service for default listing view in homepage
+  external_search_for_homepage: false
+
   # Combined keyword & location search distance score tweaking
   external_search_scale_multiplier: 0.75
   external_search_offset_multiplier: 0.5

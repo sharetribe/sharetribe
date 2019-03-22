@@ -31,7 +31,8 @@ module ListingIndexService::Search
         return Result::Error.new(ArgumentError.new("Both DB query and search engine would be needed to fulfill the search"))
       end
 
-      if DatabaseSearchHelper.needs_search?(search)
+      if DatabaseSearchHelper.needs_search?(search) ||
+         (APP_CONFIG.external_search_for_homepage && !DatabaseSearchHelper.needs_db_query?(search))
         begin
           res = @conn.get do |req|
             req.url("/api/v1/marketplace/#{community_id}/listings", format_params(search))
