@@ -1,4 +1,4 @@
-= fields_for stripe_account_form do |form|
+= fields_for presenter.stripe_account_form do |form|
   = form.hidden_field :token
   .country-dependent{"data-country-except" => "JP"}
     .row
