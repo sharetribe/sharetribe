@@ -148,7 +148,7 @@ class Person::OmniauthService
   def store_picture_from_provider(new_person)
     url = if facebook? && new_person.facebook_id
       resp = RestClient.get(
-        "http://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{new_person.facebook_id}/picture?type=large&redirect=false")
+        "https://graph.facebook.com/#{FacebookSdkVersion::SERVER}/#{new_person.facebook_id}/picture?type=large&redirect=false")
       JSON.parse(resp)["data"]["url"]
     elsif google_oauth2? && new_person.google_oauth2_id
       info.image
