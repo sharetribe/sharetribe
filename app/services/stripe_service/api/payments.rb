@@ -129,6 +129,8 @@ module StripeService::API
       end
 
       def payout(tx)
+        report = StripeService::Report.new(tx: tx)
+        report.capture_charge_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment = PaymentStore.get(tx.community_id, tx.id)
 
@@ -168,6 +170,9 @@ module StripeService::API
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
                                         transfered_at: Time.zone.now
                                       })
+
+        report.capture_charge_success
+        payment
       end
 
       def stripe_api
