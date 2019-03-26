@@ -15,5 +15,10 @@ class StripePayoutJob < Struct.new(:transaction_id, :community_id)
     StripeService::API::Api.payments.payout(tx)
   rescue => exception
     error(self, exception)
+    raise
+  end
+
+  def max_attempts
+    1
   end
 end
