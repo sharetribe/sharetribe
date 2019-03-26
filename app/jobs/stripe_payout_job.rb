@@ -15,7 +15,7 @@ class StripePayoutJob < Struct.new(:transaction_id, :community_id)
     StripeService::API::Api.payments.payout(tx)
   rescue => exception
     params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).capture_charge_failed
-    error(self, exception, params_to_airbrake)
+    error(self, exception, {stripe: params_to_airbrake})
     raise
   end
 
