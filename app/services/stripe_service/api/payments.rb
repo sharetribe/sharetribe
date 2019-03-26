@@ -6,6 +6,8 @@ module StripeService::API
       TransactionStore = TransactionService::Store::Transaction
 
       def create_preauth_payment(tx, gateway_fields)
+        report = StripeService::Report.new(tx: tx)
+        report.create_charge_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         if !seller_account || !seller_account[:stripe_seller_id].present?
           return SyncCompletion.new(Result::Error.new("No Seller Account"))
@@ -56,10 +58,14 @@ module StripeService::API
             addr: gateway_fields[:shipping_address])
         end
 
+        report.create_charge_success
         Result::Success.new(payment)
-      rescue => e
-        Airbrake.notify(e)
-        Result::Error.new(e.message)
+      rescue => exception
+        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).create_charge_failed
+        exception.extend ParamsToAirbrake
+        exception.params_to_airbrake = params_to_airbrake
+        Airbrake.notify(exception)
+        Result::Error.new(exception.message)
       end
 
       def cancel_preauth(tx, reason)
@@ -129,6 +135,8 @@ module StripeService::API
       end
 
       def payout(tx)
+        report = StripeService::Report.new(tx: tx)
+        report.capture_charge_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment = PaymentStore.get(tx.community_id, tx.id)
 
@@ -168,6 +176,9 @@ module StripeService::API
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
                                         transfered_at: Time.zone.now
                                       })
+
+        report.capture_charge_success
+        payment
       end
 
       def stripe_api
