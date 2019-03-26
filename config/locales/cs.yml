@@ -259,6 +259,7 @@ cs:
         you_will_be_redirected_to: "Poté, co smažete Vaše tržiště, budete přesměrováni do %{destination}. Již nikdy nebudete mít přístup do Vašeho tržiště."
         delete_this_marketplace: "Smazat toto tržiště"
         payment_preferences: "Platební systém"
+        pre_approved_listings: ~
       manage_members:
         manage_members: "Správa uživatelů"
         email: E-mail
@@ -353,6 +354,34 @@ cs:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -546,6 +575,8 @@ cs:
           open: Otevřeno
           closed: Zavřeno
           expired: Vypršel
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: Nadpis
           author: Autor
@@ -556,6 +587,14 @@ cs:
         open: Otevřeno
         closed: Zavřeno
         expired: "Platnost vypršela"
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: "Uživatelská pole"
       footer:
@@ -1380,6 +1419,20 @@ cs:
       this_is_automatic_message: "Jedná se o automatickou zprávu zaslanou administrátorům %{community}."
       person_name: "Jméno:"
       person_email: "Email:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervace se nezdařila, kvůli neočekávané chybě. Zkuste to prosím později."
@@ -1847,6 +1900,10 @@ cs:
       show_in_updates_email_loading: "Probíhá nahrávání..."
       show_in_updates_email_error: "Nepodařilo se připojit k serveru. Zkuste to znovu po obnovení stránky."
       show_in_updates_email_success: "Tento inzerát bude uveden v dalším automatickém e-mailu s novinkami zasílaném uživatelům"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Otevřít v Google Maps"
     error:
@@ -1927,6 +1984,9 @@ cs:
         origin: Původ
       send_button:
         save_listing: Uložit
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Vybrat
         borrow: "Půjčím si"
@@ -2796,3 +2856,12 @@ cs:
     wrong_setup: "V nastavení tohoto platebního systému je na tom něco špatně: Stripe Connect nebylo povoleno. Obraťte se na tým a informujte je o tom, že by měli povolit Stripe Connect na své Stripe stránce."
     invalid_bank_account_number: "Zkontrolujte prosím, zde je váš bankovní účet zadán správně a zda odpovídá vaší zemi."
     invalid_postal_code: "Neplatné PSČ pro %{country}"
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

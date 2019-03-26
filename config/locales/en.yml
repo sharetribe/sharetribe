@@ -1417,19 +1417,19 @@ en:
       person_name: "Name:"
       person_email: "Email:"
     listing_submited_for_review:
-      subject: 'New listing to review: "%{listing_title}" by %{author_name} in %{community}'
-      there_is_a_new_listing_to_review: 'There is a new listing to review: "%{listing_title}" by %{author_name}. You now have to approve or reject that listing.'
-      review_the_listing: Review the listing
-      this_is_automatic_message: This is an automatic message sent to administrators of %{community}.
+      subject: "New listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
+      there_is_a_new_listing_to_review: "There is a new listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      review_the_listing: "Review the listing"
+      this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
     listing_approved:
-      subject: The %{community} team has approved your listing "%{listing_title}"
-      listing_has_been_approved: Great news! Your listing "%{listing_title}" has been reviewed and approved by the %{community} team. It has been published.
-      view_the_listing: View the listing
+      subject: "The %{community} team has approved your listing \"%{listing_title}\""
+      listing_has_been_approved: "Great news! Your listing \"%{listing_title}\" has been reviewed and approved by the %{community} team. It has been published."
+      view_the_listing: "View the listing"
     listing_rejected:
-      subject: The %{community} team has rejected your listing "%{listing_title}"
-      listing_has_been_rejected: Unfortunately the %{community} team has rejected your listing "%{listing_title}" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review.
-      contact_link: contact the %{community} team
-      edit_the_listing: Edit the listing
+      subject: "The %{community} team has rejected your listing \"%{listing_title}\""
+      listing_has_been_rejected: "Unfortunately the %{community} team has rejected your listing \"%{listing_title}\" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review."
+      contact_link: "contact the %{community} team"
+      edit_the_listing: "Edit the listing"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
@@ -1980,7 +1980,7 @@ en:
         origin: Origin
       send_button:
         save_listing: "Post listing"
-        submit_for_review: Submit for review
+        submit_for_review: "Submit for review"
         will_be_reviewed: "All listings on %{service_name} will be reviewed before publishing. Once your listing has been approved, you will be notified by email and it will be visible to all."
         we_noticed_youre_an_admin: "We noticed you're an admin of %{service_name}. Your changes will be automatically applied and will not need a review or approval."
       share_type:
@@ -2794,7 +2794,7 @@ en:
       address_kanji_line1: "Street address kanji"
       male: male
       female: female
-      mcc: Industry (Merchant Category Code)
+      mcc: "Industry (Merchant Category Code)"
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"

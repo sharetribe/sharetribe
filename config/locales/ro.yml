@@ -259,6 +259,7 @@ ro:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
+        pre_approved_listings: "Arata doar listarile care au fost aprobate de administratori"
       manage_members:
         manage_members: Utilizatori
         email: Email
@@ -353,6 +354,34 @@ ro:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: "Pagina rezultate cautare"
+        search_meta_title_label: "Pagina rezultate cautare titlu meta tag"
+        search_meta_title_info: ~
+        search_meta_title_link_text: "Afla mai multe despre meta tags"
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: "Pagina listari"
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: "Pagina \"Categorii\""
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -546,6 +575,8 @@ ro:
           open: ~
           closed: ~
           expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -556,6 +587,14 @@ ro:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
       footer:
@@ -773,7 +812,7 @@ ro:
       units:
         piece: ~
         hour: ~
-        day: "Pe zi"
+        day: "Pe zi - 24h"
         night: ~
         week: ~
         month: ~
@@ -1006,7 +1045,7 @@ ro:
     details:
       day: zi
       days: zile
-      price_per_day: "Preț pe zi: %{price}"
+      price_per_day: "Preț pe zi - 24h: %{price}"
     index:
       loading_more_messages: "Se încarcă mai multe mesaje"
       message_partitive: mesaj
@@ -1366,6 +1405,20 @@ ro:
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1828,6 +1881,10 @@ ro:
       show_in_updates_email_loading: Încarcă...
       show_in_updates_email_error: "Nu s-a putut ajunge la server. Încercați din nou după reîmprospătarea paginii."
       show_in_updates_email_success: "Acest produs va fi inclus in urmatorul email automat ce va fi trimis catre utilizatori"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Deschide in Google Maps"
     error:
@@ -1889,7 +1946,7 @@ ro:
       price:
         price: Preț
         per: per
-        per_day: "pe zi"
+        per_day: "pe zi - 24h"
         mass: "bucată, kg, l, m2, ..."
         time: "oră, zi, lună, ..."
         long_time: "săptămână, lună, ..."
@@ -1908,6 +1965,9 @@ ro:
         origin: origine
       send_button:
         save_listing: "Publicati listarea"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Selecteaza
         borrow: imprumut
@@ -2045,7 +2105,7 @@ ro:
       listing_created_at: "Listarea a fost creată"
       price:
         per_quantity_unit: "per %{quantity_unit}"
-        per_day: "pe zi"
+        per_day: "pe zi - 24h"
       delivery: ~
       shipping: ~
       shipping_no_price: ~
@@ -2533,7 +2593,7 @@ ro:
         one: "Zi rezervata:"
         few: "Zile rezervate:"
         other: "Zile rezervate"
-      price_per_day: "Pret pe zi:"
+      price_per_day: "Pret pe zi - 24h:"
       price_per_night: ~
       price_per_hour: ~
       price_per_unit: ~
@@ -2743,3 +2803,12 @@ ro:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

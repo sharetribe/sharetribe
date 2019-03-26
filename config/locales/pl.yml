@@ -263,7 +263,8 @@ pl:
         last_community_updates: "Miej świadomość, że po skasowaniu Ty i użytkownicy Twojej platformy możecie nadal otrzymywać ostatnie e-maile aktualizacyjne dotyczące platformy."
         you_will_be_redirected_to: "Po skasowaniu swojej platformy zostaniesz przeniesiony do %{destination}. Nie będziesz mógł więcej dostać się do swojej platformy."
         delete_this_marketplace: "Usuń tę platformę"
-        payment_preferences: ~
+        payment_preferences: "System płatności"
+        pre_approved_listings: ~
       manage_members:
         manage_members: "Zarządzaj użytkownikami"
         email: "Adres email"
@@ -358,6 +359,34 @@ pl:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -451,29 +480,29 @@ pl:
           initiated: "Oczekiwanie na płatność PayPal"
           pending_ext: "Oczekiwanie na płatność PayPal"
           none:
-            free: ~
+            free: "Darmowa transakcja"
           paypal:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Rozmowa
+            pending: Oczekujące
+            preauthorized: Preautoryzacja
+            accepted: Zaakceptowano
+            rejected: Odrzucono
+            paid: Zapłacono
+            confirmed: Ukończono
+            canceled: Anulowane
+            initiated: "Oczekiwanie na płatność PayPal"
+            pending_ext: "Oczekiwanie na płatność PayPal"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
-            pending_ext: ~
+            free: Rozmowa
+            pending: "W trakcie"
+            preauthorized: Preautoryzacja
+            accepted: Zaakceptowano
+            rejected: Odrzucono
+            paid: Zapłacono
+            confirmed: Ukończono
+            canceled: Anulowane
+            initiated: "Oczekiwanie na płatność Stripe"
+            pending_ext: "Oczekiwanie na płatność Stripe"
         not_available: "Nie dostępne"
       conversations:
         conversations: ~
@@ -551,6 +580,8 @@ pl:
           open: ~
           closed: ~
           expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -561,6 +592,14 @@ pl:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
       footer:
@@ -689,12 +728,12 @@ pl:
         recipients:
           title: ~
           options:
-            all_users: ~
+            all_users: "Wszyscy użytkownicy"
             posting_allowed: "użytkownicy, którzy mogą dodawać ogłoszenia"
-            with_listing: ~
-            with_listing_no_payment: ~
-            with_payment_no_listing: ~
-            no_listing_no_payment: ~
+            with_listing: "Użytkownicy którzy zamieścili przynajmniej jedno ogłoszenie"
+            with_listing_no_payment: "Użytkownicy którzy zamieścili przynajmniej jedno ogłoszenie ale nie dodali konta bankowego"
+            with_payment_no_listing: "Użytkownicy którzy dodali swoje konto bankowe, ale nie dodali żadnego ogłoszenia"
+            no_listing_no_payment: "Użytkownicy którzy nie dodali żadnego ogłoszenia ani konta bankowego"
         email_subject: "Tytuł wiadomości email"
         email_content: "Treść wiadomości email"
         email_content_placeholder: "Co chcesz powiedzieć do swoich użytkowników?"
@@ -840,7 +879,7 @@ pl:
       minimum_listing_price_below_min: "Minimalna wartość transakcji musi być większa niż minimalna prowizja %{minimum_commission}."
     payment_preferences:
       title: ~
-      general_settings: ~
+      general_settings: "Ustawienia ogólne"
       connect_a_payment_provider: ~
       contact_support: ~
       no_payments_link_text: ~
@@ -1389,6 +1428,20 @@ pl:
       this_is_automatic_message: "To jest automatyczna wiadomość wysłana do administratorów %{community}."
       person_name: "Imię:"
       person_email: "Adres email:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezerwacja nie powiodła się ze względu na niespodziewany błąd. Proszę spróbuj ponownie później. Nie zostałeś obciążony opłatą."
@@ -1857,6 +1910,10 @@ pl:
       show_in_updates_email_loading: Ładowanie...
       show_in_updates_email_error: "Nie możemy skontaktować się z serwerem. Spróbuj ponownie lub odśwież stronę."
       show_in_updates_email_success: "Oferta będzie wyświetlana w kolejnej automatycznej wiadomości email wysłanej do użytkowników."
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Otwórz w Google Maps"
     error:
@@ -1937,6 +1994,9 @@ pl:
         origin: Początek
       send_button:
         save_listing: "Zapisz ofertę"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Wybierz
         borrow: Wypożyczanie
@@ -2799,3 +2859,12 @@ pl:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

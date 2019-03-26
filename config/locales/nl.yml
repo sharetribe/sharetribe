@@ -256,6 +256,7 @@ nl:
         you_will_be_redirected_to: "Nadat je jouw marktplaats hebt verwijderd word je doorgelinkt naar %{destination}. Je hebt dan niet langer toegang tot je marktplaats."
         delete_this_marketplace: "Verwijder deze marktplaats"
         payment_preferences: Betalingsysteem
+        pre_approved_listings: ~
       manage_members:
         manage_members: Gebruikers
         email: E-mail
@@ -350,6 +351,34 @@ nl:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -543,6 +572,8 @@ nl:
           open: Open
           closed: Gesloten
           expired: Verlopen
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: Titel
           author: Auteur
@@ -553,6 +584,14 @@ nl:
         open: Open
         closed: Gesloten
         expired: Verlopen
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: Gebruikersvelden
       footer:
@@ -1380,6 +1419,20 @@ nl:
       this_is_automatic_message: "Dit is een automatisch bericht, verzonden naar de beheerders van %{community}."
       person_name: "Naam:"
       person_email: "Email:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."
@@ -1846,6 +1899,10 @@ nl:
       show_in_updates_email_loading: Laden...
       show_in_updates_email_error: "Kan de server niet bereiken. Probeer opnieuw na herladen van de pagina."
       show_in_updates_email_success: "Deze advertentie zal getoond worden in de volgende automatische update e-mail die naar gebruikers verstuurd wordt"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Open in Google Maps"
     error:
@@ -1926,6 +1983,9 @@ nl:
         origin: Oorsprong
       send_button:
         save_listing: "Plaats advertentie"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Selecteer
         borrow: Lenen
@@ -2784,3 +2844,12 @@ nl:
     wrong_setup: "Er is iets mis met de instellingen van het betalingssysteem op deze marktplaats: Stripe Connect is niet ingeschakeld. Neem contact op met het team om ze te laten weten dat ze Stripe Connect moeten inschakelen op hun Stripe Dashboard."
     invalid_bank_account_number: "Controleer aub of je bankrekeningnummer correct is ingevoerd en met je land overeenkomt."
     invalid_postal_code: "Ongeldige postcode voor %{country}"
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

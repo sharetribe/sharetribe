@@ -254,6 +254,7 @@ es:
         you_will_be_redirected_to: "Después de que elimines tu comunidad serás redirigido a %{destination}. Ya no podrás volver a acceder a tu marketplace."
         delete_this_marketplace: "Eliminar esta comunidad"
         payment_preferences: "Sistema de pagos"
+        pre_approved_listings: "Mostrar solamente los anuncios aprobados por los administradores"
       manage_members:
         manage_members: Usuarios
         email: Email
@@ -343,11 +344,39 @@ es:
         seo: SEO
         title: "Página de inicio (básica o personalizada)"
         meta_title_label: "Meta tag del título para la página de inicio"
-        meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados como el título del sitio. %{link}."
-        meta_title_link_text: "Aprender más acerca de meta tags"
+        meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados como el título del sitio. %{link} %{vars}."
+        meta_title_link_text: "Aprender más acerca de meta tags."
         meta_description_label: "Meta tag de la descripción para la página de inicio"
-        meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en las páginas de resultados debajo del título. %{link}."
-        meta_description_link_text: "Aprender más acerca de meta tags"
+        meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados debajo del título. %{link} %{vars}."
+        meta_description_link_text: "Aprender más acerca de meta tags."
+        search_title: "Página de resultados de búsqueda"
+        search_meta_title_label: "Meta tag de la página de resultados de búsqueda"
+        search_meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados como el título del sitio. %{link} %{vars}."
+        search_meta_title_link_text: "Aprender más acerca de meta tags."
+        search_meta_description_label: "Meta tag de la descripción de la página de resultados de búsqueda"
+        search_meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados debajo del título. %{link} %{vars}."
+        search_meta_description_link_text: "Aprender más acerca de meta tags."
+        listing_title: "Página de anuncio"
+        listing_meta_title_label: "Meta tag del título de la página de anuncio"
+        listing_meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados como el título del sitio. %{link} %{vars}."
+        listing_meta_title_link_text: "Aprender más acerca de meta tags."
+        listing_meta_description_label: "Meta tag de la descripción de la página de anuncio"
+        listing_meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados debajo del título. %{link} %{vars}."
+        listing_meta_description_link_text: "Aprender más acerca de meta tags."
+        category_title: "Página de categoría"
+        category_meta_title_label: "Meta tag del título de la página de categoría"
+        category_meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados como el título del sitio. %{link} %{vars}."
+        category_meta_title_link_text: "Aprender más acerca de meta tags."
+        category_meta_description_label: "Meta tag de la descripción de la página de categorías"
+        category_meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados debajo del título. %{link} %{vars}."
+        category_meta_description_link_text: "Aprender más acerca de meta tags."
+        profile_title: "Página de perfil"
+        profile_meta_title_label: "Meta tag del título de la página de perfil"
+        profile_meta_title_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados como el título del sitio. %{link} %{vars}."
+        profile_meta_title_link_text: "Aprender más acerca de meta tags."
+        profile_meta_description_label: "Meta tag de la descripción de la página de perfil"
+        profile_meta_description_info: "El contenido de esta tag se expone a los buscadores y se muestra en sus páginas de resultados debajo del título. %{link} %{vars}."
+        profile_meta_description_link_text: "Aprender más acerca de meta tags."
         sitemap_label: "Mapa del sitio"
         sitemap_info: "Mapas de sitio son una manera fácil de informar a los buscadores web acerca de las páginas en tu sitio que están disponibles para rastreo web. %{link}."
         sitemap_info_link_text: "Aprender más acerca del archivo XML del mapa del sitio"
@@ -541,6 +570,8 @@ es:
           open: Abierto
           closed: Cerrado
           expired: Expirado
+          approval_pending: Pendiente
+          approval_rejected: Rechazado
         headers:
           title: Título
           author: Autor
@@ -551,6 +582,14 @@ es:
         open: Abierto
         closed: Cerrado
         expired: Expirado
+        approved: Aprobado
+        approval_pending: Pendiente
+        approval_rejected: Rechazado
+        form:
+          this_listing_has_not_not_been_approved_yet: "El anuncio no ha sido aprobado aún. Puedes decidir si quieres aprobar o rechazar el anuncio. Si lo apruebas, se publicará y será visible para todos los usuarios. Si lo rechazas, el anuncio no se publicará."
+          approve: Aprobar
+          reject: Rechazar
+          cancel: Cancelar
       user_fields:
         user_fields: "Datos de usuarios"
       footer:
@@ -772,7 +811,7 @@ es:
       successfully_closed: "Anuncios cerrados correctamente"
       successfully_deleted: "Tipo de orden '%{order_type}' eliminado correctamente"
       pricing_and_checkout_title: "Precio & pago"
-      online_payments_label: "Permitir a los usuarios aceptar pagos en linea"
+      online_payments_label: "Permitir a los usuarios aceptar pagos en línea"
       shipping_label: "Permitir que los vendedores establezcan un costo de envío"
       price_label: "Permitir a los usuarios añadir precio a sus anuncios"
       units_title: "Unidades de precio"
@@ -834,7 +873,7 @@ es:
       read_more_stripe: "Lee más acerca de pagos con Stripe."
       you_can_use_paypal_only: "Puedes usar PayPal como proveedor del sistema de pagos. %{read_more_link}"
       read_more_paypal: "Lee más acerca de pagos con PayPal."
-      read_more_about_paypal_and_stripe: "Lee más acerca de pagos en linea con Stripe y PayPal"
+      read_more_about_paypal_and_stripe: "Lee más acerca de pagos en línea con Stripe y PayPal"
       general_settings_updated: "Configuración general del sistema de pagos modificada"
       transaction_fee_settings_updated: "Configuración de la cuota de servicio modificada"
       choose_popup_text: |-
@@ -853,7 +892,7 @@ es:
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
-      confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en linea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
+      confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en línea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
       commission_from_buyer_label: "Cuota para el comprador:"
       minimum_buyer_transaction_fee_label: "Cuota mínima para el comprador:"
       stripe_connected:
@@ -1053,7 +1092,7 @@ es:
       payment_preauthorized_wo_sum: "Pago autorizado"
       stripe:
         held_payment: "Aceptó la transacción. El pago por %{sum} está siendo guardado por %{service_name} hasta que la orden sea marcada como completada."
-        held_payment_wo_sum: "Acepto la solicitud. El pago está siendo guardado por %{service_name} hasta que la transacción se marque completada."
+        held_payment_wo_sum: "Aceptó la solicitud. El pago está siendo guardado por %{service_name} hasta que la transacción se marque completada."
         confirmed_request: "Marcó la orden como completada. El dinero ha sido transferido a la cuenta de banco de %{author_name} or será transferido pronto."
     new:
       message: Mensaje
@@ -1177,7 +1216,7 @@ es:
       show_thread: "Ver la conversación"
     branding:
       powered_by: "%{service_name} es posible gracias a la plataforma de comunidades de %{sharetribe_link}."
-      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
+      create_own: "¿Quieres crear tu propia comunidad en línea como %{service_name}? %{learn_more}."
       learn_more: "Entérate cómo"
     confirm_reminder:
       you_have_not_yet_confirmed_or_canceled_request: "Aún no has completado o cancelado la solicitud %{request_link}. Si la solicitud se completó, deberías confirmar esto. Después de eso podrás dar una valoración a %{other_party_given_name}."
@@ -1377,6 +1416,20 @@ es:
       this_is_automatic_message: "Este es un mensaje automático enviado a los administradores de %{community}."
       person_name: "Nombre:"
       person_email: "Correo electrónico:"
+    listing_submited_for_review:
+      subject: "Nuevo anuncio para revisión: \"%{listing_title}\" creado por %{author_name} en %{community}"
+      there_is_a_new_listing_to_review: "Hay un nuevo anuncio para revisión: \"%{listing_title}\" creado por %{author_name}. Ahora puedes aprobar o rechazar el anuncio."
+      review_the_listing: "Revisar el anuncio"
+      this_is_automatic_message: "Este es un anuncio automático a los administradores de %{community}."
+    listing_approved:
+      subject: "El equipo de %{community} ha aprobado tu anuncio: \"%{listing_title}\""
+      listing_has_been_approved: "Buenas noticias! Tu anuncio \"%{listing_title}\" ha sido revisado y aprobado por el equipo de %{community}. El anunció ha sido publicado."
+      view_the_listing: "Ver el anuncio"
+    listing_rejected:
+      subject: "El equipo de %{community} ha rechazado tu anuncio: \"%{listing_title}\""
+      listing_has_been_rejected: "Desafortunadamente el equipo de %{community} ha rechazado tu anuncio \"%{listing_title}\" después de haberlo revisado. Puedes %{contact_link} para aprender más al respecto o editar tu anuncio y enviarlo a revisión nuevamente."
+      contact_link: "contactar al equipo de %{community}"
+      edit_the_listing: "Editar anuncio"
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."
@@ -1616,7 +1669,7 @@ es:
       admin: "Panel de administración de %{service_name}"
     branding:
       powered_by: "%{service_name} es posible gracias a la plataforma de comunidades de %{sharetribe_link}."
-      create_own: "¿Quieres crear tu propia comunidad en linea como %{service_name}? %{learn_more}."
+      create_own: "¿Quieres crear tu propia comunidad en línea como %{service_name}? %{learn_more}."
       learn_more: "Entérate cómo"
     no_tribe:
       inbox: "Buzón de entrada"
@@ -1795,7 +1848,7 @@ es:
       can_not_delete_email: "No es posible eliminar tu dirección de correo electrónico"
       user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
       email_deleted: "Email eliminado"
-      listing_author_payment_details_missing: "Por favor contacta con al autor del anuncio por medio del botón de 'Contactar'. Necesita actualizar sus datos de pago para poder recibir pagos en linea."
+      listing_author_payment_details_missing: "Por favor contacta con al autor del anuncio por medio del botón de 'Contactar'. Necesita actualizar sus datos de pago para poder recibir pagos en línea."
       images_are_processing: "Estamos procesando tus imágenes. Danos un minuto o dos y estarán listas."
       maintenance_mode:
         zero: "La página estará fuera de servicio por mantenimiento"
@@ -1843,6 +1896,10 @@ es:
       show_in_updates_email_loading: Cargando...
       show_in_updates_email_error: "No se ha podido conectar con el servidor. Por favor, actualiza la página y vuelve a intentarlo."
       show_in_updates_email_success: "Este producto será mostrado en el próximo correo de actualización para los usuarios"
+      listing_is_pending: "Anuncio pendiente"
+      listing_is_rejected: "Anuncio rechazado"
+      approve_listing: "Aprobar anuncio"
+      reject_listing: "Rechazar anuncio"
     map:
       open_in_google_maps: "Abrir en Google Maps"
     error:
@@ -1923,6 +1980,9 @@ es:
         origin: Origen
       send_button:
         save_listing: "Publicar anuncio"
+        submit_for_review: "Enviar a revisión"
+        will_be_reviewed: "Todos los anuncios en %{service_name} serán revisados previo a su publicación. Una vez que el anuncio sea aprobado, serás notificado por correo y tu anuncio será visible públicamente."
+        we_noticed_youre_an_admin: "Parece ser que tú eres un administrador de %{service_name}. Los cambios que tu hagas se aplicarán automáticamente y no necesitas revisarlos o aprobarlos."
       share_type:
         select: Seleccionar
         borrow: "Tomar Prestado"
@@ -2166,9 +2226,9 @@ es:
       connect_paypal_account_instructions: "Haz clic en el botón de abajo para iniciar sesión en tu cuenta de PayPal y conectarla con %{service_name}."
       connect_paypal_account: "Conecta tu cuenta de PayPal"
       paypal_account_billing_agreement_with_step: "Paso %{current_step}/%{total_steps}: otorga permiso para cobrar la comisión de transacción."
-      paypal_account_billing_agreement_info_both: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío, tarifa mínima de %{minimum_commission}). Para poder aceptar pagos en linea debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
-      paypal_account_billing_agreement_info_fixed: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal de %{minimum_commission}. Para poder aceptar pagos en linea debes dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
-      paypal_account_billing_agreement_info_relative: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total del ítem, excluyendo los costos de envío). Para poder aceptar pagos en linea debes dar permiso a %{service_name} para que cobre esta tarifa.  La tarifa de servicio no incluye %{paypal_info_link}."
+      paypal_account_billing_agreement_info_both: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total de la transacción, excluyendo los costos de envío, tarifa mínima de %{minimum_commission}). Para poder aceptar pagos en línea debe aceptar y dar permiso a %{service_name} para que cobre esta tarifa. La tarifa de servicio no incluye %{paypal_info_link}."
+      paypal_account_billing_agreement_info_fixed: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal de %{minimum_commission}. Para poder aceptar pagos en línea debes dar permiso a %{service_name} para que cobre esta tarifa. La tarifa de servicio no incluye %{paypal_info_link}."
+      paypal_account_billing_agreement_info_relative: "Después de realizar una venta en %{service_name}, se te cobrará una tarifa de servicio de tu cuenta de PayPal (%{commission_from_seller} del precio total de la transacción, excluyendo los costos de envío). Para poder aceptar pagos en línea debes dar permiso a %{service_name} para que cobre esta tarifa. La tarifa de servicio no incluye %{paypal_info_link}."
       paypal_account_billing_agreement_info_none: "Actualmente %{service_name} no cobra una cuota de servicio. Si el administrador habilita la cuota de servicio, deberás otorgar permiso a %{service_name} para que cobre una cuota de servicio si es que quieres recibir pagos en línea. Esta cuota no incluye %{paypal_info_link}."
       paypal_info_link_text: "comisión de procesamiento de pago de PayPal"
       billing_agreement_description: "Concede permisos a %{service_name} para cargar una comisión por transferencia."
@@ -2403,7 +2463,7 @@ es:
       phone_number: "Número de teléfono:"
       profile_picture: "Foto de perfil"
       postal_code: "Código postal:"
-      profile_page: "en su página de perfil"
+      profile_page: "en tu página de perfil"
       profilemap: "Vista de mapa"
       street_address: Ubicación
       these_fields_are_shown_in_your: "Parte de esta información es visible para todos los usuarios de %{service_name}"
@@ -2732,7 +2792,7 @@ es:
       address_kanji_line1: "Dirección (Kanji)"
       male: masculino
       female: femenino
-      mcc: ~
+      mcc: "Industria (Merchant Category Code)"
     form_bank:
       bank_account_number: "Número de cuenta de banco"
       bank_routing_number: "Número de ruta/routing"
@@ -2781,3 +2841,12 @@ es:
     wrong_setup: "Hay un error con la configuración del sistema de pagos en esta comunidad. Stripe Connect no ha sido habilitado. Por favor contacta al equipo para dejarles saber que deben habilitar Stripe Connect desde su cuenta de Stripe."
     invalid_bank_account_number: "Por favor verifica que tu cuenta bancaria es correcta y que concuerda con tu país."
     invalid_postal_code: "Código postal invalido para %{country}"
+  seo_sections:
+    you_can_use_variables: "Puedes usar las siguientes variables: %{vars}"
+    placeholder:
+      search_results: "Resultados de la búsqueda - %{variable}"
+      search_results_for: "Resultados de búsqueda para: %{placeholder1} en %{placeholder2}"
+      listing_description: "%{title} por %{price} de %{author} en %{marketplace}"
+      category_description: "%{category} en %{marketplace}"
+      profile_title: "Perfil de %{user} - %{marketplace}"
+      profile_description: "Lee más acerca de %{user} en %{marketplace}"

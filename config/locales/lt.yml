@@ -52,6 +52,10 @@ lt:
           one: "Kategorijoje ir subkategorijose yra %{count} skelbimas. Jis bus perkeltas į pasirinktą kategoriją."
           few: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
           other: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartinis laukelis. Jis bus perkeltas į pasirinktą kategoriją."
+          few: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartiniai laukeliai. Jie bus perkelti į pasirinktą kategoriją."
+          other: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartiniai laukeliai. Jie bus perkelti į pasirinktą kategoriją."
         select_new_category: "Pasirinkite naują kategoriją, į kurią bus perkelti skelbimai viršuje:"
         buttons:
           remove: Pašalinti
@@ -255,6 +259,7 @@ lt:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
+        pre_approved_listings: ~
       manage_members:
         manage_members: Vartotojai
         email: "El. paštas"
@@ -349,6 +354,34 @@ lt:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -542,6 +575,8 @@ lt:
           open: ~
           closed: ~
           expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -552,6 +587,14 @@ lt:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
       footer:
@@ -1129,7 +1172,7 @@ lt:
   community_memberships:
     access_denied:
       access_denied: "Priėjimas draudžiamas"
-      you_are_banned_in_this_community: ~
+      you_are_banned_in_this_community: "Komanda neleido jums patekti į %{service_name}. Jei norite susisiekti su %{service_name} komanda, galite %{link_to_contact_page}."
       contact_page_link: "susisiekti su jais"
     new:
       welcome_fb_user: "Sveiki prisijungę prie %{service_name}, %{name}"
@@ -1183,13 +1226,13 @@ lt:
         has_marked_request_as_confirmed: ~
     transaction_automatically_confirmed:
       subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
-      we_have_marked_request_as_confirmed: ~
+      we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo %{days_passed} dienos nuo tada kai prašymas buvo priimtas."
     booking_transaction_automatically_confirmed:
-      subject: ~
-      we_have_marked_request_as_confirmed: ~
+      subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
+      we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo viena diena nuo tada kai rezervacijos periodas baigėsi."
     automatically_confirmed_footer:
       giving_feedback_is_good_idea: ~
-      give_feedback_to: ~
+      give_feedback_to: "Palikti atsiliepimą %{other_party_given_name}"
       show_thread: "Rodyti pokalbį"
     confirmation_instructions:
       confirmation_instructions_signature: "Linkėjimai, <br/> %{service_name} Team"
@@ -1221,7 +1264,7 @@ lt:
       your_request_was_rejected: "Jūsų prašymas buvo atmestas"
       you_can_now_pay_to: "Galite sumokėti prašomą sumą %{payment_receiver}."
       pay_now: "Mokėti dabar"
-      remember_to_confirm: ~
+      remember_to_confirm: "Kai užsakymas bus baigtas, nepamirškite jį pažymėti kaip baigtą. Jei užsakymas nebus baigtas, turite %{days_to_automatic_confirmation} dienas jam atšaukti. Kitaip jis bus pažymėtas kaip baigtas automatiškai."
     invitation_to_kassi:
       hi: Labas!
       you_have_been_invited_to_kassi: "%{inviter} pakvietė jus į %{service_name}."
@@ -1330,18 +1373,18 @@ lt:
       remember_to_give_feedback_to: "Priminimas: primename parašyti atsiliepimą %{name}"
       you_have_not_given_feedback_yet: "Jūs nepalikote atsiliepimo %{name} apie '%{event}' renginį. Nepamirškite palikti atsiliepimą kaip %{given_name} pasirodė renginyje."
     transaction_preauthorized:
-      subject: ~
-      transaction_requested_by_user: ~
+      subject: "%{requester} susidomėjo ir patvirtino mokėjimą dėl %{listing_title} skelbimo paskelbto %{service_name}."
+      transaction_requested_by_user: "Geros naujienos! %{requester} susidomėjo \"%{listing_title}\" skelbimu ir patvirtino mokėjimą dėl šio skelbimo."
       you_have_time_to_accept: ~
       if_you_do_accept: ~
       if_you_do_accept_stripe: ~
       if_you_do_not_accept: ~
-      click_here_to_reply: ~
+      click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
     transaction_preauthorized_reminder:
-      subject: ~
-      remember_to_accept: ~
-      one_day_left: ~
-      click_here_to_reply: ~
+      subject: "Nepamirškite sutikti su prašymu iš %{requester} dėl %{listing_title} skelbimo"
+      remember_to_accept: "Nepamirškite sutikti su prašymu iš %{requester} dėl \"%{listing_title}\" skelbimo. %{requester} jau yra sumokėjęs už šį skelbimą. Turite priimti prašymą, kad gautumėte mokėjimą."
+      one_day_left: "Jei nepriimsite prašymo per vieną dieną, prašymas bus atšauktas automatiškai ir negausite mokėjimo."
+      click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
     welcome_email:
       welcome_email_subject: "Sveiki prisijungę prie %{service_name}"
       welcome_to_marketplace: "Sveiki prisijungę prie %{service_name}! Džiaugiamės jus turėdami."
@@ -1358,6 +1401,20 @@ lt:
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1420,8 +1477,8 @@ lt:
       invalid_date: "nėra teisinga data"
       invalid_time: "nėra teisingas laikas"
       invalid_datetime: ~
-      is_at: ~
-      before: ~
+      is_at: "turi būti %{restriction}"
+      before: "turi būti prieš %{restriction}"
       on_or_before: ~
       after: ~
       on_or_after: ~
@@ -1820,6 +1877,10 @@ lt:
       show_in_updates_email_loading: Kraunama...
       show_in_updates_email_error: "Nepavyko susisiekti su serveriu. Mėginkite dar kartą perkrovę puslapį."
       show_in_updates_email_success: "Šis skelbimas bus rodomas kitame automatiniame naujienlaiškyje vartotojams"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Atidaryti Google žemėlapiuose"
     error:
@@ -1900,6 +1961,9 @@ lt:
         origin: Kilmė
       send_button:
         save_listing: "Paskelbti skelbimą"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Pasirinkti
         borrow: Skolinasi
@@ -1988,7 +2052,7 @@ lt:
       select_category: "Pasirinkite kategoriją"
       select_subcategory: "Pasirinkite subkategoriją"
       select_transaction_type: "Pasirinkite skelbimo tipą"
-      you_need_to_fill_payout_details_before_accepting: ~
+      you_need_to_fill_payout_details_before_accepting: "Turite užpildyti mokėjimo informaciją prieš įkeliant skelbimą. Nueikite į %{payment_settings_link}, kad užpildytumėte informaciją."
       contact_admin_link_text: "susisiekti su %{service_name} komanda"
       community_not_configured_for_payments: ~
       payment_settings_link: "mokėjimų nustatymai"
@@ -2063,7 +2127,7 @@ lt:
       by: "%{author} %{listing}"
       payment: Mokėjimas
       exp: "Galiojimas:"
-      you_will_be_charged: ~
+      you_will_be_charged: "Pinigai bus nuskaičiuoti, tik jei %{author} sutiks su sandoriu. %{author} turi sutikti su sandoriu per %{expiration_period} dienas. Jei %{author} nesutiks ar neatsakys, mokestis nebus nuskaičiuotas."
       day: diena
       days: dienos
       night: ~
@@ -2606,8 +2670,13 @@ lt:
     next_label: "Kitas &#8594;"
     page_gap: "&hellip;"
     page_entries_info:
-      multi_page: ~
-      multi_page_html: ~
+      single_page:
+        zero: "%{model} nerastas"
+        one: "Rodomas 1 %{model}"
+        few: "Rodomi %{count} %{model}"
+        other: "Rodomi %{count} %{model}"
+      multi_page: "Rodomi %{model} %{from} - %{to} iš %{count}"
+      multi_page_html: "Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>"
     person:
       community_members_entries_info:
         multi_page: ~
@@ -2716,3 +2785,12 @@ lt:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~
