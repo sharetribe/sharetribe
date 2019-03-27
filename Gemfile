@@ -50,7 +50,7 @@ gem 'web_translate_it', '~> 2.4.1'
 gem 'rails-i18n', '~> 5.0.4'
 gem 'devise', '>= 4.6.1'
 gem 'devise-encryptable', '~> 0.2.0'
-gem "omniauth-facebook", '~> 4.0.0'
+gem "omniauth-facebook", '~> 5.0.0'
 gem "omniauth-google-oauth2", '>= 0.6.0'
 gem "omniauth-linkedin-oauth2", '>= 1.0.0'
 

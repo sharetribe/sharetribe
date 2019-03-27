@@ -3,8 +3,8 @@
 #
 module FacebookSdkVersion
   # Server-side SDK version
-  SERVER = "v2.8"
+  SERVER = "v3.2"
 
   # The client-side JavaScript SDK version
-  CLIENT = "v2.8"
+  CLIENT = "v3.2"
 end
