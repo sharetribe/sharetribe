@@ -1,8 +1,8 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 ruby '2.3.4'
 
-gem 'rails', '5.1.6.1'
+gem 'rails', '5.1.6.2'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -48,7 +48,7 @@ gem 'delayed_job_active_record', '~> 4.1.2'
 
 gem 'web_translate_it', '~> 2.4.1'
 gem 'rails-i18n', '~> 5.0.4'
-gem 'devise', '~> 4.3.0'
+gem 'devise', '>= 4.6.1'
 gem 'devise-encryptable', '~> 0.2.0'
 gem "omniauth-facebook", '~> 4.0.0'
 gem "omniauth-google-oauth2", '>= 0.6.0'
@@ -128,18 +128,17 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.6.2'
+  gem 'capybara', '~> 2.18.0'
   gem "rspec-rails", '~> 3.6.0'
 
   gem 'cucumber-rails', '~> 1.5.0', require: false # require: false is needed for cucumber-rails
 
-  gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'selenium-webdriver', '~> 3.6.0'
 
   # Launchy is needed by Capybara, e.g. save_and_open command needs Launchy to open a browser
   gem 'launchy', '~> 2.1'
   gem 'email_spec', '~> 2.1.1'
   gem 'timecop', '~> 0.8.1'
-  gem 'rack-test', '~> 0.6.3'
   gem 'database_cleaner', '~> 1.6.1'
   gem 'connection_pool', '~> 2.2.1'
   gem 'rails-controller-testing', '~> 1.0.2'
