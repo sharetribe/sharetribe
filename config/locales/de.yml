@@ -254,6 +254,7 @@ de:
         you_will_be_redirected_to: "Nachdem Du Deinen Marktplatz gelöscht hast wirst Du zu %{destination} umgeleitet. Du hast dann keinen Zugriff mehr zu Deinem Marktplatz."
         delete_this_marketplace: "Diesen Marktplatz löschen"
         payment_preferences: Zahlungssystem
+        pre_approved_listings: ~
       manage_members:
         manage_members: Benutzer
         email: E-Mail
@@ -348,6 +349,34 @@ de:
         meta_description_label: "Homepage Beschreibung Meta-Tag"
         meta_description_info: "Der Inhalt dieses Tags wird den Suchmaschinen vorgeschlagen, und wird unter die blauen Links auf Suchmaschinen-Ergebnissen gezeigt. %{link}."
         meta_description_link_text: "Mehr über Meta-Tags erfahren"
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: Sitemap
         sitemap_info: "Sitemaps informieren die Suchmaschinen auf eine einfache Weise über die Seiten auf deiner Website die Verfügbar fürs Durchsuchen (aka Crawling) sind. %{link}."
         sitemap_info_link_text: "Mehr über die XML Sitemap-Datei erfahren"
@@ -541,6 +570,8 @@ de:
           open: Geöffnet
           closed: Geschlossen
           expired: Abgelaufen
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: Titel
           author: Author
@@ -551,6 +582,14 @@ de:
         open: Geöffnet
         closed: Geschlossen
         expired: Abgelaufen
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: "Benutzer Feld"
       footer:
@@ -1377,6 +1416,20 @@ de:
       this_is_automatic_message: "Diese Nachricht wurde automatisch an alle Administratoren von %{community} geschickt."
       person_name: "Name:"
       person_email: "E-mail:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Die Buchung ist wegen eines unerwarteten Fehlers fehlgeschlagen. Bitte versuche erneut später. Dein Konto bzw. deine Kreditkarte wurde nicht belastet."
@@ -1843,6 +1896,10 @@ de:
       show_in_updates_email_loading: Lädt...
       show_in_updates_email_error: "Der Server konnte nicht erreicht werden. Lade die Seite neu und versuche es erneut."
       show_in_updates_email_success: "Dieser Eintrag wird auf der nächsten automatischen Update-E-Mail den Nutzern angezeigt"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "In Google Maps öffnen"
     error:
@@ -1923,6 +1980,9 @@ de:
         origin: Herkunft
       send_button:
         save_listing: "Eintrag veröffentlichen"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Auswählen
         borrow: Ausleihen
@@ -2624,7 +2684,7 @@ de:
       search_placeholder: "Suche ..."
       search_location_placeholder: Ort
       user: Nutzer
-      inbox: Eingang
+      inbox: Posteingang
       profile: Profil
       manage_listings: "Meine Einträge"
       settings: Einstellungen
@@ -2781,3 +2841,12 @@ de:
     wrong_setup: "Etwas ist schief gegangen mit dem Zahlungssystem dieses Marktplatzes: Stripe Connect ist nicht aktiviert. Bitte kontaktiere die Marktplatz-Administratoren und erzähle ihnen, dass sie Stripe Connect auf ihrem Stripe Dashboard aktivieren sollten."
     invalid_bank_account_number: "Bitte sicherstellen, dass dein Bankkonto ist richtig eingetragen und mit deinem Land zustimmt."
     invalid_postal_code: "Ungültige Postleitzahl für %{country}"
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

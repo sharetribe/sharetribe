@@ -249,6 +249,7 @@ zh-TW:
         you_will_be_redirected_to: "当你删除了你的集市，你会被重定向到%{destination}。你将再也无法访问你的集市。"
         delete_this_marketplace: 删除这个集市。
         payment_preferences: 付款系統
+        pre_approved_listings: ~
       manage_members:
         manage_members: 管理用户
         email: 电子邮件
@@ -343,6 +344,34 @@ zh-TW:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -536,6 +565,8 @@ zh-TW:
           open: ~
           closed: ~
           expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -546,6 +577,14 @@ zh-TW:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
       footer:
@@ -1364,6 +1403,20 @@ zh-TW:
       this_is_automatic_message: "這是自動發送給%{community}管理員的消息。"
       person_name: 姓名：
       person_email: 電子信箱：
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "由於意外錯誤，預訂失敗。 請稍後再試。 你沒有被收費。"
@@ -1829,6 +1882,10 @@ zh-TW:
       show_in_updates_email_loading: 請稍候……
       show_in_updates_email_error: 未能連結到伺服器，請重新刷新頁面。
       show_in_updates_email_success: 此服務將刊登於下一封給顧客的電子報中
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: 在Google地圖中打開
     error:
@@ -1909,6 +1966,9 @@ zh-TW:
         origin: 來源
       send_button:
         save_listing: 發布
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: 选择
         borrow: 借入
@@ -2745,3 +2805,12 @@ zh-TW:
     wrong_setup: "該平台的支付系統設置存在問題：該平台尚未註冊。 請聯繫團隊，讓他們知道他們應該在Stripe註冊他們的平台。"
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

@@ -249,6 +249,7 @@ ko:
         you_will_be_redirected_to: "마켓 플레이스를 삭제하면 %{목적지}로 리디렉션됩니다. 더 이상 시장에 액세스 할 수 없습니다."
         delete_this_marketplace: "이 마켓플레이스를 삭제하기"
         payment_preferences: "결제 시스템"
+        pre_approved_listings: ~
       manage_members:
         manage_members: "사용자 관리"
         email: 이메일
@@ -343,6 +344,34 @@ ko:
         meta_description_label: ~
         meta_description_info: ~
         meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
         sitemap_label: ~
         sitemap_info: ~
         sitemap_info_link_text: ~
@@ -536,6 +565,8 @@ ko:
           open: ~
           closed: ~
           expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: 제목
           author: 저자
@@ -546,6 +577,14 @@ ko:
         open: 열림
         closed: 닫힘
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
       footer:
@@ -1368,6 +1407,20 @@ ko:
       this_is_automatic_message: "이것은 %{community}의 관리자에게 발송된 자동 메시지입니다."
       person_name: "이름:"
       person_email: "이메일:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."
@@ -1833,6 +1886,10 @@ ko:
       show_in_updates_email_loading: 로딩중...
       show_in_updates_email_error: "서버에 연결할 수 없습니다. 페이지 새로 고침 후 다시 시도하십시오."
       show_in_updates_email_success: "이 목록은 사용자에게 전송된 다음 자동 업데이트 이메일에 표시됩니다."
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Google지도에서 열기"
     error:
@@ -1913,6 +1970,9 @@ ko:
         origin: 원산지
       send_button:
         save_listing: "포스팅 하기"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: 선택
         borrow: 차용
@@ -2750,3 +2810,12 @@ ko:
     wrong_setup: "이 마켓 플레이스의 결제 시스템 설정에 문제가 있습니다. 플랫폼이 등록되지 않았습니다. 팀에 문의하여 Stripe에 플랫폼을 등록해야한다는 사실을 알려주십시오."
     invalid_bank_account_number: "귀하의 은행 계좌가 정확하게 입력되어 귀하의 국가와 일치하는지 확인하십시오."
     invalid_postal_code: "%{country}의 우편 번호가 잘못되었습니다."
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

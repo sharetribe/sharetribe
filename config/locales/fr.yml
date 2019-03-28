@@ -254,6 +254,7 @@ fr:
         you_will_be_redirected_to: "Une fois que vous aurez supprimé votre place de marché vous serez redirigé vers %{destination}. Vous ne pourrez plus accéder à votre place de marché."
         delete_this_marketplace: "Supprimer cette place de marché"
         payment_preferences: "Système de paiements"
+        pre_approved_listings: "Afficher uniquement les annonces qui ont été validées par les administrateurs"
       manage_members:
         manage_members: Utilisateurs
         email: Email
@@ -343,11 +344,39 @@ fr:
         seo: SEO
         title: "Page d'accueil ou Page d'Accueil Personnalisée"
         meta_title_label: "Tag title de la page d'accueil ou de la Page d'Accueil Personnalisée"
-        meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link}."
-        meta_title_link_text: "Découvrez-en plus sur les meta tags"
+        meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link} %{vars}."
+        meta_title_link_text: "Découvrez-en plus sur les meta tags."
         meta_description_label: "Tag description de la page d'accueil ou de la Page d'Accueil Personnalisée"
-        meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link}"
-        meta_description_link_text: "Découvrez-en plus sur les meta tags"
+        meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link} %{vars}."
+        meta_description_link_text: "Découvrez-en plus sur les meta tags."
+        search_title: "Page de résultats de recherche"
+        search_meta_title_label: "Tag title de la page de résultats de recherche"
+        search_meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link} %{vars}."
+        search_meta_title_link_text: "Découvrez-en plus sur les meta tags."
+        search_meta_description_label: "Tag description de la page de résultats de recherche"
+        search_meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link} %{vars}."
+        search_meta_description_link_text: "Découvrez-en plus sur les meta tags."
+        listing_title: "Pages d'annonce"
+        listing_meta_title_label: "Tag title des pages d'annonce"
+        listing_meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link} %{vars}."
+        listing_meta_title_link_text: "Découvrez-en plus sur les meta tags."
+        listing_meta_description_label: "Tag description des pages d'annonce"
+        listing_meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link} %{vars}."
+        listing_meta_description_link_text: "Découvrez-en plus sur les meta tags."
+        category_title: "Pages de catégorie"
+        category_meta_title_label: "Tag title des pages de catégorie"
+        category_meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link} %{vars}."
+        category_meta_title_link_text: "Découvrez-en plus sur les meta tags."
+        category_meta_description_label: "Tag description des pages de catégorie"
+        category_meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link} %{vars}."
+        category_meta_description_link_text: "Découvrez-en plus sur les meta tags."
+        profile_title: "Pages de profil"
+        profile_meta_title_label: "Tag title des pages de profil"
+        profile_meta_title_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et affiché comme lien sur leurs pages de résultats. %{link} %{vars}."
+        profile_meta_title_link_text: "Découvrez-en plus sur les meta tags."
+        profile_meta_description_label: "Tag description des pages de profil"
+        profile_meta_description_info: "Le contenu de ce tag est suggéré aux moteurs de recherche et apparaît sous le lien bleu sur les pages de résultats des moteurs de recherche. %{link} %{vars}."
+        profile_meta_description_link_text: "Découvrez-en plus sur les meta tags."
         sitemap_label: Sitemap
         sitemap_info: "Un sitemap est une bonne solution pour informer les moteurs de recherches des pages qui peuvent être indexées sur votre site. %{link}."
         sitemap_info_link_text: "Découvrez-en plus sur le fichier XML Sitemap"
@@ -541,6 +570,8 @@ fr:
           open: Ouverte
           closed: Close
           expired: Expirée
+          approval_pending: "En attente"
+          approval_rejected: Rejetée
         headers:
           title: Titre
           author: Auteur
@@ -551,6 +582,14 @@ fr:
         open: Ouverte
         closed: Close
         expired: Expirée
+        approved: Approuvée
+        approval_pending: "En attente"
+        approval_rejected: Rejetée
+        form:
+          this_listing_has_not_not_been_approved_yet: "Cette annonce n'a pas encore été approuvée. Vous pouvez choisir de l'approuver ou la rejeter. Si vous approuvez l'annonce, elle sera publiée et visible par tous les utilisateurs. Si vous rejetez l'annonce, elle ne sera pas publiée."
+          approve: Approuver
+          reject: Rejeter
+          cancel: Annuler
       user_fields:
         user_fields: "Champs d'utilisateurs"
       footer:
@@ -1377,6 +1416,20 @@ fr:
       this_is_automatic_message: "Ceci est un message automatique envoyé aux administrateurs de %{community}."
       person_name: "Nom : "
       person_email: "Email : "
+    listing_submited_for_review:
+      subject: "Nouvelle annonce à vérifier : \"%{listing_title}\" par %{author_name} sur %{community}"
+      there_is_a_new_listing_to_review: "Il y a une nouvelle annonce à vérifier : \"%{listing_title}\" par %{author_name}. Vous devez maintenant approuver ou rejeter cette annonce."
+      review_the_listing: "Vérifier l'annonce"
+      this_is_automatic_message: "Ceci est un message automatique envoyé aux administrateurs de %{community}."
+    listing_approved:
+      subject: "L'équipe %{community} a approuvée votre annonce \"%{listing_title}\""
+      listing_has_been_approved: "Bonne nouvelle ! Votre annonce \"%{listing_title}\" a été vérifiée et approuvée par l'équipe %{community}. Elle a été publiée."
+      view_the_listing: "Voir l'annonce"
+    listing_rejected:
+      subject: "L'équipe %{community} a rejeté votre annonce \"%{listing_title}\""
+      listing_has_been_rejected: "Hélas l'équipe %{community} a rejeté votre annonce \"%{listing_title}\" après l'avoir vérifiée avec toute l'attention nécessaire. Vous pouvez %{contact_link} pour en savoir plus ou bien éditer votre annonce et la proposer de nouveau pour une nouvelle vérification."
+      contact_link: "contacter l'équipe %{community}"
+      edit_the_listing: "Editer l'annonce"
   error_messages:
     booking:
       booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."
@@ -1843,6 +1896,10 @@ fr:
       show_in_updates_email_loading: Chargement...
       show_in_updates_email_error: "Impossible de se connecter au serveur. Veuillez essayer de nouveau après avoir rafraîchi la page."
       show_in_updates_email_success: "Cette annonce sera diffusée dans le prochain email d'actualité, automatiquement envoyé aux utilisateurs"
+      listing_is_pending: "L'annonce est en cours de vérification"
+      listing_is_rejected: "L'annonce a été rejetée"
+      approve_listing: "Approuver l'annonce"
+      reject_listing: "Rejeter l'annonce"
     map:
       open_in_google_maps: "Ouvrir dans Google Maps"
     error:
@@ -1923,6 +1980,9 @@ fr:
         origin: "Lieu de départ"
       send_button:
         save_listing: "Publier l'annonce"
+        submit_for_review: "Soumettre pour vérification"
+        will_be_reviewed: "Toutes les annonces sur %{service_name} sont vérifiées avant d'être publiées. Une fois que votre annonce aura été approuvée, un email vous sera envoyé et votre annonce sera publiée."
+        we_noticed_youre_an_admin: "Nous avons remarqué que vous êtes un administrateur de %{service_name}. Vos modifications sera effectifs automatiquement sans avoir besoin d'une vérification."
       share_type:
         select: Selectionner
         borrow: Emprunt
@@ -2781,3 +2841,12 @@ fr:
     wrong_setup: "Quelque chose n'est pas correct dans la configuration du système de paiements de cette place de marché : Stripe Connect n'a pas été activé. Veuillez contacter l'équipe pour leur signaler qu'ils doivent activer Stripe Connect dans leur compte Stripe."
     invalid_bank_account_number: "Veuillez vérifier que les informations sur compte en banque sont bien définies et correspondent à votre pays."
     invalid_postal_code: "Code postal invalide pour le pays %{country}"
+  seo_sections:
+    you_can_use_variables: "Vous pouvez utiliser les variables suivantes : %{vars}"
+    placeholder:
+      search_results: "Résultats de la recherche - %{variable}"
+      search_results_for: "Résultats de la recherche pour : %{placeholder1} sur %{placeholder2}"
+      listing_description: "%{title} pour%{price} par %{author} sur %{marketplace}"
+      category_description: "%{category} sur %{marketplace}"
+      profile_title: "Profil de %{user} - %{marketplace}"
+      profile_description: "Découvrez en plus sur %{user} sur %{marketplace}"
