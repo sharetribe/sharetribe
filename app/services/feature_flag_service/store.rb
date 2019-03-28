@@ -22,7 +22,6 @@ module FeatureFlagService::Store
       :manage_searchpage,
       :stripe,
       :footer,
-      :buyer_commission,
       :new_stripe_api,
       :approve_listings,
     ].to_set
