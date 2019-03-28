@@ -74,16 +74,19 @@ class Admin::ListingsService
   end
 
   def send_listing_submited_for_review(listing, recipient)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_submited_for_review(listing, recipient).deliver_now
   end
   handle_asynchronously :send_listing_submited_for_review
 
   def send_listing_approved(listing)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_approved(listing).deliver_now
   end
   handle_asynchronously :send_listing_approved
 
   def send_listing_rejected(listing)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_rejected(listing).deliver_now
   end
   handle_asynchronously :send_listing_rejected
