@@ -86,6 +86,8 @@ module StripeService::API
       end
 
       def capture(tx)
+        report = StripeService::Report.new(tx: tx)
+        report.capture_charge_start
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
@@ -96,10 +98,14 @@ module StripeService::API
                                         real_fee_cents: balance_txn.fee,
                                         available_on: Time.zone.at(balance_txn.available_on)
                                       })
+        report.capture_charge_success
         Result::Success.new(payment)
-      rescue => e
-        Airbrake.notify(e)
-        Result::Error.new(e.message)
+      rescue => exception
+        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).capture_charge_failed
+        exception.extend ParamsToAirbrake
+        exception.params_to_airbrake = {stripe: params_to_airbrake}
+        Airbrake.notify(exception)
+        Result::Error.new(exception.message)
       end
 
       def payment_details(tx)
@@ -136,7 +142,7 @@ module StripeService::API
 
       def payout(tx)
         report = StripeService::Report.new(tx: tx)
-        report.capture_charge_start
+        report.create_payout_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment = PaymentStore.get(tx.community_id, tx.id)
 
@@ -177,7 +183,7 @@ module StripeService::API
                                         transfered_at: Time.zone.now
                                       })
 
-        report.capture_charge_success
+        report.create_payout_success
         payment
       end
 
