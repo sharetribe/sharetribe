@@ -6,7 +6,7 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
-Would you like to work with an API-based marketplace solution that allows you to build your marketplace with the programming language of your choice, build a mobile app, or easily integrate thirt party services? [Check out Sharetribe Flex](https://www.sharetribe.com/flex).
+Would you like to work with an API-based marketplace solution that allows you to build your marketplace with the programming language of your choice, build a mobile app, or easily integrate third party services? [Check out Sharetribe Flex](https://www.sharetribe.com/flex).
 
 ### Contents
 
