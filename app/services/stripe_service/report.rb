@@ -46,6 +46,7 @@ class StripeService::Report
   end
 
   def create_charge_success
+    stripe_payment.reload
     result = create_charge.merge({
       "event": "stripe_call_succeeded",
       "stripe_payment_id": stripe_payment.id,
@@ -75,6 +76,7 @@ class StripeService::Report
   end
 
   def create_payout_success
+    stripe_payment.reload
     result = create_payout.merge({
       "event": "stripe_call_succeeded",
       "stripe_payment_id": stripe_payment.id,
