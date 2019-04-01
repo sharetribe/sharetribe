@@ -430,7 +430,6 @@ Rails.application.routes.draw do
 
       # List few specific routes here for Devise to understand those
       get "/signup" => "people#new", :as => :sign_up
-      get '/people/auth/:provider/setup' => 'omniauth#auth_setup' #needed for devise setup phase hook to work
 
       resources :people, param: :username, :path => "", :only => :show, :constraints => { :username => /[_a-z0-9]{3,20}/ }
 
