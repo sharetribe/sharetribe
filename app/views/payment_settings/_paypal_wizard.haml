@@ -1,22 +1,22 @@
 - create_paypal_link = link_to(t("paypal_accounts.create_paypal_account_link_text"),
-                               presenter.create_url, target: "_blank")
+                               create_url, target: "_blank")
 - upgrade_paypal_link = link_to(t("paypal_accounts.upgrade_paypal_account_link_text"),
-                                presenter.upgrade_url, target: "_blank")
+                                upgrade_url, target: "_blank")
 - paypal_redirect_link = "<a href='#' id='ask_paypal_permissions_redirect'>#{t("paypal_accounts.redirect_link_text")}</a>"
 
-- if !presenter.stripe_enabled
+- if !@stripe_enabled
   = render partial: "paypal_accounts/paypal_info", locals: { create_paypal_account_link: create_paypal_link,
       upgrade_paypal_account_link: upgrade_paypal_link,
-      paypal_account_linked: presenter.next_action != :ask_order_permission,
-      receive_funds_info_label_tr_key: presenter.receive_funds_info_label_tr_key,
-      receive_funds_info_tr_key: presenter.receive_funds_info_tr_key,
-      commission_required: presenter.commission_type != :none }
+      paypal_account_linked: next_action != :ask_order_permission,
+      receive_funds_info_label_tr_key: receive_funds_info_label_tr_key,
+      receive_funds_info_tr_key: receive_funds_info_tr_key,
+      commission_required: commission_type != :none }
 
-- if presenter.next_action == :ask_order_permission
+- if next_action == :ask_order_permission
   - content_for :javascript do
-    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{presenter.order_permission_action}", ".js-paypal-redirect-order-permission");
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-order-permission");
 
-  - if !presenter.stripe_enabled
+  - if !@stripe_enabled
     .row.paypal-follow-steps
       .col-12
         = t("paypal_accounts.new.follow_steps")
@@ -40,25 +40,25 @@
             .paypal-redirect-message
 
               = t("paypal_accounts.redirect_message", redirect_link: paypal_redirect_link).html_safe
-- elsif presenter.next_action == :ask_billing_agreement
+- elsif next_action == :ask_billing_agreement
   - content_for :javascript do
-    ST.initializeNewPaypalAccountHandler("ask_billing_agreement", "#{presenter.billing_agreement_action}", ".js-paypal-redirect-billing-agreement");
-    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{presenter.order_permission_action}", ".js-paypal-redirect-change-account");
-  - if presenter.commission_type != :none && !presenter.stripe_enabled
+    ST.initializeNewPaypalAccountHandler("ask_billing_agreement", "#{billing_agreement_action}", ".js-paypal-redirect-billing-agreement");
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-change-account");
+  - if commission_type != :none && !@stripe_enabled
     .row.paypal-follow-steps
       .col-12
         = t("paypal_accounts.new.follow_steps")
 
   .row.paypal-wizard
     .col-12
-      - if !presenter.stripe_enabled
+      - if !@stripe_enabled
         .paypal-wizard-content
-          = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: presenter.paypal_account[:email],
+          = render partial: "layouts/paypal_account_connected", locals: {paypal_account_email: paypal_account[:email],
               paypal_redirect_link: paypal_redirect_link}
         .paypal-wizard-divider
       - else
         .paypal-wizard-content
-          =t("stripe_accounts.paypal_connected_give_permission", email: presenter.paypal_account[:email])
+          =t("stripe_accounts.paypal_connected_give_permission", email: paypal_account[:email])
 
           .row.paypal-link-wrapper
             .col-12
@@ -74,18 +74,18 @@
         .row
           .col-12
             - paypal_info_link = "<a id='paypal_fee_info_link' href='#'>#{t("paypal_accounts.new.paypal_info_link_text")}</a>"
-            - if presenter.commission_type == :both # TODO: Tweak copy
+            - if commission_type == :both # TODO: Tweak copy
               = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_both",
-                commission_from_seller: presenter.commission_from_seller,
-                minimum_commission: MoneyViewUtils.to_humanized(presenter.minimum_commission),
+                commission_from_seller: commission_from_seller,
+                minimum_commission: MoneyViewUtils.to_humanized(minimum_commission),
                 paypal_info_link: paypal_info_link).html_safe }
-            - elsif presenter.commission_type == :relative
+            - elsif commission_type == :relative
               = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_relative",
-                commission_from_seller: presenter.commission_from_seller,
+                commission_from_seller: commission_from_seller,
                 paypal_info_link: paypal_info_link).html_safe }
-            - elsif presenter.commission_type == :fixed
+            - elsif commission_type == :fixed
               = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_fixed",
-                minimum_commission: MoneyViewUtils.to_humanized(presenter.minimum_commission),
+                minimum_commission: MoneyViewUtils.to_humanized(minimum_commission),
                 paypal_info_link: paypal_info_link).html_safe }
             - else # no commission fee
               = render :partial => "layouts/info_text", :locals => {text: t("paypal_accounts.new.paypal_account_billing_agreement_info_none",
@@ -102,10 +102,10 @@
         = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
           %h2= t("common.paypal_fee_info.title")
           - text_with_line_breaks_html_safe do
-            - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), presenter.paypal_fees_url, target: "_blank")
+            - link_to_paypal = link_to(t("common.paypal_fee_info.link_to_paypal_text"), paypal_fees_url, target: "_blank")
             = t("common.paypal_fee_info.body_text", link_to_paypal: link_to_paypal,
-              paypal_commission: presenter.paypal_commission,
-              minimum_transaction_fee: MoneyViewUtils.to_humanized(presenter.minimum_commission)).html_safe
+              paypal_commission: paypal_commission,
+              minimum_transaction_fee: MoneyViewUtils.to_humanized(minimum_commission)).html_safe
 
         - content_for :extra_javascript do
           :javascript
@@ -113,8 +113,8 @@
 - else
 
   - content_for :javascript do
-    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{presenter.order_permission_action}", ".js-paypal-redirect-change-account");
-  - if !presenter.stripe_enabled
+    ST.initializeNewPaypalAccountHandler("ask_paypal_permissions", "#{order_permission_action}", ".js-paypal-redirect-change-account");
+  - if !@stripe_enabled
     .row.paypal-wizard
       .col-12
         .paypal-wizard-content
@@ -128,7 +128,7 @@
           .row.paypal-first-steps-list
             .col-12
               =icon_tag("check", ["icon-fix", "paypal-success-mark"])
-              =t("paypal_accounts.paypal_account_connected_summary", :email => presenter.paypal_account[:email])
+              =t("paypal_accounts.paypal_account_connected_summary", :email => paypal_account[:email])
           .row.paypal-last-steps-list
             .col-12
               =icon_tag("check", ["icon-fix", "paypal-success-mark"])
