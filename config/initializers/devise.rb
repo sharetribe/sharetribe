@@ -256,7 +256,7 @@ Devise.setup do |config|
   facebook_api_version = FacebookSdkVersion::SERVER
 
   config.omniauth :facebook,
-                  setup: true,
+                  setup: Person::OmniauthService::SetupPhase,
                   client_options: {
                     site: "https://graph.facebook.com/#{facebook_api_version}",
                     authorize_url: "https://www.facebook.com/#{facebook_api_version}/dialog/oauth"
