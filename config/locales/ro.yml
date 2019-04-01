@@ -259,7 +259,7 @@ ro:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
-        pre_approved_listings: "Arata doar listarile care au fost aprobate de administratori"
+        pre_approved_listings: ~
       manage_members:
         manage_members: Utilizatori
         email: Email
@@ -814,8 +814,8 @@ ro:
         hour: ~
         day: "Pe zi - 24h"
         night: ~
-        week: ~
-        month: ~
+        week: "Pe saptamana"
+        month: "Pe luna"
         unit: ~
       can_not_find: ~
       add_custom_unit: ~
@@ -2066,8 +2066,8 @@ ro:
       hour: ~
       day: "Numar de zile:"
       night: ~
-      week: ~
-      month: ~
+      week: "Numar de saptamani:"
+      month: "Numar de luni:"
       unit: ~
       custom: ~
     quantity_placeholder: ~
