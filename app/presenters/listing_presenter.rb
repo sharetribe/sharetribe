@@ -320,8 +320,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def buyer_fee?
-    FeatureFlagHelper.feature_enabled?(:buyer_commission) &&
-      stripe_in_use && !paypal_in_use &&
+    stripe_in_use && !paypal_in_use &&
       (stripe_settings[:commission_from_buyer].to_i > 0 ||
       stripe_settings[:minimum_buyer_transaction_fee_cents].to_i > 0)
   end

@@ -6,12 +6,6 @@ describe TransactionService::Order do
   before do
     request = OpenStruct.new
     request.session = {}
-    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:buyer_commission])
-    FeatureFlagHelper.init(community_id: community.id,
-                           user_id: nil,
-                           request: request,
-                           is_admin: false,
-                           is_marketplace_admin: false)
   end
 
   it "calculates the item total" do

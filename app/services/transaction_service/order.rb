@@ -53,7 +53,7 @@ module TransactionService
 
     def buyer_fee
       return @buyer_fee if defined?(@buyer_fee)
-      if FeatureFlagHelper.feature_enabled?(:buyer_commission) && stripe_in_use && !paypal_in_use
+      if stripe_in_use && !paypal_in_use
         commission = stripe_tx_settings[:commission_from_buyer] || 0
         minimum_fee_cents = stripe_tx_settings[:minimum_buyer_transaction_fee_cents] || 0
         relative = (item_total.cents * (commission / 100.0)).to_i
