@@ -219,53 +219,45 @@ class Person::OmniauthService
   end
 
   class SetupPhase
-    attr_reader :community, :strategy, :provider
-    def initialize(env)
-      @community = env[:current_marketplace]
-      @provider = env["omniauth.strategy"].name
-      @strategy = env["omniauth.strategy"]
-    end
-
-    def run
-      case provider
-      when FACEBOOK
-        # Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
-        strategy.options[:iframe] = true
-        strategy.options[:scope] = "public_profile,email"
-        strategy.options[:info_fields] = "name,email,last_name,first_name"
-
-        if community.facebook_connect_enabled?
-          strategy.options[:client_id] = community.facebook_connect_id || APP_CONFIG.fb_connect_id
-          strategy.options[:client_secret] = community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
-        else
-          # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
-          strategy.options[:client_id] = ""
-          strategy.options[:client_secret] = ""
-          strategy.options[:client_options][:authorize_url] = login_url
-          strategy.options[:client_options][:site_url] = login_url
-        end
-      when GOOGLE_OAUTH2
-        if community.google_connect_enabled?
-          strategy.options[:client_id] = community.google_connect_id
-          strategy.options[:client_secret] = community.google_connect_secret
-        else
-          strategy.options[:client_id] = ""
-          strategy.options[:client_secret] = ""
-        end
-      when LINKEDIN
-        if community.linkedin_connect_enabled?
-          strategy.options[:client_id] = community.linkedin_connect_id
-          strategy.options[:client_secret] = community.linkedin_connect_secret
-        else
-          strategy.options[:client_id] = ""
-          strategy.options[:client_secret] = ""
-        end
-      end
-    end
-
     class << self
       def call(env)
-        new(env).run
+        community = env[:current_marketplace]
+        provider = env["omniauth.strategy"].name
+        strategy = env["omniauth.strategy"]
+        case provider
+        when FACEBOOK
+          # Facebook setup phase hook, that is used to dynamically set up a omniauth strategy for facebook on customer basis
+          strategy.options[:iframe] = true
+          strategy.options[:scope] = "public_profile,email"
+          strategy.options[:info_fields] = "name,email,last_name,first_name"
+
+          if community.facebook_connect_enabled?
+            strategy.options[:client_id] = community.facebook_connect_id || APP_CONFIG.fb_connect_id
+            strategy.options[:client_secret] = community.facebook_connect_secret || APP_CONFIG.fb_connect_secret
+          else
+            # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
+            strategy.options[:client_id] = ""
+            strategy.options[:client_secret] = ""
+            strategy.options[:client_options][:authorize_url] = login_url
+            strategy.options[:client_options][:site_url] = login_url
+          end
+        when GOOGLE_OAUTH2
+          if community.google_connect_enabled?
+            strategy.options[:client_id] = community.google_connect_id
+            strategy.options[:client_secret] = community.google_connect_secret
+          else
+            strategy.options[:client_id] = ""
+            strategy.options[:client_secret] = ""
+          end
+        when LINKEDIN
+          if community.linkedin_connect_enabled?
+            strategy.options[:client_id] = community.linkedin_connect_id
+            strategy.options[:client_secret] = community.linkedin_connect_secret
+          else
+            strategy.options[:client_id] = ""
+            strategy.options[:client_secret] = ""
+          end
+        end
       end
     end
   end
