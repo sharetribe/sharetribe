@@ -1,11 +1,11 @@
-= fields_for presenter.stripe_account_form do |form|
-  - if presenter.stripe_account_ready
+= fields_for stripe_account_form do |form|
+  - if stripe_seller_ready
     = form.date_select :birth_date, { discard_day: true, discard_month: true, discard_year: true }
   .row
     .col-12
       = form.error_messages
 
-  - name_class = presenter.stripe_seller_account[:address_country] == 'JP' ? 'hidden' : ''
+  - name_class = stripe_seller_account[:address_country] == 'JP' ? 'hidden' : ''
   #stripe-europe-name{class: name_class, "data-country-except" => 'JP'}
     .row
       .col-6
@@ -15,8 +15,8 @@
         = form.label :last_name, t("stripe_accounts.form_new.last_name")+"*"
         = form.text_field :last_name, class: 'required'
 
-  - name_jp_class = "#{presenter.stripe_account_ready ? '' : 'country-dependent'}"
-  - if (presenter.stripe_account_ready && presenter.stripe_seller_account[:address_country] == 'JP') || !presenter.stripe_account_ready
+  - name_jp_class = "#{stripe_seller_ready ? '' : 'country-dependent'}"
+  - if (stripe_seller_ready && stripe_seller_account[:address_country] == 'JP') || !stripe_seller_ready
     %div{class: name_jp_class, "data-country-only" => 'JP'}
       .row
         .col-6
@@ -51,7 +51,7 @@
   = form.hidden_field :email
   = form.hidden_field :url
 
-  - unless presenter.stripe_account_ready
+  - unless stripe_seller_ready
     .row
       .col-12
         = form.label :birth_date, t("stripe_accounts.form_new.birth_date")+"*"
@@ -59,12 +59,12 @@
 
   .row
     .col-12
-      - if presenter.stripe_account_ready
+      - if stripe_seller_ready
         = label_tag t("stripe_accounts.form_new.country")
-        = CountryI18nHelper.translate_country(presenter.stripe_seller_account[:address_country])
-        = form.hidden_field :address_country, value: presenter.stripe_seller_account[:address_country]
+        = CountryI18nHelper.translate_country(stripe_seller_account[:address_country])
+        = form.hidden_field :address_country, value: stripe_seller_account[:address_country]
       - else
         = form.label :address_country, t("stripe_accounts.form_new.address_country")+"*"
-        = form.select :address_country, presenter.stripe_available_countries, {prompt: t("stripe_accounts.form_new.select_country")}, {style: "min-width: 200px"}
+        = form.select :address_country, available_countries, {prompt: t("stripe_accounts.form_new.select_country")}, {style: "min-width: 200px"}
 
 

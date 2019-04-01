@@ -1,4 +1,4 @@
-= fields_for presenter.stripe_account_form do |form|
+= fields_for stripe_account_form do |form|
   .row.country-dependent{"data-country-only" => "US,PR"}
     .col-12
       = label_tag :ssn_last_4, t("stripe_accounts.form_pin.ssn_last_4")+"*"

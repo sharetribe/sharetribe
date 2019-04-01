@@ -1,15 +1,15 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user, @current_community) }
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => left_hand_navigation_links }
 
 .left-navi-section.settings-section.payment-settings
-  - if @presenter.stripe_enabled
+  - if @stripe_enabled
     %h2= t("payment_settings.title")
   - else
     %h2= t("paypal_accounts.payout_info_title")
 
-  - if @presenter.paypal_enabled && @presenter.stripe_enabled
+  - if @paypal_enabled && @stripe_enabled
     .row
       .col-12
         %p
@@ -18,24 +18,24 @@
     .row
       %div
         .col-12
-          - if @presenter.stripe_no_bank_account?
+          - if !seller_account.present? || !stripe_account[:stripe_bank_id].present?
             %h3= t("payment_settings.bank_account")
             %p
               = t("payment_settings.bank_account_details")
-            - unless @presenter.stripe_error || @presenter.api_seller_account.present?
+            - unless @stripe_error || seller_account.present?
               %p
                 = link_to t("payment_settings.add_bank_details"), '#', id: "toggle_stripe_wizard"
 
-          #stripe_wizard{class: @presenter.stripe_error || @presenter.api_seller_account.present? ? "" : "hidden"}
-            = render "stripe_wizard", presenter: @presenter
+          #stripe_wizard{class: @stripe_error || seller_account.present? ? "" : "hidden"}
+            = render partial: "stripe_wizard", locals: local_assigns
 
-          - if !@presenter.paypal_account.present?
+          - if !paypal_account.present?
             %h3= t("payment_settings.paypal")
             %p
               = t("payment_settings.to_accept_paypal")
             %p
               = link_to t("payment_settings.connect_paypal"), '#', id: "toggle_paypal_wizard"
-          - elsif @presenter.next_action == :ask_billing_agreement
+          - elsif next_action == :ask_billing_agreement
             %h3= t("payment_settings.paypal")
           - else
             %h3.paypal-account-connected
@@ -49,16 +49,16 @@
                 %a.paypal-change-link#ask_paypal_permissions
                   = t("paypal_accounts.change_account")
 
-          #paypal_wizard{class: @presenter.paypal_account.present? ? "" : "hidden"}
-            = render "paypal_wizard", presenter: @presenter
+          #paypal_wizard{class: paypal_account.present? ? "" : "hidden"}
+            = render partial: "paypal_wizard", locals: local_assigns
 
       - content_for :extra_javascript do
         :javascript
           $("#toggle_stripe_wizard").click(function(){$("#stripe_wizard").show(); $(this).hide(); return false;});
           $("#toggle_paypal_wizard").click(function(){$("#paypal_wizard").show(); $(this).hide(); return false;});
 
-  - elsif @presenter.paypal_enabled
-    = render "paypal_wizard", presenter: @presenter
+  - elsif @paypal_enabled
+    = render partial: "paypal_wizard", locals: local_assigns
 
-  - elsif @presenter.stripe_enabled
-    = render "stripe_wizard", presenter: @presenter
+  - elsif @stripe_enabled
+    = render partial: "stripe_wizard", locals: local_assigns
