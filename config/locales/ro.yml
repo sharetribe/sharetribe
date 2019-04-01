@@ -830,7 +830,7 @@ ro:
         unit_type:
           heading: ~
           quantity_label: ~
-          time_label: ~
+          time_label: "Timp (pe 30 minute, pe 2 saptamani, pe an...)"
     paypal_accounts:
       marketplace_paypal_integration: "Preferintele sistemului de plata"
       preferences_updated: "Preferintele sistemului de plata actualizate"
@@ -2118,7 +2118,7 @@ ro:
       hour: ~
       day: zi
       night: ~
-      week: ~
+      week: saptamana
       month: ~
       unit: ~
     verification_required:
@@ -2503,7 +2503,7 @@ ro:
   date:
     formats:
       long_with_abbr_day_name: ~
-    first_day_of_week: ~
+    first_day_of_week: 0
   datepicker:
     days:
       sunday: Duminică
@@ -2626,7 +2626,7 @@ ro:
         hour: ~
         day: zi
         night: ~
-        week: ~
+        week: saptamana
         month: ~
       edit_availability_header: Disponibilitate
       save_and_close_availability_editing: ~
