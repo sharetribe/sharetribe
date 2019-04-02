@@ -51,8 +51,7 @@ class Admin::ListingsService
   end
 
   def create_state(new_listing)
-    if FeatureFlagHelper.feature_enabled?(:approve_listings) &&
-       community.pre_approved_listings?
+    if community.pre_approved_listings?
       unless person.has_admin_rights?(community)
         new_listing.state = Listing::APPROVAL_PENDING
       end
