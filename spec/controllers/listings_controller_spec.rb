@@ -395,7 +395,6 @@ describe ListingsController, type: :controller do
       user creates listing, then it would automatically
         should be assigned the pending status.
         Admin receives listing submited for review email.' do
-      RequestStore.store[:feature_flags] = [:approve_listings].to_set
       admin
       sign_in_for_spec(person)
       community.update_column(:pre_approved_listings, true)
