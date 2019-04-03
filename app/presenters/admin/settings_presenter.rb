@@ -57,10 +57,6 @@ class Admin::SettingsPresenter
     APP_CONFIG.community_not_found_redirect
   end
 
-  def delete_confirmation
-    community.ident
-  end
-
   private
 
   def location_search_available
