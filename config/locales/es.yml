@@ -123,7 +123,7 @@ es:
         custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y luego puedes copiar el código del color aquí."
         new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y luego puedes copiar el código del color aquí."
         default_browse_view: "Vista por defecto del buscador"
-        default_browse_view_instructions_text: "La vista por defecto del buscador se usa en la página principal para elegir cómo se muestran los resultados por defecto."
+        default_browse_view_instructions_text: "La vista seleccionada se usa en la página principal para elegir cómo se muestran los resultados por defecto."
         grid: Cuadrícula
         list: Lista
         map: Mapa
@@ -216,7 +216,7 @@ es:
         access: "Preferencias de acceso"
         join_with_invite_only: "Los usuarios sólo pueden unirse a esta comunidad con una invitación de otro usuario."
         users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a esta comunidad."
-        private: "Esta comunidad de mercado colaborativo es privada (sólo los usuarios registrados pueden ver su contenido)."
+        private: "Hacer el marketplace privado (sólo los usuarios registrados pueden ver su contenido)."
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
         search_preferences: "Preferencias de búsqueda"
         default_search_type: "Tipo de búsqueda: %{select_search_type}"
@@ -229,14 +229,14 @@ es:
         show_only_nearby: "Mostrar solamente anuncios cercanos a la búsqueda por ubicación"
         listing_preferences: "Preferencias de los anuncios"
         transaction_preferences: "Preferencias de transacciones"
-        show_listing_publishing_date: "Mostrar fecha de publicación del anuncio en la lista de resultados"
-        show_category_in_listing_list: "Mostrar el tipo de orden en el formato de lista"
+        show_listing_publishing_date: "Mostrar fecha de publicación del anuncio la descripción del anuncio"
+        show_category_in_listing_list: "Mostrar el tipo de orden en el la vista de lista"
         listing_comments_in_use: "Todos los usuarios pueden publicar comentarios en los anuncios (visibles para el resto de los usuarios)"
         email_preferences: "Preferencias de correo"
         automatic_newsletters: "Enviar el newsletter diario/semanal a todos los usuarios (excepto si no han aceptado el envío de mensajes automáticos)"
         email_admins_about_new_members: "Enviar un email al administrador cada vez que un nuevo usuario se registra."
         google_analytics_key: "Tracking ID de Google Analytics"
-        twitter_handle: "Publicar en Twitter (a través del botón \"twee\" en la página del anuncio)"
+        twitter_handle: "Publicar en Twitter (a través del botón \"twittear\" en la página del anuncio)"
         update_settings: "Guardar configuración"
         automatically_confirmed_no_escrow: "La transacción se marcará automáticamente como completada %{days_dropdown} días después de que se realice el pago."
         automatically_confirmed_no_escrow_stripe_info: "En transacciones procesadas por Stripe, los pagos a los vendedores son retrasados hasta que la transacción es marcada como completada. %{learn_more}."
@@ -1024,7 +1024,7 @@ es:
       accept_request: "Aceptar la solicitud"
       reject_offer: "Rechazar la solicitud"
       reject_request: "Rechazar la solicitud"
-      close_listing: "Borrar el anuncio %{listing_title_link}"
+      close_listing: "Cerrar el anuncio %{listing_title_link}"
       update_later: "Dejar el anuncio abierto"
       optional_message: "Mensaje opcional"
       price_to_pay: "Precio total a pagar"
@@ -1289,7 +1289,7 @@ es:
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} ha comentado tu anuncio '%{listing}'."
       view_comment: "Ver comentario"
-      you_have_a_new_comment: "%{author} ha comentado tu anuncio en %{service_name}"
+      you_have_a_new_comment: "%{author} ha hecho un comentario en tu anuncio en %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} ha hecho un comentario en un anuncio que tú sigues en %{service_name}"
       has_commented_listing_you_follow_in_kassi: "%{author} ha comentado en el anuncio '%{listing}' que estás siguiendo en %{service_name}."
     new_message:
@@ -1362,7 +1362,7 @@ es:
       you_can_give_feedback_to: "Aún no le has dado valoración a %{name}."
       view_feedback: "Ver la valoración"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "La lista que sigues ha sido actualizada"
+      listing_you_follow_has_been_updated: "Un anuncio que sigues ha sido actualizada"
       has_updated_listing_you_follow_in_kassi: "%{author} ha actualizado el anuncio '%{listing}' que estás siguiendo en %{service_name}."
       view_changes: "Ver los cambios"
     community_updates:
@@ -1419,7 +1419,7 @@ es:
     listing_submited_for_review:
       subject: "Nuevo anuncio para revisión: \"%{listing_title}\" creado por %{author_name} en %{community}"
       there_is_a_new_listing_to_review: "Hay un nuevo anuncio para revisión: \"%{listing_title}\" creado por %{author_name}. Ahora puedes aprobar o rechazar el anuncio."
-      review_the_listing: "Revisar el anuncio"
+      review_the_listing: "Revisar el anuncio nuevo"
       this_is_automatic_message: "Este es un anuncio automático a los administradores de %{community}."
     listing_approved:
       subject: "El equipo de %{community} ha aprobado tu anuncio: \"%{listing_title}\""
@@ -1430,6 +1430,10 @@ es:
       listing_has_been_rejected: "Desafortunadamente el equipo de %{community} ha rechazado tu anuncio \"%{listing_title}\" después de haberlo revisado. Puedes %{contact_link} para aprender más al respecto o editar tu anuncio y enviarlo a revisión nuevamente."
       contact_link: "contactar al equipo de %{community}"
       edit_the_listing: "Editar anuncio"
+    edited_listing_submited_for_review:
+      subject: "Anuncio editado para revisión: \"%{listing_title}\" creado por %{author_name} en %{community}"
+      there_is_a_edited_listing_to_review: "Hay un anuncio editado para revisión: \"%{listing_title}\" creado por %{author_name}. Ahora puedes aprobar o rechazar el anuncio."
+      review_the_listing: "Revisar el anuncio editado"
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."
@@ -1503,8 +1507,8 @@ es:
     accept:
       has_accepted_lend_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_borrow_item: "%{offerer_name} aceptó prestar %{listing_title} a %{requester_name} %{time_ago}."
-      has_accepted_rent_out_item: "%{offerer_name} acordó alquilar %{listing_title} de %{requester_name} %{time_ago}."
-      has_accepted_rent_item: "%{offerer_name} acordó en alquilar %{listing_title} de %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} aceptó alquilar %{listing_title} de %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} aceptó en alquilar %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_give_away_item: "%{offerer_name} aceptó dar %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_receive_item: "%{offerer_name} aceptó recibir %{listing_title} de %{requester_name} %{time_ago}."
       has_accepted_sell_item: "%{offerer_name} aceptó vender %{listing_title} a %{requester_name} %{time_ago}."
@@ -1513,7 +1517,7 @@ es:
       has_accepted_sell_housing: "%{offerer_name} aceptó vender %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} aceptó vender %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} acordó en alquilar %{listing_title} de %{requester_name} %{time_ago}."
-      has_accepted_rent_housing: "%{offerer_name} acordó alquilar %{listing_title} con %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} aceptó alquilar %{listing_title} con %{requester_name} %{time_ago}."
       has_accepted_favor: "%{offerer_name} aceptó ofrecer %{listing_title} a %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} aceptó hacer un viaje compartido %{listing_title} con %{requester_name} %{time_ago}."
     join:
@@ -1544,9 +1548,9 @@ es:
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Adicionalmente  hay <b>otra oferta</b>,"
-      additionally_one_private_request_exists: "Adicionalmente  existe <b>otra solicitud</b>,"
-      additionally_some_private_offers_exist: "Adicionalmente existen <b> otras %{number_of_listings} ofertas</b>,"
-      additionally_some_private_requests_exist: "Adicionalmente existen otras <b>%{number_of_listings} solicitudes</b>,"
+      additionally_one_private_request_exists: "Adicionalmente  hay <b>otra solicitud</b>,"
+      additionally_some_private_offers_exist: "Adicionalmente hay <b> otras %{number_of_listings} ofertas</b>,"
+      additionally_some_private_requests_exist: "Adicionalmente hay otras <b>%{number_of_listings} solicitudes</b>,"
     blank_slate:
       add_first: "¡Agregar uno!"
       but_that_is_visible_only_to_registered_members: "Sólo está disponible para usuarios registrados."
@@ -1585,8 +1589,8 @@ es:
       no_listings_with_your_search_criteria: "No encontramos resultados para los criterios de tu búsqueda. Intenta modificar la búsqueda."
       no_listings_notification: "No hay anuncios. %{add_listing_link}."
       add_listing_link_text: "Publicar anuncio"
-      open_listing: "publicación abierta"
-      open_listings: "publicaciones abiertas"
+      open_listing: "anuncio abierto"
+      open_listings: "anuncios abiertos"
       private_listing_notification_log_in: "inicia sesión"
       is: es
       are: son
@@ -1882,7 +1886,7 @@ es:
       send_comment: "Enviar comentario"
       to_send_a_comment: "para publicar un nuevo comentario."
       write_comment: "Escribir un nuevo comentario:"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "No se pueden enviar nuevos comentarios ya que el anuncio ha sido desactivado."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "No se pueden enviar nuevos comentarios ya que el anuncio ha sido cerrado."
       you_must: "Es necesario"
       subscribe_to_comments: "Recibir notificaciones con los nuevos comentarios y actualizaciones de éste anuncio."
     edit:
@@ -1930,7 +1934,7 @@ es:
         item: "un elemento"
         offer_something: "Ofrecer algo"
         request_something: "Pedir algo"
-        rideshare: "Un paseo"
+        rideshare: "un paseo"
         i_want_to_offer: "Quiero ofrecer..."
         i_want_to_request: Necesito...
       googlemap:
@@ -1941,7 +1945,7 @@ es:
         image: Imagen
         best_result: "Para mejores resultados, utiliza imágenes JPG, GIF o PNG que sean de %{width} por %{height} pixeles"
         no_file_selected: "No hay archivos seleccionados"
-        remove_image: "Quitar imagen"
+        remove_image: "Eliminar imagen"
         select_file: "Elegir Archivo"
         add_more: "+ Añadir más"
         removing: Eliminando...
@@ -2037,21 +2041,21 @@ es:
       you_have_something_others_do_not: "¿Tienes algo que ofecer?"
       feed_title: "%{listing_type} en %{service_name}%{optional_category}"
     left_panel_link:
-      borrows: préstamos
+      borrows: "Tomar prestado"
       buys: Comprar
       favors: Servicios
       give_aways: Regalar
       housings: Hospedaje
       items: Productos
-      lends: Prestando
+      lends: Prestar
       receives: "Tomar gratis"
       rent_outs: Alquilar
-      rents: Alquilando
+      rents: Alquilar
       rideshares: "Traslado compartido"
       sells: Vender
       share_for_frees: "Compartir gratuitamente"
       accept_for_frees: "Aceptando gratis"
-      trades: Intercambio
+      trades: Intercambiar
     listing_actions:
       booking_from: De
       booking_to: a
@@ -2088,10 +2092,10 @@ es:
     quantity_placeholder: Cantidad
     please_comment: Comentario
     reply_link:
-      listing_closed: "Anuncio desactivado"
+      listing_closed: "Anuncio cerrado"
     show:
       add_your_phone_number: "Añade tu número de teléfono"
-      add_profile_picture: "Añada una foto de perfil"
+      add_profile_picture: "Añade una foto de perfil"
       comments: Comentarios
       contact_by_phone: "Contactar por teléfono:"
       contact: Contactar
@@ -2112,7 +2116,7 @@ es:
       rideshare_offer: "Oferta de traslado compartido"
       rideshare_request: "Solicitud de traslado compartido"
       send_private_message: "Enviar un mensaje privado"
-      tags: Tarjetas
+      tags: Etiquetas
       time: Hora
       times: veces
       times_viewed: Visto
@@ -2245,7 +2249,7 @@ es:
     paypal_account_connected_title: "Cuenta PayPal conectada"
     paypal_account_connected: "La cuenta PayPal <%{email}> se ha conectado con %{service_name}."
     change_account: "Cambiar cuenta de PayPal"
-    missing: "Tienes publicaciones abiertas, pero no has configurado tu cuenta de Paypal para recibir pagos. Conecta tu cuenta de Paypal en tu %{settings_link} y concede permiso a %{service_name} a cargar una cuota por transacción."
+    missing: "Tienes anuncios abiertos, pero no has configurado tu cuenta de Paypal para recibir pagos. Conecta tu cuenta de Paypal en tu %{settings_link} y concede permiso a %{service_name} a cargar una cuota por transacción."
     from_your_payment_settings_link_text: "configuración de pagos"
     redirect_message: "Redirigiendo a PayPal. Si no sucede nada, haz clic %{redirect_link}."
     redirect_link_text: aquí
@@ -2338,8 +2342,8 @@ es:
       reviews: "reseñas recibidas"
       listing: Anuncio
       listings: anuncios
-      open_listing: "Anuncio abierto"
-      open_listings: "Anuncios abiertos"
+      open_listing: "anuncio abierto"
+      open_listings: "anuncios abiertos"
       no_listings: "No hay anuncios"
       no_open_listings: "No hay anuncios abiertos"
       no_reviews: "Sin reseñas"
@@ -2403,7 +2407,7 @@ es:
       delete_account_confirmation_popup: "¿Estás seguro de querer eliminar tu cuenta de forma permanente? También eliminaras toda la información relacionada con tu cuenta. Si lo haces, ya no podrás volver atrás."
       email_addresses: "Direcciones de email"
       new_email: "Nueva Dirección de Correo Electrónico"
-      delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todas las publicaciones que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta. Tu nombre de usuario se hará disponible para otros miembros que se registren en %{service_name}."
+      delete_personal_information: "Si eliminas tu cuenta, tu información personal (nombre, número de teléfono, dirección, email, imagen de perfil, etc.) se eliminará permanentemente y no podrá ser recuperada. Todos los anuncios que has creado se eliminarán del portal. No serás capaz de reactivar tu cuenta. Tu nombre de usuario se hará disponible para otros miembros que se registren en %{service_name}."
       delete_information_others_involved: "La información en la que están involucrados otros miembros (conversaciones con otra gente, transacciones que has realizado, revisiones que has dado a otros, etc) no se eliminarán cuando canceles tu cuenta. No obstante, tu nombre no aparecerá visualizado en esa información."
       unfinished_transactions: "Tu cuenta no puede ser eliminada porque tienes transacciones en marcha. Por favor, completa todas las transacciones antes de eliminar tu cuenta."
       only_admin: "No puedes eliminar tu cuenta porque eres el único administrador del marketplace."
@@ -2513,7 +2517,7 @@ es:
       negative: Negativa
       default_textual_feedback: "Todo perfecto, muchas gracias."
     testimonial:
-      about_listing: "sobre el anuncio"
+      about_listing: "acerca del anuncio"
   date:
     formats:
       long_with_abbr_day_name: "%a, %b %d, %Y"
