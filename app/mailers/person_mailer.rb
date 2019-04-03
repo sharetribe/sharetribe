@@ -414,6 +414,24 @@ class PersonMailer < ActionMailer::Base
     end
   end
 
+  def edited_listing_submited_for_review(listing, recipient)
+    community = listing.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.name(I18n.locale)
+      @listing = listing
+      @author_name = PersonViewUtils.person_display_name(listing.author, community)
+      @listing_url = listing_url(@url_params.merge({:id => listing.id}))
+      premailer_mail(:to => recipient.confirmed_notification_emails_to,
+                     :from => community_specific_sender(community),
+                     :subject => t("emails.edited_listing_submited_for_review.subject",
+                                   :listing_title => @listing.title,
+                                   :author_name => @author_name,
+                                   :community => @community_name)
+                    )
+    end
+  end
+
   def premailer_mail(opts, &block)
     premailer(mail(opts, &block))
   end

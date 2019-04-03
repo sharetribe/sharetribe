@@ -42,10 +42,10 @@ class Admin::ListingsService
     end
   end
 
-  def update_by_author_successful(update_listing)
-    if update_listing.approval_pending?
+  def update_by_author_successful(updated_listing)
+    if updated_listing.approval_pending?
       community.admins.each do |admin|
-        send_listing_submited_for_review(update_listing, admin)
+        send_edited_listing_submited_for_review(updated_listing, admin)
       end
     end
   end
@@ -90,4 +90,10 @@ class Admin::ListingsService
     PersonMailer.listing_rejected(listing).deliver_now
   end
   handle_asynchronously :send_listing_rejected
+
+  def send_edited_listing_submited_for_review(listing, recipient)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
+    PersonMailer.edited_listing_submited_for_review(listing, recipient).deliver_now
+  end
+  handle_asynchronously :send_edited_listing_submited_for_review
 end
