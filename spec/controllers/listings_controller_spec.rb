@@ -343,7 +343,7 @@ describe ListingsController, type: :controller do
       expect(ActionMailer::Base.deliveries).not_to be_empty
       email = ActionMailer::Base.deliveries.first
       expect(email.to.include?(admin.confirmed_notification_emails_to)).to eq true
-      expect(email.subject).to eq 'New listing to review: "Easy As Pie" by Proto T in Sharetribe'
+      expect(email.subject).to eq 'Edited listing to review: "Easy As Pie" by Proto T in Sharetribe'
     end
 
     it 'If the community.pre_approved_listings is on
@@ -363,9 +363,13 @@ describe ListingsController, type: :controller do
 
     it 'If the community.pre_approved_listings is on
         If a rejected listing is edited, then it would automatically
-        should be assigned the pending status.' do
+        should be assigned the pending status.
+        Admin receives edited listing submited for review email.' do
+      RequestStore.store[:feature_flags] = [:approve_listings].to_set
+      admin
       sign_in_for_spec(person)
       community.update_column(:pre_approved_listings, true)
+      ActionMailer::Base.deliveries = []
       patch :update, params: { id: rejected_listing.id, listing: {
         title: 'Easy As Pie',
         listing_shape_id: rejected_listing.listing_shape_id,
@@ -374,6 +378,12 @@ describe ListingsController, type: :controller do
       }}
       rejected_listing.reload
       expect(rejected_listing.state).to eq Listing::APPROVAL_PENDING
+
+      process_jobs
+      expect(ActionMailer::Base.deliveries).not_to be_empty
+      email = ActionMailer::Base.deliveries.first
+      expect(email.to.include?(admin.confirmed_notification_emails_to)).to eq true
+      expect(email.subject).to eq 'Edited listing to review: "Easy As Pie" by Proto T in Sharetribe'
     end
 
     it 'If the community.pre_approved_listings is on

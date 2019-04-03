@@ -1419,7 +1419,7 @@ en:
     listing_submited_for_review:
       subject: "New listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
       there_is_a_new_listing_to_review: "There is a new listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
-      review_the_listing: "Review the listing"
+      review_the_listing: "Review the new listing"
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
     listing_approved:
       subject: "The %{community} team has approved your listing \"%{listing_title}\""
@@ -1430,6 +1430,10 @@ en:
       listing_has_been_rejected: "Unfortunately the %{community} team has rejected your listing \"%{listing_title}\" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review."
       contact_link: "contact the %{community} team"
       edit_the_listing: "Edit the listing"
+    edited_listing_submited_for_review:
+      subject: "Edited listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
+      there_is_a_edited_listing_to_review: "There is an edited listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      review_the_listing: "Review the edited listing"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
