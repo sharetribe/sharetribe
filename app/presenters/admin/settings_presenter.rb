@@ -16,7 +16,7 @@ class Admin::SettingsPresenter
   end
 
   def can_delete_marketplace
-    PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:deletable]
+    PlanService::API::Api.plans.get_current(community_id: community.id).data.try(:[], :features).try(:[], :deletable)
   end
 
   def main_search
@@ -51,6 +51,10 @@ class Admin::SettingsPresenter
 
   def stripe_available?
     StripeHelper.stripe_available?(community)
+  end
+
+  def delete_redirect_url
+    APP_CONFIG.community_not_found_redirect
   end
 
   private
