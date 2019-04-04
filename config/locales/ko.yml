@@ -1421,6 +1421,10 @@ ko:
       listing_has_been_rejected: ~
       contact_link: ~
       edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."

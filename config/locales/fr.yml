@@ -1419,7 +1419,7 @@ fr:
     listing_submited_for_review:
       subject: "Nouvelle annonce à vérifier : \"%{listing_title}\" par %{author_name} sur %{community}"
       there_is_a_new_listing_to_review: "Il y a une nouvelle annonce à vérifier : \"%{listing_title}\" par %{author_name}. Vous devez maintenant approuver ou rejeter cette annonce."
-      review_the_listing: "Vérifier l'annonce"
+      review_the_listing: "Vérifier la nouvelle annonce"
       this_is_automatic_message: "Ceci est un message automatique envoyé aux administrateurs de %{community}."
     listing_approved:
       subject: "L'équipe %{community} a approuvée votre annonce \"%{listing_title}\""
@@ -1430,6 +1430,10 @@ fr:
       listing_has_been_rejected: "Hélas l'équipe %{community} a rejeté votre annonce \"%{listing_title}\" après l'avoir vérifiée avec toute l'attention nécessaire. Vous pouvez %{contact_link} pour en savoir plus ou bien éditer votre annonce et la proposer de nouveau pour une nouvelle vérification."
       contact_link: "contacter l'équipe %{community}"
       edit_the_listing: "Editer l'annonce"
+    edited_listing_submited_for_review:
+      subject: "Annonce éditée à vérifier : \"%{listing_title}\" par %{author_name} sur %{community}"
+      there_is_a_edited_listing_to_review: "Il y a une annonce éditée à vérifier : \"%{listing_title}\" par %{author_name}. Vous devez maintenant approuver ou rejeter cette annonce."
+      review_the_listing: "Vérifier l'annonce éditée"
   error_messages:
     booking:
       booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."
