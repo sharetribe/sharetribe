@@ -78,7 +78,7 @@ class Person::PaymentSettingsPresenter
     need_verification = false
     if stripe_account_ready && api_seller_account
       if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-        need_verification = stripe_account_verification == :restricted
+        need_verification = [:restricted, :restricted_soon].include?(stripe_account_verification)
       else
         verification = api_seller_account.verification
         need_verification = verification.fields_needed.present? && verification.due_by.present?
