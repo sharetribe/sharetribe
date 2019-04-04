@@ -119,10 +119,11 @@ ul {
   display: block;
   text-align: left;
   @include single-text-shadow;
-  background: #25567c;
+  background: rgb(68, 107, 175);
   min-height: 42px;
   &:hover {
     background: #6f99bc;
+    background: rgb(54, 88, 153);
   }
   @include border-radius(em(5));
 
