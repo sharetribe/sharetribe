@@ -1419,6 +1419,10 @@ ro:
       listing_has_been_rejected: ~
       contact_link: ~
       edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -2306,7 +2310,7 @@ ro:
       add_description: "Postati ceva despre Dumneavoastra"
       add_location: "Adauga locatia"
       add_phone_number: "Adaugati numarul de telefon"
-      address: "Locatie:"
+      address: "Oras:"
       as_expected: "Conform asteptarilor"
       edit_profile_info: "Editeaza profilul"
       exceeded_expectations: "A depasit asteptarile"
@@ -2451,7 +2455,7 @@ ro:
       postal_code: "Cod postal"
       profile_page: "in pagina ta de profil"
       profilemap: Harta
-      street_address: Locatie
+      street_address: Oras
       these_fields_are_shown_in_your: "O parte din aceasta informatie este vizibila tuturor utilizatorilor %{service_name}"
       visible_to_everybody: "vizibil pentru toti"
       visible_to_registered_users: "(vizibil utilizatorilor care sunt logati)"
@@ -2653,7 +2657,7 @@ ro:
       menu: Meniu
       more: "Mai mult"
       search_placeholder: ~
-      search_location_placeholder: Locatie
+      search_location_placeholder: Oras
       user: Utilizator
       inbox: "Casuta postala"
       profile: Profil
