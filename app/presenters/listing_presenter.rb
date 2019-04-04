@@ -330,8 +330,7 @@ class ListingPresenter < MemoisticPresenter
   end
 
   def approval_in_use?
-    FeatureFlagHelper.feature_enabled?(:approve_listings) &&
-      current_community.pre_approved_listings
+    current_community.pre_approved_listings
   end
 
   def show_submit_for_review?

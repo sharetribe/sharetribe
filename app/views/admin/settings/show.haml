@@ -54,10 +54,9 @@
         .checkbox-container
           = form.check_box :listing_comments_in_use
           = form.label :listing_comments_in_use, t("admin.communities.settings.listing_comments_in_use"), :class => "settings-checkbox-label"
-        - if FeatureFlagHelper.feature_enabled?(:approve_listings)
-          .checkbox-container
-            = form.check_box :pre_approved_listings
-            = form.label :pre_approved_listings, t("admin.communities.settings.pre_approved_listings"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :pre_approved_listings
+          = form.label :pre_approved_listings, t("admin.communities.settings.pre_approved_listings"), :class => "settings-checkbox-label"
 
     - if @presenter.community.payments_in_use?
       .row
