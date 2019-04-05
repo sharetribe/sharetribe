@@ -37,14 +37,11 @@
           = form.label :gender, t("stripe_accounts.form_new.gender")+"*"
           - choices = [[t("stripe_accounts.form_new.male"), 'male'], [t("stripe_accounts.form_new.female"), 'female']]
           = form.select :gender, choices, { include_blank: true }, class: 'required'
-  - show_phone = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? 'US,JP,PR' : 'JP'
-  .row.country-dependent{"data-country-only" => show_phone}
+  .row.country-dependent{"data-country-only" => 'US,JP,PR'}
     .col-12
-      - phone_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :phone : :phone_number
-      = form.label phone_field, t("stripe_accounts.form_new.phone_number")+"*"
-      = form.text_field phone_field, class: 'required'
-  - show_mcc = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? 'US,PR' : 'XX'
-  .row.country-dependent{"data-country-only" => show_mcc}
+      = form.label :phone, t("stripe_accounts.form_new.phone_number")+"*"
+      = form.text_field :phone, class: 'required'
+  .row.country-dependent{"data-country-only" => 'US,PR'}
     .col-12
       = form.label :mcc, t("stripe_accounts.form_new.mcc")+"*"
       = form.select :mcc, mcc_codes_options, {include_blank: true, disabled: '0000'}, {class: 'required'}

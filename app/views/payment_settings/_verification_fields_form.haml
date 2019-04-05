@@ -2,7 +2,7 @@
   %h3
     = t("stripe_accounts.form_verification.need_verification")
 
-  - id_number_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :id_number : :personal_id_number
+  - id_number_field = :id_number
   = fields_for :stripe_account_form do |form|
     .row.country-dependent{"data-country-only" => "CA"}
       .col-12
