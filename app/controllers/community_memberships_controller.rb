@@ -11,12 +11,12 @@ class CommunityMembershipsController < ApplicationController
 
   before_action :ensure_membership_found
   before_action :ensure_membership_is_not_accepted
-  before_action only: [:pending_consent, :give_consent] {
+  before_action only: [:pending_consent, :give_consent] do
     ensure_membership_status("pending_consent")
-  }
-  before_action only: [:confirmation_pending] {
+  end
+  before_action only: [:confirmation_pending] do
     ensure_membership_status("pending_email_confirmation")
-  }
+  end
 
   Form = EntityUtils.define_builder(
     [:invitation_code, :string],

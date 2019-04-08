@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.6.2'
 
 gem 'rails', '5.1.6.2'
 
@@ -19,7 +19,7 @@ gem "passenger", '~> 6.0.1'
 
 gem "mysql2", '0.4.10'
 gem "bcrypt", '3.1.12'
-gem 'haml', '~> 5.0.1'
+gem 'haml', '~> 5.0.4'
 gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 5.0.1'
 gem 'rest-client', '~> 2.0.2'
@@ -121,8 +121,8 @@ group :development do
   gem 'listen', '~> 3.1.5'
   gem 'annotate', '~> 2.7.1'
   gem 'zeus', '~> 0.15.13', require: false
-  gem 'better_errors', '~> 2.1.1'
-  gem 'web-console', '~> 3.5.1'
+  gem 'better_errors', '~> 2.5.1'
+  gem 'web-console', '~> 3.7.0'
   gem 'awesome_print', '~> 1.7.0'
   gem 'binding_of_caller'
 end
@@ -161,7 +161,7 @@ gem 'js-routes', '~> 1.3.3'
 gem 'color', '~> 1.8'
 
 gem 'uuidtools', '~> 2.1.5'
-gem 'transit-ruby', '~> 0.8.1'
+gem 'transit-ruby', '~> 0.8.602'
 
 # Markdown parser
 gem 'redcarpet', '~> 3.4.0'

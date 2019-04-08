@@ -29,7 +29,7 @@ describe PlanService::API::Plans do
             res = plans_api.get_current(community_id: 123)
 
             expect(res.success).to eq(true)
-            expect(res.data[:id]).to be_a(Fixnum)
+            expect(res.data[:id]).to be_a(Integer)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :trial,
@@ -59,7 +59,7 @@ describe PlanService::API::Plans do
             res = plans_api.get_current(community_id: 123)
 
             expect(res.success).to eq(true)
-            expect(res.data[:id]).to be_a(Fixnum)
+            expect(res.data[:id]).to be_a(Integer)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
@@ -86,7 +86,7 @@ describe PlanService::API::Plans do
             res = plans_api.get_current(community_id: 123)
 
             expect(res.success).to eq(true)
-            expect(res.data[:id]).to be_a(Fixnum)
+            expect(res.data[:id]).to be_a(Integer)
             expect(res.data.except(:id)).to include(
                                               community_id: 123,
                                               status: :active,
