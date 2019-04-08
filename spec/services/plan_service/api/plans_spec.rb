@@ -23,7 +23,7 @@ describe PlanService::API::Plans do
             plans_api.create_initial_trial(
               community_id: 123, plan: {
                 status: :trial,
-                expires_at: expires_at,
+                expires_at: expires_at
               })
 
             res = plans_api.get_current(community_id: 123)
@@ -53,7 +53,7 @@ describe PlanService::API::Plans do
                 status: :active,
                 features: { whitelabel: true, admin_email: true },
                 member_limit: 100000,
-                expires_at: expires_at,
+                expires_at: expires_at
               })
 
             res = plans_api.get_current(community_id: 123)
@@ -80,7 +80,7 @@ describe PlanService::API::Plans do
               community_id: 123, plan: {
                 status: :active,
                 features: { whitelabel: true, admin_email: true },
-                member_limit: 1000,
+                member_limit: 1000
               })
 
             res = plans_api.get_current(community_id: 123)
@@ -106,7 +106,8 @@ describe PlanService::API::Plans do
           expect { plans_api.create(
             community_id: 123, plan: {
               expires_at: 1.month.from_now
-            }) }.to raise_error(ArgumentError)
+            })
+          }          .to raise_error(ArgumentError)
         end
 
         it "returns error if plan can not be found" do
@@ -119,17 +120,19 @@ describe PlanService::API::Plans do
             community_id: 123,
             plan: {
               status: :active,
-              member_limit: 1000,
-            }) }.to raise_error(ArgumentError)
+              member_limit: 1000
+            })
+          }          .to raise_error(ArgumentError)
         end
 
         it "raises error if status is missing"do
           expect { plans_api.create(
             community_id: 123,
             plan: {
-              features: {whitelabel: :true},
-              member_limit: 1000,
-            }) }.to raise_error(ArgumentError)
+              features: {whitelabel: true},
+              member_limit: 1000
+            })
+          }          .to raise_error(ArgumentError)
         end
       end
     end
@@ -177,7 +180,7 @@ describe PlanService::API::Plans do
           community_id: 111, plan: {
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
-            expires_at: nil, # plan never expires
+            expires_at: nil # plan never expires
           }).data
 
         expect(plan[:expired]).to eq(false)
@@ -188,7 +191,7 @@ describe PlanService::API::Plans do
           community_id: 111, plan: {
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
-            expires_at: 1.month.from_now,
+            expires_at: 1.month.from_now
           }).data
 
         expect(plan[:expired]).to eq(false)
@@ -199,7 +202,7 @@ describe PlanService::API::Plans do
           community_id: 111, plan: {
             status: :hold,
             features: { deletable: false, admin_email: true, whitelabel: true },
-            expires_at: 1.month.ago,
+            expires_at: 1.month.ago
           }).data
 
         expect(plan[:expired]).to eq(true)
@@ -212,7 +215,7 @@ describe PlanService::API::Plans do
           community_id: 111, plan: {
             status: :active,
             features: { deletable: false, admin_email: true, whitelabel: true },
-            expires_at: nil, # plan never expires
+            expires_at: nil # plan never expires
           }).data
 
         expect(plan[:expired]).to eq(false)
@@ -224,7 +227,7 @@ describe PlanService::API::Plans do
           community_id: 111, plan: {
             status: :trial,
             features: { deletable: true, admin_email: false, whitelabel: false },
-            expires_at: Time.now - 1.day,
+            expires_at: Time.now - 1.day
           }).data
 
         expect(plan[:expired]).to eq(true)

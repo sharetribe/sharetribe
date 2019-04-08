@@ -35,7 +35,7 @@ module ServiceClient
       def leave_log(ctx)
         {
           req: ctx.fetch(:req).except(:body),
-          res: ctx.fetch(:res).except(:body),
+          res: ctx.fetch(:res).except(:body)
         }.merge(timing(ctx))
       end
 
@@ -43,7 +43,7 @@ module ServiceClient
         {
           req: ctx.fetch(:req).except(:body),
           res: Maybe(ctx)[:res].except(:body).or_nil,
-          error_class: ctx[:error].class.to_s,
+          error_class: ctx[:error].class.to_s
         }.merge(timing(ctx))
       end
 

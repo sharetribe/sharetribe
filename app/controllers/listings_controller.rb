@@ -4,28 +4,28 @@ class ListingsController < ApplicationController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_action :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
-  before_action :only => [ :edit, :edit_form_content, :update, :close, :follow, :unfollow ] do |controller|
+  before_action :only => [:edit, :edit_form_content, :update, :close, :follow, :unfollow] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
 
-  before_action :only => [ :new, :new_form_content, :create ] do |controller|
+  before_action :only => [:new, :new_form_content, :create] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
   before_action :save_current_path, :only => :show
-  before_action :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
+  before_action :ensure_authorized_to_view, :only => [:show, :follow, :unfollow]
 
-  before_action :only => [ :close ] do |controller|
+  before_action :only => [:close] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_action :only => [ :edit, :edit_form_content, :update ] do |controller|
+  before_action :only => [:edit, :edit_form_content, :update] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
-  before_action :ensure_is_admin, :only => [ :move_to_top, :show_in_updates_email ]
+  before_action :ensure_is_admin, :only => [:move_to_top, :show_in_updates_email]
 
-  before_action :is_authorized_to_post, :only => [ :new, :create ]
+  before_action :is_authorized_to_post, :only => [:new, :create]
 
   def index
     @selected_tribe_navi_tab = "home"
@@ -158,9 +158,9 @@ class ListingsController < ApplicationController
         if shape.booking?
           anchor = shape.booking_per_hour? ? 'manage-working-hours' : 'manage-availability'
           @listing.working_hours_new_set(force_create: true) if shape.booking_per_hour?
-          redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: 303
+          redirect_to listing_path(@listing, anchor: anchor, listing_just_created: true), status: :see_other
         else
-          redirect_to @listing, status: 303
+          redirect_to @listing, status: :see_other
         end
       else
         logger.error("Errors in creating listing: #{@listing.errors.full_messages.inspect}")
@@ -225,7 +225,7 @@ class ListingsController < ApplicationController
       end
       if @listing.location
         location_params = ListingFormViewUtils.permit_location_params(params)
-        @listing.location.update_attributes(location_params)
+        @listing.location.update(location_params)
       end
       flash[:notice] = update_flash(old_availability: old_availability, new_availability: shape[:availability])
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, @current_community.id))
@@ -259,7 +259,7 @@ class ListingsController < ApplicationController
   def show_in_updates_email
     @listing = @current_community.listings.find(params[:id])
     @listing.update_attribute(:updates_email_at, Time.now)
-    render :body => nil, :status => 200
+    render :body => nil, :status => :ok
   end
 
   def follow
@@ -277,6 +277,7 @@ class ListingsController < ApplicationController
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
     return if current_user?(@listing.author) || @current_user.has_admin_rights?(@current_community)
+
     flash[:error] = error_message
     redirect_to @listing and return
   end
@@ -335,7 +336,7 @@ class ListingsController < ApplicationController
       @listing.init_origin_location(@listing_presenter.new_listing_author.location)
     end
 
-    @listing.category = @current_community.categories.find(params[:subcategory].blank? ? params[:category] : params[:subcategory])
+    @listing.category = @current_community.categories.find(params[:subcategory].presence || params[:category])
     @custom_field_questions = @listing.category.custom_fields
     @numeric_field_ids = numeric_field_ids(@custom_field_questions)
 

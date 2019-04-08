@@ -10,17 +10,14 @@ module PaypalService::Store::PaypalAccount
     [:community_id, :mandatory, :fixnum],
     [:person_id, :optional, :string],
     [:order_permission_paypal_username_to, :mandatory, :string],
-
     # Optional
     [:order_permission_request_token, :string],
     [:active, one_of: [true, false, nil]],
     [:email, :string],
     [:payer_id, :string],
-
     [:order_permission_verification_code, :string],
     [:order_permission_scope, :string],
     [:order_permission_onboarding_id, :string],
-
     [:billing_agreement_billing_agreement_id, :string],
     [:billing_agreement_paypal_username_to, :string],
     [:billing_agreement_request_token, :string]
@@ -269,8 +266,8 @@ module PaypalService::Store::PaypalAccount
       account_model = maybe_model.get
       account_values = HashUtils.compact(FlattingHelper.select_paypal_account_values(entity))
 
-      account_model.update_attributes(account_values)
-      account_model.order_permission.update_attributes(HashUtils.compact(FlattingHelper.select_order_permission_values(entity)))
+      account_model.update(account_values)
+      account_model.order_permission.update(HashUtils.compact(FlattingHelper.select_order_permission_values(entity)))
       account_model = update_or_create_billing_agreement(account_model, HashUtils.compact(FlattingHelper.select_billing_agreement_values(entity)))
 
       deactivate_other_accounts(account_model) if account_values[:active]
@@ -291,7 +288,7 @@ module PaypalService::Store::PaypalAccount
       account_model.create_billing_agreement(opts)
     else
       # update
-      account_model.billing_agreement.update_attributes(opts)
+      account_model.billing_agreement.update(opts)
     end
     account_model
   end

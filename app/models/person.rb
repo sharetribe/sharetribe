@@ -84,9 +84,9 @@ class Person < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable
 
-  attr_accessor :guid, :password2, :form_login,
+  attr_accessor :guid, :form_login,
                 :form_given_name, :form_family_name, :form_password,
-                :form_password2, :form_email, :consent,
+                :form_password2, :form_email,
                 :input_again, :send_notifications
 
   # Virtual attribute for authenticating by either username or email
@@ -341,7 +341,7 @@ class Person < ApplicationRecord
             deprecator: MethodDeprecator.new
 
   def set_given_name(name)
-    update_attributes({:given_name => name })
+    update({:given_name => name })
   end
 
   def street_address
@@ -379,7 +379,7 @@ class Person < ApplicationRecord
   end
 
   def picture_from_url(url)
-    self.image = open(url)
+    self.image = open(url) # rubocop:disable Security/Open
     self.save
   end
 
@@ -416,7 +416,7 @@ class Person < ApplicationRecord
 
   def password2
     if new_record?
-      return form_password2 ? form_password2 : ""
+      return form_password2 || ""
     end
   end
 
@@ -480,6 +480,7 @@ class Person < ApplicationRecord
       # this is handled outside prefenrences so answer separately
       return confirmed_email && min_days_between_community_updates < 100000
     end
+
     confirmed_email && preferences && preferences[email_type]
   end
 
@@ -587,6 +588,7 @@ class Person < ApplicationRecord
     # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want
     # 1 day limit to match even if there's 23.55 minutes passed since last sending.
     return true if community_updates_last_sent_at.nil?
+
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
 
@@ -596,7 +598,7 @@ class Person < ApplicationRecord
   def latest_pending_email_address(community=nil)
     pending_emails = Email.where(:person_id => id, :confirmed_at => nil).pluck(:address)
 
-    allowed_emails = if community && community.allowed_emails
+    allowed_emails = if community&.allowed_emails
       pending_emails.select do |e|
         community.email_allowed?(e)
       end

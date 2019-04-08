@@ -44,7 +44,7 @@ class Person::OmniauthService
       :given_name => info.first_name,
       :family_name => info.last_name,
       :locale => I18n.locale,
-      :test_group_number => 1 + rand(4),
+      :test_group_number => rand(1..4),
       :password => Devise.friendly_token[0,20],
       community_id: community.id
     }
@@ -169,11 +169,13 @@ class Person::OmniauthService
 
     def person
       return @person if defined?(@person)
+
       @person = person_by_uid || person_by_email || person_is_admin_by_uid || person_is_admin_by_email
     end
 
     def person_email_unconfirmed
       return @person_email_unconfirmed if defined?(@person_email_unconfirmed)
+
       @person_email_unconfirmed = members.by_unconfirmed_email(email).first
     end
 

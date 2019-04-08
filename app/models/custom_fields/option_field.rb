@@ -69,7 +69,7 @@ class OptionField < CustomField
     }
 
     diff.select { |d| d[:action] == :changed }.map { |added| added[:value] }.each { |changed|
-      options.where(id: changed[:id]).first.update_attributes(changed)
+      options.where(id: changed[:id]).first.update(changed)
     }
   end
 

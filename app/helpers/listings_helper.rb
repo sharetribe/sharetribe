@@ -35,6 +35,7 @@ module ListingsHelper
 
   def localized_category_label(category)
     return nil if category.nil?
+
     return category.display_name(I18n.locale).capitalize
   end
 
@@ -48,6 +49,7 @@ module ListingsHelper
 
   def localized_listing_type_label(listing_type_string)
     return nil if listing_type_string.nil?
+
     return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 

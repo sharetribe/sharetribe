@@ -1,5 +1,3 @@
-# coding: utf-8
-
 Then("I expect transaction with PayPal test to pass") do
   navigation = FeatureTests::Navigation
   data = FeatureTests::Data

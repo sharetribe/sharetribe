@@ -15,7 +15,7 @@ describe TransactionService::Store::PaymentSettings do
       commission_from_buyer: nil,
       minimum_buyer_transaction_fee_cents: nil,
       minimum_buyer_transaction_fee_currency: nil,
-      key_encryption_padding: true,
+      key_encryption_padding: true
     }
     expect(
       payment_settings.create(

@@ -64,7 +64,7 @@ module TransactionService::Store::Transaction
       if addr.is_a?(ActionController::Parameters)
         addr = addr.permit(:name, :street1, :street2, :postal_code, :city, :country_code, :state_or_province)
       end
-      address.update_attributes!(addr)
+      address.update!(addr)
     end
   end
 
@@ -83,7 +83,7 @@ module TransactionService::Store::Transaction
 
     tx_model = TransactionModel.where(community_id: community_id, id: transaction_id).first
     if tx_model
-      tx_model.update_attributes(booking_uuid: UUIDUtils.raw(booking_uuid))
+      tx_model.update(booking_uuid: UUIDUtils.raw(booking_uuid))
       tx_model
     end
   end

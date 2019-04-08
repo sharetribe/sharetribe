@@ -38,9 +38,9 @@ gem 'flying-sphinx', '~> 1.2.0'
 # Use patched v2.0.2
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
 gem 'ts-delayed-delta',
-  :git    => 'https://github.com/pat/ts-delayed-delta.git',
+  :git => 'https://github.com/pat/ts-delayed-delta.git',
   :branch => 'master',
-  :ref    => '0aef2195f3acc1da048f18bc0191c90538565705'
+  :ref => '0aef2195f3acc1da048f18bc0191c90538565705'
 gem 'possibly', '~> 1.0.1'
 
 gem 'delayed_job', '~> 4.1.3'
@@ -107,7 +107,7 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop', '~> 0.67.2', require: false
   gem 'factory_girl_rails', '~> 4.8.0'
 end
 

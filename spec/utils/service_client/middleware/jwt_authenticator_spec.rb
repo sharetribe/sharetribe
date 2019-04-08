@@ -43,7 +43,7 @@ describe ServiceClient::Middleware::JwtAuthenticator do
     ctx = authenticator.enter({req: {headers: {}},
                                opts: {auth_context: auth_context}})
     expect(token_data(req_token(ctx))).to eq({"marketplaceId" => m_id.to_s,
-                                              "actorId"       => a_id.to_s})
+                                              "actorId" => a_id.to_s})
   end
 
   it "fails with a missing auth context" do
@@ -68,7 +68,7 @@ describe ServiceClient::Middleware::JwtAuthenticator do
     m_id = UUIDUtils.create
     a_id = UUIDUtils.create
 
-    default_auth_context = ->() {
+    default_auth_context = -> {
       {
         marketplace_id: m_id,
         actor_id: a_id
@@ -81,7 +81,7 @@ describe ServiceClient::Middleware::JwtAuthenticator do
     ctx = authenticator.enter({req: {headers: {}},
                                opts: {}})
     expect(token_data(req_token(ctx))).to eq({"marketplaceId" => m_id.to_s,
-                                              "actorId"       => a_id.to_s})
+                                              "actorId" => a_id.to_s})
   end
 
 end

@@ -30,8 +30,8 @@ if APP_CONFIG.use_thinking_sphinx_indexing.to_s.casecmp("true") == 0
     set_property :enable_star => true
 
     set_property :field_weights => {
-      :title       => 10,
-      :category    => 8,
+      :title => 10,
+      :category => 8,
       :description => 3
     }
 

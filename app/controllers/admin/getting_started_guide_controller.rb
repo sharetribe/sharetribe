@@ -58,7 +58,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
         additional_info: {
           listing_shape_name: listing_shape_name
         }
-      },
+      }
     }
 
     sorted_steps = OnboardingViewUtils.sorted_steps_with_includes(onboarding_status, additional_info)
@@ -68,7 +68,7 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
         page: page,
         onboarding_data: sorted_steps,
         name: PersonViewUtils.person_display_name(@current_user, @current_community),
-        info_icon: icon_tag("information"),
+        info_icon: icon_tag("information")
       }
     }
   end

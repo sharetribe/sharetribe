@@ -267,7 +267,7 @@ class Community < ApplicationRecord
                     },
                     :default_style => :favicon,
                     :convert_options => {
-                      :favicon => "-depth 32 -strip",
+                      :favicon => "-depth 32 -strip"
                     },
                     :default_url => ->(_) { ActionController::Base.helpers.asset_path("favicon.ico") }
 
@@ -472,7 +472,7 @@ class Community < ApplicationRecord
 
     attributes.each_with_index do |(id, value), i|
       if menu_link = menu_links.find_by_id(id)
-        menu_link.update_attributes(value.merge(sort_priority: i))
+        menu_link.update(value.merge(sort_priority: i))
         ids << menu_link.id
       else
         menu_links.build(value.merge(sort_priority: i))

@@ -32,7 +32,7 @@ class CommunityMembershipsController < ApplicationController
     form_params = params[:form] || {}
     values = Form.call(form_params)
 
-    invitation_check = ->() {
+    invitation_check = -> {
       if @current_community.join_with_invite_only?
         validate_invitation_code(invitation_code: values[:invitation_code],
                                  community: @current_community)
@@ -213,12 +213,12 @@ class CommunityMembershipsController < ApplicationController
 
         attrs[:admin] = true if make_admin
 
-        membership.update_attributes!(attrs)
+        membership.update!(attrs)
         update_person_custom_fields(user)
       end
 
       Result::Success.new(membership)
-    rescue
+    rescue StandardError
       errors = "#{membership.errors.full_messages} #{user.errors.full_messages}"
       Result::Error.new("Updating membership failed", reason: :update_failed, errors: errors)
     end
@@ -255,7 +255,7 @@ class CommunityMembershipsController < ApplicationController
 
   def update_person_custom_fields(person)
     if params[:person].try(:[], :custom_field_values_attributes)
-      person.update_attributes!(person_params)
+      person.update!(person_params)
     end
   end
 

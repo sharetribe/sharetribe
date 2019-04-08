@@ -60,7 +60,7 @@ module StripeService::API
 
         report.create_charge_success
         Result::Success.new(payment)
-      rescue => exception
+      rescue StandardError => exception
         params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).create_charge_failed
         exception.extend ParamsToAirbrake
         exception.params_to_airbrake = {stripe: params_to_airbrake}
@@ -80,7 +80,7 @@ module StripeService::API
         )
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: {status: 'canceled'})
         Result::Success.new(payment)
-      rescue => e
+      rescue StandardError => e
         Airbrake.notify(e)
         Result::Error.new(e.message)
       end
@@ -100,7 +100,7 @@ module StripeService::API
                                       })
         report.capture_charge_success
         Result::Success.new(payment)
-      rescue => exception
+      rescue StandardError => exception
         params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).capture_charge_failed
         exception.extend ParamsToAirbrake
         exception.params_to_airbrake = {stripe: params_to_airbrake}
@@ -120,7 +120,7 @@ module StripeService::API
             commission: commission,
             real_fee: fee,
             subtotal: total - fee,
-            buyer_commission: buyer_commission,
+            buyer_commission: buyer_commission
           }
         end
 
@@ -132,11 +132,11 @@ module StripeService::API
             payment[:real_fee]
           end
         {
-          payment_total:       payment[:sum],
-          total_price:         payment[:subtotal],
-          charged_commission:  payment[:commission],
+          payment_total: payment[:sum],
+          total_price: payment[:subtotal],
+          charged_commission: payment[:commission],
           payment_gateway_fee: gateway_fee,
-          buyer_commission:    payment[:buyer_commission] || 0
+          buyer_commission: payment[:buyer_commission] || 0
         }
       end
 

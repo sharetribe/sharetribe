@@ -1,5 +1,3 @@
-# coding: utf-8
-
 Then("I expect transaction with Stripe test to pass") do
   unless ENV['REAL_STRIPE']
     module FakeStripe

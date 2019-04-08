@@ -71,7 +71,7 @@ module PaypalService
               PaymentDetails: [{
                   OrderTotal: { value: "0.0" },
                   NotifyURL: hook_url(config[:ipn_hook]),
-                  PaymentAction: PAYMENT_ACTIONS[:authorization],
+                  PaymentAction: PAYMENT_ACTIONS[:authorization]
                 }],
               BillingAgreementDetails: [{
                   BillingType: "ChannelInitiatedBilling",
@@ -334,7 +334,7 @@ module PaypalService
           {
             MsgSubID: req[:msg_sub_id],
             TransactionID: req[:order_id],
-            Amount: from_money(req[:authorization_total]),
+            Amount: from_money(req[:authorization_total])
           }
         },
         wrapper_method_name: :build_do_authorization,
@@ -426,7 +426,7 @@ module PaypalService
       get_transaction_details: PaypalAction.def_action(
         input_transformer: -> (req, _) {
           {
-            TransactionID: req[:transaction_id],
+            TransactionID: req[:transaction_id]
           }
         },
         wrapper_method_name: :build_get_transaction_details,

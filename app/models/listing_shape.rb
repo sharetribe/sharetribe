@@ -45,7 +45,7 @@ class ListingShape < ApplicationRecord
   validates :availability, inclusion: AVAILABILITIES # Possibly :stock in the future
 
   def units
-    @_hash_units ||= listing_units.map(&:to_unit_hash)
+    @units ||= listing_units.map(&:to_unit_hash)
   end
 
   def self.create_with_opts(community:, opts:)
@@ -72,7 +72,7 @@ class ListingShape < ApplicationRecord
       if new_units.present?
         new_units.each{ |unit| self.listing_units.build(ListingUnit.permitted_attributes(unit)) }
       end
-      self.update_attributes!(ListingShape.permitted_attributes(opts))
+      self.update!(ListingShape.permitted_attributes(opts))
     end
     self
   end
@@ -89,7 +89,7 @@ class ListingShape < ApplicationRecord
   def self.uniq_name(shapes, name_source)
     blacklist = ['new', 'all']
     source = name_source.to_url
-    base_name = source.present? ? source : DEFAULT_BASENAME
+    base_name = source.presence || DEFAULT_BASENAME
     current_name = base_name
 
     i = 1

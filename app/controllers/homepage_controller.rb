@@ -1,4 +1,3 @@
-# encoding: utf-8
 class HomepageController < ApplicationController
 
   before_action :save_current_path, :except => :sign_in
@@ -105,7 +104,7 @@ class HomepageController < ApplicationController
           render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
         end
       }.on_error {
-        render body: nil, status: 500
+        render body: nil, status: :internal_server_error
       }
     else
       locals = {
@@ -121,7 +120,7 @@ class HomepageController < ApplicationController
         current_page: current_page,
         current_search_path_without_page: search_path(params.except(:page)),
         viewport: viewport,
-        search_params: CustomFieldSearchParams.remove_irrelevant_search_params(params, relevant_search_fields),
+        search_params: CustomFieldSearchParams.remove_irrelevant_search_params(params, relevant_search_fields)
       }
 
       search_result.on_success { |listings|
@@ -131,7 +130,7 @@ class HomepageController < ApplicationController
       }.on_error { |e|
         flash[:error] = t("homepage.errors.search_engine_not_responding")
         @listings = Listing.none.paginate(:per_page => 1, :page => 1)
-        render status: 500,
+        render status: :internal_server_error,
                locals: locals.merge(
                  seo_pagination_links: seo_pagination_links(params, @listings.current_page, @listings.total_pages))
       }
@@ -286,8 +285,8 @@ class HomepageController < ApplicationController
     # e.g. 65.123,-10
     coords_valid = /^-?\d+(?:\.\d+)?,-?\d+(?:\.\d+)?$/.match(lc)
     {
-      keyword: q && (main_search == :keyword || main_search == :keyword_and_location),
-      location: coords_valid && (main_search == :location || main_search == :keyword_and_location),
+      keyword: q && [:keyword, :keyword_and_location].include?(main_search),
+      location: coords_valid && [:location, :keyword_and_location].include?(main_search)
     }
   end
 

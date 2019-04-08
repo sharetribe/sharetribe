@@ -13,7 +13,7 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
   def perform
     community = Community.find(community_id)
     export_task = ExportTaskResult.find(export_task_id)
-    export_task.update_attributes(status: 'started')
+    export_task.update(status: 'started')
 
     conversations = Transaction.for_community_sorted_by_activity(community.id, 'desc', nil, nil, true)
     csv_rows = []
@@ -23,7 +23,7 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
     filename = "#{marketplace_name}-transactions-#{Time.zone.today}-#{export_task.token}.csv"
     export_task.original_filename = filename
     export_task.original_extname = File.extname(filename).delete('.')
-    export_task.update_attributes(status: 'finished', file: FakeFileIO.new(filename, csv_content))
+    export_task.update(status: 'finished', file: FakeFileIO.new(filename, csv_content))
   end
 
   class FakeFileIO < StringIO

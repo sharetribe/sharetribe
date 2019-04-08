@@ -159,7 +159,7 @@ describe Admin::CommunitiesController, type: :controller do
           community_customizations_attributes: {
             id: community_customization.id,
             social_media_title: 'Hard Pill to Swallow',
-            social_media_description: 'I think I will buy the red car, or I will lease the blue one.',
+            social_media_description: 'I think I will buy the red car, or I will lease the blue one.'
           }
         }
       }

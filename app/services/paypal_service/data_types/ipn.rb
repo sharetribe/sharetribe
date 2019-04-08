@@ -258,7 +258,7 @@ module PaypalService
           return :order_created
         elsif status == "pending" && txn_type == "merch_pmt" && inv_type == :commission
           return :commission_pending_ext
-        elsif status == "pending" && (reason == "paymentreview" || reason == "payment-review")
+        elsif status == "pending" && ["paymentreview", "payment-review"].include?(reason)
           return :payment_review
         elsif status == "pending" && reason == "authorization"
           return :authorization_created
@@ -365,7 +365,7 @@ module PaypalService
 
         with_auth_total = p[:auth_amount] ? p.merge({ authorization_total: to_money(p[:auth_amount], p[:mc_currency]) }) : p
 
-        mc_fee = p[:mc_fee] ? p[:mc_fee] : 0
+        mc_fee = p[:mc_fee] || 0
         create_payment_refunded(
           with_auth_total.merge({
               payment_total: to_money(p[:mc_gross], p[:mc_currency]),
@@ -379,7 +379,7 @@ module PaypalService
           {
             txn_id: :pending_ext_id,
             auth_id: :authorization_id,
-            auth_exp: :authorization_expires_date,
+            auth_exp: :authorization_expires_date
           },
           params
         )
@@ -442,7 +442,7 @@ module PaypalService
           params
         )
 
-        mc_fee = params[:mc_fee] ? params[:mc_fee] : 0
+        mc_fee = params[:mc_fee] || 0
         create_commission_paid(
           p.merge({
             commission_total: to_money(params[:mc_gross], params[:mc_currency]),
@@ -461,7 +461,7 @@ module PaypalService
           params
         )
 
-        mc_fee = params[:mc_fee] ? params[:mc_fee] : 0
+        mc_fee = params[:mc_fee] || 0
         create_commission_denied(
           p.merge({
             commission_total: to_money(params[:mc_gross], params[:mc_currency]),
@@ -491,7 +491,7 @@ module PaypalService
       def to_billing_agreement_created(params)
         p = HashUtils.rename_keys(
           {
-            mp_id: :billing_agreement_id,
+            mp_id: :billing_agreement_id
           },
           params
         )
@@ -518,7 +518,7 @@ module PaypalService
       def to_payment_adjustment(params)
         p = HashUtils.rename_keys(
           {
-            parent_txn_id: :payment_id,
+            parent_txn_id: :payment_id
           },
           params)
 

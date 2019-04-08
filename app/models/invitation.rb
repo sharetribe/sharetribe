@@ -49,6 +49,7 @@ class Invitation < ApplicationRecord
 
   def use_once!
     raise "Invitation is not usable" if not usable?
+
     update_attribute(:usages_left, self.usages_left - 1)
   end
 
@@ -56,6 +57,7 @@ class Invitation < ApplicationRecord
     invitation = Invitation.find_by_code(code.upcase) if code.present?
     if invitation.present?
       return false if community.present? && invitation.community_id != community.id
+
       return invitation.usable?
     else
       return false
@@ -65,6 +67,7 @@ class Invitation < ApplicationRecord
   def self.use_code_once(code)
     invitation = Invitation.find_by_code(code.upcase) if code.present?
     return false if invitation.blank?
+
     invitation.use_once!
     return true
   end

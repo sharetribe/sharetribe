@@ -127,7 +127,7 @@ describe CommunitiesController, type: :controller do
       marketplace_name: 'Pearl',
       marketplace_type: 'product',
       marketplace_country: 'FI',
-      marketplace_language: 'en',
+      marketplace_language: 'en'
     }
     end
     subject { post :create, params: params }

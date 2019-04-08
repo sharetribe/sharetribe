@@ -82,7 +82,7 @@ module TransactionService::Store::PaymentSettings
     raise ArgumentError.new("Cannot find settings to update: cid: #{opts[:community_id]}, gateway: #{opts[:payment_gateway]}, process: #{opts[:payment_process]}") if model.nil?
 
     clean_or_encrypt_api_keys(model, settings)
-    model.update_attributes!(settings)
+    model.update!(settings)
     from_model(model)
   end
 
@@ -107,21 +107,24 @@ module TransactionService::Store::PaymentSettings
   def activate(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(active: true) unless model.active
+
+    model.update!(active: true) unless model.active
     from_model(model)
   end
 
   def api_verified(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(api_verified: true)
+
+    model.update!(api_verified: true)
     from_model(model)
   end
 
   def disable(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to disable: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(active: false)
+
+    model.update!(active: false)
     from_model(model)
   end
 
@@ -133,7 +136,8 @@ module TransactionService::Store::PaymentSettings
       .map { |hash|
       PaymentSettings.call(hash.merge({
         commission_type: commission_type(hash)
-      })) }
+      }))
+    }
       .or_else(nil)
   end
 
@@ -173,6 +177,7 @@ module TransactionService::Store::PaymentSettings
 
   def encrypt_value(value, padding)
     raise "can not encrypt Stripe keys, add app_encryption_key to config/config.yml" if APP_CONFIG.app_encryption_key.nil?
+
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt
     cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)

@@ -36,7 +36,7 @@ class Location < ApplicationRecord
     end
 
     if address != nil && address != ""
-      url = URI.escape(geocoder+address)
+      url = CGI.escape(geocoder+address)
       resp = RestClient.get(url)
       result = JSON.parse(resp.body)
 

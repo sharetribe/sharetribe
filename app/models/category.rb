@@ -44,7 +44,7 @@ class Category < ApplicationRecord
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
     build_attrs.each do |translation|
       if existing_translation = translations.find_by_locale(translation[:locale])
-        existing_translation.update_attributes(translation[:values])
+        existing_translation.update(translation[:values])
       else
         translations.build(translation[:values].merge({:locale => translation[:locale]}))
       end
@@ -145,6 +145,7 @@ class Category < ApplicationRecord
   def icon_name
     return icon if ApplicationHelper.icon_specified?(icon)
     return parent.icon_name if parent
+
     return "other"
   end
 

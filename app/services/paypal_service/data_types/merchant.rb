@@ -75,16 +75,12 @@ module PaypalService
         [:method, const_value: :set_express_checkout_order],
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
-
         [:require_shipping_address, :to_bool],
         [:item_price, :mandatory, :money],
-
         # If specified, require_shipping_address must be true
         [:shipping_total, :optional],
-
         # Must match item_price * item_quantity + shipping_total
         [:order_total, :mandatory, :money],
-
         [:receiver_username, :mandatory, :string],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
@@ -103,16 +99,12 @@ module PaypalService
         [:method, const_value: :set_express_checkout_authorization],
         [:item_name, :mandatory, :string],
         [:item_quantity, :fixnum, default: 1],
-
         [:require_shipping_address, :to_bool],
         [:item_price, :mandatory, :money],
-
         # If specified, require_shipping_address must be true
         [:shipping_total, :optional],
-
         # Must match item_price * item_quantity + shipping_total
         [:order_total, :mandatory, :money],
-
         [:receiver_username, :mandatory, :string],
         [:success, :mandatory, :string],
         [:cancel, :mandatory, :string],
@@ -154,7 +146,6 @@ module PaypalService
         [:authorization_date, :utc_str_to_time],
         [:payment_status, :mandatory, :string],
         [:pending_reason, :mandatory, :string],
-
         # Reponse will have either order or authorization details depending upon payment status
         [:order_id, :string],
         [:order_total, :money],

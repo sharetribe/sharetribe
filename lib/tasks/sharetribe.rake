@@ -47,6 +47,7 @@ namespace :sharetribe do
       if community_ident.blank?
         raise 'Invalid marketplace ident.'
       end
+
       community = Community.find_by!(ident: community_ident)
       PersonPhoneCopyist.copy_community(community)
     end
@@ -57,6 +58,7 @@ namespace :sharetribe do
       if community_ident.blank?
         raise 'Invalid marketplace ident.'
       end
+
       community = Community.find_by!(ident: community_ident)
       community.person_custom_fields.phone_number.destroy_all
     end

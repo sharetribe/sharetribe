@@ -34,6 +34,6 @@ module JSONUtils
   end
 
   def should_traverse?(type)
-    type == Hash || type == Array
+    [Hash, Array].include?(type)
   end
 end

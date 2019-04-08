@@ -1,4 +1,3 @@
-# encoding: utf-8
 # == Schema Information
 #
 # Table name: listings
@@ -171,7 +170,7 @@ class Listing < ApplicationRecord
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_presence_of :category
-  validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
+  validates_inclusion_of :valid_until, :allow_nil => true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
 
   # sets the time to midnight
@@ -201,7 +200,7 @@ class Listing < ApplicationRecord
 
   def update_fields(params)
     update_attribute(:valid_until, nil) unless params[:valid_until]
-    update_attributes(params)
+    update(params)
   end
 
   def closed?
