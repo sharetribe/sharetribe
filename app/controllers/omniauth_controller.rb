@@ -11,13 +11,6 @@ class OmniauthController < ApplicationController
     create_omniauth
   end
 
-  # Omniauth setup phase hook, that is used to dynamically set up a omniauth strategy for provider on customer basis
-  def auth_setup
-    service = Person::OmniauthService::SetupPhase.new(community: @current_community, params: params, request: request)
-    service.run
-    render :plain => "Setup complete.", :status => 404 #This notifies the ominauth to continue
-  end
-
   # Callback from Omniauth failures
   def failure
     origin_locale = get_origin_locale(request, available_locales())
