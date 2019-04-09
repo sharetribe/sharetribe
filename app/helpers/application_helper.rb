@@ -44,7 +44,7 @@ module ApplicationHelper
 
   # used to escape strings to URL friendly format
   def self.escape_for_url(str)
-     CGI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
+     URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # rubocop:disable Lint/UriEscapeUnescape
   end
 
   # Changes line breaks to <br>-tags and transforms URLs to links

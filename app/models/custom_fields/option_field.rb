@@ -24,7 +24,7 @@
 #
 
 class OptionField < CustomField
-  has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id'
+  has_many :options, :class_name => "CustomFieldOption", :dependent => :destroy, :foreign_key => 'custom_field_id' # rubocop:disable Rails/InverseOf
 
   # attributes structure:
   #

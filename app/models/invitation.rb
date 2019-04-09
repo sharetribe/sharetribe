@@ -27,9 +27,9 @@ class Invitation < ApplicationRecord
   INVITATION_LIMIT = 10
   INVITE_ONLY_INVITATION_LIMIT = 50
 
-  has_many :community_memberships #One invitation can result many users joining.
+  has_many :community_memberships, dependent: :nullify #One invitation can result many users joining.
   belongs_to :community
-  belongs_to :inviter, :class_name => "Person", :foreign_key => "inviter_id"
+  belongs_to :inviter, :class_name => "Person", :foreign_key => "inviter_id", :inverse_of => :invitations
 
   validates_presence_of :community_id # The invitation must relate to one community
 

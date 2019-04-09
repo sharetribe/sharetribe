@@ -156,7 +156,7 @@ class PeopleController < Devise::RegistrationsController
         target_user.emails.build(address: new_email_address, community_id: @current_community.id)
       }
 
-      if target_user.update(person_params.except(:email_attributes))
+      if target_user.custom_update(person_params.except(:email_attributes))
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           bypass_sign_in(target_user)

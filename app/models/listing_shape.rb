@@ -33,7 +33,7 @@ class ListingShape < ApplicationRecord
   belongs_to :community
   belongs_to :transaction_process
   has_and_belongs_to_many :categories, -> { order("sort_priority") }, join_table: "category_listing_shapes"
-  has_many :listing_units
+  has_many :listing_units, dependent: :destroy
 
   scope :exist, -> { where(deleted: false) }
   scope :exist_ordered, -> { exist.includes(:listing_units).order("listing_shapes.sort_priority") }
