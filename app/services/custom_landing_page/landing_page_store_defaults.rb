@@ -9,6 +9,7 @@ module CustomLandingPage
       "page" => {
         "social_media_title"       => { "type" => "marketplace_data", "id" => "social_media_title" },
         "social_media_description" => { "type" => "marketplace_data", "id" => "social_media_description" },
+        "social_media_logo"        => { "type" => "marketplace_data", "id" => "social_media_logo" },
         "meta_description" => { "type" => "marketplace_data", "id" => "meta_description" }
       }
     }.freeze
