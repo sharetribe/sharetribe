@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include Analytics
   include RefererHider
   include HSTS::Concern
+  include EnsureAdmin
   protect_from_forgery
   layout 'application'
 
@@ -436,20 +437,6 @@ class ApplicationController < ActionController::Base
 
   def date_equals?(date, comp)
     date && date.to_date.eql?(comp)
-  end
-
-  def ensure_is_admin
-    unless @is_current_community_admin
-      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to search_path and return
-    end
-  end
-
-  def ensure_is_superadmin
-    unless Maybe(@current_user).is_admin?.or_else(false)
-      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to search_path and return
-    end
   end
 
   def fetch_translations
