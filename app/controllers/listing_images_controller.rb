@@ -59,7 +59,7 @@ class ListingImagesController < ApplicationController
     if !listing_image
       render body: nil, status: 404
     else
-      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 200
+      render json: ListingImageJsAdapter.new(listing_image).to_json, status: 200
     end
   end
 
@@ -102,7 +102,7 @@ class ListingImagesController < ApplicationController
         logger.info("Listing image is already downloaded", :image_already_downloaded, listing_image_id: listing_image.id, params: params.except(:image))
       end
 
-      render json: ListingImageJSAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
+      render json: ListingImageJsAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
     else
       logger.error("Saving listing image failed", :saving_listing_image_failed, params: params, errors: listing_image.errors.messages)
       render json: {:errors => listing_image.errors.full_messages}, status: 400, content_type: 'text/plain'

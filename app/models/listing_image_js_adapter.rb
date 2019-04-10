@@ -1,4 +1,4 @@
-class ListingImageJSAdapter < JSAdapter
+class ListingImageJsAdapter < JsAdapter
   ASPECT_RATIO = 3/2.to_f
 
   def initialize(listing_image)
