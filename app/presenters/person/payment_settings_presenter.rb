@@ -77,12 +77,7 @@ class Person::PaymentSettingsPresenter
     return @seller_needs_verification if defined?(@seller_needs_verification)
     need_verification = false
     if stripe_account_ready && api_seller_account
-      if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-        need_verification = [:restricted, :restricted_soon].include?(stripe_account_verification)
-      else
-        verification = api_seller_account.verification
-        need_verification = verification.fields_needed.present? && verification.due_by.present?
-      end
+      need_verification = [:restricted, :restricted_soon].include?(stripe_account_verification)
     end
     @seller_needs_verification = need_verification
   end
@@ -209,11 +204,7 @@ class Person::PaymentSettingsPresenter
     bank_number = if bank_record.present?
       [bank_record["country"], bank_record["bank_name"], bank_record["currency"], "****#{bank_record['last4']}"].join(", ").upcase
     end
-    entity = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-               api_seller_account.individual
-             else
-               api_seller_account.legal_entity
-             end
+    entity = api_seller_account.individual
     dob = entity.dob
     result = {
       first_name: entity.first_name,
@@ -222,16 +213,12 @@ class Person::PaymentSettingsPresenter
 
       bank_number_info: bank_number,
       bank_currency: bank_record ? bank_record["currency"] : nil,
-      bank_routing_number: bank_record ? bank_record[:routing_number] : nil
+      bank_routing_number: bank_record ? bank_record[:routing_number] : nil,
+      email: entity[:email],
+      phone: entity[:phone],
+      mcc: api_seller_account.try(:business_profile).try(:[], :mcc),
+      url: api_seller_account.try(:business_profile).try(:[], :url),
     }
-    if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-      result.merge!({
-        email: entity[:email],
-        phone: entity[:phone],
-        mcc: api_seller_account.try(:business_profile).try(:[], :mcc),
-        url: api_seller_account.try(:business_profile).try(:[], :url),
-      })
-    end
 
     if entity.respond_to?(:address)
       result.merge!({

@@ -61,7 +61,6 @@ class IntApi::MarketplacesController < ApplicationController
     # Enable specific features for all new trials
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:topbar_v1])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:new_stripe_api])
 
     # TODO handle error cases with proper response
 

@@ -1,41 +1,32 @@
 = javascript_include_tag "#{STRIPE_JS_HOST}/v3/"
 - if presenter.stripe_account_ready
   - if presenter.stripe_bank_account_ready
-    - if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-      .row
-        .col-12
-          - if presenter.stripe_account_verified?
-            %h3.paypal-account-connected
-              =icon_tag("check", ["icon-fix"])
-              =t("stripe_accounts.stripe_bank_connected")
-            %p
-              =t("stripe_accounts.stripe_can_accept")
-          - elsif presenter.stripe_account_restricted?
-            %h3.paypal-account-disabled
-              =icon_tag("cross", ["icon-fix"])
-              =t("stripe_accounts.stripe_account_restricted")
-            %p
-              =t("stripe_accounts.stripe_account_restricted_info")
-          - elsif presenter.stripe_account_restricted_soon?
-            %h3.stripe-account-restricted-soon
-              =icon_tag("minus", ["icon-fix"])
-              =t("stripe_accounts.stripe_account_restricted_soon")
-            %p
-              =t("stripe_accounts.stripe_account_restricted_soon_info")
-          - elsif presenter.stripe_account_pending_verification?
-            %h3.stripe-account-pending-verification
-              =icon_tag("check", ["icon-fix"])
-              =t("stripe_accounts.stripe_account_pending_verification")
-            %p
-              =t("stripe_accounts.stripe_account_pending_verification_info")
-    - else
-      .row
-        .col-12
+    .row
+      .col-12
+        - if presenter.stripe_account_verified?
           %h3.paypal-account-connected
             =icon_tag("check", ["icon-fix"])
             =t("stripe_accounts.stripe_bank_connected")
           %p
             =t("stripe_accounts.stripe_can_accept")
+        - elsif presenter.stripe_account_restricted?
+          %h3.paypal-account-disabled
+            =icon_tag("cross", ["icon-fix"])
+            =t("stripe_accounts.stripe_account_restricted")
+          %p
+            =t("stripe_accounts.stripe_account_restricted_info")
+        - elsif presenter.stripe_account_restricted_soon?
+          %h3.stripe-account-restricted-soon
+            =icon_tag("minus", ["icon-fix"])
+            =t("stripe_accounts.stripe_account_restricted_soon")
+          %p
+            =t("stripe_accounts.stripe_account_restricted_soon_info")
+        - elsif presenter.stripe_account_pending_verification?
+          %h3.stripe-account-pending-verification
+            =icon_tag("check", ["icon-fix"])
+            =t("stripe_accounts.stripe_account_pending_verification")
+          %p
+            =t("stripe_accounts.stripe_account_pending_verification_info")
 
     .row
       = link_to t("stripe_accounts.form_new.edit"), "#", id: "edit-stripe-info"
@@ -98,20 +89,11 @@
 
               = button_tag t('stripe_accounts.form_new.save_details')
 
-- if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
-  - stripe_data = stripe_default_data2.dup
-  - stripe_data = stripe_data.merge(update: true) if presenter.stripe_account_ready
-  - content_for :extra_javascript do
-    :javascript
-      $(function() {
-        window.ST.StripeBankForm.init(#{stripe_data.to_json.html_safe});
-      });
-- else
-  - stripe_data = stripe_default_data.dup
-  - stripe_data = stripe_data.merge(update: true) if presenter.stripe_account_ready
-  - content_for :extra_javascript do
-    :javascript
-      $(function() {
-        window.ST.initStripeBankForm(#{stripe_data.to_json.html_safe});
-      });
+- stripe_data = stripe_default_data2.dup
+- stripe_data = stripe_data.merge(update: true) if presenter.stripe_account_ready
+- content_for :extra_javascript do
+  :javascript
+    $(function() {
+      window.ST.StripeBankForm.init(#{stripe_data.to_json.html_safe});
+    });
 
