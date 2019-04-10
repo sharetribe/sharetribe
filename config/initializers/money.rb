@@ -79,7 +79,23 @@ MoneyRails.configure do |config|
     iso_numeric:            "643",
     smallest_denomination:  1
   }
-
+  
+  # West african francs
+  config.register_currency = {
+    priority:               1,
+    iso_code:               "XOF",
+    name:                   "West African Cfa Franc",
+    symbol:                 "CFA",
+    alternate_symbols:      ["Fr"],
+    subunit:                "centime",
+    subunit_to_unit:        1,
+    symbol_first:           false,
+    html_entity:            "",
+    decimal_mark:           "",
+    thousands_separator:    ",",
+    iso_numeric:            "952",
+    smallest_denomination:  1
+  }
 
   # Register a custom currency
   #
