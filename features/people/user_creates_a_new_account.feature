@@ -31,7 +31,7 @@ Feature: User creates a new account
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"
-    Then the "I accept to receive occasional emails from" checkbox should be checked
+    Then the "I agree to receive occasional emails from" checkbox should be checked
 
   Scenario: Creating a new account successfully without giving admin email consent
     Then I should not see "The access to Sharetribe is restricted."
@@ -55,7 +55,7 @@ Feature: User creates a new account
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"
-    Then the "I accept to receive occasional emails from" checkbox should not be checked
+    Then the "I agree to receive occasional emails from" checkbox should not be checked
 
   Scenario: Trying to create account with unavailable username
     When I fill in "person[username]" with "kassi_testperson2"

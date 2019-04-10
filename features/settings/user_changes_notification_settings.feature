@@ -29,7 +29,7 @@ Feature: User changes notification settings
       | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
     Given I am on the notifications settings page
-    And I uncheck "I accept to receive occasional emails from"
+    And I uncheck "I agree to receive occasional emails from"
     And I uncheck "...someone sends me a message"
     And I uncheck "...someone comments on my offer or request"
     And I uncheck "...someone accepts my offer or request"
@@ -42,7 +42,7 @@ Feature: User changes notification settings
     And I uncheck "...someone I follow posts a new listing"
     And I press "Save information"
     Then I should see "Information updated"
-    And the "I accept to receive occasional emails from" checkbox should not be checked
+    And the "I agree to receive occasional emails from" checkbox should not be checked
     And the "...someone sends me a message" checkbox should not be checked
     And the "...someone comments on my offer or request" checkbox should not be checked
     And the "...someone accepts my offer or request" checkbox should not be checked
