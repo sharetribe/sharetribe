@@ -43,7 +43,11 @@ class SeoService
     when :listing_meta_title
       '{{listing_title}} - {{marketplace_name}}'
     when :listing_meta_description
-      I18n.t("seo_sections.placeholder.listing_description", title: '{{listing_title}}', price: '{{listing_price}}', author: '{{listing_author}}', marketplace: '{{marketplace_name}}', locale: locale)
+      if mode == 'default' || @listing.try(:price_cents).to_i > 0
+        I18n.t("seo_sections.placeholder.listing_description", title: '{{listing_title}}', price: '{{listing_price}}', author: '{{listing_author}}', marketplace: '{{marketplace_name}}', locale: locale)
+      else
+        I18n.t("seo_sections.placeholder.listing_description_without_price", title: '{{listing_title}}', author: '{{listing_author}}', marketplace: '{{marketplace_name}}', locale: locale)
+      end
     when :category_meta_title
       '{{category_name}} - {{marketplace_name}}'
     when :category_meta_description

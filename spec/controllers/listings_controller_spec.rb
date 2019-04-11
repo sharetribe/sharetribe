@@ -463,6 +463,20 @@ describe ListingsController, type: :controller do
                          price: Money.new(4567, "USD")
                         )
     }
+    let(:listing_without_price) {
+      FactoryGirl.create(:listing,
+                         community_id: community.id,
+                         author: person,
+                         transaction_process_id: sell_shape[:transaction_process_id],
+                         listing_shape_id: sell_shape[:id],
+                         shape_name_tr_key: sell_shape[:name_tr_key],
+                         action_button_tr_key: sell_shape[:action_button_tr_key],
+                         unit_type: nil,
+                         title: "Batman-s Top 10 Amazing Halo Tips",
+                         description: "O lewd purpose! O unworthy merit! Thou art th' Lord's fair zeal.",
+                         price_cents: 0
+                        )
+    }
 
     before :each do
       @request.host = "#{community.ident}.lvh.me"
@@ -478,6 +492,17 @@ describe ListingsController, type: :controller do
       expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' name='description'>")
       expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' name='twitter:description'>")
       expect(response.body).to match("<meta content='bike for \\$45.67 per hour by Proto T in Sharetribe' property='og:description'>")
+    end
+
+    it "shows renders custom meta tags with placeholders
+      for listing without price" do
+      get :show, params: {id: listing_without_price.id}
+      expect(response.body).to match("<title>Batman-s Top 10 Amazing Halo Tips - Sharetribe</title>")
+      expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips - Sharetribe' property='og:title'>")
+      expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips - Sharetribe' name='twitter:title'>")
+      expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips by Proto T on Sharetribe' name='description'>")
+      expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips by Proto T on Sharetribe' name='twitter:description'>")
+      expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips by Proto T on Sharetribe' property='og:description'>")
     end
   end
 end

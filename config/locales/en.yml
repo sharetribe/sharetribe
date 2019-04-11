@@ -2860,6 +2860,7 @@ en:
       search_results: "Search results - %{variable}"
       search_results_for: "Search results for: %{placeholder1} on %{placeholder2}"
       listing_description: "%{title} for %{price} by %{author} on %{marketplace}"
+      listing_description_without_price: "%{title} by %{author} on %{marketplace}"
       category_description: "%{category} on %{marketplace}"
       profile_title: "Profile of %{user} - %{marketplace}"
       profile_description: "Learn more about %{user} on %{marketplace}"
