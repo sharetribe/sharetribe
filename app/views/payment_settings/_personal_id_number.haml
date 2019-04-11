@@ -3,13 +3,12 @@
     .col-12
       = label_tag :ssn_last_4, t("stripe_accounts.form_pin.ssn_last_4")+"*"
       = form.text_field :ssn_last_4, placeholder: '1234', required: true
-  - id_number_field = FeatureFlagHelper.feature_enabled?(:new_stripe_api) ? :id_number : :personal_id_number
   .row.country-dependent{"data-country-only" => "HK"}
     .col-12
-      = label_tag id_number_field, t("stripe_accounts.form_pin.hong_kong_identity_card")+"*"
-      = form.text_field id_number_field, placeholder: 'XY123456', required: true
+      = label_tag :id_number, t("stripe_accounts.form_pin.hong_kong_identity_card")+"*"
+      = form.text_field :id_number, placeholder: 'XY123456', required: true
   .row.country-dependent{"data-country-only" => "SG"}
     .col-12
-      = label_tag id_number_field, t("stripe_accounts.form_pin.singapore_identity_card")+"*"
-      = form.text_field id_number_field, placeholder: 'X1234567Y', required: true
+      = label_tag :id_number, t("stripe_accounts.form_pin.singapore_identity_card")+"*"
+      = form.text_field :id_number, placeholder: 'X1234567Y', required: true
 

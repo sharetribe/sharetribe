@@ -9,8 +9,7 @@ class StripeService::API::StripeApiWrapper
     end
 
     def configure_payment_for(settings)
-      new_stripe_api = FeatureFlag.feature_enabled?(settings.community_id, :new_stripe_api)
-      Stripe.api_version = new_stripe_api ? '2019-02-19' : '2017-06-05'
+      Stripe.api_version = '2019-02-19'
       Stripe.api_key = TransactionService::Store::PaymentSettings.decrypt_value(settings.api_private_key, settings.key_encryption_padding)
     end
 
@@ -108,7 +107,7 @@ class StripeService::API::StripeApiWrapper
           payout_mode = {}
         when :destination
           # managed accounts, make payout after completion om funds availability date
-          payout_mode = if FeatureFlagHelper.feature_enabled?(:new_stripe_api)
+          payout_mode =
             {
               settings: {
                 payouts: {
@@ -118,13 +117,6 @@ class StripeService::API::StripeApiWrapper
                 }
               }
             }
-          else
-            {
-              payout_schedule: {
-                interval: 'manual'
-              }
-            }
-          end
         end
         data = {
           type: 'custom',
@@ -132,7 +124,7 @@ class StripeService::API::StripeApiWrapper
           email: account_info[:email],
           account_token: account_info[:token],
         }
-        if FeatureFlagHelper.feature_enabled?(:new_stripe_api) && account_info[:address_country] == 'US'
+        if account_info[:address_country] == 'US'
           data[:requested_capabilities] = ['card_payments']
           data[:business_profile] = {
             mcc: account_info[:mcc],
@@ -271,7 +263,7 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         account = Stripe::Account.retrieve(account_id)
         account.account_token = attrs[:token]
-        if FeatureFlagHelper.feature_enabled?(:new_stripe_api) && attrs[:address_country] == 'US'
+        if attrs[:address_country] == 'US'
           account.business_profile.mcc = attrs[:mcc]
           account.business_profile.url = attrs[:url]
         end
