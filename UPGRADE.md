@@ -40,6 +40,10 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+## Upgrade from 7.6.0 to 7.6.0
+
+Nothing special. See the [#general-update-instructions].
+
 ## Upgrade from 7.4.0 to 7.5.0
 
 HTTP Strict Transport Security is now enabled by default for sites that do not
