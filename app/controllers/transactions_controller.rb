@@ -25,13 +25,13 @@ class TransactionsController < ApplicationController
     [:listing_id, :fixnum, :to_integer, :mandatory],
     [:message, :string],
     [:quantity, :fixnum, :to_integer, default: 1],
-    [:start_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) } ],
-    [:end_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) } ]
+    [:start_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) }],
+    [:end_on, transform_with: ->(v) { Maybe(v).map { |d| TransactionViewUtils.parse_booking_date(d) }.or_else(nil) }]
   )
 
   def new
     Result.all(
-      ->() {
+      -> {
         fetch_data(params[:listing_id])
       },
       ->((listing_id, listing_model)) {
@@ -60,7 +60,7 @@ class TransactionsController < ApplicationController
 
   def create
     Result.all(
-      ->() {
+      -> {
         TransactionForm.validate(params)
       },
       ->(form) {
@@ -322,7 +322,7 @@ class TransactionsController < ApplicationController
   #
   def fetch_data(listing_id)
     Result.all(
-      ->() {
+      -> {
         if listing_id.nil?
           Result::Error.new("No listing ID provided")
         else
@@ -361,7 +361,7 @@ class TransactionsController < ApplicationController
       localized_unit_type = tx.unit_type.present? ? ListingViewUtils.translate_unit(tx.unit_type, tx.unit_tr_key) : nil
       localized_selector_label = tx.unit_type.present? ? ListingViewUtils.translate_quantity(tx.unit_type, tx.unit_selector_tr_key) : nil
       booking = !!tx.booking
-      booking_per_hour = tx.booking && tx.booking.per_hour
+      booking_per_hour = tx.booking&.per_hour
       quantity = tx.listing_quantity
       show_subtotal = !!tx.booking || quantity.present? && quantity > 1 || tx.shipping_price.present?
       total_label = (tx.payment_process != :preauthorize) ? t("transactions.price") : t("transactions.total")
@@ -395,7 +395,7 @@ class TransactionsController < ApplicationController
     listing = {
       id: listing_model.id,
       title: listing_model.title,
-      action_button_label: t(listing_model.action_button_tr_key),
+      action_button_label: t(listing_model.action_button_tr_key)
     }
     author = {
       display_name: PersonViewUtils.person_display_name(author_model, community),

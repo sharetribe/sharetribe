@@ -70,7 +70,7 @@ module StripeService::Store::StripePayment
           commission: stripe_payment.commission,
           buyer_commission: stripe_payment.buyer_commission,
           subtotal: stripe_payment.subtotal,
-          real_fee: stripe_payment.real_fee,
+          real_fee: stripe_payment.real_fee
         }))
     StripePayment.call(hash)
   end
@@ -88,7 +88,7 @@ module StripeService::Store::StripePayment
   end
 
   def update_payment!(payment, data)
-    payment.update_attributes!(data)
+    payment.update!(data)
     from_model(payment.reload)
   end
 end

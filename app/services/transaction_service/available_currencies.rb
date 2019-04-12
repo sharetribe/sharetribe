@@ -124,7 +124,7 @@ module TransactionService::AvailableCurrencies
     "SGD" => :country_sets,
     "THB" => :country_sets,
     "TWD" => :country_sets,
-    "USD" => :country_sets,
+    "USD" => :country_sets
   }
 
   module_function

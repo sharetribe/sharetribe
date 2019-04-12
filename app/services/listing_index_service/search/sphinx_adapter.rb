@@ -67,7 +67,7 @@ module ListingIndexService::Search
             category_id: search[:categories], # array of accepted ids
             listing_shape_id: search[:listing_shape_id],
             price_cents: search[:price_cents],
-            listing_id: numeric_search_match_listing_ids,
+            listing_id: numeric_search_match_listing_ids
           })
 
         selection_groups = search[:fields].select { |v| v[:type] == :selection_group }
@@ -75,7 +75,7 @@ module ListingIndexService::Search
 
         with_all = {
           custom_dropdown_field_options: (grouped_by_operator[:or] || []).map { |v| v[:value] },
-          custom_checkbox_field_options: (grouped_by_operator[:and] || []).flat_map { |v| v[:value] },
+          custom_checkbox_field_options: (grouped_by_operator[:and] || []).flat_map { |v| v[:value] }
         }
 
         models = Listing.search(

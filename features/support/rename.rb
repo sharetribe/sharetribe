@@ -114,7 +114,7 @@ module Rename
         # %Q{/^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with price "([^"]*)")?$/} => :rename1,
         # %Q{/^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/} => :rename_rideshare
       }.select do |source, replace_method|
-        step_match && step_match.step_definition && step_match.step_definition.regexp_source == source
+        step_match&.step_definition && step_match.step_definition.regexp_source == source
       end.each do |source, replace_method|
         search = "#{keyword}#{step_match.format_args}"
         replace = self.send replace_method, *[keyword, step_match.args].flatten

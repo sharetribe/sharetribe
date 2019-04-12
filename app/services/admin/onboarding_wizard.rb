@@ -28,6 +28,7 @@ module Admin
 
     def initialize(community_id)
       raise ArgumentError("Missing mandatory community_id") unless community_id
+
       @community_id = community_id
     end
 
@@ -150,7 +151,7 @@ module Admin
         invitation_created(setup_status, invitation),
       ].compact.map { |status| [status, true] }.to_h
 
-      m.update_attributes(updates)
+      m.update(updates)
       m
     end
 

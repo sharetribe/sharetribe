@@ -98,14 +98,14 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
       render json: HashUtils.camelize_keys(address.merge(translated_verification_sent_time_ago: time_ago(address[:verification_requested_at])))
     else
-      render json: {error: res.error_msg }, status: 500
+      render json: {error: res.error_msg }, status: :internal_server_error
     end
 
   end
 
   def resend_verification_email
     EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
-    render json: {}, status: 200
+    render json: {}, status: :ok
   end
 
   def social_media
@@ -265,7 +265,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
   def delete_marketplace
     if can_delete_marketplace?(@current_community.id) && params[:delete_confirmation] == @current_community.ident
-      @current_community.update_attributes(deleted: true)
+      @current_community.update(deleted: true)
 
       redirect_to Maybe(delete_redirect_url(APP_CONFIG)).or_else(:community_not_found)
     else
@@ -296,7 +296,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def update(model, params, path, action, &block)
-    if model.update_attributes(params)
+    if model.update(params)
       flash[:notice] = t("layouts.notifications.community_updated")
       block.call(model) if block_given? #on success, call optional block
       redirect_to path
@@ -335,7 +335,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
   def update_feature_flags(community_id:, person_id:, user_enabled:, user_disabled:, community_enabled:, community_disabled:)
     updates = []
-    updates << ->() {
+    updates << -> {
       FeatureFlagService::API::Api.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
     } unless user_enabled.blank?
     updates << ->(*) {
@@ -354,6 +354,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def find_or_initialize_customizations
     @current_community.locales.each do |locale|
       next if @current_community.community_customizations.find_by_locale(locale)
+
       @current_community.community_customizations.create(
         slogan: @current_community.slogan,
         description: @current_community.description,

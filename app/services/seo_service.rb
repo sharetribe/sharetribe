@@ -61,6 +61,7 @@ class SeoService
 
   def title(default_value, extra_mode = nil, locale = I18n.locale)
     return @title if defined?(@title)
+
     @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
@@ -76,6 +77,7 @@ class SeoService
 
   def description(default_value, extra_mode = nil, locale = I18n.locale)
     return @description if defined?(@description)
+
     @locale = locale
     custom_value =
       if mode == 'default' && extra_mode == :social
@@ -157,7 +159,7 @@ class SeoService
     when 'listing_author'
       @listing ? PersonViewUtils.person_display_name(@listing.author, @community) : nil
     when 'listing_price'
-      if @listing && @listing.price
+      if @listing&.price
         if @listing.unit_type
           [
             MoneyViewUtils.to_humanized(@listing.price),
@@ -228,6 +230,6 @@ class SeoService
 
   def customization_value_or_default(feature)
     value = customization.send(feature)
-    value.present? ? value : placeholder(feature, locale)
+    value.presence || placeholder(feature, locale)
   end
 end

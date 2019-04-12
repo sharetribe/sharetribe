@@ -82,68 +82,68 @@ class TransactionTypeCreator
     "Give" => {
       label: "Give",
       translation_key: "admin.transaction_types.give",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
     },
     "Inquiry" => {
       label: "Inquiry",
       translation_key: "admin.transaction_types.inquiry",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.inquiry",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.inquiry"
     },
     "Lend" => {
       label: "Lend",
       translation_key: "admin.transaction_types.lend",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
     },
     "Rent" => {
       none: {
         label: "Rent",
         translation_key: "admin.transaction_types.rent_wo_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent"
       },
       preauthorize: {
         label: "Rent",
         translation_key: "admin.transaction_types.rent_w_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent",
-      },
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.rent"
+      }
     },
     "Request" => {
       label: "Request",
       translation_key: "admin.transaction_types.request",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.request",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.request"
     },
     "Sell" => {
       none: {
         label: "Sell",
         translation_key: "admin.transaction_types.sell_wo_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell"
       },
       preauthorize: {
         label: "Sell",
         translation_key: "admin.transaction_types.sell_w_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell",
-      },
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.sell"
+      }
     },
     "Service" => {
       none: {
         label: "Service",
         translation_key: "admin.transaction_types.service_wo_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
       },
       preauthorize: {
         label: "Service",
         translation_key: "admin.transaction_types.service_w_online_payment",
-        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
-      },
+        action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
+      }
     },
     "ShareForFree" => {
       label: "Share for free",
       translation_key: "admin.transaction_types.share_for_free",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
     },
     "Swap" => {
       label: "Swap",
       translation_key: "admin.transaction_types.swap",
-      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer",
+      action_button_translation_key: "admin.transaction_types.default_action_button_labels.offer"
     }
   }
 
@@ -153,7 +153,7 @@ class TransactionTypeCreator
     def create(community, marketplace_type)
       transaction_type = select_listing_shape_template(marketplace_type)
       enable_shipping = marketplace_type.or_else("product") == "product"
-      throw "Transaction type '#{transaction_type}' not available. Available types are: #{DEFAULTS.keys.join(', ')}" unless DEFAULTS.keys.include? transaction_type
+      throw "Transaction type '#{transaction_type}' not available. Available types are: #{DEFAULTS.keys.join(', ')}" unless DEFAULTS.key?(transaction_type)
       author_is_seller = transaction_type != "Request"
 
       transaction_processes = TransactionProcess.where(community_id: community.id, author_is_seller: author_is_seller)

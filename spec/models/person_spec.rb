@@ -115,7 +115,7 @@ describe Person, type: :model do
 
     describe "#update_attributes" do
       it "should update the attributes" do
-        @test_person.update_attributes({'given_name' => "Totti",
+        @test_person.update({'given_name' => "Totti",
           'family_name' => "Tester",
           'phone_number' => "050-55555555"})
         expect(@test_person.family_name).to eq("Tester")
@@ -137,7 +137,7 @@ describe Person, type: :model do
 
     describe "name getters" do
       before(:each) do
-        @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"})
+        @test_person.update({'given_name' => "Ripa", 'family_name' => "Riuska"})
       end
 
       it "returns the name of the user" do
@@ -164,7 +164,7 @@ describe Person, type: :model do
         end
 
         it "should return blank if given name is blank" do
-          @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
+          @test_person.update({'given_name' => "", 'family_name' => ""})
           expect(@test_person.given_name).to eq("")
         end
 
@@ -177,7 +177,7 @@ describe Person, type: :model do
         end
 
         it "should return username if given name is blank" do
-          @test_person.update_attributes({'given_name' => "", 'family_name' => ""})
+          @test_person.update({'given_name' => "", 'family_name' => ""})
           expect(@test_person.given_name_or_username).to eq(@test_person.username)
         end
 

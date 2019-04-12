@@ -50,21 +50,21 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def promote_admin
     if @service.removes_itself?
-      render body: nil, status: 405
+      render body: nil, status: :method_not_allowed
     else
       @service.promote_admin
-      render body: nil, status: 200
+      render body: nil, status: :ok
     end
   end
 
   def posting_allowed
     @service.posting_allowed
-    render body: nil, status: 200
+    render body: nil, status: :ok
   end
 
   def resend_confirmation
     @service.resend_confirmation
-    render body: nil, status: 200
+    render body: nil, status: :ok
   end
 
   private

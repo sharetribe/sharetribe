@@ -14,6 +14,7 @@ class Admin::TestimonialsService
 
   def testimonials
     return @testimonials if defined?(@testimonials)
+
     pages = transactions.total_pages
     tx_from = transactions.offset + 1
     tx_to = pages > 1 ? (transactions.offset + transactions.length) : transactions.total_entries
@@ -22,7 +23,7 @@ class Admin::TestimonialsService
       page_count: transactions.map{ |tx| tx.testimonials.size }.sum,
       tx_total_pages: pages,
       tx_from: tx_from,
-      tx_to: tx_to,
+      tx_to: tx_to
     }
   end
 
@@ -35,7 +36,7 @@ class Admin::TestimonialsService
        (params[:testimonial][:blocked].nil? || params[:testimonial][:blocked] == '0')
       testimonial.destroy && testimonial.tx.reload
     else
-      testimonial.update_attributes(testimonial_params) &&
+      testimonial.update(testimonial_params) &&
         testimonial.tx.reload
     end
   end
@@ -88,6 +89,7 @@ class Admin::TestimonialsService
 
   def filtered_scope
     return @filtered_scope if defined?(@filtered_scope)
+
     scope = transactions_scope
 
     tx_statuses = []

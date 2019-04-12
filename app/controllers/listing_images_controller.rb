@@ -10,18 +10,18 @@ class ListingImagesController < ApplicationController
     image = ListingImage.find_by_id(params[:id])
 
     if image.nil?
-      render body: nil, status: 404
+      render body: nil, status: :not_found
     elsif !authorized_to_destroy?(image)
-      render body: nil, status: 401
+      render body: nil, status: :unauthorized
     else
       image_destroyed = image.destroy
 
       if image_destroyed
-        render body: nil, status: 204
+        render body: nil, status: :no_content
       else
         error_messages = image.errors.full_messages
 
-        render json: {errors: listing_image.errors.full_messages}, status: 500
+        render json: {errors: listing_image.errors.full_messages}, status: :internal_server_error
 
         logger.error("Failed to destroy listing image",
                      :image_destroy_failed,
@@ -39,7 +39,7 @@ class ListingImagesController < ApplicationController
 
     if !url.present?
       logger.info("No image URL provided", :no_image_url_provided, params)
-      render json: {:errors => "No image URL provided"}, status: 400, content_type: 'text/plain'
+      render json: {:errors => "No image URL provided"}, status: :bad_request, content_type: 'text/plain'
     end
 
     add_image(params[:listing_id], {}, url)
@@ -57,9 +57,9 @@ class ListingImagesController < ApplicationController
     listing_image = ListingImage.find_by_id(params[:id])
 
     if !listing_image
-      render body: nil, status: 404
+      render body: nil, status: :not_found
     else
-      render json: ListingImageJsAdapter.new(listing_image).to_json, status: 200
+      render json: ListingImageJsAdapter.new(listing_image).to_json, status: :ok
     end
   end
 
@@ -102,10 +102,10 @@ class ListingImagesController < ApplicationController
         logger.info("Listing image is already downloaded", :image_already_downloaded, listing_image_id: listing_image.id, params: params.except(:image))
       end
 
-      render json: ListingImageJsAdapter.new(listing_image).to_json, status: 202, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
+      render json: ListingImageJsAdapter.new(listing_image).to_json, status: :accepted, content_type: 'text/plain' # Browsers without XHR fileupload support do not support other dataTypes than text
     else
       logger.error("Saving listing image failed", :saving_listing_image_failed, params: params, errors: listing_image.errors.messages)
-      render json: {:errors => listing_image.errors.full_messages}, status: 400, content_type: 'text/plain'
+      render json: {:errors => listing_image.errors.full_messages}, status: :bad_request, content_type: 'text/plain'
     end
   end
 

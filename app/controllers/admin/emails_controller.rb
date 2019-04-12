@@ -1,4 +1,3 @@
-# encoding: utf-8
 class Admin::EmailsController < Admin::AdminBaseController
   def new
     @selected_tribe_navi_tab = "admin"

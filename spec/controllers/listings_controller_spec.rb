@@ -1,4 +1,3 @@
-# encoding: utf-8
 # == Schema Information
 #
 # Table name: listings
@@ -411,21 +410,21 @@ describe ListingsController, type: :controller do
       valid_until = Time.current + 3.months
       ActionMailer::Base.deliveries = []
       post :create, params: {
-        "listing"=>{
-          "title"=>"Mock-Duck and Chard Pie served with Oscar Meyer Squash",
-          "price"=>"100",
-          "shipping_price"=>"0",
-          "shipping_price_additional"=>"0",
-          "delivery_methods"=>["pickup"],
-          "description"=>"",
-          "valid_until(1i)"=>valid_until.year,
-          "valid_until(2i)"=>valid_until.month,
-          "valid_until(3i)"=>valid_until.day,
-          "origin"=>"",
-          "origin_loc_attributes"=>{"address"=>"", "google_address"=>"", "latitude"=>"", "longitude"=>""},
-          "category_id"=>"1",
-          "listing_shape_id"=>sell_shape[:id],
-          "unit"=> {:unit_type=>"unit", :kind=>"quantity"}.to_json
+        "listing" => {
+          "title" => "Mock-Duck and Chard Pie served with Oscar Meyer Squash",
+          "price" => "100",
+          "shipping_price" => "0",
+          "shipping_price_additional" => "0",
+          "delivery_methods" => ["pickup"],
+          "description" => "",
+          "valid_until(1i)" => valid_until.year,
+          "valid_until(2i)" => valid_until.month,
+          "valid_until(3i)" => valid_until.day,
+          "origin" => "",
+          "origin_loc_attributes" => {"address"=>"", "google_address"=>"", "latitude"=>"", "longitude"=>""},
+          "category_id" => "1",
+          "listing_shape_id" => sell_shape[:id],
+          "unit" => {:unit_type=>"unit", :kind=>"quantity"}.to_json
         }
       }
       listing = assigns(:listing)

@@ -55,6 +55,7 @@ class Person::PaymentSettingsPresenter
   # seller_account
   def api_seller_account
     return @api_seller_account if @api_seller_account
+
     @api_seller_account = if stripe_account_ready
                             stripe_api.get_seller_account(community: community.id,
                                                           account_id: stripe_account[:stripe_seller_id])
@@ -75,6 +76,7 @@ class Person::PaymentSettingsPresenter
 
   def seller_needs_verification
     return @seller_needs_verification if defined?(@seller_needs_verification)
+
     need_verification = false
     if stripe_account_ready && api_seller_account
       need_verification = [:restricted, :restricted_soon].include?(stripe_account_verification)
@@ -84,6 +86,7 @@ class Person::PaymentSettingsPresenter
 
   def stripe_account_verification
     return @stripe_account_verification if defined?(@stripe_account_verification)
+
     requirements = api_seller_account.requirements
     @stripe_account_verification =
       if requirements.disabled_reason == 'requirements.pending_verification'
@@ -115,6 +118,7 @@ class Person::PaymentSettingsPresenter
 
   def stripe_seller_account
     return @stripe_seller_account if @stripe_seller_account
+
     @stripe_seller_account = if stripe_account_ready
                                parsed_seller_account
                              else
@@ -217,7 +221,7 @@ class Person::PaymentSettingsPresenter
       email: entity[:email],
       phone: entity[:phone],
       mcc: api_seller_account.try(:business_profile).try(:[], :mcc),
-      url: api_seller_account.try(:business_profile).try(:[], :url),
+      url: api_seller_account.try(:business_profile).try(:[], :url)
     }
 
     if entity.respond_to?(:address)
@@ -226,7 +230,7 @@ class Person::PaymentSettingsPresenter
         address_state: entity.address.state,
         address_country: entity.address.country,
         address_line1: entity.address.line1,
-        address_postal_code: entity.address.postal_code,
+        address_postal_code: entity.address.postal_code
       })
     elsif entity.respond_to?(:address_kana) # supposed to be Japan
       result.merge!({
@@ -247,7 +251,7 @@ class Person::PaymentSettingsPresenter
         address_kanji_city: entity.address_kanji.city,
         address_kanji_town: entity.address_kanji.town,
         address_kanji_line1: entity.address_kanji.line1,
-        phone: entity[:phone],
+        phone: entity[:phone]
       })
     end
     mask_us_pr_as_puerto_rico(result)

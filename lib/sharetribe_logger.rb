@@ -32,6 +32,7 @@ class SharetribeLogger
     if unknown_keys.present?
       raise ArgumentError.new("Unknown metadata keys: #{unknown_keys}")
     end
+
     @metadata = @metadata.merge(new_data.slice(*@metadata_keys))
   end
 
@@ -46,7 +47,7 @@ class SharetribeLogger
                         tag: @tag,
                         free: msg,
                         type: type,
-                        structured: structured,
+                        structured: structured
                       })
   end
 

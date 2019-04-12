@@ -7,29 +7,29 @@ class ErrorsController < ActionController::Base
   def server_error
     error_id = airbrake_error_id
     # error_id = 12341234153 # uncomment this to test the last text paragraph
-    render "status_500", status: 500, locals: { status: 500, title: title(500), error_id: error_id }
+    render "status_500", status: :internal_server_error, locals: { status: 500, title: title(500), error_id: error_id }
   end
 
   def not_found
     respond_to do |format|
-      format.html {render "status_404", status: 404, locals: { status: 404, title: title(404) }}
-      format.all { render body: nil, status: 404 }
+      format.html {render "status_404", status: :not_found, locals: { status: 404, title: title(404) }}
+      format.all { render body: nil, status: :not_found }
     end
   end
 
   def not_acceptable
     respond_to do |format|
-      format.html {render "status_404", status: 406, locals: { status: 406, title: title(406) }}
-      format.all { render body: nil, status: 406 }
+      format.html {render "status_404", status: :not_acceptable, locals: { status: 406, title: title(406) }}
+      format.all { render body: nil, status: :not_acceptable }
     end
   end
 
   def gone
-    render "status_410", status: 410, locals: { status: 410, title: title(410) }
+    render "status_410", status: :gone, locals: { status: 410, title: title(410) }
   end
 
   def community_not_found
-    render status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
+    render status: :not_found, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   private
@@ -69,11 +69,11 @@ class ErrorsController < ActionController::Base
   end
 
   def can_notify_airbrake
-    Airbrake && Airbrake.respond_to?(:notify)
+    Airbrake&.respond_to?(:notify)
   end
 
   def use_airbrake
-    APP_CONFIG && APP_CONFIG.use_airbrake
+    APP_CONFIG&.use_airbrake
   end
 
   # For some weird reason, Airbrake gem returns true, if error is not sent

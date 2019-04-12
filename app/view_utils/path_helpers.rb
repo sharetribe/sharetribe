@@ -64,7 +64,7 @@ module PathHelpers
   end
 
   def paths
-    @_url_helpers ||= Rails.application.routes.url_helpers
+    @_url_helpers ||= Rails.application.routes.url_helpers # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   # Path for locale change

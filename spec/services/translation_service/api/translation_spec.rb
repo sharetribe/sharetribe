@@ -13,27 +13,27 @@ describe TranslationService::API::Translations do
     @translation_fi = "aa fi"
     @locale_sv = "sv-SE"
     @translations1 =
-      [ { locale: @locale_en,
-          translation: @translation_en
+      [{ locale: @locale_en,
+         translation: @translation_en
         },
-        { locale: @locale_fi,
-          translation: @translation_fi
-        }
-      ]
+       { locale: @locale_fi,
+         translation: @translation_fi
+       }
+]
     @translations_with_keys =
       @translations1.map { |translation|
         {translation_key: @translation_key1}.merge(translation)
       }
     @translations_groups =
-      [ { translation_key: @translation_key1,
-          translations: @translations1
+      [{ translation_key: @translation_key1,
+         translations: @translations1
         }
-      ]
+]
     @translation_groups_with_keys =
-      [ { translation_key: @translation_key1,
-          translations: @translations_with_keys
+      [{ translation_key: @translation_key1,
+         translations: @translations_with_keys
         }
-      ]
+]
     @creation_hash =
       { community_id: @community_id,
         translation_groups: @translations_groups
@@ -51,7 +51,7 @@ describe TranslationService::API::Translations do
   end
 
   it "POST request with community_id and wrong structure in params" do
-    expect { TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}] ]) }.to raise_error(ArgumentError)
+    expect { TranslationsAPI.create(@community_id, [translations: [{locale: @locale_sv}]]) }.to raise_error(ArgumentError)
   end
 
   it "POST request with community_id and correct params" do

@@ -85,7 +85,7 @@ module ListingAvailabilityManage
       localized_dates: datepicker_localized_dates,
       listing_quantity_selector: listing.quantity_selector,
       blocked_dates: blocked_dates.map { |d| d.to_i },
-      end_date: booking_dates_end_midnight.to_i,
+      end_date: booking_dates_end_midnight.to_i
     }
   end
 
@@ -99,6 +99,7 @@ module ListingAvailabilityManage
 
   def availability_per_hour_calculate_options_for_select
     return @availability_per_hour_raw_options_for_select if defined?(@availability_per_hour_raw_options_for_select)
+
     result = {}
     current_day = nil
     start = nil
@@ -139,6 +140,7 @@ module ListingAvailabilityManage
 
   def availability_per_hour_calculate_blocked_dates
     return @availability_per_hour_raw_blocked_dates if defined?(@availability_per_hour_raw_blocked_dates)
+
     all_options = availability_per_hour_calculate_options_for_select
     result = []
     start = nil
@@ -187,7 +189,7 @@ module ListingAvailabilityManage
       listing_quantity_selector: listing.quantity_selector,
       blocked_dates: availability_per_hour_blocked_dates.map { |d| date_to_time_utc(d).to_i },
       end_date: booking_dates_end_midnight.to_i,
-      options_for_select: availability_per_hour_options_for_select_grouped_by_day,
+      options_for_select: availability_per_hour_options_for_select_grouped_by_day
     }
   end
 
@@ -200,7 +202,7 @@ module ListingAvailabilityManage
       },
       marketplace: {
         uuid: @current_community.uuid_object.to_s,
-        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1],
+        marketplace_color1: CommonStylesHelper.marketplace_colors(@current_community)[:marketplace_color1]
       },
       listing: working_time_slots,
       time_slot_options: time_slot_options,

@@ -1,4 +1,3 @@
-# coding: utf-8
 class PreauthorizeTransactionsController < ApplicationController
 
   before_action do |controller|
@@ -262,11 +261,11 @@ class PreauthorizeTransactionsController < ApplicationController
 
     render "listing_conversations/initiate",
            locals: {
-             start_on:   tx_params[:start_on],
-             end_on:     tx_params[:end_on],
+             start_on: tx_params[:start_on],
+             end_on: tx_params[:end_on],
              start_time: tx_params[:start_time],
-             end_time:   tx_params[:end_time],
-             per_hour:   tx_params[:per_hour],
+             end_time: tx_params[:end_time],
+             per_hour: tx_params[:per_hour],
              listing: listing,
              delivery_method: tx_params[:delivery],
              quantity: tx_params[:quantity],
@@ -326,11 +325,11 @@ class PreauthorizeTransactionsController < ApplicationController
       delivery_method: tx_params[:delivery],
       shipping_price: order.shipping_total,
       booking_fields: {
-        start_on:   tx_params[:start_on],
-        end_on:     tx_params[:end_on],
+        start_on: tx_params[:start_on],
+        end_on: tx_params[:end_on],
         start_time: tx_params[:start_time],
-        end_time:   tx_params[:end_time],
-        per_hour:   tx_params[:per_hour]
+        end_time: tx_params[:end_time],
+        per_hour: tx_params[:per_hour]
       })
 
     handle_tx_response(tx_response, params[:payment_type].to_sym)

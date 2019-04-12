@@ -84,47 +84,50 @@ class Person < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :omniauthable
 
-  attr_accessor :guid, :password2, :form_login,
+  attr_accessor :guid, :form_login,
                 :form_given_name, :form_family_name, :form_password,
-                :form_password2, :form_email, :consent,
+                :form_password2, :form_email,
                 :input_again, :send_notifications
+  attr_writer :password2, :consent
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
-  has_many :listings, -> { exist }, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :listings, -> { exist }, :dependent => :destroy, :foreign_key => "author_id", :inverse_of => :author
   has_many :emails, :dependent => :destroy, :inverse_of => :person
 
-  has_one :location, -> { where(location_type: :person) }, :dependent => :destroy
+  has_one :location, -> { where(location_type: :person) }, :dependent => :destroy, :inverse_of => :person
 
   has_many :participations, :dependent => :destroy
   has_many :conversations, :through => :participations, :dependent => :destroy
-  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy
-  has_many :received_testimonials, -> { id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy
-  has_many :received_positive_testimonials, -> { positive.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
-  has_many :received_negative_testimonials, -> { negative.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id"
-  has_many :messages, :foreign_key => "sender_id"
-  has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
+  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy, :inverse_of => :author
+  has_many :received_testimonials, -> { id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :dependent => :destroy, :inverse_of => :receiver
+  has_many :received_positive_testimonials, -> { positive.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :inverse_of => :receiver
+  has_many :received_negative_testimonials, -> { negative.id_order.non_blocked }, :class_name => "Testimonial", :foreign_key => "receiver_id", :inverse_of => :receiver
+  has_many :messages, :foreign_key => "sender_id", :dependent => :destroy, :inverse_of => :sender
+  has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy, :inverse_of => :author
   belongs_to :community
   has_many :community_memberships, :dependent => :destroy
   has_many :communities, -> { where("community_memberships.status = 'accepted'") }, :through => :community_memberships
   has_one  :community_membership, :dependent => :destroy
   has_one  :accepted_community, -> { where("community_memberships.status= 'accepted'") }, through: :community_membership, source: :community
-  has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
+  has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy, :inverse_of => :inviter
   has_many :auth_tokens, :dependent => :destroy
-  has_many :follower_relationships
+  has_many :follower_relationships, :dependent => :destroy
   has_many :followers, :through => :follower_relationships, :foreign_key => "person_id"
-  has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id"
+  has_many :inverse_follower_relationships, :class_name => "FollowerRelationship", :foreign_key => "follower_id", :dependent => :destroy, :inverse_of => :follower
   has_many :followed_people, :through => :inverse_follower_relationships, :source => "person"
 
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   has_many :custom_field_values, :dependent => :destroy
-  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
-  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
-  has_one :stripe_account
-  has_one :paypal_account
-  has_many :starter_transactions, :class_name => "Transaction", :foreign_key => "starter_id"
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue", :dependent => :destroy
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue", :dependent => :destroy
+  has_one :stripe_account, :dependent => :destroy
+  has_one :paypal_account, :dependent => :destroy
+  has_many :starter_transactions, :class_name => "Transaction", :foreign_key => "starter_id", :dependent => :destroy, :inverse_of => :starter
+  has_many :payer_stripe_payments, :class_name => "StripePayment", :foreign_key => "payer_id", :dependent => :destroy, :inverse_of => :payer
+  has_many :receiver_stripe_payments, :class_name => "StripePayment", :foreign_key => "receiver_id", :dependent => :destroy, :inverse_of => :receiver
 
   deprecate communities: "Use accepted_community instead.",
             community_memberships: "Use community_membership instead.",
@@ -341,7 +344,7 @@ class Person < ApplicationRecord
             deprecator: MethodDeprecator.new
 
   def set_given_name(name)
-    update_attributes({:given_name => name })
+    update({:given_name => name })
   end
 
   def street_address
@@ -352,9 +355,9 @@ class Person < ApplicationRecord
     end
   end
 
-  def update_attributes(params)
+  def custom_update(params)
     if params[:preferences]
-      super(params)
+      update(params)
     else
 
       #Handle location information
@@ -374,12 +377,12 @@ class Person < ApplicationRecord
       end
 
       save
-      super(params.except("password2", "street_address"))
+      update(params.except("password2", "street_address"))
     end
   end
 
   def picture_from_url(url)
-    self.image = open(url)
+    self.image = open(url) # rubocop:disable Security/Open
     self.save
   end
 
@@ -416,7 +419,7 @@ class Person < ApplicationRecord
 
   def password2
     if new_record?
-      return form_password2 ? form_password2 : ""
+      return form_password2 || ""
     end
   end
 
@@ -480,6 +483,7 @@ class Person < ApplicationRecord
       # this is handled outside prefenrences so answer separately
       return confirmed_email && min_days_between_community_updates < 100000
     end
+
     confirmed_email && preferences && preferences[email_type]
   end
 
@@ -587,6 +591,7 @@ class Person < ApplicationRecord
     # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want
     # 1 day limit to match even if there's 23.55 minutes passed since last sending.
     return true if community_updates_last_sent_at.nil?
+
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
 
@@ -596,7 +601,7 @@ class Person < ApplicationRecord
   def latest_pending_email_address(community=nil)
     pending_emails = Email.where(:person_id => id, :confirmed_at => nil).pluck(:address)
 
-    allowed_emails = if community && community.allowed_emails
+    allowed_emails = if community&.allowed_emails
       pending_emails.select do |e|
         community.email_allowed?(e)
       end

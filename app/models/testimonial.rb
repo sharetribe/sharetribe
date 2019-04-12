@@ -24,7 +24,7 @@ class Testimonial < ApplicationRecord
 
   belongs_to :author, :class_name => "Person"
   belongs_to :receiver, :class_name => "Person"
-  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :testimonials
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
 

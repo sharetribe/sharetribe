@@ -61,7 +61,7 @@ Given /^there will be no email returned in my Facebook login$/ do
         first_name: 'Jackie',
         last_name: 'Brownie'
       },
-      :extra =>{
+      :extra => {
         :raw_info => {
           :first_name => "Jackie",
           :last_name => "Brownie",
@@ -88,7 +88,7 @@ Given /^there are following users:$/ do |person_table|
     membership_created_at = hash['membership_created_at']
 
     person_opts = defaults.merge({
-      username: hash['person'],
+      username: hash['person']
     }).merge(hash.except('person', 'membership_created_at', 'community'))
 
     @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
@@ -107,7 +107,7 @@ Given /^there are following users:$/ do |person_table|
       @hash_person.save!
     end
 
-    @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
+    @hash_person.update({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
     cm = CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, community.id) ||
          CommunityMembership.create(:community_id => community.id,
                                     :person_id => @hash_person.id,
@@ -116,7 +116,7 @@ Given /^there are following users:$/ do |person_table|
     cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
 
     attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at', 'community')
-    @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+    @hash_person.update(attributes_to_update) unless attributes_to_update.empty?
     @hash_person.set_default_preferences
     if hash['locale']
       @hash_person.locale = hash['locale']
@@ -225,7 +225,7 @@ end
 
 Given(/^"(.*?)" follows everyone$/) do |person|
   person = Person.find_by(username: person)
-  person.followed_people = Person.all - [ person ]
+  person.followed_people = Person.all - [person]
 end
 
 Then(/^I should see (\d+) user profile links$/) do |count|

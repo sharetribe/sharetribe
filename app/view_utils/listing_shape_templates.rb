@@ -101,7 +101,7 @@ class ListingShapeTemplates
         price_enabled: false,
         shipping_enabled: false,
         online_payments: false,
-        template:  :announcement,
+        template: :announcement,
         author_is_seller: true,
         units: []
       },

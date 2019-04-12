@@ -45,7 +45,7 @@ describe EmailService::API::Addresses do
         addresses_wo_ses.create(
           community_id: 123, address: {
             name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           })
 
         res = addresses_wo_ses.get_sender(community_id: 123)
@@ -61,7 +61,7 @@ describe EmailService::API::Addresses do
         addresses_wo_ses.create(
           community_id: 123, address: {
             name: "Email Sender Name",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           })
 
         Timecop.travel(1.second.from_now) do
@@ -69,7 +69,7 @@ describe EmailService::API::Addresses do
           addresses_wo_ses.create(
             community_id: 123, address: {
               name: "Email 2 Sender Name",
-              email: "hello2@mymarketplace.invalid",
+              email: "hello2@mymarketplace.invalid"
             })
 
           res = addresses_wo_ses.get_sender(community_id: 123)
@@ -86,7 +86,7 @@ describe EmailService::API::Addresses do
       it "allows nil name" do
         addresses_wo_ses.create(
           community_id: 123, address: {
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           })
 
         res = addresses_wo_ses.get_sender(community_id: 123)
@@ -105,7 +105,7 @@ describe EmailService::API::Addresses do
         expect(addresses_wo_ses.create(
           community_id: 1, address: {
             name: "Hello",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           }).data[:smtp_format]).to eq("\"Hello\" <hello@mymarketplace.invalid>")
 
         # User input: Hello "Hello" Hello
@@ -113,7 +113,7 @@ describe EmailService::API::Addresses do
         expect(addresses_wo_ses.create(
           community_id: 1, address: {
             name: "Hello \"Hello\" Hello",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           }).data[:smtp_format]).to eq("\"Hello \\\"Hello\\\" Hello\" <hello@mymarketplace.invalid>")
 
         # User input: Hello \"Hello\" Hello
@@ -121,7 +121,7 @@ describe EmailService::API::Addresses do
         expect(addresses_wo_ses.create(
           community_id: 1, address: {
             name: "Hello \\\"Hello\\\" Hello",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           }).data[:smtp_format]).to eq("\"Hello \\\\\\\"Hello\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
 
         # User input: Hello \\"Hello\\" Hello
@@ -129,7 +129,7 @@ describe EmailService::API::Addresses do
         expect(addresses_wo_ses.create(
           community_id: 1, address: {
             name: "Hello \\\\\"Hello\\\\\" Hello",
-            email: "hello@mymarketplace.invalid",
+            email: "hello@mymarketplace.invalid"
           }).data[:smtp_format]).to eq("\"Hello \\\\\\\\\\\"Hello\\\\\\\\\\\" Hello\" <hello@mymarketplace.invalid>")
       end
 
@@ -186,7 +186,7 @@ describe EmailService::API::Addresses do
           created = addresses_wo_ses.create(
             community_id: 123, address: {
               name: "Email Sender Name",
-              email: "hello@mymarketplace.invalid",
+              email: "hello@mymarketplace.invalid"
             }).data
 
           res = addresses_wo_ses.get_user_defined(community_id: 123)
@@ -210,7 +210,7 @@ describe EmailService::API::Addresses do
           addresses_wo_ses.create(
             community_id: 123, address: {
               name: "Email Sender Name",
-              email: "hello@mymarketplace.invalid",
+              email: "hello@mymarketplace.invalid"
             })
         end
 
@@ -219,7 +219,7 @@ describe EmailService::API::Addresses do
           created = addresses_wo_ses.create(
             community_id: 123, address: {
               name: "Email 2 Sender Name",
-              email: "hello2@mymarketplace.invalid",
+              email: "hello2@mymarketplace.invalid"
             }).data
 
           res = addresses_wo_ses.get_user_defined(community_id: 123)

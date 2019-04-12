@@ -131,7 +131,7 @@ class Person::PaymentSettingsService
           bank_account_number: parse_bank_account_number,
           bank_routing_number: parse_bank_routing_number,
           bank_routing_1: form_params[:bank_routing_1],
-          bank_routing_2: form_params[:bank_routing_2],
+          bank_routing_2: form_params[:bank_routing_2]
         })
       end
       result

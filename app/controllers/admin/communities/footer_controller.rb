@@ -4,6 +4,7 @@ class Admin::Communities::FooterController < Admin::AdminBaseController
 
   def update
     return if @service.plan_footer_disabled?
+
     if @service.update
       flash[:notice] = t('layouts.notifications.community_updated')
       redirect_to admin_footer_edit_path

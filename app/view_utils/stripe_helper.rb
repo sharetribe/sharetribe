@@ -54,6 +54,7 @@ module StripeHelper
 
   def publishable_key(community_id)
     return nil unless StripeHelper.stripe_active?(community_id)
+
     payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: community_id, payment_gateway: :stripe).maybe.get
     payment_settings[:api_publishable_key]
   end

@@ -19,7 +19,7 @@ module UserService::API
           password: user_hash[:password],
           username: username,
           locale: locale,
-          test_group_number: 1 + rand(4),
+          test_group_number: rand(1..4),
           community_id: community_id)
 
         email = Email.new(person: person, address: user_hash[:email].downcase, send_notifications: true, community_id: community_id)
@@ -48,7 +48,7 @@ module UserService::API
 
           Result::Success.new(user)
         end
-      rescue
+      rescue StandardError
         Result::Error.new("Failed to create a new user")
       end
     end
@@ -118,6 +118,7 @@ module UserService::API
     def gen_free_name(base, reserved)
       (1..100000).reduce([base, ""]) do |(base_name, postfix), next_postfix|
         return (base_name + postfix) unless reserved.include?(base_name + postfix) || (base_name + postfix).length < 3
+
         [base_name, next_postfix.to_s]
       end
     end

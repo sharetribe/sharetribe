@@ -1,5 +1,3 @@
-# rubocop:disable ConstantName
-
 module CustomLandingPage
 
   # Use appropriate LandingPageStore implementation

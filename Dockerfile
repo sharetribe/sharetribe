@@ -1,8 +1,8 @@
-FROM ruby:2.3.4
+FROM ruby:2.6.2
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2016-11-08
+ENV REFRESHED_AT 2019-04-12
 
 # NOTE: we will migrate soon to newer ruby version and away from Debian
 # Jessie-based image. For now, enable only package repositories that are still
@@ -12,6 +12,11 @@ RUN echo 'deb http://deb.debian.org/debian jessie main' > /etc/apt/sources.list 
     && echo 'deb http://security.debian.org jessie/updates main' >> /etc/apt/sources.list \
     && apt-get update \
     && apt-get dist-upgrade -y
+
+# Prevent GPG from trying to bind on IPv6 address even if there are none
+RUN mkdir ~/.gnupg \
+  && chmod 600 ~/.gnupg \
+  && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
 
 #
 # Node (based on official docker node image)

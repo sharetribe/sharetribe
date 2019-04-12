@@ -8,7 +8,7 @@ module StripeService::Store::StripeAccount
   ALL_STRIPE_COUNTRIES = ["US", "GB", "AT", "BE", "CH", "DE", "DK", "ES", "FI", "FR", "IE", "IT", "LU", "NL", "NO", "PT", "SE", "CA", "SG", "HK", "JP", "BR", "MX", "AU", "NZ", "PR"]
   COUNTRIES = ALL_STRIPE_COUNTRIES & ::TransactionService::AvailableCurrencies::COUNTRY_SET_STRIPE_AND_PAYPAL
 
-  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD", "JPY", "AUD", "HKD", "SGD", "NZD", "BRL", "MXN", "CAD" ]
+  VALID_BANK_CURRENCIES = ["CHF", "DKK", "EUR", "GBP", "NOK", "SEK", "USD", "JPY", "AUD", "HKD", "SGD", "NZD", "BRL", "MXN", "CAD"]
 
   StripeAccountCreate = EntityUtils.define_builder(
     [:community_id, :mandatory, :fixnum],
@@ -52,7 +52,7 @@ module StripeService::Store::StripeAccount
     entity = StripeAccountCreate.call(opts)
     account_model = StripeAccountModel.where(community_id: entity[:community_id], person_id: entity[:person_id]).first
     if account_model
-      account_model.update_attributes(entity)
+      account_model.update(entity)
     else
       account_model = StripeAccountModel.create!(entity)
     end
@@ -67,18 +67,18 @@ module StripeService::Store::StripeAccount
   def update_bank_account(community_id:, person_id:, opts:)
     find_params = {
       community_id: community_id,
-      person_id: person_id,
+      person_id: person_id
     }
     model = StripeAccountModel.where(find_params).first
     entity = StripeBankAccount.call(opts)
-    model.update_attributes(entity)
+    model.update(entity)
     from_model(model)
   end
 
   def update_field(community_id:, person_id:, field:, value:)
     find_params = {
       community_id: community_id,
-      person_id: person_id,
+      person_id: person_id
     }
     model = StripeAccountModel.where(find_params).first
     model.update(field => value)

@@ -24,6 +24,7 @@ class Listing::ListPresenter
 
   def statuses
     return @statuses if defined?(@statuses)
+
     result = ['open', 'closed', 'expired']
     result += [Listing::APPROVAL_PENDING, Listing::APPROVAL_REJECTED] if community.pre_approved_listings
     @statuses = result

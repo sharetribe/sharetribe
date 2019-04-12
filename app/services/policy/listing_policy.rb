@@ -56,6 +56,6 @@ class Policy::ListingPolicy
   end
 
   def is_admin?
-    user && user.has_admin_rights?(community)
+    user&.has_admin_rights?(community)
   end
 end
