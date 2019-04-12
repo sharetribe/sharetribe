@@ -54,8 +54,6 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Removed
 
-- Prospect emails [#3534](https://github.com/sharetribe/sharetribe/pull/3534)
-
 ### Fixed
 
 - Fix inefficient queries when admin tries to send emails to all members [#3532](https://github.com/sharetribe/sharetribe/pull/3532)
