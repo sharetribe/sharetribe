@@ -160,7 +160,7 @@ describe EmailService::API::Addresses do
       it "returns default address when user defined not yet verified" do
         SyncDelayedJobObserver.enable!
 
-        created = addresses_with_ses.create(
+        addresses_with_ses.create(
           community_id: 123, address: {
             name: "Email 2 Sender Name",
             email: "hello2@mymarketplace.invalid"
@@ -391,11 +391,14 @@ describe EmailService::API::Addresses do
             email: "hello2@mymarketplace.invalid"
           }).data
 
-        EmailService::SES::Client.any_instance.stub(:get_identity_verification_attributes).and_return(
+        client = double
+        allow(client).to receive(:get_identity_verification_attributes).and_return(
           Result::Success.new(
             "hello2@mymarketplace.invalid" => {verification_status: 'Success'}
           )
         )
+        stub_const('EmailService::SES::Client', double(:email_service_ses_client, new: client))
+
         Timecop.travel(now + 2.seconds) do
           addresses_with_ses.enqueue_status_sync(
             community_id: created[:community_id],

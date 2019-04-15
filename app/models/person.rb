@@ -68,13 +68,12 @@ require 'rest_client'
 require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
-
-# rubocop: disable Metrics/ClassLength
 class Person < ApplicationRecord
 
   include ErrorsHelper
   include ApplicationHelper
   include DeletePerson
+  include Person::ToView
 
   self.primary_key = "id"
 
@@ -280,68 +279,6 @@ class Person < ApplicationRecord
         .where("username = :username AND (is_admin = '1' OR community_id = :cid)", username: username, cid: community_id)
         .present?
   end
-
-  def name_or_username(community_or_display_type=nil)
-    if community_or_display_type.present? && community_or_display_type.class == Community
-      display_type = community_or_display_type.name_display_type
-    else
-      display_type = community_or_display_type
-    end
-    if given_name.present?
-      if display_type
-        case display_type
-        when "first_name_with_initial"
-          return first_name_with_initial
-        when "first_name_only"
-          return given_name
-        else
-          return full_name
-        end
-      else
-        return first_name_with_initial
-      end
-    else
-      return username
-    end
-  end
-  deprecate name_or_username: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
-
-  def full_name
-    "#{given_name} #{family_name}"
-  end
-  deprecate full_name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
-
-  def first_name_with_initial
-    if family_name
-      initial = family_name[0,1]
-    else
-      initial = ""
-    end
-    "#{given_name} #{initial}"
-  end
-  deprecate first_name_with_initial: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
-
-  def name(community_or_display_type)
-    deprecation_message = "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils."
-    MethodDeprecator.new.deprecation_warning(:name, deprecation_message)
-    return name_or_username(community_or_display_type)
-  end
-  # FIXME deprecate on Person#name brakes airbrake
-  # deprecate name: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-  #          deprecator: MethodDeprecator.new
-
-  def given_name_or_username
-    if given_name.present?
-      return given_name
-    else
-      return username
-    end
-  end
-  deprecate given_name_or_username: "This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils.",
-            deprecator: MethodDeprecator.new
 
   def set_given_name(name)
     update({:given_name => name })
@@ -684,4 +621,3 @@ class Person < ApplicationRecord
     end
   end
 end
-# rubocop: enable Metrics/ClassLength

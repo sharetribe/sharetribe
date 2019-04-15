@@ -23,7 +23,7 @@ module MarkdownHelper
     if text.is_a?(String)
       lines = ArrayUtils.trim(text.split(/\n/))
       lines.map do |line|
-        markdown_renderer.render(line).to_html
+        markdown_renderer.render(line)
       end.join(' ').html_safe # rubocop:disable Rails/OutputSafety
     end
   end

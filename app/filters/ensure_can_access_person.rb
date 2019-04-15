@@ -16,7 +16,7 @@ class EnsureCanAccessPerson
     allow ||= (allow_admin && current_user.has_admin_rights?(current_community))
     unless allow
       controller.flash[:error] = I18n.t(error_message_key)
-      controller.redirect_to controller.root and return
+      controller.redirect_to controller.search_path and return
     end
   end
 end

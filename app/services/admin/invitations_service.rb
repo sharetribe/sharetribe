@@ -7,7 +7,7 @@ class Admin::InvitationsService
   end
 
   def invitations
-    @invitations ||= resource_scope.order("#{sort_column} #{sort_direction}")
+    @invitations ||= resource_scope.order(Arel.sql("#{sort_column} #{sort_direction}"))
       .paginate(page: params[:page], per_page: 30)
   end
 
