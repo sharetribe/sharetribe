@@ -57,15 +57,18 @@ module CustomLandingPage
       "id": "single_info_without_background_and_cta",
       "kind": "info",
       "variation": "single_column",
-      "title": "Single column info section without background image and call to action button",
-      "paragraph": "This is a single column info section without background image and call to action button."
+      "title": "Fundraise for your favourite causes, by helping or hiring your neighbours.",
+      "paragraph": ""
     },
     {
       "id": "markdown_support",
       "kind": "info",
       "variation": "single_column",
-      "title": "Limited Markdown support",
-      "paragraph": "Text paragraphs can contain Markdown markup. Limited subset of Markdown syntax blocks are allowed. Allowed blocks are *italic*, **bold**, ***bold+italic***, ~~strike through~~, _underline_ and [links](https://www.sharetribe.com).  \\nLine breaks and...\\n\\n...new paragraphs are also supported"
+      "title": "",
+      "paragraph": "",
+      "background_image": {"type": "assets", "id": "logo"},
+      "background_image_variation": "transparent"
+
     },
     {
       "id": "single_info_without_cta",
@@ -355,7 +358,6 @@ module CustomLandingPage
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "hero"}},
     { "section": {"type": "sections", "id": "markdown_support"}},
     { "section": {"type": "sections", "id": "single_info_without_background_and_cta"}},
     { "section": {"type": "sections", "id": "single_info_without_cta"}},
@@ -371,7 +373,9 @@ module CustomLandingPage
   ],
 
   "assets": [
-    { "id": "default_hero_background", "src": "default_hero_background.jpg", "content_type": "image/jpeg" }
+    { "id": "default_hero_background", "src": "default_hero_background.jpg", "content_type": "image/jpeg" },
+    { "id": "logo", "src": "logo.jpg", "content_type": "image/jpeg" }
+
   ]
 }
 JSON

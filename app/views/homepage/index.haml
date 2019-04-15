@@ -77,9 +77,9 @@
             .toggle.with-borders#home_toolbar-select-share-type{data: {toggle: '.home-toolbar-share-type-menu'}}
               .toggle-header-container
                 .toggle-header
-                  - shapes.each do |shape|
+                  - shapes.each_with_index do |shape, index|
                     = link_to search_path(search_params.merge({transaction_type: shape[:name]})), class:  "home-toolbar-button-group-button-2" do
-                      = t(shape[:name_tr_key])
+                      = t("homepage.filters.listing#{index}")
 
                 -# = icon_tag("dropdown", ["icon-dropdown"])
 

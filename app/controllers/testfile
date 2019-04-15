@@ -1,0 +1,3 @@
+<script>window.onload = function() {
+   if (window.location.href="http://localhost:5000/s"){window.location.href = 'http://localhost:5000/s?transaction_type=offering-without-online-payment'}
+}</script>
