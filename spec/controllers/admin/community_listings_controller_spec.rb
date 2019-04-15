@@ -164,6 +164,7 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it '#approve. One email to the listing author immediately
       when an admin has approved the listing' do
+      stub_thinking_sphinx
       ActionMailer::Base.deliveries = []
       get :approve, params: {community_id: community.id, id: listing.id},
                     format: :js
@@ -179,6 +180,7 @@ describe Admin::CommunityListingsController, type: :controller do
 
     it '#reject. One email to the listing author immediately
       when an admin has rejected the listing' do
+      stub_thinking_sphinx
       ActionMailer::Base.deliveries = []
       get :reject, params: {community_id: community.id, id: listing.id},
                    format: :js

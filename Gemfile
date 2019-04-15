@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.2'
 
-gem 'rails', '5.1.6.2'
+gem 'rails', '5.2.3'
 
 gem 'coffee-rails', '~> 4.2.2'
 gem 'uglifier', '~> 3.2.0'
@@ -28,7 +28,7 @@ gem 'paperclip', '~> 5.2.1'
 gem 'delayed_paperclip', '~> 3.0.1'
 
 gem 'aws-sdk', '~> 2.9.25'
-gem "will_paginate", '~> 3.1.5'
+gem "will_paginate", '~> 3.1.7'
 gem 'dalli', '~> 2.7.6'
 gem "memcachier", '~> 0.0.2'
 gem 'readthis', '~> 2.0.2'
@@ -37,14 +37,11 @@ gem 'thinking-sphinx', '~> 3.3.0'
 gem 'flying-sphinx', '~> 1.2.0'
 # Use patched v2.0.2
 # Fixes issues: Create a new delayed delta job if there is an existing delta job which has failed
-gem 'ts-delayed-delta',
-  :git => 'https://github.com/pat/ts-delayed-delta.git',
-  :branch => 'master',
-  :ref => '0aef2195f3acc1da048f18bc0191c90538565705'
+gem 'ts-delayed-delta', '2.1.0'
 gem 'possibly', '~> 1.0.1'
 
 gem 'delayed_job', '~> 4.1.3'
-gem 'delayed_job_active_record', '~> 4.1.2'
+gem 'delayed_job_active_record', '~> 4.1.3'
 
 gem 'web_translate_it', '~> 2.4.1'
 gem 'rails-i18n', '~> 5.0.4'
@@ -75,12 +72,12 @@ gem 'paypal-sdk-merchant', '~> 1.116.0'
 gem 'airbrake', '~> 9.1.0'
 gem 'stripe', '~> 4.9.0'
 
-gem 'lograge', '~> 0.5.1'
+gem 'lograge', '~> 0.10.0'
 gem 'public_suffix', '~> 2.0.5' # Needed currently to set GA hostname right, probably not
 # needed anymore when GA script updated.
 
 # Session store was removed from Rails 4
-gem 'activerecord-session_store', '~> 1.1.0'
+gem 'activerecord-session_store', '~> 1.1.3'
 
 gem 'faraday', '~> 0.13.0'
 gem 'faraday_middleware', '~> 0.11.0'
@@ -112,7 +109,7 @@ group :development, :test do
 end
 
 group :development, :staging do
-  gem 'meta_request', '~> 0.4.3'
+  gem 'meta_request', '~> 0.6.0'
 end
 
 group :development do
@@ -131,7 +128,7 @@ group :test do
   gem 'capybara', '~> 2.18.0'
   gem "rspec-rails", '~> 3.6.0'
 
-  gem 'cucumber-rails', '~> 1.5.0', require: false # require: false is needed for cucumber-rails
+  gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
 
   gem 'selenium-webdriver', '~> 3.6.0'
 
