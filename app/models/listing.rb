@@ -122,6 +122,11 @@ class Listing < ApplicationRecord
         pattern: "%#{pattern}%")
   end
 
+  HOMEPAGE_INDEX = "listings_homepage_query"
+  # Use this scope before any query part to give DB server an index hint
+  scope :use_index, ->(index) { from("#{self.table_name} USE INDEX (#{index})") }
+  scope :use_homepage_index, -> { use_index(HOMEPAGE_INDEX) }
+
   scope :status_open, ->   { where(open: true) }
   scope :status_closed, -> { where(open: false) }
   scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
