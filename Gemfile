@@ -126,7 +126,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.18.0'
-  gem "rspec-rails", '~> 3.6.0'
+  gem "rspec-rails", '~> 3.8.2'
 
   gem 'cucumber-rails', '~> 1.6.0', require: false # require: false is needed for cucumber-rails
 
