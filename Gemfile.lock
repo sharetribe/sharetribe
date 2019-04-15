@@ -100,6 +100,8 @@ GEM
     biz (1.7.0)
       clavius (~> 1.0)
       tzinfo
+    bootsnap (1.4.3)
+      msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
     callsite (0.0.11)
@@ -614,6 +616,7 @@ DEPENDENCIES
   better_errors (~> 2.5.1)
   binding_of_caller
   biz
+  bootsnap
   capybara (~> 2.18.0)
   coffee-rails (~> 4.2.2)
   color (~> 1.8)
