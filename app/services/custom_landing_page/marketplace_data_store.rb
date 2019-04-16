@@ -60,6 +60,7 @@ module CustomLandingPage
       title = [meta_title, "#{name} - #{slogan}"].find(&:present?)
 
       logo_image = community.wide_logo.present? ? community.wide_logo.url(:header_highres) : nil
+      social_logo = community.social_logo.present? ? community.social_logo.image.try(:url, :original) : nil
 
       { "primary_color" => ColorUtils.css_to_rgb_array(color),
         "primary_color_darken" => ColorUtils.css_to_rgb_array(color_darken),
@@ -74,6 +75,7 @@ module CustomLandingPage
         "name_display_type" => name_display_type,
         "social_media_title" => seo_service.interpolate(social_media_title, locale),
         "social_media_description" => seo_service.interpolate(social_media_description, locale),
+        "social_media_logo" => social_logo,
         "meta_description" => seo_service.interpolate(meta_description, locale),
         "logo" => logo_image
       }

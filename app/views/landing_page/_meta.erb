@@ -28,7 +28,11 @@
   <meta property="og:description" content="<%= p["social_media_description"]["value"] %>" />
 <% end %>
 
-<% if p["facebook_image"] %>
+<% if p["social_media_logo"]["value"] %>
+  <meta property="og:image" content="<%= p["social_media_logo"]["value"] %>" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="600" />
+<% elsif p["facebook_image"] %>
   <meta property="og:image" content="<%= p["facebook_image"]["src"] %>" />
 
   <% if p["facebook_image"]["content_type"] %>
@@ -54,7 +58,9 @@
   <meta name="twitter:creator" content="@<%= p["twitter_handle"]["value"] %>" />
 <% end %>
 
-<% if p["twitter_image"] %>
+<% if p["social_media_logo"]["value"] %>
+  <meta name="twitter:image" content="<%= p["social_media_logo"]["value"] %>" />
+<% elsif p["twitter_image"] %>
   <meta name="twitter:image" content="<%= p["twitter_image"]["src"] %>" />
 <% end %>
 
