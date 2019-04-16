@@ -30,7 +30,7 @@ class CommunityMembershipsController < ApplicationController
 
   def give_consent
     form_params = params[:form] || {}
-    values = Form.call(form_params)
+    values = Form.call(form_params.to_unsafe_hash)
 
     invitation_check = -> {
       if @current_community.join_with_invite_only?
@@ -137,7 +137,7 @@ class CommunityMembershipsController < ApplicationController
   end
 
   def check_invitation_code
-    values = Form.call(params[:form])
+    values = Form.call(params[:form].to_unsafe_hash)
     validation_result = validate_invitation_code(invitation_code: values[:invitation_code],
                                                  community: @current_community)
 

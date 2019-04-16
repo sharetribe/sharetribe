@@ -11,7 +11,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiate
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
-    validation_result = params_validator.validate(params).and_then { |params_entity|
+    validation_result = params_validator.validate(params.to_unsafe_hash).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
@@ -38,7 +38,7 @@ class PreauthorizeTransactionsController < ApplicationController
 
   def initiated
     params_validator = params_per_hour? ? TransactionService::Validation::NewPerHourTransactionParams : TransactionService::Validation::NewTransactionParams
-    validation_result = params_validator.validate(params).and_then { |params_entity|
+    validation_result = params_validator.validate(params.to_unsafe_hash).and_then { |params_entity|
       tx_params = add_defaults(
         params: params_entity,
         shipping_enabled: listing.require_shipping_address,
