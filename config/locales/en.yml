@@ -2294,7 +2294,7 @@ en:
       family_name: "Last name"
       given_name: "First name"
       i_accept_the_terms_and_privacy: "I accept the %{terms} and %{privacy}"
-      admin_emails_consent: "I agree to receive occasional emails from the %{service_name} team and understand that I can change my mind at any time"
+      admin_emails_consent: "I accept to receive occasional emails from the %{service_name} team and understand that I can change my mind at any time"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
       not_required: ", not required"
@@ -2430,7 +2430,7 @@ en:
         status_confirmed: Confirmed
         status_pending: Pending
     notifications:
-      email_from_admins: "I agree to receive occasional emails from the %{service_name} team"
+      email_from_admins: "I accept to receive occasional emails from the %{service_name} team"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: "Emails from administrators"
       community_updates: Newsletters
@@ -2759,13 +2759,6 @@ en:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
-
-    stripe_account_restricted: "Online payments to your account are restricted!"
-    stripe_account_restricted_info: "You should edit your bank account details to provide more information to the payment provider."
-    stripe_account_restricted_soon: "Online payments to your account will be restricted soon."
-    stripe_account_restricted_soon_info: "You should edit your bank account details to provide more information to the payment provider."
-    stripe_account_pending_verification: "Account details saved successfully. Waiting for account verification from Stripe."
-    stripe_account_pending_verification_info: "Check back later to make sure that everything is in order."
     form_new:
       need_info: "We need some information about you to be able to send you money."
       select_country: "Select country..."
