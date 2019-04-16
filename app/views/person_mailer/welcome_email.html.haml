@@ -5,13 +5,13 @@
         %td
           %table{:cellpadding=> "0", :cellspacing => "0", :border => "0", :align => "center", :style => "text-align:center"}
             %tr
-              %td{:style => "width:100%;max-width:602px;", :valign => "top"}
+              %td{:style => "width:100%;max-width:602px;padding-top:20px;", :valign => "top"}
                 %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background:#fff;", width:"100%"}
                   %tbody
                     - if @current_community.wide_logo.present?
                       %tr
                         %td{:width => "5%"}
-                        %td{:valign => "top", :width => "90%", :align => "center"}
+                        %td{:valign => "top", :width => "90%", :align => "center", :style => "padding-top:5px;"}
                           = image_tag @current_community.wide_logo.url(:header), alt: @current_community.full_name(I18n.locale), style: 'margin: 0 auto;'
                         %td{:width => "5%"}
                     %tr
