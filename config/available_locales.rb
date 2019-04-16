@@ -39,6 +39,7 @@ module Sharetribe
 
   # List of locales that are incomplete
   UNSUPPORTED_LOCALES = [
+    {ident: "sq-AL", name: "Shqip", language: "sq", region: "AL", fallback: nil}, # Albanian
     {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil}, # Arabic (Saudi Arabia)
     {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
