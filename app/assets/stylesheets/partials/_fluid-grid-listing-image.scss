@@ -27,7 +27,7 @@
 }
 
 .fluid-thumbnail-grid-image-type {
-  padding: lines(0.2) lines(0.5);
+  padding: lines(0.2) lines(0.2);
   line-height: 1.2em;
 }
 
@@ -48,7 +48,7 @@
 .fluid-thumbnail-grid-image-price-container {
   @include listing-price;
   font-size: 12px; // Quantity placeholder font-size, so that the ellipsis looks nice
-  max-width: 75%;
+  max-width: 50%;
   @include ellipsis;
 }
 

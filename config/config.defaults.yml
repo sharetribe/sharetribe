@@ -394,7 +394,7 @@ default: &default_settings
   clp_cache_time: 900
 
   # Display mention of custom landing page in admin panel
-  show_landing_page_admin: false
+  show_landing_page_admin: true
   custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
 
   #######
