@@ -7,52 +7,52 @@ sq-AL:
       not_locked: "nuk është bllokuar(kyçur)"
       not_saved:
         one: "1 error pengoi këtë %{resource} që të ruhej"
-        other: "%{count} gabime penguan këtë %{resource} që të ruhej"
+        other: "%{count} gabim e pengoi %{resource} që të ruhej"
   devise:
     failure:
-      already_authenticated: "Ju jeni i kyçur tashmë"
-      unauthenticated: "Ju duhet të kyçeni ose të regjistroheni përpara se të vazhdoni"
+      already_authenticated: "Ju jeni i kyçur tashmë."
+      unauthenticated: "Ju duhet të kyçeni ose të regjistroheni përpara se të vazhdoni më tej."
       unconfirmed: "Duhet të konfirmoni llogarinë tuaj përpara se të mund të vazhdoni"
       locked: "Llogaria juaj është bllokuar"
-      invalid: "Fjalkëlaimi ose E-mail nuk është i saktë"
-      invalid_token: "Token i autentikimit nuk është i saktë"
-      timeout: "Sessioni juaj ka mbaruar, ju lutem të hyni përsëri për të vazhduar."
+      invalid: "Fjalëkalimi ose e-mail nuk është i saktë."
+      invalid_token: "Token i verifikimit nuk është i saktë."
+      timeout: "Seanca juaj ka përfunduar, ju lutem logohuni sërish për të vazhduar."
       inactive: "Llogaria juaj nuk është aktivizuar ende."
     passwords:
-      updated_not_active: "Fjalëkalimi juaj u ndrrua me sukses."
-      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë juve do tju vij një link për të ndryshuar fjalëkalimin."
-      send_instructions: "Do tju vij një email me instruksionet qe përshkruajne se si të ndërroni fjalëkalimin pas disa minutash."
-      updated: "Fjalëkalimi juaj u ndrrua me sukses. Tashmë jeni i kyçur."
+      updated_not_active: "Fjalëkalimi juaj u ndërrua me sukses."
+      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë, do ju dërgojmë një link për rikuperimin e fjalëkalimit tuaj në email."
+      send_instructions: "Do t'ju vijë një email me udhëzimet mbi ndërrimin e fjalëkalimit tuaj në pak minuta."
+      updated: "Fjalëkalimi juaj u ndërrua me sukses. Tashmë jeni i kyçur."
     sessions:
-      signed_in: "Keni hyrë me sukses"
-      signed_out: "Keni dalë me sukses"
+      signed_in: "Keni hyrë me sukses."
+      signed_out: "Jeni shkyçur me sukses."
     confirmations:
-      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë juve do tju vij një email me instruksionet se si të konfirmoni llogarine tuaj pas disa minutash."
-      send_instructions: "Juve do tju vij një email me instruksione se si të aktivizoni llogarinë tuaj."
+      send_paranoid_instructions: "Nëse email juaj ekziston ne databazën tonë juve do tju vij një email me udhëzimet se si të konfirmoni llogarine tuaj pas disa minutash."
+      send_instructions: "Do merrni një email me udhëzime për konfirmimin e llogarisë tuaj në pak minuta."
       confirmed: "Llogaria juaj u konfirmua me sukses."
     registrations:
-      signed_up_but_unconfirmed: "Nje mesazh me link konfirmimi për llogarinë tuaj është dëguar ne adresën tuaj të email."
-      signed_up_but_inactive: "Ju jeni regjistruar me sukses. Sidoqoftë, ne nuk mund tju lejojme te kyçeni pasi nuk keni aktivizuar ende llogarinë tuaj."
-      signed_up_but_locked: "Jeni regjistruar me sukses. Sidoqoftë, ne nuk mundem të të kyçnim pasi llogaria juaj është bllokuar."
+      signed_up_but_unconfirmed: "Një mesazh me linkun e konfirmimit për llogarinë tuaj është dërguar në adresën tuaj të emailit. Ju lutem klikoni atë link për të aktivizuar llogarinë."
+      signed_up_but_inactive: "Jeni regjistruar me sukses. Sidoqoftë, nuk mund t'ju lejojmë të kyçeni pasi llogaria juaj nuk është aktivizuar ende."
+      signed_up_but_locked: "Jeni regjistruar me sukses. Sidoqoftë, nuk mundëm t'ju kyçnim pasi llogaria juaj është e bllokuar."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: "Ju e përditësuat llogarinë tuaj me sukses."
-      signed_up: "Mirëseerdhet! Ju jeni regjistruar me sukses."
+        inactive: joaktive
+        unconfirmed: pakonfirmuar
+        locked: kyçur
+      update_needs_confirmation: "Ju e përditësuat llogarinë tuaj me sukses, por na duhet të verifikojmë adresën tuaj të re të email. Ju lutem kontrolloni email dhe klikoni linkun e konfirmimit për të finalizuar verifikimin e adresës suaj të email."
+      signed_up: "Mirëseerdhët! Ju jeni regjistruar me sukses."
       updated: "Llogaria juaj u pëditësua me sukses."
       destroyed: "Mirëupafshim! Llogaria juaj u anullua me sukses. Shpresojmë të të shohim sërish së shpejti."
     unlocks:
-      send_paranoid_instructions: "Nëse llogaria juaj ekziston, ju do të merrni nje email me instruksionet se si të zhbllokoni llogarinë tuaj pas disa minutash."
-      send_instructions: "Ju do të merrni një email me instruksione se si të zhbllokoni llogarinë tuaj pas disa minutash."
-      unlocked: "Llogaria juaj është zhbllokuar me sukses. Ju lutem të hyni për të vazhduar."
+      send_paranoid_instructions: "Nëse llogaria juaj ekziston, do të merrni nje email me udhëzimet se si të zhbllokoni llogarinë tuaj për pak minuta."
+      send_instructions: "Do të merrni një email me udhëzime se si të zhbllokoni llogarinë tuaj për pak minuta."
+      unlocked: "Llogaria juaj është zhbllokuar me sukses. Ju lutem të kyçuni për të vazhduar."
     omniauth_callbacks:
-      success: "Autorizuar me sukses prej %{kind} llogarie"
-      failure: "Nuk mund tju autorizojme prej %{kind} për arsye \"%{reason}\"."
+      success: "U lejua me sukses prej llogarisë së %{kind}."
+      failure: "Nuk mund t'ju lejojmë prej %{kind} për arsye të \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Instruksionet për konfirmimin"
+        subject: "Udhëzimet për t'u bashkuar %{service_name}."
       reset_password_instructions:
-        subject: ~
+        subject: "Udhëzimet për rivendosjen e fjalëkalimit."
       unlock_instructions:
-        subject: ~
+        subject: "Udhëzimet e zhbllokimit"

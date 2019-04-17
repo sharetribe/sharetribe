@@ -22,12 +22,12 @@ class Admin::ListingsService
 
   def approve
     listing.update_column(:state, Listing::APPROVED) # rubocop:disable Rails/SkipsModelValidations
-    send_listing_approved(listing)
+    send_listing_approved(listing.id)
   end
 
   def reject
     listing.update_column(:state, Listing::APPROVAL_REJECTED) # rubocop:disable Rails/SkipsModelValidations
-    send_listing_rejected(listing)
+    send_listing_rejected(listing.id)
   end
 
   def update_by_author_params(update_listing)
@@ -45,7 +45,7 @@ class Admin::ListingsService
   def update_by_author_successful(updated_listing)
     if updated_listing.approval_pending?
       community.admins.each do |admin|
-        send_edited_listing_submited_for_review(updated_listing, admin)
+        send_edited_listing_submited_for_review(updated_listing.id, admin.id)
       end
     end
   end
@@ -61,7 +61,7 @@ class Admin::ListingsService
   def create_successful(new_listing)
     if new_listing.approval_pending?
       community.admins.each do |admin|
-        send_listing_submited_for_review(new_listing, admin)
+        send_listing_submited_for_review(new_listing.id, admin.id)
       end
     end
   end
@@ -72,25 +72,31 @@ class Admin::ListingsService
     community.listings
   end
 
-  def send_listing_submited_for_review(listing, recipient)
+  def send_listing_submited_for_review(listing_id, recipient_id)
+    listing = Listing.find(listing_id)
+    recipient = Person.find(recipient_id)
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_submited_for_review(listing, recipient).deliver_now
   end
   handle_asynchronously :send_listing_submited_for_review
 
-  def send_listing_approved(listing)
+  def send_listing_approved(listing_id)
+    listing = Listing.find(listing_id)
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_approved(listing).deliver_now
   end
   handle_asynchronously :send_listing_approved
 
-  def send_listing_rejected(listing)
+  def send_listing_rejected(listing_id)
+    listing = Listing.find(listing_id)
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.listing_rejected(listing).deliver_now
   end
   handle_asynchronously :send_listing_rejected
 
-  def send_edited_listing_submited_for_review(listing, recipient)
+  def send_edited_listing_submited_for_review(listing_id, recipient_id)
+    listing = Listing.find(listing_id)
+    recipient = Person.find(recipient_id)
     ApplicationHelper.store_community_service_name_to_thread_from_community_id(listing.community_id)
     PersonMailer.edited_listing_submited_for_review(listing, recipient).deliver_now
   end

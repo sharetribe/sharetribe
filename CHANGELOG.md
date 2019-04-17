@@ -20,7 +20,53 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
-- Update passenger gem to latest version [3609](https://github.com/sharetribe/sharetribe/pull/3609)
+
+## [7.6.0] - 2019-04-12
+
+### Added
+
+- Reviews filters in admin panel [#3589](https://github.com/sharetribe/sharetribe/pull/3589)
+- Marketplace logo in all marketplace emails [#3581](https://github.com/sharetribe/sharetribe/pull/3581)
+- New element in the user dropdown menu in the topbar: My listings [#3608](https://github.com/sharetribe/sharetribe/pull/3608)
+- Domain tab in the admin panel [#3614](https://github.com/sharetribe/sharetribe/pull/3614)
+- Social media logins: Google and LinkedIn [#3583](https://github.com/sharetribe/sharetribe/pull/3583)
+- SEO tab in the admin panel and the possibility to customize the metatags for your marketplace main page [#3612](https://github.com/sharetribe/sharetribe/pull/3612)
+- Lithuanian as an unsupported language [#3624](https://github.com/sharetribe/sharetribe/pull/3624)
+- SEO tags working on landing pages as well [#3622](https://github.com/sharetribe/sharetribe/pull/3622)
+- Added the possibility to charge a commission from the buyer [#3490](https://github.com/sharetribe/sharetribe/pull/3490)
+- New templates for the landing page footer [#3645](https://github.com/sharetribe/sharetribe/pull/3645)
+- More SEO options to add custom tags to different marketplace pages [#3647](https://github.com/sharetribe/sharetribe/pull/3647)
+- Ability to have pre-approved listings [#3620](https://github.com/sharetribe/sharetribe/pull/3620)
+- Notifications about listings to approve [#3646](https://github.com/sharetribe/sharetribe/pull/3646)
+- Better logging and error reporting with Stripe [#3676](https://github.com/sharetribe/sharetribe/pull/3676)
+- Listen to account status and missing info from Stripe [#3672](https://github.com/sharetribe/sharetribe/pull/3672)
+- Sending different notifications when a listing is new or edited [#3692](https://github.com/sharetribe/sharetribe/pull/3692)
+
+### Changed
+
+- Link to closed listings redirects to listings table in profile settings [#3607](https://github.com/sharetribe/sharetribe/pull/3607)
+- The way parameters are sent related to creating an connected account with Stripe [#3637](https://github.com/sharetribe/sharetribe/pull/3637)
+- Updated Stripe API keys pattern regex	[#3660](https://github.com/sharetribe/sharetribe/pull/3660)
+- Updated Facebook login button in accordance to their branding demands [#3696](https://github.com/sharetribe/sharetribe/pull/3696)
+- Updated Facebook API to version 3.2 [#3679](https://github.com/sharetribe/sharetribe/pull/3679)
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- Fix inefficient queries when admin tries to send emails to all members [#3532](https://github.com/sharetribe/sharetribe/pull/3532)
+- Fixed failed list of listings [#3604](https://github.com/sharetribe/sharetribe/pull/3604)
+- Being able to edit the Stripe connected account name and lastname through the UI [#3653	](https://github.com/sharetribe/sharetribe/pull/3652)
+- Handle Stripe API keys various lenghts [#3667](https://github.com/sharetribe/sharetribe/pull/3667)
+- Issues with Stripe Payouts [#3668](https://github.com/sharetribe/sharetribe/pull/3668)
+- Update CI to use Ubuntu-based image [#3671](https://github.com/sharetribe/sharetribe/pull/3671)
+
+### Security
+
+- Update passenger gem to latest version [#3609](https://github.com/sharetribe/sharetribe/pull/3609)
+- Update several gems to latest versions [#3675](https://github.com/sharetribe/sharetribe/pull/3675)
 
 ## [7.5.0] - 2019-01-30
 
