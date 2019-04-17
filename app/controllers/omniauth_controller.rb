@@ -22,7 +22,7 @@ class OmniauthController < ApplicationController
   end
 
   def passthru
-    render status: 404, plain: "Not found. Authentication passthru."
+    render status: :not_found, plain: "Not found. Authentication passthru."
   end
 
   private

@@ -10,11 +10,11 @@ describe PaypalService::IPN do
     @ipn_service = PaypalService::IPN.new(@events)
 
     @billing_agreement_created = {
-      :type=>:billing_agreement_created,
-      :billing_agreement_id=>"B-80N6310848330024M",
-      :payer_id=>"P6S3ZMLQ25AYU",
-      :payer_email=>"dev+paypal_us@sharetribe.com",
-      :payer_status=>"verified"
+      :type => :billing_agreement_created,
+      :billing_agreement_id => "B-80N6310848330024M",
+      :payer_id => "P6S3ZMLQ25AYU",
+      :payer_email => "dev+paypal_us@sharetribe.com",
+      :payer_status => "verified"
     }
 
     @billing_agreement_cancelled = {
@@ -106,7 +106,7 @@ describe PaypalService::IPN do
 
     @order_created_msg = {
       type: :order_created,
-      order_date:  "2014-10-01 09:04:07 +0300",
+      order_date: "2014-10-01 09:04:07 +0300",
       order_id: "O-2ES620817J8424036",
       payer_email: "foobar@barfoo.com",
       payer_id: "7LFUVCDKGARH4",
@@ -147,9 +147,9 @@ describe PaypalService::IPN do
       receiver_id: "XAOENU6KNJRCWC",
       payment_status: "Completed",
       pending_reason: :none,
-      receipt_id:  nil,
-      authorization_total:  Money.new(120, "GBP"),
-      payment_total:  Money.new(120, "GBP"),
+      receipt_id: nil,
+      authorization_total: Money.new(120, "GBP"),
+      payment_total: Money.new(120, "GBP"),
       fee_total: nil
    }
 
@@ -395,45 +395,45 @@ describe PaypalService::IPN do
   context "async handling" do
     before(:each) do
       @auth_created_params = {
-        "mc_gross"=>"1.20",
-        "auth_exp"=>"23:50:00 Oct 03, 2014 PDT",
-        "protection_eligibility"=>"Ineligible",
-        "payer_id"=>"7LFUVCDKGARH",
-        "tax"=>"0.00",
-        "payment_date"=>"23:04:07 Sep 30, 2014 PDT",
-        "payment_status"=>"Pending",
-        "charset"=>"windows-1252",
-        "first_name"=>"ljkh",
-        "transaction_entity"=>"auth",
-        "notify_version"=>"3.8",
-        "custom"=>"",
-        "payer_status"=>"unverified",
-        "quantity"=>"1",
-        "verify_sign"=>"A2S1fniRGsoquzRDbs4f5rc383f8A9BZtlhOnNThbBpkIOUsU.U6RJlP",
-        "payer_email"=>"foobar@barfoo.com",
-        "parent_txn_id"=>"O-2ES620817J8424036",
-        "txn_id"=>"0L584749FU2628910",
-        "payment_type"=>"instant",
-        "remaining_settle"=>"10",
-        "auth_id"=>"0L584749FU2628910",
-        "last_name"=>"kjh",
-        "receiver_email"=>"dev+paypal-user1@sharetribe.com",
-        "auth_amount"=>"1.20",
-        "receiver_id"=>"URAPMR7WHFAWY",
-        "pending_reason"=>"authorization",
-        "txn_type"=>"express_checkout",
-        "item_name"=>"desc",
-        "mc_currency"=>"GBP",
-        "item_number"=>"",
-        "residence_country"=>"GB",
-        "test_ipn"=>"1",
-        "receipt_id"=>"3609-0935-6989-4532",
-        "handling_amount"=>"0.00",
-        "transaction_subject"=>"",
-        "payment_gross"=>"",
-        "auth_status"=>"Pending",
-        "shipping"=>"0.00",
-        "ipn_track_id"=>"35b2bed5966"
+        "mc_gross" => "1.20",
+        "auth_exp" => "23:50:00 Oct 03, 2014 PDT",
+        "protection_eligibility" => "Ineligible",
+        "payer_id" => "7LFUVCDKGARH",
+        "tax" => "0.00",
+        "payment_date" => "23:04:07 Sep 30, 2014 PDT",
+        "payment_status" => "Pending",
+        "charset" => "windows-1252",
+        "first_name" => "ljkh",
+        "transaction_entity" => "auth",
+        "notify_version" => "3.8",
+        "custom" => "",
+        "payer_status" => "unverified",
+        "quantity" => "1",
+        "verify_sign" => "A2S1fniRGsoquzRDbs4f5rc383f8A9BZtlhOnNThbBpkIOUsU.U6RJlP",
+        "payer_email" => "foobar@barfoo.com",
+        "parent_txn_id" => "O-2ES620817J8424036",
+        "txn_id" => "0L584749FU2628910",
+        "payment_type" => "instant",
+        "remaining_settle" => "10",
+        "auth_id" => "0L584749FU2628910",
+        "last_name" => "kjh",
+        "receiver_email" => "dev+paypal-user1@sharetribe.com",
+        "auth_amount" => "1.20",
+        "receiver_id" => "URAPMR7WHFAWY",
+        "pending_reason" => "authorization",
+        "txn_type" => "express_checkout",
+        "item_name" => "desc",
+        "mc_currency" => "GBP",
+        "item_number" => "",
+        "residence_country" => "GB",
+        "test_ipn" => "1",
+        "receipt_id" => "3609-0935-6989-4532",
+        "handling_amount" => "0.00",
+        "transaction_subject" => "",
+        "payment_gross" => "",
+        "auth_status" => "Pending",
+        "shipping" => "0.00",
+        "ipn_track_id" => "35b2bed5966"
       }.with_indifferent_access
 
       SyncDelayedJobObserver.reset!

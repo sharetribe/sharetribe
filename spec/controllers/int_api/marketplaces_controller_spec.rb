@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'spec_helper'
 
 # Override the API with test API

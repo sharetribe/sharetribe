@@ -52,7 +52,7 @@ module CustomLandingPage
           "keyword_search"
         end
 
-      color = primary_color.present? ? primary_color : DEFAULT_COLOR
+      color = primary_color.presence || DEFAULT_COLOR
       color_darken = ColorUtils.brightness(color, 85)
 
       slogan = split_long_words(seo_service.interpolate(slogan, locale))

@@ -60,11 +60,11 @@ module CategoryViewUtils
 
   def pick_category_translation(category_translations, locale, all_locales)
     prio = translation_preferences(locale, all_locales)
-    category_translations.sort { |a, b|
+    category_translations.min { |a, b|
       a_prio = prio[a[:locale]]
       b_prio = prio[b[:locale]]
       sort_num_or_nil(a_prio, b_prio)
-    }.first[:name]
+    }[:name]
   end
 
   def translation_preferences(preferred, all)

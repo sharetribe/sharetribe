@@ -41,7 +41,7 @@ module PaypalService::API
                 DataTypes.create_process_status({
                                                   process_token: proc_token[:process_token],
                                                   completed: proc_token[:op_completed],
-                                                  result: proc_token[:op_output],
+                                                  result: proc_token[:op_output]
                                                 }))
             else
               do_charge_commission(community_id, info, m_acc, admin_acc, payment)

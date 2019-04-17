@@ -22,7 +22,7 @@ class Admin::CommunitySeoSettingsController < Admin::AdminBaseController
         :category_meta_description,
       ]
     )
-    @current_community.update_attributes(meta_params)
+    @current_community.update(meta_params)
     redirect_to action: :show
   end
 
@@ -31,6 +31,7 @@ class Admin::CommunitySeoSettingsController < Admin::AdminBaseController
   def find_or_initialize_customizations
     @current_community.locales.each do |locale|
       next if @current_community.community_customizations.find_by_locale(locale)
+
       @current_community.community_customizations.create(
         slogan: @current_community.slogan,
         description: @current_community.description,

@@ -27,6 +27,7 @@ module FeatureFlagHelper
     unless RequestStore.store[:feature_flags]
       raise FeatureFlagHelperNotInitialized.new("Feature flags helper not initialized! Call 'init' first.")
     end
+
     RequestStore.store[:feature_flags]
   end
 

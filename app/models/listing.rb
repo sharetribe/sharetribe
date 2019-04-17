@@ -1,4 +1,3 @@
-# encoding: utf-8
 # == Schema Information
 #
 # Table name: listings
@@ -74,30 +73,30 @@ class Listing < ApplicationRecord
   include ManageAvailabilityPerHour
 
   belongs_to :community
-  belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
+  belongs_to :author, :class_name => "Person", :foreign_key => "author_id", :inverse_of => :listings
 
-  has_many :listing_images, -> { where("error IS NULL").order("position") }, :dependent => :destroy
+  has_many :listing_images, -> { where("error IS NULL").order("position") }, :dependent => :destroy, :inverse_of => :listing
 
-  has_many :conversations
+  has_many :conversations, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :custom_field_values, :dependent => :destroy
-  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue"
-  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue"
+  has_many :custom_dropdown_field_values, :class_name => "DropdownFieldValue", :dependent => :destroy
+  has_many :custom_checkbox_field_values, :class_name => "CheckboxFieldValue", :dependent => :destroy
 
   has_one :location, :dependent => :destroy
-  has_one :origin_loc, -> { where('location_type = ?', 'origin_loc') }, :class_name => "Location", :dependent => :destroy
-  has_one :destination_loc, -> { where('location_type = ?', 'destination_loc') }, :class_name => "Location", :dependent => :destroy
+  has_one :origin_loc, -> { where('location_type = ?', 'origin_loc') }, :class_name => "Location", :dependent => :destroy, :inverse_of => :listing
+  has_one :destination_loc, -> { where('location_type = ?', 'destination_loc') }, :class_name => "Location", :dependent => :destroy, :inverse_of => :listing
   accepts_nested_attributes_for :origin_loc, :destination_loc
 
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   belongs_to :category
-  has_many :working_time_slots, ->{ ordered },  dependent: :destroy
+  has_many :working_time_slots, ->{ ordered }, dependent: :destroy, inverse_of: :listing
   accepts_nested_attributes_for :working_time_slots, reject_if: :all_blank, allow_destroy: true
 
   belongs_to :listing_shape
 
-  has_many :tx, class_name: 'Transaction'
+  has_many :tx, class_name: 'Transaction', :dependent => :destroy
   has_many :bookings, through: :tx
   has_many :bookings_per_hour, ->{ per_hour_blocked }, through: :tx, source: :booking
 
@@ -176,7 +175,7 @@ class Listing < ApplicationRecord
   end
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_presence_of :category
-  validates_inclusion_of :valid_until, :allow_nil => :true, :in => proc{ DateTime.now..DateTime.now + 7.months }
+  validates_inclusion_of :valid_until, :allow_nil => true, :in => proc{ DateTime.now..DateTime.now + 7.months }
   validates_numericality_of :price_cents, :only_integer => true, :greater_than_or_equal_to => 0, :message => "price must be numeric", :allow_nil => true
 
   # sets the time to midnight
@@ -206,7 +205,7 @@ class Listing < ApplicationRecord
 
   def update_fields(params)
     update_attribute(:valid_until, nil) unless params[:valid_until]
-    update_attributes(params)
+    update(params)
   end
 
   def closed?

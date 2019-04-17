@@ -36,7 +36,7 @@ module PaypalService
         type: type,
         free: free,
         structured: structured,
-        request_id: request_id,
+        request_id: request_id
       }.to_json
     end
   end

@@ -13,7 +13,7 @@ module ServiceClient
     class Timing < MiddlewareBase
 
       def initialize(now = nil)
-        @now = now || ->() { Time.now }
+        @now = now || -> { Time.now }
       end
 
       def enter(ctx)

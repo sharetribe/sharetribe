@@ -1,6 +1,8 @@
+# rubocop:disable Style/MixinUsage
 include ApplicationHelper
 include ListingsHelper
 include TruncateHtmlHelper
+# rubocop:enable Style/MixinUsage
 
 class CommunityMailer < ActionMailer::Base
 
@@ -29,7 +31,7 @@ class CommunityMailer < ActionMailer::Base
           listings: listings_to_send,
           unsubscribe_token: token
         ))
-      rescue => e
+      rescue StandardError => e
         # Catch the exception and continue sending emails
         puts "Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}"
         ApplicationHelper.send_error_notification("Error sending mail to #{person.confirmed_notification_emails} community updates: #{e.message}", e.class)
@@ -82,6 +84,7 @@ class CommunityMailer < ActionMailer::Base
 
   def time_difference_in_days(from_time, to_time = Time.now)
     return nil if from_time.nil?
+
     from_time = from_time.to_time if from_time.respond_to?(:to_time)
     to_time = to_time.to_time if to_time.respond_to?(:to_time)
     distance_in_minutes = (((to_time - from_time).abs/60)/1440.0).round

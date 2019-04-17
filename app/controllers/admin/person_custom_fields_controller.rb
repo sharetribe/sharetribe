@@ -32,7 +32,7 @@ class Admin::PersonCustomFieldsController < Admin::AdminBaseController
 
   def order
     @service.order
-    render body: nil, status: 200
+    render body: nil, status: :ok
   end
 
   private

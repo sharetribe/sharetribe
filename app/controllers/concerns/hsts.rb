@@ -5,7 +5,7 @@ module HSTS
     if APP_CONFIG.always_use_ssl.to_s == "true" && request.ssl?
       community = request.env[:current_marketplace]
 
-      hsts_max_age = if community && community.use_domain
+      hsts_max_age = if community&.use_domain
                        community.hsts_max_age
                      else
                        APP_CONFIG.hsts_max_age.to_i

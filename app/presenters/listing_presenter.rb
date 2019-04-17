@@ -80,6 +80,7 @@ class ListingPresenter < MemoisticPresenter
 
   def process
     return nil unless @listing.transaction_process_id
+
     get_transaction_process(community_id: @current_community.id, transaction_process_id: @listing.transaction_process_id)
   end
 
@@ -192,9 +193,9 @@ class ListingPresenter < MemoisticPresenter
         paypal_minimum_transaction_fee: 0,
         seller_commission_in_use: false,
         stripe_commission: 0,
-        stripe_minimum_transaction_fee: 0,
+        stripe_minimum_transaction_fee: 0
       }
-    when matches([:paypal]), matches([:stripe]), matches([ [:paypal, :stripe] ])
+    when matches([:paypal]), matches([:stripe]), matches([[:paypal, :stripe]])
       p_set = Maybe(payment_settings_api.get_active_by_gateway(community_id: @current_community.id, payment_gateway: payment_type))
         .select {|res| res[:success]}
         .map {|res| res[:data]}
@@ -214,7 +215,7 @@ class ListingPresenter < MemoisticPresenter
         paypal_minimum_transaction_fee: Money.new(paypal_settings[:minimum_transaction_fee_cents], currency),
         seller_commission_in_use: p_set[:commission_type] != :none,
         stripe_commission: stripe_settings[:commission_from_seller],
-        stripe_minimum_transaction_fee: Money.new(stripe_settings[:minimum_transaction_fee_cents], currency),
+        stripe_minimum_transaction_fee: Money.new(stripe_settings[:minimum_transaction_fee_cents], currency)
       }
     else
       raise ArgumentError.new("Unknown payment_type, process combination: [#{payment_type}, #{process}]")

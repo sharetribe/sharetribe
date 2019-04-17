@@ -1,7 +1,7 @@
 module ServiceClient
   module Middleware
 
-    IDENTITY = ->() {}
+    IDENTITY = -> {}
 
     AuthContext = EntityUtils.define_builder(
       [:marketplace_id, :uuid, :mandatory],

@@ -21,30 +21,30 @@ namespace :sharetribe do
 
   def default_variable_hash
     {
-      "link"                    => "#000000",
-      "link2"                   => "#000000",
-      "slogancolor"             => "#000000",
-      "descriptioncolor"        => "#000000",
-      "cover-photo-url"         => "\"default-cover-photo\"",
-      "small-cover-photo-url"   => "\"default-small-cover-photo\"",
-      "wide-logo-lowres-url"    => "\"default-wide-logo-lowres\"",
-      "wide-logo-highres-url"   => "\"default-wide-logo-highres\"",
-      "square-logo-lowres-url"  => "\"default-square-logo-lowres\"",
+      "link" => "#000000",
+      "link2" => "#000000",
+      "slogancolor" => "#000000",
+      "descriptioncolor" => "#000000",
+      "cover-photo-url" => "\"default-cover-photo\"",
+      "small-cover-photo-url" => "\"default-small-cover-photo\"",
+      "wide-logo-lowres-url" => "\"default-wide-logo-lowres\"",
+      "wide-logo-highres-url" => "\"default-wide-logo-highres\"",
+      "square-logo-lowres-url" => "\"default-square-logo-lowres\"",
       "square-logo-highres-url" => "\"default-square-logo-highres\""
     }
   end
 
   def custom_variable_hash
     {
-      "link"                    => "##{CUSTOM_COLOR1}",
-      "link2"                   => "##{CUSTOM_COLOR2}",
-      "slogancolor"             => "##{CUSTOM_COLOR3}",
-      "descriptioncolor"        => "##{CUSTOM_COLOR4}",
-      "cover-photo-url"         => "\"cover-photo\"",
-      "small-cover-photo-url"   => "\"small-cover-photo\"",
-      "wide-logo-lowres-url"    => "\"wide-logo-lowres\"",
-      "wide-logo-highres-url"   => "\"wide-logo-highres\"",
-      "square-logo-lowres-url"  => "\"square-logo-lowres\"",
+      "link" => "##{CUSTOM_COLOR1}",
+      "link2" => "##{CUSTOM_COLOR2}",
+      "slogancolor" => "##{CUSTOM_COLOR3}",
+      "descriptioncolor" => "##{CUSTOM_COLOR4}",
+      "cover-photo-url" => "\"cover-photo\"",
+      "small-cover-photo-url" => "\"small-cover-photo\"",
+      "wide-logo-lowres-url" => "\"wide-logo-lowres\"",
+      "wide-logo-highres-url" => "\"wide-logo-highres\"",
+      "square-logo-lowres-url" => "\"square-logo-lowres\"",
       "square-logo-highres-url" => "\"square-logo-highres\""
     }
   end

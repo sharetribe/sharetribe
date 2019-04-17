@@ -13,7 +13,7 @@ class StripePayoutJob < Struct.new(:transaction_id, :community_id)
   def perform
     tx = Transaction.find(transaction_id)
     StripeService::API::Api.payments.payout(tx)
-  rescue => exception
+  rescue StandardError => exception
     params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).create_payout_failed
     error(self, exception, {stripe: params_to_airbrake})
     raise

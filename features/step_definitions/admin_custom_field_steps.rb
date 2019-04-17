@@ -160,7 +160,7 @@ Given /^there is a custom field "(.*?)" in community "(.*?)" for category "(.*?)
   @custom_field = FactoryGirl.build(:custom_dropdown_field, {
     :community_id => current_community.id,
     :names => [CustomFieldName.create(:value => name, :locale => "en")],
-    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)],
+    :category_custom_fields => [FactoryGirl.build(:category_custom_field, :category => find_category_by_name(category_name), :custom_field => @custom_field)]
   })
   @custom_field.save
 end

@@ -1,8 +1,8 @@
-# encoding: utf-8
-
+# rubocop:disable Style/MixinUsage
 include ApplicationHelper
 include ListingsHelper
 include TruncateHtmlHelper
+# rubocop:enable Style/MixinUsage
 
 class PersonMailer < ActionMailer::Base
   include MailUtils
@@ -115,7 +115,7 @@ class PersonMailer < ActionMailer::Base
   end
 
   # Remind users of conversations that have not been accepted or rejected
-  def confirm_reminder(conversation, recipient, community, days_to_cancel)
+  def confirm_reminder(conversation, _, community, days_to_cancel)
     @email_type = "email_about_confirm_reminders"
     recipient = conversation.buyer
     set_up_layout_variables(recipient, community, @email_type)
@@ -183,7 +183,7 @@ class PersonMailer < ActionMailer::Base
       @no_recipient_name = true
       @author_name = PersonViewUtils.person_display_name(listing.author, community)
       @listing_url = listing_url(@url_params.merge({:id => listing.id}))
-      @translate_scope = [ :emails, :new_listing_by_followed_person ]
+      @translate_scope = [:emails, :new_listing_by_followed_person]
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.new_listing_by_followed_person.subject",
@@ -352,7 +352,7 @@ class PersonMailer < ActionMailer::Base
       content = "#{content_hello}<BR />\n #{email_content}"
       begin
         MailCarrier.deliver_now(community_member_email(sender, recipient, subject, content, community))
-      rescue => e
+      rescue StandardError => e
         # Catch the exception and continue sending the emails
         ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
       end

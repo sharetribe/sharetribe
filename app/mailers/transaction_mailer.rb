@@ -5,9 +5,10 @@
 # - transaction status changes
 # - reminders
 #
-
+# rubocop:disable Style/MixinUsage
 include ApplicationHelper
 include ListingsHelper
+# rubocop:enable Style/MixinUsage
 
 class TransactionMailer < ActionMailer::Base
   include MailUtils
@@ -115,7 +116,7 @@ class TransactionMailer < ActionMailer::Base
                    payer_full_name: buyer_model.name(community),
                    payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
                    gateway: transaction.payment_gateway,
-                   community_name: community.name_with_separator(seller_model.locale),
+                   community_name: community.name_with_separator(seller_model.locale)
                  }
         }
       end
@@ -164,7 +165,7 @@ class TransactionMailer < ActionMailer::Base
                    show_money_will_be_transferred_note: false,
                    gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(buyer_model.locale),
-                   payment_buyer_service_fee: buyer_service_fee,
+                   payment_buyer_service_fee: buyer_service_fee
                  }
         }
       }

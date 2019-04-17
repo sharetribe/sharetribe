@@ -17,7 +17,7 @@ module TopbarHelper
     search_path_string = PathHelpers.search_url({
       community_id: community.id,
       opts: {
-        only_path: true,
+        only_path: true
       }
     })
 
@@ -39,7 +39,7 @@ module TopbarHelper
       },
       search: landing_page ? nil : {
         search_placeholder: search_placeholder,
-        mode: main_search.to_s,
+        mode: main_search.to_s
       },
       search_path: search_path_string,
       menu: {
@@ -51,11 +51,11 @@ module TopbarHelper
         avatar: {
           image: avatar_image,
           givenName: given_name,
-          familyName: family_name,
-        },
+          familyName: family_name
+        }
       },
       newListingButton: {
-        text: I18n.t("homepage.index.post_new_listing"),
+        text: I18n.t("homepage.index.post_new_listing")
       },
       i18n: {
         locale: I18n.locale,
@@ -67,7 +67,7 @@ module TopbarHelper
       },
       user: {
         loggedInUsername: user&.username,
-        isAdmin: user&.has_admin_rights?(community) || false,
+        isAdmin: user&.has_admin_rights?(community) || false
       },
       unReadMessagesCount: InboxService.notification_count(user&.id, community.id)
     }
@@ -151,7 +151,7 @@ module TopbarHelper
   end
 
   def paths
-    @_url_herlpers ||= Rails.application.routes.url_helpers
+    @_url_herlpers ||= Rails.application.routes.url_helpers # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def link_external?(url, host_with_port)

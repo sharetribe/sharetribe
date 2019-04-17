@@ -24,7 +24,7 @@
 class CustomFieldValue < ApplicationRecord
 
   belongs_to :listing
-  belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id"
+  belongs_to :question, :class_name => "CustomField", :foreign_key => "custom_field_id" # rubocop:disable Rails/InverseOf
   belongs_to :person
 
   delegate :with_type, :sort_priority, :to => :question

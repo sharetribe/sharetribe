@@ -28,7 +28,7 @@ describe PersonMailer, type: :mailer do
 
   it "should send email about a new comment to own listing" do
     @comment = FactoryGirl.create(:comment)
-    @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+    @comment.author.update({ "given_name" => "Teppo", "family_name" => "Testaaja" })
     recipient = @comment.listing.author
     email = MailCarrier.deliver_now(PersonMailer.new_comment_to_own_listing_notification(@comment, @community))
     assert !ActionMailer::Base.deliveries.empty?
@@ -95,7 +95,7 @@ describe PersonMailer, type: :mailer do
   end
 
   it "should send email about a new testimonial" do
-    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" })
+    @test_person.update({ "given_name" => "Teppo", "family_name" => "Testaaja" })
 
     transition = FactoryGirl.build(:transaction_transition, to_state: "confirmed")
     listing = FactoryGirl.build(:listing,
@@ -156,7 +156,7 @@ describe PersonMailer, type: :mailer do
 
     before(:each) do
       @c1 = FactoryGirl.create(:community)
-      @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
+      @p1 = FactoryGirl.create(:person, :emails => [FactoryGirl.create(:email, :address => "update_tester@example.com")])
 
       @p1.accepted_community = @c1
     end

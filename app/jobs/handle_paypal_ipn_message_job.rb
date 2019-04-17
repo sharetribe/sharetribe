@@ -22,7 +22,7 @@ class HandlePaypalIpnMessageJob < Struct.new(:msg_id)
         raw_msg.update_attribute(:status, :success)
       end
 
-    rescue => e
+    rescue StandardError => e
       raw_msg.update_attribute(:status, :errored)
       raise e #raise the exception ahead for airbrake reporting
     end

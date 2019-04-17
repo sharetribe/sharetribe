@@ -256,7 +256,7 @@ describe EntityUtils do
   it "#define_builder :callable validator" do
     entity = EntityUtils.define_builder([:say_so, :callable])
 
-    expect{entity.call({say_so: -> () { "Yes, that's the way it is." }})}
+    expect{entity.call({say_so: -> { "Yes, that's the way it is." }})}
       .to_not raise_error
 
     expect{entity.call({say_so: nil})}

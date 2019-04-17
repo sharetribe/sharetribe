@@ -23,11 +23,11 @@ describe MarketplaceRouter do
       deleted: false,
       closed: false,
       domain: "www.marketplace.com",
-      ident: "marketplace",
+      ident: "marketplace"
     }
     default_paths = {
       community_not_found: {route_name: :not_found},
-      new_community: {route_name: :new_community},
+      new_community: {route_name: :new_community}
     }
     default_configs = {
       app_domain: "sharetribe.com"
@@ -52,7 +52,7 @@ describe MarketplaceRouter do
         community: {
           use_domain: true,
           deleted: false,
-          domain: "www.marketplace.com",
+          domain: "www.marketplace.com"
         }).to eq(reason: :use_domain, url: "https://www.marketplace.com/listings", status: :moved_permanently)
     end
 
@@ -60,12 +60,12 @@ describe MarketplaceRouter do
       expect_target(
         reason: :use_domain,
         request: {
-          port_string: ":3333",
+          port_string: ":3333"
         },
         community: {
           domain: "www.marketplace.com",
           deleted: false,
-          use_domain: true,
+          use_domain: true
         }).to eq(reason: :use_domain, url: "https://www.marketplace.com:3333/listings", status: :moved_permanently)
     end
 
@@ -75,7 +75,7 @@ describe MarketplaceRouter do
         community: {
           domain: "www.marketplace.com",
           deleted: true,
-          use_domain: true,
+          use_domain: true
         }).to eq(reason: :deleted, route_name: :not_found, status: :moved_permanently)
     end
 
@@ -85,7 +85,7 @@ describe MarketplaceRouter do
         community: {
           domain: "www.marketplace.com",
           closed: true,
-          use_domain: true,
+          use_domain: true
         }).to eq(reason: :closed, route_name: :not_found, status: :moved_permanently)
     end
 
@@ -93,13 +93,13 @@ describe MarketplaceRouter do
       expect_target(
         reason: :deleted,
         community: {
-          deleted: true,
+          deleted: true
         },
         request: {
           host: "www.marketplace.com"
         },
         paths: {
-          community_not_found: {url: "https://redirect.site.com"},
+          community_not_found: {url: "https://redirect.site.com"}
         }).to eq(reason: :deleted,
                  url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=dl-auto-redirect",
                  status: :moved_permanently)
@@ -109,13 +109,13 @@ describe MarketplaceRouter do
       expect_target(
         reason: :closed,
         community: {
-          closed: true,
+          closed: true
         },
         request: {
           host: "www.marketplace.com"
         },
         paths: {
-          community_not_found: {url: "https://redirect.site.com"},
+          community_not_found: {url: "https://redirect.site.com"}
         }).to eq(reason: :closed,
                  url: "https://redirect.site.com?utm_source=www.marketplace.com&utm_medium=redirect&utm_campaign=qc-auto-redirect",
                  status: :moved_permanently)
@@ -143,7 +143,7 @@ describe MarketplaceRouter do
         reason: :no_marketplaces,
         community: nil,
         other: {
-          no_communities: true,
+          no_communities: true
         }).to eq(reason: :no_marketplaces, route_name: :new_community, status: :found)
     end
 
@@ -151,11 +151,11 @@ describe MarketplaceRouter do
       expect_target(
         reason: :www_ident,
         request: {
-          host: "www.marketplace.sharetribe.com",
+          host: "www.marketplace.sharetribe.com"
         },
         community: {
           ident: "marketplace",
-          domain: nil,
+          domain: nil
         },
         configs: {
           app_domain: "sharetribe.com"
@@ -167,7 +167,7 @@ describe MarketplaceRouter do
       expect_target(
         reason: :use_domain,
         request: {
-          host: "www.marketplace.sharetribe.com",
+          host: "www.marketplace.sharetribe.com"
         },
         community: {
           ident: "marketplace",
@@ -181,7 +181,7 @@ describe MarketplaceRouter do
       expect_target(
         reason: :use_ident,
         request: {
-          host: "www.marketplace.com",
+          host: "www.marketplace.com"
         },
         community: {
           ident: "marketplace",
@@ -201,11 +201,11 @@ describe MarketplaceRouter do
           deleted: false,
           closed: false,
           domain: "www.marketplace.com",
-          ident: "marketplace",
+          ident: "marketplace"
         },
         host: "marketplace.sharetribe.com",
         no_communities: false,
-        app_domain: "sharetribe.com",
+        app_domain: "sharetribe.com"
       }
 
       reason = MarketplaceRouter.redirect_reason(defaults.deep_merge(opts))
@@ -221,7 +221,7 @@ describe MarketplaceRouter do
       expect_reason(
         community: {
           deleted: false,
-          use_domain: false,
+          use_domain: false
         }).to eq(nil)
     end
 
@@ -230,7 +230,7 @@ describe MarketplaceRouter do
         community: {
           use_domain: true,
           deleted: false,
-          domain: "www.marketplace.com",
+          domain: "www.marketplace.com"
         }).to eq(:use_domain)
     end
 
@@ -239,7 +239,7 @@ describe MarketplaceRouter do
         community: {
           deleted: false,
           domain: "www.marketplace.com",
-          use_domain: false,
+          use_domain: false
         }).to eq(nil)
     end
 
@@ -248,7 +248,7 @@ describe MarketplaceRouter do
         community: {
           domain: "www.marketplace.com",
           deleted: true,
-          use_domain: true,
+          use_domain: true
         }).to eq(:deleted)
     end
 
@@ -257,7 +257,7 @@ describe MarketplaceRouter do
         community: {
           domain: "www.marketplace.com",
           closed: true,
-          use_domain: true,
+          use_domain: true
         }).to eq(:closed)
     end
 
@@ -274,7 +274,7 @@ describe MarketplaceRouter do
         host: "www.marketplace.sharetribe.com",
         community: {
           ident: "marketplace",
-          domain: nil,
+          domain: nil
         },
         app_domain: "sharetribe.com").to eq(:www_ident)
     end

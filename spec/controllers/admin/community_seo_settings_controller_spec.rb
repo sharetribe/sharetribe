@@ -22,7 +22,7 @@ describe Admin::CommunitySeoSettingsController, type: :controller do
             search_meta_title: "Modified EN search title", search_meta_description: "Modified EN search description",
             listing_meta_title: "Modified EN listing title", listing_meta_description: "Modified EN listing description",
             profile_meta_title: "Modified EN profile title", profile_meta_description: "Modified EN profile description",
-            category_meta_title: "Modified EN category title", category_meta_description: "Modified EN category description",
+            category_meta_title: "Modified EN category title", category_meta_description: "Modified EN category description"
           }
         }
       }

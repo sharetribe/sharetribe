@@ -25,6 +25,6 @@ class FollowerRelationship < ApplicationRecord
   validates :follower_id,
             :presence => true,
             :uniqueness => { :scope => :person_id },
-            :exclusion => { :in => lambda { |x| [ x.person_id ] } }
+            :exclusion => { :in => lambda { |x| [x.person_id] } }
 
 end

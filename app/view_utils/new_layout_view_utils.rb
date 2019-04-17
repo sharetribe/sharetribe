@@ -36,8 +36,8 @@ module NewLayoutViewUtils
     {
       manage_searchpage: {
         title: t("admin.communities.new_layout.searchpage"),
-        name:  :searchpage_v1,
-      },
+        name: :searchpage_v1
+      }
     }
   end
 
@@ -55,7 +55,8 @@ module NewLayoutViewUtils
         enabled_for_community: community_flags.include?(f[:name]),
         required_for_user: flag_required?(f, person_flags),
         required_for_community: flag_required?(f, community_flags)
-      })}
+      })
+    }
   end
 
   # Takes a map of features

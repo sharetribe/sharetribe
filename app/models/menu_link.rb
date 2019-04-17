@@ -32,7 +32,7 @@ class MenuLink < ApplicationRecord
   def translation_attributes=(attributes)
     attributes.each do |locale, value|
       if translation = translations.find_by_locale(locale)
-        translation.update_attributes(value)
+        translation.update(value)
       else
         translation = translations.build(value.merge(locale: locale))
       end

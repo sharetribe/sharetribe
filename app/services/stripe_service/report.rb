@@ -13,7 +13,7 @@ class StripeService::Report
 
   def capture_charge_start
     result = capture_charge.merge({
-      "event": "stripe_call",
+      "event": "stripe_call"
     })
     logger.info('capture_charge_start', nil, result)
     result
@@ -39,7 +39,7 @@ class StripeService::Report
 
   def create_charge_start
     result = create_charge.merge({
-      "event": "stripe_call",
+      "event": "stripe_call"
     })
     logger.info('create_charge_start', nil, result)
     result
@@ -69,7 +69,7 @@ class StripeService::Report
 
   def create_payout_start
     result = create_payout.merge({
-      "event": "stripe_call",
+      "event": "stripe_call"
     })
     logger.info('create_payout_start', nil, result)
     result
@@ -129,11 +129,13 @@ class StripeService::Report
 
   def stripe_payment
     return @stripe_payment if defined?(@stripe_payment)
+
     @stripe_payment = StripePayment.find_by(transaction_id: tx.id)
   end
 
   def stripe_account
     return @stripe_account if defined?(@stripe_account)
+
     @stripe_account = StripeAccount.find_by(person: tx.author)
   end
 

@@ -10,10 +10,10 @@ module TransactionService
 
     def price_break_down_locals
       {
-         booking:  is_booking?,
+         booking: is_booking?,
          quantity: quantity,
          start_on: tx_params[:start_on],
-         end_on:   tx_params[:end_on],
+         end_on: tx_params[:end_on],
          duration: quantity,
          listing_price: listing.price,
          localized_unit_type: translate_unit_from_listing,
@@ -23,8 +23,8 @@ module TransactionService
          total: order_total,
          unit_type: listing.unit_type,
          start_time: tx_params[:start_time],
-         end_time:   tx_params[:end_time],
-         per_hour:   tx_params[:per_hour],
+         end_time: tx_params[:end_time],
+         per_hour: tx_params[:per_hour],
          buyer_fee: buyer_fee,
          paypal_in_use: paypal_in_use,
          stripe_in_use: stripe_in_use,
@@ -53,6 +53,7 @@ module TransactionService
 
     def buyer_fee
       return @buyer_fee if defined?(@buyer_fee)
+
       if stripe_in_use && !paypal_in_use
         commission = stripe_tx_settings[:commission_from_buyer] || 0
         minimum_fee_cents = stripe_tx_settings[:minimum_buyer_transaction_fee_cents] || 0

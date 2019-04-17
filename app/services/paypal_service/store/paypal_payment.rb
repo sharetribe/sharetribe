@@ -218,7 +218,7 @@ module PaypalService::Store::PaypalPayment
       raise ArgumentError.new("No matching payment to update.")
     end
 
-    payment.update_attributes!(payment_update)
+    payment.update!(payment_update)
 
     from_model(payment.reload)
   end
@@ -244,7 +244,7 @@ module PaypalService::Store::PaypalPayment
     voided: 3,
     pending_ext: 3,
     completed: 4,
-    denied: 4,
+    denied: 4
   }
 
   def valid_transition?(current_state, new_state)

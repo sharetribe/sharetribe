@@ -53,9 +53,9 @@ class TestimonialsController < ApplicationController
     is_author = @transaction.author == @current_user
 
     if is_author
-      @transaction.update_attributes(author_skipped_feedback: true)
+      @transaction.update(author_skipped_feedback: true)
     else
-      @transaction.update_attributes(starter_skipped_feedback: true)
+      @transaction.update(starter_skipped_feedback: true)
     end
 
     respond_to do |format|

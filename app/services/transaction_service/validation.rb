@@ -3,6 +3,7 @@ module TransactionService
 
     IS_POSITIVE = ->(v) {
       return if v.nil?
+
       unless v.positive?
         {code: :positive_integer, msg: "Value must be a positive integer"}
       end
@@ -10,6 +11,7 @@ module TransactionService
 
     PARSE_DATE = ->(v) {
       return if v.nil?
+
       begin
         TransactionViewUtils.parse_booking_date(v)
       rescue ArgumentError => e
@@ -22,6 +24,7 @@ module TransactionService
 
     PARSE_DATETIME = ->(v) {
       return if v.nil?
+
       begin
         TransactionViewUtils.parse_booking_datetime(v)
       rescue ArgumentError => e
@@ -187,6 +190,7 @@ module TransactionService
 
       def validate_booking_per_hour_timeslots(listing:, tx_params:)
         return Result::Success.new(tx_params) unless tx_params[:per_hour]
+
         booking = Booking.new(tx_params.slice(:start_time, :end_time, :per_hour))
         if listing.working_hours_covers_booking?(booking) && listing.bookings.covers_another_booking(booking).empty?
           Result::Success.new(tx_params)

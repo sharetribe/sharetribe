@@ -1,8 +1,7 @@
 class StripeService::API::StripeApiWrapper
   class << self
 
-    # rubocop:disable ClassVars
-    @@mutex ||= Mutex.new
+    @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
     def payment_settings_for(community)
       PaymentSettings.where(community_id: community, payment_gateway: :stripe, payment_process: :preauthorize).first
@@ -122,7 +121,7 @@ class StripeService::API::StripeApiWrapper
           type: 'custom',
           country: account_info[:address_country],
           email: account_info[:email],
-          account_token: account_info[:token],
+          account_token: account_info[:token]
         }
         if account_info[:address_country] == 'US'
           data[:requested_capabilities] = ['card_payments']
@@ -140,7 +139,7 @@ class StripeService::API::StripeApiWrapper
       with_stripe_payment_config(community) do |payment_settings|
         Stripe::Balance.retrieve
       end
-    rescue
+    rescue StandardError
       nil
     end
 
@@ -152,8 +151,8 @@ class StripeService::API::StripeApiWrapper
           external_account: {
             object: 'bank_account',
             account_number: account_info[:bank_account_number],
-            currency:       account_info[:bank_currency],
-            country:        account_info[:bank_country],
+            currency: account_info[:bank_currency],
+            country: account_info[:bank_country],
             account_holder_name: account_info[:bank_holder_name],
             account_holder_type: 'individual'
           }.merge(routing),
@@ -272,7 +271,7 @@ class StripeService::API::StripeApiWrapper
     end
 
     def empty_string_as_nil(value)
-      value.present? ? value : nil
+      value.presence
     end
 
     def get_charge(community:, charge_id:)

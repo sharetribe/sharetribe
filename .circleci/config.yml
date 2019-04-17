@@ -5,7 +5,7 @@ jobs:
     # Call bash as interactive login shell to make sure nvm is loaded through .bashrc
     shell: /bin/bash -ileo pipefail
     docker:
-      - image: sharetribe/ruby:2.3.4-xenial-ci
+      - image: circleci/ruby:2.6.2-stretch-browsers-legacy
         environment:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
@@ -24,12 +24,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - bundler-cache-v3-{{ checksum "Gemfile.lock" }}
-            - bundler-cache-v3-
+            - bundler-cache-v4-{{ checksum "Gemfile.lock" }}
+            - bundler-cache-v4-
       - restore_cache:
           keys:
-            - node-cache-v4-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
-            - node-cache-v4-
+            - node-cache-v5-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+            - node-cache-v5-
       - run:
           name: install system deps
           command: script/ci-install-deps.sh
@@ -40,12 +40,12 @@ jobs:
           name: npm install
           command: npm install
       - save_cache:
-          key: bundler-cache-v3-{{ checksum "Gemfile.lock" }}
+          key: bundler-cache-v4-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - ~/.bundle
       - save_cache:
-          key: node-cache-v4-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
+          key: node-cache-v5-{{ checksum "package.json" }}-{{ checksum "client/package.json" }}
           paths:
             - ~/.nvm
             - ~/.bashrc

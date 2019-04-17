@@ -21,7 +21,7 @@
 #
 
 class Booking < ApplicationRecord
-  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id"
+  belongs_to :tx, class_name: "Transaction", foreign_key: "transaction_id", inverse_of: :booking
 
   scope :in_period, ->(start_time, end_time) { where(['start_time >= ? AND end_time <= ?', start_time, end_time]) }
   scope :hourly_basis, -> { where(per_hour: true) }
