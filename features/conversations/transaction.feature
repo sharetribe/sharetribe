@@ -31,7 +31,8 @@ Feature: Single transaction
     When I visit transaction page of that listing
     Then I should see "car spare parts" within "h2"
     Then I should see "Total: €100" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
     Then I should see "Payment authorized: €100" within ".message-row:nth-child(1)"
     Then I should see "Hear, Hear" within ".message-row:nth-child(2)"
 
@@ -48,7 +49,8 @@ Feature: Single transaction
     Then I should see "Booked hours: Wed, Jan 02, 2019 - 9:00 am to 12:00 pm (3 hours)" within ".initiate-transaction-booking-wrapper"
     Then I should see "Subtotal: €4.65" within ".initiate-transaction-sum-wrapper"
     Then I should see "Total: €4.65" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
     Then I should see "Payment authorized: €4.65" within ".message-row:nth-child(1)"
     Then I should see "Hands Down" within ".message-row:nth-child(2)"
 
@@ -70,7 +72,9 @@ Feature: Single transaction
     Then I should see "Payment total: €100" within "#tx-total-to-pay"
     Then I should see "Sharetribe fee: -€10" within "#tx-fee"
     Then I should see "Total: €90" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Accept request Not this time" within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Accept request" within "#transaction_status"
+    Then I should see "Not this time" within "#transaction_status"
     Then I should see "Payment authorized: €100" within ".message-row:nth-child(1)"
     Then I should see "Hear, Hear" within ".message-row:nth-child(2)"
 
@@ -89,7 +93,9 @@ Feature: Single transaction
     Then I should see "Payment total: €4.65" within "#tx-total-to-pay"
     Then I should see "Sharetribe fee: -€1" within "#tx-fee"
     Then I should see "Total: €3.65" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Accept request Not this time" within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Accept request" within "#transaction_status"
+    Then I should see "Not this time" within "#transaction_status"
     Then I should see "Payment authorized: €4.65" within ".message-row:nth-child(1)"
     Then I should see "Hands Down" within ".message-row:nth-child(2)"
 
@@ -102,7 +108,8 @@ Feature: Single transaction
     Then I should see "Let Her Rip" within "h2"
     Then I should see "Sharetribe service fee: €15" within "#tx-buyer-fee"
     Then I should see "Total: €115" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
     Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Son of a Gun" within ".message-row:nth-child(2)"
 
@@ -120,7 +127,8 @@ Feature: Single transaction
     Then I should see "Subtotal: €4.65" within "#tx-subtotal"
     Then I should see "Sharetribe service fee: €1" within "#tx-buyer-fee"
     Then I should see "Total: €5.65" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Waiting for Kassi to accept the request. As soon as Kassi accepts, you will be charged." within "#transaction_status"
     Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Cut To The Chase" within ".message-row:nth-child(2)"
 
@@ -133,7 +141,9 @@ Feature: Single transaction
     Then I should see "Let Her Rip" within "h2"
     Then I should see "Sharetribe fee: -€10" within "#tx-fee"
     Then I should see "Total: €90" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Accept request Not this time" within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Accept request" within "#transaction_status"
+    Then I should see "Not this time" within "#transaction_status"
     Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Son of a Gun" within ".message-row:nth-child(2)"
 
@@ -151,7 +161,9 @@ Feature: Single transaction
     Then I should see "Subtotal: €4.65" within "#tx-subtotal"
     Then I should see "Sharetribe fee: -€1" within "#tx-fee"
     Then I should see "Total: €3.65" within ".initiate-transaction-total-wrapper"
-    Then I should see "Payment authorized Accept request Not this time" within "#transaction_status"
+    Then I should see "Payment authorized" within "#transaction_status"
+    Then I should see "Accept request" within "#transaction_status"
+    Then I should see "Not this time" within "#transaction_status"
     Then I should see "Payment authorized" within ".message-row:nth-child(1)"
     Then I should see "Cut To The Chase" within ".message-row:nth-child(2)"
 

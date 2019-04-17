@@ -13,22 +13,18 @@ module FeatureTests
         payment_settings.click_button("Connect your PayPal account")
       end
 
-      def select_option(select_id, value)
-        find("#"+select_id+" option[value='"+value+"']").click
-      end
-
       def connect_stripe_account
-        select_option("stripe_account_form_address_country", "US")
+        select("United States", from: "stripe_account_form_address_country")
 
         payment_settings.fill_in("stripe_account_form[first_name]", with: "Jane")
         payment_settings.fill_in("stripe_account_form[last_name]", with: "Seller")
 
         payment_settings.fill_in("stripe_account_form[phone]", with: "+1 (555) 123-12345")
-        select_option("stripe_account_form_mcc", "8049")
+        select("Auto Service Shops", from: "stripe_account_form_mcc")
 
-        select_option("stripe_account_form_birth_date_1i", "1990")
-        select_option("stripe_account_form_birth_date_2i", "10")
-        select_option("stripe_account_form_birth_date_3i", "12")
+        select("1990", from: "stripe_account_form_birth_date_1i")
+        select("October", from: "stripe_account_form_birth_date_2i")
+        select("12", from: "stripe_account_form_birth_date_3i")
 
         payment_settings.fill_in("stripe_account_form[address_state]", with: "NY")
         payment_settings.fill_in("stripe_account_form[address_city]", with: "New York")

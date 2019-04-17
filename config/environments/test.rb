@@ -45,21 +45,6 @@ Rails.application.configure do
   # As instructed by Devise, to make local mails work
   config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
 
-  # Register PhantomJS over selenium-webdriver
-  if ENV['PHANTOMJS'] then
-    require "selenium-webdriver"
-    Capybara.register_driver :webdriver_phantomjs do |app|
-      Capybara::Selenium::Driver.new(app, :browser => :phantomjs)
-    end
-
-    unless ENV['NO_WEBDRIVER_MONKEY_PATCH']
-      require "#{Rails.root}/lib/selenium_webdriver_phantomjs_monkey_patch"
-    end
-  end
-
-  Capybara.default_max_wait_time = 20
-  Capybara.ignore_hidden_elements = true
-
   ENV['RAILS_ASSET_ID'] = ""
 
   # Configure static asset server for tests with Cache-Control for performance

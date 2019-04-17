@@ -79,8 +79,6 @@ jobs:
       - run:
           name: cucumber
           command: shopt -s globstar && bundle exec cucumber -p ci --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml $(circleci tests glob features/**/*.feature | circleci tests split --split-by=timings)
-          environment:
-            PHANTOMJS: true
       - run:
           name: npm test
           command: if [[ "$CIRCLE_NODE_INDEX" == "0" ]] ; then npm test ; fi

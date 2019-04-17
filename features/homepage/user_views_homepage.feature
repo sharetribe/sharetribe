@@ -43,22 +43,6 @@ Feature: User views homepage
     Then I should not see "No open item, service or rideshare requests."
     And I should not see "No open item, service or rideshare offers."
 
-  @pending
-  Scenario: Latest transactions on the homepage
-    Given the latest transaction is "Johnny offered an item drill to Bill" #This Given needs better structure
-    When I am on the homepage
-    Then I should see "Johnny offered an item drill to Bill"
-
-  @pending
-  Scenario: Endless scrolling
-    Given there are 13 open offers
-    And the oldest offer has title "course books"
-    And I am on the home page
-    And I do not see "course books"
-    When I scroll to the bottom of the page
-    And wait for 2 seconds
-    Then I should see "course books"
-
   @javascript
   Scenario: Superadmin views a community he is not a member of
     Given there are following users:
