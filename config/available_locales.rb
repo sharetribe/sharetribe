@@ -59,6 +59,7 @@ module Sharetribe
     {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
     {ident: "lt", name: "Lietuvių kalba", language: "lt", region: "LT", fallback: nil}, # Lithuanian
     {ident: "lv", name: "Latviešu valoda", language: "lv", region: "LV", fallback: nil}, # Latvian
+    {ident: "mk", name: "Macedonian", language: "mk", reqion: "MK", fallback: nil}, # Macedonian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
     {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
     {ident: "ro", name: "Română", language: "ro", region: "RO", fallback: nil}, # Romanian (Romania)
