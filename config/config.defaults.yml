@@ -381,7 +381,7 @@ default: &default_settings
   # The hosted version stores the landing page data in the database but for single
   # marketplace OS installations the database doesn't bring any benifits. That's why
   # the static version is used instead of database in OS installations.
-  clp_static_enabled: true
+  clp_static_enabled: false
 
   # Landing page is cached heavily.
   #

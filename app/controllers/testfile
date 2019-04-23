@@ -1,12 +1,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <script>
-    $(document).ready(function () {
-        if (window.location.href.indexOf("/transactions/") > -1) {
+   $(document).ready(function () {
+         if (window.location.href.indexOf("/transactions/") > -1) {
             onLoadRequestsPage()
-        } else if (window.location.pathname === "/s" && window.location.search === "") {
-     window.location.href = 'http://209.97.140.172:3000/s?transaction_type=needing-help'
-    }})
+         } else if (window.location.pathname === "/s" && window.location.search === "") {
+            window.location.href = 'http://209.97.140.172:3000/s?transaction_type=needing-help'
+   } else if (window.location.pathname === "/s" && window.location.search === "?transaction_type=needing-help"){
+            $('#home_toolbar-select-share-type > div > div > a:nth-child(2)').css('background','#ff8243')
+   }else if (window.location.pathname === "/s" && window.location.search === "?transaction_type=offering"){
+            $('#home_toolbar-select-share-type > div > div > a:nth-child(1)').css('background', '#ff8243')
+   }
+   })
 
  
  function onLoadRequestsPage() {
@@ -52,3 +57,5 @@ $('div.initiate-transaction-totals').append('<form action="make_payment.php" met
       } 
   
 </script>
+
+GRANT all privileges on sharetribe_development.* TO 'george'@'localhost' IDENTIFIED BY 'Trolloc12#';
