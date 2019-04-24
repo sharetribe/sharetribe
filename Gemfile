@@ -72,7 +72,7 @@ gem "premailer", '~> 1.10.4'
 gem 'stringex', '~> 2.7.1'
 gem 'paypal-sdk-permissions', '~> 1.96.4'
 gem 'paypal-sdk-merchant', '~> 1.116.0'
-gem 'airbrake', '~> 6.1.2'
+gem 'airbrake', '~> 9.1.0'
 gem 'stripe', '~> 4.9.0'
 
 gem 'lograge', '~> 0.5.1'
