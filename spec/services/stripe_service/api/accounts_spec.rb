@@ -17,7 +17,7 @@ describe StripeService::API::Accounts do
                          person_id: person.id)
     end
     let(:payment_settings) do
-      sk = TransactionService::Store::PaymentSettings.encrypt_value('sk_test_123456789012345678901234')
+      sk = TransactionService::Store::PaymentSettings.encrypt_value('sk_test_123456789012345678901234', false)
       FactoryGirl.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',
@@ -46,6 +46,11 @@ describe StripeService::API::Accounts do
       finished_account
 
       stub_stripe_success
+      FeatureFlagHelper.init(community_id: community.id,
+                             user_id: nil,
+                             request: OpenStruct.new(params: {}, session: {}),
+                             is_admin: false,
+                             is_marketplace_admin: false)
       res = StripeService::API::Accounts.new.delete_seller_account(community_id: community.id,
                                                                    person_id: person.id)
       expect(res[:success]).to eq true
@@ -56,6 +61,11 @@ describe StripeService::API::Accounts do
       finished_account
 
       stub_stripe_failure
+      FeatureFlagHelper.init(community_id: community.id,
+                             user_id: nil,
+                             request: OpenStruct.new(params: {}, session: {}),
+                             is_admin: false,
+                             is_marketplace_admin: false)
       res = StripeService::API::Accounts.new.delete_seller_account(community_id: community.id,
                                                                    person_id: person.id)
       expect(res[:success]).to eq false

@@ -32,6 +32,7 @@ module EntityUtils
   # Turn active record model into a hash with string keys replaced with symbols
   def model_to_hash(model)
     return {} if model.nil?
+
     HashUtils.symbolize_keys(model.attributes)
   end
 
@@ -63,8 +64,8 @@ module EntityUtils
       end
     },
     fixnum: -> (_, v, _) {
-      unless (v.nil? || v.is_a?(Fixnum))
-        {code: :fixnum, msg: "Value must be a Fixnum. Was: #{v} (#{v.class.name})." }
+      unless (v.nil? || v.is_a?(Integer))
+        {code: :fixnum, msg: "Value must be a Integer. Was: #{v} (#{v.class.name})." }
       end
     },
     symbol: -> (_, v, _) {
@@ -189,9 +190,9 @@ module EntityUtils
   }
 
   def spec_category(k)
-    if VALIDATORS.keys.include?(k)
+    if VALIDATORS.key?(k)
       :validators
-    elsif TRANSFORMERS.keys.include?(k)
+    elsif TRANSFORMERS.key?(k)
       :transformers
     elsif k == :collection
       :collection
@@ -235,6 +236,7 @@ module EntityUtils
     specs.reduce({}) do |fs, full_field_spec|
       f_name, *spec = *full_field_spec
       raise ArgumentError.new("Field key must be a Symbol, was: '#{f_name}' (#{f_name.class.name})") unless f_name.is_a? Symbol
+
       fs[f_name] = parse_spec(spec)
       fs
     end
@@ -415,6 +417,7 @@ module EntityUtils
         data = data.to_unsafe_hash
       end
       raise(TypeError, "Expecting an input hash. You gave: #{data}") unless data.is_a? Hash
+
       result = EntityUtils.transform_and_validate(specs, data)
 
       if result[:errors].empty?

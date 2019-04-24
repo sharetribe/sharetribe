@@ -46,7 +46,7 @@ begin
   task :default => :cucumber
 
   task :features => :cucumber do
-    STDERR.puts "*** The 'features' task is deprecated. See rake -T cucumber ***"
+    warn "*** The 'features' task is deprecated. See rake -T cucumber ***"
   end
 
   # In case we don't have ActiveRecord, append a no-op task that we can depend upon.

@@ -14,10 +14,10 @@ describe EmailService::SES::Synchronize do
 
   def get_type(type)
     {
-      old_pending: -> () { [:requested, (25 + rand(24)).hours.ago]},
-      new_pending: -> () { [:requested, rand(24).hours.ago]},
-      verified: -> () { [:verified, nil]},
-      none: -> () { [:none, nil]}
+      old_pending: -> { [:requested, rand(25..48).hours.ago]},
+      new_pending: -> { [:requested, rand(24).hours.ago]},
+      verified: -> { [:verified, nil]},
+      none: -> { [:none, nil]}
     }[type]
   end
 

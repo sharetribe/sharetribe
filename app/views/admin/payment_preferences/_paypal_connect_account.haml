@@ -11,7 +11,7 @@
     .col-12
       =t("paypal_accounts.new.connect_paypal_account_instructions")
   .row.send-button-wrapper.without-margin
-    .col-12
+    .col-12{class: buyer_commission ? 'is-disabled' : ''}
       %button#ask_paypal_permissions
         = t("paypal_accounts.new.connect_paypal_account")
   .row.js-paypal-redirect-order-permission.hidden

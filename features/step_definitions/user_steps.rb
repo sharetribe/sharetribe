@@ -51,10 +51,17 @@ Given /^there will be and error in my Facebook login$/ do
 end
 
 Given /^there will be no email returned in my Facebook login$/ do
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
+  oauth_mock('facebook', {
       :provider => 'facebook',
       :uid => '597015435',
-      :extra =>{
+      info: {
+        nickname: 'jackety-jack',
+        email: nil,
+        name: 'Jackie Brownie',
+        first_name: 'Jackie',
+        last_name: 'Brownie'
+      },
+      :extra => {
         :raw_info => {
           :first_name => "Jackie",
           :last_name => "Brownie",
@@ -81,7 +88,7 @@ Given /^there are following users:$/ do |person_table|
     membership_created_at = hash['membership_created_at']
 
     person_opts = defaults.merge({
-      username: hash['person'],
+      username: hash['person']
     }).merge(hash.except('person', 'membership_created_at', 'community'))
 
     @hash_person, @hash_session = Person.find_by(username: username) || FactoryGirl.create(:person, person_opts)
@@ -100,7 +107,7 @@ Given /^there are following users:$/ do |person_table|
       @hash_person.save!
     end
 
-    @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
+    @hash_person.update({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }})
     cm = CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, community.id) ||
          CommunityMembership.create(:community_id => community.id,
                                     :person_id => @hash_person.id,
@@ -109,7 +116,7 @@ Given /^there are following users:$/ do |person_table|
     cm.update_attribute(:created_at, membership_created_at) if membership_created_at && !membership_created_at.empty?
 
     attributes_to_update = hash.except('person','person_id', 'locale', 'membership_created_at', 'community')
-    @hash_person.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+    @hash_person.update(attributes_to_update) unless attributes_to_update.empty?
     @hash_person.set_default_preferences
     if hash['locale']
       @hash_person.locale = hash['locale']
@@ -166,6 +173,7 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
+  value = 70 if value == "70"
   user.send(attribute).send(verb) == value
 end
 
@@ -217,7 +225,7 @@ end
 
 Given(/^"(.*?)" follows everyone$/) do |person|
   person = Person.find_by(username: person)
-  person.followed_people = Person.all - [ person ]
+  person.followed_people = Person.all - [person]
 end
 
 Then(/^I should see (\d+) user profile links$/) do |count|
@@ -237,6 +245,32 @@ Given /^I have confirmed stripe account(?: as "([^"]*)")?(?: for community "([^"
   username = person || "kassi_testperson1"
   person = Person.find_by(username: username)
   community = Community.where(ident: community_name || "test").first
-  FactoryGirl.create(:stripe_account, person_id: person.id, community_id: community.id, stripe_seller_id: 'ABC')
+  FactoryGirl.create(:stripe_account, person_id: person.id,
+                                      community_id: community.id, stripe_seller_id: 'ABC',
+                                      stripe_bank_id: 'ABC')
+end
+
+Given(/^there are (\d+) unconfirmed users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    email = person.emails.first
+    email.update_column(:confirmed_at, nil)
+    person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
+  end
+end
+
+Given(/^there are (\d+) banned users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    person.community_membership.update_column(:status, CommunityMembership::BANNED)
+  end
 end
 

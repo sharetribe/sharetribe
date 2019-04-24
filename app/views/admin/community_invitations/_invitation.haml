@@ -1,0 +1,28 @@
+%tr{id: "invitation-#{invitation.id}"}
+  %td
+    - p = invitation.inviter
+    - if p.deleted
+      = ''
+    - else
+      = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+  %td
+    = truncate(invitation.message, length: 200)
+  %td
+    = invitation.email
+  %td
+    - if invitation.usages_left > 0
+      = t("admin.communities.invitations.used.no")
+    - else
+      = t("admin.communities.invitations.used.yes")
+  %td
+    = l(invitation.created_at, format: :short)
+  -#%td
+    - invitation.community_memberships.each do |community_membership|
+      - p = community_membership.person
+      - if p
+        - if p.deleted
+          = ''
+        - else
+          = link_to PersonViewUtils.person_display_name(p, @current_community), person_path(p.username)
+        %br
+

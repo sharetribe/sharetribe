@@ -18,5 +18,21 @@
 require 'spec_helper'
 
 RSpec.describe Listing::WorkingTimeSlot, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'from till' do
+    it 'Validates from is less than till' do
+      working_time_slot = Listing::WorkingTimeSlot.new
+      working_time_slot.from = '10:00'
+      working_time_slot.till = '11:00'
+      expect(working_time_slot.valid?).to eq true
+      working_time_slot.from = '00:00'
+      working_time_slot.till = '24:00'
+      expect(working_time_slot.valid?).to eq true
+      working_time_slot.from = '12:00'
+      working_time_slot.till = '11:00'
+      expect(working_time_slot.valid?).to eq false
+      working_time_slot.from = '10:00'
+      working_time_slot.till = '10:00'
+      expect(working_time_slot.valid?).to eq false
+    end
+  end
 end

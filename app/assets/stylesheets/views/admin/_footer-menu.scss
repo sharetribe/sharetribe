@@ -1,0 +1,41 @@
+@import "mixins/all";
+
+.footer-menu-container-padding {
+  padding: lines(0.5);
+  padding-bottom: 0;
+}
+
+.footer-menu-container {
+  @extend .footer-menu-container-padding;
+
+  &:nth-of-type(odd) {
+    background: $highlight;
+  }
+}
+
+#footer-menu-form {
+  .footer-theme-radio-buttons {
+    input[type="radio"] {
+      margin-left: 0.75em
+    }
+    label {
+      display: inline-block;
+      width: auto;
+      font-weight: normal;
+      margin: 0 0 0 0.5em;
+    }
+  }
+  input[disabled] {
+    background-color: #e8e8e8;
+  }
+  button[disabled] {
+    background-color: #c3c3c3;
+  }
+}
+
+.footer-social-container {
+  .provider {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}

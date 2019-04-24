@@ -1,0 +1,267 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.seo_settings.seo")
+
+= render partial: 'layouts/onboarding_popup_wrapper'
+= render partial: 'admin/left_hand_navigation', locals: { links: admin_links_for(@current_community) }
+
+- sorted_customizations = customizations_sorted_by_locale
+
+.left-navi-section
+  = form_for @current_community, url: admin_community_seo_settings_path, method: :put do |form|
+
+    / Homepage
+    %h2= t('admin.communities.seo_settings.title')
+    .row
+      %h3= t('admin.communities.seo_settings.meta_title_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:homepage_title)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_title_info', link: "", vars: @seo_service.i18n_variables(:homepage_title)) }
+
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :meta_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :meta_title,
+                  placeholder:  @seo_service.placeholder(:homepage_title, locale),
+                  class: "text_field", maxlength: 255
+
+    .row
+      %h3= t('admin.communities.seo_settings.meta_description_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:homepage_description)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.meta_description_info', link: "", vars: @seo_service.i18n_variables(:homepage_description)) }
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :meta_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :meta_description,
+                  placeholder:  @seo_service.placeholder(:homepage_description, locale),
+                  class: "text_field", maxlength: 65535
+
+    / Search results page
+    %h2= t('admin.communities.seo_settings.search_title')
+    .row
+      %h3= t('admin.communities.seo_settings.search_meta_title_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:search_meta_title)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_title_info', link: "", vars: @seo_service.i18n_variables(:search_meta_title)) }
+
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :search_meta_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :search_meta_title,
+                  placeholder:  @seo_service.placeholder(:search_meta_title, locale),
+                  class: "text_field", maxlength: 255
+
+    .row
+      %h3= t('admin.communities.seo_settings.search_meta_description_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.search_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:search_meta_description)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.search_meta_description_info', link: "", vars: @seo_service.i18n_variables(:search_meta_description)) }
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :search_meta_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :search_meta_description,
+                  placeholder:  @seo_service.placeholder(:search_meta_description, locale),
+                  class: "text_field", maxlength: 65535
+
+    / Listing page
+    %h2= t('admin.communities.seo_settings.listing_title')
+    .row
+      %h3= t('admin.communities.seo_settings.listing_meta_title_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:listing_meta_title)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_title_info', link: "", vars: @seo_service.i18n_variables(:listing_meta_title)) }
+
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :listing_meta_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :listing_meta_title,
+                  placeholder:  @seo_service.placeholder(:listing_meta_title, locale),
+                  class: "text_field", maxlength: 255
+
+    .row
+      %h3= t('admin.communities.seo_settings.listing_meta_description_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.listing_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:listing_meta_description)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.listing_meta_description_info', link: "", vars: @seo_service.i18n_variables(:listing_meta_description)) }
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :listing_meta_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :listing_meta_description,
+                  placeholder:  @seo_service.placeholder(:listing_meta_description, locale),
+                  class: "text_field", maxlength: 65535
+
+    / Category page
+    %h2= t('admin.communities.seo_settings.category_title')
+    .row
+      %h3= t('admin.communities.seo_settings.category_meta_title_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:category_meta_title)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_title_info', link: "", vars: @seo_service.i18n_variables(:category_meta_title)) }
+
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :category_meta_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :category_meta_title,
+                  placeholder:  @seo_service.placeholder(:category_meta_title, locale),
+                  class: "text_field", maxlength: 255
+
+    .row
+      %h3= t('admin.communities.seo_settings.category_meta_description_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.category_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:category_meta_description)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.category_meta_description_info', link: "", vars: @seo_service.i18n_variables(:category_meta_description)) }
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :category_meta_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :category_meta_description,
+                  placeholder:  @seo_service.placeholder(:category_meta_description, locale),
+                  class: "text_field", maxlength: 65535
+
+    / Profile page
+    %h2= t('admin.communities.seo_settings.profile_title')
+    .row
+      %h3= t('admin.communities.seo_settings.profile_meta_title_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_title_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_title_info', link: meta_info_link, vars: @seo_service.i18n_variables(:profile_meta_title)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_title_info', link: "", vars: @seo_service.i18n_variables(:profile_meta_title)) }
+
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :profile_meta_title, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_field :profile_meta_title,
+                  placeholder:  @seo_service.placeholder(:profile_meta_title, locale),
+                  class: "text_field", maxlength: 255
+
+    .row
+      %h3= t('admin.communities.seo_settings.profile_meta_description_label')
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.profile_meta_description_link_text'), "#{APP_CONFIG.knowledge_base_url}/how-to-customize-meta-tags-for-seo-purposes", target: '_blank'
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_description_info', link: meta_info_link, vars: @seo_service.i18n_variables(:profile_meta_description)).html_safe }
+      - else
+        = render partial: 'layouts/info_text', locals: { text: t('admin.communities.seo_settings.profile_meta_description_info', link: "", vars: @seo_service.i18n_variables(:profile_meta_description)) }
+
+      .translation-wrapper
+        - sorted_customizations.each do |customization, language, locale|
+          = form.fields_for :community_customizations, customization do |fields|
+            .row
+              - if sorted_customizations.size > 1
+                .name-locale-label.col-2
+                  = fields.label :profile_meta_description, language, class: 'text_field label'
+              .name-locale-text_field.col-10
+                = fields.text_area :profile_meta_description,
+                  placeholder:  @seo_service.placeholder(:profile_meta_description, locale),
+                  class: "text_field", maxlength: 65535
+
+    / Sitemap
+    .row
+      %h2= t('admin.communities.seo_settings.sitemap_label')
+
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.sitemap_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-sitemapxml-file-for-my-marketplace", target: '_blank'
+        %p= t('admin.communities.seo_settings.sitemap_info', link: meta_info_link).html_safe
+      - else
+        %p= t('admin.communities.seo_settings.sitemap_info', link: "")
+
+      - if @current_community.private?
+        %p= t('admin.communities.seo_settings.sitemap_info_private')
+      - else
+        - sitemap_url = @current_community.full_url + "/sitemap.xml.gz"
+        - meta_info_link = link_to sitemap_url, sitemap_url
+        %p= t('admin.communities.seo_settings.sitemap_info_public', link: meta_info_link).html_safe
+
+    .row
+      %h2= t('admin.communities.seo_settings.robots_label')
+
+      - if APP_CONFIG.display_knowledge_base_articles
+        - meta_info_link = link_to t('admin.communities.seo_settings.robots_info_link_text'), "#{APP_CONFIG.knowledge_base_url}/sharetribe-go-managing-your-go-marketplace/access-and-database/is-there-a-robotstxt-file-for-my-marketplace", target: '_blank'
+        %p= t('admin.communities.seo_settings.robots_info', link: meta_info_link).html_safe
+      - else
+        %p= t('admin.communities.seo_settings.robots_info', link: "")
+
+      - if @current_community.private?
+        %p= t('admin.communities.seo_settings.robots_info_private')
+      - else
+        - robots_url = @current_community.full_url + "/robots.txt"
+        - meta_info_link = link_to robots_url, robots_url
+        %p= t('admin.communities.seo_settings.robots_info_2', link: meta_info_link).html_safe
+
+    .row
+      = form.button t("admin.communities.seo_settings.save")
+
+- content_for :javascript do
+  $('form.edit_community').validate();

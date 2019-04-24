@@ -135,7 +135,7 @@ sv:
         invalid_color_code: "Färgkod bör innehålla 6 siffror eller bokstäver A-F t ex D96E21"
         custom_head_script: "Anpassat script"
         custom_head_script_instructions_text: "Detta script finns under <head> taggen för varje sida och kan användas för att lägga in anpassad CSS, Javascript eller HTML. Vänligen notera att framtida ändringar av Sharetribe kan göra ditt script inkomplett."
-        current_image: ~
+        current_image: "Nuvarande bild:"
       edit_text_instructions:
         edit_text_instructions: Instruktionstext
       edit_welcome_email:
@@ -183,27 +183,33 @@ sv:
       getting_started:
         getting_started: "Kom igång"
       available_languages:
+        cs: ~
+        da-DK: Danska
+        de: Tyska
         en: Engelska
         en-AU: "Engelska (Australien)"
         en-GB: "Engelska (Storbritannien)"
+        es: ~
+        es-ES: ~
+        fi: Finska
         fr: Franska
         fr-CA: "Franska (Kanada)"
-        es: "Spanska (Chile)"
-        es-ES: Spanska
-        pt-PT: Portugisiska
-        pt-BR: "Brasiliansk portugisiska"
-        nb: Norska
-        sv: Svenska
-        da-DK: Danska
-        fi: Finska
-        ru: Ryska
-        de: Tyska
         el: Grekiska
-        nl: Holländska
-        tr-TR: Turkiska
-        zh: Kinesiska
-        ja: Japanska
         it: Italienska
+        ja: Japanska
+        ko: ~
+        nb: Norska
+        nl: Holländska
+        pl: ~
+        pt-BR: "Brasiliansk portugisiska"
+        pt-PT: Portugisiska
+        ru: Ryska
+        sv: Svenska
+        th-TH: ~
+        tr-TR: Turkiska
+        vi: ~
+        zh: Kinesiska
+        zh-TW: ~
       settings:
         settings: Inställningar
         general: Allmänt
@@ -234,6 +240,7 @@ sv:
         update_settings: "Spara inställningar"
         automatically_confirmed_no_escrow: "Transaktionen kommer automatiskt att markeras som slutförd %{days_dropdown} dagar efter att betalningen har gjorts"
         automatically_confirmed_no_escrow_stripe_info: "För transaktioner porcesserade med Stripe är utbetalningen till försäljarna fördröjd tills förfrågan har marketats som slutförd. %{learn_more}"
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Skicka automatiskt nyhetsbrev: %{frequency_dropdown}"
         newsletter_daily: Dagligen
         newsletter_weekly: Veckovis
@@ -247,6 +254,7 @@ sv:
         you_will_be_redirected_to: "Efter att du har tagit bort din marknadsplats så kommer du skickas vidare till %{destination}. Du kommer inte att kunna komma in på din marknadsplats längre."
         delete_this_marketplace: "Ta bort denna marknadsplats"
         payment_preferences: Betalningssystem
+        pre_approved_listings: ~
       manage_members:
         manage_members: "Hantera användare"
         email: E-post
@@ -268,6 +276,22 @@ sv:
         reset_search: "Visa alla"
         for_search_terms: "för: %{terms}"
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: "Ny layout"
         description_roadmap_new: "När nya layout komponenter blir tillgängliga för din marknadsplats kan du välja om du vill börja använda den nya komponenten eller fortsätta använda den gamla. Du kan ändra detta när som helst från denna sida. Det rekommenderas att alltid använda den nya versionen, för den gamla kan tas bort i något skede. Om en komponent tas bort som du använder kommer du bli meddelad i förhand."
@@ -279,6 +303,12 @@ sv:
         social_media: "Social media"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter användarnamn"
         twitter_handle_info_text: "Användarnamn på ditt Twitterkonto på din marknadsplats (om du har någon). Detta kommer nämnas när folk använder tweetknappen på annonssidan."
         twitter_handle_info_text_with_instructions: "Användarnamnet på Twitterkontot på din marknadsplats (om du har ett). Det kommer att nämnas när folk använder tweetknappen på annonssidan. %{instructions_link}."
@@ -296,6 +326,67 @@ sv:
         enable_facebook_login: "Tillåt användare att logga in med sina Facebook konton"
         save: "Spara inställningar"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics tracking ID"
@@ -307,8 +398,14 @@ sv:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Spara inställningar"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: Menylänkar
+        menu_links_display: ~
         save: "Spara inställningar"
         add_menu_link: "Lägg till en ny länk till menyn"
         title_placeholder: Länktitel
@@ -321,6 +418,15 @@ sv:
         all: Alla
         max_number_of_links_info: "Link till %{about_page} visas alltid först i menyn"
         about_page: "\"om\" sidan"
+      default_menu_links:
+        title: ~
+        about_link_title: Om
+        contact_link_title: "Kontakta oss"
+        invite_link_title: "Bjud in nya användare"
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: Menyn
         new_listing_button_label: "Skapa en ny annons knapptext"
@@ -329,6 +435,19 @@ sv:
         export_all_as_csv: "Exportera alla som CSV"
         processing_export: "Bearbetar export till CSV"
         transactions: "Visa transaktioner"
+        search_by_title_parties: "Sök efter en transaktionstitel eller involverade parter"
+        search: Sök
+        reset_search: "Visa alla"
+        status_filter:
+          all: "Alla statusar"
+          selected: "Valda statusar: %{count}"
+          selected_js: "Valda statusar: "
+          free: "Gratis transaktion"
+          confirmed: Färdig
+          paid: Betald
+          canceled: Avbruten
+          preauthorized: Auktoriserad
+          rejected: ~
         headers:
           conversation: Konversationstråd
           listing: Annons
@@ -386,10 +505,18 @@ sv:
           other_party: Motpart
         participants: "Konversation: %{starter} med %{author}"
         profile: "%{author}s profil"
+        search_by_keyword: "Sök efter namn, epost eller sökord"
+        search: Sök
+        reset_search: "Visa alla"
+        for_keyword: ~
       testimonials:
         testimonials: "Visa recensioner"
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: "Sök efter namn, epost eller sökord"
+        search: Sök
+        reset_search: "Visa alla"
+        for_keyword: ~
         headers:
           transaction: Transaktion
           author: Författare
@@ -402,29 +529,103 @@ sv:
           skipped: "Hoppade över"
           published: Publicerad
           blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
+          save: Spara
+          cancel: Avbryt
+          delete_review: "Ta bort recension"
+          block_review: "Blockera recension"
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
-      listings:
-        listings: ~
+      invitations:
+        invitations: Inbjudningar
+        used:
+          "yes": Ja
+          "no": Nej
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
+          sent_by: "Skickat av"
+          message: Meddelande
+          sent_to: "Skickat till"
+          used: Använd
+          date_sent: "Datum skickat"
+      listings:
+        listings: Annonser
+        search_by_title_author_category: ~
+        search: Sök
+        reset_search: "Visa alla"
+        status:
+          all: ~
+          selected_js: ~
+          open: Öppen
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
+        headers:
+          title: Titel
+          author: Författare
+          created: Skapad
+          updated: Uppdaterad
+          category: Kategori
+          status: Status
+        open: Öppen
+        closed: Stängd
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
-        user_fields: ~
+        user_fields: Användarfält
+      footer:
+        footer: Footer
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: Titel
+        url: URL
+        add: ~
+        save: "Spara inställningar"
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: Logga
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: Domän
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "Redigera annonsfält %{field_name}"
@@ -486,24 +687,24 @@ sv:
         user_fields: ~
         field_title: ~
         field_type: ~
-        signup: ~
-        public: ~
+        signup: Registrera
+        public: Offentlig
         add_new_field: ~
         save: ~
         cancel: ~
         minimum_value: ~
         maximum_value: ~
-        allow_decimals: ~
-        add_option: ~
+        allow_decimals: "Tillåt decimaler"
+        add_option: "Lägg till val"
       new:
-        new_user_field: ~
+        new_user_field: "Nytt användarfält"
       form:
         field_required:
-          this_field_is_required: ~
-          this_field_is_required_checkbox: ~
-          this_field_is_public: ~
+          this_field_is_required: "Gör det obligatoriskt att fylla i detta fält när man registrerar sig till marknadsplatsen"
+          this_field_is_required_checkbox: "Gör det obligatoriskt att fylla i detta fält när man registrerar sig till marknadsplatsen (användare måste välja minst ett alternativ)"
+          this_field_is_public: "Visa detta fält på den offentliga profilsidan"
       edit:
-        edit_user_field: ~
+        edit_user_field: "Redigera användarfält '%{field_name}'"
     emails:
       new:
         send_email_to_members: "Skicka e-post till användare"
@@ -622,7 +823,7 @@ sv:
         night: "Per natt"
         week: "Per vecka"
         month: "Per månad"
-        unit: ~
+        unit: "Per enhet"
       can_not_find: "Det går inte att hitta ordertyp med id: %{id}"
       add_custom_unit: "+ Lägg till en anpassningsbar prisenhet..."
       delete_custom_unit: "ta bort"
@@ -692,6 +893,8 @@ sv:
       stripe_fee_notice: "%{stripe_fee_link} kommer dras av från transaktionsavgiften du tar."
       fee_should_be_less_than_minimum_price: "Lägsta transaktionsavgiften måste vara lägre än lägsta annonspriset"
       confirm_disable: "Är du säker du vill inaktivera %{gateway}? Om du inaktiverar detta betalningssystem kommer dina försäljare inte kunna ta emot pengar och köpare kommer inte kunna göra köp via detta betalningssystem. Om dina försäljare inte har aktiverat det andra betalsystemet kommer användare inte kunna köpa från dem."
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: "Stripe är kopplat"
         disable: "Inaktivera Stripe"
@@ -704,6 +907,7 @@ sv:
         enable: "Aktivera PayPal igen"
       cannot_enable_gateway: "Kan inte aktivera betalningssystemet %{gateway}"
       cannot_disable_gateway: "Kan inte inaktivera betalningssystemet %{gateway}"
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: "Lägg till dina Stripe API nycklar"
         how_to_get_these: "Hur får jag dessa?"
@@ -829,6 +1033,7 @@ sv:
       quantity_label: "Antal:"
       sum_label: "Delsumma:"
       service_fee_label: "%{service_name} avgift:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Du kommer att få:"
       total_label: "Totalt:"
       total_value: "%{seller_gets}*"
@@ -874,6 +1079,7 @@ sv:
     message:
       accepted_request: "accepterade förfrågan"
       received_payment: "accepterade förfrågan, mottog betalningen för %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: "acceptera erbjudandet"
       rejected_request: "avslagit förfrågan, betalningen är avbruten"
       rejected_offer: "avslagit erbjudandet"
@@ -883,8 +1089,10 @@ sv:
       canceled_offer: "avbröt erbjudandet"
       paid: "Betalt %{sum}"
       payment_preauthorized: "Betalningen är auktoriserad: %{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: "Accepterade förfrågan. Betalningen för %{sum} hålls av %{service_name} tills förfrågan har blivit markerad som slutförd."
+        held_payment_wo_sum: ~
         confirmed_request: "Markerade förfrågan som slutförd. Betalningen har nu överförts till %{author_name} bankkonto eller kommer snart att överföras."
     new:
       message: Meddelande
@@ -1099,7 +1307,9 @@ sv:
       shipping_total: "Leverans:"
       product: "Produkt:"
       price_payer_paid: "Pris som %{payer_full_name} har betalat:"
+      subtotal: ~
       service_fee: "%{service_name} serviceavgift:"
+      buyer_service_fee: ~
       you_will_get: "Totalt:"
       new_payment: "Du har fått en ny inbetalning"
       price_per_unit_type: "Pris per %{unit_type}"
@@ -1115,6 +1325,7 @@ sv:
       duration: Varaktighet
       quantity: "Antal:"
       subtotal: "Delsumma:"
+      buyer_service_fee: ~
       total: Totalt
       price: Pris
       service_fee: Serviceavgift
@@ -1139,7 +1350,7 @@ sv:
       subtotal: "Delsumma:"
       total: Totalt
       price: Pris
-      service_fee: Serviceavgift
+      buyer_service_fee: ~
       stripe_gateway_fee: "Stripes avgift:"
       paypal_gateway_fee: "PayPals avgift:"
       money_will_be_transferred: "Pengarna kommer att överföras till %{recipient_name} när a) du har markerat förfrågan som slutförd eller b)%{automatic_confirmation_days} dagar har passerat sedan du betalade."
@@ -1207,6 +1418,24 @@ sv:
       this_is_automatic_message: "Detta är ett automatisk meddelande skickat åt administratörerna av %{community}."
       person_name: "Namn:"
       person_email: "E-post:"
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Bokningen misslyckades på grund av ett oväntat fel. Vänligen försök igen senare. Du har inte blivit debiterad."
@@ -1275,6 +1504,7 @@ sv:
       after: "måste vara efter %{restriction}"
       on_or_after: "måste vara exakt på eller efter %{restriction}"
       positive_number: "Lägg in ett nummer."
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} gick med på att låna ut %{listing_title} till %{requester_name} %{time_ago}."
@@ -1521,8 +1751,8 @@ sv:
       comment_sent: "Kommentar skickad"
       confirmation_link_is_wrong_or_used: "Bekräftelselänken har redan används eller är trasig. Försök logga in eller skicka oss feedback om problemet kvarstår."
       additional_email_confirmed: "E-postadressen du skrev in är nu bekräftad."
-      could_not_get_email_from_facebook: "Kunde inte hitta någon e-postadress från Facebook. Det går inte att skapa ett konto utan e-postadress."
-      facebook_email_unconfirmed: "E-postadressen %{email} som är kopplat till ditt Facebook konto används redan men har inte blivit bekräftad. Vänligen bekräfta e-postadressen innan du loggar in via Facebook."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Skapa en ny annons"
       create_one_here: "skapa ett här"
       email_confirmation_sent_to_new_address: "E-postbekräftelse har nu skickats till den nya adressen."
@@ -1540,7 +1770,7 @@ sv:
       invitation_successfully_unsubscribed: "Avslutade prenumerationen av inbjudningsemail framgångsrikt"
       inviting_new_users_is_not_allowed_in_this_community: "Bjuda in nya användare är inte tillåtet."
       login_again: "Var vänlig logga in igen."
-      login_failed: "Inloggning misslyckades. Vänligen använd rätt upgifter."
+      login_failed: "Inloggning misslyckades. Vänligen använd rätt uppgifter."
       account_creation_successful: "Välkommen till %{service_name}, %{person_name}!"
       account_deleted: "Ditt konto är nu borttaget."
       login_successful: "Välkommen, %{person_name}!"
@@ -1559,7 +1789,7 @@ sv:
       listing_updated_successfully: "Annons uppdaterades"
       listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
       listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
-      only_kassi_administrators_can_access_this_area: "Bara %{service_name} admin har åtkomst till denna sida"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
       payment_successful: "Betalningen lyckades"
@@ -1633,7 +1863,7 @@ sv:
       automatically_logged_out_please_sign_in: "Du har blivit utloggad. Vänligen logga in igen."
       stripe_you_account_balance_is_not_0: ~
       visit_admin: ~
-      visit_admin_link: ~
+      visit_admin_link: "besök din adminpanel"
     settings:
       account: Konto
       notifications: Aviseringar
@@ -1642,6 +1872,8 @@ sv:
       paypal_payments: "PayPal betalningar"
       stripe_payments: Stripebetalningar
       payments: Betalningar
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Du har inte behörighet att se denna annons."
@@ -1670,6 +1902,10 @@ sv:
       show_in_updates_email_loading: Laddar...
       show_in_updates_email_error: "Det gick inte att nå servern. Försök igen efter att du laddat om sidan."
       show_in_updates_email_success: "Dessa annonser kommer att visas i nästa automatiska uppdateringsmail som skickas till användarna."
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Öppna i Google Maps"
     error:
@@ -1750,6 +1986,9 @@ sv:
         origin: Ursprung
       send_button:
         save_listing: "Spara annons"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Välj
         borrow: Utlåning
@@ -1829,6 +2068,7 @@ sv:
       select_one: "Välj en"
       start_time: Starttid
       end_time: Sluttid
+      marketplace_fees_may_apply: ~
     new:
       listing: annons
       selected_category: "Kategori: %{category}"
@@ -1842,13 +2082,14 @@ sv:
       community_not_configured_for_payments: "%{service_name} har inte konfigurerats för betalningar, så du kan inte skapa nya annonser än. Vänligen %{contact_admin_link} för mer information."
       payment_settings_link: betalningsinställningar
       community_not_configured_for_payments_admin: "%{service_name} har inte konfigurerats för betalningar, så du kan inte lägga ut nya annonser än. Gå till %{payment_settings_link} för att fylla i betalningsdetaljer."
+      you_are_now_posting_a_listing_on_behalf_of: "Du skapar nu en annons åt %{name}"
     quantity:
       hour: "Antal timmar:"
       day: "Antal dagar:"
       night: "Antal nätter:"
       week: "Antal veckor:"
       month: "Antal månader:"
-      unit: ~
+      unit: "Antal enheter:"
       custom: "Antal:"
     quantity_placeholder: Antal
     please_comment: Kommentar
@@ -1900,7 +2141,7 @@ sv:
       night: natt
       week: vecka
       month: månad
-      unit: ~
+      unit: enhet
     verification_required:
       verification_required: "Verifiering krävs"
   listing_conversations:
@@ -2069,17 +2310,16 @@ sv:
       username_is_invalid: "Detta användarnamn är ogiltigt. Tillåtna tecken är bokstäver, nummer och understreck."
       visible_only_to_you: "endast synlig för dig och %{service_name} admin"
       visible_to_everybody: "synlig för alla"
-      create_account_with_facebook: "Registrera dig med Facebook"
+      create_account_with_provider: ~
       OR: ELLER
       signup_with_email: "Registrering med e-post"
-      this_field_will_be_publicly_visible: ~
+      this_field_will_be_publicly_visible: "(Detta fält kommer att visas i din offentliga profil)"
     profile_feedback:
       grade: "betyg:"
       and_gave_following_feedback: "och gav följande feedback"
     profile_listings:
-      show_also_closed: "Visa avslutade också"
-      show_only_open: "Visa bara öppnade"
       no_image: "Ingen bild"
+      manage_listings: "Hantera alla mina annonser"
     show:
       contact: "Kontakta %{person}"
       about_me: "Om mig:"
@@ -2112,6 +2352,8 @@ sv:
       show_all_listings: "Visa alla annonser"
       show_all_open_listings: "Visa alla öppna annonser"
       show_all_reviews: "Visa alla recensioner"
+      admin_actions: "Admin åtgärder"
+      post_listing_as: "Skapa annons som"
     followed_people:
       you_follow_plural: "Du följer %{count} person"
       you_follow_singular: "Du följer %{count} personer"
@@ -2136,7 +2378,7 @@ sv:
       account_creation_link_text: "klicka här"
       cancle_facebook_connect: "Om du inte vill länka detta konto så kan du %{cancel_link}."
       facebook_cancel_link_text: avbryt
-      log_in_with_your_facebook_account: "Logga in via Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...eller med användarnamn och e-post:"
       we_will_not_post_without_asking_you: "Vi kommer aldrig att lägga ut något på Facebook utan att fråga dig."
     password_forgotten:
@@ -2223,7 +2465,7 @@ sv:
       display_name: "Synligt namn"
       display_name_description: "Om du representerar en organisation kan du använda organisationens namn som synligt namn. Det synliga namnet visas åt andra användare istället för ditt för och efternamn."
       location_description: "Du kan antingen ange hela din address eller t ex bara ditt postnummer eller stad. Det är också bra att lägga till ditt land då du väljer en plats. Till exempel: 753 20 Uppsala Sverige\" Eller \"Gustav Adolfsgatan 34,Malmö, Sverige\"."
-      profile_picture_description: ~
+      profile_picture_description: "Profilbilden bör vara i ett kvadratiskt format (1:1 ratio), till exempel, 800x800 pixlar. Annars kommer den att beskäras för att passa."
       phone_number: Telefonnummer
       profile_picture: Profilbild
       postal_code: Postnummer
@@ -2236,7 +2478,8 @@ sv:
       default_in_listing: "(används endast som standard när man skapar en ny annons)"
       invisible: "(visas inte för andra användare)"
       image_is_processing: "Din profilbild förbereds. Den kommer vara klar om några minuter."
-      shown_in_your_public_profile: ~
+      shown_in_your_public_profile: "(visas i din offentliga profil)"
+      editing_profile_of: "Du redigerar nu %{name}s profil"
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress
@@ -2456,6 +2699,7 @@ sv:
       signup: "Gå med"
       admin_dashboard: "Admin panel"
       language: Språk
+      listings: "Mina annonser"
     utils:
       km: km
       mi: ml
@@ -2489,16 +2733,8 @@ sv:
       multi_page_html: "Visar %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> av <b>%{count}</b> totalt"
     person:
       community_members_entries_info:
-        single_page:
-          zero: "Ingen %{model} hittad"
-          one: "Visar %{accepted_count} accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar %{accepted_count} accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        single_page_html:
-          zero: "Ingen %{model} hittad"
-          one: "Visar <b> %{accepted_count} </b> accepterad %{accepted_model} och %{banned_count} avspärrad %{banned_model}"
-          other: "Visar <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count} avspärrade %{banned_model}\n"
-        multi_page: "Visar %{model} %{from} till %{to} av %{accepted_count} accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
-        multi_page_html: "Visar %{model} <b>%{from} till %{to} </b> av <b>%{accepted_count}</b> accepterade %{accepted_model} och %{banned_count}} avspärrade %{banned_model}"
+        multi_page: ~
+        multi_page_html: ~
   stripe_accounts:
     admin_account_not_connected: "Att använda %{service_name} betalningssystem för att ta emot betalningar är inte möjligt på grund av att online betalningar har inte blivit aktivetar för marknadsplatsen. Vänligen kontakta %{contact_admin_link} för information."
     contact_admin_link_text: "kontakta %{service_name} administratör"
@@ -2554,6 +2790,7 @@ sv:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: Bankkontonummer
       bank_routing_number: Clearingnummer
@@ -2602,3 +2839,12 @@ sv:
     wrong_setup: "Det är något fel med marknadsplatsens betalsystem, platformen har inte blivit registrerad. Vänligen kontakta marknadsplatsens administratörer och meddela att de bör registrera platformen hos Stripe."
     invalid_bank_account_number: "Vänligen kontrollera att ditt banknummer är skrivet rätt och matchar ditt valda land."
     invalid_postal_code: "Ogiltig postnummer för %{country}"
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

@@ -8,6 +8,7 @@ module PaypalService::API::Invnum
 
   def create(community_id, transaction_id, type)
     raise ArgumentError.new("Illegal type: #{type} for invoice number.") unless VALID_TYPES.include? type
+
     "#{community_id}-#{transaction_id}-#{type}"
   end
 

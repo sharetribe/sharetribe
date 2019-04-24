@@ -63,7 +63,7 @@ describe ListingFormViewUtils do
 
     def expect_valid(params, shape_opts, unit = nil, valid_until_enabled = false)
       validate_res = validate(params, shape_opts, unit, valid_until_enabled)
-      expect(validate_res.success).to eq(true), ->() {validate_res.data}
+      expect(validate_res.success).to eq(true), -> {validate_res.data}
     end
 
     def expect_error(params, shape_opts, errors, unit = nil, valid_until_enabled = false)
@@ -110,10 +110,10 @@ describe ListingFormViewUtils do
 
     it "validates custom units" do
       shape_units = [{:type=>:hour, :quantity_selector=>:number}, {:type=>:custom, :name_tr_key=>"foo", :selector_tr_key=>"bar", :quantity_selector=>:number}]
-      req_unit = {:type=>:custom,
-                  :name_tr_key=>"foo",
-                  :selector_tr_key=>"bar",
-                  :quantity_selector=>:number}
+      req_unit = {:type => :custom,
+                  :name_tr_key => "foo",
+                  :selector_tr_key => "bar",
+                  :quantity_selector => :number}
       expect_valid({}, {units: shape_units}, req_unit)
     end
   end

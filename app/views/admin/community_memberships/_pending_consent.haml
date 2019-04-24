@@ -1,0 +1,7 @@
+= link_to t('admin.communities.manage_members.status_filter.pending'), '#', class: 'show-popup',
+  data: { popup_content_id: "#pending-consent-#{membership.id}" }
+.hidden{id: "pending-consent-#{membership.id}"}
+  .membership--pending-popup
+    %h2= t('admin.communities.manage_members.pending_user', name: member.full_name)
+    = t('admin.communities.manage_members.user_didnt_complete_the_signup_process')
+

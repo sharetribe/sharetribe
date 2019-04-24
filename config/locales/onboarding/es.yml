@@ -1,0 +1,146 @@
+es:
+  web:
+    admin:
+      onboarding:
+        guide:
+          cover_photo:
+            title: "Paso 3: Añade una foto de portada"
+            description: "Una buena foto de portada puede hacer la diferencia para un nuevo visitante entre unirse a la comunidad o no."
+            info_image_alt: "Una imagen de pantalla de una página con foto de portada"
+            add_your_own: "Añade una foto de portada"
+            advice:
+              content1: "Usa %{link_images} o checa %{link} acerca de dónde puedes encontrar excelentes fotos de portada gratuitas."
+              content2: "Nota: el tamaño de la imagen será modificado a %{width}x%{height} pixeles. Las partes superior e inferior de imágenes más altas serán recortadas."
+              link_images: "una de nuestras imagenes listas"
+              link: "nuestra guía"
+              alt_images: "6 fotos de portada listas para usarse y dónde encontrar mas"
+              alt: "Como hacer que las fotos de portada, los logos, las imagenes favicon, las imagenes de perfil y las de los anuncios se vean increiblemente bien?"
+          filter:
+            title: "Paso 4: Añade campos en los anuncios y filtros"
+            description:
+              content: "Los campos en los anuncios determinan la estructura de tu comunidad. Por ejemplo, si estás creando una comunidad para vender zapatos usados, quizás es buena idea añadir un campo para la talla del zapato. El vendedor deberá entonces indicar la talla del zapato en el momento de crear un nuevo anuncio. Si deseas permitir que los usuarios de tu comunidad puedan filtrar los anuncios por talla de zapatos, puedes seleccionar la opción de %{display_on_homepage} al momento de crear el campo."
+              display_on_homepage: "Crear un filtro basado en este campo en la página de inicio"
+            info_image_alt: "Una imagen de pantalla de la página con filtros"
+            add_fields_and_filters: "Añade campos & filtros"
+            advice:
+              content: "Los filtros son muy útiles para los usuarios, pero %{not_too_many_link}. Los usuarios pueden sentirse abrumados si hay demasiados filtros, además, cada filtro es un campo adicional que se debe llenar al crear un anuncio."
+              not_too_many_link: "evita usar demasiados"
+          invitation:
+            title: "Paso 7: Invita usuarios"
+            description:
+              content: "Satisfecho del funcionamiento y la imagen de tu comunidad? Quizás quieras hacer %{preview_link}? Si todo está listo, es momento de invitar usuarios!"
+              preview_link: "una última revisión"
+              preview_link_alt: "Vista previa"
+            info_image_alt: "Imagen de usuarios"
+            invite_users: "Invitar usuarios"
+            advice: "Invita a tus amigos primero y obten retroalimentación y comentarios de ellos."
+          listing:
+            title: "Paso 6: Publica tu primer anuncio"
+            description: "Los anuncios son el corazón de tu comunidad: los productos o servicios que algunos usuarios proveen a otros usuarios. Para hacer que tu comunidad se vea menos vacía y probar como funciona el proceso, añade un nuevo anuncio!"
+            info_image_alt: "Una imagen de pantalla de la página para Publicar un nuevo anuncio"
+            post_your_first_listing: "Publica tu primer anuncio"
+            advice:
+              content: "Eliminar un anuncio es fácil: abre el anuncio y selecciona %{close_listing}."
+              close_listing: "Cerrar anuncio"
+          next_step:
+            slogan_and_description: "Añade la descripción y el eslogan"
+            cover_photo: "Añade una foto de portada"
+            filter: "Añade campos en los anuncios y filtros"
+            paypal: "Configura los pagos en línea"
+            listing: "Publica tu primer anuncio"
+            invitation: "Invita usuarios"
+            skip_this_step_for_now: "Saltarse este paso por ahora"
+          payments:
+            title: "Step 5: Configura el sistema de pagos en línea"
+            description_p1: "Si quieres permitir que tus usuarios paguen y acepten pagos en línea, y recibir comisiones por ello, necesitas conectar un sistema de pagos. Sharetribe soporta Stripe y Paypal. Una vez conectado(s), necesitas elegir la cuota o comisión por transacción."
+            description_p2: "Alternativamente, puedes desactivar el sistema de pagos en línea por ahora."
+            info_image_alt: "Imagen de pantalla de la página de configuración de pagos"
+            disable_payments: "Desactivar pagos en línea"
+            setup_payments: "Configurar pagos en línea"
+            cta_separator: "o"
+            advice:
+              content: "Puedes leer más acerca de como desactivar los pagos en línea en %{disable_payments_link}."
+              disable_payments_link: "este artículo"
+              disable_payments_alt: "How to disable payments or add free listings to your marketplace"
+              content_paypal_stripe: "Lee más acerca de como deshabilitar el sistema de pagos en %{disable_payments_link} o lee más sobre %{stripe_paypal_link}."
+              stripe_paypal_link: "pagos en línea con Stripe y Paypal"
+            i_dont_want: "No quiero usar el sistema de pagos en línea, %{link}."
+            disable_it: "deshabilitarlo"
+          slogan_and_description:
+            title: "Paso 2: Añade la descripción y el eslogan"
+            description: "La descripción y el eslogan ayudan a los nuevos visitantes a entender el porqué de tu comunidad. Son la primera cosa que los usuarios ven al entrar a tu sitio, por eso intenta hacerlos descriptivos, claros y concisos."
+            info_image_alt: "Una imagen de pantalla que muestra la página con la descripción y el eslogan."
+            add_your_own: "Añade la descripción y el eslogan"
+            advice:
+              content: "Utiliza el eslogan para explicar rápidamente de qué trata tu comunidad. %{food_from_locals_slogan} o %{guitar_lessons_slogan} son buenos ejemplos. Con la descripción puedes detallar un poco más las ventajas principales de tu comunidad. %{food_from_locals_description} o %{guitar_lessons_description} son buenos ejemplos relacionados a los eslogans anteriores."
+              food_from_locals_slogan: "\"Compra comida local de gente local\""
+              guitar_lessons_slogan: "\"Aprende guitarra con un profesional\""
+              food_from_locals_description: "\"FoodMarket es la forma más sencilla de ordenar productos directamente de los productores locales\""
+              guitar_lessons_description: "\"GuitarPro es el mejor lugar para encontrar y comparar a los mejores maestros de guitarra\""
+          status_page:
+            title: "Bienvenido a tu comunidad, %{name}"
+            title_done: "Todo listo!"
+            description_p1: "Para tener tu comunidad lista y en funcionamiento, debes de seguir los pasos que se enlistan más abajo."
+            description_p2: "Una vez completados estos pasos, tu comunidad estará lista para recibir a sus primeros visitantes!"
+            congratulation_p1:
+              content: "Lo has conseguido! Tu comunidad esta lista y en funcionamiento. Sin embargo, este es solo el inicio. Sólo has visto una pequeña parte de las posibilidades de personalización que Sharetribe ofrece. Para aprender más acerca de como configurar tu comunidad, checa %{knowledge_base_link}."
+              knowledge_base_link: "nuestra base de conocimiento (Help Center)"
+              knowledge_base_alt: "Help Center"
+            congratulation_p2:
+              content: "Si deseas aprender más acerca de como hacer crecer tu comunidad como negocio, te recomendamos nuestra %{marketplace_guide_link} (en inglés)."
+              marketplace_guide_link: "guía práctica para hacer negocios con tu comunidad en línea"
+              marketplace_guide_alt: "link to marketplace academy"
+            congratulation_p3:
+              content: "Si tienes alguna pregunta, no dudes en %{contact_support_link}, estamos siempre dispuestos a ayudar!"
+              contact_support_link: "contactar a nuestro equipo de soporte"
+              contact_support_title: "Support"
+            create_your_marketplace: "Crea tu comunidad"
+            slogan_and_description: "Añade la descripción y el eslogan"
+            cover_photo: "Añade una foto de portada"
+            filter: "Añade campos en los anuncios y filtros"
+            paypal: "Configura los pagos en línea"
+            listing: "Publica un anuncio"
+            invitation: "Invita usuarios"
+          back_to_todo: "Regresar a la lista de pasos a completar"
+        topbar:
+          progress_label: "Progreso"
+          next_step: "Siguiente"
+          slogan_and_description: "Añade la descripción y el eslogan"
+          cover_photo: "Añade una foto de portada"
+          filter: "Añade campos en los anuncios y filtros"
+          paypal: "Configurar pagos en línea"
+          listing: "Publicar un anuncio"
+          invitation: "Invitar usuarios"
+  admin:
+    onboarding:
+      popup:
+        slogan_and_description:
+          title: "Muy bien, paso completado!"
+          body: "Fantastico! A continuación: escribir una buena descripción y un eslogan adecuado es la mejor manera de comunicar a los nuevos visitantes de que trata tu comunidad."
+          button: "Escríbelos!"
+        cover_photo:
+          title: "Bravo, paso completado!"
+          body: "Bien hecho, hay que seguir! Una buena foto de portada tiene un gran impacto en la primera impresión que dejas a los nuevos visitantes. Es momento de añadir la tuya!"
+          button: "Añade una foto de portada"
+        filter:
+          title: "Excelente!"
+          body: "Ahora hay que enfocarnos un poco en la funcionalidad. Los campos en los anuncios y los filtros le dan estructura a tu comunidad y ayudan a los usuarios a encontrar lo que estan buscando."
+          button: "Añade campos en los anuncios y filtros"
+        payment:
+          title: "Perfecto!"
+          body: "Hay que seguir con la configuración de pagos en línea dentro de tu comunidad! Para permitir que tus usuarios accepten pagos en línea, debes conectar tu cuenta de PayPal. Si lo prefieres, puedes desactivar el sistema de pagos en línea por el momento."
+          body_stripe: "A lo que sigue, configura tu comunidad para pagos en línea! Para permitir que tus usuarios acepten pagos en línea, debes conectar tu cuenta de PayPal o de Stripe. Alternativamente, puedes deshabilitar los pagos por ahora."
+          button: "Configurar pagos en línea"
+        listing:
+          title: "Buen trabajo!"
+          body: "Las configuraciones básicas de tu comunidad están listas, pero el sitio se ve un poco vacío. Es momento de añadir el primer producto o servicio: hay que publicar un anuncio."
+          button: "Publica tu primer anuncio"
+        invitation:
+          title: "...y ahora el paso final - comparte tu comunidad!"
+          body: "Estás contento con tu comunidad? Entonces es momento de invitar usuarios!"
+          button: "Invita usuarios"
+        all_done:
+          title: "Maravilloso, lo has logrado!"
+          body: "Felicidades! Tu comunidad esta lista. Sin embargo, este es sólo el inicio. Estamos aquí para ayudarte en cada paso del camino."
+          button: "Ver que hacer a continuación"
+        button_later: "Lo haré más tarde, gracias"

@@ -1,0 +1,99 @@
+- content_for :javascript do
+  ST.FooterMenu.init();
+
+- show_locales = available_locales.size > 1
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.footer.footer")
+
+= render "admin/left_hand_navigation", links: admin_links_for(@current_community)
+
+.left-navi-section
+  - disabled = @service.plan_footer_disabled?
+  - if disabled
+    .row
+      .col-12
+        .alert-box-warning
+          %p
+            %span.alert-box-icon<>
+              = icon_tag("alert", ["icon-fix"])
+            %span
+              = t("admin.communities.footer.offer_pro", upgrade_pro_plan_link: link_to(t("admin.communities.footer.upgrade_plan_link"), admin_plan_path)).html_safe
+
+  %h2= t("admin.communities.footer.footer")
+  = form_for @service.community, url: admin_footer_path, method: :patch,
+    html: {id: "footer-menu-form"} do |form|
+    %h3= t("admin.communities.footer.footer_enabled")
+    .row
+      .col-12
+        = form.check_box :footer_enabled, { disabled: disabled }
+
+    %h3= t("admin.communities.footer.footer_style")
+    .row
+      .col-12.footer-theme-radio-buttons
+        = form.collection_radio_buttons :footer_theme, @service.foter_themes, :key, :value
+
+    %h3= t("admin.communities.footer.menu_links")
+    #menu-links-table
+      .row.topbar-menu-container-padding.visible-tablet
+        .col-10
+          - if show_locales
+            .col-2
+              = label_tag do
+                = t("admin.communities.footer.language")
+          %div{class: show_locales ? "col-5" : "col-6"}
+            = label_tag do
+              = t("admin.communities.footer.title")
+          %div{class: show_locales ? "col-5" : "col-6"}
+            = label_tag do
+              = t("admin.communities.footer.url")
+
+    .row#menu-links
+      - @service.footer_menu_links.each do |footer_menu_link|
+        = form.fields_for :footer_menu_links, footer_menu_link do |fields|
+          = render "footer_menu_link", f: fields, disabled: disabled
+
+      - new_footer_menu_link = @service.new_footer_menu_link
+      = form.fields_for :footer_menu_links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
+        %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+          = render "footer_menu_link", f: fields, disabled: disabled
+
+    .row#menu-links-empty
+      .col-12
+        = t("admin.communities.menu_links.empty")
+
+    .row
+      .col-12
+        - if disabled
+          = t("admin.communities.footer.add")
+        - else
+          = link_to t("admin.communities.footer.add"), '#', class: "add-fields",
+            data: {id: new_footer_menu_link.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+    %h3= t("admin.communities.footer.social_links")
+    #menu-links-table
+      .row.topbar-menu-container-padding.visible-tablet
+        .col-10
+          .col-6
+            = label_tag do
+              = t("admin.communities.footer.social.title")
+          .col-6
+            = label_tag do
+              = t("admin.communities.footer.social.url")
+
+    .row#social-links
+      - @service.social_links.each do |social_link|
+        = form.fields_for :social_links, social_link do |fields|
+          = render "social_link", f: fields, disabled: disabled
+
+    %h3= t("admin.communities.footer.footer_copyright")
+    .row
+      .col-12
+        = form.text_area :footer_copyright, disabled: disabled
+
+    .row
+      .col-12
+        = form.button t("admin.communities.footer.save"), disabled: disabled

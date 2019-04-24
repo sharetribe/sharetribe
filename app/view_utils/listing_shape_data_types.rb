@@ -14,6 +14,7 @@ module ListingShapeDataTypes
 
   FORM_TRANSLATION = ->(h) {
     return if h.nil?
+
     unless h.all? { |(k, v)| k.is_a?(String) && v.is_a?(String) }
       {code: :form_translation_hash_format, msg: "Value must be a hash of { locale => translations }" }
     end

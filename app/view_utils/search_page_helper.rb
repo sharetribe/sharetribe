@@ -32,8 +32,8 @@ module SearchPageHelper
         locale_param: locale_param,
         current_path: current_path,
         landing_page: landing_page,
-        host_with_port: host_with_port,
-        }),
+        host_with_port: host_with_port
+        })
     }
   end
 
@@ -45,10 +45,10 @@ module SearchPageHelper
     {
       dropdowns: dropdown_field_options_for_search(params),
       checkboxes: checkbox_field_options_for_search(params),
-      numeric: numeric_field_options_for_search(params),
+      numeric: numeric_field_options_for_search(params)
     }.reject { |_, value|
       # all means the filter doesn't need to be included
-      value == "all" || value == ["all"]
+      value == "all" || value == ["all"] # rubocop:disable Style/MultipleComparison
     }
   end
 

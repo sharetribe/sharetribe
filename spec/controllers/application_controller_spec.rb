@@ -234,3 +234,39 @@ describe ApplicationController, type: :controller do
 
   end
 end
+
+describe ApplicationController, type: :controller do
+  render_views
+  controller do
+    def index
+      head :ok
+    end
+  end
+
+  describe '#disarm_custom_head_script' do
+    it "disables custom head script if disarm param present" do
+      get :index, params: {}
+      expect(assigns("disable_custom_head_script")).to eq(nil)
+      get :index, params: {:disarm => "true"}
+      expect(assigns("disable_custom_head_script")).to eq(true)
+    end
+  end
+end
+
+describe ApplicationController, type: :controller do
+  render_views
+  controller do
+    def index
+      head :ok
+    end
+  end
+
+  describe 'seo service for meta tags' do
+    it "initializes seo_service" do
+      community = FactoryGirl.create(:community)
+      request.env[:current_marketplace] = community
+      get :index, params: {}
+      expect(assigns("seo_service")).to be_kind_of(SeoService)
+    end
+  end
+end

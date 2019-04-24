@@ -119,10 +119,11 @@ ul {
   display: block;
   text-align: left;
   @include single-text-shadow;
-  background: #25567c;
+  background: rgb(68, 107, 175);
   min-height: 42px;
   &:hover {
     background: #6f99bc;
+    background: rgb(54, 88, 153);
   }
   @include border-radius(em(5));
 
@@ -354,6 +355,9 @@ form {
         width: 100%;
         margin: lines(0.5) 0 lines(0.5) 0;
         position: relative;
+      }
+      &.label-normal {
+        font-weight: normal;
       }
     }
 
@@ -1569,12 +1573,10 @@ input[type=text].delivery-price-field {
   .conversation-service-fee-value,
   .conversation-total-value,
   .conversation-shipping-price-value,
-  .conversation-stripe-fee-value {
-    float: right;
-    margin-right: lines(0.25);
-  }
+  .conversation-stripe-fee-value,
   .conversation-total-paypal-value {
     float: right;
+    margin-right: lines(0.25);
   }
   .conversation-total-wrapper {
     font-weight: bold;
@@ -2216,4 +2218,17 @@ figure.fluidratio {
 }
 .ui-tooltip {
   background-color: #ffffff;
+}
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  a, button {
+    color: currentColor;
+    display: inline-block;  /* For IE11/ MS Edge bug */
+    pointer-events: none;
+    text-decoration: none;
+    &.button {
+      background-color: #c3c3c3;
+    }
+  }
 }

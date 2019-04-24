@@ -16,13 +16,20 @@
 #
 # Indexes
 #
+#  community_person_status                      (community_id,person_id,status)
 #  index_community_memberships_on_community_id  (community_id)
 #  index_community_memberships_on_person_id     (person_id) UNIQUE
 #
 
 class CommunityMembership < ApplicationRecord
 
-  VALID_STATUSES = ["accepted", "pending_email_confirmation", "pending_consent", "banned", "deleted_user"]
+  VALID_STATUSES = [
+    ACCEPTED = "accepted".freeze,
+    PENDING_EMAIL_CONFIRMATION = "pending_email_confirmation".freeze,
+    PENDING_CONSENT = "pending_consent".freeze,
+    BANNED = "banned".freeze,
+    DELETED_USER = "deleted_user".freeze
+  ].freeze
 
   belongs_to :person
   belongs_to :community, :counter_cache => :members_count
@@ -35,10 +42,16 @@ class CommunityMembership < ApplicationRecord
   validate :person_can_join_community_only_once, :on => :create
   validates_inclusion_of :status, :in => VALID_STATUSES
 
-  scope :accepted, -> { where(status: 'accepted') }
+  scope :accepted, -> { where(status: ACCEPTED) }
+  scope :banned, -> { where(status: BANNED) }
+  scope :accepted_or_banned, -> { where(status: [ACCEPTED, BANNED]) }
   scope :admin, -> { where(admin: true) }
   scope :posting_allowed, -> { where(can_post_listings: true) }
-  scope :not_banned, -> { where("community_memberships.status <> 'banned'") }
+  scope :not_banned, -> { where("community_memberships.status <> ?", [BANNED]) }
+  scope :not_deleted_user, -> { where.not(status: DELETED_USER) }
+  scope :not_accepted, -> { where.not(status: ACCEPTED) }
+  scope :pending_email_confirmation, -> { where(status: PENDING_EMAIL_CONFIRMATION) }
+  scope :pending_consent, -> { where(status: PENDING_CONSENT) }
 
   def person_can_join_community_only_once
     if CommunityMembership.find_by_person_id_and_community_id(person_id, community_id)
@@ -51,15 +64,15 @@ class CommunityMembership < ApplicationRecord
   end
 
   def accepted?
-    status == "accepted"
+    status == ACCEPTED
   end
 
   def pending_consent?
-    status == "pending_consent"
+    status == PENDING_CONSENT
   end
 
   def pending_email_confirmation?
-    status == "pending_email_confirmation"
+    status == PENDING_EMAIL_CONFIRMATION
   end
 
   def pending?
@@ -67,6 +80,6 @@ class CommunityMembership < ApplicationRecord
   end
 
   def banned?
-    status == "banned"
+    status == BANNED
   end
 end

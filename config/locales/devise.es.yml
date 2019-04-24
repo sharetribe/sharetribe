@@ -1,9 +1,9 @@
 es:
   errors:
     messages:
-      expired: "Se ha caducado, por favor solicita uno nuevo"
+      expired: "ha caducado, por favor pide uno nuevo"
       not_found: "no encontrado"
-      already_confirmed: "ya ha sido confirmado, por favor intenta iniciar sesión nuevamente."
+      already_confirmed: "ya ha sido confirmada, por favor intenta iniciar sesión"
       not_locked: "no está bloqueada"
       not_saved:
         one: "1 error evitó guardar este %{resource}:"
@@ -13,45 +13,45 @@ es:
       already_authenticated: "Ya estás conectado."
       unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
-      locked: "Tu cuenta esta bloqueada."
-      invalid: "Contraseña o Email inválido."
+      locked: "Tu cuenta está bloqueada."
+      invalid: "Contraseña o Correo electrónico incorrecto."
       invalid_token: "Token de autenticación incorrecto."
-      timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
-      inactive: "Tu cuenta no está activada todavía."
+      timeout: "Tu sesión ha expirado. Por favor inicia sesión nuevamente para continuar."
+      inactive: "Tu cuenta aún no ha sido activada."
     passwords:
       updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
-      send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
-      send_instructions: "En pocos minutos recibirás un email con instrucciones para cambiar tu contraseña."
-      updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
+      send_paranoid_instructions: "Si tu correo está en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
+      send_instructions: "Recibirás un correo electrónico con instrucciones para cambiar tu contraseña en poco minutos."
+      updated: "Tu contraseña ha sido cambiada con éxito. Ahora estás conectado."
     sessions:
       signed_in: "Te has conectado correctamente."
       signed_out: "Has cerrado sesión correctamente."
     confirmations:
-      send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
-      send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
-      confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
+      send_paranoid_instructions: "Si tu correo está en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo electrónico con instrucciones para confirmar tu cuenta en pocos minutos."
+      confirmed: "Tu cuenta ha sido confirmada exitosamente."
     registrations:
-      signed_up_but_unconfirmed: "Un mensaje con un enlace de confirmación ha sido enviado a tu dirección e-mail. Por favor abre el enlace para activar tu cuenta."
+      signed_up_but_unconfirmed: "Un mensaje con un enlace de confirmación ha sido enviado a tu correo electrónico. Por favor abre el enlace para activar tu cuenta."
       signed_up_but_inactive: "Te has registrado exitosamente. Sin embargo, no puedes iniciar sesión porque tu cuenta todavía no ha sido activada."
       signed_up_but_locked: "Te has registrado exitosamente. Sin embargo, no puedes iniciar sesión porque tu cuenta está bloqueada."
       reasons:
         inactive: inactivo
         unconfirmed: "sin confirmar"
         locked: bloqueado
-      update_needs_confirmation: "Has actualizado tu cuenta correctamente, pero necesitamos verificar tu nueva dirección e-mail. Por favor revisa tu e-mail y haz click en el enlace de confirmación para finalizar con la verificación de tu nueva dirección e-mail."
-      signed_up: "Bienvenido! Te has registrado exitosamente."
+      update_needs_confirmation: "Tu cuenta fue actualizada con éxito, pero tenemos que verificar la nueva dirección de correo electrónico. Por favor revisa tu correo electrónico y haz click en el enlace de confirmación para verificar tu nuevo correo electrónico."
+      signed_up: "¡Bienvenido! Te has registrado correctamente."
       updated: "Has actualizado tu cuenta correctamente."
-      destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto."
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
     unlocks:
       send_paranoid_instructions: "Si tu cuenta existe, recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
-      unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
+      unlocked: "Tu cuenta ha sido desbloqueada. Por favor inicia sesión nuevamente para continuar."
     omniauth_callbacks:
-      success: "Correctamente autorizado desde la %{kind} cuenta."
-      failure: "No pudo ser autorizado desde %{kind} porque \"%{reason}\""
+      success: "Correctamente autorizado desde la cuenta %{kind}."
+      failure: "No pudo ser autorizado desde %{kind} porque \"%{reason}\"."
     mailer:
       confirmation_instructions:
-        subject: "Instrucciones de confirmación"
+        subject: "Instrucciones de confirmación para unirte a %{service_name}"
       reset_password_instructions:
         subject: "Instrucciones para cambiar tu contraseña"
       unlock_instructions:

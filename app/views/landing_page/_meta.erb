@@ -1,5 +1,5 @@
-<% if p["description"] %>
-  <meta name="description" content="<%= p["description"]["value"] %>" />
+<% if p["social_media_description"] %>
+  <meta name="description" content="<%= p["meta_description"]["value"] %>" />
 <% end %>
 
 <link rel="canonical" href="<%= url %>" />
@@ -22,13 +22,17 @@
 <% end %>
 
 <meta property="og:url" content="<%= url %>" />
-<meta property="og:title" content="<%= p["title"]["value"] %>" />
+<meta property="og:title" content="<%= p["social_media_title"]["value"] %>" />
 
-<% if p["description"] %>
-  <meta property="og:description" content="<%= p["description"]["value"] %>" />
+<% if p["social_media_description"] %>
+  <meta property="og:description" content="<%= p["social_media_description"]["value"] %>" />
 <% end %>
 
-<% if p["facebook_image"] %>
+<% if p["social_media_logo"]["value"] %>
+  <meta property="og:image" content="<%= p["social_media_logo"]["value"] %>" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="600" />
+<% elsif p["facebook_image"] %>
   <meta property="og:image" content="<%= p["facebook_image"]["src"] %>" />
 
   <% if p["facebook_image"]["content_type"] %>
@@ -54,15 +58,17 @@
   <meta name="twitter:creator" content="@<%= p["twitter_handle"]["value"] %>" />
 <% end %>
 
-<% if p["twitter_image"] %>
+<% if p["social_media_logo"]["value"] %>
+  <meta name="twitter:image" content="<%= p["social_media_logo"]["value"] %>" />
+<% elsif p["twitter_image"] %>
   <meta name="twitter:image" content="<%= p["twitter_image"]["src"] %>" />
 <% end %>
 
-<meta name="twitter:title" content="<%= p["title"]["value"] %>" />
+<meta name="twitter:title" content="<%= p["social_media_title"]["value"] %>" />
 <meta name="twitter:url" content="<%= url %>" />
 
-<% if p["description"] %>
-  <meta name="twitter:description" content="<%= p["description"]["value"] %>" />
+<% if p["social_media_description"] %>
+  <meta name="twitter:description" content="<%= p["social_media_description"]["value"] %>" />
 <% end %>
 
 <% if p["google_site_verification"] %>

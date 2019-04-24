@@ -1,4 +1,3 @@
-# coding: utf-8
 module TransactionService::Process
   Gateway = TransactionService::Gateway
   Worker = TransactionService::Worker

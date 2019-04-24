@@ -5,7 +5,7 @@ require_relative '../../app/utils/context_runner'
 
 describe ContextRunner do
 
-  module EnterMW # :nodoc:
+  module EnterMW
     def enter(ctx)
       enters = ctx[:enters] || []
       enters << name
@@ -14,7 +14,7 @@ describe ContextRunner do
     end
   end
 
-  module LeaveMW # :nodoc:
+  module LeaveMW
     def leave(ctx)
       leaves = ctx[:leaves] || []
       leaves << name
@@ -23,7 +23,7 @@ describe ContextRunner do
     end
   end
 
-  module ErrorRaiseMW # :nodoc:
+  module ErrorRaiseMW
     def error(ctx)
       errors = ctx[:errors] || []
       errors << name
@@ -32,7 +32,7 @@ describe ContextRunner do
     end
   end
 
-  module ErrorResolveMW # :nodoc:
+  module ErrorResolveMW
     def error(ctx)
       errors = ctx[:errors] || []
       errors << name
@@ -42,19 +42,19 @@ describe ContextRunner do
     end
   end
 
-  module EnterRaiseMW # :nodoc:
+  module EnterRaiseMW
     def enter(ctx)
       raise StandardError.new("middleware enter failed")
     end
   end
 
-  module LeaveRaiseMW # :nodoc
+  module LeaveRaiseMW
     def leave(ctx)
       raise StandardError.new("middleware leave failed")
     end
   end
 
-  class TestMiddlewareEL # :nodoc:
+  class TestMiddlewareEL
     include EnterMW
     include LeaveMW
 
@@ -64,7 +64,7 @@ describe ContextRunner do
     end
   end
 
-  class TestMiddlewareE # :nodoc:
+  class TestMiddlewareE
     include EnterMW
 
     attr_reader :name
@@ -73,7 +73,7 @@ describe ContextRunner do
     end
   end
 
-  class TestMiddlewareL # :nodoc:
+  class TestMiddlewareL
     include LeaveMW
 
     attr_reader :name

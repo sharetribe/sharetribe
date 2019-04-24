@@ -168,27 +168,33 @@ hi-IN:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: ~
         general: ~
@@ -219,6 +225,7 @@ hi-IN:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -232,6 +239,7 @@ hi-IN:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
+        pre_approved_listings: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -253,6 +261,22 @@ hi-IN:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -264,6 +288,12 @@ hi-IN:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -281,6 +311,67 @@ hi-IN:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -292,8 +383,14 @@ hi-IN:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: ~
+        menu_links_display: ~
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -306,6 +403,15 @@ hi-IN:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -314,6 +420,19 @@ hi-IN:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: ~
@@ -371,10 +490,18 @@ hi-IN:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -387,6 +514,16 @@ hi-IN:
           skipped: ~
           published: ~
           blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: ~
           save: ~
@@ -396,8 +533,30 @@ hi-IN:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -408,8 +567,50 @@ hi-IN:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -661,6 +862,8 @@ hi-IN:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -673,6 +876,7 @@ hi-IN:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -794,6 +998,7 @@ hi-IN:
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: ~
       total_value: ~
@@ -839,6 +1044,7 @@ hi-IN:
     message:
       accepted_request: ~
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -848,8 +1054,10 @@ hi-IN:
       canceled_offer: ~
       paid: ~
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: ~
@@ -1064,7 +1272,9 @@ hi-IN:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1080,6 +1290,7 @@ hi-IN:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1104,7 +1315,7 @@ hi-IN:
       subtotal: ~
       total: ~
       price: ~
-      service_fee: ~
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1170,6 +1381,24 @@ hi-IN:
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1238,6 +1467,7 @@ hi-IN:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1484,8 +1714,8 @@ hi-IN:
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      could_not_get_email_from_facebook: ~
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: ~
       create_one_here: ~
       email_confirmation_sent_to_new_address: ~
@@ -1601,6 +1831,8 @@ hi-IN:
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1629,6 +1861,10 @@ hi-IN:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: ~
     error:
@@ -1709,6 +1945,9 @@ hi-IN:
         origin: ~
       send_button:
         save_listing: ~
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: ~
         borrow: ~
@@ -1788,6 +2027,7 @@ hi-IN:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: ~
       selected_category: ~
@@ -1801,6 +2041,7 @@ hi-IN:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
@@ -2025,7 +2266,7 @@ hi-IN:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: ~
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2033,9 +2274,8 @@ hi-IN:
       grade: ~
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: ~
-      show_only_open: ~
       no_image: ~
+      manage_listings: ~
     show:
       contact: ~
       about_me: ~
@@ -2068,6 +2308,8 @@ hi-IN:
       show_all_listings: ~
       show_all_open_listings: ~
       show_all_reviews: ~
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2092,7 +2334,7 @@ hi-IN:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: ~
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -2193,6 +2435,7 @@ hi-IN:
       invisible: ~
       image_is_processing: ~
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: ~
   shipping_address:
     shipping_address: ~
@@ -2384,6 +2627,7 @@ hi-IN:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2457,6 +2701,7 @@ hi-IN:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
@@ -2505,3 +2750,12 @@ hi-IN:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

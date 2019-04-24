@@ -16,9 +16,9 @@ module PaypalService::API::RequestWrapper
   end
 
   def parse_policy(policy)
-    [ Maybe(policy[:codes_to_retry]).or_else([]),
-      Maybe(policy[:try_max]).or_else(1),
-      Maybe(policy[:finally]).or_else(method(:log_and_return)) ]
+    [Maybe(policy[:codes_to_retry]).or_else([]),
+     Maybe(policy[:try_max]).or_else(1),
+     Maybe(policy[:finally]).or_else(method(:log_and_return))]
   end
 
   def try_operation(retry_codes, try_max, &op)

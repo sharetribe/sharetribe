@@ -1,0 +1,2800 @@
+lt:
+  number:
+    currency:
+      format:
+        separator: ~
+        delimiter: ~
+        format: ~
+  admin:
+    categories:
+      edit:
+        edit_listing_category: "Redaguoti %{category} kategoriją"
+      index:
+        listing_categories: "Skelbimų kategorijos"
+        create_a_new_category: "+ Sukurti naują kategoriją"
+        remove_category_confirmation: "Ar tikrai norite pašalinti %{category_name} kategoriją. Tai neatšaukiama."
+        saving_order: "Kategorijų eiliškumas saugomas"
+        save_order_successful: "Kategorijų eiliškumas išsaugotas sėkmingai"
+        save_order_error: "Saugant kategorijų eiliškumą įvyko klaida. Prašome perkrauti puslapį ir bandyti dar kartą."
+      new:
+        new_listing_category: "Nauja skelbimų kategorija"
+      form:
+        category_name:
+          category_title: "Kategorijos pavadinimas"
+        category_parent:
+          category_parent: "Pagrindinė kategorija"
+          no_parent: "Be pagrindinės"
+        category_transaction_types:
+          transaction_types: "Užsakymų tipai"
+          transaction_types_description: "Užsakymų tipai nustato leidžiamus užsakymų apdorojimus šioje kategorijoje. Pavyzdžiui, ar tai tik pardavimui, ar nuoma ir atidavimas nemokamai taip pat leidžiama."
+          select_all: ~
+          clear_all: ~
+        buttons:
+          save: Išsaugoti
+          cancel: Atšaukti
+      remove:
+        remove_category: "Pašalinti kategoriją"
+        remove_category_name: "Pašalinti %{category_name} kategoriją"
+        warning_remove_effects: "Įspėjimas! %{category_name} kategorijos pašalinimo rezultatai:"
+        warning_listing_will_be_moved:
+          one: "Šioje kategorijoje yra %{count} skelbimas. Jis bus perkeltas į pasirinktą kategoriją."
+          few: "Šioje kategorijoje yra %{count} skelbimai. Jie bus perkeltas į pasirinktą kategoriją."
+          other: "Šioje kategorijoje yra %{count} skelbimai. Jie bus perkeltas į pasirinktą kategoriją."
+        warning_custom_field_will_be_moved:
+          one: "Šioje kategorijoje yra %{count} nestandartinis laukelis. Jis bus perkeltas į pasirinktą kategoriją."
+          few: "Šioje kategorijoje yra %{count} nestandartiniai laukeliai. Jie bus perkeltas į pasirinktą kategoriją."
+          other: "Šioje kategorijoje yra %{count} nestandartiniai laukeliai. Jie bus perkeltas į pasirinktą kategoriją."
+        warning_subcategory_will_be_removed:
+          one: "Kategorijoje yra %{count} subkategorija. Ji bus pašalinta."
+          few: "Kategorijoje yra %{count} subkategorijos. Jos bus pašalintos."
+          other: "Kategorijoje yra %{count} subkategorijos. Jos bus pašalintos."
+        warning_with_subcategories_listing_will_be_moved:
+          one: "Kategorijoje ir subkategorijose yra %{count} skelbimas. Jis bus perkeltas į pasirinktą kategoriją."
+          few: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
+          other: "Kategorijoje ir subkategorijose yra %{count} skelbimai. Jie bus perkelti į pasirinktą kategoriją."
+        warning_with_subcategories_custom_field_will_be_moved:
+          one: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartinis laukelis. Jis bus perkeltas į pasirinktą kategoriją."
+          few: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartiniai laukeliai. Jie bus perkelti į pasirinktą kategoriją."
+          other: "Šioje kategorijoje ir subkategorijose yra %{count} nestandartiniai laukeliai. Jie bus perkelti į pasirinktą kategoriją."
+        select_new_category: "Pasirinkite naują kategoriją, į kurią bus perkelti skelbimai viršuje:"
+        buttons:
+          remove: Pašalinti
+          cancel: Atšaukti
+    communities:
+      edit_details:
+        community_details: "Pagrindiniai nustatymai"
+        community_look_and_feel: Dizainas
+        edit_community: "Pagrindiniai nustatymai"
+        enabled_languages: ~
+        enabled_languages_description: ~
+        default_language: ~
+        language_selection_disabled: ~
+        community_name: "Turgaus pavadinimas"
+        edit_community_name_description: "Jūsų turgaus pavadinimas. Jis rodomas vartotojams el. laiškuose ir kitose vietose."
+        community_slogan: "Turgaus šūkis"
+        community_slogan_display: ~
+        edit_community_slogan_description: "Tai rodomo pagrindiniame turgaus puslapyje vartotojams, kurie yra prisijungę. %{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
+        community_description: "Turgaus aprašymas"
+        community_description_display: ~
+        edit_community_description_description: "Tai rodomo pagrindiniame turgaus puslapyje vartotojams, kurie yra prisijungę. %{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
+        community_search_placeholder: "Paieškos pagalbinis tekstas"
+        edit_community_search_placeholder_description: "Tai bus rodoma pagrindinio puslapio paieškos laukelyje. %{see_how_it_looks_like}"
+        private_community_homepage_content: "Privataus turgaus pagrindinio puslapio turinys"
+        edit_private_community_homepage_content_description: "Šis turinys rodomas privataus turgaus pagrindiniame puslapyje neprisijungusiems vartotojams. Čia galite aprašyti savo turgų ir prisijungimo procesą. Taip pat galite pridėti paveiksliukus, video ir HTML. %{see_how_it_looks_like}."
+        update_information: "Išsaugoti nustatymus"
+        invite_people: "Pakviesti naujus vartotojus"
+        edit_signup_info: "Registracijos informacija"
+        edit_signup_info_description: "Šis informacinis tekstas gali būti rodomas vartotojams registracijos puslapyje. Galite nurodyti registracijos instrukcijas, informaciją kur gauti pakvietimą ir t.t. Numatytuose nustatymuose instrukcijų nėra."
+        edit_info: "Redaguoti informaciją"
+        see_how_it_looks_like: "Pažiūrėti kaip tai atrodo"
+        verification_to_post_listings_info_content: "Informacinis tekstas nepatvirtintiems vartotojams"
+        verification_to_post_listings_info_content_description: "Šiuo metu jūs vartotojus turite patvirtinti pats manualiai prieš jiems keliant skelbimus. Čia galite nustatyti tekstą, kuris bus rodomas nepatvirtintiems vartotojams kai jie bandys įkelti skelbimą."
+        verification_to_post_listings_info_content_default: "%{service_name} reikalauja, kad žmonės būtų patvirtinti administatoriaus prieš jiems keliant skelbimus. Jūs nesate patvirtintas. Susisiekite su %{contact_admin_link}, kad būtumėte patvirtintas."
+        contact_admin_link_text: "Susisiekite su %{service_name} komanda"
+        save: "Išsaugoti nustatymus"
+        transaction_agreement: "Sandorio sutartis"
+        transaction_agreement_checkbox: "Reikalauti vartotojų sutikti su sutartimi prieš sandorį"
+        transaction_agreement_checkbox_header: "Sutarties kortelė"
+        transaction_agreement_checkbox_label_description: "Šis tekstas bus rodomas šalia žymėjimo laukelio atsiskaitymo formoje. Vartotojas privalės pažymėti laukelį prieš tęsdamas sandorį. Pavyzdinis tekstas galėtų būti \"Pažymėdamas šį laukelį sutinku su šia sutartimi.\""
+        transaction_agreement_text_header: "Sutarties tekstas"
+        transaction_agreement_description: "Čia yra sutarties turinys, kurį vartotojas turi patvirtinti. Sutarties turinys rodomas, kai vartotojas paspaudžia %{read_more} nuorodą sutarties kortelėje."
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Koreguoti turgaus %{community_name} išvaizdą"
+        community_logo: Logo
+        community_logo_icon: "Logo socialiniams tinklams ir mobiliesiems prietaisams"
+        community_logo_icon_mobile: ~
+        community_cover_photo: "Viršelio nuotrauka"
+        small_community_cover_photo: "Maža viršelio nuotrauka"
+        favicon: Favicon
+        favicon_info_text: "Favicon pakeis numatytą Sharetribe logo. Dydis turėtų būti 32x32 pikseliai, o įkeltas paveiksliuko dydis bus pakeistas į šį dydį."
+        community_custom_color1: "Pagrindinė turgaus spalva"
+        community_slogan_color: ~
+        community_slogan_color_instructions_text: ~
+        community_description_color: ~
+        community_description_color_instructions_text: ~
+        new_listing_button_custom_color: ~
+        logo_instructions_text_with_dimensions: "Logo dydis turi būti %{width}x%{height} pikseliai. Jis bus rodomas vartotojams didesniuose ekranuose."
+        logo_instructions_text_with_dimensions_no_placing: ~
+        logo_icon_instructions_text_with_dimensions: "Kvadratinis logo bus rodomas, kai žmonės pasidalins puslapiu Facebook, kai puslapis bus žiūrimas mobiliuose įrenginiuose ar kai vartotojai išsaugos puslapio žymę mobiliojo įrenginio pagrindiniame ekrane. Dimensijos turi būti (bent) %{width}x%{height} pikselių."
+        logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
+        cover_photo_visibility: "Viršelio nuotrauka bus rodoma pagrindiniame puslapyje neprisijungusiems vartotojams."
+        cover_photo_instructions_text_with_dimensions: "Fotografijos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesnės nuotraukos bus kerpamos per vidurį. %{see_how_it_looks_like}"
+        small_cover_photo_visibility: "Maža viršelio nuotrauka rodoma visuose puslapiuose, išskyrus pagrindinį puslapį, vartotojams, kurie nėra prisijungę."
+        small_cover_photo_instructions_text_with_dimensions: "Nuotraukos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesni paveiksliukai bus kerpami per vidurį."
+        main_content_width: "Renkantis viršelio nuotrauką atkreipkite dėmesį, kad puslapio turinio didžiausias plotis yra %{main_width} pikseliai. Nepamirškite patikrinti kaip viršelio nuotrauka atrodo mažesniuose ekranuose (pvz. naudojant siauresnį naršyklės langą)."
+        custom_color1_instructions_text: "Pagrindinę vartotojo sąsajos spalvą galite pakeisti įvedę 'hex' spalvos vertę. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> gali jums padėti pasirinkti spalvą ir pateiks spalvos kodą. Spalvos kodą galite įrašyti čia."
+        new_listing_button_instructions_text: ~
+        default_browse_view: "Numatytasis peržiūros rodymas"
+        default_browse_view_instructions_text: "Numatytasis peržiūros rodymas naudojamas pagrindiniame puslapyje nustatant kaip bus rikiuojami skelbimai"
+        grid: Tinklelis
+        list: Sąrašas
+        map: Žemėlapis
+        name_display_type: "Pavadinimo rodymo tipas"
+        name_display_type_instructions_text: "Nustatyti, kaip puslapyje bus rodomas kiekvieno vartotojo vardas"
+        full_name: "Pilnas vardas (Vardas Pavardė)"
+        first_name_with_initial: "Vardas ir inicialas (Vardas P.)"
+        first_name_only: "Tik vardas (Vardas)"
+        invalid_color_code: "Spalvos kodas privalo turėti 6 skaitmenis ar raides, pvz. D96E21."
+        custom_head_script: "Nestandartinis skriptas"
+        custom_head_script_instructions_text: "Šis skritptas bus įterptas į <head> žymą kiekviename puslapyje ir gali būti naudojamas įterpti nestandartinį CSS, JavaScript ar HTML. Atkreipkite dėmesį, kad po Sharetribe pasikeitimų ateityje jūsų skriptas gali tapti nesuderinamu."
+        current_image: ~
+      edit_text_instructions:
+        edit_text_instructions: "Instrukcijų tekstai"
+      edit_welcome_email:
+        welcome_email_content: "Pasveikinimo laiško turinys"
+        welcome_email_content_description: "Žinutė žemiau bus siunčiama kiekvienam naujai prisijungusiam vartotojui. Šią žinutę galite pakeisti, kad ji tiktų jūsų turgui. Paspaudus %{send_test_message_link} galite nusiųsti parodomąją žinutę į savo paštą, kad galėtumėte pamatyti, kaip ji atrodo."
+        edit_message: "Redaguoti žinutę"
+        send_test_message: "Siųsti bandomąją žinutę"
+      outgoing_email:
+        title: ~
+        info: ~
+        read_more: ~
+        sender_address: ~
+        sender_address_default: ~
+        need_to_change: ~
+        contact_support_link_text: ~
+        set_sender_address: ~
+        sender_name_label: ~
+        sender_name_placeholder: ~
+        sender_email_label: ~
+        sender_email_placeholder: ~
+        amazon_ses_notification: ~
+        this_is_how_it_will_look: ~
+        send_verification_button: ~
+        change_sender_email: ~
+        successfully_saved: ~
+        successfully_saved_name: ~
+        set_sender_name: ~
+        change_sender_name: ~
+        change_sender_prompt: ~
+        status: ~
+        status_verified: ~
+        status_error: ~
+        status_requested: ~
+        status_expired: ~
+        status_resent: ~
+        resend_link: ~
+        invalid_email_error: ~
+        invalid_email_domain: ~
+        invalid_email_domain_read_more_link: ~
+        unknown_error: ~
+        white_label_offer: ~
+        upgrade_plan_link: ~
+        verification_sent_from: ~
+        follow_the_instructions: ~
+      getting_started:
+        getting_started: Pradėti
+      available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
+        en: ~
+        en-AU: ~
+        en-GB: ~
+        es: ~
+        es-ES: ~
+        fi: ~
+        fr: ~
+        fr-CA: ~
+        el: ~
+        it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
+      settings:
+        settings: Nustatymai
+        general: Bendri
+        access: "Prieigos nustatymai"
+        join_with_invite_only: "Leisti naujiems vartotojams prisijungti tik su kvietimu iš kito registruoto vartotojo"
+        users_can_invite_new_users: "Leisti visiems vartotojams, ne tik administratoriams, kviesti vartotojus"
+        private: "Leisti tik registruotiems vartotojams matyti skelbimus ir vartotojų profilius (padaryti turgų privatų)"
+        require_verification_to_post_listings: "Leisti tik administratorių patvirtintiems vartotojams kurti skelbimus"
+        search_preferences: ~
+        default_search_type: ~
+        keyword_search: ~
+        keyword_and_location_search: ~
+        location_search: ~
+        select_distance_unit: ~
+        km: ~
+        miles: ~
+        show_only_nearby: ~
+        listing_preferences: "Skelbimų nustatymai"
+        transaction_preferences: "Kiti nustatymai"
+        show_listing_publishing_date: "Rodyti skelbimo sukūrimo datą skelbimo puslapyje"
+        show_category_in_listing_list: "Rodyti skelbimo tipą sąrašo vaizde"
+        listing_comments_in_use: "Leisti vartotojams skelbti komentarus skelbimuose (matoma visiems vartotojams)"
+        email_preferences: "El. pašto nustatymai"
+        automatic_newsletters: "Siųsti automatinius dieninius / savaitinius naujienlaiškius vartotojams (nebent jie to atsisakę)"
+        email_admins_about_new_members: "Siųsti administratoriams laišką užsiregistravus naujam vartotojui"
+        google_analytics_key: "Google Analytics sekimo ID"
+        twitter_handle: "Twitter vardas (naudojamas 'tweet' mygtukui skelbimo puslapyje)"
+        update_settings: "Išsaugoti nustatymus"
+        automatically_confirmed_no_escrow: "Užsakymai automatiškai bus pažymėti kaip baigti praėjus %{days_dropdown} dienoms po apmokėjimo"
+        automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        automatic_newsletter_frequency: "Siųsti automatinį naujienlaiškį: %{frequency_dropdown}"
+        newsletter_daily: "Kas dieną"
+        newsletter_weekly: "Kas savaitę"
+        delete_marketplace_title: ~
+        type_marketplace_domain: ~
+        type_marketplace_domain_placeholder: ~
+        once_you_delete: ~
+        are_you_sure: ~
+        i_understand_button: ~
+        last_community_updates: ~
+        you_will_be_redirected_to: ~
+        delete_this_marketplace: ~
+        payment_preferences: ~
+        pre_approved_listings: ~
+      manage_members:
+        manage_members: Vartotojai
+        email: "El. paštas"
+        name: Vardas
+        display_name: ~
+        join_date: Prisijungė
+        admin: Administratorius
+        posting_allowed: "Leidžiamas skelbimų įkėlimas"
+        ban_user: Uždrausti
+        saving_user_status: Saugoma...
+        save_user_status_successful: Išsaugota
+        export_all_as_csv: ~
+        save_user_status_error: "Saugojimas nepavyko. Prašome perkraukite puslapį ir bandyti dar kartą."
+        ban_user_confirmation: "Vartotojas bus pašalintas iš turgaus ir negalės patekti į puslapį su šia paskyra. Ar tikrai norite tęsti?"
+        unban_user_confirmation: ~
+        ban_me_error: ~
+        search: ~
+        search_by_name_email: ~
+        reset_search: ~
+        for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
+      new_layout:
+        new_layout: ~
+        description_roadmap_new: ~
+        enabled_for_you: ~
+        enabled_for_all: ~
+        new_topbar: ~
+        searchpage: ~
+      social_media:
+        social_media: "Socialiniai tinklai"
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
+        twitter_handle: "Twitter vardas"
+        twitter_handle_info_text: "Jūsų turgaus Twitter paskyros pavadinimas (jei tokį turite). Jis bus minimas kai žmonės naudos 'tweet' mygtuką skelbimo puslapyje."
+        twitter_handle_info_text_with_instructions: "Jūsų turgaus Twitter paskyros pavadinimas (jei tokį turite). Jis bus minimas kai žmonės naudos 'tweet' mygtuką skelbimo puslapyje. %{instructions_link}"
+        twitter_instructions_link_text: "Sužinoti daugiau"
+        twitter_handle_placeholder: "vartotojo vardas"
+        invalid_twitter_handle: "Twitter vardas turėtų susidėti iš maksimum 15 raidinių ir skaitinių (raidės A-Z ir skaičiai 0-9) simbolių."
+        facebook_connect: "Facebook prisijungimas"
+        facebook_connect_info_text: "Kad aktyvuotumėte Facebook prisijungimą, sukurkite programą savo turgui <a href='https://developers.facebook.com/'>Facebook Developers Dashboard</a>. Įrašykite sugeneruotą programos ID ir slaptą raktą čia."
+        facebook_connect_info_text_with_instructions: ~
+        facebook_instructions_link_text: ~
+        facebook_connect_id: "Facebook programos ID"
+        invalid_facebook_connect_id: "Programos ID turėtų susidėti tik iš skaičių."
+        facebook_connect_secret: "Facebook programos slaptas raktas"
+        invalid_facebook_connect_secret: "Programos slaptas raktas turėtų susidėti iš skaičių ir raidžių nuo a iki f."
+        enable_facebook_login: ~
+        save: "Išsaugoti nustatymus"
+        add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
+      analytics:
+        analytics: Analizė
+        google_analytics_key: "Google Analytics sekimo ID"
+        google_analytics_key_info_text: "Google Analytics paskyros sekimo ID"
+        google_analytics_key_info_text_with_instructions: ~
+        google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
+        save: "Išsaugoti nustatymus"
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
+      menu_links:
+        menu_links: "Nestandartinės meniu nuorodos"
+        menu_links_display: ~
+        save: "Išsaugoti nustatymus"
+        add_menu_link: "Pridėti naują nuorodą į meniu"
+        title_placeholder: "Nuorodos pavadinimas"
+        url_placeholder: "https://pavyzdys.com/en"
+        title: Pavadinimas
+        language: Kalba
+        url: URL
+        empty: "Neturite papildomų meniu nuorodų"
+        max_number_of_links: ~
+        all: ~
+        max_number_of_links_info: ~
+        about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
+      topbar:
+        topbar: ~
+        new_listing_button_label: ~
+        invalid_post_listing_button_label: ~
+      transactions:
+        export_all_as_csv: ~
+        processing_export: ~
+        transactions: Sandoriai
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
+        headers:
+          conversation: Pokalbiai
+          listing: Skelbimas
+          status: Statusas
+          sum: Suma
+          started: Pradėta
+          last_activity: "Paskutinė veikla"
+          initiated_by: Iniciatorius
+          other_party: "Kita pusė"
+        status:
+          conversation: ~
+          free: "Nemokamas sandoris"
+          pending: Laukiama
+          preauthorized: "Pavirtinas iš anksto"
+          accepted: Priimtas
+          rejected: Atmestas
+          paid: Sumokėta
+          confirmed: Baigtas
+          canceled: Atšauktas
+          initiated: "Laukiama PayPal mokėjimo"
+          pending_ext: "Laukiama PayPal mokėjimo"
+          none:
+            free: ~
+          paypal:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+          stripe:
+            free: ~
+            pending: ~
+            preauthorized: ~
+            accepted: ~
+            rejected: ~
+            paid: ~
+            confirmed: ~
+            canceled: ~
+            initiated: ~
+            pending_ext: ~
+        not_available: ~
+      conversations:
+        conversations: ~
+        headers:
+          started_from: ~
+          status: ~
+          started: ~
+          last_activity: ~
+          initiated_by: ~
+          other_party: ~
+        participants: ~
+        profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
+    custom_fields:
+      edit:
+        edit_listing_field: "Redaguoti skelbimo %{field_name} laukelį"
+      edit_price:
+        description: ~
+        edit_price_field: "Redaguoti skelbimo laukelį 'Kaina'"
+        show_price_filter_homepage: "Rodyti kainos filtrą pagrindiniame puslapyje"
+        price_min: "Filtro minimali kaina"
+        price_max: "Filtro maksimali kaina"
+      edit_location:
+        edit_location_field: "Redaguoti skelbimo laukelį 'Vieta'"
+        this_field_is_required: "Šis laukelis yra privalomas"
+      edit_expiration:
+        edit_expiration_field: ~
+        enable: ~
+      form:
+        field_required:
+          this_field_is_required: "Padaryti laukelio užpildymą privalomu kuriant skelbimą"
+          this_field_is_required_checkbox: "Kuriant skelbimą, laukelį padaryti privalomu užpildyti (vartotojas turi pasirinkti bent vieną galimybę)"
+        search_filter:
+          search_filter: ~
+          date_cant_be_filtered: ~
+          text_cant_be_filtered: ~
+      index:
+        listing_fields: "Skelbimų laukeliai ir filtrai"
+        listing_fields_help: "Čia galite redaguoti laukelius, kuriuos vartotojas turės užpildyti kuriant skelbimą. Atkreipkite dėmesį, kad kai kurie laukeliai jau yra sukurti ir negali būti redaguojami."
+        add_new_field: "Pridėti naują laukelį"
+        remove_field_confirmation: "Ar tikrai norite ištrinti %{field_name} laukelį ir visą jo informaciją? Tai neatšaukiama."
+        cancel: Atšaukti
+        save: Išsaugoti
+        field_title: "Laukelio pavadinimas"
+        field_type: "Laukelio tipas"
+        categories: "Skelbimų kategorijos kur bus naudojamas filtras"
+        select_all: ~
+        clear_all: ~
+        options: Parinktys
+        add_option: "+ Pridėti pasirinkimą"
+        saving_order: "Laukelių eiliškumas saugomas"
+        save_order_successful: "Laukelių eiliškumas išsaugotas sėkmingai"
+        save_order_error: "Saugant laukelių eiliškumą įvyko klaida. Prašome perkrauti puslapį ir bandyti dar kartą."
+        select_one: "Pasirinkite laukelio tipą"
+        continue: Tęsti
+        minimum_value: Minimumas
+        maximum_value: Maksimumas
+        allow_decimals: "Leisti dešimtainius skaičius"
+      new:
+        new_listing_field: "Naujas skelbimo laukelis"
+      field_types:
+        text: Tekstas
+        number: Skaičius
+        dropdown: Išskleidžiamas
+        checkbox_group: "Žymimieji langeliai"
+        date: Data
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
+    emails:
+      new:
+        send_email_to_members: "Siųsti laišką vartotojams"
+        send_email_to_members_title: "Siųsti laišką vartotojams"
+        send_email: "Siųsti laišką"
+        send_email_or: ~
+        send_test_email: ~
+        test_sent: ~
+        send_email_article_title: ~
+        send_email_article_text: ~
+        recipients:
+          title: ~
+          options:
+            all_users: ~
+            posting_allowed: ~
+            with_listing: ~
+            with_listing_no_payment: ~
+            with_payment_no_listing: ~
+            no_listing_no_payment: ~
+        email_subject: "El. laiško tema"
+        email_content: "El. laiško turinys"
+        email_content_placeholder: "Ką norite pasakyti vartotojams?"
+        email_language: "Laiško gavėjų kalba"
+        any_language: "Bet kokia kalba"
+        message_will_be_sent_only_to_people_with_this_language: "Laiškas bus išsiųstas tik vartotojams, kurie naudoja %{service_name} pasirinkta kalba."
+        email_sent: "Laiškas išsiųstas."
+        to_improve_email_deliverability: ~
+        email_subject_text: ~
+        firstname_cannot_be_removed: ~
+        hello_firstname: ~
+        hello_firstname_text: ~
+    left_hand_navigation:
+      general: Bendra
+      users_and_transactions: Tvarkyti
+      configure: Konfigūruoti
+      emails_title: "El. laiškai"
+      subscription: ~
+      preview: ~
+    listing_shapes:
+      availability_title: ~
+      read_more: ~
+      read_more_availability_management: ~
+      allow_providers_to_manage_availability: ~
+      per_hour_availability: ~
+      per_day_availability: ~
+      per_night_availability: ~
+      pricing_units_disabled_info: ~
+      can_not_find_name: ~
+      index:
+        listing_shapes: ~
+        description: ~
+        read_more_about_order_types: ~
+        add_new_shape: ~
+        select_template: ~
+        all_categories: ~
+        no_categories: ~
+        category_count: ~
+        header:
+          listing_shape_name: ~
+          listing_shape_categories: ~
+        order:
+          saving_order: ~
+          save_order_successful: ~
+          save_order_error: ~
+      templates:
+        selling_products: ~
+        renting_products: ~
+        offering_services: ~
+        giving_things_away: ~
+        requesting: ~
+        announcement: ~
+        custom: ~
+      new:
+        create_listing_shape: ~
+        create: ~
+        cancel: ~
+        create_success: ~
+        create_failure: ~
+      edit:
+        edit_listing_shape: ~
+        update: ~
+        cancel: ~
+        update_success: ~
+        update_failure: ~
+        delete: ~
+        can_not_delete_last: ~
+        can_not_delete_only_one_in_categories: ~
+      listing_shape_name: ~
+      listing_shape_name_placeholder: ~
+      action_button_label: ~
+      action_button_placeholder: ~
+      successfully_closed: ~
+      successfully_deleted: ~
+      pricing_and_checkout_title: ~
+      online_payments_label: ~
+      shipping_label: ~
+      price_label: ~
+      units_title: ~
+      units_desc: ~
+      units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+        unit: ~
+      can_not_find: ~
+      add_custom_unit: "+ Pridėti nestandartinį kainos vienetą…"
+      delete_custom_unit: ~
+      custom_unit_form:
+        title: ~
+        label_heading: ~
+        selector_label_heading: ~
+        label_placeholder: ~
+        selector_placeholder: ~
+        per: ~
+        unit_type:
+          heading: ~
+          quantity_label: ~
+          time_label: ~
+    paypal_accounts:
+      marketplace_paypal_integration: "Mokėjimo sistemos nustatymai"
+      preferences_updated: "Mokėjimo sistemos parinktys atnaujintos"
+      contact_support_link_text: ~
+      integration_info_text: ~
+      link_paypal_personal_account_label: ~
+      link_paypal_personal_account: ~
+      link_stripe_personal_account: ~
+      link_paypal_and_stripe_personal_account: ~
+      personal_payment_preferences_link_text: ~
+      read_more_about_paypal: ~
+      edit_payment_settings: ~
+      supported_currencies_information_text: ~
+      currency_change_warning_text: ~
+      marketplace_currency_label: ~
+      minimum_listing_price_label: "Minimali sandorio suma:"
+      transaction_fee_label: "Pardavėjo sandorio mokestis:"
+      minimum_transaction_fee_label: ~
+      save_settings: "Išsaugoti nustatymus"
+      minimum_listing_price_below_tx_fee: ~
+      minimum_listing_price_below_min: ~
+    payment_preferences:
+      title: ~
+      general_settings: ~
+      connect_a_payment_provider: ~
+      contact_support: ~
+      no_payments_link_text: ~
+      your_country: ~
+      you_cannot_use_online_payments: ~
+      which_to_choose: ~
+      you_can_use_stripe_or_paypal: ~
+      you_can_use_stripe_only: ~
+      read_more_stripe: ~
+      you_can_use_paypal_only: ~
+      read_more_paypal: ~
+      read_more_about_paypal_and_stripe: ~
+      general_settings_updated: ~
+      transaction_fee_settings_updated: ~
+      choose_popup_text: ~
+      invalid_api_keys: ~
+      missing_api_keys: ~
+      stripe_verified: ~
+      change_settings: ~
+      configure_stripe: ~
+      configure_paypal: ~
+      transaction_fee_settings: ~
+      transaction_fee_save: ~
+      stripe_fee: ~
+      stripe_fee_notice: ~
+      fee_should_be_less_than_minimum_price: ~
+      confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
+      stripe_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      paypal_connected:
+        title: ~
+        disable: ~
+        disabled: ~
+        enable: ~
+      cannot_enable_gateway: ~
+      cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
+      stripe_form:
+        add_your_api_keys: ~
+        how_to_get_these: ~
+        publishable_key_example: ~
+        secret_key_example: ~
+        save_api_keys: ~
+        invalid_secret: ~
+        invalid_publishable: ~
+      index:
+        header: ~
+        info: ~
+        active: ~
+        gateway: ~
+        process: ~
+        commission: ~
+        minimum_price: ~
+        minimum_fee: ~
+        api_verified: ~
+        actions: ~
+        payments_not_enabled: ~
+    transaction_types:
+      sell: Parduodama
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
+      rent: Išnuomojama
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
+      give: Atiduodama
+      lend: Skolinama
+      swap: Keičiamasi
+      service: Siūloma
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
+      request: Prašoma
+      inquiry: Pranešimas
+      share_for_free: "Dalijasi nemokamai"
+      default_action_button_labels:
+        sell: Pirkti
+        rent: Nuomoti
+        request: Siūlyti
+        offer: Prašyti
+        inquiry: Kontaktuoti
+  common:
+    edit_page: "Redaguoti puslapį"
+    default_community_slogan: "Bendruomenės turgus"
+    default_community_description: "Tai vieta parduoti, nuomoti, keistis ir dalintis daiktais ir paslaugomis su kitais bendruomenės turgaus nariais"
+    cancel: Atšaukti
+    fields_that_are_mandatory: "Laukai pažymėti žvaigždute (*) yra privalomi"
+    or: ar
+    password: Slaptažodis
+    service_name: "%{service_name}"
+    share_types:
+      request: prašymas
+      offer: pasiūlymas
+      borrow: skolintis
+      buy: perka
+      give_away: atiduoda
+      lend: skolina
+      receive: "ima nemokamai"
+      rent: nuomoja
+      rent_out: išnuomoja
+      sell: parduoda
+      offer_to_swap: keitimasis
+      request_to_swap: keitimasis
+      share_for_free: "dalijasi nemokamai"
+      accept_for_free: "nori naudotis nemokamai"
+    categories:
+      item: Daiktai
+      favor: Paslaugos
+      rideshare: Pavežėjimas
+      housing: Erdvės
+      tools: Įrankiai
+      sports: Sportas
+      music: Muzika
+      books: "Knygos ir žurnalai"
+      games: "Žaidimai ir žaislai"
+      furniture: Baldai
+      outdoors: "Stovyklavimas ir lauko veikla"
+      food: "Maistas ir virtuvė"
+      electronics: Elektronika
+      pets: Gyvūnai
+      film: Filmai
+      clothes: "Drabužiai ir aksesuarai"
+      garden: Sodas
+      travel: Kelionės
+      other: Kita
+    username: "Vartotojo vardas"
+    username_or_email: "Elektroninis paštas arba vartotojo vardas"
+    what_is_this: "Kas tai?"
+    removed_user: "Pašalintas vartotojas"
+    payment_fee_info:
+      title: "Komisiniai ir mokėjimo aptarnavimo mokestis"
+      stripe: Stripe
+      paypal: PayPal
+      info: ~
+    paypal_fee_info:
+      title: "PayPal mokėjimo aptarnavimo mokestis"
+      body_text: ~
+      body_text_accept: ~
+      link_to_paypal_text: čia
+    stripe_fee_info:
+      title: "Stripe mokėjimo aptarnavimo mokestis"
+      body_text: ~
+      link_to_stripe_text: čia
+  conversations:
+    accept:
+      details: ~
+      order_by: ~
+      accept_offer: "Priimti pasiūlymą"
+      accept_request: "Priimti prašymą"
+      reject_offer: "Ne šį kartą"
+      reject_request: "Ne šį kartą"
+      close_listing: "Uždaryti %{listing_title_link} skelbimą"
+      update_later: "Palikti skelbimą aktyviu"
+      optional_message: "Žinutė pasirinktinai"
+      price_to_pay: "Bendra mokėjimo kaina"
+      accept: ~
+      decline: ~
+      quantity_label: ~
+      sum_label: ~
+      service_fee_label: ~
+      buyer_service_fee_label: ~
+      you_will_get_label: ~
+      total_label: ~
+      total_value: ~
+      total_value_paypal: ~
+      total_value_stripe: ~
+      paypal_fee_info: ~
+      payment_fee_info: ~
+      shipping_price_label: ~
+      stripe-fee_label: ~
+    confirm:
+      confirm_description: "Jei jūsų užsakymas buvo įvykdytas, turėtumėte jį pažymėti kaip baigtą. Tada galėsite palikti atsiliepimą kitai pusei."
+      cancel_description: "Jei jūsų užsakymas nebuvo įvykdytas, galite jį pažymėti kaip 'ginčijamą'. Jūs vis tiek galite palikti atsiliepimą kitai pusei ir papasakoti kas nutiko."
+      cancel_payed_description: "Jei jūsų prašymas buvo patvirtintas, bet dvejojate, vis tiek galite atšaukti prašymą prieš mokėjimą."
+      canceling_payed_transaction: "Atšaukti sandorį"
+      confirm: "Pažymėti baigtu"
+      cancel: Ginčyti
+      continue: Tęsti
+      give_feedback_to: "Palikti atsiliepimą %{person_link}"
+      do_not_give_feedback: "Praleisti atsiliepimą"
+    details:
+      day: diena
+      days: dienos
+      price_per_day: "Kaina už dieną: %{price}"
+    index:
+      loading_more_messages: "Kraunama daugiau žinučių"
+      message_partitive: žinutė
+      messages_partitive: žinutės
+      no_received_messages: "Jokių žinučių"
+      no_sent_messages: "Jokių išsiųstų žinučių"
+    conversation:
+      accepted_request: "Prašymas priimtas."
+      accepted_offer: "Pasiūlymas priimtas."
+      rejected_request: "Prašymas atmestas."
+      rejected_offer: "Pasiūlymas atmestas."
+      confirmed_request: "Užsakymas baigtas."
+      confirmed_offer: "Pasiūlymas baigtas."
+      canceled_request: "Užsakymas atšauktas."
+      canceled_offer: "Pasiūlymas atšauktas."
+      message_from: "Žinutė nuo %{person}"
+      about_listing: "Apie %{listing_title} skelbimą"
+      free_message: "Tiesioginė žinutė"
+      message_content_not_available: ~
+    message:
+      accepted_request: "sutiko su prašymu"
+      received_payment: ~
+      received_payment_wo_sum: ~
+      accepted_offer: "sutiko su pasiūlymu"
+      rejected_request: "atmetė prašymą, atšaukė mokėjimą"
+      rejected_offer: "atmetė pasiūlymą"
+      confirmed_request: "pažymėjo užsakymą kaip baigtą"
+      confirmed_offer: "pažymėjo prašymą kaip baigtą"
+      canceled_request: "atšaukė užsakymą"
+      canceled_offer: "atšaukė pasiūlymą"
+      paid: "sumokėjo %{sum}"
+      payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
+      stripe:
+        held_payment: ~
+        held_payment_wo_sum: ~
+        confirmed_request: ~
+    new:
+      message: Žinutė
+      message_to: "Žinutė %{author_name}"
+      optional_message_to: "Neprivaloma žinutė %{author_name}"
+      send_message: "Siųsti žinutę"
+      send: Siųsti
+      this_message_is_private: "Ši žinutė yra privati tarp jūsų ir %{person}. %{person} apie šią žinutę bus pranešta el. paštu."
+      you_will_get_notified_of_acceptance: "Jūs gausite laišką, kai %{person} priims arba atmes jūsų pasiūlymą."
+      you_will_get_notified: "Jūs gausite laišką, kai %{person} jums atsakys."
+      title: Pavadinimas
+      send_message_to_user: "Siųsti žinutę %{person}"
+      about_listing: "Apie %{listing_title} skelbimą"
+      author_has_to_accept_request: "%{author_name} turi sutikti su prašymu, kad galėtumėte sumokėti"
+    show:
+      in_response_to_listing: "apie skelbimą"
+      message_sent_by: "Žinutė siųsta"
+      message_sent_to: "Žinutė siųsta"
+      send_reply: "Siųsti atsakymą"
+      write_a_reply: "Rašyti atsakymą"
+      conversation_about_listing: "Su %{person} dėl %{listing}"
+      conversation_with_user: "Su %{person}"
+      conversation_with: "Pokalbis su %{person}"
+      last_message_at: "(paskutinės žinutės %{time})"
+      price: "Kaina: %{price}"
+      sum: "Iš viso: %{sum}"
+      total: "Iš viso: %{total}"
+    status:
+      payment_errored: ~
+      payment_errored_starter: ~
+      payment_errored_author: ~
+      cancel_payed_transaction: Atšaukti
+      feedback_given: "Atsiliepimas suteiktas"
+      feedback_skipped: "Atsiliepimas praleistas"
+      give_feedback: "Palikti atsiliepimą"
+      offer_accepted: Priimtas
+      offer_rejected: Atmestas
+      offer_canceled: Atšauktas
+      offer_confirmed: Baigtas
+      offer_paid: "Mokėjimas sėkmingas"
+      offer_preauthorized: "Mokėjimas sėkmingas"
+      offer_waiting_for_payment: "Laukiama, kol %{requester_name} sumokės"
+      pay: Mokėti
+      preauthorized: "Mokėjimas sėkmingas"
+      paid: "Mokėjimas sėkmingas"
+      pending_external:
+        paypal:
+          multicurrency: ~
+          verify: ~
+          intl: ~
+      waiting_for_current_user_to_deliver_listing: ~
+      waiting_for_listing_author_to_deliver_listing: ~
+      request_accepted: Priimtas
+      request_rejected: Atmestas
+      request_confirmed: Baigtas
+      request_canceled: Atšauktas
+      request_paid: "Mokėjimas sėkmingas"
+      request_preauthorized: ~
+      skip_feedback: "Praleisti atsiliepimą"
+      waiting_for_listing_author_to_accept_offer: "Laukiama kol %{listing_author_name} sutiks su pasiūlymu"
+      waiting_for_listing_author_to_accept_request: "Laukiama kol %{listing_author_name} sutiks su prašymu. Sumokėsite iškart, kai %{listing_author_name} sutiks."
+      waiting_for_you_to_accept_request: "Laukiama, kol sutiksite su prašymu"
+      waiting_confirmation_from_requester: "Laukiama, kol %{requester_name} pažymės užsakymą kaip baigtą."
+      waiting_confirmation_from_you: "Laukiama, kol pažymėsite užsakymą baigtu"
+      waiting_payment_from_requester: "Laukiama, kol %{requester_name} sumokės"
+      waiting_payment_from_you: "Laukiama, kol sumokėsite"
+      waiting_feedback_from_you: "Laukiama, kol paliksite atsiliepimą"
+      pending_external_inbox:
+        paypal:
+          multicurrency: ~
+          intl: ~
+          unknown_reason: ~
+          verify: ~
+      stripe:
+        waiting_confirmation_from_requester: ~
+    status_link:
+      accept_offer: "Priimti pasiūlymą"
+      accept_request: "Priimti prašymą"
+      reject_offer: "Ne šį kartą"
+      reject_request: "Ne šį kartą"
+      accept_preauthorized_offer: "Priimti pasiūlymą"
+      accept_preauthorized_request: "Priimti prašymą"
+      reject_preauthorized_offer: "Ne šį kartą"
+      reject_preauthorized_request: "Ne šį kartą"
+      confirm: "Pažymėti baigtu"
+      cancel: Ginčyti
+  feedback:
+    feedback_subject: ~
+    feedback_body: ~
+    unlogged_user: ~
+    anonymous_user: ~
+  community_memberships:
+    access_denied:
+      access_denied: "Priėjimas draudžiamas"
+      you_are_banned_in_this_community: "Komanda neleido jums patekti į %{service_name}. Jei norite susisiekti su %{service_name} komanda, galite %{link_to_contact_page}."
+      contact_page_link: "susisiekti su jais"
+    new:
+      welcome_fb_user: "Sveiki prisijungę prie %{service_name}, %{name}"
+      fb_join_accept_terms: "Dar vienas žingsnelis prieš prisijungiant prie %{service_name}: turite sutikti su naudojimo sąlygomis."
+      join_community: "Prisijungti prie %{service_name}"
+      you_can_join: "Galite prisijungti prie %{service_name} sutikdami su naudojimo sąlygomis ir paspausdami 'Prisijungti prie %{service_name}' žemiau."
+      you_can_join_email_confirmation: "Prisijungimui prie %{service_name} jums reikia veikiančio el. pašto adreso, kuris baigiasi %{email_ending}. Galite prisijungti užpildydant savo el. pašto adresą, sutinkant su naudojimo sąlygomis, paspausdami 'Prisijungti prie %{service_name}' žemiau ir patvirtindami savo el. paštą."
+      you_can_join_email_confirmation_multiple_addresses: "%{service_name} turi el. pašto apribojimus. Galite prisijungti tik jei turite leidžiamą el. pašto adresą. Galite prisijungti užpildydant savo el. pašto adresą, sutinkant su%{service_name} naudojimo sąlygomis, paspausdami 'Prisijungti prie %{service_name}' žemiau ir patvirtindami savo el. paštą."
+      you_can_join_with_invite_only: "%{service_name}. Jei turite pakvietimo kodą, galite prisijungti įvesdami kodą laukelyje žemiau, sutikdami su naudojimo sąlygomis ir paspausdami 'Prisijungti prie %{service_name}' žemiau."
+      if_want_to_view_content: "Jei norite žiūrėti %{service_name} turinį neprisijungę kaip narys, turite"
+      log_out: atsijungti
+      join_community_button: "Prisijungti prie %{service_name}"
+    give_consent:
+      invitation_code_invalid_or_used: ~
+      email_not_allowed: ~
+      email_not_available: ~
+      consent_not_given: ~
+  emails:
+    accept_reminder:
+      remember_to_accept_offer: "Prisiminkite priimti arba atmesti %{sender_name} pasiūlymą"
+      remember_to_accept_request: "Prisiminkite priimti arba atmesti %{sender_name} prašymą"
+      you_can_accept_or_reject_offer_at: "Galite priimti ar atmesti pasiūlymą čia"
+      you_can_accept_or_reject_request_at: "Galite priimti ar atmesti prašymą čia"
+      you_have_not_yet_accepted_or_rejected_offer: "Jūs dar nepriėmėte arba neatmetėte pasiūlymo %{title}, kurį gavote %{date}"
+      you_have_not_yet_accepted_or_rejected_request: "Jūs dar nepriėmėte arba neatmetėte prašymo %{title}, kurį gavote %{date}"
+      show_thread: "Rodyti pokalbį"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "Jūs dar nebaigėte ar neatšaukėte %{request_link} užsakymo. Jei užsakymas buvo baigtas, turėtumėte tai pavirtinti. Po to galite palikti atsiliepimą %{other_party_given_name}."
+      remember_to_confirm_request: "Prisiminkite patvirtinti ar atšaukti prašymą"
+      if_will_not_happen_you_should_cancel: "Jei manote, kad šis užsakymas nebus baigtas dėl vienos ar kitos priežasties, galite %{cancel_it_link}."
+      cancel_it_link_text: atšaukti
+      automatic_confirmation: "Jei nepatvirtinsite ar neatšauksite užsakymo per %{days_to_automatic_confirmation} dienas po sutikimo su prašymu, mes automatiškai pažymėsime jį kaip baigtą."
+    payment_settings_reminder:
+      remember_to_add_payment_details: "Nepamirškite pridėti savo mokėjimo informaciją, kad priimtumėte mokėjimus"
+      you_have_added_listing_with_payment: "Įkėlėte %{listing_link} skelbimą su mokėjimu, tačiau nepridėjote savo mokėjimo informacijos. Norint priimti mokėjimus, pridėkite savo mokėjimo informaciją."
+      please_go_to_payment_settings: "Prašome nueiti į jūsų %{payment_settings_link} ir užpildyti reikiamą mokėjimo informaciją."
+      payment_settings_link: "mokėjimo nustatymai"
+    transaction_confirmed:
+      here_is_a_message_from: "Žinutė nuo %{other_party_given_name}:"
+      request_marked_as_confirmed: "Užsakymas baigtas - prisiminkite palikti atsiliepimą"
+      request_marked_as_canceled: "Užsakymas atšauktas"
+      has_marked_request_as_confirmed: "%{other_party_full_name} pažymėjo '%{request}' užsakymą baigtu. Dabar galite palikti atsiliepimą %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} atšaukė %{request} užsakymą. Jūs vis tiek galite palikti atsiliepimą %{other_party_given_name}."
+      giving_feedback_is_good_idea: "Atsiliepimo palikimas yra visada gera idėja. Jei viskas įvyko sklandžiai, leiskite kitiems žinoti, kad %{other_party_given_name} galima pasitikėti. Jei buvo bėdų, galite paminėti ir jas."
+      give_feedback_to: "Palikti atsiliepimą %{other_party_given_name}"
+      stripe:
+        has_marked_request_as_confirmed: ~
+    transaction_automatically_confirmed:
+      subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
+      we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo %{days_passed} dienos nuo tada kai prašymas buvo priimtas."
+    booking_transaction_automatically_confirmed:
+      subject: "Užsakymas baigtas automatiškai - nepamirškite palikti atsiliepimą"
+      we_have_marked_request_as_confirmed: "Užsakymą dėl '%{request}' pažymėjome kaip baigtą. Užsakymas buvo pažymėtas kaip baigtas automatiški nes praėjo viena diena nuo tada kai rezervacijos periodas baigėsi."
+    automatically_confirmed_footer:
+      giving_feedback_is_good_idea: ~
+      give_feedback_to: "Palikti atsiliepimą %{other_party_given_name}"
+      show_thread: "Rodyti pokalbį"
+    confirmation_instructions:
+      confirmation_instructions_signature: "Linkėjimai, <br/> %{service_name} Team"
+      need_to_confirm: "Kad prisijungtumėte prie %{service_name}, patvirtinkite el. paštą paspausdami mygtuką žemiau."
+      confirmation_link_text: "Patvirtinti mano adresą"
+      or_paste_link: "Taip pat, galite nukopijuoti nuorodą į savo naršyklės adreso juostą:"
+    common:
+      hey: "Sveiki %{name}"
+      kassi_team: "%{service_name} komanda"
+      thanks: "Ačiū,"
+      dont_want_to_receive_these_emails: "Nenorite gauti šių laiškų?"
+      edit_your_email_settings_here: "Redaguoti jūsų laiškų nustatymus čia"
+      message_not_displaying_correctly: "Šis laiškas atvaizduojamas neteisingai?"
+      view_it_in_your_browser: "Peržiūrėti naršyklėje"
+      or: ar
+      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails: "Atšaukti šių laiškų prenumeratą"
+      unsubscribe_from_invitation_emails_info: ~
+      unsubscribe_from_invitation_emails: ~
+    conversation_status_changed:
+      has_accepted_your_offer: "%{accepter} priėmė jūsų pasiūlymą %{listing}"
+      has_accepted_your_request: "%{accepter} priėmė jūsų prašymą %{listing}"
+      has_rejected_your_offer: "%{accepter} atmetė jūsų pasiūlymą %{listing}"
+      has_rejected_your_request: "%{accepter} atmetė jūsų prašymą %{listing}"
+      view_thread: "Rodyti pokalbį"
+      your_offer_was_accepted: "Jūsų pasiūlymas buvo priimtas"
+      your_offer_was_rejected: "Jūsų pasiūlymas buvo atmestas"
+      your_request_was_accepted: "Jūsų prašymas buvo priimtas"
+      your_request_was_rejected: "Jūsų prašymas buvo atmestas"
+      you_can_now_pay_to: "Galite sumokėti prašomą sumą %{payment_receiver}."
+      pay_now: "Mokėti dabar"
+      remember_to_confirm: "Kai užsakymas bus baigtas, nepamirškite jį pažymėti kaip baigtą. Jei užsakymas nebus baigtas, turite %{days_to_automatic_confirmation} dienas jam atšaukti. Kitaip jis bus pažymėtas kaip baigtas automatiškai."
+    invitation_to_kassi:
+      hi: Labas!
+      you_have_been_invited_to_kassi: "%{inviter} pakvietė jus į %{service_name}."
+      here_is_a_message_from: "Asmeninė žinutė iš %{inviter}:"
+      join_now: "Prisijungti dabar"
+      invitation_code: "Pakvietimo kodas: %{code}"
+    new_comment:
+      has_commented_your_listing_in_kassi: "%{author} pakomentavo jūsų skelbime '%{listing}'."
+      view_comment: "Rodyti komentarą"
+      you_have_a_new_comment: "%{author} pakomentavo jūsų skelbime dėl %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} pakomentavo skelbime, kurį sekate %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} pakomentavo skelbime '%{listing}', kurį jūs sekate %{service_name}."
+    new_message:
+      view_message: "Rodyti žinutę"
+      has_sent_you_a_message_in_kassi: "%{sender} parašė jums žinutę dėl %{service_name}"
+      you_have_a_new_message: "Nauja žinutė dėl %{service_name} iš %{sender_name}"
+    new_payment:
+      new_payment: "Gavote naują mokėjimą"
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: "%{payer_full_name} jums buvo sumokėjo <b>%{payment_sum}</b> už <b>%{listing_title}</b>. Štai jūsų kvitas."
+      listing_per_unit_title: ~
+    payment_receipt_to_seller:
+      payment_gateway_fee: ~
+      shipping_total: ~
+      product: ~
+      price_payer_paid: ~
+      subtotal: ~
+      service_fee: ~
+      buyer_service_fee: ~
+      you_will_get: ~
+      new_payment: ~
+      price_per_unit_type: ~
+      quantity: ~
+      you_have_received_new_payment: ~
+      stripe:
+        you_have_received_new_payment: ~
+    payment_receipt_to_payer:
+      receipt_of_payment: ~
+      you_have_made_new_payment: ~
+      product: ~
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      buyer_service_fee: ~
+      total: ~
+      price: ~
+      service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
+    paypal_new_payment:
+      paypal_gateway_fee: ~
+      shipping_total: ~
+    braintree_new_payment:
+      product: "Produktas:"
+      price_payer_paid: "%{payer_full_name} sumokėta kaina:"
+      service_fee: "%{service_name} paslaugos mokestis:"
+      you_will_get: "Iš viso:"
+    receipt_to_payer:
+      receipt_of_payment: "Mokėjimo kvitas"
+      you_have_made_new_payment: "Jūs sumokėjote <b>%{payment_sum}</b> %{recipient_full_name} už <b>%{listing_title}</b>. Štai čia mokėjimo kvitas."
+      product: Produktas
+      price_per_unit_type: ~
+      duration: ~
+      quantity: ~
+      subtotal: ~
+      total: "Iš viso"
+      price: Kaina
+      buyer_service_fee: ~
+      stripe_gateway_fee: ~
+      paypal_gateway_fee: ~
+      money_will_be_transferred: ~
+      listing_per_unit_title: ~
+      stripe:
+        you_have_made_new_payment: ~
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} jums paliko atsiliepimą dėl %{service_name}"
+      you_can_give_feedback_to: "Jūs dar nepalikote atsiliepimo %{name}"
+      view_feedback: "Rodyti atsiliepimus"
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: "Skelbimas, kurį sekate buvo atnaujintas"
+      has_updated_listing_you_follow_in_kassi: "%{author} atnaujino skelbimą '%{listing}', kurį jūs sekate %{service_name}."
+      view_changes: "Rodyti pokyčius"
+    community_updates:
+      added_offer: "%{name_link} įkėlė skelbimą:"
+      added_request: "%{name_link} įkėlė skelbimą:"
+      added_listing: "%{name_link} įkėlė skelbimą:"
+      update_mail_title: "%{title_link} atnaujinimas"
+      title_link_text: "%{community_name}"
+      intro_paragraph: "Štai keletas dalykų, kurie nutiko %{community_link} per pastarąsias %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name}"
+      reduce_email_footer_text: "Per daug laiškų? %{settings_link} arba %{unsubscribe_link}."
+      settings_link_text: "Redaguoti jūsų laiškų nustatymus čia"
+      unsubscribe_link_text: "Atsisakyti prenumeratos"
+    newsletter:
+      hi: "Sveiki %{name},"
+      newest_offers: "Ką šiuo metu žmonės siūlo kitiems"
+      newest_requests: "Ko žmonėms šiuo metu reikia"
+      text_version_text: "Gal galite pasidalinti kažkuo, ko kitiems reikėtų? Arba gal jums reikia to, ką kiti galėtų turėti? Pridėkite pasiūlymą ar prašymą, arba pažiūrėkite viską ką kiti siūlo ar prašo čia %{url}"
+    reset_password_instructions:
+      change_my_password: "Pakeisti slaptažodį"
+      reset_password_instructions: "<p>Jūs nurodėte, kad pamiršote savo %{service_name} vartotojo vardą arba slaptažodį.</p><p>Jūsų vartotojo vardas yra: %{username}</p><p>Jei norite atstatyti slaptažodį, paspauskite šią nuorodą: %{password_reset_link}</p><br/><p>Jei to neprašėte, prašome ignoruoti šį laišką. Jūsų slaptažodis nebus pakeistas tol kol nepaspausite nuorodos aukščiau ir sukursite naują.</p>"
+    testimonial_reminder:
+      remember_to_give_feedback_to: "Priminimas: primename parašyti atsiliepimą %{name}"
+      you_have_not_given_feedback_yet: "Jūs nepalikote atsiliepimo %{name} apie '%{event}' renginį. Nepamirškite palikti atsiliepimą kaip %{given_name} pasirodė renginyje."
+    transaction_preauthorized:
+      subject: "%{requester} susidomėjo ir patvirtino mokėjimą dėl %{listing_title} skelbimo paskelbto %{service_name}."
+      transaction_requested_by_user: "Geros naujienos! %{requester} susidomėjo \"%{listing_title}\" skelbimu ir patvirtino mokėjimą dėl šio skelbimo."
+      you_have_time_to_accept: ~
+      if_you_do_accept: ~
+      if_you_do_accept_stripe: ~
+      if_you_do_not_accept: ~
+      click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
+    transaction_preauthorized_reminder:
+      subject: "Nepamirškite sutikti su prašymu iš %{requester} dėl %{listing_title} skelbimo"
+      remember_to_accept: "Nepamirškite sutikti su prašymu iš %{requester} dėl \"%{listing_title}\" skelbimo. %{requester} jau yra sumokėjęs už šį skelbimą. Turite priimti prašymą, kad gautumėte mokėjimą."
+      one_day_left: "Jei nepriimsite prašymo per vieną dieną, prašymas bus atšauktas automatiškai ir negausite mokėjimo."
+      click_here_to_reply: "Spauskite čia, kad atsakytumėte į prašymą"
+    welcome_email:
+      welcome_email_subject: "Sveiki prisijungę prie %{service_name}"
+      welcome_to_marketplace: "Sveiki prisijungę prie %{service_name}! Džiaugiamės jus turėdami."
+      love_marketplace_crew: "Linkėjimai, <br /><i>%{service_name} komanda</i>"
+      welcome_email_footer_text: "Kokius laiškus norite gauti iš %{service_name}? %{settings_link}"
+      settings_link_text: "Patikrinkite savo nustatymus"
+    new_listing_by_followed_person:
+      subject: "%{author_name} įkėlė naują skelbimą į %{service_name}"
+      has_posted_a_new_listing: "%{author_name} įkėlė naują skelbimą:"
+      you_are_receiving_this_because: "Jūs gavote šį pranešimą, nes jūs sekate %{author_name}."
+      view_listing: "Žiūrėti skelbimą"
+    new_member_notification:
+      new_member_has_joined: ~
+      this_is_automatic_message: ~
+      person_name: ~
+      person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
+  error_messages:
+    booking:
+      booking_failed_payment_voided: ~
+      double_booking_payment_voided: ~
+    onboarding:
+      server_rendering: ~
+    listings:
+      departure_time: "Išvykimo laiko tarpas privalo būti metai nuo dabar."
+      share_type: "Privalote pasirinkti bent vieną."
+      valid_until: "Ši data privalo būti šešių mėnesių tarpe nuo dabar."
+      price: "Kaina privalo būti sveikas skaičius."
+      minimum_price: "Minimali kaina yra %{minimum_price} %{currency}"
+    testimonials:
+      you_must_explain_not_neutral_feedback: "Jei norite palikti neutralų atsiliepimą, privalote paaiškinti kodėl."
+      you_must_select_a_grade: "Prisiminkite papasakoti ar jūsų patirtis buvo teigiama ar neigiama."
+    transaction_agreement:
+      required_error: "Privalote priimti susitarimą"
+    paypal:
+      transaction_cannot_complete: ~
+      buyer_cannot_pay_error: "Šis mokėjimas buvo atmestas. Prašome susisiekti su su PayPal klientų aptarnavimu dėl platesnės informacijos: %{customer_service_link}"
+      pending_review_error: "Mokėjimas buvo pateiktas, bet PayPal mokėjimą pažymėjo kaip 'reikalinga peržiūra'. Kai PayPal pabaigs peržiūrą, mokėjimas bus automatiškai patvirtintas."
+      seller_express_checkout_disabled: ~
+      generic_error: "Mokėjimo metu įvyko klaida.Jūsų PayPal mokėjimas nebuvo baigtas."
+      cancel_error: "Atšaukimo metu įvyko klaida. Atšaukimas nebaigtas."
+      accept_authorization_error: "Bandant priimti iš anksto patvirtintą PayPal mokėjimą įvyko klaida. Prašome bandyti dar kartą."
+      reject_authorization_error: "Bandant atmesti iš anksto patvirtintą PayPal mokėjimą įvyko klaida. Prašome bandyti dar kartą."
+    stripe:
+      generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
+  error_pages:
+    back_to_kassi_front_page: "Grįžti į pagrindinį puslapį"
+    error_404:
+      if_you_believe: "Jei manote, kad adresas teisingas ir turėtų veikti, padėkite mums surasti klaidą užpildydami formą žemiau. Parašykite koks adresas rodo šią klaidą ir kas turėtų būti matoma puslapyje."
+      page_can_not_be_found: "Puslapis nerastas!"
+      page_you_requested_can_not_be_found: "Puslapis nerastas. Ar jūs tikri, kad įrašėte adresą teisingai?"
+    error_404_title: "puslapis nerastas"
+    error_410:
+      page_removed: "Puslapis pašalintas"
+      page_you_requested_has_been_removed: "Puslapis, kurį bandėte užkrauti, pašalintas."
+      page_removed_reason: "Galimos kelios skirtingos priežastys. Galbūt vartotojas ištrynė savo paskyrą arba skelbimas buvo pašalintas."
+    error_410_title: "puslapis pašalintas"
+    error_500:
+      temporary_unavailable: "Turgus laikinai neprieinamas"
+      unable_to_process: "Dabar negalime įvykti jūsų užklausos. Pamėginkite truputį vėliau."
+      we_hate_this: "Mums taip pat nepatinka kai taip atsitinka. Mes buvome informuoti ir taisome klaidą."
+      refer_to_error_id: "Jei norite susisiekti su pagalba dėl šios bėdos, prašome įtraukti klaidos ID %{error_id} jūsų žinutėje."
+    error_500_title: "puslapio krovimo klaida"
+    error_description: "Klaidos aprašymas"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "JavaScript išjungtas jūsų naršyklėje"
+      kassi_does_not_currently_work_without_javascript: "%{service_name} negali veikti teisingai be JavaScript. Įjunkite JavaScript jūsų naršyklės nustatymuose ir perkraukite puslapį."
+      contact_us: kontaktai
+      send_feedback: "Siųsti žinutę"
+      your_feedback_to_admins: "Jūsų žinutė %{service_name} komandai"
+    send: Siųsti
+    your_email_address: "Jūsų elektroninis paštas"
+  errors:
+    messages:
+      invalid_date: "nėra teisinga data"
+      invalid_time: "nėra teisingas laikas"
+      invalid_datetime: ~
+      is_at: "turi būti %{restriction}"
+      before: "turi būti prieš %{restriction}"
+      on_or_before: ~
+      after: ~
+      on_or_after: ~
+      positive_number: ~
+      from_must_be_less_than_till: ~
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: "%{offerer_name} sutiko paskolinti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} sutiko paskolinti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} sutiko išnuomoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} sutiko išnuomoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} sutiko atiduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} sutiko atiduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} sutiko parduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} sutiko parduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} sutiko keistis %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} sutiko parduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} sutiko parduoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} sutiko išnuomoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} sutiko išnuomoti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} sutiko pasiūlyti %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} sutiko pavežėti %{listing_title} su %{requester_name} %{time_ago}."
+    join:
+      joined_kassi: "%{name} prisijungė prie %{service_name} %{time_ago}."
+    login:
+      logged_in_to_kassi: "%{name} prisijungė prie %{service_name} %{time_ago}."
+    comment:
+      commented: "%{commenter_name} pakomentavo skelbimą %{listing_title} %{time_ago}."
+      offer_partitive: siūlyti
+      request_partitive: prašyti
+  header:
+    about: Apie
+    home: "Pagrindinis puslapis"
+    members: Bendruomenė
+    new_listing: "Naujas skelbimas"
+    mobile_version: "Mobili versija"
+    offers: Pasiūlymai
+    requests: Prašymai
+    search_kassi: "Ieškoti %{service_name}"
+    create_new_marketplace: "Sukurti naują turgų"
+    contact_us: "Susisiekite su mumis"
+    profile: Profilis
+    manage_listings: "Mano skelbimai"
+    invite: "Kviesti naujus narius"
+    login: Prisijungti
+    signup: Registruotis
+    menu: Meniu
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: "Papildomai  dar yra <b>vienas kitas pasiūlymas</b>,"
+      additionally_one_private_request_exists: "Papildomai  dar yra <b>vienas kitas prašymas</b>,"
+      additionally_some_private_offers_exist: "Papildomai  dar yra <b>%{number_of_listings} kiti pasiūlymai</b>,"
+      additionally_some_private_requests_exist: "Papildomai  dar yra <b>%{number_of_listings} kiti prašymai</b>,"
+    blank_slate:
+      add_first: "Pridėti pirmą!"
+      but_that_is_visible_only_to_registered_members: "bet tai yra matoma tik registruotiems nariams."
+      but_those_are_visible_only_to_registered_members: "bet tai yra matoma tik registruotiems nariams."
+      create_new_account_for_yourself: "Sukurti sau naują paskyra"
+      examples_of_what_you_could_offer_to_others: "Ką galėtumėte pasiūlyti kitiems"
+      examples_of_what_you_could_request_to_others: "Ko prašytume iš kitų"
+      favor_offer_list: "kompiuterių pagalba, drabužių taisymas, kepimas, dviračių remontas"
+      favor_request_list: "vaikų priežiūra, pianino pamokos, šunų vedžiojimas, žolės pjovimas"
+      favors_to_offer: "Pagalba: "
+      favors_to_request: "Pagalba: "
+      item_offer_list: "įrankiai, sporto įranga, kostiumai, stovyklavimo įranga"
+      item_request_list: "įrankiai, sporto įranga, kostiumai, stovyklavimo įranga"
+      items_to_offer: "Prekės nuomai: "
+      items_to_request: "Prekės skolinimui: "
+      log_in: prisijungti!
+      no_offers_visible_unless_logged_in: "Jokie daiktai, paslaugos ar pavežėjimo pasiūlymai nematomi vartotojams, kurie yra neprisijungę."
+      no_open_offers_currently: "Jokių aktyvių daiktų, paslaugų ar pavežėjimo pasiūlymų."
+      no_open_requests_currently: "Jokių aktyvių daiktų, paslaugų ar pavežėjimo prašymų."
+      no_requests_visible_unless_logged_in: "Jokie daiktai, paslaugos ar pavežėjimo prašymai nematomi vartotojams, kurie yra neprisijungę."
+      one_private_offer_exists: "Jau yra <b>vienas pasiūlymas</b>,"
+      one_private_request_exists: "Jau yra <b>vienas prašymas</b>,"
+      ride_offer: "Nuveskite kitų žmonių vaikus į jų būrelius"
+      ride_request: "Pavežėjimas iki darbo"
+      some_private_offers_exist: "Jau yra <b>%{number_of_listings} pasiūlymai</b>,"
+      some_private_requests_exist: "Jau yra <b>%{number_of_listings} prašymai</b>,"
+    custom_filters:
+      update_view: "Atnaujinti vaizdą"
+      min: "Min:"
+      max: "Maks:"
+    event_feed:
+      latest_events: "Kas vyksta"
+    grid_item:
+      processing_uploaded_image: "(Įkeltas paveiksliukas apdorojamas...)"
+    index:
+      no_listings_with_your_search_criteria: "Atsiprašome, bet neradome skelbimų atitinkančių jūsų kriterijus. Gal vertėtų pamėginti kitus?"
+      no_listings_notification: "Skelbimų nėra. %{add_listing_link}."
+      add_listing_link_text: "Pridėti naują skelbimą"
+      open_listing: "aktyvus skelbimas"
+      open_listings: "aktyvūs skelbimai"
+      private_listing_notification_log_in: prisijungti
+      is: yra
+      are: yra
+      what_do_you_need: "Ko ieškote?"
+      post_new_listing: "Įkelti naują skelbimą"
+      are_offering: Siūlyti
+      add_news_item: "Pridėti straipsnį"
+      lend_rent_help_carpool: "Parduoti, skolinti, padėti, važiuoti kartu"
+      loading_more_content: "Kraunamas papildomas turinys"
+      more_events: "Daugiau renginių..."
+      news: Naujienos
+      no_news: "Jokių naujienų"
+      more_news: "Daugiau naujienų"
+      or: ar
+      or_see_what_the_others: "...arba pamatykite ką kiti"
+      recent_events: "Neseniai praėję renginiai"
+      requesting: reikia
+      tell_it_here: "Papasakokite čia!"
+      welcome_to_new_kassi: "Sveiki prisijungę prie naujo %{service_name}!"
+      no_reviews: "Jokių atsiliepimų"
+      no_image: "Jokio paveiksliuko"
+      filter: Filtrai
+      this_is_private_community: "Privalote užsiregistruoti, kad galėtumėte matyti šį turinį."
+    invitation_form:
+      email: "El. pašto adresas(-ai)"
+      message: "Asmeninė žinutė"
+      send_invitation: "Siųsti pakvietimą"
+      add_email_addresses_description: "Įrašykite kviečiamų žmonių el. pašto adresus laukelyje žemiau. Pridedant keletą el. pašto adresų, atskirkite juos kableliais."
+      add_lots_of_email_addresses: ~
+      this_article_link: ~
+      invitation_emails_field_placeholder: "draugas1@pavyzdys.lt, draugė2@pavyzdys.lt, ..."
+      invitation_message_field_placeholder: "Aš prisijungiau prie puikaus turgaus. Pamėgink ir tu!"
+      errors_in_emails: "Patikrinkite ar el. pašto adresai, kuriuos pridėjote, neturi neįprastų simbolių. Jei pridėjote kelis adresus, įsitikinkite, kad jie atskirti kableliais."
+    list_item:
+      review: apžvelga
+      reviews: apžvalgos
+      distance_away: "Už %{distance} %{distance_unit}"
+    news_item:
+      show_less: "Rodyti mažiau"
+      show_more: "Rodyti daugiau"
+    profile_info_empty_notification:
+      add_your_info: "Pridėti jūsų kontaktinę informaciją"
+      add_a_profile_picture: "Pridėti profilio nuotrauką"
+      you_have_not_added_your_info: "Jūs nepridėjote savo kontaktinės informacijos. Prašome tai padaryti, kad kiti galėtų susisiekti su jumis paprasčiau. Taip pat prašome pridėti profilio nuotrauką, kad kiti jumis labiau pasitikėtų."
+      add_your_info_link: "Pridėti jūsų informaciją dabar"
+    recent_listing:
+      please_offer: Siūlyti
+      comment: komentaras
+      comments: komentarai
+    filters:
+      show: "Filtrai:"
+      search: Ieškoti
+      map: "Rodyti žemėlapį"
+      list: "Rodyti sąrašą"
+      map_button: Žemėlapis
+      grid_button: Tinklelis
+      list_button: Sąrašas
+      all_listing_types: "Visi skelbimų tipai"
+      all_categories: "Visos kategorijos"
+    errors:
+      search_engine_not_responding: ~
+  infos:
+    about:
+      default_about_text_title: "Kas yra Sharetribe?"
+      default_about_text: "Šis turgus yra sukurtas Sharetribe paltformoje. Su Sharetribe galite lengvai sukurti savo turgaus puslapį. Tai nemokama ir trunka tik minutę. %{click_here_link}, kad sužinotumėte daugiau!"
+      click_here_link_text: "Spausti čia"
+    how_to_use:
+      default_title: ~
+      default_content: ~
+  landing_page:
+    hero:
+      search: ~
+      signup: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
+    listings:
+      no_listing_image: ~
+  layouts:
+    admin:
+      admin: "%{service_name} administratoriaus pultas"
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+    no_tribe:
+      inbox: "Pašto dėžutė"
+      settings: Nustatymai
+      feedback: "Susisiekite su %{service_name} komanda"
+    application:
+      join_this_community: "Prisijungti prie turgaus"
+      read_more: "Skaityti daugiau"
+      feedback: "Jūsų žinutė %{service_name} komandai"
+      dont_use_to_contact_support: ~
+      feedback_forum: "Atsiliepimo forumas"
+      feedback_handle: Atsiliepimas
+      give_feedback: "Susisiekite su mumis"
+      or_check_our: "...arba patikrinkite mūsų"
+      send_feedback_to_admin: "Siųsti žinutę"
+      to_see_what_others_have_suggested: "matyti ką pasiūlė kiti vartotojai ir balsuoti už idėjas ten."
+      your_email_address: "Jūsų el. paštas (su jumis susisiekti)"
+      connect: Registruotis
+      invite_your_friends: "Pakviesti draugus!"
+      invite_your_neighbors: "Pakvieskite kaimynus!"
+      invite_your_friends_description: "Kuo daugiau žmonių naudojasi %{service_name}, tuo naudingiau."
+      invite_your_friends_invite_only_description: "Žmonės negali prisijungti prie %{service_name}, nebent jie yra pakviesti."
+      join_without_facebook: "...arba %{join_without_facebook_link}"
+      join_without_facebook_link: "registruotis nenaudojant Facebook"
+    conversations:
+      messages: Žinutės
+      notifications: Pranešimai
+      received: Gauti
+      sent: Siųstos
+    global-header:
+      select_language: "Pasirinkite kalbą"
+    infos:
+      about: Apie
+      how_to_use: "Kaip tai veikia"
+      info_about_kassi: "Informacija apie %{service_name}"
+      news: Naujienos
+      register_details: "Privatumo Politika"
+      terms: "Naudojimo sąlygos"
+    logged_in:
+      admin: Administratorius
+      go_to_your_profile_page: Profilis
+      hi: Labas
+      login: Prisijungimas
+      logout: Atsijungimas
+      notifications: Pranešimai
+      requests: "Draugavimo prašymai"
+      settings: Nustatymai
+      sign_up: "Sukurto paskyrą"
+    logged_in_messages_icon:
+      messages: Žinutės
+    logged_in_notifications_icon:
+      notifications: Pranešimai
+    mobile_logged_in:
+      admin: Administratorius
+      go_to_your_profile_page: Profilis
+      hi: Labas
+      login: Prisijungti
+      logout: Atsijungti
+      notifications: Pranešimai
+      requests: "Draugavimo prašymai"
+      settings: Nustatymai
+      sign_up: Užsiregistruoti
+    notifications:
+      listing_could_not_be_saved: "Skelbimas nebuvo išsaugotas. Prašome bandyti dar kartą. Jei problema neišsisprendžia, susisiekite su %{contact_admin_link}."
+      contact_admin_link_text: "susisiekti su %{service_name} komanda"
+      test_welcome_email_delivered_to: "Bandomasis laiškas buvo nusiųstas į %{email}."
+      something_went_wrong: "Kažkas nutiko ne taip"
+      community_updated: "Informacija atnaujinta."
+      community_update_failed: "Informacijos atnaujinimas nepavyko."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Jūsų paskyra sukurta sėkmingai. Dabar jums reikia patvirtinti jūsų el. paštą."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Ačiū, kad prisijungėte prie %{service_name}. Dabar jums reikia patvirtinti jūsų el. pašto adresą."
+      comment_cannot_be_empty: "Komentarai negali būti tušti"
+      comment_sent: "Komentaras išsiųstas"
+      confirmation_link_is_wrong_or_used: "Patvirtinimo nuoroda jau panaudota arba neveikianti. Bandykite prisijungti arba atsiųskite atsiliepimą, jei problema neišsisprendžia."
+      additional_email_confirmed: "Jūsų įvestas el. paštas patvirtintas."
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
+      create_new_listing: "Sukurti kitą skelbimą"
+      create_one_here: "sukurti naują čia"
+      email_confirmation_sent_to_new_address: "El. pašto patvirtinimas nusiųstas į naują adresą."
+      email_not_found: "Jūsų pateiktas el. paštas nebuvo rastas %{service_name} duombazėje."
+      error_with_session: "Sesijos klaida."
+      feedback_considered_spam: "Atsiliepimas neišsaugotas dėl jo formatavimo. Bandykite dar kartą arba naudokite atsiliepimų forumą."
+      feedback_not_saved: "Atsiliepimas negalėjo būti išsiųstas."
+      feedback_saved: "Ačiū už jūsų žinutę! Atsakysime kai tik galėsime."
+      feedback_sent_to: "Atsiliepimas nusiųstas %{target_person}."
+      feedback_skipped: "Atsiliepimas praleistas"
+      invitation_cannot_be_sent: "Pakvietimo kodas negali būti išsiųtas"
+      invitation_cannot_unsubscribe: ~
+      invitation_limit_reached: ~
+      invitation_sent: "Pakvietimas išsiųstas sėkmingai"
+      invitation_successfully_unsubscribed: ~
+      inviting_new_users_is_not_allowed_in_this_community: "Naujų narių pakvietimas neleidžiamas"
+      login_again: "Prašome prisijungti iš naujo."
+      login_failed: "Prisijungimas nepavyko. Prašome įvesti teisingus duomenis."
+      account_creation_successful: "Sveiki prisijungę prie %{service_name}, %{person_name}!"
+      account_deleted: "Jūsų paskyra ištrinta"
+      login_successful: "Sveiki, %{person_name}!"
+      logout_successful: "Jūs atsijungėte iš %{service_name}. Iki greito!"
+      news_item_created: "Straipsnis sukurtas"
+      news_item_creation_failed: "Straipsnio sukūrimas nepavyko"
+      news_item_update_failed: "Straipsnio atnaujinimas nepavyko"
+      news_item_updated: "Straipsnis atnaujintas"
+      news_item_deleted: "Straipsnis pašalintas"
+      offer_accepted: "Pasiūlymas priimtas"
+      offer_confirmed: "Užsakymas baigtas"
+      offer_closed: "Pasiūlymas uždarytas"
+      listing_created_successfully: "Skelbimas sukurtas sėkmingai. %{new_listing_link}"
+      offer_rejected: "Pasiūlymas atmestas"
+      offer_canceled: "Užsakymas atšauktas"
+      listing_updated_successfully: "Skelbimo atnaujinimas sėkmingas"
+      listing_updated_availability_management_enabled: ~
+      listing_updated_availability_management_disabled: ~
+      only_kassi_administrators_can_access_this_area: "Prašome prisijungti su administratoriaus paskyra, kad šita vieta būtų prieinama"
+      only_listing_author_can_close_a_listing: "Tik skelbimo autorius gali uždaryti skelbimą"
+      only_listing_author_can_edit_a_listing: "Tik skelbimo autorius gali redaguoti skelbimą"
+      payment_successful: "Mokėjimas sėkmingas"
+      payment_canceled: "Mokėjimas atšauktas"
+      error_in_payment: "Klaida mokėjime. Jei nebaigėte mokėjimo, bandykite dar kartą. Jei baigėte, atsiųskite mums atsiliepimą."
+      cannot_receive_payment: "Kita pusė negali priimti mokėjimų dėl neaiškios klaidos. Prašome susisiekti su %{service_name} komanda norint pasiaiškinti situaciją"
+      payment_waiting_for_later_accomplishment: "Kai sumokėsite, pranešime pardavėjui ir gausite kvitą el. paštu."
+      password_recovery_sent: "Instrukcijos slaptažodžio pakeitimui buvo išsiųstos į jūsų el. paštą."
+      person_activated: "Vartotojas aktyvuotas"
+      person_deactivated: "Vartotojas deaktyvuotas"
+      person_updated_successfully: "informacija atnaujinta"
+      poll_answered: "Apklausa atsakyta"
+      poll_could_not_be_answered: "Apklausa negalėjo būti atsakyta"
+      poll_created: "Apklausa sukurta"
+      poll_creation_failed: "Apklausos sukūrimas nepavyko"
+      poll_update_failed: "Apklausos atnaujinimas nepavyko"
+      poll_updated: "Apklausa atnaujinta"
+      poll_deleted: "Apklausa pašalinta"
+      read_more: "Skaityti daugiau!"
+      registration_considered_spam: "Registracija nepavyko, prašome susisiekti su mumis per antraštės meniu ir paminėti \"email2 error\"."
+      reply_cannot_be_empty: "Negalite siųsti tuščios žinutės"
+      reply_sent: "Atsakymas išsiųstas sėkmingai"
+      request_accepted: "Prašymas priimtas"
+      request_confirmed: "Užsakymas baigtas"
+      request_rejected: "Prašymas atmestas"
+      request_canceled: "Užsakymas atšauktas"
+      message_sent: "Žinutė išsiųsta"
+      message_not_sent: ~
+      this_content_is_not_available_in_this_community: "Turinys neprieinamas."
+      unknown_error: "Nežinoma klaida. Prašome pasinaudoti 'Susisiekite su mumis' nuoroda ir atsiųsti detales apie tai kas atsitiko."
+      update_error: "Bandant atnaujinti jūsų informaciją įvyko klaida. Prašome bandyti dar kartą"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Jūs nesate autorizuotas palikti atsiliepimą apie šį renginį"
+      you_are_not_authorized_to_do_this: "Jūs nesate autorizuotas tai atlikti"
+      you_are_not_authorized_to_view_this_content: "Jūs nesate autorizuotas žiūrėti ši turinį"
+      listing_closed: ~
+      send_instructions: "Po kelių minučių gausite laišką su instrukcijomis kaip atstatyti slaptažodį."
+      you_cannot_reply_to_a_closed_offer: "Negalite atsakyti uždarytam pasiūlymui"
+      you_cannot_send_message_to_yourself: "Negalite siųsti žinutės sau"
+      you_followed_listing: "Jūs dabar sekate šį skelbimą"
+      you_have_already_given_feedback_about_this_event: "Jūs jau palikote atsiliepimą apie šį renginį"
+      you_are_now_member: "Sveiki prisijungę prie %{service_name}!"
+      you_are_already_member: "Jūs jau esate %{service_name} narys. Sveiki sugrįžę!"
+      you_must_log_in_to_create_new_listing: "Privalote prisijungti prie %{service_name}, kad įkeltumėte naują skelbimą. Jei neturite paskyros, galite %{sign_up_link}."
+      additional_email_confirmed_dashboard: "Jūsų el. paštas patvirtintas."
+      you_must_log_in_to_give_feedback: "Privalote prisijungti norint palikti atsiliepimą"
+      you_must_log_in_to_invite_new_users: "Privalote prisijungti, kad galėtumėte pakviesti naujus vartotojus į %{service_name}"
+      you_must_log_in_to_send_a_comment: "Privalote prisijungti norint siųsti komentarą"
+      you_must_log_in_to_send_a_message: "Privalote prisijungti prie %{service_name} norint siųsti žinutę kitam vartotojui."
+      you_must_log_in_to_do_a_transaction: ~
+      you_must_log_in_to_view_this_content: "Privalote prisijungti, kad galėtumėte matyti šį turinį"
+      you_must_log_in_to_view_this_page: "Privalote prisijungti, kad galėtumėte matyti šį puslapį."
+      you_must_log_in_to_view_your_inbox: "Privalote prisijungti prie %{service_name}, kad matytumėte savo pašto dėžutę"
+      you_must_log_in_to_view_your_settings: "Privalote prisijungti prie %{service_name}, kad matytumėte savo nustatymus"
+      you_must_log_in_to_add_news_item: "Privalote prisijungti prie %{service_name}, kad sukurtumėte naują straipsnį."
+      you_must_log_in_to_change_profile_settings: "Privalote prisijungti prie %{service_name} norint pakeisti profilio nustatymus"
+      you_must_log_in_to_accept_or_reject: "Privalote prisijungti, kad priimtumėte ar atmestumėte sandorį"
+      you_must_log_in_to_confirm_or_cancel: "Privalote prisijungti, kad atšauktumėte ar patvirtintumėte sandorį"
+      you_need_to_confirm_your_account_first: "Jums reikia patvirtinti jūsų el. paštą."
+      you_must_fill_all_the_fields: "Privalote užpildyti visus laukelius"
+      you_unfollowed_listing: "Nebesekate šio skelbimo"
+      joining_community_failed: "Prisijungimas nepavyko"
+      can_not_delete_email: "Negalite pašalinti el. pašto adreso"
+      user_does_not_have_email_to_delete: "Neturite el. pašto, kurį bandote pašalinti"
+      email_deleted: "El. paštas pašalintas"
+      listing_author_payment_details_missing: ~
+      images_are_processing: ~
+      automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
+    settings:
+      account: Paskyra
+      notifications: Pranešimai
+      profile: "Profilio informacija"
+      settings: Nustatymai
+      paypal_payments: ~
+      stripe_payments: ~
+      payments: Mokėjimai
+      listings: ~
+      listings_search_placeholder: ~
+  listings:
+    bubble_listing_not_visible:
+      listing_not_visible: "Jūs neturite teisių peržiūrėti šį skelbimą."
+    comment:
+      wrote: parašė
+      send_private_message: "Siųsti privačią žinutę %{person}"
+      delete: ištrinti
+      are_you_sure: "Ar tikrai norite ištrinti šį komentarą?"
+    comment_form:
+      ask_a_question: "Komentuokite skelbimą arba prašykite daugiau informacijos. Visi vartotojai galės matyti jūsų komentarą."
+      log_in: prisijungti
+      send_comment: "Siųsti komentarą"
+      to_send_a_comment: "siųsti naują komentarą"
+      write_comment: "Rašyti naują komentarą"
+      you_cannot_send_a_new_comment_because_listing_is_closed: "Negalite rašyti komentarų, nes šis skelbimas neaktyvus."
+      you_must: Privalote
+      subscribe_to_comments: "Pranešti apie naujus komentarus ir atnaujinimus"
+    edit:
+      edit_listing: "Redaguoti skelbimą"
+    edit_links:
+      close_listing: "Deaktyvuoti skelbimą"
+      edit_listing: "Redaguoti skelbimą"
+      reopen_listing: "Reaktyvuoti skelbimą"
+      move_to_top: "Grįžti į pagrindinio puslapio viršų"
+      show_in_updates_email: "Rodyti sekančiame naujienlaiškyje"
+      show_in_updates_email_loading: Kraunama...
+      show_in_updates_email_error: "Nepavyko susisiekti su serveriu. Mėginkite dar kartą perkrovę puslapį."
+      show_in_updates_email_success: "Šis skelbimas bus rodomas kitame automatiniame naujienlaiškyje vartotojams"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
+    map:
+      open_in_google_maps: "Atidaryti Google žemėlapiuose"
+    error:
+      something_went_wrong: ~
+      something_went_wrong_plain: "Kažkas įvyko ne taip"
+      create_failed_to_connect_to_booking_service: ~
+      update_failed_to_connect_to_booking_service: ~
+    follow_links:
+      follow: "Gauti laiškus apie naujus komentarus"
+      unfollow: "Negauti laiškų apie naujus komentarus"
+    form:
+      custom_field_partials:
+        dropdown:
+          select_one___: "Pasirinkite vieną..."
+      departure_time:
+        at: ~
+        departure_time: "Išvykimo laikas"
+      departure_time_radio_buttons:
+        repeated: "Pakartota (pridėkite laikus ir dienas detaliojo aprašymo laukelyje)"
+      description:
+        detailed_description: "Detalus aprašymas"
+        youtube_info: "Jei jūsų aprašyme yra YouTube nuorodų, video bus rodomi žemiau aprašymo."
+      destination:
+        destination: Tikslas
+      form_content:
+        favor: paslauga
+        housing: erdvė
+        item: daiktas
+        offer_something: "Siūlyti ką nors"
+        request_something: "Prašyti ko nors"
+        rideshare: pavežėjimas
+        i_want_to_offer: "Noriu siūlyti..."
+        i_want_to_request: "Man reikia..."
+      googlemap:
+        googlemap_copy: ~
+        googlemap_description: "Žemėlapio vaizdas"
+        googlemap_updatemap: "Atnaujinti žemėlapį"
+      images:
+        image: Paveiksliukas
+        best_result: "Geriausiems rezultatams, naudokite PG, GIF ar PNG paveiksliuko formatus, kurie yra %{width}x%{height}%pikselių dydžio"
+        no_file_selected: "Failas nepasirinktas"
+        remove_image: "Pašalinti paveiksliuką"
+        select_file: "Pasirinkite failą"
+        add_more: "+ Pridėti daugiau"
+        removing: Pašalinama...
+        processing: Apdorojama...
+        loading_image: Kraunama...
+        image_uploading_in_progress: "Vykdomas paveiksliuko įkėlimas"
+        processing_takes_a_while: "Visi paveiksliukai įkelti! Apdorojimas gali šiek tiek užtrukti, bet galite išsaugoti skelbimą."
+        this_may_take_a_while: "tai užtruks tik sekundę"
+        percentage_loaded: "%{percentage}%"
+        uploading_failed: "Paveiksliuko įkėlimas nepavyko"
+        image_processing_failed: "Paveiksliukų apdorojimas nepavyko"
+        file_too_large: "Failas per didelis"
+        accepted_formats: "Paveiksliuko formatas turi būti GIF, JPG arba PNG."
+        images_not_uploaded_confirm: "Ne visi paveiksliukai buvo įkelti. Ar tikrai norite tęsti?"
+      location:
+        location: Vieta
+      price:
+        price: Kaina
+        per: už
+        per_day: "už dieną"
+        mass: "vienetas, kg, l, m2, ..."
+        time: "valandą, dieną, mėnesį, ..."
+        long_time: "savaitę, mėnesį, ..."
+        after_service_fee_you_will_get: "Po to kai %{service_name} ir mokėjimo apdorotojas nuims savo mokesčius, gausite %{sum_with_currency}"
+        no_service_fee_you_will_get_paypal_text: ~
+        no_service_fee_you_will_get_payment_text: ~
+        after_service_fee_you_will_get_payment_text: ~
+        payment_fee_info_link_text: ~
+        delivery: ~
+        shipping: ~
+        shipping_price: ~
+        shipping_price_additional: ~
+        pickup: ~
+      origin:
+        location: Vieta
+        origin: Kilmė
+      send_button:
+        save_listing: "Paskelbti skelbimą"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
+      share_type:
+        select: Pasirinkti
+        borrow: Skolinasi
+        buy: Perka
+        give_away: Atiduoda
+        lend: Skolina
+        offer_type: "Pasiūlymo tipas"
+        receive: "Sutinka nemokamai"
+        rent: Nuomoja
+        rent_out: Išnuomoja
+        request_type: "Prašymo tipas"
+        sell: Parduoda
+        share_for_free: "Dalijasi nemokamai"
+        accept_for_free: "Sutinka nemokamai"
+        trade: Keičiasi
+      tag_list:
+        comma_separate: ~
+        tags: Žymės
+      title:
+        listing_title: "Skelbimo pavadinimas"
+      valid_until:
+        valid_until: "Galiojimo data"
+      valid_until_radio_buttons:
+        for_the_time_being: "Šiuo metu"
+      privacy:
+        privacy: Privatumas
+        private: "Privatu (gali matyti tik prisijungę vartotojai)"
+        public: "Vieša (gali matyti ir neprisijungę vartotojai)"
+    help_texts:
+      help_share_type_title: "Pasiūlymo ar prašymo tipas"
+      help_tags_title: Žymės
+      help_valid_until_title: "Galiojimo data"
+    index:
+      all_categories: "Visos kategorijos"
+      all_offer_types: "Visi pasiūlymų tipai"
+      all_request_types: "Visi prašymų tipai"
+      category: Kategorija
+      did_not_found_what_you_were_looking_for: "Neradote ko ieškojote?"
+      favors: Paslaugos
+      housing: Erdvės
+      items: Daiktai
+      list_view: "Sąrašo vaizdas"
+      listings: Skelbimai
+      map_view: "Žemėlapio vaizdas"
+      offer_something: "Duokite žinoti kitiems!"
+      offer_type: "Pasiūlymo tipas"
+      offers: Pasiūlymai
+      request_something: "Prašykite ko nors!"
+      request_type: "Prašymo tipas"
+      requests: Prašymai
+      rideshare: Pavežėjimai
+      you_have_something_others_do_not: "Turi ką nors pasiūlyti?"
+      feed_title: "%{listing_type} %{service_name} %{optional_category}"
+    left_panel_link:
+      borrows: Skolinasi
+      buys: Perka
+      favors: Paslaugos
+      give_aways: Atiduoda
+      housings: Erdvės
+      items: Daiktai
+      lends: Skolina
+      receives: "Ima nemokamai"
+      rent_outs: Išnuomoja
+      rents: Nuomoja
+      rideshares: Pavežėjimas
+      sells: Parduoda
+      share_for_frees: "Dalijasi nemokamai"
+      accept_for_frees: "Sutinka nemokamai"
+      trades: Keičiasi
+    listing_actions:
+      booking_from: Nuo
+      booking_to: Kam
+      how_paypal_works: "Kaip veikia PayPal"
+      payment_help: ~
+      unable_load_availability: ~
+      booking_date: ~
+      select_one: ~
+      start_time: ~
+      end_time: ~
+      marketplace_fees_may_apply: ~
+    new:
+      listing: skelbimas
+      selected_category: "Kategorija: %{category}"
+      selected_subcategory: "Subkategorija: %{subcategory}"
+      selected_transaction_type: "Skelbimo tipas: %{transaction_type}"
+      select_category: "Pasirinkite kategoriją"
+      select_subcategory: "Pasirinkite subkategoriją"
+      select_transaction_type: "Pasirinkite skelbimo tipą"
+      you_need_to_fill_payout_details_before_accepting: "Turite užpildyti mokėjimo informaciją prieš įkeliant skelbimą. Nueikite į %{payment_settings_link}, kad užpildytumėte informaciją."
+      contact_admin_link_text: "susisiekti su %{service_name} komanda"
+      community_not_configured_for_payments: ~
+      payment_settings_link: "mokėjimų nustatymai"
+      community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
+    quantity:
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      unit: "Vienetų kiekis:"
+      custom: ~
+    quantity_placeholder: ~
+    please_comment: Komentuoti
+    reply_link:
+      listing_closed: "Skelbimas deaktyvuotas"
+    show:
+      add_your_phone_number: "Pridėti telefono numerį"
+      add_profile_picture: "Pridėti profilio nuotrauką"
+      comments: "Vieša diskusija"
+      contact_by_phone: "Susisiekti telefonu:"
+      contact: Susisiekti
+      favor_offer: "Paslaugos pasiūlymas"
+      favor_request: "Paslaugos prašymas"
+      inquiry: Pranešimas
+      item_offer_trade: "Keitimosi pasiūlymas"
+      item_request_trade: "Keitimosi prašymas"
+      no_description: "Skelbimas neturi aprašymo"
+      no_image: "Jokio paveiksliuko"
+      no_reviews: "Negauta jokių atsiliepimų"
+      offer: Pasiūlymas
+      listing_created: Sukurtas
+      open_until: "Aktyvus iki %{date}"
+      feedback: Atsiliepimas
+      qr_code: "QR kodas"
+      request: Prašymas
+      rideshare_offer: "Pavežėjimo pasiūlymas"
+      rideshare_request: "Pavežėjimo prašymas"
+      send_private_message: "Siųsti privačią žinutę"
+      tags: Žymės
+      time: laikas
+      times: laikai
+      times_viewed: Peržiūros
+      processing_uploaded_image: "(Įkeltas paveiksliukas apdorojamas...)"
+      listing_created_at: "Skelbimas sukurtas"
+      price:
+        per_quantity_unit: "už %{quantity_unit}"
+        per_day: "už dieną"
+      delivery: ~
+      shipping: "Siuntimas (+%{price})"
+      shipping_no_price: ~
+      shipping_price_additional: "Siuntimas (+%{price}, papildomi daiktai: +%{shipping_price_additional})"
+      pickup: ~
+      pickup_no_price: ~
+      youtube_video_player: "YouTube video grotuvas"
+    unit_types:
+      piece: ~
+      hour: ~
+      day: ~
+      night: ~
+      week: ~
+      month: ~
+      unit: vienetas
+    verification_required:
+      verification_required: "Reikalingas patvirtinimas"
+  listing_conversations:
+    preauthorize:
+      dates_not_available: ~
+      error_in_checking_availability: ~
+      details: Detalės
+      by: "%{author} %{listing}"
+      payment: Mokėjimas
+      exp: "Galiojimas:"
+      you_will_be_charged: "Pinigai bus nuskaičiuoti, tik jei %{author} sutiks su sandoriu. %{author} turi sutikti su sandoriu per %{expiration_period} dienas. Jei %{author} nesutiks ar neatsakys, mokestis nebus nuskaičiuotas."
+      day: diena
+      days: dienos
+      night: ~
+      nights: ~
+      invalid_parameters: ~
+    transaction_agreement_checkbox:
+      read_more: ~
+    stripe_payment:
+      payment: ~
+      pay_with_card: ~
+      address: ~
+      address_country: ~
+      address_name: ~
+      address_city: ~
+      address_state: ~
+      address_street1: ~
+      address_street2: ~
+      address_postal_code: ~
+  mapview:
+    index:
+      all_categories: "Visos kategorijos"
+      all_offer_types: "Visi pasiūlymų tipai"
+      all_request_types: "Visi prašymų tipai"
+      category: Kategorija
+      did_not_found_what_you_were_looking_for: "Neradote ko ieškojote?"
+      favors: Paslaugos
+      housing: Erdvės
+      items: Daiktai
+      list_view: "Sąrašo vaizdas"
+      map_view: "Žemėlapio vaizdas"
+      offer_something: "Duokite žinoti kitiems!"
+      offer_type: "Pasiūlymo tipas"
+      offers: Pasiūlymai
+      request_something: "Prašykite ko nors!"
+      request_type: "Prašymo tipas"
+      requests: Prašymai
+      rideshare: Pavežėjimai
+      you_have_something_others_do_not: "Turi ką nors pasiūlyti?"
+    please_comment: Komentuoti
+  mercury:
+    content_too_long: "Įkeltas turinys per ilgas."
+  okl:
+    member_id: "Nario id"
+    member_id_or_email: "Nario ID ar el. paštas"
+  paypal_accounts:
+    payout_info_title: ~
+    paypal_account_email_connected: ~
+    payout_info_paypal: ~
+    paypal_billing_agreement_made: ~
+    commission_permission_needed: ~
+    create_paypal_account_link_text: ~
+    connected_account: ~
+    paypal_receive_funds_info_label_australia_only: ~
+    paypal_receive_funds_info_label: ~
+    paypal_receive_funds_info_australia_only: ~
+    paypal_receive_funds_info: ~
+    upgrade_paypal_account_link_text: ~
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    not_now: ~
+    new:
+      payout_info_you_need_to_connect: ~
+      payout_info_text: ~
+      contact_admin_link_text: ~
+      admin_account_not_connected: ~
+      paypal_account_email: ~
+      paypal_account_email_placeholder: ~
+      paypal_account_email_info_text: ~
+      create_paypal_account: ~
+      upgrade_paypal_account: ~
+      paypal_account_billing_agreement: ~
+      follow_steps: ~
+      connect_paypal_account_title: ~
+      connect_paypal_account_title_with_step: ~
+      connect_paypal_account_instructions: ~
+      connect_paypal_account: ~
+      paypal_account_billing_agreement_with_step: ~
+      paypal_account_billing_agreement_info_both: ~
+      paypal_account_billing_agreement_info_fixed: ~
+      paypal_account_billing_agreement_info_relative: ~
+      paypal_account_billing_agreement_info_none: ~
+      paypal_info_link_text: ~
+      billing_agreement_description: ~
+      billing_agreement: ~
+      permissions_not_granted: ~
+      could_not_fetch_redirect_url: ~
+      paypal_not_enabled: ~
+      billing_agreement_canceled: ~
+      billing_agreement_not_accepted: ~
+      billing_agreement_wrong_account: ~
+      something_went_wrong: ~
+      account_not_verified: ~
+      account_restricted: ~
+    paypal_account_connected_title: ~
+    paypal_account_connected: ~
+    change_account: ~
+    missing: ~
+    from_your_payment_settings_link_text: ~
+    redirect_message: ~
+    redirect_link_text: ~
+    paypal_account_all_set_up: ~
+    can_receive_payments: ~
+    paypal_account_connected_summary: ~
+    paypal_permission_granted_summary: ~
+  paypal:
+    pay_with_paypal: ~
+    checkout_with: ~
+    or_pay_with_paypal: ~
+    checkout_with_paypal: ~
+    cancel_succesful: ~
+    transaction:
+      commission_payment_name: ~
+      commission_payment_description: ~
+    wait_while_loading: ~
+    chatting_with_paypal: ~
+  people:
+    edit_links:
+      activate: Aktyvuoti
+      deactivate: Deaktyvuoti
+    help_texts:
+      feedback_description_title: Atsiliepimas
+      help_invitation_code_title: "Jums reikalingas pakvietimas norint prisijungti"
+      terms_title: "%{service_name} naudojimo sąlygos"
+      invite_only_help_text: "Pažymėkite šį pasirinkimą, jei norite, kad nauji nariai galėtų prisijungti tik gavę pakvietimą iš jau esamo nario."
+      invite_only_help_text_title: "Tik su pakvietimu"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Šis vartotojas nebeaktyvus %{service_name}"
+      inactive_description: "Šis vartotojas nustojo naudotis %{service_name}. Jūs negalite susisiekti su šiuo vartotoju, palikti jam atsiliepimą ar komentuoti jo skelbimus."
+    new:
+      create_new_account: "Sukurti paskyrą"
+      email: "El. pašto adresas"
+      email_is_in_use: "El. paštas, kurį nurodėte jau naudojamas"
+      email_is_in_use_or_not_allowed: "Šis el. paštas neleidžiamas arba jau naudojamas. Jei negalite prisijungti, susisiekite su mumis."
+      email_not_allowed: "Šis el. paštas neleidžiamas %{service_name}. Prašome naudoti leidžiamą el. paštą. Jei negalite prisijungti, susisiekite su mumis."
+      invalid_username_or_email: ~
+      email_restriction_instructions:
+        one: "Priėjimas prie %{service_name} yra apribotas. Prisijungimui būtinas %{allowed_emails} el. pašto adresas."
+        few: "Priėjimas prie %{service_name} yra apribotas. Jums reikia el. pašto adreso, kuris įrodo, kad galite prisijungti."
+        other: "Priėjimas prie %{service_name} yra apribotas. Jums reikia el. pašto adreso, kuris įrodo, kad galite prisijungti."
+      family_name: Pavardė
+      given_name: Vardas
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: ~
+      invalid_invitation_code: "Pakvietimo kodas negalioja"
+      invitation_code: "Pakvietimo kodas"
+      not_required: ", neprivalomas"
+      notification_is_mandatory: ~
+      password_again: "Pavirtinti slaptažodį"
+      show_my_name_to_others: "Rodyti mano tikrą vardą kitiems %{service_name} vartotojams"
+      sign_up: "Sukurtį naują %{service_name} paskyrą"
+      terms: "Naudojimo sąlygos"
+      privacy: ~
+      username_is_in_use: "Šis vartotojo vardas jau naudojamas"
+      username_is_invalid: "Vartotojo vardas negalimas. Leidžiami ženklai yra raidės, skaitmenys ir pabraukimo brūkšnys"
+      visible_only_to_you: "matoma tik jums ir %{service_name} komandai"
+      visible_to_everybody: "matoma visiems"
+      create_account_with_provider: ~
+      OR: AR
+      signup_with_email: "Registruotis su el. paštu"
+      this_field_will_be_publicly_visible: ~
+    profile_feedback:
+      grade: "įvertinimas:"
+      and_gave_following_feedback: "ir suteikė šį atsiliepimą"
+    profile_listings:
+      no_image: "Nuotraukos nėra"
+      manage_listings: ~
+    show:
+      contact: "Susisiekti su %{person}"
+      about_me: "Apie mane:"
+      add_description: "Papasakoti ką nors apie save"
+      add_location: "Pridėti vietą"
+      add_phone_number: "Pridėti telefono numerį"
+      address: "Vieta:"
+      as_expected: "Kaip tikėtasi"
+      edit_profile_info: "Redaguoti profilį"
+      exceeded_expectations: "Pranoko lūkesčius"
+      positive: teigiamas
+      hide_description: "Rodyti mažiau"
+      less_than_expected: "Prasčiau nei tikėtasi"
+      phone_number: "Telefono numeris"
+      show_all_feedback: "Rodyti visus atsiliepimus"
+      show_all_testimonials: "Rodyti visus atsiliepimus"
+      show_full_description: "Rodyti daugiau"
+      slightly_better_than_expected: "Pranoko lūkesčius"
+      slightly_less_than_expected: "Prasčiau nei tikėtasi"
+      what_are_these: "Kas tai?"
+      review: "gautas įvertinimas"
+      reviews: "gauti įvertinimai"
+      listing: skelbimas
+      listings: skelbimai
+      open_listing: "aktyvus skelbimas"
+      open_listings: "aktyvūs skelbimai"
+      no_listings: "Skelbimų nėra"
+      no_open_listings: "Nėra aktyvių skelbimų"
+      no_reviews: "Nėra įvertinimų"
+      show_all_listings: "Rodyti visus skelbimus"
+      show_all_open_listings: "Rodyti visus aktyvius skelbimus"
+      show_all_reviews: "Rodyti visus įvertinimus"
+      admin_actions: ~
+      post_listing_as: ~
+    followed_people:
+      you_follow_plural: "Jūs sekate %{count} žmones"
+      you_follow_singular: "Jūs sekate %{count} žmogų"
+      they_follow_plural: "%{count} sekami žmonės"
+      they_follow_singular: "%{count} sekamas žmogus"
+      show_all_followed_people: "Rodyti visus sekamus žmones"
+      no_followed_people: "Jokių sekamų žmonių"
+    follow_button:
+      following: Sekama
+      follow: Sekti
+      unfollow: Nebesekti
+  sessions:
+    new:
+      create_new_account: "Sukurti naują paskyrą"
+      i_forgot_my_password: "Pamirštas vartotojo vardas ar slaptažodis"
+      login: Prisijungti
+      login_to_kassi: "Prisijungti prie %{service_name}"
+      connect_your_facebook_to_kassi: "Sujungti Facebook paskyrą su %{service_name}"
+      facebook_account: "Facebook paskyra:"
+      log_in_to_link_account: "Jei jau turite %{service_name} paskyrą, prisijunkite, kad susietumėte ją su savo Facebook paskyra."
+      you_can_also_create_new_account: "Jei neturite %{service_name} paskyros, %{accont_creation_link} sukurti paskyrą naudojant Facebook prisijungimą."
+      account_creation_link_text: "spausti čia"
+      cancle_facebook_connect: "Jei nenorite susieti šios paskyros, galite %{cancel_link}."
+      facebook_cancel_link_text: atšaukti
+      log_in_with_your_provider_account: ~
+      or_sign_up_with_your_username: "..arba su savo vartotojo vardu ir el. paštu:"
+      we_will_not_post_without_asking_you: "Mes niekada nepublikuosime Facebook neatsiklausę jūsų."
+    password_forgotten:
+      email: "El. paštas"
+      password_recovery_instructions: "Įveskite savo el. paštą, kad gautumėte vartotojo vardą ir atstatytumėte slaptažodį"
+      request_new_password: "Prašyti naujo slaptažodžio"
+      change_your_password: "Pakeisti slaptažodį"
+    confirmation_pending:
+      welcome_to_kassi: "Sveiki prisijungę prie %{service_name}!"
+      check_your_email: "Patikrinkite savo pašto dėžutę"
+      resend_confirmation_instructions: "Siųsti patvirtinimo instrukcijas dar kartą"
+      your_current_email_is: "Jūsų el. paštas yra %{email}."
+      change_email: Pakeisti
+      confirm_your_email: "Prašome patvirtinti jūsų el. pašto adresą."
+      account_confirmation_instructions: "Greitai gausite laišką su nuoroda jūsų el. pašto patvirtinimui. Nepamirškite patikrinti šlamšto aplanko. Patvirtinus el. paštą, galite prisijungti prie %{service_name}."
+      account_confirmation_instructions_title_admin: "Patvirtinkite savo el. pašto adresą"
+      before_full_access_you_need_to_confirm_email: ~
+      before_confirmation_only_access_admin_dashboard: ~
+      admin_dashboard_link_text: ~
+      account_confirmation_instructions_admin: "Turėjote gauti laišką %{email_address} su patvirtinimo nuoroda. Jei nematote laiško, patikrinkite šlamšto aplanką arba paspauskite mygtuką apačioje pakartotinam laiško siuntimui. Gavus laišką, atidarykite nuorodą, kad patvirtintumėte el. pašto adresą ir gausite pilną priėjimą prie turgaus. Jei reikia pagalbos, nedvejokite %{support_link}."
+      contact_support_link_text: ~
+  settings:
+    account:
+      change: Keisti
+      confirm_new_password: "Patvirtinkite naują slaptažodį"
+      delete_account: "Ištrinti paskyrą"
+      delete_account_button: "Ištrinti mano paskyrą visam laikui"
+      delete_account_confirmation_popup: "Ar tikrai norite ištrinti savo paskyrą ir visam laikui prarasti su ja susijusius duomenis?"
+      email_addresses: "El. pašto adresai"
+      new_email: "Naujas el. pašto adresas"
+      delete_personal_information: ~
+      delete_information_others_involved: ~
+      unfinished_transactions: ~
+      only_admin: ~
+      new_password: "Naujas slaptažodis"
+      save: Išsaugoti
+      these_fields_are_shown_only_to_you: "Vartotojo vardas yra rodomas jūsų profilyje, nebent jūs nurodėte savo vardą. Kita informacija matoma tik jums."
+      email_already_confirmed: ~
+      email:
+        address_title: Adresas
+        remove_title: Pašalinti
+        remove_confirmation: "Ar tikrai norite pašalinti šį el. pašto adresą?"
+        receive_notifications_title_desktop: "Gauti pranešimus"
+        receive_notifications_title_mobile: "Gauti pranešimus"
+        receive_notifications_new_title_mobile: "Gauti pranešimus"
+        add_new_with_plus: "+ Pridėti naują el. pašto adresą"
+        add_new_cancel: Atšaukti
+        confirmation_title_mobile: "Patvirtinimas:"
+        confirmation_title_desktop: Patvirtinimas
+        confirmation_resend: "Siųsti dar kartą"
+        status_confirmed: Patvirtinta
+        status_pending: "Laukiama patvirtinimo"
+    notifications:
+      email_from_admins: "Aš sutinku retkarčiais gauti laiškus nuo %{service_name} komandos"
+      i_want_to_get_email_notification_when: "Noriu gauti pranešimus el. paštu kai..."
+      newsletters: "Laiškai iš administratorių"
+      community_updates: Naujienlaiškiai
+      email_about_confirm_reminders: "...Pamiršau pažymėti užsakymą baigtu"
+      email_about_new_comments_to_own_listing: "...kas nors pakomentuoja mano pasiūlymą ar prašymą"
+      email_about_new_messages: "...kas nors atsiunčia man žinutę"
+      email_about_new_received_testimonials: "...kas nors palieka man atsiliepimą"
+      email_about_testimonial_reminders: "...pamiršau palikti atsiliepimą apie renginį"
+      email_daily_community_updates: "Siųsti man <b>kasdienį</b> naujienlaiškį, jei yra naujų skelbimų"
+      email_weekly_community_updates: "Siųsti man <b>savaitinį</b> naujienlaiškį, jei yra naujų skelbimų"
+      do_not_email_community_updates: "Nesiųsti man naujienlaiškių"
+      email_when_conversation_accepted: "...kažkas priima mano pasiūlymą ar prašymą"
+      email_when_conversation_rejected: "...kažkas atmeta mano pasiūlymą ar prašymą"
+      email_about_completed_transactions: "...kas nors pažymi mano užsakymą baigtu"
+      email_about_new_payments: "...gaunu naują mokėjimą"
+      email_about_new_listings_by_followed_people: "...kas nors ką seku įkelia naują skelbimą"
+      unsubscribe_succesful: "Prenumeratos nutraukimas sėkmingas"
+      unsubscribe_info_text: "Daugiau nebegausite tokių laiškų. Patikrinkite savo %{settings_link}, kad pasirinktumėte kokius laiškus norite gauti iš %{service_name} arba grįžkite į %{homepage_link}."
+      settings_link: nustatymai
+      homepage_link: "namų puslapis"
+      unsubscribe_unsuccesful: "Klaida atsisakant prenumeratos"
+      unsuccessful_unsubscribe_info_text: "Prenumeratos atsisakymo nuoroda nebegalioja. Prisijunkite, kad pakeistumėte jūsų prenumeratos laiškų nustatymus."
+    profile:
+      about_you: "Apie jus"
+      city: Miestas
+      family_name: Pavardė
+      given_name: Vardas
+      first_name_with_initial: "(kitiems vartotojams rodoma tik pirma raidė)"
+      first_name_only: "(nerodoma kitiems vartotojams)"
+      display_name: ~
+      display_name_description: ~
+      location_description: "Galite pateikti gatvės adresą arba tik miestą ar pašto kodą. Taip pat rekomenduojama įtraukti ir šalį pridedant vietą. Pavyzdžiui: \"10117, Berlynas, Vokietija\" ar \"2000 Sand Hill Road, CA, USA\"."
+      profile_picture_description: ~
+      phone_number: "Telefono numeris"
+      profile_picture: "Profilio nuotrauka"
+      postal_code: "Pašto kodas"
+      profile_page: "jūsų profilio puslapyje"
+      profilemap: "Žemėlapio vaizdas"
+      street_address: Vieta
+      these_fields_are_shown_in_your: "Dalis šios informacijos yra matoma visiems %{service_name} vartotojams"
+      visible_to_everybody: "matoma visiems"
+      visible_to_registered_users: "(matoma prisijungusiems vartotojams)"
+      default_in_listing: "(naudojama tik kaip numatytoji kuriant naują skelbimą)"
+      invisible: "(nerodoma kitiems vartotojams)"
+      image_is_processing: ~
+      shown_in_your_public_profile: ~
+      editing_profile_of: ~
+    save_information: "Išsaugoti informaciją"
+  shipping_address:
+    shipping_address: ~
+  tag_cloud:
+    tag_used:
+      with_tag: "Su žyme"
+      without_tag: "Be žymės"
+  terms:
+    show:
+      accept_terms: "Sutikimas su %{service_name} naudojimo sąlygomis"
+      here: "paspaudžiant čia"
+      i_accept_new_terms: "Aš sutinku su naujomis sąlygomis"
+      i_accept_terms: "Aš sutinku su sąlygomis"
+      terms: "%{service_name} naudojimo sąlygos"
+      terms_have_changed: "Naudojimo sąlygos pasikeitė"
+      you_can_view_the_new_terms: "Galite peržiūrėti naujas sąlygas"
+      you_need_to_accept: "Sveiki prisijungę prie %{service_name}! Panašu, kad tai pirmas kartas kai jūs naudojate šias paslaugas. Prieš pradedant turite sutikti su"
+      you_need_to_accept_new_terms: "%{service_name} naudojimo sąlygos pasikeitė. Jūs turite sutikti su naujomis sąlygomis norint toliau naudotis %{service_name}. Naujos sąlygos skirtos paslaugos priežiūrai pasibaigus tyrimui."
+  testimonials:
+    index:
+      all_testimonials: "Visi atsiliepimai"
+      feedback_altogether: "Visi atsiliepimai: "
+      loading_more_testimonials: "Kraunama daugiau atsiliepimų"
+      no_testimonials: "Jokių gautų atsiliepimų"
+    new:
+      as_expected: "Kaip tikėtasi"
+      exceeded_expectations: "Daug geriau nei tikėtasi"
+      give_feedback_to: "Palikti atsiliepimą %{person}"
+      grade: "Koks jūsų bendras įvertinimas"
+      less_than_expected: "Prasčiau nei tikėtasi"
+      send_feedback: "Siųsti atsiliepimą"
+      slightly_better_than_expected: "Šiek tiek geriau nei tikėtasi"
+      slightly_less_than_expected: "Šiek tiek prasčiau nei tikėtasi"
+      textual_feedback: "Kaip viskas vyko?"
+      this_will_be_shown_in_profile: "Jūsų paliktas atsiliepimas bus matomas kitiems nariams %{person} profilio puslapyje. Tai padeda kitiems įvertinti ar %{person} yra patikimas."
+      positive: Teigiamas
+      negative: Neigiamas
+      default_textual_feedback: "Viskas praėjo sklandžiai, labai ačiū!"
+    testimonial:
+      about_listing: "apie skelbimą"
+  date:
+    formats:
+      long_with_abbr_day_name: "%a, %b %d, %Y"
+    first_day_of_week: 0
+  datepicker:
+    days:
+      sunday: Sekmadienis
+      monday: Pirmadienis
+      tuesday: Antradienis
+      wednesday: Trečiadienis
+      thursday: Ketvirtadienis
+      friday: Penktadienis
+      saturday: Šeštadienis
+    days_short:
+      sunday: S
+      monday: P
+      tuesday: A
+      wednesday: T
+      thursday: K
+      friday: Pn
+      saturday: Š
+    days_min:
+      sunday: S
+      monday: P
+      tuesday: A
+      wednesday: T
+      thursday: K
+      friday: Pn
+      saturday: Š
+    months:
+      january: Sausis
+      february: Vasaris
+      march: Kovas
+      april: Balandis
+      may: Gegužė
+      june: Birželis
+      july: Liepa
+      august: Rugpjūtis
+      september: Rugsėjis
+      october: Spalis
+      november: Lapkritis
+      december: Gruodis
+    months_short:
+      january: Sau.
+      february: Vas.
+      march: Kov.
+      april: Bal.
+      may: Geg.
+      june: Bir.
+      july: Lie.
+      august: Rug.
+      september: Rugs.
+      october: Spa.
+      november: Lap.
+      december: Gru.
+    today: Šiandien
+    clear: Išvalyti
+    format: YYYY/mm/dd
+  time:
+    formats:
+      short: "%b %e, %Y %H:%M"
+      shorter: "%b %e %H:%M"
+      short_date: "%b %e, %Y"
+      hours_only: ~
+  timestamps:
+    day_ago: "Prieš %{count} dieną"
+    days_ago: "Prieš %{count} dienų"
+    hour_ago: "Prieš %{count} valandą"
+    hours_ago: "Prieš %{count} valandas"
+    minute_ago: "Prieš %{count} minutę"
+    minutes_ago: "Prieš %{count} minutes"
+    month_ago: "Prieš %{count} mėnesį"
+    months_ago: "Prieš %{count} mėnesius"
+    seconds_ago: "Prieš %{count} sekundes"
+    year_ago: "Prieš %{count} metus"
+    years_ago: "Prieš %{count} metus"
+    days_since:
+      one: "%{count} diena"
+      few: "%{count} dienos"
+      other: "%{count} dienos"
+  transactions:
+    initiate:
+      booked_days: ~
+      booked_nights: ~
+      price_per_day: ~
+      price_per_night: ~
+      price_per_hour: ~
+      price_per_unit: ~
+      quantity: ~
+      subtotal: ~
+      shipping-price: ~
+      stripe-fee: ~
+      start_end_time: ~
+    price_per_quantity: ~
+    price: ~
+    quantity: ~
+    unit_price: ~
+    total: ~
+    total_to_pay: ~
+  unit:
+    day: diena
+    days: dienos
+  web:
+    listings:
+      errors:
+        availability:
+          something_went_wrong: ~
+          saving_failed: ~
+        working_hours:
+          required: ~
+          overlaps: ~
+          covers: ~
+      pricing_units:
+        piece: ~
+        hour: ~
+        day: ~
+        night: ~
+        week: ~
+        month: ~
+      edit_availability_header: ~
+      save_and_close_availability_editing: ~
+      confirm_discarding_unsaved_availability_changes_explanation: ~
+      confirm_discarding_unsaved_availability_changes_question: ~
+      edit_listing_availability: ~
+      working_hours:
+        default_schedule: ~
+        i_am_available_on: ~
+        start_time: ~
+        end_time: ~
+        add_another_time_slot: "+ Pridėti kitą laiko tarpą"
+        save: ~
+    no_listings:
+      sorry: ~
+      try_other_search_terms: ~
+    listing_card:
+      add_picture: ~
+      no_picture: ~
+    search:
+      page: ~
+      page_of_pages: ~
+    topbar:
+      menu: ~
+      more: ~
+      search_placeholder: ~
+      search_location_placeholder: ~
+      user: ~
+      inbox: ~
+      profile: ~
+      manage_listings: ~
+      settings: ~
+      logout: ~
+      login: ~
+      signup: ~
+      admin_dashboard: ~
+      language: ~
+      listings: ~
+    utils:
+      km: ~
+      mi: ~
+    branding:
+      powered_by: ~
+      create_own: ~
+      learn_more: ~
+  will_paginate:
+    models:
+      person:
+        zero: vartotojai
+        one: vartotojai
+        few: vartotojai
+        other: vartotojai
+    previous_label: "&#8592; Atgal"
+    next_label: "Kitas &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero: "%{model} nerastas"
+        one: "Rodomas 1 %{model}"
+        few: "Rodomi %{count} %{model}"
+        other: "Rodomi %{count} %{model}"
+      multi_page: "Rodomi %{model} %{from} - %{to} iš %{count}"
+      multi_page_html: "Rodomi %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> iš <b>%{count}</b>"
+    person:
+      community_members_entries_info:
+        multi_page: ~
+        multi_page_html: ~
+  stripe_accounts:
+    admin_account_not_connected: ~
+    contact_admin_link_text: ~
+    you_are_ready_to_accept_payments: ~
+    commission: ~
+    pay_with_stripe: ~
+    add_and_pay: ~
+    card_not_stored: ~
+    missing_payment: ~
+    stripe_bank_connected: ~
+    stripe_can_accept: ~
+    stripe_credit_card: ~
+    paypal: ~
+    paypal_connected: ~
+    paypal_can_accept: ~
+    paypal_connected_give_permission: ~
+    form_new:
+      need_info: ~
+      select_country: ~
+      legal_name: ~
+      first_name: ~
+      last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
+      country: ~
+      birth_date: ~
+      ssn_last_4: ~
+      personal_id_number: ~
+      address_country: ~
+      address_state: ~
+      address_province: ~
+      address_city: ~
+      address_postal_code: ~
+      address_line1: ~
+      tos_link: ~
+      tos_link_title: ~
+      save_details: ~
+      edit: ~
+      cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
+      mcc: ~
+    form_bank:
+      bank_account_number: ~
+      bank_routing_number: ~
+      bank_routing_1: ~
+      bank_routing_2: ~
+      bank_currency: ~
+      update_also_bank_account: ~
+      messages:
+        account_number: ~
+        routing_number: ~
+        bank_code: ~
+        branch_code: ~
+        transit_number: ~
+        institution_number: ~
+        format_varies_by_bank: ~
+        bsb: ~
+        error_message: ~
+        clearing_code: ~
+        sort_code: ~
+        must_match: ~
+        a_dash: ~
+        digits: ~
+        digits_or_chars: ~
+    form_verification:
+      personal_id_number: ~
+      document: ~
+      send_verification: ~
+      need_verification: ~
+    form_pin:
+      social_insurance_number: ~
+      social_security_number: ~
+      ssn_last_4: ~
+      hong_kong_identity_card: ~
+      singapore_identity_card: ~
+      messages:
+        social_insurance_number: ~
+  payment_settings:
+    title: ~
+    bank_account: ~
+    paypal: ~
+    bank_account_details: ~
+    add_bank_details: ~
+    can_accept_stripe_and_paypal: ~
+    to_accept_paypal: ~
+    connect_paypal: ~
+    wrong_setup: ~
+    invalid_bank_account_number: ~
+    invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

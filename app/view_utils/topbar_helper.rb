@@ -17,7 +17,7 @@ module TopbarHelper
     search_path_string = PathHelpers.search_url({
       community_id: community.id,
       opts: {
-        only_path: true,
+        only_path: true
       }
     })
 
@@ -30,7 +30,8 @@ module TopbarHelper
           community_id: community.id,
           default_locale: community.default_locale,
           logged_in: user.present?,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         text: community.name(I18n.locale),
         image: community.wide_logo.present? ? community.stable_image_url(:wide_logo, :header) : nil,
@@ -38,7 +39,7 @@ module TopbarHelper
       },
       search: landing_page ? nil : {
         search_placeholder: search_placeholder,
-        mode: main_search.to_s,
+        mode: main_search.to_s
       },
       search_path: search_path_string,
       menu: {
@@ -50,11 +51,11 @@ module TopbarHelper
         avatar: {
           image: avatar_image,
           givenName: given_name,
-          familyName: family_name,
-        },
+          familyName: family_name
+        }
       },
       newListingButton: {
-        text: I18n.t("homepage.index.post_new_listing"),
+        text: I18n.t("homepage.index.post_new_listing")
       },
       i18n: {
         locale: I18n.locale,
@@ -66,7 +67,7 @@ module TopbarHelper
       },
       user: {
         loggedInUsername: user&.username,
-        isAdmin: user&.has_admin_rights?(community) || false,
+        isAdmin: user&.has_admin_rights?(community) || false
       },
       unReadMessagesCount: InboxService.notification_count(user&.id, community.id)
     }
@@ -92,24 +93,31 @@ module TopbarHelper
           community_id: community.id,
           logged_in: user.present?,
           default_locale: community.default_locale,
-          locale_param: locale_param
+          locale_param: locale_param,
+          custom: true
         ),
         title: I18n.t("header.home"),
         priority: -1
-      },
-      {
+      }
+    ]
+
+    if community.configuration.display_about_menu
+      links << {
         link: paths.about_infos_path(locale: locale_param),
         title: I18n.t("header.about"),
         priority: 0
-      },
-      {
+      }
+    end
+
+    if community.configuration.display_contact_menu
+      links << {
         link: paths.new_user_feedback_path(locale: locale_param),
         title: I18n.t("header.contact_us"),
         priority: !user_links.empty? ? user_links.last[:priority] + 1 : 1
       }
-    ]
+    end
 
-    if user&.has_admin_rights?(community) || community.users_can_invite_new_users
+    if community.users_can_invite_new_users && community.configuration.display_invite_menu
       links << {
         link: paths.new_invitation_path(locale: locale_param),
         title: I18n.t("header.invite"),
@@ -143,7 +151,7 @@ module TopbarHelper
   end
 
   def paths
-    @_url_herlpers ||= Rails.application.routes.url_helpers
+    @_url_herlpers ||= Rails.application.routes.url_helpers # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def link_external?(url, host_with_port)

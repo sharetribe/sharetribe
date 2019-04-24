@@ -35,7 +35,7 @@ module PlanService::API
       {
         active: false,
         jwt_secret: "test_secret",
-        external_plan_service_login_url: "http://external.plan.service.com",
+        external_plan_service_login_url: "http://external.plan.service.com"
       }
     end
 

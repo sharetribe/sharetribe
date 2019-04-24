@@ -1,11 +1,22 @@
-FROM ruby:2.3.4
+FROM ruby:2.6.2
 
 MAINTAINER Sharetribe Team <team@sharetribe.com>
 
-ENV REFRESHED_AT 2016-11-08
+ENV REFRESHED_AT 2019-04-12
 
-RUN apt-get update \
+# NOTE: we will migrate soon to newer ruby version and away from Debian
+# Jessie-based image. For now, enable only package repositories that are still
+# maintained for jessie for LTS.
+
+RUN echo 'deb http://deb.debian.org/debian jessie main' > /etc/apt/sources.list \
+    && echo 'deb http://security.debian.org jessie/updates main' >> /etc/apt/sources.list \
+    && apt-get update \
     && apt-get dist-upgrade -y
+
+# Prevent GPG from trying to bind on IPv6 address even if there are none
+RUN mkdir ~/.gnupg \
+  && chmod 600 ~/.gnupg \
+  && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
 
 #
 # Node (based on official docker node image)
@@ -23,9 +34,9 @@ RUN set -ex \
     C4F0DFFF4E8C1A8236409D08E73BC641CC11F4C8 \
     56730D5401028683275BD23C23EFEFE93C4CFFFE \
   ; do \
-    gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" || \
-    gpg --keyserver pgp.mit.edu --recv-keys "$key" || \
-    gpg --keyserver keyserver.pgp.com --recv-keys "$key" ; \
+    gpg --batch --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys "$key" || \
+    gpg --batch --keyserver hkp://ipv4.pool.sks-keyservers.net --recv-keys "$key" || \
+    gpg --batch --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info

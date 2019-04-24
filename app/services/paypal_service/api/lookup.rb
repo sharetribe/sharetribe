@@ -1,4 +1,3 @@
-
 # Various helping methods to lookup context (from DB) for paypal operations
 
 module PaypalService::API

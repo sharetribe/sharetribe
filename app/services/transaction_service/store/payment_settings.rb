@@ -15,7 +15,11 @@ module TransactionService::Store::PaymentSettings
     [:confirmation_after_days, :fixnum, default: 14],
     [:api_client_id, :string],
     [:api_private_key, :string],
-    [:api_publishable_key, :string]
+    [:api_publishable_key, :string],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool, default: true]
   )
 
   PaymentSettingsUpdate = EntityUtils.define_builder(
@@ -32,7 +36,11 @@ module TransactionService::Store::PaymentSettings
     [:api_client_id, :string],
     [:api_private_key, :string],
     [:api_publishable_key, :string],
-    [:confirmation_after_days_after_end_time, :fixnum]
+    [:confirmation_after_days_after_end_time, :fixnum],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool]
   )
 
   PaymentSettings = EntityUtils.define_builder(
@@ -52,7 +60,11 @@ module TransactionService::Store::PaymentSettings
     [:api_publishable_key, :string],
     [:api_visible_private_key, :string],
     [:api_verified, :to_bool],
-    [:api_country, :string]
+    [:api_country, :string],
+    [:commission_from_buyer, :fixnum],
+    [:minimum_buyer_transaction_fee_cents, :fixnum],
+    [:minimum_buyer_transaction_fee_currency, :string],
+    [:key_encryption_padding, :bool]
   )
 
   module_function
@@ -70,7 +82,7 @@ module TransactionService::Store::PaymentSettings
     raise ArgumentError.new("Cannot find settings to update: cid: #{opts[:community_id]}, gateway: #{opts[:payment_gateway]}, process: #{opts[:payment_process]}") if model.nil?
 
     clean_or_encrypt_api_keys(model, settings)
-    model.update_attributes!(settings)
+    model.update!(settings)
     from_model(model)
   end
 
@@ -95,21 +107,24 @@ module TransactionService::Store::PaymentSettings
   def activate(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(active: true) unless model.active
+
+    model.update!(active: true) unless model.active
     from_model(model)
   end
 
   def api_verified(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to activate: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(api_verified: true)
+
+    model.update!(api_verified: true)
     from_model(model)
   end
 
   def disable(community_id:, payment_gateway:, payment_process:)
     model = find(community_id, payment_gateway, payment_process)
     raise ArgumentError.new("Cannot find settings to disable: cid: #{community_id}, gateway: #{payment_gateway}, process: #{payment_process}") if model.nil?
-    model.update_attributes!(active: false)
+
+    model.update!(active: false)
     from_model(model)
   end
 
@@ -118,7 +133,11 @@ module TransactionService::Store::PaymentSettings
   def from_model(model)
     Maybe(model)
       .map { |m| EntityUtils.model_to_hash(m) }
-      .map { |hash| PaymentSettings.call(hash.merge({commission_type: commission_type(hash)})) }
+      .map { |hash|
+      PaymentSettings.call(hash.merge({
+        commission_type: commission_type(hash)
+      }))
+    }
       .or_else(nil)
   end
 
@@ -153,26 +172,27 @@ module TransactionService::Store::PaymentSettings
     end
     # store visible hint
     settings[:api_visible_private_key] = settings[:api_private_key].sub(/\A(.{7}).+(.{4})$/, '\1*********************\2')
-    settings[:api_private_key] = encrypt_value(settings[:api_private_key])
+    settings[:api_private_key] = encrypt_value(settings[:api_private_key], settings[:key_encryption_padding])
   end
 
-  def encrypt_value(value)
+  def encrypt_value(value, padding)
     raise "can not encrypt Stripe keys, add app_encryption_key to config/config.yml" if APP_CONFIG.app_encryption_key.nil?
+
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.encrypt
     cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
     iv = cipher.random_iv
-    cipher.padding = 0
+    cipher.padding = padding ? 1 : 0
     cipher.iv = iv
     text = cipher.update(value) + cipher.final
     Base64.strict_encode64(iv + text)
   end
 
-  def decrypt_value(value)
+  def decrypt_value(value, padding)
     cipher = OpenSSL::Cipher.new('AES-256-CBC')
     cipher.decrypt
     cipher.key = Digest::SHA256.digest(APP_CONFIG.app_encryption_key)
-    cipher.padding = 0
+    cipher.padding = padding ? 1 : 0
     plain = Base64.decode64(value)
     cipher.iv = plain.slice!(0,16)
     cipher.update(plain) + cipher.final
@@ -182,6 +202,7 @@ module TransactionService::Store::PaymentSettings
     if model.api_verified?
       API_KEY_FIELDS.each{|key| new_settings.delete(key) }
     else
+      new_settings[:key_encryption_padding] = model.key_encryption_padding
       encrypt_api_keys(new_settings)
       new_settings[:api_verified] = false
     end

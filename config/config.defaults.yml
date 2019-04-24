@@ -147,6 +147,10 @@ default: &default_settings
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false
 
+  # If always_use_ssl is set to true, optionally set HTTP Strict Transport
+  # Security header with this max-age. Set to 0 to disable HSTS.
+  hsts_max_age: 31536000 # one year in seconds
+
   # The default locale (language) of the user interface
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
   # This setting here is the server wide default, and it's used if no community specific setting is found.
@@ -450,8 +454,8 @@ default: &default_settings
   stripe_payout_delay: 7.5
 
   # Key pattern to ensure production keys
-  stripe_private_key_pattern: "\\Ask_test_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_test_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_test_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_test_.{24,200}\\z"
 
   # Stripe allows to hold funds up to 90 days
   # (85 and not 90 or 89 as a security, also because timezones are not
@@ -485,16 +489,16 @@ production: &production_settings
   eager_load: true
 
   log_level: INFO
-  stripe_private_key_pattern: "\\Ask_live_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_live_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_live_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_live_.{24,200}\\z"
 
 staging:
   <<: *production_settings
   # By default staging has same settings as production, but those can be overridden here.
 
   log_level: INFO
-  stripe_private_key_pattern: "\\Ask_(test|live)_.{24}\\z"
-  stripe_publishable_key_pattern: "\\Apk_(test|live)_.{24}\\z"
+  stripe_private_key_pattern: "\\Ask_(test|live)_.{24,200}\\z"
+  stripe_publishable_key_pattern: "\\Apk_(test|live)_.{24,200}\\z"
 
 development:
   <<: *default_settings
@@ -560,6 +564,7 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+  hsts_max_age: 0
 
   secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
   # Used to encrypt Stripe api keys

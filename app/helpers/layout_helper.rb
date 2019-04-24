@@ -12,4 +12,30 @@ module LayoutHelper
 
     local_assigns[key]
   end
+
+  def social_media_title
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if customization&.social_media_title.present?
+      customization.social_media_title
+    else
+      "#{@current_community.full_name(I18n.locale)} - #{community_slogan}"
+    end
+  end
+
+  def social_media_description
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if customization&.social_media_description.present?
+      customization.social_media_description
+    else
+      "#{community_description(false)} - #{community_slogan}"
+    end
+  end
+
+  def custom_meta_title(default, extra_mode = nil)
+    @seo_service.title(default, extra_mode)
+  end
+
+  def custom_meta_description(default, extra_mode = nil)
+    @seo_service.description(default, extra_mode)
+  end
 end

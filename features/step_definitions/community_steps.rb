@@ -16,7 +16,7 @@ Given /^there are following communities:$/ do |communities_table|
     @hash_community = FactoryGirl.create(:community, :ident => ident, :settings => {"locales" => ["en", "fi"]})
 
     attributes_to_update = hash.except('community')
-    @hash_community.update_attributes(attributes_to_update) unless attributes_to_update.empty?
+    @hash_community.update(attributes_to_update) unless attributes_to_update.empty?
   end
 end
 
@@ -28,7 +28,7 @@ Given /^the test community has following available locales:$/ do |locale_table|
 
   #here is expected that the first community is the test community where the subdomain is pointing by default
   community = Community.first
-  community.update_attributes({:settings => { "locales" => @locales }})
+  community.update({:settings => { "locales" => @locales }})
   community.locales.each do |locale|
     unless community.community_customizations.find_by_locale(locale)
       community.community_customizations.create(:locale => locale, :name => "Sharetribe")
@@ -91,7 +91,7 @@ When /^I arrive to sign up page with the link in the invitation email with code 
 end
 
 Given /^community "(.*?)" is private$/ do |community_ident|
-  Community.where(ident: community_ident).first.update_attributes({:private => true})
+  Community.where(ident: community_ident).first.update({:private => true})
 end
 
 Given /^this community is private$/ do
@@ -135,8 +135,8 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
 
   listing_shapes.hashes.map do |hash|
     name_tr_key, action_button_tr_key = save_name_and_action(current_community.id, [
-      {translations: [ {locale: 'fi', translation: hash['fi']}, {locale: 'en', translation: hash['en']} ]},
-      {translations: [ {locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')} ]}
+      {translations: [{locale: 'fi', translation: hash['fi']}, {locale: 'en', translation: hash['en']}]},
+      {translations: [{locale: 'fi', translation: (hash['button'] || 'Action')}, {locale: 'en', translation: (hash['button'] || 'Action')}]}
     ])
 
     ListingShape.create_with_opts(
@@ -148,7 +148,7 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
         action_button_tr_key: action_button_tr_key,
         transaction_process_id: process_id,
         basename: hash['en'],
-        units: [ {unit_type: 'hour', quantity_selector: 'number', kind: 'time'} ]
+        units: [{unit_type: 'hour', quantity_selector: 'number', kind: 'time'}]
       }
     )
   end
@@ -157,7 +157,7 @@ Given /^community "(.*?)" has following listing shapes enabled:$/ do |community,
 end
 
 Given /^listing publishing date is shown in community "(.*?)"$/ do |community_ident|
-  Community.where(ident: community_ident).first.update_attributes({:show_listing_publishing_date => true})
+  Community.where(ident: community_ident).first.update({:show_listing_publishing_date => true})
 end
 
 Given /^current community requires users to be verified to post listings$/ do
@@ -252,3 +252,22 @@ Given /^community "(.*?)" has feature flag "(.*?)" enabled$/ do |community, feat
   community = Community.where(ident: community).first
   FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [feature_flag.to_sym])
 end
+
+Given /^community "(.*?)" has social network "(.*?)" enabled$/ do |community, provider|
+  community = Community.where(ident: community).first
+  if provider == 'google_oauth2'
+    community.google_connect_enabled = true
+    community.google_connect_id = '123'
+    community.google_connect_secret = 'ABC'
+  elsif provider == 'linkedin'
+    community.linkedin_connect_enabled = true
+    community.linkedin_connect_id = '123'
+    community.linkedin_connect_secret = 'ABC'
+  end
+  community.save
+end
+
+Given(/^community "(.*?)" has pre-approved listings$/)do |community|
+  Community.where(ident: community).first.update_attribute(:pre_approved_listings, true)
+end
+

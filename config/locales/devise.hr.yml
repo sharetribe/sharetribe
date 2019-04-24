@@ -18,7 +18,7 @@ hr:
       locked: "Vaš korisnički račun je zaključan."
       invalid: "Neispravna e-mail adresa ili lozinka."
       invalid_token: "Neispravan token za autentifikaciju"
-      timeout: "Vaš session je istekao, potrebno je ponovno se prijaviti u sustav"
+      timeout: "Vrijeme je isteklo, potrebna je ponovno se prijaviti"
       inactive: "Vaš račun još nije aktiviran."
     passwords:
       updated_not_active: "Vaša lozinka je uspješno promijenjena."
@@ -40,9 +40,9 @@ hr:
         inactive: neaktivan
         unconfirmed: nepotvrđen
         locked: zaključan
-      update_needs_confirmation: "Uspješno ste osvježili svoj korisnički račun, ali moramo verificirati vašu novu email adresu. Molimo provjerite svoj mail i kliknite na link kako bi potvrdili svoju novu email adresu."
+      update_needs_confirmation: "Uspješno ste ažurirali svoj korisnički račun, ali moramo potvrditi vašu novu email adresu. Molimo provjerite svoj mail i kliknite na link kako bi potvrdili svoju novu email adresu."
       signed_up: "Dobrodošli! Uspješno ste se prijavili."
-      updated: "Uspješno ste osvježili svoj korisnički račun."
+      updated: "Uspješno ste ažurirali svoj korisnički račun."
       destroyed: "Doviđenja! Vaš račun je uspješno otkazan. Nadamo se da ćete nam se uskoro vratiti :)"
     unlocks:
       send_paranoid_instructions: "Ako vaš korisnički račun postoji, uskoro ćete dobiti email sa uputama kako ga otključati."

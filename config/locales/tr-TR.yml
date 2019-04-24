@@ -12,7 +12,7 @@ tr-TR:
       index:
         listing_categories: "İlan kategorileri"
         create_a_new_category: "+ Yeni kategori oluştur"
-        remove_category_confirmation: "'%{category_name}' kategorisini kaldırmak istediğinizden emin misiniz?"
+        remove_category_confirmation: "Bu kategoriyi silmek istediğinizden emin misiniz%{category_name} ? Bu geri alınamaz."
         saving_order: "Kategori düzeni kaydediliyor"
         save_order_successful: "Kategori düzeni başarıyla kaydedildi"
         save_order_error: "Kategori düzeni kaydedilirken hata meydana geldi. Sayfayı yenileyin ve tekrar deneyin."
@@ -99,7 +99,7 @@ tr-TR:
         small_community_cover_photo: "Küçük kapak fotoğrafı"
         favicon: Favicon
         favicon_info_text: "Favicon default Sharetribe logosunun yerini alacaktır. Ebatlar 32x32 piksel olmalıdır ve yüklenen görseller bu boya getirilecektir."
-        community_custom_color1: "Ana renk"
+        community_custom_color1: "Pazaryeri ana renk"
         community_slogan_color: "Pazar yeri slogan rengi"
         community_slogan_color_instructions_text: "Bir hex renk değeri girerek ana sayfa slogan rengini değiştirebilirsiniz. Slogan rengi kullanıcılara giriş yapmadıklarını gösterir. %{colorpicker} renk seçmenize ve hex renk kodu elde etmenize yardımcı olur. Sonrasında renk kodunu buradan kopyalayabilirsiniz  %{see_how_it_looks_like}."
         community_description_color: "Pazar yeri açıklama rengi"
@@ -180,27 +180,33 @@ tr-TR:
       getting_started:
         getting_started: "Hızlı Başlangıç"
       available_languages:
+        cs: "Çek dili"
+        da-DK: Danca
+        de: Almanca
         en: İngilizce
         en-AU: "İngilizce (Avustralya)"
         en-GB: "İngilizce (Birleşik Krallık)"
+        es: ~
+        es-ES: ~
+        fi: Fince
         fr: Fransızca
         fr-CA: "Fransızca (Kanada)"
-        es: "İspanyolca (Şili)"
-        es-ES: İspanyolca
-        pt-PT: Portekizce
-        pt-BR: "Portekizce (Brezilya)"
-        nb: "Norveççe Bokmål"
-        sv: İsveççe
-        da-DK: Danca
-        fi: Fince
-        ru: Rusça
-        de: Almanca
         el: Yunanca
-        nl: Flamanca
-        tr-TR: Türkçe
-        zh: Çince
-        ja: Japonca
         it: İtalyanca
+        ja: Japonca
+        ko: "Kore dili"
+        nb: "Norveççe Bokmål"
+        nl: Flamanca
+        pl: "Polonya dili"
+        pt-BR: "Portekizce (Brezilya)"
+        pt-PT: Portekizce
+        ru: Rusça
+        sv: İsveççe
+        th-TH: "Tai dili (Tayland)"
+        tr-TR: Türkçe
+        vi: "Vietnam dili"
+        zh: Çince
+        zh-TW: "Çince (Tayvan)"
       settings:
         settings: Ayarlar
         general: Genel
@@ -231,6 +237,7 @@ tr-TR:
         update_settings: "Ayarları kaydet"
         automatically_confirmed_no_escrow: "Ödemenin üzerinden %{days_dropdown} gün geçtikten sonra, işlem otomatik olarak tamamlandı olarak işaretlenecektir."
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "Otomatik bülten gönder: %{frequency_dropdown}"
         newsletter_daily: Günlük
         newsletter_weekly: Haftalık
@@ -244,6 +251,7 @@ tr-TR:
         you_will_be_redirected_to: ~
         delete_this_marketplace: "Bu pazarı sil"
         payment_preferences: ~
+        pre_approved_listings: ~
       manage_members:
         manage_members: "Kullanıcıları yönet"
         email: E-posta
@@ -265,6 +273,22 @@ tr-TR:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: "Tüm durumlar"
+          selected: "Seçilen durumlar: %{count}"
+          selected_js: "Seçilen durumlar: "
+          admin: Yönetici
+          banned: Yasaklı
+          posting_allowed: "Gönderim izni verildi"
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -276,6 +300,12 @@ tr-TR:
         social_media: "Sosyal medya"
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: "Twitter aracı"
         twitter_handle_info_text: "Pazarınızın Twitter hesabının kullanıcı adı (mevcutsa). Kişiler listeleme sayfasındaki tweet butonunu kullandığında bahsedilecek."
         twitter_handle_info_text_with_instructions: "(Varsa) pazarınızın Twitter hesabının kullanıcı adı. Misafirler ilan sayfasındaki Twitter butonunu kullanınca görüntülenecektir. %{instructions_link}."
@@ -293,6 +323,67 @@ tr-TR:
         enable_facebook_login: ~
         save: "Ayarları kaydet"
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: Analytics
         google_analytics_key: "Google Analytics takip kimliği"
@@ -304,8 +395,14 @@ tr-TR:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: "Ayarları kaydet"
+      logo_link:
+        title: "Logo bağlantısı"
+        info: "Logonun bağlantısını (ve üstte varsayılan ana butonu ) özelleştirebilirsiniz. Varsayılan olarak logo kullanıcıları ana sayfaya veya Özel Açılış Sayfasına götürür."
+        url: URL
+        placeholder: "https://www.örnek.com"
       menu_links:
-        menu_links: "Menü bağlantıları"
+        menu_links: "Özel menü bağlantıları"
+        menu_links_display: "Menü bağlantıları ekranı"
         save: "Ayarları kaydet"
         add_menu_link: "Menüye yeni link ekle"
         title_placeholder: "Bağlantı adı"
@@ -318,6 +415,15 @@ tr-TR:
         all: ~
         max_number_of_links_info: ~
         about_page: "hakkında sayfası"
+      default_menu_links:
+        title: "Varsayılan menü bağlantıları"
+        about_link_title: Hakkında
+        contact_link_title: İletişim
+        invite_link_title: "Yeni üyeler davet edin"
+        info: "Varsayılan olarak, takip edilen bağlantılar pazaryerinizin herhangi bir yerinde gözükmez:  %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Bağlantıyı göster<i> Hakkında</i>  ve diğer sabit sayfalara"
+        display_contact: "Bağlantıyı göster<i> İletişim</i> sayfa"
+        display_invite: "Bağlantıyı göster<i> Yeni üyeler davet edin</i> sayfa"
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -326,6 +432,19 @@ tr-TR:
         export_all_as_csv: ~
         processing_export: ~
         transactions: "İşlemleri görüntüle"
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: "Konuşma başlığı"
           listing: Listeleme
@@ -383,10 +502,18 @@ tr-TR:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -399,6 +526,16 @@ tr-TR:
           skipped: ~
           published: ~
           blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: ~
           save: ~
@@ -408,8 +545,30 @@ tr-TR:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -420,8 +579,50 @@ tr-TR:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: "Kullanıcı alanları"
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "'%{field_name}' listeleme alanını düzenle"
@@ -449,7 +650,7 @@ tr-TR:
         listing_fields: "Listelenen alan & filtreleri"
         listing_fields_help: "Buradan kullanıcıların yeni listeleme oluştururken doldurmaları gereken alanları düzenleyebilirsiniz. Lütfen bazı alanların önceden belirlenmiş ve değiştirilemez olduğunu unutmayın."
         add_new_field: "Yeni alan ekle:"
-        remove_field_confirmation: "%{field_name} alanını kaldırmak istediğinizden emin misiniz?"
+        remove_field_confirmation: "Bu dosyayı silmek istediğinizden emin misiniz%{field_name} ve bunun bütün datalarını? Bu işlem geri alınamaz."
         cancel: İptal
         save: Kaydet
         field_title: "Alan adı"
@@ -673,6 +874,8 @@ tr-TR:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -685,6 +888,7 @@ tr-TR:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -809,6 +1013,7 @@ tr-TR:
       quantity_label: "Adet:"
       sum_label: "Ara Toplam:"
       service_fee_label: "%{service_name} ücreti:"
+      buyer_service_fee_label: ~
       you_will_get_label: "Alacağınız:"
       total_label: "Toplam:"
       total_value: "%{seller_gets}"
@@ -854,6 +1059,7 @@ tr-TR:
     message:
       accepted_request: "talebi kabul etti"
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: "teklifi kabul etti"
       rejected_request: "talebi reddetti"
       rejected_offer: "teklifi reddetti"
@@ -863,8 +1069,10 @@ tr-TR:
       canceled_offer: "teklifi iptal etti"
       paid: "%{sum} ödedi"
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Mesaj
@@ -1079,7 +1287,9 @@ tr-TR:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1095,6 +1305,7 @@ tr-TR:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1119,7 +1330,7 @@ tr-TR:
       subtotal: "Ara Toplam:"
       total: Toplam
       price: Fiyat
-      service_fee: "Hizmet bedeli"
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "Ödeme %{recipient_name}'in hesabına a) talebi tamamlandı olarak işaretlediğinizde ya da b) ödeme yapmanızın ardından %{automatic_confirmation_days} gün geçtikten sonra aktarılacak."
@@ -1185,6 +1396,24 @@ tr-TR:
       this_is_automatic_message: "Bu mesaj %{community} yöneticilerine otomatik olarak gönderilmiştir."
       person_name: Ad
       person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1253,6 +1482,7 @@ tr-TR:
       after: "%{restriction} sonrasında olmalı"
       on_or_after: "%{restriction} içinde ya da sonrasında olmalı"
       positive_number: "Rakam giriniz"
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} %{time_ago}%{listing_title}'ı %{requester_name} üyesine ödünç vermeyi kabul etti."
@@ -1290,7 +1520,7 @@ tr-TR:
     create_new_marketplace: "Yeni pazar oluştur"
     contact_us: "Bize ulaşın"
     profile: Profil
-    manage_listings: "Listelemeyi yönet"
+    manage_listings: Listelerim
     invite: "Yeni üye davet edin"
     login: "Giriş yap"
     signup: "Kayıt ol"
@@ -1499,8 +1729,8 @@ tr-TR:
       comment_sent: "Yorumuzun gönderildi"
       confirmation_link_is_wrong_or_used: "Doğrulama linki kullanılmış ya da hatalı. Giriş yapmaya çalışın veya sorun devam ederse, bize ulaşın."
       additional_email_confirmed: "Girmiş olduğunuz e-posta adresi doğrulandı."
-      could_not_get_email_from_facebook: "Facebook'tan e-posta adresinizi alamadık ve bu adres olmaksınız hesap oluşturulamıyor."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Yeni ilan oluştur"
       create_one_here: "buradan bir tane oluşturabilirsiniz."
       email_confirmation_sent_to_new_address: "E-posta doğrulamanız yeni adresinize gönderildi."
@@ -1537,7 +1767,7 @@ tr-TR:
       listing_updated_successfully: "İlan başarıyla güncellendi"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Bu alana sadece %{service_name} yöneticileri erişebilir"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
       only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."
       payment_successful: "Ödeme başarıyla tamamlandı"
@@ -1616,6 +1846,8 @@ tr-TR:
       paypal_payments: ~
       stripe_payments: ~
       payments: Ödemeler
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Bu ilanı görüntüleme yetkiniz yok."
@@ -1644,6 +1876,10 @@ tr-TR:
       show_in_updates_email_loading: Yükleniyor...
       show_in_updates_email_error: "Sunucuyla bağlantı kurulamadı. Sayfayı yeniledikten sonra tekrar deneyin."
       show_in_updates_email_success: "Bu listeleme kullanıcılara gönderilecek bir sonraki otomatik güncelleme e-postasında gösterilecek"
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: "Google Maps üzerinde aç."
     error:
@@ -1724,6 +1960,9 @@ tr-TR:
         origin: Kaynak
       send_button:
         save_listing: "İlanı kaydet"
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Seç
         borrow: "Ödünç almak"
@@ -1803,6 +2042,7 @@ tr-TR:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: ilan
       selected_category: "Kategori: %{category}"
@@ -1816,6 +2056,7 @@ tr-TR:
       community_not_configured_for_payments: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{contact_admin_link} ile detaylar için bağlantıya geçiniz."
       payment_settings_link: "ödeme ayarları"
       community_not_configured_for_payments_admin: "%{service_name} ödeme almak için ayarlanmadı, yeni listelemeler yapamayacaksınız. Lütfen %{payment_settings_link} adresine giderek gerekli ödeme alanlarını doldurunuz."
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "Aylık saat:"
       day: "Gün sayısı"
@@ -2042,7 +2283,7 @@ tr-TR:
       username_is_invalid: "Kullanıcı adı geçersiz. Kullanıcı adı harf, rakam ve altçizgiden oluşabilir."
       visible_only_to_you: "yalnızca siz ve pazaryeri yöneticisi görebilir"
       visible_to_everybody: "herkes görebilir"
-      create_account_with_facebook: "Facebook hesabınla kayıt ol"
+      create_account_with_provider: ~
       OR: "YA DA"
       signup_with_email: "E-posta ile kayıt ol"
       this_field_will_be_publicly_visible: "(Bu alan herkese görünür olacak)"
@@ -2050,9 +2291,8 @@ tr-TR:
       grade: "değerlendirme:"
       and_gave_following_feedback: "ve aşağıdaki geri bildirimi bıraktı"
     profile_listings:
-      show_also_closed: "Kapananları da göster"
-      show_only_open: "Açıkları göster"
       no_image: "Görsel yok"
+      manage_listings: ~
     show:
       contact: "%{person} kullanıcısına ulaş"
       about_me: "Hakkımda:"
@@ -2085,6 +2325,8 @@ tr-TR:
       show_all_listings: "Tüm ilanları göster"
       show_all_open_listings: "Tüm açık ilanları göster"
       show_all_reviews: "Tüm yorumları göster"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "%{count} kişiyi takip ediyorsunuz"
       you_follow_singular: "%{count} kişiyi takip ediyorsunuz"
@@ -2109,7 +2351,7 @@ tr-TR:
       account_creation_link_text: "buraya tıklayın"
       cancle_facebook_connect: "Bu hesabı bağlamak istemiyorsanız, %{cancel_link} adresine tıklayın."
       facebook_cancel_link_text: iptal
-      log_in_with_your_facebook_account: "Facebook ile giriş yap"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "...ya da kullanıcı adı/e-posta ile giriş yap:"
       we_will_not_post_without_asking_you: "Size sormadan Facebook'ta kesinlikle hiçbir şey paylaşmayacağız."
     password_forgotten:
@@ -2210,6 +2452,7 @@ tr-TR:
       invisible: "(Diğer kullanıcılara gösterilmez.)"
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
+      editing_profile_of: ~
     save_information: "Bu bilgiyi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"
@@ -2405,13 +2648,14 @@ tr-TR:
       user: Kullanıcı
       inbox: "Gelen Kutusu"
       profile: Profil
-      manage_listings: "İlanları Yönet"
+      manage_listings: Listelerim
       settings: Ayarlar
       logout: "Çıkış yap"
       login: "Giriş yap"
       signup: "Kayıt ol"
       admin_dashboard: "Yönetim paneli"
       language: Dil
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2495,6 +2739,7 @@ tr-TR:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
@@ -2543,3 +2788,12 @@ tr-TR:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

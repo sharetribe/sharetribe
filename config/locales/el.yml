@@ -168,27 +168,33 @@ el:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: Ρυθμίσεις
         general: Γενικά
@@ -219,6 +225,7 @@ el:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -232,6 +239,7 @@ el:
         you_will_be_redirected_to: ~
         delete_this_marketplace: ~
         payment_preferences: ~
+        pre_approved_listings: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -253,6 +261,22 @@ el:
         reset_search: ~
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -264,6 +288,12 @@ el:
         social_media: ~
         logo: ~
         logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -281,6 +311,67 @@ el:
         enable_facebook_login: ~
         save: ~
         add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        search_title: ~
+        search_meta_title_label: ~
+        search_meta_title_info: ~
+        search_meta_title_link_text: ~
+        search_meta_description_label: ~
+        search_meta_description_info: ~
+        search_meta_description_link_text: ~
+        listing_title: ~
+        listing_meta_title_label: ~
+        listing_meta_title_info: ~
+        listing_meta_title_link_text: ~
+        listing_meta_description_label: ~
+        listing_meta_description_info: ~
+        listing_meta_description_link_text: ~
+        category_title: ~
+        category_meta_title_label: ~
+        category_meta_title_info: ~
+        category_meta_title_link_text: ~
+        category_meta_description_label: ~
+        category_meta_description_info: ~
+        category_meta_description_link_text: ~
+        profile_title: ~
+        profile_meta_title_label: ~
+        profile_meta_title_info: ~
+        profile_meta_title_link_text: ~
+        profile_meta_description_label: ~
+        profile_meta_description_info: ~
+        profile_meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: ~
         google_analytics_key: ~
@@ -292,8 +383,14 @@ el:
         sharetribe_analytics_instructions_link_text: ~
         end_user_analytics: ~
         save: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: ~
+        menu_links_display: ~
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -306,6 +403,15 @@ el:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -314,6 +420,19 @@ el:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: ~
@@ -371,10 +490,18 @@ el:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
       testimonials:
         testimonials: ~
         no_testimonials_found: ~
         displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
         headers:
           transaction: ~
           author: ~
@@ -387,6 +514,16 @@ el:
           skipped: ~
           published: ~
           blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
         form:
           review_text: ~
           save: ~
@@ -396,8 +533,30 @@ el:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
       listings:
         listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+          approval_pending: ~
+          approval_rejected: ~
         headers:
           title: ~
           author: ~
@@ -408,8 +567,50 @@ el:
         open: ~
         closed: ~
         expired: ~
+        approved: ~
+        approval_pending: ~
+        approval_rejected: ~
+        form:
+          this_listing_has_not_not_been_approved_yet: ~
+          approve: ~
+          reject: ~
+          cancel: ~
       user_fields:
         user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -661,6 +862,8 @@ el:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -673,6 +876,7 @@ el:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -794,6 +998,7 @@ el:
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: ~
       total_value: ~
@@ -839,6 +1044,7 @@ el:
     message:
       accepted_request: "δέχτηκε το αίτημα"
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: "δέχτηκε την προσφορά"
       rejected_request: "απόρριψε το αίτημα"
       rejected_offer: "απόρριψε την προσφορά"
@@ -848,8 +1054,10 @@ el:
       canceled_offer: "ακύρωσε την προσφορά"
       paid: "πλήρωσε %{sum}"
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Μήνυμα
@@ -1064,7 +1272,9 @@ el:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1080,6 +1290,7 @@ el:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1104,7 +1315,7 @@ el:
       subtotal: ~
       total: Σύνολο
       price: Τιμή
-      service_fee: ~
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1170,6 +1381,24 @@ el:
       this_is_automatic_message: ~
       person_name: ~
       person_email: ~
+    listing_submited_for_review:
+      subject: ~
+      there_is_a_new_listing_to_review: ~
+      review_the_listing: ~
+      this_is_automatic_message: ~
+    listing_approved:
+      subject: ~
+      listing_has_been_approved: ~
+      view_the_listing: ~
+    listing_rejected:
+      subject: ~
+      listing_has_been_rejected: ~
+      contact_link: ~
+      edit_the_listing: ~
+    edited_listing_submited_for_review:
+      subject: ~
+      there_is_a_edited_listing_to_review: ~
+      review_the_listing: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~
@@ -1238,6 +1467,7 @@ el:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
@@ -1484,8 +1714,8 @@ el:
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       additional_email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας επιβεβαιώθηκε."
-      could_not_get_email_from_facebook: "Δεν μπορέσαμε να λάβουμε τη διεύθυνση email σας από το Facebook και δεν γίνεται να δημιουργηθεί λογαριασμός χωρίς μια διεύθυνση email."
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Δημιουργείστε άλλη μία καταχώρηση"
       create_one_here: "δημιουργήσετε ένα"
       email_confirmation_sent_to_new_address: "Η επιβεβαίωση στέλνεται τώρα στη νέα διεύθυνση."
@@ -1522,7 +1752,7 @@ el:
       listing_updated_successfully: "Η καταχώρηση ενημερώθηκε επιτυχώς"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Μόνο οι διαχειριστές του %{service_name} έχουν πρόσβαση σε αυτό το σημείο"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
       payment_successful: "Επιτυχής πληρωμή"
@@ -1601,6 +1831,8 @@ el:
       paypal_payments: ~
       stripe_payments: ~
       payments: Πληρωμές
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Δεν έχεις δικαίωμα να δεις αυτή την καταχώρηση."
@@ -1629,6 +1861,10 @@ el:
       show_in_updates_email_loading: ~
       show_in_updates_email_error: ~
       show_in_updates_email_success: ~
+      listing_is_pending: ~
+      listing_is_rejected: ~
+      approve_listing: ~
+      reject_listing: ~
     map:
       open_in_google_maps: ~
     error:
@@ -1709,6 +1945,9 @@ el:
         origin: Αφετηρία
       send_button:
         save_listing: Αποθήκευση
+        submit_for_review: ~
+        will_be_reviewed: ~
+        we_noticed_youre_an_admin: ~
       share_type:
         select: Επιλογή
         borrow: Δανεισμός
@@ -1788,6 +2027,7 @@ el:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: καταχώρηση
       selected_category: "Κατηγορία: %{category}"
@@ -1801,6 +2041,7 @@ el:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
@@ -2028,7 +2269,7 @@ el:
       username_is_invalid: "Αυτό το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
       visible_only_to_you: "ορατή μόνο σε σας και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατό σε όλους"
-      create_account_with_facebook: "Συνδεθείτε μέσω Facebook"
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: ~
       this_field_will_be_publicly_visible: ~
@@ -2036,9 +2277,8 @@ el:
       grade: "βαθμός:"
       and_gave_following_feedback: "και έδωσε αυτή την κριτική"
     profile_listings:
-      show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
-      show_only_open: "Εμφάνισε μόνο ενεργές καταχωρήσεις"
       no_image: "Δεν επιλέχθηκε εικόνα"
+      manage_listings: ~
     show:
       contact: "Επικοινωνήστε μαζί του/της"
       about_me: "Περιγραφή:"
@@ -2071,6 +2311,8 @@ el:
       show_all_listings: "Εμφάνιση όλων των καταχωρήσεων"
       show_all_open_listings: "Εμφάνισε όλες τις ενεργές καταχωρήσεις"
       show_all_reviews: "Εμφάνισε όλες τις κριτικές"
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -2095,7 +2337,7 @@ el:
       account_creation_link_text: "κάντε κλικ εδώ"
       cancle_facebook_connect: "Αν δεν θέλετε να συνδέσετε αυτό το λογαριασμό, μπορείτε να το %{cancel_link}."
       facebook_cancel_link_text: ακυρώσετε
-      log_in_with_your_facebook_account: "Συνδεθείτε μέσω Facebook"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... ή με το όνομα χρήστη ή το email σας:"
       we_will_not_post_without_asking_you: "Δε θα δημοσιευτεί τίποτα στο Facebook χωρίς την άδειά σας."
     password_forgotten:
@@ -2196,6 +2438,7 @@ el:
       invisible: ~
       image_is_processing: ~
       shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: Αποθήκευση
   shipping_address:
     shipping_address: ~
@@ -2390,6 +2633,7 @@ el:
       signup: ~
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2463,6 +2707,7 @@ el:
       address_kanji_line1: ~
       male: ~
       female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
@@ -2511,3 +2756,12 @@ el:
     wrong_setup: ~
     invalid_bank_account_number: ~
     invalid_postal_code: ~
+  seo_sections:
+    you_can_use_variables: ~
+    placeholder:
+      search_results: ~
+      search_results_for: ~
+      listing_description: ~
+      category_description: ~
+      profile_title: ~
+      profile_description: ~

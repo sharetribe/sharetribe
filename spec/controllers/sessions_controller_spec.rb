@@ -31,7 +31,9 @@ describe SessionsController, "POST create", type: :controller do
   end
 
   it "redirects back to original community's domain" do
+    RequestStore.store[:clp_enabled] = false
     post :create, params: {:person  => {:login => "testpersonusername", :password => "testi"}}
     expect(response).to redirect_to "http://#{@request.host}/"
   end
 end
+
