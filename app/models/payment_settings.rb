@@ -43,9 +43,11 @@ class PaymentSettings < ApplicationRecord
 
   class << self
     def max_minimum_transaction_fee(community)
-      active.stripe.or(PaymentSettings.paypal)
+      stripe.or(PaymentSettings.paypal)
+        .active
         .where(community: community)
         .pluck(:minimum_transaction_fee_cents)
+        .compact
         .max
     end
   end
