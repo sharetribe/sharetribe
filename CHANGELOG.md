@@ -12,6 +12,8 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+- Update to ruby 2.6.2 [#3701](https://github.com/sharetribe/sharetribe/pull/3701)
+
 ### Deprecated
 
 ### Removed
