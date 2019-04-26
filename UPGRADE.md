@@ -40,6 +40,17 @@ See instructions how to set application in [maintenance mode in Heroku](https://
 
 ## Unreleased
 
+Ruby version updated from 2.3.4 to 2.6.2.
+
+Using [RVM](https://rvm.io/), you can upgrade your local Ruby version like this:
+
+```
+rvm install ruby-2.6.2
+rvm use ruby-2.6.2
+gem install bundler
+bundle install
+```
+
 ## Upgrade from 7.5.0 to 7.6.0
 
 Nothing special. See the [#general-update-instructions].
