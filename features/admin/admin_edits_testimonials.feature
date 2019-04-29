@@ -15,7 +15,7 @@ Feature: Admin edit testimonials
     And there is paid transaction with testimonials for a listing with title "Massage" starter "kassi_testperson2"
     When I go to the testimonials admin page of community "test"
     When click to author testimonial edit link
-    Then I should see "Hi from author" within "#testimonial-form"
+    Then I should see "Hi from author" within field "testimonial_text"
     Then I fill in "testimonial[text]" with "What is up?"
     Then I will confirm all following confirmation dialogs in this page if I am running PhantomJS
     Then I press "Save"

@@ -18,7 +18,7 @@ describe Admin::CategoriesController, type: :controller do
   describe "#order" do
     it "responds with 200 ok" do
       post :order, params: { order: [@cat1.id, @cat2.id, @cat3.id].shuffle }
-      expect(response).to be_success
+      expect(response).to have_http_status(200)
     end
 
     it "reorders the categories" do

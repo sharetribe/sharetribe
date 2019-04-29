@@ -26,8 +26,8 @@ module AnalyticService
         result[PAYMENT_PROVIDERS_AVAILABLE] = payment_providers(result)
       end
       result[ADMIN_CONFIRMED_EMAIL] = person.emails.confirmed.any?
-      result[ADMIN_DELETED_MARKETPLACE] = Community.where(id: person.community_memberships.accepted.admin
-                                                          .pluck(:community_id)).where(deleted: true).any?
+      result[ADMIN_DELETED_MARKETPLACE] = Community.where(id: CommunityMembership.accepted.admin.where(person_id: person.id)
+        .pluck(:community_id)).where(deleted: true).any?
       result.stringify_keys
     end
 

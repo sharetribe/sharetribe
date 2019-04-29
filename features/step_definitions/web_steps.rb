@@ -284,13 +284,13 @@ end
 # Use this keyword BEFORE the confirmation dialog appears
 Given /^I will(?:| (not)) confirm all following confirmation dialogs in this page if I am running PhantomJS$/ do |do_not_confirm|
   confirm = do_not_confirm != "not"
-  if ENV['PHANTOMJS'] then
+  if Capybara.current_driver == :poltergeist
     page.execute_script("window.__original_confirm = window.confirm; window.confirm = function() { return #{confirm}; };")
   end
 end
 
 When /^I confirm alert popup$/ do
-  unless ENV['PHANTOMJS']
+  unless Capybara.current_driver == :poltergeist
     # wait is necessary for firefox if alerts have slide-out animations
     wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
     alert = wait.until { page.driver.browser.switch_to.alert }
@@ -364,5 +364,11 @@ end
 
 Then(/^I should see disabled "([^"]*)" input$/) do |field|
   expect(!!find_field(field, disabled: true)).to eq true
+end
+
+Then /^(?:|I )should see "([^"]*)" within field "([^"]*)"(?: within "([^"]*)")?$/ do |text, field, selector|
+  with_scope(selector) do
+    expect(page).to have_field(field, with: text)
+  end
 end
 

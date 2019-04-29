@@ -19,7 +19,7 @@ module FeatureTests
       end
 
       def open_user_menu
-        header.find(".header-user-toggle").click
+        header.find("#header-user-desktop-anchor").click
       end
 
       def user_menu

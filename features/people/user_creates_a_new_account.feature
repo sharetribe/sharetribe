@@ -207,7 +207,7 @@ Feature: User creates a new account
     And the "person[custom_field_values_attributes][][date_value(1i)]" field should contain "2000"
     And the "person[custom_field_values_attributes][][date_value(2i)]" field should contain "6"
     And the "person[custom_field_values_attributes][][date_value(3i)]" field should contain "21"
-    And I should see "French balcony"
+    Then I should see selected "French balcony" in the "person_custom_fields_3" dropdown
     And the "English language" checkbox should be checked
     And the "German language" checkbox should not be checked
     And the "French language" checkbox should be checked
