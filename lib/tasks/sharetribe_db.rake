@@ -36,10 +36,9 @@ namespace :sharetribe do
     end
 
     def pending_migrations
-      migration_paths = ActiveRecord::Migrator.migrations_paths
-      all_migrations = ActiveRecord::Migrator.migrations(migration_paths)
-      migrator = ActiveRecord::Migrator.new(:up, all_migrations, ActiveRecord::Migrator.last_migration.version())
-      migrator.pending_migrations()
+      context = ActiveRecord::MigrationContext.new(ActiveRecord::Migrator.migrations_paths)
+      migrator = ActiveRecord::Migrator.new(:up, context.migrations, context.last_migration.version)
+      migrator.pending_migrations
     end
 
     # Run DB migrations automatically for the given execution stage (pre-deploy, post-deploy)
