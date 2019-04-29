@@ -16,11 +16,11 @@ module.exports = {
   ],
   output: {
     filename: 'server-bundle.js',
-    path: '../app/assets/webpack',
+    path: `${__dirname}/../app/assets/webpack`,
     publicPath: '/assets/',
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['*', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -30,7 +30,7 @@ module.exports = {
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -39,8 +39,17 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'css-loader/locals?modules&importLoaders=0&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss-loader',
+          {
+            loader: 'css-loader/locals',
+            options: {
+              modules: true,
+              importLoaders: 0,
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ],
       },
       {
@@ -49,7 +58,11 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
-        loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
+        loader: 'customfile-loader',
+        options: {
+          limit: 10000,
+          name: `[name]-[hash].[ext]${assetHost}`,
+        },
       },
       {
         test: /\.json$/,

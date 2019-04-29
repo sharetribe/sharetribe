@@ -14,7 +14,7 @@ module.exports = function (content) {
     throw new Error('emitFile is required from module system');
   }
 
-  var query = loaderUtils.parseQuery(this.query);
+  var query = this.options;
   var url = loaderUtils.interpolateName(this, query.name || '[hash].[ext]', {
     context: query.context || this.options.context,
     content: content,
