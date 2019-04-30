@@ -10,7 +10,7 @@ jobs:
           CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
           MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
           DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
-          NODE_VERSION: 7.8.0
+          NODE_VERSION: 10.15.3
           NODE_ENV: test
           RAILS_ENV: test
           RACK_ENV: test

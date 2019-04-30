@@ -26,14 +26,14 @@ config.module.rules.push(
   {
     test: /\.css$/,
     loader: ExtractTextPlugin.extract({
-      loader: [
+      use: [
         {
           loader: 'css-loader',
           options: {
             modules: true,
             localIdentName: '[name]__[local]__[hash:base64:5]',
-            minimize: devBuild,
-            '-autoprefixer': devBuild,
+            minimize: !devBuild,
+            '-autoprefixer': !devBuild,
           },
         },
         {
@@ -81,7 +81,7 @@ config.module.rules.push(
 );
 
 config.plugins.push(
-  new ExtractTextPlugin({ filename: 'css/[name].css', disable: false, allChunks: true })
+  new ExtractTextPlugin({ filename: '[name]-bundle.css', disable: false, allChunks: true })
 );
 
 if (devBuild) {

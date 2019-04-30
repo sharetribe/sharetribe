@@ -27,9 +27,7 @@ module.exports = {
     new webpack.IgnorePlugin(/i18n\/all.js/),
 
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(nodeEnv),
-      },
+      'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     }),
 
     // https://webpack.github.io/docs/list-of-plugins.html#2-explicit-vendor-chunk
@@ -45,5 +43,6 @@ module.exports = {
       // In other words, we only put what's in the vendor entry definition in vendor-bundle.js
       minChunks: Infinity,
     }),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 };

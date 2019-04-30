@@ -2,8 +2,8 @@
   "repository": "sharetribe/sharetribe",
   "license": "MIT",
   "engines": {
-    "node": "7.8",
-    "npm": "4.2.0"
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "scripts": {
     "ensure-node-version": "check-node-version --package",
@@ -12,8 +12,8 @@
     "stylelint": "npm run ensure-node-version && stylelint **/*.css",
     "build:client": "npm run ensure-node-version && webpack --config webpack.client.config.js",
     "build:server": "npm run ensure-node-version && webpack --config webpack.server.config.js",
-    "build:production:client": "NODE_ENV=production npm run ensure-node-version && webpack --config webpack.client.config.js",
-    "build:production:server": "NODE_ENV=production npm run ensure-node-version && webpack --config webpack.server.config.js",
+    "build:production:client": "npm run ensure-node-version && NODE_ENV=production webpack --config webpack.client.config.js",
+    "build:production:server": "npm run ensure-node-version && NODE_ENV=production webpack --config webpack.server.config.js",
     "build:production": "npm run ensure-node-version && npm run build:production:client && npm run build:production:server",
     "build:dev:client": "npm run ensure-node-version && webpack -w --config webpack.client.config.js",
     "build:dev:server": "npm run ensure-node-version && webpack -w --config webpack.server.config.js",
@@ -39,7 +39,7 @@
     "check-node-version": "1.1.2",
     "classnames": "2.2.5",
     "css-loader": "0.26.0",
-    "customfile-loader": "./customloaders/customfileloader",
+    "customfile-loader": "https://github.com/ithouse/customfileloader.git#v0.0.3",
     "es6-shim": "0.35.1",
     "extract-text-webpack-plugin": "2.1.2",
     "file-loader": "0.9.0",
@@ -101,7 +101,7 @@
     "storybook-addon-specifications": "1.0.15",
     "stylelint": "7.5.0",
     "stylelint-config-standard": "13.0.2",
-    "webpack-dev-server": "1.16.2"
+    "webpack-dev-server": "2.11.3"
   },
   "browser": {
     "fs": false
