@@ -8,9 +8,9 @@ This guide does not instruct how to install and run Harmony. See [README.md](htt
 
 * Sharetribe version 6.2.0 or newer
 * Harmony service up and running
-* Marketplace configured to use transaction process with PayPal payments.
+* Marketplace configured to use transaction process with online payments.
 
-The availability management is tightly coupled to the transaction process, so PayPal payments need to be enabled to use availability management.
+The availability management is tightly coupled to the transaction process, so online payments need to be enabled to use availability management.
 
 ## Getting started
 
