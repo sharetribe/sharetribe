@@ -641,8 +641,8 @@ el:
         remove_field_confirmation: ~
         cancel: Άκυρο
         save: Αποθήκευση
-        field_title: ~
-        field_type: ~
+        field_title: "Τίτλος Πεδίου"
+        field_type: "Τύπος Πεδίου"
         categories: ~
         select_all: ~
         clear_all: ~
@@ -1302,13 +1302,13 @@ el:
       shipping_total: ~
     braintree_new_payment:
       product: "Προϊόν:"
-      price_payer_paid: ~
+      price_payer_paid: "Τιμή %{payer_full_name} πληρώθηκε:"
       service_fee: ~
       you_will_get: ~
     receipt_to_payer:
       receipt_of_payment: "Απόδειξη πληρωμής"
       you_have_made_new_payment: "Πληρώσατε <b>%{payment_sum}</b> για το <b>%{listing_title}</b> στον/στην %{recipient_full_name}. Ορίστε η απόδειξη πληρωμής."
-      product: ~
+      product: Προϊόν
       price_per_unit_type: ~
       duration: ~
       quantity: ~
@@ -1543,7 +1543,7 @@ el:
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
     custom_filters:
-      update_view: ~
+      update_view: "Επικαιροποιήση Εικόνας"
       min: ~
       max: ~
     event_feed:
@@ -1647,7 +1647,7 @@ el:
     application:
       join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
-      feedback: ~
+      feedback: "Το μύνημα σας στην ομάδα %{service_name}"
       dont_use_to_contact_support: ~
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
@@ -1672,7 +1672,7 @@ el:
       select_language: "Επιλέξτε γλώσσα"
     infos:
       about: Σχετικά
-      how_to_use: Βοήθεια
+      how_to_use: "Πώς δουλεύει"
       info_about_kassi: "Σχετικά με το %{service_name}"
       news: Νέα
       register_details: Ιδιωτικότητα
@@ -1752,7 +1752,7 @@ el:
       listing_updated_successfully: "Η καταχώρηση ενημερώθηκε επιτυχώς"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Παρακαλούμε συνδεθείτε με το λογαριασμό του διαχειριστή για αποκτήσετε πρόσβαση."
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
       payment_successful: "Επιτυχής πληρωμή"
@@ -2154,7 +2154,7 @@ el:
   mercury:
     content_too_long: ~
   okl:
-    member_id: ~
+    member_id: "Ταυτότητα Μέλους"
     member_id_or_email: "ID μέλους ή email"
   paypal_accounts:
     payout_info_title: ~
@@ -2263,7 +2263,7 @@ el:
       password_again: Επιβεβαίωση
       show_my_name_to_others: "Να εμφανίζεται το πραγματικό μου όνομα στους άλλους χρήστες του %{service_name}"
       sign_up: "Δημιουργήστε λογαριασμό στο %{service_name}"
-      terms: "όρους χρήσης"
+      terms: "Όροι Χρήσης"
       privacy: ~
       username_is_in_use: "Το όνομα χρήστη που δώσατε χρησιμοποιείται ήδη."
       username_is_invalid: "Αυτό το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
@@ -2762,6 +2762,7 @@ el:
       search_results: ~
       search_results_for: ~
       listing_description: ~
+      listing_description_without_price: ~
       category_description: ~
       profile_title: ~
       profile_description: ~

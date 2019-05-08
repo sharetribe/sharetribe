@@ -2851,6 +2851,7 @@ fr:
       search_results: "Résultats de la recherche - %{variable}"
       search_results_for: "Résultats de la recherche pour : %{placeholder1} sur %{placeholder2}"
       listing_description: "%{title} pour%{price} par %{author} sur %{marketplace}"
+      listing_description_without_price: "%{title} par %{author} sur %{marketplace}"
       category_description: "%{category} sur %{marketplace}"
       profile_title: "Profil de %{user} - %{marketplace}"
       profile_description: "Découvrez en plus sur %{user} sur %{marketplace}"
