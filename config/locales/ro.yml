@@ -320,7 +320,7 @@ ro:
         twitter_instructions_link_text: "Vezi mai mult"
         twitter_handle_placeholder: "nume utilizator"
         invalid_twitter_handle: ~
-        facebook_connect: ~
+        facebook_connect: "Login Facebook"
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -1008,7 +1008,7 @@ ro:
   conversations:
     accept:
       details: ~
-      order_by: ~
+      order_by: "Comanda %{orderer_link}"
       accept_offer: "Acceptați oferta"
       accept_request: "Acceptați cererea"
       reject_offer: "Nu de data asta"
@@ -1023,7 +1023,7 @@ ro:
       sum_label: ~
       service_fee_label: "Comision %{service_name}:"
       buyer_service_fee_label: ~
-      you_will_get_label: ~
+      you_will_get_label: "Vei primi:"
       total_label: ~
       total_value: ~
       total_value_paypal: ~
@@ -1110,7 +1110,7 @@ ro:
       sum: "Total: %{sum}"
       total: "Total: %{total}"
     status:
-      payment_errored: ~
+      payment_errored: "Plata a esuat. Te rugam sa incerci din nou."
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: Anulare
@@ -1322,7 +1322,7 @@ ro:
       paypal_gateway_fee: ~
       money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat tranzactia ca fiind completa b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
     paypal_new_payment:
-      paypal_gateway_fee: ~
+      paypal_gateway_fee: "Comision PayPal:"
       shipping_total: ~
     braintree_new_payment:
       product: "Produs:"
@@ -1342,7 +1342,7 @@ ro:
       buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
-      money_will_be_transferred: ~
+      money_will_be_transferred: "Banii vor fi transferati catre %{recipient_name} cand a) ai marcat cererea ca fiind completa sau b) %{automatic_confirmation_days} zile au trecut de cand ai platit."
       listing_per_unit_title: ~
       stripe:
         you_have_made_new_payment: ~
@@ -1411,13 +1411,13 @@ ro:
       review_the_listing: ~
       this_is_automatic_message: ~
     listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
+      subject: "Echipa %{community} ti-a aprobat listarea \"%{listing_title}\""
+      listing_has_been_approved: "Avem vesti bune! Listarea ta \"%{listing_title}\" a fost evaluata si aprobata de catre echipa %{community}."
       view_the_listing: ~
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
+      subject: "Echipa %{community} nu ti-a aprobat listarea \"%{listing_title}\""
+      listing_has_been_rejected: "Din nefericire, dupa o evaluare atenta, echipa %{community} nu ti-a aprobat listarea \"%{listing_title}\". Poti sa %{contact_link} ca sa afli motivul sau poti sa editezi listarea si sa o retrimiti spre evaluare."
+      contact_link: "contactezi echipa %{community}"
       edit_the_listing: ~
     edited_listing_submited_for_review:
       subject: ~
@@ -1446,8 +1446,8 @@ ro:
       pending_review_error: ~
       seller_express_checkout_disabled: ~
       generic_error: "O eroare a aparut in timpul platii. Plata ta prin PayPal nu a fost finalizata"
-      cancel_error: ~
-      accept_authorization_error: ~
+      cancel_error: "Am intalnit o eroare in timpul anularii. Nu am putut finaliza anularea."
+      accept_authorization_error: "Am intalnit o eroare in timpul acceptarii pre-autorizarii PayPal. Te rugam sa incerci din nou."
       reject_authorization_error: ~
     stripe:
       generic_error: ~
@@ -1487,9 +1487,9 @@ ro:
       invalid_datetime: "nu este o durată de timp valabilă"
       is_at: "trebuie să fie la %{restriction}"
       before: "trebuie sa fie inainte %{restriction}"
-      on_or_before: ~
+      on_or_before: "trebuie să fie pe sau înainte de %{restriction}"
       after: "trebuie să fie după %{restriction}"
-      on_or_after: ~
+      on_or_after: "trebuie sa fie pe sau dupa %{restriction}"
       positive_number: ~
       from_must_be_less_than_till: ~
   event_feed_events:
@@ -1651,7 +1651,7 @@ ro:
       default_content: ~
   landing_page:
     hero:
-      search: ~
+      search: Cauta
       signup: "Cont nou"
       search_placeholder: ~
       search_location_placeholder: ~
@@ -1970,7 +1970,7 @@ ro:
       send_button:
         save_listing: "Publicati listarea"
         submit_for_review: ~
-        will_be_reviewed: ~
+        will_be_reviewed: "Toate listarile de pe %{service_name} vor fi evaluate inainte de publicare. De indata ce listarea ta va fi aprobata, vei fi notificat pe e-mail iar listarea va fi publicata."
         we_noticed_youre_an_admin: ~
       share_type:
         select: Selecteaza
@@ -2044,7 +2044,7 @@ ro:
     listing_actions:
       booking_from: "De la"
       booking_to: La
-      how_paypal_works: ~
+      how_paypal_works: "Cum functioneaza PayPal"
       payment_help: ~
       unable_load_availability: ~
       booking_date: ~
@@ -2062,7 +2062,7 @@ ro:
       select_transaction_type: "Selectați tipul listarii"
       you_need_to_fill_payout_details_before_accepting: "Trebuie să completați detaliile de plată înainte de a putea posta o listare. Accesați %{payment_settings_link} pentru a completa detaliile."
       contact_admin_link_text: "contactezi echipa %{service_name}"
-      community_not_configured_for_payments: ~
+      community_not_configured_for_payments: "%{service_name} nu este configurat corect pentru plati, asa ca nu poti publica listari noi. Te rog %{contact_admin_link} pentru detalii."
       payment_settings_link: "setările de plată"
       community_not_configured_for_payments_admin: ~
       you_are_now_posting_a_listing_on_behalf_of: "Postezi pentru %{name}"
@@ -2247,9 +2247,9 @@ ro:
     checkout_with: ~
     or_pay_with_paypal: ~
     checkout_with_paypal: "Finalizeaza tranzactia prin PayPal"
-    cancel_succesful: ~
+    cancel_succesful: "Plata PayPal a fost anulata cu succes"
     transaction:
-      commission_payment_name: ~
+      commission_payment_name: "Plata comision pentru %{listing_title}"
       commission_payment_description: "Marketplace-ul %{service_name} a perceput acest comision din tranzactia referitoare la %{listing_title}"
     wait_while_loading: "Te rugam sa astepti."
     chatting_with_paypal: "Ne conectam cu PayPal."
@@ -2432,7 +2432,7 @@ ro:
       email_when_conversation_rejected: "...cineva respinge oferta sau cererea mea"
       email_about_completed_transactions: "... cineva marchează comanda mea ca fiind finalizată"
       email_about_new_payments: "... primesc o nouă plată"
-      email_about_new_listings_by_followed_people: ~
+      email_about_new_listings_by_followed_people: "...o persoana pe care o urmaresc posteaza o listare noua"
       unsubscribe_succesful: "Dezabonare cu succes"
       unsubscribe_info_text: "Nu veţi mai primi aceste e-mailuri.Verificați %{settings_link} pentru a alege ce fel de e-mailuri doriți să primiți de la %{service_name}, sau reveniți la %{homepage_link}."
       settings_link: setări
@@ -2813,6 +2813,7 @@ ro:
       search_results: ~
       search_results_for: ~
       listing_description: ~
+      listing_description_without_price: ~
       category_description: ~
       profile_title: ~
       profile_description: ~
