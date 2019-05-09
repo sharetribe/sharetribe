@@ -39,7 +39,7 @@ class Admin::Communities::FooterService
     @social_links = community.social_links
   end
 
-  def foter_themes
+  def footer_themes
     Community::FOOTER_THEMES.keys.map do |theme|
       OpenStruct.new(key: theme, value: I18n.t("admin.communities.footer.style.#{theme}"))
     end
