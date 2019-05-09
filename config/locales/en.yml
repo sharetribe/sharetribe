@@ -892,6 +892,7 @@ en:
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
+      the_transaction_fee_must_be_lower_than_100: "The transaction fee must be lower than 100%"
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, sellers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If sellers haven't configured another payment method, buyers will not be able to buy from them."
       commission_from_buyer_label: "Buyer transaction fee:"
       minimum_buyer_transaction_fee_label: "Buyer minimum transaction fee:"
@@ -2759,6 +2760,12 @@ en:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
+    stripe_account_restricted: "Online payments to your account are restricted!"
+    stripe_account_restricted_info: "You should edit your bank account details to provide more information to the payment provider."
+    stripe_account_restricted_soon: "Online payments to your account will be restricted soon."
+    stripe_account_restricted_soon_info: "You should edit your bank account details to provide more information to the payment provider."
+    stripe_account_pending_verification: "Account details saved successfully. Waiting for account verification from the payment provider."
+    stripe_account_pending_verification_info: "Check back later to make sure that everything is in order."
     form_new:
       need_info: "We need some information about you to be able to send you money."
       select_country: "Select country..."
@@ -2824,7 +2831,7 @@ en:
         digits_or_chars: "digits or A-Z chars"
     form_verification:
       personal_id_number: "Personal ID Number"
-      document: "Verification document"
+      document: "Proof of identity (passport, government-issued ID)"
       send_verification: "Send Verification"
       need_verification: "Need additional verification"
     form_pin:
