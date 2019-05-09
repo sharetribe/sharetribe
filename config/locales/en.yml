@@ -90,7 +90,7 @@ en:
         contact_admin_link_text: "contact the %{service_name} team"
         save: "Save settings"
         transaction_agreement: "Transaction agreement"
-        transaction_agreement_checkbox: "Require users to accept an agreement before transaction"
+        transaction_agreement_checkbox: "Require buyers to accept an agreement before starting a transaction"
         transaction_agreement_checkbox_header: "Agreement label"
         transaction_agreement_checkbox_label_description: "This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like \"By clicking this box I accept the agreement.\""
         transaction_agreement_text_header: "Agreement text"
