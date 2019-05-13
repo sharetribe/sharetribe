@@ -70,15 +70,14 @@ Rails.application.configure do
   # Prefer redis instead of memcached
   config.cache_store =
     if ENV["redis_host"].present?
-      Readthis.fault_tolerant = true
-      [:readthis_store, {
-         redis: { host: ENV["redis_host"],
-                  port: ENV["redis_port"],
-                  driver: :hiredis},
-         db: ENV["redis_db"],
-         namespace: "cache",
-         expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
-       }]
+      [:redis_cache_store, {
+        driver: :hiredis,
+        namespace: 'cache',
+        compress: true,
+        timeout: 1,
+        url: "redis://#{ENV["redis_host"]}:#{ENV["redis_port"]}/#{ENV["redis_db"]}",
+        expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
+      }]
     else
       [:dalli_store, (ENV["MEMCACHIER_SERVERS"] || "").split(","), {
          username: ENV["MEMCACHIER_USERNAME"],
