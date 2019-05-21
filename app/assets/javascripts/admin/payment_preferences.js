@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  var initPaymentTabs = function(min_price) {
+  var initPaymentTabs = function() {
     $(".tab-link").click(function(){
       $(".tab-link").removeClass("active");
       $(this).addClass("active");
@@ -30,23 +30,6 @@ window.ST = window.ST || {};
         errorPlacement: function(error, element) {
           error.appendTo(element.parent());
         },
-        rules: {
-          "payment_preferences_form[commission_from_seller]": {
-            required: true,
-            number_min: 0,
-            number_max: 99,
-            number_no_decimals: true
-          },
-          "payment_preferences_form[minimum_transaction_fee]": {
-            required: true,
-            number_max: min_price,
-            number_min: 0,
-          }
-        },
-        messages: {
-          "payment_preferences_form[minimum_transaction_fee]": ST.t('admin.payment_preferences.fee_should_be_less_than_minimum_price'),
-          "payment_preferences_form[commission_from_seller]": ST.t('admin.payment_preferences.the_transaction_fee_must_be_lower_than_100')
-        }
       });
     });
   };

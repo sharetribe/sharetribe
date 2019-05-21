@@ -148,7 +148,7 @@
       "admin.payment_preferences.the_transaction_fee_must_be_lower_than_100"])
     - content_for :extra_javascript do
       :javascript
-        window.ST.initPaymentTabs(#{payment_prefs_form.minimum_listing_price.to_f})
+        window.ST.initPaymentTabs()
 
     - if stripe_enabled && stripe_allowed && stripe_connected && stripe_enabled_by_admin && !stripe_ready
       - content_for :extra_javascript do
