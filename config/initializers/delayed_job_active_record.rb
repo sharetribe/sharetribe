@@ -14,7 +14,7 @@ module Delayed
           begin
             super
           rescue ::ActiveRecord::Deadlocked => e
-            if retries < 100
+            if retries < 10
               logger.info "ActiveRecord::Deadlocked rescued: #{e.message}"
               logger.info 'Retrying...'
 
