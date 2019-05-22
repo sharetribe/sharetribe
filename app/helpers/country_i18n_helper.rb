@@ -4,6 +4,7 @@ module CountryI18nHelper
   def translate_country(country_code)
     country = ISO3166::Country[country_code]
     return country_code unless country
+
     locale = I18n.locale.to_s.downcase
     [locale, locale.split('-').first].each do |variant|
       name = country.translations[variant]

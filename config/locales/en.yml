@@ -90,7 +90,7 @@ en:
         contact_admin_link_text: "contact the %{service_name} team"
         save: "Save settings"
         transaction_agreement: "Transaction agreement"
-        transaction_agreement_checkbox: "Require users to accept an agreement before transaction"
+        transaction_agreement_checkbox: "Require buyers to accept an agreement before starting a transaction"
         transaction_agreement_checkbox_header: "Agreement label"
         transaction_agreement_checkbox_label_description: "This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like \"By clicking this box I accept the agreement.\""
         transaction_agreement_text_header: "Agreement text"
@@ -254,6 +254,7 @@ en:
         you_will_be_redirected_to: "After you have deleted your marketplace you will be redirected to %{destination}. You will not be able to access your marketplace anymore."
         delete_this_marketplace: "Delete this marketplace"
         payment_preferences: "Payment system"
+        pre_approved_listings: "Review all listings before they are published"
       manage_members:
         manage_members: Users
         email: Email
@@ -343,11 +344,39 @@ en:
         seo: SEO
         title: "Homepage or Custom Landing Page"
         meta_title_label: "Homepage or Custom Landing Page title meta tag"
-        meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link}."
-        meta_title_link_text: "Learn more about meta tags"
+        meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link} %{vars}."
+        meta_title_link_text: "Learn more about meta tags."
         meta_description_label: "Homepage or Custom Landing Page description meta tag"
-        meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link}."
-        meta_description_link_text: "Learn more about meta tags"
+        meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link} %{vars}."
+        meta_description_link_text: "Learn more about meta tags."
+        search_title: "Search results page"
+        search_meta_title_label: "Search results page title meta tag"
+        search_meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link} %{vars}."
+        search_meta_title_link_text: "Learn more about meta tags."
+        search_meta_description_label: "Search results page description meta tag"
+        search_meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link} %{vars}."
+        search_meta_description_link_text: "Learn more about meta tags."
+        listing_title: "Listing page"
+        listing_meta_title_label: "Listing page title meta tag"
+        listing_meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link} %{vars}."
+        listing_meta_title_link_text: "Learn more about meta tags."
+        listing_meta_description_label: "Listing page description meta tag"
+        listing_meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link} %{vars}."
+        listing_meta_description_link_text: "Learn more about meta tags."
+        category_title: "Category page"
+        category_meta_title_label: "Category page title meta tag"
+        category_meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link} %{vars}."
+        category_meta_title_link_text: "Learn more about meta tags."
+        category_meta_description_label: "Category page description meta tag"
+        category_meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link} %{vars}."
+        category_meta_description_link_text: "Learn more about meta tags."
+        profile_title: "Profile page"
+        profile_meta_title_label: "Profile page title meta tag"
+        profile_meta_title_info: "The content of this tag is suggested to search engines and displayed on results pages as the clickable headline. %{link} %{vars}."
+        profile_meta_title_link_text: "Learn more about meta tags."
+        profile_meta_description_label: "Profile page description meta tag"
+        profile_meta_description_info: "The content of this tag is suggested to search engines and appears underneath the blue clickable links in a search engine results page. %{link} %{vars}."
+        profile_meta_description_link_text: "Learn more about meta tags."
         sitemap_label: Sitemap
         sitemap_info: "Sitemaps are an easy way to inform search engines about pages on your site that are available for crawling. %{link}."
         sitemap_info_link_text: "Learn more about the XML Sitemap file"
@@ -541,6 +570,8 @@ en:
           open: Open
           closed: Closed
           expired: Expired
+          approval_pending: Pending
+          approval_rejected: Rejected
         headers:
           title: Title
           author: Author
@@ -551,6 +582,14 @@ en:
         open: Open
         closed: Closed
         expired: Expired
+        approved: Approved
+        approval_pending: Pending
+        approval_rejected: Rejected
+        form:
+          this_listing_has_not_not_been_approved_yet: "This listing has not been approved yet. You can now decide to approve or reject the listing. If you approve the listing it will be public and visible to all users. If you reject the listing it will not be public."
+          approve: Approve
+          reject: Reject
+          cancel: Cancel
       user_fields:
         user_fields: "User fields"
       footer:
@@ -1377,6 +1416,24 @@ en:
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
       person_name: "Name:"
       person_email: "Email:"
+    listing_submited_for_review:
+      subject: "New listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
+      there_is_a_new_listing_to_review: "There is a new listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      review_the_listing: "Review the new listing"
+      this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
+    listing_approved:
+      subject: "The %{community} team has approved your listing \"%{listing_title}\""
+      listing_has_been_approved: "Great news! Your listing \"%{listing_title}\" has been reviewed and approved by the %{community} team. It has been published."
+      view_the_listing: "View the listing"
+    listing_rejected:
+      subject: "The %{community} team has rejected your listing \"%{listing_title}\""
+      listing_has_been_rejected: "Unfortunately the %{community} team has rejected your listing \"%{listing_title}\" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review."
+      contact_link: "contact the %{community} team"
+      edit_the_listing: "Edit the listing"
+    edited_listing_submited_for_review:
+      subject: "Edited listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
+      there_is_a_edited_listing_to_review: "There is an edited listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      review_the_listing: "Review the edited listing"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."
@@ -1845,6 +1902,10 @@ en:
       show_in_updates_email_loading: Loading...
       show_in_updates_email_error: "Couldn't reach server. Try again after page refresh."
       show_in_updates_email_success: "This listing will be shown in the next automatic update email sent to the users"
+      listing_is_pending: "Listing is pending approval"
+      listing_is_rejected: "Listing is rejected"
+      approve_listing: "Approve listing"
+      reject_listing: "Reject listing"
     map:
       open_in_google_maps: "Open in Google Maps"
     error:
@@ -1927,6 +1988,9 @@ en:
         origin: Origin
       send_button:
         save_listing: "Post listing"
+        submit_for_review: "Submit for review"
+        will_be_reviewed: "All listings on %{service_name} will be reviewed before publishing. Once your listing has been approved, you will be notified by email and it will be visible to all."
+        we_noticed_youre_an_admin: "We noticed you're an admin of %{service_name}. Your changes will be automatically applied and will not need a review or approval."
       share_type:
         select: Select
         borrow: Borrowing
@@ -2235,7 +2299,7 @@ en:
       family_name: "Last name"
       given_name: "First name"
       i_accept_the_terms_and_privacy: "I accept the %{terms} and %{privacy}"
-      admin_emails_consent: "I accept to receive occasional emails from the %{service_name} team and understand that I can change my mind at any time"
+      admin_emails_consent: "I agree to receive occasional emails from the %{service_name} team and understand that I can change my mind at any time"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
       not_required: ", not required"
@@ -2371,7 +2435,7 @@ en:
         status_confirmed: Confirmed
         status_pending: Pending
     notifications:
-      email_from_admins: "I accept to receive occasional emails from the %{service_name} team"
+      email_from_admins: "I agree to receive occasional emails from the %{service_name} team"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: "Emails from administrators"
       community_updates: Newsletters
@@ -2402,7 +2466,7 @@ en:
       first_name_with_initial: "(only first letter shown to other users)"
       first_name_only: "(not shown to other users)"
       display_name: "Display name"
-      display_name_description: "If you represent an organisation, you can use its name as your display name. Display name is shown to other users instead of your first and last name."
+      display_name_description: "If you represent an organization, you can use its name as your display name. Display name is shown to other users instead of your first and last name."
       location_description: "You can provide either your street address or only a city or zip/postal code. It’s good to also add your country when adding your location. Examples: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
       profile_picture_description: "The profile picture should be in a square format (1:1 ratio), for example, 800x800 pixels. Otherwise, it will be cropped to fit."
       phone_number: "Phone number"
@@ -2700,6 +2764,12 @@ en:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
+    stripe_account_restricted: "Online payments to your account are restricted!"
+    stripe_account_restricted_info: "You should edit your bank account details to provide more information to the payment provider."
+    stripe_account_restricted_soon: "Online payments to your account will be restricted soon."
+    stripe_account_restricted_soon_info: "You should edit your bank account details to provide more information to the payment provider."
+    stripe_account_pending_verification: "Account details saved successfully. Waiting for account verification from the payment provider."
+    stripe_account_pending_verification_info: "Check back later to make sure that everything is in order."
     form_new:
       need_info: "We need some information about you to be able to send you money."
       select_country: "Select country..."
@@ -2739,7 +2809,7 @@ en:
       address_kanji_line1: "Street address kanji"
       male: male
       female: female
-      mcc: Industry (Merchant Category Code)
+      mcc: "Industry (Merchant Category Code)"
     form_bank:
       bank_account_number: "Bank account number"
       bank_routing_number: "Routing number"
@@ -2765,8 +2835,8 @@ en:
         digits_or_chars: "digits or A-Z chars"
     form_verification:
       personal_id_number: "Personal ID Number"
-      document: "Verification document"
-      send_verification: "Send Verification" 
+      document: "Proof of identity (passport, government-issued ID)"
+      send_verification: "Send Verification"
       need_verification: "Need additional verification"
     form_pin:
       social_insurance_number: "Social Insurance Number (SIN)"
@@ -2788,3 +2858,13 @@ en:
     wrong_setup: "There is something wrong with the payment system setup in this marketplace: Stripe Connect has not been enabled. Please contact the team to let them know that they should enable Stripe Connect in their Stripe Dashboard."
     invalid_bank_account_number: "Please check that your bank account is entered correctly and matches your country."
     invalid_postal_code: "Invalid postal code for %{country}"
+  seo_sections:
+    you_can_use_variables: "You can use the following variables: %{vars}"
+    placeholder:
+      search_results: "Search results - %{variable}"
+      search_results_for: "Search results for: %{placeholder1} on %{placeholder2}"
+      listing_description: "%{title} for %{price} by %{author} on %{marketplace}"
+      listing_description_without_price: "%{title} by %{author} on %{marketplace}"
+      category_description: "%{category} on %{marketplace}"
+      profile_title: "Profile of %{user} - %{marketplace}"
+      profile_description: "Learn more about %{user} on %{marketplace}"

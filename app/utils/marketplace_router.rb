@@ -51,15 +51,11 @@ module MarketplaceRouter
          :www_ident,       # Accessed marketplace with WWW and subdomain, e.g. www.mymarketplace.sharetribe.com
          :hold,            # Marketplace plan is on hold
        ]],
-
       # Url
       [:url, :string, :optional],
-
       # Named route
       [:route_name, :symbol, :optional],
-
       [:status, :symbol, :mandatory],
-
       # detailed error message to be rendered
       [:message, :optional]
     )
@@ -92,21 +88,21 @@ module MarketplaceRouter
       title: "Whoops, the %{community_name} marketplace no longer exists!",
       description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
       cta: "Create your own online marketplace",
-      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect",
+      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=qc-manual-redirect"
     },
 
     deleted: {
       title: "Whoops, the %{community_name} marketplace no longer exists!",
       description: "Unfortunately the %{community_name} team has decided to close this platform, and it is no longer available.",
       cta: "Create your own online marketplace",
-      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=dl-manual-redirect",
+      cta_url: "https://www.sharetribe.com/?utm_source=%{marketplace_ident}.sharetribe.com&utm_medium=redirect&utm_campaign=dl-manual-redirect"
     },
 
     hold: {
       title: "The %{community_name} marketplace is on hold.",
       description: "The %{community_name} team has decided to pause things and they will reopen this platform in the future",
       use_marketplace_logo: true
-    },
+    }
   }
 
   module_function
@@ -243,19 +239,19 @@ module MarketplaceRouter
     }
 
     configs = {
-      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain),
+      app_domain: URLUtils.strip_port_from_host(APP_CONFIG.domain)
     }
 
     reason = request.env[:redirect_reason]
 
     if reason
       target = MarketplaceRouter.redirect_target(
-        reason:    reason,
-        request:   MarketplaceRouter.request_hash(request),
+        reason: reason,
+        request: MarketplaceRouter.request_hash(request),
         community: MarketplaceRouter.community_hash(community, plan),
-        paths:     paths,
-        configs:   configs,
-        message:   MarketplaceRouter.make_error_message(community, reason)
+        paths: paths,
+        configs: configs,
+        message: MarketplaceRouter.make_error_message(community, reason)
       )
 
       block.call(target)
@@ -272,7 +268,7 @@ module MarketplaceRouter
       host: request.host,
       protocol: (request.respond_to?(:protocol) ? request.protocol : "#{request.scheme}://"),
       fullpath: request.fullpath,
-      port_string: (request.respond_to?(:port_string) ? request.port_string : ":#{request.port}"),
+      port_string: (request.respond_to?(:port_string) ? request.port_string : ":#{request.port}")
     }
   end
 
@@ -288,7 +284,7 @@ module MarketplaceRouter
         deleted: c.deleted?,
         use_domain: c.use_domain?,
         closed: Maybe(plan)[:closed].or_else(false),
-        hold: Maybe(plan)[:hold].or_else(false),
+        hold: Maybe(plan)[:hold].or_else(false)
       }
     }.or_else(nil)
   end
@@ -300,7 +296,7 @@ module MarketplaceRouter
     community_name =
       begin
         community.name(community.default_locale)
-      rescue
+      rescue StandardError
         ident
       end
 

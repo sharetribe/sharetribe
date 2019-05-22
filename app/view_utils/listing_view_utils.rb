@@ -88,11 +88,13 @@ module ListingViewUtils
 
   def youtube_video_ids(text)
     return [] unless text.present? && text.is_a?(String)
+
     text.scan(/https?:\/\/\S+/).map { |l| youtube_video_id(l) }.compact
   end
 
   def youtube_video_id(link)
     return nil unless link.present? && link.is_a?(String)
+
     pattern = /^.*(?:(?:youtu\.be\/|youtu.*v\/|youtu.*embed\/)|youtu.*(?:\?v=|\&v=))([^#\&\?]*).*/
     Maybe(pattern.match(link))[1].or_else(nil)
   end

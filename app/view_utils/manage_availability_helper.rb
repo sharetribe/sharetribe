@@ -12,12 +12,12 @@ module ManageAvailabilityHelper
       },
       marketplace: {
         uuid: community.uuid_object.to_s,
-        marketplace_color1: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1],
+        marketplace_color1: CommonStylesHelper.marketplace_colors(community)[:marketplace_color1]
       },
       listing: {
         uuid: listing.uuid_object.to_s,
         title: listing.title,
-        image_url: path_to_listing_image(listing),
+        image_url: path_to_listing_image(listing)
       }
     }
   end

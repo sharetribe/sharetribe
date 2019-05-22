@@ -95,7 +95,7 @@ def create_paid_transaction(community, listing, starter, message, payment_gatewa
     last_transition_at: Time.current,
     commission_from_seller: settings.commission_from_seller,
     minimum_commission_cents: 100,
-    minimum_commission_currency: 'EUR',
+    minimum_commission_currency: 'EUR'
   }
   if booking
     tx_attributes.merge!(

@@ -2,10 +2,10 @@ require 'rest_client'
 
 class SessionsController < ApplicationController
 
-  skip_before_action :cannot_access_if_banned, :only => [ :destroy, :confirmation_pending ]
-  skip_before_action :cannot_access_without_confirmation, :only => [ :destroy, :confirmation_pending ]
-  skip_before_action :ensure_consent_given, only: [ :destroy, :confirmation_pending ]
-  skip_before_action :ensure_user_belongs_to_community, :only => [ :destroy, :confirmation_pending ]
+  skip_before_action :cannot_access_if_banned, :only => [:destroy, :confirmation_pending]
+  skip_before_action :cannot_access_without_confirmation, :only => [:destroy, :confirmation_pending]
+  skip_before_action :ensure_consent_given, only: [:destroy, :confirmation_pending]
+  skip_before_action :ensure_user_belongs_to_community, :only => [:destroy, :confirmation_pending]
 
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
@@ -100,7 +100,7 @@ class SessionsController < ApplicationController
   end
 
   def passthru
-    render status: 404, plain: "Not found. Authentication passthru."
+    render status: :not_found, plain: "Not found. Authentication passthru."
   end
   private
 

@@ -103,6 +103,7 @@
 #  linkedin_connect_enabled                   :boolean
 #  linkedin_connect_id                        :string(255)
 #  linkedin_connect_secret                    :string(255)
+#  pre_approved_listings                      :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -126,7 +127,7 @@ describe CommunitiesController, type: :controller do
       marketplace_name: 'Pearl',
       marketplace_type: 'product',
       marketplace_country: 'FI',
-      marketplace_language: 'en',
+      marketplace_language: 'en'
     }
     end
     subject { post :create, params: params }

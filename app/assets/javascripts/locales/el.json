@@ -20,11 +20,11 @@
     "url": "Παρακαλούμε να εισάγεις ένα έγκυρο URL.",
     "address_validator": "Η τοποθεσία δεν βρέθηκε.",
     "money": "Πρέπει να εισάγετε μια έγκυρη χρηματική αξία.",
-    "night_selected": null,
-    "availability_range": null,
-    "min_bound": "Please enter a value less than max value ({0})",
+    "night_selected": "Πρέπει να επιλέξετε τουλάχιστον μία διανυκτέρευση.",
+    "availability_range": "Το επιλεγμένο διάστημα περιλαμβάνει ημερομηνίες που δεν είναι διαθέσιμες.",
+    "min_bound": "Παρακαλώ κάντε εισαγωγή τιμής χαμηλότερης από την ανώτατη τιμή ({0})",
     "max_bound": "Please enter a value more than min value ({0})",
-    "number_no_decimals": "Please enter a whole number",
+    "number_no_decimals": "Παρακαλώ βάλτε ολόκληρο αριθμό.",
     "number_decimals": "Please enter a valid number with either dot (.) or comma (,) as a decimal separator"
   }
 }

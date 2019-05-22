@@ -281,6 +281,7 @@ CREATE TABLE `communities` (
   `linkedin_connect_enabled` tinyint(1) DEFAULT NULL,
   `linkedin_connect_id` varchar(255) DEFAULT NULL,
   `linkedin_connect_secret` varchar(255) DEFAULT NULL,
+  `pre_approved_listings` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -314,7 +315,15 @@ CREATE TABLE `community_customizations` (
   `social_media_title` varchar(255) DEFAULT NULL,
   `social_media_description` text,
   `meta_title` varchar(255) DEFAULT NULL,
-  `meta_description` text,
+  `meta_description` text DEFAULT NULL,
+  `search_meta_title` varchar(255) DEFAULT NULL,
+  `search_meta_description` text DEFAULT NULL,
+  `listing_meta_title` varchar(255) DEFAULT NULL,
+  `listing_meta_description` text DEFAULT NULL,
+  `category_meta_title` varchar(255) DEFAULT NULL,
+  `category_meta_description` text DEFAULT NULL,
+  `profile_meta_title` varchar(255) DEFAULT NULL,
+  `profile_meta_description` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -812,19 +821,20 @@ CREATE TABLE `listings` (
   `shipping_price_additional_cents` int(11) DEFAULT NULL,
   `availability` varchar(32) DEFAULT 'none',
   `per_hour_ready` tinyint(1) DEFAULT '0',
+  `state` varchar(255) DEFAULT 'approved',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_listings_on_uuid` (`uuid`),
   KEY `index_listings_on_new_category_id` (`category_id`) USING BTREE,
   KEY `person_listings` (`community_id`,`author_id`) USING BTREE,
-  KEY `homepage_query` (`community_id`,`open`,`sort_date`,`deleted`) USING BTREE,
-  KEY `updates_email_listings` (`community_id`,`open`,`updates_email_at`) USING BTREE,
-  KEY `homepage_query_valid_until` (`community_id`,`open`,`valid_until`,`sort_date`,`deleted`) USING BTREE,
   KEY `index_listings_on_community_id` (`community_id`) USING BTREE,
   KEY `index_listings_on_listing_shape_id` (`listing_shape_id`) USING BTREE,
   KEY `index_listings_on_category_id` (`old_category_id`) USING BTREE,
   KEY `index_listings_on_open` (`open`) USING BTREE,
   KEY `index_on_author_id_and_deleted` (`author_id`,`deleted`),
-  KEY `community_author_deleted` (`community_id`,`author_id`,`deleted`)
+  KEY `community_author_deleted` (`community_id`,`author_id`,`deleted`),
+  KEY `index_listings_on_state` (`state`),
+  KEY `listings_homepage_query` (`community_id`,`open`,`state`,`deleted`,`valid_until`,`sort_date`),
+  KEY `listings_updates_email` (`community_id`,`open`,`state`,`deleted`,`valid_until`,`updates_email_at`,`created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `locations`;
@@ -1052,6 +1062,7 @@ CREATE TABLE `payment_settings` (
   `commission_from_buyer` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_cents` int(11) DEFAULT NULL,
   `minimum_buyer_transaction_fee_currency` varchar(3) DEFAULT NULL,
+  `key_encryption_padding` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_payment_settings_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2358,6 +2369,11 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190115083941'),
 ('20190121064002'),
 ('20190208032229'),
-('20190228084827');
-
+('20190213073532'),
+('20190213082646'),
+('20190227111355'),
+('20190228084827'),
+('20190305112030'),
+('20190319122745'),
+('20190319114719');
 

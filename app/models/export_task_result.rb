@@ -18,7 +18,7 @@ class ExportTaskResult < ApplicationRecord
   has_attached_file :file, s3_headers: lambda { |record|
     {
       'Content-Type' => "text/#{record.original_extname}",
-      'Content-Disposition' => "attachment; filename=#{record.original_filename}",
+      'Content-Disposition' => "attachment; filename=#{record.original_filename}"
     }
   },
                            path: "file-exports/:class/:attachment/:id/:filename",

@@ -23,5 +23,5 @@ Feature: LinkedIn connect
     When I open user menu
     When I follow "Settings"
     And I follow "settings-tab-notifications"
-    Then the "I accept to receive occasional emails from" checkbox should be checked
+    Then the "I agree to receive occasional emails from" checkbox should be checked
 

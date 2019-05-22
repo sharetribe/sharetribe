@@ -1,4 +1,3 @@
-
 #
 # Specify all country specific PayPal instruction texts / link in this module
 #
@@ -17,7 +16,7 @@ module PaypalCountryHelper
     "au" => "https://www.paypal.com/au/webapps/mpp/paypal-seller-fees",
     "no" => "https://www.paypal.com/no/webapps/mpp/paypal-fees",
     "nz" => "https://www.paypal.com/nz/webapps/mpp/paypal-fees",
-    "jp" => "https://www.paypal.com/jp/webapps/mpp/paypal-fees",
+    "jp" => "https://www.paypal.com/jp/webapps/mpp/paypal-fees"
   }
 
   FEE_URL.default = "https://www.paypal.com/cgi-bin/marketingweb?cmd=_display-xborder-fees-outside"
@@ -34,13 +33,13 @@ module PaypalCountryHelper
     "br" => "https://www.paypal.com/br/webapps/mpp/home",
     "no" => "https://www.paypal.com/no/webapps/mpp/home",
     "nz" => "https://www.paypal.com/nz/webapps/mpp/home",
-    "jp" => "https://www.paypal.com/jp/webapps/mpp/home",
+    "jp" => "https://www.paypal.com/jp/webapps/mpp/home"
   }
 
   POPUP_URL.default = "https://www.paypal.com/webapps/mpp/paypal-popup"
 
   CREATE_ACCOUNT_URL = {
-    "au" => "https://www.paypal.com/au/webapps/mpp/account-selection",
+    "au" => "https://www.paypal.com/au/webapps/mpp/account-selection"
   }
 
   CREATE_ACCOUNT_URL.default = "https://www.paypal.com/%{country_code}/webapps/mpp/home"
@@ -53,13 +52,13 @@ module PaypalCountryHelper
   UPGRADE_ACCOUNT_URL.default = "https://www.paypal.com/%{country_code}/upgrade"
 
   RECEIVE_FUNDS_INFO_LABEL_TR_KEY = {
-    "au" => "paypal_accounts.paypal_receive_funds_info_label_australia_only",
+    "au" => "paypal_accounts.paypal_receive_funds_info_label_australia_only"
   }
 
   RECEIVE_FUNDS_INFO_LABEL_TR_KEY.default = "paypal_accounts.paypal_receive_funds_info_label"
 
   RECEIVE_FUNDS_INFO_TR_KEY = {
-    "au" => "paypal_accounts.paypal_receive_funds_info_australia_only",
+    "au" => "paypal_accounts.paypal_receive_funds_info_australia_only"
   }
 
   RECEIVE_FUNDS_INFO_TR_KEY.default = "paypal_accounts.paypal_receive_funds_info"

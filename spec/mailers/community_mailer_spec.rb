@@ -18,7 +18,7 @@ describe "CommunityMailer", type: :mailer do
       @c1 = FactoryGirl.create(:community)
       @c1.community_customizations.first.update_attribute(:name, "MarketTestPlace")
 
-      @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
+      @p1 = FactoryGirl.create(:person, :emails => [FactoryGirl.create(:email, :address => "update_tester@example.com")])
       @p1.accepted_community = @c1
       @l2 = FactoryGirl.create(:listing,
           :title => "hammer",

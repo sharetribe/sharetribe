@@ -31,7 +31,7 @@ module EmailService::SES
         type: type,
         method: method,
         params: params,
-        request_id: request_id,
+        request_id: request_id
       }.to_json
     end
   end

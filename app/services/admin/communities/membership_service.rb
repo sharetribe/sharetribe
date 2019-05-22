@@ -30,14 +30,14 @@ class Admin::Communities::MembershipService
   end
 
   def ban
-    membership.update_attributes(status: "banned")
-    membership.update_attributes(admin: 0) if membership.admin == 1
+    membership.update(status: "banned")
+    membership.update(admin: 0) if membership.admin == 1
     community.close_listings_by_author(membership.person)
     membership
   end
 
   def unban
-    membership.update_attributes(status: "accepted")
+    membership.update(status: "accepted")
     membership
   end
 

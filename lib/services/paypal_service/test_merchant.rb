@@ -96,7 +96,7 @@ module PaypalService
         authorization_total: authorization_total,
         authorization_id: auth_id,
         payment_status: "pending",
-        pending_reason: "authorization",
+        pending_reason: "authorization"
         })
 
       @payments_by_order_id[order_id] = auth_payment

@@ -39,7 +39,7 @@ namespace :sharetribe do
       	AND mp.expires_at IS NOT NULL -- To be extra safe
       	AND mp.expires_at < '#{date}' -- Change to desired value
       ORDER BY 2;
-SQL
+    SQL
     r = ActiveRecord::Base.connection.execute(query)
     r.map { |row| row[0] }
   end
@@ -65,7 +65,7 @@ SQL
       	AND mt.expires_at IS NOT NULL -- To be extra safe
       	AND mt.expires_at < '#{date}' -- Change to desired value
       ORDER BY 2;
-SQL
+    SQL
     r = ActiveRecord::Base.connection.execute(query)
     r.map { |row| row[0] }
   end
@@ -115,7 +115,7 @@ SQL
       DELETE FROM marketplace_plans WHERE community_id = #{id};
 
       DELETE FROM marketplace_trials WHERE community_id = #{id};
-SQL
+    SQL
 
     sql.split(/;/).map { |q| q.strip }.reject { |q| q.empty? }
   end
@@ -228,7 +228,7 @@ SQL
       DELETE FROM payment_settings WHERE community_id = #{id};
 
       DELETE FROM community_social_logos WHERE community_id = #{id};
-SQL
+    SQL
 
     sql.split(/;/).map { |q| q.strip }.reject { |q| q.empty? }
   end
@@ -329,7 +329,7 @@ SQL
         ListingImage.where(listing_id: listing_id).delete_all
 
         Listing.find(listing_id).destroy
-      rescue => e
+      rescue StandardError => e
         puts "Destroy listing failed for #{listing_id}: #{e.message}"
       end
     end
@@ -341,7 +341,7 @@ SQL
         deleted_count += 1
 
         Person.find(person_id).destroy
-      rescue => e
+      rescue StandardError => e
         puts "Destroy person failed for #{person_id}: #{e.message}"
       end
     end

@@ -22,11 +22,11 @@ class Category < ApplicationRecord
 
   attr_accessor :basename
 
-  has_many :subcategories, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy
+  has_many :subcategories, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :inverse_of => :parent
   # children is a more generic alias for sub categories, used in classification.rb
-  has_many :children, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id"
+  has_many :children, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :inverse_of => :parent
   belongs_to :parent, :class_name => "Category"
-  has_many :listings
+  has_many :listings, :dependent => :nullify
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
   has_and_belongs_to_many :listing_shapes, -> { order("sort_priority") }, join_table: "category_listing_shapes"
@@ -44,7 +44,7 @@ class Category < ApplicationRecord
     build_attrs = attributes.map { |locale, values| { locale: locale, values: values } }
     build_attrs.each do |translation|
       if existing_translation = translations.find_by_locale(translation[:locale])
-        existing_translation.update_attributes(translation[:values])
+        existing_translation.update(translation[:values])
       else
         translations.build(translation[:values].merge({:locale => translation[:locale]}))
       end
@@ -145,6 +145,7 @@ class Category < ApplicationRecord
   def icon_name
     return icon if ApplicationHelper.icon_specified?(icon)
     return parent.icon_name if parent
+
     return "other"
   end
 

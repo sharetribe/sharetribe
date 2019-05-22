@@ -17,7 +17,7 @@ describe StripeService::API::Accounts do
                          person_id: person.id)
     end
     let(:payment_settings) do
-      sk = TransactionService::Store::PaymentSettings.encrypt_value('sk_test_123456789012345678901234')
+      sk = TransactionService::Store::PaymentSettings.encrypt_value('sk_test_123456789012345678901234', false)
       FactoryGirl.create(:payment_settings,
                          community_id: community.id,
                          payment_gateway: 'stripe',

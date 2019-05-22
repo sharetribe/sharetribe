@@ -46,10 +46,10 @@ module PaymentsHelper
       separator: "-"
     },
     IE: {
-      account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'IE29AIBK93115212345678', regexp: 'IE[0-9]{2}[A-Z0-9]{4}[0-9]{14}', test_regexp: 'IE'+TEST_IBAN }
     },
     IT: {
-      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z]{1}[0-9]{5}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'IT60X0542811101000000123456', regexp: 'IT[0-9]{2}[A-Z]{1}[0-9]{5}[0-9]{5}[A-Z0-9]{12}', test_regexp: 'IT'+TEST_IBAN }
     },
     JP: {
       account_number: {format: '1234567', regexp: '[0-9]{6,8}', test_regexp: '[0-9]{6,8}' },
@@ -58,7 +58,7 @@ module PaymentsHelper
       separator: ""
     },
     LU: {
-      account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}', test_regexp: 'LU'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}', test_regexp: 'LU'+TEST_IBAN }
     },
     MX: {
       account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' }
@@ -67,13 +67,13 @@ module PaymentsHelper
       account_number: {title: 'IBAN', format: 'NL39RABO0300065264', regexp: 'NL[0-9]{2}[A-Z]{4}[0-9]{10}', test_regexp: 'NL'+TEST_IBAN }
     },
     NZ: {
-      account_number: {format: '11-0000-0000000-010', regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}', test_regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}' },
+      account_number: {format: '11-0000-0000000-010', regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}', test_regexp: '[0-9]{2}\-[0-9]{4}\-[0-9]{7}\-[0-9]{2,3}' }
     },
     NO: {
-      account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN }
     },
     PT: {
-      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN },
+      account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN }
     },
     SG: {
       account_number: {format: '123456789012', regexp: '[0-9]{6-12}', test_regexp: '[0-9]{6-12}' },
@@ -112,21 +112,21 @@ module PaymentsHelper
     {
       stripe_test_mode: !!StripeService::API::Api.wrapper.test_mode?(@current_community.id),
       api_publishable_key: payment_settings.try(:api_publishable_key),
-      bank_rules: BANK_RULES,
-    }
-  end
-
-  def stripe_default_data
-    payment_settings = PaymentSettings.where(community_id: @current_community.id,
-                                             payment_gateway: :stripe,
-                                             payment_process: :preauthorize).first
-    {
-      stripe_test_mode: !!StripeService::API::Api.wrapper.test_mode?(@current_community.id),
-      api_publishable_key: payment_settings.try(:api_publishable_key),
+      bank_rules: BANK_RULES
     }
   end
 
   def mcc_codes_options
-    MccCodes::CODES.map{|x| [x[:decription], x[:mcc]]}
+    result = [['-- Most popular', '0000']]
+    first_codes = [
+      'Equipment Rental',
+      'General Services',
+      'Miscellaneous Specialty Retail',
+      'Professional Services',
+      'Used Merchandise and Secondhand Stores'
+    ]
+    result += MccCodes::CODES.select{|x| first_codes.include?(x[:decription])}.map{|x| [x[:decription], x[:mcc]]}
+    result += [['-- All categories', '0000']]
+    result += MccCodes::CODES.map{|x| [x[:decription], x[:mcc]]}
   end
 end

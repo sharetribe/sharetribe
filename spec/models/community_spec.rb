@@ -1,4 +1,3 @@
-# encoding: utf-8
 # == Schema Information
 #
 # Table name: communities
@@ -104,6 +103,7 @@
 #  linkedin_connect_enabled                   :boolean
 #  linkedin_connect_id                        :string(255)
 #  linkedin_connect_secret                    :string(255)
+#  pre_approved_listings                      :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -157,7 +157,7 @@ describe Community, type: :model do
     end
 
     before(:each) do
-      @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
+      @p1 = FactoryGirl.create(:person, :emails => [FactoryGirl.create(:email, :address => "update_tester@example.com")])
       @p1.accepted_community = community
       @l1 = get_listing(2,2)
       @l2 = get_listing(3,3)

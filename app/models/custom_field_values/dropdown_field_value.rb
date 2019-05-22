@@ -27,7 +27,7 @@ class DropdownFieldValue < OptionFieldValue
   private
 
   def validate_selections
-    if question && question.for_person?
+    if question&.for_person?
       return true unless question.required?
     end
     unless custom_field_option_selections.size == 1

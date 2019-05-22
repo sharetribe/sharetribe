@@ -60,13 +60,14 @@ class Transaction < ApplicationRecord
 
   belongs_to :community
   belongs_to :listing
-  has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id
+  has_many :transaction_transitions, dependent: :destroy, foreign_key: :transaction_id, inverse_of: :tx
   has_one :booking, dependent: :destroy
   has_one :shipping_address, dependent: :destroy
-  belongs_to :starter, class_name: "Person", foreign_key: :starter_id
+  belongs_to :starter, class_name: "Person", foreign_key: :starter_id, inverse_of: :starter_transactions
   belongs_to :conversation
-  has_many :testimonials
+  has_many :testimonials, dependent: :destroy
   belongs_to :listing_author, class_name: 'Person'
+  has_many :stripe_payments, dependent: :destroy
 
   delegate :author, to: :listing
   delegate :title, to: :listing, prefix: true

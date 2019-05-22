@@ -1,5 +1,3 @@
-# rubocop:disable ConstantName
-
 module PaypalService
   module API
     Api =

@@ -13,7 +13,7 @@ prefork = lambda {
   if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
     begin
       raise "foo"
-    rescue => e
+    rescue StandardError => e
       puts <<-MSG
     ===================================================
     It looks like spec_helper.rb has been loaded
@@ -35,7 +35,7 @@ prefork = lambda {
   # This file is copied to ~/spec when you run 'ruby script/generate rspec'
   # from the project root directory.
   ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
+  require File.expand_path('../config/environment', __dir__)
   require 'rspec/rails'
   require "email_spec"
   require './spec/support/webmock'

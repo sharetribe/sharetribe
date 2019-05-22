@@ -6,6 +6,8 @@ module StripeService::API
       TransactionStore = TransactionService::Store::Transaction
 
       def create_preauth_payment(tx, gateway_fields)
+        report = StripeService::Report.new(tx: tx)
+        report.create_charge_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         if !seller_account || !seller_account[:stripe_seller_id].present?
           return SyncCompletion.new(Result::Error.new("No Seller Account"))
@@ -56,10 +58,14 @@ module StripeService::API
             addr: gateway_fields[:shipping_address])
         end
 
+        report.create_charge_success
         Result::Success.new(payment)
-      rescue => e
-        Airbrake.notify(e)
-        Result::Error.new(e.message)
+      rescue StandardError => exception
+        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).create_charge_failed
+        exception.extend ParamsToAirbrake
+        exception.params_to_airbrake = {stripe: params_to_airbrake}
+        Airbrake.notify(exception)
+        Result::Error.new(exception.message)
       end
 
       def cancel_preauth(tx, reason)
@@ -74,12 +80,14 @@ module StripeService::API
         )
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: {status: 'canceled'})
         Result::Success.new(payment)
-      rescue => e
+      rescue StandardError => e
         Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
       def capture(tx)
+        report = StripeService::Report.new(tx: tx)
+        report.capture_charge_start
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
@@ -90,10 +98,14 @@ module StripeService::API
                                         real_fee_cents: balance_txn.fee,
                                         available_on: Time.zone.at(balance_txn.available_on)
                                       })
+        report.capture_charge_success
         Result::Success.new(payment)
-      rescue => e
-        Airbrake.notify(e)
-        Result::Error.new(e.message)
+      rescue StandardError => exception
+        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).capture_charge_failed
+        exception.extend ParamsToAirbrake
+        exception.params_to_airbrake = {stripe: params_to_airbrake}
+        Airbrake.notify(exception)
+        Result::Error.new(exception.message)
       end
 
       def payment_details(tx)
@@ -108,7 +120,7 @@ module StripeService::API
             commission: commission,
             real_fee: fee,
             subtotal: total - fee,
-            buyer_commission: buyer_commission,
+            buyer_commission: buyer_commission
           }
         end
 
@@ -120,15 +132,17 @@ module StripeService::API
             payment[:real_fee]
           end
         {
-          payment_total:       payment[:sum],
-          total_price:         payment[:subtotal],
-          charged_commission:  payment[:commission],
+          payment_total: payment[:sum],
+          total_price: payment[:subtotal],
+          charged_commission: payment[:commission],
           payment_gateway_fee: gateway_fee,
-          buyer_commission:    payment[:buyer_commission] || 0
+          buyer_commission: payment[:buyer_commission] || 0
         }
       end
 
       def payout(tx)
+        report = StripeService::Report.new(tx: tx)
+        report.create_payout_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment = PaymentStore.get(tx.community_id, tx.id)
 
@@ -168,6 +182,9 @@ module StripeService::API
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
                                         transfered_at: Time.zone.now
                                       })
+
+        report.create_payout_success
+        payment
       end
 
       def stripe_api

@@ -27,9 +27,9 @@ class Invitation < ApplicationRecord
   INVITATION_LIMIT = 10
   INVITE_ONLY_INVITATION_LIMIT = 50
 
-  has_many :community_memberships #One invitation can result many users joining.
+  has_many :community_memberships, dependent: :nullify #One invitation can result many users joining.
   belongs_to :community
-  belongs_to :inviter, :class_name => "Person", :foreign_key => "inviter_id"
+  belongs_to :inviter, :class_name => "Person", :foreign_key => "inviter_id", :inverse_of => :invitations
 
   validates_presence_of :community_id # The invitation must relate to one community
 
@@ -49,6 +49,7 @@ class Invitation < ApplicationRecord
 
   def use_once!
     raise "Invitation is not usable" if not usable?
+
     update_attribute(:usages_left, self.usages_left - 1)
   end
 
@@ -56,6 +57,7 @@ class Invitation < ApplicationRecord
     invitation = Invitation.find_by_code(code.upcase) if code.present?
     if invitation.present?
       return false if community.present? && invitation.community_id != community.id
+
       return invitation.usable?
     else
       return false
@@ -65,6 +67,7 @@ class Invitation < ApplicationRecord
   def self.use_code_once(code)
     invitation = Invitation.find_by_code(code.upcase) if code.present?
     return false if invitation.blank?
+
     invitation.use_once!
     return true
   end

@@ -9,7 +9,7 @@ class IntApi::MarketplacesController < ApplicationController
   # Creates a marketplace and an admin user for that marketplace
   def create
     form = NewMarketplaceForm.new(params)
-    return render status: 400, json: form.errors unless form.valid?
+    return render status: :bad_request, json: form.errors unless form.valid?
 
     # As there's no community yet, we store the global service name to thread
     # so that mail confirmation email is sent from global service name instead
@@ -61,11 +61,10 @@ class IntApi::MarketplacesController < ApplicationController
     # Enable specific features for all new trials
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:topbar_v1])
-    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:new_stripe_api])
 
     # TODO handle error cases with proper response
 
-    render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace.id}
+    render status: :created, json: {"marketplace_url" => url, "marketplace_id" => marketplace.id}
   end
 
   private

@@ -1,6 +1,6 @@
 require 'zeus/rails'
 
-require File.expand_path('../test/helper_modules', __FILE__)
+require File.expand_path('test/helper_modules', __dir__)
 
 class CustomPlan < Zeus::Rails
 

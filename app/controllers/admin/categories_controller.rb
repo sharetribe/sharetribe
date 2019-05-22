@@ -45,7 +45,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
     shapes = @current_community.shapes
     selected_shape_ids = shape_ids_from_params(params)
 
-    if @category.update_attributes(category_params)
+    if @category.update(category_params)
       update_category_listing_shapes(selected_shape_ids, @category)
       redirect_to admin_categories_path
     else
@@ -57,7 +57,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
   def order
     new_sort_order = params[:order].map(&:to_i).each_with_index
     order_categories!(new_sort_order)
-    render body: nil, status: 200
+    render body: nil, status: :ok
   end
 
   # Remove form

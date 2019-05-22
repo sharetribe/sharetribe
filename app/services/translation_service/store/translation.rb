@@ -7,8 +7,6 @@ module TranslationService::Store::Translation
     [:locale, :mandatory, :string],
     [:translation])
 
-  module_function
-
   class CachedTranslationStore
 
     # Create translations
@@ -145,15 +143,11 @@ module TranslationService::Store::Translation
     def fill_in_delta(translations_hash, translation_keys, locales, fallback_locale)
 
       keys =
-        if translation_keys.present?
-          translation_keys
-        else
-          translations_hash
+        translation_keys.presence || translations_hash
             .map { |translation|
               translation[:translation_key]
             }
             .uniq
-        end
 
       results = []
       keys.each { |key|

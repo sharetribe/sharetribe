@@ -12,7 +12,6 @@
 - dimensions = @listing.listing_images.first.get_dimensions_for_style(:medium) if !@listing.listing_images.empty?
 - content_for :meta_image_width, dimensions[:width].to_s if !@listing.listing_images.empty?
 - content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
-- content_for :keywords, StringUtils.keywords(@listing.title)
 
 - content_for :title_header do
   %h1
@@ -53,7 +52,7 @@
 
             - content_for :extra_javascript do
               :javascript
-                var listingImages = #{raw listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
+                var listingImages = #{raw listing_images.map { |image| ListingImageJsAdapter.new(image) }.to_json }
                 var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
                 ST.listingImages(listingImages, currentImage);
           - else

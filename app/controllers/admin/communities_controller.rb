@@ -98,14 +98,14 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
       render json: HashUtils.camelize_keys(address.merge(translated_verification_sent_time_ago: time_ago(address[:verification_requested_at])))
     else
-      render json: {error: res.error_msg }, status: 500
+      render json: {error: res.error_msg }, status: :internal_server_error
     end
 
   end
 
   def resend_verification_email
     EmailService::API::Api.addresses.enqueue_verification_request(community_id: @current_community.id, id: params[:address_id])
-    render json: {}, status: 200
+    render json: {}, status: :ok
   end
 
   def social_media
@@ -171,49 +171,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     MailCarrier.deliver_later(PersonMailer.welcome_email(@current_user, @current_community, true, true))
     flash[:notice] = t("layouts.notifications.test_welcome_email_delivered_to", :email => @current_user.confirmed_notification_email_to)
     redirect_to edit_welcome_email_admin_community_path(@current_community)
-  end
-
-  def settings
-    @selected_left_navi_link = "admin_settings"
-
-    # When feature flag is removed, make this pretty
-    if(FeatureFlagHelper.location_search_available)
-      marketplace_configurations = @current_community.configuration
-
-      keyword_and_location =
-        if FeatureFlagService::API::Api.features.get_for_community(community_id: @current_community.id).data[:features].include?(:topbar_v1)
-          [:keyword_and_location]
-        else
-          []
-        end
-
-      main_search_select_options = [:keyword, :location].concat(keyword_and_location)
-        .map { |type|
-          [SettingsViewUtils.search_type_translation(type), type]
-        }
-
-      distance_unit_select_options = [
-          [SettingsViewUtils.distance_unit_translation(:km), :metric],
-          [SettingsViewUtils.distance_unit_translation(:miles), :imperial]
-      ]
-
-      render :settings, locals: {
-        delete_redirect_url: delete_redirect_url(APP_CONFIG),
-        delete_confirmation: @current_community.ident,
-        can_delete_marketplace: can_delete_marketplace?(@current_community.id),
-        main_search: marketplace_configurations[:main_search],
-        main_search_select_options: main_search_select_options,
-        distance_unit: marketplace_configurations[:distance_unit],
-        distance_unit_select_options: distance_unit_select_options,
-        limit_distance: marketplace_configurations[:limit_search_distance]
-      }
-    else
-      render :settings, locals: {
-        delete_redirect_url: delete_redirect_url(APP_CONFIG),
-        delete_confirmation: @current_community.ident,
-        can_delete_marketplace: can_delete_marketplace?(@current_community.id)
-      }
-    end
   end
 
   def update_look_and_feel
@@ -306,47 +263,14 @@ class Admin::CommunitiesController < Admin::AdminBaseController
             :analytics)
   end
 
-  def update_settings
-    @selected_left_navi_link = "settings"
-
-    permitted_params = [
-      :join_with_invite_only,
-      :users_can_invite_new_users,
-      :private,
-      :require_verification_to_post_listings,
-      :show_category_in_listing_list,
-      :show_listing_publishing_date,
-      :listing_comments_in_use,
-      :automatic_confirmation_after_days,
-      :automatic_newsletters,
-      :default_min_days_between_community_updates,
-      :email_admins_about_new_members
-    ]
-    settings_params = params.require(:community).permit(*permitted_params)
-
-    maybe_update_payment_settings(@current_community.id, params[:community][:automatic_confirmation_after_days])
-
-    if FeatureFlagHelper.location_search_available
-      @current_community.configuration.update(
-        main_search: params[:main_search],
-        distance_unit: params[:distance_unit],
-        limit_search_distance: params[:limit_distance].present?)
-    end
-
-    update(@current_community,
-            settings_params,
-            admin_settings_path,
-            :settings)
-  end
-
   def delete_marketplace
     if can_delete_marketplace?(@current_community.id) && params[:delete_confirmation] == @current_community.ident
-      @current_community.update_attributes(deleted: true)
+      @current_community.update(deleted: true)
 
       redirect_to Maybe(delete_redirect_url(APP_CONFIG)).or_else(:community_not_found)
     else
       flash[:error] = "Could not delete marketplace."
-      redirect_to action: :settings
+      redirect_to admin_setting_path
     end
 
   end
@@ -372,7 +296,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def update(model, params, path, action, &block)
-    if model.update_attributes(params)
+    if model.update(params)
       flash[:notice] = t("layouts.notifications.community_updated")
       block.call(model) if block_given? #on success, call optional block
       redirect_to path
@@ -380,36 +304,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
       flash.now[:error] = t("layouts.notifications.community_update_failed")
       render action
     end
-  end
-
-  # TODO The home of this setting should be in payment settings but
-  # those are only used with paypal for now. During the transition
-  # period we simply mirror community setting to payment settings in
-  # case of paypal.
-  def maybe_update_payment_settings(community_id, automatic_confirmation_after_days)
-    return unless automatic_confirmation_after_days
-
-    p_set = Maybe(payment_settings_api.get(
-                   community_id: community_id,
-                   payment_gateway: :paypal,
-                   payment_process: :preauthorize))
-            .map {|res| res[:success] ? res[:data] : nil}
-            .or_else(nil)
-
-    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
-
-    p_set = Maybe(payment_settings_api.get(
-                   community_id: community_id,
-                   payment_gateway: :stripe,
-                   payment_process: :preauthorize))
-            .map {|res| res[:success] ? res[:data] : nil}
-            .or_else(nil)
-
-    payment_settings_api.update(p_set.merge({confirmation_after_days: automatic_confirmation_after_days.to_i})) if p_set
-  end
-
-  def payment_settings_api
-    TransactionService::API::Api.settings
   end
 
   def delete_redirect_url(configs)
@@ -441,7 +335,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
 
   def update_feature_flags(community_id:, person_id:, user_enabled:, user_disabled:, community_enabled:, community_disabled:)
     updates = []
-    updates << ->() {
+    updates << -> {
       FeatureFlagService::API::Api.features.enable(community_id: community_id, person_id: person_id, features: user_enabled)
     } unless user_enabled.blank?
     updates << ->(*) {
@@ -460,6 +354,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   def find_or_initialize_customizations
     @current_community.locales.each do |locale|
       next if @current_community.community_customizations.find_by_locale(locale)
+
       @current_community.community_customizations.create(
         slogan: @current_community.slogan,
         description: @current_community.description,

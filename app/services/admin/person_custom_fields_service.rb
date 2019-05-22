@@ -32,13 +32,13 @@ class Admin::PersonCustomFieldsService
 
   def update
     find_custom_field
-    custom_field.update_attributes(custom_field_params)
+    custom_field.update(custom_field_params)
   end
 
   def order
     sort_priorities = params[:order].map(&:to_i)
     resource_scope.each do |field|
-      field.update_attributes(sort_priority: sort_priorities.index(field.id))
+      field.update(sort_priority: sort_priorities.index(field.id))
     end
   end
 

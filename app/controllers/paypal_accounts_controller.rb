@@ -53,8 +53,8 @@ class PaypalAccountsController < ApplicationController
         body: PaypalService::API::DataTypes.create_create_billing_agreement_request(
           {
             description: t("paypal_accounts.new.billing_agreement_description"),
-            success_url:  billing_agreement_success_person_paypal_account_url,
-            cancel_url:   billing_agreement_cancel_person_paypal_account_url
+            success_url: billing_agreement_success_person_paypal_account_url,
+            cancel_url: billing_agreement_cancel_person_paypal_account_url
           }
         ))
 

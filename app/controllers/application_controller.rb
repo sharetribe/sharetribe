@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   include Analytics
   include RefererHider
   include HSTS::Concern
+  include EnsureAdmin
   protect_from_forgery
   layout 'application'
 
@@ -30,6 +31,7 @@ class ApplicationController < ActionController::Base
     :redirect_removed_locale,
     :set_locale,
     :redirect_locale_param,
+    :setup_seo_service,
     :fetch_community_admin_status,
     :warn_about_missing_payment_info,
     :set_homepage_path,
@@ -306,7 +308,7 @@ class ApplicationController < ActionController::Base
 
   # plain stub for routes, intercepted in perfom_redirect
   def not_available
-    render 'errors/community_not_found', layout: false, status: 404, locals: { status: 404, title: "Marketplace not found", host: request.host }
+    render 'errors/community_not_found', layout: false, status: :not_found, locals: { status: 404, title: "Marketplace not found", host: request.host }
   end
 
   def fetch_community_membership
@@ -356,7 +358,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community_admin_status
-    @is_current_community_admin = (@current_user && @current_user.has_admin_rights?(@current_community))
+    @is_current_community_admin = (@current_user&.has_admin_rights?(@current_community))
   end
 
   def fetch_community_plan_expiration_status
@@ -382,7 +384,7 @@ class ApplicationController < ActionController::Base
 
       if has_paid_listings && accept_payments.blank?
         payment_settings_link = view_context.link_to(t("paypal_accounts.from_your_payment_settings_link_text"),
-          person_payment_settings_path(@current_user), target: "_blank")
+          person_payment_settings_path(@current_user), target: "_blank", rel: "noopener")
 
         flash.now[:warning] = t("stripe_accounts.missing_payment", settings_link: payment_settings_link).html_safe
       end
@@ -437,26 +439,13 @@ class ApplicationController < ActionController::Base
     date && date.to_date.eql?(comp)
   end
 
-  def ensure_is_admin
-    unless @is_current_community_admin
-      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to search_path and return
-    end
-  end
-
-  def ensure_is_superadmin
-    unless Maybe(@current_user).is_admin?.or_else(false)
-      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
-      redirect_to search_path and return
-    end
-  end
-
   def fetch_translations
     WebTranslateIt.fetch_translations
   end
 
   def check_http_auth
     return true unless APP_CONFIG.use_http_auth.to_s.downcase == 'true'
+
     if authenticate_with_http_basic { |u, p| u == APP_CONFIG.http_auth_username && p == APP_CONFIG.http_auth_password }
       true
     else
@@ -640,5 +629,9 @@ class ApplicationController < ActionController::Base
     if params[:disarm].present? && !ActiveModel::Type::Boolean::FALSE_VALUES.include?(params[:disarm])
       @disable_custom_head_script = true
     end
+  end
+
+  def setup_seo_service
+    @seo_service = SeoService.new(@current_community, params)
   end
 end

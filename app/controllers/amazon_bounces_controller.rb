@@ -37,7 +37,7 @@ class AmazonBouncesController < ApplicationController
     require 'open-uri'
     json = JSON.parse(request_body)
     subscribe_url = json['SubscribeURL']
-    open(subscribe_url)
+    open(subscribe_url) # rubocop:disable Security/Open
   end
 
   def handle_bounces(msg)

@@ -25,6 +25,7 @@ class PeopleController < Devise::RegistrationsController
     redirect_to landing_page_path and return unless @service.person
     redirect_to landing_page_path and return if @current_community.private? && !@current_user
     @selected_tribe_navi_tab = "members"
+    @seo_service.user = @service.person
   end
 
   def new
@@ -72,7 +73,7 @@ class PeopleController < Devise::RegistrationsController
       ActiveRecord::Base.transaction do
         @person, email = new_person(params, @current_community)
       end
-    rescue => e
+    rescue StandardError => e
       flash[:error] = t("people.new.invalid_username_or_email")
       redirect_to error_redirect_path and return
     end
@@ -155,7 +156,7 @@ class PeopleController < Devise::RegistrationsController
         target_user.emails.build(address: new_email_address, community_id: @current_community.id)
       }
 
-      if target_user.update_attributes(person_params.except(:email_attributes))
+      if target_user.custom_update(person_params.except(:email_attributes))
         if params[:person][:password]
           #if password changed Devise needs a new sign in.
           bypass_sign_in(target_user)
@@ -251,7 +252,7 @@ class PeopleController < Devise::RegistrationsController
   # Create a new person by params and current community
   def new_person(initial_params, current_community)
     initial_params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
-    initial_params[:person][:test_group_number] = 1 + rand(4)
+    initial_params[:person][:test_group_number] = rand(1..4)
     initial_params[:person][:community_id] = current_community.id
 
     params = person_create_params(initial_params)

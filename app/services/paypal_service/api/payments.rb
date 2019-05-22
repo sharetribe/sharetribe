@@ -289,7 +289,7 @@ module PaypalService::API
           error_policy: {
             codes_to_retry: ["10001", "x-timeout", "x-servererror"],
             try_max: 3,
-            finally: method(:handle_failed_create_payment).call(token),
+            finally: method(:handle_failed_create_payment).call(token)
           }
         ) do |ec_details|
           # Validate that the buyer accepted and we have a payer_id now
@@ -363,7 +363,7 @@ module PaypalService::API
           shipping_address_postal_code: :postal_code,
           shipping_address_state_or_province: :state_or_province,
           shipping_address_street1: :street1,
-          shipping_address_street2: :street2,
+          shipping_address_street2: :street2
         }, data))
     end
 
@@ -404,7 +404,7 @@ module PaypalService::API
             # authorization connected to the payment but with auth
             # flow we have no order so void the authorization
             # directly.
-            transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
+            transaction_id: payment[:order_id] || payment[:authorization_id],
             note: note
           }),
         error_policy: {
@@ -414,7 +414,7 @@ module PaypalService::API
         ) do |void_res|
         with_success(community_id, transaction_id, MerchantData.create_get_transaction_details({
               receiver_username: m_acc[:payer_id],
-              transaction_id: payment[:order_id] ? payment[:order_id] : payment[:authorization_id],
+              transaction_id: payment[:order_id] || payment[:authorization_id]
             })) do |payment_res|
           payment = PaymentStore.update(
             data: payment_res,

@@ -86,7 +86,7 @@ module TransactionViewUtils
       transitions = transaction.transaction_transitions
       payment_sum = transaction.payment_total
       payment_gateway = transaction.payment_gateway
-      show_sum = FeatureFlagHelper.feature_enabled?(:buyer_commission) ? transaction.buyer_commission <= 0 : true
+      show_sum = transaction.buyer_commission <= 0
       create_messages_from_actions(transitions, transaction.author, transaction.starter, payment_sum, payment_gateway, show_sum)
     else
       []

@@ -3,7 +3,7 @@ class PaypalService::CheckoutOrdersController < ApplicationController
 
   before_action do
     unless PaypalHelper.community_ready_for_payments?(@current_community.id)
-      render :body => nil, :status => 400
+      render :body => nil, :status => :bad_request
     end
   end
 

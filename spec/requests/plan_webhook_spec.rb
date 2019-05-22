@@ -187,7 +187,7 @@ describe "plan provisioning", type: :request do
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
-                                  expires_at: nil,
+                                  expires_at: nil
                                 },
                                 {
                                   marketplace_plan_id: id333,
@@ -197,7 +197,7 @@ describe "plan provisioning", type: :request do
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
-                                  expires_at: nil,
+                                  expires_at: nil
                                 }
                               ]
                             }.to_json))
@@ -242,7 +242,7 @@ describe "plan provisioning", type: :request do
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 9, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 9, 15).in_time_zone,
-                                  expires_at: nil,
+                                  expires_at: nil
                                 }
                               ],
                               next_after: Time.utc(2015, 10, 15).to_i
@@ -263,7 +263,7 @@ describe "plan provisioning", type: :request do
                                   member_limit: 300,
                                   created_at: Time.utc(2015, 10, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 10, 15).in_time_zone,
-                                  expires_at: nil,
+                                  expires_at: nil
                                 },
                                 {
                                   marketplace_plan_id: id333,
@@ -273,7 +273,7 @@ describe "plan provisioning", type: :request do
                                   features: { deletable: true, admin_email: false, whitelabel: false, footer: false },
                                   created_at: Time.utc(2015, 11, 15).in_time_zone,
                                   updated_at: Time.utc(2015, 11, 15).in_time_zone,
-                                  expires_at: nil,
+                                  expires_at: nil
                                 }
                               ]
                             }.to_json))
