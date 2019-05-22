@@ -24,6 +24,7 @@
 #  commission_from_buyer                  :integer
 #  minimum_buyer_transaction_fee_cents    :integer
 #  minimum_buyer_transaction_fee_currency :string(3)
+#  key_encryption_padding                 :boolean          default(FALSE)
 #
 # Indexes
 #
@@ -31,6 +32,23 @@
 #
 
 class PaymentSettings < ApplicationRecord
+  belongs_to :community
 
   validates_presence_of(:community_id)
+
+  scope :preauthorize, -> { where(payment_process: :preauthorize) }
+  scope :paypal, -> { preauthorize.where(payment_gateway: :paypal) }
+  scope :stripe, -> { preauthorize.where(payment_gateway: :stripe) }
+  scope :active, -> { where(active: true) }
+
+  class << self
+    def max_minimum_transaction_fee(community)
+      stripe.or(PaymentSettings.paypal)
+        .active
+        .where(community: community)
+        .pluck(:minimum_transaction_fee_cents)
+        .compact
+        .max
+    end
+  end
 end

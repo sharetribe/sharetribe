@@ -24,9 +24,9 @@
 #
 
 class StripePayment < ApplicationRecord
-  belongs_to :tx,       class_name: 'Transaction', foreign_key: 'transaction_id'
-  belongs_to :payer,    class_name: 'Person',      foreign_key: 'payer_id'
-  belongs_to :receiver, class_name: 'Person',      foreign_key: 'receiver_id'
+  belongs_to :tx,       class_name: 'Transaction', foreign_key: 'transaction_id', inverse_of: :stripe_payments
+  belongs_to :payer,    class_name: 'Person',      foreign_key: 'payer_id',       inverse_of: :payer_stripe_payments
+  belongs_to :receiver, class_name: 'Person',      foreign_key: 'receiver_id',    inverse_of: :receiver_stripe_payments
 
   monetize :sum_cents,        with_model_currency: :currency
   monetize :commission_cents, with_model_currency: :currency

@@ -1,0 +1,27 @@
+%tr{id: "listing-#{listing.id}"}
+  %td
+    = link_to listing.title, listing_path(listing)
+  - if presenter.admin_mode
+    %td
+      - p = listing.author
+      - if p.deleted
+        = ''
+      - else
+        = link_to PersonViewUtils.person_display_name(p, presenter.community), person_path(p.username)
+  %td= l(listing.created_at, format: :short)
+  %td= l(listing.updated_at, format: :short)
+  %td
+    - category = listing.category
+    = link_to category.display_name(I18n.locale), search_path(category: category.url)
+  %td
+    - status = t("admin.communities.listings.#{presenter.listing_status(listing)}")
+    - if presenter.show_approval_link?(listing)
+      = link_to status,
+        edit_admin_community_listing_path(presenter.community.id, listing.id),
+        remote: true
+    - else
+      = status
+  %td
+    = link_to edit_listing_path(listing) do
+      = icon_tag("edit")
+

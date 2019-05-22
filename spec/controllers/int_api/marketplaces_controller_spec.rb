@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'spec_helper'
 
 # Override the API with test API
@@ -65,6 +63,11 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(p.emails.first.address).to eql "eddie.admin@example.com"
 
       expect_trial_plan(c.id)
+
+      stripe_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: 'stripe')[:data]
+      expect(stripe_settings[:payment_gateway]).to eql :stripe
+      expect(stripe_settings[:payment_process]).to eql :preauthorize
+      expect(stripe_settings[:key_encryption_padding]).to eql true
     end
 
     it "should handle emails starting with info@" do
@@ -173,22 +176,6 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(p.emails.first.address).to eql "fo@example.com"
 
       expect_trial_plan(c.id)
-    end
-
-    it "should create a marketplace and assign new_stripe_api feature flag" do
-      post :create, params: { admin_email: "eddie.admin@example.com",
-                     admin_first_name: "Eddie",
-                     admin_last_name: "Admin",
-                     admin_password: "secret_word",
-                     marketplace_country: "FI",
-                     marketplace_language: "fi",
-                     marketplace_name: "ImaginationTraders",
-                     marketplace_type: "product"}
-
-      expect(response.status).to eql 201
-      community = Community.find_by(ident: "imaginationtraders")
-      feature_flag = FeatureFlag.find_by(community_id: community.id, enabled: true, feature: :new_stripe_api)
-      expect(feature_flag.persisted?).to eq true
     end
   end
 end

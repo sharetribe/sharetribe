@@ -10,7 +10,7 @@ module DeletePerson
           return false
         else
           # Delete personal information
-          person.update_attributes(
+          person.update(
             given_name: nil,
             family_name: nil,
             display_name: nil,
@@ -48,7 +48,7 @@ module DeletePerson
           person.inverse_follower_relationships.destroy_all
 
           # Delete memberships
-          person.community_membership.update_attributes(status: "deleted_user")
+          person.community_membership.update(status: "deleted_user")
 
           # Delte auth tokens
           person.auth_tokens.destroy_all

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 # This is included to ApplicationController
 # Contains helper methods for cache handling
 module CacheHelper

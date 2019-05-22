@@ -10,7 +10,7 @@ describe ServiceClient::Middleware::Timing do
 
   describe "#enter" do
 
-    let(:timing) { ServiceClient::Middleware::Timing.new(->() { started_at }) }
+    let(:timing) { ServiceClient::Middleware::Timing.new(-> { started_at }) }
 
     it "adds started_at timestamp" do
       ctx = timing.enter({})
@@ -20,7 +20,7 @@ describe ServiceClient::Middleware::Timing do
 
   describe "#error/#leave" do
 
-    let(:timing) { ServiceClient::Middleware::Timing.new(->() { end_at }) }
+    let(:timing) { ServiceClient::Middleware::Timing.new(-> { end_at }) }
 
     it "leave adds duration" do
       ctx = timing.leave({started_at: started_at})

@@ -290,11 +290,11 @@ describe "Landing page", type: :request do
       describe "private marketplaces" do
         before(:all) {
           @orig_private = @community.private
-          @community.update_attributes(private: true)
+          @community.update(private: true)
         }
 
         after(:all) {
-          @community.update_attributes(private: @orig_private)
+          @community.update(private: @orig_private)
         }
 
         it "does not includes max-age header in the response for private marketplaces" do

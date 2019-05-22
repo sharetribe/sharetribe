@@ -22,6 +22,6 @@ class MarketplaceSetupSteps < ApplicationRecord
   validates_presence_of(:community_id)
 
   def skip_payment
-    update_attributes(payment: true)
+    update(payment: true)
   end
 end

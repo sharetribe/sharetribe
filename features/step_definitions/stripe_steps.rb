@@ -1,5 +1,3 @@
-# coding: utf-8
-
 Then("I expect transaction with Stripe test to pass") do
   unless ENV['REAL_STRIPE']
     module FakeStripe
@@ -20,7 +18,6 @@ Then("I expect transaction with Stripe test to pass") do
   onboarding_wizard = FeatureTests::Section::OnboardingWizard
 
   marketplace = data.create_marketplace(payment_gateway: :stripe)
-  FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:new_stripe_api])
   admin = data.create_member(username: "stripe_admin", marketplace_id: marketplace[:id], admin: true)
   member = data.create_member(username: "stripe_buyer", marketplace_id: marketplace[:id], admin: false)
 

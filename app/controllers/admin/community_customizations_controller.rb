@@ -35,7 +35,7 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
       customizations = find_or_initialize_customizations_for_locale(locale)
       customizations.assign_attributes(locale_params)
       analytic.process(customizations)
-      update_results.push(customizations.update_attributes({}))
+      update_results.push(customizations.update({}))
       customizations
     end
 
@@ -51,13 +51,13 @@ class Admin::CommunityCustomizationsController < Admin::AdminBaseController
     end
 
     transaction_agreement_checked = Maybe(params)[:community][:transaction_agreement_checkbox].is_some?
-    update_results.push(@current_community.update_attributes(transaction_agreement_in_use: transaction_agreement_checked))
+    update_results.push(@current_community.update(transaction_agreement_in_use: transaction_agreement_checked))
 
     show_slogan = Maybe(params)[:community][:show_slogan].is_some?
-    update_results.push(@current_community.update_attributes(show_slogan: show_slogan))
+    update_results.push(@current_community.update(show_slogan: show_slogan))
 
     show_description = Maybe(params)[:community][:show_description].is_some?
-    update_results.push(@current_community.update_attributes(show_description: show_description))
+    update_results.push(@current_community.update(show_description: show_description))
 
     analytic.send_properties
     if update_results.all? && (!process_locales || enabled_locales_valid)

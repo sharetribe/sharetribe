@@ -5,10 +5,8 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   CHECKBOX_TO_BOOLEAN = ->(v) {
     if v == false || v == true
       v
-    elsif v == "1"
-      true
     else
-      false
+      v == "1"
     end
   }
 
@@ -179,7 +177,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
 
     custom_field_entity = build_custom_field_entity(@custom_field.type, custom_field_params)
 
-    @custom_field.update_attributes(custom_field_entity)
+    @custom_field.update(custom_field_entity)
 
     redirect_to admin_custom_fields_path
   end
@@ -215,7 +213,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
       :price_filter_max
     )
 
-    success = @current_community.update_attributes(price_params)
+    success = @current_community.update(price_params)
 
     if success
       redirect_to admin_custom_fields_path
@@ -228,7 +226,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   def update_location
     location_params = params.require(:community).permit(:listing_location_required)
 
-    success = @current_community.update_attributes(location_params)
+    success = @current_community.update(location_params)
 
     if success
       redirect_to admin_custom_fields_path
@@ -241,7 +239,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   def update_expiration
     listing_expiration_enabled = params[:listing_expiration_enabled] == "enabled"
 
-    success = @current_community.update_attributes(
+    success = @current_community.update(
       { hide_expiration_date: !listing_expiration_enabled })
 
     if success
@@ -278,10 +276,10 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
     end
 
     @current_community.custom_fields.each do |custom_field|
-      custom_field.update_attributes(:sort_priority => sort_priorities[custom_field.id])
+      custom_field.update(:sort_priority => sort_priorities[custom_field.id])
     end
 
-    render body: nil, status: 200
+    render body: nil, status: :ok
   end
 
   private

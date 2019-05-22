@@ -247,7 +247,7 @@ class LandingPageController < ActionController::Metal
   end
 
   def community(request)
-    @current_community ||= request.env[:current_marketplace]
+    @current_community ||= request.env[:current_marketplace] # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def user(request)
@@ -255,7 +255,7 @@ class LandingPageController < ActionController::Metal
   end
 
   def plan(request)
-    @current_plan ||= request.env[:current_plan]
+    @current_plan ||= request.env[:current_plan] # rubocop:disable Naming/MemoizedInstanceVariableName
   end
 
   def community_customization(request, locale)
@@ -281,7 +281,7 @@ class LandingPageController < ActionController::Metal
     c = community(request)
 
     landing_page_locale, sitename = structure["settings"].values_at("locale", "sitename")
-    topbar_locale = locale_param.present? ? locale_param : default_locale
+    topbar_locale = locale_param.presence || default_locale
 
     initialize_i18n!(c&.id, landing_page_locale)
 
@@ -329,7 +329,7 @@ class LandingPageController < ActionController::Metal
                      sections: denormalizer.to_tree(structure, root: "composition"),
                      community_context: community_context(request, landing_page_locale),
                      feature_flags: FeatureFlagHelper.feature_flags,
-                     asset_host: APP_CONFIG.asset_host,
+                     asset_host: APP_CONFIG.asset_host
                    }
   end
 

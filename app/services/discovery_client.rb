@@ -2,7 +2,7 @@ DiscoveryClient = ServiceClient::Client.new(
   APP_CONFIG.discovery_api_url,
   {
     # Listings
-    query_listings: "/discovery/listings/query",
+    query_listings: "/discovery/listings/query"
 
   },
   [

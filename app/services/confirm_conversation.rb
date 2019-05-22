@@ -29,9 +29,9 @@ class ConfirmConversation
     @participation.update_attribute(:is_read, true) if @offerer.eql?(@user)
 
     if @transaction.author == @user
-      @transaction.update_attributes(author_skipped_feedback: true) unless feedback_given
+      @transaction.update(author_skipped_feedback: true) unless feedback_given
     else
-      @transaction.update_attributes(starter_skipped_feedback: true) unless feedback_given
+      @transaction.update(starter_skipped_feedback: true) unless feedback_given
     end
   end
 

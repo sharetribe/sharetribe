@@ -209,7 +209,7 @@ Then(/^I should see working hours save button finished$/) do
 end
 
 Given(/^that listing availability is booking$/) do
-  @listing.update_attributes(availability: :booking, quantity_selector: 'number')
+  @listing.update(availability: :booking, quantity_selector: 'number')
 end
 
 Given(/^that listing has default working hours$/) do
@@ -238,4 +238,9 @@ Given(/^listing with title "(.*?)" has author "(.*?)"$/) do |title, username|
   author = Person.find_by(username: username)
   expect(listing.author).to eq author
 end
+
+Given(/^that listing is pending for admin approval$/)do
+  @listing.update_column(:state, Listing::APPROVAL_PENDING)
+end
+
 

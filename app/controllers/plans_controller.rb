@@ -77,21 +77,21 @@ class PlansController < ApplicationController
 
       response = NewPlansResponse.build(plans: created_plans.map { |plan_entity| from_entity(plan_entity) })
 
-      render json: response, status: 200
+      render json: response, status: :ok
     }.on_error { |error_msg, data|
       case data
       when JSON::ParserError
         logger.error("Error while parsing JSON: #{data.message}")
-        render json: {error: :json_parser_error}, status: 400
+        render json: {error: :json_parser_error}, status: :bad_request
       when :verification_error,
            :expired_signature,
            :invalid_sub_error,
            :token_missing
         logger.error("Unauthorized", nil, error: data, token: params[:token])
-        render json: {error: :unauthorized}, status: 401
+        render json: {error: :unauthorized}, status: :unauthorized
       else
         logger.error("Unknown error")
-        render json: {error: :unknown_error}, status: 500
+        render json: {error: :unknown_error}, status: :internal_server_error
       end
     }
   end
@@ -128,10 +128,10 @@ class PlansController < ApplicationController
            :invalid_sub_error,
            :token_missing
         logger.error("Unauthorized", nil, error: data, token: params[:token])
-        render json: {error: :unauthorized}, status: 401
+        render json: {error: :unauthorized}, status: :unauthorized
       else
         logger.error("Unknown error")
-        render json: {error: :unknown_error}, status: 500
+        render json: {error: :unknown_error}, status: :internal_server_error
       end
     }
   end

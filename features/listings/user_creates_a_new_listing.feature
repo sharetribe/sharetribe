@@ -255,3 +255,22 @@ Scenario: User creates a new listing with date field
     When I follow "Edit listing"
     Then I should see selected "kg" in the "listing[unit]" dropdown
 
+  @javascript
+  Scenario: Creating a new item wait for admin approval
+    Given community "test" has feature flag "approve_listings" enabled
+    Given community "test" has pre-approved listings
+    Given there are following users:
+      | person |
+      | jamie  |
+    And I am logged in as "jamie"
+    And I am on the home page
+    When I follow "new-listing-link"
+    And I select "Items" from listing type menu
+    And I select "Tools" from listing type menu
+    And I select "Requesting" from listing type menu
+    And I fill in "listing_title" with "Birds of a Feather Flock Together"
+    And I fill in "listing_description" with "My description"
+    And I press "Submit for review"
+    Then I should see "Birds of a Feather Flock Together" within "#listing-title"
+    Then I should see "Listing is pending"
+

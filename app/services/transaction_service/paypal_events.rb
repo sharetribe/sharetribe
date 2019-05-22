@@ -26,6 +26,7 @@ module TransactionService::PaypalEvents
       # In case of b) and c), we need to initialize the SessionContext here
       #
       SessionContextStore.set_from_transaction(actor: transition[:actor], tx: tx)
+      ApplicationHelper.store_community_service_name_to_thread_from_community_id(tx.community_id)
 
       case transition[:name]
       when :initiated_to_preauthorized

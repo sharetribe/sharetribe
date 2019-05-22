@@ -25,8 +25,8 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       stripe_connected: stripe_connected,
       paypal_connected: paypal_connected,
       payments_connected: stripe_connected || paypal_connected,
-      stripe_allowed:  TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode),
-      paypal_allowed:  TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
+      stripe_allowed: TransactionService::AvailableCurrencies.stripe_allows_country_and_currency?(@current_community.country, @current_community.currency, stripe_mode),
+      paypal_allowed: TransactionService::AvailableCurrencies.paypal_allows_country_and_currency?(@current_community.country, @current_community.currency),
       stripe_ready: StripeHelper.community_ready_for_payments?(@current_community.id),
       paypal_ready: PaypalHelper.community_ready_for_payments?(@current_community.id),
       paypal_enabled_by_admin: !!paypal_tx_settings[:active],
@@ -295,7 +295,8 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
 
   def parse_preferences(params, currency)
     tx_settings = active_tx_setttings
-    tx_fee =  parse_money_with_default(params[:minimum_transaction_fee], tx_settings[:minimum_transaction_fee_cents], currency)
+    minimum_transaction_fee_cents = PaymentSettings.max_minimum_transaction_fee(@current_community)
+    tx_fee =  parse_money_with_default(params[:minimum_transaction_fee], minimum_transaction_fee_cents, currency)
     tx_commission = params[:commission_from_seller] || tx_settings[:commission_from_seller]
     tx_commission = tx_commission.present? ? tx_commission.to_i : nil
     tx_min_price = parse_money_with_default(params[:minimum_listing_price], tx_settings[:minimum_price_cents], currency)

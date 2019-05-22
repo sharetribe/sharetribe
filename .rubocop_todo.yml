@@ -362,7 +362,7 @@ Layout/SpaceInsideBlockBraces:
 
 # Offense count: 57
 # Cop supports --auto-correct.
-Layout/SpaceInsideBrackets:
+Layout/SpaceInsideArrayLiteralBrackets:
   Enabled: false
 
 # Offense count: 1571
@@ -466,7 +466,7 @@ Lint/AssignmentInCondition:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith.
 # SupportedStylesAlignWith: either, start_of_block, start_of_line
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Exclude:
     - 'app/controllers/people_controller.rb'
     - 'app/mailers/person_mailer.rb'
@@ -500,7 +500,7 @@ Lint/DuplicateMethods:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, SupportedStylesAlignWith, AutoCorrect.
 # SupportedStylesAlignWith: keyword, variable, start_of_line
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: false
 
 # Offense count: 1
@@ -709,7 +709,7 @@ Security/YAMLLoad:
     - 'lib/tasks/sharetribe_db.rake'
 
 # Offense count: 16
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Exclude:
     - 'app/controllers/admin/categories_controller.rb'
     - 'app/controllers/listings_controller.rb'
@@ -992,14 +992,14 @@ Style/MethodDefParentheses:
     - 'app/models/sortable_by_priority.rb'
 
 # Offense count: 1
-Style/MethodMissing:
+Style/MethodMissingSuper:
   Exclude:
     - 'lib/services/paypal_service/test_logger.rb'
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: snake_case, camelCase
-Style/MethodName:
+Naming/MethodName:
   Exclude:
     - 'features/step_definitions/admin_look_and_feel_steps.rb'
 
@@ -1179,7 +1179,7 @@ Style/PerlBackrefs:
 # NamePrefix: is_, has_, have_
 # NamePrefixBlacklist: is_, has_, have_
 # NameWhitelist: is_a?
-Style/PredicateName:
+Naming/PredicateName:
   Enabled: false
 
 # Offense count: 5
@@ -1393,7 +1393,7 @@ Style/TrailingCommaInArguments:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
 # Offense count: 1
@@ -1445,7 +1445,7 @@ Style/UnneededPercentQ:
 # Offense count: 8
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: snake_case, normalcase, non_integer
-Style/VariableNumber:
+Naming/VariableNumber:
   Exclude:
     - 'spec/services/paypal_service/data_types/ipn_spec.rb'
     - 'spec/services/transaction_service/process_spec.rb'
@@ -1488,14 +1488,11 @@ Rails/Delegate:
     - 'app/models/person.rb'
 
 Rails/DynamicFindBy:
+  Enabled: false
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
     - 'features/**/*'
-
-
-Rails/DynamicFindBy:
-  Enabled: false
 
 Rails/FilePath:
   Exclude:
@@ -1682,3 +1679,30 @@ Rails/Validation:
 Rails/UniqBeforePluck:
   Exclude:
     - 'app/services/marketplace_service/inbox.rb'
+
+Naming/UncommunicativeMethodParamName:
+  MinNameLength: 1
+
+Naming/ConstantName:
+  Enabled: false
+
+Style/AccessModifierDeclarations:
+  Exclude:
+    - 'test/helper_modules.rb'
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - 'app/controllers/**/*'
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Exclude:
+    - 'app/services/paypal_service/ipn_injector.rb'
+    - 'app/services/paypal_service/paypal_service_injector.rb'
+    - 'app/services/transaction_service/jobs/process_preauthorize_command.rb'
+    - 'app/services/email_service/email_service_injector.rb'
+    - 'app/services/custom_landing_page/listing_store.rb'
+    - 'app/services/custom_landing_page/category_store.rb'
+

@@ -19,6 +19,7 @@ module MailViewTestData
 
   def member
     return @member unless @member.nil?
+
     @member ||= FactoryGirl.build(:person)
     @member.emails.first.confirmation_token = "123456abcdef"
     @member

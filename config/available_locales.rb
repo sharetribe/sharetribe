@@ -39,6 +39,7 @@ module Sharetribe
 
   # List of locales that are incomplete
   UNSUPPORTED_LOCALES = [
+    {ident: "sq-AL", name: "Shqip", language: "sq", region: "AL", fallback: nil}, # Albanian
     {ident: "ar", name: "Arabic", language: "ar", region: "SA", fallback: nil}, # Arabic (Saudi Arabia)
     {ident: "az-AZ", name: "Azərbaycan", language: "az", region: "AZ", fallback: nil}, # Azerbaijani (Azerbaijan)
     {ident: "bg", name: "български", language: "bg", reqion: "BG", fallback: nil}, # Bulgarian
@@ -58,6 +59,7 @@ module Sharetribe
     {ident: "km-KH", name: "ភាសាខ្មែ", language: "km", region: "KH", fallback: nil}, # Khmer (Cambodia)
     {ident: "lt", name: "Lietuvių kalba", language: "lt", region: "LT", fallback: nil}, # Lithuanian
     {ident: "lv", name: "Latviešu valoda", language: "lv", region: "LV", fallback: nil}, # Latvian
+    {ident: "mk", name: "Macedonian", language: "mk", reqion: "MK", fallback: nil}, # Macedonian
     {ident: "mn", name: "Mongolian", language: "mn", reqion: "MN", fallback: nil}, # Mongolian
     {ident: "ms-MY", name: "Bahasa Malaysia", language: "ms", region: "MY", fallback: nil}, # Malay (Malaysia)
     {ident: "ro", name: "Română", language: "ro", region: "RO", fallback: nil}, # Romanian (Romania)

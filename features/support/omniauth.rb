@@ -109,7 +109,7 @@ module OmniAuthTestHelpers
           hd: 'ithouse.lv',
           email: 'john@ithouse.lv',
           iat: 1474618935,
-          exp: 1474622535,
+          exp: 1474622535
         },
         raw_info: {
           kind: 'plus#personOpenIdConnect',
@@ -123,7 +123,7 @@ module OmniAuthTestHelpers
           email: 'john@ithouse.lv',
           email_verified: 'true',
           locale: 'lv',
-          hd: 'ithouse.lv',
+          hd: 'ithouse.lv'
         }
       }
     }
@@ -131,145 +131,145 @@ module OmniAuthTestHelpers
 
   # rubocop:disable Metrics/MethodLength
   def oauth_linkedin_data
-    {"provider"=>"linkedin",
-     "uid"=>"50k-SSSS99",
-     "info"=>
-    {"email"=>"devel@example.com",
-     "first_name"=>"Tony",
-     "last_name"=>"Testmen",
-     "picture_url"=>
+    {"provider" => "linkedin",
+     "uid" => "50k-SSSS99",
+     "info" =>
+    {"email" => "devel@example.com",
+     "first_name" => "Tony",
+     "last_name" => "Testmen",
+     "picture_url" =>
         "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_800_800/0?e=1553126400&v=beta&t=9Zg8_GZwAKl_Za2CF5IgC-gD2XvHjupCm_8wqdQjvVk"},
-     "credentials"=>
-      {"token"=>
+     "credentials" =>
+      {"token" =>
         "12345678-DGT50OyLxmjzY9SssMxeBSEpDC2R25vr68hVy3HwRcU5jDmLhg2UKsPDWBCoQo9XyE4BG84xFNLZ3RDUzAoEJLVGBAxh99cLWjSc9ghODpIwfv3A6rLn4yx3Cs1IR2L9ofWtOoXmUVWoKfM2Mj4Bj_OHoVzt47wCxWQfq1gL28Ro8IP4qMrheWCr2TzX1QHHs0XdhytStcos3C_D6XmhhpFTMaHL5W06ej7eIn5dJJIr_xNu-u7LtgDTU0h3v0wMlkmcXFKnY_iZZ3SldyLJs-6E00YonU6unhuxLz5Zzj2hEZ1gNVEgEvQqCS6EDTiNfUTfu1PBIYPIqqqqQQQQ",
-       "expires_at"=>1552727705,
-       "expires"=>true},
-     "extra"=>
-      {"raw_info"=>
-        {"firstName"=>
-          {"localized"=>{"en_US"=>"Tony"},
-           "preferredLocale"=>{"country"=>"US", "language"=>"en"}},
-         "lastName"=>
-          {"localized"=>{"en_US"=>"Testmen"},
-           "preferredLocale"=>{"country"=>"US", "language"=>"en"}},
-         "profilePicture"=>
-          {"displayImage"=>"urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw",
-           "displayImage~"=>
-            {"elements"=>
-              [{"artifact"=>
+       "expires_at" => 1552727705,
+       "expires" => true},
+     "extra" =>
+      {"raw_info" =>
+        {"firstName" =>
+          {"localized" => {"en_US"=>"Tony"},
+           "preferredLocale" => {"country"=>"US", "language"=>"en"}},
+         "lastName" =>
+          {"localized" => {"en_US"=>"Testmen"},
+           "preferredLocale" => {"country"=>"US", "language"=>"en"}},
+         "profilePicture" =>
+          {"displayImage" => "urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw",
+           "displayImage~" =>
+            {"elements" =>
+              [{"artifact" =>
                  "urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_100_100)",
-                "authorizationMethod"=>"PUBLIC",
-                "data"=>
-                 {"com.linkedin.digitalmedia.mediaartifact.StillImage"=>
-                   {"storageSize"=>{"width"=>100, "height"=>100},
-                    "storageAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"},
-                    "mediaType"=>"image/jpeg",
-                    "rawCodecSpec"=>{"name"=>"jpeg", "type"=>"image"},
-                    "displaySize"=>{"uom"=>"PX", "width"=>100.0, "height"=>100.0},
-                    "displayAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"}}},
-                "identifiers"=>
-                 [{"identifier"=>
+                "authorizationMethod" => "PUBLIC",
+                "data" =>
+                 {"com.linkedin.digitalmedia.mediaartifact.StillImage" =>
+                   {"storageSize" => {"width"=>100, "height"=>100},
+                    "storageAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"},
+                    "mediaType" => "image/jpeg",
+                    "rawCodecSpec" => {"name"=>"jpeg", "type"=>"image"},
+                    "displaySize" => {"uom"=>"PX", "width"=>100.0, "height"=>100.0},
+                    "displayAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"}}},
+                "identifiers" =>
+                 [{"identifier" =>
                     "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_100_100/0?e=1553126400&v=beta&t=eHikoEd4N3NbHu90XtlQD8VM6oX9guudosWLpjD1XjA",
-                   "file"=>
+                   "file" =>
                     "urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_100_100,0)",
-                   "index"=>0,
-                   "mediaType"=>"image/jpeg",
-                   "identifierType"=>"EXTERNAL_URL",
-                   "identifierExpiresInSeconds"=>1553126400}]},
-               {"artifact"=>
+                   "index" => 0,
+                   "mediaType" => "image/jpeg",
+                   "identifierType" => "EXTERNAL_URL",
+                   "identifierExpiresInSeconds" => 1553126400}]},
+               {"artifact" =>
                  "urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_200_200)",
-                "authorizationMethod"=>"PUBLIC",
-                "data"=>
-                 {"com.linkedin.digitalmedia.mediaartifact.StillImage"=>
-                   {"storageSize"=>{"width"=>200, "height"=>200},
-                    "storageAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"},
-                    "mediaType"=>"image/jpeg",
-                    "rawCodecSpec"=>{"name"=>"jpeg", "type"=>"image"},
-                    "displaySize"=>{"uom"=>"PX", "width"=>200.0, "height"=>200.0},
-                    "displayAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"}}},
-                "identifiers"=>
-                 [{"identifier"=>
+                "authorizationMethod" => "PUBLIC",
+                "data" =>
+                 {"com.linkedin.digitalmedia.mediaartifact.StillImage" =>
+                   {"storageSize" => {"width"=>200, "height"=>200},
+                    "storageAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"},
+                    "mediaType" => "image/jpeg",
+                    "rawCodecSpec" => {"name"=>"jpeg", "type"=>"image"},
+                    "displaySize" => {"uom"=>"PX", "width"=>200.0, "height"=>200.0},
+                    "displayAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"}}},
+                "identifiers" =>
+                 [{"identifier" =>
                     "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_200_200/0?e=1553126400&v=beta&t=S7WhbAux-oy5a4nUt_p46xRCO-o25PHAExFVG2R8FDE",
-                   "file"=>
+                   "file" =>
                     "urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_200_200,0)",
-                   "index"=>0,
-                   "mediaType"=>"image/jpeg",
-                   "identifierType"=>"EXTERNAL_URL",
-                   "identifierExpiresInSeconds"=>1553126400}]},
-               {"artifact"=>
+                   "index" => 0,
+                   "mediaType" => "image/jpeg",
+                   "identifierType" => "EXTERNAL_URL",
+                   "identifierExpiresInSeconds" => 1553126400}]},
+               {"artifact" =>
                  "urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_400_400)",
-                "authorizationMethod"=>"PUBLIC",
-                "data"=>
-                 {"com.linkedin.digitalmedia.mediaartifact.StillImage"=>
-                   {"storageSize"=>{"width"=>400, "height"=>400},
-                    "storageAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"},
-                    "mediaType"=>"image/jpeg",
-                    "rawCodecSpec"=>{"name"=>"jpeg", "type"=>"image"},
-                    "displaySize"=>{"uom"=>"PX", "width"=>400.0, "height"=>400.0},
-                    "displayAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"}}},
-                "identifiers"=>
-                 [{"identifier"=>
+                "authorizationMethod" => "PUBLIC",
+                "data" =>
+                 {"com.linkedin.digitalmedia.mediaartifact.StillImage" =>
+                   {"storageSize" => {"width"=>400, "height"=>400},
+                    "storageAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"},
+                    "mediaType" => "image/jpeg",
+                    "rawCodecSpec" => {"name"=>"jpeg", "type"=>"image"},
+                    "displaySize" => {"uom"=>"PX", "width"=>400.0, "height"=>400.0},
+                    "displayAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"}}},
+                "identifiers" =>
+                 [{"identifier" =>
                     "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_400_400/0?e=1553126400&v=beta&t=o7XXBfFBhd2Y_Tufd1Y4EjndAxrxSDg6MUmpEdMByS0",
-                   "file"=>
+                   "file" =>
                     "urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_400_400,0)",
-                   "index"=>0,
-                   "mediaType"=>"image/jpeg",
-                   "identifierType"=>"EXTERNAL_URL",
-                   "identifierExpiresInSeconds"=>1553126400}]},
-               {"artifact"=>
+                   "index" => 0,
+                   "mediaType" => "image/jpeg",
+                   "identifierType" => "EXTERNAL_URL",
+                   "identifierExpiresInSeconds" => 1553126400}]},
+               {"artifact" =>
                  "urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_800_800)",
-                "authorizationMethod"=>"PUBLIC",
-                "data"=>
-                 {"com.linkedin.digitalmedia.mediaartifact.StillImage"=>
-                   {"storageSize"=>{"width"=>800, "height"=>800},
-                    "storageAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"},
-                    "mediaType"=>"image/jpeg",
-                    "rawCodecSpec"=>{"name"=>"jpeg", "type"=>"image"},
-                    "displaySize"=>{"uom"=>"PX", "width"=>800.0, "height"=>800.0},
-                    "displayAspectRatio"=>
-                     {"widthAspect"=>1.0,
-                      "heightAspect"=>1.0,
-                      "formatted"=>"1.00:1.00"}}},
-                "identifiers"=>
-                 [{"identifier"=>
+                "authorizationMethod" => "PUBLIC",
+                "data" =>
+                 {"com.linkedin.digitalmedia.mediaartifact.StillImage" =>
+                   {"storageSize" => {"width"=>800, "height"=>800},
+                    "storageAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"},
+                    "mediaType" => "image/jpeg",
+                    "rawCodecSpec" => {"name"=>"jpeg", "type"=>"image"},
+                    "displaySize" => {"uom"=>"PX", "width"=>800.0, "height"=>800.0},
+                    "displayAspectRatio" =>
+                     {"widthAspect" => 1.0,
+                      "heightAspect" => 1.0,
+                      "formatted" => "1.00:1.00"}}},
+                "identifiers" =>
+                 [{"identifier" =>
                     "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_800_800/0?e=1553126400&v=beta&t=9Zg8_GZwAKl_Za2CF5IgC-gD2XvHjupCm_8wqdQjvVk",
-                   "file"=>
+                   "file" =>
                     "urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:C5603AQEK2H8SiE59Jw,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_800_800,0)",
-                   "index"=>0,
-                   "mediaType"=>"image/jpeg",
-                   "identifierType"=>"EXTERNAL_URL",
-                   "identifierExpiresInSeconds"=>1553126400}]}],
-             "paging"=>{"count"=>10, "start"=>0, "links"=>[]}}},
-         "id"=>"50k-SSSS99"}}}
+                   "index" => 0,
+                   "mediaType" => "image/jpeg",
+                   "identifierType" => "EXTERNAL_URL",
+                   "identifierExpiresInSeconds" => 1553126400}]}],
+             "paging" => {"count"=>10, "start"=>0, "links"=>[]}}},
+         "id" => "50k-SSSS99"}}}
   end
 
   def stub_linkedin_image_request
     stub_request(:get, "https://media.licdn.com/dms/image/C5603AQEK2H8SiE59Jw/profile-displayphoto-shrink_800_800/0?e=1553126400&t=9Zg8_GZwAKl_Za2CF5IgC-gD2XvHjupCm_8wqdQjvVk&v=beta")
       .with(  headers: {
-        'Accept'=>'*/*',
-        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-        'User-Agent'=>'Ruby'
+        'Accept' => '*/*',
+        'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent' => 'Ruby'
          })
       .to_return(status: 200, body: png_image, headers: {'Content-Type'=>'image/png'})
   end
@@ -277,9 +277,9 @@ module OmniAuthTestHelpers
   def stub_google_image_request
     stub_request(:get, "https://lh3.googleusercontent.com/-BILLeKNfUNs/AAAAAAAAAAI/AAAAAAAAAAA/bk9ax13dM2E/photo.jpg")
       .with(  headers: {
-        'Accept'=>'*/*',
-        'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-        'User-Agent'=>'Ruby',
+        'Accept' => '*/*',
+        'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+        'User-Agent' => 'Ruby'
        })
       .to_return(status: 200, body: png_image, headers: {'Content-Type'=>'image/png'})
   end

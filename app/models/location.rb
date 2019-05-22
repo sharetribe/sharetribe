@@ -36,7 +36,7 @@ class Location < ApplicationRecord
     end
 
     if address != nil && address != ""
-      url = URI.escape(geocoder+address)
+      url = URI.escape(geocoder+address) # rubocop:disable Lint/UriEscapeUnescape
       resp = RestClient.get(url)
       result = JSON.parse(resp.body)
 

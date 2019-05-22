@@ -28,10 +28,10 @@ class Conversation < ApplicationRecord
 
   has_many :messages, :dependent => :destroy
 
-  has_many :participations
+  has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   belongs_to :listing
-  has_one :tx, class_name: "Transaction", foreign_key: "conversation_id"
+  has_one :tx, class_name: "Transaction", foreign_key: "conversation_id", dependent: :nullify, inverse_of: :conversation
   belongs_to :community
 
   validates :starting_page, inclusion: { in: STARTING_PAGES }, allow_nil: true

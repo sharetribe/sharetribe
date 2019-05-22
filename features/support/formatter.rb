@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'fileutils'
 require 'cucumber/formatter/console'
 require 'cucumber/formatter/io'
@@ -169,6 +167,7 @@ module Cucumber
 
       def step_name(keyword, step_match, status, source_indent, background, file_colon_line)
         return if @hide_this_step
+
         source_indent = nil unless @options[:source]
         name_to_report = format_step(keyword, step_match, status, source_indent)
 
@@ -190,6 +189,7 @@ module Cucumber
 
       def exception(exception, status)
         return if @hide_this_step
+
         print_messages
         buffer_print_exception(exception, status, @indent)
       end
@@ -215,12 +215,14 @@ module Cucumber
 
       def before_table_row(table_row)
         return if !@table || @hide_this_step
+
         @col_index = 0
         buffer_print '  |'.indent(@indent-2)
       end
 
       def after_table_row(table_row)
         return if !@table || @hide_this_step
+
         print_table_row_messages
         buffer_puts
         if table_row.exception && !@exceptions.include?(table_row.exception)
@@ -230,11 +232,13 @@ module Cucumber
 
       def after_table_cell(cell)
         return unless @table
+
         @col_index += 1
       end
 
       def table_cell_value(value, status)
         return if !@table || @hide_this_step
+
         status ||= @status || :passed
         width = @table.col_width(@col_index)
         cell_text = escape_cell(value.to_s || '')

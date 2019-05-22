@@ -20,7 +20,7 @@ module TransactionService::Transaction
   GATEWAY_ADAPTERS = {
     paypal: TransactionService::Gateway::PaypalAdapter.new,
     stripe: TransactionService::Gateway::StripeAdapter.new,
-    none: TransactionService::Gateway::FreeAdapter.new,
+    none: TransactionService::Gateway::FreeAdapter.new
   }
 
   TX_PROCESSES = {

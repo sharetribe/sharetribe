@@ -1,4 +1,3 @@
-# coding: utf-8
 ICON_MAP = {
     "ss-pika" => {
 
@@ -8,10 +7,10 @@ ICON_MAP = {
       "thumbnails" => "ss-thumbnails",
       "grid" => "ss-thumbnails",
       "new_listing" => "ss-addfile",
-      "search"  => "ss-search",
+      "search" => "ss-search",
       "list" => "ss-list",
       "home" => "ss-home",
-      "community" =>"ss-usergroup",
+      "community" => "ss-usergroup",
       "help" => "ss-help",
       "admin" => "ss-wrench",
       "directup" => "ss-directup",
@@ -167,17 +166,19 @@ ICON_MAP = {
       "footer_menu" => "ss-downloadbox",
       "invitations" => "ss-adduser",
       "domain" => "ss-globe",
+      "pending" => "ss-clockwise",
+      "minus" => "ss-hyphen"
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
       "thumbnails" => "icon-th",
       "new_listing" => "icon-plus-sign-alt",
 
-      "search"  => "icon-search",
+      "search" => "icon-search",
       "list" => "icon-reorder",
 
       "home" => "icon-home",
-      "community" =>"icon-group",
+      "community" => "icon-group",
       "help" => "icon-question-sign",
       "admin" => "icon-wrench",
 
@@ -284,5 +285,7 @@ ICON_MAP = {
       "plus" => "icon-plus",
       "domain" => "icon-globe",
       "seo" => "icon-external-link",
+      "pending" => "icon-time",
+      "minus" => "icon-minus"
     }
   }

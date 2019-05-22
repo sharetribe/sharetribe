@@ -6,6 +6,8 @@ Sharetribe is an open source platform to create your own peer-to-peer marketplac
 
 Would you like to set up your marketplace in one minute without touching code? [Head to Sharetribe.com](https://www.sharetribe.com).
 
+Would you like to work with an API-based marketplace solution that allows you to build your marketplace with the programming language of your choice, build a mobile app, or easily integrate third party services? [Check out Sharetribe Flex](https://www.sharetribe.com/flex).
+
 ### Contents
 
 - [Technology stack](#technology-stack)
@@ -24,7 +26,7 @@ Would you like to set up your marketplace in one minute without touching code? [
 
 ## Technology stack
 
-- Ruby 2.3
+- Ruby 2.6
 - Ruby on Rails 5.1.1
 - MySQL  5.7
 - React + jQuery
@@ -49,7 +51,7 @@ Would you like to set up your marketplace in one minute without touching code? [
 ### Requirements
 
 Before you get started, the following needs to be installed:
-  * **Ruby**. Version 2.3.4 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
+  * **Ruby**. Version 2.6.2 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Ruby, [RVM](https://rvm.io//) or [rbenv](https://github.com/rbenv/rbenv) is recommended.
   * [**RubyGems**](http://rubygems.org/)
   * **Bundler**: `gem install bundler`
   * **Node**. Version 7.8 is currently used and we don't guarantee everything works with other versions. If you need multiple versions of Node, consider using [n](https://github.com/tj/n), [nvm](https://github.com/creationix/nvm), or [nenv](https://github.com/ryuone/nenv).

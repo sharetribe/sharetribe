@@ -59,14 +59,14 @@ describe PaypalService::API::Accounts do
       person_id: @mid,
       order_permission_request_token: nil,
       body: { onboarding_params:
-                {"merchantId"=> request[:data][:onboarding_params][:merchantId],
-                 "merchantIdInPayPal"=> payer_id,
-                 "permissionsGranted"=> "true",
-                 "accountStatus"=> "BUSINESS_ACCOUNT",
-                 "consentStatus"=> "false",
-                 "productIntentID"=> "addipmt",
-                 "isEmailConfirmed"=> "false",
-                 "returnMessage"=> "To start accepting payments, please log in to PayPal and finish signing up.",
+                {"merchantId" => request[:data][:onboarding_params][:merchantId],
+                 "merchantIdInPayPal" => payer_id,
+                 "permissionsGranted" => "true",
+                 "accountStatus" => "BUSINESS_ACCOUNT",
+                 "consentStatus" => "false",
+                 "productIntentID" => "addipmt",
+                 "isEmailConfirmed" => "false",
+                 "returnMessage" => "To start accepting payments, please log in to PayPal and finish signing up."
                 }},
       flow: :new)
   end
@@ -90,14 +90,14 @@ describe PaypalService::API::Accounts do
       community_id: @cid,
       order_permission_request_token: nil,
       body: { onboarding_params:
-                {"merchantId"=> request[:data][:onboarding_params][:merchantId],
-                 "merchantIdInPayPal"=> payer_id,
-                 "permissionsGranted"=> "true",
-                 "accountStatus"=> "BUSINESS_ACCOUNT",
-                 "consentStatus"=> "false",
-                 "productIntentID"=> "addipmt",
-                 "isEmailConfirmed"=> "false",
-                 "returnMessage"=> "To start accepting payments, please log in to PayPal and finish signing up.",
+                {"merchantId" => request[:data][:onboarding_params][:merchantId],
+                 "merchantIdInPayPal" => payer_id,
+                 "permissionsGranted" => "true",
+                 "accountStatus" => "BUSINESS_ACCOUNT",
+                 "consentStatus" => "false",
+                 "productIntentID" => "addipmt",
+                 "isEmailConfirmed" => "false",
+                 "returnMessage" => "To start accepting payments, please log in to PayPal and finish signing up."
                 }},
       flow: :new)
   end

@@ -20,7 +20,7 @@
         = form.text_field :minimum_transaction_fee, class: "paypal-preferences-input"
         %label.paypal-horizontal-input-label-unit.paypal-preferences-currency-label
           = currency
-    - if FeatureFlagHelper.feature_enabled?(:buyer_commission) && pref_mode == 'stripe'
+    - if pref_mode == 'stripe'
       - buyer_disabled = paypal_active
       .row
         .col-6

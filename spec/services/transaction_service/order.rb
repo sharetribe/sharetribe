@@ -6,12 +6,6 @@ describe TransactionService::Order do
   before do
     request = OpenStruct.new
     request.session = {}
-    FeatureFlagService::API::Api.features.enable(community_id: community.id, features: [:buyer_commission])
-    FeatureFlagHelper.init(community_id: community.id,
-                           user_id: nil,
-                           request: request,
-                           is_admin: false,
-                           is_marketplace_admin: false)
   end
 
   it "calculates the item total" do
@@ -84,7 +78,7 @@ describe TransactionService::Order do
   it "calculates the order total (item total + shipping total)" do
     listing = FactoryGirl.create(:listing,
                                  price: Money.new(25_000, "EUR"),
-                                 shipping_price:  Money.new(2_000, "EUR"),
+                                 shipping_price: Money.new(2_000, "EUR"),
                                  shipping_price_additional: Money.new(500, "EUR"),
                                  community_id: community.id)
     tx_params = {quantity: 5, delivery: :shipping}

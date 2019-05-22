@@ -107,17 +107,17 @@ class HarmonyProxyController < ApplicationController
     {
       name: :show_bookable,
       login_needed: true,
-      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]]
     },
     {
       name: :create_blocks,
       login_needed: true,
-      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]]
     },
     {
       name: :delete_blocks,
       login_needed: true,
-      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]],
+      authorization: AND[IsMarketplaceMember, OR[IsListingAuthor, IsAdmin]]
     }
 
     # Add here all whitelisted actions
