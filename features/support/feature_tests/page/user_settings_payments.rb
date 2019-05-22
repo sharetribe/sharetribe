@@ -20,7 +20,11 @@ module FeatureTests
       def connect_stripe_account
         select_option("stripe_account_form_address_country", "US")
 
-        payment_settings.fill_in("stripe_account_form[legal_name]", with: "Jane Seller")
+        payment_settings.fill_in("stripe_account_form[first_name]", with: "Jane")
+        payment_settings.fill_in("stripe_account_form[last_name]", with: "Seller")
+
+        payment_settings.fill_in("stripe_account_form[phone]", with: "+1 (555) 123-12345")
+        select_option("stripe_account_form_mcc", "8049")
 
         select_option("stripe_account_form_birth_date_1i", "1990")
         select_option("stripe_account_form_birth_date_2i", "10")

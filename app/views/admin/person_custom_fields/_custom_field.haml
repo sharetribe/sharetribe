@@ -1,0 +1,35 @@
+.row.custom-field-list-row{:data => {:"field-id" => custom_field.id}}
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = custom_field.name(I18n.locale)
+  .col-4.custom-field-title
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = field_type_translation(custom_field.type)
+    %div.custom-fields-details
+      - custom_field.with(:dropdown) do
+        = custom_field.options.sort.collect { |option| option.title(I18n.locale) }.join(", ")
+      - custom_field.with(:checkbox) do
+        = custom_field.options.sort.collect { |option| option.title(I18n.locale) }.join(", ")
+      - custom_field.with(:numeric) do
+        = "#{custom_field.display_min} &ndash; #{custom_field.display_max}".html_safe
+  .col-1.text-center
+    - if custom_field.required?
+      = icon_tag("check", ["icon-fix disabled"])
+  .col-1.text-center
+    - if custom_field.public?
+      = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = link_to edit_admin_person_custom_field_path(custom_field), :class => "custom-fields-action-edit", :id => "edit_custom_field_#{custom_field.id}" do
+      = icon_tag("edit", ["icon-fix"])
+    - if custom_field.unassigned?
+      = link_to admin_person_custom_field_path(custom_field), :method => :delete, :class => "custom-fields-action-remove", data: { :confirm => t("admin.custom_fields.index.remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) } do
+        = icon_tag("cross", ["icon-fix"])
+    - else
+      = icon_tag("cross", ["icon-fix  disabled"])
+    = link_to '#', :class => "custom-fields-action-up admin-sort-button", :tabindex => "-1" do
+      = icon_tag("directup", ["icon-fix"])
+    = link_to '#', :class => "custom-fields-action-down admin-sort-button", :tabindex => "-1" do
+      = icon_tag("directdown", ["icon-fix"])

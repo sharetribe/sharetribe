@@ -391,6 +391,11 @@ describe EmailService::API::Addresses do
             email: "hello2@mymarketplace.invalid"
           }).data
 
+        EmailService::SES::Client.any_instance.stub(:get_identity_verification_attributes).and_return(
+          Result::Success.new(
+            "hello2@mymarketplace.invalid" => {verification_status: 'Success'}
+          )
+        )
         Timecop.travel(now + 2.seconds) do
           addresses_with_ses.enqueue_status_sync(
             community_id: created[:community_id],

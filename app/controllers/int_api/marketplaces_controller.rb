@@ -61,19 +61,11 @@ class IntApi::MarketplacesController < ApplicationController
     # Enable specific features for all new trials
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, person_id: user[:id], features: [:topbar_v1])
     FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:topbar_v1])
+    FeatureFlagService::API::Api.features.enable(community_id: marketplace.id, features: [:new_stripe_api])
 
     # TODO handle error cases with proper response
 
     render status: 201, json: {"marketplace_url" => url, "marketplace_id" => marketplace.id}
-  end
-
-  def create_prospect_email
-    email = params[:email]
-    render json: [ "Email missing from payload" ], :status => 400 and return if email.blank?
-
-    ProspectEmail.create(:email => email)
-
-    head 200, content_type: "application/json"
   end
 
   private

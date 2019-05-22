@@ -10,8 +10,12 @@ module CustomLandingPage
     end
 
     def load_structure(*)
-      LandingPageStoreDefaults.add_defaults(
-        JSON.parse(CustomLandingPage::ExampleData::DATA_STR))
+      data = if CustomLandingPage.const_defined?("StaticData")
+               CustomLandingPage::StaticData::DATA_STR
+             else
+               CustomLandingPage::ExampleData::DATA_STR
+             end
+      LandingPageStoreDefaults.add_defaults(JSON.parse(data))
     end
 
     def enabled?(cid)

@@ -7,6 +7,7 @@ services:
       - PASSENGER_MIN_INSTANCES=1
       - PASSENGER_MAX_POOL_SIZE=2
     labels:
+      - convox.environment.secure=true
       - convox.deployment.minimum=50
       - convox.deployment.maximum=200
       - convox.port.80.protocol=http
@@ -26,9 +27,18 @@ services:
       - MAGICK_MEMORY_LIMIT=256MiB
       - MAGICK_TIME_LIMIT=30
     labels:
+      - convox.environment.secure=true
       - convox.deployment.minimum=0
       - convox.deployment.maximum=200
       # scheduled task definitions
       # Uncomment when deploying own installation of Sharetribe
       #- convox.cron.test-task=0 9 * * ? bundle exec rails runner CommunityMailer.deliver_community_updates
     command: [ "script/startup.sh", "worker" ]
+  shredder:
+    build: .
+    mem_limit: 512m
+    labels:
+      - convox.environment.secure=true
+      - convox.deployment.minimum=0
+      - convox.deployment.maximum=100
+    command: [ "script/startup.sh", "shredder" ]

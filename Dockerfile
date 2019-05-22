@@ -39,6 +39,14 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
+  # Add helper for decrypting secure environment variables
+RUN curl -sfSL \
+  -o /usr/sbin/secure-environment \
+  "https://github.com/convox/secure-environment/releases/download/v0.0.1/secure-environment" \
+  && echo "4e4c1ed98f1ff4518c8448814c74d6d05ba873879e16817cd6a02ee5013334ea */usr/sbin/secure-environment" \
+  | sha256sum -c - \
+  && chmod 755 /usr/sbin/secure-environment
+
 #
 # Sharetribe
 #
@@ -47,6 +55,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 RUN apt-get install -y nginx
 
 # Install latest bundler
+ENV BUNDLE_BIN=
 RUN gem install bundler
 
 # Run as non-privileged user
@@ -79,6 +88,7 @@ COPY . /opt/app
 EXPOSE 3000
 
 CMD ["script/startup.sh"]
+ENTRYPOINT ["script/entrypoint.sh"]
 
 #
 # Assets

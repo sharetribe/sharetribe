@@ -7,6 +7,7 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  sort_priority :integer          default(0)
+#  entity_type   :integer          default("for_topbar")
 #
 # Indexes
 #
@@ -16,6 +17,15 @@
 class MenuLink < ApplicationRecord
   has_many :translations, :class_name => "MenuLinkTranslation", :dependent => :destroy
   belongs_to :community
+
+  scope :sorted, ->{ order('menu_links.sort_priority ASC') }
+
+  ENTITY_TYPES = {
+    for_topbar: 0,
+    for_footer: 1
+  }.freeze
+
+  enum entity_type: ENTITY_TYPES
 
   validates_presence_of :community
 

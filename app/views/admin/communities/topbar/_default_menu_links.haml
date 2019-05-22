@@ -1,0 +1,32 @@
+%h3= t("admin.communities.default_menu_links.title")
+
+- about_link = link_to(t("admin.communities.default_menu_links.about_link_title"), about_infos_path)
+- contact_link = link_to(t("admin.communities.default_menu_links.contact_link_title"), new_user_feedback_path)
+- invite_link = link_to(t("admin.communities.default_menu_links.invite_link_title"), new_invitation_path)
+- info_text = t("admin.communities.default_menu_links.info", about_link: about_link, contact_link: contact_link, invite_link: invite_link).html_safe
+.row
+  .col-12
+    = render :partial => "layouts/info_text", :locals => { :text => info_text }
+= fields_for :configuration, @current_community.configuration do |config_fields|
+  .row
+    .col-12
+      .checkbox-container
+        = config_fields.check_box :display_about_menu
+        = config_fields.label :display_about_menu, t("admin.communities.default_menu_links.display_about").html_safe, class: "label-normal"
+
+  .row
+    .col-12
+      .checkbox-container
+        = config_fields.check_box :display_contact_menu
+        = config_fields.label :display_contact_menu, t("admin.communities.default_menu_links.display_contact").html_safe, class: "label-normal"
+  .row
+    .col-12
+      .checkbox-container
+        - if @current_community.users_can_invite_new_users
+          = config_fields.check_box :display_invite_menu
+          = config_fields.label :display_invite_menu, t("admin.communities.default_menu_links.display_invite").html_safe, class: "label-normal"
+        - else
+          - config_fields.object.display_invite_menu = false
+          = config_fields.check_box :display_invite_menu, disabled: "disabled"
+          = config_fields.label :display_invite_link, t("admin.communities.default_menu_links.display_invite").html_safe, class: "label-normal disabled", disabled: "disabled"
+

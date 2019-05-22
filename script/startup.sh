@@ -28,8 +28,16 @@ case "$APP_MODE" in
             exec bundle exec rake jobs:work
         fi
         ;;
+    shredder)
+        if [[ "$MAINTENANCE_MODE" == "true" || "$ENABLE_SHREDDER" != "true" ]] ; then
+            # Do nothing
+            exec sleep 86400
+        else
+            exec bundle exec rake sharetribe:marketplace:run_shredder["${SHREDDER_SLEEP_TIME-1.5},${SHREDDER_QUERY_SLEEP_TIME-0.2}"]
+        fi
+        ;;
     *)
-        echo "Unknown process type. Must be either 'web' or 'worker'!"
+        echo "Unknown process type. Must be either 'web', 'worker' or 'shredder'!"
         exit 1
         ;;
 esac

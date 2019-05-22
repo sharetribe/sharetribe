@@ -12,13 +12,26 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
+#  person_id       :string(255)
 #
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_person_id   (person_id)
 #  index_custom_field_values_on_type        (type)
 #
 
 class DropdownFieldValue < OptionFieldValue
-  validates_length_of :custom_field_option_selections, :is => 1
+  validate :validate_selections
+
+  private
+
+  def validate_selections
+    if question && question.for_person?
+      return true unless question.required?
+    end
+    unless custom_field_option_selections.size == 1
+      errors.add(:custom_field_option_selections, :'wrong_length.one')
+    end
+  end
 end

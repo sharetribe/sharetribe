@@ -83,6 +83,10 @@ Values to set:
   * `dark`: 50% darkening (default)
   * `light`: 30% darkening
   * `transparent`: no darkening
+* `variation` can be used to enable the sign-up button in place of the search bar, also on non-private marketplaces. In order to achieve this, set:
+    * "variation": {"value":"private"}
+* `signup_path` You can change this to redirect the sign-up button (see above) to another location.
+* `signup_button` You can replace the contents of the curly brackets with "Value":"YourTextHere" to replace the search button text (for example, if they want to redirect it to all_categories instead, and label it 'Enter the marketplace').
 
 Normally, the only keys that you need to modify in a `hero` section are the `background_image`, which links to an asset, and the `background_image_variation`, which sets the amount of darkening applied. For example:
 
@@ -125,6 +129,7 @@ Values to set:
   * `dark`: 50% darkening (default)
   * `light`: 30% darkening
   * `transparent`: no darkening
+* `background_color`: [r,g,b] style. It works for every section.
 * `paragraph`
 * `button_title`
 * `button_path`
@@ -134,6 +139,8 @@ Values to set:
 Values to set:
 
 * `title`
+* `button_title`
+* `button_path` (this work for the whole section, when user only want one)
 * `columns` 2 or 3 columns of:
   * `icon`
   * `title`
@@ -169,8 +176,33 @@ There can be 3-7 categories.
 
 Values to set:
 
+* `title`
+* `paragraph`
+* `button_title`
+* `button_path`
 * `categories`: a list of category links (i.e. `{ "type": "category", "id": 123 }`) (notice that the value of the `id` is NOT in quotes (`""`))
 * `background_image`: a link to background image
+
+### locations
+
+Section `kind` is `locations`.
+
+No `variation`.
+
+It looks exactly the same as the categories section. There can be 3-7 locations. It is called locations because people normally use it to feature locations that are not part of their categories, but it can be used to feature anything.
+
+Values to set:
+
+* `title`
+* `paragraph`
+* `button_title`
+* `button_path`
+* `locations`: a list of locations information, which include the title of the location and the location link.
+* `title`: the text that will be shown within the image tile
+* `location`: the link for the location, it can be an internal path or a URL. If it is a URL use the following format: `location: "https://www.sharetribe.com"` if it is an internal path use the path format. 
+* `background_image`: a link to background image
+
+
 
 ### Featured listings
 
@@ -202,6 +234,19 @@ Values to set:
 
   For example, if the link to the video is `https://www.youtube.com/watch?v=UffchBUUIoI`, the ID is `UffchBUUIoI`.
 
+* `text`
+
+  A text string "A video description." It'll be embedded on top of the video.
+
+* `autoplay`
+
+  A boolean and text string that can be set to:
+  - false: the video does not play by default
+  - true: the video plays by default
+  - "muted": the video plays by default without sound
+
+  The `text` only shows when the video is paused (false value or manually paused by the user). 
+
 * `width`
 
   Go to the Youtube video, right-click the video and select "Stats for nerds" (yeah, nerds, that's us). If the **Dimensions** is e.g. `1280 x 720`, then `width` is `1280` and `height` is `720`.
@@ -210,17 +255,13 @@ Values to set:
 
   See `width`
 
-* `text`
-
-  A text string "A video description." It'll be embedded on top of the video.
-
 ### Footer
 
 Section `kind` is `footer`.
 
 Values to set:
 
-* `theme` can be either `light` or `dark`
+* `theme` can be `light`, `dark`, `marketplace_color` or `logo`
 * `links` is an array of internal (links via Rails path helper) or external (hardcoded URL)
 
   **Internal links** have the form of `{"label": "<link label>", "href": {"type": "path", "id": "<id of the path>"} }`. For example:
@@ -262,6 +303,7 @@ Values to set:
   * `googleplus`
   * `linkedin`
   * `pinterest`
+  * `soundcloud`
 
 * `copyright` copyright text
 

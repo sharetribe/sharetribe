@@ -20,6 +20,145 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Security
 
+- Update passenger gem to latest version [3609](https://github.com/sharetribe/sharetribe/pull/3609)
+
+## [7.5.0] - 2019-01-30
+
+### Added
+
+- Social media sharing specific image [#3455](https://github.com/sharetribe/sharetribe/pull/3455)
+- Edit reviews feature [#3422](https://github.com/sharetribe/sharetribe/pull/3422)
+- New user segment for sending e-mails to users: "User who are allowed to post listings" [#3461](https://github.com/sharetribe/sharetribe/pull/3461)
+- "Per unit" default pricing unit [#3462](https://github.com/sharetribe/sharetribe/pull/3462)
+- Japan as supported country for Stripe [#3472](https://github.com/sharetribe/sharetribe/pull/3472)
+- Puerto Rico as supported country for Stripe [#3474](https://github.com/sharetribe/sharetribe/pull/3474)
+- Possibility to hide slogan and description from the cover photo [#3477](https://github.com/sharetribe/sharetribe/pull/3477)
+- Transaction search and filter [#3484](https://github.com/sharetribe/sharetribe/pull/3484) and [#3504](https://github.com/sharetribe/sharetribe/pull/3504)
+- Listing search and filter [#3496](https://github.com/sharetribe/sharetribe/pull/3496)
+- Customizable footer for Pro subscriptions [#3374](https://github.com/sharetribe/sharetribe/pull/3374)
+- New section in admin panel to view and manage invitations [#3505](https://github.com/sharetribe/sharetribe/pull/3505)
+- Add user_id to the listing CSV export [#3511](https://github.com/sharetribe/sharetribe/pull/3511)
+- HSTS support [#3512](https://github.com/sharetribe/sharetribe/pull/3512)
+- Add filters in User search and filters [#3515](https://github.com/sharetribe/sharetribe/pull/3515)
+- Add Conversations search in admin panel [#3521](https://github.com/sharetribe/sharetribe/pull/3521)
+- Admin can act as another user (post listings as, edit profile) [#3525](https://github.com/sharetribe/sharetribe/pull/3525)
+- Admin can resend confirmation email [#3529](https://github.com/sharetribe/sharetribe/pull/3529)
+- Add Review search in admin panel [#3537](https://github.com/sharetribe/sharetribe/pull/3537)
+- Social media sharing specific texts [#3538](https://github.com/sharetribe/sharetribe/pull/3538)
+- Custom link behind marketplace logo [#3564](https://github.com/sharetribe/sharetribe/pull/3564)
+- Ability to edit default top bar menu links [#3565](https://github.com/sharetribe/sharetribe/pull/3565)
+- Admins should be able to see closed listings [#3582](https://github.com/sharetribe/sharetribe/pull/3582)
+- User can browse all their listings in a table [#3584](https://github.com/sharetribe/sharetribe/pull/3584)
+
+
+### Changed
+- Make "Per unit" the default pricing unit for product marketplace [#3462](https://github.com/sharetribe/sharetribe/pull/3462)
+- Better messaging for closed marketplaces [#3465](https://github.com/sharetribe/sharetribe/pull/3465)
+- Allow 65 characters in the listing title [#3497](https://github.com/sharetribe/sharetribe/pull/3497)
+- Characters are escaped in URLs [#3546](https://github.com/sharetribe/sharetribe/pull/3546)
+- Updated list of supported and unsupported languages [#3577](https://github.com/sharetribe/sharetribe/pull/3577)
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+- Bug in Hong Kong bank account form [#3456](https://github.com/sharetribe/sharetribe/pull/3456)
+- Bug in transaction agreement text [#3468](https://github.com/sharetribe/sharetribe/pull/3468)
+- Bug in availability per hour manager [#3467](https://github.com/sharetribe/sharetribe/pull/3467)
+- Layout for social media image [#3475](https://github.com/sharetribe/sharetribe/pull/3475)
+- Amazon Web service mail verification [#3471](https://github.com/sharetribe/sharetribe/pull/3471)
+- Number of users when searching in the admin panel [#3483](https://github.com/sharetribe/sharetribe/pull/3483)
+
+### Security
+
+- Fix referrer issue [#3469](https://github.com/sharetribe/sharetribe/pull/3469)
+- Security dependencies update [#3470](https://github.com/sharetribe/sharetribe/pull/3470)
+- Dependency update [#3479](https://github.com/sharetribe/sharetribe/pull/3479)
+
+## [7.4.0] - 2018-10-09
+
+### Added
+
+- View Listings page in the admin panel [#3340](https://github.com/sharetribe/sharetribe/pull/3340)
+- Locations section in the custom landing pages [#3341](https://github.com/sharetribe/sharetribe/pull/3341)
+- Background color and image for any section [#3296](https://github.com/sharetribe/sharetribe/pull/3296)
+- Custom fields for user profiles [#3332](https://github.com/sharetribe/sharetribe/pull/3332)
+- Add a section button for info-2-columns and info-3-columns in the custom landing pages [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- File name in the design tab and profile settings to show the stored file [#3364](https://github.com/sharetribe/sharetribe/pull/3364)
+- Allow markdown in user profiles "About you" section [#3370](https://github.com/sharetribe/sharetribe/pull/3370)
+- "Expired" status in View listings page [#3387](https://github.com/sharetribe/sharetribe/pull/3387)
+- Allow spaces at the end of the e-mails in signup form [#3394](https://github.com/sharetribe/sharetribe/pull/3394)
+- Added Puerto Rico as a Stripe supported country [#3399](https://github.com/sharetribe/sharetribe/pull/3399)
+- Added support for INR with PayPal [#3416](https://github.com/sharetribe/sharetribe/pull/3416)
+- Added support for ARS with PayPal [#3415](https://github.com/sharetribe/sharetribe/pull/3415)
+- Direct link to the admin panel when logging in as admin user[#3414](https://github.com/sharetribe/sharetribe/pull/3414)
+- Added checkmarks to the user fields [#3441](https://github.com/sharetribe/sharetribe/pull/3441)
+- Added the use of session token in Google's autocomplete feature [#3401](https://github.com/sharetribe/sharetribe/pull/3401)
+- Icons to payment provider's page [#3444](https://github.com/sharetribe/sharetribe/pull/3444)
+
+### Changed
+
+- Rename admin panel sections [#3350](https://github.com/sharetribe/sharetribe/pull/3350)
+- Rename save listings button [#3355](https://github.com/sharetribe/sharetribe/pull/3355)
+- Video section variations on the custom landing pages [#3367](https://github.com/sharetribe/sharetribe/pull/3367)
+- Renamed the default category to "default category" [#3362](https://github.com/sharetribe/sharetribe/pull/3362)
+- Allow links in the custom user text fields [#3373](https://github.com/sharetribe/sharetribe/pull/3373)
+- Google maps dynamic map for static maps in the listing page [#3382](https://github.com/sharetribe/sharetribe/pull/3382)
+- Change Static map for embedded maps in the listing page [#3395](https://github.com/sharetribe/sharetribe/pull/3395)
+- Update to Circle CI 2.0 [#3360](https://github.com/sharetribe/sharetribe/pull/3360)
+- Profile image is only used once it has been processed [#3427](https://github.com/sharetribe/sharetribe/pull/3427)
+
+### Fixed
+
+- Fix data deletion task to handle missing images [#3349](https://github.com/sharetribe/sharetribe/pull/3349)
+- Requester name in waiting for confirmation messages in the inbox [#3357](https://github.com/sharetribe/sharetribe/pull/3357)
+- Fixed bug in Hungarian Forint minimum transaction size [#3366](https://github.com/sharetribe/sharetribe/pull/3366)
+- Stripe fee information in listing page [#3384](https://github.com/sharetribe/sharetribe/pull/3384)
+- Fixed displaying design page [#3451](https://github.com/sharetribe/sharetribe/pull/3451)
+- Display bug in checkbox user fields [#3385](https://github.com/sharetribe/sharetribe/pull/3385)
+- Fixed a broken link when no date was selected for free "per day" and "per night" listings [#3410](https://github.com/sharetribe/sharetribe/pull/3410)
+- Allow to leave dropdown option unselected if it is not mandatory [#3446](https://github.com/sharetribe/sharetribe/pull/3446)
+
+## [7.3.1] - 2018-06-07
+
+### Added
+
+- Add soundcloud link support in custom landing page footer [#3300](https://github.com/sharetribe/sharetribe/pull/3300)
+- Add checkbox for consent for receiving emails from admins to signup process [#3318](https://github.com/sharetribe/sharetribe/pull/3318)
+- Add popup notification when giving admin rights to a new user [#3329](https://github.com/sharetribe/sharetribe/pull/3329)
+- Add link to privacy policy in the signup page [#3328](https://github.com/sharetribe/sharetribe/pull/3328)
+- Allow admins to disable end-user Analytics [#3319](https://github.com/sharetribe/sharetribe/pull/3319)
+- Allow links in custom listing text fields [#3297](https://github.com/sharetribe/sharetribe/pull/3297)
+- Add View reviews section in the admin panel [#3267](https://github.com/sharetribe/sharetribe/pull/3267)
+- Add possibility to export transaction as CSV file [#3245](https://github.com/sharetribe/sharetribe/pull/3245)
+
+
+### Changed
+
+- Improve user deletion to clear personal data more thoroughly [#3325](https://github.com/sharetribe/sharetribe/pull/3325)
+- Delete automatically transactions that fail with Stripe [#3326](https://github.com/sharetribe/sharetribe/pull/3326)
+- Prevent an admin from deleting their account if they are the only admin in the marketplace[#3320](https://github.com/sharetribe/sharetribe/pull/3320)
+- Split first name and last name from Stripe account connection form [#3317](https://github.com/sharetribe/sharetribe/pull/3317)
+
+### Removed
+
+- Remove feature flag for export transactions feature [#3288](https://github.com/sharetribe/sharetribe/pull/3288)
+
+### Fixed
+
+- Fix Dockerfile issue where bundler was trying to install binaries in root-owner directory [#3321](https://github.com/sharetribe/sharetribe/pull/3321). Thanks, Nick Meiremans.
+- Fix Stripe payout scheduler [#3309](https://github.com/sharetribe/sharetribe/pull/3309)
+- Fix last 4 digits of SSN passing to Stripe for US bank accounts [#3282](https://github.com/sharetribe/sharetribe/pull/3283)
+
+### Security
+
+- [Critical] Fix several parameter validation bugs that opened the app to SQL injection
+- Update sinatra dependency [#3344](https://github.com/sharetribe/sharetribe/pull/3344)
+- Update multiple dependencies
+- Present form auto-complete for Stripe secret keys [#3338](https://github.com/sharetribe/sharetribe/pull/3338)
+
 ## [7.3.0] - 2018-02-23
 
 ### Added
@@ -486,7 +625,11 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...HEAD
+[7.5.0]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...v7.5.0
+[7.4.0]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...v7.4.0
+[7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1
+[7.3.0]: https://github.com/sharetribe/sharetribe/compare/v7.2.0...v7.3.0
 [7.2.0]: https://github.com/sharetribe/sharetribe/compare/v7.1.0...v7.2.0
 [7.1.0]: https://github.com/sharetribe/sharetribe/compare/v7.0.0...v7.1.0
 [7.0.0]: https://github.com/sharetribe/sharetribe/compare/v6.4.0...v7.1.0

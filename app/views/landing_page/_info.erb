@@ -1,104 +1,11 @@
-<%
-  variation_modifiers = {
-    "single_column" => "single-column",
-    "multi_column"  => "multi-column",
-  }
-
-  background_image_modifiers = {
-    "light" => "background-image--light",
-    "dark" => "background-image--dark",
-    "transparent" => "background"
-  }
-  background_image_modifiers.default = "background-image--dark"
-
-  background_image_enabled  = !s["background_image"].nil?
-  background_image_style    = background_image_enabled ? "background-image: url('#{s["background_image"]["src"]}');" : ""
-  background_color_enabled  = !s["background_color"].nil?
-  variation_modifier        = variation_modifiers[s["variation"]]
-  background_color_style    = background_color_enabled ? "background-color: rgb(#{s["background_color"].join(",")});" : "";
-
-  section_style_modifier =
-    if background_image_enabled
-      background_image_modifiers[s["background_image_variation"]]
-    elsif background_color_enabled
-      "background-color"
-    elsif second_wo_background
-      "zebra"
-    else
-      "blank"
-    end
-
-  button_modifier =
-    if background_image_enabled
-      ""
-    elsif background_color_enabled
-      "--inverted"
-    else
-      "--ghost"
-    end
-%>
-
+<% bg_styles = background_style_modifiers(s, second_wo_background) %>
 <% content_for :info_css do %>
-    <% if s["button_color"] %>
-      .<%= section_id %>__info__button {
-        background-color: rgb(<%= s["button_color"]["value"].join(",") %>);
-      }
-
-      .<%= section_id %>__info__button--ghost {
-        color: rgb(<%= s["button_color"]["value"].join(",") %>);
-        border-color: rgb(<%= s["button_color"]["value"].join(",") %>);
-      }
-
-      .<%= section_id %>__info__button--inverted {
-        color: rgb(<%= s["button_color"]["value"].join(",") %>);
-      }
-
-      .<%= section_id %>__info__button--inverted:hover {
-        color: #FFF;
-        background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-      }
-    <% end %>
-
-    <% if s["button_color_hover"] %>
-      .<%= section_id %>__info__button--ghost:hover,
-      .<%= section_id %>__info__button:hover {
-        background-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-        border-color: rgb(<%= s["button_color_hover"]["value"].join(",") %>);
-      }
-    <% end %>
-
-    <% if s["variation"] == "multi_column" && s["icon_color"] %>
-      .<%= section_id %>__info__column-icon > svg g,
-      .<%= section_id %>__info__column-icon > svg circle,
-      .<%= section_id %>__info__column-icon > svg path  {
-        stroke: rgb(<%= s["icon_color"]["value"].join(",") %>);
-      }
-      .<%= section_id %>__info__column-icon > svg .icon-no-stroke {
-        stroke: none;
-      }
-      .<%= section_id %>__info__column-icon > svg .icon-custom-color-fill {
-        fill: rgb(<%= s["icon_color"]["value"].join(",") %>);
-      }
-    <% end %>
-
-    <% if s["paragraph_link_color"] %>
-      .info__paragraph--markdown a,
-      .info__column-paragraph--markdown a {
-        color: rgb(<%= s["paragraph_link_color"]["value"].join(",") %>);
-      }
-    <% end %>
-
-    <% if s["paragraph_link_color_hover"] %>
-      .info__paragraph--markdown a:hover,
-      .info__column-paragraph--markdown a:hover {
-        color: rgb(<%= s["paragraph_link_color_hover"]["value"].join(",") %>);
-      }
-    <% end %>
+  <%= render 'landing_page/inline_css', s: s, section_id: section_id %>
 <% end %>
 
-<section id="<%= section_id %>" class="info__section--<%= section_style_modifier %>" style="<%= background_image_style %> <%= background_color_style %>">
-  <div class="info__content--<%= variation_modifier %>">
-    <h1 class="info__title--<%= variation_modifier %>"><%= s["title"] %></h1>
+<section id="<%= section_id %>" class="info__section--<%= bg_styles[:section_style_modifier] %>" style="<%= bg_styles[:background_image_style] %> <%= bg_styles[:background_color_style] %>">
+  <div class="info__content--<%= bg_styles[:variation_modifier] %>">
+    <h1 class="info__title--<%= bg_styles[:variation_modifier] %>"><%= s["title"] %></h1>
     <% case s["variation"] %>
     <% when "single_column" %>
 
@@ -107,7 +14,7 @@
       </div>
 
       <% if s["button_title"] %>
-        <a class="info__button<%= button_modifier %> <%= section_id %>__info__button<%= button_modifier %>" href="<%= s["button_path"]["value"] %>"><%= s["button_title"] %></a>
+        <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= s["button_path"]["value"] %>"><%= s["button_title"] %></a>
       <% end %>
 
     <% when "multi_column" %>
@@ -138,12 +45,17 @@
             </div>
 
             <% if c["button_title"] %>
-              <a class="info__column-button--ghost <%= section_id %>__info__button--ghost" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
+              <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
             <% end %>
           </div>
         <% end %>
       </div>
 
+      <% if s["button_title"] %>
+        <div class="info__button-container">
+          <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= s['button_path']['value'] %>"><%= s["button_title"]%></a>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </section>

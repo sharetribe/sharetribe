@@ -148,9 +148,8 @@ window.ST = window.ST || {};
 
   // Ajax call to display listing form after categories and
   // listing shape has been selected
-  function display_new_listing_form(selected_attributes, locale) {
-    var new_listing_path = '/' + locale + '/listings/new_form_content';
-    $.get(new_listing_path, selected_attributes, function(data) {
+  function display_new_listing_form(selected_attributes, options) {
+    $.get(options.new_form_content_path, selected_attributes, function(data) {
       $('.js-form-fields').html(data);
       $('.js-form-fields').removeClass('hidden');
     });
@@ -272,20 +271,20 @@ window.ST = window.ST || {};
   };
 
   // Initialize the listing type & category selection part of the form
-  module.initialize_new_listing_form_selectors = function(locale, attribute_array, listing_form_menu_titles) {
+  module.initialize_new_listing_form_selectors = function(options) {
     var ordered_attributes = ["category", "subcategory", "listing_shape"];
     var selected_attributes = selectedAttributesFromQueryParams(window.location.search);
 
     // Reset the view to initial state
-    var shouldLoadForm = update_listing_form_view(locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+    var shouldLoadForm = update_listing_form_view(options.locale, options.category_tree, options.menu_titles, ordered_attributes, selected_attributes);
 
     if(shouldLoadForm) {
-      display_new_listing_form(selected_attributes, locale);
+      display_new_listing_form(selected_attributes, options);
     }
 
     var menuStateChanged = function(shouldLoadForm) {
       if(shouldLoadForm) {
-        display_new_listing_form(selected_attributes, locale);
+        display_new_listing_form(selected_attributes, options);
       }
     };
 
@@ -294,7 +293,7 @@ window.ST = window.ST || {};
       selected_attributes = evt.state || emptySelection;
 
       $('.js-form-fields').addClass('hidden');
-      var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+      var shouldLoadForm = select_listing_form_menu_link($(this), options.locale, options.category_tree, options.menu_titles, ordered_attributes, selected_attributes);
 
       menuStateChanged(shouldLoadForm);
     });
@@ -303,7 +302,7 @@ window.ST = window.ST || {};
     $('.new-listing-form').find('a.select').click(
       function() {
         $('.js-form-fields').addClass('hidden');
-        var shouldLoadForm = select_listing_form_menu_link($(this), locale, attribute_array, listing_form_menu_titles, ordered_attributes, selected_attributes);
+        var shouldLoadForm = select_listing_form_menu_link($(this), options.locale, options.category_tree, options.menu_titles, ordered_attributes, selected_attributes);
 
         setPushState(selected_attributes);
 
@@ -464,7 +463,7 @@ window.ST = window.ST || {};
       },
       debug: false,
       rules: _.extend(numericRules, {
-        "listing[title]": {required: true, minlength: 2, maxlength: 60},
+        "listing[title]": {required: true, minlength: 2, maxlength: 65},
         "listing[origin]": {address_validator: true},
         "listing[price]": {required: pr, money: true, minimum_price_required: [minimum_price, subunit_to_unit]},
         "listing[shipping_price]": {money: true},

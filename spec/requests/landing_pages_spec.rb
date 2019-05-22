@@ -159,6 +159,39 @@ describe "Landing page", type: :request do
       end
     end
 
+    describe "hsts" do
+      it "HSTS header is not set" do
+        get "http://#{@domain}"
+
+        expect(response.status).to eq(200)
+        expect(response.headers['Strict-Transport-Security']).to eq(nil)
+      end
+
+      describe "enabled" do
+
+        before(:each) do
+          APP_CONFIG.always_use_ssl = true
+          @orig_hsts_max_age = @community.hsts_max_age
+          @hsts_max_age = 10
+          @community.hsts_max_age = @hsts_max_age
+          @community.save
+        end
+
+        after(:each) do
+          @community.hsts_max_age = @orig_hsts_max_age
+          @community.save
+          APP_CONFIG.always_use_ssl = false
+        end
+
+        it "HSTS header is set" do
+          get "https://#{@domain}"
+
+          expect(response.status).to eq(200)
+          expect(response.headers['Strict-Transport-Security']).to eq("max-age=#{@hsts_max_age}")
+        end
+      end
+    end
+
     describe "caching" do
       before(:all) do
         Rails.cache.clear
@@ -222,6 +255,36 @@ describe "Landing page", type: :request do
 
         expect(response.status).to eq(200)
         expect(response.headers["Cache-Control"]).to eq("max-age=#{APP_CONFIG.clp_cache_time}, public")
+      end
+
+      describe "end user analytics" do
+        before(:each) do
+          @old_gtm = APP_CONFIG.use_google_tag_manager
+          APP_CONFIG.use_google_tag_manager = true
+          Rails.cache.clear
+        end
+
+        after(:each) do
+          APP_CONFIG.use_google_tag_manager = @old_gtm
+        end
+
+        it "contains GTM" do
+          expect_string("http://#{@domain}", "Google Tag Manager")
+        end
+
+        describe "when end user analytics disabled" do
+          before(:each) do
+            @community.end_user_analytics = false
+            @community.save
+            Rails.cache.clear
+          end
+
+          it "does not contain GTM when disabled" do
+            get "http://#{@domain}"
+
+            expect(response.body).not_to match(/Google Tag Manager/)
+          end
+        end
       end
 
       describe "private marketplaces" do

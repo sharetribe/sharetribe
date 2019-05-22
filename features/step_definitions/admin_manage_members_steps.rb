@@ -30,9 +30,9 @@ end
 
 World(AdminManageMembersSteps)
 
-Then(/^I should see a range from (\d+) to (\d+) with total (\d+) accepted and (\d+) banned users$/) do |range_start, range_end, accepted_count, banned_count|
+Then(/^I should see a range from (\d+) to (\d+) with total (\d+) accepted and (\d+) other users$/) do |range_start, range_end, accepted_count, other_count|
   steps %Q{
-    Then I should see "Displaying users #{range_start} - #{range_end} of #{accepted_count} accepted users and #{banned_count} banned users" within "#admin_members_count"
+    Then I should see "Displaying users #{range_start} - #{range_end} of #{accepted_count} accepted users and #{other_count} other users" within "#admin_members_count"
   }
 end
 

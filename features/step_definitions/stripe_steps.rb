@@ -20,6 +20,7 @@ Then("I expect transaction with Stripe test to pass") do
   onboarding_wizard = FeatureTests::Section::OnboardingWizard
 
   marketplace = data.create_marketplace(payment_gateway: :stripe)
+  FeatureFlagService::API::Api.features.enable(community_id: marketplace[:id], features: [:new_stripe_api])
   admin = data.create_member(username: "stripe_admin", marketplace_id: marketplace[:id], admin: true)
   member = data.create_member(username: "stripe_buyer", marketplace_id: marketplace[:id], admin: false)
 
@@ -36,7 +37,7 @@ Then("I expect transaction with Stripe test to pass") do
   onboarding_wizard.dismiss_dialog
 
   # Page::Listing.fill_in_booking_dates always selects a two day period
-  expected_price = listing_price * 2
+  expected_price = listing_price
 
   # Member buys the listing
   login.logout_and_login_as(member[:username], member[:password])
@@ -56,3 +57,32 @@ Then("I expect transaction with Stripe test to pass") do
 
   expect(page).to have_content("Completed")
 end
+
+Then("Stripe API refuse to delete the account") do
+  account = double(:StripeAccount)
+  allow(account).to receive(:delete).and_raise(StandardError.new('Stripe error'))
+  api = double(:StripeAccountApi)
+  allow(api).to receive(:retrieve).with(anything).and_return(account)
+  stub_const('Stripe::Account', api)
+end
+
+Then("I pay with stripe") do
+  execute_script("$('#payment_type').val('stripe');$('#transaction-form').append('<input type=hidden name=stripe_token value=tok_visa />');$('#transaction-form').submit()")
+end
+
+Then("Stripe API is fake") do
+  FakeStripe.stub_stripe
+end
+
+Given(/^community "(.*?)" payment gateway stripe has buyer fee "(.*?)"%$/) do |community, buyer_commission|
+  community = Community.where(ident: community).first
+  tx_settings_api = TransactionService::API::Api.settings
+  data = {
+    community_id: community.id,
+    payment_process: :preauthorize,
+    payment_gateway: 'stripe',
+    commission_from_buyer: buyer_commission.to_i
+  }
+  tx_settings_api.update(data)
+end
+

@@ -1,0 +1,113 @@
+$white: #fff;
+$greyish-brown: #555;
+$warm-grey: #999;
+$border-color: #ddd;
+$arrow-shadow-color: rgba(31, 28, 28, 0.1);
+$shadow-color: rgba(31, 28, 28, 0.3);
+
+.chariot-tooltip {
+  background-color: $white;
+  padding: 30px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 0 5px 0 $shadow-color;
+  border: 1px solid $border-color;
+  color: $warm-grey;
+
+  .chariot-tooltip-icon {
+    width: 52px;
+    height: 52px;
+    margin: auto;
+
+    img {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  .chariot-tooltip-header {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
+    color: $greyish-brown;
+    padding: 5px 0;
+  }
+
+  .chariot-tooltip-content {
+    padding: 5px 0;
+
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      color: $warm-grey;
+      padding-bottom: 15px;
+    }
+  }
+
+  .chariot-btn-row {
+    padding-top: 5px;
+
+    .btn {
+      font-size: 13px;
+      font-weight: 400;
+      color: #78A300;
+      background-color: transparent;
+      border: 1px solid #78A300;
+      border-radius: 3px;
+      height: 36px;
+      padding: 0 20px;
+
+    }
+
+    .btn-next {
+      color: $white;
+      background-color: #78A300;
+      border: none;
+
+      &:hover {
+        background-color: #78A300;
+      }
+
+    }
+
+
+    .chariot-tooltip-subtext {
+      float: left;
+      color: #ddd;
+      font-size: 13px;
+      padding-top: 10px;
+    }
+  }
+
+  .chariot-btn-row-subtext {
+    text-align: right;
+  }
+
+  &-arrow {
+    background: $white;
+  }
+
+  &-arrow-left {
+    border-left: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    box-shadow: -2px 2px 2px 0 $arrow-shadow-color;
+  }
+
+  &-arrow-right {
+    border-right: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    box-shadow: 2px -2px 2px 0 $arrow-shadow-color;
+  }
+
+  &-arrow-top {
+    border-left: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    box-shadow: -2px -2px 4px 0 $arrow-shadow-color;
+  }
+
+  &-arrow-bottom {
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    box-shadow: 2px 2px 4px 0 $arrow-shadow-color;
+  }
+}

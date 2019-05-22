@@ -16,7 +16,8 @@ module StripeService::API
 
         subtotal   = order_total(tx)
         total      = subtotal
-        commission = order_commission(tx)
+        commission = tx.commission
+        buyer_commission = tx.buyer_commission
         fee        = Money.new(0, subtotal.currency)
 
         description = "Payment #{tx.id} for #{tx.listing_title} via #{gateway_fields[:service_name]} "
@@ -31,7 +32,7 @@ module StripeService::API
           token: source_id,
           seller_account_id: seller_id,
           amount: total.cents,
-          fee: commission.cents,
+          fee: commission.cents + buyer_commission.cents,
           currency: total.currency.iso_code,
           description: description,
           metadata: metadata)
@@ -42,6 +43,7 @@ module StripeService::API
           currency: tx.unit_price.currency.iso_code,
           sum_cents: total.cents,
           commission_cents: commission.cents,
+          buyer_commission_cents: buyer_commission.cents,
           fee_cents: fee.cents,
           subtotal_cents: subtotal.cents,
           stripe_charge_id: stripe_charge.id
@@ -56,6 +58,7 @@ module StripeService::API
 
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
@@ -72,6 +75,7 @@ module StripeService::API
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: {status: 'canceled'})
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
@@ -88,6 +92,7 @@ module StripeService::API
                                       })
         Result::Success.new(payment)
       rescue => e
+        Airbrake.notify(e)
         Result::Error.new(e.message)
       end
 
@@ -95,13 +100,15 @@ module StripeService::API
         payment = PaymentStore.get(tx.community_id, tx.id)
         unless payment
           total      = order_total(tx)
-          commission = order_commission(tx)
+          commission = tx.commission
+          buyer_commission = tx.buyer_commission
           fee        = Money.new(0, total.currency)
           payment = {
             sum: total,
             commission: commission,
             real_fee: fee,
             subtotal: total - fee,
+            buyer_commission: buyer_commission,
           }
         end
 
@@ -116,7 +123,8 @@ module StripeService::API
           payment_total:       payment[:sum],
           total_price:         payment[:subtotal],
           charged_commission:  payment[:commission],
-          payment_gateway_fee: gateway_fee
+          payment_gateway_fee: gateway_fee,
+          buyer_commission:    payment[:buyer_commission] || 0
         }
       end
 
@@ -134,7 +142,7 @@ module StripeService::API
               community: tx.community_id,
               account_id: seller_account[:stripe_seller_id],
               amount_cents: seller_gets.cents,
-              currency: payment[:sum].currency,
+              amount_currency: payment[:sum].currency,
               initial_amount: payment[:subtotal].cents,
               charge_id: payment[:stripe_charge_id],
               metadata: {sharetribe_transaction_id: tx.id}
@@ -160,9 +168,6 @@ module StripeService::API
                                         stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
                                         transfered_at: Time.zone.now
                                       })
-        Result::Success.new(payment)
-      rescue => e
-        Result::Error.new(e.message)
       end
 
       def stripe_api
@@ -175,13 +180,8 @@ module StripeService::API
 
       def order_total(tx)
         shipping_total = Maybe(tx.shipping_price).or_else(0)
-        tx.unit_price * tx.listing_quantity + shipping_total
+        tx.unit_price * tx.listing_quantity + shipping_total + tx.buyer_commission
       end
-
-      def order_commission(tx)
-        TransactionService::Transaction.calculate_commission(tx.unit_price * tx.listing_quantity, tx.commission_from_seller, tx.minimum_commission)
-      end
-
     end
   end
 end

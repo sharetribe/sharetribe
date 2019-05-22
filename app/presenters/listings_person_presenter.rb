@@ -3,7 +3,7 @@ class ListingsPersonPresenter
   def initialize(community, current_user, username, params)
     @person = Person.find_by!(username: username, community_id: community.id)
     # Returns the listings for one person formatted for profile page view
-    @per_page = params[:per_page] || 1000 # the point is to show all here by default
+    @per_page = params[:per_page] || 10000 # the point is to show all here by default
 
     includes = [:author, :listing_images]
     include_closed = @person == current_user && params[:show_closed]

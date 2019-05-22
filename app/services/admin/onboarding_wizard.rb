@@ -94,12 +94,17 @@ module Admin
       # ready for payments so repeating it here would be both waste
       # and also dangerous as PaypalHelper logic is used in all other
       # places.
-      if !setup_status[:payment] &&
-         community &&
-         (PaypalHelper.community_ready_for_payments?(community.id) || StripeHelper.community_ready_for_payments?(community.id))
-        :payment
+      shapes = community.shapes
+      unless setup_status[:payment]
+        if (PaypalHelper.community_ready_for_payments?(community.id) ||
+           StripeHelper.community_ready_for_payments?(community.id))
+          :payment
+        elsif shapes.any? && shapes.count == shapes.by_process_none.count
+          :payment
+        end
       end
     end
+    alias listing_shape_updated payment_preferences_updated
 
     def listing_created(setup_status, listing)
       if !setup_status[:listing] &&
@@ -112,17 +117,6 @@ module Admin
       if !setup_status[:invitation] &&
          invitation
         :invitation
-      end
-    end
-
-    def listing_shape_updated(setup_status, listing_shapes)
-      if !setup_status[:payment] && listing_shapes.present? &&
-        listing_shapes.any? {|shape|
-          Maybe(TransactionProcess.where(id: shape[:transaction_process_id]).first)
-            .map { |p| p.process == :none }
-            .or_else(false)
-        }
-        :payment
       end
     end
 
@@ -143,7 +137,6 @@ module Admin
                   .joins(author: :community_membership)
                   .where('community_memberships.admin' => true).first
       invitation = Invitation.find_by(community_id: community.id)
-      listing_shapes = ListingShape.where(community_id: community.id)
 
       m = MarketplaceSetupSteps.find_or_create_by(community_id: community_id)
       setup_status = to_setup_status(m)
@@ -155,7 +148,6 @@ module Admin
         payment_preferences_updated(setup_status, community),
         listing_created(setup_status, listing),
         invitation_created(setup_status, invitation),
-        listing_shape_updated(setup_status, listing_shapes)
       ].compact.map { |status| [status, true] }.to_h
 
       m.update_attributes(updates)

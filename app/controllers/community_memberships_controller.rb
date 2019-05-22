@@ -71,6 +71,10 @@ class CommunityMembershipsController < ApplicationController
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       Delayed::Job.enqueue(SendWelcomeEmail.new(@current_user.id, @current_community.id), priority: 5)
 
+      # Record user's email preference
+      @current_user.preferences["email_from_admins"] = (params[:form][:admin_emails_consent] == "on")
+      @current_user.save
+
       record_event(flash, "GaveConsent")
 
       flash[:notice] = t("layouts.notifications.you_are_now_member")
@@ -147,6 +151,8 @@ class CommunityMembershipsController < ApplicationController
   private
 
   def render_pending_consent_form(form_values = {})
+    @service = Person::SettingsService.new(community: @current_community, params: params,
+                                           required_fields_only: true, person: @current_user)
     values = Form.call(form_values)
     invite_only = @current_community.join_with_invite_only?
     allowed_emails = Maybe(@current_community.allowed_emails).split(",").or_else([])
@@ -208,11 +214,13 @@ class CommunityMembershipsController < ApplicationController
         attrs[:admin] = true if make_admin
 
         membership.update_attributes!(attrs)
+        update_person_custom_fields(user)
       end
 
       Result::Success.new(membership)
     rescue
-      Result::Error.new("Updating membership failed", reason: :update_failed, errors: membership.errors.full_messages)
+      errors = "#{membership.errors.full_messages} #{user.errors.full_messages}"
+      Result::Error.new("Updating membership failed", reason: :update_failed, errors: errors)
     end
   end
 
@@ -243,5 +251,27 @@ class CommunityMembershipsController < ApplicationController
     if membership.status != status
       redirect_to search_path
     end
+  end
+
+  def update_person_custom_fields(person)
+    if params[:person].try(:[], :custom_field_values_attributes)
+      person.update_attributes!(person_params)
+    end
+  end
+
+  def person_params
+    params.require(:person)
+      .permit(
+        custom_field_values_attributes: [
+          :id,
+          :type,
+          :custom_field_id,
+          :person_id,
+          :text_value,
+          :numeric_value,
+          :'date_value(1i)', :'date_value(2i)', :'date_value(3i)',
+          selected_option_ids: []
+        ]
+      )
   end
 end

@@ -1,0 +1,155 @@
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.given_name")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.text")
+    %div.custom-fields-details
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.family_name")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.text")
+    %div.custom-fields-details
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-1.text-center
+    - if service.public_family_name?
+      = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("people.new.email")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.text")
+    %div.custom-fields-details
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-1.text-center
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.profile_picture")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.file")
+    %div.custom-fields-details
+  .col-1.text-center
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.street_address")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.location")
+    %div.custom-fields-details
+  .col-1.text-center
+  .col-1.text-center
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.display_name")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.text")
+    %div.custom-fields-details
+  .col-1.text-center
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+- if service.fixed_phone_field?
+  .row
+    .col-4
+      %span.custom-fields-mobile-list-title.hidden-tablet
+        = t("admin.custom_fields.index.field_title")
+      = t("settings.profile.phone_number")
+    .col-4
+      %span.custom-fields-mobile-list-title.hidden-tablet
+        = t("admin.custom_fields.index.field_type")
+      %div
+        = t("admin.custom_fields.field_types.text")
+      %div.custom-fields-details
+    .col-1.text-center
+    .col-1.text-center
+    .col-2
+      = icon_tag("edit", ["icon-fix disabled"])
+      = icon_tag("cross", ["icon-fix disabled"])
+      = icon_tag("directup", ["icon-fix disabled"])
+      = icon_tag("directdown", ["icon-fix disabled"])
+.row
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_title")
+    = t("settings.profile.about_you")
+  .col-4
+    %span.custom-fields-mobile-list-title.hidden-tablet
+      = t("admin.custom_fields.index.field_type")
+    %div
+      = t("admin.custom_fields.field_types.text")
+    %div.custom-fields-details
+  .col-1.text-center
+  .col-1.text-center
+    = icon_tag("check", ["icon-fix disabled"])
+  .col-2
+    = icon_tag("edit", ["icon-fix disabled"])
+    = icon_tag("cross", ["icon-fix disabled"])
+    = icon_tag("directup", ["icon-fix disabled"])
+    = icon_tag("directdown", ["icon-fix disabled"])
+

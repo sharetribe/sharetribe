@@ -1,0 +1,4 @@
+= date_select 'custom_field_value', :date_value, { prefix: prefix, object: custom_field_value,
+  start_year: Date.today.year - 100, end_year: Date.today.year + 100,
+  prompt: !custom_field.required? }, {:class => (custom_field.required? ? "required" : ""),
+  id: "person_custom_fields_#{index}", input_group_id: "person_custom_fields_#{index}"}

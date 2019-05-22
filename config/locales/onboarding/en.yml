@@ -36,7 +36,7 @@ en:
             advice: "Invite your friends first and gather feedback from them."
           listing:
             title: "Step 6: Add your first listing"
-            description: "Listings are the content of your marketplace: the products or services your providers are offering. To make your marketplace look less empty and test how the process of creating a new listing works, add one yourself!"
+            description: "Listings are the content of your marketplace: the products or services your sellers are offering. To make your marketplace look less empty and test how the process of creating a new listing works, add one yourself!"
             info_image_alt: "A screenshot from Post a new listing page"
             post_your_first_listing: "Post your first listing"
             advice:
@@ -49,6 +49,7 @@ en:
             paypal: "Accept payments"
             listing: "Post your first listing"
             invitation: "Invite users"
+            skip_this_step_for_now: "Skip this step for now"
           payments:
             title: "Step 5: Set up online payments"
             description_p1: "If you want to allow your users to pay and accept payments online, and for you to possibly receive commission fees, you will need to connect a payment provider. Sharetribe supports both Stripe and Paypal (%{not_sure_link}). Once connected, you need to choose your transaction fee."
@@ -64,6 +65,8 @@ en:
               disable_payments_alt: "How to disable payments or add free listings to your marketplace"
               content_paypal_stripe: "Read more about disabling payments from %{disable_payments_link} or read more about %{stripe_paypal_link}."
               stripe_paypal_link: "online payments, Stripe and Paypal"
+            i_dont_want: "I don't want to use the online payment system, %{link}."
+            disable_it: "disable it"
           slogan_and_description:
             title: "Step 2: Add a Slogan & Description"
             description: "The slogan and description help new visitors understand what your marketplace is about. They are the first thing visitors notice when they land on your site, so try to make them compact but descriptive."
@@ -73,7 +76,7 @@ en:
               content: "Use the slogan to quickly tell visitors what your marketplace is about. %{food_from_locals_slogan} or %{guitar_lessons_slogan} are good examples. Use the description to share your main value proposition. %{food_from_locals_description} or %{guitar_lessons_description} are good examples."
               food_from_locals_slogan: "\"Buy food from locals\""
               guitar_lessons_slogan: "\"Get guitar lessons from a pro\""
-              food_from_locals_description: "\"FoodMarket is the easiest way to order produce directly from local providers\""
+              food_from_locals_description: "\"FoodMarket is the easiest way to order produce directly from local sellers\""
               guitar_lessons_description: "\"GuitarPro is the best place to compare music teachers\""
           status_page:
             title: "Welcome to your marketplace, %{name}"
@@ -126,8 +129,8 @@ en:
           button: "Add fields & filters"
         payment:
           title: "Well done!"
-          body: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal account. Alternatively, you can disable online payments for now."
-          body_stripe: "Next, set up your marketplace for online payments! To allow your providers to accept payments, you need to connect your PayPal or Stripe account. Alternatively, you can disable online payments for now."
+          body: "Next, set up your marketplace for online payments! To allow your sellers to accept payments, you need to connect your PayPal account. Alternatively, you can disable online payments for now."
+          body_stripe: "Next, set up your marketplace for online payments! To allow your sellers to accept payments, you need to connect your PayPal or Stripe account. Alternatively, you can disable online payments for now."
           button: "Set up payments"
         listing:
           title: "Good job!"

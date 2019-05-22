@@ -17,11 +17,13 @@ module FeatureFlagService::Store
       [:features, :mandatory, :set])
 
     FLAGS = [
-      :export_transactions_as_csv,
       :topbar_v1,
       :searchpage_v1,
       :manage_searchpage,
       :stripe,
+      :footer,
+      :buyer_commission,
+      :new_stripe_api,
     ].to_set
 
     def initialize(additional_flags:)

@@ -1,0 +1,78 @@
+- kind = s['kind']
+- if s["button_color"]
+  \.#{section_id}__#{kind}__button {
+  background-color: rgb(#{s["button_color"]["value"].join(",")});
+  }
+
+  \.#{section_id}__#{kind}__button--ghost {
+  color: rgb(#{s["button_color"]["value"].join(",")});
+  border-color: rgb(#{s["button_color"]["value"].join(",")});
+  }
+
+  \.#{section_id}__#{kind}__button--inverted {
+  color: rgb(#{s["button_color"]["value"].join(",")});
+  }
+
+- if s["button_color_hover"]
+  \.#{section_id}__#{kind}__button--inverted:hover {
+  color: #FFF;
+  background-color: rgb(#{s["button_color_hover"]["value"].join(",")});
+  }
+
+- if s["button_color_hover"]
+  \.#{section_id}__#{kind}__button--ghost:hover,
+  \.#{section_id}__#{kind}__button:hover {
+  background-color: rgb(#{s["button_color_hover"]["value"].join(",")});
+  border-color: rgb(#{s["button_color_hover"]["value"].join(",")});
+  }
+
+- if s["variation"] == "multi_column" && s["icon_color"]
+  \.#{section_id}__#{kind}__column-icon > svg g,
+  \.#{section_id}__#{kind}__column-icon > svg circle,
+  \.#{section_id}__#{kind}__column-icon > svg path  {
+  stroke: rgb(#{s["icon_color"]["value"].join(",")});
+  }
+  \.#{section_id}__#{kind}__column-icon > svg .icon-no-stroke {
+  stroke: none;
+  }
+  \.#{section_id}__#{kind}__column-icon > svg .icon-custom-color-fill {
+  fill: rgb(#{s["icon_color"]["value"].join(",")});
+  }
+
+- if s["paragraph_link_color"]
+  \.#{kind}__paragraph--markdown a,
+  \.#{kind}__column-paragraph--markdown a {
+  color: rgb(#{s["paragraph_link_color"]["value"].join(",")});
+  }
+
+- if s["paragraph_link_color_hover"]
+  \.#{kind}__paragraph--markdown a:hover,
+  \.#{kind}__column-paragraph--markdown a:hover {
+  color: rgb(#{s["paragraph_link_color_hover"]["value"].join(",")});
+  }
+
+- if s["category_color_hover"]
+  \.#{section_id}__categories__category-content:hover {
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(#{s["category_color_hover"]["value"].join(",")}, 0.9); /* big enough number to cover the whole area */
+  }
+
+- if s["price_color"]
+  \.#{section_id}__listings__price-container {
+  color: rgb(#{s["price_color"]["value"].join(",")});
+  }
+
+- if s["no_listing_image_background_color"]
+  \.#{section_id}__listings__listing-image--empty {
+  background-color: rgba(#{s["no_listing_image_background_color"]["value"].join(",")}, 0.2);
+  }
+
+- if s["author_name_color_hover"]
+  \.#{section_id}__listings__author-link:hover .listings__author-name {
+  color: rgb(#{s["price_color"]["value"].join(",")});
+  }
+
+- if s["location_color_hover"]
+  \.#{section_id}__locations__location-content:hover {
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 999999px rgba(#{s["location_color_hover"]["value"].join(",")}, 0.9); /* big enough number to cover the whole area */
+  }
+

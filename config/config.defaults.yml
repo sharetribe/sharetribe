@@ -135,17 +135,21 @@ default: &default_settings
   paypal_ipn_protocol: https
 
   # PayPal implementation, either "real" or "fake"
-  paypal_implementation: real
+  paypal_implementation: fake
 
   # If "fake" implementation is used, specify the file where PayPal information
   # is saved
   # Examples: 'tmp/dev_fakepal.store'
   #           'tmp/test_fakepal.store'
-  fakepal_store:
+  fakepal_store: 'tmp/dev_fakepal.store'
 
   # If you want to force all use to be SSL secured (https://) you can set this to true
   # Note that you can set this value separately to each enironment below (e.g. if your developing)
   always_use_ssl: false
+
+  # If always_use_ssl is set to true, optionally set HTTP Strict Transport
+  # Security header with this max-age. Set to 0 to disable HSTS.
+  hsts_max_age: 31536000 # one year in seconds
 
   # The default locale (language) of the user interface
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
@@ -390,7 +394,7 @@ default: &default_settings
   clp_cache_time: 900
 
   # Display mention of custom landing page in admin panel
-  show_landing_page_admin: false
+  show_landing_page_admin: true
   custom_landing_page_marketing_site_url: "https://www.example.com/landingpage/"
 
   #######
@@ -454,7 +458,7 @@ default: &default_settings
   stripe_publishable_key_pattern: "\\Apk_test_.{24}\\z"
 
   # Stripe allows to hold funds up to 90 days
-  # (85 and not 90 or 89 as a security, also because timezones are not 
+  # (85 and not 90 or 89 as a security, also because timezones are not
   # managed and transactions are automatically marked as completed)
   stripe_max_booking_date: 85
 
@@ -462,13 +466,22 @@ default: &default_settings
   # Sharetribe supports only managed accounts, and two payment modes:
   #
   # :separate    - Separate charges and transfers, payment goes to admin account, with delayed transfer to seller
-  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller  
+  # :destination - Destination charges, payment goes to admin account, with instant partial transfer to seller
   #
   # By default :destination mode is used
   stripe_charges_mode: :destination
 
   # Used to encrypt Stripe api keys
   app_encryption_key:
+
+  ##########################################
+  # Admin (sharetribe.com internal)
+  ##########################################
+
+  # Enable end-user analytics tracking configuration
+  # in admin panel. Open source users should instead use
+  # the use_google_tag_manager: false
+  admin_enable_tracking_config: false
 
 production: &production_settings
   <<: *default_settings
@@ -507,7 +520,7 @@ development:
 
   use_js_routes_middleware: true
 
-  paypal_implementation: real
+  paypal_implementation: fake
   fakepal_store: 'tmp/dev_fakepal.store'
 
 test:
@@ -551,6 +564,7 @@ test:
 
   # easier to run tests without SSL
   always_use_ssl: false
+  hsts_max_age: 0
 
   secret_key_base: "8fb582997a5e3ba2efb57c020dd01aa81647674dbb1aee6efcf30d75ec442e3a48832379e1ebaae2801782075efbf02ebed797a1df3f2b3ad87ec3faf37ccc64"
   # Used to encrypt Stripe api keys
@@ -565,3 +579,5 @@ test:
   # Add your test keys to run features/stripe/stripe.feature
   feature_stripe_publishable_key: pk_test_123456789012345678901234
   feature_stripe_private_key: sk_test_123456789012345678901234
+
+  admin_enable_tracking_config: true

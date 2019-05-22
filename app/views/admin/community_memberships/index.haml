@@ -7,7 +7,7 @@
     = "-"
     = t("admin.communities.manage_members.manage_members")
 
-= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@presenter.community) }
 
 - content_for :ajax_update do
   #admin-members-saving-posting-allowed.ajax-update-notice
@@ -24,21 +24,32 @@
 = render :partial => "layouts/ajax_update_notification"
 
 .left-navi-section
-  %h2= t("admin.communities.manage_members.manage_members", :community_name => @community.name(I18n.locale))
+  %h2= t("admin.communities.manage_members.manage_members", :community_name => @presenter.community.name(I18n.locale))
 
   = form_tag '', :method => :get do
     .row
-      .col-8
+      .col-6
         = text_field_tag :q, params[:q], placeholder: t('admin.communities.manage_members.search_by_name_email')
-      .col-4
+      .col-3.status-select-wrapper
+        .status-select-button
+          = @presenter.selected_statuses_title
+
+        .status-select-dropdown
+          .status-select-line.reset{data: {status: 'all'}}
+            = @presenter.selected_statuses_title
+          - @presenter.sorted_statuses.each do |status, status_translation, checked|
+            .status-select-line{class: checked ? 'selected' : '', data: {status: status}}
+              = check_box_tag "status[]", status, checked, id: "status-#{status}"
+              = status_translation
+      .col-3
         = submit_tag t("admin.communities.manage_members.search"), class: 'button search-button'
-        = link_to    t("admin.communities.manage_members.reset_search"), admin_community_community_memberships_path(@current_community.id)
+        = link_to    t("admin.communities.manage_members.reset_search"), admin_community_community_memberships_path(@presenter.community.id)
 
   - if params[:q].blank?
     #export-as-csv.right= link_to(" " + t("admin.communities.manage_members.export_all_as_csv"), {format: :csv}, {class: "js-users-csv-export " + icon_class("download")})
 
   %span#admin_members_count
-    = AdminCommunityMembershipsViewUtils.community_members_entries_info(@current_community.id, @memberships).html_safe
+    = AdminCommunityMembershipsViewUtils.community_members_entries_info(@presenter.community.id, @presenter.memberships).html_safe
     - if params[:q].present?
       = t("admin.communities.manage_members.for_search_terms", terms: "<strong>#{h params[:q]}</strong>".html_safe).html_safe
 
@@ -47,55 +58,66 @@
       %thead
         %tr
           %th= render partial: "layouts/sort_link", locals: { column: "name", direction: sort_link_direction("name"), title: t("admin.communities.manage_members.name") }
-          %th= render partial: "layouts/sort_link", locals: { column: "display_name", direction: sort_link_direction("display_name"), title: t("admin.communities.manage_members.display_name")}
           %th= render partial: "layouts/sort_link", locals: { column: "email", direction: sort_link_direction("email"), title: t("admin.communities.manage_members.email") }
           %th= render partial: "layouts/sort_link", locals: { column: "join_date", direction: sort_link_direction("join_date"), title: t("admin.communities.manage_members.join_date") }
-          - if @current_community.require_verification_to_post_listings
+          - if @presenter.require_verification_to_post_listings
             %th{:style => "text-align: center"}= render partial: "layouts/sort_link", locals: { column: "posting_allowed", direction: sort_link_direction("posting_allowed"), title: t("admin.communities.manage_members.posting_allowed") }
           %th= t("admin.communities.manage_members.admin")
           %th= t("admin.communities.manage_members.ban_user")
+          %th
       %tbody
-        - @memberships.each do |membership|
+        - @presenter.memberships.each do |membership|
+          - accepted_or_banned = membership.accepted? || membership.banned?
           - member = membership.person
           - unless member.blank?
             %tr{class: "member-#{membership.status}"}
               %td.admin-members-full-name
-                = link_to [member.given_name, member.family_name].join(" "), member
+                = link_to @presenter.person_name(member), member
               %td
-                = member.display_name
+                - email = member.confirmed_notification_emails.any? ? member.confirmed_notification_email_addresses.first : member.emails.first.try(:address)
+                = mail_to email
               %td
-                = mail_to member.confirmed_notification_email_addresses.first
-              %td
-                %span= l(membership.created_at, format: :short_date)
-              - if @current_community.require_verification_to_post_listings
-                %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
+                - if accepted_or_banned
+                  %span= l(membership.created_at, format: :short_date)
+                - elsif membership.pending_consent?
+                  = render 'pending_consent', membership: membership, member: member
+                - elsif membership.pending_email_confirmation?
+                  = render 'pending_confirmation', membership: membership, member: member
+              - if @presenter.require_verification_to_post_listings
+                %td{:style => "text-align: center"}
+                  - if accepted_or_banned
+                    = check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
               %td{:style => "text-align: center"}
-                = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@current_community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || membership.status == 'banned'
+                - if accepted_or_banned
+                  = check_box_tag "is_admin[#{member.id}]", member.id, member.is_marketplace_admin?(@presenter.community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user) || member.banned?
 
               %td{:style => "text-align: center"}
-                = check_box_tag "is_banned[#{member.id}]", member.id, membership.status == 'banned', data: {ban_url: ban_admin_community_community_membership_path(@current_community.id, membership.id), unban_url: unban_admin_community_community_membership_path(@current_community.id, membership.id), confirm_ban: t("admin.communities.manage_members.ban_user_confirmation"), confirm_unban: t("admin.communities.manage_members.unban_user_confirmation")}, class: "admin-members-ban-toggle"
+                - if accepted_or_banned
+                  = check_box_tag "is_banned[#{member.id}]", member.id, member.banned?,
+                    data: {ban_url: ban_admin_community_community_membership_path(@presenter.community.id, membership.id),
+                    unban_url: unban_admin_community_community_membership_path(@presenter.community.id, membership.id)},
+                    class: "admin-members-ban-toggle"
+              %td.membership-actions
+                - edit_class = membership.banned?  ? 'is-disabled' : ''
+                %span{class: edit_class}
+                  = link_to person_settings_path(member) do
+                    = icon_tag("edit")
+                - post_klass = @presenter.can_post_listing(membership) ? '' : 'post-listing-is-disabled'
+                %span.post-listing{class: "#{edit_class} #{post_klass}"}
+                  = link_to new_person_listing_path(person_id: member.username) do
+                    = icon_tag("plus")
+
 
   .row
     .col-12
-      = will_paginate @memberships
-- content_for :extra_javascript do
-  :javascript
-    $(document).on("click", ".admin-members-ban-toggle", function(){
-      var banned = this.checked;
-      var admin_cb = $(this).parent().prev("td").find("input:checkbox");
-      var row = $(this).parent().parent()[0];
-      if(banned) {
-        if(confirm($(this).data("confirm-ban"))) {
-          $.ajax({type: "PUT", url: $(this).data("ban-url"), dataType: "JSON", success: function(resp) { row.className = "member-"+resp.status; }});
-        } else {
-          this.checked = false;
-        }
-      }
-      if(!banned) {
-        if(confirm($(this).data("confirm-unban"))) {
-          $.ajax({type: "PUT", url: $(this).data("unban-url"), dataType: "JSON", success: function(resp) { row.className = "member-"+resp.status; }});
-        } else {
-          this.checked = true;
-        }
-      }
-    });
+      = will_paginate @presenter.memberships
+
+= render layout: "layouts/lightbox", locals: { id: "membership-popup"} do
+  #membership-popup-content
+
+- js_t(['admin.communities.manage_members.ban_user_confirmation',
+  'admin.communities.manage_members.unban_user_confirmation',
+  'admin.communities.manage_members.this_makes_the_user_an_admin',
+  'admin.communities.manage_members.status_filter.all',
+  'admin.communities.manage_members.status_filter.selected_js'])
+

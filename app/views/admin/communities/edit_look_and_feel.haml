@@ -20,27 +20,30 @@
         - logo_info = FeatureFlagHelper.feature_enabled?(:topbar_v1) ? logo_no_placing : logo_old
         = form.label :wide_logo, t(".community_logo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text =>t(logo_info, :width => 336, :height => 80)}
+        = render 'layouts/filename', file_field: @community.wide_logo
         = form.file_field(:wide_logo, :class => "file_field")
 
     .row
       .col-12
-        - icon_old = ".logo_icon_instructions_text_with_dimensions"
-        - icon_no_placing = ".logo_icon_instructions_text_with_dimensions_no_placing"
-        - icon_info = FeatureFlagHelper.feature_enabled?(:topbar_v1) ? icon_no_placing : icon_old
-        = form.label :logo, t(".community_logo_icon"), :class => "input"
+        - icon_label = ".community_logo_icon_mobile"
+        - icon_info = ".logo_mobile_icon_instructions_text_with_dimensions"
+        = form.label :logo, t(icon_label), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(icon_info, :width => 600, :height => 600)}
+        = render 'layouts/filename', file_field: @community.logo
         = form.file_field(:logo, :class => "file_field")
 
     .row
       .col-12
         = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => (t(".cover_photo_visibility") + " " +  t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450, :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link"))).html_safe}
+        = render 'layouts/filename', file_field: @community.cover_photo
         = form.file_field(:cover_photo, :class => "file_field")
 
     .row
       .col-12
         = form.label :small_cover_photo, t(".small_community_cover_photo"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(".small_cover_photo_visibility") + " " + t(".small_cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 96) }
+        = render 'layouts/filename', file_field: @community.small_cover_photo
         = form.file_field(:small_cover_photo, :class => "file_field")
 
 
@@ -50,6 +53,7 @@
       .col-12
         = form.label :favicon, t(".favicon"), :class => "input"
         = render :partial => "layouts/info_text", :locals => { :text => t(".favicon_info_text") }
+        = render 'layouts/filename', file_field: @community.favicon
         = form.file_field(:favicon, :class => "file_field")
 
     .row

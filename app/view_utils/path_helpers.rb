@@ -43,7 +43,12 @@ module PathHelpers
     end
   end
 
-  def landing_page_path(community_id:, logged_in:, locale_param:, default_locale:)
+  def landing_page_path(community_id:, logged_in:, locale_param:, default_locale:, custom: false)
+    if custom
+      community = Community.find(community_id)
+      return community.logo_link if community.logo_link.present?
+    end
+
     non_default_locale = ->(locale) { locale && locale != default_locale.to_s}
 
     case [CustomLandingPage::LandingPageStore.enabled?(community_id), logged_in, locale_param]

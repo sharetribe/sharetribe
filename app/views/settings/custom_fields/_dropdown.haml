@@ -1,0 +1,5 @@
+- selected = custom_field_value.selected_options.first.try(:id)
+- default = [t("listings.form.custom_field_partials.dropdown.select_one___"), nil]
+- options = options_for_select([default] + custom_field.options.sort.collect { |opt| [opt.title(I18n.locale), opt.id] }, selected)
+= select_tag "#{prefix}[selected_option_ids][]", options, :class => (custom_field.required? ? "required" : ""),
+  id: "person_custom_fields_#{index}", input_group_id: "person_custom_fields_#{index}"

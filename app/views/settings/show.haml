@@ -1,3 +1,4 @@
+- target_user = @service.person
 - content_for :javascript do
   initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
 
@@ -10,7 +11,11 @@
 - content_for :title_header do
   %h1= t("layouts.no_tribe.settings")
 
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community) }
+- if @service.admin_acts_as_person?
+  - content_for :banner_warning do
+    = t('settings.profile.editing_profile_of', name: target_user.full_name)
+
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community, @service.admin_acts_as_person?) }
 
 #person_settings_form.left-navi-section.settings-section
   %p
@@ -55,14 +60,22 @@
             });
 
     -# Phone number
-    .inline-label-container
-      = form.label :phone_number, t("settings.profile.phone_number"), :class => "inline"
-      %small
-        = t('settings.profile.invisible')
-    = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
+    - show_phone_number = @service.fixed_phone_field?
+    - if show_phone_number
+      .inline-label-container
+        = form.label :phone_number, t("settings.profile.phone_number"), :class => "inline"
+        %small
+          = t('settings.profile.invisible')
+      = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
 
     -# Profile picture
-    = form.label :image, t("settings.profile.profile_picture")
+    .inline-label-container
+      = form.label :image, t("settings.profile.profile_picture")
+    %span.alert-box-icon
+      = icon_tag("information", ["icon-fix"])
+    %small
+      = t("settings.profile.profile_picture_description")
+    = render 'layouts/filename', file_field: target_user.image
     = form.file_field :image, :size => 30, :id => "avatar_file"
 
     -# About text
@@ -73,4 +86,22 @@
       = loc.hidden_field :google_address, :value => target_user.location.google_address
       = loc.hidden_field :latitude, :value => target_user.location.latitude
       = loc.hidden_field :longitude, :value => target_user.location.longitude
+    - if @service.has_person_custom_fields?
+      - @service.custom_field_values.each_with_index do |custom_field_value, index|
+        .inline-label-container
+        - custom_field = custom_field_value.question
+        - custom_field.with_type do |field_type|
+          - prefix = "person[custom_field_values_attributes][]"
+          .inline-label-container
+            = label "person_custom_fields", index, "#{custom_field.name(I18n.locale)}#{custom_field.required ? '*' : ''}",
+              class: 'inline'
+            - if custom_field.public?
+              %small= t('settings.profile.shown_in_your_public_profile')
+          = hidden_field_tag "#{prefix}[id]", custom_field_value.id
+          = hidden_field_tag "#{prefix}[type]", custom_field_value.type
+          = hidden_field_tag "#{prefix}[custom_field_id]", custom_field_value.custom_field_id
+          = render "settings/custom_fields/#{field_type}", :service => @service,
+            :custom_field => custom_field, index: index,
+            :custom_field_value => custom_field_value,
+            :prefix => prefix
     = form.button t("settings.save_information"), :class => "send_button"

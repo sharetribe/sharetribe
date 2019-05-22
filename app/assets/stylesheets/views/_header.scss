@@ -209,8 +209,8 @@ $elementSpacing: lines(0.5);
 }
 
 .header-wide-logo-text {
-  @include ellipsis;
-  width: rem(150);
+  // @include ellipsis;
+  // width: rem(150);
   height: rem(40);
 }
 

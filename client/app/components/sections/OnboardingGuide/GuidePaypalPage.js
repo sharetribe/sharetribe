@@ -7,7 +7,7 @@ import GuideBackToTodoLink from './GuideBackToTodoLink';
 import infoImage from './images/step5_screenshot_paypal@2x.png';
 
 const GuidePaypalPage = (props) => {
-  const { changePage, pageData, infoIcon, routes } = props;
+  const { changePage, pageData, infoIcon, routes } = props; // eslint-disable-line no-unused-vars
   return div({ className: 'container' }, [
     r(GuideBackToTodoLink, { changePage, routes }),
     h2({ className: css.title }, t('web.admin.onboarding.guide.payments.title')),
@@ -59,7 +59,13 @@ const GuidePaypalPage = (props) => {
     div(null, [
       a({ className: css.nextButton, href: routes.admin_payment_preferences_path() }, t('web.admin.onboarding.guide.payments.setup_payments')),
       span({ className: css.buttonSeparator }, t('web.admin.onboarding.guide.payments.cta_separator')),
-      a({ className: css.nextButtonGhost, href: routes.edit_admin_listing_shape_path(pageData.additional_info.listing_shape_name) }, t('web.admin.onboarding.guide.payments.disable_payments')),
+      a({ className: css.nextButtonGhost, href: routes.admin_getting_started_guide_path() }, t('web.admin.onboarding.guide.next_step.skip_this_step_for_now')),
+    ]),
+    div({ className: css.disablePayments }, [
+      span(null,
+        t('web.admin.onboarding.guide.payments.i_dont_want', {
+          link: a({ href: routes.admin_getting_started_guide_skip_payment_path() }, t('web.admin.onboarding.guide.payments.disable_it')),
+        })),
     ]),
   ]);
 };

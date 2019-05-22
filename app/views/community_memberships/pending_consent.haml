@@ -43,8 +43,34 @@
     .outer-checkbox-container
       .checkbox-container
         = check_box_tag "form[consent]", "on", values[:consent] == "on", id: "community_membership_consent"
-        = label_tag "form[consent]", t('people.new.i_accept_the'), class: "checkbox"
-        = link_to t("people.new.terms"), "#", tabindex: "-1", id: "terms_link", class: "form"
+        = label_tag "form[consent]", class: "checkbox" do
+          = raw t('people.new.i_accept_the_terms_and_privacy',
+            terms: link_to(t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"),
+            privacy: link_to(t("people.new.privacy"), "#", :tabindex => "-1", :id => "privacy_link", :class => "form"),)
+
+    .outer-checkbox-container
+      .checkbox-container
+        = check_box_tag "form[admin_emails_consent]", "on", values[:admin_email_consent] == "on", id: "admin_emails_consent"
+        = label_tag "form[admin_emails_consent]", t('people.new.admin_emails_consent'), class: "checkbox"
+
+    - if @service.has_person_custom_fields?
+      - @service.custom_field_values.each_with_index do |custom_field_value, index|
+        - custom_field = custom_field_value.question
+        - custom_field.with_type do |field_type|
+          - prefix = "person[custom_field_values_attributes][]"
+          .inline-label-container
+            = label "person_custom_fields", index, "#{custom_field.name(I18n.locale)}#{custom_field.required ? '*' : ''}",
+              class: 'inline'
+            - if custom_field.public?
+              %small= t('people.new.this_field_will_be_publicly_visible')
+          = hidden_field_tag "#{prefix}[id]", custom_field_value.id
+          = hidden_field_tag "#{prefix}[type]", custom_field_value.type
+          = hidden_field_tag "#{prefix}[custom_field_id]", custom_field_value.custom_field_id
+          = render "settings/custom_fields/#{field_type}", :service => @service,
+            :custom_field => custom_field, index: index,
+            :custom_field_value => custom_field_value,
+            :prefix => prefix
+
     = button_tag(t('community_memberships.new.join_community_button'), class: "send_button")
 
-= render partial: "people/help_texts", collection: ["terms", "help_invitation_code"], as: :field
+= render partial: "people/help_texts", collection: ["terms", "help_invitation_code", "privacy"], as: :field

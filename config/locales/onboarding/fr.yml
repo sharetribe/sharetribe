@@ -20,7 +20,7 @@ fr:
             description:
               content: "Les champs d'annonces structurent votre place de marché. Par exemple, si vous créez une place de marché pour vendre des chaussures d'occasion, vous devriez probablement ajouter un champ pour la pointure. Le vendeur devra alors préciser la taille de ses chaussures lors du dépôt d'une nouvelle annonce. Si vous souhaitez permettre à vos utilisateurs de filtrer les annonces par pointure, vous pouvez cocher la case %{display_on_homepage} lors de la création du champ."
               display_on_homepage: "Afficher un filtre basé sur ce champ sur la page d'accueil"
-            info_image_alt: "Copie d'écrance de la page des champs d'annonces et filtres"
+            info_image_alt: "Copie d'écran de la page des champs d'annonces et filtres"
             add_fields_and_filters: "Ajouter des champs et des filtres"
             advice:
               content: "Les filtres sont particulièrement utiles, mais %{not_too_many_link}. Les utilisateurs seront perdus s'il y a trop de filtres et chaque filtre est un champ supplémentaire à remplir pour vos vendeurs."
@@ -49,6 +49,7 @@ fr:
             paypal: "Configurer les paiements"
             listing: "Déposer votre première annonce"
             invitation: "Inviter des utilisateurs"
+            skip_this_step_for_now: "Passer cette étape pour le moment"
           payments:
             title: "Étape 5 : configurer le système de paiement"
             description_p1: "Si vous voulez permettre à vos utilisateurs de recevoir des paiements, vous devez connecter une plateforme de paiement (vous recevrez une commission sur chaque transaction). Sharetribe supporte à la fois Stripe et PayPal. Une fois connecté, vous devrez définir vos frais de service (commission)."
@@ -63,6 +64,8 @@ fr:
               disable_payments_alt: "Comment désactiver les paiements dans votre place de marché"
               content_paypal_stripe: "En savoir plus sur comment désactiver les paiement dans %{disable_payments_link} ou lire plus de détails sur %{stripe_paypal_link}."
               stripe_paypal_link: "le système de paiement en ligne, Stripe et PayPal"
+            i_dont_want: "Ne pas utiliser le système de paiement en ligne : %{link}."
+            disable_it: "le désactiver"
           slogan_and_description:
             title: "Étape 2 : écrire un slogan et une description"
             description: "Le slogan et la description aident les nouveaux visiteurs à comprendre ce qu'est votre place de marché. C'est la première chose que verront vos utilisateurs en arrivant sur votre site, donc essayez de les rendre clairs et percutants."

@@ -16,6 +16,12 @@ module FeatureTests
 
         expect(page).to have_content("Listing created successfully.")
         expect(page).to have_content(title)
+
+        if page.has_css?('.working-hours-form')
+          find('.working-hours-form button').click
+          expect(page).to have_css('.working-hours-form button.save-finished')
+          click_button('side-winder-close-button')
+        end
       end
     end
   end

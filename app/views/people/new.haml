@@ -17,14 +17,31 @@
             :count => (@current_community.allowed_emails.split(",").count))
 
   - unless !facebook_connect_in_use? || params[:no_fb]
-    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
+    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_provider", provider: 'Facebook') }
 
+  - if google_connect_in_use?
+    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
+      class: 'google-login-button' do
+      %span.google-icon
+        = render :partial => "layouts/google_icon"
+      %span.google-text
+        = t('.create_account_with_provider', provider: 'Google')
+        
+  - if linkedin_connect_in_use?
+    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
+      class: 'linkedin-login-button' do
+      %span.linkedin-icon
+        = render :partial => "layouts/linkedin_icon"
+      %span.linkedin-text
+        = t('.create_account_with_provider', provider: 'LinkedIn')
+
+  - if facebook_connect_in_use? || google_connect_in_use? || linkedin_connect_in_use?
     .signup-horizontal-line
       .signup-horizontal-line-text=t(".OR")
 
     %h3=t(".signup_with_email")
 
-  = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
+  = form_for @service.person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
 
     -# Invite code
     - if @current_community.join_with_invite_only?
@@ -41,7 +58,7 @@
 
     -# Email
     = form.label :email, t('.email')
-    = form.text_field :email, :class => :text_field, :maxlenght => "255"
+    = form.text_field :email, :class => :text_field, :maxlength => "255"
 
     -# Name
     = form.label :given_name, t('.given_name')
@@ -59,16 +76,43 @@
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
 
+    - if @service.has_person_custom_fields?
+      - @service.custom_field_values.each_with_index do |custom_field_value, index|
+        - custom_field = custom_field_value.question
+        - custom_field.with_type do |field_type|
+          - prefix = "person[custom_field_values_attributes][]"
+          .inline-label-container
+            = label "person_custom_fields", index, custom_field.name(I18n.locale),
+              class: 'inline'
+            - if custom_field.public?
+              %small= t('.this_field_will_be_publicly_visible')
+          = hidden_field_tag "#{prefix}[id]", custom_field_value.id
+          = hidden_field_tag "#{prefix}[type]", custom_field_value.type
+          = hidden_field_tag "#{prefix}[custom_field_id]", custom_field_value.custom_field_id
+          = render "settings/custom_fields/#{field_type}", :service => @service,
+            :custom_field => custom_field, index: index,
+            :custom_field_value => custom_field_value,
+            :prefix => prefix
+      .inline-label-container
+
     -# Terms
     .outer-checkbox-container
       .checkbox-container
         - unless @skip_terms_checkbox
           %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
-          = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-          = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
+          = form.label :terms, :class => "checkbox" do
+            = raw t('.i_accept_the_terms_and_privacy',
+              terms: link_to(t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"),
+              privacy: link_to(t(".privacy"), "#", :tabindex => "-1", :id => "privacy_link", :class => "form"),)
 
     = form.hidden_field :consent, :value => @current_community.consent
 
+    .outer-checkbox-container
+      .checkbox-container
+        %input{:type => "checkbox", :id => "person_admin_emails_consent", :name => "person[admin_emails_consent]"}
+        = form.label :admin_emails_consent, t('.admin_emails_consent'), :class => 'checkbox'
+
+
     = button_tag t('.create_new_account')
 
-= render :partial => "help_texts", :collection => ["terms", "help_invitation_code"], :as => :field
+= render :partial => "help_texts", :collection => ["terms", "help_invitation_code", "privacy"], :as => :field

@@ -21,10 +21,10 @@ module AdminCommunityMembershipsViewUtils
       opts[:count] == 1 ? name : name.pluralize
     }
 
-    accepted_count = CommunityMembership.where(community_id: community_id, status: "accepted").count
+    accepted_count = collection.accepted.count
     accepted_model = will_paginate_translate defaults, :count => accepted_count
-    banned_count = CommunityMembership.where(community_id: community_id, status: "banned").count
-    banned_model = will_paginate_translate defaults, :count => banned_count
+    other_count = collection.not_accepted.count
+    other_model = will_paginate_translate defaults, :count => other_count
 
     model_count = collection.total_pages > 1 ? 5 : collection.size
     model_name = will_paginate_translate defaults, :count => model_count
@@ -39,8 +39,8 @@ module AdminCommunityMembershipsViewUtils
         model: model_name,
         accepted_count: accepted_count,
         accepted_model: accepted_model,
-        banned_count: banned_count,
-        banned_model: banned_model
+        other_count: other_count,
+        other_model: other_model
       }
     else
       i18n_key = :"community_members_entries_info.multi_page#{html_key}"
@@ -52,8 +52,8 @@ module AdminCommunityMembershipsViewUtils
         to: collection.offset + collection.length,
         accepted_count: accepted_count,
         accepted_model: accepted_model,
-        banned_count: banned_count,
-        banned_model: banned_model
+        other_count: other_count,
+        other_model: other_model
       }
     end
     will_paginate_translate keys, params

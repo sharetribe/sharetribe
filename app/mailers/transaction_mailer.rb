@@ -75,12 +75,15 @@ class TransactionMailer < ActionMailer::Base
     payment = TransactionService::Transaction.payment_details(transaction)
     payment_total = payment[:payment_total]
     service_fee = Maybe(payment[:charged_commission]).or_else(Money.new(0, payment_total.currency))
+    buyer_service_fee = payment[:buyer_commission] || Money.new(0, payment_total.currency)
     gateway_fee = payment[:payment_gateway_fee]
+    subtotal = payment_total - buyer_service_fee
 
     prepare_template(community, seller_model, "email_about_new_payments")
     with_locale(seller_model.locale, community.locales.map(&:to_sym), community.id) do
 
-      you_get = payment_total - service_fee - gateway_fee
+      you_get = payment_total - service_fee - gateway_fee - buyer_service_fee
+      MoneyViewUtils.to_humanized(-1 * Money.new(payment[:buyer_commission], payment_total.currency))
 
       unit_type = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_unit(t[:unit_type], t[:unit_tr_key]) }.or_else(nil)
       quantity_selector_label = Maybe(transaction).select { |t| t[:unit_type].present? }.map { |t| ListingViewUtils.translate_quantity(t[:unit_type], t[:unit_selector_tr_key]) }.or_else(nil)
@@ -102,10 +105,11 @@ class TransactionMailer < ActionMailer::Base
                    listing_price: MoneyViewUtils.to_humanized(transaction.unit_price),
                    listing_quantity: transaction.listing_quantity,
                    duration: transaction.booking.present? ? transaction.listing_quantity: nil,
-                   subtotal: MoneyViewUtils.to_humanized(transaction.item_total),
-                   payment_total: MoneyViewUtils.to_humanized(payment_total),
+                   subtotal: MoneyViewUtils.to_humanized(subtotal),
+                   payment_total: MoneyViewUtils.to_humanized(buyer_service_fee > 0 ? subtotal : payment_total),
                    shipping_total: MoneyViewUtils.to_humanized(transaction.shipping_price),
                    payment_service_fee: MoneyViewUtils.to_humanized(-service_fee),
+                   payment_buyer_service_fee: buyer_service_fee > 0 ? MoneyViewUtils.to_humanized(-1 * buyer_service_fee) : nil,
                    payment_gateway_fee: MoneyViewUtils.to_humanized(-gateway_fee),
                    payment_seller_gets: MoneyViewUtils.to_humanized(you_get),
                    payer_full_name: buyer_model.name(community),
@@ -124,6 +128,9 @@ class TransactionMailer < ActionMailer::Base
     buyer_model ||= Person.find(transaction.starter_id)
     community ||= Community.find(transaction.community_id)
     payment = TransactionService::Transaction.payment_details(transaction)
+    buyer_service_fee = if payment[:buyer_commission] && payment[:buyer_commission] > 0
+                          MoneyViewUtils.to_humanized(Money.new(payment[:buyer_commission], payment[:payment_total].currency))
+                        end
 
     prepare_template(community, buyer_model, "email_about_new_payments")
     with_locale(buyer_model.locale, community.locales.map(&:to_sym), community.id) do
@@ -157,6 +164,7 @@ class TransactionMailer < ActionMailer::Base
                    show_money_will_be_transferred_note: false,
                    gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(buyer_model.locale),
+                   payment_buyer_service_fee: buyer_service_fee,
                  }
         }
       }

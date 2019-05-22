@@ -1,4 +1,5 @@
 module CustomLandingPage
+  # rubocop:disable Metrics/ModuleLength
   module ExampleData
 
     # TODO Document the expected JSON structure here
@@ -24,25 +25,25 @@ module CustomLandingPage
   },
 
   "sections": [
-    {
-      "id": "hero",
-      "kind": "hero",
-      "variation": {"type": "marketplace_data", "id": "search_type"},
-      "title": {"type": "marketplace_data", "id": "slogan"},
-      "subtitle": {"type": "marketplace_data", "id": "description"},
-      "background_image": {"type": "assets", "id": "default_hero_background"},
-      "background_image_variation": "dark",
-      "search_button": {"type": "translation", "id": "search_button"},
-      "search_path": {"type": "path", "id": "search"},
-      "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
-      "search_location_with_keyword_placeholder": {"type": "marketplace_data", "id": "search_location_with_keyword_placeholder"},
-      "signup_path": {"type": "path", "id": "signup"},
-      "signup_button": {"type": "translation", "id": "signup_button"},
-      "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-      "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
-      "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
-    },
+    # {
+    #   "id": "hero",
+    #   "kind": "hero",
+    #   "variation": {"type": "marketplace_data", "id": "search_type"},
+    #   "title": {"type": "marketplace_data", "id": "slogan"},
+    #   "subtitle": {"type": "marketplace_data", "id": "description"},
+    #   "background_image": {"type": "assets", "id": "default_hero_background"},
+    #   "background_image_variation": "dark",
+    #   "search_button": {"type": "translation", "id": "search_button"},
+    #   "search_path": {"type": "path", "id": "search"},
+    #   "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
+    #   "search_location_with_keyword_placeholder": {"type": "marketplace_data", "id": "search_location_with_keyword_placeholder"},
+    #   "signup_path": {"type": "path", "id": "signup"},
+    #   "signup_button": {"type": "translation", "id": "signup_button"},
+    #   "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
+    #   "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+    #   "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
+    #   "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+    # },
     {
       "id": "video",
       "kind": "video",
@@ -204,6 +205,50 @@ module CustomLandingPage
       ]
     },
     {
+      "id": "two_column_info_without_icons_and_buttons_with_sigle_button",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Two column info section without icons and buttons",
+      "columns": [
+        {
+          "title": "Column 1",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel.\\n\\nParagraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 2",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        }
+      ],
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Contact us",
+      "button_path": {"type": "path", "id": "contact_us"}
+    },
+    {
+      "id": "three_column_info_without_icons_and_buttons_with_sigle_button",
+      "kind": "info",
+      "variation": "multi_column",
+      "title": "Three column info without icons and buttons",
+      "columns": [
+        {
+          "title": "Column 1",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 2",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        },
+        {
+          "title": "Column 3",
+          "paragraph": "Paragraph. Curabitur blandit tempus porttitor. Nulla vitae elit libero, a pharetra augue. Vivamus sagittis lacus vel."
+        }
+      ],
+      "button_color": {"type": "marketplace_data", "id": "primary_color"},
+      "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+      "button_title": "Contact us",
+      "button_path": {"type": "path", "id": "contact_us"}
+    },
+    {
         "id": "categories",
         "kind": "categories",
         "title": "Categories section",
@@ -254,6 +299,33 @@ module CustomLandingPage
         ]
     },
     {
+        "id": "locations",
+        "kind": "locations",
+        "title": "Locations section",
+        "paragraph": "PLEASE NOTE: This section is NOT ENABLED by default. To enable this section add the section to the 'composition'. Locations section can contain 3 to 7 featured locations. Each location should have a background image.",
+        "location_color_hover": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color": {"type": "marketplace_data", "id": "primary_color"},
+        "button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        "button_title": "Browse all listings",
+        "button_path": {"type": "path", "id": "search"},
+        "locations": [
+            {
+                "title": "About",
+                "location": { "type": "path", "id": "about" },
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            },
+            {
+                "title": "Contact Us",
+                "location": { "type": "path", "id": "contact_us" },
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            },
+            {
+                "location": "https://bagshare.wordpress.com/",
+                "background_image": {"type": "assets", "id": "default_hero_background"}
+            }
+        ]
+    },
+    {
       "id": "footer",
       "kind": "footer",
       "theme": "dark",
@@ -275,14 +347,15 @@ module CustomLandingPage
         {"service": "youtube", "url": "https://www.youtube.com/channel/UCtefWVq2uu4pHXaIsHlBFnw"},
         {"service": "googleplus", "url": "https://plus.google.com/114869130265262677354/"},
         {"service": "linkedin", "url": "https://www.linkedin.com/company/2626583"},
-        {"service": "pinterest", "url": "https://www.pinterest.com/"}
+        {"service": "pinterest", "url": "https://www.pinterest.com/"},
+        {"service": "soundcloud", "url": "https://soundcloud.com/"}
       ],
       "copyright": "Copyright Marketplace Ltd 2016"
     }
   ],
 
   "composition": [
-    { "section": {"type": "sections", "id": "hero"}},
+    # { "section": {"type": "sections", "id": "hero"}},
     { "section": {"type": "sections", "id": "markdown_support"}},
     { "section": {"type": "sections", "id": "single_info_without_background_and_cta"}},
     { "section": {"type": "sections", "id": "single_info_without_cta"}},
@@ -322,25 +395,25 @@ JSON
       "google_site_verification": {"value": "CHANGEME"}
     },
     "sections": [
-        {
-            "id": "hero",
-            "kind": "hero",
-            "variation": {"type": "marketplace_data", "id": "search_type"},
-            "title": {"type": "marketplace_data", "id": "slogan"},
-            "subtitle": {"type": "marketplace_data", "id": "description"},
-            "background_image": {"type": "assets", "id": "hero_background_image"},
-            "background_image_variation": "dark",
-            "search_button": {"type": "translation", "id": "search_button"},
-            "search_path": {"type": "path", "id": "search"},
-            "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
-            "search_location_with_keyword_placeholder": {"type": "marketplace_data", "id": "search_location_with_keyword_placeholder"},
-            "signup_path": {"type": "path", "id": "signup"},
-            "signup_button": {"type": "translation", "id": "signup_button"},
-            "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
-            "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
-            "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
-            "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
-        },
+        # {
+        #     "id": "hero",
+        #     "kind": "hero",
+        #     "variation": {"type": "marketplace_data", "id": "search_type"},
+        #     "title": {"type": "marketplace_data", "id": "slogan"},
+        #     "subtitle": {"type": "marketplace_data", "id": "description"},
+        #     "background_image": {"type": "assets", "id": "hero_background_image"},
+        #     "background_image_variation": "dark",
+        #     "search_button": {"type": "translation", "id": "search_button"},
+        #     "search_path": {"type": "path", "id": "search"},
+        #     "search_placeholder": {"type": "marketplace_data", "id": "search_placeholder"},
+        #     "search_location_with_keyword_placeholder": {"type": "marketplace_data", "id": "search_location_with_keyword_placeholder"},
+        #     "signup_path": {"type": "path", "id": "signup"},
+        #     "signup_button": {"type": "translation", "id": "signup_button"},
+        #     "search_button_color": {"type": "marketplace_data", "id": "primary_color"},
+        #     "search_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"},
+        #     "signup_button_color": {"type": "marketplace_data", "id": "primary_color"},
+        #     "signup_button_color_hover": {"type": "marketplace_data", "id": "primary_color_darken"}
+        # },
         {
             "id": "info-1-column",
             "kind": "info",
@@ -489,7 +562,7 @@ JSON
         }
     ],
     "composition": [
-        { "section": {"type": "sections", "id": "hero"}},
+        # { "section": {"type": "sections", "id": "hero"}},
         { "section": {"type": "sections", "id": "info-1-column"}},
         { "section": {"type": "sections", "id": "info-2-columns"}},
         { "section": {"type": "sections", "id": "info-3-columns"}},
@@ -509,4 +582,5 @@ JSON
 JSON
 
   end
+  # rubocop:enable Metrics/ModuleLength
 end

@@ -109,6 +109,7 @@ FactoryGirl.define do
       if evaluator.member_of
         person.create_community_membership(community: evaluator.member_of,
                                            admin: evaluator.member_is_admin)
+        person.update_column(:community_id, evaluator.member_of.id)
       end
     end
   end
@@ -328,7 +329,7 @@ FactoryGirl.define do
   end
 
   factory :custom_field_option_title do
-    value "Test option"
+    sequence(:value) { |n| "Test option #{n}" }
     locale "en"
   end
 
@@ -357,6 +358,34 @@ FactoryGirl.define do
       build_association(:custom_numeric_field, as: :question)
       numeric_value 0
     end
+  end
+
+  factory :person_custom_field, parent: :custom_field do
+    entity_type :for_person
+
+    has_many :category_custom_fields do |custom_field|
+    end
+
+    factory :person_custom_dropdown_field, class: 'DropdownField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+      end
+    end
+
+    factory :person_custom_text_field, class: 'TextField'
+
+    factory :person_custom_numeric_field, class: 'NumericField' do
+      min 0
+      max 100
+    end
+
+    factory :person_custom_checkbox_field, class: 'CheckboxField' do
+      has_many :options do |custom_field|
+        [FactoryGirl.build(:custom_field_option), FactoryGirl.build(:custom_field_option)]
+      end
+    end
+
+    factory :person_custom_date_field, class: 'DateField'
   end
 
   factory :transaction_transition do
@@ -462,6 +491,8 @@ FactoryGirl.define do
 
   factory :listing_working_time_slot, class: 'Listing::WorkingTimeSlot' do
     listing_id 123
+    from       '09:00'
+    till       '17:00'
   end
 
   factory :billing_agreement do
@@ -485,5 +516,23 @@ FactoryGirl.define do
     fee_cents         0
     real_fee_cents    31
     subtotal_cents    200
+    buyer_commission  111
+  end
+
+  factory :stripe_account do
+    community_id      123
+    person_id         "ABC"
+  end
+
+  factory :landing_page, class: 'CustomLandingPage::LandingPageStoreDB::LandingPage' do
+    community_id      123
+    enabled           true
+    released_version  '1'
+  end
+
+  factory :landing_page_version, class: 'CustomLandingPage::LandingPageStoreDB::LandingPageVersion' do
+    community_id      123
+    version           '1'
+    content           CustomLandingPage::ExampleData::DATA_STR
   end
 end

@@ -1,0 +1,54 @@
+- content_for :javascript do
+  ST.CustomFields.initList();
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t(".user_fields")
+
+= render partial: 'layouts/onboarding_popup_wrapper'
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+
+  .row
+    .col-12
+    %h3
+      = t(".user_fields")
+
+  #custom-fields-list
+    .row.visible-tablet
+      .col-4.custom-fields-list-title
+        = t(".field_title")
+      .col-4.custom-fields-list-title
+        = t(".field_type")
+      .col-1.custom-fields-list-title
+        = t(".signup")
+      .col-1.custom-fields-list-title
+        = t(".public")
+
+
+    = render 'fixed_fields', service: @service
+
+    - if @service.show_custom_fields?
+      = render partial: 'custom_field', collection: @service.custom_fields, as: :custom_field
+
+    #custom-field-ajax-status
+      .ajax-notification.ajax-notice.custom-field-ajax-status-message#custom-field-ajax-saving
+        .ajax-icon{:class => icon_class("loading")}
+        .ajax-text
+          = t("admin.custom_fields.index.saving_order")
+      .ajax-notification.ajax-success.custom-field-ajax-status-message#custom-field-ajax-success
+        .ajax-icon{:class => icon_class("check")}
+        .ajax-text
+          = t("admin.custom_fields.index.save_order_successful")
+      .ajax-notification.ajax-error.custom-field-ajax-status-message#custom-field-ajax-error
+        = t("admin.custom_fields.index.save_order_error")
+
+  .row.new-custom-field-type-form
+    = form_tag new_admin_person_custom_field_path, :method => :get do |form|
+      .new-custom-field-type-form-column
+        = t(".add_new_field")
+      .new-custom-field-type-form-column
+        = select_tag :field_type, options_for_select(custom_field_dropdown_options(CustomField::VALID_TYPES)), :onChange => "form.submit();"

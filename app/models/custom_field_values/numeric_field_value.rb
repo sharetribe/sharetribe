@@ -12,16 +12,18 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
+#  person_id       :string(255)
 #
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_person_id   (person_id)
 #  index_custom_field_values_on_type        (type)
 #
 
 class NumericFieldValue < CustomFieldValue
 
-  validates_numericality_of :numeric_value
+  validates :numeric_value, numericality: true, if: proc { |numeric_field_value| numeric_field_value.question.required? }
 
   def display_value
     question.allow_decimals ? numeric_value : numeric_value.to_i

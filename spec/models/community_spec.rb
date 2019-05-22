@@ -90,6 +90,20 @@
 #  small_cover_photo_processing               :boolean
 #  favicon_processing                         :boolean
 #  deleted                                    :boolean
+#  end_user_analytics                         :boolean          default(TRUE)
+#  show_slogan                                :boolean          default(TRUE)
+#  show_description                           :boolean          default(TRUE)
+#  hsts_max_age                               :integer
+#  footer_theme                               :integer          default("dark")
+#  footer_copyright                           :text(65535)
+#  footer_enabled                             :boolean          default(FALSE)
+#  logo_link                                  :string(255)
+#  google_connect_enabled                     :boolean
+#  google_connect_id                          :string(255)
+#  google_connect_secret                      :string(255)
+#  linkedin_connect_enabled                   :boolean
+#  linkedin_connect_id                        :string(255)
+#  linkedin_connect_secret                    :string(255)
 #
 # Indexes
 #
@@ -101,37 +115,34 @@
 require 'spec_helper'
 
 describe Community, type: :model do
-
-  before(:each) do
-    @community = FactoryGirl.build(:community)
-  end
+  let(:community) { FactoryGirl.build(:community) }
 
   it "is valid with valid attributes" do
-    expect(@community).to be_valid
+    expect(community).to be_valid
   end
 
   it "is not valid without proper ident" do
-    @community.ident = "test_community-9"
-    expect(@community).to be_valid
-    @community.ident = nil
-    expect(@community).not_to be_valid
-    @community.ident = "a"
-    expect(@community).not_to be_valid
-    @community.ident = "a" * 51
-    expect(@community).not_to be_valid
-    @community.ident = "´?€"
-    expect(@community).not_to be_valid
+    community.ident = "test_community-9"
+    expect(community).to be_valid
+    community.ident = nil
+    expect(community).not_to be_valid
+    community.ident = "a"
+    expect(community).not_to be_valid
+    community.ident = "a" * 51
+    expect(community).not_to be_valid
+    community.ident = "´?€"
+    expect(community).not_to be_valid
   end
 
   it "validates twitter handle" do
-    @community.twitter_handle = "abcdefghijkl"
-    expect(@community).to be_valid
-    @community.twitter_handle = "abcdefghijklmnopqr"
-    expect(@community).not_to be_valid
-    @community.twitter_handle = "@abcd"
-    expect(@community).not_to be_valid
-    @community.twitter_handle = "AbCd1"
-    expect(@community).to be_valid
+    community.twitter_handle = "abcdefghijkl"
+    expect(community).to be_valid
+    community.twitter_handle = "abcdefghijklmnopqr"
+    expect(community).not_to be_valid
+    community.twitter_handle = "@abcd"
+    expect(community).not_to be_valid
+    community.twitter_handle = "AbCd1"
+    expect(community).to be_valid
   end
 
 
@@ -142,12 +153,12 @@ describe Community, type: :model do
         :created_at => created_at.days.ago,
         :updates_email_at => updates_email_at.days.ago,
         :listing_shape_id => 123,
-        :community_id => @community.id)
+        :community_id => community.id)
     end
 
     before(:each) do
       @p1 = FactoryGirl.create(:person, :emails => [ FactoryGirl.create(:email, :address => "update_tester@example.com") ])
-      @p1.accepted_community = @community
+      @p1.accepted_community = community
       @l1 = get_listing(2,2)
       @l2 = get_listing(3,3)
       @l3 = get_listing(12,12)
@@ -155,7 +166,7 @@ describe Community, type: :model do
     end
 
     it "should contain latest and picked listings" do
-      listings_to_email = @community.get_new_listings_to_update_email(@p1)
+      listings_to_email = community.get_new_listings_to_update_email(@p1)
 
       expect(listings_to_email).to include(@l1, @l2, @l4)
       expect(listings_to_email).not_to include(@l3)
@@ -171,7 +182,7 @@ describe Community, type: :model do
       @l11 = get_listing(13,3)
       @l12 = get_listing(13,3)
 
-      listings_to_email = @community.get_new_listings_to_update_email(@p1)
+      listings_to_email = community.get_new_listings_to_update_email(@p1)
 
       expect(listings_to_email).to include(@l1, @l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12)
       expect(listings_to_email).not_to include(@l2, @l3)
@@ -186,7 +197,7 @@ describe Community, type: :model do
       @l11 = get_listing(13,6)
       @l12 = get_listing(13,6)
 
-      listings_to_email = @community.get_new_listings_to_update_email(@p1)
+      listings_to_email = community.get_new_listings_to_update_email(@p1)
 
       correct_order = true
 
@@ -212,11 +223,22 @@ describe Community, type: :model do
       @l13 = get_listing(13,3)
       @l14 = get_listing(13,3)
 
-      listings_to_email = @community.get_new_listings_to_update_email(@p1)
+      listings_to_email = community.get_new_listings_to_update_email(@p1)
 
       expect(listings_to_email).to include(@l4, @l5, @l6, @l7, @l8, @l9, @l10, @l11, @l12, @l13,@l14)
       expect(listings_to_email).not_to include(@l1, @l2, @l3)
     end
   end
-end
 
+  describe '#is_person_only_admin' do
+    let(:community1) { FactoryGirl.create(:community) }
+    let(:person_admin1) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+    let(:person_admin2) { FactoryGirl.create(:person, member_of: community1, member_is_admin: true) }
+    it 'works' do
+      person_admin1
+      expect(community1.is_person_only_admin(person_admin1)).to eq true
+      person_admin2
+      expect(community1.is_person_only_admin(person_admin1)).to eq false
+    end
+  end
+end

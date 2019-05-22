@@ -43,3 +43,94 @@ select#locale-selection {
   visibility: hidden;
   height: em(50);
 }
+
+.info-text-container {
+  .info-thumbnail {
+    float: left;
+    margin-right: 1.5em;
+    .thumbnail {
+      float: left;
+      margin-left: 19px;
+    }
+    .description {
+      clear: both;
+      & > i {
+        margin-right: 3px;
+      }
+    }
+    .current-image {
+      color: gray;
+    }
+  }
+  &.filename-container {
+    margin-top: 0;
+  }
+}
+
+.status-select-button {
+  position: relative;
+  padding: em(4) em(8) 0;
+  @include border-radius(em(5));
+  border: 2px solid $border;
+   @include media(tablet) {
+    margin: 0;
+    padding: em(8) em(11) 0;
+  }
+  &:after {
+    content: "▼";
+    position: absolute;
+    right: 4px;
+    top: 8px;
+  }
+
+  min-height: 42px;
+  cursor: pointer;
+  line-height: normal;
+}
+.col-3.status-select-wrapper {
+  position: relative;
+  padding: 0;
+}
+.status-select-dropdown {
+  position: absolute;
+  @include border-radius(em(5));
+  border: 2px solid $border;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  background: white;
+  display: none
+}
+.status-select-line {
+  width: 100%;
+  min-height: 42px;
+  padding: em(4) em(8);
+  border-bottom: 2px solid $border;
+  cursor: pointer;
+   @include media(tablet) {
+    margin: 0;
+    padding: em(8) em(11);
+  }
+
+
+  &:last-child {
+    border-bottom: none;
+  }
+  &.selected {
+    background-color: $link;
+    color: $background;
+  }
+  &.reset {
+    &:after {
+      content: "▲";
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+  }
+}
+.status-select-line input {
+  display: none;
+}
+

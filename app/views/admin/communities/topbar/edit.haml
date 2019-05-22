@@ -1,0 +1,25 @@
+- show_locales = available_locales.size > 1
+
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.topbar.topbar")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+.left-navi-section
+  %h2= t("admin.communities.topbar.topbar")
+  = form_for community, :url => admin_topbar_path, :method => :patch, html: {id: "topbar-menu-form"} do |form|
+
+    = render partial: "new_listing_button", locals: { show_locales: show_locales }
+
+    = render partial: "default_menu_links"
+
+    = render partial: "menu_links", locals: { community: community, show_locales: show_locales, limit_priority_links: limit_priority_links, limit_priority_links_options: limit_priority_links_options, limit_priority_links_selected: limit_priority_links_selected }
+
+    = render partial: "logo_link"
+
+    .row
+      .col-12
+        = form.button t("admin.communities.menu_links.save")

@@ -78,3 +78,59 @@ Then(/^I should not see price box on top of the message list$/) do
   visit_transaction_of_listing(@listing)
   expect(page).to have_no_css('.initiate-transaction-totals')
 end
+
+def create_paid_transaction(community, listing, starter, message, payment_gateway = :none, state = :not_started, buyer_commission = false )
+  process = TransactionProcess.find(listing.transaction_process_id).process
+  settings = PaymentSettings.where(active: true, community_id: community.id, payment_gateway: payment_gateway, payment_process: process).first
+  booking = listing.availability == 'booking'
+  tx_attributes = {
+    listing: listing,
+    community: community,
+    starter: starter,
+    conversation: build_conversation(community, listing, starter, message),
+    payment_gateway: payment_gateway,
+    payment_process: process,
+    automatic_confirmation_after_days: community.automatic_confirmation_after_days,
+    current_state: state,
+    last_transition_at: Time.current,
+    commission_from_seller: settings.commission_from_seller,
+    minimum_commission_cents: 100,
+    minimum_commission_currency: 'EUR',
+  }
+  if booking
+    tx_attributes.merge!(
+      listing_quantity: 3,
+      unit_type: "hour",
+      unit_price_cents: listing.price.cents,
+      unit_price_currency: listing.price.currency)
+  end
+  if buyer_commission
+    tx_attributes.merge!(
+      commission_from_buyer: 15,
+      minimum_buyer_fee_cents: 100,
+      minimum_buyer_fee_currency: listing.price.currency)
+  end
+  tx = FactoryGirl.create(:transaction, tx_attributes)
+  if booking
+    FactoryGirl.create(:booking, tx: tx, start_on: nil, end_on: nil,
+                                 start_time: "2019-01-02 09:00:00",
+                                 end_time: "2019-01-02 12:00:00",
+                                 per_hour: true)
+  end
+  FactoryGirl.create(:transaction_transition, tx: tx, to_state: state)
+  tx
+end
+
+Given(/^there is a "([^"]*)" transaction from "([^"]*)" with message "([^"]*)" about that listing$/)do |state, sender, message|
+  create_paid_transaction(@current_community, @listing, @people[sender], message, 'stripe', state)
+end
+
+Then(/^I visit transaction page of that listing$/) do
+  visit_transaction_of_listing(@listing)
+end
+
+Given(/^there is a "([^"]*)" transaction with buyer commission from "([^"]*)" with message "([^"]*)" about that listing$/)do |state, sender, message|
+  create_paid_transaction(@current_community, @listing, @people[sender], message, 'stripe', state, true)
+end
+
+

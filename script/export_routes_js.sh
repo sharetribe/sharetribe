@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 FILE="./client/app/routes/routes.js"
 
 if [ -f $FILE ];

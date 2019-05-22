@@ -29,7 +29,8 @@ module TransactionViewUtils
     [:seller_gets, :money],
     [:start_time, :time],
     [:end_time, :time],
-    [:per_hour, :to_bool, default: false]
+    [:per_hour, :to_bool, default: false],
+    [:buyer_fee, :money]
   )
 
 
@@ -42,7 +43,7 @@ module TransactionViewUtils
     (messages + transitions).sort_by { |hash| hash[:created_at] }
   end
 
-  def create_messages_from_actions(transitions, author, starter, payment_sum, payment_gateway, community_id)
+  def create_messages_from_actions(transitions, author, starter, payment_sum, payment_gateway, show_sum=true)
     return [] if transitions.blank?
 
     ignored_transitions = [
@@ -65,7 +66,7 @@ module TransactionViewUtils
         ignored_transitions.include? transition[:to_state]
       }
       .map { |(transition, previous_state)|
-        create_message_from_action(transition, previous_state, author, starter, payment_sum, payment_gateway, community_id)
+        create_message_from_action(transition, previous_state, author, starter, payment_sum, payment_gateway, show_sum)
       }
   end
 
@@ -85,14 +86,14 @@ module TransactionViewUtils
       transitions = transaction.transaction_transitions
       payment_sum = transaction.payment_total
       payment_gateway = transaction.payment_gateway
-      community_id = transaction.community_id
-      create_messages_from_actions(transitions, transaction.author, transaction.starter, payment_sum, payment_gateway, community_id)
+      show_sum = FeatureFlagHelper.feature_enabled?(:buyer_commission) ? transaction.buyer_commission <= 0 : true
+      create_messages_from_actions(transitions, transaction.author, transaction.starter, payment_sum, payment_gateway, show_sum)
     else
       []
     end
   end
 
-  def create_message_from_action(transition, old_state, author, starter, payment_sum, payment_gateway, community_id)
+  def create_message_from_action(transition, old_state, author, starter, payment_sum, payment_gateway, show_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
@@ -144,11 +145,11 @@ module TransactionViewUtils
 
     MessageBubble[message.merge(
       created_at: transition[:created_at],
-      content: create_content_from_action(transition[:to_state], old_state, payment_sum, payment_gateway, community_id, author)
+      content: create_content_from_action(transition[:to_state], old_state, payment_sum, payment_gateway, author, show_sum)
     )]
   end
 
-  def create_content_from_action(state, old_state, payment_sum, payment_gateway, community_id, author)
+  def create_content_from_action(state, old_state, payment_sum, payment_gateway, author, show_sum)
     preauthorize_accepted = ->(new_state) { new_state == "paid" && old_state == "preauthorized" }
     post_pay_accepted = ->(new_state) {
       # The condition here is simply "if new_state is paid", since due to migrations from old system there might be
@@ -156,11 +157,14 @@ module TransactionViewUtils
       new_state == "paid"
     }
     amount = MoneyViewUtils.to_humanized(payment_sum)
-    community_name = community_id.present? ? Community.find(community_id).name_with_separator(I18n.locale) : ''
 
     message = case state
     when "preauthorized"
-      t("conversations.message.payment_preauthorized", sum: amount)
+      if show_sum
+        t("conversations.message.payment_preauthorized", sum: amount)
+      else
+        t("conversations.message.payment_preauthorized_wo_sum")
+      end
     when "accepted"
       ActiveSupport::Deprecation.warn("Transaction state 'accepted' is deprecated and will be removed in the future.")
       t("conversations.message.accepted_request")
@@ -168,9 +172,15 @@ module TransactionViewUtils
       t("conversations.message.rejected_request")
     when preauthorize_accepted
       if payment_gateway == :stripe
-        t("conversations.message.stripe.held_payment", sum: amount, service_name: community_name)
-      else
+        if show_sum
+          t("conversations.message.stripe.held_payment", sum: amount)
+        else
+          t("conversations.message.stripe.held_payment_wo_sum")
+        end
+      elsif show_sum
         t("conversations.message.received_payment", sum: amount)
+      else
+        t("conversations.message.received_payment_wo_sum")
       end
     when post_pay_accepted
       ActiveSupport::Deprecation.warn("Transaction state 'paid' without previous state is deprecated and will be removed in the future.")

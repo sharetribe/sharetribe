@@ -62,9 +62,13 @@ zh:
         community_name: 集市名称
         edit_community_name_description: 你的集市名称。它将在邮件和其他不同地方显示给用户。
         community_slogan: 集市标语
+        community_slogan_display: ~
         edit_community_slogan_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
+        edit_community_slogan_description_hideable: ~
         community_description: 集市描述
+        community_description_display: ~
         edit_community_description_description: "这将显示在未登录用户的集市主页。%{see_how_it_looks_like}"
+        edit_community_description_description_hideable: ~
         community_search_placeholder: 搜索提示
         edit_community_search_placeholder_description: "这将在集市主页以占位符文本显示在搜索栏。%{see_how_it_looks_like}"
         private_community_homepage_content: 私有集市主页内容
@@ -90,6 +94,7 @@ zh:
         edit_community_look_and_feel: "编辑集市”%{community_name}“的外观"
         community_logo: 页面展示Logo
         community_logo_icon: 社交网络和移动设备的Logo
+        community_logo_icon_mobile: ~
         community_cover_photo: 封面照片
         small_community_cover_photo: 小的封面照片
         favicon: 网站图标
@@ -104,6 +109,7 @@ zh:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: "当人们在Facebook分享你的站点，当他们在移动设备上查看你的站点或者当他们在移动设备的主屏幕收藏你的站点时，这个方形的图标将被显示。它的尺寸必须（至少）是%{width}x%{height}像素。"
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: 封面照片将显示在未登录用户的首页
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
         small_cover_photo_visibility: 小的封面照片将显示在除未登录用户首页的所有页面。
@@ -124,6 +130,7 @@ zh:
         invalid_color_code: 颜色代码需要包含6个数字或者字符A-F，比如D96E21
         custom_head_script: 定制脚本
         custom_head_script_instructions_text: 该脚本注入在每一个页面的<head>标签中，可以插入自定义CSS，JavaScript或者HTML。请注意对Sharetribe的未来改动可能会导致你的脚本不兼容。
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: 说明文本
       edit_welcome_email:
@@ -171,27 +178,33 @@ zh:
       getting_started:
         getting_started: 获取入门指南
       available_languages:
+        cs: ~
+        da-DK: 丹麦语
+        de: 德语
         en: 英文
         en-AU: 英文(澳大利亚)
         en-GB: 英文(英国)
+        es: ~
+        es-ES: ~
+        fi: 芬兰文
         fr: 法文
         fr-CA: 法文(加拿大)
-        es: 西班牙文(智利)
-        es-ES: 西班牙文
-        pt-PT: 葡萄牙文
-        pt-BR: 葡萄牙文（巴西）
-        nb: 挪威博克马尔文
-        sv: 瑞典语
-        da-DK: 丹麦语
-        fi: 芬兰文
-        ru: 俄语
-        de: 德语
         el: 希腊文
-        nl: 荷兰文
-        tr-TR: 土耳其文
-        zh: 中文
-        ja: 日文
         it: 意大利文
+        ja: 日文
+        ko: ~
+        nb: 挪威博克马尔文
+        nl: 荷兰文
+        pl: ~
+        pt-BR: 葡萄牙文（巴西）
+        pt-PT: 葡萄牙文
+        ru: 俄语
+        sv: 瑞典语
+        th-TH: ~
+        tr-TR: 土耳其文
+        vi: ~
+        zh: 中文
+        zh-TW: ~
       settings:
         settings: 设置
         general: 常规
@@ -222,6 +235,7 @@ zh:
         update_settings: 保存设置
         automatically_confirmed_no_escrow: "在付款后%{days_dropdown}天内交易将被自动标记为完成。"
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "自动发送新闻邮件：%{frequency_dropdown}"
         newsletter_daily: 每日
         newsletter_weekly: 每周
@@ -255,6 +269,23 @@ zh:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: 新布局
         description_roadmap_new: ~
@@ -264,6 +295,14 @@ zh:
         searchpage: ~
       social_media:
         social_media: 社交媒体
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: Twitter用户名
         twitter_handle_info_text: 当人们使用信息页面上的tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。
         twitter_handle_info_text_with_instructions: "当人们使用信息页面上的Tweet按钮时，你的集市Twitter帐号的用户名（如果你有的话）将被提及。%{instructions_link}"
@@ -278,16 +317,61 @@ zh:
         invalid_facebook_connect_id: 客户号仅能包含数字。
         facebook_connect_secret: Facebook客户端密钥
         invalid_facebook_connect_secret: 客户端密钥仅应包含数字和字母a到f。
+        enable_facebook_login: ~
         save: 保存设置
+        add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
+        save: ~
       analytics:
         analytics: 分析
         google_analytics_key: "Google Analytics Tracking ID"
         google_analytics_key_info_text: "追踪你的Google Analytics帐号。"
         google_analytics_key_info_text_with_instructions: "你Google Analytics帐号的Tracking ID。%{instructions_link}。"
         google_analytics_instructions_link_text: "了解更多关于Google Analytics"
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: 保存设置
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: 菜单链接
+        menu_links_display: ~
         save: 保存设置
         add_menu_link: 添加一个新连链接到菜单
         title_placeholder: 链接名称
@@ -300,6 +384,15 @@ zh:
         all: 全部
         max_number_of_links_info: ~
         about_page: 关于
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: 顶部条
         new_listing_button_label: ~
@@ -308,6 +401,19 @@ zh:
         export_all_as_csv: 导出为CSV文件
         processing_export: ~
         transactions: 查看交易记录
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: 会话
           listing: 发布的信息
@@ -365,6 +471,117 @@ zh:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: "编辑信息字段“%{field_name}”"
@@ -418,6 +635,32 @@ zh:
         dropdown: 下拉
         checkbox_group: 复选框
         date: 日期
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: 发送电子邮件给用户
@@ -432,6 +675,7 @@ zh:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -531,6 +775,7 @@ zh:
         night: 每晚
         week: 每周
         month: 每月
+        unit: ~
       can_not_find: "找不到id是%{id}交易类型"
       add_custom_unit: +添加一个自定义的价格单位
       delete_custom_unit: 删除
@@ -596,6 +841,8 @@ zh:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -608,6 +855,7 @@ zh:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -630,11 +878,17 @@ zh:
         payments_not_enabled: ~
     transaction_types:
       sell: 出售
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: 出租
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: 赠送
       lend: 出借
       swap: 交换
       service: 提供
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: 请求
       inquiry: 公告
       share_for_free: 免费共享
@@ -723,6 +977,7 @@ zh:
       quantity_label: "数量:"
       sum_label: 小计
       service_fee_label: "%{service_name}费："
+      buyer_service_fee_label: ~
       you_will_get_label: 你将得到：
       total_label: 总计：
       total_value: "%{seller_gets}*"
@@ -768,6 +1023,7 @@ zh:
     message:
       accepted_request: 已接受请求
       received_payment: ~
+      received_payment_wo_sum: ~
       accepted_offer: 已接受的宝贝
       rejected_request: 已拒绝的请求
       rejected_offer: 已拒绝的宝贝
@@ -777,8 +1033,10 @@ zh:
       canceled_offer: 已取消宝贝
       paid: "支付了%{sum}"
       payment_preauthorized: "授权支付:%{sum}"
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: 消息
@@ -993,7 +1251,9 @@ zh:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -1009,6 +1269,7 @@ zh:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1033,7 +1294,7 @@ zh:
       subtotal: 小计
       total: 总共
       price: 价格
-      service_fee: 服务费
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: "以下两种情况发生时，钱将被转给%{recipient_name} a)你标记请求为完成 b)你付款之后的%{automatic_confirmation_days}天。"
@@ -1127,6 +1388,8 @@ zh:
       reject_authorization_error: 在尝试拒绝Paypal支付预授权时发生错误。请重试。
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: 回到主页
     error_404:
@@ -1165,6 +1428,7 @@ zh:
       after: "必须在%{restriction}之后"
       on_or_after: "必须在%{restriction}时或之后"
       positive_number: 填入一个数字
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} 同意将 %{listing_title} 借给 %{requester_name} %{time_ago}."
@@ -1411,8 +1675,8 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接已使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: 你输入的电子邮件已被确认。
-      could_not_get_email_from_facebook: 不能从Facebook获取邮件地址，没有邮件地址则无法创建帐号。
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: 发布另一条消息
       create_one_here: 创建新用户
       email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
@@ -1449,7 +1713,7 @@ zh:
       listing_updated_successfully: 信息更新成功
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "只有%{service_name}管理员有权限进入此区域"
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: 仅作者可以关闭发布的信息
       only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
       payment_successful: 付款成功
@@ -1517,6 +1781,9 @@ zh:
       listing_author_payment_details_missing: 请点击下面的‘联系’按钮联系卖家。他们需要更新付款信息来接收付款。
       images_are_processing: ~
       automatically_logged_out_please_sign_in: 你已被自动登出。请重新登录。
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: 帐号
       notifications: 通知
@@ -1525,6 +1792,8 @@ zh:
       paypal_payments: ~
       stripe_payments: ~
       payments: 付款
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: 你无权查看此信息。
@@ -1712,6 +1981,7 @@ zh:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: 信息
       selected_category: "分类：%{category}"
@@ -1725,12 +1995,14 @@ zh:
       community_not_configured_for_payments: "%{service_name}没有配置支付方式，所以你不能发布新的信息。详情请联系%{contact_admin_link}。"
       payment_settings_link: 付款设置
       community_not_configured_for_payments_admin: "%{service_name}没有配置支付方式，所以你不能发布新的信息。点击%{payment_settings_link}填写详细付款信息。"
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: "小时数:"
       day: "天数:"
       night: "夜晚数量:"
       week: "周数:"
       month: "月数:"
+      unit: ~
       custom: "数量:"
     quantity_placeholder: 数量
     please_comment: 评论
@@ -1782,6 +2054,7 @@ zh:
       night: 晚
       week: 周
       month: 月
+      unit: ~
     verification_required:
       verification_required: 要求验证
   listing_conversations:
@@ -1937,7 +2210,8 @@ zh:
         other: "访问%{service_name}受限。你需要一个电子邮件地址来加入。"
       family_name: 姓
       given_name: 名
-      i_accept_the: 我接受
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: ~
       invalid_invitation_code: 邀请码无效。
       invitation_code: 邀请码
       not_required: ，不是必须的
@@ -1946,20 +2220,21 @@ zh:
       show_my_name_to_others: "对其他%{service_name}用户显示真实姓名"
       sign_up: "在%{service_name}注册"
       terms: 使用条款
+      privacy: ~
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 仅对你和集市管理员可见
       visible_to_everybody: 所有人可见
-      create_account_with_facebook: 用Facebook帐号注册
+      create_account_with_provider: ~
       OR: 或
       signup_with_email: 使用你自己的邮箱注册
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: 评分：
       and_gave_following_feedback: 并且给出以下反馈
     profile_listings:
-      show_also_closed: 显示已关闭的
-      show_only_open: 仅显示开放的
       no_image: 没有图片
+      manage_listings: ~
     show:
       contact: "联系%{person}"
       about_me: 关于我：
@@ -1992,6 +2267,8 @@ zh:
       show_all_listings: 显示所有已发布的信息
       show_all_open_listings: 显示所有公开的信息
       show_all_reviews: 显示所有评论
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: "你关注了%{count}个人"
       you_follow_singular: "你关注了%{count}个人"
@@ -2016,7 +2293,7 @@ zh:
       account_creation_link_text: 点击这里
       cancle_facebook_connect: "如果你不想关联此帐号，你可以%{cancel_link}。"
       facebook_cancel_link_text: 取消
-      log_in_with_your_facebook_account: 用你Facebook账号登录
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: ……或者用你的用户名或电子邮件：
       we_will_not_post_without_asking_you: 我们永远不会在Facebook上未经你的允许发布任何信息
     password_forgotten:
@@ -2050,6 +2327,7 @@ zh:
       delete_personal_information: 如果你删除你的帐号，你的个人信息（姓名，电话号码，地址，电邮，个人资料图片等等）都将被永久删除且不能恢复。所有你创建的信息将被删除。你将不能重新激活你的帐号。
       delete_information_others_involved: 涉及其他会员的信息（和其他人的对话，你完成的交易，你给其他人的评论等）在你删除你的帐号时是不能被删除的。不过，之后你的名字将不会出现在这些信息中。
       unfinished_transactions: 因为你有正在进行中的交易，所以你的帐号不能被删除。请在删除帐号前完成所有交易。
+      only_admin: ~
       new_password: 新密码
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了你的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对你可见。
@@ -2102,6 +2380,7 @@ zh:
       display_name: ~
       display_name_description: ~
       location_description: 你可以选择提供你的准确住址或仅仅提供邮政编码。请至少填写邮政编码。你也可以通过地图选择一个地点。
+      profile_picture_description: ~
       phone_number: 电话号码
       profile_picture: 个人头像
       postal_code: 邮政编码
@@ -2114,6 +2393,8 @@ zh:
       default_in_listing: （只有在发布新信息时作为默认值使用）
       invisible: （不显示给其他用户）
       image_is_processing: 你的个人头像图片正在准备。请过一会重新刷新页面。
+      shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址
@@ -2316,6 +2597,7 @@ zh:
       signup: 注册
       admin_dashboard: 管理员空间
       language: 语言
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2364,12 +2646,19 @@ zh:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -2378,12 +2667,28 @@ zh:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
+      update_also_bank_account: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -2408,6 +2713,7 @@ zh:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
+      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:

@@ -14,7 +14,7 @@ cs:
       already_authenticated: "Už jste přihlášeni."
       unauthenticated: "Než budete moci pokračovat, musíte se přihlásit nebo zaregistrovat."
       unconfirmed: "Než budete pokračovat, musíte potvrdit Váš účet."
-      locked: "Váš účet ja uzamčen."
+      locked: "Váš účet je uzamčen."
       invalid: "Neplatný email nebo heslo."
       invalid_token: "Neplatné potvrzení."
       timeout: "Spojení vypršelo. Prosíme, přihlaste se znovu, abyste mohli pokračovat."
@@ -52,7 +52,7 @@ cs:
       failure: "Nebylo možné ověřit účet %{kind} z důvodu %{reason}."
     mailer:
       confirmation_instructions:
-        subject: "Aktivační instrukce"
+        subject: "Aktivační instrukce k připojení %{service_name}"
       reset_password_instructions:
         subject: "Instrukce ke změně hesla"
       unlock_instructions:

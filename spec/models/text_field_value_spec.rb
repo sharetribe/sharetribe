@@ -12,24 +12,32 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
+#  person_id       :string(255)
 #
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_person_id   (person_id)
 #  index_custom_field_values_on_type        (type)
 #
 
 require 'spec_helper'
 
 describe TextFieldValue, type: :model do
-  describe "validations" do
-    it "should have text value" do
-      @value = TextFieldValue.new
-      expect(@value).not_to be_valid
+  let(:field)   { FactoryGirl.create :custom_text_field, required: false }
+  let(:required_field)   { FactoryGirl.create :custom_text_field, required: true }
 
-      @value3 = TextFieldValue.new
-      @value3.text_value = "Test"
-      expect(@value3).to be_valid
+  describe "validations" do
+    it "should treat text value as optional if field is not required" do
+      value = TextFieldValue.new(question: field)
+      expect(value).to be_valid
+    end
+
+    it "should have text value" do
+      value = TextFieldValue.new(question: required_field)
+      expect(value).not_to be_valid
+      value.text_value = "Test"
+      expect(value).to be_valid
     end
   end
 end

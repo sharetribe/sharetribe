@@ -1,0 +1,19 @@
+- if @custom_footer.theme_logo?
+  = render 'layouts/footer/theme_logo'
+- else
+  %footer{:class => "footer__container--#{@custom_footer.theme}"}
+    .footer__content
+      %div{:class => "footer__links-container#{@custom_footer.container_modifier}"}
+        - if @custom_footer.links?
+          %ul.footer__link-list
+            - @custom_footer.links.each do |link|
+              %li.footer__link-list-item
+                %a.footer__link{:href => link.url}= link.title
+        - if @custom_footer.social?
+          .footer__social-media
+            - @custom_footer.social.each do |social|
+              %a.footer__social-media-link{:href => social.url, :rel => "noreferrer", :target => "_blank"}
+                = render 'layouts/footer/social_icons', social_service: social.provider
+      %hr.footer__separator/
+      .footer__copyrights--markdown
+        = markdown(@custom_footer.copyright)

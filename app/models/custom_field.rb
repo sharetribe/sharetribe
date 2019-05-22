@@ -13,6 +13,9 @@
 #  min            :float(24)
 #  max            :float(24)
 #  allow_decimals :boolean          default(FALSE)
+#  entity_type    :integer          default("for_listing")
+#  public         :boolean          default(FALSE)
+#  assignment     :integer          default("unassigned")
 #
 # Indexes
 #
@@ -34,10 +37,31 @@ class CustomField < ApplicationRecord
 
   belongs_to :community
 
+  scope :sorted, ->{ order('custom_fields.sort_priority ASC') }
+  scope :dropdown, ->{ where("type = 'DropdownField'") }
+  scope :numeric, ->{ where("type = 'NumericField'") }
+  scope :max_priority, ->{ select('MAX(sort_priority) AS priority') }
+  scope :is_public, ->{ where(public: true) }
+  scope :required, ->{ where(required: true) }
+
+  ENTITY_TYPES = {
+    for_listing: 0,
+    for_person: 1
+  }.freeze
+
+  enum entity_type: ENTITY_TYPES
+
+  ASSIGNMENTS = {
+    unassigned: 0,
+    phone_number: 1
+  }.freeze
+
+  enum assignment: ASSIGNMENTS
+
   VALID_TYPES = ["TextField", "NumericField", "DropdownField", "CheckboxField","DateField"]
 
   validates_length_of :names, minimum: 1
-  validates_length_of :category_custom_fields, minimum: 1
+  validates :category_custom_fields, length: { minimum: 1 }, if: proc { |field| field.for_listing? }
   validates_presence_of :community
 
   def name_attributes=(attributes)

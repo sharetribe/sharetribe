@@ -1,0 +1,41 @@
+- content_for :javascript do
+  ST.menuLinkOptionOrder = ST.createMenuLinksOrder(".menu-link-sortable");
+
+%h3= t("admin.communities.menu_links.menu_links")
+#menu-links-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      - if show_locales
+        .col-2
+          = label_tag do
+            = t("admin.communities.menu_links.language")
+      %div{:class => show_locales ? "col-5" : "col-6"}
+        = label_tag do
+          = t("admin.communities.menu_links.title")
+      %div{:class => show_locales ? "col-5" : "col-6"}
+        = label_tag do
+          = t("admin.communities.menu_links.url")
+
+  .row#menu-links
+    %script{type: "text/template", class: "template", id: "new-menu-link-tmpl"}
+      = render :partial => "new_menu_link", :locals => { :menu_link => MenuLink.new, :menu_link_id => "${id}", :sort_priority => "${sortPriority}", :show_locales => show_locales }
+
+    - community.menu_links.each do |menu_link|
+      = render :partial => "new_menu_link", :locals => { :menu_link => menu_link, :menu_link_id => menu_link.id, :sort_priority => menu_link.sort_priority, :show_locales => show_locales }
+
+.row#menu-links-empty
+  .col-12
+    = t("admin.communities.menu_links.empty")
+
+.row
+  .col-12
+    = link_to t("admin.communities.menu_links.add_menu_link"), "#", :id => "menu-links-add"
+
+- if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)
+  %h3= t("admin.communities.menu_links.menu_links_display")
+  .row
+    .col-12
+      .checkbox-container
+        .settings-checkbox-label.label
+        - select_max_number = select_tag 'configuration[limit_priority_links]', options_for_select(limit_priority_links_options, limit_priority_links_selected), class: 'inline-select'
+        = t("admin.communities.menu_links.max_number_of_links", select_max_number: select_max_number).html_safe

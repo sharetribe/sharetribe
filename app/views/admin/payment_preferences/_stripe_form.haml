@@ -23,7 +23,8 @@
             = form.text_field :api_private_key, class: 'required',
               placeholder: t("admin.payment_preferences.stripe_form.secret_key_example", api_secret_key_example: 'sk_live_c7VffYB8AwSchkxe5RfjtS7e'),
               regex: regex_definition_to_js(APP_CONFIG.stripe_private_key_pattern),
-              data: {'msg-regex': t("admin.payment_preferences.stripe_form.invalid_secret", secret_key: 'secret key')}
+              data: {'msg-regex': t("admin.payment_preferences.stripe_form.invalid_secret", secret_key: 'secret key')},
+              autocomplete: 'off'
 
         .row
           = button_tag t(".save_api_keys")

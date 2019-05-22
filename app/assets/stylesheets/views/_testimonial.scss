@@ -58,6 +58,10 @@ $testimonial-icon-width: 40;
   &.negative {
     color: $red;
   }
+
+  &.faded {
+    color: #d9d9d9;
+  }
 }
 
 .load-more-testimonials {

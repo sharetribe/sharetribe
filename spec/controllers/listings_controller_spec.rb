@@ -51,6 +51,7 @@
 #
 # Indexes
 #
+#  community_author_deleted            (community_id,author_id,deleted)
 #  homepage_query                      (community_id,open,sort_date,deleted)
 #  homepage_query_valid_until          (community_id,open,valid_until,sort_date,deleted)
 #  index_listings_on_category_id       (old_category_id)
@@ -59,6 +60,7 @@
 #  index_listings_on_new_category_id   (category_id)
 #  index_listings_on_open              (open)
 #  index_listings_on_uuid              (uuid) UNIQUE
+#  index_on_author_id_and_deleted      (author_id,deleted)
 #  person_listings                     (community_id,author_id)
 #  updates_email_listings              (community_id,open,updates_email_at)
 #
@@ -74,8 +76,8 @@ describe ListingsController, type: :controller do
     Rails.cache.clear
   end
 
-  def create_shape(community_id, type, process_id, translations = [], categories = [])
-    defaults = TransactionTypeCreator::DEFAULTS[type]
+  def create_shape(community_id, type, process, translations = [], categories = [])
+    defaults = TransactionTypeCreator::DEFAULTS[type][process.process] || TransactionTypeCreator::DEFAULTS[type]
 
     # Save name to TranslationService
     translations_with_default = translations.concat([{ locale: "en", name: type }])
@@ -92,7 +94,7 @@ describe ListingsController, type: :controller do
     opts = defaults.merge(
       {
         shipping_enabled: false,
-        transaction_process_id: process_id,
+        transaction_process_id: process.id,
         name_tr_key: name_tr_key,
         action_button_tr_key: 'something.here',
         translations: translations_with_default,
@@ -123,11 +125,11 @@ describe ListingsController, type: :controller do
     c2_request_process = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: false)
     c2_offer_process   = TransactionProcess.create(community_id: @c2.id, process: :none, author_is_seller: true)
 
-    request_shape    = create_shape(@c1.id, "Request", c1_request_process.id)
-    sell_shape       = create_shape(@c1.id, "Sell",    c1_offer_process.id, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
-    sell_c2_shape    = create_shape(@c2.id, "Sell",    c2_offer_process.id)
-    request_c2_shape = create_shape(@c2.id, "Request", c2_request_process.id)
-    service_shape    = create_shape(@c1.id, "Service", c1_request_process.id)
+    request_shape    = create_shape(@c1.id, "Request", c1_request_process)
+    sell_shape       = create_shape(@c1.id, "Sell",    c1_offer_process, [{locale: "fi", name: "Myydään"}], [@category_item, @category_furniture])
+    sell_c2_shape    = create_shape(@c2.id, "Sell",    c2_offer_process)
+    request_c2_shape = create_shape(@c2.id, "Request", c2_request_process)
+    service_shape    = create_shape(@c1.id, "Service", c1_request_process)
 
     # This is needed in the spec, thus save it in instance variable
     @sell_shape = sell_shape

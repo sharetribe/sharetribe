@@ -1,0 +1,12 @@
+.row.checkbox-group-container
+  = hidden_field_tag "#{prefix}[selected_option_ids][]"
+  - custom_field.options.sort.dup.each_slice(2) do |column|
+    .col-6
+      - column.each do |opt|
+        .checkbox-container
+          - html_id = "person_custom_fields_#{index}_#{opt.id}"
+          - selected = custom_field_value ? custom_field_value.selected_options.include?(opt) : false
+          = check_box_tag "#{prefix}[selected_option_ids][]", opt.id, selected,
+            {id: html_id, class: "custom_field_checkbox #{custom_field.required? ? 'required' : ''}",
+            input_group_id: "person_custom_fields_#{index}"}
+          = label_tag html_id, "#{opt.title(I18n.locale)}", {class: "light"}

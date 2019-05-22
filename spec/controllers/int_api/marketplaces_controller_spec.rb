@@ -25,7 +25,7 @@ describe IntApi::MarketplacesController, type: :controller do
 
   describe "#create" do
     it "should create a marketplace and an admin user" do
-      post :create, params: { admin_email: "eddie.admin@example.com", 
+      post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -47,7 +47,10 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
+
+      default_per_unit = {kind: "quantity", name_tr_key: nil, quantity_selector: "number", selector_tr_key: nil, unit_type: "unit"}
+      expect(s.units.first).to eql default_per_unit
 
       payment_settings = TransactionService::API::Api.settings.get_active_by_gateway(community_id: c.id, payment_gateway: :paypal)
       expect(payment_settings[:data][:payment_gateway]).to eql :paypal
@@ -65,7 +68,7 @@ describe IntApi::MarketplacesController, type: :controller do
     end
 
     it "should handle emails starting with info@" do
-      post :create, params: { admin_email: "info@example.com", 
+      post :create, params: { admin_email: "info@example.com",
                      admin_first_name: "Eddiè",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -87,7 +90,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -101,7 +104,7 @@ describe IntApi::MarketplacesController, type: :controller do
     end
 
     it "should handle short emails like fo@barbar.com" do
-      post :create, params: { admin_email: "fo@example.com", 
+      post :create, params: { admin_email: "fo@example.com",
                      admin_first_name: "Eddie_",
                      admin_last_name: "Admin",
                      admin_password: "secret_word",
@@ -123,7 +126,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -159,7 +162,7 @@ describe IntApi::MarketplacesController, type: :controller do
       expect(c.ident).to eql "imaginationtraders"
       s = c.shapes.first
       expect(s.price_enabled).to eql true
-      expect(s.units.empty?).to eql true
+      expect(s.units.empty?).to eql false
 
       p = c.admins.first
       expect(p).to_not be_nil
@@ -172,23 +175,20 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-  end
+    it "should create a marketplace and assign new_stripe_api feature flag" do
+      post :create, params: { admin_email: "eddie.admin@example.com",
+                     admin_first_name: "Eddie",
+                     admin_last_name: "Admin",
+                     admin_password: "secret_word",
+                     marketplace_country: "FI",
+                     marketplace_language: "fi",
+                     marketplace_name: "ImaginationTraders",
+                     marketplace_type: "product"}
 
-  describe "#create_prospect_email" do
-    it "should add given email as prospect email" do
-      post :create_prospect_email, params: { :email => "something.not.used@example.com" }
-
-      expect(response.status).to eql 200
-      expect(response.body).to eql ""
-      expect(ProspectEmail.last.email).to eql "something.not.used@example.com"
-    end
-    it "should return with an error when an email is not provided" do
-      post :create_prospect_email, params: { }
-
-      expect(response.status).to eql 400
-      r = JSON.parse(response.body)
-      expect(r[0]).to eql "Email missing from payload"
-      expect(ProspectEmail.last).to be_nil
+      expect(response.status).to eql 201
+      community = Community.find_by(ident: "imaginationtraders")
+      feature_flag = FeatureFlag.find_by(community_id: community.id, enabled: true, feature: :new_stripe_api)
+      expect(feature_flag.persisted?).to eq true
     end
   end
 end

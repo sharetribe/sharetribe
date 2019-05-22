@@ -341,3 +341,29 @@ $content-padding: 36px;
 .info__column-text-content {
   width: 100%;
 }
+
+.info__section--background-color, .info__section--background-image--light, .info__section--background-image--dark {
+  .info__column-paragraph--markdown {
+    & > p {
+      color: #ffffff;
+    }
+  }
+  .info__column-title {
+      color: #ffffff;
+  }
+  .info__column-button--ghost {
+      color: #ffffff;
+      border-color: #ffffff;
+  }
+  .info__column-icon {
+    svg {
+      g, circle, path {
+        stroke: #ffffff; 
+      }
+    }    
+  }
+}
+
+.info__button-container {
+  margin-top: 20px;
+}

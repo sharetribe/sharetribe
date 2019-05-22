@@ -49,6 +49,7 @@ nl:
             paypal: "Accepteer betalingen"
             listing: "Voeg je eerste item toe"
             invitation: "Nodig gebruikers uit"
+            skip_this_step_for_now: “Sla deze stap tijdelijk over“
           payments:
             title: "Stap 5: Accepteer betalingen"
             description_p1: "Als je je gebruikers online betalingen wilt laten gebruiken (en als jijzelf commissie wilt ontvangen), dan dien je een betalingsservice te koppelen. Sharetribe ondersteunt zowel Stripe and Paypal (%{not_sure_link}). Na het koppelen van een service, dien je je commissie percentage te kiezen."
@@ -63,6 +64,8 @@ nl:
               disable_payments_alt: "Hoe schakel je online betalingen uit?"
               content_paypal_stripe: "Lees meer over het uitschakelen van betalingen in %{disable_payments_link} of lees meer over %{stripe_paypal_link}."
               stripe_paypal_link: "online betalingen, Stripe en Paypal"
+            i_dont_want: “Ik wil geen online betalingssysteem gebruiken, %{link}."
+            disable_it: “schakel het uit”
           slogan_and_description:
             title: "Stap 2: Slogan & beschrijving"
             description: "De slogan & beschrijving helpen nieuwe bezoekers te begrijpen wat je marktplaats te bieden heeft. Dit zijn de eerste dingen die bezoekers zien als ze je site bezoeken, dus hou het kort en bondig."

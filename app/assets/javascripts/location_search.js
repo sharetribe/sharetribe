@@ -11,7 +11,10 @@ window.ST = window.ST || {};
     var form = document.querySelector(selectors.form);
     var autocomplete = new window.google.maps.places.Autocomplete(searchInput, { bounds: { north: -90, east: -180, south: 90, west: 180 } });
     var locationQueryMade = false;
+    var sessionToken = null;
     autocomplete.setTypes(['geocode']);
+    autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
+
 
     // The values of these fields are defined based on the value of searchInput
     function clearHiddenInputs() {
@@ -110,7 +113,8 @@ window.ST = window.ST || {};
 
     var queryPredictions = function(inputString, callback) {
       var autocompleteService = new window.google.maps.places.AutocompleteService();
-      autocompleteService.getQueryPredictions({ input: inputString }, callback);
+      sessionToken = new google.maps.places.AutocompleteSessionToken();
+      autocompleteService.getPlacePredictions({ input: inputString, sessionToken: sessionToken }, callback);
     };
 
     var handlePredictions = function(predictions, autocompleteServiceStatus) {
@@ -121,7 +125,8 @@ window.ST = window.ST || {};
         var placeService = new window.google.maps.places.PlacesService(map);
 
         placeService.getDetails({
-          placeId: predictions[0].place_id // first prediction is default
+          placeId: predictions[0].place_id, // first prediction is default
+          sessionToken: sessionToken
         }, function(place, placeServiceStatus) {
 
           if(placeServiceStatus === serviceStatus.OK) {

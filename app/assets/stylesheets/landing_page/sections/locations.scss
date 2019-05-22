@@ -1,0 +1,328 @@
+@import "../mixins/all";
+
+$locations__desktop-height-7: 525px;
+$locations__desktop-height-6: 558px;
+$locations__desktop-height-5: 558px;
+$locations__desktop-height-4: 208px;
+$locations__desktop-height-3: 282px;
+
+$locations__tablet-height-7: 457px; // The height is actually more than this, but this is the
+                                     // number which is used to calculate the area based on the ratio
+$locations__tablet-height-6: 457px;
+$locations__tablet-height-5: 457px;
+$locations__tablet-height-4: 441px;
+$locations__tablet-height-3: 169px;
+
+$locations__mobile-height-big: 163px;
+$locations__mobile-height-small: 123px;
+
+$locations__desktop-gutter: 18px;
+$locations__tablet-gutter: 14px;
+$locations__mobile-gutter: 12px;
+
+.locations__section {
+  color: $typography__main-color;
+
+  width: 100%;
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+
+  @include dimensions__section--paddings;
+}
+
+.locations__content {
+  margin: 0 auto;
+  text-align: center;
+
+  // mobile
+  width: 100%;
+
+  @media #{$desktop} {
+    max-width: 1114px + $locations__desktop-gutter;
+  }
+}
+
+.locations__title {
+  @include typography__section-title;
+  @include dimensions__section-title--limited-width;
+}
+
+.locations__paragraph--markdown {
+  & > p {
+    @include typography__section-paragraph;
+    @include dimensions__section-paragraph--limited-width;
+  }
+}
+
+.locations__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
+.locations__button--ghost {
+  @include landing-page__button;
+}
+
+.locations__locations {
+  @include prefix-val(display, flex);
+  @include prefix-prop(flex-wrap, wrap);
+
+  // mobile
+  padding: 0px (24px - $locations__tablet-gutter / 2) 36px (24px - $locations__tablet-gutter / 2);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    padding: 0px (48px - $locations__tablet-gutter / 2) 48px (48px - $locations__tablet-gutter / 2);
+  }
+
+  @media #{$desktop} {
+    padding: 0px (60px - $locations__desktop-gutter / 2) 60px (60px - $locations__desktop-gutter / 2);
+  }
+}
+
+.locations__location {
+  padding: $locations__mobile-gutter / 2;
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    padding: $locations__tablet-gutter / 2;
+  }
+
+  @media #{$desktop} {
+    padding: $locations__desktop-gutter / 2;
+  }
+}
+
+@mixin location-mobile-style($num_of_locations) {
+  width: 50%;
+  height: $locations__mobile-height-small;
+
+  @if $num_of_locations % 2 == 1 {
+    &:first-child {
+      width: 100%;
+      height: $locations__mobile-height-big;
+    }
+  }
+}
+
+.locations__location--7 {
+  @extend .locations__location;
+
+  // mobile
+  @include location-mobile-style(7);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    &:nth-child(1) {
+      width: (100% / 3 * 2);
+      @include golden-ratio-numerator(height, $locations__tablet-height-7);
+    }
+
+    &:nth-child(2) {
+      width: (100% / 3 * 1);
+      @include golden-ratio-numerator(height, $locations__tablet-height-7);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      width: 50%;
+      @include golden-ratio-denominator(height, $locations__tablet-height-7);
+    }
+
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      width: (100% / 3);
+      @include golden-ratio-denominator(height, $locations__tablet-height-7);
+    }
+  }
+
+  @media #{$desktop} {
+    &:nth-child(1) {
+      width: 50%;
+      @include golden-ratio-numerator(height, $locations__desktop-height-7);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      width: 25%;
+      @include golden-ratio-numerator(height, $locations__desktop-height-7);
+    }
+
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      width: 25%;
+      @include golden-ratio-denominator(height, $locations__desktop-height-7);
+    }
+  }
+}
+
+.locations__location--6 {
+  @extend .locations__location;
+
+  // mobile
+  @include location-mobile-style(6);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    width: (100% / 3);
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include golden-ratio-numerator(height, $locations__tablet-height-6);
+    }
+
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      @include golden-ratio-denominator(height, $locations__tablet-height-6);
+    }
+  }
+
+  @media #{$desktop} {
+    width: (100% / 3);
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      @include golden-ratio-numerator(height, $locations__desktop-height-6);
+    }
+
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      @include golden-ratio-denominator(height, $locations__desktop-height-6);
+    }
+  }
+}
+
+.locations__location--5 {
+  @extend .locations__location;
+
+  // mobile
+  @include location-mobile-style(5);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    &:nth-child(1) {
+      width: (100% / 3 * 2);
+      @include golden-ratio-numerator(height, $locations__tablet-height-5);
+    }
+
+    &:nth-child(2) {
+      width: (100% / 3);
+      @include golden-ratio-numerator(height, $locations__tablet-height-5);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: (100% / 3);
+      @include golden-ratio-denominator(height, $locations__tablet-height-5);
+    }
+  }
+
+  @media #{$desktop} {
+    &:nth-child(1) {
+      width: (100% / 3 * 2);
+      @include golden-ratio-numerator(height, $locations__desktop-height-5);
+    }
+
+    &:nth-child(2) {
+      width: (100% / 3);
+      @include golden-ratio-numerator(height, $locations__desktop-height-5);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      width: (100% / 3);
+      @include golden-ratio-denominator(height, $locations__desktop-height-5);
+    }
+  }
+}
+
+.locations__location--4 {
+  @extend .locations__location;
+
+  // mobile
+  @include location-mobile-style(4);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    width: 50%;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include golden-ratio-numerator(height, $locations__tablet-height-4);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      @include golden-ratio-denominator(height, $locations__tablet-height-4);
+    }
+  }
+
+  @media #{$desktop} {
+    width: 25%;
+    height: $locations__desktop-height-4;
+  }
+}
+
+.locations__location--3 {
+  @extend .locations__location;
+
+  // mobile
+  @include location-mobile-style(3);
+
+  @media #{$mobile-landscape}, #{$tablet} {
+    // location-mobile-style uses :first-child so we need to override it
+    &, &:first-child {
+      width: (100% / 3);
+      height: $locations__tablet-height-3;
+    }
+  }
+
+  @media #{$desktop} {
+    // location-mobile-style uses :first-child so we need to override it
+    &, &:first-child {
+      width: (100% / 3);
+      height: $locations__desktop-height-3;
+    }
+  }
+}
+
+.locations__location-content {
+  @include prefix-val(display, flex);
+  @include prefix-prop(align-items, center);
+
+  border-radius: $dimension-card-border-radius;
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.10), inset 0 0 0 999999px rgba(0, 0, 0, 0.2); /* big enough number to cover the whole area */
+  width: 100%;
+  height: 100%;
+
+  @include hover-transition();
+
+  &:hover {
+    transform: scale(1.011);
+  }
+}
+
+.locations__location-title {
+  color: #FFF;
+  margin: 0 auto;
+  @include typography__semibold;
+  letter-spacing: 0px;
+  line-height: 22px;
+
+  font-size: 16px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media #{$desktop} {
+    font-size: 18px;
+  }
+
+}
+

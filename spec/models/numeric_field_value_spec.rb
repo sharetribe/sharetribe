@@ -12,26 +12,34 @@
 #  updated_at      :datetime         not null
 #  type            :string(255)
 #  delta           :boolean          default(TRUE), not null
+#  person_id       :string(255)
 #
 # Indexes
 #
 #  index_custom_field_values_on_listing_id  (listing_id)
+#  index_custom_field_values_on_person_id   (person_id)
 #  index_custom_field_values_on_type        (type)
 #
 
 require 'spec_helper'
 
 describe NumericFieldValue, type: :model do
-  describe "validations" do
-    it "should have text value" do
-      @value = NumericFieldValue.new
-      expect(@value).not_to be_valid
+  let(:field)   { FactoryGirl.create :custom_numeric_field, min: 0, max: 50, required: false }
+  let(:required_field)   { FactoryGirl.create :custom_numeric_field, min: 0, max: 50, required: true }
 
-      # Has to be number
-      @value.numeric_value = 0
-      expect(@value).to be_valid
-      @value.numeric_value = "jee"
-      expect(@value).not_to be_valid
+  describe "validations" do
+    it "should treat numeric value as optional if field is not required" do
+      value = NumericFieldValue.new(question: field)
+      expect(value).to be_valid
+    end
+
+    it "should have numeric value" do
+      value = NumericFieldValue.new(question: required_field)
+      expect(value).not_to be_valid
+      value.numeric_value = 0
+      expect(value).to be_valid
+      value.numeric_value = "jee"
+      expect(value).not_to be_valid
     end
   end
 

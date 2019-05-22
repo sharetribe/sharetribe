@@ -1,0 +1,61 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script>
+   $(document).ready(function () {
+         if (window.location.href.indexOf("/transactions/") > -1) {
+            onLoadRequestsPage()
+         } else if (window.location.pathname === "/s" && window.location.search === "") {
+            window.location.href = 'http://209.97.140.172:3000/s?transaction_type=needing-help'
+   } else if (window.location.pathname === "/s" && window.location.search === "?transaction_type=needing-help"){
+            $('#home_toolbar-select-share-type > div > div > a:nth-child(2)').css('background','#ff8243')
+   }else if (window.location.pathname === "/s" && window.location.search === "?transaction_type=offering"){
+            $('#home_toolbar-select-share-type > div > div > a:nth-child(1)').css('background', '#ff8243')
+   }
+   })
+
+ 
+ function onLoadRequestsPage() {
+        var firstMessage = $('#messages .message-row:last-child');
+        if (!firstMessage) {
+            // No Messages have been sent
+            return ;
+        } else {
+            var isHirer = firstMessage.find('.message-time-ago-right').length > 0;
+  var isRequest = $('#transaction_status').val() === '';
+            if (isHirer && isRequest) {
+    renderPaypal()
+  }
+}
+}
+    function renderPaypal() {
+        var totalAmount = $('.initiate-transaction-total-value').text().trim().substr(1) + "00"
+var transactionIndex = window.location.href.lastIndexOf("/");
+var reference = document.querySelector('#sidewinder-wrapper > article > div > div > div:nth-child(1) > div > div > h2 > a').innerText
+ 
+
+var script = document.createElement('script');
+var amount_paid = 10;
+var purch_item = 'Test';
+var final_value = 15;
+
+script.src = "https://checkout.stripe.com/checkout.js";
+
+script.setAttribute("class", "stripe-button");
+script.setAttribute("data-key", "pk_test_gJIeYpuvZc56uI22j5yr7h3s");
+script.setAttribute("data-amount", totalAmount );
+script.setAttribute("data-name", "Dignity Platform");
+script.setAttribute("data-description", "Task");
+script.setAttribute("data-image", "image.png");
+script.setAttribute("data-label", "Pay for this request");
+script.setAttribute("data-currency", "GBP");
+
+$('div.initiate-transaction-totals').append('<form action="make_payment.php" method="POST" id="my_frm" style="text-align:center; padding-bottom:0"></form>');
+  
+  $(script).appendTo("#my_frm");
+  
+  
+      } 
+  
+</script>
+
+GRANT all privileges on sharetribe_development.* TO 'george'@'localhost' IDENTIFIED BY 'Trolloc12#';

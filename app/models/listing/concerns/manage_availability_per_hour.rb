@@ -16,7 +16,7 @@ module ManageAvailabilityPerHour
 
   def working_hours_as_json
     as_json(only: [:id, :title],  include: {
-      working_time_slots: { only: [:id, :week_day, :from, :till] }
+      working_time_slots: { only: [:id, :week_day, :from, :till], methods: :errors }
     })
   end
 

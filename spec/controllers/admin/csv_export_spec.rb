@@ -23,6 +23,7 @@ describe Admin::CommunityMembershipsController, type: :controller do
       user = Hash[*response_arr[0].zip(response_arr[1]).flatten]
       user2 = Hash[*response_arr[0].zip(response_arr[2]).flatten]
 
+      expect(user["user_id"]).to eq(@person.id)
       expect(user["first_name"]).to eq(@person.given_name)
       expect(user["last_name"]).to eq(@person.family_name)
       expect(user["display_name"]).to eq(@person.display_name || "")
@@ -30,6 +31,7 @@ describe Admin::CommunityMembershipsController, type: :controller do
       expect(user["email_address"]).to eq(@person.emails.first.address)
       expect(user["status"]).to eq("accepted")
 
+      expect(user2["user_id"]).to eq(@person.id)
       expect(user2["first_name"]).to eq(@person.given_name)
       expect(user2["last_name"]).to eq(@person.family_name)
       expect(user2["display_name"]).to eq(@person.display_name || "")
@@ -52,9 +54,6 @@ describe Admin::CommunityTransactionsController, type: :controller do
     @request.host = "#{@community.ident}.lvh.me"
     @request.env[:current_marketplace] = @community
     @transaction = FactoryGirl.create(:transaction, starter: @person, listing: @listing, community: @community)
-
-    allow(FeatureFlagHelper).to receive(:feature_enabled?)
-      .with(:export_transactions_as_csv).and_return(true)
   end
 
   describe "transactions CSV export" do

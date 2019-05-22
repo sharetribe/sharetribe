@@ -51,9 +51,16 @@ Given /^there will be and error in my Facebook login$/ do
 end
 
 Given /^there will be no email returned in my Facebook login$/ do
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
+  oauth_mock('facebook', {
       :provider => 'facebook',
       :uid => '597015435',
+      info: {
+        nickname: 'jackety-jack',
+        email: nil,
+        name: 'Jackie Brownie',
+        first_name: 'Jackie',
+        last_name: 'Brownie'
+      },
       :extra =>{
         :raw_info => {
           :first_name => "Jackie",
@@ -120,11 +127,13 @@ Given /^there are following users:$/ do |person_table|
 end
 
 Given(/^there are (\d+) users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
-  FactoryGirl.create_list(:person, user_count.to_i,
-                          given_name: given_name,
-                          family_name: "#{family_name_prefix} #{user_count}",
-                          community_id: @current_community.id,
-                          communities: [@current_community])
+  1.upto(user_count.to_i).map do |counter|
+    FactoryGirl.create(:person,
+                        given_name: given_name,
+                        family_name: format(family_name_prefix, counter),
+                        community_id: @current_community.id,
+                        communities: [@current_community])
+  end
 end
 
 # Filling in with random strings
@@ -164,6 +173,7 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   expect(user).not_to be_nil
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
+  value = 70 if value == "70"
   user.send(attribute).send(verb) == value
 end
 
@@ -229,5 +239,38 @@ Given /^I have confirmed paypal account(?: as "([^"]*)")?(?: for community "([^"
   paypal_account = FactoryGirl.create(:paypal_account, person_id: person.id, community_id: community.id)
   FactoryGirl.create(:order_permission, paypal_account: paypal_account)
   FactoryGirl.create(:billing_agreement, paypal_account: paypal_account)
+end
+
+Given /^I have confirmed stripe account(?: as "([^"]*)")?(?: for community "([^"]*)")?$/ do |person, community_name|
+  username = person || "kassi_testperson1"
+  person = Person.find_by(username: username)
+  community = Community.where(ident: community_name || "test").first
+  FactoryGirl.create(:stripe_account, person_id: person.id,
+                                      community_id: community.id, stripe_seller_id: 'ABC',
+                                      stripe_bank_id: 'ABC')
+end
+
+Given(/^there are (\d+) unconfirmed users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    email = person.emails.first
+    email.update_column(:confirmed_at, nil)
+    person.community_membership.update_column(:status, CommunityMembership::PENDING_EMAIL_CONFIRMATION)
+  end
+end
+
+Given(/^there are (\d+) banned users with name prefix "([^"]*)" "([^"]*)"$/) do |user_count, given_name, family_name_prefix|
+  1.upto(user_count.to_i).map do |counter|
+    person = FactoryGirl.create(:person,
+                                given_name: given_name,
+                                family_name: format(family_name_prefix, counter),
+                                community_id: @current_community.id,
+                                communities: [@current_community])
+    person.community_membership.update_column(:status, CommunityMembership::BANNED)
+  end
 end
 

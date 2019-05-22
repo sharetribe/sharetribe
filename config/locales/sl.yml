@@ -52,9 +52,13 @@ sl:
         community_name: ~
         edit_community_name_description: ~
         community_slogan: ~
+        community_slogan_display: ~
         edit_community_slogan_description: ~
+        edit_community_slogan_description_hideable: ~
         community_description: ~
+        community_description_display: ~
         edit_community_description_description: ~
+        edit_community_description_description_hideable: ~
         community_search_placeholder: ~
         edit_community_search_placeholder_description: ~
         private_community_homepage_content: ~
@@ -80,6 +84,7 @@ sl:
         edit_community_look_and_feel: ~
         community_logo: ~
         community_logo_icon: ~
+        community_logo_icon_mobile: ~
         community_cover_photo: ~
         small_community_cover_photo: ~
         favicon: ~
@@ -94,6 +99,7 @@ sl:
         logo_instructions_text_with_dimensions_no_placing: ~
         logo_icon_instructions_text_with_dimensions: ~
         logo_icon_instructions_text_with_dimensions_no_placing: ~
+        logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
         small_cover_photo_visibility: ~
@@ -114,6 +120,7 @@ sl:
         invalid_color_code: ~
         custom_head_script: ~
         custom_head_script_instructions_text: ~
+        current_image: ~
       edit_text_instructions:
         edit_text_instructions: ~
       edit_welcome_email:
@@ -161,27 +168,33 @@ sl:
       getting_started:
         getting_started: ~
       available_languages:
+        cs: ~
+        da-DK: ~
+        de: ~
         en: ~
         en-AU: ~
         en-GB: ~
-        fr: ~
-        fr-CA: ~
         es: ~
         es-ES: ~
-        pt-PT: ~
-        pt-BR: ~
-        nb: ~
-        sv: ~
-        da-DK: ~
         fi: ~
-        ru: ~
-        de: ~
+        fr: ~
+        fr-CA: ~
         el: ~
-        nl: ~
-        tr-TR: ~
-        zh: ~
-        ja: ~
         it: ~
+        ja: ~
+        ko: ~
+        nb: ~
+        nl: ~
+        pl: ~
+        pt-BR: ~
+        pt-PT: ~
+        ru: ~
+        sv: ~
+        th-TH: ~
+        tr-TR: ~
+        vi: ~
+        zh: ~
+        zh-TW: ~
       settings:
         settings: ~
         general: ~
@@ -212,6 +225,7 @@ sl:
         update_settings: ~
         automatically_confirmed_no_escrow: ~
         automatically_confirmed_no_escrow_stripe_info: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: ~
         newsletter_daily: ~
         newsletter_weekly: ~
@@ -245,6 +259,23 @@ sl:
         search_by_name_email: ~
         reset_search: ~
         for_search_terms: ~
+        this_makes_the_user_an_admin: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          admin: ~
+          banned: ~
+          posting_allowed: ~
+          accepted: ~
+          unconfirmed: ~
+          pending: ~
+        this_user_hasnt_confirmed_their_email_address: ~
+        unconfirmed_user: ~
+        resend: ~
+        cancel: ~
+        user_didnt_complete_the_signup_process: ~
+        pending_user: ~
       new_layout:
         new_layout: ~
         description_roadmap_new: ~
@@ -254,6 +285,14 @@ sl:
         searchpage: ~
       social_media:
         social_media: ~
+        logo: ~
+        logo_info: ~
+        social_media_title: ~
+        social_media_title_info: ~
+        link_for_facebook: ~
+        link_for_linkedin: ~
+        link_for_twitter: ~
+        social_media_description: ~
         twitter_handle: ~
         twitter_handle_info_text: ~
         twitter_handle_info_text_with_instructions: ~
@@ -268,6 +307,41 @@ sl:
         invalid_facebook_connect_id: ~
         facebook_connect_secret: ~
         invalid_facebook_connect_secret: ~
+        enable_facebook_login: ~
+        save: ~
+        add_another_image: ~
+        google_connect: ~
+        google_instructions_link_text: ~
+        google_connect_info_text_with_instructions: ~
+        google_connect_info_text: ~
+        enable_google_login: ~
+        google_connect_id: ~
+        google_connect_secret: ~
+        linkedin_connect: ~
+        linkedin_instructions_link_text: ~
+        linkedin_connect_info_text_with_instructions: ~
+        linkedin_connect_info_text: ~
+        enable_linkedin_login: ~
+        linkedin_connect_id: ~
+        linkedin_connect_secret: ~
+      seo_settings:
+        seo: ~
+        title: ~
+        meta_title_label: ~
+        meta_title_info: ~
+        meta_title_link_text: ~
+        meta_description_label: ~
+        meta_description_info: ~
+        meta_description_link_text: ~
+        sitemap_label: ~
+        sitemap_info: ~
+        sitemap_info_link_text: ~
+        sitemap_info_public: ~
+        sitemap_info_private: ~
+        robots_label: ~
+        robots_info: ~
+        robots_info_link_text: ~
+        robots_info_2: ~
         save: ~
       analytics:
         analytics: ~
@@ -275,9 +349,19 @@ sl:
         google_analytics_key_info_text: ~
         google_analytics_key_info_text_with_instructions: ~
         google_analytics_instructions_link_text: ~
+        sharetribe_analytics: ~
+        sharetribe_analytics_info_text_with_instructions: ~
+        sharetribe_analytics_instructions_link_text: ~
+        end_user_analytics: ~
         save: ~
+      logo_link:
+        title: ~
+        info: ~
+        url: ~
+        placeholder: ~
       menu_links:
         menu_links: ~
+        menu_links_display: ~
         save: ~
         add_menu_link: ~
         title_placeholder: ~
@@ -290,6 +374,15 @@ sl:
         all: ~
         max_number_of_links_info: ~
         about_page: ~
+      default_menu_links:
+        title: ~
+        about_link_title: ~
+        contact_link_title: ~
+        invite_link_title: ~
+        info: ~
+        display_about: ~
+        display_contact: ~
+        display_invite: ~
       topbar:
         topbar: ~
         new_listing_button_label: ~
@@ -298,6 +391,19 @@ sl:
         export_all_as_csv: ~
         processing_export: ~
         transactions: ~
+        search_by_title_parties: ~
+        search: ~
+        reset_search: ~
+        status_filter:
+          all: ~
+          selected: ~
+          selected_js: ~
+          free: ~
+          confirmed: ~
+          paid: ~
+          canceled: ~
+          preauthorized: ~
+          rejected: ~
         headers:
           conversation: ~
           listing: ~
@@ -355,6 +461,117 @@ sl:
           other_party: ~
         participants: ~
         profile: ~
+        search_by_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+      testimonials:
+        testimonials: ~
+        no_testimonials_found: ~
+        displaying_xx_reviews: ~
+        search_keyword: ~
+        search: ~
+        reset_search: ~
+        for_keyword: ~
+        headers:
+          transaction: ~
+          author: ~
+          receiver: ~
+          status: ~
+          grade: ~
+          text: ~
+        status:
+          waiting: ~
+          skipped: ~
+          published: ~
+          blocked: ~
+        status_filter:
+          selected: ~
+          all: ~
+          published: ~
+          positive: ~
+          negative: ~
+          skipped: ~
+          waiting: ~
+          blocked: ~
+          selected_js: ~
+        form:
+          review_text: ~
+          save: ~
+          cancel: ~
+          delete_review: ~
+          block_review: ~
+          confirm_modify: ~
+          deleting_info: ~
+          blocking_info: ~
+      invitations:
+        invitations: ~
+        used:
+          "yes": ~
+          "no": ~
+        headers:
+          sent_by: ~
+          message: ~
+          sent_to: ~
+          used: ~
+          date_sent: ~
+      listings:
+        listings: ~
+        search_by_title_author_category: ~
+        search: ~
+        reset_search: ~
+        status:
+          all: ~
+          selected_js: ~
+          open: ~
+          closed: ~
+          expired: ~
+        headers:
+          title: ~
+          author: ~
+          created: ~
+          updated: ~
+          category: ~
+          status: ~
+        open: ~
+        closed: ~
+        expired: ~
+      user_fields:
+        user_fields: ~
+      footer:
+        footer: ~
+        offer_pro: ~
+        upgrade_plan_link: ~
+        menu_links: ~
+        language: ~
+        title: ~
+        url: ~
+        add: ~
+        save: ~
+        footer_style: ~
+        footer_copyright: ~
+        footer_enabled: ~
+        social_links: ~
+        title_placeholder: ~
+        url_placeholder: ~
+        style:
+          dark: ~
+          light: ~
+          marketplace_color: ~
+          logo: ~
+        social:
+          title: ~
+          url: ~
+      domain:
+        domain: ~
+        marketplace_domain: ~
+        offer_pro: ~
+        upgrade_pro_plan_link: ~
+        your_marketplace_address_is: ~
+        would_you_like_to_change_address: ~
+        contact_us: ~
+        you_can_now_use_a_custom_domain: ~
+        would_you_like_to_change_domain: ~
     custom_fields:
       edit:
         edit_listing_field: ~
@@ -408,6 +625,32 @@ sl:
         dropdown: ~
         checkbox_group: ~
         date: ~
+        file: ~
+        location: ~
+    person_custom_fields:
+      saving_failed: ~
+      index:
+        user_fields: ~
+        field_title: ~
+        field_type: ~
+        signup: ~
+        public: ~
+        add_new_field: ~
+        save: ~
+        cancel: ~
+        minimum_value: ~
+        maximum_value: ~
+        allow_decimals: ~
+        add_option: ~
+      new:
+        new_user_field: ~
+      form:
+        field_required:
+          this_field_is_required: ~
+          this_field_is_required_checkbox: ~
+          this_field_is_public: ~
+      edit:
+        edit_user_field: ~
     emails:
       new:
         send_email_to_members: ~
@@ -422,6 +665,7 @@ sl:
           title: ~
           options:
             all_users: ~
+            posting_allowed: ~
             with_listing: ~
             with_listing_no_payment: ~
             with_payment_no_listing: ~
@@ -513,6 +757,7 @@ sl:
         night: ~
         week: ~
         month: ~
+        unit: ~
       can_not_find: ~
       add_custom_unit: ~
       delete_custom_unit: ~
@@ -578,6 +823,8 @@ sl:
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
       confirm_disable: ~
+      commission_from_buyer_label: ~
+      minimum_buyer_transaction_fee_label: ~
       stripe_connected:
         title: ~
         disable: ~
@@ -590,6 +837,7 @@ sl:
         enable: ~
       cannot_enable_gateway: ~
       cannot_disable_gateway: ~
+      cannot_enable_gateway_because_of_buyer_commission: ~
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
@@ -612,11 +860,17 @@ sl:
         payments_not_enabled: ~
     transaction_types:
       sell: ~
+      sell_w_online_payment: ~
+      sell_wo_online_payment: ~
       rent: ~
+      rent_w_online_payment: ~
+      rent_wo_online_payment: ~
       give: ~
       lend: ~
       swap: ~
       service: ~
+      service_w_online_payment: ~
+      service_wo_online_payment: ~
       request: ~
       inquiry: ~
       share_for_free: ~
@@ -705,6 +959,7 @@ sl:
       quantity_label: ~
       sum_label: ~
       service_fee_label: ~
+      buyer_service_fee_label: ~
       you_will_get_label: ~
       total_label: ~
       total_value: ~
@@ -750,6 +1005,7 @@ sl:
     message:
       accepted_request: ~
       received_payment: "sprejeta zahteva, prejeto plačilo za %{sum}"
+      received_payment_wo_sum: ~
       accepted_offer: ~
       rejected_request: ~
       rejected_offer: ~
@@ -759,8 +1015,10 @@ sl:
       canceled_offer: ~
       paid: ~
       payment_preauthorized: ~
+      payment_preauthorized_wo_sum: ~
       stripe:
         held_payment: ~
+        held_payment_wo_sum: ~
         confirmed_request: ~
     new:
       message: Sporočilo
@@ -975,7 +1233,9 @@ sl:
       shipping_total: ~
       product: ~
       price_payer_paid: ~
+      subtotal: ~
       service_fee: ~
+      buyer_service_fee: ~
       you_will_get: ~
       new_payment: ~
       price_per_unit_type: ~
@@ -991,6 +1251,7 @@ sl:
       duration: ~
       quantity: ~
       subtotal: ~
+      buyer_service_fee: ~
       total: ~
       price: ~
       service_fee: ~
@@ -1015,7 +1276,7 @@ sl:
       subtotal: ~
       total: ~
       price: ~
-      service_fee: ~
+      buyer_service_fee: ~
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -1109,6 +1370,8 @@ sl:
       reject_authorization_error: ~
     stripe:
       generic_error: ~
+      accept_authorization_error: ~
+      reject_authorization_error: ~
   error_pages:
     back_to_kassi_front_page: ~
     error_404:
@@ -1147,6 +1410,7 @@ sl:
       after: ~
       on_or_after: ~
       positive_number: ~
+      from_must_be_less_than_till: ~
   event_feed_events:
     accept:
       has_accepted_lend_item: ~
@@ -1393,8 +1657,8 @@ sl:
       comment_sent: ~
       confirmation_link_is_wrong_or_used: "Povezava za potrditev je bila že uporabljena ali pa je napačna. Poskusi se prijaviti. Če ne deluje, nam pošlji sporočilo."
       additional_email_confirmed: "Tvoj e-naslov je sedaj potrjen."
-      could_not_get_email_from_facebook: ~
-      facebook_email_unconfirmed: ~
+      could_not_get_email_from_social_network: ~
+      social_network_email_unconfirmed: ~
       create_new_listing: "Dodaj še eno objavo"
       create_one_here: "kreiraj tukaj."
       email_confirmation_sent_to_new_address: ~
@@ -1431,7 +1695,7 @@ sl:
       listing_updated_successfully: "Objava je uspešno osvežena"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
-      only_kassi_administrators_can_access_this_area: "Samo %{service_name} administrator ima dostop."
+      only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       payment_successful: ~
@@ -1499,6 +1763,9 @@ sl:
       listing_author_payment_details_missing: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
+      stripe_you_account_balance_is_not_0: ~
+      visit_admin: ~
+      visit_admin_link: ~
     settings:
       account: Račun
       notifications: Obvestila
@@ -1507,6 +1774,8 @@ sl:
       paypal_payments: ~
       stripe_payments: ~
       payments: ~
+      listings: ~
+      listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
@@ -1694,6 +1963,7 @@ sl:
       select_one: ~
       start_time: ~
       end_time: ~
+      marketplace_fees_may_apply: ~
     new:
       listing: ~
       selected_category: "Kategorija: %{category}"
@@ -1707,12 +1977,14 @@ sl:
       community_not_configured_for_payments: ~
       payment_settings_link: ~
       community_not_configured_for_payments_admin: ~
+      you_are_now_posting_a_listing_on_behalf_of: ~
     quantity:
       hour: ~
       day: ~
       night: ~
       week: ~
       month: ~
+      unit: ~
       custom: ~
     quantity_placeholder: ~
     please_comment: ~
@@ -1764,6 +2036,7 @@ sl:
       night: ~
       week: ~
       month: ~
+      unit: ~
     verification_required:
       verification_required: "Potrebna je odobritev"
   listing_conversations:
@@ -1914,7 +2187,8 @@ sl:
       invalid_username_or_email: ~
       family_name: Priimek
       given_name: Ime
-      i_accept_the: Sprejmem
+      i_accept_the_terms_and_privacy: ~
+      admin_emails_consent: ~
       invalid_invitation_code: "Ta koda povabiila ni veljavna."
       invitation_code: "Koda povabila"
       not_required: ~
@@ -1923,20 +2197,21 @@ sl:
       show_my_name_to_others: ~
       sign_up: "Kreiraj nov %{service_name} uporabniški račun"
       terms: "pogoji poslovanja"
+      privacy: ~
       username_is_in_use: "To uporabniško ime je že v uporabi."
       username_is_invalid: "Uporabniško ime ni veljavno. Dovoljene so samo črke, številke in podčrtaj."
       visible_only_to_you: ~
       visible_to_everybody: ~
-      create_account_with_facebook: "Registrirajte se s Facebookom"
+      create_account_with_provider: ~
       OR: ~
       signup_with_email: "Registriraj se z e-naslovom"
+      this_field_will_be_publicly_visible: ~
     profile_feedback:
       grade: ~
       and_gave_following_feedback: ~
     profile_listings:
-      show_also_closed: "Prikaži tudi zaprte objave"
-      show_only_open: "Prikaži samo odprte objave"
       no_image: ~
+      manage_listings: ~
     show:
       contact: ~
       about_me: ~
@@ -1969,6 +2244,8 @@ sl:
       show_all_listings: "Pokaži vse objave"
       show_all_open_listings: ~
       show_all_reviews: ~
+      admin_actions: ~
+      post_listing_as: ~
     followed_people:
       you_follow_plural: ~
       you_follow_singular: ~
@@ -1993,7 +2270,7 @@ sl:
       account_creation_link_text: "klikni tukaj"
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: "Prijavi se s Facebookom"
+      log_in_with_your_provider_account: ~
       or_sign_up_with_your_username: "... ali s svojim uporabniškim imenom ali e-naslovom:"
       we_will_not_post_without_asking_you: ~
     password_forgotten:
@@ -2027,6 +2304,7 @@ sl:
       delete_personal_information: "Če izbrišeš svoj uporabniški račun, se bojo vse tvoje osebne informacije (ime, telefon, e-naslov, profilna fotografija itd.) izbrisale trajno in jih ne bo možno ponovno obnoviti. Tudi vse tvoje objave bojo odstranjene. Računa ne boš mogel obnoviti sam."
       delete_information_others_involved: ~
       unfinished_transactions: ~
+      only_admin: ~
       new_password: "Novo geslo"
       save: Shrani
       these_fields_are_shown_only_to_you: ~
@@ -2079,6 +2357,7 @@ sl:
       display_name: ~
       display_name_description: ~
       location_description: ~
+      profile_picture_description: ~
       phone_number: "Telefonska številka"
       profile_picture: "Tvoja profilna slika"
       postal_code: ~
@@ -2091,6 +2370,8 @@ sl:
       default_in_listing: "(uporabljeno kot osnovna lokacija, ko kreiraš nove objave)"
       invisible: "(ni vidno drugim uporabnikom)"
       image_is_processing: "Počakaj. Tvojo profilno fotko še procesiramo. Na voljo bo v minuti ali dveh."
+      shown_in_your_public_profile: ~
+      editing_profile_of: ~
     save_information: "Shrani informacije"
   shipping_address:
     shipping_address: ~
@@ -2282,6 +2563,7 @@ sl:
       signup: Registracija
       admin_dashboard: ~
       language: ~
+      listings: ~
     utils:
       km: ~
       mi: ~
@@ -2320,12 +2602,19 @@ sl:
       need_info: ~
       select_country: ~
       legal_name: ~
+      first_name: ~
+      last_name: ~
+      first_name_kana: ~
+      last_name_kana: ~
+      first_name_kanji: ~
+      last_name_kanji: ~
       country: ~
       birth_date: ~
       ssn_last_4: ~
       personal_id_number: ~
       address_country: ~
       address_state: ~
+      address_province: ~
       address_city: ~
       address_postal_code: ~
       address_line1: ~
@@ -2334,12 +2623,28 @@ sl:
       save_details: ~
       edit: ~
       cancel: ~
+      gender: ~
+      phone_number: ~
+      address_kana_postal_code: ~
+      address_kana_state: ~
+      address_kana_city: ~
+      address_kana_town: ~
+      address_kana_line1: ~
+      address_kanji_postal_code: ~
+      address_kanji_state: ~
+      address_kanji_city: ~
+      address_kanji_town: ~
+      address_kanji_line1: ~
+      male: ~
+      female: ~
+      mcc: ~
     form_bank:
       bank_account_number: ~
       bank_routing_number: ~
       bank_routing_1: ~
       bank_routing_2: ~
       bank_currency: ~
+      update_also_bank_account: ~
       messages:
         account_number: ~
         routing_number: ~
@@ -2364,6 +2669,7 @@ sl:
     form_pin:
       social_insurance_number: ~
       social_security_number: ~
+      ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
       messages:

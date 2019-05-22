@@ -12,4 +12,44 @@ module LayoutHelper
 
     local_assigns[key]
   end
+
+  def social_media_title
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if customization&.social_media_title.present?
+      customization.social_media_title
+    else
+      "#{@current_community.full_name(I18n.locale)} - #{community_slogan}"
+    end
+  end
+
+  def social_media_description
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if customization&.social_media_description.present?
+      customization.social_media_description
+    else
+      "#{community_description(false)} - #{community_slogan}"
+    end
+  end
+
+  def homepage_meta_title(default)
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if is_homepage? && customization&.meta_title.present?
+      customization.meta_title
+    else
+      default
+    end
+  end
+
+  def homepage_meta_description(default)
+    customization = @current_community.community_customizations.where(locale: I18n.locale).first
+    if is_homepage? && customization&.meta_description.present?
+      customization.meta_description
+    else
+      default
+    end
+  end
+
+  def is_homepage?
+    params[:controller] == "homepage" && params[:action] == "index"
+  end
 end

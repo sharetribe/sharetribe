@@ -4,30 +4,17 @@ window.ST = window.ST || {};
   Maganage members in admin UI
 */
 window.ST.initializeManageMembers = function() {
-  function elementToValueObject(element) {
-    var r = {};
-    r[$(element).val()] = $(element).prop("checked");
-    return r;
-  }
+  var DELAY = 800;
 
-  function createCheckboxAjaxRequest(selector, url, allowedKey, disallowedKey) {
-    var streams = $(selector).toArray().map(function(domElement) {
-      return $(domElement).asEventStream("change").map(function(event){
-        return elementToValueObject(event.target);
-      }).toProperty(elementToValueObject(domElement));
-    });
-
-    var ajaxRequest = Bacon.combineAsArray(streams).changes().debounce(800).skipDuplicates(_.isEqual).map(function(valueObjects) {
+  function createCheckboxAjaxRequest(streams, url, allowedKey, disallowedKey) {
+    var ajaxRequest = Bacon.combineAsArray(streams).changes().debounce(DELAY).skipDuplicates(_.isEqual).map(function(valueObjects) {
       function isValueTrue(valueObject) {
-        return _.values(valueObject)[0];
+        return valueObject.checked;
       }
 
-      var allowed = _.filter(valueObjects, isValueTrue);
-      var disallowed = _.reject(valueObjects, isValueTrue);
-
       var data = {};
-      data[allowedKey] = _.keys(ST.utils.objectsMerge(allowed));
-      data[disallowedKey] = _.keys(ST.utils.objectsMerge(disallowed));
+      data[allowedKey] = _.filter(valueObjects, isValueTrue).map(function(input){ return input.value; });
+      data[disallowedKey] = _.reject(valueObjects, isValueTrue).map(function(input){ return input.value; });
 
       return {
         type: "POST",
@@ -39,37 +26,176 @@ window.ST.initializeManageMembers = function() {
     return ajaxRequest;
   }
 
-  var postingAllowed = createCheckboxAjaxRequest(".admin-members-can-post-listings", "posting_allowed", "allowed_to_post", "disallowed_to_post");
-  var isAdmin = createCheckboxAjaxRequest(".admin-members-is-admin", "promote_admin", "add_admin", "remove_admin");
-
-  var ajaxRequest = postingAllowed.merge(isAdmin);
-  var ajaxResponse = ajaxRequest.ajax().endOnError();
-
-  var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
-
-  ajaxStatus.loading.onValue(function() {
+  var showUpdateNotification = function() {
     $(".ajax-update-notification").show();
     $("#admin-members-saving-posting-allowed").show();
     $("#admin-members-error-posting-allowed").hide();
     $("#admin-members-saved-posting-allowed").hide();
-  });
+  };
 
-  ajaxStatus.success.onValue(function() {
+  var showUpdateSuccess = function() {
     $("#admin-members-saving-posting-allowed").hide();
     $("#admin-members-saved-posting-allowed").show();
-  });
+  };
 
-  ajaxStatus.error.onValue(function() {
+  var showUpdateError = function() {
     $("#admin-members-saving-posting-allowed").hide();
     $("#admin-members-error-posting-allowed").show();
-  });
+  };
 
-  ajaxStatus.idle.onValue(function() {
+  var showUpdateIdle = function() {
     $(".ajax-update-notification").fadeOut();
-  });
+  };
+
+  var initBanToggle = function () {
+    $(document).on("click", ".admin-members-ban-toggle", function(){
+      var banned = this.checked;
+      var row = $(this).parent().parent();
+      var confirmation, url;
+      if(banned) {
+        confirmation = ST.t('admin.communities.manage_members.ban_user_confirmation');
+        url = $(this).data("ban-url");
+      } else {
+        confirmation = ST.t('admin.communities.manage_members.unban_user_confirmation');
+        url = $(this).data("unban-url");
+      }
+      if(confirm(confirmation)) {
+        showUpdateNotification();
+        $.ajax({
+          type: "PUT",
+          url: url,
+          dataType: "JSON",
+          success: function(resp) {
+            var actions = row.find('.membership-actions span');
+            row[0].className = "member-"+resp.status;
+            if( resp.status == 'banned' ) {
+              actions.addClass('is-disabled');
+            } else {
+              actions.removeClass('is-disabled');
+            }
+            showUpdateSuccess();
+          },
+          error: showUpdateError,
+          complete: _.debounce(showUpdateIdle, DELAY)
+        });
+      } else {
+        this.checked = !banned;
+      }
+    });
+  };
+
+  var initStreams = function() {
+    var adminStreams = $(".admin-members-is-admin").asEventStream('change')
+      .map(function (ev) {
+        return ev.target;
+      })
+      .filter(function (target) {
+        if (target.checked) {
+          if (confirm(ST.t('admin.communities.manage_members.this_makes_the_user_an_admin'))) {
+            return true;
+          }
+          target.checked = !target.checked;
+          return false;
+        }
+        return true;
+      });
+
+    var postingAllowedStreams = $(".admin-members-can-post-listings").asEventStream('change')
+      .map(function (ev) {
+        var postListing = $(ev.target).parent().parent().find('.post-listing');
+        if (ev.target.checked) {
+          postListing.removeClass('post-listing-is-disabled');
+        } else {
+          postListing.addClass('post-listing-is-disabled');
+        }
+        return ev.target;
+      });
+
+    var postingAllowed = createCheckboxAjaxRequest(postingAllowedStreams, "posting_allowed", "allowed_to_post", "disallowed_to_post");
+    var isAdmin = createCheckboxAjaxRequest(adminStreams, "promote_admin", "add_admin", "remove_admin");
+
+    var ajaxRequest = postingAllowed.merge(isAdmin);
+    var ajaxResponse = ajaxRequest.ajax().endOnError();
+
+    var ajaxStatus = window.ST.ajaxStatusIndicator(ajaxRequest, ajaxResponse);
+
+    ajaxStatus.loading.onValue(showUpdateNotification);
+    ajaxStatus.success.onValue(showUpdateSuccess);
+    ajaxStatus.error.onValue(showUpdateError);
+    ajaxStatus.idle.onValue(showUpdateIdle);
+  };
 
   // Attach analytics click handler for CSV export
-  $(".js-users-csv-export").click(function(){
-    window.ST.analytics.logEvent('admin', 'export', 'users');
-  });
+  var initAnalytics = function() {
+    $(".js-users-csv-export").click(function(){
+      window.ST.analytics.logEvent('admin', 'export', 'users');
+    });
+  };
+
+  function updateSelectedStatus() {
+    var v = [];
+    $(".status-select-line input:checked").each(function(){
+      v.push($(this).parent().text().trim());
+    });
+    if (v.length === 0) {
+      v = [ST.t("admin.communities.manage_members.status_filter.all")];
+    } else {
+      v = [ST.t("admin.communities.manage_members.status_filter.selected_js") + v.length];
+    }
+    $(".status-select-button, .reset").text(v.join(", "));
+  }
+
+  function outsideClickListener(evt) {
+    if (!$(evt.target).closest(".status-select-line").length) {
+      $(".status-select-dropdown").hide();
+      document.removeEventListener('mousedown', outsideClickListener);
+    }
+  }
+
+  var initStatusFilter = function() {
+    $(".status-select-button").click(function(){
+      $(".status-select-dropdown").show();
+      setTimeout(function() { document.addEventListener('mousedown', outsideClickListener);}, 300);
+    });
+    $(".status-select-line").click(function(){
+      var status = $(this).data("status");
+      if (status == 'all') {
+        $(".status-select-dropdown").hide();
+        document.removeEventListener('mousedown', outsideClickListener);
+      } else {
+        var cb = $(this).find("input")[0];
+        cb.checked = !cb.checked;
+        $(this).toggleClass("selected");
+      }
+      updateSelectedStatus();
+    });
+  };
+
+  var initPopup = function() {
+    var resendConfirmation = function(e) {
+      e.preventDefault();
+      $('#membership-popup').trigger('close');
+      showUpdateNotification();
+      $.ajax({
+        type: "PUT",
+        url: $(this).attr('href'),
+        success: showUpdateSuccess,
+        error: showUpdateError,
+        complete: _.debounce(showUpdateIdle, DELAY)
+      });
+    };
+    $('.show-popup').on('click', function() {
+      var contentId = $(this).data('popupContentId'),
+        content = $(contentId).html();
+      $('#membership-popup-content').html(content);
+      $('#membership-popup-content .membership-resend-confirmation').on('click', resendConfirmation);
+      $('#membership-popup').lightbox_me({centered: true, closeSelector: '#close_x, #close_x1'});
+    });
+  };
+
+  initStreams();
+  initAnalytics();
+  initBanToggle();
+  initStatusFilter();
+  initPopup();
 };

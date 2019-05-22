@@ -75,7 +75,7 @@ class AcceptPreauthorizedConversationsController < ApplicationController
 
       redirect_to person_transaction_path(person_id: sender_id, id: tx_id)
     else
-      flash[:error] = error_msg(res[:flow])
+      flash[:error] = error_msg(res[:flow], tx)
       redirect_to accept_preauthorized_person_message_path(person_id: sender_id , id: tx_id)
     end
   end
@@ -120,11 +120,20 @@ class AcceptPreauthorizedConversationsController < ApplicationController
     end
   end
 
-  def error_msg(flow)
+  def error_msg(flow, tx)
+    payment_gateway = tx.payment_gateway
     if flow == :accept
-      t("error_messages.paypal.accept_authorization_error")
+      if payment_gateway == :paypal
+        t("error_messages.paypal.accept_authorization_error")
+      elsif payment_gateway == :stripe
+        t("error_messages.stripe.accept_authorization_error")
+      end
     elsif flow == :reject
-      t("error_messages.paypal.reject_authorization_error")
+      if payment_gateway == :paypal
+        t("error_messages.paypal.reject_authorization_error")
+      elsif payment_gateway == :stripe
+        t("error_messages.stripe.reject_authorization_error")
+      end
     end
   end
 
@@ -146,13 +155,19 @@ class AcceptPreauthorizedConversationsController < ApplicationController
   def render_payment_form(preselected_action, payment_type)
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
     payment_details = TransactionService::Transaction.payment_details(@transaction)
+    total_price = if payment_details[:buyer_commission] && payment_details[:buyer_commission] > 0
+      payment_details[:total_price] - payment_details[:buyer_commission]
+    else
+      payment_details[:total_price]
+    end
 
     render "accept", locals: {
       listing: @listing,
-      sum: @transaction.item_total + (payment_details[:payment_gateway_fee] || 0),
+      sum: total_price + (payment_details[:payment_gateway_fee] || 0),
       fee: @transaction.commission,
+      buyer_commission: payment_details[:buyer_commission],
       gateway_fee: payment_details[:payment_gateway_fee],
-      seller_gets: payment_details[:total_price]- @transaction.commission,
+      seller_gets: payment_details[:total_price] - (payment_details[:charged_commission] || 0) - (payment_details[:buyer_commission] || 0),
       form: @transaction,
       form_action: acceptance_preauthorized_person_message_path(
         person_id: @current_user.id,

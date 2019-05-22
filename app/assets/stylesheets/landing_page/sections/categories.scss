@@ -29,6 +29,37 @@ $categories__mobile-gutter: 12px;
 
   @include dimensions__section--paddings;
 }
+.categories__section--background {
+  @extend .categories__section;
+
+  color: #FFFFFF;
+  @include viewport-unit(min-height, 80vh);
+}
+
+.categories__section--background-image--light {
+  @extend .categories__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.3); /* is there any cleaner way? */
+}
+
+.categories__section--background-image--dark {
+  @extend .categories__section--background;
+  box-shadow: inset 0 0 0 999999px rgba(0, 0, 0, 0.5); /* is there any cleaner way? */
+}
+
+.categories__section--background-color {
+  @extend .categories__section;
+  color: #FFFFFF;
+}
+
+.categories__section--blank {
+  @extend .categories__section;
+  color: $typography__main-color;
+}
+
+.categories__section--zebra {
+  @extend .categories__section--blank;
+  background-color: #F6F6F6;
+}
 
 .categories__content {
   margin: 0 auto;
@@ -54,8 +85,18 @@ $categories__mobile-gutter: 12px;
   }
 }
 
+.categories__button {
+  color: inherit;
+  @include landing-page__button;
+}
+
 .categories__button--ghost {
   @include landing-page__button;
+}
+
+.categories__button--inverted {
+  @include landing-page__button;
+  background-color: #FFF;
 }
 
 .categories__categories {
@@ -319,4 +360,19 @@ $categories__mobile-gutter: 12px;
     font-size: 18px;
   }
 
+}
+
+.categories__section--background-color, .categories__section--background-image--light, .categories__section--background-image--dark {
+  .categories__paragraph--markdown {
+    & > p {
+      color: #ffffff;
+    }
+  }
+  .categories__title {
+      color: #ffffff;
+  }
+  .categories__button--ghost {
+      color: #ffffff;
+      border-color: #ffffff;
+  }
 }
