@@ -2,7 +2,7 @@ window.ST = window.ST || {};
 
 (function(module) {
 
-  var initPaymentTabs = function(min_price, fee_error_message) {
+  var initPaymentTabs = function() {
     $(".tab-link").click(function(){
       $(".tab-link").removeClass("active");
       $(this).addClass("active");
@@ -30,24 +30,8 @@ window.ST = window.ST || {};
         errorPlacement: function(error, element) {
           error.appendTo(element.parent());
         },
-        rules: {
-          "payment_preferences_form[commission_from_seller]": {
-            required: true,
-            number_min: 0,
-            number_max: 100,
-            number_no_decimals: true
-          },
-          "payment_preferences_form[minimum_transaction_fee]": {
-            required: true,
-            number_max: min_price,
-            number_min: 0,
-          }
-        },
-        messages: {
-          "payment_preferences_form[minimum_transaction_fee]": fee_error_message
-        }
       });
-    })
+    });
   };
   module.initPaymentTabs = initPaymentTabs;
 
