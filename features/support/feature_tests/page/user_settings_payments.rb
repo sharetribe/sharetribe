@@ -30,7 +30,7 @@ module FeatureTests
         select_option("stripe_account_form_birth_date_2i", "10")
         select_option("stripe_account_form_birth_date_3i", "12")
 
-        payment_settings.fill_in("stripe_account_form[address_state]", with: "NY")
+        select_option("stripe_account_form_address_state", "NY")
         payment_settings.fill_in("stripe_account_form[address_city]", with: "New York")
         payment_settings.fill_in("stripe_account_form[address_postal_code]", with: "01001")
         payment_settings.fill_in("stripe_account_form[address_line1]", with: "123 Street")
