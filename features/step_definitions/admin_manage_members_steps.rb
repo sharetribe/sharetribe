@@ -107,7 +107,7 @@ end
 
 Then(/^I should see a message that I have been banned$/) do
   steps %Q{
-    Then I should see "The team has prevented you from accessing"
+    Then I should see "team has disabled your account"
   }
 end
 
