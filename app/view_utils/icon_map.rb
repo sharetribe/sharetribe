@@ -167,7 +167,8 @@ ICON_MAP = {
       "invitations" => "ss-adduser",
       "domain" => "ss-globe",
       "pending" => "ss-clockwise",
-      "minus" => "ss-hyphen"
+      "minus" => "ss-hyphen",
+      "trash" => "ss-trash"
     },
     "font-awesome" => {
       "map" => "icon-map-marker",
@@ -286,6 +287,7 @@ ICON_MAP = {
       "domain" => "icon-globe",
       "seo" => "icon-external-link",
       "pending" => "icon-time",
-      "minus" => "icon-minus"
+      "minus" => "icon-minus",
+      "trash" => "icon-trash"
     }
   }

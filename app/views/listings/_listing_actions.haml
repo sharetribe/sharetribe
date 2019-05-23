@@ -154,6 +154,11 @@
         %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
           = icon_tag("lock", ["icon-part"])
           .text-part= t("listings.edit_links.close_listing")
+      .listing-view-admin-link
+        = link_to delete_listing_path(@listing), data: {confirm: t("listings.deleting_a_listing_cannot_be_undone")},
+          method: "delete", class: 'icon-with-text-container' do
+          = icon_tag("trash", ["icon-part"])
+          .text-part= t("listings.edit_links.delete_listing")
 
       - if @listing_presenter.is_marketplace_admin
         .listing-view-admin-link
