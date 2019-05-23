@@ -95,7 +95,7 @@ ro:
         contact_admin_link_text: "contactezi echipa %{service_name}"
         save: "Salvează setările"
         transaction_agreement: "Acordul tranzactiei"
-        transaction_agreement_checkbox: "Solicita utilizatorilor sa confirme inainte de efectuarea tranzactiilor"
+        transaction_agreement_checkbox: "Solicita cumparatorilor sa accepte un acord inainte de efectuarea unei tranzactii"
         transaction_agreement_checkbox_header: "Eticheta butonului de confirmare a tranzactiei"
         transaction_agreement_checkbox_label_description: "Acest text va fi afisat alaturi de o caseta de verificare in pasul de checkout. Utilizatorul trebuie sa bifeze caseta de verificare pentru a putea continua tranzactia. Un exemplu al acestei etichete poate fi \"Prin apasarea acestui buton confirm tranzatia\""
         transaction_agreement_text_header: "Textul de confirmare a tranzactiei"
@@ -268,12 +268,12 @@ ro:
         join_date: Inscris
         admin: Administrator
         posting_allowed: "Listarea permisă"
-        ban_user: ~
+        ban_user: Dezactivat
         saving_user_status: "Se salveaza..."
         save_user_status_successful: Salvat
         export_all_as_csv: "Exportă tot in format CSV"
         save_user_status_error: "Salvarea a eșuat. Actualizați pagina și încercați din nou."
-        ban_user_confirmation: ~
+        ban_user_confirmation: "Aceasta dezactiveaza contul utilizatorului si restrictioneaza accesul acestora in viitor cu acest cont pe acest site. Esti sigur ca vrei sa continui?"
         unban_user_confirmation: ~
         ban_me_error: ~
         search: ~
@@ -286,7 +286,7 @@ ro:
           selected: "Conditii selectate: %{count}"
           selected_js: "Conditii selectate: "
           admin: Administrator
-          banned: Blocat
+          banned: Dezactivat
           posting_allowed: "Listarea permisa"
           accepted: Acceptat
           unconfirmed: Neconfirmat
@@ -881,6 +881,7 @@ ro:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -1176,7 +1177,7 @@ ro:
   community_memberships:
     access_denied:
       access_denied: "Acces interzis"
-      you_are_banned_in_this_community: "Accesul tau la %{service_name} a fost blocat. Daca vrei sa contactezi echipa %{service_name} o poti face %{link_to_contact_page}."
+      you_are_banned_in_this_community: "Echipa %{service_name} ti-a dezactivat contul. Daca vrei sa trimiti un mesaj echipei %{service_name}, poti sa %{link_to_contact_page}."
       contact_page_link: aici
     new:
       welcome_fb_user: "Bine ați venit %{service_name},%{name}!"
@@ -2719,6 +2720,12 @@ ro:
     paypal_connected: ~
     paypal_can_accept: "Acum ai toate setarile corecte pentru a primi bani in contul tau PayPal"
     paypal_connected_give_permission: ~
+    stripe_account_restricted: "Platile online catre contul tau sunt restrictionate!"
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: ~
       select_country: ~

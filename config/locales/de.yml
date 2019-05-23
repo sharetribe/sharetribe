@@ -892,6 +892,7 @@ de:
       stripe_fee: Stripe-Gebühren
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
       fee_should_be_less_than_minimum_price: "Der Mindestgebühr muss weniger als der Mindestbetrag einer Transaktion sein"
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Bist du sicher, dass du %{gateway} deaktivieren willst? Wenn du es deaktivierst, können Verkäufer und Käufer es nicht mehr verwenden, um Geld zu empfangen oder zu bezahlen. Wenn ein Verkäufer keine alternative Bezahlungsmethode eingerichtet hat, können Käufer nicht mehr von ihnen kaufen."
       commission_from_buyer_label: "Transaktionsgebühr des Käufers:"
       minimum_buyer_transaction_fee_label: "Mindestgebühr des Käufers für die Transaktion:"
@@ -2757,6 +2758,12 @@ de:
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
     paypal_can_accept: "Du bist bereit, PayPal-Zahlungen entgegenzunehmen"
     paypal_connected_give_permission: "Als letztes, bitte erteile eine Genehmigung für das Abheben der Transaktionsgebühr, um Geld auf das PayPal Konto <%{email}> bekommen zu können."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
       select_country: "Land wählen..."

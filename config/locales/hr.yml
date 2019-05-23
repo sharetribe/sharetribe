@@ -899,6 +899,7 @@ hr:
       stripe_fee: "Stripe naknada"
       stripe_fee_notice: "%{stripe_fee_link} biti će skinuto s cijene koju naplaćujete"
       fee_should_be_less_than_minimum_price: "Minimalna naknada za transakciju mora biti niža od minimalne visine transakcije."
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2764,6 +2765,12 @@ hr:
     paypal_connected: "PayPal račun uspješno povezan"
     paypal_can_accept: "Sada možete primati novac na Vaš PayPal račun."
     paypal_connected_give_permission: "Kako bi dovršili i primali uplate na svoj PayPal račun %{email} molimo prihvatite dozvolu za naplatu provizije."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Trebaju nam neke informacije o Vama kako bi Vam mogli slati novac"
       select_country: "Odaberi državu"

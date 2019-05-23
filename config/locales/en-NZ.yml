@@ -892,6 +892,7 @@ en-NZ:
       stripe_fee: "Stripe's fees"
       stripe_fee_notice: "%{stripe_fee_link} will be deducted from the transaction fee you are charging."
       fee_should_be_less_than_minimum_price: "Minimum transaction fee must be lower than minimum transaction size"
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Are you sure you want to disable %{gateway}? If you disable it, providers will no longer be able to receive money and buyers will no longer be able to pay through this payment method. If providers haven't configured another payment method, buyers will not be able to buy from them."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -1972,7 +1973,7 @@ en-NZ:
         after_service_fee_you_will_get: "After %{service_name} and a payment processor fees you will get %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} will be deducted from the price."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link} will be deducted from the price."
-        after_service_fee_you_will_get_payment_text: "Once someone makes an order, %{service_name} fee (%{sum_with_currency}) and a %{payment_fee_info_link} will be deducted from the price."
+        after_service_fee_you_will_get_payment_text: "Once someone makes an order, you'll receive this amount minus %{payment_fee_info_link}"
         payment_fee_info_link_text: "payment processing fee"
         delivery: "Delivery method"
         shipping: Shipping
@@ -2745,6 +2746,12 @@ en-NZ:
     paypal_connected: "PayPal account connected successfully!"
     paypal_can_accept: "You are now all set to receive money to your PayPal account"
     paypal_connected_give_permission: "To complete setup and start receiving funds to your PayPal account <%{email}>, please grant permission to charge a transaction fee."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "We need some information about you to be able to send you money."
       select_country: "Select country..."

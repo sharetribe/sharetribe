@@ -90,7 +90,7 @@ fr:
         contact_admin_link_text: "contacter l'équipe %{service_name}"
         save: "Sauvegarder les paramètres"
         transaction_agreement: "Accord de transaction"
-        transaction_agreement_checkbox: "Les utilisateurs doivent accepter un accord avant une transaction"
+        transaction_agreement_checkbox: "Obliger les clients à valider un accord avant de commencer une transaction"
         transaction_agreement_checkbox_header: "Libellé de l'accord"
         transaction_agreement_checkbox_label_description: "Ce texte sera affiché à côté de la case à cocher dans le formulaire de transaction. L'utilisateur doit cocher cette case pour continuer le processus. Un exemple de libellé de d'accord serait \"En cochant cette case, vous acceptez l'accord de transaction\"."
         transaction_agreement_text_header: "Texte de l'accord"
@@ -263,14 +263,14 @@ fr:
         join_date: "Date d'inscription"
         admin: Administrateur
         posting_allowed: "Dépôt d'annonce autorisé"
-        ban_user: Bannissement
+        ban_user: Désactiver
         saving_user_status: Sauvegarde...
         save_user_status_successful: Sauvegardé
         export_all_as_csv: "Exporter au format CSV"
         save_user_status_error: "La sauvegarde a échoué. Veuillez rafraîchir la page et essayer de nouveau."
-        ban_user_confirmation: "Ceci bannit l'utilisateur de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
-        unban_user_confirmation: "Cela stoppe le bannissement de l'utilisateur dans la place de marché et lui permet d'accéder au site de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
-        ban_me_error: "Vous ne pouvez pas vous bannir vous-même."
+        ban_user_confirmation: "Ceci désactive ce compte utilisateur au sein de la place de marché et l'empêche d’y accéder de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
+        unban_user_confirmation: "Ceci active ce compte utilisateur au sein de la place de marché et lui permet d'accéder au site de nouveau avec ce compte. Voulez-vous vraiment continuer ?"
+        ban_me_error: "Vous ne pouvez pas désactiver votre propre compte."
         search: Rechercher
         search_by_name_email: "Rechercher un nom, un email ou un nom d'affichage"
         reset_search: "Voir tous"
@@ -281,7 +281,7 @@ fr:
           selected: "Statuts sélectionnés : %{count}"
           selected_js: "Statuts sélectionnés : "
           admin: Admin
-          banned: Banni
+          banned: Désactivé
           posting_allowed: "Dépôt d'annonce autorisé"
           accepted: Confirmé
           unconfirmed: "Non confirmé"
@@ -892,6 +892,7 @@ fr:
       stripe_fee: "frais Stripe"
       stripe_fee_notice: "Des %{stripe_fee_link} seront déduits des frais de services que vous facturez."
       fee_should_be_less_than_minimum_price: "Le montant des frais de service minimaux doit être inférieur aux montant minimal de transaction"
+      the_transaction_fee_must_be_lower_than_100: "Les frais de service doivent être inférieurs à 100%"
       confirm_disable: "Voulez-vous vraiment désactiver %{gateway} ? Si vous le désactiver, les vendeurs ne pourront plus recevoir de nouveaux paiements et les acheteurs ne pourront plus payer avec ce système de paiement. Si les vendeurs n'ont pas configuré d'autres méthodes de paiements, les vendeurs ne pourront pas les payer."
       commission_from_buyer_label: "Frais de service pour les acheteurs :"
       minimum_buyer_transaction_fee_label: "Frais de service minimaux pour les acheteurs :"
@@ -1187,7 +1188,7 @@ fr:
   community_memberships:
     access_denied:
       access_denied: "Accès refusé"
-      you_are_banned_in_this_community: "L'équipe vous a supprimé l'accès à %{service_name}. Si vous voulez en discuter avec l'équipe %{service_name}, vous pouvez %{link_to_contact_page}."
+      you_are_banned_in_this_community: "L'équipe %{service_name} a désactivé votre compte. Si vous voulez en discuter avec l'équipe %{service_name}, vous pouvez %{link_to_contact_page}."
       contact_page_link: "les contacter"
     new:
       welcome_fb_user: "Bienvenue sur %{service_name}, %{name} !"
@@ -2757,6 +2758,12 @@ fr:
     paypal_connected: "Compte PayPal connecté avec succès"
     paypal_can_accept: "Vous êtes désormais prêt à recevoir votre argent sur votre compte PayPal"
     paypal_connected_give_permission: "Pour terminer la configuration et recevoir des paiements sur votre compte PayPal <%{email}>, veuillez autoriser le prélèvement de frais de service."
+    stripe_account_restricted: "Les paiements pour votre compte ont été restreints !"
+    stripe_account_restricted_info: "Veuillez mettre à jour vos détails bancaires pour fournir plus d'information au prestataire de paiements."
+    stripe_account_restricted_soon: "Les paiements pour votre compte vont bientôt être restreints."
+    stripe_account_restricted_soon_info: "Veuillez mettre à jour vos détails bancaires pour fournir plus d'information au prestataire de paiements."
+    stripe_account_pending_verification: "Détails bancaires mis à jour. En attente de la vérification du compte par le prestataire de paiements."
+    stripe_account_pending_verification_info: "Revenez voir un peu plus tard pour vous assurer que tout est en ordre."
     form_new:
       need_info: "Nous avons besoin de quelques informations pour pouvoir vous transférer votre argent."
       select_country: "Choisir un pays..."
@@ -2822,7 +2829,7 @@ fr:
         digits_or_chars: "chiffres ou caractères A-Z"
     form_verification:
       personal_id_number: "Numéro d'identification personel"
-      document: "Document de vérification"
+      document: "Document d'identité (passeport, carte d'identité)"
       send_verification: "Envoyer la vérification"
       need_verification: "Vérification supplémentaire nécessaire"
     form_pin:

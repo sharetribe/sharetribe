@@ -892,6 +892,7 @@ fi:
       stripe_fee: "Stripen veloittamat maksut"
       stripe_fee_notice: "%{stripe_fee_link} vähennetään välityspalkkiostasi."
       fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Oletko varma että haluat ottaa maksualustan %{gateway} pois käytöstä? Jos otat sen pois käytöstä, myyjät eivät voi enää vastaanottaa sillä rahaa, eivätkä asiakkaat enää voi maksaa sen kautta. Mikäli myyjät eivät ole ottaneet käyttöön jotain toista maksualustaa, asiakkaat eivät voi ostaa heiltä mitään."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2750,6 +2751,12 @@ fi:
     paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
     paypal_can_accept: "Olet nyt valmis vastaanottamaan rahaa PayPal-tilillesi"
     paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
       select_country: "Valitse maa..."

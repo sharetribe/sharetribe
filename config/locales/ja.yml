@@ -883,6 +883,7 @@ ja:
       stripe_fee: Stripeの手数料
       stripe_fee_notice: "請求している取引手数料から%{stripe_fee_link} が差し引かれます。"
       fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2717,6 +2718,12 @@ ja:
     paypal_connected: ペイパルアカウントは正常に接続されました
     paypal_can_accept: ペイパルアカウントでお金を受け取れるようになりました
     paypal_connected_give_permission: "セットアップを完了してPayPalアカウント%{email} への入金を開始するには、取引手数料を請求する許可を付与してください。"
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: 必要事項ご記載後、送金が可能になります。
       select_country: 国を選択する
@@ -2743,7 +2750,7 @@ ja:
       edit: 詳細の編集
       cancel: キャンセル
       gender: 性別
-      phone_number: 電話番号
+      phone_number: "電話番号：+81に続き頭の\"0\"を除いた番号をハイフンなしでご記載下さい。例：090-xxxx-xxxx --> +8190xxxxxxxx"
       address_kana_postal_code: 郵便番号
       address_kana_state: "都道府県 (かな)"
       address_kana_city: 市町村（かな）

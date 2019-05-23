@@ -265,14 +265,14 @@ nl:
         join_date: Aangesloten
         admin: Beheerder
         posting_allowed: "Plaatsen toegestaan"
-        ban_user: "Verban gebruiker"
+        ban_user: "Blokkeer account"
         saving_user_status: Opslaan...
         save_user_status_successful: Opgeslagen
         export_all_as_csv: "Exporteer alles als CSV"
         save_user_status_error: "Opslaan mislukt. Vernieuw de pagina en probeer opnieuw."
-        ban_user_confirmation: "Dit verwijdert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
-        unban_user_confirmation: "Dit heft de verbanning van de gebruiker van de marktplaats op, en herstelt de toegang tot de site voor dit account. Weet je zeker dat je wilt doorgaan?"
-        ban_me_error: "Je kunt jezelf niet uitsluiten."
+        ban_user_confirmation: "Dit blokkeert de gebruiker van de marktplaats en belet hem de site opnieuw te gebruiken met deze account. Ben je zeker dat je verder wil gaan?"
+        unban_user_confirmation: "Dit heft de blokkering van de gebruiker van de marktplaats op, en herstelt de toegang tot de site voor dit account. Weet je zeker dat je wilt doorgaan?"
+        ban_me_error: "Je kunt jezelf niet blokkeren."
         search: Zoek
         search_by_name_email: "Zoek voor een naam, email, of weergavenaam"
         reset_search: "Toon alles"
@@ -283,7 +283,7 @@ nl:
           selected: "Gekozen statussen: %{count}"
           selected_js: "Gekozen statussen: "
           admin: Beheerder
-          banned: Verbannen
+          banned: Geblokkeerd
           posting_allowed: "Plaatsen toegestaan"
           accepted: Geaccepteerd
           unconfirmed: Onbevestigd
@@ -895,6 +895,7 @@ nl:
       stripe_fee: Stripe-kosten
       stripe_fee_notice: "%{stripe_fee_link} wordt afgetrokken van de commissie die jij in rekening brengt."
       fee_should_be_less_than_minimum_price: "Minimale transactiekosten dienen lager te zijn dan de minimale transactieomvang."
+      the_transaction_fee_must_be_lower_than_100: "De transactie kosten moeten lager zijn dan 100%"
       confirm_disable: "Weet je zeker dat je %{gateway} wilt uitschakelen? Als je dit uitschakelt, zijn leveranciers niet meer in staat geld te ontvangen en kopers niet meer in staat te betalen met deze methode. Als leveranciers nog geen andere methoden hebben geconfigureerd, kan er van hen niet gekocht worden."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -1190,7 +1191,7 @@ nl:
   community_memberships:
     access_denied:
       access_denied: "Toegang geweigerd"
-      you_are_banned_in_this_community: "Het %{service_name} team heeft je toegang %{service_name} beperkt.  Als je het team wilt bereiken, neem dan %{link_to_contact_page}."
+      you_are_banned_in_this_community: "Het %{service_name} team heeft je account voor %{service_name} geblokkeerd.  Als je het team wilt bereiken, neem dan %{link_to_contact_page}."
       contact_page_link: "neem contact op"
     new:
       welcome_fb_user: "Welkom op %{service_name}, %{name}!"
@@ -2760,6 +2761,12 @@ nl:
     paypal_connected: "PayPal succesvol gekoppeld!"
     paypal_can_accept: "Je bent nu klaar om geld te ontvangen op je PayPal account"
     paypal_connected_give_permission: "Om het instellen te voltooien en betalingen te ontvangen op je PayPal account %{email}, geef dan aub toestemming op transactiekosten in rekening te brengen."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "We hebben wat informatie van je nodig om betalingen te kunnen sturen."
       select_country: "Kies land..."

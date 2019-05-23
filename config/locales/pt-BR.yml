@@ -888,6 +888,7 @@ pt-BR:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -1412,8 +1413,8 @@ pt-BR:
       person_email: "Email:"
     listing_submited_for_review:
       subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
+      there_is_a_new_listing_to_review: "Há um novo anúncio para revisar: \"%{listing_title}\" de %{author_name}. Agora você tem que aprovar ou rejeitá-lo."
+      review_the_listing: "Revise o novo anúncio"
       this_is_automatic_message: ~
     listing_approved:
       subject: ~
@@ -1894,7 +1895,7 @@ pt-BR:
       show_in_updates_email_loading: Carregando...
       show_in_updates_email_error: "Não foi possível acessar o servidor. Tente novamente depois de atualizar a página."
       show_in_updates_email_success: "Este anúncio será mostrado na próxima atualização automática de e-mail enviado aos usuários"
-      listing_is_pending: ~
+      listing_is_pending: "O anúncio está pendente de aprovação"
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
@@ -2735,6 +2736,12 @@ pt-BR:
     paypal_connected: ~
     paypal_can_accept: ~
     paypal_connected_give_permission: ~
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Precisamos de alguma informação para poder enviar-lhe o seu dinheiro."
       select_country: "Selecione o país..."

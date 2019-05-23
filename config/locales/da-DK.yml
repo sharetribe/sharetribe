@@ -888,6 +888,7 @@ da-DK:
       stripe_fee: ~
       stripe_fee_notice: ~
       fee_should_be_less_than_minimum_price: ~
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2739,6 +2740,12 @@ da-DK:
     paypal_connected: "PayPal-kontoen blev tilknyttet."
     paypal_can_accept: "Du er nu klar til at modtage betaling på din PayPal konto"
     paypal_connected_give_permission: "For at afslutte opsætningen og begynde at modtage penge på din PayPal-konto <%{email}>, giv venligst tilladelse til at opkræve et transaktionsgebyr."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Vi har brug for nogle oplysninger om dig for at kunne sende dig penge."
       select_country: "Vælg land"

@@ -883,6 +883,7 @@ ko:
       stripe_fee: "스트라이프 수수료"
       stripe_fee_notice: "%{stripe_fee_link}는 귀하가 청구하는 거래 수수료에서 공제됩니다."
       fee_should_be_less_than_minimum_price: "최소 거래 수수료는 최소 거래 규모보다 작아야합니다."
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "%{gateway}을(를) 비활성화 하시겠습니까? 이 기능을 사용 중지하면 제공 업체는 더 이상 돈을받을 수 없으며 구매자는 더 이상이 지불 방법으로 지불 할 수 없습니다. 공급자가 다른 지불 방법을 구성하지 않으면 구매자가 구매할 수 없습니다."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2726,6 +2727,12 @@ ko:
     paypal_connected: "PayPal 계정이 성공적으로 연결되었습니다!"
     paypal_can_accept: "이제 PayPal 계정으로 돈을 받을 준비가되었습니다."
     paypal_connected_give_permission: "설정을 완료하고 PayPal 계정 <%{email}>에 대한 자금 수령을 시작하려면 거래 수수료를 청구 할 수있는 권한을 부여하십시오."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "우리는 당신에게 돈을 보낼 수있는 당신에 관한 정보가 필요합니다."
       select_country: 국가선택...

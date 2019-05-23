@@ -892,6 +892,7 @@ sv:
       stripe_fee: "Stripes avgifter"
       stripe_fee_notice: "%{stripe_fee_link} kommer dras av från transaktionsavgiften du tar."
       fee_should_be_less_than_minimum_price: "Lägsta transaktionsavgiften måste vara lägre än lägsta annonspriset"
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Är du säker du vill inaktivera %{gateway}? Om du inaktiverar detta betalningssystem kommer dina försäljare inte kunna ta emot pengar och köpare kommer inte kunna göra köp via detta betalningssystem. Om dina försäljare inte har aktiverat det andra betalsystemet kommer användare inte kunna köpa från dem."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2751,6 +2752,12 @@ sv:
     paypal_connected: "PayPal kontot är nu anslutet!"
     paypal_can_accept: "Du kan nu ta emot pengar till dit PayPal konto"
     paypal_connected_give_permission: "För att slutföra anslutningen och börja ta emot pengar till ditt PayPal konto <%{email}>, vänligen tillåt att en serviceavgift tas."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Vi behöver en del information om dig för att kunna skicka dig pengar."
       select_country: "Välj land...."

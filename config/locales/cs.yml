@@ -897,6 +897,7 @@ cs:
       stripe_fee: "Stripe poplatky"
       stripe_fee_notice: "%{stripe_fee_link} bude odečten od poplatku, který účtujete."
       fee_should_be_less_than_minimum_price: "Minimální transakční poplatek musí být nižší než minimální transakce"
+      the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Opravdu chcete zakázat%{gateway}? Zakážete-li to, prodávající již nebudou moci přijímat peníze a zákazníci již nebudou moci platit prostřednictvím této platební metody. Pokud prodávající nenakonfigurovali jiný způsob platby, zákazníci od nich nebudou moci kupovat."
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
@@ -2772,6 +2773,12 @@ cs:
     paypal_connected: "Účet PayPal byl úspěšně připojen!"
     paypal_can_accept: "Nyní máte nastaveno přijímání plateb na váš PayPal účet"
     paypal_connected_give_permission: "Chcete-li dokončit nastavení a začít přijímat finanční prostředky na váš PayPal účet %{email}, udělte prosím povolení k účtování poplatku za transakci."
+    stripe_account_restricted: ~
+    stripe_account_restricted_info: ~
+    stripe_account_restricted_soon: ~
+    stripe_account_restricted_soon_info: ~
+    stripe_account_pending_verification: ~
+    stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Potřebujeme nějaké informace o tom, abyste mohli poslat peníze."
       select_country: "Vyberte zemi ..."
