@@ -263,14 +263,14 @@ es:
         join_date: "Fecha de registro"
         admin: Administrador
         posting_allowed: "Publicación permitida"
-        ban_user: Bloquear
+        ban_user: Deshabilitar
         saving_user_status: Guardando...
         save_user_status_successful: Guardado
         export_all_as_csv: "Exportar todos en formato CSV"
         save_user_status_error: "No se han guardado los cambios. Por favor, actualiza la página y vuelve a intentarlo."
-        ban_user_confirmation: "Esto bloquea al usuario de la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
-        unban_user_confirmation: "Esto desbloqueará al usuario en la comunidad y le permitirá acceder al sitio nuevamente con esta cuenta. ¿Estás seguro que quieres continuar?"
-        ban_me_error: "No te puedes rechazar a ti mismo."
+        ban_user_confirmation: "Esto deshabilita la cuenta del usuario en la comunidad y le impide volver a acceder con esta cuenta. Estás seguro de que quieres continuar?"
+        unban_user_confirmation: "Esto habilita la cuenta del usuario en la comunidad y le permitirá acceder al sitio nuevamente con esta cuenta. ¿Estás seguro que quieres continuar?"
+        ban_me_error: "No te puedes deshabilitar a ti mismo."
         search: Buscar
         search_by_name_email: "Buscar por nombre, dirección o nombre personalizado"
         reset_search: "Mostrar todos"
@@ -281,7 +281,7 @@ es:
           selected: "Estatus seleccionados: %{count}"
           selected_js: "Estatus seleccionados: "
           admin: Admin
-          banned: Bloqueado
+          banned: Deshabilitado
           posting_allowed: "Publicación permitida"
           accepted: Aceptado
           unconfirmed: "No confirmado"
@@ -892,7 +892,7 @@ es:
       stripe_fee: "Cuotas de Stripe"
       stripe_fee_notice: "%{stripe_fee_link} será reducida de la cuota/comisión de transacción que estas cargando."
       fee_should_be_less_than_minimum_price: "La cuota mínima de transacción debe ser menor que el precio mínimo de transacción"
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "La cuota de transacción debe ser menor a 100%"
       confirm_disable: "¿Estás seguro que quieres deshabilitar %{gateway}? Si lo deshabilitas, tus vendedores no podrán recibir dinero en línea y los compradores no podrán pagar con este método de pago. Si los vendedores no han configurado otro sistema de pagos, los compradores no podrán comprarles nada."
       commission_from_buyer_label: "Cuota para el comprador:"
       minimum_buyer_transaction_fee_label: "Cuota mínima para el comprador:"
@@ -1188,7 +1188,7 @@ es:
   community_memberships:
     access_denied:
       access_denied: "Acceso denegado"
-      you_are_banned_in_this_community: "El equipo de %{service_name} te ha impedido la entrada al sitio. Si quieres contactar al equipo de %{service_name}, puedes %{link_to_contact_page} aquí."
+      you_are_banned_in_this_community: "El equipo de %{service_name} ha deshabilitado tu cuenta. Si quieres contactar al equipo de %{service_name}, puedes %{link_to_contact_page} aquí."
       contact_page_link: contactarlo
     new:
       welcome_fb_user: "¡Bienvenido a %{service_name}, %{name}!"
