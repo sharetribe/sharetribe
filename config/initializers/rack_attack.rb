@@ -65,10 +65,10 @@ class Rack::Attack
   # Blocklist from Rails cache. See
   # https://github.com/kickstarter/rack-attack/wiki/Advanced-Configuration
   # Our implementation relies on redis cache for O(1) complexity in checking blocks
-  if Rails.cache.class.to_s == "Readthis::Cache"
+  if Rails.cache.class.to_s == "ActiveSupport::Cache::RedisCacheStore"
     Rack::Attack.blocklist('block') do |req|
       # if variable `block <ip>` exists in cache store, then we'll block the request
-      Rails.cache.pool.with { |client| client.sismember('blocked', req.env['action_dispatch.remote_ip'].to_s) }
+      Rails.cache.redis.sismember('blocked', req.env['action_dispatch.remote_ip'].to_s)
     end
   end
 
@@ -86,7 +86,7 @@ class Rack::Attack
   #    ['']] # body
   # end
 
-  ActiveSupport::Notifications.subscribe('rack.attack') do |name, start, finish, request_id, req|
+  ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, start, finish, request_id, req|
     data = {name: name,
             start: start,
             finish: finish,

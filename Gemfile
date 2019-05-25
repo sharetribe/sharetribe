@@ -21,7 +21,7 @@ gem "mysql2", '0.4.10'
 gem "bcrypt", '3.1.12'
 gem 'haml', '~> 5.0.4'
 gem 'sass', '~> 3.4.24'
-gem 'rack-attack', '~> 5.0.1'
+gem 'rack-attack', '~> 6.0.0'
 gem 'rest-client', '~> 2.0.2'
 
 gem 'paperclip', '~> 5.2.1'

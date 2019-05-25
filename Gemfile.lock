@@ -405,8 +405,8 @@ GEM
       json
       websocket (~> 1.0)
     rack (2.0.7)
-    rack-attack (5.0.1)
-      rack
+    rack-attack (6.0.0)
+      rack (>= 1.0, < 3)
     rack-contrib (2.1.0)
       rack (~> 2.0)
     rack-protection (2.0.5)
@@ -684,7 +684,7 @@ DEPENDENCIES
   pry-byebug
   public_suffix (~> 2.0.5)
   puma
-  rack-attack (~> 5.0.1)
+  rack-attack (~> 6.0.0)
   rails (= 5.2.3)
   rails-controller-testing (~> 1.0.2)
   rails-i18n (~> 5.0.4)
