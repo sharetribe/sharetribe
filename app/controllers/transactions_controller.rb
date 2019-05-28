@@ -61,7 +61,7 @@ class TransactionsController < ApplicationController
   def create
     Result.all(
       -> {
-        TransactionForm.validate(params)
+        TransactionForm.validate(params.to_unsafe_hash)
       },
       ->(form) {
         fetch_data(form[:listing_id])

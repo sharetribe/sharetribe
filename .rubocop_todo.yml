@@ -1706,3 +1706,11 @@ Naming/MemoizedInstanceVariableName:
     - 'app/services/custom_landing_page/listing_store.rb'
     - 'app/services/custom_landing_page/category_store.rb'
 
+Style/MixinUsage:
+  Exclude:
+    - 'bin/**/*'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/**/*'
+

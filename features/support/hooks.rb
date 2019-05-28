@@ -6,10 +6,7 @@ Before do
 end
 
 Before('@javascript') do
-  if ENV['PHANTOMJS']
-    Capybara.current_driver = :webdriver_phantomjs
-    page.driver.browser.manage.window.resize_to(1024, 768)
-
+  if Capybara.current_driver == :poltergeist
     # Store the reference to original confirm() function
     # (this might be mocked later)
     page.execute_script("window.__original_confirm = window.confirm")
@@ -17,7 +14,7 @@ Before('@javascript') do
 end
 
 After('@javascript') do
-  if ENV['PHANTOMJS']
+  if Capybara.current_driver == :poltergeist
     # Restore maybe mocked confirm()
     page.execute_script("window.confirm = window.__original_confirm")
   end
@@ -51,21 +48,22 @@ end
 
 After do |scenario|
   if(scenario.failed?)
-    FileUtils.mkdir_p 'tmp/screenshots'
-    save_screenshot("tmp/screenshots/#{scenario.name}.png")
+    save_screenshot("#{scenario.name}.png")
 
-    # Print browser logs after failing test
-    #
-    # Please note that Cabybara hijacks the `puts` method. That's why it's not sure
-    # how and when the logs are printed. Depending on the formatter the logs may
-    # be printed immediately (the defaul formatter) or not at all (pretty formatter)
-    # The "sharetribe" formatter prints these normally after a failing test, as expected.
-    puts ""
-    puts "*** Browser logs:"
-    puts ""
-    puts page.driver.browser.manage.logs.get("browser").map { |log_entry|
-      "[#{Time.at(log_entry.timestamp.to_i)}] [#{log_entry.level}] #{log_entry.message}"
-    }.join("\n")
+    if page.driver.browser.respond_to?(:manage)
+      # Print browser logs after failing test
+      #
+      # Please note that Cabybara hijacks the `puts` method. That's why it's not sure
+      # how and when the logs are printed. Depending on the formatter the logs may
+      # be printed immediately (the defaul formatter) or not at all (pretty formatter)
+      # The "sharetribe" formatter prints these normally after a failing test, as expected.
+      puts ""
+      puts "*** Browser logs:"
+      puts ""
+      puts page.driver.browser.manage.logs.get("browser").map { |log_entry|
+        "[#{Time.at(log_entry.timestamp.to_i)}] [#{log_entry.level}] #{log_entry.message}"
+      }.join("\n")
+    end
   end
 end
 

@@ -18,10 +18,10 @@
 - content_for :title_header do
   - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
   - if @big_cover_photo
-    - hidden_slogan = !@current_community.show_slogan? ? "hidden-title-part" : ""
-    - hidden_description = !@current_community.show_description? ? "hidden-title-part" : ""
-    %h1.marketplace-lander-content-title{class: hidden_slogan}= community_slogan.html_safe
-    %p.marketplace-lander-content-description{class: hidden_description}= community_description.html_safe
+    - if @current_community.show_slogan?
+      %h1.marketplace-lander-content-title= community_slogan.html_safe
+    - if @current_community.show_description?
+      %p.marketplace-lander-content-description= community_description.html_safe
     - unless (is_homepage && !@current_community.private? && FeatureFlagHelper.feature_enabled?(:topbar_v1))
       .search-form
         - if @current_community.private?

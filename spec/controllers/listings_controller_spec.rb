@@ -305,6 +305,7 @@ describe ListingsController, type: :controller do
     before :each do
       @request.host = "#{community.ident}.lvh.me"
       @request.env[:current_marketplace] = community
+      stub_thinking_sphinx
     end
 
     it 'If the community.pre_approved_listings is later disabled

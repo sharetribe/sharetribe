@@ -23,7 +23,7 @@ module EmailService::Store::Address
     from_model(
       MarketplaceSenderEmail
       .where(community_id: community_id, verification_status: :verified)
-      .order('created_at DESC')
+      .order('created_at DESC, id DESC')
       .limit(1)
       .first)
   end
@@ -36,7 +36,7 @@ module EmailService::Store::Address
     from_model(
       MarketplaceSenderEmail
       .where(community_id: community_id)
-      .order('created_at DESC')
+      .order('created_at DESC, id DESC')
       .limit(1)
       .first)
   end

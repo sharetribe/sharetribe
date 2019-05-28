@@ -65,10 +65,10 @@ class Rack::Attack
   # Blocklist from Rails cache. See
   # https://github.com/kickstarter/rack-attack/wiki/Advanced-Configuration
   # Our implementation relies on redis cache for O(1) complexity in checking blocks
-  if Rails.cache.class.to_s == "Readthis::Cache"
+  if Rails.cache.class.to_s == "ActiveSupport::Cache::RedisCacheStore"
     Rack::Attack.blocklist('block') do |req|
       # if variable `block <ip>` exists in cache store, then we'll block the request
-      Rails.cache.pool.with { |client| client.sismember('blocked', req.env['action_dispatch.remote_ip'].to_s) }
+      Rails.cache.redis.sismember('blocked', req.env['action_dispatch.remote_ip'].to_s)
     end
   end
 
@@ -86,17 +86,17 @@ class Rack::Attack
   #    ['']] # body
   # end
 
-  ActiveSupport::Notifications.subscribe('rack.attack') do |name, start, finish, request_id, req|
+  ActiveSupport::Notifications.subscribe(/rack_attack/) do |name, start, finish, request_id, req|
     data = {name: name,
             start: start,
             finish: finish,
             request_id: request_id,
-            request_ip: req.env['action_dispatch.remote_ip'].to_s,
-            matched: req.env['rack.attack.matched'],
-            match_type: req.env['rack.attack.match_type'],
-            match_data: req.env['rack.attack.match_data'],
-            user_agent: req.env['HTTP_USER_AGENT'],
-            referer: req.env['SERVER_NAME']
+            request_ip: req[:request].env['action_dispatch.remote_ip'].to_s,
+            matched: req[:request].env['rack.attack.matched'],
+            match_type: req[:request].env['rack.attack.match_type'],
+            match_data: req[:request].env['rack.attack.match_data'],
+            user_agent: req[:request].env['HTTP_USER_AGENT'],
+            referer: req[:request].env['SERVER_NAME']
     }
     Rails.logger.info(data.to_json)
   end

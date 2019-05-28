@@ -80,6 +80,7 @@ Feature: Admin lists members
       And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
      When I ban user "john doe"
      Then I should see "john doe"
+     Then I wait for 1 seconds
      # Identifying is easier when using username
      And "kassi_testperson1" should be banned from this community
 
@@ -90,6 +91,7 @@ Feature: Admin lists members
       And I will confirm all following confirmation dialogs in this page if I am running PhantomJS
      When I unban user "john doe"
      Then I should see "john doe"
+     Then I wait for 1 seconds
      And "kassi_testperson1" should not be banned from this community
 
     Given I am on the home page
@@ -101,6 +103,7 @@ Feature: Admin lists members
     Then I should see that "john doe" has admin rights in this community
     Then I should see that "jane doe" does not have admin rights in this community
     When I promote "jane doe" to admin
+    Then I wait for 1 seconds
     Then I should see that "jane doe" has admin rights in this community
     When I refresh the page
     Then I should see that "jane doe" has admin rights in this community

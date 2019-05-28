@@ -7,9 +7,19 @@ Rails.application.configure do
   # If live updates for translations are in use, caching is set to false.
   config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load == "true" ? false : true)
 
+  # Eager load code on boot. This eager loads most of Rails and
+  # your application in memory, allowing both threaded web servers
+  # and those relying on copy on write to perform better.
+  # Rake tasks automatically ignore this option for performance.
+  config.eager_load = true
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+
+  # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
+  # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
+  # config.require_master_key = true
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
@@ -24,6 +34,7 @@ Rails.application.configure do
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
+  config.log_level = :info
   # Basic log config, for calls to Rails.logger.<level> { <message> }
   config.logger = ::Logger.new(STDOUT)
   # Formats log entries into: LEVEL MESSAGE
@@ -59,15 +70,14 @@ Rails.application.configure do
   # Prefer redis instead of memcached
   config.cache_store =
     if ENV["redis_host"].present?
-      Readthis.fault_tolerant = true
-      [:readthis_store, {
-         redis: { host: ENV["redis_host"],
-                  port: ENV["redis_port"],
-                  driver: :hiredis},
-         db: ENV["redis_db"],
-         namespace: "cache",
-         expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
-       }]
+      [:redis_cache_store, {
+        driver: :hiredis,
+        namespace: 'cache',
+        compress: true,
+        timeout: 1,
+        url: "redis://#{ENV["redis_host"]}:#{ENV["redis_port"]}/#{ENV["redis_db"]}",
+        expires_in: ENV["redis_expires_in"] || 240 # default, 4 hours in minutes
+      }]
     else
       [:dalli_store, (ENV["MEMCACHIER_GREEN_SERVERS"] || "").split(","), {
          username: ENV["MEMCACHIER_GREEN_USERNAME"],
@@ -101,6 +111,7 @@ Rails.application.configure do
   # the I18n.default_locale when a translation can not be found)
   # config.i18n.fallbacks = true #fallbacks defined in intitializers/i18n.rb
 
+  config.action_mailer.perform_caching = false
 
   mail_delivery_method = (APP_CONFIG.mail_delivery_method.present? ? APP_CONFIG.mail_delivery_method.to_sym : :sendmail)
 
