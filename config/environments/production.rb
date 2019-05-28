@@ -72,7 +72,7 @@ Rails.application.configure do
     if ENV["redis_host"].present?
       [:redis_cache_store, {
         driver: :hiredis,
-        namespace: 'cache',
+        namespace: ENV["redis_cache_namespace"] || "cache",
         compress: true,
         timeout: 1,
         url: "redis://#{ENV["redis_host"]}:#{ENV["redis_port"]}/#{ENV["redis_db"]}",
