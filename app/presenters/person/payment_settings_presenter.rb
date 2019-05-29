@@ -210,6 +210,8 @@ class Person::PaymentSettingsPresenter
     end
     entity = api_seller_account.individual
     dob = entity.dob
+    url = api_seller_account.try(:business_profile).try(:[], :url)
+    url = person_url if url.blank?
     result = {
       first_name: entity.first_name,
       last_name: entity.last_name,
@@ -221,7 +223,7 @@ class Person::PaymentSettingsPresenter
       email: entity[:email],
       phone: entity[:phone],
       mcc: api_seller_account.try(:business_profile).try(:[], :mcc),
-      url: api_seller_account.try(:business_profile).try(:[], :url)
+      url: url
     }
 
     if entity.respond_to?(:address)
