@@ -17,6 +17,11 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  # The default should be false, but is not for some reason (some gem sets it to
+  # true?), so force it back. Origin checks are problematic because we force no
+  # referrer policy and that seems to affect at least password resets.
+  config.action_controller.forgery_protection_origin_check = false
+
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
