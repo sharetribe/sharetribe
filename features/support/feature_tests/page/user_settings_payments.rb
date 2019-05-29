@@ -26,7 +26,7 @@ module FeatureTests
         select("October", from: "stripe_account_form_birth_date_2i")
         select("12", from: "stripe_account_form_birth_date_3i")
 
-        select_option("stripe_account_form_address_state", "NY")
+        select("New York", from: "stripe_account_form_address_state")
         payment_settings.fill_in("stripe_account_form[address_city]", with: "New York")
         payment_settings.fill_in("stripe_account_form[address_postal_code]", with: "01001")
         payment_settings.fill_in("stripe_account_form[address_line1]", with: "123 Street")
