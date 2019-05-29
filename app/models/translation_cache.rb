@@ -18,8 +18,8 @@ class TranslationCache
   end
 
   def translate(locale, value_field_name_sym, default="")
-    t = translations.find { |translation| translation.send(@locale_attr_sym) == locale.to_s } || translations.first # Fallback to first
-    t ? t.send(value_field_name_sym) : default
+    t = translations[locale.to_s] || translations.first&.dig(1) # Fallback to first
+    t ? deserialize(t, @model.class, @translation_attr_sym).send(value_field_name_sym) : default
   end
 
   private
@@ -39,15 +39,13 @@ class TranslationCache
   def translations
     fetch_cache(cache_key) do
       @model.send(@translation_attr_sym).to_a.map { |model|
-        serialize(model)
-      }
-    end.map { |cache_result|
-      deserialize(cache_result, @model.class, @translation_attr_sym)
-    }
+        [model.send(@locale_attr_sym), serialize(model)]
+      }.to_h
+    end
   end
 
   def cache_key
-    "/#{@model.class.name}/#{@model.id}/#{@translation_attr_sym.to_s}/#{@model.updated_at}"
+    "t2/#{@model.class.name}/#{@model.id}/#{@translation_attr_sym.to_s}/#{@model.updated_at}"
   end
 
   def deserialize(cache_result, parent_class, attr_name)
