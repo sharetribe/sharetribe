@@ -2,7 +2,7 @@
   .home-fluid-thumbnail-grid-item
     %div
       -# Listing image
-      = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}
+      
 
       -# Listing author details
       .home-fluid-thumbnail-grid-author
@@ -25,3 +25,5 @@
             - dist_string = "#{dist} #{listing.distance_unit}"
             .home-fluid-thumbnail-grid-details-distance{title: dist_string}
               = dist_string
+
+      = render :partial => "layouts/grid_item_listing_image", :locals => {:listing => listing, :modifier_class => ""}

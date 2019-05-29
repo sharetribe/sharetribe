@@ -448,6 +448,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    rb-readline (0.5.5)
     rbtree3 (0.5.0)
     react_on_rails (6.9.3)
       addressable
@@ -502,6 +503,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.6)
+    ruby-graphviz (1.2.4)
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
@@ -654,7 +656,7 @@ DEPENDENCIES
   mercury-rails!
   meta_request (~> 0.4.3)
   money-rails (~> 1.8.0)
-  mysql2 (~> 0.4.10)
+  mysql2 (= 0.4.10)
   newrelic_rpm (~> 4.2.0.334)
   omniauth-facebook (~> 5.0.0)
   omniauth-google-oauth2 (>= 0.6.0)

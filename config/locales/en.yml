@@ -92,11 +92,11 @@ en:
         transaction_agreement: "Transaction agreement"
         transaction_agreement_checkbox: "Require buyers to accept an agreement before starting a transaction"
         transaction_agreement_checkbox_header: "Agreement label"
-        transaction_agreement_checkbox_label_description: "This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like \"By clicking this box I accept the agreement.\""
+        transaction_agreement_checkbox_label_description: 'This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like "By clicking this box I accept the agreement."'
         transaction_agreement_text_header: "Agreement text"
-        transaction_agreement_description: "This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the \"%{read_more}\" link next to the agreement label."
+        transaction_agreement_description: 'This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the "%{read_more}" link next to the agreement label.'
       edit_look_and_feel:
-        edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
+        edit_community_look_and_feel: 'Edit marketplace "%{community_name}" look and feel'
         community_logo: Logo
         community_logo_icon: "Logo for social networks and mobile devices"
         community_logo_icon_mobile: "Logo for home screen on mobile devices"
@@ -120,7 +120,7 @@ en:
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixels size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
-        custom_color1_instructions_text: "You can change the main color of the user interface by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> can help you choose the color and give you the hex color code. You can then copy the code here."
+        custom_color1_instructions_text: 'You can change the main color of the user interface by entering a hex color value. <a href="https://www.webfx.com/web-design/color-picker/d96e21" target="_blank" rel="noreferrer">WebFX.com</a> can help you choose the color and give you the hex color code. You can then copy the code here.'
         new_listing_button_instructions_text: "You can change the color of the Post a new listing button by entering a hex color value. %{link_to_colorpicker} can help you choose the color and give you the hex color code. You can then copy the code here."
         default_browse_view: "Default browse view"
         default_browse_view_instructions_text: "Default browse view is used on the homepage to set how the listings are displayed by default."
@@ -430,7 +430,7 @@ en:
       topbar:
         topbar: "Top bar"
         new_listing_button_label: "Post a new listing button text"
-        invalid_post_listing_button_label: "Please provide a valid text for \"Post a new listing\" button"
+        invalid_post_listing_button_label: 'Please provide a valid text for "Post a new listing" button'
       transactions:
         export_all_as_csv: "Export all as CSV"
         processing_export: "Processing export to CSV..."
@@ -733,7 +733,7 @@ en:
         email_sent: "Email sent."
         to_improve_email_deliverability: "To improve email deliverability the email subject is generated automatically and cannot be changed."
         email_subject_text: "A new message from the %{service_name} team"
-        firstname_cannot_be_removed: "\"Firstname\" cannot be removed and will be replaced by the actual first name of each recipient."
+        firstname_cannot_be_removed: '"Firstname" cannot be removed and will be replaced by the actual first name of each recipient.'
         hello_firstname: "Hello Firstname,"
         hello_firstname_text: "Hello %{person},"
     left_hand_navigation:
@@ -748,9 +748,9 @@ en:
       read_more: "Read more about automatic availability management."
       read_more_availability_management: "Read more about availability management."
       allow_providers_to_manage_availability: "Allow sellers to manage their availability from a calendar"
-      per_hour_availability: "\"Per hour\" availability"
-      per_day_availability: "\"Per day\" availability"
-      per_night_availability: "\"Per night\" availability"
+      per_hour_availability: '"Per hour" availability'
+      per_day_availability: '"Per day" availability'
+      per_night_availability: '"Per night" availability'
       pricing_units_disabled_info: "Pricing units cannot be used when availability calendar is enabled."
       can_not_find_name: "Can not find order type with given name: %{name}"
       index:
@@ -815,7 +815,7 @@ en:
       shipping_label: "Allow sellers to define a shipping fee"
       price_label: "Allow sellers to add a price to their listings"
       units_title: "Pricing units"
-      units_desc: "If you have enabled pricing units, the listing price is displayed as \"price per pricing unit\". An example: \"$39 per hour\"."
+      units_desc: 'If you have enabled pricing units, the listing price is displayed as "price per pricing unit". An example: "$39 per hour".'
       units:
         piece: "Per piece"
         hour: "Per hour"
@@ -831,8 +831,8 @@ en:
         title: "New pricing unit"
         label_heading: Label
         selector_label_heading: "Selector label"
-        label_placeholder: "eg. \"kg\", \"30 minutes\", \"person\", \"class\""
-        selector_placeholder: "eg. \"Number of people\", \"Amount in kg\""
+        label_placeholder: 'eg. "kg", "30 minutes", "person", "class"'
+        selector_placeholder: 'eg. "Number of people", "Amount in kg"'
         per: Per
         unit_type:
           heading: "Unit type"
@@ -877,10 +877,10 @@ en:
       general_settings_updated: "Payment system general settings updated"
       transaction_fee_settings_updated: "Transaction fee settings updated"
       choose_popup_text: |-
-          If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
-          You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
-          What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your sellers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your sellers to create a PayPal Business Account to accept payments.
-          If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the seller separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
+        If you want to allow your users to accept online payments, you need to choose the currency for your marketplace and then connect at least one of the two payment providers supported by Sharetribe: Stripe and PayPal. You can also choose to use both, which means your users will be able to accept payments with either payment method.
+        You can create a new account with either service if you don't have one already. Once you have connected an account, you can choose a possible fee you're charging from each transaction.
+        What's the difference between Stripe and PayPal? Stripe allows you to delay payout to the seller up to 3 months and offers one payment method (credit/debit card). Stripe also allows your sellers to receive money directly to their bank account simply by providing their bank details. PayPal provides two payment methods (credit card and PayPal account) and offers a protection program for buyers and sellers. It requires your sellers to create a PayPal Business Account to accept payments.
+        If you use Stripe, its fees will be deducted from your transaction fee, so remember to set a high enough minimum fee. If you use PayPal, its fees will be charged from the seller separately, in addition to your transaction fee. Stripe and PayPal have a bit different fee structure. In most cases Stripe's fees are a bit lower.
       invalid_api_keys: "Invalid Stripe API keys"
       missing_api_keys: "Missing Stripe API keys"
       stripe_verified: "Stripe API access verified"
@@ -1006,11 +1006,11 @@ en:
     paypal_fee_info:
       title: "PayPal's payment processing fee"
       body_text: |-
-          For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. The minimum transaction fee per transaction is %{minimum_transaction_fee}. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you will also pay PayPal's fees for each. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+        For PayPal payments, %{service_name} charges a commission of %{paypal_commission}%. The minimum transaction fee per transaction is %{minimum_transaction_fee}. PayPal's fees are not included in this commission, so in addition to %{service_name} commission, you will also pay PayPal's fees for each. PayPal's fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+        You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       body_text_accept: |-
-          This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
-          You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
+        This transaction is processed by PayPal. PayPal charges a processing fee from each payment. This fee is between 2% and 5% of the total sales price, depending on your monthly sales volume and the country of residence of the buyer. In general, domestic purchases have lower fees than international ones, and higher monthly sales give you a discount on fees.
+        You can see the exact fees by logging in to your PayPal account and going %{link_to_paypal}. After each purchase you will get a receipt displaying the exact fee.
       link_to_paypal_text: here
     stripe_fee_info:
       title: "Stripe's payment processing fee"
@@ -1389,7 +1389,7 @@ en:
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     transaction_preauthorized:
       subject: "%{requester} is interested and has authorized payment for %{listing_title} published in %{service_name}"
-      transaction_requested_by_user: "Great news! %{requester} is interested in \"%{listing_title}\" and has authorized payment for this listing."
+      transaction_requested_by_user: 'Great news! %{requester} is interested in "%{listing_title}" and has authorized payment for this listing.'
       you_have_time_to_accept: "You need to accept or reject the request within %{payment_expires_in}."
       if_you_do_accept: "If you accept the request within this timeframe, you will receive the money immediately to your account."
       if_you_do_accept_stripe: "If you accept the request within this timeframe, the payment will go through. You will receive the money directly to your bank account after you have delivered %{listing_title} to %{requester}."
@@ -1397,7 +1397,7 @@ en:
       click_here_to_reply: "Click here to respond to the request"
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
-      remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
+      remember_to_accept: 'Remember to accept the request from %{requester} about listing "%{listing_title}". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment.'
       one_day_left: "If you don't accept the request within one day the request will be automatically rejected and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
     welcome_email:
@@ -1417,22 +1417,22 @@ en:
       person_name: "Name:"
       person_email: "Email:"
     listing_submited_for_review:
-      subject: "New listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
-      there_is_a_new_listing_to_review: "There is a new listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      subject: 'New listing to review: "%{listing_title}" by %{author_name} in %{community}'
+      there_is_a_new_listing_to_review: 'There is a new listing to review: "%{listing_title}" by %{author_name}. You now have to approve or reject that listing.'
       review_the_listing: "Review the new listing"
       this_is_automatic_message: "This is an automatic message sent to administrators of %{community}."
     listing_approved:
-      subject: "The %{community} team has approved your listing \"%{listing_title}\""
-      listing_has_been_approved: "Great news! Your listing \"%{listing_title}\" has been reviewed and approved by the %{community} team. It has been published."
+      subject: 'The %{community} team has approved your listing "%{listing_title}"'
+      listing_has_been_approved: 'Great news! Your listing "%{listing_title}" has been reviewed and approved by the %{community} team. It has been published.'
       view_the_listing: "View the listing"
     listing_rejected:
-      subject: "The %{community} team has rejected your listing \"%{listing_title}\""
-      listing_has_been_rejected: "Unfortunately the %{community} team has rejected your listing \"%{listing_title}\" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review."
+      subject: 'The %{community} team has rejected your listing "%{listing_title}"'
+      listing_has_been_rejected: 'Unfortunately the %{community} team has rejected your listing "%{listing_title}" after reviewing it carefully. You can %{contact_link} to learn more or edit your listing and submit it for a new review.'
       contact_link: "contact the %{community} team"
       edit_the_listing: "Edit the listing"
     edited_listing_submited_for_review:
-      subject: "Edited listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
-      there_is_a_edited_listing_to_review: "There is an edited listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
+      subject: 'Edited listing to review: "%{listing_title}" by %{author_name} in %{community}'
+      there_is_a_edited_listing_to_review: 'There is an edited listing to review: "%{listing_title}" by %{author_name}. You now have to approve or reject that listing.'
       review_the_listing: "Review the edited listing"
   error_messages:
     booking:
@@ -1480,7 +1480,7 @@ en:
       temporary_unavailable: "Marketplace temporarily unavailable"
       unable_to_process: "The service is unable to process your request right now. Please try again in few moments."
       we_hate_this: "We hate when this happens! We have been informed about the situation and we are fixing it."
-      refer_to_error_id: "If you wish to contact the support regarding this issue, please include an error ID \"%{error_id}\" in your message."
+      refer_to_error_id: 'If you wish to contact the support regarding this issue, please include an error ID "%{error_id}" in your message.'
     error_500_title: "page loading failed"
     error_description: "Error description"
     no_javascript:
@@ -1502,7 +1502,7 @@ en:
       after: "must be after %{restriction}"
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
-      from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
+      from_must_be_less_than_till: '"Start time" must be less than "End time"'
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -1809,7 +1809,7 @@ en:
       poll_updated: "Poll updated"
       poll_deleted: "Poll removed"
       read_more: "Read more!"
-      registration_considered_spam: "Registration did not work, please contact us from header menu and mention \"email2 error\"."
+      registration_considered_spam: 'Registration did not work, please contact us from header menu and mention "email2 error".'
       reply_cannot_be_empty: "You can't send an empty message"
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"
@@ -2225,7 +2225,7 @@ en:
       admin_account_not_connected: "Connecting your PayPal account is not possible since %{service_name} has not set up payments. Please %{contact_admin_link} for details."
       paypal_account_email: "Connect your PayPal account"
       paypal_account_email_placeholder: "Your PayPal email address"
-      paypal_account_email_info_text: "If you don't have a PayPal account, you can create one by %{create_paypal_account}. If you get an error message when connecting your PayPal account, upgrade your PayPal account to a business account. Upgrading is free and easy. If you are an individual, you can use your first and last name as your \"business name\". To upgrade your account, %{upgrade_paypal_account} and find the upgrade link."
+      paypal_account_email_info_text: 'If you don''t have a PayPal account, you can create one by %{create_paypal_account}. If you get an error message when connecting your PayPal account, upgrade your PayPal account to a business account. Upgrading is free and easy. If you are an individual, you can use your first and last name as your "business name". To upgrade your account, %{upgrade_paypal_account} and find the upgrade link.'
       create_paypal_account: "clicking here"
       upgrade_paypal_account: "log in to your PayPal account"
       paypal_account_billing_agreement: "Grant %{service_name} permission to charge a transaction fee"
@@ -2467,7 +2467,7 @@ en:
       first_name_only: "(not shown to other users)"
       display_name: "Display name"
       display_name_description: "If you represent an organization, you can use its name as your display name. Display name is shown to other users instead of your first and last name."
-      location_description: "You can provide either your street address or only a city or zip/postal code. It’s good to also add your country when adding your location. Examples: \"10117 Berlin, Germany\" or \"2000 Sand Hill Road, CA, USA\"."
+      location_description: 'You can provide either your street address or only a city or zip/postal code. It’s good to also add your country when adding your location. Examples: "10117 Berlin, Germany" or "2000 Sand Hill Road, CA, USA".'
       profile_picture_description: "The profile picture should be in a square format (1:1 ratio), for example, 800x800 pixels. Otherwise, it will be cropped to fit."
       phone_number: "Phone number"
       profile_picture: "Profile picture"
