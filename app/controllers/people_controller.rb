@@ -1,5 +1,5 @@
 class PeopleController < Devise::RegistrationsController
-  skip_before_action :verify_authenticity_token, :only => [:creates]
+  skip_before_action :verify_authenticity_token, :only => [:create]
   skip_before_action :require_no_authentication, :only => [:new]
 
   before_action EnsureCanAccessPerson.new(
