@@ -40,6 +40,10 @@ class HomepageController < ApplicationController
 
       @show_custom_fields = relevant_filters.present? || show_price_filter
       @category_menu_enabled = @show_categories || @show_custom_fields
+
+      if @show_categories
+        @category_display_names = category_display_names(@current_community, @main_categories, @categories)
+      end
     end
 
     listing_shape_param = params[:transaction_type]
@@ -201,6 +205,17 @@ class HomepageController < ApplicationController
           )
         )
       }
+    end
+  end
+
+  def category_display_names(community, main_categories, categories)
+    # TODO cache time
+    Rails.cache.fetch(["catnames", community, I18n.locale, main_categories], expires_in: 24.hours) do
+      cat_names = {}
+      categories.each do |cat|
+        cat_names[cat.id] = cat.display_name(I18n.locale)
+      end
+      cat_names
     end
   end
 

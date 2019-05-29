@@ -25,7 +25,7 @@ class Category < ApplicationRecord
   has_many :subcategories, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :dependent => :destroy, :inverse_of => :parent
   # children is a more generic alias for sub categories, used in classification.rb
   has_many :children, -> { order("sort_priority") }, :class_name => "Category", :foreign_key => "parent_id", :inverse_of => :parent
-  belongs_to :parent, :class_name => "Category"
+  belongs_to :parent, :class_name => "Category", touch: true
   has_many :listings, :dependent => :nullify
   has_many :translations, :class_name => "CategoryTranslation", :dependent => :destroy
 
