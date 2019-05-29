@@ -52,6 +52,11 @@ Rails.application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
 
+  # The default should be false, but is not for some reason (some gem sets it to
+  # true?), so force it back. Origin checks are problematic because we force no
+  # referrer policy and that seems to affect at least password resets.
+  config.action_controller.forgery_protection_origin_check = false
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
