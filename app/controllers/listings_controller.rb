@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
 
-  before_action :only => [:edit, :edit_form_content, :update] do |controller|
+  before_action :only => [:edit, :edit_form_content, :update, :delete] do |controller|
     controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
 
@@ -272,6 +272,16 @@ class ListingsController < ApplicationController
 
   def verification_required
 
+  end
+
+  def delete
+    if @listing.update(deleted: true)
+      flash[:notice] = t("layouts.notifications.listing_deleted")
+      redirect_to listings_person_settings_path(@current_user.username)
+    else
+      flash[:error] = @listing.errors.full_messages.join(', ')
+      redirect_to @listing
+    end
   end
 
   def ensure_current_user_is_listing_author(error_message)

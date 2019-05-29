@@ -505,4 +505,41 @@ describe ListingsController, type: :controller do
       expect(response.body).to match("<meta content='Batman-s Top 10 Amazing Halo Tips by Proto T on Sharetribe' property='og:description'>")
     end
   end
+
+  describe "delete" do
+    let(:community){ FactoryGirl.create(:community, :settings => {"locales" => ["en", "fi"]}) }
+    let(:offer_process) {
+      FactoryGirl.create(:transaction_process,
+                                               community_id: community.id,
+                                               process: :none)
+    }
+    let(:sell_shape) { create_shape(community.id, "Sell", offer_process) }
+    let(:person) { FactoryGirl.create(:person, member_of: community) }
+    let(:listing) {
+      FactoryGirl.create(:listing,
+                         community_id: community.id,
+                         author: person,
+                         transaction_process_id: sell_shape[:transaction_process_id],
+                         listing_shape_id: sell_shape[:id],
+                         shape_name_tr_key: sell_shape[:name_tr_key],
+                         action_button_tr_key: sell_shape[:action_button_tr_key],
+                         unit_type: 'hour',
+                         title: "bike",
+                         description: "A very nice bike",
+                         price: Money.new(4567, "USD")
+                        )
+    }
+
+    before :each do
+      @request.host = "#{community.ident}.lvh.me"
+      @request.env[:current_marketplace] = community
+    end
+
+    it 'author deletes listing' do
+      sign_in_for_spec(person)
+      delete :delete, params: {id: listing.id}
+      listing.reload
+      expect(listing.deleted).to eq true
+    end
+  end
 end
