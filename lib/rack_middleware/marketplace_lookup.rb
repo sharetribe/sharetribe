@@ -21,7 +21,9 @@ class MarketplaceLookup
       if marketplace
         false
       else
-        Community.count == 0
+        Rails.cache.fetch("ccount", expires_in: 5.minutes) do
+          Community.count
+        end == 0
       end
 
     redirect_reason = ::MarketplaceRouter.redirect_reason(
