@@ -1,7 +1,7 @@
 /* eslint-env node */
 
 // const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./webpack.client.base.config');
 const devBuild = process.env.NODE_ENV !== 'production';
 
@@ -25,22 +25,23 @@ config.module.rules.push(
   },
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract({
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            localIdentName: '[name]__[local]__[hash:base64:5]',
-            minimize: !devBuild,
-            '-autoprefixer': !devBuild,
-          },
+    loader: [
+      {
+        loader: MiniCssExtractPlugin.loader,
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          localIdentName: '[name]__[local]__[hash:base64:5]',
+          // minimize: devBuild,
+          // '-autoprefixer': devBuild,
         },
-        {
-          loader: 'postcss-loader',
-        },
-      ],
-    }),
+      },
+      {
+        loader: 'postcss-loader',
+      },
+    ],
   },
   {
     test: /\.scss$/,
@@ -52,27 +53,22 @@ config.module.rules.push(
   },
   {
     test: /\.(woff2?)$/,
-    loader: 'url',
+    loader: 'url-loader',
     options: {
       limit: 10000,
     },
   },
   {
     test: /\.(ttf|eot)$/,
-    loader: 'file',
+    loader: 'file-loader',
   },
   {
     test: /\.(jpe?g|png|gif|ico)$/,
-    loader: 'customfile-loader',
+    loader: 'file-loader',
     options: {
       limit: 10000,
       name: `[name]-[hash].[ext]${assetHost}`,
-
     },
-  },
-  {
-    test: /\.json$/,
-    loader: 'json-loader',
   },
   {
     test: /\.svg$/,
@@ -81,7 +77,12 @@ config.module.rules.push(
 );
 
 config.plugins.push(
-  new ExtractTextPlugin({ filename: '[name]-bundle.css', disable: false, allChunks: true })
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: '[name]-bundle.css',
+    // chunkFilename: '[id].css',
+  })
 );
 
 if (devBuild) {

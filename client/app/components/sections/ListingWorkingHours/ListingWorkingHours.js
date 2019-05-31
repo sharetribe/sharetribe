@@ -123,7 +123,7 @@ class ListingWorkingHours extends Component {
             saveInProgress: this.props.saveInProgress,
             saveFinished: this.props.saveFinished,
             hasChanges: this.props.hasChanges,
-          }) : null,
+          }),
         ]),
       ]),
       r(FlashNotification, {

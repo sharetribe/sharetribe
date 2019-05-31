@@ -1,3 +1,11 @@
 {
-  "presets": ["es2015", "stage-2", "react"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [
+    // Stage 2
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-function-sent",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-throw-expressions",
+  ]
 }

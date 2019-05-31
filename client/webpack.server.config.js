@@ -7,11 +7,12 @@ const nodeEnv = devBuild ? 'development' : 'production';
 const { replacePercentChar } = require('./webpackConfigUtil');
 const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 const assetHost = replacePercentChar(assetHostEnv);
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   context: __dirname,
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     './app/startup/serverRegistration',
   ],
   output: {
@@ -26,7 +27,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     }),
-    new webpack.optimize.UglifyJsPlugin(),
   ],
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
         test: /\.css$/,
         loaders: [
           {
-            loader: 'css-loader/locals',
+            loader: 'css-loader',
             options: {
               modules: true,
               importLoaders: 0,
@@ -57,20 +57,31 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
-        loader: 'customfile-loader',
+        loader: 'file-loader',
         options: {
           limit: 10000,
           name: `[name]-[hash].[ext]${assetHost}`,
         },
       },
       {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-      {
         test: /\.svg$/,
         loader: 'raw-loader',
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      // we specify a custom UglifyJsPlugin here to get source maps in production
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: false,
+          ecma: 6,
+          mangle: true,
+        },
+        sourceMap: true,
+      }),
     ],
   },
 };
