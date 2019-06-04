@@ -3,7 +3,7 @@
   data: {"field-id": f.index, new: f.object.new_record? ? '1' : nil}}
   .col-10
     = f.hidden_field :id
-    = f.hidden_field :entity_type
+    = f.hidden_field :entity_type, value: f.object.entity_type # RoR 5.2.3 does not convert this proper
     = f.hidden_field :sort_priority, class: 'sort-priority'
     = f.hidden_field :_destroy, class: 'destroy-record'
     - available_locales.each do |locale_name, locale_value|
