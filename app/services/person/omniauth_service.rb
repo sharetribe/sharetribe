@@ -240,8 +240,6 @@ class Person::OmniauthService
             # to prevent plain requests to /people/auth/facebook even when "login with Facebook" button is hidden
             strategy.options[:client_id] = ""
             strategy.options[:client_secret] = ""
-            strategy.options[:client_options][:authorize_url] = login_url
-            strategy.options[:client_options][:site_url] = login_url
           end
         when GOOGLE_OAUTH2
           if community.google_connect_enabled?
