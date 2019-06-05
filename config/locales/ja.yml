@@ -1777,6 +1777,7 @@ ja:
       listing_updated_successfully: 更新されました
       listing_updated_availability_management_enabled: 投稿は正常に更新されました。空き状況の管理が有効になりました。
       listing_updated_availability_management_disabled: リスティングは正常に更新されました。在庫管理が無効になりました。
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "このエリアにアクセスするには管理者アカウントでログイン し て ください"
       only_listing_author_can_close_a_listing: 投稿者のみがこの投稿を編集出来ます
       only_listing_author_can_edit_a_listing: 投稿者のみがこの投稿を編集出来ます
@@ -1878,6 +1879,7 @@ ja:
       you_cannot_send_a_new_comment_because_listing_is_closed: 公開停止中のため新しいコメントの送信はできません。
       you_must: コメントを送信するには
       subscribe_to_comments: 新しいコメントがあった場合通知する
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: 編集する
     edit_links:
@@ -1893,6 +1895,7 @@ ja:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: Googleマップで表示する
     error:

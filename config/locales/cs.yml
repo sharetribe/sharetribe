@@ -1791,6 +1791,7 @@ cs:
       listing_updated_successfully: "Inzerát byl úspěšně vytvořen"
       listing_updated_availability_management_enabled: "Výpis byl úspěšně aktualizován. Správa dostupnosti byla povolena."
       listing_updated_availability_management_disabled: "Výpis byl úspěšně aktualizován. Správa dostupnosti byla zakázána."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Pouze autor inzerátu může inzerát uzavřít"
       only_listing_author_can_edit_a_listing: "Pouze autor inzerátu může inzerát upravit"
@@ -1894,6 +1895,7 @@ cs:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nemůžete tento inzerát okomentovat, protože je již uzavřen."
       you_must: Musíte
       subscribe_to_comments: "Upozorňovat mě na nové příspěvky a aktualizace."
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Upravit inzerát"
     edit_links:
@@ -1909,6 +1911,7 @@ cs:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Otevřít v Google Maps"
     error:

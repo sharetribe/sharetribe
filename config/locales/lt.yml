@@ -1773,6 +1773,7 @@ lt:
       listing_updated_successfully: "Skelbimo atnaujinimas sėkmingas"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Prašome prisijungti su administratoriaus paskyra, kad šita vieta būtų prieinama"
       only_listing_author_can_close_a_listing: "Tik skelbimo autorius gali uždaryti skelbimą"
       only_listing_author_can_edit_a_listing: "Tik skelbimo autorius gali redaguoti skelbimą"
@@ -1871,6 +1872,7 @@ lt:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Negalite rašyti komentarų, nes šis skelbimas neaktyvus."
       you_must: Privalote
       subscribe_to_comments: "Pranešti apie naujus komentarus ir atnaujinimus"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Redaguoti skelbimą"
     edit_links:
@@ -1886,6 +1888,7 @@ lt:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Atidaryti Google žemėlapiuose"
     error:

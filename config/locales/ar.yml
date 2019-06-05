@@ -1776,6 +1776,7 @@ ar:
       listing_updated_successfully: "تم تحديث الإعلان بنجاح"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "فقط من وضع الاعلان يمكنه إغلاقه"
       only_listing_author_can_edit_a_listing: "فقط من وضع الإعلان يمكنه تعديله"
@@ -1874,6 +1875,7 @@ ar:
       you_cannot_send_a_new_comment_because_listing_is_closed: "لا يمكنك إضافة تعليق لأن الإعلان مغلق."
       you_must: "يجب عليك"
       subscribe_to_comments: "قم بإشعاري في حال وجود تعليقات أو تحديثات"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "تعديل الإعلان"
     edit_links:
@@ -1889,6 +1891,7 @@ ar:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "افتح بواسطة خرائط جوجل"
     error:

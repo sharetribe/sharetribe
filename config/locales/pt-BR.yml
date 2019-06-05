@@ -1186,7 +1186,7 @@ pt-BR:
       contact_page_link: Reposta
     new:
       welcome_fb_user: "Seja bem-vindo ao %{service_name}, %{name} !"
-      fb_join_accept_terms: "Última étapa para fazer parte de %{service_name} : você deve aceitar as condições de uso."
+      fb_join_accept_terms: "Última etapa para fazer parte de %{service_name} : você deve aceitar as condições de uso."
       join_community: "Entrar em %{service_name}"
       you_can_join: "Para participar de %{service_name} você deve aceitar os termos de uso e clicar em 'Entrar em %{service_name}' abaixo."
       you_can_join_email_confirmation: "Para participar %{service_name}, você precisa ter um endereço de e-mail válido, que termina com %{email_ending}. Você pode participar através do preenchimento de seu endereço de e-mail, aceitando os termos de uso dessa comunidade e clicando em 'Participar da %{service_name}' abaixo, e confirmar seu e-mail."
@@ -1782,6 +1782,7 @@ pt-BR:
       listing_updated_successfully: "Anúncio atualizado com sucesso"
       listing_updated_availability_management_enabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade ativado."
       listing_updated_availability_management_disabled: "Lista atualizada com êxito. Gerenciamento de disponibilidade desativado."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Por favor, entre com uma conta de administrador para acessar esta área."
       only_listing_author_can_close_a_listing: "Somente o autor do anúncio pode fechar o mesmo"
       only_listing_author_can_edit_a_listing: "Somente o autor do anúncio pode editar o mesmo"
@@ -1884,6 +1885,7 @@ pt-BR:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Você não pode enviar novos comentários pois este anúncio está fechado."
       you_must: "Você deve"
       subscribe_to_comments: "Avise-me quando houver novos comentários ou atualizações."
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Editar anúncio"
     edit_links:
@@ -1899,6 +1901,7 @@ pt-BR:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Abrir no Google Maps"
     error:
@@ -1967,7 +1970,7 @@ pt-BR:
         after_service_fee_you_will_get: "Depois do processamento das taxas da %{service_name}, você receberá %{sum_with_currency}"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link} irá deduzir do preço."
         no_service_fee_you_will_get_payment_text: ~
-        after_service_fee_you_will_get_payment_text: "Quando alguém fechar o aluguel, você irá receber esse valor menos %{payment_fee_info_link}"
+        after_service_fee_you_will_get_payment_text: "Quando alguém fechar o pedido, você irá receber esse valor menos %{payment_fee_info_link}"
         payment_fee_info_link_text: "taxa de processamento do pagamento"
         delivery: "Forma de entrega"
         shipping: Envio

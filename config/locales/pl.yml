@@ -1800,6 +1800,7 @@ pl:
       listing_updated_successfully: "Oferta zaktualizowana pomyślnie"
       listing_updated_availability_management_enabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością włączone."
       listing_updated_availability_management_disabled: "Oferta zaktualizowana pomyślnie. Zarządzanie dostępnością wyłączone."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Tylko autor oferty może zamknąć ofertę"
       only_listing_author_can_edit_a_listing: "Tylko autor oferty może edytować ofertę"
@@ -1904,6 +1905,7 @@ pl:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nie możesz dodawać nowych komentarzy, ponieważ oferta została zamknięta."
       you_must: Musisz
       subscribe_to_comments: "Powiadamiaj mnie o nowych komentarzach i uaktualnieniach"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Edytuj ofertę"
     edit_links:
@@ -1919,6 +1921,7 @@ pl:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Otwórz w Google Maps"
     error:

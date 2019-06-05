@@ -1788,6 +1788,7 @@ fr:
       listing_updated_successfully: "Annonce mise à jour avec succès"
       listing_updated_availability_management_enabled: "Annonce mise à jour avec succès. Gestion des disponibilités activée."
       listing_updated_availability_management_disabled: "Annonce mise à jour avec succès. Gestion des disponibilités désactivée."
+      listing_deleted: "Annonce supprimée"
       only_kassi_administrators_can_access_this_area: "Veuillez vous connecter avec un compte administrateur pour accéder à cette page"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peut la clore"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
@@ -1890,6 +1891,7 @@ fr:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Vous ne pouvez pas déposer de nouveau commentaire car cette annonce est close."
       you_must: "Vous devez"
       subscribe_to_comments: "Me prévenir des nouveaux commentaires et mises à jour"
+    deleting_a_listing_cannot_be_undone: "Supprimer une listing ne peut pas être annulé. Voulez-vous vraiment la supprimer ?"
     edit:
       edit_listing: "Editer l'annonce"
     edit_links:
@@ -1905,6 +1907,7 @@ fr:
       listing_is_rejected: "L'annonce a été rejetée"
       approve_listing: "Approuver l'annonce"
       reject_listing: "Rejeter l'annonce"
+      delete_listing: "Supprimer l'annonce"
     map:
       open_in_google_maps: "Ouvrir dans Google Maps"
     error:
@@ -2814,7 +2817,7 @@ fr:
       messages:
         account_number: "Numéro de compte"
         routing_number: "Numéro de routing"
-        bank_code: "Numéro de compte"
+        bank_code: "Code banque"
         branch_code: "Code branche"
         transit_number: "Numéro de transit"
         institution_number: "Numéro d'institution"

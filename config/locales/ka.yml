@@ -1773,6 +1773,7 @@ ka:
       listing_updated_successfully: "ჩამონათვალი წარმატებით განახლდა"
       listing_updated_availability_management_enabled: "ჩამონათვალი წარმატებით განახლდა"
       listing_updated_availability_management_disabled: "ჩამონათვალი წარმატებით განახლდა"
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "მხოლოდ სიის ავტორს შეუძლია დახუროს ეს სია"
       only_listing_author_can_edit_a_listing: "მხოლოდ სიის ავტორს შეუძლია მისი დარედაქტირება."
@@ -1874,6 +1875,7 @@ ka:
       you_cannot_send_a_new_comment_because_listing_is_closed: "თქვენ არ შეგიძლიათ კომენტარის გაგზავნა, რადგან ეს ჩამონათვალი დახურულია. "
       you_must: "თქვენ უნდა"
       subscribe_to_comments: "შემატყობინეთ ახალი კომენტარების და განახლებების შესახებ"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "დაარედაქტირე სია"
     edit_links:
@@ -1889,6 +1891,7 @@ ka:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "გახსენი Google Maps-ში"
     error:

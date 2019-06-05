@@ -1790,6 +1790,7 @@ sv:
       listing_updated_successfully: "Annons uppdaterades"
       listing_updated_availability_management_enabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit aktiverat."
       listing_updated_availability_management_disabled: "Annonsen uppdaterades framgångsrikt. Tillgänglighetshantering har blivit inaktiverad."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Bara ägaren av annonsen kan stänga annonsen"
       only_listing_author_can_edit_a_listing: "Bara ägaren av annonsen kan redigera annonsen"
@@ -1892,6 +1893,7 @@ sv:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan inte skicka nya kommentarer eftersom din annons är avslutad."
       you_must: "Du måste"
       subscribe_to_comments: "Meddela mig om nya kommentarer och uppdateringar"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Redigera annons"
     edit_links:
@@ -1907,6 +1909,7 @@ sv:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Öppna i Google Maps"
     error:
