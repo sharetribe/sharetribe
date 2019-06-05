@@ -1782,6 +1782,7 @@ da-DK:
       listing_updated_successfully: "Annoncen blev opdateret"
       listing_updated_availability_management_enabled: "Annoncen blev opdateret. Tilgængelighedsstyring er aktiveret."
       listing_updated_availability_management_disabled: "Annoncen blev opdateret. Tilgængelighedsstyring er deaktiveret."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Kun notering forfatter kan lukke en liste"
       only_listing_author_can_edit_a_listing: "Kun notering forfatter kan redigere en liste"
@@ -1884,6 +1885,7 @@ da-DK:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kan ikke skrive en kommentar, da annoncen er lukket."
       you_must: "Du skal"
       subscribe_to_comments: "Giv mig besked om nye kommentarer og opdateringer"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Ret annoncen"
     edit_links:
@@ -1899,6 +1901,7 @@ da-DK:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Åbn i Google Maps"
     error:

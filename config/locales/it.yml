@@ -1755,6 +1755,7 @@ it:
       listing_updated_successfully: "L'inserzione è stata aggiornata con successo"
       listing_updated_availability_management_enabled: "Inserzioni aggiornate con successo. Gestione delle disponibilità abilitate con successo."
       listing_updated_availability_management_disabled: ""
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Solo l'autore dell'inserzione può chiudere l'inserzione"
       only_listing_author_can_edit_a_listing: "Solo l'autore dell'inserzione può modificare l'inserzione"
@@ -1857,6 +1858,7 @@ it:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Non puoi aggiungere nuovi commenti perché l'annuncio è chiuso."
       you_must: Devi
       subscribe_to_comments: "Inviami una notifica per ogni nuovo commento o aggiornamento"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Modifica l'inserzione"
     edit_links:
@@ -1872,6 +1874,7 @@ it:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Apri in Google Maps"
     error:

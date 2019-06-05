@@ -1791,6 +1791,7 @@ nl:
       listing_updated_successfully: "Advertentie succesvol bijgewerkt"
       listing_updated_availability_management_enabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement ingesteld."
       listing_updated_availability_management_disabled: "Advertentie succesvol bijgewerkt. Beschikbaarheidsmanagement uitgezet."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Voor toegang tot dit gedeelte gelieve in te loggen met een beheerderaccount"
       only_listing_author_can_close_a_listing: "Alleen de auteur van de advertentie kan deze sluiten"
       only_listing_author_can_edit_a_listing: "Alleen de auteur van de advertentie kan dit aanpassen"
@@ -1893,6 +1894,7 @@ nl:
       you_cannot_send_a_new_comment_because_listing_is_closed: "U kunt geen nieuw commentaar geven want de advertentie is gesloten"
       you_must: "U moet"
       subscribe_to_comments: "Breng me op de hoogte van nieuwe reacties en updates"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Bewerk advertentie"
     edit_links:
@@ -1908,6 +1910,7 @@ nl:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Open in Google Maps"
     error:

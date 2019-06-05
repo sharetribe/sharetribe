@@ -1788,6 +1788,7 @@ de:
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       listing_updated_availability_management_enabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung aktiviert."
       listing_updated_availability_management_disabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung deaktiviert."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Bitte mit einem Administratorkonto einloggen, um diesen Bereich zu betreten"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
@@ -1890,6 +1891,7 @@ de:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken, da dieser Eintrag geschlossen wurde."
       you_must: "Du musst dich"
       subscribe_to_comments: "Benachrichtigt mich über neue Kommentare und Updates"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
@@ -1905,6 +1907,7 @@ de:
       listing_is_rejected: "Eintrag wurde abgelehnt"
       approve_listing: "Eintrag annehmen"
       reject_listing: "Eintrag ablehnen"
+      delete_listing: ~
     map:
       open_in_google_maps: "In Google Maps öffnen"
     error:

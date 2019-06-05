@@ -1788,6 +1788,7 @@ en-NZ:
       listing_updated_successfully: "Listing updated successfully"
       listing_updated_availability_management_enabled: "Listing updated successfully. Availability management enabled."
       listing_updated_availability_management_disabled: "Listing updated successfully. Availability management disabled."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
@@ -1890,6 +1891,7 @@ en-NZ:
       you_cannot_send_a_new_comment_because_listing_is_closed: "You cannot send new comments because this listing is closed."
       you_must: "You must"
       subscribe_to_comments: "Notify me of new comments and updates"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Edit listing"
     edit_links:
@@ -1905,6 +1907,7 @@ en-NZ:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Open in Google Maps"
     error:

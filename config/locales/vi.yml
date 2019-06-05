@@ -1777,6 +1777,7 @@ vi:
       listing_updated_successfully: "Cập nhật thành công"
       listing_updated_availability_management_enabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được bật."
       listing_updated_availability_management_disabled: "Bài đăng cập nhật thành công. Quản lý lịch làm việc đã được tắt"
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Chỉ tác giả của bài đăng mới có thể đóng bài đăng"
       only_listing_author_can_edit_a_listing: "Chỉ tác giả của bài đăng mới có thể chỉnh sửa bài đăng"
@@ -1878,6 +1879,7 @@ vi:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Bạn không thể đăng bình luận mới bài đăng này đã đóng."
       you_must: "Bạn phải"
       subscribe_to_comments: "Thông báo cho tôi khi có bình luận và cập nhật mới"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Thay đổi bài đăng"
     edit_links:
@@ -1893,6 +1895,7 @@ vi:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Mở bằng bản đồ Google"
     error:

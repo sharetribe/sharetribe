@@ -1773,6 +1773,7 @@ th-TH:
       listing_updated_successfully: การอัพเดทรายการเสร็จสมบูรณ์แล้ว
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: ผู้ประกาศเท่านั้นจึงจะมีสิทธิ์ลบประกาศได้
       only_listing_author_can_edit_a_listing: คนเขียนรายการเท่านั้นที่จะสามารถแก้ไขรายการได้
@@ -1871,6 +1872,7 @@ th-TH:
       you_cannot_send_a_new_comment_because_listing_is_closed: คุณไม่สามารถส่งความคิดเห็นใหม่เพราะรายการนี้ถูกปิด
       you_must: คุณต้อง
       subscribe_to_comments: แจ้งเตือนเมื่อมีความคิดเห็นและการปรับปรุงใหม่
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: แก้ไขรายการ
     edit_links:
@@ -1886,6 +1888,7 @@ th-TH:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: ~
     error:

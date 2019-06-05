@@ -1761,6 +1761,7 @@ he-IL:
       listing_updated_successfully: "המודעה עודכנה בהצלחה"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "רק מפרסם המודעה יכול לסגור את המודעה"
       only_listing_author_can_edit_a_listing: "רק מפרסם המודעה יכול לערוך את המודעה"
@@ -1859,6 +1860,7 @@ he-IL:
       you_cannot_send_a_new_comment_because_listing_is_closed: "לא ניתן לשלוח הערות חדשות משום שהמודעה הזו נסגרה."
       you_must: אנא
       subscribe_to_comments: "עדכן אותי על תגובות חדשות"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: עריכה
     edit_links:
@@ -1874,6 +1876,7 @@ he-IL:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: ~
     error:

@@ -1775,6 +1775,7 @@ zh-TW:
       listing_updated_successfully: 信息更新成功
       listing_updated_availability_management_enabled: 列表已成功更新，啟用預約時間管理。
       listing_updated_availability_management_disabled: 信息更新成功
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: 仅作者可以关闭发布的信息
       only_listing_author_can_edit_a_listing: 仅作者可以编辑发布的信息
@@ -1876,6 +1877,7 @@ zh-TW:
       you_cannot_send_a_new_comment_because_listing_is_closed: 無法發表新的評論，刊登已關閉。
       you_must: 您必須
       subscribe_to_comments: 收到Email通知新的評論或更新
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: 編輯刊登
     edit_links:
@@ -1891,6 +1893,7 @@ zh-TW:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: 在Google地圖中打開
     error:

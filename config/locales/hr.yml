@@ -1793,6 +1793,7 @@ hr:
       listing_updated_successfully: "Oglas je uspješno ažuriran"
       listing_updated_availability_management_enabled: "Oglas je uspješno ažuriran. Upravljanje dostupnosti je omogućeno."
       listing_updated_availability_management_disabled: "Oglas je uspješno ažuriran. Upravljanje dostupnosti je onemogućeno."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Molimo prijavite se s administratorskim računom kako bi pristupili ovoj stranici"
       only_listing_author_can_close_a_listing: "Samo autor oglasa može zatvoriti oglas"
       only_listing_author_can_edit_a_listing: "Samo autor oglas može izmijeniti oglas"
@@ -1897,6 +1898,7 @@ hr:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Ne možete komentirati jer je oglas zatvoren"
       you_must: Morate
       subscribe_to_comments: "Obavijesti me o novim komentarima i nadopunama"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Uredi oglas"
     edit_links:
@@ -1912,6 +1914,7 @@ hr:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Otvorite u Google mapi"
     error:

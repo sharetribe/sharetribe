@@ -1768,6 +1768,7 @@ tr-TR:
       listing_updated_successfully: "İlan başarıyla güncellendi"
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Listelemeyi sadece ilan sahibi kapatabilir."
       only_listing_author_can_edit_a_listing: "Listelemeyi yalnızca ilan sahibi düzenleyebilir."
@@ -1866,6 +1867,7 @@ tr-TR:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Yeni yorum gönderemezsiniz, çünkü bu ilan kapatıldı."
       you_must: Yapmalısınız
       subscribe_to_comments: "Beni yeni yorum ve güncellemelerden haberdar et"
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "İlanı düzenle"
     edit_links:
@@ -1881,6 +1883,7 @@ tr-TR:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Google Maps üzerinde aç."
     error:

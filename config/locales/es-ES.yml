@@ -1788,6 +1788,7 @@ es-ES:
       listing_updated_successfully: "Anuncio actualizado"
       listing_updated_availability_management_enabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad habilitado."
       listing_updated_availability_management_disabled: "Anuncio actualizado exitosamente. Manejo de disponibilidad deshabilitado."
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: "Por favor, inicia sesión con una cuenta de administrador para acceder a esta area"
       only_listing_author_can_close_a_listing: "Sólo el autor del anuncio puede cerrarlo"
       only_listing_author_can_edit_a_listing: "Sólo el autor del anuncio puede editarlo"
@@ -1890,6 +1891,7 @@ es-ES:
       you_cannot_send_a_new_comment_because_listing_is_closed: "No se pueden enviar nuevos comentarios ya que el anuncio ha sido desactivado."
       you_must: "Es necesario"
       subscribe_to_comments: "Recibir notificaciones con los nuevos comentarios y actualizaciones de éste anuncio."
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Editar anuncio"
     edit_links:
@@ -1905,6 +1907,7 @@ es-ES:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Abrir en Google Maps"
     error:

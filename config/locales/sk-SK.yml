@@ -1793,6 +1793,7 @@ sk-SK:
       listing_updated_successfully: "Inzerát bol úspešne aktualizovaný."
       listing_updated_availability_management_enabled: ~
       listing_updated_availability_management_disabled: ~
+      listing_deleted: ~
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Iba autor výpisu môže uzavrieť výpis"
       only_listing_author_can_edit_a_listing: "Iba autor výpisu môže upravovať výpis"
@@ -1896,6 +1897,7 @@ sk-SK:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Nemôžete odoslať nový komentár, lebo tento inzerát bol uzavretý."
       you_must: Musíte
       subscribe_to_comments: "Notifikujte ma v prípade nových komentárov a aktualizácií."
+    deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "Upraviť inzerát"
     edit_links:
@@ -1911,6 +1913,7 @@ sk-SK:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
+      delete_listing: ~
     map:
       open_in_google_maps: "Otvoriť v Google Maps"
     error:
