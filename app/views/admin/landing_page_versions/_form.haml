@@ -1,0 +1,12 @@
+= form_for [:admin, presenter.landing_page_version] do |form|
+  .row
+    .col-12
+      = form.label :version, t("admin.communities.landing_pages.form.version")
+      = form.text_field :version
+  .row
+    .col-12
+      = form.text_area :content
+  .row
+    .col-12
+      = form.button t("admin.communities.landing_pages.form.save")
+

@@ -645,6 +645,17 @@ en:
         contact_us: "Contact us"
         you_can_now_use_a_custom_domain: "With your current plan, you can now enable a custom domain. Let's move forward with the setup. %{contact_us}!"
         would_you_like_to_change_domain: "Would you like to change your marketplace custom domain? %{contact_us}!"
+      landing_pages:
+        landing_pages: Landing Pages
+        headers:
+          version: Version
+          released: Released
+        add_new_version: Add new version
+        new_version: New version
+        form:
+          version: Version
+          save: Save
+
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

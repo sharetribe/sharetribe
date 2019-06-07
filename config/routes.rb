@@ -357,6 +357,11 @@ Rails.application.routes.draw do
       resource :plan, only: [:show]
       resource :domain, only: [:show]
       resource :community_seo_settings, only: [:show, :update]
+      resources :landing_page_versions do
+        member do
+          get :release
+        end
+      end
     end
 
     resources :invitations, only: [:new, :create ] do

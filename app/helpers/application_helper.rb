@@ -476,6 +476,16 @@ module ApplicationHelper
       }
     end
 
+    if FeatureFlagHelper.feature_enabled?(:clp_editor)
+      links << {
+        :topic => :configure,
+        :text => t("admin.communities.landing_pages.landing_pages"),
+        :icon_class => icon_class("home"),
+        :path => admin_landing_page_versions_path,
+        :name => "custom_landing_pages"
+      }
+    end
+
     links += [
       {
         :topic => :configure,
