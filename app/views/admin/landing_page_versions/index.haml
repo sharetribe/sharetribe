@@ -1,0 +1,42 @@
+- content_for :title_header do
+  %h1
+    = t("layouts.admin.admin")
+    = "-"
+    = t("admin.communities.landing_pages.landing_pages")
+
+= render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@presenter.community) }
+
+.left-navi-section
+  .row
+    .col-9
+    .col-3
+      = link_to t("admin.communities.landing_pages.add_new_version"), new_admin_landing_page_version_path
+  .row
+    .col-12
+      %table#admin_landing_page_versions
+        %thead
+          %tr
+            %th= t("admin.communities.landing_pages.headers.version")
+            %th= t("admin.communities.landing_pages.headers.released")
+            %th
+        %tbody
+          - @presenter.landing_page_versions.each do |landing_page_version|
+            %tr
+              %td= landing_page_version.version
+              %td
+                - if @presenter.released?(landing_page_version)
+                  = icon_tag("check", ["icon-fix"])
+              %td
+                %span
+                  = link_to edit_admin_landing_page_version_path(landing_page_version) do
+                    = icon_tag("edit")
+                %span
+                  = link_to release_admin_landing_page_version_path(landing_page_version) do
+                    = icon_tag("seo")
+                %span
+                  = link_to admin_landing_page_version_path(landing_page_version) do
+                    = icon_tag("eye")
+  .row
+    .col-12
+      = will_paginate @presenter.landing_page_versions
+
