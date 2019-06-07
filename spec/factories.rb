@@ -524,13 +524,13 @@ FactoryGirl.define do
     person_id         "ABC"
   end
 
-  factory :landing_page, class: 'CustomLandingPage::LandingPageStoreDB::LandingPage' do
+  factory :landing_page, class: 'LandingPage' do
     community_id      123
     enabled           true
     released_version  '1'
   end
 
-  factory :landing_page_version, class: 'CustomLandingPage::LandingPageStoreDB::LandingPageVersion' do
+  factory :landing_page_version, class: 'LandingPageVersion' do
     community_id      123
     version           '1'
     content           CustomLandingPage::ExampleData::DATA_STR
