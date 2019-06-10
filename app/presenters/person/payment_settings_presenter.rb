@@ -222,7 +222,6 @@ class Person::PaymentSettingsPresenter
       bank_routing_number: bank_record ? bank_record[:routing_number] : nil,
       email: entity[:email],
       phone: entity[:phone],
-      mcc: api_seller_account.try(:business_profile).try(:[], :mcc),
       url: url
     }
 

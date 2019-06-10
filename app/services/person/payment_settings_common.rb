@@ -36,7 +36,6 @@ module Person::PaymentSettingsCommon
       id_number
       phone
       email
-      mcc
       url
     ].freeze
 
