@@ -20,7 +20,7 @@ class TransactionProcessStateMachine
   transition from: :pending_ext,               to: [:paid, :rejected]
   transition from: :paid,                      to: [:confirmed, :canceled]
 
-  after_transition(to: :paid) do |transaction|
+  after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter
     current_community = transaction.community
 
@@ -35,19 +35,19 @@ class TransactionProcessStateMachine
     Delayed::Job.enqueue(SendPaymentReceipts.new(transaction.id))
   end
 
-  after_transition(to: :rejected) do |transaction|
+  after_transition(to: :rejected, after_commit: true) do |transaction|
     rejecter = transaction.listing.author
     current_community = transaction.community
 
     Delayed::Job.enqueue(TransactionStatusChangedJob.new(transaction.id, rejecter.id, current_community.id))
   end
 
-  after_transition(to: :confirmed) do |conversation|
+  after_transition(to: :confirmed, after_commit: true) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.confirm!
   end
 
-  after_transition(from: :paid, to: :canceled) do |conversation|
+  after_transition(from: :paid, to: :canceled, after_commit: true) do |conversation|
     confirmation = ConfirmConversation.new(conversation, conversation.starter, conversation.community)
     confirmation.cancel!
   end
