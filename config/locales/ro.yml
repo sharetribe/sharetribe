@@ -249,7 +249,7 @@ ro:
         automatic_newsletter_frequency: "Trimiteți buletinul informativ automat: %{frequency_dropdown}"
         newsletter_daily: Zilnic
         newsletter_weekly: Săptămânal
-        delete_marketplace_title: ~
+        delete_marketplace_title: "Șterge marketplace"
         type_marketplace_domain: ~
         type_marketplace_domain_placeholder: ~
         once_you_delete: ~
@@ -742,7 +742,7 @@ ro:
         hello_firstname: "Salut \"Prenume\","
         hello_firstname_text: "Salut %{person},"
     left_hand_navigation:
-      general: ~
+      general: General
       users_and_transactions: Administreaza
       configure: Configureaza
       emails_title: Emailuri
@@ -773,9 +773,9 @@ ro:
         order:
           saving_order: "Ordinea salvărilor"
           save_order_successful: ~
-          save_order_error: ~
+          save_order_error: "S-a produs o eroare în timpul salvarii. Vă rugăm să reincarcarti pagina și să incercați din nou."
       templates:
-        selling_products: ~
+        selling_products: "Vânzare produse"
         renting_products: "Închirieri produse"
         offering_services: "Servicii oferite"
         giving_things_away: Donație
@@ -1240,7 +1240,7 @@ ro:
       give_feedback_to: "Oferiti feedback catre %{other_party_given_name}"
       show_thread: "Arată conversația"
     confirmation_instructions:
-      confirmation_instructions_signature: "Toate cele bune, <br/> echipa %{service_name}"
+      confirmation_instructions_signature: "Toate cele bune, <br/> Echipa %{service_name}"
       need_to_confirm: "Pentru a te inscrie pe %{service_name}, confirma adresa ta de e-mail accesand butonul de mai jos."
       confirmation_link_text: Confirma
       or_paste_link: "Alternativ, poți să copiezi următorul link în bara de adrese a browserului tau:"
@@ -1463,7 +1463,7 @@ ro:
     error_404_title: "pagina inexistenta"
     error_410:
       page_removed: "Pagină ștearsă"
-      page_you_requested_has_been_removed: ~
+      page_you_requested_has_been_removed: "Pagina solicitată a fost eliminată."
       page_removed_reason: "Exista cateva motive posibile pentru acest lucru. De exemplu, un utilizator ar fi putut sa-si fi eliminat contul sau ar fi putut fi eliminata o inregistrare."
     error_410_title: "Pagină ștearsă"
     error_500:
@@ -2138,12 +2138,12 @@ ro:
       details: Detalii
       by: "%{listing} de %{author}"
       payment: Plată
-      exp: ~
+      exp: "Exp:"
       you_will_be_charged: "Suma iti va fi debitata doar daca %{author} accepta tranzactia. %{author} trebuie sa accepte tranzactia in termen de %{expiration_period} zile. Daca %{author} refuza tranzactia sau nu raspunde, suma nu iti va fi debitata."
       day: zi
       days: zile
       night: noapte
-      nights: Nopți
+      nights: nopți
       invalid_parameters: ~
     transaction_agreement_checkbox:
       read_more: Afiseaza.
@@ -2692,7 +2692,7 @@ ro:
         other: utilizatori
     previous_label: "&#8592; Anterior"
     next_label: "Urmatorul &#8594;"
-    page_gap: ~
+    page_gap: "&hellip"
     page_entries_info:
       single_page:
         zero: "Nu au fost găsite %{model}"

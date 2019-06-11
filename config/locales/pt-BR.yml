@@ -1982,9 +1982,9 @@ pt-BR:
         origin: Origem
       send_button:
         save_listing: "Salvar anúncio"
-        submit_for_review: ~
-        will_be_reviewed: ~
-        we_noticed_youre_an_admin: ~
+        submit_for_review: "Enviar para análise"
+        will_be_reviewed: "Todos os anúncios na %{service_name} passam por uma curadoria antes da publicação. Uma vez aprovado, você será notificado via email e o anúncio será publicado para todos."
+        we_noticed_youre_an_admin: "Nós estamos notificando que você é um administrador de %{service_name}. Suas mudanças serão automaticamente aplicada e não há necessidade de rever ou aprovar."
       share_type:
         select: Selecione
         borrow: Empréstimo
