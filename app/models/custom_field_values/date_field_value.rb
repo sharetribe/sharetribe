@@ -23,7 +23,7 @@
 
 class DateFieldValue < CustomFieldValue
 
-  validates_presence_of :date_value
+  validates :date_value, presence: true, if: proc { |date_field_value| date_field_value.question&.required? }
 
   def display_value
     I18n.l(date_value, format: :short_date)
