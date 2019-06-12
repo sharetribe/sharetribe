@@ -20,7 +20,6 @@ module FeatureTests
         payment_settings.fill_in("stripe_account_form[last_name]", with: "Seller")
 
         payment_settings.fill_in("stripe_account_form[phone]", with: "+1 (555) 123-12345")
-        select("Auto Service Shops", from: "stripe_account_form_mcc")
 
         select("1990", from: "stripe_account_form_birth_date_1i")
         select("October", from: "stripe_account_form_birth_date_2i")

@@ -1,6 +1,8 @@
 class StripeService::API::StripeApiWrapper
   class << self
 
+    DEFAULT_MCC = 5734 # Computer Software Stores
+
     @@mutex ||= Mutex.new # rubocop:disable ClassVars
 
     def payment_settings_for(community)
@@ -126,7 +128,7 @@ class StripeService::API::StripeApiWrapper
         if account_info[:address_country] == 'US'
           data[:requested_capabilities] = ['card_payments']
           data[:business_profile] = {
-            mcc: account_info[:mcc],
+            mcc: DEFAULT_MCC,
             url: account_info[:url]
           }
         end
@@ -263,7 +265,6 @@ class StripeService::API::StripeApiWrapper
         account = Stripe::Account.retrieve(account_id)
         account.account_token = attrs[:token]
         if attrs[:address_country] == 'US'
-          account.business_profile.mcc = attrs[:mcc]
           account.business_profile.url = attrs[:url]
         end
         account.save

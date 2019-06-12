@@ -41,10 +41,7 @@
     .col-12
       = form.label :phone, t("stripe_accounts.form_new.phone_number")+"*"
       = form.text_field :phone, class: 'required'
-  .row.country-dependent{"data-country-only" => 'US,PR'}
-    .col-12
-      = form.label :mcc, t("stripe_accounts.form_new.mcc")+"*"
-      = form.select :mcc, mcc_codes_options, {include_blank: true, disabled: '0000'}, {class: 'required'}
+
   = form.hidden_field :email
   = form.hidden_field :url
 
