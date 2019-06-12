@@ -280,7 +280,7 @@ describe PeopleController, type: :controller do
       FactoryGirl.create(:custom_checkbox_field, community: community)
     end
     let(:field5) do
-      FactoryGirl.create(:custom_date_field, community: community)
+      FactoryGirl.create(:custom_date_field, community: community, required: false)
     end
     let(:person) do
       FactoryGirl.create(:person,
@@ -349,7 +349,7 @@ describe PeopleController, type: :controller do
                     { id: person.custom_field_value_for(field4), type: "#{field4.class}Value", custom_field_id: field4.id,
                       selected_option_ids: [""] },
                     { id: person.custom_field_value_for(field5), type: "#{field5.class}Value", custom_field_id: field5.id,
-                      :'date_value(1i)' => '2001', :'date_value(2i)' => '03', :'date_value(3i)' => '18' },
+                      :'date_value(1i)' => '', :'date_value(2i)' => '', :'date_value(3i)' => '' },
                   ]
       },
         community: "test"

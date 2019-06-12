@@ -25,13 +25,18 @@ require 'spec_helper'
 
 describe DateFieldValue, type: :model do
   describe "validations" do
-    it "should have date value" do
+    it "should be valid by default" do
       @value = DateFieldValue.new
+      expect(@value).to be_valid
+    end
+
+    it "should require date value" do
+      @value = DateFieldValue.new(question: CustomField.new(required: true))
       expect(@value).not_to be_valid
     end
 
     it "should have date format value" do
-      @value2 = DateFieldValue.new
+      @value2 = DateFieldValue.new(question: CustomField.new(required: true))
       @value2.date_value = "Test"
       expect(@value2).not_to be_valid
       expect(@value2.errors).to have_key(:date_value)
