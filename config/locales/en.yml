@@ -2255,7 +2255,7 @@ en:
     paypal_account_connected: "The PayPal account <%{email}> has been connected with %{service_name}."
     change_account: "Change PayPal account"
     missing: "You have open listings but your Paypal account is not set up to receive payments. Connect your Paypal account and grant %{service_name} permission to charge a transaction fee from your %{settings_link}."
-    from_your_payment_settings_link_text: "payment settings"
+    from_your_payment_settings_link_text: "here"
     redirect_message: "Redirecting you to PayPal. If nothing happens, click %{redirect_link}."
     redirect_link_text: here
     paypal_account_all_set_up: "Hooray, everything is set up!"
@@ -2756,7 +2756,7 @@ en:
     pay_with_stripe: "Pay with Stripe using %{card}"
     add_and_pay: "Confirm payment"
     card_not_stored: "Your payment is securely processed by Stripe. %{service_name} does not store your credit/debit card information."
-    missing_payment: "You have open listings but your account is not set up to receive money. To configure your payment preferences, visit %{settings_link}"
+    missing_payment: "You have posted listings, but we need to verify you're a real person first. To do this, please enter your verification details %{settings_link}"
     stripe_bank_connected: "Bank account details configured successfully!"
     stripe_can_accept: "You are now all set to receive money to your bank account"
     stripe_credit_card: "Credit card"
@@ -2771,7 +2771,7 @@ en:
     stripe_account_pending_verification: "Account details saved successfully. Waiting for account verification from the payment provider."
     stripe_account_pending_verification_info: "Check back later to make sure that everything is in order."
     form_new:
-      need_info: "We need some information about you to be able to send you money."
+      need_info: "We need some key information about you, to verify your identity, for the safety of you and our community. The best way to do this is with your bank details. We will never use or share your bank details."
       select_country: "Select country..."
       legal_name: "Legal name"
       first_name: "First name"
@@ -2847,7 +2847,7 @@ en:
       messages:
         social_insurance_number: "must be valid Social Insurance Number (SIN)"
   payment_settings:
-    title: "Payout preferences"
+    title: "Online Verification"
     bank_account: "Bank account"
     paypal: PayPal
     bank_account_details: "To receive money to your bank account, you need to provide your bank details. Your customers will be able to pay with their credit card."
