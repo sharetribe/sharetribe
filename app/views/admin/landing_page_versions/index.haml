@@ -34,7 +34,8 @@
                   = link_to release_admin_landing_page_version_path(landing_page_version) do
                     = icon_tag("seo")
                 %span
-                  = link_to admin_landing_page_version_path(landing_page_version) do
+                  = link_to landing_page_preview_path(preview_version: landing_page_version.version),
+                    target: '_blank' do
                     = icon_tag("eye")
   .row
     .col-12
