@@ -16,6 +16,11 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
     end
   end
 
+  def update
+    @service.update_landing_page_version
+    render :edit
+  end
+
   def release
     @service.release_landing_page_version
     redirect_to admin_landing_page_versions_path

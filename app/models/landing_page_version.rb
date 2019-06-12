@@ -16,5 +16,9 @@
 #
 
 class LandingPageVersion < ApplicationRecord
+  INFO = 'info'.freeze
+
+  include LandingPageVersion::DataStructure
+
   belongs_to :community
 end

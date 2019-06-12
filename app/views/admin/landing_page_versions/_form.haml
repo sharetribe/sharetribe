@@ -1,9 +1,43 @@
+- content_for :javascript do
+  ST.LandingPageEditor.initForm();
+
 = form_for [:admin, presenter.landing_page_version] do |form|
   .row
     .col-12
       = form.label :version, t("admin.communities.landing_pages.form.version")
       = form.text_field :version
-  .row
+
+  #admin_landing_page_version_sections
+    .row.visible-tablet
+      .col-9.custom-fields-list-title
+        = t("admin.communities.landing_pages.sections.identifier")
+      .col-2.custom-fields-list-title
+        = t("admin.communities.landing_pages.sections.kind")
+      .col-1
+
+    = form.fields_for :section_positions do |position_form|
+      - position = position_form.object
+      .row.landing-page-version-section-position-row{:data => {:"field-id" => position.id}}
+        = position_form.hidden_field :id
+        = position_form.hidden_field :position, 'hidden-position': true
+        .col-9
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.communities.landing_pages.sections.identifier")
+          = position.id
+        .col-2.custom-field-title
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.communities.landing_pages.sections.kind")
+          %div
+            = position.kind
+        .col-1
+          = link_to '#', 'action-delete': true, :tabindex => "-1" do
+            = icon_tag("cross", ["icon-fix"])
+          = link_to '#', :class => "admin-sort-button", 'action-up': true, :tabindex => "-1" do
+            = icon_tag("directup", ["icon-fix"])
+          = link_to '#', :class => "admin-sort-button", 'action-down': true, :tabindex => "-1" do
+            = icon_tag("directdown", ["icon-fix"])
+
+  -#.row
     .col-12
       = form.text_area :content
   .row

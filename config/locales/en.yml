@@ -652,9 +652,13 @@ en:
           released: Released
         add_new_version: Add new version
         new_version: New version
+        edit_version: Edit version
         form:
           version: Version
           save: Save
+        sections:
+          identifier: Id
+          kind: Kind
 
     custom_fields:
       edit:

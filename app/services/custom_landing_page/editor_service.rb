@@ -16,7 +16,11 @@ module CustomLandingPage
     end
 
     def create_landing_page_version
-      @landing_page_version = landing_page_versions_scope.create(landing_page_version_params)
+      @landing_page_version = landing_page_versions_scope.create(landing_page_version_params.merge(content: CustomLandingPage::ExampleData::DATA_STR))
+    end
+
+    def update_landing_page_version
+      landing_page_version.update(landing_page_version_params)
     end
 
     def release_landing_page_version
@@ -51,7 +55,12 @@ module CustomLandingPage
     def landing_page_version_params
       params.require(:landing_page_version).permit(
         :version,
-        :content)
+        :content,
+        section_positions_attributes: [
+          :id,
+          :position
+        ]
+      )
     end
   end
 end
