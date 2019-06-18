@@ -1714,3 +1714,6 @@ Style/StderrPuts:
   Exclude:
     - 'bin/**/*'
 
+Rails/ActiveRecordOverride:
+  Exclude:
+    - 'app/models/landing_page_version/section/base.rb'

@@ -68,8 +68,19 @@ window.ST = window.ST || {};
     };
   };
 
+  var onSectionSelect = function(e) {
+    var option = $(this).find('option:selected'),
+      variation = option.data('variation');
+    $('#section_variation').val(variation);
+    if (!variation) {
+      return false;
+    }
+    $(this).closest('form').submit();
+  };
+
   var initForm = function(options) {
     optionOrder = createOptionOrder(".landing-page-version-section-position-row");
+    $('#section_kind').on('change', onSectionSelect);
   };
 
   module.LandingPageEditor = {
