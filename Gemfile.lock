@@ -90,10 +90,6 @@ GEM
     aws-sigv4 (1.0.0)
     backports (3.13.0)
     bcrypt (3.1.12)
-    better_errors (2.5.1)
-      coderay (>= 1.0.0)
-      erubi (>= 1.0.0)
-      rack (>= 0.9.0)
     bindex (0.6.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -624,7 +620,6 @@ DEPENDENCIES
   awesome_print (~> 1.7.0)
   aws-sdk (~> 2.9.25)
   bcrypt (= 3.1.12)
-  better_errors (~> 2.5.1)
   binding_of_caller
   biz
   bootsnap

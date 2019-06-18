@@ -1,0 +1,10 @@
+= form_for [:admin, presenter.landing_page_version, presenter.section] do |form|
+  - if presenter.section_errors?
+    %div
+      = presenter.section_errors
+  - if presenter.section_info_single_column?
+    = render 'single_column', presenter: presenter, form: form
+  .row
+    .col-12
+      = form.button t("admin.communities.landing_pages.form.save")
+

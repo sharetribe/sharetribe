@@ -1,0 +1,16 @@
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+= form.hidden_field :variation
+.row
+  .col-12
+    = form.label :id
+    = form.text_field :id, disabled: presenter.section.persisted?
+.row
+  .col-12
+    = form.label :title
+    = form.text_field :title
+.row
+  .col-12
+    = form.label :paragraph
+    = form.text_field :paragraph
+

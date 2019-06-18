@@ -9,28 +9,38 @@
 
   #admin_landing_page_version_sections
     .row.visible-tablet
-      .col-9.custom-fields-list-title
+      .col-7.custom-fields-list-title
         = t("admin.communities.landing_pages.sections.identifier")
-      .col-2.custom-fields-list-title
+      .col-1.custom-fields-list-title
         = t("admin.communities.landing_pages.sections.kind")
-      .col-1
+      .col-2.custom-fields-list-title
+        = t("admin.communities.landing_pages.sections.variation")
+      .col-2
 
     = form.fields_for :section_positions do |position_form|
       - position = position_form.object
       .row.landing-page-version-section-position-row{:data => {:"field-id" => position.id}}
         = position_form.hidden_field :id
         = position_form.hidden_field :position, 'hidden-position': true
-        .col-9
+        .col-7
           %span.custom-fields-mobile-list-title.hidden-tablet
             = t("admin.communities.landing_pages.sections.identifier")
           = position.id
-        .col-2.custom-field-title
+        .col-1.custom-field-title
           %span.custom-fields-mobile-list-title.hidden-tablet
             = t("admin.communities.landing_pages.sections.kind")
           %div
             = position.kind
-        .col-1
-          = link_to '#', 'action-delete': true, :tabindex => "-1" do
+        .col-2.custom-field-title
+          %span.custom-fields-mobile-list-title.hidden-tablet
+            = t("admin.communities.landing_pages.sections.variation")
+          %div
+            = position.variation unless position.kind == 'hero'
+        .col-2
+          = link_to edit_admin_landing_page_version_section_path(presenter.landing_page_version.id, position.id), :tabindex => "-1" do
+            = icon_tag("edit", ["icon-fix"])
+          = link_to admin_landing_page_version_section_path(presenter.landing_page_version.id, position.id), :method => :delete, :tabindex => "-1",
+            data: { :confirm => t("admin.communities.landing_pages.sections.remove_section_confirmation", section_id: position.id) } do
             = icon_tag("cross", ["icon-fix"])
           = link_to '#', :class => "admin-sort-button", 'action-up': true, :tabindex => "-1" do
             = icon_tag("directup", ["icon-fix"])
@@ -44,3 +54,10 @@
     .col-12
       = form.button t("admin.communities.landing_pages.form.save")
 
+.row.new-custom-field-type-form
+  = form_for :section, url: new_admin_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id), method: :get do |form|
+    = form.hidden_field :variation
+    .new-custom-field-type-form-column
+      = t("admin.communities.landing_pages.add_new_section")
+    .new-custom-field-type-form-column
+      = form.select :kind, options_for_select(presenter.section_dropdown_options), { prompt: t("admin.communities.landing_pages.select_section_type") }
