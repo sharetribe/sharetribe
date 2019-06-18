@@ -653,12 +653,19 @@ en:
         add_new_version: Add new version
         new_version: New version
         edit_version: Edit version
+        add_new_section: Add new section
+        select_section_type: Select section type...
         form:
           version: Version
           save: Save
         sections:
           identifier: Id
           kind: Kind
+          variation: Variation
+          new: New section
+          edit: Edit section %{section_id}
+          remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
+          info_single_column: Info 1 Column
 
     custom_fields:
       edit:
@@ -1549,6 +1556,7 @@ en:
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
+      section_with_this_id_already_exists: "Section with this id already exists"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -2930,3 +2938,19 @@ en:
       category_description: "%{category} on %{marketplace}"
       profile_title: "Profile of %{user} - %{marketplace}"
       profile_description: "Learn more about %{user} on %{marketplace}"
+
+  activemodel:
+    attributes:
+      landing_page_version/section/base:
+        id: Identifier
+        title: Title
+        paragraph: Paragraph
+        button_color: Button color
+        button_color_hover: Button color hover
+        button_title: Button title
+        button_path: Button path
+        background_image: Background image
+        background_image_variation: Background image variation
+        background_color: Background color
+        icon_color: Icon color
+

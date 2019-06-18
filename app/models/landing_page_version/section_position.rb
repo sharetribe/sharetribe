@@ -5,5 +5,6 @@ class LandingPageVersion::SectionPosition
     :id,
     :position,
     :kind,
+    :variation
   )
 end

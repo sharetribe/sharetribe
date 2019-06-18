@@ -361,6 +361,7 @@ Rails.application.routes.draw do
         member do
           get :release
         end
+        resources :sections, controller: 'landing_page_versions/sections'
       end
     end
 
