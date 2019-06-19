@@ -2601,6 +2601,9 @@ ro:
         one: "Zi rezervata:"
         few: "Zile rezervate:"
         other: "Zile rezervate"
+      booked_nights_label:
+        one: "Noapte rezervată"
+        few: "Nopți rezervate"
       price_per_day: "Pret pe zi - 24h:"
       price_per_night: "Preț pe noapte"
       price_per_hour: ~
@@ -2610,9 +2613,6 @@ ro:
       shipping-price: ~
       stripe-fee: ~
       start_end_time: ~
-      booked_nights_label:
-        one: "Noapte rezervată"
-        few: "Nopți rezervate"
     price_per_quantity: "Pret pe %{unit_type}:"
     price: "Pret:"
     quantity: "Cantitate:%{quantity}"
