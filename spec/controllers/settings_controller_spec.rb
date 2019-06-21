@@ -132,8 +132,8 @@ describe SettingsController, type: :controller do
       it "filters open" do
         get :listings, params: {person_id: @joe.username, status: ["open"]}
         listings = assigns("presenter").listings
-        expect(listings.size).to eq 2
-        expect(listings.sort_by(&:id)).to eq [@listing_joe1, @listing_joe3]
+        expect(listings.size).to eq 1
+        expect(listings.sort_by(&:id)).to eq [@listing_joe1]
       end
 
       it "filters closed" do

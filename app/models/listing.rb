@@ -130,6 +130,7 @@ class Listing < ApplicationRecord
   scope :status_closed, -> { where(open: false) }
   scope :status_expired, -> { where('valid_until < ?', DateTime.now) }
   scope :status_active, -> { where('valid_until > ? or valid_until is null', DateTime.now) }
+  scope :status_open_active, -> { status_open.status_active.approved }
   scope :currently_open, -> { exist.status_open.approved.where(["valid_until IS NULL OR valid_until > ?", DateTime.now]) }
 
   APPROVALS = {
