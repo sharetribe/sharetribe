@@ -1,0 +1,57 @@
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+= form.hidden_field :variation
+= form.hidden_field :id, value: 'hero'
+
+%h2= t(".hero_title")
+
+.row
+  .col-12
+    %p= t(".hero_description")
+
+.row
+  .col-12
+    %h3= t(".background_image")
+
+.row
+  .col-12
+    = render partial: 'layouts/info_text', locals: {text: t(".background_image_info")}
+
+.row
+  .col-6
+    - bg_image_url = @service.asset_url('hero', 'background_image')
+    #bg-image-preview
+      - if bg_image_url.present?
+        %img{src: bg_image_url['src']}
+    %p
+      - if bg_image_url.present?
+        = t(".current_image", filename: bg_image_url['file'])
+      - else
+        = t(".current_image", filename: t(".file_not_selected"))
+  .col-6
+    %label= t(".add_another_image")
+    = file_field_tag "bg_image"
+
+.row
+  .col-12
+    %h3= t(".background_image_overlay")
+
+.row
+  .col-12
+    = render partial: 'layouts/info_text', locals: {text: t(".background_image_overlay_info")}
+
+.row
+  .col-12
+    %label
+      = form.radio_button :background_image_variation, "dark"
+      = t(".overlay_dark")
+.row
+  .col-12
+    %label
+      = form.radio_button :background_image_variation, "light"
+      = t(".overlay_light")
+.row
+  .col-12
+    %label
+      = form.radio_button :background_image_variation, "transparent"
+      = t(".overlay_transparent")

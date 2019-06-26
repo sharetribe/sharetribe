@@ -3,22 +3,7 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
   before_action :set_service
 
-  def new
-    @service.new_landing_page_version
-  end
-
-  def create
-    @service.create_landing_page_version
-    if @service.errors?
-      render :new
-    else
-      redirect_to admin_landing_page_versions_path
-    end
-  end
-
-  def update
-    @service.update_landing_page_version
-    render :edit
+  def index
   end
 
   def release

@@ -41,7 +41,7 @@ window.ST = window.ST || {};
 
     var orderManager = window.ST.orderManager(fieldMap);
 
-    var form = $('#footer-menu-form');
+    var form = $('#footer-menu-form, #edit_section_footer');
     form.on('click', '.menu-link-remove', function(event) {
       var container = $(this).closest('.footer-menu-container'),
         isNew = container.data('new');

@@ -17,6 +17,15 @@ module LandingPageVersion::Section
       :columns
     ].freeze
 
+    PERMITTED_PARAMS = [
+      :kind,
+      :variation,
+      :id,
+      :previous_id,
+      :title,
+      :paragraph
+    ].freeze
+
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
     def initialize(attributes={})
@@ -28,6 +37,10 @@ module LandingPageVersion::Section
       Hash[ATTRIBUTES.map {|x| [x, nil]}]
     end
 
+    def removable?
+      true
+    end
+
     class << self
       def new_from_content(content_section)
         case content_section['variation']
@@ -36,6 +49,10 @@ module LandingPageVersion::Section
         else
           new(content_section)
         end
+      end
+
+      def permitted_params
+        PERMITTED_PARAMS
       end
     end
   end

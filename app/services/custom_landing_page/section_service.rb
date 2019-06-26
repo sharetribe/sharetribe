@@ -5,10 +5,12 @@ module CustomLandingPage
     def initialize(community:, params:)
       @params = params
       @community = community
+      @editor_service = CustomLandingPage::EditorService.new(community: community, params: params)
+      @asset_resolver = CustomLandingPage::LinkResolver::AssetResolver.new(APP_CONFIG[:clp_asset_url], community.ident)
     end
 
     def landing_page_version
-      @landing_page_version ||= landing_page_versions_scope.find(params[:landing_page_version_id])
+      @editor_service.landing_page_version
     end
 
     def new_section
@@ -33,11 +35,28 @@ module CustomLandingPage
       section.destroy!
     end
 
+    def asset_url(section_id, image_key)
+      section = landing_page_version.sections.detect{|s| s.id == section_id }
+      return nil unless section
+
+      result = @asset_resolver.call('assets', section.background_image['id'], landing_page_version.parsed_content)
+      result['file'] = result['src'].split('/').last
+      result
+    rescue
+      nil
+    end
+
     private
 
     def create_or_update(update: false)
       section_from_params
       section.update = update
+      if params['bg_image'].present?
+        asset = LandingPageAsset.new(community: community, image: params[:bg_image])
+        if asset.save
+          section.asset_added(asset)
+        end
+      end
       section.save
     end
 
@@ -46,20 +65,22 @@ module CustomLandingPage
     end
 
     def section_params
-      params.require(:section).permit(
-        :kind,
-        :variation,
-        :id,
-        :previous_id,
-        :title,
-        :paragraph
-      )
+      params.require(:section).permit(section_factory_class.permitted_params)
+    end
+
+    def section_factory_class
+      case params[:section][:kind]
+      when LandingPageVersion::Section::INFO
+        LandingPageVersion::Section::Info
+      when LandingPageVersion::Section::HERO
+        LandingPageVersion::Section::Hero
+      when LandingPageVersion::Section::FOOTER
+        LandingPageVersion::Section::Footer
+      end
     end
 
     def section_from_params
-      if section_params[:kind] == LandingPageVersion::Section::INFO
-        @section = LandingPageVersion::Section::Info.new_from_content(section_params)
-      end
+      @section = section_factory_class.new_from_content(section_params)
       section.landing_page_version = landing_page_version
       section.id = params[:id] if params[:id].present?
       section
