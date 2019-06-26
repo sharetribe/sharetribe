@@ -2,7 +2,7 @@
 #
 # Table name: social_links
 #
-#  id            :integer          not null, primary key
+#  id            :bigint           not null, primary key
 #  community_id  :integer
 #  provider      :integer
 #  url           :string(255)

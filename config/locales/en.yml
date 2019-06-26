@@ -646,8 +646,21 @@ en:
         you_can_now_use_a_custom_domain: "With your current plan, you can now enable a custom domain. Let's move forward with the setup. %{contact_us}!"
         would_you_like_to_change_domain: "Would you like to change your marketplace custom domain? %{contact_us}!"
       landing_pages:
-        landing_pages: Landing Pages
+        landing_pages: Landing Page
+        info_1: "The landing page is perhaps the most important page of your marketplace. It is the first page that visitors see - sort of like the front door of your house. You have only a few seconds to convince new vistiors that they should explore your site. The page needs to be appealing and your value proposition should be clear and enticing."
+        info_2: "%{preview_link} your current landing page and make changes from the %{details_link} and %{design_link} sections"
+        info_2_preview_text: "Preview"
+        info_2_details_text: "basic details"
+        info_2_design_text: "design"
+        info_3: "If you want to have a completely customized landing page for your marketplace, you can purchase it as add-on for $99 per month."
+        info_4: "Read more about custom landing pages"
+        editor_title: "Landing Page Editor"
+        editor_info: "Here you can edit the sections that your Landing Page will include. Please note that some sections are predefined and cannot be edited within the Landing Page editor."
+        preview: "Preview landing page"
+        set_live: "Set live"
         headers:
+          section_id: "Section ID"
+          section_type: "Section type"
           version: Version
           released: Released
         add_new_version: Add new version
@@ -659,14 +672,36 @@ en:
           version: Version
           save: Save
         sections:
-          identifier: Id
-          kind: Kind
+          identifier: "Section ID"
+          kind: "Section Type"
           variation: Variation
           new: New section
           edit: Edit section %{section_id}
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
           info_single_column: Info 1 Column
-
+          hero: Hero
+    landing_page_versions:
+      sections:
+        hero:
+          hero_title: Hero
+          hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
+          background_image: "Background image"
+          background_image_info: "This image will be shown as the background image for the Hero section. For the best results, it should have a minimum size of 1600x1200 pixels."
+          add_another_image: "Add another image"
+          current_image: "Current image: %{filename}"
+          file_not_selected: "Not selected"
+          background_image_overlay: "Background image overlay"
+          background_image_overlay_info: "This allows you to determine how dark or light your background image is going to be displayed. \"Transparent\" means no overlay at all."
+          overlay_dark: "Dark"
+          overlay_light: "Light"
+          overlay_transparent: "Transparent"
+        footer:
+          footer_title: "Footer"
+          footer_style: "Footer style"
+          style_dark: "Dark"
+          style_light: "Light"
+          style_marketplace_color: "Marketplace color"
+          style_logo: "Logo"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -2953,4 +2988,3 @@ en:
         background_image_variation: Background image variation
         background_color: Background color
         icon_color: Icon color
-

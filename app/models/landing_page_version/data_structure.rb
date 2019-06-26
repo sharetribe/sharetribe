@@ -7,8 +7,13 @@ module LandingPageVersion::DataStructure
     sections = []
     parsed_content['sections'].each do |content_section|
       case content_section['kind']
-      when LandingPageVersion::Section::INFO
-        sections << LandingPageVersion::Section::Info.new_from_content(content_section.merge(
+      when LandingPageVersion::Section::HERO
+        sections << LandingPageVersion::Section::Hero.new_from_content(content_section.merge(
+            'landing_page_version' => self,
+            'previous_id' => content_section['id']
+          ))
+      when LandingPageVersion::Section::FOOTER
+        sections << LandingPageVersion::Section::Footer.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))

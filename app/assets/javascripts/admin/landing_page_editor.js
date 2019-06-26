@@ -72,8 +72,13 @@ window.ST = window.ST || {};
     var option = $(this).find('option:selected'),
       variation = option.data('variation');
     $('#section_variation').val(variation);
-    if (!variation) {
+    if (!option.value) {
       return false;
+    }
+    if (!variation) {
+      $("#section_variation").attr('disabled', true);
+    } else {
+      $("#section_variation").attr('disabled', false);
     }
     $(this).closest('form').submit();
   };

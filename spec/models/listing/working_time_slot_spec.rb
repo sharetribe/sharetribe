@@ -2,7 +2,7 @@
 #
 # Table name: listing_working_time_slots
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  listing_id :integer
 #  week_day   :integer
 #  from       :string(255)

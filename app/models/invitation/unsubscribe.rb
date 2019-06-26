@@ -2,7 +2,7 @@
 #
 # Table name: invitation_unsubscribes
 #
-#  id           :integer          not null, primary key
+#  id           :bigint           not null, primary key
 #  community_id :integer
 #  email        :string(255)
 #  created_at   :datetime         not null

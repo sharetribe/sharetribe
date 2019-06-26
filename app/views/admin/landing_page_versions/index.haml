@@ -8,36 +8,30 @@
 
 .left-navi-section
   .row
-    .col-9
-    .col-3
-      = link_to t("admin.communities.landing_pages.add_new_version"), new_admin_landing_page_version_path
+    .col-12
+      %h2= t("admin.communities.landing_pages.landing_pages")
   .row
     .col-12
-      %table#admin_landing_page_versions
-        %thead
-          %tr
-            %th= t("admin.communities.landing_pages.headers.version")
-            %th= t("admin.communities.landing_pages.headers.released")
-            %th
-        %tbody
-          - @presenter.landing_page_versions.each do |landing_page_version|
-            %tr
-              %td= landing_page_version.version
-              %td
-                - if @presenter.released?(landing_page_version)
-                  = icon_tag("check", ["icon-fix"])
-              %td
-                %span
-                  = link_to edit_admin_landing_page_version_path(landing_page_version) do
-                    = icon_tag("edit")
-                %span
-                  = link_to release_admin_landing_page_version_path(landing_page_version) do
-                    = icon_tag("seo")
-                %span
-                  = link_to landing_page_preview_path(preview_version: landing_page_version.version),
-                    target: '_blank' do
-                    = icon_tag("eye")
+      %p= t("admin.communities.landing_pages.info_1")
+      - landing_page_version = @service.landing_page_version
+      - preview_link = link_to t("admin.communities.landing_pages.info_2_preview_text"), landing_page_preview_path(preview_version: landing_page_version.version)
+      - details_link = link_to t("admin.communities.landing_pages.info_2_details_text"), admin_details_edit_path
+      - design_link =  link_to t("admin.communities.landing_pages.info_2_design_text"), admin_look_and_feel_edit_path
+      %p=raw t("admin.communities.landing_pages.info_2", preview_link: preview_link, details_link: details_link, design_link: design_link)
+      %p= t("admin.communities.landing_pages.info_3")
+      %p= link_to t("admin.communities.landing_pages.info_4"), "#"
   .row
     .col-12
-      = will_paginate @presenter.landing_page_versions
+      %h3= t("admin.communities.landing_pages.editor_title")
+  .row
+    .col-12
+      = render partial: "layouts/info_text", locals: {text: t("admin.communities.landing_pages.editor_info") }
+
+  = render partial: 'admin/landing_page_versions/form', locals: {presenter: @presenter}
+
+  .row
+    .col-6
+      = link_to t("admin.communities.landing_pages.preview"), landing_page_preview_path(preview_version: landing_page_version.version), class: "button", target: "_blank"
+    .col-6
+      = link_to t("admin.communities.landing_pages.set_live"), release_admin_landing_page_version_path(landing_page_version), class: "button"
 
