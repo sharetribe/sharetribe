@@ -9,7 +9,7 @@ class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseControlle
 
   def create
     if @service.create
-      redirect_to edit_admin_landing_page_version_path(@service.landing_page_version)
+      redirect_to admin_landing_page_versions_path
     else
       render :new
     end
@@ -19,7 +19,7 @@ class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseControlle
 
   def update
     if @service.update
-      redirect_to edit_admin_landing_page_version_path(@service.landing_page_version)
+      redirect_to admin_landing_page_versions_path
     else
       render :edit
     end
@@ -27,7 +27,7 @@ class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseControlle
 
   def destroy
     @service.destroy
-    redirect_to edit_admin_landing_page_version_path(@service.landing_page_version)
+    redirect_to admin_landing_page_versions_path
   end
 
   private

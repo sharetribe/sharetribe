@@ -133,4 +133,11 @@ select#locale-selection {
 .status-select-line input {
   display: none;
 }
-
+#bg-image-preview {
+  width: 90%;
+  margin: 20px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
