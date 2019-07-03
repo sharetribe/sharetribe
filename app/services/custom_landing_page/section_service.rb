@@ -42,7 +42,7 @@ module CustomLandingPage
       result = @asset_resolver.call('assets', section.background_image['id'], landing_page_version.parsed_content)
       result['file'] = result['src'].split('/').last
       result
-    rescue
+    rescue StandardError => e
       nil
     end
 

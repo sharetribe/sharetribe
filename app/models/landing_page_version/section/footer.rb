@@ -4,9 +4,15 @@ module LandingPageVersion::Section
     class SocialLink
       include ActiveModel::Model
 
-      ATTRIBUTES = [:id, :provider, :url, :sort_priority, :enabled]
+      ATTRIBUTES = [
+        :id,
+        :provider,
+        :url,
+        :sort_priority,
+        :enabled
+      ]
 
-      attr_accessor *ATTRIBUTES
+      attr_accessor(*ATTRIBUTES)
 
       def enabled?
         enabled
@@ -16,9 +22,15 @@ module LandingPageVersion::Section
     class MenuLink
       include ActiveModel::Model
 
-      ATTRIBUTES = [:id, :title, :url, :sort_priority, :_destroy]
+      ATTRIBUTES = [
+        :id,
+        :title,
+        :url,
+        :sort_priority,
+        :_destroy
+      ]
 
-      attr_accessor *ATTRIBUTES
+      attr_accessor(*ATTRIBUTES)
 
       def new_record?
         id.nil?
@@ -90,7 +102,7 @@ module LandingPageVersion::Section
           provider: link['service'],
           url: link['url'],
           sort_priority: index,
-          enabled: link['enabled'] == nil || link['enabled'] == true)
+          enabled: link['enabled'].nil? || link['enabled'] == true)
       end
     end
 
