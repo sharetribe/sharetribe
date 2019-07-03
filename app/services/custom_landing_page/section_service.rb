@@ -32,7 +32,7 @@ module CustomLandingPage
     end
 
     def destroy
-      section.destroy!
+      section.destroy! if section.removable?
     end
 
     def asset_url(section_id, image_key)
