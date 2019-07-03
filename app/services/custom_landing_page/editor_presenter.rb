@@ -6,8 +6,7 @@ module CustomLandingPage
 
     public
 
-    delegate :community, :params, :landing_page_versions, :released_version,
-      :landing_page_version,
+    delegate :community, :params, :released_version, :landing_page_version,
       to: :service, prefix: false, allow_nil: false
 
     def initialize(service:)
