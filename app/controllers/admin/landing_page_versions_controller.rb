@@ -11,6 +11,11 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
     redirect_to admin_landing_page_versions_path
   end
 
+  def update
+    @service.update_landing_page_version
+    render body: 'OK'
+  end
+
   private
 
   def set_selected_left_navi_link

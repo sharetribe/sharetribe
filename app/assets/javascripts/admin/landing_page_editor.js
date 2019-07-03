@@ -60,6 +60,12 @@ window.ST = window.ST || {};
 
       upHidden.val(newUpValue);
       downHidden.val(newDownValue);
+      var form = $("form.edit_landing_page_version");
+      $.ajax({
+        url: form.attr('action'),
+        type: 'PATCH',
+        data: form.serialize()
+      })
     });
 
     return {
@@ -72,7 +78,7 @@ window.ST = window.ST || {};
     var option = $(this).find('option:selected'),
       variation = option.data('variation');
     $('#section_variation').val(variation);
-    if (!option.value) {
+    if (!variation) {
       return false;
     }
     if (!variation) {

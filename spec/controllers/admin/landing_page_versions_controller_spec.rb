@@ -14,13 +14,13 @@ describe Admin::LandingPageVersionsController, type: :controller do
   end
 
   describe('#index') do
-    it 'shows landing page versions' do
+    it 'shows latest landing page version' do
       landing_page_version1
       landing_page_version2
       get :index
       presenter = assigns(:presenter)
-      landing_page_versions = presenter.landing_page_versions
-      expect(landing_page_versions.count).to eq 2
+      landing_page_version = presenter.landing_page_version
+      expect(landing_page_version.version).to eq 2
     end
   end
 end
