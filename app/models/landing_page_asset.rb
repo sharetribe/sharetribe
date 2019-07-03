@@ -17,11 +17,10 @@ class LandingPageAsset < ApplicationRecord
   belongs_to :community
 
   if (APP_CONFIG.clp_s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key)
-    has_attached_file :image, :path => ":site_name/:filename",
-      :s3_credentials => {
-        :bucket            => APP_CONFIG.clp_s3_bucket_name,
-        :access_key_id     => APP_CONFIG.aws_access_key_id,
-        :secret_access_key => APP_CONFIG.aws_secret_access_key
+    has_attached_file :image, :path => ":site_name/:filename", s3_credentials: {
+        bucket: APP_CONFIG.clp_s3_bucket_name,
+        access_key_id: APP_CONFIG.aws_access_key_id,
+        secret_access_key: APP_CONFIG.aws_secret_access_key
       }
   else
     has_attached_file :image,
@@ -33,9 +32,9 @@ class LandingPageAsset < ApplicationRecord
     attachment.instance.community.ident
   end
 
-  validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize.to_i, :unless => Proc.new {|model| model.image.nil? }
+  validates_attachment_size :image, :less_than => APP_CONFIG.max_image_filesize.to_i, :unless => proc {|model| model.image.nil? }
   validates_attachment_content_type :image,
                                     :content_type => ["image/jpeg", "image/png", "image/gif", "image/pjpeg", "image/x-png"], # the two last types are sent by IE.
-                                    :unless => Proc.new {|model| model.image.nil? }
+                                    :unless => proc {|model| model.image.nil? }
 
 end

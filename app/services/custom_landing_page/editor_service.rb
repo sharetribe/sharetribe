@@ -37,9 +37,7 @@ module CustomLandingPage
 
       last_version = LandingPageVersion.where(community: community).order('version DESC').first
 
-      if !last_version
-        last_version = LandingPageVersion.create(community: community, version: 1, content: blank_version.to_json)
-      end
+      last_version ||= LandingPageVersion.create(community: community, version: 1, content: blank_version.to_json)
 
       if lp.enabled && last_version.version == lp.released_version
         last_version = last_version.dup
@@ -55,7 +53,7 @@ module CustomLandingPage
         settings: {
           marketplace_id: community.id,
           locale: community.default_locale,
-          sitename: community.ident,
+          sitename: community.ident
         },
         page: {
           twitter_handle: {type: "marketplace_data", id: "twitter_handle"},

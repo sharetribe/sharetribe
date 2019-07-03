@@ -3,8 +3,7 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
   before_action :set_service
 
-  def index
-  end
+  def index; end
 
   def release
     @service.release_landing_page_version
