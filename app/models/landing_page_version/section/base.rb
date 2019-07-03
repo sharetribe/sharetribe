@@ -43,8 +43,7 @@ module LandingPageVersion::Section
       previous_id.present? && find_existing_section_by_id(id)
     end
 
-    def asset_added(asset)
-    end
+    def asset_added(asset); end
 
     private
 

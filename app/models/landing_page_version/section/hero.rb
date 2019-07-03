@@ -77,6 +77,7 @@ module LandingPageVersion::Section
       end
       item['src'] = new_asset.image_file_name
       item['content_type'] = new_asset.image_content_type
+      item
     end
 
     class << self
