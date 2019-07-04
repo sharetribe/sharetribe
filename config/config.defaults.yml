@@ -177,7 +177,7 @@ default: &default_settings
   mail_delivery_method: sendmail
 
   # This will be the from field in the mails sent from Sharetribe
-  sharetribe_mail_from_address: "marketplace@dignityplatforn.com"
+  sharetribe_mail_from_address: "marketplace@dignityplatform.com"
 
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
