@@ -671,7 +671,7 @@ pl:
         categories: "Kategorie ofert, w których pola są użyte"
         select_all: "Zaznacz wszystko"
         clear_all: "Wyczyść wszystko"
-        options: Opcke
+        options: Opcje
         add_option: "+ dodaj opcję"
         saving_order: "Zapisz porządek pól"
         save_order_successful: "Zapisywanie porządku pól zakończyło się sukcesem"
@@ -2309,7 +2309,7 @@ pl:
       create_new_account: "Stwórz nowe konto"
       email: "Adres email"
       email_is_in_use: "Adres email, który podałeś jest już w użyciu."
-      email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie możesz z niego skorzystać, skontaktuj się z nami."
+      email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie przejść tego etapu, skontaktuj się z nami."
       email_not_allowed: "Ten adres email nie jest dozwolony w %{service_name}. Proszę użyj innego adresu. Jeżeli wciąż nie możesz się zalogować, skontaktuj się z nami."
       invalid_username_or_email: "Użytkownik lub e-mail nie są poprawne albo w tej chwili są użytkowane"
       email_restriction_instructions:
@@ -2381,14 +2381,14 @@ pl:
     followed_people:
       you_follow_plural: "Śledzisz %{count} ludzi"
       you_follow_singular: "Śledzisz %{count} osób"
-      they_follow_plural: "%{count} śledzonych ludzi"
-      they_follow_singular: "%{count} śledzonych ludzi"
-      show_all_followed_people: "Pokaż wszystkich śledzonych ludzi"
-      no_followed_people: "Brak śledzonych ludzi"
+      they_follow_plural: "%{count} obserwowanych osób"
+      they_follow_singular: "%{count} obserwowanych osób"
+      show_all_followed_people: "Pokaż wszystkie obserwowane osoby"
+      no_followed_people: "Brak obserwowanych osób"
     follow_button:
       following: Śledzących
-      follow: Śledź
-      unfollow: "Nie śledź"
+      follow: Obserwuj
+      unfollow: "Nie obserwuj"
   sessions:
     new:
       create_new_account: "Stwórz nowe konto"
@@ -2660,6 +2660,11 @@ pl:
         few: "Zarezerwowanych nocy:"
         many: "Zarezerwowanych nocy:"
         other: "Zarezerwowanych nocy:"
+      booked_hours_label:
+        one: "Zarezerwowana godzina"
+        few: "Zarezerwowane godziny"
+        many: "Zarezerwowane godziny"
+        other: "Zarezerwowane godziny"
       price_per_day: "Cena za dzień:"
       price_per_night: "Cena za noc:"
       price_per_hour: "Cena za godzinę:"
@@ -2668,17 +2673,12 @@ pl:
       subtotal: "Suma częściowa:"
       shipping-price: "Transport:"
       stripe-fee: "Opłata Stripe (szacunkowa):"
-      start_end_time: "%{start_time} do %{end_time}"
-      booked_hours_label:
-        one: "Zarezerwowana godzina"
-        few: "Zarezerwowane godziny"
-        many: "Zarezerwowane godziny"
-        other: "Zarezerwowane godziny"
       duration_in_hours:
         one: "(1 godzina)"
         few: "(%{count} godziny)"
         many: "(%{count} godziny)"
         other: "(%{count} godziny)"
+      start_end_time: "%{start_time} do %{end_time}"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Ilość: %{quantity}"
@@ -2865,7 +2865,7 @@ pl:
         error_message: "Zły format"
         clearing_code: ~
         sort_code: ~
-        must_match: "Musi być w podanym formacie"
+        must_match: "Musi być w podanym formacie:"
         a_dash: ~
         digits: cyfry
         digits_or_chars: "cyfry lub litery od A do Z"
