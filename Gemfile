@@ -24,10 +24,11 @@ gem 'sass', '~> 3.4.24'
 gem 'rack-attack', '~> 6.0.0'
 gem 'rest-client', '~> 2.0.2'
 
-gem 'paperclip', '~> 5.2.1'
+gem 'paperclip', '~> 6.0.0'
 gem 'delayed_paperclip', '~> 3.0.1'
 
-gem 'aws-sdk', '~> 2.9.25'
+gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk-ses', '~> 1'
 gem "will_paginate", '~> 3.1.7'
 gem 'dalli', '~> 2.7.10'
 gem "memcachier", '~> 0.0.2'

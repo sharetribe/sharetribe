@@ -75,8 +75,9 @@ module LandingPageVersion::Section
         item = {'id' => 'default_hero_background'}
         assets << item
       end
-      item['src'] = new_asset.image_file_name
-      item['content_type'] = new_asset.image_content_type
+      blob = new_asset.blob
+      item['src'] = blob_path(blob)
+      item['content_type'] = blob.content_type
       item
     end
 
@@ -88,6 +89,12 @@ module LandingPageVersion::Section
       def permitted_params
         PERMITTED_PARAMS
       end
+    end
+
+    private
+
+    def blob_path(blob)
+      Rails.application.routes.url_helpers.landing_page_asset_path(signed_id: blob.signed_id, filename: blob.filename.to_s, sitename: landing_page_version.community.ident, only_path: true)
     end
   end
 end
