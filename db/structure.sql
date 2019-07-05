@@ -25,6 +25,38 @@ CREATE TABLE `active_sessions` (
   KEY `index_active_sessions_on_refreshed_at` (`refreshed_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `active_storage_attachments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `active_storage_attachments` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `record_type` varchar(255) NOT NULL,
+  `record_id` bigint(20) NOT NULL,
+  `blob_id` bigint(20) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_active_storage_attachments_uniqueness` (`record_type`,`record_id`,`name`,`blob_id`),
+  KEY `index_active_storage_attachments_on_blob_id` (`blob_id`),
+  CONSTRAINT `fk_rails_c3b3935057` FOREIGN KEY (`blob_id`) REFERENCES `active_storage_blobs` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `active_storage_blobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `active_storage_blobs` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `content_type` varchar(255) DEFAULT NULL,
+  `metadata` text,
+  `byte_size` bigint(20) NOT NULL,
+  `checksum` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_active_storage_blobs_on_key` (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `ar_internal_metadata`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -656,22 +688,6 @@ CREATE TABLE `invitations` (
   PRIMARY KEY (`id`),
   KEY `index_invitations_on_code` (`code`) USING BTREE,
   KEY `index_invitations_on_inviter_id` (`inviter_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-DROP TABLE IF EXISTS `landing_page_assets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `landing_page_assets` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `community_id` int(11) DEFAULT NULL,
-  `asset_id` varchar(255) DEFAULT NULL,
-  `image_file_name` varchar(255) DEFAULT NULL,
-  `image_content_type` varchar(255) DEFAULT NULL,
-  `image_file_size` int(11) DEFAULT NULL,
-  `image_updated_at` datetime DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `landing_page_versions`;
@@ -2400,5 +2416,7 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190717105844'),
 ('20190718081745'),
 ('20190904115045'),
-('20190627055931');
+('20190627055931'),
+('20190705083608'),
+('20190705100256');
 
