@@ -56,9 +56,12 @@
 .home-toolbar-button-group-button-2 {
   @include button($link);
   @include button-group-button;
-  @include ellipsis;
+  // include ellipsis;
 
   // Notice: hard-coded for three buttons
+  /* white-space: nowrap; */
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
   width: 33.3%;
   margin-right: 10px;
 
