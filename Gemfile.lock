@@ -274,6 +274,7 @@ GEM
       sprockets-rails
     json (2.1.0)
     jwt (2.1.0)
+    kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.19)
@@ -444,6 +445,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.2.2)
       rake
+    raindrops (0.19.0)
     rake (11.3.0)
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
@@ -575,6 +577,9 @@ GEM
     unf_ext (0.0.7.4)
     unicode-display_width (1.5.0)
     unicode_utils (1.4.0)
+    unicorn (5.5.1)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     uuidtools (2.1.5)
     warden (1.2.8)
       rack (>= 2.0.6)
@@ -702,6 +707,7 @@ DEPENDENCIES
   twitter_cldr
   tzinfo-data (~> 1.2017, >= 1.2017.2)
   uglifier (~> 3.2.0)
+  unicorn
   uuidtools (~> 2.1.5)
   web-console (~> 3.7.0)
   web_translate_it (~> 2.4.1)

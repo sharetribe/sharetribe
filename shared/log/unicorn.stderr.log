@@ -1,0 +1,638 @@
+I, [2019-07-04T16:57:28.768617 #13014]  INFO -- : Refreshing Gem list
+I, [2019-07-04T16:57:36.566702 #13014]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-04T16:57:36.566839 #13014]  INFO -- : worker=0 spawning...
+I, [2019-07-04T16:57:36.568900 #13014]  INFO -- : worker=1 spawning...
+I, [2019-07-04T16:57:36.570282 #13014]  INFO -- : master process ready
+I, [2019-07-04T16:57:36.582261 #13018]  INFO -- : worker=0 spawned pid=13018
+I, [2019-07-04T16:57:36.582449 #13018]  INFO -- : worker=0 ready
+I, [2019-07-04T16:57:36.586132 #13019]  INFO -- : worker=1 spawned pid=13019
+I, [2019-07-04T16:57:36.586293 #13019]  INFO -- : worker=1 ready
+I, [2019-07-04T17:11:11.096558 #13014]  INFO -- : reaped #<Process::Status: pid 13018 exit 0> worker=0
+I, [2019-07-04T17:11:11.096705 #13014]  INFO -- : reaped #<Process::Status: pid 13019 exit 0> worker=1
+I, [2019-07-04T17:11:11.096773 #13014]  INFO -- : master complete
+I, [2019-07-04T17:20:04.528659 #13910]  INFO -- : Refreshing Gem list
+I, [2019-07-04T17:20:12.140974 #13910]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-04T17:20:12.141118 #13910]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-04T17:20:12.141224 #13910]  INFO -- : worker=0 spawning...
+I, [2019-07-04T17:20:12.143354 #13910]  INFO -- : worker=1 spawning...
+I, [2019-07-04T17:20:12.144791 #13910]  INFO -- : master process ready
+I, [2019-07-04T17:20:12.156064 #13915]  INFO -- : worker=1 spawned pid=13915
+I, [2019-07-04T17:20:12.156244 #13915]  INFO -- : worker=1 ready
+I, [2019-07-04T17:20:12.162507 #13914]  INFO -- : worker=0 spawned pid=13914
+I, [2019-07-04T17:20:12.162778 #13914]  INFO -- : worker=0 ready
+/home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:207:in `pid=': Already running on PID:13910 (or pid=/home/george/sharetribe/shared/pids/unicorn.pid is stale) (ArgumentError)
+	from /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:139:in `start'
+	from /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+	from /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+	from /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+	from /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+	from /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+I, [2019-07-04T18:00:30.516243 #13910]  INFO -- : reaped #<Process::Status: pid 13914 exit 0> worker=0
+I, [2019-07-04T18:00:30.516375 #13910]  INFO -- : reaped #<Process::Status: pid 13915 exit 0> worker=1
+I, [2019-07-04T18:00:30.516440 #13910]  INFO -- : master complete
+I, [2019-07-04T18:17:25.276361 #15169]  INFO -- : Refreshing Gem list
+I, [2019-07-04T18:17:32.755345 #15169]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-04T18:17:32.755494 #15169]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-04T18:17:32.755609 #15169]  INFO -- : worker=0 spawning...
+I, [2019-07-04T18:17:32.757626 #15169]  INFO -- : worker=1 spawning...
+I, [2019-07-04T18:17:32.759132 #15169]  INFO -- : master process ready
+I, [2019-07-04T18:17:32.773157 #15173]  INFO -- : worker=0 spawned pid=15173
+I, [2019-07-04T18:17:32.773414 #15173]  INFO -- : worker=0 ready
+I, [2019-07-04T18:17:32.775676 #15174]  INFO -- : worker=1 spawned pid=15174
+I, [2019-07-04T18:17:32.775866 #15174]  INFO -- : worker=1 ready
+I, [2019-07-04T18:34:40.227046 #15169]  INFO -- : reaped #<Process::Status: pid 15173 exit 0> worker=0
+I, [2019-07-04T18:34:40.528094 #15169]  INFO -- : reaped #<Process::Status: pid 15174 exit 0> worker=1
+I, [2019-07-04T18:34:40.528239 #15169]  INFO -- : master complete
+I, [2019-07-04T18:34:46.112344 #15523]  INFO -- : Refreshing Gem list
+I, [2019-07-04T18:34:53.533503 #15523]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-04T18:34:53.533652 #15523]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-04T18:34:53.533807 #15523]  INFO -- : worker=0 spawning...
+I, [2019-07-04T18:34:53.535987 #15523]  INFO -- : worker=1 spawning...
+I, [2019-07-04T18:34:53.537428 #15523]  INFO -- : master process ready
+I, [2019-07-04T18:34:53.556520 #15527]  INFO -- : worker=0 spawned pid=15527
+I, [2019-07-04T18:34:53.561204 #15528]  INFO -- : worker=1 spawned pid=15528
+I, [2019-07-04T18:34:53.561374 #15528]  INFO -- : worker=1 ready
+I, [2019-07-04T18:34:53.562116 #15527]  INFO -- : worker=0 ready
+I, [2019-07-04T18:45:48.515479 #15523]  INFO -- : reaped #<Process::Status: pid 15527 exit 0> worker=0
+I, [2019-07-04T18:45:48.515597 #15523]  INFO -- : reaped #<Process::Status: pid 15528 exit 0> worker=1
+I, [2019-07-04T18:45:48.515657 #15523]  INFO -- : master complete
+I, [2019-07-04T18:45:54.072496 #15906]  INFO -- : Refreshing Gem list
+I, [2019-07-04T18:46:02.531928 #15906]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-04T18:46:02.532093 #15906]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-04T18:46:02.532210 #15906]  INFO -- : worker=0 spawning...
+I, [2019-07-04T18:46:02.534954 #15906]  INFO -- : worker=1 spawning...
+I, [2019-07-04T18:46:02.537404 #15906]  INFO -- : master process ready
+I, [2019-07-04T18:46:02.554246 #15911]  INFO -- : worker=1 spawned pid=15911
+I, [2019-07-04T18:46:02.556269 #15910]  INFO -- : worker=0 spawned pid=15910
+I, [2019-07-04T18:46:02.556505 #15910]  INFO -- : worker=0 ready
+I, [2019-07-04T18:46:02.557039 #15911]  INFO -- : worker=1 ready
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+I, [2019-07-05T09:48:37.617774 #15906]  INFO -- : reaped #<Process::Status: pid 15910 exit 0> worker=0
+I, [2019-07-05T09:48:37.618053 #15906]  INFO -- : reaped #<Process::Status: pid 15911 exit 0> worker=1
+I, [2019-07-05T09:48:37.618199 #15906]  INFO -- : master complete
+I, [2019-07-05T09:49:30.207557 #24402]  INFO -- : Refreshing Gem list
+I, [2019-07-05T09:49:37.544785 #24402]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T09:49:37.544931 #24402]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T09:49:37.545040 #24402]  INFO -- : worker=0 spawning...
+I, [2019-07-05T09:49:37.547183 #24402]  INFO -- : worker=1 spawning...
+I, [2019-07-05T09:49:37.548576 #24402]  INFO -- : master process ready
+I, [2019-07-05T09:49:37.572798 #24407]  INFO -- : worker=1 spawned pid=24407
+I, [2019-07-05T09:49:37.572977 #24407]  INFO -- : worker=1 ready
+I, [2019-07-05T09:49:37.567266 #24406]  INFO -- : worker=0 spawned pid=24406
+I, [2019-07-05T09:49:37.574011 #24406]  INFO -- : worker=0 ready
+String#to_html was called without RedCloth being successfully required
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from block in _app_views_settings_show_haml___1234541918226058135_89604640 at /home/george/sharetribe/app/views/settings/show.haml:16)
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_89363520 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_89363520 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_89363520 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+String#to_html was called without RedCloth being successfully required
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from block in _app_views_settings_show_haml___1234541918226058135_59309880 at /home/george/sharetribe/app/views/settings/show.haml:16)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_89363520 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_89363520 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__3898009740434429871_71827940 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+I, [2019-07-05T10:48:45.591565 #24402]  INFO -- : reaped #<Process::Status: pid 24406 exit 0> worker=0
+I, [2019-07-05T10:48:45.591722 #24402]  INFO -- : reaped #<Process::Status: pid 24407 exit 0> worker=1
+I, [2019-07-05T10:48:45.591807 #24402]  INFO -- : master complete
+I, [2019-07-05T10:48:48.810266 #6281]  INFO -- : Refreshing Gem list
+I, [2019-07-05T10:48:56.672098 #6281]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T10:48:56.672257 #6281]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T10:48:56.672391 #6281]  INFO -- : worker=0 spawning...
+I, [2019-07-05T10:48:56.674432 #6281]  INFO -- : worker=1 spawning...
+I, [2019-07-05T10:48:56.675966 #6281]  INFO -- : master process ready
+I, [2019-07-05T10:48:56.685325 #6288]  INFO -- : worker=0 spawned pid=6288
+I, [2019-07-05T10:48:56.685499 #6288]  INFO -- : worker=0 ready
+I, [2019-07-05T10:48:56.693060 #6289]  INFO -- : worker=1 spawned pid=6289
+I, [2019-07-05T10:48:56.693253 #6289]  INFO -- : worker=1 ready
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml___2315191135066485939_92436040 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml___2315191135066485939_92436040 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+I, [2019-07-05T10:58:44.362063 #6281]  INFO -- : reaped #<Process::Status: pid 6288 exit 0> worker=0
+I, [2019-07-05T10:58:44.362188 #6281]  INFO -- : reaped #<Process::Status: pid 6289 exit 0> worker=1
+I, [2019-07-05T10:58:44.362275 #6281]  INFO -- : master complete
+I, [2019-07-05T10:58:49.911502 #6598]  INFO -- : Refreshing Gem list
+I, [2019-07-05T10:58:57.830826 #6598]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T10:58:57.830990 #6598]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T10:58:57.831108 #6598]  INFO -- : worker=0 spawning...
+I, [2019-07-05T10:58:57.833187 #6598]  INFO -- : worker=1 spawning...
+I, [2019-07-05T10:58:57.835568 #6602]  INFO -- : worker=0 spawned pid=6602
+I, [2019-07-05T10:58:57.835769 #6602]  INFO -- : worker=0 ready
+I, [2019-07-05T10:58:57.836133 #6598]  INFO -- : master process ready
+I, [2019-07-05T10:58:57.848860 #6603]  INFO -- : worker=1 spawned pid=6603
+I, [2019-07-05T10:58:57.849062 #6603]  INFO -- : worker=1 ready
+I, [2019-07-05T11:02:59.407279 #6598]  INFO -- : reaped #<Process::Status: pid 6603 exit 0> worker=1
+I, [2019-07-05T11:02:59.608064 #6598]  INFO -- : reaped #<Process::Status: pid 6602 exit 0> worker=0
+I, [2019-07-05T11:02:59.608211 #6598]  INFO -- : master complete
+I, [2019-07-05T11:03:05.804334 #6889]  INFO -- : Refreshing Gem list
+I, [2019-07-05T11:03:13.693014 #6889]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T11:03:13.693168 #6889]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T11:03:13.693278 #6889]  INFO -- : worker=0 spawning...
+I, [2019-07-05T11:03:13.695382 #6889]  INFO -- : worker=1 spawning...
+I, [2019-07-05T11:03:13.696685 #6889]  INFO -- : master process ready
+I, [2019-07-05T11:03:13.709011 #6894]  INFO -- : worker=1 spawned pid=6894
+I, [2019-07-05T11:03:13.709190 #6894]  INFO -- : worker=1 ready
+I, [2019-07-05T11:03:13.712455 #6893]  INFO -- : worker=0 spawned pid=6893
+I, [2019-07-05T11:03:13.712662 #6893]  INFO -- : worker=0 ready
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_95311720 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_95311720 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+Error during failsafe response: Couldn't find Person
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/core.rb:228:in `find_by!'
+  /home/george/sharetribe/app/controllers/people_controller.rb:126:in `update'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:186:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/callbacks.rb:131:in `run_callbacks'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rescue.rb:20:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `block in instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:124:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionview-5.1.6.2/lib/action_view/rendering.rb:30:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:189:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:253:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `each'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:844:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:49:in `render_exception'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:34:in `rescue in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/lograge-0.5.1/lib/lograge/rails_ext/rack/logger.rb:15:in `call_app'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `block in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/request_store-1.3.2/lib/request_store/middleware.rb:9:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/executor.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/static.rb:125:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/enforce_ssl.rb:23:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/health_check.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/engine.rb:522:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `public_send'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `method_missing'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/deflater.rb:34:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:605:in `process_client'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:700:in `worker_loop'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:548:in `spawn_missing_workers'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:144:in `start'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_95311720 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from block in _app_views_settings_show_haml___614378609983360099_52240220 at /home/george/sharetribe/app/views/settings/show.haml:16)
+Error during failsafe response: Couldn't find Person
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/core.rb:228:in `find_by!'
+  /home/george/sharetribe/app/controllers/people_controller.rb:126:in `update'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:186:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/callbacks.rb:131:in `run_callbacks'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rescue.rb:20:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `block in instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:124:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionview-5.1.6.2/lib/action_view/rendering.rb:30:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:189:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:253:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `each'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:844:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:49:in `render_exception'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:34:in `rescue in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/lograge-0.5.1/lib/lograge/rails_ext/rack/logger.rb:15:in `call_app'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `block in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/request_store-1.3.2/lib/request_store/middleware.rb:9:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/executor.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/static.rb:125:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/enforce_ssl.rb:23:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/health_check.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/engine.rb:522:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `public_send'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `method_missing'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/deflater.rb:34:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:605:in `process_client'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:700:in `worker_loop'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:548:in `spawn_missing_workers'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:144:in `start'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+Error during failsafe response: Couldn't find Person
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/core.rb:228:in `find_by!'
+  /home/george/sharetribe/app/controllers/people_controller.rb:126:in `update'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:186:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/callbacks.rb:131:in `run_callbacks'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rescue.rb:20:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `block in instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:124:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionview-5.1.6.2/lib/action_view/rendering.rb:30:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:189:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:253:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `each'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:844:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:49:in `render_exception'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:34:in `rescue in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/lograge-0.5.1/lib/lograge/rails_ext/rack/logger.rb:15:in `call_app'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `block in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/request_store-1.3.2/lib/request_store/middleware.rb:9:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/executor.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/static.rb:125:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/enforce_ssl.rb:23:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/health_check.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/engine.rb:522:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `public_send'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `method_missing'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/deflater.rb:34:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:605:in `process_client'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:700:in `worker_loop'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:548:in `spawn_missing_workers'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:144:in `start'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from block in _app_views_settings_show_haml___614378609983360099_101574960 at /home/george/sharetribe/app/views/settings/show.haml:16)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from block in _app_views_settings_show_haml___614378609983360099_101574960 at /home/george/sharetribe/app/views/settings/show.haml:16)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_97885860 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+Error during failsafe response: Couldn't find Person
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/core.rb:228:in `find_by!'
+  /home/george/sharetribe/app/controllers/people_controller.rb:126:in `update'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:186:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/callbacks.rb:131:in `run_callbacks'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rescue.rb:20:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `block in instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:124:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionview-5.1.6.2/lib/action_view/rendering.rb:30:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:189:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:253:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `each'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:844:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:49:in `render_exception'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:34:in `rescue in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/lograge-0.5.1/lib/lograge/rails_ext/rack/logger.rb:15:in `call_app'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `block in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/request_store-1.3.2/lib/request_store/middleware.rb:9:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/executor.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/static.rb:125:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/enforce_ssl.rb:23:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/health_check.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/engine.rb:522:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `public_send'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `method_missing'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/deflater.rb:34:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:605:in `process_client'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:700:in `worker_loop'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:548:in `spawn_missing_workers'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:144:in `start'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_95311720 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_97885860 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+Error during failsafe response: Couldn't find Person
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/core.rb:228:in `find_by!'
+  /home/george/sharetribe/app/controllers/people_controller.rb:126:in `update'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:186:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/callbacks.rb:131:in `run_callbacks'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/callbacks.rb:19:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/rescue.rb:20:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `block in instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/notifications.rb:166:in `instrument'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activerecord-5.1.6.2/lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/abstract_controller/base.rb:124:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionview-5.1.6.2/lib/action_view/rendering.rb:30:in `process'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:189:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_controller/metal.rb:253:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/mapper.rb:46:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `each'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/journey/router.rb:33:in `serve'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/routing/route_set.rb:844:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:49:in `render_exception'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:34:in `rescue in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/lograge-0.5.1/lib/lograge/rails_ext/rack/logger.rb:15:in `call_app'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `block in call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:26:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/tagged_logging.rb:69:in `tagged'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/rack/logger.rb:24:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/request_store-1.3.2/lib/request_store/middleware.rb:9:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/method_override.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/runtime.rb:22:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/activesupport-5.1.6.2/lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/executor.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/actionpack-5.1.6.2/lib/action_dispatch/middleware/static.rb:125:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/sendfile.rb:111:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/enforce_ssl.rb:23:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/sharetribe/lib/rack_middleware/health_check.rb:12:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/engine.rb:522:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `public_send'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/railties-5.1.6.2/lib/rails/railtie.rb:185:in `method_missing'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/rack-2.0.7/lib/rack/deflater.rb:34:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/newrelic_rpm-4.2.0.334/lib/new_relic/agent/instrumentation/middleware_tracing.rb:92:in `call'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:605:in `process_client'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:700:in `worker_loop'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:548:in `spawn_missing_workers'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/lib/unicorn/http_server.rb:144:in `start'
+  /home/george/.rvm/gems/ruby-2.6.2/gems/unicorn-5.5.1/bin/unicorn:128:in `<top (required)>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `load'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/unicorn:23:in `<main>'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `eval'
+  /home/george/.rvm/gems/ruby-2.6.2/bin/ruby_executable_hooks:24:in `<main>'
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml__1473095233311582662_95311720 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+I, [2019-07-05T11:19:23.802203 #6889]  INFO -- : reaped #<Process::Status: pid 6894 exit 0> worker=1
+I, [2019-07-05T11:19:24.003032 #6889]  INFO -- : reaped #<Process::Status: pid 6893 exit 0> worker=0
+I, [2019-07-05T11:19:24.003167 #6889]  INFO -- : master complete
+I, [2019-07-05T11:19:30.196251 #7276]  INFO -- : Refreshing Gem list
+I, [2019-07-05T11:19:37.849088 #7276]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T11:19:37.849251 #7276]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T11:19:37.849365 #7276]  INFO -- : worker=0 spawning...
+I, [2019-07-05T11:19:37.851964 #7276]  INFO -- : worker=1 spawning...
+I, [2019-07-05T11:19:37.853594 #7276]  INFO -- : master process ready
+I, [2019-07-05T11:19:37.866294 #7285]  INFO -- : worker=0 spawned pid=7285
+I, [2019-07-05T11:19:37.866481 #7285]  INFO -- : worker=0 ready
+I, [2019-07-05T11:19:37.870099 #7286]  INFO -- : worker=1 spawned pid=7286
+I, [2019-07-05T11:19:37.870262 #7286]  INFO -- : worker=1 ready
+DEPRECATION WARNING: full_name is deprecated and will be removed in future. | This is view logic (how to display name) and thus should not be in model layer. Consider using PersonViewUtils. (called from _app_views_admin_community_memberships__pending_confirmation_haml___580042090993890161_94575900 at /home/george/sharetribe/app/views/admin/community_memberships/_pending_confirmation.haml:5)
+I, [2019-07-05T14:17:06.458988 #7276]  INFO -- : reaped #<Process::Status: pid 7285 exit 0> worker=0
+I, [2019-07-05T14:17:06.459123 #7276]  INFO -- : reaped #<Process::Status: pid 7286 exit 0> worker=1
+I, [2019-07-05T14:17:06.459188 #7276]  INFO -- : master complete
+I, [2019-07-05T14:17:35.256593 #8947]  INFO -- : Refreshing Gem list
+I, [2019-07-05T14:17:42.946176 #8947]  INFO -- : unlinking existing socket=/home/george/sharetribe/shared/sockets/unicorn.sock
+I, [2019-07-05T14:17:42.946360 #8947]  INFO -- : listening on addr=/home/george/sharetribe/shared/sockets/unicorn.sock fd=12
+I, [2019-07-05T14:17:42.946490 #8947]  INFO -- : worker=0 spawning...
+I, [2019-07-05T14:17:42.948636 #8947]  INFO -- : worker=1 spawning...
+I, [2019-07-05T14:17:42.949949 #8947]  INFO -- : master process ready
+I, [2019-07-05T14:17:42.962302 #8951]  INFO -- : worker=0 spawned pid=8951
+I, [2019-07-05T14:17:42.962486 #8951]  INFO -- : worker=0 ready
+I, [2019-07-05T14:17:42.966141 #8952]  INFO -- : worker=1 spawned pid=8952
+I, [2019-07-05T14:17:42.966294 #8952]  INFO -- : worker=1 ready
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
+String#to_html was called without RedCloth being successfully required
