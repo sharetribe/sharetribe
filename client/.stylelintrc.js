@@ -23,15 +23,13 @@ module.exports = {
       severity: 'warning',
     }],
 
-    'selector-no-id': true,
     'selector-no-qualifying-type': [true, { ignore: ['attribute'] }],
 
     // Allow only camelCased class selectors that can be used without
     // quoting within JavaScript with CSS modules
     'selector-class-pattern': /^[a-zA-Z_]+$/,
 
-    'custom-property-no-outside-root': true,
-    'selector-root-no-composition': true,
-    'no-browser-hacks': true,
+    'no-descending-specificity': null,
+    'at-rule-no-unknown': [true, {ignoreAtRules: ['mixin', 'define-mixin']}]
   },
 };
