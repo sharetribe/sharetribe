@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import r, { div } from 'r-dom';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import _ from 'lodash';
 
 import cssVariables from '../../assets/styles/variables';

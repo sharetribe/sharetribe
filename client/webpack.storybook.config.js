@@ -48,16 +48,11 @@ config.module.rules.push(
   },
   {
     test: /\.(jpe?g|png|gif|ico)$/,
-    loader: 'customfile-loader',
+    loader: 'file-loader',
     options: {
       limit: 10000,
       name: '[name]-[hash].[ext]',
-      hotMode: true,
     },
-  },
-  {
-    test: /\.json$/,
-    loader: 'json-loader',
   },
   {
     test: /\.svg$/,
