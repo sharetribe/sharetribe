@@ -189,7 +189,7 @@ end
 
 Then /^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/ do |text, selector|
   with_scope(selector) do
-    expect(page).to have_content(text)
+    expect(page).to have_content(text, normalize_ws: true)
   end
 end
 

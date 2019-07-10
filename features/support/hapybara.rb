@@ -1,4 +1,4 @@
-if true # rubocop:disable Lint/LiteralAsCondition
+if false # rubocop:disable Lint/LiteralAsCondition
   require 'capybara/poltergeist'
 
   Capybara.register_driver :poltergeist do |app|
@@ -13,7 +13,7 @@ else
   Webdrivers::Chromedriver.version = '2.46'
 
   # :selenium_chrome_headless
-  Capybara.javascript_driver = :selenium_chrome
+  Capybara.javascript_driver = :selenium_chrome_headless
 end
 
 
