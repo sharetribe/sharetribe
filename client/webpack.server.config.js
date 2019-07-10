@@ -8,6 +8,7 @@ const { replacePercentChar } = require('./webpackConfigUtil');
 const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 const assetHost = replacePercentChar(assetHostEnv);
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   context: __dirname,
@@ -27,6 +28,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     }),
+    new MiniCssExtractPlugin({
+      filename: 'server-bundle.css',
+    }),
   ],
   module: {
     rules: [
@@ -39,11 +43,16 @@ module.exports = {
         test: /\.css$/,
         loaders: [
           {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
               importLoaders: 0,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
             },
           },
           {

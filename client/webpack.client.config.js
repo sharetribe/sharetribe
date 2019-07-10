@@ -32,10 +32,10 @@ config.module.rules.push(
       {
         loader: 'css-loader',
         options: {
-          modules: true,
-          localIdentName: '[name]__[local]__[hash:base64:5]',
-          // minimize: devBuild,
-          // '-autoprefixer': devBuild,
+          modules: {
+            mode: 'local',
+            localIdentName: '[name]__[local]__[hash:base64:5]',
+          },
         },
       },
       {
