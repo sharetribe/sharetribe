@@ -284,13 +284,13 @@ end
 # Use this keyword BEFORE the confirmation dialog appears
 Given /^I will(?:| (not)) confirm all following confirmation dialogs in this page if I am running PhantomJS$/ do |do_not_confirm|
   confirm = do_not_confirm != "not"
-  if Capybara.current_driver == :poltergeist
+  if [:poltergeist, :selenium_chrome_headless, :selenium_chrome].include?(Capybara.current_driver)
     page.execute_script("window.__original_confirm = window.confirm; window.confirm = function() { return #{confirm}; };")
   end
 end
 
 When /^I confirm alert popup$/ do
-  unless Capybara.current_driver == :poltergeist
+  unless [:poltergeist, :selenium_chrome_headless, :selenium_chrome].include?(Capybara.current_driver)
     # wait is necessary for firefox if alerts have slide-out animations
     wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
     alert = wait.until { page.driver.browser.switch_to.alert }
