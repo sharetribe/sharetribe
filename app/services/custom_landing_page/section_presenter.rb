@@ -32,5 +32,30 @@ module CustomLandingPage
     def section_errors
       section.errors.full_messages.join(', ')
     end
+
+    def section_background_image_present?
+      section_background_image.present?
+    end
+
+    def section_background_image_url
+      section_background_image['src']
+    end
+
+    def section_background_image_filename
+      section_background_image['src'].split('/').last
+    end
+
+    def section_background_image
+      return nil unless section
+      return @section_background_image if defined?(@section_background_imagel)
+
+      @section_background_image = asset_resolver.call('assets', section.background_image['id'], landing_page_version.parsed_content)
+    end
+
+    private
+
+    def asset_resolver
+      @asset_resolver ||= CustomLandingPage::LinkResolver::AssetResolver.new('', community.ident)
+    end
   end
 end

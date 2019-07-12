@@ -5,7 +5,6 @@ module CustomLandingPage
     def initialize(community:, params:)
       @params = params
       @community = community
-      ensure_latest_version_exists!
     end
 
     def update_landing_page_version
@@ -18,18 +17,6 @@ module CustomLandingPage
 
     def errors?
       landing_page_version.errors.any?
-    end
-
-    private
-
-    def landing_page_version_params
-      params.require(:landing_page_version).permit(
-        :content,
-        section_positions_attributes: [
-          :id,
-          :position
-        ]
-      )
     end
 
     def ensure_latest_version_exists!
@@ -46,6 +33,18 @@ module CustomLandingPage
       end
 
       @landing_page_version = last_version
+    end
+
+    private
+
+    def landing_page_version_params
+      params.require(:landing_page_version).permit(
+        :content,
+        section_positions_attributes: [
+          :id,
+          :position
+        ]
+      )
     end
 
     def blank_version
