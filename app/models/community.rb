@@ -158,7 +158,7 @@ class Community < ApplicationRecord
   has_one :social_logo, :dependent => :destroy
   has_many :social_links, -> { sorted }, :dependent => :destroy, :inverse_of => :community
 
-  has_many_attached :landing_page_assets
+  has_one_attached :landing_page_hero_background
 
   accepts_nested_attributes_for :social_logo
   accepts_nested_attributes_for :footer_menu_links, allow_destroy: true

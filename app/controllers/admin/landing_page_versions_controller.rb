@@ -25,6 +25,7 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
     @service = CustomLandingPage::EditorService.new(
       community: @current_community,
       params: params)
+    @service.ensure_latest_version_exists!
     @presenter = CustomLandingPage::EditorPresenter.new(service: @service)
   end
 

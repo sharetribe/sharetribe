@@ -78,6 +78,7 @@ module LandingPageVersion::Section
       blob = new_asset.blob
       item['src'] = blob_path(blob)
       item['content_type'] = blob.content_type
+      item['absoulte_path'] = true
       item
     end
 

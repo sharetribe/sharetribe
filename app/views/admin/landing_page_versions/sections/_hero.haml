@@ -19,13 +19,12 @@
 
 .row
   .col-6
-    - bg_image_url = @service.asset_url('hero', 'background_image')
     #bg-image-preview
-      - if bg_image_url.present?
-        %img{src: bg_image_url['src']}
+      - if presenter.section_background_image_present?
+        %img{src: presenter.section_background_image_url}
     %p
-      - if bg_image_url.present?
-        = t(".current_image", filename: bg_image_url['file'])
+      - if presenter.section_background_image_present?
+        = t(".current_image", filename: presenter.section_background_image_filename)
       - else
         = t(".current_image", filename: t(".file_not_selected"))
   .col-6
