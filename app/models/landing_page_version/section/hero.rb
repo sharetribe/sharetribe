@@ -56,8 +56,13 @@ module LandingPageVersion::Section
     BACKGROUND_VARIATION_TRANSPARENT = 'transparent'.freeze
 
     def initialize(attributes={})
-      super(DEFAULTS.merge(attributes))
+      super(attributes)
       @kind = LandingPageVersion::Section::HERO
+      DEFAULTS.each do |key, value|
+        unless self.send(key)
+          self.send("#{key}=", value)
+        end
+      end
     end
 
     def attributes

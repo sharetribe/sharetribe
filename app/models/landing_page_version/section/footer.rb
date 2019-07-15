@@ -83,8 +83,13 @@ module LandingPageVersion::Section
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
     def initialize(attributes={})
-      super(DEFAULTS.merge(attributes))
+      super(attributes)
       @kind = LandingPageVersion::Section::FOOTER
+      DEFAULTS.each do |key, value|
+        unless self.send(key)
+          self.send("#{key}=", value)
+        end
+      end
     end
 
     def attributes
