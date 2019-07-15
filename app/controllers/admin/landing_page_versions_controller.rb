@@ -18,7 +18,7 @@ class Admin::LandingPageVersionsController < Admin::AdminBaseController
   private
 
   def set_selected_left_navi_link
-    @selected_left_navi_link = "custom_landing_pages"
+    @selected_left_navi_link = "landing_page"
   end
 
   def set_service
