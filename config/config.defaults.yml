@@ -487,6 +487,8 @@ default: &default_settings
   # the use_google_tag_manager: false
   admin_enable_tracking_config: false
 
+  clp_s3_bucket_name: 'landing_page'
+
 production: &production_settings
   <<: *default_settings
 
