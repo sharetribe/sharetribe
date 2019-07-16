@@ -276,6 +276,10 @@ Rails.application.routes.draw do
             get :approve
             get :reject
           end
+          collection do
+            get 'export'
+            get 'export_status'
+          end
         end
         resources :transactions, controller: :community_transactions, only: :index do
           collection do
