@@ -1,6 +1,6 @@
 - if current_user?(service.person)
   = render :partial => "people/edit_profile_button"
-- else
+- elsif @current_community.allow_free_conversations?
   %a.profile-contact-link{href: new_person_person_message_path(service.person)}
     .content
       = t("people.show.contact", :person => PersonViewUtils.person_display_name_for_type(service.person, "first_name_only"))

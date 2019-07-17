@@ -133,4 +133,6 @@ Given(/^there is a "([^"]*)" transaction with buyer commission from "([^"]*)" wi
   create_paid_transaction(@current_community, @listing, @people[sender], message, 'stripe', state, true)
 end
 
-
+Given(/free conversations are (disabled|enabled)/) do |state|
+  @current_community.update(allow_free_conversations: state == 'enabled')
+end

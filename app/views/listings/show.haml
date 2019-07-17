@@ -143,7 +143,7 @@
           .listing-author-details
             .listing-author-name
               = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
-            - if @listing.author != @current_user
+            - if @listing.author != @current_user && @current_community.allow_free_conversations?
               .listing-author-contact
                 %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
                   .content
