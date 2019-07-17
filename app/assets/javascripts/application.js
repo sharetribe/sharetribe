@@ -99,4 +99,5 @@
 //= require stripe_form2
 //= require analytics
 //= require social-insurance-number
+//= require stripe_payment
 //= require_self
