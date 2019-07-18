@@ -67,9 +67,9 @@
                         = t(".no_description")
 
     .row
-      .col-12
+      .col-12.listing-description-content
         - if @listing.description && !@listing.description.blank?
-          = markdown_line_break_to_paragraph(@listing.description)
+          = markdown(@listing.description)
           - if( @listing_presenter.youtube_link_ids.present?)
             - @listing_presenter.youtube_link_ids.each do |youtube_id|
               .listing-description-youtube-wrapper
