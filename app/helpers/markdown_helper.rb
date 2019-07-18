@@ -1,7 +1,7 @@
 module MarkdownHelper
   def markdown(text)
     if text.is_a?(String)
-      markdown_renderer.render(text).to_html.html_safe # rubocop:disable Rails/OutputSafety
+      markdown_renderer.render(text).html_safe # rubocop:disable Rails/OutputSafety
     end
   end
 
@@ -15,7 +15,8 @@ module MarkdownHelper
       ),
       strikethrough: true,
       underline: true,
-      autolink: true
+      autolink: true,
+      tables: true
     )
   end
 
