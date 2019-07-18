@@ -8,6 +8,7 @@
   - else
     = render :file => "infos/localized_terms/terms.en"
 
-- content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
+- if params[:controller] == 'infos'
+  - content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
 
 = content.html_safe
