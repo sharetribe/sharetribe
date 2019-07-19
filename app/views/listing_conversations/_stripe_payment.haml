@@ -59,8 +59,14 @@
 
 
 - content_for :extra_javascript do
-  :javascript
-    window.ST.StripePayment.init({
-      publishable_key: '#{publishable_key}'
-    });
+  - if FeatureFlagHelper.feature_enabled?(:stripe_payment_intents)
+    :javascript
+      window.ST.StripePayment.initIntent({
+        publishable_key: '#{publishable_key}'
+      });
+  - else
+    :javascript
+      window.ST.StripePayment.initCharge({
+        publishable_key: '#{publishable_key}'
+      });
 

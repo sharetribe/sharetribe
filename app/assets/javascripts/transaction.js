@@ -25,6 +25,9 @@ window.ST.transaction = window.ST.transaction || {};
           success: true,
           data: submitResponse
         };
+    } else if (submitResponse.stripe_payment_intent) {
+      window.ST.StripePayment.handleCreatedPaymentIntent(submitResponse);
+      return new Bacon.End();
     } else {
       return new Bacon.Error({ errorMsg: submitResponse.error_msg });
     }

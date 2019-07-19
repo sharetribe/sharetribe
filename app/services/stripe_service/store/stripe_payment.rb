@@ -14,7 +14,10 @@ module StripeService::Store::StripePayment
     [:buyer_commission_cents, :fixnum],
     [:fee_cents, :fixnum],
     [:subtotal_cents, :fixnum],
-    [:stripe_charge_id, :string]
+    [:stripe_charge_id, :string],
+    [:stripe_payment_intent_id, :string],
+    [:stripe_payment_intent_status, :string],
+    [:stripe_payment_intent_client_secret, :string]
   )
 
   StripePayment = EntityUtils.define_builder(
@@ -32,7 +35,10 @@ module StripeService::Store::StripePayment
     [:stripe_charge_id, :string],
     [:stripe_transfer_id, :string],
     [:transfered_at, :time],
-    [:available_on, :time]
+    [:available_on, :time],
+    [:stripe_payment_intent_id, :string],
+    [:stripe_payment_intent_status, :string],
+    [:stripe_payment_intent_client_secret, :string]
   )
 
   module_function
