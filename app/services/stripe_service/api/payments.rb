@@ -15,6 +15,7 @@ module StripeService::API
 
         seller_id  = seller_account[:stripe_seller_id]
         source_id  = gateway_fields[:stripe_token]
+        payment_method_id = gateway_fields[:stripe_payment_method_id]
 
         subtotal   = order_total(tx)
         total      = subtotal
@@ -29,17 +30,30 @@ module StripeService::API
           sharetribe_payer_id: tx.starter_id,
           sharetribe_mode: stripe_api.charges_mode(tx.community_id)
         }
-        stripe_charge = stripe_api.charge(
-          community: tx.community_id,
-          token: source_id,
-          seller_account_id: seller_id,
-          amount: total.cents,
-          fee: commission.cents + buyer_commission.cents,
-          currency: total.currency.iso_code,
-          description: description,
-          metadata: metadata)
 
-        payment = PaymentStore.create(tx.community_id, tx.id, {
+        if source_id.present?
+          stripe_charge = stripe_api.charge(
+            community: tx.community_id,
+            token: source_id,
+            seller_account_id: seller_id,
+            amount: total.cents,
+            fee: commission.cents + buyer_commission.cents,
+            currency: total.currency.iso_code,
+            description: description,
+            metadata: metadata)
+        elsif payment_method_id.present?
+          intent = stripe_api.create_payment_intent(
+            community: tx.community_id,
+            seller_account_id: seller_id,
+            payment_method_id: payment_method_id,
+            amount: total.cents,
+            currency: total.currency.iso_code,
+            fee: commission.cents + buyer_commission.cents,
+            description: description,
+            metadata: metadata)
+        end
+
+        payment_data = {
           payer_id: tx.starter_id,
           receiver_id: tx.listing_author_id,
           currency: tx.unit_price.currency.iso_code,
@@ -48,8 +62,25 @@ module StripeService::API
           buyer_commission_cents: buyer_commission.cents,
           fee_cents: fee.cents,
           subtotal_cents: subtotal.cents,
-          stripe_charge_id: stripe_charge.id
-        })
+          stripe_charge_id: stripe_charge.try(:id)
+        }
+        if intent
+          payment_data[:stripe_payment_intent_id] = intent.id
+          if intent.status == 'requires_action' &&
+             intent.next_action.type == 'use_stripe_sdk'
+            payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_REQUIRES_ACTION
+            payment_data[:stripe_payment_intent_client_secret] = intent.client_secret
+          elsif intent.status == 'requires_capture'
+            stripe_charge = intent['charges']['data'].first
+            payment_data[:stripe_charge_id] = stripe_charge.id
+            payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
+          elsif intent.status == 'succeeded'
+            payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_SUCCESS
+          else
+            payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_INVALID
+          end
+        end
+        payment = PaymentStore.create(tx.community_id, tx.id, payment_data)
 
         if gateway_fields[:shipping_address].present?
           TransactionStore.upsert_shipping_address(
@@ -71,14 +102,21 @@ module StripeService::API
       def cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
-        stripe_api.cancel_charge(
-          community: tx.community_id,
-          charge_id: payment[:stripe_charge_id],
-          account_id: seller_account[:stripe_seller_id],
-          reason: reason,
-          metadata: {sharetribe_transaction_id: tx.id}
-        )
-        payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: {status: 'canceled'})
+        payment_data = {status: 'canceled'}
+        if payment[:stripe_payment_intent_id].present?
+          stripe_api.cancel_payment_intent(community: tx.community,
+                                           payment_intent_id: payment[:stripe_payment_intent_id])
+          payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_CANCELED
+        else
+          stripe_api.cancel_charge(
+            community: tx.community_id,
+            charge_id: payment[:stripe_charge_id],
+            account_id: seller_account[:stripe_seller_id],
+            reason: reason,
+            metadata: {sharetribe_transaction_id: tx.id}
+          )
+        end
+        payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: payment_data)
         Result::Success.new(payment)
       rescue StandardError => e
         Airbrake.notify(e)
@@ -90,14 +128,21 @@ module StripeService::API
         report.capture_charge_start
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
-        charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
+        payment_data = {status: 'paid'}
+        if payment[:stripe_payment_intent_id].present?
+          intent = stripe_api.capture_payment_intent(community: tx.community,
+                                                     payment_intent_id: payment[:stripe_payment_intent_id])
+          charge = intent['charges']['data'].first
+          payment_data[:stripe_payment_intent_status] = StripePayment::PAYMENT_INTENT_SUCCESS
+        else
+          charge = stripe_api.capture_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id], seller_id: seller_account[:stripe_seller_id])
+        end
         balance_txn = stripe_api.get_balance_txn(community: tx.community_id, balance_txn_id: charge.balance_transaction, account_id: seller_account[:stripe_seller_id])
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,
-                                      data: {
-                                        status: 'paid',
+                                      data: payment_data.merge!({
                                         real_fee_cents: balance_txn.fee,
                                         available_on: Time.zone.at(balance_txn.available_on)
-                                      })
+                                      }))
         report.capture_charge_success
         Result::Success.new(payment)
       rescue StandardError => exception
