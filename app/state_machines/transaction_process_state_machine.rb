@@ -5,6 +5,7 @@ class TransactionProcessStateMachine
   state :free
   state :initiated
   state :pending  # Deprecated
+  state :payment_intent_requires_action
   state :preauthorized
   state :pending_ext
   state :accepted # Deprecated
@@ -14,11 +15,12 @@ class TransactionProcessStateMachine
   state :confirmed
   state :canceled
 
-  transition from: :not_started,               to: [:free, :initiated]
-  transition from: :initiated,                 to: [:preauthorized]
-  transition from: :preauthorized,             to: [:paid, :rejected, :pending_ext, :errored]
-  transition from: :pending_ext,               to: [:paid, :rejected]
-  transition from: :paid,                      to: [:confirmed, :canceled]
+  transition from: :not_started,                    to: [:free, :initiated]
+  transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
+  transition from: :payment_intent_requires_action, to: [:preauthorized]
+  transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
+  transition from: :pending_ext,                    to: [:paid, :rejected]
+  transition from: :paid,                           to: [:confirmed, :canceled]
 
   after_transition(to: :paid, after_commit: true) do |transaction|
     payer = transaction.starter

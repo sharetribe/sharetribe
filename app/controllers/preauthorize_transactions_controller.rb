@@ -80,6 +80,7 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
+      TransactionService::StateMachine.transition_to(tx.id, :preauthorized)
       render json: {
         success: true,
         redirect_url: person_transaction_path(@current_user, params[:id])
