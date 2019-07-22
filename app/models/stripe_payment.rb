@@ -44,4 +44,12 @@ class StripePayment < ApplicationRecord
   PAYMENT_INTENT_REQUIRES_CAPTURE = 'requires_capture'
   PAYMENT_INTENT_INVALID = 'invalid'
   PAYMENT_INTENT_CANCELED = 'canceled'
+
+  def intent?
+    stripe_payment_intent_id.present?
+  end
+
+  def intent_requires_action?
+    intent? && stripe_payment_intent_status == PAYMENT_INTENT_REQUIRES_ACTION
+  end
 end
