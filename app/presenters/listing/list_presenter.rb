@@ -48,6 +48,14 @@ class Listing::ListPresenter
     admin_mode && listing_wait_for_approval?(listing)
   end
 
+  def has_search?
+    @params[:q].present? || @params[:status].present?
+  end
+
+  def show_listings_export?
+    !has_search? && admin_mode
+  end
+
   private
 
   def resource_scope

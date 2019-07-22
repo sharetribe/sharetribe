@@ -26,17 +26,6 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
     export_task.update(status: 'finished', file: FakeFileIO.new(filename, csv_content))
   end
 
-  class FakeFileIO < StringIO
-    attr_reader :original_filename
-    attr_reader :path
-
-    def initialize(filename, content)
-      super(content)
-      @original_filename = File.basename(filename)
-      @path = File.path(filename)
-    end
-  end
-
   class << self
     def generate_csv_for(yielder, transactions)
      # first line is column names
