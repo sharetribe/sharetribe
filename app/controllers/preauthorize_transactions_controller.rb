@@ -80,6 +80,8 @@ class PreauthorizeTransactionsController < ApplicationController
     end
 
     if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
+      stripe_charge = intent['charges']['data'].first
+      stripe_payment.update(stripe_charge_id: stripe_charge.id)
       TransactionService::StateMachine.transition_to(tx.id, :preauthorized)
       render json: {
         success: true,
