@@ -14,10 +14,11 @@ class TransactionProcessStateMachine
   state :paid
   state :confirmed
   state :canceled
+  state :payment_intent_action_expired
 
   transition from: :not_started,                    to: [:free, :initiated]
   transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
-  transition from: :payment_intent_requires_action, to: [:preauthorized]
+  transition from: :payment_intent_requires_action, to: [:preauthorized, :payment_intent_action_expired]
   transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,                    to: [:paid, :rejected]
   transition from: :paid,                           to: [:confirmed, :canceled]
@@ -54,4 +55,7 @@ class TransactionProcessStateMachine
     confirmation.cancel!
   end
 
+  after_transition(to: :payment_intent_requires_action, after_commit: true) do |conversation|
+    Delayed::Job.enqueue(TransactionPaymentIntentCancelJob.new(conversation.id), :run_at => TransactionPaymentIntentCancelJob::DELAY.from_now)
+  end
 end

@@ -97,7 +97,7 @@ class Transaction < ApplicationRecord
     .where("listings.author_id = ? OR starter_id = ?", person.id, person.id)
   }
   scope :availability_blocking, -> do
-    where(current_state: ['preauthorized', 'paid', 'confirmed', 'canceled'])
+    where(current_state: ['payment_intent_requires_action', 'preauthorized', 'paid', 'confirmed', 'canceled'])
   end
   scope :non_free, -> { where('current_state <> ?', ['free']) }
   scope :by_community, -> (community_id) { where(community_id: community_id) }
