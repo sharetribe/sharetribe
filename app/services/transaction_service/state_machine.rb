@@ -57,7 +57,7 @@ module TransactionService
         preauthorized(transaction, payment_type)
       when :paid
         paid(transaction)
-      when :rejected
+      when :rejected, :payment_intent_action_expired
         rejected(transaction)
       end
     end
