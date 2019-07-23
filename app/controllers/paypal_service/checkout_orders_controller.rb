@@ -95,7 +95,12 @@ class PaypalService::CheckoutOrdersController < ApplicationController
         flash[:error] = t("error_messages.paypal.transaction_cannot_complete")
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       elsif response_data[:paypal_error_code] == "10425"
-        flash[:error] = t("error_messages.paypal.seller_express_checkout_disabled")
+        flash[:error] =
+          if @current_community.allow_free_conversations?
+            t("error_messages.paypal.seller_express_checkout_disabled")
+          else
+            t("error_messages.paypal.seller_express_checkout_disabled_no_free")
+          end
         redirect_to person_listing_path(person_id: @current_user.id, id: listing_id)
       elsif response_data[:error_code] == :"payment-review"
         flash[:warning] = t("error_messages.paypal.pending_review_error")

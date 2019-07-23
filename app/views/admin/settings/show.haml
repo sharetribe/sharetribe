@@ -25,6 +25,10 @@
         .checkbox-container
           = form.check_box :require_verification_to_post_listings
           = form.label :require_verification_to_post_listings, t("admin.communities.settings.require_verification_to_post_listings"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :allow_free_conversations
+          = form.label :allow_free_conversations, t("admin.communities.settings.allow_free_conversations"), :class => "settings-checkbox-label"
+
 
     - if(FeatureFlagHelper.location_search_available)
       .row

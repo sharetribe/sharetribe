@@ -213,11 +213,12 @@ en:
       settings:
         settings: Settings
         general: General
-        access: "Access preferences"
+        access: "Access and contact preferences"
         join_with_invite_only: "Allow new users to join only with an invite from a registered user"
         users_can_invite_new_users: "Allow all registered users, and not only admins, to invite new users"
         private: "Allow only registered users to see listings and user profiles (make marketplace private)"
         require_verification_to_post_listings: "Allow only users verified by admins to post new listings"
+        allow_free_conversations: "Allow users to message each others freely"
         search_preferences: "Search preferences"
         default_search_type: "Search type: %{select_search_type}"
         keyword_search: "Keyword search"
@@ -1459,6 +1460,7 @@ en:
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the %{service_name} team to ask them to contact and advise the listing author to contact PayPal Customer Service."
       generic_error: "An error occurred during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occurred during cancellation. Could not finalize cancel."
       accept_authorization_error: "An error occurred while trying to accept preauthorized Paypal payment. Please, try again."
@@ -1857,6 +1859,7 @@ en:
       user_does_not_have_email_to_delete: "You don't have the email address you're trying to remove"
       email_deleted: "Email removed"
       listing_author_payment_details_missing: "Please contact the author by pressing the 'Contact' button below. They need to update their payment details to receive payments."
+      listing_author_payment_details_missing_no_free: "Please contact the %{service_name} team to ask them to contact and advise the listing author to update their payment details to receive payments."
       images_are_processing: "We are processing your images. Give us a minute or two and they'll be visible."
       maintenance_mode:
         zero: "The website will now go offline for maintenance"

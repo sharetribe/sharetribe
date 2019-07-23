@@ -27,7 +27,8 @@ class Admin::SettingsService
       :automatic_newsletters,
       :default_min_days_between_community_updates,
       :email_admins_about_new_members,
-      :pre_approved_listings
+      :pre_approved_listings,
+      :allow_free_conversations
     )
   end
 

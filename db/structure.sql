@@ -282,6 +282,7 @@ CREATE TABLE `communities` (
   `linkedin_connect_id` varchar(255) DEFAULT NULL,
   `linkedin_connect_secret` varchar(255) DEFAULT NULL,
   `pre_approved_listings` tinyint(1) DEFAULT '0',
+  `allow_free_conversations` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_communities_on_uuid` (`uuid`),
   KEY `index_communities_on_domain` (`domain`) USING BTREE,
@@ -315,15 +316,15 @@ CREATE TABLE `community_customizations` (
   `social_media_title` varchar(255) DEFAULT NULL,
   `social_media_description` text,
   `meta_title` varchar(255) DEFAULT NULL,
-  `meta_description` text DEFAULT NULL,
+  `meta_description` text,
   `search_meta_title` varchar(255) DEFAULT NULL,
-  `search_meta_description` text DEFAULT NULL,
+  `search_meta_description` text,
   `listing_meta_title` varchar(255) DEFAULT NULL,
-  `listing_meta_description` text DEFAULT NULL,
+  `listing_meta_description` text,
   `category_meta_title` varchar(255) DEFAULT NULL,
-  `category_meta_description` text DEFAULT NULL,
+  `category_meta_description` text,
   `profile_meta_title` varchar(255) DEFAULT NULL,
-  `profile_meta_description` text DEFAULT NULL,
+  `profile_meta_description` text,
   PRIMARY KEY (`id`),
   KEY `index_community_customizations_on_community_id` (`community_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2374,6 +2375,8 @@ INSERT INTO `schema_migrations` (version) VALUES
 ('20190227111355'),
 ('20190228084827'),
 ('20190305112030'),
+('20190319114719'),
 ('20190319122745'),
-('20190319114719');
+('20190717105844');
+
 

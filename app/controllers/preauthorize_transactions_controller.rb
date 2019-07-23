@@ -159,7 +159,12 @@ class PreauthorizeTransactionsController < ApplicationController
       })
 
     unless ready[:data][:result]
-      flash[:error] = t("layouts.notifications.listing_author_payment_details_missing")
+      flash[:error] =
+        if @current_community.allow_free_conversations?
+          t("layouts.notifications.listing_author_payment_details_missing")
+        else
+          t("layouts.notifications.listing_author_payment_details_missing_no_free")
+        end
 
       record_event(
         flash,

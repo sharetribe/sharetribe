@@ -24,3 +24,28 @@ Feature: Inquiry
     And I follow inbox link
     Then I should see "Test message"
     And I should not see "Accept"
+
+  @javascript
+  Scenario: Two people engage in inquiry conversation
+    Given there are following users:
+      | person | given_name |
+      | kassi_testperson1 | FirstUser |
+      | kassi_testperson2 | SecondUser |
+    And community "test" has following listing shapes enabled:
+      | listing_shape  | en                | fi             | button  |
+      | Inquiry           | Inquiry           | Tiedustelu     | Inquire |
+    And community "test" has following category structure:
+      | category_type  | en                | fi             |
+      | main           | Free message      | Vapaa viesti   |
+    And there is a listing with title "Test message" from "kassi_testperson1" with category "Free message" and with listing shape "Inquiry"
+    And I am logged in as "kassi_testperson2"
+    And free conversations are disabled
+    When I follow "Test message"
+    Then I should not see "Contact"
+    When I follow "FirstUser"
+    Then I should not see "Contact"
+    When free conversations are enabled
+    When I follow "Test message"
+    Then I should see "Contact"
+    When I follow "FirstUser"
+    Then I should see "Contact"
