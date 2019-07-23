@@ -309,9 +309,11 @@ class StripeService::API::StripeApiWrapper
           currency: currency,
           confirmation_method: 'manual',
           confirm: true,
-          application_fee_amount: fee,
           on_behalf_of: seller_account_id,
-          transfer_data: {destination: seller_account_id},
+          transfer_data: {
+            destination: seller_account_id,
+            amount: amount - fee
+          },
           description: description,
           metadata: metadata
         )
