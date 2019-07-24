@@ -13,6 +13,7 @@ module CustomLandingPage
 
     def release_landing_page_version
       CustomLandingPage::LandingPageStoreDB.release_version!(community.id, landing_page_version.version)
+      Delayed::Job.enqueue(CleanupLandingPageAssetsJob.new(community.id))
     end
 
     def errors?

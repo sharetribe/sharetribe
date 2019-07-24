@@ -84,7 +84,8 @@ module LandingPageVersion::Section
       blob = new_asset.blob
       item['src'] = blob_path(blob)
       item['content_type'] = blob.content_type
-      item['absoulte_path'] = true
+      item['absolute_path'] = true
+      item['asset_id'] = new_asset.id
       item
     end
 
