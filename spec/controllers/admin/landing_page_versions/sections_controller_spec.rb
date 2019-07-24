@@ -151,7 +151,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         expect(section['background_image']).to eq default_bg
 
         assets = lpv.parsed_content['assets']
-        expect(assets.size) == 1
+        expect(assets.size).to eq 1
         asset = assets.first
         expect(asset['id']).to eq("default_hero_background")
         expect(asset['absolute_path']).to eq true
