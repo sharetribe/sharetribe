@@ -680,13 +680,34 @@ en:
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
           info_single_column: Info 1 Column
           hero: Hero
+          new_section:
+            footer: New footer section
+            hero: New hero section
+            info_single_column: "New single column section"
+          edit_section:
+            footer: Edit footer section
+            hero: Edit hero section
+            info_single_column: "Edit single column section"
     landing_page_versions:
       sections:
         hero:
           hero_title: Hero
           hero_description: "Set the Background image for the hero section. The Slogan and Description are set from the basic details section."
+        footer:
+          footer_title: "Footer"
+          footer_style: "Footer style"
+          style_dark: "Dark"
+          style_light: "Light"
+          style_marketplace_color: "Marketplace color"
+          style_logo: "Logo"
+        cta_button:
+          cta_button: "CTA Button"
+          cta_enabled: "Enabled"
+          cta_text: "Text"
+          cta_url: "URL"
+        background_image_overlay:
           background_image: "Background image"
-          background_image_info: "This image will be shown as the background image for the Hero section. For the best results, it should have a minimum size of 1600x1200 pixels."
+          background_image_info: "This image will be shown as the background image for the section. For the best results, it should have a minimum size of 1600x1200 pixels."
           add_another_image: "Add another image"
           current_image: "Current image: %{filename}"
           file_not_selected: "Not selected"
@@ -695,13 +716,14 @@ en:
           overlay_dark: "Dark"
           overlay_light: "Light"
           overlay_transparent: "Transparent"
-        footer:
-          footer_title: "Footer"
-          footer_style: "Footer style"
-          style_dark: "Dark"
-          style_light: "Light"
-          style_marketplace_color: "Marketplace color"
-          style_logo: "Logo"
+        background_style:
+          background_style: "Background style"
+          style_image: "Image"
+          style_color: "Color"
+          style_none: "None"
+        background_color:
+          background_color: "Background color"
+          background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -2977,14 +2999,16 @@ en:
   activemodel:
     attributes:
       landing_page_version/section/base:
-        id: Identifier
+        id: Section unique name
         title: Title
         paragraph: Paragraph
         button_color: Button color
         button_color_hover: Button color hover
-        button_title: Button title
-        button_path: Button path
+        button_title: Text
+        button_path: URL
+        button_path_string: URL
         background_image: Background image
         background_image_variation: Background image variation
         background_color: Background color
+        background_color_string: Background color
         icon_color: Icon color

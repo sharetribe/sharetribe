@@ -62,7 +62,12 @@ module CustomLandingPage
     def section_factory_class
       case params[:section][:kind]
       when LandingPageVersion::Section::INFO
-        LandingPageVersion::Section::Info
+        case params[:section][:variation]
+        when 'single_column'
+          LandingPageVersion::Section::InfoSingleColumn
+        else
+          LandingPageVersion::Section::Info
+        end
       when LandingPageVersion::Section::HERO
         LandingPageVersion::Section::Hero
       when LandingPageVersion::Section::FOOTER

@@ -85,6 +85,13 @@ When /^(?:|I )follow "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   end
 end
 
+When /^(?:|I )follow "([^"]*)" in new window$/ do |link|
+  new_window = window_opened_by do
+    click_link(link)
+  end
+  switch_to_window(new_window)
+end
+
 When(/^I follow the first "(.*?)"$/) do |link|
   first(:link, link).click
 end

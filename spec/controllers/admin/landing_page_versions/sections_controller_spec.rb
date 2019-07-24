@@ -379,4 +379,86 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       end
     end
   end
+
+  describe 'single_column' do
+    it 'creates section with style and color' do
+      section_id = 'test1'
+      sections = landing_page_version.parsed_content['sections']
+      expect(sections.find{|x| x['id'] == section_id}).to eq nil
+      post :create, params: { landing_page_version_id: landing_page_version.id,
+                              section: {
+        kind: 'info',
+        variation: 'single_column',
+        id: section_id,
+        title: 'Shot In the Dark',
+        paragraph: 'She only paints with bold colors',
+        background_style: 'color',
+        background_color_string: '112233',
+        cta_enabled: '1',
+        button_title: 'Start',
+        button_path_string: 'https://site.name/start'
+      }}
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['kind']).to eq 'info'
+      expect(section['variation']).to eq 'single_column'
+      expect(section['id']).to eq section_id
+      expect(section['title']).to eq 'Shot In the Dark'
+      expect(section['paragraph']).to eq 'She only paints with bold colors'
+      expect(section['background_color']).to eq [0x11, 0x22, 0x33]
+      expect(section['background_image']).to be_nil
+      expect(section['button_title']).to eq 'Start'
+
+      button_path = {"value" => 'https://site.name/start'}
+      expect(section['button_path']).to eq button_path
+    end
+
+    def stubbed_upload(filename, content_type)
+      fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
+    end
+
+    it 'creates section without CTA button and with image' do
+      section_id = 'test1'
+      sections = landing_page_version.parsed_content['sections']
+      expect(sections.find{|x| x['id'] == section_id}).to eq nil
+      post :create, params: { landing_page_version_id: landing_page_version.id,
+                              section: {
+        kind: 'info',
+        variation: 'single_column',
+        id: section_id,
+        title: 'Shot In the Dark',
+        paragraph: 'She only paints with bold colors',
+        background_style: 'image',
+        background_color_string: '112233',
+        cta_enabled: '0',
+        button_title: 'Start',
+        button_path_string: 'https://site.name/start'
+      },
+      bg_image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+      }
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['kind']).to eq 'info'
+      expect(section['variation']).to eq 'single_column'
+      expect(section['id']).to eq section_id
+      expect(section['title']).to eq 'Shot In the Dark'
+      expect(section['paragraph']).to eq 'She only paints with bold colors'
+      expect(section['background_color']).to be_nil
+      expect(section['button_title']).to be_nil
+      expect(section['button_path']).to be_nil
+      expect(section['background_image']).to_not be_nil
+      expect_image = {"id"=>"test1_background_image", "type"=>"assets"}
+      expect(section['background_image']).to eq expect_image
+
+      asset = lpv.parsed_content['assets'].last
+      expect(asset["absolute_path"]).to eq true
+      expect(asset["content_type"]).to eq "image/png"
+      expect(asset["id"]).to eq "test1_background_image"
+      expect(asset["src"]).to match(/Bison_skull_pile.png$/)
+    end
+  end
 end

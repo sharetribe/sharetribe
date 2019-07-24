@@ -46,8 +46,8 @@ module CustomLandingPage
     end
 
     def section_background_image
-      return nil unless section
-      return @section_background_image if defined?(@section_background_imagel)
+      return nil unless section&.background_image
+      return @section_background_image if defined?(@section_background_image)
 
       @section_background_image = asset_resolver.call('assets', section.background_image['id'], landing_page_version.parsed_content)
     end
