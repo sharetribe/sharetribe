@@ -75,9 +75,10 @@ module LandingPageVersion::Section
 
     def asset_added(new_asset)
       assets = landing_page_version.parsed_content['assets']
-      item = assets.find{|x| x['id'] == 'default_hero_background' }
+      image_id = background_image['id']
+      item = assets.find{|x| x['id'] == image_id }
       unless item
-        item = {'id' => 'default_hero_background'}
+        item = {'id' => image_id}
         assets << item
       end
       blob = new_asset.blob
