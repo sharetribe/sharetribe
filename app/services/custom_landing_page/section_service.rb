@@ -43,8 +43,7 @@ module CustomLandingPage
       end
       section.update = update
       if params['bg_image'].present?
-        community.landing_page_hero_background.attach(create_blob(params[:bg_image]))
-        asset = community.landing_page_hero_background
+        asset = community.landing_page_assets.attach(create_blob(params[:bg_image])).first
         if asset.valid?
           section.asset_added(asset)
         end

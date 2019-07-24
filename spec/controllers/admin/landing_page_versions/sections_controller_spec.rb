@@ -111,6 +111,10 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
 
   describe 'hero' do
     describe '#update' do
+      def stubbed_upload(filename, content_type)
+        fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
+      end
+
       it 'works' do
         section_id = 'hero'
         put :update, params: { landing_page_version_id: landing_page_version.id,
@@ -125,6 +129,34 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         sections = lpv.parsed_content['sections']
         section = sections.find{|x| x['id'] == section_id}
         expect(section['background_image_variation']).to eq 'light'
+      end
+
+      it 'stores background image and asset_id' do
+        section_id = 'hero'
+        put :update, params: { landing_page_version_id: landing_page_version.id,
+                               id: section_id,
+                               bg_image: stubbed_upload('Bison_skull_pile.png', 'image/png'),
+                               section: {
+            kind: 'hero',
+            id: 'hero',
+            previous_id: 'hero',
+            background_image_variation: 'light'
+        }}
+        lpv = LandingPageVersion.find(landing_page_version.id)
+        sections = lpv.parsed_content['sections']
+        section = sections.find{|x| x['id'] == section_id}
+        expect(section['background_image_variation']).to eq 'light'
+
+        default_bg = {"id"=>"default_hero_background", "type"=>"assets"}
+        expect(section['background_image']).to eq default_bg
+
+        assets = lpv.parsed_content['assets']
+        expect(assets.size) == 1
+        asset = assets.first
+        expect(asset['id']).to eq("default_hero_background")
+        expect(asset['absolute_path']).to eq true
+        expect(asset['asset_id']).to_not be_nil
+        expect(asset['src']).to match(/#{community.ident}\/.+\/Bison_skull_pile.png/)
       end
     end
 
