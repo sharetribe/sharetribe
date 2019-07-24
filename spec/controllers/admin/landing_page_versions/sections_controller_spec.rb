@@ -151,7 +151,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         }
 
         e_lpv = landing_page_version
-        sections = e_lpv.parsed_content['sections'].select{|s| s['id'] != 'hero'}
+        sections = e_lpv.parsed_content['sections'].reject{|s| s['id'] == 'hero'}
         sections << existing_hero_sample
         e_lpv.parsed_content['sections'] = sections
         e_lpv.update_content(e_lpv.parsed_content)
@@ -188,7 +188,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
           theme: 'marketplace_color',
           previous_id: 'footer',
           copyright: 'Fist of Humiliation',
-          social_links_attributes: {
+          social_attributes: {
             '0': {
               id: 'youtube',
               provider: 'youtube',
@@ -204,7 +204,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
               enabled: '1'
             }
           },
-          footer_menu_links_attributes: {
+          links_attributes: {
             '0': {
               id: '0',
               title: 'About',
@@ -235,11 +235,13 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         expect(second_link['label']).to eq 'Contact us'
         expect(second_link['href']['value']).to eq 'https://example.com/contact_us'
         social = section['social']
-        expect(social.size).to eq 2
-        first_social = social.first
+        expect(social.size).to eq 8
+        enabled_social = social.select{|s| s['enabled']}
+        expect(enabled_social.size).to eq 2
+        first_social = enabled_social.first
         expect(first_social['service']).to eq 'youtube'
         expect(first_social['url']).to eq 'https://youtube.com/abc'
-        second_social = social.last
+        second_social = enabled_social.last
         expect(second_social['service']).to eq 'facebook'
         expect(second_social['url']).to eq 'https://facebook.com/abc'
 
@@ -251,7 +253,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
           theme: 'marketplace_color',
           previous_id: 'footer',
           copyright: 'Fist of Humiliation',
-          social_links_attributes: {
+          social_attributes: {
             '0': {
               id: 'youtube',
               provider: 'youtube',
@@ -267,7 +269,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
               enabled: '1'
             }
           },
-          footer_menu_links_attributes: {
+          links_attributes: {
             '0': {
               id: '0',
               title: 'About',
@@ -300,7 +302,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
           theme: 'marketplace_color',
           previous_id: 'footer',
           copyright: 'Fist of Humiliation',
-          social_links_attributes: {
+          social_attributes: {
             '0': {
               id: 'youtube',
               provider: 'youtube',
@@ -316,7 +318,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
               enabled: '1'
             }
           },
-          footer_menu_links_attributes: {
+          links_attributes: {
             '0': {
               id: '0',
               title: 'About',

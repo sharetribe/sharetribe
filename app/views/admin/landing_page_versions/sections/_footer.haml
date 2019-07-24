@@ -38,12 +38,12 @@
           = t("admin.communities.footer.url")
 
 .row#menu-links
-  - @service.section.footer_menu_links.each do |footer_menu_link|
-    = form.fields_for :footer_menu_links, footer_menu_link do |fields|
+  - @service.section.links.each do |footer_menu_link|
+    = form.fields_for :links, footer_menu_link do |fields|
       = render "footer_menu_link", f: fields, disabled: false
 
   - new_footer_menu_link = @service.section.new_footer_menu_link
-  = form.fields_for :footer_menu_links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
+  = form.fields_for :links, new_footer_menu_link, child_index: new_footer_menu_link.object_id do |fields|
     %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
       = render "footer_menu_link", f: fields, disabled: false
 
@@ -68,8 +68,8 @@
           = t("admin.communities.footer.social.url")
 
 .row#social-links
-  - @service.section.social_links.each do |social_link|
-    = form.fields_for :social_links, social_link do |fields|
+  - @service.section.social.each do |social_link|
+    = form.fields_for :social, social_link do |fields|
       = render "social_link", f: fields
 
 %h3= t("admin.communities.footer.footer_copyright")

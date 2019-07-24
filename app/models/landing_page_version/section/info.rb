@@ -34,7 +34,7 @@ module LandingPageVersion::Section
     end
 
     def attributes
-      Hash[ATTRIBUTES.map {|x| [x, nil]}]
+      Hash[ATTRIBUTES.map {|x| [x.to_s, nil]}]
     end
 
     def removable?
