@@ -1,0 +1,36 @@
+.row.bg-style-image
+  .col-12
+    %h3= t(".background_image")
+
+.row.bg-style-image
+  .col-12
+    = render partial: 'layouts/info_text', locals: {text: t(".background_image_info")}
+
+.row.bg-style-image
+  .col-6
+    #bg-image-preview
+      - if presenter.section_background_image_present?
+        %img{src: presenter.section_background_image_url}
+    %p
+      - if presenter.section_background_image_present?
+        = t(".current_image", filename: presenter.section_background_image_filename)
+      - else
+        = t(".current_image", filename: t(".file_not_selected"))
+  .col-6
+    %label= t(".add_another_image")
+    = file_field_tag "bg_image"
+.row.bg-style-image
+  .col-12
+    %h3= t(".background_image_overlay")
+
+.row.bg-style-image
+  .col-12
+    %label
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_DARK
+      = t(".overlay_dark")
+    %label
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_LIGHT
+      = t(".overlay_light")
+    %label
+      = form.radio_button :background_image_variation, LandingPageVersion::Section::BACKGROUND_VARIATION_TRANSPARENT
+      = t(".overlay_transparent")

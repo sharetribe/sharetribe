@@ -188,6 +188,10 @@ module LandingPageVersion::Section
       end
     end
 
+    def i18n_key
+      'footer'
+    end
+
     class << self
       def new_from_content(content_section)
         new(content_section)

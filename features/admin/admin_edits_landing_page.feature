@@ -14,3 +14,18 @@ Feature: Admin edits landing page
     When I press submit
     Then I should see "Landing Page Editor"
 
+  @javascript
+  Scenario: Admin adds single column section
+    When I go to the landing page admin page
+    Then I should see "Landing Page Editor"
+    And there is a current landing page in community
+    And I select "Info 1 Column" from "section_kind"
+    Then I should see "New single column section"
+    And I fill in "section_id" with "test1"
+    And I fill in "section_title" with "DemoSingle"
+    And I fill in "section_paragraph" with "DemoSingleParagraph"
+    And I press submit
+    Then I should see "Landing Page Editor"
+    When I follow "Preview landing page" in new window
+    Then I should see "DemoSingle"
+    And I should see "DemoSingleParagraph"

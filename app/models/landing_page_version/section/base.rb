@@ -3,6 +3,9 @@ module LandingPageVersion::Section
     include ActiveModel::Model
     include ActiveModel::Serialization
 
+    extend ActiveModel::Callbacks
+    define_model_callbacks :save
+
     HELPER_ATTRIBUTES = [
       :update,
       :success,
@@ -19,7 +22,9 @@ module LandingPageVersion::Section
       ActiveRecord::Base.transaction do
         # Valid will setup the Form object errors
         if valid?
-          persist!
+          run_callbacks :save do
+            persist!
+          end
           @success = true
         else
           @success = false
@@ -45,6 +50,25 @@ module LandingPageVersion::Section
 
     def asset_added(asset); end
 
+    def add_or_replace_asset(new_asset, image_id)
+      assets = landing_page_version.parsed_content['assets']
+      item = assets.find{|x| x['id'] == image_id }
+      unless item
+        item = {'id' => image_id}
+        assets << item
+      end
+      blob = new_asset.blob
+      item['src'] = blob_path(blob)
+      item['content_type'] = blob.content_type
+      item['absolute_path'] = true
+      item['asset_id'] = new_asset.id
+      item
+    end
+
+    def i18n_key
+      'section'
+    end
+
     private
 
     def persist!
@@ -66,6 +90,10 @@ module LandingPageVersion::Section
 
     def find_existing_section_by_id(identifier)
       landing_page_version.parsed_content['sections'].find{|x| x['id'] == identifier}
+    end
+
+    def blob_path(blob)
+      Rails.application.routes.url_helpers.landing_page_asset_path(signed_id: blob.signed_id, filename: blob.filename.to_s, sitename: landing_page_version.community.ident, only_path: true)
     end
   end
 end

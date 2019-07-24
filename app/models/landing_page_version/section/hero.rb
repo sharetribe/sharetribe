@@ -51,10 +51,6 @@ module LandingPageVersion::Section
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
-    BACKGROUND_VARIATION_DARK = 'dark'.freeze
-    BACKGROUND_VARIATION_LIGHT = 'light'.freeze
-    BACKGROUND_VARIATION_TRANSPARENT = 'transparent'.freeze
-
     def initialize(attributes={})
       super(attributes)
       @kind = LandingPageVersion::Section::HERO
@@ -74,19 +70,11 @@ module LandingPageVersion::Section
     end
 
     def asset_added(new_asset)
-      assets = landing_page_version.parsed_content['assets']
-      image_id = background_image['id']
-      item = assets.find{|x| x['id'] == image_id }
-      unless item
-        item = {'id' => image_id}
-        assets << item
-      end
-      blob = new_asset.blob
-      item['src'] = blob_path(blob)
-      item['content_type'] = blob.content_type
-      item['absolute_path'] = true
-      item['asset_id'] = new_asset.id
-      item
+      add_or_replace_asset(new_asset, background_image['id'])
+    end
+
+    def i18n_key
+      'hero'
     end
 
     class << self
@@ -97,12 +85,6 @@ module LandingPageVersion::Section
       def permitted_params
         PERMITTED_PARAMS
       end
-    end
-
-    private
-
-    def blob_path(blob)
-      Rails.application.routes.url_helpers.landing_page_asset_path(signed_id: blob.signed_id, filename: blob.filename.to_s, sitename: landing_page_version.community.ident, only_path: true)
     end
   end
 end

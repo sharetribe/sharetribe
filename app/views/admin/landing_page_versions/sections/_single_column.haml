@@ -1,16 +1,24 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
 = form.hidden_field :previous_id
 = form.hidden_field :kind
 = form.hidden_field :variation
+
 .row
   .col-12
     = form.label :id
-    = form.text_field :id, disabled: presenter.section.persisted?
+    = form.text_field :id, disabled: presenter.section.persisted?, required: true
 .row
   .col-12
     = form.label :title
-    = form.text_field :title
+    = form.text_field :title, required: true
 .row
   .col-12
     = form.label :paragraph
     = form.text_area :paragraph
 
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+= render partial: 'background_style', locals: {form: form, presenter: presenter}
+= render partial: 'background_image_overlay', locals: {form: form, presenter: presenter}
+= render partial: 'background_color', locals: {form: form, presenter: presenter}
