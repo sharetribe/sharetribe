@@ -15,7 +15,20 @@ module LandingPageVersion::Section
       attr_accessor(*ATTRIBUTES)
 
       def enabled?
-        enabled
+        enabled != '0' && enabled != false
+      end
+
+      def self.from_serialized_hash(link, index)
+        self.new(
+          id: link['service'],
+          provider: link['service'],
+          url: link['url'],
+          sort_priority: index,
+          enabled: link['enabled'].nil? || link['enabled'] == true)
+      end
+
+      def serializable_hash(options = nil)
+        { service: id, url: url, enabled: enabled? }
       end
     end
 
@@ -34,6 +47,18 @@ module LandingPageVersion::Section
 
       def new_record?
         id.nil?
+      end
+
+      def self.from_serialized_hash(link, index)
+        self.new(
+          id: index,
+          title: link['label'],
+          url: link['href']['value'],
+          sort_priority: index)
+      end
+
+      def serializable_hash(options = nil)
+        { label: title, href: {value: url} }
       end
     end
 
@@ -54,8 +79,7 @@ module LandingPageVersion::Section
       theme: "logo",
       social_media_icon_color: {type: "marketplace_data", id: "primary_color"},
       social_media_icon_color_hover: {type: "marketplace_data", id: "primary_color_darken"},
-      links: [
-      ],
+      links: [ ],
       social: [
         {service: "facebook", url: ""},
         {service: "twitter", url: ""},
@@ -63,7 +87,8 @@ module LandingPageVersion::Section
         {service: "youtube", url: ""},
         {service: "googleplus", url: ""},
         {service: "linkedin", url: ""},
-        {service: "pinterest", url: ""}
+        {service: "pinterest", url: ""},
+        {service: "soundcloud", url: ""}
       ],
       copyright: ""
     }.freeze
@@ -73,11 +98,9 @@ module LandingPageVersion::Section
       :kind,
       :theme,
       :previous_id,
-      :links,
-      :social,
       :copyright,
-      :social_links_attributes => LandingPageVersion::Section::Footer::SocialLink::ATTRIBUTES,
-      :footer_menu_links_attributes => LandingPageVersion::Section::Footer::MenuLink::ATTRIBUTES,
+      :social_attributes => LandingPageVersion::Section::Footer::SocialLink::ATTRIBUTES,
+      :links_attributes => LandingPageVersion::Section::Footer::MenuLink::ATTRIBUTES,
     ].freeze
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
@@ -93,43 +116,53 @@ module LandingPageVersion::Section
     end
 
     def attributes
-      Hash[ATTRIBUTES.map {|x| [x, nil]}]
+      Hash[ATTRIBUTES.map {|x| [x.to_s, nil]}]
     end
 
     def removable?
       false
     end
 
-    def social_links
-      self.social.map.with_index do |link, index|
-        LandingPageVersion::Section::Footer::SocialLink.new(
-          id: link['service'],
-          provider: link['service'],
-          url: link['url'],
-          sort_priority: index,
-          enabled: link['enabled'].nil? || link['enabled'] == true)
+    # serialize links and social as associations, not regular attributes
+    def serializable_hash(options = nil)
+      super({except: [:social, :links], include: [:social, :links]})
+    end
+
+    # called on initialization from model
+    def social=(list)
+      @social = list.map.with_index do |link, index|
+        if link.is_a?(Hash)
+          LandingPageVersion::Section::Footer::SocialLink.from_serialized_hash(link, index)
+        else
+          link
+        end
+      end
+      add_missing_social
+    end
+
+    # called from controller
+    def social_attributes=(params)
+      @social = priority_sort(params).map do |attrs|
+        LandingPageVersion::Section::Footer::SocialLink.new(attrs)
+      end
+      add_missing_social
+    end
+
+    # called on initialization from model
+    def links=(list)
+      @links = list.map.with_index do |link, index|
+        if link.is_a?(Hash)
+          LandingPageVersion::Section::Footer::MenuLink.from_serialized_hash(link, index)
+        else
+          link
+        end
       end
     end
 
-    def social_links_attributes=(params)
-      self.social = priority_sort(params).map do |attrs|
-        { service: attrs['id'], url: attrs['url'], enabled: attrs['enabled'] != '0' }
-      end
-    end
-
-    def footer_menu_links
-      self.links.map.with_index do |link, index|
-        LandingPageVersion::Section::Footer::MenuLink.new(
-          id: index,
-          title: link['label'],
-          url: link['href']['value'],
-          sort_priority: index)
-      end
-    end
-
-    def footer_menu_links_attributes=(params)
-      self.links = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
-        { label: attrs['title'], href: {value: attrs['url']} }
+    # called from controller
+    def links_attributes=(params)
+      @links = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
+        LandingPageVersion::Section::Footer::MenuLink.new(attrs)
       end
     end
 
@@ -139,6 +172,20 @@ module LandingPageVersion::Section
 
     def priority_sort(params)
       params.values.sort_by{|p| p['sort_priority'].to_i}
+    end
+
+    # existing page versions may have only few social links, but we should show all to enable/disable
+    def add_missing_social
+      index = @social.size
+      existing = @social.map(&:provider)
+
+      DEFAULTS[:social].each do |link|
+        new_link = link.stringify_keys.merge('enabled' => false)
+        unless existing.include?(new_link['service'])
+          @social << LandingPageVersion::Section::Footer::SocialLink.from_serialized_hash(new_link, index)
+          index += 1
+        end
+      end
     end
 
     class << self
