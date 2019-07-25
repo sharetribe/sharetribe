@@ -450,6 +450,8 @@ en:
           canceled: Canceled
           preauthorized: Preauthorized
           rejected: Rejected
+          payment_intent_requires_action: Pending
+          payment_intent_action_expired: Expired
         headers:
           conversation: "Conversation thread"
           listing: Listing
@@ -495,6 +497,8 @@ en:
             canceled: Canceled
             initiated: "Waiting Stripe payment"
             pending_ext: "Waiting Stripe payment"
+            payment_intent_requires_action: Pending
+            payment_intent_action_expired: Expired
         not_available: "Not available"
       conversations:
         conversations: Conversations
