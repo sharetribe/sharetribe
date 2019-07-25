@@ -57,7 +57,7 @@
       %p
         = t("stripe_accounts.card_not_stored").html_safe
 
-
+= js_t ['error_messages.stripe.generic_error']
 - content_for :extra_javascript do
   - if FeatureFlagHelper.feature_enabled?(:stripe_payment_intents)
     :javascript

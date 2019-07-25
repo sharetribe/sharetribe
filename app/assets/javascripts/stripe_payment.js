@@ -85,13 +85,13 @@ window.ST = window.ST || {};
   var handleCreatedPaymentIntent = function(response) {
     var payment = response.stripe_payment_intent;
     if (payment.error) {
-      // Show error from server on payment form
+      ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
     } else if (payment.requires_action) {
       stripe.handleCardAction(
         payment.client_secret
       ).then(function(result) {
         if (result.error) {
-          ST.utils.showError('Stripe cannot handleCardAction', 'error');
+          ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
         } else {
           // The card action has been handled
           // The PaymentIntent can be confirmed again on the server
@@ -131,7 +131,7 @@ window.ST = window.ST || {};
 
       stripe.createPaymentMethod('card', card, {}).then(function(result) {
         if (result.error) {
-          // Show error in payment form
+          ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
         } else {
           // Otherwise send paymentMethod.id to server
           var input = $('<input/>', {type: 'hidden', name: 'stripe_payment_method_id', value: result.paymentMethod.id});
