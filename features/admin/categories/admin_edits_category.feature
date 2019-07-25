@@ -19,8 +19,8 @@ Feature: Admin edits a category
 
   @javascript
   Scenario: Admin changes category name
-    When I change category "Furniture" name to "Tables"
     When I wait for 1 seconds
+    When I change category "Furniture" name to "Tables"
     Then I should see that there is a top level category "Tables"
 
   @javascript
