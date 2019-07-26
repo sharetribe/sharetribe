@@ -27,6 +27,9 @@ class PaypalService::CheckoutOrdersController < ApplicationController
       return redirect_to search_path
     end
 
+    # delayed jobs cleans up RequestStore under test
+    RequestStore.store[:feature_flags] = {} if Rails.env.test?
+
     render "paypal_service/success", layout: false, locals: {
              op_status_url: paypal_op_status_path(proc_status[:data][:process_token]),
              redirect_url: success_processed_paypal_service_checkout_orders_path(

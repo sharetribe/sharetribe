@@ -20,6 +20,7 @@ Feature: User requests new password
     And I follow "Forgot username or password"
     And I fill in "Email" with "some random string"
     And I press "Request new password"
+    When I wait for 1 seconds
     Then I should see "The email you gave was not found from Sharetribe database." within ".flash-notifications"
 
 
