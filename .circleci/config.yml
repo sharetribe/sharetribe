@@ -87,6 +87,9 @@ jobs:
           path: /tmp/circleci-test-results
       - store_artifacts:
           path: /tmp/circleci-test-results
+      - store_artifacts:
+          path: ~/project/tmp/capybara
+          destination: test-screenshots
 workflows:
   version: 2
   test:
