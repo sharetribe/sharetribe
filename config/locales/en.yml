@@ -1460,7 +1460,7 @@ en:
       buyer_cannot_pay_error: "The payment has been declined by PayPal. Please contact their Customer Service for more information: %{customer_service_link}"
       pending_review_error: "The payment was submitted but was flagged by PayPal as 'requiring a review'. When PayPal completes the review, the payment will be automatically authorized."
       seller_express_checkout_disabled: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the author and let them know that there's an issue with their PayPal account, and advise them to contact PayPal Customer Service."
-      seller_express_checkout_disabled_no_free: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please contact the %{service_name} team to ask them to contact and advise the listing author to contact PayPal Customer Service."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout has been disabled for the listing author's PayPal account. Please ask the %{service_name} team to contact the listing author and advise them to contact PayPal Customer Service."
       generic_error: "An error occurred during the payment process. Could not finalize your PayPal payment."
       cancel_error: "An error occurred during cancellation. Could not finalize cancel."
       accept_authorization_error: "An error occurred while trying to accept preauthorized Paypal payment. Please, try again."
