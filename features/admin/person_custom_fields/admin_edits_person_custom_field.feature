@@ -17,6 +17,7 @@ Feature: Admin edits a person custom field
       | No balcony     |
       | French balcony |
       | Backyard       |
+    And  I wait for 1 seconds # Translations cache has 1sec step
 
   @javascript
   Scenario: Admin changes custom field name
