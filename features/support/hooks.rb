@@ -64,6 +64,17 @@ After do |scenario|
         "[#{Time.at(log_entry.timestamp.to_i)}] [#{log_entry.level}] #{log_entry.message}"
       }.join("\n")
     end
+
+    # Enable this for CircleCI debuging
+    if true
+      puts ""
+      puts "*** Rails logs at (#{I18n.l(Time.current, format: '%Y-%m-%d %H:%M:%S %z')}):"
+      puts ""
+      file = File.join(Rails.root, 'log', 'test.log')
+      IO.readlines(file).last(500).each do |line|
+        puts line
+      end
+    end
   end
 end
 
