@@ -54,7 +54,6 @@ module FeatureTests
         listing = FeatureTests::Page::Listing
         listing_book = FeatureTests::Page::ListingBook
         topbar = FeatureTests::Section::Topbar
-        worker = FeatureTests::Worker
 
         topbar.click_logo
         home.click_listing(title)
@@ -70,16 +69,12 @@ module FeatureTests
           expect(listing_book.total_value).to have_content("$#{expected_price}")
         end
 
+        Delayed::Worker.delay_jobs = false
         listing_book.proceed_to_payment
 
-        worker.work_until do
-          begin
-            page.has_content?("Payment authorized") &&
-              page.has_content?("Snowman ☃ sells: #{title}")
-          rescue Selenium::WebDriver::Error::StaleElementReferenceError
-            false
-          end
-        end
+        expect(page).to have_content("Payment authorized")
+        expect(page).to have_content("Snowman ☃ sells: #{title}")
+        Delayed::Worker.delay_jobs = true
       end
 
       def accept_listing_request
