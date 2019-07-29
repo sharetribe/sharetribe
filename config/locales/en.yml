@@ -457,7 +457,7 @@ en:
           started: Started
           last_activity: "Latest activity"
           initiated_by: Starter
-          other_party: "Other party"
+          other_party: "Provider"
         status:
           conversation: Conversation
           free: "Free transaction"
@@ -503,7 +503,7 @@ en:
           started: Started
           last_activity: "Latest Activity"
           initiated_by: Starter
-          other_party: "Other party"
+          other_party: "Provider"
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
         search_by_keyword: "Search for a name, email or keyword"
@@ -1799,7 +1799,7 @@ en:
       payment_successful: "Payment successful"
       payment_canceled: "Payment cancelled"
       error_in_payment: "Error in payment. If you didn't complete the payment yet, try again. If you did, please send us feedback."
-      cannot_receive_payment: "The other party can't receive the payment due some error. Please contact the %{service_name} team to clarify the situation"
+      cannot_receive_payment: "The provider can't receive the payment due some error. Please contact the %{service_name} team to clarify the situation"
       payment_waiting_for_later_accomplishment: "When you have paid, we'll notify the seller and you will get a receipt in email"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       person_activated: "User activated"
