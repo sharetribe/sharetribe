@@ -228,6 +228,7 @@ ru:
         users_can_invite_new_users: "Все участники могут приглашать новых участников в этот проект."
         private: "Этот проект приватный (только зарегистрированные участники могут видеть содержимое)"
         require_verification_to_post_listings: "Только участники подтвержденные администратором могут размещать новые публикации"
+        allow_free_conversations: ~
         search_preferences: "Настройки поиска"
         default_search_type: "Тип поиска: %{select_search_type}"
         keyword_search: "Поиск по ключевому слову"
@@ -574,6 +575,8 @@ ru:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1467,6 +1470,7 @@ ru:
       buyer_cannot_pay_error: "PayPal отклонил платеж. Пожалуйста, свяжитесь с их отделом обслуживания клиентов для получения дополнительной информации: %{customer_service_link}"
       pending_review_error: "Платеж был представлен, но был помечен PayPal как «требующий рассмотрения». Когда PayPal завершит проверку, платеж будет автоматически авторизован."
       seller_express_checkout_disabled: "PayPal Express Checkout была отключена для учетной записи владельца каталога. Пожалуйста, свяжитесь с владельцем каталога и сообщите, что у него проблема с учетной записью и необходимо связаться с службой поддержки клиентов PayPal."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "В процессе платежа произошла ошибка. Мы не смогли завершить вашу PayPal оплату."
       cancel_error: "В процессе отмены произошла ошибка. Не смогли завершить отмену."
       accept_authorization_error: "Во время предавторизации платежа Paypal произошла ошибка. Пожалуйста, попробуйте снова."
@@ -1865,6 +1869,7 @@ ru:
       user_does_not_have_email_to_delete: "У вас нет email адреса который вы пытаетесь удалить"
       email_deleted: "E-mail удален"
       listing_author_payment_details_missing: "Создатель публикации не добавил детали оплаты поэтому они не получат оплату прямо сейчас. Пожалуйста свяжитесь с автором."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Мы обрабатываем ваши изображения. Подождите несколько минут, и они будут загружены на сайт."
       maintenance_mode:
         zero: "Сайт будет недоступен по причине проведения профилактических работ"

@@ -213,6 +213,7 @@ ko:
         users_can_invite_new_users: "모든 사용자가 새 사용자를 초대하도록 허용"
         private: "등록된 사용자만 목록 및 사용자 프로필을 볼 수 있습니다 (마켓 플레이스를 비공개로 설정)."
         require_verification_to_post_listings: "관리자가 확인한 사용자만 새 목록을 게시 할 수 있음"
+        allow_free_conversations: ~
         search_preferences: "검색 환경 설정"
         default_search_type: "검색 유형 : %{select_search_type}"
         keyword_search: "키워드 검색"
@@ -559,6 +560,8 @@ ko:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1448,6 +1451,7 @@ ko:
       buyer_cannot_pay_error: "결제가 PayPal에 의해 거부되었습니다. 자세한 정보는 고객 서비스에 문의하십시오 : %{customer_service_link}"
       pending_review_error: "결제가 들어갔지만 '검토 필요'로 PayPal에서 신고했습니다. PayPal에서 검토를 완료하면 결제가 자동으로 승인됩니다."
       seller_express_checkout_disabled: "PayPal Express Checkout이 목록 작성자의 PayPal 계정에서 사용 중지되었습니다. 권한자에게 연락하여 PayPal 계정에 문제가 있음을 알리고 PayPal 고객 서비스에 연락하도록 안내하십시오."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "결제 진행중에 오류가 발생했습니다. PayPal 지불을 완료 할 수 없습니다."
       cancel_error: "취소하는 동안 오류가 발생했습니다. 취소를 완료 할 수 없습니다."
       accept_authorization_error: "사전 승인된 Paypal 결제를 수락하는 중에 오류가 발생했습니다. 다시 시도하십시오."
@@ -1846,6 +1850,7 @@ ko:
       user_does_not_have_email_to_delete: "제거하려는 이메일 주소가 없습니다."
       email_deleted: "이메일이 삭제되었습니다"
       listing_author_payment_details_missing: "아래의 '문의하기'버튼을 눌러 저자에게 연락하십시오. 결제를 받으려면 결제 세부 사항을 업데이트해야 합니다."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "이미지를 처리 중입니다. 1 ~ 2 분만 기다려주세요."
       maintenance_mode:
         zero: "유지 보수를 위해 웹 사이트가 오프라인 상태가됩니다."

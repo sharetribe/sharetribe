@@ -218,6 +218,7 @@ da-DK:
         users_can_invite_new_users: "Alle brugere kan invitere nye brugere til denne markedsplads"
         private: "Denne markedsplads er privat (kun registrerede brugere kan se indhold)"
         require_verification_to_post_listings: "Kun brugere godkendt af administratoren kan oprette nye annoncer"
+        allow_free_conversations: ~
         search_preferences: "Søge præferencer"
         default_search_type: "Søgetype: %{select_search_type}"
         keyword_search: "Nøgleord søgning"
@@ -564,6 +565,8 @@ da-DK:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1451,6 +1454,7 @@ da-DK:
       buyer_cannot_pay_error: "Betalingen er blevet afvist af PayPal. Kontakt venligst deres Kundeservice for yderligere information: %{customer_service_link}"
       pending_review_error: "Betalingen er sendt afsted, men PayPal har markeret den som 'behøver gennemgang'. Når gennemgangen har fundet sted, vil betalingen automatisk blive autoriseret."
       seller_express_checkout_disabled: "PayPal Express Checkout er blevet deaktiveret. Kontakt sælger og fortæl dem, at der er et problem med deres PayPal-konto. Opfordr dem evt. til at kontakte PayPal kundeservice."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Der skete en teknisk fejl under betalingsprocessen."
       cancel_error: "Der skete en fejl. Vi kunne ikke annullere."
       accept_authorization_error: "Der skete en fejl da vi prøvede at gennemføre din PayPal betaling. Prøv venligst igen."
@@ -1849,6 +1853,7 @@ da-DK:
       user_does_not_have_email_to_delete: "Du har ikke email adressen som du prøver at fjerne"
       email_deleted: "Email fjernet"
       listing_author_payment_details_missing: "Kontakt sælger ved at trykke på knappen 'Kontakt' nedenfor. De skal opdatere deres betalingsoplysninger for at kunne modtage betalinger."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Vi behandler dine nye billeder, de vil være synlige om et par sekunder."
       maintenance_mode:
         zero: "Dette website vil nu være offline for vedligeholdelse"

@@ -213,11 +213,12 @@ fr:
       settings:
         settings: Paramètres
         general: Général
-        access: "Paramètres d'accès"
+        access: "Paramètres d'accès et de contact"
         join_with_invite_only: "Autoriser un utilisateur à s'inscrire uniquement s'il est invité par un autre utilisateur déjà inscrit"
         users_can_invite_new_users: "Autoriser tous les utilisateurs déjà inscrits, et pas uniquement les administrateurs, à inviter d'autres utilisateurs"
         private: "Autoriser uniquement les utilisateurs connectés à voir les annonces et profils (rendre la place de marché privée)"
         require_verification_to_post_listings: "Autoriser uniquement les utilisateurs validés par un administrateur à poster de nouvelles annonces"
+        allow_free_conversations: "Autoriser les utilisateurs à se contacter directement"
         search_preferences: "Paramètres de recherche"
         default_search_type: "Type de recherche : %{select_search_type}"
         keyword_search: "Recherche par mots-clés"
@@ -564,6 +565,8 @@ fr:
         search_by_title_author_category: "Rechercher une annonce, un auteur ou une catégorie"
         search: Rechercher
         reset_search: "Voir tous"
+        export_all_as_csv: "Exporter au format CSV"
+        processing_export: "Export au format CSV en cours..."
         status:
           all: "Tous les statuts"
           selected_js: "Statuts sélectionnés : "
@@ -1457,6 +1460,7 @@ fr:
       buyer_cannot_pay_error: "Le paiement a été refusé par PayPal. Veuillez contacter leur support client pour obtenir plus d'informations : %{customer_service_link}"
       pending_review_error: "Le paiement a été soumis mais a été marqué par PayPal comme 'nécessitant une validation'. Quand cette validation sera confirmée par PayPal, le paiement sera automatiquement autorisé."
       seller_express_checkout_disabled: "PayPal Express Checkout a été désactivé pour le compte PayPal de l'auteur de cette annonce. Veuillez contacter l'auteur pour lui signaler qu'il y a un problème avec son compte PayPal et lui conseiller de contacter le service client PayPal."
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout a été désactivé pour le compte PayPal de l'auteur de cette annonce. Veuillez contacter l'équipe %{service_name} pour leur demander d'informer l'auteur de l'annonce qu'il y a un problème avec leur compte PayPal et leur conseiller de contacter le service client PayPal."
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
       accept_authorization_error: "Une erreur s'est produite lors de la validation de la pré-autorisation du paiement PayPal. Merci d'essayer de nouveau."
@@ -1855,6 +1859,7 @@ fr:
       user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
       email_deleted: "Email supprimé"
       listing_author_payment_details_missing: "Veuillez contacter l'auteur de l'annonce via le bouton 'Contact' ci-dessous. Il doit mettre à jour ses informations de paiement pour en recevoir."
+      listing_author_payment_details_missing_no_free: "Veuillez contacter l'équipe %{service_name} pour leur demander d'informer l'auteur de l'annonce qu'ils doivent ajouter leurs informations de paiements pour pouvoir en recevoir."
       images_are_processing: "Nous traitons vos images. Donnez nous une ou deux minutes et elle seront visibles."
       maintenance_mode:
         zero: "Le site va maintenant être rendu inaccessible pour maintenance"

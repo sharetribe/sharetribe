@@ -218,6 +218,7 @@ fr-CA:
         users_can_invite_new_users: "Tous les utilisateurs peuvent inviter des nouveaux utilisateurs dans cette place de marché"
         private: "Cette place de marché est privée (seuls les utilisateurs connectés peuvent en voir le contenu)"
         require_verification_to_post_listings: "Seuls les utilisateurs validés par un administrateur peuvent poster de nouvelles annonces"
+        allow_free_conversations: ~
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -564,6 +565,8 @@ fr-CA:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1439,6 +1442,7 @@ fr-CA:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Une erreur s'est produite durant le processus de paiement. Le paiement PayPal n'a pas pu être réalisé."
       cancel_error: "Une erreur s'est produite durant l'annulation. Celle-ci n'a pas pu être réalisée."
       accept_authorization_error: "Une erreur s'est produite lors de la validation de la pré-autorisation du paiement PayPal. Merci d'essayer de nouveau."
@@ -1837,6 +1841,7 @@ fr-CA:
       user_does_not_have_email_to_delete: "Vous n'avez pas l'adresse email que vous essayez de supprimer"
       email_deleted: "Email supprimé"
       listing_author_payment_details_missing: "L'auteur de cette annonce n'a pas ajouté ses détails de paiement et ne peut pas recevoir de paiement actuellement. Merci de contacter l'auteur de l'annonce."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: ~
       stripe_you_account_balance_is_not_0: ~

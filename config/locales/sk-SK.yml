@@ -223,6 +223,7 @@ sk-SK:
         users_can_invite_new_users: "Všetci užívatelia môžu pozvať nových užívateľov do tohoto trhoviska"
         private: "Toto trhovisko je súkromné (iba registrovaní užívatelia môžu zobraziť obsah)"
         require_verification_to_post_listings: "Iba správcom overení užívatelia môžu pridávať inzeráty"
+        allow_free_conversations: ~
         search_preferences: "Nastavenie vyhľadávania"
         default_search_type: "Typ vyhľadávania: %{select_search_type}"
         keyword_search: "Vyhľadávanie pomocou kľúčového slova"
@@ -569,6 +570,8 @@ sk-SK:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1462,6 +1465,7 @@ sk-SK:
       buyer_cannot_pay_error: "Platba bola odmietnutá serverom PayPal. Pre viac informácií, kontaktujte ich zákaznícky servis: %{customer_service_link}"
       pending_review_error: "Platba bola prevedená, ale bola serverom PayPal označená ako \"vyžaduje preskúmať\". Akonáhle PayPal dokončí preskúmanie platby, platba bude automaticky vybavená."
       seller_express_checkout_disabled: "PayPal express pokladňa bola zakázaná. Kontaktujte predajcu a dajte mu vedieť, že majú problém s ich PayPal účtom. Prípadne im odkázať aby kontaktovali PayPal zákaznícky servis."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Došlo k chybe behom platobného procesu. Nemôžeme dokončiť Vašu Paypal platbu."
       cancel_error: "Nastala chyba pri stornovaní. Zrušenie sa nedá dokončiť."
       accept_authorization_error: "Došlo k chybe pri pokuse o prijatie pred schválenej PayPal platby. Prosíme, skúste to znovu."
@@ -1860,6 +1864,7 @@ sk-SK:
       user_does_not_have_email_to_delete: "E-mailová adresa, ktorú sa snažíte odstrániť Vám nepatrí"
       email_deleted: "E-mailová adresa bola odstránená"
       listing_author_payment_details_missing: "Prosím kontaktujte autora kliknutím na tlačítko 'Kontakt' nižšie. Je potrebné aktualizovať podrobnosti o platbe, aby platba mohla byť prijatá."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Vaše nové obrázky, ktoré práve spracovávame budú viditeľné za niekoľko sekúnd."
       maintenance_mode:
         zero: "Webová stránka sa pre údržbu prepne do offline režimu."

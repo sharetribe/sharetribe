@@ -226,6 +226,7 @@ hr:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
+        allow_free_conversations: ~
         search_preferences: "Pretražite preference"
         default_search_type: "Tip pretrage: %{select_search_type} "
         keyword_search: "Pretraga ključnih riječi"
@@ -572,6 +573,8 @@ hr:
         search_by_title_author_category: "Traži naslov oglasa, autora ili ime kategorije"
         search: Pretraga
         reset_search: "Prikaži sve"
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: "Svi statusi"
           selected_js: "Odabrani statusi: "
@@ -1468,6 +1471,7 @@ hr:
       buyer_cannot_pay_error: "Uplata je odbijena od stane Paypala.Molimo kontaktirajte njihovu korisničku podršku za više informacija:%{customer_service_link}"
       pending_review_error: "Uplata je podnešena ali ju je Paypal označio kao \"potrebno za pregledati\".Kada Paypal završi pregled, uplata će biti automatski autorizirana."
       seller_express_checkout_disabled: "PayPal Express naplata nije omogućena za oglas autora. Kontaktirajte autora kako bi im ukazali kako postoji greška s njihovim PayPal računom, i preporučite im da kontaktiraju PayPal službu."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Greška se dogodila prilikom procesa plaćanja. Nismo mogli dovršiti plaćanje sa vašim PayPal računom."
       cancel_error: "Greška se dogodila prilikom otkazivanja. Nismo mogli dovršiti otkazivanje."
       accept_authorization_error: "Greška se dogodila prilikom pokušaja prihvaćanja preautoriziranog PayPal plaćanja. Molimo pokušajte ponovno."
@@ -1866,6 +1870,7 @@ hr:
       user_does_not_have_email_to_delete: "Nemate email adresu koju pokušavate ukloniti"
       email_deleted: "Email uklonjen"
       listing_author_payment_details_missing: "Molimo kontaktirajte autora klikom na \"Kontakt\" gumb ispod. On treba ažurirati detalje plaćanja kako bi mogao dobiti uplatu."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Obrađujemo vaše fotografije. Molimo pričekajte minutu ili dvije kada će biti vidljive."
       maintenance_mode:
         zero: "Web stranica će od sada biti nedostupna zbog održavanja"
@@ -2639,6 +2644,11 @@ hr:
       booked_nights_label:
         one: "Rezervirana noć:"
         few: "Rezervirane noći:"
+      booked_hours_label:
+        one: "Rezervirani sat:"
+        few: "Rezervirani sati:"
+        many: "Rezervirani sati:"
+        other: "Rezervirani sati:"
       price_per_day: "Cijena po danu:"
       price_per_night: "Cijena po noći:"
       price_per_hour: "Cijena po satu:"
@@ -2647,17 +2657,12 @@ hr:
       subtotal: "Sveukupno:"
       shipping-price: "Isporuka:"
       stripe-fee: "Stripe naknada (otprilike)"
-      start_end_time: "Od %{start_time} do %{end_time}"
-      booked_hours_label:
-        one: "Rezervirani sat:"
-        other: "Rezervirani sati:"
-        few: "Rezervirani sati:"
-        many: "Rezervirani sati:"
       duration_in_hours:
         one: "(1 sat)"
         few: "(%{count} sati)"
         many: "(%{count} sati)"
         other: "(%{count} sati)"
+      start_end_time: "Od %{start_time} do %{end_time}"
     price_per_quantity: "Cijena po %{unit_type}:"
     price: "Cijena:"
     quantity: "Količina: %{quantity}"
@@ -2766,14 +2771,14 @@ hr:
           few: "Prikaz %{accepted_count} prihvaćeno %{accepted_model}  i %{other_count}  drugi %{other_model} "
           many: "Prikaz %{accepted_count} prihvaćeno %{accepted_model} i %{other_count}  drugi %{other_model} "
           other: "Prikaz %{accepted_count} prihvaćeno %{accepted_model} i %{other_count}  drugi %{other_model} "
-        multi_page: "Prikazujem %{model} %{from} %{to} od %{accepted_count} prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
-        multi_page_html: "Prikazujem %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
         single_page_html:
           zero: "Nije pronađen %{model}."
           one: "Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
           few: "Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
           many: "Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
           other: "Prikazujem <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
+        multi_page: "Prikazujem %{model} %{from} %{to} od %{accepted_count} prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
+        multi_page_html: "Prikazujem %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{accepted_count}</b> prihvaćenih %{accepted_model} i %{other_count} drugih %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Korištenje sustava plaćanja %{service_name} za primitak uplata nije moguće pošto postavke plaćanja nisu bile postavljene. Molimo Vas, kontaktirajte %{contact_admin_link} za detalje."
     contact_admin_link_text: "Kontaktirajte %{service_name} tim"

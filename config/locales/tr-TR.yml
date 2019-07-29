@@ -215,6 +215,7 @@ tr-TR:
         users_can_invite_new_users: "Tüm kullanıcılar yeni kullanıcıları bu pazara davet edebilir"
         private: "Bu pazar özeldir (içeriği sadece kayıtlı kullanıcılar görüntüleyebilir)"
         require_verification_to_post_listings: "Sadece yönetici onaylı kullanıcılar yeni ilan ekleyebilir"
+        allow_free_conversations: ~
         search_preferences: "Arama seçenekleri"
         default_search_type: ~
         keyword_search: "Anahtar kelime arama"
@@ -561,6 +562,8 @@ tr-TR:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1437,6 +1440,7 @@ tr-TR:
       buyer_cannot_pay_error: ~
       pending_review_error: ~
       seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Ödeme sırasında bir hata meydana geldi. PayPal ödemesi tamamlanamadı."
       cancel_error: "İptal sırasında bir hata meydana geldi. İptal işlemi tamamlanamadı."
       accept_authorization_error: "İzin verilmiş PayPal ödemesi kabul edilirken hata meydana geldi. Lütfen tekrar deneyin."
@@ -1835,6 +1839,7 @@ tr-TR:
       user_does_not_have_email_to_delete: "Kaldırmaya çalıştığınız e-posta adresi mevcut değildir."
       email_deleted: "E-posta adresi kaldırıldı"
       listing_author_payment_details_missing: "Bu listelemenin sahibi ödeme bilgilerini eklemediği için şu an ödeme alamıyor. Lütfen ilan sahibine veya bize ulaşın."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Oturumunuzun süresi doldu, lütfen tekrar giriş yapın."
       stripe_you_account_balance_is_not_0: ~

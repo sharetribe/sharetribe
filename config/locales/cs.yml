@@ -223,6 +223,7 @@ cs:
         users_can_invite_new_users: "Všichni uživatelé mohou pozvat nové uživatele do tohoto tržiště"
         private: "Toto tržiště je soukromé (pouze registrovaní uživatelé mohou zobrazit obsah)"
         require_verification_to_post_listings: "Pouze uživatelé ověření správcem mohou přidávat nové inzeráty"
+        allow_free_conversations: ~
         search_preferences: "Vyhledávací předvolby"
         default_search_type: "Typ vyhledávání: %{select_search_type}"
         keyword_search: "Hledání dle klíčových slov"
@@ -569,6 +570,8 @@ cs:
         search_by_title_author_category: "Vyhledejte název inzerátu, autora nebo název kategorie"
         search: Hledat
         reset_search: "Zobrazit vše"
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: "Všechny stavy"
           selected_js: "Vybrané stavy: "
@@ -1460,6 +1463,7 @@ cs:
       buyer_cannot_pay_error: "Platba byla odmítnuta serverem PayPal. Prosíme, kontaktujte jejich zákaznický servis pro více informací: %{customer_service_link}"
       pending_review_error: "Platba byla provedena, ale byla serverem PayPal označena jako \"vyžaduje přezkoumání\". Jakmile PayPal dokončí přezkoumání platby, bude platba automaticky vyřízena."
       seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Došlo k chybě během platebního procesu. Nelze dokončit Vaši platbu přes PayPal."
       cancel_error: "Při zrušení došlo k chybě. Nelze zrušení dokončit."
       accept_authorization_error: "Došlo k chybě při pokusu o přijetí předschválení PayPal platby. Prosíme, zkuste to znovu."
@@ -1858,6 +1862,7 @@ cs:
       user_does_not_have_email_to_delete: "Nemáte e-mailovou adresu, kterou se snažíte odstranit"
       email_deleted: "E-mail byl odstraněn"
       listing_author_payment_details_missing: "Prosíme, kontaktujte autora kliknutím na tlačítko \"Kontaktovat\" níže. Je totiž zapotřebí aktualizovat podrobnosti o platbě, aby platba mohla být přijata."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Zpracováváme vaše obrázky. Dejte nám minutku nebo dvě a budou vidět."
       maintenance_mode:
         zero: "Webová stránka je nyní offline, probíhá údržba"

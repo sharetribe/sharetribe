@@ -213,6 +213,7 @@ ja:
         users_can_invite_new_users: 全てのユーザはこのマーケットプレイスに招待できます
         private: このマーケットプレイスはプライベートです（登録済みユーザのみこの情報を閲覧できます）
         require_verification_to_post_listings: サイト管理者によって承認されたユーザのみが新しいリストを投稿できます
+        allow_free_conversations: ~
         search_preferences: 検索条件
         default_search_type: "検索タイプ:%{select_search_type}"
         keyword_search: キーワード検索
@@ -559,6 +560,8 @@ ja:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1446,6 +1449,7 @@ ja:
       buyer_cannot_pay_error: "支払いがPayPalによって拒否されました。詳細については、カスタマーサービス%{customer_service_link} にお問い合わせください。"
       pending_review_error: "お支払いが送信されましたが、PayPalによって「レビューが必要」としてフラグが立てられました。 PayPalがレビューを完了すると、支払いは自動的に承認されます。"
       seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled_no_free: ~
       generic_error: お支払い手続き中にエラーが発生しました。PayPalのお支払いが完了できませんでした。
       cancel_error: キャンセル手続き中にエラーが発生しました。キャンセルが完了できませんでした。
       accept_authorization_error: 事前に指定したPaypal口座からの自動引き落とし手続き中にエラーが発生しました。再度お手続きをしてください。
@@ -1844,6 +1848,7 @@ ja:
       user_does_not_have_email_to_delete: 削除しようとしていたメールアドレスは、正しくありません。
       email_deleted: メールアドレスは削除されました
       listing_author_payment_details_missing: この投稿の作成者はお支払い詳細を追加していないので、現在のところお支払いを受け取れません。「問合せ」ボタンをクリックして、このリストの作者に直接連絡を取ってください。
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: 現在画像を処理中です、今しばらくお待ちください。
       maintenance_mode:
         zero: メンテナンスのため、このウェブサイトは只今より一時的にオフラインになります

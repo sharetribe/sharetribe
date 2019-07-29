@@ -218,6 +218,7 @@ nb:
         users_can_invite_new_users: "Alle brukere kan invitere nye brukere til denne markedsplassen"
         private: "Denne markedsplassen er privat(kun registrerte brukere kan se dets innhold)"
         require_verification_to_post_listings: "Kun brukere som er godkjent av admin kan legge ut annonser"
+        allow_free_conversations: ~
         search_preferences: Søkeinnstillinger
         default_search_type: "Søketype: %{select_search_type}"
         keyword_search: Nøkkelord-søk
@@ -564,6 +565,8 @@ nb:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1453,6 +1456,7 @@ nb:
       buyer_cannot_pay_error: "Betalingen ble avslått av PayPal. Vennligst kontakt PayPal Kundeservice for mer informasjon: %{customer_service_link}"
       pending_review_error: "Betalingen ble sendt men ble flagget av PayPal som \"må sjekkes\". Når PayPal får sjekket betalingen vil den automatisk bli godkjent."
       seller_express_checkout_disabled: "PayPal Express Checkout har blitt deaktivert for annonseeierens PayPal-konto. Vennligst kontakt annonseeieren og gi beskjed om at det er et problem med PayPal-kontoen deres. Råd dem til å kontakte PayPals kundeservice."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "En feil oppstod i betalingsprosessen. Din PayPal-betaling kunne ikke gjennomføres."
       cancel_error: "En feil oppstod ved kansrelering. Kunne ikke sluttføre kansrelering."
       accept_authorization_error: "En feil oppstod med PayPal-betalingen. Vennligst prøv igjen."
@@ -1851,6 +1855,7 @@ nb:
       user_does_not_have_email_to_delete: "Du har ikke e-post adressen du prøver å fjerne"
       email_deleted: "E-post fjernet"
       listing_author_payment_details_missing: "Annonseeier har ikke lagt til betalingsinformasjon og kan derfor ikke motta betaling akkurat nå. Vennligst ta kontakt med annonseeier."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Vi behandler de nye bildene dine. De vil bli synlige i løpet av noen sekunder."
       maintenance_mode:
         zero: "Nettstedet vil nå gå offline for vedlikehold"

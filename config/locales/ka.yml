@@ -213,6 +213,7 @@ ka:
         users_can_invite_new_users: "ყველა მომხმარებელს შეუძლია მოიწვიოს ახალი მომხმარებელი მაგროზე"
         private: "ეს ბაზარი არის პირადი (მხოლოდ დარეგისტრირებულ მომხმარებლებს შეუძლიათ მისი შინაარსის ნახვა)"
         require_verification_to_post_listings: "მხოლოდ ადმინისტრატორის მიერ დადასტურებულ მომხმარებლებს შეუძლიათ დაპოსტოს ახალი ჩამონათვალი"
+        allow_free_conversations: ~
         search_preferences: "ძებნის პარამეტრები"
         default_search_type: "ძებნის ტიპი: %{select_search_type}"
         keyword_search: "საკვანძო სიტყვის ძებნა"
@@ -559,6 +560,8 @@ ka:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1442,6 +1445,7 @@ ka:
       buyer_cannot_pay_error: "გადახდის უარყოფა მოხდა PayPal-დან. გთხოვთ დაუკავშირდეთ მათი კლიენტთა მოსმახურების სერვისს მეტი ინფორმაციისთვის: %{customer_service_link}"
       pending_review_error: "გადახდა დარეგსისტრირდა, მაგრამ მონიშნულია PayPal-ზე როგორც \"საჭიროებს გადახედვას\" როდესაც PayPal გადახედავს გადახდა ავტომატურად ავტორიზებული გახდება."
       seller_express_checkout_disabled: "PayPal-ის ექსპრეს გადახდის სერვისი შეჩერებულია გამყიდველებისთვის PayPal-ის ანგარიშზე. გთხოვთ დაუკავშირდით გამყიდველს და შეატყობინოთ, რომ რაღაც პრობლემაა მათი PayPal-ის ანგარიშზე და ურჩიეთ, რომ დაუკავშირდნენ PayPal-ის კლიენტთა მომსახურების ცენტრს."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "გადახდისას მოხდა შეცდომა. ვერ ხერხდება PayPal-ით გადახდის დასრულება."
       cancel_error: "შეცდომა მოხდა გაუქმების დროს. გაუქმება ვერ დასრულდა"
       accept_authorization_error: "შეცდომა მოხდა Paypal-ის პრეავტორიზებული გადახდის დადასტურების მცდელობისას. გთხოვთ კიდევ სცადოთ."
@@ -1840,6 +1844,7 @@ ka:
       user_does_not_have_email_to_delete: "თქვენ არ გაქვთ ის ელ. ფოსტა, რომლის წაშლავც გსურთ. "
       email_deleted: "ელ. ფოსტა წაშლილია"
       listing_author_payment_details_missing: "გთხოვთ დაუკავშირდეთ განცხადების ავტორს, \"კონტაქტი\"-ს ღილაკზე თითის დაჭერით. იმისათვის რომ მიიღონ გადახდა, მათ უნდა დაამატონ გადახდის მეთოდი."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "სურათები იტვირთება. 2 წუთში ყველა გამოჩნდება, გთხოვთ დაიცადოთ."
       maintenance_mode:
         zero: "საიტი იქნება გამორთული შეკეთებისთვის "

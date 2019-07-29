@@ -213,6 +213,7 @@ zh-HK:
         users_can_invite_new_users: 所有用戶都可以邀請新用戶來到這個網站
         private: 這個集市是私人的（只有注冊用戶可以看到內容）
         require_verification_to_post_listings: 只有經管理員驗證的用戶才可以發佈新的訊息
+        allow_free_conversations: ~
         search_preferences: 搜尋偏好
         default_search_type: "搜尋類型：%{select_search_type}"
         keyword_search: 關鍵字搜尋
@@ -559,6 +560,8 @@ zh-HK:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1440,6 +1443,7 @@ zh-HK:
       buyer_cannot_pay_error: "該支付款項被Paypal拒絕。請聯絡他們的客戶服務部以獲得更多訊息：%{customer_service_link}"
       pending_review_error: 款項已經提交但被Paypal標記為‘需要檢查’。當Paypal完成檢查後，該支款將會被自動授權。
       seller_express_checkout_disabled: PayPal快速結帳已暫停此訊息發佈者的PayPal帳戶。請聯絡發佈者及讓他們知道自己的PayPal帳戶發生問題，並提議他們聯絡PayPal的客戶服務。
+      seller_express_checkout_disabled_no_free: ~
       generic_error: 在付款途中發生錯誤。未能完成你的PayPal付款過程。
       cancel_error: ~
       accept_authorization_error: 在接受預先授權的PayPal付款時發生錯誤。請稍後再試。
@@ -1838,6 +1842,7 @@ zh-HK:
       user_does_not_have_email_to_delete: 你想要移除的電郵地址並不存在
       email_deleted: 已删除電郵
       listing_author_payment_details_missing: 請點擊下面的‘聯繫’來聯絡賣家。他們需要更新付款詳情來接收付款。
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       maintenance_mode:
         zero: 網站即將關閉以進行維護

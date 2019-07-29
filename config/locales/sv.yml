@@ -218,6 +218,7 @@ sv:
         users_can_invite_new_users: "Tillåt alla användare att bjuda in nya användare"
         private: "Tillåt endast registrerade användare att se annonser och användarprofiler (gör marknadsplatsen privat)"
         require_verification_to_post_listings: "Tillåt endast användare som har verifierats av admin att skapa nya annonser"
+        allow_free_conversations: ~
         search_preferences: "Sök inställningar"
         default_search_type: "Söktyp:%{select_search_type}"
         keyword_search: Nyckelordssökning
@@ -564,6 +565,8 @@ sv:
         search_by_title_author_category: ~
         search: Sök
         reset_search: "Visa alla"
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1459,6 +1462,7 @@ sv:
       buyer_cannot_pay_error: "Betalningen har avslagits av PayPal. Vänligen kontakta deras kundtjänst för mer information: %{customer_service_link}"
       pending_review_error: "Betalningen gick iväg men flaggas av PayPal som \"kräver en översyn\". När PayPal avslutar översynen kommer betalningen bli godkänd."
       seller_express_checkout_disabled: "PayPal Express Checkout har blivit avstängd för annonsörens PayPal konto. Vänligen kontakta annonsören och meddela om problemet samt be dem kontakta PayPals kundtjänst."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Ett fel uppstod i betalningsprocessen. Kunde inte slutföra din PayPal betalning."
       cancel_error: "Ett fel inträffade. Det gick ej att slutföra."
       accept_authorization_error: "Ett fel uppstod vid försök att acceptera den förauktoriserade PayPal betalningen. Vänligen försök igen."
@@ -1857,6 +1861,7 @@ sv:
       user_does_not_have_email_to_delete: "Du har inte e-postadressen som du försöker ta bort"
       email_deleted: "E-post borttaget"
       listing_author_payment_details_missing: "Vänligen kontakta ägaren genom att klicka på \"Kontakt\" nedan. De måste uppdatera sina betalningsdetaljer för att kunna ta emot betalning."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Vi prossesserar dina bilder. Ge oss en minut eller två och de kommer vara synliga."
       maintenance_mode:
         zero: "Hemsidan kommer nu gå offline för underhåll"

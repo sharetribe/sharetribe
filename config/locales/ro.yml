@@ -223,6 +223,7 @@ ro:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
+        allow_free_conversations: ~
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -569,6 +570,8 @@ ro:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1446,6 +1449,7 @@ ro:
       buyer_cannot_pay_error: "Plata a fost refuzata de catre PayPal. Pentru mai multe informatii, va rugam contactati serviciul lor de relatii cu clientii: %{customer_service_link}"
       pending_review_error: ~
       seller_express_checkout_disabled: ~
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "O eroare a aparut in timpul platii. Plata ta prin PayPal nu a fost finalizata"
       cancel_error: "Am intalnit o eroare in timpul anularii. Nu am putut finaliza anularea."
       accept_authorization_error: "Am intalnit o eroare in timpul acceptarii pre-autorizarii PayPal. Te rugam sa incerci din nou."
@@ -1844,6 +1848,7 @@ ro:
       user_does_not_have_email_to_delete: "Nu aveti adresa de e-mail pe care incercati sa o stergeti"
       email_deleted: "Adresa de e-mail stearsa"
       listing_author_payment_details_missing: "Te rugam sa contactezi furnizorul prin apasarea butonului \"Contact\" de mai jos in vederea actualizarii detaliilor de plata"
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "Ati fost deconectat(a) automat. Va rugam sa va conectati inca o data."
       stripe_you_account_balance_is_not_0: ~

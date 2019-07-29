@@ -218,6 +218,7 @@ pt-BR:
         users_can_invite_new_users: "Todos os usuários podem convidar novos usuários para este mercado virtual"
         private: "Este mercado virtual é privado (apenas usuários cadastrados podem ver o conteúdo)"
         require_verification_to_post_listings: "Somente usuários verificados por administrador pode postar novos anúncios"
+        allow_free_conversations: ~
         search_preferences: "Preferências de Busca"
         default_search_type: "Tipo de Busca: %{select_search_type}"
         keyword_search: "Palavra-Chave da Busca"
@@ -564,6 +565,8 @@ pt-BR:
         search_by_title_author_category: "Buscar um anúncio por título"
         search: Buscar
         reset_search: "Mostrar todos"
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: "Todos os status"
           selected_js: ~
@@ -1451,6 +1454,7 @@ pt-BR:
       buyer_cannot_pay_error: "O pagamento foi rejeitado pelo PayPal. Por favor contate o atendimento a cliente deles para maiores informações: %{customer_service_link}"
       pending_review_error: "O pagamento foi enviado mas foi marcado como \"requerendo verificação\" pelo PayPal. Quando o PayPal complete essa verificação o pagamento será automaticamente autorizado."
       seller_express_checkout_disabled: "O PayPal Express Checkout foi desabilitado para a conta PayPal do autor deste anúncio. Por favor contate o autor e informe-o que há um problema com sua conta PayPal e aconselhe-o a entrar em contato com o atendimento ao cliente do PayPal."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Ocorreu um erro durante o processo de pagamento. Não foi possível finalizar o seu pagamento PayPal."
       cancel_error: "Um erro ocorreu durante o cancelamento. Não foi possível finalizar."
       accept_authorization_error: "Ocorreu um erro durante a tentativa de aceitar pagamento pré-autorizado pelo Paypal. Por favor, tente novamente."
@@ -1849,6 +1853,7 @@ pt-BR:
       user_does_not_have_email_to_delete: "Você não tem o endereço de e-mail que você está tentando remover"
       email_deleted: "E-mail removido"
       listing_author_payment_details_missing: "Por favor entre em contato com o anunciante pressionando o botão \"Contato\" abaixo. Ele precisa atualizar suas informações para receber pagamentos."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Estamos processando suas imagens. Estarão visíveis em um ou dois minutos."
       maintenance_mode:
         zero: "O site sairá do ar agora para manutenção"

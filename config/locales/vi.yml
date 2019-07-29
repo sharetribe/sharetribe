@@ -213,6 +213,7 @@ vi:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
+        allow_free_conversations: ~
         search_preferences: "Tùy chọn tìm kiếm"
         default_search_type: "Thể loai tìm kiếm: %{select_search_type}"
         keyword_search: "Tìm kiếm từ khoá"
@@ -559,6 +560,8 @@ vi:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1446,6 +1449,7 @@ vi:
       buyer_cannot_pay_error: "Thanh toán đã bị PayPal từ chối. Vui lòng liên hệ với Dịch vụ Khách hàng của họ để biết thêm thông tin:%{customer_service_link}"
       pending_review_error: "Thanh toán đã được gửi nhưng bị PayPal gắn cờ là 'yêu cầu xem xét lại'. Khi PayPal hoàn tất việc xem xét, thanh toán sẽ tự động được ủy quyền."
       seller_express_checkout_disabled: "PayPal Express Checkout đã bị tắt đối với tài khoản PayPal của người đăng bài. Vui lòng liên hệ và báo cho họ biết có vấn đề với việc thanh toán đồng thời khuyên họ làm việc với Dịch vụ Khách hàng PayPal."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Đã xảy ra lỗi trong quá trình thanh toán. Không thể hoàn tất thanh toán qua PayPal của bạn."
       cancel_error: "Đã xảy ra lỗi khi hủy. Không thể hoàn tất huỷ bỏ."
       accept_authorization_error: "Đã xảy ra lỗi khi cố gắng chấp nhận thanh toán của Paypal. Vui lòng thử lại."
@@ -1844,6 +1848,7 @@ vi:
       user_does_not_have_email_to_delete: "Địa chỉ mail mà bạn đang xóa không tồn tại."
       email_deleted: "Email đã được xóa."
       listing_author_payment_details_missing: "Vui lòng liên hệ người đăng bằng cách nhấn vào nút 'Liên hệ' bên dưới. Họ cần phải cập nhật chi tiết thanh toán để nhận thanh toán."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Chúng tôi đang xử lý hình ảnh của bạn. Hãy cho chúng tôi vài phút và chúng sẽ được hiển thị."
       maintenance_mode:
         zero: "Trang web bây giờ sẽ không hoạt động để bảo trì"

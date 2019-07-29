@@ -228,6 +228,7 @@ pl:
         users_can_invite_new_users: "Pozwól użytkownikom zapraszać nowych"
         private: "Pozwól wyłącznie zarejestrowanym użytkownikom wyświetlać oferty i profile innych (ustaw platformę jako \"prywatną\")"
         require_verification_to_post_listings: "Pozwól tylko zweryfikowanym użytkownikom na dodawanie nowych ofert"
+        allow_free_conversations: ~
         search_preferences: "Preferencje wyszukiwania"
         default_search_type: "Typ wyszukiwania: %{select_search_type}"
         keyword_search: "Wyszukiwanie tekstu"
@@ -390,7 +391,7 @@ pl:
         sitemap_label: "Mapa strony"
         sitemap_info: ~
         sitemap_info_link_text: ~
-        sitemap_info_public: ~
+        sitemap_info_public: "Mapa jest wygenerowana automatycznie dla Twojej platformy. Oznacza do 500 najnowszych ofert na Twojej stronie. Możesz mieć dostęp do mapy pod linkiem %{link}"
         sitemap_info_private: "Ponieważ Twoja platforma jest prywatna, nie posiada mapy strony."
         robots_label: ~
         robots_info: "Robots.txt jest to plik tekstowy, który przekazuje informacje internetowym robotom (mechanizmom wyszukiwania) w jaki sposób przeszukiwać strony na twojej platformie.%{link}."
@@ -406,7 +407,7 @@ pl:
         sharetribe_analytics: "Analityka Sharetribe"
         sharetribe_analytics_info_text_with_instructions: "Aby doskonalić usługi  platformy, Sharetribe śledzi aktywność użytkowników platformy. Dane osobowe nie są zbierane a informacje pozostają tylko do wiadomości zespołu Sharetribe. To śledzenie może być wyłączone całkowicie %{instructions_link}"
         sharetribe_analytics_instructions_link_text: ~
-        end_user_analytics: "Pozwól Sharetribe śledzić aktywność użytkowników aby doskonalić usługi platformy."
+        end_user_analytics: "Pozwól Sharetribe obserwować aktywność użytkowników aby doskonalić usługi platformy."
         save: "Zapisz ustawienia"
       logo_link:
         title: "Link do logotypu"
@@ -574,6 +575,8 @@ pl:
         search_by_title_author_category: "Wyszukaj po nazwie oferty, autorze lub kategorii"
         search: Szukaj
         reset_search: "Pokaż wszystkie"
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: "Wszystkie statusy:"
           selected_js: "Wybrane statusy: "
@@ -1077,7 +1080,7 @@ pl:
       days: dni
       price_per_day: "Cena per dzień: %{price}"
     index:
-      loading_more_messages: "Ładowanie więcej wiadomości"
+      loading_more_messages: "Ładuje więcej wiadomości"
       message_partitive: wiadomość
       messages_partitive: wiadomości
       no_received_messages: "Brak wiadomości"
@@ -1119,7 +1122,7 @@ pl:
       optional_message_to: "Opcjonalna wiadomość do %{author_name}"
       send_message: "Wyślij wiadomość"
       send: Wysłano
-      this_message_is_private: "Ta konwersacja jest prywatna pomiędzy Tobą i %{person}. %{person} będzie informowany o tej wiadomości na jego adres email."
+      this_message_is_private: "Konwersacja pomiędzy Tobą a %{person} jest prywatna. %{person} otrzyma informację o tej wiadomości na własny adres email."
       you_will_get_notified_of_acceptance: "Otrzymasz powiadomienie na adres email, gdy %{person} zaakceptuje bądź odrzuci Twoją propozycję."
       you_will_get_notified: "Otrzymasz powiadomienie na adres email, gdy %{person} odpowie Tobie."
       title: Tytuł
@@ -1254,7 +1257,7 @@ pl:
       request_marked_as_canceled: "Zamówienie anulowane"
       has_marked_request_as_confirmed: "%{other_party_full_name} oznaczyła Twoje zamówienie o %{request} jako ukończone. Teraz możesz przekazać opinię do %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} anulował zamówienie na %{request}. Wciąż możesz przekazać opinię do %{other_party_given_name}."
-      giving_feedback_is_good_idea: "Przekazywanie opinii jest zawsze dobrym pomysłem. Jeżeli wszystko poszło dobrze, daj znać innym, że %{other_party_given_name} jest warty zaufania. Jeżeli napotkałeś jakieś problemy, dobrze zaznaczyć to także."
+      giving_feedback_is_good_idea: "Przekazywanie informacji zwrotnej jest bardzo dobrą praktyką. Jeżeli wszystko poszło dobrze, daj znać innym, że %{other_party_given_name} jest godny/a zaufania. Jeżeli napotkałeś jakieś problemy, wspomnij także o tym."
       give_feedback_to: "Przekaż opinię do %{other_party_given_name}"
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} oznaczył usługę '%{request}' jako wykonaną. Płatność za tę transakcję została uruchomiona i będzie przekazana na Twój rachunek bankowy. Możesz teraz wystawić opinię %{other_party_given_name}."
@@ -1265,7 +1268,7 @@ pl:
       subject: "Zamówienie automatycznie zakończone - pamiętaj, aby napisać opinię"
       we_have_marked_request_as_confirmed: "Oznaczyliśmy zlecenie dotyczące %{request} jako zrealizowane. Zostało ono automatycznie oznaczone jako zrealizowane, ponieważ minął jeden dzień od zakończenia okresu rezerwacji."
     automatically_confirmed_footer:
-      giving_feedback_is_good_idea: "Możesz teraz udzielić opinii dla %{other_party_given_name}. Udzielanie opinii jest zawsze dobrym pomysłem. Jeśli wszystko poszło dobrze, powinieneś/powinnaś dać znać innym, że %{other_party_given_name} jest wart/a zaufania. Jeśli był jakiś problem, warto o tym wspomnieć także."
+      giving_feedback_is_good_idea: "Możesz teraz przekazać informację zwrotną dla %{other_party_given_name}. Przekazywanie informacji zwrotnej jest dobrą praktyką. Jeśli wszystko poszło dobrze, powinieneś/powinnaś dać znać innym, że %{other_party_given_name} jest godny/a zaufania. Jeśli był jakiś problem, wspomnij także o tym."
       give_feedback_to: "Napisz opinię dla %{other_party_given_name}"
       show_thread: "Pokaż konwersację"
     confirmation_instructions:
@@ -1303,14 +1306,14 @@ pl:
       hi: Cześć!
       you_have_been_invited_to_kassi: "%{inviter} zaprosił/a Cię do %{service_name}."
       here_is_a_message_from: "Wiadomość prywatna od %{inviter}:"
-      join_now: "Dołąćz teraz"
+      join_now: "Dołącz teraz"
       invitation_code: "Kod zaproszenia: %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} dodał komentarz do Twojej oferty %{listing}"
       view_comment: "Zobacz komentarz"
       you_have_a_new_comment: "%{author} dodał komentarz do Twojej oferty %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} skomentował ofertę, którą śledzisz w %{service_name}"
-      has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą śledzisz w %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} skomentował/a ofertę, którą obserwujesz w %{service_name}"
+      has_commented_listing_you_follow_in_kassi: "%{author} dodał komentarz do oferty %{listing}, którą obserwujesz w %{service_name}"
     new_message:
       view_message: "Zobacz wiadomość"
       has_sent_you_a_message_in_kassi: "%{sender} wysłał Tobie wiadomość w %{service_name}"
@@ -1381,8 +1384,8 @@ pl:
       you_can_give_feedback_to: "Jeszcze nie przekazałeś opinii do %{name}"
       view_feedback: "Zobacz opinie"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: "Oferta, którą śledzisz została zaktualizowana"
-      has_updated_listing_you_follow_in_kassi: "%{author} zaktualizował ofertę %{listing}, którą śledzisz w %{service_name}"
+      listing_you_follow_has_been_updated: "Oferta, którą obserwujesz została zaktualizowana"
+      has_updated_listing_you_follow_in_kassi: "%{author} zaktualizował ofertę %{listing}, którą obserwujesz w %{service_name}"
       view_changes: "Zobacz zmiany"
     community_updates:
       added_offer: "%{name_link} dodał ofertę:"
@@ -1397,9 +1400,9 @@ pl:
       unsubscribe_link_text: "wypisz się"
     newsletter:
       hi: "Cześć %{name},"
-      newest_offers: "Co aktualnie jest oferowane innym"
-      newest_requests: "Czego aktualnie potrzebują"
-      text_version_text: "Czy możesz podzielić się czymś, czego inni mogą potrzebować? A może Ty potrzebujesz czegoś, co mogą mieć inni? Dodaj ofertę lub zapytanie bądź sprawdź wszystko, co inni oferują lub pytają na %{url}"
+      newest_offers: "Co aktualnie ludzie oferują innym"
+      newest_requests: "Czego ludzie aktualnie potrzebują"
+      text_version_text: "Czy możesz podzielić się czymś, czego inni mogą potrzebować? A może Ty potrzebujesz czegoś, co mogą mieć inni? Dodaj ofertę lub zapytanie, możesz też przejrzeć wszystkie oferty i pytania %{url}"
     reset_password_instructions:
       change_my_password: "Zmień moje hasło"
       reset_password_instructions: "<p>Wskazałeś/aś, że zapomniałeś/aś albo hasła albo nazwy użytkownika w platformie %{service_name}.</p><p>Twoja nazwa użytkownika to: %{username}</p><p>Jeśli potrzebujesz zresetować swoje hasło, naciśnij następujący link: %{password_reset_link}</p><br/><p>Jeśli nie chciałeś tej informacji zignoruj ją proszę. Twoje hasło nie ulegnie zmianie dopóki nie naciśniesz powyższego linka i nie stworzysz nowego.</p>"
@@ -1421,14 +1424,14 @@ pl:
       click_here_to_reply: "Kliknij tutaj, aby odpowiedzieć na zapytanie"
     welcome_email:
       welcome_email_subject: "Witaj w %{service_name}!"
-      welcome_to_marketplace: "Witaj w %{service_name}! Dobrze Ciebie widzieć."
+      welcome_to_marketplace: "Witaj w %{service_name}! Cieszymy się, że do nas dołączyłeś."
       love_marketplace_crew: "Pozdrawiamy, <br /><i>Ekipa %{service_name}</i>"
       welcome_email_footer_text: "Jakie rodzaje wiadomości email chcesz otrzymywać od %{service_name}? %{settings_link}"
       settings_link_text: "Sprawdź swoje ustawienia"
     new_listing_by_followed_person:
       subject: "%{author_name} dodał nową ofertę w %{service_name}"
       has_posted_a_new_listing: "%{author_name} dodał nową ofertę:"
-      you_are_receiving_this_because: "Otrzymujesz to powiadomienie, ponieważ śledzisz %{author_name}."
+      you_are_receiving_this_because: "Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}."
       view_listing: "Wyświetl oferty"
     new_member_notification:
       new_member_has_joined: "Nowy członek dołączył do %{community}. Jednakże jeszcze mogli nie potwierdzić adresu email."
@@ -1460,14 +1463,14 @@ pl:
     onboarding:
       server_rendering: "Poradnik początkujących się nie załadował. Zostaliśmy powiadomieni o sytuacji i naprawiamy ją."
     listings:
-      departure_time: "Czas rozpoczęcia musi być pomiędzy aktualny czasem, a datą za rok od dziś."
+      departure_time: "Czas rozpoczęcia musi znajdować się w przedziale między aktualną datą a datą za rok."
       share_type: "Musisz wybrać jedną"
-      valid_until: "Data musi być pomiędzy aktualnym czasem, a sześć miesięcy od dziś."
+      valid_until: "Data musi znajdować się w przedziale pomiędzy aktualnym czasem, a sześć miesięcy od dziś."
       price: "Cena musi być liczbą całkowitą."
       minimum_price: "Cena minimum to %{minimum_price} %{currency}"
     testimonials:
-      you_must_explain_not_neutral_feedback: "Jeżeli chcesz przekazać nieneutralną opinię, musisz wyjaśnić dlaczego."
-      you_must_select_a_grade: "Pamiętaj, aby przekazać czy Twoje odczucia są pozytywne lub negatywne."
+      you_must_explain_not_neutral_feedback: "Jeżeli chcesz przekazać pozytywną lub negatywną opinię, musisz ją uargumentować."
+      you_must_select_a_grade: "Pamiętaj, aby poinformować o tym czy Twoje doświadczenie ze współpracy było pozytywne czy negatywne."
     transaction_agreement:
       required_error: "Musisz zaakceptować umowę"
     paypal:
@@ -1475,6 +1478,7 @@ pl:
       buyer_cannot_pay_error: "Płatność została odrzucona przez PayPal. Proszę skontaktuj się z ich obsługą klienta aby uzyskać więcej szczegółów: %{customer_service_link}"
       pending_review_error: "Płatność została przesłana, jednak PayPal oznaczył ją jako wymagającą przeglądu. Kiedy PayPal zakończy przegląd, płatność zostanie automatycznie autoryzowana."
       seller_express_checkout_disabled: "Szybkie płatności PayPal zostały wyłączone dla konta autora oferty. Proszę, skontaktuj się z autorem oferty i daj mu znać, że jest problem z jego kontem PayPal i poleć mu kontakt z obsługą klienta PayPal."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "W trakcie procesu płatności pojawił się błąd. Nie można zakończyć Twojej płatności PayPal."
       cancel_error: "Wystąpił błąd podczas anulowania. Nie można zakończyć anulowania."
       accept_authorization_error: "Wystąpił błąd podczas akceptowania preautoryzowanej płatności PayPal. Proszę spróbować ponownie."
@@ -1486,7 +1490,7 @@ pl:
   error_pages:
     back_to_kassi_front_page: "Wróć do strony głównej"
     error_404:
-      if_you_believe: "Jeżeli uważasz, że adres jest poprawny i powinien działać, pomóż nam znaleźć błąd i daj znać przez formularz poniżej, który z adresów spowodował błąd i co powinno pojawić się na stronie."
+      if_you_believe: "Jeżeli uważasz, że adres jest poprawny i powinien działać, pomóż nam znaleźć błąd poprzez wypełnienie formularza znajdującego się poniżej. Wpisz adres, który spowodował błąd i to co powinno pojawić się na stronie."
       page_can_not_be_found: "Strony nie znaleziono!"
       page_you_requested_can_not_be_found: "Strony, której szukasz nie znaleziono. Czy jesteś pewien, że podałeś poprawny adres?"
     error_404_title: "strony nie znaleziono"
@@ -1572,7 +1576,7 @@ pl:
       additionally_some_private_requests_exist: "Dodatkowo są <b>%{number_of_listings} inne zapytania</b>,"
     blank_slate:
       add_first: "Dodaj ofertę!"
-      but_that_is_visible_only_to_registered_members: "ale jest to widoczne tylko do zarejestrowanych użytkowników."
+      but_that_is_visible_only_to_registered_members: "ale jest to widoczne tylko dla zarejestrowanych użytkowników."
       but_those_are_visible_only_to_registered_members: "ale te są widoczne tylko do zarejestrowanych użytkowników."
       create_new_account_for_yourself: "Stwórz nowe konto"
       examples_of_what_you_could_offer_to_others: "Co możesz oferować innym"
@@ -1586,14 +1590,14 @@ pl:
       items_to_offer: "Rzeczy do wypożyczenia: "
       items_to_request: "Rzeczy do pożyczenia: "
       log_in: "zaloguj się!"
-      no_offers_visible_unless_logged_in: "Rzecz, usługa, oferty przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
+      no_offers_visible_unless_logged_in: "Żadna rzecz, usługa ani oferta przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
       no_open_offers_currently: "Nie otwarta rzecz, usługa lub oferta przejazdu."
-      no_open_requests_currently: "Nie otwarta rzecz, usługa lub oferta przejazdu."
-      no_requests_visible_unless_logged_in: "Rzecz, usługa, oferty przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
+      no_open_requests_currently: "Brak otwartej rzeczy, usługi ani oferty przejazdu."
+      no_requests_visible_unless_logged_in: "Żadna rzecz, usługa ani oferta przejazdu nie są widoczne dla użytkowników, którzy nie są zalogowani."
       one_private_offer_exists: "Jest już <b>jedna oferta</b>,"
       one_private_request_exists: "Jest już <b>jedno zapytanie</b>,"
       ride_offer: "Zabierz dzieci innych do ich hobby"
-      ride_request: "Jedź do pracy"
+      ride_request: "Podwiezienie do pracy"
       some_private_offers_exist: "Istnieje już <b>%{number_of_listings} ofert</b>,"
       some_private_requests_exist: "Istnieje już <b>%{number_of_listings} zapytań</b>,"
     custom_filters:
@@ -1618,7 +1622,7 @@ pl:
       are_offering: oferta
       add_news_item: "Dodaj artykuł"
       lend_rent_help_carpool: "Sprzedawaj, wypożyczaj, pomagaj, współdziel przejazdy"
-      loading_more_content: "Trwa ładowanie więcej treści"
+      loading_more_content: "Trwa ładowanie większej ilości treści"
       more_events: "Więcej wydarzeń..."
       news: Aktualności
       no_news: "Brak nowości"
@@ -1653,7 +1657,7 @@ pl:
     profile_info_empty_notification:
       add_your_info: "Dodaj informacje kontaktowe"
       add_a_profile_picture: "Dodaj zdjęcie profilowe"
-      you_have_not_added_your_info: "Nie dodałeś swoich informacji kontaktowych. Zrób to, a inni będą mogli łatwiej się z Tobą skontaktować. Dodaj także zdjęcie profilowe, aby inni mogli Tobie zaufać bardziej."
+      you_have_not_added_your_info: "Nie dodałeś swoich informacji kontaktowych. Zrób to, a inni będą mogli łatwiej się z Tobą skontaktować. Dodaj także zdjęcie profilowe, aby inni mogli Ci bardziej zaufać."
       add_your_info_link: "Dodaj swoje informacje teraz"
     recent_listing:
       please_offer: Oferuj
@@ -1766,7 +1770,7 @@ pl:
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Dziękujemy, że dołączyłeś do %{service_name}. Teraz musisz potwierdzić swój adres email."
       comment_cannot_be_empty: "Komentarz nie może być pusty"
       comment_sent: "Komentarz wysłany"
-      confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam opinię jeżeli problem wciąż występuje."
+      confirmation_link_is_wrong_or_used: "Ten link potwierdzający został już użyty lub jest uszkodzony. Spróbuj się zalogować, albo przesłać nam informację jeżeli problem wciąż występuje."
       additional_email_confirmed: "Adres email, który wprowadziłeś jest potwierdzony."
       could_not_get_email_from_social_network: "Nie ma podanego adresu e-mail %{provider}. Nie można stworzyć konta bez adresu e-mail."
       social_network_email_unconfirmed: "Adres e-mail '%{email}' powiązany z Twoim %{provider} kontem jest wykorzystywany ale nadal nie został potwierdzony. Proszę potwierdź adres przed zalogowaniem się do %{provider}."
@@ -1775,9 +1779,9 @@ pl:
       email_confirmation_sent_to_new_address: "Email potwierdzający został wysłany na nowy adres."
       email_not_found: "Email, który podałeś nie został znaleziony w bazie %{service_name}"
       error_with_session: "Problem z sesją."
-      feedback_considered_spam: "Opinia nie została zapisana ze względu na jego formatowanie. Spróbuj ponownie lub skorzystaj z forum opinii."
-      feedback_not_saved: "Opinia nie stała wysłana."
-      feedback_saved: "Dziękujemy bardzo za Twoją wiadomość! Wrócimy do Ciebie tak szybko, jak to możliwe."
+      feedback_considered_spam: "Opinia nie została zapisana ze względu na jej formatowanie. Spróbuj ponownie lub skorzystaj z forum opinii."
+      feedback_not_saved: "Opinia nie została wysłana."
+      feedback_saved: "Dziękujemy bardzo za Twoją wiadomość! Odezwiemy się do Ciebie tak szybko, jak to możliwe."
       feedback_sent_to: "Opinia przesłana do %{target_person}"
       feedback_skipped: "Opinia pominięta"
       invitation_cannot_be_sent: "Zaproszenie nie może być wysłane"
@@ -1823,11 +1827,11 @@ pl:
       poll_could_not_be_answered: "Ankieta nie może zostać wypełniona"
       poll_created: "Ankieta stworzona"
       poll_creation_failed: "Stworzenie ankiety nie powiodło się"
-      poll_update_failed: "Aktualizacja ankiety nie powiodło się"
+      poll_update_failed: "Aktualizacja ankiety nie powiodła się"
       poll_updated: "Ankieta zaktualizowana"
       poll_deleted: "Ankieta usunięta"
       read_more: "Przeczytaj więcej!"
-      registration_considered_spam: "Rejestracja się nie powiodła, proszę skontaktuj się z nami z opcji nagłówka podając problem \"email2 error\"."
+      registration_considered_spam: "Rejestracja się nie powiodła, proszę skontaktuj się z nami klikając na link w górnym menu wpisując tytuł \"email2 error\"."
       reply_cannot_be_empty: "Nie możesz wysłać pustej wiadomości"
       reply_sent: "Odpowiedź wysłana pomyślnie"
       request_accepted: "Zapytanie zaakceptowane"
@@ -1837,16 +1841,16 @@ pl:
       message_sent: "Wiadomość wysłana"
       message_not_sent: "Wysyłanie wiadomości nie powiodło się. Proszę spróbować ponownie."
       this_content_is_not_available_in_this_community: "Treść nie jest dostępna."
-      unknown_error: "Nieznany błąd. Użyj linka Kontakt i wyślij nam szczegóły tego co się stało."
+      unknown_error: "Nieznany błąd. Skorzystaj z linku \"Kontakt \" i opisz szczegóły tego co się stało."
       update_error: "W trakcie aktualizacji informacji wystąpił błąd, spróbuj ponownie później."
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie jesteś uprawniony, aby przekazać opinię do tego wydarzenia"
-      you_are_not_authorized_to_do_this: "Nie jesteś uprawniony, aby to zrobić"
-      you_are_not_authorized_to_view_this_content: "Nie jesteś uprawniony, aby to zobaczyć"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Nie jesteś uprawniony do wystawiania opinii temu wydarzeniu."
+      you_are_not_authorized_to_do_this: "Nie masz uprawnień do zrobieni tego."
+      you_are_not_authorized_to_view_this_content: "Nie masz uprawnień do przeglądania tych treści."
       listing_closed: "Ta oferta została zamknięta"
       send_instructions: "W ciągu kliku minut otrzymasz wiadomość email z instrukcją jak zrestartować swoje hasło."
       you_cannot_reply_to_a_closed_offer: "Nie możesz odpowiedzieć na zamknietą ofertę"
       you_cannot_send_message_to_yourself: "Nie można wysłać wiadomości do siebie"
-      you_followed_listing: "Od teraz śledzisz tę ofertę"
+      you_followed_listing: "Od teraz obserwujesz tą ofertę"
       you_have_already_given_feedback_about_this_event: "Już przekazałeś opinię do tego wydarzenia"
       you_are_now_member: "Witaj w %{service_name}!"
       you_are_already_member: "Już jesteś członkiem %{service_name}. Witaj ponownie!"
@@ -1867,12 +1871,13 @@ pl:
       you_must_log_in_to_confirm_or_cancel: "Musisz zalogować się aby anulować lub potwierdzić transakcję"
       you_need_to_confirm_your_account_first: "Musisz potwierdzić swój adres email."
       you_must_fill_all_the_fields: "Musisz wypełnić wszystkie pola"
-      you_unfollowed_listing: "Już nie śledzisz tej oferty"
+      you_unfollowed_listing: "Już nie obserwujesz tej oferty"
       joining_community_failed: "Dołączenie nie zakończyło się pomyślnie"
       can_not_delete_email: "Nie możesz usunąć adresu email"
       user_does_not_have_email_to_delete: "Nie masz adresu email, który chcesz usunąć"
       email_deleted: "Adres email usunięty"
       listing_author_payment_details_missing: "Skontaktuj się proszę z autorem poprzez naciśnięcie przycisku \"Kontakt\" poniżej. Musi on zaktualizować dane dotyczące płatności aby móc je otrzymywać."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Procesujemy Twoje zdjęcia. Daj nam minutę lub dwie i będą widoczne."
       maintenance_mode:
         zero: "Strona staje się właśnie niedostępna ze względów serwisowych"
@@ -1896,7 +1901,7 @@ pl:
       listings_search_placeholder: "Szukaj po nazwie oferty"
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: "Nie masz uprawnień, aby zobaczyć tę ofertę."
+      listing_not_visible: "Nie masz uprawnień do obejrzenia tej oferty."
     comment:
       wrote: napisz
       send_private_message: "Wyślij wiadomość prywatną do %{person}"
@@ -2027,7 +2032,7 @@ pl:
         accept_for_free: "Zaakceptuj za darmo"
         trade: Wymienianie
       tag_list:
-        comma_separate: "(oddzielnie przecinkami)"
+        comma_separate: "(oddzielone przecinkami)"
         tags: Tagi
       title:
         listing_title: "Tytuł oferty"
@@ -2048,7 +2053,7 @@ pl:
       all_offer_types: "Wszystkie rodzaje ofert"
       all_request_types: "Wszystkie rodzaje zapytań"
       category: Kategoria
-      did_not_found_what_you_were_looking_for: "Nie znalazłeś czego szukałeś?"
+      did_not_found_what_you_were_looking_for: "Nie znalazłeś tego czego szukałeś?"
       favors: Usługi
       housing: Przestrzenie
       items: Rzeczy
@@ -2304,12 +2309,12 @@ pl:
       invite_only_help_text_title: "Tylko z zaproszeniem"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Ten użytkownik nie jest już aktywny w %{service_name}"
-      inactive_description: "Użytkownik przestał korzystać z %{service_name}. Nie możesz się z nim skontaktować, przekazać opinii, abo komentować ich oferty."
+      inactive_description: "Użytkownik przestał korzystać z %{service_name}. Nie możesz się z nim skontaktować, przekazać opinii ani komentować jego oferty."
     new:
       create_new_account: "Stwórz nowe konto"
       email: "Adres email"
       email_is_in_use: "Adres email, który podałeś jest już w użyciu."
-      email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie przejść tego etapu, skontaktuj się z nami."
+      email_is_in_use_or_not_allowed: "Ten adres email nie jest dozwolony lub ktoś już z niego korzysta. Jeżeli nie możesz przebrnąć przez ten etap, skontaktuj się z nami."
       email_not_allowed: "Ten adres email nie jest dozwolony w %{service_name}. Proszę użyj innego adresu. Jeżeli wciąż nie możesz się zalogować, skontaktuj się z nami."
       invalid_username_or_email: "Użytkownik lub e-mail nie są poprawne albo w tej chwili są użytkowane"
       email_restriction_instructions:
@@ -2326,12 +2331,12 @@ pl:
       not_required: ", nie wymagane"
       notification_is_mandatory: "Musisz wybrać przynajmniej jeden adres e-mail do otrzymywania powiadomień. Jeśli nie chcesz otrzymywać żadnych e-maili od %{service_name}, sprawdź swoje ustawienia powiadomień e-mailowych."
       password_again: "Powtórz hasło"
-      show_my_name_to_others: "Pokaż moje prawdziwe imię do innych użytkowników %{service_name}"
+      show_my_name_to_others: "Pokaż moje prawdziwe imię innym użytkownikom %{service_name}"
       sign_up: "Stwórz nowe konto w %{service_name}"
       terms: Regulamin
       privacy: "Polityka prywatności"
       username_is_in_use: "Ta nazwa użytkownika jest już w użyciu."
-      username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery, cyfry i podkreślnik."
+      username_is_invalid: "Nazwa użytkownika nie jest poprawna. Dozwolone znaki to litery (bez znaków specjalnych), cyfry i podkreślnik."
       visible_only_to_you: "widoczne tylko dla Ciebie i administratora platformy"
       visible_to_everybody: "widoczne dla wszystkich"
       create_account_with_provider: "Zarejestruj się za pomocą %{provider}"
@@ -2379,14 +2384,14 @@ pl:
       admin_actions: "Działania administratora"
       post_listing_as: "Opublikuj ofertę jako"
     followed_people:
-      you_follow_plural: "Śledzisz %{count} ludzi"
-      you_follow_singular: "Śledzisz %{count} osób"
+      you_follow_plural: "Obserwujesz %{count} osób"
+      you_follow_singular: "Obserwujesz %{count} osób"
       they_follow_plural: "%{count} obserwowanych osób"
       they_follow_singular: "%{count} obserwowanych osób"
       show_all_followed_people: "Pokaż wszystkie obserwowane osoby"
       no_followed_people: "Brak obserwowanych osób"
     follow_button:
-      following: Śledzących
+      following: Obserwujących
       follow: Obserwuj
       unfollow: "Nie obserwuj"
   sessions:
@@ -2461,7 +2466,7 @@ pl:
       newsletters: "Emaile od administratorów"
       community_updates: Newslettery
       email_about_confirm_reminders: "... zapomniałem oznaczyć zamówienie jako ukończone"
-      email_about_new_comments_to_own_listing: "...ktoś komentuje w mojej ofercie lub zapytaniu"
+      email_about_new_comments_to_own_listing: "...ktoś komentuje moją ofertę lub odpowiada na zapytanie"
       email_about_new_messages: "...ktoś przesyła mi wiadomość"
       email_about_new_received_testimonials: "...ktoś przekazuje mi opinię"
       email_about_testimonial_reminders: "...zapomniałem przekazać opinię o wydarzeniu"
@@ -2472,7 +2477,7 @@ pl:
       email_when_conversation_rejected: "...ktoś odrzuca moją ofertę lub zapytanie"
       email_about_completed_transactions: "... ktoś oznacza moje zamówienie jako ukończone"
       email_about_new_payments: "... otrzymałem nową płatność"
-      email_about_new_listings_by_followed_people: "... ktoś kogo śledzę opublikował nową ofertę"
+      email_about_new_listings_by_followed_people: "... ktoś kogo obserwuję opublikował nową ofertę"
       unsubscribe_succesful: "Wypisanie z newslettera zakończyło się sukcesem"
       unsubscribe_info_text: "Już nie będziesz otrzymywać tych wiadomości email. Sprawdź Twój %{settings_link}, aby wybrać jakie rodzaje wiadomości chcesz otrzymać od platformy %{service_name}, bądź wróć do %{homepage_link}."
       settings_link: ustawienia
@@ -2521,7 +2526,7 @@ pl:
       terms_have_changed: "Zasady użytkowania zmieniły się"
       you_can_view_the_new_terms: "Możesz wyświetlić nowe zasady użytkowania"
       you_need_to_accept: "Witaj w %{service_name}! Wygląda na to, że używasz usługi po raz pierwszy. Zanim rozpoczniesz, musisz zaakceptować"
-      you_need_to_accept_new_terms: "Zasady użytkowania %{service_name} zmieniły się. Musisz zaakceptować nowe zasady, aby kontynuować korzystanie z %{service_name}. Nowe zasady mają umożliwić utrzymanie usługi po zakończeniu projektu badawczego."
+      you_need_to_accept_new_terms: "Zasady użytkowania %{service_name} zmieniły się. Musisz zaakceptować nowe zasady, aby kontynuować korzystanie z %{service_name}. Nowe zasady mają umożliwić utrzymanie usługi po zakończeniu projektu testowego."
   testimonials:
     index:
       all_testimonials: "Wszystkie opinie"
@@ -2532,12 +2537,12 @@ pl:
       as_expected: "Jak oczekiwano"
       exceeded_expectations: "Zdecydowanie więcej niż oczekiwano"
       give_feedback_to: "Przekaż opinię do %{person}"
-      grade: "Jakie jest Twoja ogólna opinia?"
+      grade: "Jaka jest Twoja ogólna ocena?"
       less_than_expected: "Gorzej niż oczekiwano"
       send_feedback: "Wyślij opinię"
       slightly_better_than_expected: "Trochę lepiej niż oczekiwano"
       slightly_less_than_expected: "Trochę gorzej niż oczekiwano"
-      textual_feedback: "Jak wyglądały sprawy?"
+      textual_feedback: "Jak poszło?"
       this_will_be_shown_in_profile: "Opinia, którą zostawisz będzie widoczna dla innych członków w profilu %{person}. To pomoże ocenić czy %{person} jest zaufany/a."
       positive: Pozytywny
       negative: Negatywny

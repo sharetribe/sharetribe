@@ -219,6 +219,7 @@ hu:
         users_can_invite_new_users: "Engedélyezés az összes felhasználónak új felhasználók meghívására"
         private: "Hirdetések és felhasználói profilok megtekintése kizárülag regisztrált felhasználók részére (privát piactér létrehozása)"
         require_verification_to_post_listings: "Csak a rendszergazda által ellenőrzött felhasználók adhatnak fel új hirdetéseket"
+        allow_free_conversations: ~
         search_preferences: "Keresési beállítások"
         default_search_type: "Keresés típusa: %{select_search_type}"
         keyword_search: "Keresés kulcsszóra"
@@ -565,6 +566,8 @@ hu:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1454,6 +1457,7 @@ hu:
       buyer_cannot_pay_error: "PayPal az átutalást elutasította. Kérjük vegye fel a kapcsolatot a vevőszolgálatukkal: %{customer_service_link}"
       pending_review_error: "Az utalás elindításra került, de a PayPal jelölte mint: 'értékelés igénylése'. Amint a PayPal elvégzi az értékelést az utalás automatikusan engedélyezésre kerül."
       seller_express_checkout_disabled: "A PayPal Express Checkout tiltva van a hirdető PayPal fiókján. Kérjük lépjen kapcsolatba a hirdetővel és tudassa a problémáról. Továbbá tanácsolja neki, hogy vegye fel a kapcsolatot a PayPal ügyfélszolgálatával."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Hiba merült fel a fizetés során. A PayPal-os kifizetés sikertelen."
       cancel_error: "A törlés alatt hiba merült fel. A törlés sikertelen."
       accept_authorization_error: "Hiba történt a PayPal-os utalás elfogadásakor. Kérjem, próbálja újra!"
@@ -1854,6 +1858,7 @@ hu:
       listing_author_payment_details_missing: |-
           Kérjük a 'Kapcsolat' gombra kattintva lépjen kapcsolatba a hirdetővel. 
           A hirdetőnek frissítenie kell a fizetési információit, hogy átutalásokat tudjon fogadni.
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "A képei feldolgozás alatt vannak. Egy-két perc türelmét kérjük és láthatóak lesznek."
       maintenance_mode:
         other: "Karbantartási munkálatok miatt %{count} perc múlva a weboldal nem lesz elérhető "

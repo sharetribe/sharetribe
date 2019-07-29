@@ -218,6 +218,7 @@ de:
         users_can_invite_new_users: "Alle Mitglieder, nicht nur Admins, können neue Benutzer zu diesem Marktplatz einladen"
         private: "Dieser Marktplatz ist privat (nur registrierte Benutzer können den Inhalt sehen)"
         require_verification_to_post_listings: "Nur von einem Admin verifizierte Benutzer können neue Einträge veröffentlichen"
+        allow_free_conversations: "Erlaube es allen Benutzern, einander frei zu kontaktieren"
         search_preferences: Sucheinstellungen
         default_search_type: "Suchtyp: %{select_search_type}"
         keyword_search: Schlagwortsuche
@@ -564,6 +565,8 @@ de:
         search_by_title_author_category: "Nach dem Titel oder Autor des Eintrags, oder Kategoriename suchen"
         search: Suchen
         reset_search: "Alle anzeigen"
+        export_all_as_csv: "Alles as CSV exportieren"
+        processing_export: "Exportiere auf CSV..."
         status:
           all: "Alle Status"
           selected_js: "Gewählte Status: "
@@ -892,7 +895,7 @@ de:
       stripe_fee: Stripe-Gebühren
       stripe_fee_notice: "%{stripe_fee_link} werden von deiner Transaktionsgebühr abgezogen."
       fee_should_be_less_than_minimum_price: "Der Mindestgebühr muss weniger als der Mindestbetrag einer Transaktion sein"
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "Die Transaktionsgebühr muss weniger als 100% betragen"
       confirm_disable: "Bist du sicher, dass du %{gateway} deaktivieren willst? Wenn du es deaktivierst, können Verkäufer und Käufer es nicht mehr verwenden, um Geld zu empfangen oder zu bezahlen. Wenn ein Verkäufer keine alternative Bezahlungsmethode eingerichtet hat, können Käufer nicht mehr von ihnen kaufen."
       commission_from_buyer_label: "Transaktionsgebühr des Käufers:"
       minimum_buyer_transaction_fee_label: "Mindestgebühr des Käufers für die Transaktion:"
@@ -1457,6 +1460,7 @@ de:
       buyer_cannot_pay_error: "Die Bezahlung wurde von Paypal abgelehnt. Bitte kontaktiere den Kundenservice für mehr Informationen: %{customer_service_link}"
       pending_review_error: "Die Zahlung wurde eingereicht, wurde aber von PayPal als \"erfordert Bewertung' gekennzeichnet. Wenn PayPal die Überprüfung abgeschlossen hat, wird die Zahlung automatisch genehmigt werden."
       seller_express_checkout_disabled: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere den Inhaber und lass ihn/sie wissen, dass es ein Problem mit seinem/ihrem Paypal-Konto gibt, und empfehle ihn/sie, den PayPal-Kundendienst zu kontaktieren."
+      seller_express_checkout_disabled_no_free: "PayPal Express-Checkout ist für das Paypal-Konto des Eintraginhabers deaktiviert. Bitte kontaktiere das %{service_name} Team und erzähle ihnen, dass sie des Eintraginhaber kontaktieren sollen. Der Inhaber sollte nämlich den PayPal Kundendienst kontaktieren."
       generic_error: "Während des Zahlungsvorgangs ist ein Fehler aufgetreten. Die PayPal Zahlung konnte nicht abgeschlossen werden."
       cancel_error: "Während der Stornierung ist ein Fehler aufgetreten. Der Abbruch konnte nicht abgeschlossen werden."
       accept_authorization_error: "Bei dem Versuch, eine vorab autorisierte PayPal-Zahlung zu akzeptieren, ist ein Fehler aufgetreten. Bitte versuche es erneut."
@@ -1788,7 +1792,7 @@ de:
       listing_updated_successfully: "Eintrag wurde erfolgreich aktualisiert"
       listing_updated_availability_management_enabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung aktiviert."
       listing_updated_availability_management_disabled: "Eintrag wurde erfolgreich aktualisiert. Verfügbarkeitsverwaltung deaktiviert."
-      listing_deleted: ~
+      listing_deleted: "Angebot gelöscht"
       only_kassi_administrators_can_access_this_area: "Bitte mit einem Administratorkonto einloggen, um diesen Bereich zu betreten"
       only_listing_author_can_close_a_listing: "Nur der erstellende Anbieter kann ein Angebot deaktivieren"
       only_listing_author_can_edit_a_listing: "Nur Autoren eines Eintrags können den Eintrag bearbeiten"
@@ -1855,6 +1859,7 @@ de:
       user_does_not_have_email_to_delete: "Die E-Mail-Adresse, die du zu entfernen versuchst, gehört nicht zu dir"
       email_deleted: "E-Mail entfernt"
       listing_author_payment_details_missing: "Leider kann dieser Anbieter keine Zahlungen empfangen, da er seine Zahlungsdaten noch angeben muss. Bitte kontaktiere ihn über das Kontakt Feld unten."
+      listing_author_payment_details_missing_no_free: "Bitte kontaktiere das %{service_name} Team und erzähle ihnen, dass sie dem Eintraginhaber kontaktieren sollen. Der Inhaber sollte nämlich seine/ihre Zahlungsdetails aktualisieren, um Zahlungen empfangen zu können."
       images_are_processing: "Wir bearbeiten deine Bilder. Nach ein paar Minuten werden die angezeigt."
       maintenance_mode:
         zero: "Die Webseite geht nun offline für Wartungsarbeiten."
@@ -1891,7 +1896,7 @@ de:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Du kannst keine neuen Kommentare schicken, da dieser Eintrag geschlossen wurde."
       you_must: "Du musst dich"
       subscribe_to_comments: "Benachrichtigt mich über neue Kommentare und Updates"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "Das Löschen eines Angebots kann nicht rückgängig gemacht werden. Bist du sicher, dass du fortfahren willst?"
     edit:
       edit_listing: "Eintrag bearbeiten"
     edit_links:
@@ -1907,7 +1912,7 @@ de:
       listing_is_rejected: "Eintrag wurde abgelehnt"
       approve_listing: "Eintrag annehmen"
       reject_listing: "Eintrag ablehnen"
-      delete_listing: ~
+      delete_listing: "Angebot löschen"
     map:
       open_in_google_maps: "In Google Maps öffnen"
     error:
@@ -2761,12 +2766,12 @@ de:
     paypal_connected: "PayPal-Konto erfolgreich verbunden!"
     paypal_can_accept: "Du bist bereit, PayPal-Zahlungen entgegenzunehmen"
     paypal_connected_give_permission: "Als letztes, bitte erteile eine Genehmigung für das Abheben der Transaktionsgebühr, um Geld auf das PayPal Konto <%{email}> bekommen zu können."
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
-    stripe_account_pending_verification_info: ~
+    stripe_account_restricted: "Online-Zahlungen auf dein Konto sind beschränkt!"
+    stripe_account_restricted_info: "Du solltest deine Bankkontodetails ändern, um dem Zahlungsdienstleister mehr Informationen zu geben."
+    stripe_account_restricted_soon: "Online-Zahlungen auf dein Konto werden bald beschränkt."
+    stripe_account_restricted_soon_info: "Du solltest deine Bankkontodetails ändern, um dem Zahlungsdienstleister mehr Informationen zu geben."
+    stripe_account_pending_verification: "Kontodetails erfolgreich gespeichert. Warte auf Konto-Verifizierung vom Zahlungsdienstleister."
+    stripe_account_pending_verification_info: "Prüfe bitte diese Seite später um sicherzustellen, dass alles in Ordnung ist."
     form_new:
       need_info: "Wir brauchen einige Informationen über dich, um dir Geld überweisen zu können."
       select_country: "Land wählen..."

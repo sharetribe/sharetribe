@@ -203,6 +203,7 @@ it:
         users_can_invite_new_users: ~
         private: ~
         require_verification_to_post_listings: ~
+        allow_free_conversations: ~
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -549,6 +550,8 @@ it:
         search_by_title_author_category: ~
         search: Cerca
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1424,6 +1427,7 @@ it:
       buyer_cannot_pay_error: "Il pagamento è stato rifiutato da PayPal. Si prega di contattare il loro Servizio Clienti per maggiori informazioni: %{customer_service_link}"
       pending_review_error: "Il pagamento è stato presentato, ma è stato contrassegnato da PayPal come 'in revisione'. Quando PayPal completarà la revisione, il pagamento verrà autorizzato automaticamente."
       seller_express_checkout_disabled: "Il pagamento con PayPal non è attivo sul conto PayPal dell'autore dell'inserzione. Per favore contatta l'autore, e mettilo a conoscenza che c'è un problema con il suo conto PayPal. Consigliali per favore di contattare l'Assistenza clienti PayPal."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Si è verificato un errore durante la procedura di pagamento. Impossibile finalizzare il pagamento di PayPal."
       cancel_error: "Si è verificato un errore durante la cancellazione. Non è stato possibile completare la cancellazione."
       accept_authorization_error: "Si è verificato un errore durante il tentativo di accettare un pagamento pre autorizzato di Paypal. Per favore, riprova nuovamente."
@@ -1822,6 +1826,7 @@ it:
       user_does_not_have_email_to_delete: "Non hai l'indirizzo email che stai cercando di rimuovere"
       email_deleted: "Email rimossa"
       listing_author_payment_details_missing: "Ti preghiamo di contattare l'autore, cliccando sul pulsante 'contatta' che trovi più in basso. Deve aggiornare i dettagli di pagamento per poter ricevere pagamenti."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Stiamo elaborando le tue immagini. Attendi per favore uno o due minuti e saranno visibili."
       maintenance_mode:
         zero: "Il sito web sarà messo ora offline per manutenzione."

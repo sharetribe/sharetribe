@@ -213,6 +213,7 @@ th-TH:
         users_can_invite_new_users: อนุญาตให้ผู้ใช้ทุกคนสามารถเชิญผู้ใช้ใหม่ได้
         private: "อนุญาตให้ผู้ใช้ที่ลงทะเบียนแล้วเท่านั้นที่จะเห็นรายการและโปรไฟล์ของผู้ใช้ (ทำให้เป็นตลาดส่วนตัว)"
         require_verification_to_post_listings: อนุญาตให้เฉพาะผู้ใช้ที่ได้รับการตรวจสอบแล้วจากผู้ดูแลระบบในการโพสต์รายการใหม่
+        allow_free_conversations: ~
         search_preferences: ~
         default_search_type: ~
         keyword_search: ~
@@ -559,6 +560,8 @@ th-TH:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1442,6 +1445,7 @@ th-TH:
       buyer_cannot_pay_error: "การชำระเงินถูกปฏิเสธโดย PayPal โปรดติดต่อฝ่ายบริการลูกค้าของ PayPal เพื่อขอข้อมูลเพิ่มเติม: %{customer_service_link}"
       pending_review_error: "การชำระเงินถูกส่งเข้าระบบแล้ว แต่ถูกระบุโดย PayPal ว่า 'ต้องได้รับการตรวจสอบ' เมื่อ PayPal เสร็จสิ้นการตรวจสอบเสร็จสิ้น การชำระเงินจะได้รับการอนุมัติโดยอัตโนมัติ"
       seller_express_checkout_disabled: "PayPal Express Checkout ได้ถูกปิดในรายการบัญชี PayPal ของผู้เขียน กรุณาติดต่อ ผู้เขียน เพื่อรายงานให้รู้ว่ามีปัญหากับบัญชี PayPal ของเขา และแนะนำให้ติดต่อฝ่ายบริการลูกค้าของ PayPal"
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "เกิดข้อผิดพลาดในระหว่างขั้นตอนการชำระเงิน ไม่สามารถสรุปการชำระเงิน PayPal ของคุณได้"
       cancel_error: "เกิดข้อผิดพลาดระหว่างการยกเลิก ไม่สามารถยกเลิกรายการได้"
       accept_authorization_error: "เกิดข้อผิดพลาดขณะอนุญาติการชำระเงินผ่าน Paypal ส่วงหน้า กรุณาลองอีกครั้ง."
@@ -1840,6 +1844,7 @@ th-TH:
       user_does_not_have_email_to_delete: คุณไม่มีที่อยู่อีเมล์ที่คุณกำลังพยายามที่จะลบ
       email_deleted: อีเมล์ได้ถูกลบแล้ว
       listing_author_payment_details_missing: "โปรดติดต่อผู้ขายโดยการกดปุ่ม 'ติดต่อ' ด้านล่าง ผู้ขายจำเป็นต้องอัพเดทรายละเอียดการชำระเงินของตนเพื่อที่จะรับเงิน"
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: ~
       automatically_logged_out_please_sign_in: "คุณใช้งานเกินระยะเวลาที่กำหนด โปรดเข้าสู่ระบบอีกครั้งเพื่อดำเนินการต่อ"
       stripe_you_account_balance_is_not_0: ~

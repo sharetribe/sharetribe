@@ -3,13 +3,13 @@ pl:
     messages:
       expired: "wygasło/a, proszę wybrać nowy/ą"
       not_found: "nie znaleziono"
-      already_confirmed: "została już potwierdzona, spróbuj zalogować się"
+      already_confirmed: "została już potwierdzona, spróbuj się zalogować"
       not_locked: "nie została zablokowana"
       not_saved:
-        one: "1 błąd zablokował ten %{resource} od zapisania."
-        few: "%{count} błędów zablokowało ten %{resource} od zapisania."
-        many: "%{count} błędów zablokowało ten %{resource} od zapisania."
-        other: "%{count} błędów zablokowało ten %{resource} od zapisania."
+        one: "1 błąd uniemożliwił zapisanie tego %{resource}."
+        few: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
+        many: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
+        other: "%{count} błędów uniemożliwiło zapisanie tego %{resource}."
   devise:
     failure:
       already_authenticated: "Już jesteś zalogowany."
@@ -29,7 +29,7 @@ pl:
       signed_in: "Zalogowano pomyślnie."
       signed_out: "Pomyślnie wylogowano."
     confirmations:
-      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz wiadomość zawierającą instrukcje aktywacji konta."
+      send_paranoid_instructions: "Jeśli Twój adres istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
       confirmed: "Konto zostało pomyślnie aktywowane."
     registrations:

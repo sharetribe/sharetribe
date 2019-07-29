@@ -215,6 +215,7 @@ lv:
         users_can_invite_new_users: "Atļaut visiem lietotājiem uzaicināt jaunus lietotājus"
         private: ~
         require_verification_to_post_listings: ~
+        allow_free_conversations: ~
         search_preferences: "Meklēšanas izvēle"
         default_search_type: "Meklēšanas veids: %{select_search_type}"
         keyword_search: "Meklēšana pēc atslēgvārda"
@@ -561,6 +562,8 @@ lv:
         search_by_title_author_category: ~
         search: ~
         reset_search: ~
+        export_all_as_csv: ~
+        processing_export: ~
         status:
           all: ~
           selected_js: ~
@@ -1436,6 +1439,7 @@ lv:
       buyer_cannot_pay_error: "PayPal ir noraidījis Jūsu maksājumu. Lai iegūtu vairāk informācijas, lūdzu, sazinieties ar viņu klientu apkalpošanas dienestu: %{customer_service_link}"
       pending_review_error: "Maksājums tika iesniegts, bet PayPal to atzīmēja kā \"pārbaudāmu\". Kad PayPal pabeigs pārbaudi, maksājums tiks automātiski atļauts."
       seller_express_checkout_disabled: "PayPal Express Checkout nav iespējams sludinājuma autora PayPal kontam. Lūdzu, sazinieties ar autoru un paziņojiet viņiem, ka ir problēmas ar viņa PayPal kontu, un iesakiet viņiem sazināties ar PayPal klientu apkalpošanas dienestu."
+      seller_express_checkout_disabled_no_free: ~
       generic_error: "Maksājuma procesa laikā radās kļūda. Nevarēja pabeigt Jūsu PayPal maksājumu."
       cancel_error: "Atcelšanas laikā radās kļūda. Nevarēja pabeigt atcelšanu."
       accept_authorization_error: "Radās kļūda, mēģinot pieņemt iepriekš autorizētu PayPal maksājumu. Lūdzu, mēģiniet vēlreiz."
@@ -1834,6 +1838,7 @@ lv:
       user_does_not_have_email_to_delete: "E-pasta adrese, kuru mēģināt noņemt, nav Jūsu"
       email_deleted: "E-pasts noņemts"
       listing_author_payment_details_missing: "Lūdzu sazinieties ar autoru nospiežot zemāk atrodamo 'Kontakti' pogu. Lai saņemtu maksājumus, viņiem ir jāatjaunina sava maksājumu informācija."
+      listing_author_payment_details_missing_no_free: ~
       images_are_processing: "Mēs apstrādājam Jūsu fotoattēlus. Dodiet mums minūti vai divas un tie būs redzami."
       maintenance_mode:
         zero: "Vietne tagad nebūs pieejama "
