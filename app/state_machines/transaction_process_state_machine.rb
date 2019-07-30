@@ -15,10 +15,11 @@ class TransactionProcessStateMachine
   state :confirmed
   state :canceled
   state :payment_intent_action_expired
+  state :payment_intent_failed
 
   transition from: :not_started,                    to: [:free, :initiated]
   transition from: :initiated,                      to: [:payment_intent_requires_action, :preauthorized]
-  transition from: :payment_intent_requires_action, to: [:preauthorized, :payment_intent_action_expired]
+  transition from: :payment_intent_requires_action, to: [:preauthorized, :payment_intent_action_expired, :payment_intent_failed]
   transition from: :preauthorized,                  to: [:paid, :rejected, :pending_ext, :errored]
   transition from: :pending_ext,                    to: [:paid, :rejected]
   transition from: :paid,                           to: [:confirmed, :canceled]

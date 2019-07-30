@@ -76,7 +76,9 @@ class PreauthorizeTransactionsController < ApplicationController
         community: @current_community,
         payment_intent_id: params[:payment_intent_id])
     rescue Stripe::CardError => e
-      render json: { error: e.message }
+      stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
+      TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
+      return render json: { error: e.message }
     end
 
     if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
@@ -92,6 +94,20 @@ class PreauthorizeTransactionsController < ApplicationController
       stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_INVALID)
       render json: { error: 'Invalid PaymentIntent status' }, status: :internal_server_error
     end
+  end
+
+  def stripe_failed_intent
+    tx = Transaction.where(community: @current_community).find(params[:id])
+    unless tx.participations.include?(@current_user)
+      return
+    end
+
+    stripe_payment = tx.stripe_payments.find(params[:stripe_payment_id])
+    stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
+    TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
+    render json: {
+      success: true
+    }
   end
 
   private
@@ -136,7 +152,8 @@ class PreauthorizeTransactionsController < ApplicationController
           stripe_payment_id: stripe_payment.id,
           requires_action: true,
           client_secret: stripe_payment.stripe_payment_intent_client_secret,
-          confirm_intent_path: stripe_confirm_intent_listing_preauthorize_transaction_path(listing.id, tx.id)
+          confirm_intent_path: stripe_confirm_intent_listing_preauthorize_transaction_path(listing.id, tx.id),
+          failed_intent_path: stripe_failed_intent_listing_preauthorize_transaction_path(listing.id, tx.id)
         }
       }
     end

@@ -392,6 +392,7 @@ Rails.application.routes.draw do
       resources :preauthorize_transactions, only: [], defaults: { format: :json } do
         member do
           post :stripe_confirm_intent
+          post :stripe_failed_intent
         end
       end
     end

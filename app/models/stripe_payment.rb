@@ -39,11 +39,12 @@ class StripePayment < ApplicationRecord
   monetize :buyer_commission_cents, with_model_currency: :currency
 
   STATUSES = %w(pending paid canceled transfered)
-  PAYMENT_INTENT_SUCCESS = 'success'
-  PAYMENT_INTENT_REQUIRES_ACTION = 'requires_action'
-  PAYMENT_INTENT_REQUIRES_CAPTURE = 'requires_capture'
-  PAYMENT_INTENT_INVALID = 'invalid'
-  PAYMENT_INTENT_CANCELED = 'canceled'
+  PAYMENT_INTENT_SUCCESS = 'success'.freeze
+  PAYMENT_INTENT_REQUIRES_ACTION = 'requires_action'.freeze
+  PAYMENT_INTENT_REQUIRES_CAPTURE = 'requires_capture'.freeze
+  PAYMENT_INTENT_INVALID = 'invalid'.freeze
+  PAYMENT_INTENT_CANCELED = 'canceled'.freeze
+  PAYMENT_INTENT_FAILED = 'failed'.freeze
 
   def intent?
     stripe_payment_intent_id.present?
