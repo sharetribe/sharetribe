@@ -1,4 +1,16 @@
-if true # rubocop:disable Lint/LiteralAsCondition
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+
+  [
+    "--headless",
+    "--window-size=1280x1280",
+    "--disable-gpu" # https://developers.google.com/web/updates/2017/04/headless-chrome
+  ].each { |arg| options.add_argument(arg) }
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+if false # rubocop:disable Lint/LiteralAsCondition
   require 'capybara/poltergeist'
 
   Capybara.register_driver :poltergeist do |app|
@@ -13,7 +25,7 @@ else
   Webdrivers::Chromedriver.version = '2.46'
 
   # :selenium_chrome_headless
-  Capybara.javascript_driver = :selenium_chrome
+  Capybara.javascript_driver = :selenium_chrome_headless
 end
 
 

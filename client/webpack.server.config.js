@@ -7,30 +7,33 @@ const nodeEnv = devBuild ? 'development' : 'production';
 const { replacePercentChar } = require('./webpackConfigUtil');
 const assetHostEnv = typeof process.env.asset_host === 'string' ? `&asset_host=${process.env.asset_host}` : '';
 const assetHost = replacePercentChar(assetHostEnv);
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   context: __dirname,
   entry: [
-    'babel-polyfill',
+    '@babel/polyfill',
     './app/startup/serverRegistration',
   ],
   output: {
     filename: 'server-bundle.js',
-    path: '../app/assets/webpack',
+    path: `${__dirname}/../app/assets/webpack`,
     publicPath: '/assets/',
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['*', '.js'],
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(nodeEnv),
-      },
+      'process.env.NODE_ENV': JSON.stringify(nodeEnv),
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'server-bundle.css',
     }),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -39,8 +42,22 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: [
-          'css-loader/locals?modules&importLoaders=0&localIdentName=[name]__[local]__[hash:base64:5]',
-          'postcss-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]__[local]__[hash:base64:5]',
+              },
+              importLoaders: 0,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
         ],
       },
       {
@@ -49,16 +66,31 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
-        loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
+        loader: 'file-loader',
+        options: {
+          limit: 10000,
+          name: `[name]-[hash].[ext]${assetHost}`,
+        },
       },
       {
         test: /\.svg$/,
         loader: 'raw-loader',
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      // we specify a custom UglifyJsPlugin here to get source maps in production
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: false,
+          ecma: 6,
+          mangle: true,
+        },
+        sourceMap: true,
+      }),
     ],
   },
 };

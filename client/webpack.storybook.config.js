@@ -6,14 +6,28 @@ const config = require('./webpack.client.base.config');
 delete config.plugins;
 
 config.module = config.module || {};
-config.module.loaders = config.module.loaders || [];
-config.module.loaders.push(
+config.module.rules = config.module.rules || [];
+config.module.rules.push(
   {
     test: /\.css$/,
     loaders: [
-      'style-loader?sourceMap',
-      'css-loader?modules&sourceMap&localIdentName=[name]__[local]__[hash:base64:5]',
-      'postcss-loader',
+      {
+        loader: 'style-loader',
+        options: {
+          sourceMap: true,
+        },
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: true,
+          sourceMap: true,
+          localIdentName: '[name]__[local]__[hash:base64:5]',
+        },
+      },
+      {
+        loader: 'postcss-loader',
+      },
     ],
     include: path.resolve(__dirname, '../'),
   },
@@ -23,7 +37,10 @@ config.module.loaders.push(
   },
   {
     test: /\.(woff2?)$/,
-    loader: 'url?limit=10000',
+    loader: 'url',
+    options: {
+      limit: 10000,
+    },
   },
   {
     test: /\.(ttf|eot)$/,
@@ -31,11 +48,11 @@ config.module.loaders.push(
   },
   {
     test: /\.(jpe?g|png|gif|ico)$/,
-    loader: 'customfile-loader?limit=10000&name=[name]-[hash].[ext]&hotMode=true',
-  },
-  {
-    test: /\.json$/,
-    loader: 'json-loader',
+    loader: 'file-loader',
+    options: {
+      limit: 10000,
+      name: '[name]-[hash].[ext]',
+    },
   },
   {
     test: /\.svg$/,

@@ -1,4 +1,4 @@
-import { configure } from '@kadira/storybook';
+import { configure } from '@storybook/react';
 import '../app/assets/styles/base.css';
 import '../app/i18n/all';
 import { initialize as initializeI18n } from '../app/utils/i18n';

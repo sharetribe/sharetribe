@@ -1,7 +1,7 @@
 /* eslint-env node */
 
-const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const config = require('./webpack.client.base.config');
 const devBuild = process.env.NODE_ENV !== 'production';
 
@@ -11,13 +11,13 @@ const assetHost = replacePercentChar(assetHostEnv);
 
 config.output = {
   filename: '[name]-bundle.js',
-  path: '../app/assets/webpack',
+  path: `${__dirname}/../app/assets/webpack`,
   publicPath: '/assets/',
 };
 
 config.module = config.module || {};
-config.module.loaders = config.module.loaders || [];
-config.module.loaders.push(
+config.module.rules = config.module.rules || [];
+config.module.rules.push(
   {
     test: /\.js$/,
     loader: 'babel-loader',
@@ -25,12 +25,23 @@ config.module.loaders.push(
   },
   {
     test: /\.css$/,
-    loader: ExtractTextPlugin.extract(
-      'style-loader',
-      'css-loader?modules&localIdentName=[name]__[local]__[hash:base64:5]' + // eslint-disable-line prefer-template
-        (devBuild ? '' : '&minimize&-autoprefixer') +
-        '!postcss-loader'
-    ),
+    loader: [
+      {
+        loader: MiniCssExtractPlugin.loader,
+      },
+      {
+        loader: 'css-loader',
+        options: {
+          modules: {
+            mode: 'local',
+            localIdentName: '[name]__[local]__[hash:base64:5]',
+          },
+        },
+      },
+      {
+        loader: 'postcss-loader',
+      },
+    ],
   },
   {
     test: /\.scss$/,
@@ -38,23 +49,26 @@ config.module.loaders.push(
   },
   {
     test: require.resolve('react'),
-    loader: 'imports',
+    loader: 'imports-loader',
   },
   {
     test: /\.(woff2?)$/,
-    loader: 'url?limit=10000',
+    loader: 'url-loader',
+    options: {
+      limit: 10000,
+    },
   },
   {
     test: /\.(ttf|eot)$/,
-    loader: 'file',
+    loader: 'file-loader',
   },
   {
     test: /\.(jpe?g|png|gif|ico)$/,
-    loader: `customfile-loader?limit=10000&name=[name]-[hash].[ext]${assetHost}`,
-  },
-  {
-    test: /\.json$/,
-    loader: 'json-loader',
+    loader: 'file-loader',
+    options: {
+      limit: 10000,
+      name: `[name]-[hash].[ext]${assetHost}`,
+    },
   },
   {
     test: /\.svg$/,
@@ -63,8 +77,12 @@ config.module.loaders.push(
 );
 
 config.plugins.push(
-  new ExtractTextPlugin('[name]-bundle.css', { allChunks: true }),
-  new webpack.optimize.DedupePlugin()
+  new MiniCssExtractPlugin({
+    // Options similar to the same options in webpackOptions.output
+    // both options are optional
+    filename: '[name]-bundle.css',
+    // chunkFilename: '[id].css',
+  })
 );
 
 if (devBuild) {
