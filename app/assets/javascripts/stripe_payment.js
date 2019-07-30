@@ -16,7 +16,7 @@ window.ST = window.ST || {};
       iconColor: '#fa755a'
     }
   };
-  var stripe;
+  var stripe, spinner;
 
   var createCard = function() {
     var elements = stripe.elements();
@@ -85,13 +85,25 @@ window.ST = window.ST || {};
   var handleCreatedPaymentIntent = function(response) {
     var payment = response.stripe_payment_intent;
     if (payment.error) {
-      ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
+      showError(ST.t('error_messages.stripe.generic_error'));
     } else if (payment.requires_action) {
       stripe.handleCardAction(
         payment.client_secret
       ).then(function(result) {
         if (result.error) {
-          ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
+          showError(ST.t('error_messages.stripe.generic_error'));
+          $.post(
+            payment.failed_intent_path,
+            {
+              stripe_payment_id: payment.stripe_payment_id,
+            },
+            function(data) {
+              if (!data.success) {
+                showError(data.error);
+              }
+            },
+            'json'
+          );
         } else {
           // The card action has been handled
           // The PaymentIntent can be confirmed again on the server
@@ -105,7 +117,7 @@ window.ST = window.ST || {};
               if (data.success) {
                 window.location = data.redirect_url;
               } else {
-                ST.utils.showError(data.error, 'error');
+                showError(data.error);
               }
             },
             'json'
@@ -117,28 +129,59 @@ window.ST = window.ST || {};
     }
   };
 
+  var showError = function(message) {
+    ST.utils.showError(message, 'error');
+    ST.transaction.toggleSpinner(spinner, false);
+    $('html, body').animate({ scrollTop: $('.flash-notifications').offset().top}, 1000);
+  };
+
+  var formSubmit = function(e) {
+    var form = $(this),
+      formAction = form.attr('action');
+
+    var submitSuccess = function(data, responseStatus) {
+      if (data.redirect_url) {
+        window.location = data.redirect_url;
+        return;
+      } else if (data.stripe_payment_intent) {
+        handleCreatedPaymentIntent(data);
+      } else if (data.error) {
+        showError(data.error);
+      }
+    };
+    $.post(formAction, form.serialize(), submitSuccess, 'json');
+  };
+
 
   var initIntent = function(options){
     stripe = Stripe(options.publishable_key);
     var card = createCard();
+    var form = $("#transaction-form");
 
+    form.on('stripe-submit', formSubmit);
+    spinner = form.find('.paypal-button-loading-img');
     $("#send-add-card").on('click', function(ev) {
       event.preventDefault();
-      var form = $("#transaction-form");
       if (!validateForm(form)) {
         return false;
       }
 
+      ST.transaction.toggleSpinner(spinner, true);
       stripe.createPaymentMethod('card', card, {}).then(function(result) {
         if (result.error) {
-          ST.utils.showError(ST.t('error_messages.stripe.generic_error'), 'error');
+          showError(ST.t('error_messages.stripe.generic_error'));
         } else {
           // Otherwise send paymentMethod.id to server
-          var input = $('<input/>', {type: 'hidden', name: 'stripe_payment_method_id', value: result.paymentMethod.id});
-          form.append(input);
+          var existingInput = $('#stripe_payment_method_id');
+          if (existingInput.length > 0) {
+            existingInput.val(result.paymentMethod.id);
+          } else {
+            var input = $('<input/>', {type: 'hidden', name: 'stripe_payment_method_id', id: 'stripe_payment_method_id', value: result.paymentMethod.id});
+            form.append(input);
+          }
           $('#payment_type').val('stripe');
           if(form.valid()) {
-            form.trigger('submit');
+            form.trigger('stripe-submit');
           }
         }
       });
@@ -148,6 +191,5 @@ window.ST = window.ST || {};
   module.StripePayment = {
     initCharge: initCharge,
     initIntent: initIntent,
-    handleCreatedPaymentIntent: handleCreatedPaymentIntent
   };
 })(window.ST);

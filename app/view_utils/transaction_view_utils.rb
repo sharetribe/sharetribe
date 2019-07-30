@@ -51,6 +51,7 @@ module TransactionViewUtils
       "pending", # Deprecated
       "initiated",
       "payment_intent_requires_action",
+      "payment_intent_failed",
       "pending_ext",
       "errored"
     ] # Transitions that should not generate auto-message

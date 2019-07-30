@@ -242,6 +242,9 @@ module InboxService
       AND (
         transactions.id IS NULL
         OR (transactions.current_state != 'initiated'
+            AND transactions.current_state != 'payment_intent_requires_action'
+            AND transactions.current_state != 'payment_intent_action_expired'
+            AND transactions.current_state != 'payment_intent_failed'
             AND transactions.deleted = 0)
       )
 
@@ -324,7 +327,10 @@ module InboxService
       AND (
         transactions.id IS NULL
         OR (transactions.current_state != 'initiated'
-            AND transactions.deleted = 0)
+           AND transactions.current_state != 'payment_intent_requires_action'
+           AND transactions.current_state != 'payment_intent_action_expired'
+           AND transactions.current_state != 'payment_intent_failed'
+           AND transactions.deleted = 0)
       )
 
       # Order by 'last_activity_at', that is last message or last transition
@@ -350,6 +356,9 @@ module InboxService
       AND (
         transactions.id IS NULL
         OR (transactions.current_state != 'initiated'
+            AND transactions.current_state != 'payment_intent_requires_action'
+            AND transactions.current_state != 'payment_intent_action_expired'
+            AND transactions.current_state != 'payment_intent_failed'
             AND transactions.deleted = 0)
       )
     "

@@ -51,6 +51,8 @@
   .row.stripe-payment
     .col-12.payment-button-wrapper.paypal-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
+      %img{src: "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif", class: "paypal-button-loading-img", style: "display: none;"}
+
 
   .row
     .col-12
