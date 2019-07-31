@@ -291,7 +291,7 @@ en:
         unconfirmed_user: "Unconfirmed user: %{name}"
         resend: Resend
         cancel: Cancel
-        user_didnt_complete_the_signup_process: "This user signed up through Facebook but didn't complete the signup process. After connecting a Facebook account, users still need to accept your terms of use and fill any mandatory user fields."
+        user_didnt_complete_the_signup_process: "This user signed up through social login but didn't complete the signup process. After connecting a social login account, users still need to accept your terms of use and fill any mandatory user fields."
         pending_user: "Pending: %{name}"
       new_layout:
         new_layout: "New layout"
