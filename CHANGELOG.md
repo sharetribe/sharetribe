@@ -12,13 +12,55 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [8.0.0] - 2019-07-31
+
+### Added
+
+- Use index hint for homepage query [#3714](https://github.com/sharetribe/sharetribe/pull/3714)
+- Add Albanian to the list of unsupported languages [#3718](https://github.com/sharetribe/sharetribe/pull/3718)
+- Add Macedonian to the list of unsupported languages [#3725](https://github.com/sharetribe/sharetribe/pull/3725)
+- Ability for providers to delete listings [#3756](https://github.com/sharetribe/sharetribe/pull/3756)
+- Stripe support for Singapore [#3762](https://github.com/sharetribe/sharetribe/pull/3762)
+- Cache community count [#3766](https://github.com/sharetribe/sharetribe/pull/3766)
+- Ability to export listings to a CSV file [#3790](https://github.com/sharetribe/sharetribe/pull/3790)
+- Allow admins to disable direct messaging between users [#3793](https://github.com/sharetribe/sharetribe/pull/3793)
+- Add .html_safe to content for title [#3744](https://github.com/sharetribe/sharetribe/pull/3744)
+
+### Changed
+
 - Update to ruby 2.6.2 [#3701](https://github.com/sharetribe/sharetribe/pull/3701)
+- Add more bot rules, disallow login paths [#3715](https://github.com/sharetribe/sharetribe/pull/3715)
+- Update to Rails 5.2.3 [#3722](https://github.com/sharetribe/sharetribe/pull/3722)
+- Prevent lowering minimum transaction size to less than minimum transaction fee with Stripe [#3723](https://github.com/sharetribe/sharetribe/pull/3723)
+- Update to Node.js 10.15 [#3735](https://github.com/sharetribe/sharetribe/pull/3735)
+- Updates to payment preference settings [#3748](https://github.com/sharetribe/sharetribe/pull/3748)
+- Updated copy text from Ban to Disable [#3755](https://github.com/sharetribe/sharetribe/pull/3755)
+- Category translation caching improvements [#3761](https://github.com/sharetribe/sharetribe/pull/3761)
+- Stripe remove the MCC field and hardcode it [#3771](https://github.com/sharetribe/sharetribe/pull/3771)
+- Move "Phone number" field down in US Stripe form [#3775](https://github.com/sharetribe/sharetribe/pull/3775)
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+
+- Fix to the SEO tags without price translation string [#3727](https://github.com/sharetribe/sharetribe/pull/3727)
+- Fix to payment settings causing internal error when PayPal has never been enabled [#3732](https://github.com/sharetribe/sharetribe/pull/3732)
+- Fix to password reset [#3763](https://github.com/sharetribe/sharetribe/pull/3763)
+- Fix to Stripe US account update [#3765](https://github.com/sharetribe/sharetribe/pull/3765)
+- Fix to adding links to footer [#3769](https://github.com/sharetribe/sharetribe/pull/3769)
+- Fix to validation for custom date fields [#3772](https://github.com/sharetribe/sharetribe/pull/3772)
+- Fix to exclude expired listings when filtering for open [#3773](https://github.com/sharetribe/sharetribe/pull/3773)
+- Fix to signup page description tag [#3794](https://github.com/sharetribe/sharetribe/pull/3794)
 
 ### Security
 
@@ -673,7 +715,9 @@ This file follows the best practices from [keepachangelog.com](http://keepachang
 
 For older releases, see [RELEASE_NOTES.md](https://github.com/sharetribe/sharetribe/blob/v5.0.0/RELEASE_NOTES.md).
 
-[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...HEAD
+[Unreleased]: https://github.com/sharetribe/sharetribe/compare/v8.0.0...HEAD
+[8.0.0]: https://github.com/sharetribe/sharetribe/compare/v7.6.0...v8.0.0
+[7.6.0]: https://github.com/sharetribe/sharetribe/compare/v7.5.0...v7.6.0
 [7.5.0]: https://github.com/sharetribe/sharetribe/compare/v7.4.0...v7.5.0
 [7.4.0]: https://github.com/sharetribe/sharetribe/compare/v7.3.1...v7.4.0
 [7.3.1]: https://github.com/sharetribe/sharetribe/compare/v7.3.0...v7.3.1

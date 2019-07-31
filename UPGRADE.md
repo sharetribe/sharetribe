@@ -38,7 +38,7 @@ heroku config:set next_maintenance_at="2016-04-29 17:15:00 +0000" --app=<your ap
 
 See instructions how to set application in [maintenance mode in Heroku](https://devcenter.heroku.com/articles/maintenance-mode).
 
-## Unreleased
+## Upgrade from 7.6.0 to 8.0.0
 
 Ruby version updated from 2.3.4 to 2.6.2.
 
@@ -50,6 +50,16 @@ rvm use ruby-2.6.2
 gem install bundler
 bundle install
 ```
+
+Make sure you have node 10.15 installed.
+
+Then follow the [#general-update-instructions].
+
+One more note: after the Rails upgrade, "Memcache" is possibly no longer working. It was never officially supported, and at Sharetribe we rely on Redis.
+
+- If you use Redis, run `Rails.cache.clear` via the Rails console
+- If you use Memcache, things might be broken and you might need to switch to Redis
+- If you didn't use either, no special instructions
 
 ## Upgrade from 7.5.0 to 7.6.0
 
