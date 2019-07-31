@@ -27,10 +27,10 @@ Would you like to work with an API-based marketplace solution that allows you to
 ## Technology stack
 
 - Ruby 2.6
-- Ruby on Rails 5.1.1
-- MySQL  5.7
+- Ruby on Rails 5.2.3
+- MySQL 5.7
 - React + jQuery
-- Node.js 7.8 (for compiling JavaScript assets)
+- Node.js 10.15 (for compiling JavaScript assets)
 - "what you see is what you get" Editor [Mercury](http://jejacks0n.github.io/mercury/)
 - Deploy: Custom Script (not using Mina or Cap3)
 - Server: Heroku
