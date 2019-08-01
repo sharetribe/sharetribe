@@ -679,15 +679,21 @@ en:
           edit: Edit section %{section_id}
           remove_section_confirmation: "Are you sure you want to remove the section '%{section_id}' and all its data? This cannot be undone."
           info_single_column: Info 1 Column
+          info_multi_column_2: Info 2 Columns
+          info_multi_column_3: Info 3 Columns
           hero: Hero
           new_section:
             footer: New footer section
             hero: New hero section
             info_single_column: "New single column section"
+            info_multi_column_2: "New 2 column section"
+            info_multi_column_3: "New 3 column section"
           edit_section:
             footer: Edit footer section
             hero: Edit hero section
             info_single_column: "Edit single column section"
+            info_multi_column_2: "Edit 2 column section"
+            info_multi_column_3: "Edit 3 column section"
     landing_page_versions:
       sections:
         hero:
@@ -724,6 +730,13 @@ en:
         background_color:
           background_color: "Background color"
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
+        multi_column:
+          main_title: "Main title"
+          column_title: "Column %{index} title"
+          column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
+          column_icon: "Column %{index} icon"
+          column_paragraph: "Column %{index} paragraph"
+          column_button: "Column %{index} button"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"

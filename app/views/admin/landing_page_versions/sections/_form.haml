@@ -8,6 +8,9 @@
     = render 'hero', presenter: presenter, form: form
   - elsif presenter.section_footer?
     = render 'footer', presenter: presenter, form: form
+  - elsif presenter.section_info_multi_column?
+    = render 'multi_column', presenter: presenter, form: form
+
   .row
     .col-12
       = form.button t("admin.communities.landing_pages.form.save")

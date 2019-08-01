@@ -17,6 +17,10 @@ module CustomLandingPage
       section.is_a?(LandingPageVersion::Section::InfoSingleColumn)
     end
 
+    def section_info_multi_column?
+      section.is_a?(LandingPageVersion::Section::InfoMultiColumn)
+    end
+
     def section_hero?
       section.is_a?(LandingPageVersion::Section::Hero)
     end

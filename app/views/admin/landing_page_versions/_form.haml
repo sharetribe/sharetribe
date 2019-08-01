@@ -38,6 +38,7 @@
 .row.new-custom-field-type-form
   = form_for :section, url: new_admin_landing_page_version_section_path(landing_page_version_id: presenter.landing_page_version.id), method: :get do |form|
     = form.hidden_field :variation
+    = hidden_field_tag 'section[multi_columns]', '', disabled: true
     .new-custom-field-type-form-column
       = t("admin.communities.landing_pages.add_new_section")
     .new-custom-field-type-form-column
