@@ -80,6 +80,12 @@
 
     -# About text
     = form.label :description, t("settings.profile.about_you"), :class => "input"
+    %span.alert-box-icon
+      = icon_tag("information", ["icon-fix"])
+    %small
+      - markdown_popup_link = link_to t("settings.profile.format_markdown_link"), "#", id: "markdown-popup-link"
+      = raw t("settings.profile.format_markdown", link: markdown_popup_link)
+
     = form.text_area :description, :class => "update_profile_description_text_area"
     = form.fields_for :location do |loc|
       = loc.hidden_field :address, :value => target_user.location.address
@@ -105,3 +111,5 @@
             :custom_field_value => custom_field_value,
             :prefix => prefix
     = form.button t("settings.save_information"), :class => "send_button"
+
+= render :partial => 'layouts/markdown_help'

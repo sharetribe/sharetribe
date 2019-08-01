@@ -294,3 +294,15 @@
     background-color: #dddddd;
   }
 }
+
+.markdown-help-table {
+  th {
+    border-bottom: 1px solid #ddd;
+  }
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  tbody tr:nth-child(odd) {
+    background-color: transparent;
+  }
+}
