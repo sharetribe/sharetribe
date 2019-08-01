@@ -206,6 +206,53 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
         expect(section['background_image']).to eq existing_bg_image
       end
     end
+
+    describe '#update of existing section' do
+      it 'keeps existing attrs as is' do
+        existing_hero_sample = {
+          "id": "hero",
+          "kind": "hero",
+          "variation": { "type": "marketplace_data", "id": "search_type" },
+          "title": { "type": "marketplace_data", "id": "slogan" },
+          "subtitle": { "type": "marketplace_data", "id": "description" },
+          "background_image": { "type": "assets", "id": "hero_background_image" },
+          "background_image_variation": "dark",
+          "search_button": { "type": "translation", "id": "search_button" },
+          "search_path": { "type": "path", "id": "search" },
+          "search_placeholder": { "type": "marketplace_data", "id": "search_placeholder"},
+          "search_location_with_keyword_placeholder": { "type": "marketplace_data",  "id": "search_location_with_keyword_placeholder" },
+          "signup_path": { "type": "path", "id": "signup" },
+          "signup_button": { "type": "translation", "id": "signup_button" },
+          "search_button_color": { "type": "marketplace_data", "id": "primary_color" },
+          "search_button_color_hover": { "type": "marketplace_data", "id": "primary_color_darken" },
+          "signup_button_color": { "type": "marketplace_data", "id": "primary_color" },
+          "signup_button_color_hover": { "type": "marketplace_data", "id": "primary_color_darken" }
+        }
+
+        e_lpv = landing_page_version
+        sections = e_lpv.parsed_content['sections'].reject{|s| s['id'] == 'hero'}
+        sections << existing_hero_sample
+        e_lpv.parsed_content['sections'] = sections
+        e_lpv.update_content(e_lpv.parsed_content)
+
+        section_id = 'hero'
+        put :update, params: { landing_page_version_id: e_lpv.id,
+                               id: section_id,
+                               section: {
+            kind: 'hero',
+            id: 'hero',
+            previous_id: 'hero',
+            background_image_variation: 'light'
+        }}
+        lpv = LandingPageVersion.find(e_lpv.id)
+        sections = lpv.parsed_content['sections']
+        section = sections.find{|x| x['id'] == section_id}
+        expect(section['background_image_variation']).to eq 'light'
+
+        existing_bg_image = { "type" => "assets", "id" => "hero_background_image" }
+        expect(section['background_image']).to eq existing_bg_image
+      end
+    end
   end
 
   describe 'footer' do

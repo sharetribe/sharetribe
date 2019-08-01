@@ -1,8 +1,6 @@
 module LandingPageVersion::Section
   class InfoSingleColumn < Info
 
-    attr_writer :background_style
-
     DEFAULTS = {
       variation: "single_column",
       title: nil,

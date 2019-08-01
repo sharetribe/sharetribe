@@ -1,0 +1,40 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+= form.hidden_field :variation
+= form.hidden_field :multi_columns
+
+.row
+  .col-12
+    = form.label :id
+    = form.text_field :id, disabled: presenter.section.persisted?, required: true
+.row
+  .col-12
+    = form.label :title, t(".main_title")
+    = form.text_field :title, required: true
+
+- form.object.columns.each_with_index do |column, index|
+  .row
+    .col-12
+      = label_tag "section[columns][#{index}][icon]", t(".column_icon", index: index + 1)
+      = render partial: 'layouts/info_text', locals: {text: t(".column_icon_info").html_safe }
+      = text_field_tag "section[columns][#{index}][icon]", column['icon']
+
+      = label_tag "section[columns][#{index}][title]", t(".column_title", index: index + 1)
+      = text_field_tag "section[columns][#{index}][title]", column['title']
+
+      = label_tag "section[columns][#{index}][paragraph]", t(".column_paragraph", index: index + 1)
+      = text_area_tag "section[columns][#{index}][paragraph]", column['paragraph']
+
+      = label_tag "section[columns][#{index}][button_title]", t(".column_button", index: index + 1)
+  .row
+    .col-6
+      = text_field_tag "section[columns][#{index}][button_title]", column['button_title']
+    .col-6
+      = text_field_tag "section[columns][#{index}][button_path]", column['button_path']
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+
+= render partial: 'background_selector', locals: {form: form, presenter: presenter}

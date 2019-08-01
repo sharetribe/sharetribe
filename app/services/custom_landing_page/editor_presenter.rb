@@ -24,6 +24,16 @@ module CustomLandingPage
           LandingPageVersion::Section::INFO,
           {data: { variation: LandingPageVersion::Section::VARIATION_SINGLE_COLUMN}}
         ],
+        [
+          I18n.t('admin.communities.landing_pages.sections.info_multi_column_2'),
+          LandingPageVersion::Section::INFO,
+          {data: { variation: LandingPageVersion::Section::VARIATION_MULTI_COLUMN, multi_columns: 2}}
+        ],
+        [
+          I18n.t('admin.communities.landing_pages.sections.info_multi_column_3'),
+          LandingPageVersion::Section::INFO,
+          {data: { variation: LandingPageVersion::Section::VARIATION_MULTI_COLUMN, multi_columns: 3}}
+        ]
       ]
     end
   end

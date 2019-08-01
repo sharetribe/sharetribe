@@ -65,6 +65,8 @@ module CustomLandingPage
         case params[:section][:variation]
         when 'single_column'
           LandingPageVersion::Section::InfoSingleColumn
+        when 'multi_column'
+          LandingPageVersion::Section::InfoMultiColumn
         else
           LandingPageVersion::Section::Info
         end

@@ -76,7 +76,9 @@ window.ST = window.ST || {};
 
   var onSectionSelect = function(e) {
     var option = $(this).find('option:selected'),
-      variation = option.data('variation');
+      variation = option.data('variation'),
+      multi_columns = option.data('multi-columns');
+
     $('#section_variation').val(variation);
     if (!variation) {
       return false;
@@ -86,6 +88,7 @@ window.ST = window.ST || {};
     } else {
       $("#section_variation").attr('disabled', false);
     }
+    $('#section_multi_columns').val(multi_columns).attr('disabled', !multi_columns);
     $(this).closest('form').submit();
   };
 
