@@ -423,20 +423,21 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       section_id = 'test1'
       sections = landing_page_version.parsed_content['sections']
       expect(sections.find{|x| x['id'] == section_id}).to eq nil
-      post :create, params: { landing_page_version_id: landing_page_version.id,
-                              section: {
-        kind: 'info',
-        variation: 'single_column',
-        id: section_id,
-        title: 'Shot In the Dark',
-        paragraph: 'She only paints with bold colors',
-        background_style: 'image',
-        background_color_string: '112233',
-        cta_enabled: '0',
-        button_title: 'Start',
-        button_path_string: 'https://site.name/start'
-      },
-      bg_image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+      post :create, params: {
+        landing_page_version_id: landing_page_version.id,
+        section: {
+          kind: 'info',
+          variation: 'single_column',
+          id: section_id,
+          title: 'Shot In the Dark',
+          paragraph: 'She only paints with bold colors',
+          background_style: 'image',
+          background_color_string: '112233',
+          cta_enabled: '0',
+          button_title: 'Start',
+          button_path_string: 'https://site.name/start'
+        },
+        bg_image: stubbed_upload('Bison_skull_pile.png', 'image/png')
       }
       lpv = LandingPageVersion.find(landing_page_version.id)
       sections = lpv.parsed_content['sections']

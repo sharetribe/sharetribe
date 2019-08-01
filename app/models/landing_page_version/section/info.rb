@@ -14,7 +14,9 @@ module LandingPageVersion::Section
       :background_image_variation,
       :background_color,
       :icon_color,
-      :columns
+      :columns,
+      :paragraph_link_color,
+      :paragraph_link_color_hover
     ].freeze
 
     PERMITTED_PARAMS = [
