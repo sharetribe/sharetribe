@@ -18,14 +18,10 @@ module LandingPageVersion::DataStructure
             'previous_id' => content_section['id']
           ))
       when LandingPageVersion::Section::INFO
-        begin
         sections << LandingPageVersion::Section::Info.new_from_content(content_section.merge(
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
-        rescue ActiveModel::UnknownAttributeError # rubocop:disable Lint/HandleExceptions
-          # rescue unimplemented stuf
-        end
       end
     end
     @sections = sections
