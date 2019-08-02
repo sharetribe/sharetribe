@@ -59,4 +59,8 @@ class TransactionProcessStateMachine
   after_transition(to: :payment_intent_requires_action, after_commit: true) do |conversation|
     Delayed::Job.enqueue(TransactionPaymentIntentCancelJob.new(conversation.id), :run_at => TransactionPaymentIntentCancelJob::DELAY.from_now)
   end
+
+  after_transition(to: :payment_intent_failed, after_commit: true) do |transaction|
+    transaction.update_column(:deleted, true)
+  end
 end
