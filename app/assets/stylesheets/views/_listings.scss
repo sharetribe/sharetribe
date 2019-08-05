@@ -6,7 +6,20 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
-
+.listing-description-content {
+  ol {
+    padding-left: 1.5em
+  }
+  blockquote {
+    border-left: .25em solid #c3c3c3;
+    padding: 0 1em;
+    color: gray;
+  }
+  hr {
+    border-bottom: 1px solid #c3c3c3;
+    margin-bottom: 1em;
+  }
+}
 .listing-description-youtube-wrapper {
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 */
