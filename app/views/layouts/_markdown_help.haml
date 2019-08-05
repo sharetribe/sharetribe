@@ -1,0 +1,88 @@
+= render :layout => "layouts/lightbox", locals: {id: "markdown-help-popup", field: nil} do
+  %h2= t("layouts.markdown_help.title")
+
+  %p= t("layouts.markdown_help.description")
+
+  %table.markdown-help-table
+    %tbody
+      %tr
+        %th= t("layouts.markdown_help.formatting")
+        %th= t("layouts.markdown_help.result")
+      %tr
+        %td
+          = format("# %s", t("layouts.markdown_help.h1"))
+          %br>/
+          = format("## %s", t("layouts.markdown_help.h2"))
+          %br>/
+          = format("### %s", t("layouts.markdown_help.h3"))
+        %td
+          %h1= t("layouts.markdown_help.h1")
+          %br/
+          %h2= t("layouts.markdown_help.h2")
+          %br/
+          %h3= t("layouts.markdown_help.h3")
+      %tr
+        %td= format("*%s*", t("layouts.markdown_help.italic"))
+        %td
+          %i= t("layouts.markdown_help.italic")
+      %tr
+        %td= format("**%s**", t("layouts.markdown_help.bold"))
+        %td
+          %b= t("layouts.markdown_help.bold")
+      %tr
+        %td= format("_%s_", t("layouts.markdown_help.underline"))
+        %td
+          %u= t("layouts.markdown_help.underline")
+      %tr
+        %td= format("~~%s~~", t("layouts.markdown_help.strikethrough"))
+        %td
+          %strike= t("layouts.markdown_help.strikethrough")
+      %tr
+        %td= format("[%s](https://www.example.com)", t("layouts.markdown_help.inline_link"))
+        %td
+          %a{:href => "https://www.example.com", :target => "_blank"}= t("layouts.markdown_help.inline_link")
+      %tr
+        %td
+          = format("-%s", t("layouts.markdown_help.list"))
+          %br>/
+          = format("-%s", t("layouts.markdown_help.list"))
+          %br>/
+          = format("-%s", t("layouts.markdown_help.list"))
+        %td
+          %ul
+            %li
+              = t("layouts.markdown_help.list")
+              %br/
+              %br/
+            %li
+              = t("layouts.markdown_help.list")
+              %br/
+              %br/
+            %li
+              = t("layouts.markdown_help.list")
+              %br/
+      %tr
+        %td
+          = format("1. %s", t("layouts.markdown_help.one"))
+          %br/
+          = format("2. %s", t("layouts.markdown_help.two"))
+          %br/
+          = format("3. %s", t("layouts.markdown_help.three"))
+        %td
+          %ol
+            %li
+              = t("layouts.markdown_help.one")
+              %br/
+              %br/
+            %li
+              = t("layouts.markdown_help.two")
+              %br/
+              %br/
+            %li
+              = t("layouts.markdown_help.three")
+              %br/
+              %br/
+
+- content_for :extra_javascript do
+  :javascript
+    $('#markdown-popup-link').click(function() { $('#markdown-help-popup').lightbox_me({centered: true, zIndex: 1000000}); return false});

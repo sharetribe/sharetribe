@@ -1,3 +1,5 @@
 = form.label :description, t('listings.form.description.detailed_description'), :class => "input"
-= render partial: "layouts/info_text", locals: { text: t("listings.form.description.youtube_info") }
+- markdown_popup_link = link_to t("settings.profile.format_markdown_link"), "#", id: "markdown-popup-link"
+- info_text = t("listings.form.description.youtube_info_markdown", link: markdown_popup_link).html_safe
+= render partial: "layouts/info_text", locals: { text:  info_text}
 = form.text_area(:description, :maxlength => "5000", :class => "listing_description_textarea")
