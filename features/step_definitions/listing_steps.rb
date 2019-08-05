@@ -15,6 +15,24 @@ Given /^there is a listing with title "([^"]*)"(?: from "([^"]*)")?(?: with cate
   create_listing(shape: shape, opts: opts)
 end
 
+Given /^there is a free listing with title "([^"]*)"(?: from "([^"]*)")?(?: with category "([^"]*)")?(?: and with listing shape "([^"]*)")?(?: and it is valid "([^"]*)" days)?$/ do |title, author, category_name, shape_name, valid_days|
+  opts = Hash.new
+  opts[:title] = title
+  opts[:category] = find_category_by_name(category_name) if category_name
+  opts[:author] = Person.find_by(username: author) if author
+  opts[:valid_until] = DateTime.current + valid_days.to_i.days if valid_days
+  opts[:price] = nil
+
+  shape =
+    if shape_name
+      find_shape(name: shape_name)
+    else
+      all_shapes.first
+    end
+
+  create_listing(shape: shape, opts: opts)
+end
+
 Given /^the price of that listing is (\d+)\.(\d+) (EUR|USD)(?: per (.*?))?$/ do |price, price_decimal, currency, price_per|
   unit_type = if ["piece", "hour", "day", "night", "week", "month"].include?(price_per)
     price_per.to_sym

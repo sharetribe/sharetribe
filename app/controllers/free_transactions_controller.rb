@@ -37,7 +37,7 @@ class FreeTransactionsController < ApplicationController
             listing_author_id: @listing.author.id,
             listing_author_uuid: @listing.author.uuid_object,
             unit_type: @listing.unit_type,
-            unit_price: @listing.price,
+            unit_price: @listing.price || Money.new(0, @current_community.currency),
             unit_tr_key: @listing.unit_tr_key,
             availability: :none, # Always none for free transactions and contacts
             listing_quantity: 1,
