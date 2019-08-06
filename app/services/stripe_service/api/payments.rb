@@ -6,13 +6,158 @@ module StripeService::API
       TransactionStore = TransactionService::Store::Transaction
 
       def create_preauth_payment(tx, gateway_fields)
-        report = StripeService::Report.new(tx: tx)
-        report.create_charge_start
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         if !seller_account || !seller_account[:stripe_seller_id].present?
           return SyncCompletion.new(Result::Error.new("No Seller Account"))
         end
 
+        if gateway_fields[:stripe_payment_method_id].present?
+          wrap_in_report(tx: tx, start: :create_intent_start, success: :create_intent_success, failed: :create_intent_failed) do
+            do_create_preauth_payment(tx, gateway_fields, seller_account)
+          end
+        else
+          wrap_in_report(tx: tx, start: :create_charge_start, success: :create_charge_success, failed: :create_charge_failed) do
+            do_create_preauth_payment(tx, gateway_fields, seller_account)
+          end
+        end
+      end
+
+      def cancel_preauth(tx, reason)
+        payment = PaymentStore.get(tx.community_id, tx.id)
+        if payment[:stripe_payment_intent_id].present?
+          wrap_in_report(tx: tx, start: :cancel_intent_start, success: :cancel_intent_success, failed: :cancel_intent_failed) do
+            do_cancel_preauth(tx, reason)
+          end
+        else
+          wrap_in_report(tx: tx, start: :cancel_charge_start, success: :cancel_charge_success, failed: :cancel_charge_failed) do
+            do_cancel_preauth(tx, reason)
+          end
+        end
+      end
+
+      def capture(tx)
+        payment = PaymentStore.get(tx.community_id, tx.id)
+        if payment[:stripe_payment_intent_id].present?
+          wrap_in_report(tx: tx, start: :capture_intent_start, success: :capture_intent_success, failed: :capture_intent_failed) do
+            do_capture(tx)
+          end
+        else
+          wrap_in_report(tx: tx, start: :capture_charge_start, success: :capture_charge_success, failed: :capture_charge_failed) do
+            do_capture(tx)
+          end
+        end
+      end
+
+      def payment_details(tx)
+        payment = PaymentStore.get(tx.community_id, tx.id)
+        unless payment
+          total      = order_total(tx)
+          commission = tx.commission
+          buyer_commission = tx.buyer_commission
+          fee        = Money.new(0, total.currency)
+          payment = {
+            sum: total,
+            commission: commission,
+            real_fee: fee,
+            subtotal: total - fee,
+            buyer_commission: buyer_commission
+          }
+        end
+
+        # in case of :destination payments, gateway fee is always charged from admin account, we cannot know it upfront, as transfer to seller = total - commission, is immediate
+        # in case of :separate payments, gateway fee is charged from admin account, but then deducted from seller on delayed transfer
+        gateway_fee = if stripe_api.charges_mode(tx.community_id) == :destination
+            Money.new(0, payment[:sum].currency)
+          else
+            payment[:real_fee]
+          end
+        {
+          payment_total: payment[:sum],
+          total_price: payment[:subtotal],
+          charged_commission: payment[:commission],
+          payment_gateway_fee: gateway_fee,
+          buyer_commission: payment[:buyer_commission] || 0
+        }
+      end
+
+      def payout(tx)
+        wrap_in_report(tx: tx, start: :create_payout_start, success: :create_payout_success, failed: :create_payout_failed) do
+          seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
+          payment = PaymentStore.get(tx.community_id, tx.id)
+
+          seller_gets = payment[:subtotal] - payment[:commission]
+
+          case stripe_api.charges_mode(tx.community_id)
+          when :separate
+            seller_gets -= payment[:real_fee] || 0
+            if seller_gets > 0
+              result = stripe_api.perform_transfer(
+                community: tx.community_id,
+                account_id: seller_account[:stripe_seller_id],
+                amount_cents: seller_gets.cents,
+                amount_currency: payment[:sum].currency,
+                initial_amount: payment[:subtotal].cents,
+                charge_id: payment[:stripe_charge_id],
+                metadata: {sharetribe_transaction_id: tx.id}
+              )
+            end
+          when :destination
+            if seller_gets > 0
+              charge = stripe_api.get_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id])
+              transfer = stripe_api.get_transfer(community: tx.community_id, transfer_id: charge.transfer)
+              result = stripe_api.perform_payout(
+                community: tx.community_id,
+                account_id: seller_account[:stripe_seller_id],
+                amount_cents: transfer.amount,
+                currency: transfer.currency,
+                metadata: {shretribe_order_id: tx.id}
+              )
+            end
+          end
+
+          payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,
+                                        data: {
+                                          status: 'transfered',
+                                          stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
+                                          transfered_at: Time.zone.now
+                                        })
+
+          payment
+        end
+      end
+
+      def stripe_api
+        StripeService::API::Api.wrapper
+      end
+
+      def accounts_api
+        StripeService::API::Api.accounts
+      end
+
+      def order_total(tx)
+        shipping_total = Maybe(tx.shipping_price).or_else(0)
+        tx.unit_price * tx.listing_quantity + shipping_total + tx.buyer_commission
+      end
+
+      private
+
+      def wrap_in_report(tx:, start:, success:, failed:)
+        report = StripeService::Report.new(tx: tx)
+        report.send(start)
+        result = yield
+        report.send(success)
+        result
+      rescue StandardError => exception
+        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).send(failed)
+        if params_to_airbrake
+          exception.extend ParamsToAirbrake
+          exception.params_to_airbrake = {stripe: params_to_airbrake}
+        end
+        Airbrake.notify(exception)
+        Result::Error.new(exception.message)
+      end
+
+      def do_create_preauth_payment(tx, gateway_fields, seller_account)
         seller_id  = seller_account[:stripe_seller_id]
         source_id  = gateway_fields[:stripe_token]
         payment_method_id = gateway_fields[:stripe_payment_method_id]
@@ -88,18 +233,10 @@ module StripeService::API
             transaction_id: tx.id,
             addr: gateway_fields[:shipping_address])
         end
-
-        report.create_charge_success
         Result::Success.new(payment)
-      rescue StandardError => exception
-        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).create_charge_failed
-        exception.extend ParamsToAirbrake
-        exception.params_to_airbrake = {stripe: params_to_airbrake}
-        Airbrake.notify(exception)
-        Result::Error.new(exception.message)
       end
 
-      def cancel_preauth(tx, reason)
+      def do_cancel_preauth(tx, reason)
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment_data = {status: 'canceled'}
@@ -118,14 +255,9 @@ module StripeService::API
         end
         payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id, data: payment_data)
         Result::Success.new(payment)
-      rescue StandardError => e
-        Airbrake.notify(e)
-        Result::Error.new(e.message)
       end
 
-      def capture(tx)
-        report = StripeService::Report.new(tx: tx)
-        report.capture_charge_start
+      def do_capture(tx)
         payment = PaymentStore.get(tx.community_id, tx.id)
         seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
         payment_data = {status: 'paid'}
@@ -143,106 +275,7 @@ module StripeService::API
                                         real_fee_cents: balance_txn.fee,
                                         available_on: Time.zone.at(balance_txn.available_on)
                                       }))
-        report.capture_charge_success
         Result::Success.new(payment)
-      rescue StandardError => exception
-        params_to_airbrake = StripeService::Report.new(tx: tx, exception: exception).capture_charge_failed
-        exception.extend ParamsToAirbrake
-        exception.params_to_airbrake = {stripe: params_to_airbrake}
-        Airbrake.notify(exception)
-        Result::Error.new(exception.message)
-      end
-
-      def payment_details(tx)
-        payment = PaymentStore.get(tx.community_id, tx.id)
-        unless payment
-          total      = order_total(tx)
-          commission = tx.commission
-          buyer_commission = tx.buyer_commission
-          fee        = Money.new(0, total.currency)
-          payment = {
-            sum: total,
-            commission: commission,
-            real_fee: fee,
-            subtotal: total - fee,
-            buyer_commission: buyer_commission
-          }
-        end
-
-        # in case of :destination payments, gateway fee is always charged from admin account, we cannot know it upfront, as transfer to seller = total - commission, is immediate
-        # in case of :separate payments, gateway fee is charged from admin account, but then deducted from seller on delayed transfer
-        gateway_fee = if stripe_api.charges_mode(tx.community_id) == :destination
-            Money.new(0, payment[:sum].currency)
-          else
-            payment[:real_fee]
-          end
-        {
-          payment_total: payment[:sum],
-          total_price: payment[:subtotal],
-          charged_commission: payment[:commission],
-          payment_gateway_fee: gateway_fee,
-          buyer_commission: payment[:buyer_commission] || 0
-        }
-      end
-
-      def payout(tx)
-        report = StripeService::Report.new(tx: tx)
-        report.create_payout_start
-        seller_account = accounts_api.get(community_id: tx.community_id, person_id: tx.listing_author_id).data
-        payment = PaymentStore.get(tx.community_id, tx.id)
-
-        seller_gets = payment[:subtotal] - payment[:commission]
-
-        case stripe_api.charges_mode(tx.community_id)
-        when :separate
-          seller_gets -= payment[:real_fee] || 0
-          if seller_gets > 0
-            result = stripe_api.perform_transfer(
-              community: tx.community_id,
-              account_id: seller_account[:stripe_seller_id],
-              amount_cents: seller_gets.cents,
-              amount_currency: payment[:sum].currency,
-              initial_amount: payment[:subtotal].cents,
-              charge_id: payment[:stripe_charge_id],
-              metadata: {sharetribe_transaction_id: tx.id}
-            )
-          end
-        when :destination
-          if seller_gets > 0
-            charge = stripe_api.get_charge(community: tx.community_id, charge_id: payment[:stripe_charge_id])
-            transfer = stripe_api.get_transfer(community: tx.community_id, transfer_id: charge.transfer)
-            result = stripe_api.perform_payout(
-              community: tx.community_id,
-              account_id: seller_account[:stripe_seller_id],
-              amount_cents: transfer.amount,
-              currency: transfer.currency,
-              metadata: {shretribe_order_id: tx.id}
-            )
-          end
-        end
-
-        payment = PaymentStore.update(transaction_id: tx.id, community_id: tx.community_id,
-                                      data: {
-                                        status: 'transfered',
-                                        stripe_transfer_id: seller_gets > 0 ? result.id : "ZERO",
-                                        transfered_at: Time.zone.now
-                                      })
-
-        report.create_payout_success
-        payment
-      end
-
-      def stripe_api
-        StripeService::API::Api.wrapper
-      end
-
-      def accounts_api
-        StripeService::API::Api.accounts
-      end
-
-      def order_total(tx)
-        shipping_total = Maybe(tx.shipping_price).or_else(0)
-        tx.unit_price * tx.listing_quantity + shipping_total + tx.buyer_commission
       end
     end
   end

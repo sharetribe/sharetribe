@@ -67,6 +67,36 @@ class StripeService::Report
     result
   end
 
+  def cancel_charge_start
+    result = cancel_charge.merge({
+      "event": "stripe_call"
+    })
+    logger.info('cancel_charge_start', nil, result)
+    result
+  end
+
+  def cancel_charge_success
+    stripe_payment.reload
+    result = cancel_charge.merge({
+      "event": "stripe_call_succeeded",
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_charge_state": "success"
+    })
+    logger.info('cancel_charge_success', nil, result)
+    result
+  end
+
+  def cancel_charge_failed
+    result = cancel_charge.merge({
+      "event": "stripe_call_failed",
+      "stripe_payment_id": stripe_payment&.id,
+      "stripe_error": stripe_error
+    })
+    logger.info('cancel_charge_failed', nil, result)
+    result
+  end
+
   def create_payout_start
     result = create_payout.merge({
       "event": "stripe_call"
@@ -97,6 +127,94 @@ class StripeService::Report
     result
   end
 
+  def create_intent_start
+    result = create_intent.merge({
+      "event": "stripe_call"
+    })
+    logger.info('create_intent_start', nil, result)
+    result
+  end
+
+  def create_intent_success
+    stripe_payment.reload
+    result = create_intent.merge({
+      "event": "stripe_call_succeeded",
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id,
+      "stripe_charge_state": "success"
+    })
+    logger.info('create_intent_success', nil, result)
+    result
+  end
+
+  def create_intent_failed
+    result = create_intent.merge({
+      "event": "stripe_call_failed",
+      "stripe_payment_id": stripe_payment&.id,
+      "stripe_error": stripe_error
+    })
+    logger.info('create_intent_failed', nil, result)
+    result
+  end
+
+  def cancel_intent_start
+    result = cancel_intent.merge({
+      "event": "stripe_call"
+    })
+    logger.info('cancel_intent_start', nil, result)
+    result
+  end
+
+  def cancel_intent_success
+    stripe_payment.reload
+    result = cancel_intent.merge({
+      "event": "stripe_call_succeeded",
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id,
+      "stripe_charge_state": "success"
+    })
+    logger.info('cancel_intent_success', nil, result)
+    result
+  end
+
+  def cancel_intent_failed
+    result = cancel_intent.merge({
+      "event": "stripe_call_failed",
+      "stripe_payment_id": stripe_payment&.id,
+      "stripe_error": stripe_error
+    })
+    logger.info('cancel_intent_failed', nil, result)
+    result
+  end
+
+  def capture_intent_start
+    result = capture_intent.merge({
+      "event": "stripe_call"
+    })
+    logger.info('capture_intent_start', nil, result)
+    result
+  end
+
+  def capture_intent_success
+    result = capture_intent.merge({
+      "event": "stripe_call_succeeded",
+      "stripe_charge_state": "success"
+    })
+    logger.info('capture_intent_success', nil, result)
+    result
+  end
+
+  def capture_intent_failed
+    result = capture_intent.merge({
+      "event": "stripe_call_failed",
+      "stripe_error": stripe_error
+    })
+    logger.info('capture_intent_failed', nil, result)
+    result
+  end
+
   private
 
   def capture_charge
@@ -117,6 +235,14 @@ class StripeService::Report
     }
   end
 
+  def cancel_charge
+    {
+      "stripe_op": "cancel_charge",
+      "transaction_id": tx.id,
+      "stripe_seller_id": stripe_account.stripe_seller_id
+    }
+  end
+
   def create_payout
     {
       "stripe_op": "create_payout",
@@ -124,6 +250,33 @@ class StripeService::Report
       "stripe_payment_id": stripe_payment.id,
       "stripe_seller_id": stripe_account.stripe_seller_id,
       "stripe_charge_id": stripe_payment.stripe_charge_id
+    }
+  end
+
+  def create_intent
+    {
+      "stripe_op": "create_intent",
+      "transaction_id": tx.id,
+      "stripe_seller_id": stripe_account.stripe_seller_id
+    }
+  end
+
+  def cancel_intent
+    {
+      "stripe_op": "cancel_intent",
+      "transaction_id": tx.id,
+      "stripe_seller_id": stripe_account.stripe_seller_id
+    }
+  end
+
+  def capture_intent
+    {
+      "stripe_op": "capture_intent",
+      "transaction_id": tx.id,
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_seller_id": stripe_account.stripe_seller_id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id
     }
   end
 
