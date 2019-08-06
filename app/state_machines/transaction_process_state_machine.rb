@@ -61,6 +61,6 @@ class TransactionProcessStateMachine
   end
 
   after_transition(to: :payment_intent_failed, after_commit: true) do |transaction|
-    transaction.update_column(:deleted, true)
+    transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
   end
 end
