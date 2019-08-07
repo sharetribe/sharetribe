@@ -29,6 +29,10 @@ module CustomLandingPage
       section.is_a?(LandingPageVersion::Section::Footer)
     end
 
+    def section_listings?
+      section.is_a?(LandingPageVersion::Section::Listings)
+    end
+
     def section_errors?
       section.errors.any?
     end

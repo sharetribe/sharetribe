@@ -65,7 +65,7 @@ window.ST = window.ST || {};
         url: form.attr('action'),
         type: 'PATCH',
         data: form.serialize()
-      })
+      });
     });
 
     return {
@@ -80,9 +80,6 @@ window.ST = window.ST || {};
       multi_columns = option.data('multi-columns');
 
     $('#section_variation').val(variation);
-    if (!variation) {
-      return false;
-    }
     if (!variation) {
       $("#section_variation").attr('disabled', true);
     } else {

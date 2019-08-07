@@ -509,4 +509,118 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       expect(asset["src"]).to match(/Bison_skull_pile.png$/)
     end
   end
+
+  describe 'listings' do
+    let(:listing_1){ FactoryGirl.create(:listing, community: community) }
+    let(:listing_2){ FactoryGirl.create(:listing, community: community) }
+    let(:listing_3){ FactoryGirl.create(:listing, community: community) }
+    let(:listings_section) do
+      {"id" => "test1",
+       "kind" => "listings",
+       "title" => "Shot In the Dark",
+       "paragraph" => "She only paints with bold colors",
+       "button_color" => {"type"=>"marketplace_data", "id"=>"primary_color"},
+       "button_color_hover" =>
+      {"type"=>"marketplace_data", "id"=>"primary_color_darken"},
+       "button_title" => "Start",
+       "button_path" => {"value"=>"https://site.name/start"},
+       "price_color" => {"type"=>"marketplace_data", "id"=>"primary_color"},
+       "no_listing_image_background_color" =>
+        {"type"=>"marketplace_data", "id"=>"primary_color"},
+       "no_listing_image_text" => {"type"=>"translation", "id"=>"no_listing_image"},
+       "author_name_color_hover" =>
+        {"type"=>"marketplace_data", "id"=>"primary_color"},
+       "listings" =>
+        [{"listing"=>{"type"=>"listing", "id"=>listing_1.id.to_s}},
+         {"listing"=>{"type"=>"listing", "id"=>listing_2.id.to_s}},
+         {"listing"=>{"type"=>"listing", "id"=>listing_3.id.to_s}}]}
+    end
+
+    it 'creates section' do
+      section_id = 'test1'
+      sections = landing_page_version.parsed_content['sections']
+      expect(sections.find{|x| x['id'] == section_id}).to eq nil
+      post :create, params: { landing_page_version_id: landing_page_version.id,
+                              section: {
+        kind: 'listings',
+        id: section_id,
+        title: 'Shot In the Dark',
+        paragraph: 'She only paints with bold colors',
+        cta_enabled: '1',
+        button_title: 'Start',
+        button_path_string: 'https://site.name/start',
+        listing_1_id: listing_1.id,
+        listing_2_id: listing_2.id,
+        listing_3_id: listing_3.id
+      }}
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['kind']).to eq 'listings'
+      expect(section['id']).to eq section_id
+      expect(section['title']).to eq 'Shot In the Dark'
+      expect(section['paragraph']).to eq 'She only paints with bold colors'
+      expect(section['button_title']).to eq 'Start'
+      expect(section['button_path']['value']).to eq 'https://site.name/start'
+      expect(section['listings'][0]['listing']['id']).to eq listing_1.id.to_s
+      expect(section['listings'][1]['listing']['id']).to eq listing_2.id.to_s
+      expect(section['listings'][2]['listing']['id']).to eq listing_3.id.to_s
+    end
+
+    it 'does not creates section with nonexisting listing ids' do
+      section_id = 'test1'
+      sections = landing_page_version.parsed_content['sections']
+      expect(sections.find{|x| x['id'] == section_id}).to eq nil
+      post :create, params: { landing_page_version_id: landing_page_version.id,
+                              section: {
+        kind: 'listings',
+        id: section_id,
+        title: 'Shot In the Dark',
+        paragraph: 'She only paints with bold colors',
+        cta_enabled: '1',
+        button_title: 'Start',
+        button_path_string: 'https://site.name/start',
+        listing_1_id: 99999,
+        listing_2_id: 99999,
+        listing_3_id: 99999
+      }}
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to eq nil
+      presenter = assigns(:presenter)
+      expect(presenter.section_errors?).to eq true
+    end
+
+    it 'updates' do
+      section_id = 'test1'
+      section = LandingPageVersion::Section::Listings.new(listings_section.merge(landing_page_version: landing_page_version))
+      section.save
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      put :update, params: { landing_page_version_id: landing_page_version.id,
+                             id: section_id,
+                             section: {
+        kind: 'listings',
+        id: section_id,
+        title: 'Blackened Tofu and Black Truffle served with Panamanian Roast Beef',
+        paragraph: 'Raw Salmon Blobs atop Paleo-friendly Garlic Pie',
+        cta_enabled: '1',
+        button_title: 'Start',
+        button_path_string: 'https://site.name/start',
+        listing_1_id: listing_1.id,
+        listing_2_id: listing_2.id,
+        listing_3_id: listing_3.id
+      }}
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['title']).to eq 'Blackened Tofu and Black Truffle served with Panamanian Roast Beef'
+      expect(section['paragraph']).to eq 'Raw Salmon Blobs atop Paleo-friendly Garlic Pie'
+    end
+  end
 end

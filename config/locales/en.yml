@@ -681,6 +681,7 @@ en:
           info_single_column: Info 1 Column
           info_multi_column_2: Info 2 Columns
           info_multi_column_3: Info 3 Columns
+          listings: Listings
           hero: Hero
           new_section:
             footer: New footer section
@@ -688,12 +689,14 @@ en:
             info_single_column: "New single column section"
             info_multi_column_2: "New 2 column section"
             info_multi_column_3: "New 3 column section"
+            listings: "New listings section"
           edit_section:
             footer: Edit footer section
             hero: Edit hero section
             info_single_column: "Edit single column section"
             info_multi_column_2: "Edit 2 column section"
             info_multi_column_3: "Edit 3 column section"
+            listings: "Edit listings section"
     landing_page_versions:
       sections:
         hero:
@@ -737,6 +740,8 @@ en:
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
+        listings:
+          you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1627,6 +1632,7 @@ en:
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
       section_with_this_id_already_exists: "Section with this id already exists"
+      listing_with_this_id_does_not_exist: "Listing with this ID does not exist"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
@@ -3025,3 +3031,8 @@ en:
         background_color: Background color
         background_color_string: Background color
         icon_color: Icon color
+      landing_page_version/section/listings:
+        listing_1_id: Listing 1 ID
+        listing_2_id: Listing 2 ID
+        listing_3_id: Listing 3 ID
+
