@@ -721,6 +721,8 @@ en:
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
+          column_button_text: "Button text"
+          column_button_url: "https://www.sharetribe.com"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -1600,7 +1602,7 @@ en:
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
-      section_with_this_id_already_exists: "Section with this id already exists"
+      section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."

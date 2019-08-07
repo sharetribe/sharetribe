@@ -31,9 +31,9 @@
       = label_tag "section[columns][#{index}][button_title]", t(".column_button", index: index + 1)
   .row
     .col-6
-      = text_field_tag "section[columns][#{index}][button_title]", column['button_title']
+      = text_field_tag "section[columns][#{index}][button_title]", column['button_title'], placeholder: t(".column_button_text")
     .col-6
-      = text_field_tag "section[columns][#{index}][button_path]", column['button_path']
+      = text_field_tag "section[columns][#{index}][button_path][value]", column['button_path']&.[]('value'), placeholder: t(".column_button_url")
 
 = render partial: 'cta_button', locals: {form: form, presenter: presenter}
 

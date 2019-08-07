@@ -341,8 +341,7 @@ $content-padding: 36px;
 .info__column-text-content {
   width: 100%;
 }
-
-.info__section--background-color, .info__section--background-image--light, .info__section--background-image--dark {
+.info__section--background, .info__section--background-color, .info__section--background-image--light, .info__section--background-image--dark {
   .info__column-paragraph--markdown {
     & > p {
       color: #ffffff;
