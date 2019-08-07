@@ -74,6 +74,8 @@ module CustomLandingPage
         LandingPageVersion::Section::Hero
       when LandingPageVersion::Section::FOOTER
         LandingPageVersion::Section::Footer
+      when LandingPageVersion::Section::LISTINGS
+        LandingPageVersion::Section::Listings
       end
     end
 

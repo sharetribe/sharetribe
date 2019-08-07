@@ -33,6 +33,10 @@ module CustomLandingPage
           I18n.t('admin.communities.landing_pages.sections.info_multi_column_3'),
           LandingPageVersion::Section::INFO,
           {data: { variation: LandingPageVersion::Section::VARIATION_MULTI_COLUMN, multi_columns: 3}}
+        ],
+        [
+          I18n.t('admin.communities.landing_pages.sections.listings'),
+          LandingPageVersion::Section::LISTINGS,
         ]
       ]
     end

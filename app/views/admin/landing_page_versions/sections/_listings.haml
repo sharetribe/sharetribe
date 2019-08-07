@@ -1,0 +1,43 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+
+.row
+  .col-12
+    = form.label :id
+    = form.text_field :id, disabled: presenter.section.persisted?, required: true
+.row
+  .col-12
+    = form.label :title
+    = form.text_field :title, required: true
+.row
+  .col-12
+    = form.label :paragraph
+    = form.text_area :paragraph
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+
+.row
+  .col-12
+    = render partial: 'layouts/info_text', locals: {text: t('.you_need_to_add_the_listing_ids')}
+
+.row
+  .col-6
+    = form.label :listing_1_id
+  .col-6
+    = form.text_field :listing_1_id
+
+.row
+  .col-6
+    = form.label :listing_2_id
+  .col-6
+    = form.text_field :listing_2_id
+
+.row
+  .col-6
+    = form.label :listing_3_id
+  .col-6
+    = form.text_field :listing_3_id
+

@@ -10,6 +10,8 @@
     = render 'footer', presenter: presenter, form: form
   - elsif presenter.section_info_multi_column?
     = render 'multi_column', presenter: presenter, form: form
+  - elsif presenter.section_listings?
+    = render 'listings', presenter: presenter, form: form
 
   .row
     .col-12

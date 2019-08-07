@@ -2,6 +2,7 @@ module LandingPageVersion::Section
   INFO = 'info'.freeze
   HERO = 'hero'.freeze
   FOOTER = 'footer'.freeze
+  LISTINGS = 'listings'.freeze
 
   VARIATION_SINGLE_COLUMN = 'single_column'.freeze
   VARIATION_MULTI_COLUMN = 'multi_column'.freeze
