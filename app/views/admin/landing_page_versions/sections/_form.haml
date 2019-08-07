@@ -1,7 +1,4 @@
 = form_for [:admin, presenter.landing_page_version, presenter.section], html: {multipart: true} do |form|
-  - if presenter.section_errors?
-    %div
-      = presenter.section_errors
   - if presenter.section_info_single_column?
     = render 'single_column', presenter: presenter, form: form
   - elsif presenter.section_hero?

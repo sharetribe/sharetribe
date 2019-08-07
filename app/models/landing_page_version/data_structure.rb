@@ -66,6 +66,14 @@ module LandingPageVersion::DataStructure
 
   def update_content(new_content)
     @parsed_content = nil
+
+    # ensure hero is first and footer is last
+    composition = new_content['composition']
+    hero = composition.find{|x| x['section']['id'] == 'hero' }
+    footer = composition.find{|x| x['section']['id'] == 'footer' }
+    inner_content = composition.select{|x| x != hero && x != footer }
+    new_content['composition'] = ([hero] + inner_content + [footer]).compact
+
     update(content: new_content.to_json)
   end
 end

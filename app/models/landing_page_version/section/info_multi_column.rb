@@ -41,7 +41,7 @@ module LandingPageVersion::Section
       :background_color_string,
       :background_image_variation,
       :multi_columns,
-      :columns => [ :icon, :title, :paragraph, :button_title, :button_path ]
+      :columns => [ :icon, :title, :paragraph, :button_title, :button_path => [:value] ]
     ]
 
     def initialize(attributes={})

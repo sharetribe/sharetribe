@@ -9,6 +9,8 @@
   .col-12
     = form.label :id
     = form.text_field :id, disabled: presenter.section.persisted?, required: true
+    - if presenter.id_error?
+      %label.error= t("errors.messages.section_with_this_id_already_exists")
 .row
   .col-12
     = form.label :title

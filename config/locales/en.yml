@@ -740,6 +740,8 @@ en:
           column_icon: "Column %{index} icon"
           column_paragraph: "Column %{index} paragraph"
           column_button: "Column %{index} button"
+          column_button_text: "Button text"
+          column_button_url: "https://www.sharetribe.com"
         listings:
           you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
     custom_fields:
@@ -1631,7 +1633,7 @@ en:
       on_or_after: "must be on or after %{restriction}"
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
-      section_with_this_id_already_exists: "Section with this id already exists"
+      section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
       listing_with_this_id_does_not_exist: "Listing with this ID does not exist"
   event_feed_events:
     accept:
