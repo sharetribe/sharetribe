@@ -17,15 +17,12 @@
                     %tr
                       %td{:width => "7.5%"}
                       %td{:valign => "top", :width => "85%", :style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif; font-weight:400; font-size:14px; padding: 10px 0 40px 0; text-align: left; line-height:22px;"}
-                        - if @recipient.has_admin_rights?(@current_community) && !@test_email
-                          = render :partial => "admin/communities/welcome_email_for_marketplace_creator"
+                        %p= t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
+                        - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
+                        - if customization && !customization.welcome_email_content.blank?
+                          = customization.welcome_email_content.html_safe
                         - else
-                          %p= t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
-                          - customization = @current_community.community_customizations.find_by_locale(@url_params[:locale])
-                          - if customization && !customization.welcome_email_content.blank?
-                            = customization.welcome_email_content.html_safe
-                          - else
-                            = render :partial => "admin/communities/default_welcome_email"
+                          = render :partial => "admin/communities/default_welcome_email"
                       %td{:width => "7.5%"}
               - if @show_branding_info
                 = render :partial => "layouts/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-welcome"}
