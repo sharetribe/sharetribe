@@ -2,11 +2,14 @@ Feature: Transaction process between two users
 
   @javascript
   Scenario: Free message conversation for non-monetary transaction
+    Given community "test" has country "US" and currency "USD"
     Given there are following users:
       | person |
       | kassi_testperson1 |
       | kassi_testperson2 |
-    And there is a listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
+      | kassi_testperson3 |
+    And "kassi_testperson3" is superadmin
+    And there is a free listing with title "Hammer" from "kassi_testperson1" with category "Items" and with listing shape "Requesting"
     And I am logged in as "kassi_testperson2"
 
     # Starting the conversation
@@ -28,3 +31,9 @@ Feature: Transaction process between two users
     And the system processes jobs
     Then "kassi_testperson2@example.com" should receive an email
     And I log out
+
+    # Admin sees free transaction with proper currency
+    When I log in as "kassi_testperson3"
+    And I am on the transactions admin page
+    Then I should see "$0"
+    And I should not see "€0"
