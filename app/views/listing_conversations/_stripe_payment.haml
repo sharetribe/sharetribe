@@ -43,7 +43,7 @@
     .row
       .col-12
         %label= t(".address_country")
-        = text_field_tag 'shipping_address[country]', CountryI18nHelper.translate_country(@current_community.country)
+        = text_field_tag 'shipping_address[country]', CountryI18nHelper.translate_country(@current_community.country), 'stripe-shipping-address': true
 
     .row
       .col-12
