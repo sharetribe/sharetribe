@@ -21,7 +21,7 @@
 
   .admin-left-navi-link-group
     - grouped_links[:general].each do |link|
-      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(sel_link) ? "selected left-navi-link" : "left-navi-link"), "data-uv-trigger" => link[:data_uv_trigger]}
+      %a{:id => link[:id], :href => link[:path], :title => link[:text], :class => (link[:name].eql?(sel_link) ? "selected left-navi-link" : "left-navi-link"), "data-uv-trigger" => link[:data_uv_trigger], :target => link[:target]}
         .left-navi-link-icon{:class => link[:icon_class]}
         .left-navi-link-text= link[:text]
 
