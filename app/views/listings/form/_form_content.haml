@@ -14,3 +14,4 @@
   = hidden_field_tag 'listing_ordered_images'
 
 = render :partial => "listings/help_texts", :collection => ["help_valid_until"], :as => :field
+= render "layouts/markdown_help", run_js_immediately: run_js_immediately

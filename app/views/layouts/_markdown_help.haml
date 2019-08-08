@@ -83,6 +83,12 @@
               %br/
               %br/
 
-- content_for :extra_javascript do
+- content_for :markdown_help_javascript do
   :javascript
     $('#markdown-popup-link').click(function() { $('#markdown-help-popup').lightbox_me({centered: true, zIndex: 1000000}); return false});
+
+- if defined?(run_js_immediately) && run_js_immediately
+  = yield :markdown_help_javascript
+- content_for :extra_javascript do
+  = yield :markdown_help_javascript
+
