@@ -79,8 +79,6 @@ class StripeService::Report
     stripe_payment.reload
     result = cancel_charge.merge({
       "event": "stripe_call_succeeded",
-      "stripe_payment_id": stripe_payment.id,
-      "stripe_charge_id": stripe_payment.stripe_charge_id,
       "stripe_charge_state": "success"
     })
     logger.info('cancel_charge_success', nil, result)
@@ -90,7 +88,6 @@ class StripeService::Report
   def cancel_charge_failed
     result = cancel_charge.merge({
       "event": "stripe_call_failed",
-      "stripe_payment_id": stripe_payment&.id,
       "stripe_error": stripe_error
     })
     logger.info('cancel_charge_failed', nil, result)
@@ -111,6 +108,7 @@ class StripeService::Report
       "event": "stripe_call_succeeded",
       "stripe_payment_id": stripe_payment.id,
       "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id,
       "stripe_transfer_id": stripe_payment.stripe_transfer_id
     })
     logger.info('create_payout_success', nil, result)
@@ -170,9 +168,6 @@ class StripeService::Report
     stripe_payment.reload
     result = cancel_intent.merge({
       "event": "stripe_call_succeeded",
-      "stripe_payment_id": stripe_payment.id,
-      "stripe_charge_id": stripe_payment.stripe_charge_id,
-      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id,
       "stripe_charge_state": "success"
     })
     logger.info('cancel_intent_success', nil, result)
@@ -182,7 +177,6 @@ class StripeService::Report
   def cancel_intent_failed
     result = cancel_intent.merge({
       "event": "stripe_call_failed",
-      "stripe_payment_id": stripe_payment&.id,
       "stripe_error": stripe_error
     })
     logger.info('cancel_intent_failed', nil, result)
@@ -239,7 +233,9 @@ class StripeService::Report
     {
       "stripe_op": "cancel_charge",
       "transaction_id": tx.id,
-      "stripe_seller_id": stripe_account.stripe_seller_id
+      "stripe_seller_id": stripe_account.stripe_seller_id,
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id
     }
   end
 
@@ -265,7 +261,10 @@ class StripeService::Report
     {
       "stripe_op": "cancel_intent",
       "transaction_id": tx.id,
-      "stripe_seller_id": stripe_account.stripe_seller_id
+      "stripe_payment_id": stripe_payment.id,
+      "stripe_seller_id": stripe_account.stripe_seller_id,
+      "stripe_charge_id": stripe_payment.stripe_charge_id,
+      "stripe_payment_intent_id": stripe_payment.stripe_payment_intent_id
     }
   end
 
