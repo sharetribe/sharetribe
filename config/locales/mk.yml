@@ -1696,6 +1696,23 @@ mk:
       messages: ~
     logged_in_notifications_icon:
       notifications: ~
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: ~
       go_to_your_profile_page: ~
@@ -1896,6 +1913,7 @@ mk:
       description:
         detailed_description: ~
         youtube_info: ~
+        youtube_info_markdown: ~
       destination:
         destination: ~
       form_content:
@@ -2445,6 +2463,8 @@ mk:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: ~
   shipping_address:
     shipping_address: ~

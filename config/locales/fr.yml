@@ -291,7 +291,7 @@ fr:
         unconfirmed_user: "Utilisateur non confirmé : %{name}"
         resend: Renvoyer
         cancel: Annuler
-        user_didnt_complete_the_signup_process: "Cet utilisateur s'est inscrit via Facebook mais n'a pas terminé le processus d'inscription. Après avoir connecté un compte Facebook, les utilisateurs doivent encore accepter vos conditions d'utilisation et compléter les éventuels champs obligatoires."
+        user_didnt_complete_the_signup_process: "Cet utilisateur s'est inscrit via un une authentification de réseau social mais n'a pas terminé le processus d'inscription. Après avoir connecté un compte d'un réseau social, les utilisateurs doivent encore accepter vos conditions d'utilisation et compléter les éventuels champs obligatoires."
         pending_user: "En attente : %{name}"
       new_layout:
         new_layout: "Nouveau design"
@@ -457,7 +457,7 @@ fr:
           started: Début
           last_activity: "Dernière activité"
           initiated_by: Initiateur
-          other_party: "Autre participant"
+          other_party: Vendeur
         status:
           conversation: Conversation
           free: "Transaction gratuite"
@@ -503,7 +503,7 @@ fr:
           started: Commencée
           last_activity: "Dernière activité"
           initiated_by: Initiateur
-          other_party: "Autre participant"
+          other_party: Vendeur
         participants: "Conversation : %{starter} avec %{author}"
         profile: "Profil de %{author}"
         search_by_keyword: "Rechercher un nom, un email ou un mot-clé"
@@ -1731,6 +1731,23 @@ fr:
       messages: Messages
     logged_in_notifications_icon:
       notifications: Notifications
+    markdown_help:
+      title: "Mise en page avec Markdown"
+      description: "Markdown est une solution facile pour mettre en page du texte, pour n'importe quel appareil. Cela ne permet pas des choses incroyables telles que changer la police de caractères ou les couleurs mais donne le contrôle sur les essentiels, uniquement grâce à des symboles que vous connaissez déjà."
+      formatting: "Mise en page"
+      result: Rendu
+      h1: T1
+      h2: T2
+      h3: T3
+      italic: italique
+      bold: gras
+      underline: souligné
+      strikethrough: barré
+      inline_link: Lien
+      list: Liste
+      one: Un
+      two: Deux
+      three: Trois
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1799,7 +1816,7 @@ fr:
       payment_successful: "Paiement réussi"
       payment_canceled: "Paiement annulé"
       error_in_payment: "Erreur lors du paiement. Si vous n'avez pas terminé le paiement, essayez de nouveau. Si vous l'aviez terminé, merci de nous contacter."
-      cannot_receive_payment: "L'autre partie ne peut recevoir le paiement à cause d'une erreur. Veuillez contacter l'équipe %{service_name} pour en savoir plus"
+      cannot_receive_payment: "Le vendeur ne peut recevoir le paiement à cause d'une erreur. Veuillez contacter l'équipe %{service_name} pour en savoir plus"
       payment_waiting_for_later_accomplishment: "Quand vous aurez payé, nous le signalerons au vendeur et vous recevrez une facture par email"
       password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
@@ -1935,6 +1952,7 @@ fr:
       description:
         detailed_description: "Description détaillée"
         youtube_info: "Si votre description contient des liens YouTube, les vidéos seront affichées sous la description."
+        youtube_info_markdown: "Vous pouvez %{link}. Si votre description contient des liens YouTube, les vidéos seront affichées sous la description."
       destination:
         destination: "Lieu d'arrivée"
       form_content:
@@ -2174,7 +2192,7 @@ fr:
       address_country: "Pays *"
       address_name: "Nom et prénom *"
       address_city: "Ville *"
-      address_state: "Etat *"
+      address_state: "Région / Etat / Province"
       address_street1: "Adresse *"
       address_street2: "Adresse (suite)"
       address_postal_code: "Code postal"
@@ -2487,6 +2505,8 @@ fr:
       image_is_processing: "C'est presque prêt ! Nous sommes en train de traiter votre photo de profil. Elle sera visible dans une ou deux minutes."
       shown_in_your_public_profile: "(Visible dans votre profile public)"
       editing_profile_of: "Vous êtes en train d'éditer le profil de %{name}"
+      format_markdown_link: "mettre en page votre description en utilisant Markdown"
+      format_markdown: "Vous pouvez %{link}."
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"

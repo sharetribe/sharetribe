@@ -1749,6 +1749,23 @@ pl:
       messages: Wiadomości
     logged_in_notifications_icon:
       notifications: Powiadomienia
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrator
       go_to_your_profile_page: Profil
@@ -1955,6 +1972,7 @@ pl:
       description:
         detailed_description: "Szczegółowy opis"
         youtube_info: "Jeśli Twój opis zawiera łącza YouTube, wideo będzie pokazane poniżej opisu."
+        youtube_info_markdown: ~
       destination:
         destination: Lokalizacja
       form_content:
@@ -2509,6 +2527,8 @@ pl:
       image_is_processing: "Trzymaj się mocno. Przetwarzamy właśnie Twoje zdjęcie profilowe. Będzie gotowe za minutę lub dwie."
       shown_in_your_public_profile: "(pokazane na Twoim publicznym profilu)"
       editing_profile_of: "Edytujesz profil %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Zapisz informacje"
   shipping_address:
     shipping_address: "Adres dostawy"

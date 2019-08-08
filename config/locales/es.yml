@@ -213,12 +213,12 @@ es:
       settings:
         settings: Configuración
         general: General
-        access: "Preferencias de acceso"
+        access: "Preferencias de acceso y contacto"
         join_with_invite_only: "Los usuarios sólo pueden unirse a esta comunidad con una invitación de otro usuario."
         users_can_invite_new_users: "Todos los usuarios pueden invitar nuevos usuarios a esta comunidad."
         private: "Hacer el marketplace privado (sólo los usuarios registrados pueden ver su contenido)."
         require_verification_to_post_listings: "Sólo los usuarios que han sido verificados por el administrador pueden publicar nuevos anuncios"
-        allow_free_conversations: ~
+        allow_free_conversations: "Permitir que los usuarios se contacten libremente"
         search_preferences: "Preferencias de búsqueda"
         default_search_type: "Tipo de búsqueda: %{select_search_type}"
         keyword_search: "Búsqueda por palabras clave"
@@ -291,7 +291,7 @@ es:
         unconfirmed_user: "Usuario no confirmado: %{name}"
         resend: Reenviar
         cancel: Cancelar
-        user_didnt_complete_the_signup_process: "Este usuario se registro por medio de Facebook pero no completo el proceso de registro. Después de conectar una cuenta de Facebook, los usuarios tienen que aceptar los términos de uso y llenar los campos obligatorios."
+        user_didnt_complete_the_signup_process: "Este usuario se registró por medio de redes sociales pero no completo el proceso de registro. Después de conectar una cuenta de redes sociales, los usuarios tienen que aceptar los términos de uso y llenar los campos obligatorios."
         pending_user: "Pendiente: %{name}"
       new_layout:
         new_layout: "Nuevo diseño"
@@ -457,7 +457,7 @@ es:
           started: Inicio
           last_activity: "Última actividad"
           initiated_by: "Iniciada por"
-          other_party: "Otra parte"
+          other_party: Proveedor
         status:
           conversation: Conversación
           free: "Transacción gratuita"
@@ -503,7 +503,7 @@ es:
           started: Iniciada
           last_activity: "Ultima Actividad"
           initiated_by: Iniciador
-          other_party: "Otro usuario"
+          other_party: Proveedor
         participants: "Conversación: %{starter} con %{author}"
         profile: "Perfil de %{author}"
         search_by_keyword: "Buscar por nombre, email o palabra clave"
@@ -1460,7 +1460,7 @@ es:
       buyer_cannot_pay_error: "El pago fue rechazado por PayPal. Por favor contacta al servicio al cliente de PayPal para más información: %{customer_service_link}"
       pending_review_error: "El pago se realizó pero fue marcado por PayPal como 'pendiente de revisión'. Cuando PayPal complete esta revisión, el pago será autorizado automáticamente."
       seller_express_checkout_disabled: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al autor del anuncio para avisarle que hay un problema con su cuenta de PayPal y recomendarle que contacte al servicio al cliente de PayPal."
-      seller_express_checkout_disabled_no_free: ~
+      seller_express_checkout_disabled_no_free: "El servicio de Express Checkout de PayPal ha sido inhabilitado para la cuenta de PayPal del autor del anuncio. Por favor contacta al equipo de %{service_name} para que le avisen al autor del anuncio que hay un problema con su cuenta y recomendarle que contacte al servicio de PayPal."
       generic_error: "Ha ocurrido un error durante el proceso de pago. No se pudo finalizar el pago a través de PayPal."
       cancel_error: "Ha ocurrido un error durante la cancelación. No se ha podido finalizar la cancelación."
       accept_authorization_error: "Ha ocurrido un error al intentar aceptar el pago preautorizado con PayPal. Por favor, inténtalo de nuevo."
@@ -1731,6 +1731,23 @@ es:
       messages: Mensajes
     logged_in_notifications_icon:
       notifications: Notificaciones
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -1799,7 +1816,7 @@ es:
       payment_successful: "Pago existoso"
       payment_canceled: "Pago cancelado."
       error_in_payment: "Ha habido un error en el pago. Si no completaste el proceso todavía, prueba de nuevo. Si ya lo completaste, por favor, contáctanos."
-      cannot_receive_payment: "Hay algún error que está provocando que la otra persona no pueda recibir el pago. Por favor, contacta con el equipo de %{service_name} para aclarar el motivo."
+      cannot_receive_payment: "Hay algún error que está provocando que el proveedor no pueda recibir el pago. Por favor, contacta al equipo de %{service_name} para aclarar el motivo."
       payment_waiting_for_later_accomplishment: "Cuando hayas pagado, se lo notificaremos al vendedor y recibirás un recibo por correo electrónico"
       password_recovery_sent: "Instrucciones para cambiar tu contraseña han sido enviadas a tu correo electrónico."
       person_activated: "Usuario activado"
@@ -1859,7 +1876,7 @@ es:
       user_does_not_have_email_to_delete: "La dirección de correo electrónico que quieres eliminar no existe"
       email_deleted: "Email eliminado"
       listing_author_payment_details_missing: "Por favor contacta con al autor del anuncio por medio del botón de 'Contactar'. Necesita actualizar sus datos de pago para poder recibir pagos en línea."
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Por favor contacta al equipo de %{service_name} para que le avisen al autor del anuncio que necesita actualizar su cuenta para recibir pagos."
       images_are_processing: "Estamos procesando tus imágenes. Danos un minuto o dos y estarán listas."
       maintenance_mode:
         zero: "La página estará fuera de servicio por mantenimiento"
@@ -1935,6 +1952,7 @@ es:
       description:
         detailed_description: "Descripción detallada"
         youtube_info: "Si la descripción del anuncio contiene links de Youtube, los videos se muestran bajo la descripción."
+        youtube_info_markdown: ~
       destination:
         destination: Destino
       form_content:
@@ -2174,7 +2192,7 @@ es:
       address_country: "País *"
       address_name: "Nombre completo *"
       address_city: "Ciudad *"
-      address_state: "Estado *"
+      address_state: Estado
       address_street1: "Dirección - línea 1"
       address_street2: "Dirección - línea 2"
       address_postal_code: "Código postal *"
@@ -2487,6 +2505,8 @@ es:
       image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
       shown_in_your_public_profile: "(se muestra en tu perfil público)"
       editing_profile_of: "Estás editando el perfil de %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

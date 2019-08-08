@@ -1731,6 +1731,23 @@ en-NZ:
       messages: Messages
     logged_in_notifications_icon:
       notifications: Notifications
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profile
@@ -1935,6 +1952,7 @@ en-NZ:
       description:
         detailed_description: "Detailed description"
         youtube_info: "If your description contains YouTube links, the videos will be shown below the description."
+        youtube_info_markdown: ~
       destination:
         destination: Destination
       form_content:
@@ -2487,6 +2505,8 @@ en-NZ:
       image_is_processing: "Hang on tight. We are processing your profile picture. It will be ready in a minute or two."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Save information"
   shipping_address:
     shipping_address: "Shipping address"

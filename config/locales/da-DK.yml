@@ -1725,6 +1725,23 @@ da-DK:
       messages: Beskeder
     logged_in_notifications_icon:
       notifications: Notifikationer
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrator
       go_to_your_profile_page: "Min profil"
@@ -1929,6 +1946,7 @@ da-DK:
       description:
         detailed_description: "Detaljeret beskrivelse"
         youtube_info: "Hvis din beskrivelse indeholder YouTube links, vil videoerne blive vist under beskrivelsen."
+        youtube_info_markdown: ~
       destination:
         destination: destiantion
       form_content:
@@ -2481,6 +2499,8 @@ da-DK:
       image_is_processing: "Din profil er ved at blive forberedt. Opdatér venligst siden om et øjeblik."
       shown_in_your_public_profile: "(vises på din profil)"
       editing_profile_of: "Du ændre nu %{name}s profil"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: Gem
   shipping_address:
     shipping_address: Forsendelsesadresse

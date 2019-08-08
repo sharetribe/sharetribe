@@ -1704,6 +1704,23 @@ he-IL:
       messages: הודעות
     logged_in_notifications_icon:
       notifications: התראות
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: "מנהל מערכת"
       go_to_your_profile_page: "פרופיל משתמש"
@@ -1904,6 +1921,7 @@ he-IL:
       description:
         detailed_description: תיאור
         youtube_info: "אם התיאור שלך מכיל קישורים ליוטיוב, הסרטונים יפתחו מתחת לתיאור."
+        youtube_info_markdown: ~
       destination:
         destination: יעד
       form_content:
@@ -2456,6 +2474,8 @@ he-IL:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "שמור פרטים"
   shipping_address:
     shipping_address: "כתובת למשלוח"

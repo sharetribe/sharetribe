@@ -1731,6 +1731,23 @@ fi:
       messages: Viestit
     logged_in_notifications_icon:
       notifications: Tiedotteet
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Ylläpito
       go_to_your_profile_page: Profiili
@@ -1935,6 +1952,7 @@ fi:
       description:
         detailed_description: "Tarkempi kuvaus"
         youtube_info: "Jos kuvauksesi sisältää YouTube-linkkejä, videot näytetään kuvauksen alla."
+        youtube_info_markdown: ~
       destination:
         destination: Määränpää
       form_content:
@@ -2487,6 +2505,8 @@ fi:
       image_is_processing: "Profiilikuvaasi valmistellaan taustalla. Lataa sivu uudelleen hetken kuluttua."
       shown_in_your_public_profile: "(Näkyy julkisessa profiilissasi)"
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite

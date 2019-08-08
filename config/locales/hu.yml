@@ -1728,6 +1728,23 @@ hu:
       messages: Üzenetek
     logged_in_notifications_icon:
       notifications: Megjegyzések
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1932,6 +1949,7 @@ hu:
       description:
         detailed_description: "Részletes leírás"
         youtube_info: "Amennyiben a leírása tartalmaz YouTube linket, a videók a leírás alatt kerülnek lejátszásra."
+        youtube_info_markdown: ~
       destination:
         destination: Célállomás
       form_content:
@@ -2485,6 +2503,8 @@ hu:
       image_is_processing: "A profilképe feldolgozása folyamatban van. Kérjük, frissítse az oldalt egy kis idő elteltével."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: Mentés
   shipping_address:
     shipping_address: "Szállítási cím"

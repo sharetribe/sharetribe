@@ -1714,6 +1714,23 @@ pt-PT:
       messages: Mensagens
     logged_in_notifications_icon:
       notifications: "Notificações "
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Perfil
@@ -1914,6 +1931,7 @@ pt-PT:
       description:
         detailed_description: "Descrição detalhada"
         youtube_info: ~
+        youtube_info_markdown: ~
       destination:
         destination: Destino
       form_content:
@@ -2466,6 +2484,8 @@ pt-PT:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Salvar informação"
   shipping_address:
     shipping_address: ~

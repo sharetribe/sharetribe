@@ -1714,6 +1714,23 @@ zh-HK:
       messages: 私訊
     logged_in_notifications_icon:
       notifications: 通知
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: 管理員
       go_to_your_profile_page: 個人專頁
@@ -1917,6 +1934,7 @@ zh-HK:
       description:
         detailed_description: 詳細資料
         youtube_info: 如果你的描述內容包含YouTube的連結，該影片將會在描述的下方顯示。
+        youtube_info_markdown: ~
       destination:
         destination: 目的地
       form_content:
@@ -2468,6 +2486,8 @@ zh-HK:
       image_is_processing: "我們正在處理你的個人頭像, 請於稍後時間重新整理頁面  "
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: 保存訊息
   shipping_address:
     shipping_address: ~

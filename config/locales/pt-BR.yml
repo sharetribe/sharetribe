@@ -1725,6 +1725,23 @@ pt-BR:
       messages: Mensagens
     logged_in_notifications_icon:
       notifications: Notificações
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -1906,7 +1923,7 @@ pt-BR:
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "Apagar anúncio"
     map:
       open_in_google_maps: "Abrir no Google Maps"
     error:
@@ -1929,6 +1946,7 @@ pt-BR:
       description:
         detailed_description: "Descrição detalhada"
         youtube_info: "Se a sua descrição contiver links para o YouTube os vídeos serão mostrados abaixo da descrição."
+        youtube_info_markdown: ~
       destination:
         destination: Destino
       form_content:
@@ -2483,6 +2501,8 @@ pt-BR:
       image_is_processing: "Seu imagem de perfil está sendo preparada. Por favor, atualize a página daqui a pouco."
       shown_in_your_public_profile: "(mostrado no seu perfil público)"
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Salvar informações"
   shipping_address:
     shipping_address: "Endereço para envio"

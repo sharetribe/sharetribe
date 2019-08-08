@@ -1736,6 +1736,23 @@ sk-SK:
       messages: Správy
     logged_in_notifications_icon:
       notifications: Oznámenia
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrátor
       go_to_your_profile_page: Profil
@@ -1941,6 +1958,7 @@ sk-SK:
       description:
         detailed_description: Popis
         youtube_info: "Pokiaľ Váš popis obsahuje odkazy na YouTube, videá sa zobrazia nižšie v popise."
+        youtube_info_markdown: ~
       destination:
         destination: Destinácia
       form_content:
@@ -2494,6 +2512,8 @@ sk-SK:
       image_is_processing: "Váš profilový obrázok sa práve generuje, bude o chvíľu hotový."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Ulož informácie"
   shipping_address:
     shipping_address: "Adresa doručenia"

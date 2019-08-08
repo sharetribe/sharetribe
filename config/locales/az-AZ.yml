@@ -1696,6 +1696,23 @@ az-AZ:
       messages: Mesajlar
     logged_in_notifications_icon:
       notifications: Bildirişlər
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1899,6 +1916,7 @@ az-AZ:
       description:
         detailed_description: "Ətraflı təsviri"
         youtube_info: "Təsvirdə YouTube linkləri varsa, videolar təsvirin altında göstəriləcəkdir."
+        youtube_info_markdown: ~
       destination:
         destination: ~
       form_content:
@@ -2450,6 +2468,8 @@ az-AZ:
       image_is_processing: "Gözləyin. Profil şəklinizi bir dəqiqənin içində hazır olacaq."
       shown_in_your_public_profile: "(ictimai profilinizdə göstərilir)"
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Məlumatı yadda saxla"
   shipping_address:
     shipping_address: "Çatdırılma ünvanı"

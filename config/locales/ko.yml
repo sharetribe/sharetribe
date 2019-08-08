@@ -37,13 +37,13 @@ ko:
         remove_category_name: "분류 '%{category_name}' 삭제"
         warning_remove_effects: "주의: 분류 '%{category_name}'를 삭제하시면 다음과 같은 영향이 있습니다:"
         warning_listing_will_be_moved:
-          other: "해당 분류에 %{count}개의 목록이 있습니다. 해당 목록은 선택하신 분류로 옮겨집니다."
+          other: "이 카테고리에 %{count}개의 목록이 있습니다. 이 목록은 선택하신 카테고리로 이동합니다."
         warning_custom_field_will_be_moved:
           other: "해당 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
         warning_subcategory_will_be_removed:
           other: "해당 분류에 %{count}개의 하위 분류가 있습니다. 해당 하위 분류도 삭제됩니다."
         warning_with_subcategories_listing_will_be_moved:
-          other: "해당 분류와 하위 분류에 %{count}개의 목록이 있습니다. 해당 목록은 선택하신 분류로 옮겨집니다."
+          other: "이 카테고리와 하위 카테고리에 %{count}개의 목록이 있습니다. 이 목록은 선택하신 카테고리로 이동합니다."
         warning_with_subcategories_custom_field_will_be_moved:
           other: "해당 분류와 하위 분류에 %{count}개의 커스텀 항목이 있습니다. 해당 항목은 선택하신 분류로 옮겨집니다."
         select_new_category: "옮겨질 새로운 분류를 선택하세요:"
@@ -76,7 +76,7 @@ ko:
         update_information: "설정 저장"
         invite_people: "%{service_name}로 친구 초대"
         edit_signup_info: "등록 정보"
-        edit_signup_info_description: "사용자가 신규 가입할 때 보여지는 내용입니다. 사용자에게 가입 안내와 초청장을 어디서 받을 수 있는가와 같은 정보를 제공합니다. 기본 설정에는 가입 안내가 제공되지 않습니다."
+        edit_signup_info_description: "사용자가 신규 가입할 때 보여지는 내용입니다. 사용자에게 가입 안내와 초대하기와 같은 정보를 알려 줄 수 있습니다. 기본 설정으로 어떤 안내도 제공되지 않습니다."
         edit_info: "정보 변경"
         see_how_it_looks_like: 미리보기
         verification_to_post_listings_info_content: "확인되지 않은 사용자에 대한 정보 텍스트"
@@ -118,7 +118,7 @@ ko:
         custom_color1_instructions_text: "사용자 인터페이스의 메인 컬러를 컬러 코드를 입력하여 변경하실 수 있습니다. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>에서 컬러 코드를 확인하신 후 코드를 복사하여 사용하세요."
         new_listing_button_instructions_text: "새 16 진수 값을 입력하여 새 목록 게시 버튼의 색상을 변경할 수 있습니다. %{link_to_colorpicker}는 색상을 선택하고 16 진수 색상 코드를 제공합니다. 그런 다음 여기에 코드를 복사 할 수 있습니다."
         default_browse_view: "기본 브라우즈 보기"
-        default_browse_view_instructions_text: "기본 브라우즈 보기는 홈페이지에서 목록이 기본적으로 표시되는 방식을 설정하는 데 사용됩니다."
+        default_browse_view_instructions_text: "기본 브라우저 보기는 홈페이지에서 목록이 기본적으로 표시되는 방식을 설정하는 데 사용됩니다."
         grid: 그리드
         list: 목록
         map: 지도
@@ -209,7 +209,7 @@ ko:
         settings: 설정
         general: 일반
         access: "액세스 환경 설정"
-        join_with_invite_only: "다른 사용자가 초청하였을때만 새로운 사용자가 참여하도록 허용"
+        join_with_invite_only: "이미 등록된 사용자가 초대하였을때만 새로운 사용자가 참여하도록 허용"
         users_can_invite_new_users: "모든 사용자가 새 사용자를 초대하도록 허용"
         private: "등록된 사용자만 목록 및 사용자 프로필을 볼 수 있습니다 (마켓 플레이스를 비공개로 설정)."
         require_verification_to_post_listings: "관리자가 확인한 사용자만 새 목록을 게시 할 수 있음"
@@ -256,7 +256,7 @@ ko:
         email: 이메일
         name: 이름
         display_name: "표기 이름"
-        join_date: 가입되어졌습니다
+        join_date: 가입
         admin: 관리자
         posting_allowed: "게시 허용"
         ban_user: 금지
@@ -515,7 +515,7 @@ ko:
         for_keyword: ~
         headers:
           transaction: 거래
-          author: 저자
+          author: 작성자
           receiver: 수신자
           status: ~
           grade: ~
@@ -545,49 +545,49 @@ ko:
           deleting_info: ~
           blocking_info: ~
       invitations:
-        invitations: ~
+        invitations: 초대하기
         used:
-          "yes": ~
-          "no": ~
+          "yes": 사용
+          "no": 미사용
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: 발신자
+          message: 메시지
+          sent_to: 수신자
+          used: 사용여부
+          date_sent: 보낸날짜
       listings:
-        listings: ~
-        search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        listings: 리스트
+        search_by_title_author_category: "리스트 타이틀, 작성자 또는 카테고리로 찾기"
+        search: 찾기
+        reset_search: "모두 보기"
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "모든 상태"
           selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
-          approval_pending: ~
-          approval_rejected: ~
+          open: 오픈
+          closed: 마감
+          expired: 만료
+          approval_pending: 보류
+          approval_rejected: 거부
         headers:
           title: 제목
-          author: 저자
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
+          author: 작성자
+          created: 생성
+          updated: 업데이트
+          category: 카테고리
+          status: 상태
         open: 열림
         closed: 닫힘
         expired: ~
-        approved: ~
-        approval_pending: ~
-        approval_rejected: ~
+        approved: 승인
+        approval_pending: 보류
+        approval_rejected: 거부
         form:
           this_listing_has_not_not_been_approved_yet: ~
-          approve: ~
-          reject: ~
-          cancel: ~
+          approve: 승인
+          reject: 거부
+          cancel: 취소
       user_fields:
         user_fields: ~
       footer:
@@ -716,7 +716,7 @@ ko:
         recipients:
           title: "누구에게 이메일을 보내시겠습니까?"
           options:
-            all_users: "모든 사용자들"
+            all_users: "모든 사용자"
             posting_allowed: ~
             with_listing: "하나 이상의 목록을 게시한 사용자"
             with_listing_no_payment: "하나 이상의 목록을 게시했지만 결제 세부 정보를 추가하지 않은 사용자"
@@ -736,7 +736,7 @@ ko:
         hello_firstname_text: "안녕하세요 %{person},"
     left_hand_navigation:
       general: 일반
-      users_and_transactions: "사용자들 & 거래들"
+      users_and_transactions: 관리
       configure: 구성
       emails_title: 이메일들
       subscription: 구독신청
@@ -1280,7 +1280,7 @@ ko:
       you_have_been_invited_to_kassi: "%{inviter}님이 당신을 %{service_name}에 초대하였습니다"
       here_is_a_message_from: "%{inviter}님으로부터 메세지가 도착했습니다:"
       join_now: "지금 가입하세요"
-      invitation_code: "초청코드 : %{code}"
+      invitation_code: "초대코드 : %{code}"
     new_comment:
       has_commented_your_listing_in_kassi: "%{author} 님이 귀하의 '%{listing}'에 댓글을 달았습니다."
       view_comment: "코멘트 보기"
@@ -1470,7 +1470,7 @@ ko:
     error_410:
       page_removed: "페이지가 제거되었습니다."
       page_you_requested_has_been_removed: "요청한 페이지가 삭제되었습니다."
-      page_removed_reason: "이에 대한 몇 가지 이유가 있습니다. 예를 들어 사용자가 계정을 삭제했거나 목록이 삭제되었을 수 있습니다."
+      page_removed_reason: "사용자가 계정을 삭제했거나 목록이 삭제되었을 수 있습니다."
     error_410_title: "페이지가 제거되었습니다."
     error_500:
       temporary_unavailable: "마켓 플레이스를 일시적으로 사용할 수 없음"
@@ -1537,7 +1537,7 @@ ko:
     contact_us: 문의하기
     profile: 프로필
     manage_listings: "목록 관리"
-    invite: "새회원 초청"
+    invite: "새회원 초대"
     login: 로그인
     signup: 가입
     menu: 메뉴
@@ -1549,15 +1549,15 @@ ko:
       additionally_some_private_requests_exist: "<b>추가 요청 %{number_of_listings}건</b>이 있습니다,"
     blank_slate:
       add_first: 추가
-      but_that_is_visible_only_to_registered_members: "등록된 멤버들에게만 보여집니다."
-      but_those_are_visible_only_to_registered_members: "등록된 멤버들에게만 보여집니다."
+      but_that_is_visible_only_to_registered_members: "등록된 회원들에게만 보여집니다."
+      but_those_are_visible_only_to_registered_members: "등록된 회원들에게만 보여집니다."
       create_new_account_for_yourself: "새로운 계정 생성"
       examples_of_what_you_could_offer_to_others: "어떤 제안을 할 수 있습니까"
       examples_of_what_you_could_request_to_others: "어떤 요청을 할 수 있습니까"
-      favor_offer_list: "컴퓨터 보조, 의류 수선, 베이킹, 자전거 수리"
+      favor_offer_list: "컴퓨터 보조, 의류 수선, 제과, 자전거 수리"
       favor_request_list: "아이 돌보는 일, 피아노 레슨, 반려견 산책, 잔디 깎기"
-      favors_to_offer: "도우미: "
-      favors_to_request: "도우미: "
+      favors_to_offer: "도움: "
+      favors_to_request: "도움: "
       item_offer_list: "도구, 스포츠 용품, 코스튬, 캠핑 용품"
       item_request_list: "도구, 스포츠 용품, 코스튬, 캠핑 용품"
       items_to_offer: "대여 상품: "
@@ -1613,7 +1613,7 @@ ko:
     invitation_form:
       email: "이메일 주소(들)"
       message: "개인 쪽지"
-      send_invitation: 초청하기
+      send_invitation: 초대하기
       add_email_addresses_description: "초대할 사람들의 이메일 주소를 아래 입력란에 추가하십시오. 여러 이메일 주소를 추가하려면 쉼표로 구분하십시오."
       add_lots_of_email_addresses: "관리자인 경우 여기에 팁이 있습니다. 많은 초대장을 보내려는 경우 이메일 도구를 사용해야합니다. 적합한 이메일 서비스에 대한 자료를 찾으려면 %{this_article_link}을(를) 확인하십시오."
       this_article_link: "이 내용"
@@ -1628,7 +1628,7 @@ ko:
       show_less: "덜 보여주기"
       show_more: "더 보여주기"
     profile_info_empty_notification:
-      add_your_info: "당신의 연락처 추가하세요"
+      add_your_info: "당신의 연락처를 추가하세요"
       add_a_profile_picture: "프로필 사진을 추가하세요"
       you_have_not_added_your_info: "귀하의 연락처 정보를 추가하지 않았습니다. 연락처를 추가하여 다른 사람들이 당신과 더 쉽게 연락 할 수 있도록 하십시오. 다른 사람들이 당신을 신뢰할 수 있도록 프로필 사진을 추가하십시요"
       add_your_info_link: "지금 당신의 정보 추가하세요"
@@ -1688,10 +1688,10 @@ ko:
       to_see_what_others_have_suggested: "다른 사용자들의 제안과 아이디어에 대한 투표 결과를 보려면"
       your_email_address: "연락을 위한 이메일 주소"
       connect: 가입하기
-      invite_your_friends: 친구초청
-      invite_your_neighbors: "이웃 초청!"
+      invite_your_friends: 친구초대
+      invite_your_neighbors: "이웃 초대!"
       invite_your_friends_description: "%{service_name}에 있는 사람들이 많을수록 더 유용합니다."
-      invite_your_friends_invite_only_description: "초청받지 않으면 %{service_name}에 가입 할 수 없습니다."
+      invite_your_friends_invite_only_description: "초대받지 않으면 %{service_name}에 가입 할 수 없습니다."
       join_without_facebook: "... 또는 대신 %{join_without_facebook_link}"
       join_without_facebook_link: "페이스북을 이용하지않고 가입하기"
     conversations:
@@ -1709,7 +1709,7 @@ ko:
       register_details: "개인 정보 정책"
       terms: "이용 약관"
     logged_in:
-      admin: 관리
+      admin: 관리자
       go_to_your_profile_page: 프로필
       hi: 안녕하세요
       login: 로그인
@@ -1722,8 +1722,25 @@ ko:
       messages: 메세지
     logged_in_notifications_icon:
       notifications: 알림
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
-      admin: 관리
+      admin: 관리자
       go_to_your_profile_page: 프로필
       hi: 안녕하세요
       login: 로그인
@@ -1752,17 +1769,17 @@ ko:
       email_confirmation_sent_to_new_address: "이제 전자 메일 확인이 새 주소로 전송됩니다."
       email_not_found: "입력하신 이메을 주소를 %{service_name} 데이터베이스에서 찾을 수 없습니다."
       error_with_session: "세션 중 오류가 발생했습니다."
-      feedback_considered_spam: "의심스러운 입력 형식때문에 피드백이 저장되지 않았습니다. 다시 시도하시거나 피드백 포럼을 이용하세요."
+      feedback_considered_spam: "올바르지 않은 형식때문에 피드백이 저장되지 않았습니다. 다시 시도하시거나 피드백 포럼을 이용하세요."
       feedback_not_saved: "피드백이 보내지지 않았습니다."
       feedback_saved: "피드백을 보내주셔서 감사합니다. 가능한 빨리 연락드리겠습니다."
       feedback_sent_to: "피드백을 %{target_person}에게 발송했습니다."
       feedback_skipped: "피드백이 생략되었습니다."
-      invitation_cannot_be_sent: "초청이 보내어지지 않습니다"
+      invitation_cannot_be_sent: "초대장이 보내지지 않습니다"
       invitation_cannot_unsubscribe: "초대 이메일을 수신 거부 할 수 없습니다."
-      invitation_limit_reached: "너는 너무 많은 초대장을 보내려고 하셨습니다. 일일 한도를 초과하셨습니다."
-      invitation_sent: "성공적으로 초청장이 발송되었습니다"
+      invitation_limit_reached: "너무 많은 초대장을 보내려고 하셨습니다. 일일 한도를 초과하셨습니다."
+      invitation_sent: "초대장이 발송되었습니다"
       invitation_successfully_unsubscribed: "초대 이메일을 수신 거부했습니다."
-      inviting_new_users_is_not_allowed_in_this_community: "새 사용자를 초청하는 것은 허용되지 않습니다."
+      inviting_new_users_is_not_allowed_in_this_community: "새 사용자를 초대하는 것은 허용되지 않습니다."
       login_again: "다시 로그인해주세요."
       login_failed: "로그인에 실패하였습니다. 로그인정보를 올바르게 입력해주세요."
       account_creation_successful: "%{person_name}%님, {service_name}에 오신 것을 환영합니다!"
@@ -1784,8 +1801,8 @@ ko:
       listing_updated_availability_management_enabled: "목록이 업데이트되었습니다. 가용성 관리가 가능합니다."
       listing_updated_availability_management_disabled: "목록이 업데이트되었습니다. 가용성 관리가 비활성화되었습니다."
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
-      only_listing_author_can_close_a_listing: "게시자만 편집할 수 있습니다."
+      only_kassi_administrators_can_access_this_area: "여기에 접속하시려면 관리자 계정으로 로그인 하세요."
+      only_listing_author_can_close_a_listing: "게시자만 항목을 닫을 수 있습니다."
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
       payment_successful: "성공적으로 결제되었습니다"
       payment_canceled: "결제가 취소되었습니다"
@@ -1793,8 +1810,8 @@ ko:
       cannot_receive_payment: "상대방이 약간의 오류로 인해 결제를 받을 수 없습니다. 상황을 설명하기 위해 %{service_name} 팀에 문의하십시오."
       payment_waiting_for_later_accomplishment: "결제하면 판매자에게 알리고 이메일로 영수증을 받게됩니다."
       password_recovery_sent: "비밀번호 변경 안내 이메일을 발송하였습니다."
-      person_activated: "사용자가 활성되어짐"
-      person_deactivated: "사용자가 비활성되어짐"
+      person_activated: "사용자가 활성화됨"
+      person_deactivated: "사용자가 비활성화됨"
       person_updated_successfully: "정보가 변경되었습니다."
       poll_answered: "답변된 설문조사"
       poll_could_not_be_answered: "답변할 수 없는 설문조사"
@@ -1849,7 +1866,7 @@ ko:
       can_not_delete_email: "이메일 주소를 삭제할 수 없습니다."
       user_does_not_have_email_to_delete: "제거하려는 이메일 주소가 없습니다."
       email_deleted: "이메일이 삭제되었습니다"
-      listing_author_payment_details_missing: "아래의 '문의하기'버튼을 눌러 저자에게 연락하십시오. 결제를 받으려면 결제 세부 사항을 업데이트해야 합니다."
+      listing_author_payment_details_missing: "아래 '문의하기' 버튼을 눌러 작성자에게 연락하십시오. 비용을 받으려면 작성자가 결제 세부 사항을 업데이트해야 합니다."
       listing_author_payment_details_missing_no_free: ~
       images_are_processing: "이미지를 처리 중입니다. 1 ~ 2 분만 기다려주세요."
       maintenance_mode:
@@ -1867,7 +1884,7 @@ ko:
       paypal_payments: "페이팔 결제"
       stripe_payments: "스트라이프 결제"
       payments: 결제
-      listings: ~
+      listings: 리스트
       listings_search_placeholder: ~
   listings:
     bubble_listing_not_visible:
@@ -1878,12 +1895,12 @@ ko:
       delete: 삭제하기
       are_you_sure: "댓글을 삭제 하시겠습니까?"
     comment_form:
-      ask_a_question: "목록에 댓글을 달거나 자세한 내용을 요청하십시오. 다른 모든 사용자는 당신의 댓글을 볼 수 있습니다."
+      ask_a_question: "리스트에 댓글을 달거나 추가 정보를 요청하십시오. 모든 사용자가 댓글을 볼 수 있습니다."
       log_in: 로그인
       send_comment: "의견 보내기"
       to_send_a_comment: "새 의견을 보내려면"
       write_comment: "새 의견 쓰기 :"
-      you_cannot_send_a_new_comment_because_listing_is_closed: "이 목록이 폐쇄되어 있기 때문에 새로운 댓글을 보낼 수 없습니다."
+      you_cannot_send_a_new_comment_because_listing_is_closed: "이 목록이 폐쇄되어 새로운 댓글을 보낼 수 없습니다."
       you_must: 해야합니다
       subscribe_to_comments: "새로운 의견 및 업데이트 알림"
     deleting_a_listing_cannot_be_undone: ~
@@ -1911,8 +1928,8 @@ ko:
       create_failed_to_connect_to_booking_service: "목록 작성 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하여 주십시요"
       update_failed_to_connect_to_booking_service: "목록 업데이트 실패 : 예약 서비스에 연결하지 못했습니다. 다시 시도하십시오."
     follow_links:
-      follow: "새로운 댓글에 대한 이메일 받기"
-      unfollow: "새로운 댓글에 대한 이메일을 받지 마세요."
+      follow: "새로운 댓글 이메일로 받기"
+      unfollow: "새로운 댓글 이메일로 받지 않기"
     form:
       custom_field_partials:
         dropdown:
@@ -1925,6 +1942,7 @@ ko:
       description:
         detailed_description: 상세설명
         youtube_info: "설명에 YouTube 링크가 포함되어있는 경우 동영상이 설명 아래에 표시됩니다."
+        youtube_info_markdown: ~
       destination:
         destination: 목적지
       form_content:
@@ -1983,7 +2001,7 @@ ko:
         origin: 원산지
       send_button:
         save_listing: "포스팅 하기"
-        submit_for_review: ~
+        submit_for_review: "검토를 위해 제출하기"
         will_be_reviewed: ~
         we_noticed_youre_an_admin: ~
       share_type:
@@ -2086,7 +2104,7 @@ ko:
       night: "숙박 일수:"
       week: "주 수 :"
       month: "개월 수 :"
-      unit: ~
+      unit: 개수
       custom: "수량:"
     quantity_placeholder: 수량
     please_comment: 설명
@@ -2097,7 +2115,7 @@ ko:
       add_profile_picture: "프로필 사진을 추가하세요"
       comments: 댓글달기
       contact_by_phone: "전화로 문의 :"
-      contact: 연락처
+      contact: 문의하기
       favor_offer: "서비스 제안"
       favor_request: "서비스 요청"
       inquiry: 공지
@@ -2107,7 +2125,7 @@ ko:
       no_image: "이미지가 없음"
       no_reviews: "받은 리뷰 없음"
       offer: 제안
-      listing_created: 생성된
+      listing_created: 생성
       open_until: "%{date}까지 열기"
       feedback: 피드백
       qr_code: "QR 코드"
@@ -2138,7 +2156,7 @@ ko:
       night: 밤
       week: 주
       month: 월
-      unit: ~
+      unit: 단위
     verification_required:
       verification_required: 확인필요
   listing_conversations:
@@ -2164,7 +2182,7 @@ ko:
       address_country: "국가 *"
       address_name: "성명 *"
       address_city: "도시 *"
-      address_state: "주 *"
+      address_state: 주
       address_street1: "거리 주소 입력란 1 *"
       address_street2: "거리 주소 입력란 2"
       address_postal_code: "ZIP / 우편 번호 *"
@@ -2248,7 +2266,7 @@ ko:
     paypal_account_connected_title: "연결된 PayPal 계정"
     paypal_account_connected: "PayPal 계정 <%{email}>이 %{service_name}에 연결되었습니다."
     change_account: "PayPal 계정 변경"
-    missing: "열거한 목록이 있지만 Paypal 계좌가 지급금을 받을 수 있도록 설정되어 있지 않습니다. Paypal 계정을 연결하고 %{service_name}의 %{settings_link}에서 거래 수수료를 청구 할 수있는 권한을 부여하십시오."
+    missing: "오픈된 목록이 있지만 Paypal 계좌가 지급금을 받을 수 있도록 설정되어 있지 않습니다. Paypal 계정을 연결하고 %{settings_link}에서 %{service_name}에게거래 수수료를 청구 할 수 있는 권한을 부여하십시오."
     from_your_payment_settings_link_text: "결제 설정"
     redirect_message: "PayPal로 리디렉션합니다. 아무 것도 안되면 %{redirect_link}을 클릭하십시오."
     redirect_link_text: 여기
@@ -2273,7 +2291,7 @@ ko:
       deactivate: 비활성화
     help_texts:
       feedback_description_title: 피드백
-      help_invitation_code_title: "가입하려면 초청이 필요합니다."
+      help_invitation_code_title: "가입하려면 초대이 필요합니다."
       terms_title: "%{service_name} 이용 약관"
       invite_only_help_text: "기존 사용자가 초대한 경우에만 새회원이 가입 할 수있게 하려면 이 옵션을 선택하십시오."
       invite_only_help_text_title: 초대전용
@@ -2294,8 +2312,8 @@ ko:
       given_name: 이름
       i_accept_the_terms_and_privacy: ~
       admin_emails_consent: ~
-      invalid_invitation_code: "초청 코드가 유효하지 않습니다."
-      invitation_code: 초청코드
+      invalid_invitation_code: "초대 코드가 유효하지 않습니다."
+      invitation_code: 초대코드
       not_required: ", 필요하지 않습니다"
       notification_is_mandatory: "알림 수신을 위해 하나 이상의 전자 메일 주소를 선택해야합니다. %{service_name}에서 이메일을받지 않으려면 이메일 알림 설정을 확인하십시오."
       password_again: "비밀번호를 다시 확인해주세요"
@@ -2316,11 +2334,11 @@ ko:
       and_gave_following_feedback: "그리고 다음과 같은 피드백을 주었다."
     profile_listings:
       no_image: "이미지가 없음"
-      manage_listings: ~
+      manage_listings: "내 모든 리스트 관리"
     show:
-      contact: "연락처 %{person}"
+      contact: "%{person} 연락하기"
       about_me: "내 소개:"
-      add_description: "자신에 대해 공유하십시오."
+      add_description: "자신에 대해 알려주세요."
       add_location: "위치 추가하기"
       add_phone_number: "전화번호 추가하기"
       address: 위치
@@ -2406,7 +2424,7 @@ ko:
       delete_account_confirmation_popup: "정말로 사용자 계정을 삭제하고 영구적으로 관련된 모든 데이터를 삭제하기를 원하십니까? 계정 삭제는 되돌릴 수 없습니다."
       email_addresses: "이메일 주소들"
       new_email: "새로운 이메일 주소"
-      delete_personal_information: "계정을 삭제하면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 만든 모든 목록이 삭제됩니다. 계정을 다시 활성화 할 수 없습니다."
+      delete_personal_information: "계정을 삭제하시면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 만든 모든 목록은 삭제됩니다. 계정을 다시 활성화 할 수 없습니다. 당신의 사용자 이름은 %{service_name}의 다른 사용자들이 사용할 수 있습니다."
       delete_information_others_involved: "다른 회원이 참여한 정보 (다른 사람과의 대화, 만든 거래, 다른 사용자에게 준 리뷰 등)는 계정을 삭제해도 삭제되지 않습니다. 그러나 귀하의 이름은이 정보 옆에 더 이상 표시되지 않습니다."
       unfinished_transactions: "거래가 진행 중이므로 계정을 삭제할 수 없습니다. 계정을 삭제하기 전에 모든 거래를 완료하십시오."
       only_admin: ~
@@ -2438,8 +2456,8 @@ ko:
       email_about_new_messages: "...누군가 나에게 메세지를 보냅니다"
       email_about_new_received_testimonials: "...누군가 나에게 피드백을 줍니다"
       email_about_testimonial_reminders: "...나는 이벤트에 대해 피드백 주는 것을 잊어버렸습니다"
-      email_daily_community_updates: "새로운 목록이있는 경우 매일 뉴스 레터를 보내주십시오."
-      email_weekly_community_updates: "새로운 목록이있는 경우 매주 뉴스 레터를 보내주십시오."
+      email_daily_community_updates: "새로운 목록이 있는 경우 <b>daily</b> newsletter를 보내주십시오."
+      email_weekly_community_updates: "새로운 목록이있는 경우 <b>weekly</b> newsletter를 보내주십시오."
       do_not_email_community_updates: "뉴스레터 받지 않기"
       email_when_conversation_accepted: "...누군가 나의 제안 또는 요청을 받아들입니다"
       email_when_conversation_rejected: "...누군가 나의 제안 또는 요청을 거절합니다"
@@ -2460,23 +2478,25 @@ ko:
       first_name_with_initial: "(첫 번째 문자만 다른 사용자에게 표시됨)"
       first_name_only: "(다른 사용자에게는 표시되지 않음)"
       display_name: "표기 이름"
-      display_name_description: "조직을 대표하는 경우 조직의 이름을 표시 이름으로 사용할 수 있습니다. 표시 이름은 성 및 이름 대신 다른 사용자에게 표시됩니다."
+      display_name_description: "조직을 대표하는 경우 조직의 이름을 표시 이름으로 사용할 수 있습니다. 표시 이름은 원래 이름 대신 다른 사용자에게 표시됩니다."
       location_description: "당신은 번지 또는시 / 우편 번호만 제공 할 수 있습니다. 위치를 추가 할 때 국가를 추가하는 것도 좋습니다. 예 : \"10117 Berlin, Germany\"또는 \"2000 Sand Hill Road, CA, USA\"."
       profile_picture_description: ~
       phone_number: 전화번호
       profile_picture: "프로필 사진"
       postal_code: 우편번호
-      profile_page: "당신의 프로필 페이지에서"
+      profile_page: "프로필 페이지"
       profilemap: 지도보기
       street_address: 위치
       these_fields_are_shown_in_your: "이 정보중 일부는 모든 %{service_name} 사용자에게 표시됩니다."
-      visible_to_everybody: "모든사람에게 보여집니다"
+      visible_to_everybody: "모든 사람에게 보여집니다"
       visible_to_registered_users: "(로그인 한 사용자만 볼 수 있습니다)"
       default_in_listing: "(새 목록을 만들때 기본값으로만 사용됨)"
       invisible: "(다른 사용자에게는 표시되지 않음)"
       image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소
@@ -2488,12 +2508,12 @@ ko:
     show:
       accept_terms: "%{service_name} 이용 약관 수락"
       here: "여기를 클릭하여"
-      i_accept_new_terms: "나는 새약관을 받아들입니다"
-      i_accept_terms: "나는 새약관을 받아들입니다"
+      i_accept_new_terms: "새약관에 동의합니다."
+      i_accept_terms: "약관에 동의합니다."
       terms: "%{service_name} 이용 약관"
-      terms_have_changed: "이용약관이 변경되어졌습니다"
-      you_can_view_the_new_terms: "새로운 조항을 볼수있습니다"
-      you_need_to_accept: "%{service_name}에 오신 것을 환영합니다! 처음으로 이 서비스를 사용하는 것 같군요. 시작하기 전에 먼저 받아들여야 합니다"
+      terms_have_changed: "이용약관이 변경되었습니다"
+      you_can_view_the_new_terms: "새로운 약관을 볼 수 있습니다"
+      you_need_to_accept: "%{service_name}에 오신 것을 환영합니다! 처음으로 이 서비스를 사용하는 것 같습니다. 시작하기 전에 다음 사항에 동의해 주세요."
       you_need_to_accept_new_terms: "%{service_name} 이용 약관이 변경되었습니다. %{service_name}를 계속 사용하려면 새 이용 약관에 동의해야합니다. 새로운 조항은 연구 프로젝트가 끝난 후 서비스 유지를 가능하게 하기 위한 것입니다."
   testimonials:
     index:
@@ -2577,9 +2597,9 @@ ko:
     format: 월(mm)/일(dd)/년도(yyyy)
   time:
     formats:
-      short: "at 시:분 월 일, 연도"
-      shorter: "at 시:분 월 일"
-      short_date: "%b %e, %Y"
+      short: "%Y년%b월%e일 %H시%M분"
+      shorter: "%b월%e일 %H시%M분"
+      short_date: "%Y년%b월%e일"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} 일 전"
@@ -2687,7 +2707,7 @@ ko:
       signup: 가입하기
       admin_dashboard: "관리 대시보드"
       language: 언어
-      listings: ~
+      listings: "내 리스트"
     utils:
       km: 킬로미터
       mi: mi
@@ -2727,7 +2747,7 @@ ko:
     pay_with_stripe: "%{card}를 사용하여 스트라이프로 결제하십시오."
     add_and_pay: "결제 확인"
     card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}이(가) 귀하의 신용 / 직불 카드 정보를 저장되지 않습니다."
-    missing_payment: "열거한 목록이 있지만 귀하의 계좌가 돈을받을 수 있도록 설정되어 있지 않습니다. 결제 환경 설정을 구성하려면 %{settings_link}"
+    missing_payment: "오픈 목록이 있지만 귀하의 계정이 돈을 받을 수 있도록 설정되어 있지 않습니다. 결제 환경을 설정하세요. %{settings_link}"
     stripe_bank_connected: "은행 계좌 세부 정보가 성공적으로 설정되었습니다!"
     stripe_can_accept: "이제 귀하의 은행 계좌로 돈을 받을 준비가되었습니다."
     stripe_credit_card: 신용카드
