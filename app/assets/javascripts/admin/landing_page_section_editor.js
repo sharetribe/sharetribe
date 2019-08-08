@@ -32,13 +32,18 @@
   var initForm = function(options) {
     $("input.bg-style-selector").on("change", onBgStyleSelect);
     $("input#section_cta_enabled").on("click", onCtaSelect);
-    $("form.edit_section, form.new_section").validate();
+    $("form.edit_section, form.new_section").validate({
+      ignore: 'input[type=hidden], input[disabled]',
+      invalidHandler: function(event, validator) {
+        var error_elements = $.map(validator.invalid, function(message, key) { return 'input[name="'+key+'"]'; });
+        $(error_elements.join(", ")).parents(".collapsed").find(".section-column-header-toggle").click();
+      }
+    });
     onBgStyleSelect();
     onCtaSelect();
     $(document).on("click", ".section-column-header-toggle", function(e) {
       e.preventDefault();
-      var className = $(this).data("column");
-      $("."+className).toggleClass("hidden");
+      $(this).parents(".collapsible").toggleClass("collapsed");
       return false;
     });
   };
