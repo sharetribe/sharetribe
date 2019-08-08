@@ -1696,6 +1696,23 @@ ca:
       messages: Missatges
     logged_in_notifications_icon:
       notifications: Notificacions
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Perfil
@@ -1896,6 +1913,7 @@ ca:
       description:
         detailed_description: "Descripció detallada"
         youtube_info: ~
+        youtube_info_markdown: ~
       destination:
         destination: Destí
       form_content:
@@ -2445,6 +2463,8 @@ ca:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Desa la informació"
   shipping_address:
     shipping_address: ~

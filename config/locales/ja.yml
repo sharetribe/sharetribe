@@ -1720,6 +1720,23 @@ ja:
       messages: メッセージ
     logged_in_notifications_icon:
       notifications: メール通知
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: サイト管理
       go_to_your_profile_page: プロフィール
@@ -1923,6 +1940,7 @@ ja:
       description:
         detailed_description: 説明
         youtube_info: YouTubeへのリンクが含まれる場合には、詳細説明の下部に動画が表示されます
+        youtube_info_markdown: ~
       destination:
         destination: 行き先
       form_content:
@@ -2474,6 +2492,8 @@ ja:
       image_is_processing: プロフィール画像を準備中です。しばらく経ってからご確認ください。
       shown_in_your_public_profile: （公開プロフィールに表示されます）
       editing_profile_of: "あなたは現在%{name} のプロフィールを編集しています"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: 保存する
   shipping_address:
     shipping_address: 届け先住所

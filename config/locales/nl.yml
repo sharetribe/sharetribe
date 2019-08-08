@@ -1734,6 +1734,23 @@ nl:
       messages: Berichten
     logged_in_notifications_icon:
       notifications: Meldingen
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Beheer
       go_to_your_profile_page: Profiel
@@ -1938,6 +1955,7 @@ nl:
       description:
         detailed_description: Omschrijving
         youtube_info: "Als je beschrijving YouTube links bevat, zullen de videos onder de beschrijving worden getoond."
+        youtube_info_markdown: ~
       destination:
         destination: Bestemming
       form_content:
@@ -2490,6 +2508,8 @@ nl:
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
       shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
       editing_profile_of: "Je wijzigt nu het profiel van %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

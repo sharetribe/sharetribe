@@ -1714,6 +1714,23 @@ zh:
       messages: 私信
     logged_in_notifications_icon:
       notifications: 通知
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: 后台管理
       go_to_your_profile_page: 个人主页
@@ -1914,6 +1931,7 @@ zh:
       description:
         detailed_description: 详细描述
         youtube_info: "如果您的描述包括Youtube连结, 该影片将会在描述栏下方显示."
+        youtube_info_markdown: ~
       destination:
         destination: 目的地
       form_content:
@@ -2468,6 +2486,8 @@ zh:
       image_is_processing: 你的个人头像图片正在准备。请过一会重新刷新页面。
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址

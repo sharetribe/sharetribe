@@ -1727,6 +1727,23 @@ nb:
       messages: Meldinger
     logged_in_notifications_icon:
       notifications: Varsler
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrator
       go_to_your_profile_page: Profil
@@ -1931,6 +1948,7 @@ nb:
       description:
         detailed_description: "Detaljert beskrivelse"
         youtube_info: "Hvis beskrivelsen din inneholder en eller flere linker til YouTube-videoer, vil videoene vises under beskrivelsen."
+        youtube_info_markdown: ~
       destination:
         destination: Destinasjon
       form_content:
@@ -2483,6 +2501,8 @@ nb:
       image_is_processing: "Ditt profilbilde er behandles nå. Vennligst last siden på nytt om et lite øyeblikk."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Lagre innstillinger"
   shipping_address:
     shipping_address: Leveringsadresse

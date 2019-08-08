@@ -1716,6 +1716,23 @@ ka:
       messages: წერილები
     logged_in_notifications_icon:
       notifications: შეტყობინებები
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: ადმინი
       go_to_your_profile_page: პროფილი
@@ -1919,6 +1936,7 @@ ka:
       description:
         detailed_description: "დეტალური აღწერა"
         youtube_info: "თუ თქვენი დახასიათება მოიცავს YouTube-ს ბმულს, ვიდეო ნაჩვენები იქნება ქვემოთ დახასიათებაში."
+        youtube_info_markdown: ~
       destination:
         destination: დანიშნულება
       form_content:
@@ -2470,6 +2488,8 @@ ka:
       image_is_processing: "თქვენი პროფილის სურათი იტვირთება. დაელოდეთ ცოტა ხანი, 1-2 წუთში მზად იქნება."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "ინფორმაციის შენახვა"
   shipping_address:
     shipping_address: "ტრანსპორტირების მისამართი"

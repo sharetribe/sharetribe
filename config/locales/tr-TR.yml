@@ -1711,6 +1711,23 @@ tr-TR:
       messages: Mesajlar
     logged_in_notifications_icon:
       notifications: Bildirimler
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Yönetici
       go_to_your_profile_page: Profil
@@ -1911,6 +1928,7 @@ tr-TR:
       description:
         detailed_description: "Ayrıntılı bilgi"
         youtube_info: "Açıklama alanında Youtube linkleri kullanırsanız videolarınız metnin alt kısmında görüntülenecektir."
+        youtube_info_markdown: ~
       destination:
         destination: Hedef
       form_content:
@@ -2462,6 +2480,8 @@ tr-TR:
       image_is_processing: "Profil fotoğrafınız hazırlanıyor. Lütfen birazdan sayfayı tekrar yükleyiniz..."
       shown_in_your_public_profile: "(herkese açık profilinizde gösterilir)"
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Bu bilgiyi kaydet"
   shipping_address:
     shipping_address: "Gönderim Adresi"

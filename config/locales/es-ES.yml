@@ -1731,6 +1731,23 @@ es-ES:
       messages: Mensajes
     logged_in_notifications_icon:
       notifications: Notificaciones
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -1935,6 +1952,7 @@ es-ES:
       description:
         detailed_description: "Descripción detallada"
         youtube_info: "Si la descripción del anuncio contiene links de Youtube, los videos se muestran bajo la descripción."
+        youtube_info_markdown: ~
       destination:
         destination: Destino
       form_content:
@@ -2487,6 +2505,8 @@ es-ES:
       image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
       shown_in_your_public_profile: "(se muestra en tu perfil público)"
       editing_profile_of: "Estás editando el perfil de %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

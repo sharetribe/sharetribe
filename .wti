@@ -1,4 +1,4 @@
-api_key: proj_pub_nG8T0mqSqx3THMY9mgd_ag
+api_key: proj_pvt_22uRqBPWgCRmuyjt1kbI9w
 
 # Optional: locales not to sync with WebTranslateIt.
 # Takes a string, a symbol, or an array of string or symbol.
@@ -6,7 +6,7 @@ api_key: proj_pub_nG8T0mqSqx3THMY9mgd_ag
 # ignore_locales: 'en'
 
 # Or if you prefer a list of locales to sync with WebTranslateIt:
-# needed_locales: ["lv", "pt-BR", "hr", "bg", "sq-AL", "uk", "fr-CA", "bn-BD", "sl", "mn", "eu-ES", "es", "sw", "en-NZ", "et", "pl", "ja", "vi", "hi-IN", "nl", "cs", "is", "ru", "sv", "ar", "ko", "sk-SK", "km-KH", "de", "zh-HK", "tr-TR", "da-DK", "hu", "pt-PT", "en-AU", "hy-AM", "el", "th-TH", "zh-TW", "nb", "ab", "en", "ms-MY", "zh", "ti", "en-GB", "ca", "it", "ro", "ta-IN", "es-ES", "fi", "id", "sr", "eo", "ka", "he-IL", "fr"]
+# needed_locales: ["ko", "sr", "bn-BD", "pt-BR", "lv", "th-TH", "ro", "zh", "ti", "pt-PT", "eo", "ka", "he-IL", "lt", "it", "nl", "km-KH", "hu", "hr", "pl", "ca", "en-GB", "mk", "sk-SK", "zh-TW", "tr-TR", "sq-AL", "ar", "es", "sv", "en", "hy-AM", "el", "ms-MY", "nb", "ab", "zh-HK", "ru", "is", "sl", "vi", "uk", "hi-IN", "bg", "fr", "de", "es-MX", "da-DK", "et", "cs", "ja", "fr-CA", "fi", "es-ES", "ta-IN", "es-CL", "id", "crp", "eu-ES", "mn", "en-AU", "en-NZ", "sw", "az-AZ"]
 
 # Optional
 # before_pull: "echo 'some unix command'"   # Command executed before pulling files

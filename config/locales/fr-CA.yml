@@ -1713,6 +1713,23 @@ fr-CA:
       messages: Messages
     logged_in_notifications_icon:
       notifications: Notifications
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1913,6 +1930,7 @@ fr-CA:
       description:
         detailed_description: "Description détaillée"
         youtube_info: ~
+        youtube_info_markdown: ~
       destination:
         destination: "Lieu d'arrivée"
       form_content:
@@ -2465,6 +2483,8 @@ fr-CA:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Sauvegarder les informations"
   shipping_address:
     shipping_address: "Adresse de livraison"

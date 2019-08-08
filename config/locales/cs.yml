@@ -1734,6 +1734,23 @@ cs:
       messages: Zprávy
     logged_in_notifications_icon:
       notifications: Upozornění
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Správce
       go_to_your_profile_page: Profil
@@ -1939,6 +1956,7 @@ cs:
       description:
         detailed_description: "Detailní popis"
         youtube_info: "Pokud váš popis obsahuje odkazy na YouTube, videa budou zobrazena pod popisem."
+        youtube_info_markdown: ~
       destination:
         destination: "Místo určení"
       form_content:
@@ -2492,6 +2510,8 @@ cs:
       image_is_processing: "Váš profilový obrázek se připravuje. Prosíme, aktualizujte stránku po chvíli."
       shown_in_your_public_profile: "( zobrazeno ve vašem veřejném profilu)"
       editing_profile_of: "Nyní upravujete profil %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Uložit informace"
   shipping_address:
     shipping_address: "Doručovací adresa"

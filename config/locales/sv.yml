@@ -1733,6 +1733,23 @@ sv:
       messages: Meddelanden
     logged_in_notifications_icon:
       notifications: Aviseringar
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1937,6 +1954,7 @@ sv:
       description:
         detailed_description: "Detaljerad beskrivning"
         youtube_info: "Om din beskrivning innehåller länkar till YouTube videon kommer de visas under beskrivningen."
+        youtube_info_markdown: ~
       destination:
         destination: Destination
       form_content:
@@ -2489,6 +2507,8 @@ sv:
       image_is_processing: "Din profilbild förbereds. Den kommer vara klar om några minuter."
       shown_in_your_public_profile: "(visas i din offentliga profil)"
       editing_profile_of: "Du redigerar nu %{name}s profil"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Spara information"
   shipping_address:
     shipping_address: Leveransadress

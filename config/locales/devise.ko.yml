@@ -14,18 +14,18 @@ ko:
       unauthenticated: "계속  진행하시려면 로그인하셔야 합니다."
       unconfirmed: "먼저 계정을 확인하시고 진행해주세요."
       locked: "계정이 잠겼습니다."
-      invalid: "올바르지 않은 이메일 또는 비밀번호입니다."
-      invalid_token: "올바르지 않은 인증 토큰입니다."
+      invalid: "유효하지 않은 이메일 또는 비밀번호입니다."
+      invalid_token: "유효하지 않은 인증 토큰입니다."
       timeout: "세션이 만료되었습니다. 계속 진행하시려면 다시 로그인해주세요."
       inactive: "계정이 활성화되지 않았습니다."
     passwords:
       updated_not_active: "비밀번호 변경이 완료되었습니다."
       send_paranoid_instructions: "등록된 이메일 주소로 비밀번호 복구 링크가 발송되었습니다."
       send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
-      updated: "비밀번호 변경이 완료되었고, 변경된 비밀번호로 로그인하셨습니다."
+      updated: "비밀번호 변경이 완료되었고, 변경된 비밀번호로 로그인 하셨습니다."
     sessions:
-      signed_in: 로그인되었습니다.
-      signed_out: 로그아웃되었습니다.
+      signed_in: "로그인 되었습니다."
+      signed_out: "로그아웃 되었습니다."
     confirmations:
       send_paranoid_instructions: "등록된 이메일로 계정 등록 확인을 위한 이메일이 발송되었습니다."
       send_instructions: "계정 등록 확인을 위한 이메일이 발송되었습니다."

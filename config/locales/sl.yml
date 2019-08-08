@@ -1696,6 +1696,23 @@ sl:
       messages: Sporočila
     logged_in_notifications_icon:
       notifications: ~
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Admin
       go_to_your_profile_page: Profil
@@ -1896,6 +1913,7 @@ sl:
       description:
         detailed_description: "Podroben opis objave, vključno s podrobnostmi za prijavo in povezavami do več informacij"
         youtube_info: "Če tvoj opis vsebuje YouTube povezave, bojo videi prikazani na koncu opisa."
+        youtube_info_markdown: ~
       destination:
         destination: ~
       form_content:
@@ -2445,6 +2463,8 @@ sl:
       image_is_processing: "Počakaj. Tvojo profilno fotko še procesiramo. Na voljo bo v minuti ali dveh."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Shrani informacije"
   shipping_address:
     shipping_address: ~

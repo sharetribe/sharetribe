@@ -1742,6 +1742,23 @@ hr:
       messages: Poruke
     logged_in_notifications_icon:
       notifications: Obavijesti
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administrator
       go_to_your_profile_page: Profil
@@ -1948,6 +1965,7 @@ hr:
       description:
         detailed_description: "Detaljni opis"
         youtube_info: "Ako vaš opis sadrži i linkove sa Youtubea, videi će biti prikazani ispod opisa."
+        youtube_info_markdown: ~
       destination:
         destination: Odredište
       form_content:
@@ -2500,6 +2518,8 @@ hr:
       image_is_processing: "Molimo za strpljenje. Obrađujemo vašu profilnu sliku. Biti će spremna za minutu ili dvije."
       shown_in_your_public_profile: "(prikaži u svom javnom profilu)"
       editing_profile_of: "Trenutno uređujete profil %{name}"
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Spremite informacije"
   shipping_address:
     shipping_address: "Adresa isporuke"

@@ -1718,6 +1718,23 @@ zh-TW:
       messages: 私信
     logged_in_notifications_icon:
       notifications: 通知
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: 後台管理
       go_to_your_profile_page: 個人主頁
@@ -1921,6 +1938,7 @@ zh-TW:
       description:
         detailed_description: 細節描述
         youtube_info: 如果您的描述包括Youtube連結，該影片將會在下方顯示
+        youtube_info_markdown: ~
       destination:
         destination: 目的地
       form_content:
@@ -2472,6 +2490,8 @@ zh-TW:
       image_is_processing: 別急。我們正在處理您的個人頭像，請於一兩分鐘後重新整理頁面。
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: 保存信息
   shipping_address:
     shipping_address: 送货地址

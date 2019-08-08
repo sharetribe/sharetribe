@@ -1716,6 +1716,23 @@ lt:
       messages: Žinutės
     logged_in_notifications_icon:
       notifications: Pranešimai
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Administratorius
       go_to_your_profile_page: Profilis
@@ -1916,6 +1933,7 @@ lt:
       description:
         detailed_description: "Detalus aprašymas"
         youtube_info: "Jei jūsų aprašyme yra YouTube nuorodų, video bus rodomi žemiau aprašymo."
+        youtube_info_markdown: ~
       destination:
         destination: Tikslas
       form_content:
@@ -2469,6 +2487,8 @@ lt:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Išsaugoti informaciją"
   shipping_address:
     shipping_address: ~

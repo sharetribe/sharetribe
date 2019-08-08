@@ -1719,6 +1719,23 @@ ar:
       messages: الرسائل
     logged_in_notifications_icon:
       notifications: الإشعارات
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: المشرف
       go_to_your_profile_page: "الملف الشخصي"
@@ -1919,6 +1936,7 @@ ar:
       description:
         detailed_description: "شرح مفصل"
         youtube_info: "إذا كان شرحك يحتوي على رابط فيديو من اليوتيوب، سوف يظهر مقطع الفيديو في آخر الشرح."
+        youtube_info_markdown: ~
       destination:
         destination: "مكان الوصول"
       form_content:
@@ -2470,6 +2488,8 @@ ar:
       image_is_processing: ~
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "حفظ المعلومات"
   shipping_address:
     shipping_address: "عنوان الشحن"

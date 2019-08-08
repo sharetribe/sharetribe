@@ -1720,6 +1720,23 @@ vi:
       messages: "Các tin nhắn"
     logged_in_notifications_icon:
       notifications: "Các thông báo"
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: "Quản trị"
       go_to_your_profile_page: "Hồ Sơ"
@@ -1923,6 +1940,7 @@ vi:
       description:
         detailed_description: "Mô tả chi tiết"
         youtube_info: "Nếu mô tả của bạn có liên kết trên YouTube, các video sẽ được hiển thị bên dưới mô tả."
+        youtube_info_markdown: ~
       destination:
         destination: Đích
       form_content:
@@ -2472,6 +2490,8 @@ vi:
       image_is_processing: "Xin chờ. Chúng tôi đang xử lý ảnh tiểu sử của bạn. Nó sẽ được sẵn sàng trong một hoặc hai phút."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: "Lưu thông tin"
   shipping_address:
     shipping_address: "Địa chỉ giao hàng"

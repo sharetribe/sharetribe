@@ -1741,6 +1741,23 @@ ru:
       messages: Сообщения
     logged_in_notifications_icon:
       notifications: Оповещения
+    markdown_help:
+      title: ~
+      description: ~
+      formatting: ~
+      result: ~
+      h1: ~
+      h2: ~
+      h3: ~
+      italic: ~
+      bold: ~
+      underline: ~
+      strikethrough: ~
+      inline_link: ~
+      list: ~
+      one: ~
+      two: ~
+      three: ~
     mobile_logged_in:
       admin: Администрирование
       go_to_your_profile_page: Профиль
@@ -1947,6 +1964,7 @@ ru:
       description:
         detailed_description: "Подробное описание"
         youtube_info: "Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
+        youtube_info_markdown: ~
       destination:
         destination: "Пункт назначения"
       form_content:
@@ -2501,6 +2519,8 @@ ru:
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
+      format_markdown_link: ~
+      format_markdown: ~
     save_information: Сохранить
   shipping_address:
     shipping_address: "Адрес доставки"
