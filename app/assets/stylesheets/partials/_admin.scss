@@ -141,7 +141,28 @@ select#locale-selection {
     height: auto;
   }
 }
-
+.collapsible {
+  .collapse-down {
+    display: none;
+  }
+  .collapse-up {
+    display: inline;
+  }
+  .collapse-item {
+    display: block;
+  }
+  &.collapsed {
+    .collapse-down {
+      display: inline;
+    }
+    .collapse-up {
+      display: none;
+    }
+    .collapse-item {
+      display: none;
+    }
+  }
+}
 .section-column-header-toggle {
   cursor: pointer;
   margin: lines(0.5) 0 0;

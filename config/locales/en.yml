@@ -736,10 +736,10 @@ en:
         multi_column:
           main_title: "Main title"
           column_header: "Column %{index}"
-          column_title: "Column %{index} title"
+          column_title: "Column %{index} title *"
           column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
           column_icon: "Column %{index} icon"
-          column_paragraph: "Column %{index} paragraph"
+          column_paragraph: "Column %{index} paragraph *"
           column_button: "Column %{index} button"
           column_button_text: "Button text"
           column_button_url: "https://www.sharetribe.com"
