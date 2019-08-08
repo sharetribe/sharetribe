@@ -735,6 +735,7 @@ en:
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
         multi_column:
           main_title: "Main title"
+          column_header: "Column %{index}"
           column_title: "Column %{index} title"
           column_icon_info: "You can choose the icon for this column it's name from <a href=\"/info-icons.html\" target=\"_blank\">full list of supported icons</a>"
           column_icon: "Column %{index} icon"

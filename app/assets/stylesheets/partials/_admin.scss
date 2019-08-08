@@ -141,3 +141,23 @@ select#locale-selection {
     height: auto;
   }
 }
+
+.section-column-header-toggle {
+  cursor: pointer;
+  margin: lines(0.5) 0 0;
+  @include normal-type;
+  font-weight: 500;
+
+  @include media(small-tablet) {
+    @include big-type;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  i {
+    color: gray;
+  }
+  .clear-fix {
+    clear: both;
+  }
+}

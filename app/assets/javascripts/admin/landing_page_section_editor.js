@@ -28,12 +28,19 @@
       elems.removeAttr("disabled").removeClass("disabled");
     }
   }
+
   var initForm = function(options) {
     $("input.bg-style-selector").on("change", onBgStyleSelect);
     $("input#section_cta_enabled").on("click", onCtaSelect);
     $("form.edit_section, form.new_section").validate();
     onBgStyleSelect();
     onCtaSelect();
+    $(document).on("click", ".section-column-header-toggle", function(e) {
+      e.preventDefault();
+      var className = $(this).data("column");
+      $("."+className).toggleClass("hidden");
+      return false;
+    });
   };
 
   module.LandingPageSectionEditor = {
