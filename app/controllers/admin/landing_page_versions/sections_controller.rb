@@ -1,5 +1,6 @@
 class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseController
   before_action :ensure_feature_flag
+  before_action :allow_attachment_params
   before_action :set_selected_left_navi_link
   before_action :set_service
 
@@ -45,5 +46,11 @@ class Admin::LandingPageVersions::SectionsController < Admin::AdminBaseControlle
 
   def ensure_feature_flag
     FeatureFlagHelper.feature_enabled?(:clp_editor)
+  end
+
+  def allow_attachment_params
+    valid_types = ActionController::Parameters::PERMITTED_SCALAR_TYPES
+    new_type = ActiveStorage::Attachment
+    valid_types << new_type unless valid_types.include?(new_type)
   end
 end

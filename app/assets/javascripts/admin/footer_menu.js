@@ -41,7 +41,7 @@ window.ST = window.ST || {};
 
     var orderManager = window.ST.orderManager(fieldMap);
 
-    var form = $('#footer-menu-form, #edit_section_footer');
+    var form = $('#footer-menu-form, #edit_section_footer, form.section-categories-form');
     form.on('click', '.menu-link-remove', function(event) {
       var container = $(this).closest('.footer-menu-container'),
         isNew = container.data('new');
@@ -101,7 +101,7 @@ window.ST = window.ST || {};
 
     form.validate({
       submitHandler: submitHandler,
-      ignore: ":hidden, .ignore-validation"
+      ignore: ":hidden:not(.custom-validation), .ignore-validation"
     });
   };
 

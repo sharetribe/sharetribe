@@ -81,9 +81,6 @@ window.ST = window.ST || {};
 
     $('#section_variation').val(variation);
     if (!variation) {
-      return false;
-    }
-    if (!variation) {
       $("#section_variation").attr('disabled', true);
     } else {
       $("#section_variation").attr('disabled', false);

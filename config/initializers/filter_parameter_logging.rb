@@ -9,3 +9,4 @@ Rails.application.config.filter_parameters += [:password, :password2, :account_n
                                                :"birth_date(3i)", :"birth_date(2i)", :"birth_date(1i)",
                                                :bank_account_number, :bank_routing_number, :ssn_last_4, :personal_id_number]
 
+ActionController::Parameters::PERMITTED_SCALAR_TYPES << ActiveStorage::Attachment
