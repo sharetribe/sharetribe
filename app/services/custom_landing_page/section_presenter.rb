@@ -42,7 +42,7 @@ module CustomLandingPage
     end
 
     def id_error?
-      section.errors.has_key?(:id)
+      section.errors.key?(:id)
     end
 
     def section_background_image_present?
