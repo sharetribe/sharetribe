@@ -33,4 +33,9 @@ class AdminTransactionsPresenter
   def has_search?
     @params[:q].present? || @params[:status].present?
   end
+
+  def show_link?(tx)
+    exclude = %w(pending payment_intent_requires_action payment_intent_action_expired)
+    !exclude.include?(tx.current_state)
+  end
 end

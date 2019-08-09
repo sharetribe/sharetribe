@@ -51,8 +51,11 @@
           - listing_title = transaction.listing_title || t("admin.communities.transactions.not_available")
           %td=Maybe(transaction.listing).map { |listing| link_to_unless(listing.deleted, listing_title, listing_path(transaction.listing_id)) }.or_else(listing_title)
           %td
-            = link_to person_transaction_path(person_id: @current_user.id, id: transaction.id) do
-              = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+            - status = t("admin.communities.transactions.status.#{transaction.payment_gateway}.#{transaction.status}")
+            - if @transactions_presenter.show_link?(transaction)
+              = link_to status, person_transaction_path(person_id: @current_user.id, id: transaction.id)
+            - else
+              = status
           %td=transaction.payment_total ? MoneyViewUtils.to_humanized(transaction.payment_total) : ""
           %td=l(transaction.created_at, format: :short_date)
           %td=l(transaction.last_activity, format: :short_date)
