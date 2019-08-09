@@ -127,6 +127,7 @@ ru:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Обложка с фото будет показана на главной странице для не зарегистрированных пользователей."
         cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Уменьшенная обложка с фото будет показана на всех страницах исключаю главную страницу для не зарегистрированных пользователей."
         small_cover_photo_instructions_text_with_dimensions: "Фото будут изменено до размера %{width}x%{height} пикселей а более большие изображения будут обрезаны до среднего размера."
         main_content_width: "Выбирая обложку с фото примите во внимание что основной контент на странице %{main_width} пикселей шире. Не забудь также проверить как ваша обложка с фото выглядит на более маленьких экранах."
@@ -756,6 +757,7 @@ ru:
       emails_title: Emails
       subscription: Подписка
       preview: "Предварительный просмотр сайта"
+      whats_new: ~
     listing_shapes:
       availability_title: Доступность
       read_more: "Узнать болше об автоматическом управлении доступностью."

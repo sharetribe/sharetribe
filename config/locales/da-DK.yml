@@ -117,6 +117,7 @@ da-DK:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Coverbillede bliver vist på startsiden for dem som ikke er logget ind."
         cover_photo_instructions_text_with_dimensions: "Billedet vil blive skalleret til %{width}x%{height}px og større billede vil blive beskåret i midten. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Det lille coverbillede bliver vist på alle sider undtagen forsiden, for dem som ikke er logget ind."
         small_cover_photo_instructions_text_with_dimensions: "Billedet vil blive skaleret til %{width}x%{height}px og større billede vil blive beskåret i midten."
         main_content_width: "Når du vælger et coverbillede, så læg mærke til at siden hovedindhold er %{main_width} pixels bredde ved største skærm. Husk at tjekke om coverbilledet sær normalt ud på mindre skærme (f.eks ved at gøre browser vinduet mindre)."
@@ -746,6 +747,7 @@ da-DK:
       emails_title: Emails
       subscription: Abonnement
       preview: "Vis eksempel på min hjemmeside"
+      whats_new: ~
     listing_shapes:
       availability_title: Tilgængelighed
       read_more: "Læs mere om automatisk tilgængelighed."

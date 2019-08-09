@@ -20,7 +20,7 @@ ko:
       inactive: "계정이 활성화되지 않았습니다."
     passwords:
       updated_not_active: "비밀번호 변경이 완료되었습니다."
-      send_paranoid_instructions: "등록된 이메일 주소로 비밀번호 복구 링크가 발송되었습니다."
+      send_paranoid_instructions: "등록된 이메일로 비밀번호 복구 링크가 발송되었습니다."
       send_instructions: "곧 비밀번호 초기화 안내가 포함된 이메일이 발송되었습니다."
       updated: "비밀번호 변경이 완료되었고, 변경된 비밀번호로 로그인 하셨습니다."
     sessions:
@@ -36,7 +36,7 @@ ko:
       signed_up_but_locked: "계정이 잠겨있어 로그인하실 수 없습니다."
       reasons:
         inactive: 비활성화
-        unconfirmed: 확인필요
+        unconfirmed: 미승인
         locked: 잠김
       update_needs_confirmation: "이메일 주소가 변경되었습니다. 새로운 이메일 주소로 발송된 변경 확인 링크를 눌러 계정 정보 수정을 완료해주세요."
       signed_up: "가입이 완료되었습니다."

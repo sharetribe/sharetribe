@@ -117,6 +117,7 @@ fi:
         logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
@@ -189,8 +190,8 @@ fi:
         en: englanti
         en-AU: "englanti (Australia)"
         en-GB: "englanti (Iso-Britannia)"
-        es: ~
-        es-ES: ~
+        es: Espanja
+        es-ES: "Espanja (Espanja)"
         fi: suomi
         fr: ranska
         fr-CA: "ranska (Kanada)"
@@ -746,6 +747,7 @@ fi:
       emails_title: Sähköpostit
       subscription: Tilaus
       preview: "Esikatsele sivustoa"
+      whats_new: ~
     listing_shapes:
       availability_title: Saatavuus
       read_more: "Lue lisää automaattisesta saatavuuden hallinnasta."
@@ -1507,7 +1509,7 @@ fi:
       after: "täytyy olla %{restriction} jälkeen"
       on_or_after: "täytyy olla %{restriction} tai ennen sitä"
       positive_number: "Käytä kokonaislukuja."
-      from_must_be_less_than_till: ~
+      from_must_be_less_than_till: "\"Aloitusaika\" pitää olla pienempi kuin \"lopetusaika\""
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -2698,8 +2700,8 @@ fi:
       working_hours:
         default_schedule: Oletusaikataulu
         i_am_available_on: "Olen saatavilla.."
-        start_time: Alkuaika
-        end_time: Loppuaika
+        start_time: Aloitusaika
+        end_time: Lopetusaika
         add_another_time_slot: "+ Lisää uusi aika"
         save: Tallenna
     no_listings:

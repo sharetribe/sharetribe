@@ -117,6 +117,7 @@ es-ES:
         logo_mobile_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará a los usuarios que guarden el link de tu comunidad en la página de inicio de un dispositivo móvil. Las dimensiones de la imagen deben ser (por lo menos) %{width} x %{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
@@ -746,6 +747,7 @@ es-ES:
       emails_title: Emails
       subscription: Subscripción
       preview: "Vista Previa"
+      whats_new: ~
     listing_shapes:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."

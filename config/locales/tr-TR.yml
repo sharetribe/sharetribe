@@ -114,6 +114,7 @@ tr-TR:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kapak fotoğrafı ana sayfada giriş yapmamış kullanıcılara gösterilecektir."
         cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Küçük kapak fotoğrafı ana sayfadaki giriş yapmamış kullanıcılar hariç bütün sayfalarda gösterilir."
         small_cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir."
         main_content_width: "Kapak fotoğrafı seçerken, ana sayfa içeriğinin azami %{main_width} piksel olduğunu unutmayın. Aynı zamanda kapak fotoğrafınızın küçük ekranlarda nasıl görüntülendiğini kontrol edin (örneğin; dar bir tarayıcı penceresi)."
@@ -743,6 +744,7 @@ tr-TR:
       emails_title: E-postalar
       subscription: Üyelik
       preview: ~
+      whats_new: ~
     listing_shapes:
       availability_title: ~
       read_more: "Otomatik kullanılabilirlik yönetimi hakkında daha fazla bilgi edinin"

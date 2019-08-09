@@ -117,6 +117,7 @@ sv:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Omslagsbilden visas på startsidan för personer som inte är inloggade."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Den lilla omslagsbilden visas på alla sidor förutom på startsidan för de som inte är inloggade."
         small_cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten."
         main_content_width: "När du väljer en omslagsbild så notera att huvudsidans innehåll är %{main_width} pixlar brett som mest. Kom även ihåg att se hur omslagsbilden ser ut på mindre skärmar (t ex så kan du göra din webbläsares fönster mindre)."
@@ -746,6 +747,7 @@ sv:
       emails_title: E-post
       subscription: Prenumeration
       preview: "Förhandsvisa sida"
+      whats_new: ~
     listing_shapes:
       availability_title: Tillgänglighet
       read_more: "Läs mer om automatisk tillgänglighetshantering"

@@ -117,6 +117,7 @@ fr:
         logo_mobile_icon_instructions_text_with_dimensions: "Ce logo de format carré est affiché lorsque des utilisateurs créent un marque-page pour votre site sur la page d'accueil de leur appareil mobile. Ses dimensions doivent être (au moins) de %{width}x%{height} pixels."
         cover_photo_visibility: "La photo de couverture est affichée sur la page d'accueil aux utilisateurs non connectés."
         cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre. %{see_how_it_looks_like}."
+        cover_photo_ready_made: "Que diriez-vous d'utiliser une photo de couverture déjà prête et optimisée ? Ou bien avez-vous besoin d'inspiration et de sites où trouver de superbes photos de couvertures ? <a href=\"https://help.sharetribe.com/en/articles/666084\" target=\"_blank\">Nous pouvons vous aider</a> !"
         small_cover_photo_visibility: "La photo de couverture réduite est affichée sur toute les pages excepté sur la page d'accueil pour les visiteurs non connectés."
         small_cover_photo_instructions_text_with_dimensions: "La photo sera redimensionnée en %{width}x%{height} pixels et les images trop grandes seront coupées au centre."
         main_content_width: "Lorsque vous choisissez les photos de couverture, gardez à l'esprit que la page principale a une largeur maximale de %{main_width} pixels. N'oubliez pas non plus de vérifier comment s'affiche votre photo de couverture sur des petits écrans (par exemple en réduisant la taille de la fenêtre de votre navigateur)."
@@ -746,6 +747,7 @@ fr:
       emails_title: Emails
       subscription: Abonnement
       preview: "Prévisualiser le site"
+      whats_new: Nouveautés
     listing_shapes:
       availability_title: Disponibilité
       read_more: "En savoir plus sur la gestion automatique des disponibilités."

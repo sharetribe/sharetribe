@@ -117,6 +117,7 @@ es:
         logo_mobile_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará a los usuarios que guarden el link de tu comunidad en la página de inicio de un dispositivo móvil. Las dimensiones de la imagen deben ser (por lo menos) %{width} x %{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
+        cover_photo_ready_made: "¿Estás buscando imágenes que ya estén listas para usarse? Si quieres algo de inspiración o información de sitios donde encontrar buenas imágenes. <a href=\"https://help.sharetribe.com/en/articles/666084\" target=\"_blank\"> ¡Nosotros te ayudamos!</a>"
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
@@ -746,6 +747,7 @@ es:
       emails_title: Emails
       subscription: Subscripción
       preview: "Vista Previa"
+      whats_new: Novedades
     listing_shapes:
       availability_title: Disponibilidad
       read_more: "Lee más acercad de la administración automática de disponibilidad."
@@ -1732,22 +1734,22 @@ es:
     logged_in_notifications_icon:
       notifications: Notificaciones
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: "Ayuda para dar formato con Markdown"
+      description: "Markdown es un sistema para dar formato a texto de manera fácil que funciona en cualquier dispositivo. No hace nada fantástico como cambiar el tamaño de la letra, color o tipo — pero hace lo esencial, usando símbolos del teclado muy conocidos."
+      formatting: Formato
+      result: Resultado
+      h1: H1
+      h2: H2
+      h3: H3
+      italic: itálicas
+      bold: negritas
+      underline: subrayado
+      strikethrough: rayado
+      inline_link: "Texto con vínculo"
+      list: Lista
+      one: Uno
+      two: Dos
+      three: Tres
     mobile_logged_in:
       admin: Administrador
       go_to_your_profile_page: Perfil
@@ -1952,7 +1954,7 @@ es:
       description:
         detailed_description: "Descripción detallada"
         youtube_info: "Si la descripción del anuncio contiene links de Youtube, los videos se muestran bajo la descripción."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Puedes %{link}. Si la descripción del anuncio contiene links de Youtube, los videos se muestran bajo la descripción."
       destination:
         destination: Destino
       form_content:
@@ -2505,8 +2507,8 @@ es:
       image_is_processing: "Espera un momento. Tu imagen de perfil se está procesando. Estará lista en unos minutos."
       shown_in_your_public_profile: "(se muestra en tu perfil público)"
       editing_profile_of: "Estás editando el perfil de %{name}"
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "darle formato a tu descripción usando Markdown"
+      format_markdown: "Puedes %{link}."
     save_information: "Guardar Información"
   shipping_address:
     shipping_address: "Dirección de envío"

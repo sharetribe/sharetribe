@@ -112,6 +112,7 @@ zh-TW:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: 封面照片将显示在未登录用户的首页
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: 小的封面照片将显示在除未登录用户首页的所有页面。
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
         main_content_width: "在选择封面照片时注意页面主要内容最多是%{main_width}像素宽。记得检查你的封面照片在较小屏幕上看上去如何（比如使用较窄的浏览器窗口）。"
@@ -741,6 +742,7 @@ zh-TW:
       emails_title: 电邮
       subscription: 訂閱
       preview: 平台預覽
+      whats_new: ~
     listing_shapes:
       availability_title: 開放時段
       read_more: 詳細了解可用時間自動管理。

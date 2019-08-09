@@ -112,6 +112,7 @@ ja:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
         cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
         small_cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます。"
         main_content_width: "カバー写真を選ぶとき最大幅%{main_width}ピクセルであることに注意してください。カバー写真は小さいスクリーンでどのように見えるか、一応確認してください（例、ブラウザの幅を狭くしてみる）。"
@@ -741,6 +742,7 @@ ja:
       emails_title: メールアドレス
       subscription: サブスクリプション
       preview: サイトプレビュー
+      whats_new: ~
     listing_shapes:
       availability_title: 利用可能日
       read_more: ~

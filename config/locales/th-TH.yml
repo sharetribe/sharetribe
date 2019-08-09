@@ -112,6 +112,7 @@ th-TH:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: รูปภาพหน้าปกจะแสดงในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน
         cover_photo_instructions_text_with_dimensions: "ขนาดโลโก้จะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง %{see_how_it_looks_like}"
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "ภาพปกขนาดเล็กจะถูกแสดงในหน้าเว็บทั้งหมด ยกเว้นในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน"
         small_cover_photo_instructions_text_with_dimensions: "รูปภาพจะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง "
         main_content_width: "เมื่อเลือกภาพปก โปรดทราบว่าความกว้างสูงสุดของเนื้อหาหลักคือ%{main_width} px  อย่าลืมตรวจสอบว่าภาพปกของคุณจะมีลักษณะใดบนหน้าจอขนาดเล็ก (เช่น โดยใช้ หน้าต่างเบราว์เซอร์ที่แคบขึ้น)"
@@ -741,6 +742,7 @@ th-TH:
       emails_title: อีเมล์
       subscription: ~
       preview: ~
+      whats_new: ~
     listing_shapes:
       availability_title: ~
       read_more: อ่านเพิ่มเติมเกี่ยวกับการจัดการความพร้อมใช้งานโดยอัตโนมัติ

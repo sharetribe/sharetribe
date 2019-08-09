@@ -117,6 +117,7 @@ nb:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
         cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten. %{see_how_it_looks_like}"
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
         main_content_width: "Vær obs på at hovedinnholdet på siden er %{main_width} piksler bred på det meste når du velger forsidebilde. Husk også å sjekke hvordan forsidebildet ser ut på mindre skjermer (for eksempel ved å endre størrelsen på nettleservinduet)."
@@ -746,6 +747,7 @@ nb:
       emails_title: E-poster
       subscription: Påmelding
       preview: "Forhåndsvis mitt nettsted"
+      whats_new: ~
     listing_shapes:
       availability_title: Tilgjengelighet
       read_more: "Les mer om automatisert tilgjengelighets-administrasjon."

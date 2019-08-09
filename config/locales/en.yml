@@ -458,7 +458,7 @@ en:
           started: Started
           last_activity: "Latest activity"
           initiated_by: Starter
-          other_party: "Provider"
+          other_party: Provider
         status:
           conversation: Conversation
           free: "Free transaction"
@@ -504,7 +504,7 @@ en:
           started: Started
           last_activity: "Latest Activity"
           initiated_by: Starter
-          other_party: "Provider"
+          other_party: Provider
         participants: "Conversation: %{starter} with %{author}"
         profile: "%{author}'s Profile"
         search_by_keyword: "Search for a name, email or keyword"
@@ -1734,7 +1734,7 @@ en:
     logged_in_notifications_icon:
       notifications: Notifications
     markdown_help:
-      title: Formatting help using Markdown
+      title: "Formatting help using Markdown"
       description: "Markdown is a simple way to format text that looks great on any device. It doesn’t do anything fancy like change the font size, color, or type — just the essentials, using keyboard symbols you already know."
       formatting: Formatting
       result: Result
@@ -2194,7 +2194,7 @@ en:
       address_country: "Country *"
       address_name: "First and last names *"
       address_city: "City *"
-      address_state: "State"
+      address_state: State
       address_street1: "Street address line 1 *"
       address_street2: "Street address line 2"
       address_postal_code: "ZIP / Postal code *"

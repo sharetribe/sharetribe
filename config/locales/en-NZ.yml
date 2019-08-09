@@ -117,6 +117,7 @@ en-NZ:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Cover photo is shown in the homepage for users who are not logged in."
         cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Small cover photo is shown in all pages except in the homepage for users who are not logged in."
         small_cover_photo_instructions_text_with_dimensions: "The photo will be resized to %{width}x%{height} pixel size and taller images will be cut in the middle."
         main_content_width: "When choosing cover photos please note that the page main content is %{main_width} pixels wide at most. Remember to also check how your cover photo looks on the smaller screens (e.g. by using a more narrow browser window)."
@@ -746,6 +747,7 @@ en-NZ:
       emails_title: Emails
       subscription: Subscription
       preview: "Preview site"
+      whats_new: ~
     listing_shapes:
       availability_title: Availability
       read_more: "Read more about automatic availability management."

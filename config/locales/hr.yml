@@ -125,6 +125,7 @@ hr:
             Naslovna fotografija biti će prikazana na početnoj stranici korisnicima koji nisu 
             prijavljeni.
         cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini. %{see_how_it_looks_like}."
+        cover_photo_ready_made: ~
         small_cover_photo_visibility: "Umanjena naslovna fotografija biti će prikazana na svim stranicama osim na početnoj stranici za korisnike koji nisu prijavljeni."
         small_cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini."
         main_content_width: "Kada odabirete profilne fotografije molimo imajte na umu da glavni sadržaj stranice je najviše %{main_width} piksela širine. Zapamtite također provjeriti kako Vaša profilna fotografija izgleda na manjim zaslonima (npr. koristeći uži prozor preglednika)."
@@ -754,6 +755,7 @@ hr:
       emails_title: Emailovi
       subscription: Pretplata
       preview: "Prikaz stranice"
+      whats_new: ~
     listing_shapes:
       availability_title: Dostupnost
       read_more: "Pročitaj više o automatskoj  usluzi  dostupnosti "
