@@ -27,6 +27,11 @@ module LandingPageVersion::DataStructure
             'landing_page_version' => self,
             'previous_id' => content_section['id']
           ))
+      when LandingPageVersion::Section::CATEGORIES
+        sections << LandingPageVersion::Section::Categories.new_from_content(content_section.merge(
+            'landing_page_version' => self,
+            'previous_id' => content_section['id']
+          ))
       end
     end
     @sections = sections

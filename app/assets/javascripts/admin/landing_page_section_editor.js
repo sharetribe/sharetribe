@@ -17,7 +17,7 @@
     } else {
       elems_for_color.removeAttr("disabled").removeClass("disabled");
     }
-  }
+  };
 
   var onCtaSelect = function(e) {
     var cta_input = $("input.cta-select")[0];
@@ -27,24 +27,43 @@
     } else {
       elems.removeAttr("disabled").removeClass("disabled");
     }
-  }
+  };
+
+  var addExtraValidationRules = function() {
+    $.validator.addMethod('total_categories_3', function(value, element, params) {
+      var count = $('input[name^="section[categories_attributes]"][name$="[id]"]').size();
+      return count >= 3;
+    }, $("#total_categories_3").data('msg'));
+
+    $.validator.addMethod('total_categories_7', function(value, element, params) {
+      var count = $('input[name^="section[categories_attributes]"][name$="[id]"]').size();
+      return count <= 7;
+    }, $("#total_categories_7").data('msg'));
+
+    $.validator.addClassRules('total_categories_3', {total_categories_3: true});
+    $.validator.addClassRules('total_categories_7', {total_categories_7: true});
+  };
 
   var initForm = function(options) {
     $("input.bg-style-selector").on("change", onBgStyleSelect);
     $("input#section_cta_enabled").on("click", onCtaSelect);
+    onBgStyleSelect();
+    onCtaSelect();
+
+    $(document).on("click", ".section-column-header-toggle", function(e) {
+      e.preventDefault();
+      $(this).parents(".collapsible").toggleClass("collapsed");
+      return false;
+    });
+
+    addExtraValidationRules();
+
     $("form.edit_section, form.new_section").validate({
       ignore: 'input[type=hidden], input[disabled]',
       invalidHandler: function(event, validator) {
         var error_elements = $.map(validator.invalid, function(message, key) { return 'input[name="'+key+'"]'; });
         $(error_elements.join(", ")).parents(".collapsed").find(".section-column-header-toggle").click();
       }
-    });
-    onBgStyleSelect();
-    onCtaSelect();
-    $(document).on("click", ".section-column-header-toggle", function(e) {
-      e.preventDefault();
-      $(this).parents(".collapsible").toggleClass("collapsed");
-      return false;
     });
   };
 

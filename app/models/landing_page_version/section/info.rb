@@ -32,10 +32,6 @@ module LandingPageVersion::Section
 
     attr_writer :background_style
 
-    STYLE_IMAGE = 'image'
-    STYLE_COLOR = 'color'
-    STYLE_NONE = 'none'
-
     before_save :check_extra_attributes
 
     def initialize(attributes={})
@@ -49,58 +45,6 @@ module LandingPageVersion::Section
 
     def removable?
       true
-    end
-
-    def background_color_string
-      if background_color.is_a?(Array)
-        background_color.map{|c| format("%02x", c) }.join("")
-      else
-        ""
-      end
-    end
-
-    def background_color_string=(value)
-      rgb = value.to_s.scan(/[0-9a-fA-F]{2}/).map{|c| c.to_i(16) }
-      self.background_color = rgb.size == 3 ? rgb : nil
-    end
-
-    def check_extra_attributes
-      unless cta_enabled
-        self.button_title = nil
-        self.button_path = nil
-      end
-
-      self.background_color = nil unless background_style == 'color'
-      self.background_image = nil unless background_style == 'image'
-    end
-
-    def background_style
-      @background_style ||=
-        if background_image.present?
-          STYLE_IMAGE
-        elsif background_color.present?
-          STYLE_COLOR
-        else
-          STYLE_NONE
-        end
-    end
-
-    def cta_enabled
-      return @cta_enabled if defined?(@cta_enabled)
-
-      @cta_enabled = button_title.present?
-    end
-
-    def cta_enabled=(value)
-      @cta_enabled = value != '0'
-    end
-
-    def button_path_string=(value)
-      self.button_path = {value: value}
-    end
-
-    def button_path_string
-      button_path&.[]('value')
     end
 
     def asset_added(new_asset)

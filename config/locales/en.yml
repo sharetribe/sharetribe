@@ -682,8 +682,10 @@ en:
           info_multi_column_2: Info 2 Columns
           info_multi_column_3: Info 3 Columns
           listings: Listings
+          categories: Categories
           hero: Hero
           new_section:
+            categories: New categories section
             footer: New footer section
             hero: New hero section
             info_single_column: "New single column section"
@@ -691,6 +693,7 @@ en:
             info_multi_column_3: "New 3 column section"
             listings: "New listings section"
           edit_section:
+            categories: Edit categories section
             footer: Edit footer section
             hero: Edit hero section
             info_single_column: "Edit single column section"
@@ -733,6 +736,23 @@ en:
         background_color:
           background_color: "Background color"
           background_color_info: "You can choose the background color of this section by entering a hex color value. <a href=\"https://www.webfx.com/web-design/color-picker/\" target=\"_blank\">WebFx</a> can help you choose the color andgive you the hex color code. You can then copy the code here."
+        categories:
+          add: "Add a new category to this section"
+          category: "Category"
+          empty: "You don't have any included categories"
+          image: "Image"
+          include_title: "Categories to include"
+          info_text: "You can feature 3 to 7 categories in each section. Please add an image to each category and select one of the categories from your marketplace. The recommended image size is 1000 x 667 px."
+          need_at_least_3_categories: "You should have at least 3 categories in this section"
+          need_at_most_7_categories: "You should have at most 7 categories in this section"
+        category:
+          add_another_image: "Add another image"
+          category: "Category"
+          current_image: "Current image: %{filename}"
+          file_not_selected: "Not selected"
+          image: "Image"
+          image_required: "You should add an image to this category"
+          select_category: "Select category"
         multi_column:
           main_title: "Main title"
           column_header: "Column %{index}"

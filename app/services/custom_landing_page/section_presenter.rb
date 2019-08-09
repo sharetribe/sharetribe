@@ -33,6 +33,10 @@ module CustomLandingPage
       section.is_a?(LandingPageVersion::Section::Listings)
     end
 
+    def section_categories?
+      section.is_a?(LandingPageVersion::Section::Categories)
+    end
+
     def section_errors?
       section.errors.any?
     end
@@ -62,6 +66,38 @@ module CustomLandingPage
       return @section_background_image if defined?(@section_background_image)
 
       @section_background_image = asset_resolver.call('assets', section.background_image['id'], landing_page_version.parsed_content)
+    end
+
+    def categories_for_select(locale)
+      return @categories_tree if defined?(@categories_tree)
+
+      @categories_tree = []
+      padding = "\u00A0" * 4
+      categories = community.top_level_categories.includes(:translations, children: :translations)
+      categories.each do |category|
+        @categories_tree << [category.display_name(locale), category.id]
+        category.children.each do |subcategory|
+          @categories_tree << [padding + subcategory.display_name(locale).to_s, subcategory.id]
+        end
+      end
+      @categories_tree
+    end
+
+    def category_image(index)
+      return nil unless section.categories[index]
+
+      asset_id = section.categories[index].asset_id
+      return nil if asset_id.nil?
+
+      asset_resolver.call('assets', asset_id, landing_page_version.parsed_content)
+    end
+
+    def category_image_url(index)
+      category_image(index)['src']
+    end
+
+    def category_image_filename(index)
+      category_image(index)['src'].split('/').last
     end
 
     private

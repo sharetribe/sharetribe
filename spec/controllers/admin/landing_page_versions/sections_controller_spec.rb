@@ -4,6 +4,10 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
   let(:community) { FactoryGirl.create(:community) }
   let(:landing_page_version) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
 
+  def stubbed_upload(filename, content_type)
+    fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
+  end
+
   before(:each) do
     @request.host = "#{community.ident}.lvh.me"
     @request.env[:current_marketplace] = community
@@ -111,10 +115,6 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
 
   describe 'hero' do
     describe '#update' do
-      def stubbed_upload(filename, content_type)
-        fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
-      end
-
       it 'works' do
         section_id = 'hero'
         put :update, params: { landing_page_version_id: landing_page_version.id,
@@ -462,10 +462,6 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       expect(section['button_path']).to eq button_path
     end
 
-    def stubbed_upload(filename, content_type)
-      fixture_file_upload("#{Rails.root}/spec/fixtures/#{filename}", content_type, :binary)
-    end
-
     it 'creates section without CTA button and with image' do
       section_id = 'test1'
       sections = landing_page_version.parsed_content['sections']
@@ -621,6 +617,64 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       expect(section).to_not eq nil
       expect(section['title']).to eq 'Blackened Tofu and Black Truffle served with Panamanian Roast Beef'
       expect(section['paragraph']).to eq 'Raw Salmon Blobs atop Paleo-friendly Garlic Pie'
+    end
+  end
+
+  describe 'categories' do
+    let(:category_1) { FactoryGirl.create(:category, community: community) }
+    let(:category_2) { FactoryGirl.create(:category, community: community) }
+    let(:category_3) { FactoryGirl.create(:category, community: community) }
+
+    it 'creates categories section with title and paragraph' do
+      section_id = 'all_categories'
+      post :create, params: {
+        landing_page_version_id: landing_page_version.id,
+        section: {
+          kind: 'categories',
+          id: section_id,
+          title: 'Explore Destinations',
+          paragraph: 'We have something for everyone!',
+          categories_attributes: {
+            '0': {
+              id: '0',
+              sort_priority: '0',
+              category_id: category_3.id.to_s,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            },
+            '1': {
+              id: '1',
+              sort_priority: '1',
+              category_id: category_1.id.to_s,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            },
+            '2': {
+              id: '2',
+              sort_priority: '2',
+              category_id: category_2.id.to_s,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            }
+          }
+        }
+      }
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      assets = lpv.parsed_content['assets']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['title']).to eq "Explore Destinations"
+      expect(section['paragraph']).to eq "We have something for everyone!"
+      categories = section['categories']
+      expect(categories.size).to eq 3
+      expect(categories[0]['category']['id']).to eq category_3.id
+      expect(categories[1]['category']['id']).to eq category_1.id
+      expect(categories[2]['category']['id']).to eq category_2.id
+
+      categories.each do |category|
+        asset_image_id = category['background_image']['id']
+        expect(asset_image_id).to_not eq nil
+        asset = assets.find{|x| x['id'] == asset_image_id }
+        expect(asset).to_not eq nil
+      end
     end
   end
 end

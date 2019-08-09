@@ -1,0 +1,61 @@
+- content_for :javascript do
+  ST.LandingPageSectionEditor.initForm();
+  ST.FooterMenu.init();
+
+= form.hidden_field :previous_id
+= form.hidden_field :kind
+
+.row
+  .col-12
+    = form.label :id
+    = form.text_field :id, disabled: presenter.section.persisted?, required: true
+    - if presenter.id_error?
+      %label.error= t("errors.messages.section_with_this_id_already_exists")
+.row
+  .col-12
+    = form.label :title
+    = form.text_field :title, required: true
+.row
+  .col-12
+    = form.label :paragraph
+    = form.text_area :paragraph
+
+= render partial: 'cta_button', locals: {form: form, presenter: presenter}
+
+%h3= t(".include_title")
+
+= render partial: 'layouts/info_text', locals: {text: t(".info_text") }
+
+#menu-links-table
+  .row.topbar-menu-container-padding.visible-tablet
+    .col-10
+      .col-6
+        = label_tag do
+          = t(".image")
+      .col-6
+        = label_tag do
+          = t(".category")
+
+.row#menu-links
+  - @service.section.categories.each do |category|
+    = form.fields_for :categories, category do |fields|
+      = render "category", f: fields, disabled: false, presenter: presenter
+
+  - new_category = @service.section.new_category
+  = form.fields_for :categories, new_category, child_index: new_category.object_id do |fields|
+    %script{type: "text/template", id: "new-footer-menu-link-tmpl"}
+      = render "category", f: fields, disabled: false, presenter: presenter
+
+.row#menu-links-empty
+  .col-12
+    = t(".empty")
+
+.row
+  .col-12
+    = link_to t(".add"), '#', class: "add-fields",
+      data: {id: new_category.object_id, template_id: "#new-footer-menu-link-tmpl"}
+
+%input.total_categories_3.custom-validation#total_categories_3{type: 'hidden', 'data-msg': t(".need_at_least_3_categories"), name: 'tc3'}
+%input.total_categories_7.custom-validation#total_categories_7{type: 'hidden', 'data-msg': t(".need_at_most_7_categories"), name: 'tc7'}
+
+= render partial: 'background_selector', locals: {form: form, presenter: presenter}
