@@ -138,7 +138,8 @@
 
     - if @transaction.payment_gateway == :paypal
       %p
-        = t("conversations.accept.paypal_fee_info", fee_info_link_id: "paypal_fee_info_link").html_safe
+        - paypal_fee_link = link_to t("conversations.accept.paypal_fee"), '#', id: "paypal_fee_info_link"
+        = t("conversations.accept.paypal_fee_info", link: paypal_fee_link).html_safe
 
       = render layout: "layouts/lightbox", locals: { id: "paypal_fee_info_content"} do
         %h2= t("common.paypal_fee_info.title")
