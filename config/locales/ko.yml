@@ -172,7 +172,7 @@ ko:
         invalid_email_domain: "'%{email}'이메일 주소가 지원되지 않는 이메일 제공 업체인 '%{domain}'을 사용 중입니다. %{invalid_email_domain_read_more_link}"
         invalid_email_domain_read_more_link: "자세한 내용은 도움말 센터를 참조하십시오."
         unknown_error: "오류가 발생했습니다"
-        white_label_offer: "자신의 이메일 주소를 보낸 사람으로 설정하고 %{upgrade_pro_plan_link}(으)로 보내는 이메일 메시지에서 모든 쇼핑가 브랜딩을 제거하십시오."
+        white_label_offer: "%{upgrade_pro_plan_link}에서 본인의 이메일을 발신자로 설정하고 발신 메일에서 모든 Sharetribe 브랜드를 제거할 수 있습니다."
         upgrade_plan_link: "프로 계획 이상으로 업그레이드"
         verification_sent_from: "확인 이메일은 %{verification_sender_name}에서 발송되었습니다."
         follow_the_instructions: "이메일의 지침에 따라 주소를 확인하십시오."
@@ -214,7 +214,7 @@ ko:
         users_can_invite_new_users: "모든 사용자가 새 사용자를 초대하도록 허용"
         private: "등록된 사용자만 목록 및 사용자 프로필을 볼 수 있습니다 (마켓 플레이스를 비공개로 설정)."
         require_verification_to_post_listings: "관리자가 승인한 사용자만 새 리스트를 게시 할 수 있도록 허용"
-        allow_free_conversations: ~
+        allow_free_conversations: "사용자들이 서로 메시지를 주고 받을 수 있도록 허용"
         search_preferences: "검색 환경 설정"
         default_search_type: "검색 유형 : %{select_search_type}"
         keyword_search: "키워드 검색"
@@ -235,7 +235,7 @@ ko:
         google_analytics_key: "구글 분석 추적 ID"
         twitter_handle: "트위터 핸들 (목록 페이지의 트윗 버튼과 함께 사용)"
         update_settings: "설정 저장"
-        automatically_confirmed_no_escrow: "결제가 완료되면 주문서에 %{days_dropdown}일 이내에 완료로 표시됩니다."
+        automatically_confirmed_no_escrow: "결제 후 %{days_dropdown}일이 지나면 자동으로 주문이 완료된 것으로 표시됩니다."
         automatically_confirmed_no_escrow_stripe_info: "결제 수단으로 Stripe을 선택하신 경우 대금 지급은 구매가 완료될 때까지 보류됩니다. %{learn_more}"
         buyer_transaction_fees_are_only_supported_with_stripe: ~
         automatic_newsletter_frequency: "자동으로 뉴스레터 보내기 : %{frequency_dropdown}"
@@ -292,8 +292,8 @@ ko:
       new_layout:
         new_layout: "새 레이아웃"
         description_roadmap_new: "마켓 플레이스에서 새 레이아웃 구성 요소를 사용할 수있게 되면 새 구성 요소를 사용할지 아니면 이전 구성 요소를 계속 사용 할지를 선택할 수 있습니다. 이 페이지에서 언제든지 선택 사항을 토글 할 수 있습니다. 이전 버전의 구성 요소가 어느 정도 단계적으로 제거 될 수 있으므로 항상 새 버전을 사용하는 것이 좋습니다. 현재 사용중인 구성 요소가 단계적으로 제거되는 경우 사전에 연락을 받게됩니다."
-        enabled_for_you: "귀하만 사용하도록 설정되었습니다."
-        enabled_for_all: "모두가 사용하도록 설정되었습니다"
+        enabled_for_you: "본인만 사용"
+        enabled_for_all: "모두 사용"
         new_topbar: "새로운 최상위바 (모든 페이지에 표시됨)"
         searchpage: "새 검색 페이지 (새 최상위 바가 필요함)"
       social_media:
@@ -494,12 +494,12 @@ ko:
       conversations:
         conversations: "대화 보기"
         headers:
-          started_from: "로부터 시작되어진"
-          status: 상황
-          started: 시작되다
+          started_from: 시작위치
+          status: 상태
+          started: 시작
           last_activity: "최근 활동"
-          initiated_by: 스타터
-          other_party: 제3자
+          initiated_by: 개시자
+          other_party: 응답자
         participants: "대화: %{starter} with %{author}"
         profile: "%{author}의 프로필"
         search_by_keyword: ~
@@ -558,7 +558,7 @@ ko:
           date_sent: 보낸날짜
       listings:
         listings: 리스트
-        search_by_title_author_category: "리스트 타이틀, 작성자 또는 카테고리로 찾기"
+        search_by_title_author_category: "리스트명, 작성자 또는 카테고리명로 찾기"
         search: 찾기
         reset_search: "모두 보기"
         export_all_as_csv: ~
@@ -857,8 +857,8 @@ ko:
       minimum_listing_price_below_min: "최소 트랜잭션 크기는 최소 수수료 %{minimum_commission}보다 커야합니다."
     payment_preferences:
       title: "결제 시스템 환경 설정"
-      general_settings: "1. 일반적인 설정"
-      connect_a_payment_provider: "2. 결제 회사 연결"
+      general_settings: "1. 일반 설정"
+      connect_a_payment_provider: "2. 결제 서비스 연결"
       contact_support: "고객센터에 문의하기"
       no_payments_link_text: 여기에
       your_country: "귀하의 국가:"
@@ -1069,9 +1069,9 @@ ko:
       confirmed_offer: "완료된 제안"
       canceled_request: "취소되어진 주문"
       canceled_offer: "취소되어진 제안"
-      message_from: "%{person}의 메시지"
+      message_from: "%{person}님의 메시지"
       about_listing: "목록에 대해 %{listing_title}"
-      free_message: "다이렉트 메시지 보내기"
+      free_message: "다이렉트 메시지"
       message_content_not_available: "메시지 내용을 사용할 수 없습니다."
     message:
       accepted_request: "요청이 승인되어졌습니다"
@@ -1587,8 +1587,8 @@ ko:
       no_listings_with_your_search_criteria: "죄송합니다. 검색 기준에 맞는 리스트를 찾을 수 없습니다. 다른 검색어를 사용해 보시겠습니까?"
       no_listings_notification: "목록없음. %{add_listing_link}."
       add_listing_link_text: "새목록을 추가하기"
-      open_listing: "개방된 목록"
-      open_listings: "개방된 목록들"
+      open_listing: "오픈 리스트"
+      open_listings: "오픈 리스트"
       private_listing_notification_log_in: 로그인
       is: 입니다
       are: 입니다
@@ -1681,7 +1681,7 @@ ko:
       join_this_community: "마켓플레이스에 가입하기"
       read_more: 더읽기
       feedback: "%{service_name}팀에게 메세지 보내기"
-      dont_use_to_contact_support: "귀하가 %{service_name}의 관리자인 것으로 나타났습니다. 이 양식은 사용자가 연락하기 위해 사용하는 양식입니다. 이 양식을 사용하여 쇼핑가 지원 부서에 연락 할 수 없습니다. 대신 관리자 패널의 오른쪽 하단에있는 지원 위젯을 통해이 작업을 수행 할 수 있습니다."
+      dont_use_to_contact_support: "귀하는 %{service_name}의 관리자입니다. 이 양식은 사용자가 귀하에게 연락하기 위해 사용하는 양식입니다. 이 양식으로 Sharetribe 지원 부서에 연락 할 수 없습니다. 대신 관리자 패널의 오른쪽 하단에있는 지원 위젯을 통해이 연락하실 수 있습니다."
       feedback_forum: "피드백 포럼"
       feedback_handle: 피드백
       give_feedback: 연락처
@@ -1705,7 +1705,7 @@ ko:
       select_language: "언어 선택"
     infos:
       about: 소개
-      how_to_use: "사용 예제"
+      how_to_use: 이용방법
       info_about_kassi: "%{service_name} 정보"
       news: 소식들
       register_details: "개인 정보 정책"
@@ -1761,7 +1761,7 @@ ko:
       account_creation_succesful_you_still_need_to_confirm_your_email: "계정이 성공적으로 생성되었습니다. 이제 이메일 주소를 확인해주십시요"
       community_joined_succesfully_you_still_need_to_confirm_your_email: "%{service_name}에 가입해 주셔서 감사합니다. 이제 이메일 주소를 확인해 주십시요"
       comment_cannot_be_empty: "의견을 작성하셔야 합니다"
-      comment_sent: "의견 발송"
+      comment_sent: "메시지 발송"
       confirmation_link_is_wrong_or_used: "확인 링크가 이미 사용되었거나 그렇지 않으면 깨졌습니다. 문제가 계속되면 로그인하거나 피드백을 보내십시오."
       additional_email_confirmed: "입력하신 이메일이 확인되었습니다."
       could_not_get_email_from_social_network: ~
@@ -1808,7 +1808,7 @@ ko:
       only_listing_author_can_edit_a_listing: "게시자만 편집할 수 있습니다."
       payment_successful: "성공적으로 결제되었습니다"
       payment_canceled: "결제가 취소되었습니다"
-      error_in_payment: "결제 오류. 아직 결제를 완료하지 않았다면 다시 시도하십시오. 그리고 의견을 보내주십시오."
+      error_in_payment: "결제 오류. 아직 결제를 완료하지 않았다면 다시 시도하십시오. 결제가 완료되었다면 저희에게 메시지를 보내주십시오."
       cannot_receive_payment: "상대방이 약간의 오류로 인해 결제를 받을 수 없습니다. 상황을 설명하기 위해 %{service_name} 팀에 문의하십시오."
       payment_waiting_for_later_accomplishment: "결제하면 판매자에게 알리고 이메일로 영수증을 받게됩니다."
       password_recovery_sent: "비밀번호 변경 안내 이메일을 발송하였습니다."
@@ -1850,7 +1850,7 @@ ko:
       additional_email_confirmed_dashboard: "귀하의 이메일이 확인되었습니다."
       you_must_log_in_to_give_feedback: "피드백을 보내시려면 로그인하셔야 합니다."
       you_must_log_in_to_invite_new_users: "새 사용자를 %{service_name}로 초대하려면 로그인해야합니다"
-      you_must_log_in_to_send_a_comment: "의견을 보내시려면 로그인하셔야 합니다."
+      you_must_log_in_to_send_a_comment: "메시지를 보내려면 로그인하셔야 합니다."
       you_must_log_in_to_send_a_message: "다른 가입자에게 메세지를 보내시려면 %{service_name}에 로그인하셔야 합니다."
       you_must_log_in_to_do_a_transaction: "거래를 하려면 %{service_name}에 로그인해야합니다."
       you_must_log_in_to_view_this_content: "내용을 확인하시려면 로그인하셔야 합니다."
@@ -1887,24 +1887,24 @@ ko:
       stripe_payments: "스트라이프 결제"
       payments: 결제
       listings: 리스트
-      listings_search_placeholder: "리스트 타이틀로 찾기"
+      listings_search_placeholder: "리스트명으로 찾기"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "이 리스트를 볼 수 있는 권한이 없습니다."
     comment:
       wrote: 작성했다
-      send_private_message: "%{person}에게 개인 메시지 보내기"
+      send_private_message: "%{person}님에게 개인 메시지 보내기"
       delete: 삭제하기
       are_you_sure: "댓글을 삭제 하시겠습니까?"
     comment_form:
       ask_a_question: "리스트에 댓글을 달거나 추가 정보를 요청하십시오. 모든 사용자가 댓글을 볼 수 있습니다."
       log_in: 로그인
-      send_comment: "의견 보내기"
-      to_send_a_comment: "새 의견을 보내려면"
-      write_comment: "새 의견 쓰기 :"
+      send_comment: "메시지 보내기"
+      to_send_a_comment: "새 메시지를 보내려면"
+      write_comment: "새 메시지 쓰기 :"
       you_cannot_send_a_new_comment_because_listing_is_closed: "이 리스트가 폐쇄되어 새로운 댓글을 보낼 수 없습니다."
       you_must: 해야합니다
-      subscribe_to_comments: "새로운 의견 및 업데이트 알림"
+      subscribe_to_comments: "새로운 메시지 및 업데이트 알림"
     deleting_a_listing_cannot_be_undone: ~
     edit:
       edit_listing: "목록 수정"
@@ -2106,7 +2106,7 @@ ko:
       night: "숙박 일수:"
       week: "주 수 :"
       month: "개월 수 :"
-      unit: 개수
+      unit: 수량
       custom: "수량:"
     quantity_placeholder: 수량
     please_comment: 설명
@@ -2142,7 +2142,7 @@ ko:
       processing_uploaded_image: "(업로드된 이미지 처리 중 ...)"
       listing_created_at: "리스트 생성"
       price:
-        per_quantity_unit: "%{quantity_unit}마다"
+        per_quantity_unit: "%{quantity_unit}당"
         per_day: 일당
       delivery: "배송 방법"
       shipping: "배송 (+%{price})"
@@ -2299,7 +2299,7 @@ ko:
       invite_only_help_text_title: 초대전용
     inactive_notification:
       this_person_is_not_active_in_kassi: "이 사용자는 더 이상 %{service_name}에서 활성화되어 있지 않습니다."
-      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 목록에 의견을 남길 수 없습니다."
+      inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 리스트에 메시지를 남길 수 없습니다."
     new:
       create_new_account: "계정을 만들어주세요"
       email: 이메일
@@ -2338,7 +2338,7 @@ ko:
       no_image: "이미지가 없음"
       manage_listings: "내 모든 리스트 관리"
     show:
-      contact: "%{person} 연락하기"
+      contact: "%{person}님에게 연락하기"
       about_me: "내 소개:"
       add_description: "자신에 대해 알려주세요."
       add_location: "위치 추가하기"
@@ -2361,13 +2361,13 @@ ko:
       reviews: "접수된 리뷰들"
       listing: 목록
       listings: 목록들
-      open_listing: "개방된 목록"
-      open_listings: "개방된 목록들"
+      open_listing: "오픈 리스트"
+      open_listings: "오픈 리스트"
       no_listings: 목록없음
       no_open_listings: "비공개 리스트"
       no_reviews: "리뷰 없음"
       show_all_listings: "모든 목록보기"
-      show_all_open_listings: "모든 개방된 목록들 보기"
+      show_all_open_listings: "모든 오픈 리스트 보기"
       show_all_reviews: "모든 리뷰 보기"
       admin_actions: ~
       post_listing_as: ~
@@ -2569,31 +2569,31 @@ ko:
       friday: 금
       saturday: 토
     months:
-      january: 1월
-      february: 2월
-      march: 3월
-      april: 4월
-      may: 5월
-      june: 6월
-      july: 7월
-      august: 8월
-      september: 9월
-      october: 10월
-      november: 11월
-      december: 12월
+      january: 1
+      february: 2
+      march: 3
+      april: 4
+      may: 5
+      june: 6
+      july: 7
+      august: 8
+      september: 9
+      october: 10
+      november: 11
+      december: 12
     months_short:
-      january: 1월
-      february: 2월
-      march: 3월
-      april: 4월
-      may: 5월
-      june: 6월
-      july: 7월
-      august: 8월
-      september: 9월
-      october: 10월
-      november: 11월
-      december: 12월
+      january: 1
+      february: 2
+      march: 3
+      april: 4
+      may: 5
+      june: 6
+      july: 7
+      august: 8
+      september: 9
+      october: 10
+      november: 11
+      december: 12
     today: 오늘
     clear: 초기화
     format: 월(mm)/일(dd)/년도(yyyy)
@@ -2751,7 +2751,7 @@ ko:
     card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
     missing_payment: "오픈 목록이 있지만 귀하의 계정이 돈을 받을 수 있도록 설정되어 있지 않습니다. 결제 환경을 설정하세요. %{settings_link}"
     stripe_bank_connected: "은행 계좌 세부 정보가 성공적으로 설정되었습니다!"
-    stripe_can_accept: "이제 귀하의 은행 계좌로 돈을 받을 준비가되었습니다."
+    stripe_can_accept: "이제 귀하의 은행 계좌로 지불금을 받을 수 있습니다."
     stripe_credit_card: 신용카드
     paypal: 페이팔
     paypal_connected: "PayPal 계정이 성공적으로 연결되었습니다!"

@@ -54,7 +54,7 @@ fi:
         select_new_category: "Valitse uusi kategoria, johon yllämainitut elementit siirretään:"
         buttons:
           remove: Remove
-          cancel: Cancel
+          cancel: Peruuta
     communities:
       edit_details:
         community_details: Perustiedot
@@ -184,7 +184,7 @@ fi:
       getting_started:
         getting_started: Aloitusohjeet
       available_languages:
-        cs: ~
+        cs: Tšekki
         da-DK: tanska
         de: saksa
         en: englanti
@@ -198,19 +198,19 @@ fi:
         el: kreikka
         it: italia
         ja: japani
-        ko: ~
+        ko: Korea
         nb: norja
         nl: hollanti
-        pl: ~
+        pl: Puola
         pt-BR: "portugali (Brasilia)"
         pt-PT: Portugali
         ru: venäjä
         sv: ruotsi
-        th-TH: ~
+        th-TH: "Thai (Thaimaa)"
         tr-TR: turkki
-        vi: ~
+        vi: Vietnam
         zh: kiina
-        zh-TW: ~
+        zh-TW: "Kiina (Taiwan)"
       settings:
         settings: Yleisasetukset
         general: Yleiset
@@ -285,15 +285,15 @@ fi:
           admin: Ylläpitäjä
           banned: Estetty
           posting_allowed: "Hyväksytty ilmoittaja"
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
+          accepted: Hyväksytty
+          unconfirmed: Vahvistamaton
+          pending: Odottaa
         this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
+        unconfirmed_user: "Vahvistamaton käyttäjä: %{name}"
         resend: ~
-        cancel: ~
+        cancel: Peruuta
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "Odottaa: %{name}"
       new_layout:
         new_layout: "Uusi ulkoasu"
         description_roadmap_new: "Kun sinulle avautuu mahdollisuus ottaa käyttöön uusia käyttöliittymäkomponentteja, voit valita, haluatko ottaa uuden komponentin käyttöön vai pitäytyä vanhassa. Voit vaihtaa tätä valintaa koska tahansa tältä sivulta. Suosittelemme aina käyttämään uusinta versiota, sillä tuki vanhoille komponenteilla saattaa loppua jossain vaiheessa. Ilmoitamme sinulle etukäteen, jos tuki tällä hetkellä käyttämällesi komponentille on loppumassa."
@@ -305,12 +305,12 @@ fi:
         social_media: "Sosiaalinen media"
         logo: Logo
         logo_info: "Tätä kuvaa käytetään, kun joku jakaa sinun domainisi sosiaalisessa mediassa (Facebook, Twitter, Linkedin). Parhaan tuloksen saamiseksi sen kuvasuhteen tulisi olla 2:1, ja sen vähimmäiskoko tulisi olla %{width} x %{height} pikseliä."
-        social_media_title: ~
-        social_media_title_info: ~
-        link_for_facebook: ~
-        link_for_linkedin: ~
-        link_for_twitter: ~
-        social_media_description: ~
+        social_media_title: "Sosiaalisen median otsikko"
+        social_media_title_info: "Tämä teksti näytetään sosiaalisissa medioissa Facebook, Twitter, ja LinkedIn, kun joku jakaa sivustosi. Voit katsoa miltä se näyttää %{facebook_preview_link}, %{twitter_preview_link} ja %{linkedin_preview_link}."
+        link_for_facebook: Facebookissa
+        link_for_linkedin: Linkedinissä
+        link_for_twitter: Twitterissä
+        social_media_description: "Kuvaus sosiaaliselle medialle"
         twitter_handle: Twitter-tili
         twitter_handle_info_text: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia."
         twitter_handle_info_text_with_instructions: "Lisää markkinapaikkasi Twitter-tilin tunnus tähän. Se näytetään kun käyttäjät twiittaavat ilmoituksistaan käyttäen ilmoitussivun twiittaa-nappia. %{instructions_link}."
@@ -328,14 +328,14 @@ fi:
         enable_facebook_login: "Salli käyttäjien kirjautua Facebook-tilillään"
         save: Tallenna
         add_another_image: "Lisää uusi kuva"
-        google_connect: ~
-        google_instructions_link_text: ~
-        google_connect_info_text_with_instructions: ~
-        google_connect_info_text: ~
-        enable_google_login: ~
-        google_connect_id: ~
-        google_connect_secret: ~
-        linkedin_connect: ~
+        google_connect: "Google Sign-In"
+        google_instructions_link_text: "Katso ohjeet Google Sign-In:in käyttöön ottamiseksi."
+        google_connect_info_text_with_instructions: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne. %{instructions_link}"
+        google_connect_info_text: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne."
+        enable_google_login: "Salli käyttäjien kirjautua Google-tilillään"
+        google_connect_id: "Google Client ID"
+        google_connect_secret: "Google Client secret"
+        linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
@@ -344,11 +344,11 @@ fi:
         linkedin_connect_secret: ~
       seo_settings:
         seo: ~
-        title: ~
-        meta_title_label: ~
+        title: "Kotisivu tai kustomoitu landing-sivu"
+        meta_title_label: "Kotisivun tai kustomoidun landing-sivun otsikon meta tag"
         meta_title_info: ~
         meta_title_link_text: ~
-        meta_description_label: ~
+        meta_description_label: "Kotisivun tai kustomoidun landing-sivun kuvauksen meta tag"
         meta_description_info: ~
         meta_description_link_text: ~
         search_title: ~
@@ -401,13 +401,13 @@ fi:
         end_user_analytics: "Salli Sharetriben seurata markkinapaikan jäsenten käyttäytymistä, jotta Sharetribe voi parantaa palvelujaan"
         save: Tallenna
       logo_link:
-        title: ~
-        info: ~
-        url: ~
-        placeholder: ~
+        title: "Logon linkki"
+        info: "Voit muokata logoon yhdistettyä linkkiä (ja ylävalikon kotinäppäimen osoitetta). Oletusarvoisesti logo vie käyttäjät etusivulle tai kustomoidulle landing-sivulle."
+        url: URL
+        placeholder: "https://www.esimerkki.fi"
       menu_links:
         menu_links: Valikkolinkit
-        menu_links_display: ~
+        menu_links_display: "Valikon linkkien näyttö"
         save: Tallenna
         add_menu_link: "Lisää uusi linkki valikkoon"
         title_placeholder: "Linkin otsikko"
@@ -421,14 +421,14 @@ fi:
         max_number_of_links_info: "Linkki sivulle %{about_page} näytetään aina ensimmäisenä valikkolinkkinä"
         about_page: "tietoa palvelusta"
       default_menu_links:
-        title: ~
-        about_link_title: ~
-        contact_link_title: ~
-        invite_link_title: ~
-        info: ~
-        display_about: ~
-        display_contact: ~
-        display_invite: ~
+        title: "Valikon oletuslinkit"
+        about_link_title: "Tietoa palvelusta"
+        contact_link_title: "Ota yhteyttä"
+        invite_link_title: "Kutsu uusia jäseniä"
+        info: "Oletusarvoisesti linkkejä seuraaville sivuille ei näytetä missään muualla markkinapaikassasi: %{about_link}, %{contact_link}, %{invite_link}."
+        display_about: "Näytä linkki sivulle <i>Tietoa alvelusta</i> ja muille staattisille sivuille"
+        display_contact: "Näytä linkki <i>Ota yhteyttä</i> sivulle"
+        display_invite: "Näytä linkki <i>Kutsu uusia käyttäjiä</i> sivulle"
       topbar:
         topbar: Yläpalkki
         new_listing_button_label: "Lisää uusi ilmoitus -napin teksti"
@@ -507,18 +507,18 @@ fi:
           other_party: "Toinen osapuoli"
         participants: "Keskustelu: %{starter} sekä %{author}"
         profile: "Käyttäjän %{author} profiili"
-        search_by_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_by_keyword: "Etsi nimeä, sähköpostiosoitetta tai avainsanaa"
+        search: Etsi
+        reset_search: "Näytä kaikki"
+        for_keyword: "avainsanalle: <b>%{keyword}</b>"
       testimonials:
         testimonials: Arviot
         no_testimonials_found: "Arvosteluja ei löytynyt"
         displaying_xx_reviews: "Näytetään <b>%{count}</b> arvostelua ostotapahtumissa %{tx_from} - %{tx_to} , yhteensä <b>%{all_count}</b> arvostelusta"
-        search_keyword: ~
-        search: ~
-        reset_search: ~
-        for_keyword: ~
+        search_keyword: "Etsi nimeä, sähköpostiosoitetta tai avainsanaa"
+        search: Etsi
+        reset_search: "Näytä kaikki"
+        for_keyword: "avainsanalle: <b>%{keyword}</b>"
         headers:
           transaction: Tilaus
           author: Laatija
@@ -532,15 +532,15 @@ fi:
           published: Julkaistu
           blocked: Estetty
         status_filter:
-          selected: ~
-          all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
-          selected_js: ~
+          selected: "Valitut suodattimet: %{count}"
+          all: Suodattimet
+          published: Julkaistu
+          positive: Positiivinen
+          negative: Negatiivinen
+          skipped: Ohitettu
+          waiting: Odottaa
+          blocked: Estetty
+          selected_js: "Valitut suodattimet: "
         form:
           review_text: "Palautteen sisältö"
           save: Tallenna
@@ -551,16 +551,16 @@ fi:
           deleting_info: "Palautteen poistaminen antaa sen kirjoittajalle mahdollisuuden kirjoittaa uusi palaute samasta ostotapahtumasta."
           blocking_info: "Palautteen estäminen estää sen kirjoittajaa kirjoittamasta uutta palautetta samasta ostotapahtumasta."
       invitations:
-        invitations: ~
+        invitations: Kutsut
         used:
-          "yes": ~
-          "no": ~
+          "yes": Kyllä
+          "no": Ei
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: Lähettäjä
+          message: Viesti
+          sent_to: Vastaanottaja
+          used: Käytetty
+          date_sent: Lähetyspäivä
       listings:
         listings: Ilmoitukset
         search_by_title_author_category: "Etsi ilmoituksen otsikkoa, tekijää, tai kategorian nimeä"
@@ -574,7 +574,7 @@ fi:
           open: Avoin
           closed: Suljettu
           expired: Vanhentunut
-          approval_pending: ~
+          approval_pending: Odottaa
           approval_rejected: ~
         headers:
           title: Otsikko
@@ -587,13 +587,13 @@ fi:
         closed: Suljettu
         expired: Vanhentunut
         approved: ~
-        approval_pending: ~
+        approval_pending: Odottaa
         approval_rejected: ~
         form:
           this_listing_has_not_not_been_approved_yet: ~
           approve: ~
           reject: ~
-          cancel: ~
+          cancel: Peruuta
       user_fields:
         user_fields: Käyttäjäkentät
       footer:
@@ -610,26 +610,26 @@ fi:
         footer_copyright: "Footer copyright-teksti"
         footer_enabled: "Footer päällä"
         social_links: "Footerin sosiaaliset linkit"
-        title_placeholder: ~
-        url_placeholder: ~
+        title_placeholder: "Linkin otsikko"
+        url_placeholder: "https://esimerkki.fi/käyttäjätunnus"
         style:
           dark: Tumma
           light: Vaalea
-          marketplace_color: ~
-          logo: ~
+          marketplace_color: "Markkinapaikan väri"
+          logo: Logo
         social:
           title: Otsikko
           url: URL
       domain:
-        domain: ~
-        marketplace_domain: ~
-        offer_pro: ~
-        upgrade_pro_plan_link: ~
-        your_marketplace_address_is: ~
-        would_you_like_to_change_address: ~
-        contact_us: ~
-        you_can_now_use_a_custom_domain: ~
-        would_you_like_to_change_domain: ~
+        domain: Domain
+        marketplace_domain: "Markkinapaikan domain"
+        offer_pro: "Aseta oma domainisi %{upgrade_pro_plan_link}."
+        upgrade_pro_plan_link: "päivittämällä tilauksesi tasolle Pro (tai korkeammalle)"
+        your_marketplace_address_is: "Markkinapaikkasi osoite on: %{address}"
+        would_you_like_to_change_address: "Haluaisitko vaihtaa markkinapaikkasi osoitetta? %{contact_us}!"
+        contact_us: "Ota meihin yhteyttä"
+        you_can_now_use_a_custom_domain: "Nykyisellä tilauksellasi voit kytkeä päälle oman domainisi. Aloitetaan domainin käyttöönotto. %{contact_us}!"
+        would_you_like_to_change_domain: "Haluaisitko vaihtaa markkinapaikkasi domainia? %{contact_us}!"
     custom_fields:
       edit:
         edit_listing_field: "Muokkaa ilmoituskenttää '%{field_name}'"
@@ -1812,7 +1812,7 @@ fi:
       listing_updated_availability_management_enabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta aktivoitu."
       listing_updated_availability_management_disabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta pois käytöstä."
       listing_deleted: ~
-      only_kassi_administrators_can_access_this_area: ~
+      only_kassi_administrators_can_access_this_area: "Ole hyvä ja kirjaudu sisään ylläpitäjän tilillä päästäksesi tälle alueelle"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
       payment_successful: "Maksu suoritettu"
@@ -1896,8 +1896,8 @@ fi:
       paypal_payments: PayPal-maksut
       stripe_payments: Stripe-maksut
       payments: Maksutiedot
-      listings: ~
-      listings_search_placeholder: ~
+      listings: Ilmoitukset
+      listings_search_placeholder: "Etsi ilmoituksen otsikolla"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
@@ -1927,7 +1927,7 @@ fi:
       show_in_updates_email_loading: Ladataan...
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
       show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
-      listing_is_pending: ~
+      listing_is_pending: "Ilmoitus odottaa hyväksyntää"
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
@@ -2109,7 +2109,7 @@ fi:
       community_not_configured_for_payments: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja %{contact_admin_link}."
       payment_settings_link: "markkinapaikan maksuasetuksiin"
       community_not_configured_for_payments_admin: "%{service_name} markkinapaikkaa ei ole valmisteltu maksuja varten, joten et voi lisätä vielä uusia ilmoituksia. Ole hyvä ja mene %{payment_settings_link} lisäämään maksutiedot."
-      you_are_now_posting_a_listing_on_behalf_of: ~
+      you_are_now_posting_a_listing_on_behalf_of: "Olet nyt luomassa ilmoitusta käyttäjän %{name} puolesta"
     quantity:
       hour: "Tuntien määrä:"
       day: "Päivien määrä:"
@@ -2346,7 +2346,7 @@ fi:
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
     profile_listings:
       no_image: "Ei kuvaa"
-      manage_listings: ~
+      manage_listings: "Hallitse kaikkia ilmoituksiani"
     show:
       contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"
@@ -2379,8 +2379,8 @@ fi:
       show_all_listings: "Näytä kaikki ilmoitukset"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
-      admin_actions: ~
-      post_listing_as: ~
+      admin_actions: "Ylläpitäjän toiminnot"
+      post_listing_as: "Lisää ilmoitus käyttäjän puolesta"
     followed_people:
       you_follow_plural: "%{count} seurattua käyttäjää"
       you_follow_singular: "%{count} seurattu käyttäjä"
@@ -2506,7 +2506,7 @@ fi:
       invisible: "(ei näytetä muille käyttäjille)"
       image_is_processing: "Profiilikuvaasi valmistellaan taustalla. Lataa sivu uudelleen hetken kuluttua."
       shown_in_your_public_profile: "(Näkyy julkisessa profiilissasi)"
-      editing_profile_of: ~
+      editing_profile_of: "Muokkaat nyt käyttäjän %{name} profiilia"
       format_markdown_link: ~
       format_markdown: ~
     save_information: "Tallenna tiedot"
@@ -2728,7 +2728,7 @@ fi:
       signup: Liity
       admin_dashboard: Ylläpitonäkymä
       language: Kieli
-      listings: ~
+      listings: "Minun ilmoitukseni"
     utils:
       km: km
       mi: mi
