@@ -101,9 +101,6 @@
   - unless @disable_custom_head_script || on_admin?
     = @current_community.custom_head_script.try(:html_safe)
 
-  -# A tag for google webmaster site verification
-  %meta{ name: "google-site-verification", content: "JUqB3tYmezYEJNAkw8MUdmIocAGztY85eaoNKBD5j0Q"}
-
 %body
 
   -# Render railsContext here before any react component gets rendered
