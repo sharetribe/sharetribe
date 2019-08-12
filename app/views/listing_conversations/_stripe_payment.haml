@@ -51,71 +51,24 @@
   .row.stripe-payment
     .col-12.payment-button-wrapper.paypal-button-wrapper
       = button_tag t("stripe_accounts.add_and_pay"), id: "send-add-card", class: 'checkout-with-stripe-button'
+      %img{src: "https://s3.amazonaws.com/sharetribe/assets/ajax-loader-grey.gif", class: "paypal-button-loading-img", style: "display: none;"}
+
 
   .row
     .col-12
       %p
         = t("stripe_accounts.card_not_stored").html_safe
 
-
+= js_t ['error_messages.stripe.generic_error']
 - content_for :extra_javascript do
-  :javascript
-    var stripe = Stripe("#{publishable_key}");
-    var elements = stripe.elements();
-    var style = {
-      base: {
-        color: '#32325d',
-        lineHeight: '24px',
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#aab7c4'
-        }
-      },
-      invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a'
-      }
-    };
-
-    var card = elements.create('card', {style: style});
-    card.mount('#card-element');
-    card.addEventListener('change', function(event) {
-      var displayError = document.getElementById('card-errors');
-      if (event.error) {
-        displayError.textContent = event.error.message;
-        displayError.className = 'error';
-      } else {
-        displayError.textContent = '';
-        displayError.className = 'hidden';
-      }
-    });
-
-    $("#send-add-card").on('click', function(event) {
-      event.preventDefault();
-      var form = $("#transaction-form");
-      form.validate();
-      $('input[stripe-shipping-address]').each(function(){
-        $(this).rules('add', { required: true });
+  - if FeatureFlagHelper.feature_enabled?(:stripe_payment_intents)
+    :javascript
+      window.ST.StripePayment.initIntent({
+        publishable_key: '#{publishable_key}'
       });
-      if(!form.valid()) {
-        return false;
-      }
-
-      stripe.createToken(card).then(function(result) {
-        var errorElement = document.getElementById('card-errors');
-        if (result.error) {
-          errorElement.textContent = result.error.message;
-          errorElement.className = 'error';
-        } else {
-          errorElement.className = 'hidden';
-          var input = $("<input/>", {type: "hidden", name: "stripe_token", value: result.token.id});
-          form.append(input);
-          $("#payment_type").val("stripe");
-          if(form.valid()) {
-            form.submit();
-          }
-        }
+  - else
+    :javascript
+      window.ST.StripePayment.initCharge({
+        publishable_key: '#{publishable_key}'
       });
-    });
+

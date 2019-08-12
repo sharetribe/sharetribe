@@ -18,7 +18,7 @@ class AdminTransactionsPresenter
     end
   end
 
-  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected)
+  FILTER_STATUSES = %w(free confirmed paid canceled preauthorized rejected payment_intent_requires_action payment_intent_action_expired)
 
   def sorted_statuses
     FILTER_STATUSES.map {|status|
@@ -32,5 +32,10 @@ class AdminTransactionsPresenter
 
   def has_search?
     @params[:q].present? || @params[:status].present?
+  end
+
+  def show_link?(tx)
+    exclude = %w(pending payment_intent_requires_action payment_intent_action_expired)
+    !exclude.include?(tx.current_state)
   end
 end

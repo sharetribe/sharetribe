@@ -63,6 +63,52 @@ class PreauthorizeTransactionsController < ApplicationController
     end
   end
 
+  def stripe_confirm_intent
+    tx = Transaction.where(community: @current_community).find(params[:id])
+    unless tx.participations.include?(@current_user)
+      return
+    end
+
+    stripe_payment = tx.stripe_payments.find(params[:stripe_payment_id])
+
+    begin
+      intent = StripeService::API::StripeApiWrapper.confirm_payment_intent(
+        community: @current_community,
+        payment_intent_id: params[:payment_intent_id])
+    rescue Stripe::CardError => e
+      stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
+      TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
+      return render json: { error: e.message }
+    end
+
+    if intent.status == StripePayment::PAYMENT_INTENT_REQUIRES_CAPTURE
+      stripe_charge = intent['charges']['data'].first
+      stripe_payment.update(stripe_charge_id: stripe_charge.id)
+      TransactionService::StateMachine.transition_to(tx.id, :preauthorized)
+      render json: {
+        success: true,
+        redirect_url: person_transaction_path(@current_user, params[:id])
+      }
+    else
+      # Invalid status
+      stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_INVALID)
+      render json: { error: 'Invalid PaymentIntent status' }, status: :internal_server_error
+    end
+  end
+
+  def stripe_failed_intent
+    tx = Transaction.where(community: @current_community).find(params[:id])
+    unless tx.participations.include?(@current_user)
+      return
+    end
+
+    stripe_payment = tx.stripe_payments.find(params[:stripe_payment_id])
+    stripe_payment.update(stripe_payment_intent_status: StripePayment::PAYMENT_INTENT_FAILED)
+    TransactionService::StateMachine.transition_to(tx.id, :payment_intent_failed)
+    render json: {
+      success: true
+    }
+  end
 
   private
 
@@ -88,13 +134,30 @@ class PreauthorizeTransactionsController < ApplicationController
     elsif (tx_response[:data][:gateway_fields][:redirect_url])
       xhr_json_redirect tx_response[:data][:gateway_fields][:redirect_url]
     elsif gateway == :stripe
-      xhr_json_redirect person_transaction_path(@current_user, tx_response[:data][:transaction][:id])
+      handle_tx_stripe_payment_intent(tx_response)
     else
       render json: {
         op_status_url: transaction_op_status_path(tx_response[:data][:gateway_fields][:process_token]),
         op_error_msg: t("error_messages.#{gateway}.generic_error")
       }
     end
+  end
+
+  def handle_tx_stripe_payment_intent(tx_response)
+    tx = tx_response.data[:transaction]
+    stripe_payment = tx.stripe_payments.last
+    if stripe_payment.stripe_payment_intent_id.present? && stripe_payment.stripe_payment_intent_client_secret.present?
+      return render json: {
+        stripe_payment_intent: {
+          stripe_payment_id: stripe_payment.id,
+          requires_action: true,
+          client_secret: stripe_payment.stripe_payment_intent_client_secret,
+          confirm_intent_path: stripe_confirm_intent_listing_preauthorize_transaction_path(listing.id, tx.id),
+          failed_intent_path: stripe_failed_intent_listing_preauthorize_transaction_path(listing.id, tx.id)
+        }
+      }
+    end
+    xhr_json_redirect person_transaction_path(@current_user, tx_response[:data][:transaction][:id])
   end
 
   def xhr_json_redirect(redirect_url)
@@ -198,7 +261,8 @@ class PreauthorizeTransactionsController < ApplicationController
           stripe_email: @current_user.primary_email.address,
           stripe_token: params[:stripe_token],
           shipping_address: params[:shipping_address],
-          service_name: @current_community.name_with_separator(I18n.locale)
+          service_name: @current_community.name_with_separator(I18n.locale),
+          stripe_payment_method_id: params[:stripe_payment_method_id]
         }
     end
 
