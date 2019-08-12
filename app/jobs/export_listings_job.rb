@@ -47,7 +47,7 @@ class ExportListingsJob < Struct.new(:current_user_id, :community_id, :export_ta
     out << %w{
       listing_id
       listing_title
-      author_id
+      user_id
       created_at
       updated_at
       status
