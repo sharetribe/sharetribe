@@ -20,6 +20,40 @@
     = render partial: "locale_input_fields", locals: community_description_locals
     = render partial: "locale_input_fields", locals: community_search_placeholder_locals
 
+    .row
+      .col-12
+        .input-header
+          = t("admin.communities.edit_details.terms_privacy_policy_and_static_content")
+        - info_text = t("admin.communities.edit_details.terms_privacy_policy_and_static_content_infotext")
+        = render :partial => "layouts/info_text", :locals => { :text => info_text.html_safe }
+
+      %table
+        %tbody
+          %tr
+            %td
+              = link_to t('layouts.infos.about'), about_infos_path
+            %td
+              = link_to about_infos_path do
+                = icon_tag("edit", ["icon-fix"])
+          %tr
+            %td
+              = link_to t('layouts.infos.how_to_use'), how_to_use_infos_path
+            %td
+              = link_to how_to_use_infos_path do
+                = icon_tag("edit", ["icon-fix"])
+          %tr
+            %td
+              = link_to t('layouts.infos.register_details'), privacy_infos_path
+            %td
+              = link_to privacy_infos_path do
+                = icon_tag("edit", ["icon-fix"])
+          %tr
+            %td
+              = link_to t('layouts.infos.terms'), terms_infos_path
+            %td
+              = link_to terms_infos_path do
+                = icon_tag("edit", ["icon-fix"])
+
     - if @show_transaction_agreement
       .row
         .col-12
