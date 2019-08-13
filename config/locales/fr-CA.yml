@@ -95,6 +95,8 @@ fr-CA:
         transaction_agreement_checkbox_label_description: "Ce texte sera affiché à côté de la case à cocher dans le formulaire de transaction. L'utilisateur doit cocher cette case pour continuer le processus. Un exemple de libellé de d'accord serait \"En cochant cette case, vous acceptez l'accord de transaction\"."
         transaction_agreement_text_header: "Texte de l'accord"
         transaction_agreement_description: "Ceci est le contenu de l'accord que l'utilisateur doit accepter. Le contenu de cet accord est affiché lorsque l'utilisateur clique sur le lien \"%{read_more}\" à côté du libellé de l'accord."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Modifier la présentation et l'aspect de la place de marché \"%{community_name}\""
         community_logo: "Logo large"
@@ -450,6 +452,8 @@ fr-CA:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Fil de conversation"
           listing: Annonce
@@ -495,6 +499,9 @@ fr-CA:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Non disponible"
       conversations:
         conversations: ~

@@ -95,6 +95,8 @@ nb:
         transaction_agreement_checkbox_label_description: "Denne teksten vil bli vist med en avkrysningsboks ved utsjekk. Brukeren må krysse av boksen for å gjennomføre transaksjonen. Eksempel på tekst er \"Ved å krysse av denne boksen aksepterer jeg vilkårene.\""
         transaction_agreement_text_header: "Avtale tekst"
         transaction_agreement_description: "Dette innholdet er vilkårene brukeren må akseptere. Vilkårne er vist når bruker trykker på \"%{read_more}\"-lenken ved siden av vilkårmerket."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Redigere markedsplass \"%{community_name}\" uttrykk og følelse"
         community_logo: Skrivebordslogo
@@ -450,6 +452,8 @@ nb:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Samtale tråd"
           listing: Annonse
@@ -495,6 +499,9 @@ nb:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Ikke tilgjengelig"
       conversations:
         conversations: ~

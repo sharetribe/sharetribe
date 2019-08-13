@@ -105,6 +105,8 @@ pl:
         transaction_agreement_checkbox_label_description: "Ten tekst będzie wyświetlony obok pola akceptacji przy podsumowaniu transakcji. użytkownik musi zaznaczyć to pole, aby kontynuować realizację transakcji. Przykładowa etykieta może wyglądać następująco: \"Poprzez zaznaczenie kratki akceptuję umowę.\""
         transaction_agreement_text_header: "Tekst umowy"
         transaction_agreement_description: "To jest treść właściwej umowy, jaką użytkownik powinien zaakceptować. Zawartość umowy jest wyświetlana gdy użytkownik kliknie link %{read_more} znajdujący się obok etykiety umowy."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Edytuj wygląd platformy %{community_name}"
         community_logo: Logo
@@ -460,6 +462,8 @@ pl:
           canceled: Anulowane
           preauthorized: Preautoryzacja
           rejected: Odrzucone
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Wątek konwersacji"
           listing: Oferta
@@ -505,6 +509,9 @@ pl:
             canceled: Anulowane
             initiated: "Oczekiwanie na płatność Stripe"
             pending_ext: "Oczekiwanie na płatność Stripe"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Nie dostępne"
       conversations:
         conversations: Rozmowy

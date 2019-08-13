@@ -90,6 +90,8 @@ ja:
         transaction_agreement_checkbox_label_description: この本文はお支払い時のチェックボックスの横に表示されます。ユーザは取引の際に、ボックスにチェックを入れる必要があります。タイトル例としては、「このボックスをクリックすることで、同意書を受け入れることになります。」のようになるでしょう。
         transaction_agreement_text_header: 同意書本文
         transaction_agreement_description: "こちらはユーザが承認する必要のある、実際の同意書のコンテンツです。同意書の本文はユーザが、同意書のタイトルの横のリンク、「%{read_more}」をクリックすると表示されます。"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "%{community_name}のカスタマイズ"
         community_logo: デスクトップロゴ
@@ -445,6 +447,8 @@ ja:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: 会話のスレッド
           listing: 投稿
@@ -490,6 +494,9 @@ ja:
             canceled: キャンセルされました
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: ご利用できません
       conversations:
         conversations: ~

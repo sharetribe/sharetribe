@@ -90,6 +90,8 @@ th-TH:
         transaction_agreement_checkbox_label_description: "ข้อความนี้จะปรากฎถัดจากช่องทำเครื่องหมายในแบบฟอร์มการชำระเงิน ผู้ใช้จำเป็นต้อง ทำเครื่องหมายในกล่อง เพื่อที่จะดำเนินการกับการทำธุรกรรม เช่นป้ายตัวอย่างบอกว่า \"โดยการคลิกที่กล่องนี้ ฉันขอยอมรับข้อตกลง\" เป็นต้น"
         transaction_agreement_text_header: ข้อความข้อตกลง
         transaction_agreement_description: "นี่คือเนื้อหาของข้อตกลงอย่างเป็นทางการที่ผู้ใช้จำเป็นต้องยอมรับ เนื้อหาข้อตกลงจะปรากฏขึ้นเมื่อผู้ใช้คลิกที่ลิงค์ \"%{read_more}\" ข้างฉลากข้อตกลง"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "แก้ไขรูปลักษณ์และความรู้สึกของตลาด \"%{community_name}\""
         community_logo: โลโก้
@@ -445,6 +447,8 @@ th-TH:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: บทสนทนา
           listing: รายการ
@@ -490,6 +494,9 @@ th-TH:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: ไม่พบข้อมูล
       conversations:
         conversations: ~

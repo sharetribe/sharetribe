@@ -90,6 +90,8 @@ zh-HK:
         transaction_agreement_checkbox_label_description: ~
         transaction_agreement_text_header: ~
         transaction_agreement_description: "這是用户需要接受的實際協議内容。該協議内容會在用户點擊協議標簽旁的“%{read_more}”連結時出現。"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "修改市集%{community_name}的外觀"
         community_logo: 卓面標示
@@ -445,6 +447,8 @@ zh-HK:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: 對話
           listing: 訊息
@@ -490,6 +494,9 @@ zh-HK:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: ~
       conversations:
         conversations: ~

@@ -105,6 +105,8 @@ ru:
         transaction_agreement_checkbox_label_description: "Данный текст будет показан рядом с флажком в форме подтверждения соглашения. Пользователю нужно отметить подтверждение чтобы перейти к транзакции. Пример сопроводительного текста: \"Нажимая здесь вы принимаете данное соглашение.\""
         transaction_agreement_text_header: "Текст соглашения"
         transaction_agreement_description: "Это содержание актуального соглашения которое пользователь должен принять. Текст соглашения отображается когда пользователь нажимает ссылку \"%{read_more}\" следующую за сопроводительным текстом."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Редактировать оформление «%{community_name}»"
         community_logo: Логотип
@@ -460,6 +462,8 @@ ru:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: Обсуждение
           listing: Публикация
@@ -505,6 +509,9 @@ ru:
             canceled: Отменено
             initiated: "Ожидание платежа Stripe"
             pending_ext: "Ожидание платежа Stripe"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Не доступно"
       conversations:
         conversations: ~

@@ -95,6 +95,8 @@ es-ES:
         transaction_agreement_checkbox_label_description: "Este texto se mostrará junto a una casilla de verificación en el formulario. El usuario debe marcar la casilla de verificación antes de poder proceder con la transacción. Un ejemplo sería algo como \"Al marcar esta casilla aceptas el presente acuerdo y los términos de uso.\""
         transaction_agreement_text_header: "Texto del acuerdo"
         transaction_agreement_description: "Este el contenido del texto del acuerdo que los usuarios han de aceptar. El texto del presente acuerdo se mostrará cuando los usuarios hagan clic en el enlace %{read_more} ."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Edita la apariencia de %{community_name}"
         community_logo: Logotipo
@@ -450,6 +452,8 @@ es-ES:
           canceled: Cancelada
           preauthorized: Preautorizada
           rejected: Rechazada
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: Conversación
           listing: Anuncio
@@ -495,6 +499,9 @@ es-ES:
             canceled: Cancelada
             initiated: "Esperando el pago de Stripe"
             pending_ext: "Esperando el pago de Stripe"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "No disponible"
       conversations:
         conversations: Conversaciones

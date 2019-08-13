@@ -101,6 +101,8 @@ hr:
         transaction_agreement_checkbox_label_description: "Tekst će biti prikazan do kućice na obrascu odjave. Korisnik mora označiti kućicu kako bi nastavio sa transakcijom. Primjer oznake bi bio nešto kao \"Klikom na ovu kućicu prihvaćam dogovor.\""
         transaction_agreement_text_header: "Tekst o dogovoru"
         transaction_agreement_description: "Ovo je sadržaj stvarnog dogovora koji korisnik mora prihvatiti. Sadržaj dogovora je prikazan kada korisnik klikne na \"%{read_more}\" link odmah do oznake o dogovoru."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Uredi %{community_name} izgled"
         community_logo: Logo
@@ -458,6 +460,8 @@ hr:
           canceled: Poništeno
           preauthorized: Predautorizirano
           rejected: Odbijeno
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Tema razgovora"
           listing: Oglas
@@ -503,6 +507,9 @@ hr:
             canceled: Poništeno
             initiated: "Čekanje Stripe plaćanja"
             pending_ext: "Čekanje Stripe plaćanja"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Nije dostupno"
       conversations:
         conversations: Razgovor

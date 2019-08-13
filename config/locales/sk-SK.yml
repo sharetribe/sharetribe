@@ -100,6 +100,8 @@ sk-SK:
         transaction_agreement_checkbox_label_description: "Tento text sa zobrazí vedľa zaškrtávacieho poľa vo formulári. Užívateľ musí zaškrtnúť pole, aby mohla byť transakcia prevedená. Príkladom pomenovania by mohlo byť niečo ako \"Kliknutím na toto pole súhlasím s podmienkami.\""
         transaction_agreement_text_header: "Text dohody"
         transaction_agreement_description: "Toto je obsah aktuálnych podmienok, ktorý musí užívateľ potvrdiť. Obsah sa zobrazí, keď užívateľ klikne na odkaz %{read_more} vedľa textu dohody."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Upraviť vzhľad trhoviska %{community_name}"
         community_logo: "Logo veľké"
@@ -455,6 +457,8 @@ sk-SK:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Vlákno konverzácie"
           listing: Inzerát
@@ -500,6 +504,9 @@ sk-SK:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Teraz k dispozicií"
       conversations:
         conversations: ~

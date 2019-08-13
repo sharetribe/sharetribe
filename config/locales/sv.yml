@@ -95,6 +95,8 @@ sv:
         transaction_agreement_checkbox_label_description: "Denna text kommer att visas bredvid kryssrutan vid checkout. Användaren behöver kryssa i denna ruta för att gå vidare med betalningen. Ett exempel skulle vara något i stil med \"Genom att bocka i denna ruta så accepterar du användarvillkoren.\""
         transaction_agreement_text_header: Avtalstext
         transaction_agreement_description: "Detta är innehållet av avtalet som användarna måste acceptera. Avtalets innehåll syns när användaren klickar på %{read_more} länken."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Redigera marknadsplatsen \"%{community_name}\""
         community_logo: Logotyp
@@ -450,6 +452,8 @@ sv:
           canceled: Avbruten
           preauthorized: Auktoriserad
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: Konversationstråd
           listing: Annons
@@ -495,6 +499,9 @@ sv:
             canceled: Avbryten
             initiated: "Väntar på Stripe betalning"
             pending_ext: "Väntar på Stripe betalning"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Inte tillgänglig"
       conversations:
         conversations: "Visa konversationer"

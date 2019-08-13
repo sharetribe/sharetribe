@@ -90,6 +90,8 @@ tr-TR:
         transaction_agreement_checkbox_label_description: "Bu metin ödeme formunda onay kutucuğunun yanında gösterilecek. Kullanıcının işlemi gerçekleştirebilmek için kutucuğu onaylaması gerekecek. Örnek bir başlık olarak: \"Bu kutuyu işaretleyerek sözleşmeyi kabul ettiğimi beyan ederim.\""
         transaction_agreement_text_header: "Sözleşme metni"
         transaction_agreement_description: "Bu, kullanıcının kabul etmesi gereken asıl sözleşmenin içeriğidir. Anlaşma içeriği kullanıcı sözleşme başlığının yanındaki \"%{read_more}\" linkine tıkladığında görüntülenecektir."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "%{community_name} pazar görünümü ve özelliklerini düzenle"
         community_logo: "Masaüstü logosu"
@@ -447,6 +449,8 @@ tr-TR:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Konuşma başlığı"
           listing: Listeleme
@@ -492,6 +496,9 @@ tr-TR:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Mevcut değil"
       conversations:
         conversations: ~

@@ -95,6 +95,8 @@ pt-BR:
         transaction_agreement_checkbox_label_description: "Este texto será exibido próximo à caixa de seleção no formulário de finalização da compra. O usuário precisa marcar a caixa para prosseguir com a transação. Uma legenda de exemplo seria algo como \"Ao clicar nesta caixa aceito o contrato.\""
         transaction_agreement_text_header: "Texto de acordo"
         transaction_agreement_description: "Este é o conteúdo do acordo vigente que o usuário deve aceitar. O conteúdo do mesmo é exibido quando o usuário clica no link \"%{read_more}\" ao lado da legenda do acordo."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editar o visual do mercado virtual da %{community_name}."
         community_logo: "Logo principal"
@@ -450,6 +452,8 @@ pt-BR:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Criou a conversa"
           listing: Anúncio
@@ -495,6 +499,9 @@ pt-BR:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: Indisponível
       conversations:
         conversations: ~
@@ -1541,7 +1548,7 @@ pt-BR:
     create_new_marketplace: "Criar um novo mercado virtual"
     contact_us: Contato
     profile: Perfil
-    manage_listings: "Gerenciar anúncios"
+    manage_listings: "Meus anúncios"
     invite: "Convidar novos membros"
     login: Entrar
     signup: "Criar conta"
@@ -2711,14 +2718,14 @@ pt-BR:
       user: Usuário
       inbox: "Caixa de Entrada"
       profile: Perfil
-      manage_listings: "Gerenciar anúncios"
+      manage_listings: "Meus anúncios"
       settings: Configurações
       logout: Sair
       login: Login
       signup: "Criar conta"
       admin_dashboard: "Painel de administração"
       language: Idioma
-      listings: ~
+      listings: "Meus anúncios"
     utils:
       km: km
       mi: mi

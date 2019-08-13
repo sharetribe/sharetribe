@@ -95,6 +95,8 @@ nl:
         transaction_agreement_checkbox_label_description: "De tekst zal getoond worden naast de checkbox in het checkout formulier. De gebruiker moet de checkbox aanvinken om verder te gaan met de transactie. Een voorbeeld label zou kunnen zijn: 'Door deze optie te selecteren aanvaard ik de overeenkomst'."
         transaction_agreement_text_header: "Overeenkomst tekst"
         transaction_agreement_description: "Dit is de inhoud van de eigenlijke overeenkomst die gebruikers moeten aanvaarden. Deze inhoud wordt weergegeven wanneer de gebruiker de \"%{read_more}\" link klikt naast de overeenkomst hoofding."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
@@ -452,6 +454,8 @@ nl:
           canceled: Geannuleerd
           preauthorized: "Vooraf geauthoriseerd"
           rejected: Geweigerd
+          payment_intent_requires_action: "In afwachting"
+          payment_intent_action_expired: Verlopen
         headers:
           conversation: Conversatie
           listing: Advertentie
@@ -497,6 +501,9 @@ nl:
             canceled: Geannuleerd
             initiated: "In afwachting van Stripe betaling"
             pending_ext: "In afwachting van Stripe betaling"
+            payment_intent_requires_action: "in afwachting"
+            payment_intent_action_expired: Verlopen
+            payment_intent_failed: "Stripe betaling mislukt"
         not_available: "Niet beschikbaar"
       conversations:
         conversations: Conversaties

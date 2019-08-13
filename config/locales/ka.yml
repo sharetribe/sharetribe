@@ -90,6 +90,8 @@ ka:
         transaction_agreement_checkbox_label_description: "ეს ტექსტი გამოჩნდება შემოწმების გრაფაში გადახდის ფორმასთან. მომხმარებელმა უნდა შეამოწმოს ეს ველი რომ გააგრძელოს გადახდა. მაგალითისთვის იქნება რაღაც დაახლოებით ამ ტექსტით \"ამ გრაფის მონიშვნით მე ვეთანხმები ხელშეკრულებას.\""
         transaction_agreement_text_header: "ხელშეკრულების ტექსტი"
         transaction_agreement_description: "ეს არის ამჟამინდელი ხელშეკრულების შიგთავსი, რომელიც მომხმარებლებმა უნდა დაადასტურონ. ხელშეკრულების შიგთავსი გამოიშლება, მაშინ როცა მომხმარებელი აჭერს \"%{read_more}\" ბმულს ხელშეკრულების იარლიყის გვეერდით"
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "დაარედაქტირე ბაზარი \"%{community_name}\" შეხედე და შეიგრძენი"
         community_logo: "მთავარი ეკრანის ლოგო"
@@ -445,6 +447,8 @@ ka:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "მიმოწერის ნაკრები"
           listing: ჩამონათვლები
@@ -490,6 +494,9 @@ ka:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "არ არის ხელმისაწვდომი"
       conversations:
         conversations: ~

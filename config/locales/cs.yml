@@ -100,6 +100,8 @@ cs:
         transaction_agreement_checkbox_label_description: "Tento text se zobrazí vedle zaškrtávacích polí ve formuláři. Uživatel musí zaškrtnout pole, aby mohla být transakce provedena. Příkladem pojmenování by mohlo být něco jako \"Kliknutím na toto pole souhlasím s podmínkami.\""
         transaction_agreement_text_header: "Text ujednání"
         transaction_agreement_description: "Toto je obsah aktuálních podmínek, který musí uživatel potvrdit. Obsah se zobrazí, když uživatel klikne na odkaz %{read_more} vedle pojmenování ujednání."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Upravit vzhled tržiště \"%{community_name}\""
         community_logo: "Logo pozadí"
@@ -455,6 +457,8 @@ cs:
           canceled: Zrušeno
           preauthorized: Předschváleno
           rejected: Odmítnuto
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Vlákno konverzace"
           listing: Inzerát
@@ -500,6 +504,9 @@ cs:
             canceled: Zrušeno
             initiated: "Čeká se na Stripe platbu"
             pending_ext: "Čeká se na Stripe platbu"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: Nedostupné
       conversations:
         conversations: "Zobrazit konverzaci"

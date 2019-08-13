@@ -95,6 +95,8 @@ fi:
         transaction_agreement_checkbox_label_description: "Tämä on ohjeteksti valintaruudulle, joka käyttäjän pitää valita sopimuksen hyväksymiseksi."
         transaction_agreement_text_header: Sopimusteksti
         transaction_agreement_description: "Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa \"%{read_more}\" linkkiä."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: Ulkoasu
         community_logo: Peruslogo
@@ -288,11 +290,11 @@ fi:
           accepted: Hyväksytty
           unconfirmed: Vahvistamaton
           pending: Odottaa
-        this_user_hasnt_confirmed_their_email_address: ~
+        this_user_hasnt_confirmed_their_email_address: "Tämä käyttäjä ei ole vielä vahvistanut sähköpostiosoitettaan. On mahdollista, että käyttäjä ei ole vastaanottanut sitä. Klikkaa \"lähetä uudelleen\" -nappia, mikäli haluat lähettää vahvistusviestin uudelleen."
         unconfirmed_user: "Vahvistamaton käyttäjä: %{name}"
-        resend: ~
+        resend: "Lähetä uudelleen"
         cancel: Peruuta
-        user_didnt_complete_the_signup_process: ~
+        user_didnt_complete_the_signup_process: "Tämä käyttäjä rekisteröityi sosiaalisen median avulla mutta ei vienyt rekisteröintiprosessia loppuun saakka. Sosiaalisen median kautta rekisteröitymisen jälkeen käyttäjien tulee vielä hyväksyä markkinapaikkasi säännöt ja täyttää ne tiedot, jotka kaikkien käyttäjien tulee markkinapaikallasi täyttää."
         pending_user: "Odottaa: %{name}"
       new_layout:
         new_layout: "Uusi ulkoasu"
@@ -336,9 +338,9 @@ fi:
         google_connect_id: "Google Client ID"
         google_connect_secret: "Google Client secret"
         linkedin_connect: "LinkedIn Sign In"
-        linkedin_instructions_link_text: ~
-        linkedin_connect_info_text_with_instructions: ~
-        linkedin_connect_info_text: ~
+        linkedin_instructions_link_text: "Lue ohjeet LinkedIn Sign In:in käyttöönottamiseksi."
+        linkedin_connect_info_text_with_instructions: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne. %{instructions_link}"
+        linkedin_connect_info_text: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne."
         enable_linkedin_login: ~
         linkedin_connect_id: ~
         linkedin_connect_secret: ~
@@ -450,6 +452,8 @@ fi:
           canceled: Peruutettu
           preauthorized: "Katevaraus tehty"
           rejected: Hylätty
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -480,7 +484,7 @@ fi:
             accepted: Hyväksytty
             rejected: Hylätty
             paid: Maksettu
-            confirmed: Vahvistettu
+            confirmed: Toteutunut
             canceled: Peruutettu
             initiated: "Odottaa PayPal-maksua"
             pending_ext: "Odottaa PayPal-maksua"
@@ -491,10 +495,13 @@ fi:
             accepted: Hyväksytty
             rejected: Hylätty
             paid: Maksettu
-            confirmed: Vahvistettu
+            confirmed: Toteutunut
             canceled: Peruutettu
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "Ei saatavilla"
       conversations:
         conversations: Keskustelut
@@ -2763,8 +2770,8 @@ fi:
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
     person:
       community_members_entries_info:
-        multi_page: ~
-        multi_page_html: ~
+        multi_page: "Näytetään käyttäjät %{from} - %{to}, yhteensä %{accepted_count} hyväksytystä käyttäjästä ja %{other_count} muusta käyttäjästä."
+        multi_page_html: "Näytetään käyttäjät <b>%{from}&nbsp;-&nbsp;%{to} yhteensä <b>%{accepted_count}</b> hyväksytystä käyttäjästä ja %{other_count} muusta käyttäjästä."
   stripe_accounts:
     admin_account_not_connected: "%{service_name}-palvelun maksujärjestelmän käyttäminen maksujen vastaanottamiseen ei ole vielä mahdollista, koska maksujärjestelmää ei ole vielä otettu käyttöön. Ole hyvä ja %{contact_admin_link}."
     contact_admin_link_text: "ota yhteyttä palvelun %{service_name} ylläpitoon"

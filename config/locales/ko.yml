@@ -90,6 +90,8 @@ ko:
         transaction_agreement_checkbox_label_description: "이 텍스트는 결제 양식의 확인란 옆에 표시됩니다. 거래를 계속하려면 상자를 선택해야합니다. 예제 레이블은 \"이 상자를 클릭하면 계약에 동의합니다.\""
         transaction_agreement_text_header: "계약서 텍스트"
         transaction_agreement_description: "이것은 사용자가 수락해야하는 실제 계약의 내용입니다. 계약 내용은 사용자가 계약 레이블 옆의 \"%{read_more}\"링크를 클릭하면 표시됩니다."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "마켓플레이스 %{community_name} 꾸미기"
         community_logo: 로고
@@ -445,6 +447,8 @@ ko:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "대화 목록"
           listing: 목록
@@ -490,6 +494,9 @@ ko:
             canceled: 취소됨
             initiated: "스트라이프 결제 대기중"
             pending_ext: "스트라이프 결제 대기중"
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: "이용 불가"
       conversations:
         conversations: "대화 보기"

@@ -100,6 +100,8 @@ ro:
         transaction_agreement_checkbox_label_description: "Acest text va fi afisat alaturi de o caseta de verificare in pasul de checkout. Utilizatorul trebuie sa bifeze caseta de verificare pentru a putea continua tranzactia. Un exemplu al acestei etichete poate fi \"Prin apasarea acestui buton confirm tranzatia\""
         transaction_agreement_text_header: "Textul de confirmare a tranzactiei"
         transaction_agreement_description: "Acesta este continutul Termenilor si Conditiilor de tranzactionare pe care utilizatorii trebuie sa il accepte. Continutul este afisat la apasarea butonului %{read_more} aplasat langa caseta de verificare a confirmarii tranzactiei."
+        terms_privacy_policy_and_static_content: ~
+        terms_privacy_policy_and_static_content_infotext: ~
       edit_look_and_feel:
         edit_community_look_and_feel: "Editați aspectul marketplace-ului \"%{community_name}\""
         community_logo: Logo
@@ -455,6 +457,8 @@ ro:
           canceled: ~
           preauthorized: ~
           rejected: ~
+          payment_intent_requires_action: ~
+          payment_intent_action_expired: ~
         headers:
           conversation: "Firul conversației"
           listing: Listarea
@@ -500,6 +504,9 @@ ro:
             canceled: ~
             initiated: ~
             pending_ext: ~
+            payment_intent_requires_action: ~
+            payment_intent_action_expired: ~
+            payment_intent_failed: ~
         not_available: Indisponibil
       conversations:
         conversations: ~
