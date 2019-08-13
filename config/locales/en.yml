@@ -96,7 +96,7 @@ en:
         transaction_agreement_text_header: "Agreement text"
         transaction_agreement_description: "This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the \"%{read_more}\" link next to the agreement label."
         terms_privacy_policy_and_static_content: "Terms, privacy policy and static content"
-        terms_privacy_policy_and_static_content_infotext: "You can edit up to four pages of static content. The pages are accessible from the \"About\" link in the top bar."
+        terms_privacy_policy_and_static_content_infotext: "You can edit up to four pages of static content. Users can find the pages by clicking the \"About\" link in the top bar."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
@@ -1724,7 +1724,7 @@ en:
       how_to_use: "How it works"
       info_about_kassi: "Information about %{service_name}"
       news: News
-      register_details: "Privacy Policy"
+      register_details: "Privacy policy"
       terms: "Terms of use"
     logged_in:
       admin: Admin
@@ -2339,7 +2339,7 @@ en:
       show_my_name_to_others: "Show my real name to other %{service_name} users"
       sign_up: "Create a new %{service_name} account"
       terms: "Terms of Use"
-      privacy: "Privacy Policy"
+      privacy: "Privacy policy"
       username_is_in_use: "This username is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and the %{service_name} team"
