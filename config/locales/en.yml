@@ -95,6 +95,8 @@ en:
         transaction_agreement_checkbox_label_description: "This text will be shown next to a checkbox in the checkout form. The user needs to check the box to proceed with the transaction. An example label would be something like \"By clicking this box I accept the agreement.\""
         transaction_agreement_text_header: "Agreement text"
         transaction_agreement_description: "This is the content of the actual agreement that the user needs to accept. The agreement content is displayed when the user clicks the \"%{read_more}\" link next to the agreement label."
+        terms_privacy_policy_and_static_content: "Terms, privacy policy and static content"
+        terms_privacy_policy_and_static_content_infotext: "You can edit up to four pages of static content. The pages are accessible from the \"About\" link in the top bar."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edit marketplace \"%{community_name}\" look and feel"
         community_logo: Logo
