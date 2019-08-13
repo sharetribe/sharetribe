@@ -128,7 +128,7 @@ Feature: User creates a new account
     When I open the email
     And I click the first link in the email
     And wait for 1 seconds
-    Then "kassi_testperson3@example.com" should have 2 emails
+    Then "kassi_testperson3@example.com" should have 1 emails
     And I should see "The email you entered is now confirmed"
 
   @subdomain2
@@ -155,7 +155,7 @@ Feature: User creates a new account
     When I open the email
     And I click the first link in the email
     And wait for 1 seconds
-    Then "kassi_testperson3@example.com" should have 2 emails
+    Then "kassi_testperson3@example.com" should have 1 emails
     And I should see "The email you entered is now confirmed"
 
   Scenario: Creating a new account with custom fields successfully
