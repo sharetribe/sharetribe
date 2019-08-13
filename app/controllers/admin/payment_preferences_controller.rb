@@ -161,7 +161,6 @@ class Admin::PaymentPreferencesController < Admin::AdminBaseController
       available_currencies: TransactionService::AvailableCurrencies::CURRENCIES,
       currency: @current_community.currency,
       display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
-      knowledge_base_url: APP_CONFIG.knowledge_base_url,
       support_email: APP_CONFIG.support_email,
       stripe_enabled: @stripe_enabled,
       paypal_enabled: @paypal_enabled,

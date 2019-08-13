@@ -39,7 +39,6 @@ class Admin::CommunitiesController < Admin::AdminBaseController
              user_defined_address: user_defined_address,
              post_sender_address_url: create_sender_address_admin_community_path,
              can_set_sender_address: can_set_sender_address(@current_plan),
-             knowledge_base_url: APP_CONFIG.knowledge_base_url,
              ses_in_use: ses_in_use,
              show_branding_info: !@current_plan[:features][:whitelabel],
              link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=referral&utm_campaign=nowl-admin-panel"
@@ -114,16 +113,16 @@ class Admin::CommunitiesController < Admin::AdminBaseController
     @community.build_social_logo unless @community.social_logo
     find_or_initialize_customizations
     render "social_media", :locals => {
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
-      knowledge_base_url: APP_CONFIG.knowledge_base_url}
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles
+    }
   end
 
   def analytics
     @selected_left_navi_link = "analytics"
     @community = @current_community
     render "analytics", :locals => {
-      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles,
-      knowledge_base_url: APP_CONFIG.knowledge_base_url}
+      display_knowledge_base_articles: APP_CONFIG.display_knowledge_base_articles
+    }
   end
 
   def new_layout
