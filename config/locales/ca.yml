@@ -104,6 +104,7 @@ ca:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: ~
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
@@ -305,6 +306,7 @@ ca:
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -317,6 +319,7 @@ ca:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -324,6 +327,7 @@ ca:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1017,8 +1021,8 @@ ca:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: "%{seller_gets}"
+      paypal_fee: ~
       paypal_fee_info: ~
-      payment_fee_info: ~
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:

@@ -124,6 +124,7 @@ sk-SK:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Úvodná fotografia sa zobrazí na domovskej stránke neprihláseným užívateľom."
         cover_photo_instructions_text_with_dimensions: "Fotografie budú prispôsobené veľkosti %{width}x%{height} pixelov a väčšie snímky budú orezané. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Malá úvodná fotografia sa zobrazí neprihláseným užívateľom na všetkých stránkach okrem domovskej stránky."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia bude prispôsobená veľkosti %{width}x%{height} pixelov a vačšie obrázky budú orezané."
@@ -325,6 +326,7 @@ sk-SK:
         twitter_handle_placeholder: "užívateľské meno"
         invalid_twitter_handle: "Užívateľské meno Twitter účtu by malo obsahovať maximálne 15 alfanumerických znakov (písmená A-Z a čísla 0-9)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Aby ste sa mohli prihlásiť cez Facebook, je potrebné vytvoriť aplikáciu pre Vaše trhovisko na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následne vyplňte pridelené identifikačné číslo a heslo aplikácie."
         facebook_connect_info_text_with_instructions: "Aby ste sa mohli prihlásiť cez Facebook, je potrebné vytvoriť aplikáciu pre Vaše trhovisko na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následne vyplňte pridelené identifikačné číslo a heslo aplikácie sem. %{instructions_link}"
         facebook_instructions_link_text: "Zobraziť pokyny pre nastavenie prihlásenia cez Facebook."
@@ -337,6 +339,7 @@ sk-SK:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -344,6 +347,7 @@ sk-SK:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1055,8 +1059,8 @@ sk-SK:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* Nezahrňuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatok za spracovanie</a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "* Nezahrňuje %{link}"
       shipping_price_label: "Doprava:"
       stripe-fee_label: ~
     confirm:

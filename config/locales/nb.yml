@@ -119,6 +119,7 @@ nb:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Forsidebildet vises på forsiden for brukere som ikke er logget inn."
         cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Mindre forsidebilde vises på alle sider bortsett fra forsiden for brukere som ikke er logget inn."
         small_cover_photo_instructions_text_with_dimensions: "Bildet vil bli endret i størrelse til %{width}x%{height} piksler og høyere bilder vil bli kuttet i midten."
@@ -320,6 +321,7 @@ nb:
         twitter_handle_placeholder: brukernavn
         invalid_twitter_handle: "Twitternavn inneholder maks 15 tegn (bokstaver A-Z og tall 0-9)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din arkedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her."
         facebook_connect_info_text_with_instructions: "For å aktivere Facebook-innlogging må du opprette en applikasjon for din markedsplass i <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Legg inn generated id og secret key for applikasjonen her. %{instructions_link}"
         facebook_instructions_link_text: "Se instruksjoner for å konfigurere Facebook Connect."
@@ -332,6 +334,7 @@ nb:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -339,6 +342,7 @@ nb:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1044,8 +1048,8 @@ nb:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* ekskludert <a id='%{fee_info_link_id}' href='#'>PayPals transaksjonskostnad</a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "* ekskludert %{link}"
       shipping_price_label: "Frakt:"
       stripe-fee_label: ~
     confirm:

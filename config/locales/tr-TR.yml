@@ -116,6 +116,7 @@ tr-TR:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Kapak fotoğrafı ana sayfada giriş yapmamış kullanıcılara gösterilecektir."
         cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Küçük kapak fotoğrafı ana sayfadaki giriş yapmamış kullanıcılar hariç bütün sayfalarda gösterilir."
         small_cover_photo_instructions_text_with_dimensions: "Görsel %{width}x%{height} piksel boyutlarında küçültülecek ve uzun görseller ortadan kesilecektir."
@@ -317,6 +318,7 @@ tr-TR:
         twitter_handle_placeholder: "kullanıcı adı"
         invalid_twitter_handle: "Twitter aracı maksimum 15 alfanumerik karakter içerebilir (A-Z harfler ve 0-9 rakamlar)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Facebook'la giriş yapmayı etkinleştirebilmek için, <a href='https://developers.facebook.com/'>Facebook geliştiricileri panosunda</a> pazar yeriniz için bir uygulama oluşturun. Uygulamanın oluşturduğu kimlik ve gizli anahtarı buraya ekleyin."
         facebook_connect_info_text_with_instructions: "Facebook ile giriş yapılabilmesi için pazarınız adına<a href='https://developers.facebook.com/'>Facebook Programcılar sayfasındaki panelden</a>başvuru yapın. Oluşturulan ID numarası ve gizli anahtarı ekleyin.%{instructions_link}"
         facebook_instructions_link_text: "Facebook'a bağlanma talimatlarına bakın."
@@ -329,6 +331,7 @@ tr-TR:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -336,6 +339,7 @@ tr-TR:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1032,8 +1036,8 @@ tr-TR:
       total_value: "%{seller_gets}"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* <a id='%{fee_info_link_id}' href='#'>PayPal işlem ücreti</a> dahil değildir."
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "* %{link} dahil değildir."
       shipping_price_label: "Kargo:"
       stripe-fee_label: ~
     confirm:

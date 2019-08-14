@@ -129,6 +129,7 @@ pl:
         logo_mobile_icon_instructions_text_with_dimensions: "Ten kwadratowy logotyp będzie pojawiał się, gdy ludzie  zapiszą Twoją stronę na głównej witrynie ich urządzenia mobilnego. Rekomendowane rozmiary to: %{width} na %{height} pikseli."
         cover_photo_visibility: "Zdjęcie w tle jest wyświetlane na stronie głównej dla użytkowników, którzy nie są zalogowani."
         cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą przycięte w środku. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Małe zdjęcie profilowe jest wyświetlane na wszystkich stronach poza stroną główną dla użytkowników, którzy nie są zalogowani."
         small_cover_photo_instructions_text_with_dimensions: "Zdjęcie będzie zmniejszone do %{width} na %{height} pikseli i wyższe zdjęcia będą ucięte w połowie."
@@ -330,6 +331,7 @@ pl:
         twitter_handle_placeholder: "Nazwa użytkownika"
         invalid_twitter_handle: "Kod obsługi Twitter powinien zawierać wyłącznie maksymalnie 15 alfanumerycznych znaków (litery A-Z i cyfry 0-9)."
         facebook_connect: "Facebook Login"
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj."
         facebook_connect_info_text_with_instructions: "Aby umożliwić logowanie poprzez Facebook, stwórz aplikację dla swojej platformy w <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodaj wygenerowane id oraz tajny klucz aplikacji tutaj. %{instructions_link}"
         facebook_instructions_link_text: "Zobacz instrukcje konfiguracji połączenia Facebook."
@@ -342,6 +344,7 @@ pl:
         add_another_image: "dodaj kolejne zdjęcie"
         google_connect: "Loguj się za pomocą Google"
         google_instructions_link_text: "Zapoznaj się z instrukcją aby zalogować się za pomocą konta Google."
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: "Zezwól użytkownikom na logowanie się za pomocą konta Google"
@@ -349,6 +352,7 @@ pl:
         google_connect_secret: ~
         linkedin_connect: "Zaloguj się za pomocą LinkedIn"
         linkedin_instructions_link_text: "Zapoznaj się z instrukcją aby zalogować się za pomocą LinkedIn."
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: "Zezwól użytkownikom na logowanie się za pomocą konta LinkedIn"
@@ -1070,8 +1074,8 @@ pl:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* wyłączając <a id='%{fee_info_link_id}' hred='#'>opłaty za obsługę płatności PayPal</a>"
-      payment_fee_info: "*Z wyłączeniem <a id='%{fee_info_link_id}' href='#'>opłaty za realizację płatności</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* wyłączając %{link}"
       shipping_price_label: "Transport:"
       stripe-fee_label: "Opłata za realizację płatności"
     confirm:

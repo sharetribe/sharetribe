@@ -124,6 +124,7 @@ lt:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Viršelio nuotrauka bus rodoma pagrindiniame puslapyje neprisijungusiems vartotojams."
         cover_photo_instructions_text_with_dimensions: "Fotografijos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesnės nuotraukos bus kerpamos per vidurį. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Maža viršelio nuotrauka rodoma visuose puslapiuose, išskyrus pagrindinį puslapį, vartotojams, kurie nėra prisijungę."
         small_cover_photo_instructions_text_with_dimensions: "Nuotraukos dydis bus pakeistas į %{width}x%{height} pikselių dydį, o aukštesni paveiksliukai bus kerpami per vidurį."
@@ -325,6 +326,7 @@ lt:
         twitter_handle_placeholder: "vartotojo vardas"
         invalid_twitter_handle: "Twitter vardas turėtų susidėti iš maksimum 15 raidinių ir skaitinių (raidės A-Z ir skaičiai 0-9) simbolių."
         facebook_connect: "Facebook prisijungimas"
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Kad aktyvuotumėte Facebook prisijungimą, sukurkite programą savo turgui <a href='https://developers.facebook.com/'>Facebook Developers Dashboard</a>. Įrašykite sugeneruotą programos ID ir slaptą raktą čia."
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -337,6 +339,7 @@ lt:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -344,6 +347,7 @@ lt:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1037,8 +1041,8 @@ lt:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
+      paypal_fee: ~
       paypal_fee_info: ~
-      payment_fee_info: ~
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:

@@ -124,6 +124,7 @@ ro:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Fotografia de pe copertă este afișată în pagina de pornire pentru utilizatorii care nu sunt conectați."
         cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai mari vor fi tăiate la mijloc. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Fotografia cu copertă mică este afișată în toate paginile, cu excepția paginii de pornire pentru utilizatorii care nu sunt conectați."
         small_cover_photo_instructions_text_with_dimensions: "Fotografia va fi redimensionată la rezoluţia %{width}x%{height} pixeli, iar imaginile mai mari vor fi tăiate la mijloc."
@@ -325,6 +326,7 @@ ro:
         twitter_handle_placeholder: "nume utilizator"
         invalid_twitter_handle: ~
         facebook_connect: "Login Facebook"
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -337,6 +339,7 @@ ro:
         add_another_image: ~
         google_connect: "Conectare cu Google"
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -344,6 +347,7 @@ ro:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1041,8 +1045,8 @@ ro:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* Exclude <a id='%{fee_info_link_id}' href='#'>Comisionul de procesare PayPal</a>"
-      payment_fee_info: "* Exclude <a id='%{fee_info_link_id}' href='#'>comision de procesare</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Exclude %{link}"
       shipping_price_label: "Trimite:"
       stripe-fee_label: "Comision procesare plati"
     confirm:

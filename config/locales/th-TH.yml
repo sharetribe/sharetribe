@@ -114,6 +114,7 @@ th-TH:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: รูปภาพหน้าปกจะแสดงในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน
         cover_photo_instructions_text_with_dimensions: "ขนาดโลโก้จะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "ภาพปกขนาดเล็กจะถูกแสดงในหน้าเว็บทั้งหมด ยกเว้นในหน้าแรกสำหรับผู้ใช้ที่ยังไม่ได้ล็อคอิน"
         small_cover_photo_instructions_text_with_dimensions: "รูปภาพจะถูกย่อขนาดเหลือ %{width} x %{height} px ภาพที่มีขนาดสูงกว่าจะถูกตัดจากตรงกลาง "
@@ -315,6 +316,7 @@ th-TH:
         twitter_handle_placeholder: ชื่อผู้ใช้
         invalid_twitter_handle: "การจัดการ Twitter ควรมีตัวเลขและอักษรมากที่สุด 15 ตัว (อักษร A-Z เลข 0-9)"
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่"
         facebook_connect_info_text_with_instructions: "ในการเปิดการใช้งานเข้าสู่ระบบ Facebook กรุณาสร้างแบบฟอร์มสำหรับตลาดของคุณใน <a href='https://developers.facebook.com/'>แดชบอร์ดนักพัฒนา Facebook</a> เพิ่ม ID และรหัสลับของแอพลิเคชันโดยอัตโนมัติได้ที่นี่ %{instructions_link}"
         facebook_instructions_link_text: "ดูคำแนะนำสำหรับการกำหนดค่าเข้าสู่ระบบด้วย Facebook Connect"
@@ -327,6 +329,7 @@ th-TH:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ th-TH:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1037,8 +1041,8 @@ th-TH:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "*ไม่รวม <a id='%{fee_info_link_id}' href='#'>ค่าธรรมเนียมการชำระเงินของ PayPal</a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "*ไม่รวม %{link}"
       shipping_price_label: จัดส่ง
       stripe-fee_label: ~
     confirm:

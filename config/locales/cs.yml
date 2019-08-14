@@ -124,6 +124,7 @@ cs:
         logo_mobile_icon_instructions_text_with_dimensions: "Toto čtvercové logo se zobrazí, když uživatelé budou mít vaši stránku na domovské obrazovce mobilního zařízení.Doporučené rozměry jsou %{width} x%{height} pixelů"
         cover_photo_visibility: "Úvodní fotka se zobrazí na domovské stránce nepřihlášeným uživatelům."
         cover_photo_instructions_text_with_dimensions: "Fotografie budou přizpůsobeny velikosti %{width}x%{height} pixelů a větší snímky budou ořezány. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Malá úvodní fotka se zobrazí nepřihlášeným uživatelům na všech stránkách kromě domovské stránky."
         small_cover_photo_instructions_text_with_dimensions: "Fotografie bude přizpůsobena velikosti %{width}x%{height} pixelů a větší obrázky budou ořezány."
@@ -325,6 +326,7 @@ cs:
         twitter_handle_placeholder: "uživatelské jméno"
         invalid_twitter_handle: "Uživatelské jméno Twitter účtu by mělo obsahovat maximálně 15 alfanumerických znaků (písmena A-Z a číslice 0-9)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Abyste se mohli přihlásit přes Facebook, je potřeba vytvořit aplikaci pro Vaše tržiště na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následně vyplňte přidělené identifikační číslo a heslo aplikace."
         facebook_connect_info_text_with_instructions: "Abyste se mohli přihlásit přes Facebook, je potřeba vytvořit aplikaci pro Vaše tržiště na <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Následně vyplňte přidělené identifikační číslo a heslo aplikace. %{instructions_link}"
         facebook_instructions_link_text: "Zobrazit pokyny pro nastavení k připojení se na Facebook."
@@ -337,6 +339,7 @@ cs:
         add_another_image: "Přidat další obrázek"
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -344,6 +347,7 @@ cs:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1055,8 +1059,8 @@ cs:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* Nezahrnuje <a id='%{fee_info_link_id}' href='#'>PayPal poplatek za zpracování</a>"
-      payment_fee_info: "* Nezahrunuje <a id='%{fee_info_link_id}' href='#'>poplatek za zpracování platby</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Nezahrnuje %{link}"
       shipping_price_label: "Doprava:"
       stripe-fee_label: "Poplatek za zpracování platby"
     confirm:
