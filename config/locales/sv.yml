@@ -119,6 +119,7 @@ sv:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "Omslagsbilden visas på startsidan för personer som inte är inloggade."
         cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Den lilla omslagsbilden visas på alla sidor förutom på startsidan för de som inte är inloggade."
         small_cover_photo_instructions_text_with_dimensions: "Bilden kommer att skalas ner till %{width}x%{height} pixlar och större bilder kommer att beskäras i mitten."
@@ -320,6 +321,7 @@ sv:
         twitter_handle_placeholder: användarnamn
         invalid_twitter_handle: "Twitternamnet ska innehålla max 15 tecken (siffror 0-9 och bokstäver A-Z)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till ID och säkerhetsnyckeln för applikationen här."
         facebook_connect_info_text_with_instructions: "För att aktivera Facebook inloggning, skapa en applikation för din marknadsplats på <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Lägg till det genererade ID och säkerhetsnyckeln för applikationen här. %{instructions_link}"
         facebook_instructions_link_text: "Se instruktioner för att konfigurera Facebook Connect."
@@ -332,6 +334,7 @@ sv:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -339,6 +342,7 @@ sv:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1052,8 +1056,8 @@ sv:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'>PayPal's betalningshanteringsavgift</a>"
-      payment_fee_info: "* Inkluderar inte <a id='%{fee_info_link_id}' href='#'> betalningshanteringsavgift </a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Inkluderar inte %{link}"
       shipping_price_label: "Frakt:"
       stripe-fee_label: Betalningshanteringsavgift
     confirm:

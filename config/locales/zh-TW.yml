@@ -114,6 +114,7 @@ zh-TW:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: 封面照片将显示在未登录用户的首页
         cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。%{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: 小的封面照片将显示在除未登录用户首页的所有页面。
         small_cover_photo_instructions_text_with_dimensions: "照片大小将调整为%{width}x%{height}像素，超过高度的图片将从中间截取。"
@@ -315,6 +316,7 @@ zh-TW:
         twitter_handle_placeholder: 用户名
         invalid_twitter_handle: Twitter用户名最多不能超过15个字母和数字（字母A-Z和数字0-9）。
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "為了啟用Facebook登入，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為您的平台創建一個應用。在這裡添加應用生成的ID和密鑰。"
         facebook_connect_info_text_with_instructions: "為了啟用Facebook登入，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為您的平台創建一個應用。在這裡添加應用生成的ID和密鑰。%{instructions_link}"
         facebook_instructions_link_text: "关于如何配置Facebook Connect请参考说明。"
@@ -327,6 +329,7 @@ zh-TW:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ zh-TW:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1039,8 +1043,8 @@ zh-TW:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的支付处理费用</a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "* 不包括 %{link}"
       shipping_price_label: "运费:"
       stripe-fee_label: ~
     confirm:

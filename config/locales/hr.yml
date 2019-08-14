@@ -127,6 +127,7 @@ hr:
             Naslovna fotografija biti će prikazana na početnoj stranici korisnicima koji nisu 
             prijavljeni.
         cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Umanjena naslovna fotografija biti će prikazana na svim stranicama osim na početnoj stranici za korisnike koji nisu prijavljeni."
         small_cover_photo_instructions_text_with_dimensions: "Fotografija će biti smanjena na %{width}x%{height} piksel veličinu a veće slike će biti rezane u sredini."
@@ -328,6 +329,7 @@ hr:
         twitter_handle_placeholder: "korisničko ime"
         invalid_twitter_handle: "Twitter ime bi trebalo sadržavati maksimum 15 znakova (slova A-Z i brojeve 0-9)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Kako bi omogućili Facebook ulogiravanje, morate kreirati aplikaciju za vaš marketplace na<a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodajte generirani id i tajni kod aplikacije ovdje."
         facebook_connect_info_text_with_instructions: "Kako bi omogućili Facebook ulogiravanje, morate kreirati aplikaciju za vaš marketplace na<a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Dodajte generirani id i tajni kod aplikacije ovdje.%{instructions_link}"
         facebook_instructions_link_text: "Pogledajte upute za podešavanje Facebook Connecta"
@@ -340,6 +342,7 @@ hr:
         add_another_image: "Dodaj drugu sliku"
         google_connect: "Google Prijava"
         google_instructions_link_text: "Vidi upute za konfiguriranje Google Prijave"
+        google_developers_console: ~
         google_connect_info_text_with_instructions: "Kako biste omogućili Google Prijavu, kreirajte projekt za vašu tržnicu na <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Ovdje dodajte generirani ID i tajni ključ projekta. %{instructions_link}"
         google_connect_info_text: "Kako biste omogućili Google Prijavu, kreirajte projekt za vašu tržnicu na <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Ovdje dodajte generirani ID i tajni ključ projekta."
         enable_google_login: "Dozvoli korisnicima prijavu s njihovim Google računom"
@@ -347,6 +350,7 @@ hr:
         google_connect_secret: "tajna Google Klijenta"
         linkedin_connect: "Prijava na LinkedIn"
         linkedin_instructions_link_text: "Vidi upute za konfiguriranje LinkedIn prijave"
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: "Kako biste omogućili LinkedIn prijavu, kreirajte aplikaciju za vašu tržnicu na <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Ovdje dodajte generirani ID i tajni ključ projekta. %{instructions_link}"
         linkedin_connect_info_text: "Kako biste omogućili LinkedIn prijavu, kreirajte aplikaciju za vašu tržnicu na  <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Ovdje dodajte generirani ID i tajni ključ projekta."
         enable_linkedin_login: "Dozvoli korisnicima prijavu s njihovim LinkedIn računom"
@@ -1061,8 +1065,8 @@ hr:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets} "
       total_value_stripe: "%{seller_gets} "
-      paypal_fee_info: "* Ne uključuje <a id='%{fee_info_link_id}' href='#'>PayPal naknadu obrade plaćanja</a>"
-      payment_fee_info: "%{fee_info_link_id} nije uključeno u naknadu za transakciju."
+      paypal_fee: ~
+      paypal_fee_info: "* Ne uključuje %{link}"
       shipping_price_label: "Dostava:"
       stripe-fee_label: "Naknada za transakciju"
     confirm:

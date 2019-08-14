@@ -119,6 +119,7 @@ nl:
         logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen minstens %{width}x%{height} pixels te zijn."
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
@@ -322,6 +323,7 @@ nl:
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
         facebook_connect: "Facebook Login"
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
         facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
         facebook_instructions_link_text: "Zie instructies om Facebook Login te configureren."
@@ -334,6 +336,7 @@ nl:
         add_another_image: "Voeg nog een afbeelding toe"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
+        google_developers_console: ~
         google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
         google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe."
         enable_google_login: "Sta gebruikers toe om in te loggen met hun Google account"
@@ -341,6 +344,7 @@ nl:
         google_connect_secret: "Google client secret"
         linkedin_connect: "LinkedIn Sign in"
         linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In."
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
         linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
         enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
@@ -1055,8 +1059,8 @@ nl:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>PayPals betaling verwerkingskosten </a>"
-      payment_fee_info: "* exclusief <a id='%{fee_info_link_id}' href='#'>transactiekosten</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* exclusief %{link}"
       shipping_price_label: "Verzenden:"
       stripe-fee_label: Betalingsverwerkingskosten
     confirm:

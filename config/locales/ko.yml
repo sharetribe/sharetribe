@@ -114,6 +114,7 @@ ko:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지에 나타납니다."
         cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "작은 표지 이미지는 로그인하지 않은 사용자에게 보여지는 홈페이지 이외의 모든 페이지에 나타납니다."
         small_cover_photo_instructions_text_with_dimensions: "이미지가 %{width} x %{height} 픽셀로 변경됩니다. 세로로 긴 이미지는 중간에서 잘립니다."
@@ -315,6 +316,7 @@ ko:
         twitter_handle_placeholder: 사용자명
         invalid_twitter_handle: "트위터 핸들은 최대 15 자의 영숫자 (A-Z 및 0-9 자) 문자만 포함해야합니다."
         facebook_connect: 페이스북
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Facebook 로그인을 활성화하려면 <a href='https://developers.facebook.com/'> Facebook 개발자 대시 보드 </a>에서 마켓 플레이스용 응용 프로그램을 만드십시오. 생성된 ID와 애플리케이션의 비밀 키를 여기에 추가하십시오."
         facebook_connect_info_text_with_instructions: "Facebook 로그인을 활성화하려면 <a href='https://developers.facebook.com/'> Facebook 개발자 대시 보드 </a>에서 마켓 플레이스 용 응용 프로그램을 만드십시오. 생성 된 ID와 애플리케이션의 비밀 키를 여기에 추가하십시오. %{instructions_link}"
         facebook_instructions_link_text: "Facebook Connect 구성 지침을 참조하십시오."
@@ -327,6 +329,7 @@ ko:
         add_another_image: "새 이미지 추가"
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ ko:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1043,8 +1047,8 @@ ko:
       total_value: "%{seller_gets} *"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>PayPal's payment processing fee</a>"
-      payment_fee_info: "* Excludes <a id='%{fee_info_link_id}' href='#'>payment processing fee</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Excludes %{link}"
       shipping_price_label: "배송:"
       stripe-fee_label: "결제 처리 수수료"
     confirm:

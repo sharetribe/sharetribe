@@ -114,6 +114,7 @@ ja:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: カバー写真はログイン前のユーザに表示されます
         cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます%{see_how_it_looks_like}。"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: 小さいカバー写真はログイン前のユーザを除いて、すべてのページに表示されます。
         small_cover_photo_instructions_text_with_dimensions: "写真は%{width}ｘ%{height}ピクセルにリサイズされます。縦長のイメージ画像の場合中心を使用する形でカットされます。"
@@ -315,6 +316,7 @@ ja:
         twitter_handle_placeholder: Twitterのユーザー名
         invalid_twitter_handle: ツイッターのハンドルネームは、15文字以内のアルファベット（A-Zの半角文字と0-9の数字）が使用できます。
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。"
         facebook_connect_info_text_with_instructions: "Facebookでログインを可能にするためには、<a href='https://developers.facebook.com/'>開発者のFacebookダッシュボード</a>の中のあなたのマーケットプレイスのアプリを立ち上げます。ここで生成IDとアプリのシークレットキーを追加してください。%{instructions_link}"
         facebook_instructions_link_text: Facebookに接続するするための説明を見る。
@@ -327,6 +329,7 @@ ja:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ ja:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1041,8 +1045,8 @@ ja:
       total_value: "%{seller_gets}*"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "*<a id='%{fee_info_link_id}' href='#'>PayPal手数料</a>は別途かかります"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "*%{link} は別途かかります"
       shipping_price_label: 送料：
       stripe-fee_label: 支払処理手数料
     confirm:

@@ -119,6 +119,7 @@ es:
         logo_mobile_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará a los usuarios que guarden el link de tu comunidad en la página de inicio de un dispositivo móvil. Las dimensiones de la imagen deben ser (por lo menos) %{width} x %{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: "¿Estás buscando imágenes que ya estén listas para usarse? Si quieres algo de inspiración o información de sitios donde encontrar buenas imágenes. <a href=\"https://help.sharetribe.com/en/articles/666084\" target=\"_blank\"> ¡Nosotros te ayudamos!</a>"
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
@@ -320,6 +321,7 @@ es:
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
         facebook_connect: "Facebook Login"
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado."
         facebook_connect_info_text_with_instructions: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado. %{instructions_link}"
         facebook_instructions_link_text: "Ver instrucciones para configurar Facebook Login."
@@ -332,6 +334,7 @@ es:
         add_another_image: "Cambia la imagen"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Ver las instrucciones para configurar Google Sign-In."
+        google_developers_console: ~
         google_connect_info_text_with_instructions: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto. %{instructions_link}"
         google_connect_info_text: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto."
         enable_google_login: "Permitir a los usuarios que inicien sesión con su cuenta de Google"
@@ -339,6 +342,7 @@ es:
         google_connect_secret: "Llave secreta (client secret) de Google"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Ver las instrucciones para configurar LinkedIn Sign In."
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app. %{instructions_link}"
         linkedin_connect_info_text: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app."
         enable_linkedin_login: "Permitir a los usuarios iniciar sesión con su cuenta de LinkedIn"
@@ -1052,8 +1056,8 @@ es:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* No incluye <a id='%{fee_info_link_id}' href='#'> los costos de procesamiento de pago de PayPal</a>"
-      payment_fee_info: "* Excluye <a id='%{fee_info_link_id}' href='#'>la cuota de procesamiento de pago</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* No incluye %{link}"
       shipping_price_label: "Costos de envío:"
       stripe-fee_label: "Cuota de procesamiento de pago"
     confirm:

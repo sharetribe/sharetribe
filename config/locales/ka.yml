@@ -114,6 +114,7 @@ ka:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: "გარეკანის ფოტო ჩანს მთავარ გვერდზე იმ მომხარებლებისთვის, ვინც სისტემაში არ არიან შესულები"
         cover_photo_instructions_text_with_dimensions: "ფოტოს შეეცვლება ზომები %{width}x%{height} პიქსელის ზომაზე ხოლო მაღალი სურათები გაიჭრება შუაზე. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "პატარა გარეკანის სურათი ნაჩვენები იქნება ყველა გვერდზე გარდა მთავარი გვერდისა იმ მომხმარებლებისთვის ვინც არ არიან სისტემაში შესულები."
         small_cover_photo_instructions_text_with_dimensions: "ფოტოს შეეცვლება ზომები %{width}x%{height} პიქსელის ზომაზე ხოლო მაღალი სურათები გაიჭრება შუაზე."
@@ -315,6 +316,7 @@ ka:
         twitter_handle_placeholder: "მომხმარებლის სახელი"
         invalid_twitter_handle: "Twitter handle უნდა შეიცავდეს მაქსიმუმ 15 ასოს/რიცხვს (ასოები A-Z და რიცხვები 0-9) სიმბოლოებს."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Facebook-ით შესვლის გასააქტიურებლად, შექმენი აპლიკაცია შენი ბაზრისთვის <a href='https://developers.facebook.com/'>-ზე Facebook-ის დეველოპერების დაფა</a>. და დაამატე შექმნილი id და აპლიკაციის საიდუმლო კოდი აქ."
         facebook_connect_info_text_with_instructions: "Facebook-ით შესვლის გასააქტიურებლად, შექმენი აპლიკაცია შენი ბაზრისთვის <a href='https://developers.facebook.com/'>-ზე Facebook-ის დეველოპერების დაფა</a>. და დაამატე შექმნილი id და აპლიკაციის საიდუმლო კოდი აქ. %{instructions_link}"
         facebook_instructions_link_text: "ნახე ინსტრუქციები Facebook Connect-ის დასაყენებლად."
@@ -327,6 +329,7 @@ ka:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ ka:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1035,8 +1039,8 @@ ka:
       total_value: "%{seller_gets}"
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "არ შეიცავს <a id='%{fee_info_link_id}' href='#'> PayPal-ის გადახდის საფასურს </a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "არ შეიცავს %{link}"
       shipping_price_label: გაგზავნა
       stripe-fee_label: ~
     confirm:

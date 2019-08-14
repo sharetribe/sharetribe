@@ -114,6 +114,7 @@ zh-HK:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: 封面照片將顯示在未登錄用戶的首頁
         cover_photo_instructions_text_with_dimensions: ~
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: 小的封面照片將顯示在未登錄用戶的首頁之外的所有頁面。
         small_cover_photo_instructions_text_with_dimensions: ~
@@ -315,6 +316,7 @@ zh-HK:
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。"
         facebook_connect_info_text_with_instructions: "為了啟用Facebook登錄，在<a href='https://developers.facebook.com/'>Facebook開發者Dashboard</a>中為你的集市創建一個應用。在這裡添加應用生成的ID和密鑰。%{instructions_link}"
         facebook_instructions_link_text: ~
@@ -327,6 +329,7 @@ zh-HK:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -334,6 +337,7 @@ zh-HK:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1035,8 +1039,8 @@ zh-HK:
       total_value: ~
       total_value_paypal: ~
       total_value_stripe: ~
-      paypal_fee_info: "* 不包括<a id='%{fee_info_link_id}' href='#'>PayPal的款項處理費</a>"
-      payment_fee_info: ~
+      paypal_fee: ~
+      paypal_fee_info: "* 不包括 %{link}"
       shipping_price_label: ~
       stripe-fee_label: ~
     confirm:

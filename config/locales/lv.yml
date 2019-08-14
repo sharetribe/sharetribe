@@ -116,6 +116,7 @@ lv:
         logo_mobile_icon_instructions_text_with_dimensions: ~
         cover_photo_visibility: ~
         cover_photo_instructions_text_with_dimensions: "Fotoattēls tiks mainīts uz %{width}x%{height} pikseļu lielumu un garāki attēli tiks pārgriezti uz pusēm. %{see_how_it_looks_like}"
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: ~
         small_cover_photo_instructions_text_with_dimensions: ~
@@ -317,6 +318,7 @@ lv:
         twitter_handle_placeholder: ~
         invalid_twitter_handle: ~
         facebook_connect: ~
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: ~
         facebook_connect_info_text_with_instructions: ~
         facebook_instructions_link_text: ~
@@ -329,6 +331,7 @@ lv:
         add_another_image: ~
         google_connect: ~
         google_instructions_link_text: ~
+        google_developers_console: ~
         google_connect_info_text_with_instructions: ~
         google_connect_info_text: ~
         enable_google_login: ~
@@ -336,6 +339,7 @@ lv:
         google_connect_secret: ~
         linkedin_connect: ~
         linkedin_instructions_link_text: ~
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: ~
         linkedin_connect_info_text: ~
         enable_linkedin_login: ~
@@ -1033,8 +1037,8 @@ lv:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}*"
-      paypal_fee_info: "* Neietver <a id='%{fee_info_link_id}' href='#'>PayPal maksājumu apstrādes maksu</a>"
-      payment_fee_info: "* Neietver <a id='%{fee_info_link_id}' href='#'>maksājumu apstrādes komisijas maksu</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Neietver %{link}"
       shipping_price_label: "Piegāde:"
       stripe-fee_label: "Maksājuma apstrādes komisijas maksa"
     confirm:

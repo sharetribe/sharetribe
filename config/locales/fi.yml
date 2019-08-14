@@ -119,6 +119,7 @@ fi:
         logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
+        we_have_you_covered: ~
         cover_photo_ready_made: ~
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
@@ -244,7 +245,7 @@ fi:
         update_settings: Tallenna
         automatically_confirmed_no_escrow: "Tilaus merkitään toteutuneeksi automaattisesti, kun maksusta on kulunut %{days_dropdown} päivää"
         automatically_confirmed_no_escrow_stripe_info: "Stripe-alustalla tehdyt maksut siirtyvät myyjälle vasta kun tilaus merkitään toteutuneeksi. %{learn_more}."
-        buyer_transaction_fees_are_only_supported_with_stripe: ~
+        buyer_transaction_fees_are_only_supported_with_stripe: "Ainoastaan Stripe tukee ostajan välityspalkkiota. Et voi käyttää PayPalia, jos otat käyttöön ostajan välityspalkkion Stripen kautta."
         automatic_newsletter_frequency: "Lähetä automaattinen uutiskirje: %{frequency_dropdown}"
         newsletter_daily: Päivittäin
         newsletter_weekly: Viikoittain
@@ -258,7 +259,7 @@ fi:
         you_will_be_redirected_to: "Kun olet poistanut markkinapaikkasi, sinut siirretään osoitteeseen %{destination}. Sinulla ei ole enää tämän jälkeen pääsyä markkinapaikkaasi."
         delete_this_marketplace: "Poista tämä markkinapaikka"
         payment_preferences: Maksujärjestelmä
-        pre_approved_listings: ~
+        pre_approved_listings: "Arvioi kaikki ilmoitukset ennen niiden julkaisua"
       manage_members:
         manage_members: Käyttäjät
         email: Sähköposti
@@ -320,6 +321,7 @@ fi:
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         facebook_connect: Facebook
+        facebook_developers_dashboard: ~
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
         facebook_connect_info_text_with_instructions: "Jos haluat ottaa Facebook-kirjautumisen käyttöön, luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. %{instructions_link}"
         facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
@@ -332,6 +334,7 @@ fi:
         add_another_image: "Lisää uusi kuva"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Katso ohjeet Google Sign-In:in käyttöön ottamiseksi."
+        google_developers_console: ~
         google_connect_info_text_with_instructions: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne. %{instructions_link}"
         google_connect_info_text: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne."
         enable_google_login: "Salli käyttäjien kirjautua Google-tilillään"
@@ -339,58 +342,59 @@ fi:
         google_connect_secret: "Google Client secret"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Lue ohjeet LinkedIn Sign In:in käyttöönottamiseksi."
+        linkedin_developers_dashboard: ~
         linkedin_connect_info_text_with_instructions: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne. %{instructions_link}"
         linkedin_connect_info_text: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne."
-        enable_linkedin_login: ~
-        linkedin_connect_id: ~
-        linkedin_connect_secret: ~
+        enable_linkedin_login: "Salli käyttäjien kirjautua LinkedIn -tilillä"
+        linkedin_connect_id: "LinkedIn Client ID"
+        linkedin_connect_secret: "LinkedIn Client Secret"
       seo_settings:
-        seo: ~
+        seo: SEO
         title: "Kotisivu tai kustomoitu landing-sivu"
         meta_title_label: "Kotisivun tai kustomoidun landing-sivun otsikon meta tag"
-        meta_title_info: ~
-        meta_title_link_text: ~
+        meta_title_info: "Tämän tagin sisältöä ehdotetaan hakukoneille, ja se näytetään hakutulossivulla klikattavana otsikkona. %{link} %{vars}."
+        meta_title_link_text: "Lue lisää meta-tageista."
         meta_description_label: "Kotisivun tai kustomoidun landing-sivun kuvauksen meta tag"
-        meta_description_info: ~
-        meta_description_link_text: ~
-        search_title: ~
-        search_meta_title_label: ~
-        search_meta_title_info: ~
-        search_meta_title_link_text: ~
-        search_meta_description_label: ~
-        search_meta_description_info: ~
-        search_meta_description_link_text: ~
-        listing_title: ~
-        listing_meta_title_label: ~
-        listing_meta_title_info: ~
-        listing_meta_title_link_text: ~
-        listing_meta_description_label: ~
-        listing_meta_description_info: ~
-        listing_meta_description_link_text: ~
-        category_title: ~
-        category_meta_title_label: ~
-        category_meta_title_info: ~
-        category_meta_title_link_text: ~
-        category_meta_description_label: ~
-        category_meta_description_info: ~
-        category_meta_description_link_text: ~
-        profile_title: ~
-        profile_meta_title_label: ~
-        profile_meta_title_info: ~
-        profile_meta_title_link_text: ~
-        profile_meta_description_label: ~
-        profile_meta_description_info: ~
-        profile_meta_description_link_text: ~
-        sitemap_label: ~
-        sitemap_info: ~
-        sitemap_info_link_text: ~
-        sitemap_info_public: ~
-        sitemap_info_private: ~
-        robots_label: ~
-        robots_info: ~
-        robots_info_link_text: ~
-        robots_info_2: ~
-        save: ~
+        meta_description_info: "Tämän tagin sisältöä ehdotetaan hakukoneille, ja se näkyy hakutulossivulla sinisten klikattavien linkkien alapuolella. %{link} %{vars}."
+        meta_description_link_text: "Lue lisää meta-tageista."
+        search_title: Hakutulossivu
+        search_meta_title_label: "Hakutulossivun otsikon meta tag"
+        search_meta_title_info: "Tämän tagin sisältöä ehdotetaan hakukoneille, ja se näytetään hakutulossivujen klikattavana otsikkona. %{link} %{vars}."
+        search_meta_title_link_text: "Lue lisää meta-tageista."
+        search_meta_description_label: "Hakutulossivun kuvauksen meta tag"
+        search_meta_description_info: "Tämän tagin sisältöä ehdotetaan hakukoneille, ja se näytetään hakutulossivujen sinisten, klikattavien linkkien alapuolella. %{link} %{vars}."
+        search_meta_description_link_text: "Lue lisää meta-tageista."
+        listing_title: Ilmoitussivu
+        listing_meta_title_label: "Ilmoitussivun otsikon meta tag"
+        listing_meta_title_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näytetään hakutulossivuilla klikattavana otsikkona. %{link} %{vars}."
+        listing_meta_title_link_text: "Lue lisää meta-tageista."
+        listing_meta_description_label: "Ilmoitussivun kuvauksen meta tag"
+        listing_meta_description_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näkyy sinisten klikattavien linkkien alapuolella hakutulossivulla. %{link} %{vars}."
+        listing_meta_description_link_text: "Lue lisää meta-tageista."
+        category_title: Kategoriasivu
+        category_meta_title_label: "Kategoriasivun otsikon meta tag"
+        category_meta_title_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näytetään hakutulossivuilla klikattavana otsikkona. %{link} %{vars}."
+        category_meta_title_link_text: "Lue lisää meta-tageista."
+        category_meta_description_label: "Kategoriasivun kuvauksen meta tag"
+        category_meta_description_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näkyy sinisten klikattavien linkkien alapuolella hakutulossivulla. %{link} %{vars}."
+        category_meta_description_link_text: "Lue lisää meta-tageista."
+        profile_title: Profiilisivu
+        profile_meta_title_label: "Profiilisivun meta tag"
+        profile_meta_title_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näytetään hakutulossivuilla klikattavana otsikkona. %{link} %{vars}."
+        profile_meta_title_link_text: "Lue lisää meta-tageista."
+        profile_meta_description_label: "Proviilisivun kuvauksen meta tag"
+        profile_meta_description_info: "Tämän tagin sisältöä ehdotetaan hakukoneille ja se näkyy sinisten klikattavien linkkien alapuolella hakutulossivulla. %{link} %{vars}."
+        profile_meta_description_link_text: "Lue lisää meta-tageista."
+        sitemap_label: Sitemap
+        sitemap_info: "Sitemapit ovat helppo tapa kertoa hakukoneille niistä sivustosi sivuista, jotka voidaan indeksoida (\"crawl\"). %{link}."
+        sitemap_info_link_text: "Lue lisää XML Sitemap -tiedostosta"
+        sitemap_info_public: "Sitemap generoidaan markkinapaikallesi automaattisesti: se viittaa jopa 500 uusimpaan ilmoitukseen sivullasi. Voit päästä käsiksi sitemappiisi tästä: %{link}."
+        sitemap_info_private: "Koska markkinapaikkasi on yksityinen, sitemappia ei ole."
+        robots_label: Robots.txt
+        robots_info: "Robots.txt on tekstitiedosto, joka osoittaa webbiroboteille (tyypillisesti nämä ovat hakukonepalvelujen robotteja) sen, miten ne indeksoivat (\"crawl\") verkkosivujasi esim. hakukonetta varten. %{link}."
+        robots_info_link_text: "Lue lisää robots.txt -tiedostosta"
+        robots_info_2: "Robots.txt -tiedosto luodaan automaattisesti markkinapaikallesi. Voit päästä käsiksi robots.txt -tiedostoosi tästä: %{link}"
+        save: "Tallenna asetukset"
       analytics:
         analytics: Analytiikka
         google_analytics_key: "Google Analytics tracking ID"
@@ -582,7 +586,7 @@ fi:
           closed: Suljettu
           expired: Vanhentunut
           approval_pending: Odottaa
-          approval_rejected: ~
+          approval_rejected: Hylätty
         headers:
           title: Otsikko
           author: Laatija
@@ -593,13 +597,13 @@ fi:
         open: Auki
         closed: Suljettu
         expired: Vanhentunut
-        approved: ~
+        approved: Hyväksytty
         approval_pending: Odottaa
-        approval_rejected: ~
+        approval_rejected: Hylätty
         form:
-          this_listing_has_not_not_been_approved_yet: ~
-          approve: ~
-          reject: ~
+          this_listing_has_not_not_been_approved_yet: "Ilmoitusta ei vielä ole hyväksytty. Voit nyt päättää, hyväksytkö vai hylkäätkö ilmoituksen. Jos hyväksyt ilmoituksen, se tulee julkiseksi ja näkyviin kaikille käyttäjille. Jos hylkäät ilmoituksen, sitä ei tehdä julkiseksi."
+          approve: Hyväksy
+          reject: Hylkää
           cancel: Peruuta
       user_fields:
         user_fields: Käyttäjäkentät
@@ -906,8 +910,8 @@ fi:
       fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: "Oletko varma että haluat ottaa maksualustan %{gateway} pois käytöstä? Jos otat sen pois käytöstä, myyjät eivät voi enää vastaanottaa sillä rahaa, eivätkä asiakkaat enää voi maksaa sen kautta. Mikäli myyjät eivät ole ottaneet käyttöön jotain toista maksualustaa, asiakkaat eivät voi ostaa heiltä mitään."
-      commission_from_buyer_label: ~
-      minimum_buyer_transaction_fee_label: ~
+      commission_from_buyer_label: "Ostajan välityspalkkio:"
+      minimum_buyer_transaction_fee_label: "Ostajan minimipalkkio:"
       stripe_connected:
         title: "Stripe yhdistetty"
         disable: "Poista Stripe käytöstä"
@@ -920,7 +924,7 @@ fi:
         enable: "Ota PayPal uudelleen käyttöön"
       cannot_enable_gateway: "Ei voitu ottaa seuraavaa maksualustaa käyttöön: %{gateway}."
       cannot_disable_gateway: "Ei voitu ottaa seuraavaa maksualustaa pois käytöstä: %{gateway}."
-      cannot_enable_gateway_because_of_buyer_commission: ~
+      cannot_enable_gateway_because_of_buyer_commission: "Maksunvälittäjää %{gateway} ei voida kytkeä päälle, koska ostajan välityspalkkio on käytössä"
       stripe_form:
         add_your_api_keys: "Lisää Stripen API-avaimet"
         how_to_get_these: "Mistä nämä löytyvät?"
@@ -1046,14 +1050,14 @@ fi:
       quantity_label: "Määrä:"
       sum_label: "Välisumma:"
       service_fee_label: "%{service_name} palvelumaksu:"
-      buyer_service_fee_label: ~
+      buyer_service_fee_label: "%{service_name} -palvelun palvelumaksu:"
       you_will_get_label: "Sinä saat:"
       total_label: "Loppusumma:"
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>PayPalin käsittelymaksua</a>"
-      payment_fee_info: "* Ei sisällä <a id='%{fee_info_link_id}' href='#'>maksunvälittäjän palvelumaksua</a>"
+      paypal_fee: ~
+      paypal_fee_info: "* Ei sisällä %{link}"
       shipping_price_label: "Postikulut:"
       stripe-fee_label: "Maksunvälittäjän palvelumaksu"
     confirm:
@@ -1091,8 +1095,8 @@ fi:
       message_content_not_available: "Viestin sisältöä ei voida näyttää"
     message:
       accepted_request: "hyväksyi pyynnön"
-      received_payment: "hyväksyi tilauksen, otti vastaan maksun %{sum}"
-      received_payment_wo_sum: ~
+      received_payment: "hyväksyi pyynnön, otti vastaan maksun %{sum}"
+      received_payment_wo_sum: "hyväksyi pyynnön, otti vastaan maksun"
       accepted_offer: "hyväksyi tarjouksen"
       rejected_request: "hylkäsi pyynnön, perui maksun"
       rejected_offer: "hylkäsi tarjouksen"
@@ -1102,10 +1106,10 @@ fi:
       canceled_offer: "peruutti tarjouksen"
       paid: "maksoi %{sum}"
       payment_preauthorized: "Katevaraus tehty: %{sum}"
-      payment_preauthorized_wo_sum: ~
+      payment_preauthorized_wo_sum: "Katevaraus tehty"
       stripe:
         held_payment: "Hyväksyi pyynnön. Palvelu %{service_name} pidättää maksun %{sum}, kunnes tilaus on merkitty toteutuneeksi."
-        held_payment_wo_sum: ~
+        held_payment_wo_sum: "Pyyntö hyväksytty. %{service_name} pidättää maksun, kunnes tilaus on merkitty toteutuneeksi."
         confirmed_request: "Merkitsi tilauksen toteutuneeksi. Maksu on nyt siirretty käyttäjän %{author_name} pankkitilille, tai se siirretään pian."
     new:
       message: Viesti
@@ -1320,9 +1324,9 @@ fi:
       shipping_total: "Toimitus:"
       product: "Tuote:"
       price_payer_paid: "Hinta jonka %{payer_full_name} maksoi:"
-      subtotal: ~
+      subtotal: "Välisumma:"
       service_fee: "%{service_name} välityspalkkio:"
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} palvelumaksu:"
       you_will_get: "Loppusumma:"
       new_payment: "Olet saanut uuden maksusuorituksen"
       price_per_unit_type: "Hinta per %{unit_type}"
@@ -1338,7 +1342,7 @@ fi:
       duration: Kesto
       quantity: Määrä
       subtotal: Välisumma
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} palvelumaksu:"
       total: Loppusumma
       price: Hinta
       service_fee: Välityspalkkio
@@ -1351,7 +1355,7 @@ fi:
     braintree_new_payment:
       product: "Tuote:"
       price_payer_paid: "Ostajan maksama summa:"
-      service_fee: "%{service_name} palvelumaksu:"
+      service_fee: "%{service_name} -palvelun palvelumaksu:"
       you_will_get: "Loppusumma:"
     receipt_to_payer:
       receipt_of_payment: "Kuitti maksusta"
@@ -1363,7 +1367,7 @@ fi:
       subtotal: Välisumma
       total: Yhteensä
       price: Hinta
-      buyer_service_fee: ~
+      buyer_service_fee: "%{service_name} palvelumaksu"
       stripe_gateway_fee: "Stripe palvelumaksu"
       paypal_gateway_fee: "PayPalin palvelumaksu"
       money_will_be_transferred: "Rahat siirretään käyttäjälle %{recipient_name} kun a) olet merkinnyt tilauksen toteutuneeksi tai b) maksuhetkestä on kulunut %{automatic_confirmation_days} päivää."
@@ -1430,23 +1434,23 @@ fi:
       person_name: "Nimi:"
       person_email: "Sähköpostiosoite:"
     listing_submited_for_review:
-      subject: ~
-      there_is_a_new_listing_to_review: ~
-      review_the_listing: ~
-      this_is_automatic_message: ~
+      subject: "Uusi ilmoitus arvioitavaksi: \"%{listing_title}\", käyttäjän %{author_name} toimesta, palvelussa %{community}"
+      there_is_a_new_listing_to_review: "Uusi ilmoitus on valmiina arvioitavaksi. \"%{listing_title}\", käyttäjän %{author_name} toimesta. Sinun tulee nyt hyväksyä tai hylätä tämä ilmoitus."
+      review_the_listing: "Arvioi uusi ilmoitus"
+      this_is_automatic_message: "Tämä on automaattinen viesti, joka on lähetetty palvelun %{community} ylläpitäjille."
     listing_approved:
-      subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      subject: "Palvelun %{community} ylläpito on hyväksynyt ilmoituksesi \"%{listing_title}\""
+      listing_has_been_approved: "Hyviä uutisia! Ilmoituksesi \"%{listing_title}\" on arvioitu ja hyväksytty palvelun %{community} ylläpidon toimesta. Se on nyt julkaistu."
+      view_the_listing: "Näytä ilmoitus"
     listing_rejected:
-      subject: ~
-      listing_has_been_rejected: ~
-      contact_link: ~
-      edit_the_listing: ~
+      subject: "Palvelun %{community} ylläpito on hylännyt ilmoituksesi \"%{listing_title}\""
+      listing_has_been_rejected: "Valitettavasti palvelun %{community} ylläpito on tarkan harkinnan jälkeen hylännyt ilmoituksesi \"%{listing_title}\". Voit %{contact_link} kysyäksesi asiasta lisää ja lähettääksesi sen uudelleenarvioitavaksi."
+      contact_link: "ottaa yhteyttä palvelun %{community} ylläpitoon"
+      edit_the_listing: "Muokkaa ilmoitusta"
     edited_listing_submited_for_review:
-      subject: ~
-      there_is_a_edited_listing_to_review: ~
-      review_the_listing: ~
+      subject: "Muokattiin arvioitavaa ilmoitusta: \"%{listing_title}\" käyttäjältä %{author_name} palvelussa %{community}"
+      there_is_a_edited_listing_to_review: "Muokattu ilmoitus on valmiina arvioitavaksi: \"%{listing_title}\" käyttäjältä %{author_name}. Sinun tulee nyt hyväksyä tai hylätä ilmoitus."
+      review_the_listing: "Arvioi muokattua ilmoitusta"
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."
@@ -1780,8 +1784,8 @@ fi:
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi sähköpostiosoite on nyt vahvistettu."
-      could_not_get_email_from_social_network: ~
-      social_network_email_unconfirmed: ~
+      could_not_get_email_from_social_network: "Sähköpostiosoitteen saanti palvelusta %{provider} epäonnistui, ja tiliä ei voi luoda ilman sähköpostia."
+      social_network_email_unconfirmed: "Sähköpostiosoite '%{email}', joka on käytössä palvelun %{provider} tililläsi on jo käytössä, mutta ei ole vielä vahvistettu. Ole hyvä ja vahvista sähköpostiosoitteesi ennen kuin kirjaudut sisään palvelulla %{provider}."
       create_new_listing: "Lisää uusi ilmoitus"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
@@ -1935,9 +1939,9 @@ fi:
       show_in_updates_email_error: "Palveluun ei saatu yhteyttä. Päivitä sivu ja yritä uudestaan."
       show_in_updates_email_success: "Tämä ilmoitus näytetään seuraavassa tapahtumapäivityssähköpostissa"
       listing_is_pending: "Ilmoitus odottaa hyväksyntää"
-      listing_is_rejected: ~
-      approve_listing: ~
-      reject_listing: ~
+      listing_is_rejected: "Ilmoitus on hylätty"
+      approve_listing: "Hyväksy ilmoitus"
+      reject_listing: "Hylkää ilmoitus"
       delete_listing: ~
     map:
       open_in_google_maps: "Avaa Google Maps -palvelussa"
@@ -2020,9 +2024,9 @@ fi:
         origin: Lähtöpaikka
       send_button:
         save_listing: "Tallenna ilmoitus"
-        submit_for_review: ~
-        will_be_reviewed: ~
-        we_noticed_youre_an_admin: ~
+        submit_for_review: "Lähetä arvioitavaksi"
+        will_be_reviewed: "Kaikki ilmoitukset palvelussa %{service_name} arvioidaan ennen julkaisua. Kun ilmoituksesi on hyväksytty, sinulle lähetetään sähköposti, ja ilmoitus tulee näkyviin kaikille."
+        we_noticed_youre_an_admin: "Huomasimme, että olet palvelun %{service_name} ylläpitäjä. Muutoksesi otetaan automaattisesti käyttöön, eivätkä ne tarvitse erillistä arviointia tai hyväksyntää."
       share_type:
         select: Valitse
         borrow: "Halutaan lainata"
@@ -2102,7 +2106,7 @@ fi:
       select_one: "Valitse yksi"
       start_time: Aloitusaika
       end_time: Lopetusaika
-      marketplace_fees_may_apply: ~
+      marketplace_fees_may_apply: "%{service_name} palvelumaksu saatetaan lisätä"
     new:
       listing: ilmoitus
       selected_category: "Kategoria: %{category}"
@@ -2344,7 +2348,7 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja %{service_name}-palvelun ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
-      create_account_with_provider: ~
+      create_account_with_provider: "Rekisteröidy palvelulla %{provider}"
       OR: TAI
       signup_with_email: "Rekisteröidy sähköpostiosoitteellasi"
       this_field_will_be_publicly_visible: "(Tämä kenttä tulee olemaan näkyvillä julkisesti)"
@@ -2412,7 +2416,7 @@ fi:
       account_creation_link_text: "klikkaa tästä"
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
       facebook_cancel_link_text: "perua yhdistämisen"
-      log_in_with_your_provider_account: ~
+      log_in_with_your_provider_account: "Kirjaudu sisään palvelulla %{provider}"
       or_sign_up_with_your_username: "...tai käyttäjätunnuksellasi ja salasanallasi:"
       we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:
@@ -2770,6 +2774,14 @@ fi:
       multi_page_html: "Näytetään <b>%{from}&nbsp;-&nbsp;%{to}</b> %{model} (kokonaismäärä <b>%{count}</b>)."
     person:
       community_members_entries_info:
+        single_page:
+          zero: "0 %{model} löydetty"
+          one: "Näytetään %{accepted_count} hyväksyttyä %{accepted_model} ja %{other_count} muuta %{other_model}"
+          other: "Näytetään %{accepted_count} hyväksyttyä %{accepted_model} ja %{other_count} muuta %{other_model}"
+        single_page_html:
+          zero: "0 %{model} löydetty"
+          one: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model} ja %{other_count} muuta %{other_model} "
+          other: "Näytetään <b>%{accepted_count}</b> hyväksyttyä %{accepted_model} ja %{other_count} muuta %{other_model}"
         multi_page: "Näytetään käyttäjät %{from} - %{to}, yhteensä %{accepted_count} hyväksytystä käyttäjästä ja %{other_count} muusta käyttäjästä."
         multi_page_html: "Näytetään käyttäjät <b>%{from}&nbsp;-&nbsp;%{to} yhteensä <b>%{accepted_count}</b> hyväksytystä käyttäjästä ja %{other_count} muusta käyttäjästä."
   stripe_accounts:
@@ -2788,11 +2800,11 @@ fi:
     paypal_connected: "PayPal-tili yhdistetty onnistuneesti!"
     paypal_can_accept: "Olet nyt valmis vastaanottamaan rahaa PayPal-tilillesi"
     paypal_connected_give_permission: "Jotta voisit alkaa vastaanottaa maksuja PayPal-tilillesi <%{email}>, sinun tulee antaa lupa välityspalkkion veloittamiseen."
-    stripe_account_restricted: ~
-    stripe_account_restricted_info: ~
-    stripe_account_restricted_soon: ~
-    stripe_account_restricted_soon_info: ~
-    stripe_account_pending_verification: ~
+    stripe_account_restricted: "Online-maksuja tilillesi on rajoitettu!"
+    stripe_account_restricted_info: "Sinun tulisi muokata pankkitilitietojasi ja antaa maksunvälittäjälle lisää tietoa."
+    stripe_account_restricted_soon: "Online-maksuja tilillesi tullaan pian rajoittamaan."
+    stripe_account_restricted_soon_info: "Sinun tulisi muokata pankkitilitietojasi ja antaa maksunvälittäjälle lisää tietoa."
+    stripe_account_pending_verification: "Tilitiedot tallennettu onnistuneesti. Odotetaan tilin vahvistusta maksunvälittäjältä."
     stripe_account_pending_verification_info: ~
     form_new:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
@@ -2882,12 +2894,12 @@ fi:
     invalid_bank_account_number: "Tarkistathan, että tilinumerosi on asetettu oikein."
     invalid_postal_code: "Postinumero ei ole käytössä maassa %{country}"
   seo_sections:
-    you_can_use_variables: ~
+    you_can_use_variables: "Voit käyttää seuraavia muuttujia: %{vars}"
     placeholder:
-      search_results: ~
-      search_results_for: ~
-      listing_description: ~
-      listing_description_without_price: ~
-      category_description: ~
-      profile_title: ~
-      profile_description: ~
+      search_results: "Hakutulokset - %{variable}"
+      search_results_for: "Hakutulokset hakutermeille: %{placeholder1} palvelussa %{placeholder2}"
+      listing_description: "%{title} hintaan %{price} käyttäjältä %{author} palvelussa %{marketplace}"
+      listing_description_without_price: "%{title} käyttäjältä %{author} palvelussa %{marketplace}"
+      category_description: "%{category} palvelussa %{marketplace}"
+      profile_title: "Käyttäjän %{user} profiili - %{marketplace}"
+      profile_description: "Lue lisää käyttäjästä %{user} palvelussa %{marketplace}"
