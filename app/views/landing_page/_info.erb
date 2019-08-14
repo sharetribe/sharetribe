@@ -48,7 +48,7 @@
               </div>
             </div>
 
-            <% if c["button_title"] %>
+            <% if c['button_title'].present? || c['button_path']['value'].present? %>
               <a class="info__button<%= bg_styles[:button_modifier] %> <%= section_id %>__info__button<%= bg_styles[:button_modifier] %>" href="<%= c['button_path']['value'] %>"><%= c["button_title"]%></a>
             <% end %>
           </div>
