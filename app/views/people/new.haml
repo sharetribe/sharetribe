@@ -20,7 +20,7 @@
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_provider", provider: 'Facebook') }
 
   - if google_connect_in_use?
-    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
+    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login', method: :post,
       class: 'google-login-button' do
       %span.google-icon
         = render :partial => "layouts/google_icon"
@@ -28,7 +28,7 @@
         = t('.create_account_with_provider', provider: 'Google')
         
   - if linkedin_connect_in_use?
-    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
+    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login', method: :post,
       class: 'linkedin-login-button' do
       %span.linkedin-icon
         = render :partial => "layouts/linkedin_icon"
