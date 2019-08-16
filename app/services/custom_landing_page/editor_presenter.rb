@@ -43,6 +43,11 @@ module CustomLandingPage
           I18n.t('admin.communities.landing_pages.sections.locations'),
           LandingPageVersion::Section::LOCATIONS,
           {data: { }}
+        ],
+        [
+          I18n.t('admin.communities.landing_pages.sections.video'),
+          LandingPageVersion::Section::VIDEO,
+          {data: { }}
         ]
       ]
     end
