@@ -33,7 +33,7 @@ describe('Number utils', () => {
   describe('Formatting Number with toFixedNumber', () => {
     it('Should format Number(23.56576) with precision 2 to Number(23.57)', () => {
       const fixedNumber = toFixedNumber(23.56576, 2); // eslint-disable-line no-magic-numbers
-      expect(fixedNumber).to.equal(Number(23.57));  // eslint-disable-line no-magic-numbers
+      expect(fixedNumber).to.equal(Number(23.57)); // eslint-disable-line no-magic-numbers
       expect(fixedNumber).to.be.a('number');
     });
   });
