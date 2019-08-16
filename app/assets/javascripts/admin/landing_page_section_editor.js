@@ -29,21 +29,6 @@
     }
   };
 
-  var addExtraValidationRules = function() {
-    $.validator.addMethod('total_categories_3', function(value, element, params) {
-      var count = $('input[name^="section[categories_attributes]"][name$="[id]"]').size();
-      return count >= 3;
-    }, $("#total_categories_3").data('msg'));
-
-    $.validator.addMethod('total_categories_7', function(value, element, params) {
-      var count = $('input[name^="section[categories_attributes]"][name$="[id]"]').size();
-      return count <= 7;
-    }, $("#total_categories_7").data('msg'));
-
-    $.validator.addClassRules('total_categories_3', {total_categories_3: true});
-    $.validator.addClassRules('total_categories_7', {total_categories_7: true});
-  };
-
   var initForm = function(options) {
     $("input.bg-style-selector").on("change", onBgStyleSelect);
     $("input#section_cta_enabled").on("click", onCtaSelect);
@@ -56,7 +41,17 @@
       return false;
     });
 
-    addExtraValidationRules();
+    $.validator.addMethod('count-validation', function(value, element, params) {
+      var name = $(element).data("counter-name");
+      var count = $("input[name="+name+"]").size();
+      var min = $(element).data("min");
+      var max = $(element).data("max");
+      if (max) {
+        return count <= max;
+      } else {
+        return count >= min;
+      }
+    });
 
     $("form.edit_section, form.new_section").validate({
       ignore: 'input[type=hidden], input[disabled]',
