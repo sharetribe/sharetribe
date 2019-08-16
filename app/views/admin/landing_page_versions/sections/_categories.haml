@@ -55,7 +55,7 @@
     = link_to t(".add"), '#', class: "add-fields",
       data: {id: new_category.object_id, template_id: "#new-footer-menu-link-tmpl"}
 
-%input.total_categories_3.custom-validation#total_categories_3{type: 'hidden', 'data-msg': t(".need_at_least_3_categories"), name: 'tc3'}
-%input.total_categories_7.custom-validation#total_categories_7{type: 'hidden', 'data-msg': t(".need_at_most_7_categories"), name: 'tc7'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_least_3_categories"), min: 3, 'counter-name': 'item_counter'}, 'count-validation': 'min', name: 'tc3'}
+%input.custom-validation{type: 'hidden', data: {'msg-count-validation': t(".need_at_most_7_categories"), max: 7, 'counter-name': 'item_counter'}, 'count-validation': 'max', name: 'tc7'}
 
 = render partial: 'background_selector', locals: {form: form, presenter: presenter}
