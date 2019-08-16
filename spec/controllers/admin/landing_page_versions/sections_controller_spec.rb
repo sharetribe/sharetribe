@@ -677,4 +677,72 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       end
     end
   end
+
+  describe 'locations' do
+
+    it 'creates locations section with title and paragraph' do
+      section_id = 'best_locations'
+      loc_helsinki = 'https://store.com/?boundingbox=59.922489%2C24.782876%2C60.297839%2C25.254485&distance_max=24.6215420997966&lc=60.169856%2C24.938379&lq=Helsinki%2C+Finland'
+      loc_tampere = 'https://store.com/?boundingbox=61.427282%2C23.542201%2C61.836574%2C24.118384&distance_max=27.376458985155967&lc=61.497752%2C23.760954&lq=Tampere%2C+Finland'
+      loc_rovaniemi = 'https://store.com/?boundingbox=66.155374%2C24.736871%2C67.184525%2C27.326679&distance_max=80.76841350229911&lc=66.503948%2C25.729391&lq=Rovaniemi%2C+Finland'
+
+      post :create, params: {
+        landing_page_version_id: landing_page_version.id,
+        section: {
+          kind: 'locations',
+          id: section_id,
+          title: 'Explore Destinations',
+          paragraph: 'We have something for everyone!',
+          locations_attributes: {
+            '0': {
+              id: '0',
+              sort_priority: '0',
+              title: 'Helsinki',
+              url: loc_helsinki,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            },
+            '1': {
+              id: '1',
+              sort_priority: '1',
+              title: 'Tampere',
+              url: loc_tampere,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            },
+            '2': {
+              id: '2',
+              sort_priority: '2',
+              title: 'Rovaniemi',
+              url: loc_rovaniemi,
+              image: stubbed_upload('Bison_skull_pile.png', 'image/png')
+            }
+          }
+        }
+      }
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      assets = lpv.parsed_content['assets']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['title']).to eq "Explore Destinations"
+      expect(section['paragraph']).to eq "We have something for everyone!"
+
+      locations = section['locations']
+      expect(locations.size).to eq 3
+
+      expect(locations[0]['title']).to eq "Helsinki"
+      expect(locations[1]['title']).to eq "Tampere"
+      expect(locations[2]['title']).to eq "Rovaniemi"
+
+      expect(locations[0]['location']['value']).to eq loc_helsinki
+      expect(locations[1]['location']['value']).to eq loc_tampere
+      expect(locations[2]['location']['value']).to eq loc_rovaniemi
+
+      locations.each do |location|
+        asset_image_id = location['background_image']['id']
+        expect(asset_image_id).to_not eq nil
+        asset = assets.find{|x| x['id'] == asset_image_id }
+        expect(asset).to_not eq nil
+      end
+    end
+  end
 end

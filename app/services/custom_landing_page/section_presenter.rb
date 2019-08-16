@@ -37,6 +37,10 @@ module CustomLandingPage
       section.is_a?(LandingPageVersion::Section::Categories)
     end
 
+    def section_locations?
+      section.is_a?(LandingPageVersion::Section::Locations)
+    end
+
     def section_errors?
       section.errors.any?
     end
@@ -98,6 +102,23 @@ module CustomLandingPage
 
     def category_image_filename(index)
       category_image(index)['src'].split('/').last
+    end
+
+    def location_image(index)
+      return nil unless section.locations[index]
+
+      asset_id = section.locations[index].asset_id
+      return nil if asset_id.nil?
+
+      asset_resolver.call('assets', asset_id, landing_page_version.parsed_content)
+    end
+
+    def location_image_url(index)
+      location_image(index)['src']
+    end
+
+    def location_image_filename(index)
+      location_image(index)['src'].split('/').last
     end
 
     private

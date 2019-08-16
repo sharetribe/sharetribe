@@ -684,6 +684,7 @@ en:
           listings: Listings
           categories: Categories
           hero: Hero
+          locations: Locations
           new_section:
             categories: New categories section
             footer: New footer section
@@ -692,6 +693,7 @@ en:
             info_multi_column_2: "New 2 column section"
             info_multi_column_3: "New 3 column section"
             listings: "New listings section"
+            locations: "New locations section"
           edit_section:
             categories: Edit categories section
             footer: Edit footer section
@@ -700,6 +702,7 @@ en:
             info_multi_column_2: "Edit 2 column section"
             info_multi_column_3: "Edit 3 column section"
             listings: "Edit listings section"
+            locations: "Edit locations section"
     landing_page_versions:
       sections:
         hero:
@@ -753,6 +756,26 @@ en:
           image: "Image"
           image_required: "You should add an image to this category"
           select_category: "Select category"
+        locations:
+          add: "Add a new location to this section"
+          location: "Location"
+          empty: "You don't have any included locations"
+          image: "Image"
+          include_title: "Locations to include"
+          info_text: "You can feature 3 to 7 locations in each section. Please add an image to each location and provide location search url for your marketplace. The recommended image size is 1000 x 667 px."
+          need_at_least_3_locations: "You should have at least 3 locations in this section"
+          need_at_most_7_locations: "You should have at most 7 locations in this section"
+        location:
+          add_another_image: "Add another image"
+          location: "Location"
+          current_image: "Current image: %{filename}"
+          file_not_selected: "Not selected"
+          image: "Image"
+          image_required: "You should add an image to this location"
+          title: "Title"
+          title_placeholder: "Location text"
+          url: "URL"
+          url_placeholder: "Location link URL"
         multi_column:
           main_title: "Main title"
           column_header: "Column %{index}"
