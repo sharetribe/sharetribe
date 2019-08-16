@@ -9,6 +9,8 @@
     = render 'multi_column', presenter: presenter, form: form
   - elsif presenter.section_categories?
     = render 'categories', presenter: presenter, form: form
+  - elsif presenter.section_locations?
+    = render 'locations', presenter: presenter, form: form
 
   .row
     .col-12
