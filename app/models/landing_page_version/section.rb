@@ -3,6 +3,7 @@ module LandingPageVersion::Section
   HERO = 'hero'.freeze
   FOOTER = 'footer'.freeze
   CATEGORIES = 'categories'.freeze
+  LOCATIONS = 'locations'.freeze
 
   VARIATION_SINGLE_COLUMN = 'single_column'.freeze
   VARIATION_MULTI_COLUMN = 'multi_column'.freeze

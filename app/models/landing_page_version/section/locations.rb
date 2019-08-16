@@ -1,6 +1,6 @@
 module LandingPageVersion::Section
-  class Categories < Base
-    class Category
+  class Locations < Base
+    class Location
       include ActiveModel::Model
 
       ATTRIBUTES = [
@@ -9,7 +9,8 @@ module LandingPageVersion::Section
         :sort_priority,
         :_destroy,
         :image,
-        :category_id
+        :title,
+        :url
       ]
 
       attr_accessor(*ATTRIBUTES)
@@ -18,17 +19,19 @@ module LandingPageVersion::Section
         id.nil?
       end
 
-      def self.from_serialized_hash(category, index)
+      def self.from_serialized_hash(location, index)
         self.new(
           id: index,
-          category_id: category['category']['id'],
-          asset_id: category['background_image']['id'],
+          title: location['title'],
+          asset_id: location['background_image']['id'],
+          url: location['location']['value'],
           sort_priority: index)
       end
 
       def serializable_hash(options = nil)
         {
-          category: { type: "category", id: category_id.to_i},
+          title: title,
+          location: { value: url },
           background_image: { type: "assets", id: asset_id}
         }
       end
@@ -43,11 +46,11 @@ module LandingPageVersion::Section
       :button_color_hover,
       :button_title,
       :button_path,
-      :category_color_hover,
-      :categories,
+      :locations,
       :background_image_variation,
       :background_image,
-      :background_color
+      :background_color,
+      :location_color_hover
     ].freeze
 
     DEFAULTS = {
@@ -59,8 +62,8 @@ module LandingPageVersion::Section
       button_color_hover: {type: "marketplace_data", id: "primary_color_darken"},
       button_title: nil,
       button_path: nil,
-      category_color_hover: {type: "marketplace_data", id: "primary_color"},
-      categories: []
+      location_color_hover: {type: "marketplace_data", id: "primary_color"},
+      locations: []
     }
 
     PERMITTED_PARAMS = [
@@ -77,9 +80,9 @@ module LandingPageVersion::Section
       :background_style,
       :background_color_string,
       :background_image_variation,
-      :categories_attributes => LandingPageVersion::Section::Categories::Category::ATTRIBUTES
+      :location_color_hover,
+      :locations_attributes => LandingPageVersion::Section::Locations::Location::ATTRIBUTES
     ]
-
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
@@ -89,7 +92,7 @@ module LandingPageVersion::Section
 
     def initialize(attributes={})
       super(attributes)
-      @kind = LandingPageVersion::Section::CATEGORIES
+      @kind = LandingPageVersion::Section::LOCATIONS
       DEFAULTS.each do |key, value|
         unless self.send(key)
           self.send("#{key}=", value)
@@ -102,40 +105,41 @@ module LandingPageVersion::Section
     end
 
     def i18n_key
-      'categories'
+      'locations'
     end
 
     # serialize links and social as associations, not regular attributes
     def serializable_hash(options = nil)
-      super({except: [:categories], include: [:categories]})
+      super({except: [:locations], include: [:locations]})
     end
 
     # called on initialization from model
-    def categories=(list)
-      @categories = list.map.with_index do |category, index|
-        if category.is_a?(Hash)
-          LandingPageVersion::Section::Categories::Category.from_serialized_hash(category, index)
+    def locations=(list)
+      @locations = list.map.with_index do |location, index|
+        if location.is_a?(Hash)
+          LandingPageVersion::Section::Locations::Location.from_serialized_hash(location, index)
         else
-          category
+          location
         end
       end
     end
 
     # called from controller
-    def categories_attributes=(params)
-      @categories = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
-        category = LandingPageVersion::Section::Categories::Category.new(attrs)
+    def locations_attributes=(params)
+      @locations = priority_sort(params).reject{|r| r['_destroy'] == '1'}.map do |attrs|
+        location = LandingPageVersion::Section::Locations::Location.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
-          category.asset_id = category.asset_id.presence || "category_#{id}_#{category.category_id}"
-          add_or_replace_asset(new_asset, category.asset_id)
+          digest = Digest::MD5.hexdigest(attrs['title'])
+          location.asset_id = location.asset_id.presence || "location_#{id}_#{digest}"
+          add_or_replace_asset(new_asset, location.asset_id)
         end
-        category
+        location
       end
     end
 
-    def new_category
-      LandingPageVersion::Section::Categories::Category.new
+    def new_location
+      LandingPageVersion::Section::Locations::Location.new
     end
 
     def priority_sort(params)

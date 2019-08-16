@@ -76,6 +76,8 @@ module CustomLandingPage
         LandingPageVersion::Section::Footer
       when LandingPageVersion::Section::CATEGORIES
         LandingPageVersion::Section::Categories
+      when LandingPageVersion::Section::LOCATIONS
+        LandingPageVersion::Section::Locations
       end
     end
 
