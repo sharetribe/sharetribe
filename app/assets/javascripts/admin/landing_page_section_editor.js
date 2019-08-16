@@ -43,7 +43,7 @@
 
     $.validator.addMethod('count-validation', function(value, element, params) {
       var name = $(element).data("counter-name");
-      var count = $("input[name="+name+"]").size();
+      var count = $(".menu-link-sortable:visible").size();
       var min = $(element).data("min");
       var max = $(element).data("max");
       if (max) {
