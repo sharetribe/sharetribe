@@ -142,6 +142,11 @@ module LandingPageVersion::Section
       params.values.sort_by{|p| p['sort_priority'].to_i}
     end
 
+    def asset_added(new_asset)
+      self.background_image = {'type' => 'assets', 'id' => self.id+"_background_image"}
+      add_or_replace_asset(new_asset, background_image['id'])
+    end
+
     class << self
       def new_from_content(content_section)
         new(content_section)

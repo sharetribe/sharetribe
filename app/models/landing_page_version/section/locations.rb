@@ -130,7 +130,8 @@ module LandingPageVersion::Section
         location = LandingPageVersion::Section::Locations::Location.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
-          location.asset_id = location.asset_id.presence || "location_#{id}_#{location.id}"
+          digest = Digest::MD5.hexdigest(attrs['title'])
+          location.asset_id = location.asset_id.presence || "location_#{id}_#{digest}"
           add_or_replace_asset(new_asset, location.asset_id)
         end
         location
@@ -143,6 +144,11 @@ module LandingPageVersion::Section
 
     def priority_sort(params)
       params.values.sort_by{|p| p['sort_priority'].to_i}
+    end
+
+    def asset_added(new_asset)
+      self.background_image = {'type' => 'assets', 'id' => self.id+"_background_image"}
+      add_or_replace_asset(new_asset, background_image['id'])
     end
 
     class << self
