@@ -28,7 +28,7 @@ describe Admin::Communities::TopbarController, type: :controller do
       RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to receive(:create)
         .with(@community.id, translations_group)
-      put :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en} }
+      put :update, params: { id: @community.id, post_new_listing_button: {fi: text_fi, en: text_en}, configuration: { display_about_menu: 1 }}
     end
 
     it "should not update Post new listing button text with an invalid translation param" do
@@ -37,7 +37,7 @@ describe Admin::Communities::TopbarController, type: :controller do
 
       RequestStore.store[:clp_enabled] = false
       expect(TranslationService::API::Api.translations).to_not receive(:create).with(anything())
-      patch :update, params: {post_new_listing_button: {fi: text_fi, en: text_en}}
+      patch :update, params: {post_new_listing_button: {fi: text_fi, en: text_en}, configuration: { display_about_menu: 1 }}
     end
   end
 
