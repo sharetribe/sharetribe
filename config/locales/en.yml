@@ -685,6 +685,7 @@ en:
           categories: Categories
           hero: Hero
           locations: Locations
+          video: Video
           new_section:
             categories: New categories section
             footer: New footer section
@@ -694,6 +695,7 @@ en:
             info_multi_column_3: "New 3 column section"
             listings: "New listings section"
             locations: "New locations section"
+            video: "New video section"
           edit_section:
             categories: Edit categories section
             footer: Edit footer section
@@ -703,6 +705,7 @@ en:
             info_multi_column_3: "Edit 3 column section"
             listings: "Edit listings section"
             locations: "Edit locations section"
+            video: "Edit video section"
     landing_page_versions:
       sections:
         hero:
@@ -788,6 +791,13 @@ en:
           column_button_url: "https://www.sharetribe.com"
         listings:
           you_need_to_add_the_listing_ids: "You need to add the listing ids of the listings that you want to include in this section. To find the listing id, simply go to the listing page and look at the listing URL. The listing id is the number that comes right after the main URL. In the example https://www.example.com/en/listings/123456-listing-title, the listing is would be 123456"
+        video:
+          text: "Text"
+          youtube_video_id: "Youtube video ID"
+          autoplay: "Playing options"
+          autoplay_no: "No autoplay"
+          autoplay_yes: "Autoplay"
+          autoplay_muted: "Muted"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
@@ -3081,4 +3091,6 @@ en:
         listing_1_id: Listing 1 ID
         listing_2_id: Listing 2 ID
         listing_3_id: Listing 3 ID
-
+      landing_page_version/section/video:
+        text: Text
+        youtube_video_id: "Youtube video ID"

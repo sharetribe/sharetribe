@@ -745,4 +745,29 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
       end
     end
   end
+
+  describe 'video' do
+    it "creates video section" do
+      video_id = 'UffchBUUIoI'
+      section_id = 'video_section'
+      post :create, params: {
+        landing_page_version_id: landing_page_version.id,
+        section: {
+          kind: 'video',
+          id: section_id,
+          youtube_video_id: video_id,
+          text: "Play Video",
+          autoplay: "no"
+        }
+      }
+
+      lpv = LandingPageVersion.find(landing_page_version.id)
+      sections = lpv.parsed_content['sections']
+      section = sections.find{|x| x['id'] == section_id}
+      expect(section).to_not eq nil
+      expect(section['text']).to eq "Play Video"
+      expect(section['autoplay']).to eq false
+      expect(section['youtube_video_id']).to eq video_id
+    end
+  end
 end

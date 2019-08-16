@@ -41,6 +41,10 @@ module CustomLandingPage
       section.is_a?(LandingPageVersion::Section::Locations)
     end
 
+    def section_video?
+      section.is_a?(LandingPageVersion::Section::Video)
+    end
+
     def section_errors?
       section.errors.any?
     end
