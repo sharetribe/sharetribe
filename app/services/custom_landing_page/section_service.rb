@@ -36,7 +36,6 @@ module CustomLandingPage
     private
 
     def create_or_update(update: false)
-      upload_nested_assets(params[:section])
       if update
         section.attributes = section_params
       else
@@ -57,7 +56,7 @@ module CustomLandingPage
     end
 
     def section_params
-      params.require(:section).permit(section_factory_class.permitted_params)
+      upload_assets(params.require(:section).permit(section_factory_class.permitted_params))
     end
 
     def section_factory_class
@@ -105,18 +104,20 @@ module CustomLandingPage
     end
 
     # replace file params with asset objects
-    def upload_nested_assets(params)
+    def upload_assets(permitted_params)
+      params = permitted_params.is_a?(Hash) ? permitted_params : permitted_params.to_unsafe_hash
       patch = {}
       params.each do |key, value|
         if value.respond_to?(:open)
           patch[key] = community.landing_page_assets.attach(create_blob(value)).first
         elsif value.is_a?(Hash) || value.is_a?(ActionController::Parameters)
-          upload_nested_assets(value)
+          upload_assets(value)
         end
       end
       patch.each do |old_key, new_value|
         params[old_key] = new_value
       end
+      params
     end
   end
 end
