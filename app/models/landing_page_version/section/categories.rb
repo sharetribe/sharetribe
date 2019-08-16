@@ -127,7 +127,7 @@ module LandingPageVersion::Section
         category = LandingPageVersion::Section::Categories::Category.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
-          category.asset_id ||= "category_#{id}_#{category.category_id}"
+          category.asset_id = category.asset_id.presence || "category_#{id}_#{category.category_id}"
           add_or_replace_asset(new_asset, category.asset_id)
         end
         category
