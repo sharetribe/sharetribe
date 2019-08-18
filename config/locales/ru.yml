@@ -269,7 +269,7 @@ ru:
         you_will_be_redirected_to: "После того, как вы удалите проект, вы будете перенаправлены на %{destination}. После этого вы не сможете получить доступ к проекту."
         delete_this_marketplace: "Удалить этот проект"
         payment_preferences: "Платежная система"
-        pre_approved_listings: ~
+        pre_approved_listings: "Проверьте все объявления до публикации"
       manage_members:
         manage_members: "Управление участниками"
         email: E-mail
@@ -493,7 +493,7 @@ ru:
             free: ~
           paypal:
             free: ~
-            pending: ~
+            pending: "Ожидает подтверждения"
             preauthorized: ~
             accepted: ~
             rejected: ~
@@ -759,8 +759,8 @@ ru:
         to_improve_email_deliverability: ~
         email_subject_text: ~
         firstname_cannot_be_removed: ~
-        hello_firstname: ~
-        hello_firstname_text: ~
+        hello_firstname: "Здравствуйте,"
+        hello_firstname_text: "Здравствуйте %{person},"
     left_hand_navigation:
       general: Основные
       users_and_transactions: "Участники и транзакции"
@@ -1282,7 +1282,7 @@ ru:
       confirmation_link_text: "Подтвердить мой email"
       or_paste_link: "Или же вы можете скопировать ссылку в адресную строку вашего браузера:"
     common:
-      hey: "Привет, %{name}!"
+      hey: "Здравствуйте, %{name},"
       kassi_team: "Команда %{service_name}"
       thanks: "Спасибо,"
       dont_want_to_receive_these_emails: "Не хотите получать эти письма?"
@@ -1290,7 +1290,7 @@ ru:
       message_not_displaying_correctly: "Письмо отображается неправильно?"
       view_it_in_your_browser: "Открыть в браузере"
       or: или
-      unsubscribe_from_these_emails_info: ~
+      unsubscribe_from_these_emails_info: "Вы получили это письмо так как вы участник %{service_name}."
       unsubscribe_from_these_emails: "Отписаться от подобных сообщений"
       unsubscribe_from_invitation_emails_info: ~
       unsubscribe_from_invitation_emails: ~
@@ -1450,8 +1450,8 @@ ru:
       this_is_automatic_message: ~
     listing_approved:
       subject: ~
-      listing_has_been_approved: ~
-      view_the_listing: ~
+      listing_has_been_approved: "Отличные новости! Ваше объявление %{listing_title} было рассмотрено и одобрено командой %{community}. Оно уже опубликовано."
+      view_the_listing: "Посмотрите объявление"
     listing_rejected:
       subject: ~
       listing_has_been_rejected: ~
@@ -1950,11 +1950,11 @@ ru:
       show_in_updates_email_loading: загрузка...
       show_in_updates_email_error: "Не удалось установить связь с сервером. Попробуйте еще раз после перезагрузки страницы."
       show_in_updates_email_success: "Эта публикация будет показана в следующей автоматической рассылке отправляемой участникам"
-      listing_is_pending: ~
+      listing_is_pending: "Объявление проходит модерацию"
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: ~
+      delete_listing: "Удалить объявление"
     map:
       open_in_google_maps: "Открыть карту Google"
     error:
@@ -1977,7 +1977,7 @@ ru:
       description:
         detailed_description: "Подробное описание"
         youtube_info: "Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Вы можете %{link}. Если ваша публикация содержит ссылки на YouTube, видео будет показано ниже публикации."
       destination:
         destination: "Пункт назначения"
       form_content:
@@ -2036,8 +2036,8 @@ ru:
         origin: "Исходный пункт"
       send_button:
         save_listing: "Сохранить публикацию"
-        submit_for_review: ~
-        will_be_reviewed: ~
+        submit_for_review: "На модерацию"
+        will_be_reviewed: "Все объявления %{service_name} проходят модерацию до публикации. Как только ваше объявление будет одобрено, вы будете информированы через email и оно будет доступно всем."
         we_noticed_youre_an_admin: ~
       share_type:
         select: Выбрать
@@ -2213,10 +2213,10 @@ ru:
     stripe_payment:
       payment: ~
       pay_with_card: ~
-      address: ~
-      address_country: ~
+      address: "Адрес доставки"
+      address_country: Страна
       address_name: ~
-      address_city: ~
+      address_city: Город
       address_state: ~
       address_street1: ~
       address_street2: ~

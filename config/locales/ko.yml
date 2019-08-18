@@ -731,9 +731,9 @@ ko:
             all_users: "모든 사용자"
             posting_allowed: ~
             with_listing: "하나 이상의 목록을 게시한 사용자"
-            with_listing_no_payment: "하나 이상의 목록을 게시했지만 결제 세부 정보를 추가하지 않은 사용자"
+            with_listing_no_payment: "하나 이상의 리스트를 게시했지만 결제 정보를 추가하지 않은 사용자"
             with_payment_no_listing: "결제 세부 사항을 추가했지만 목록을 게시하지 않은 사용자"
-            no_listing_no_payment: "목록을 게시하지 않았고 결제 세부 정보를 추가하지 않은 사용자"
+            no_listing_no_payment: "리스트를 게시하지 않았으며 결제 정보를 추가하지 않은 사용자"
         email_subject: "이메일 제목"
         email_content: "이메일 본문"
         email_content_placeholder: "사용자에게 발송할 내용"
@@ -750,7 +750,7 @@ ko:
       general: 일반
       users_and_transactions: 관리
       configure: 구성
-      emails_title: 이메일들
+      emails_title: 이메일
       subscription: 구독신청
       preview: "미리보기 사이트"
       whats_new: ~
@@ -852,7 +852,7 @@ ko:
       integration_info_text: "귀하의 마켓 플레이스의 결제 시스템은 PayPal에 의해 제공됩니다. 사용자가 마켓 플레이스를 사용하여 결제 할 수있게 하려면 PayPal 계정을 연결해야합니다. PayPal 계정을 연결하면 최소 거래 규모와 수수료 수수료를 선택할 수 있습니다."
       link_paypal_personal_account_label: "직접 제품이나 서비스를 제공하고 있습니까?"
       link_paypal_personal_account: "그렇다면 PayPal 계정을 %{personal_payment_preferences_link}에 연결해야합니다."
-      link_stripe_personal_account: "그렇다면 %{personal_payment_preferences_link}에 판매 대금 세부 정보를 추가해야합니다."
+      link_stripe_personal_account: "그렇다면 %{personal_payment_preferences_link}에 결제 정보를 추가해야 합니다."
       link_paypal_and_stripe_personal_account: "그렇다면 PayPal 또는 Stripe 계정을 %{personal_payment_preferences_link}에 연결해야합니다."
       personal_payment_preferences_link_text: "귀하의 개인 마켓플레이스 계정"
       read_more_about_paypal: "결제 시스템에 대해 자세히 알아보기"
@@ -884,10 +884,10 @@ ko:
       general_settings_updated: "결제 시스템 일반 설정 업데이트 됨"
       transaction_fee_settings_updated: "거래 수수료 설정이 업데이트되었습니다."
       choose_popup_text: |-
-          사용자가 온라인 결제를 허용 할 수있게하려면 시장에 맞는 통화를 선택한 다음 마켓플레이스가 지원하는 두 개의 지불 제공자, Stripe 또는 PayPal, 중 하나 를 연결해야합니다. 두 가지를 모두 사용하도록 선택할 수도 있습니다. 즉, 사용자가 두 가지 결제 방법 중 하나를 사용하여 결제를 수락 할 수 있습니다.
-          두 계정 중 하나를 사용하여 새 계정을 만들 수 있습니다. 계정을 연결하면 각 거래에서 청구 할 수수료를 선택할 수 있습니다.
-          Stripe과 PayPal의 차이점은 무엇입니까? Stripe을 사용하면 최대 3 개월 동안 판매자에게 지불금을 연기 할 수 있으며 하나의 지불 방법 (신용 / 직불 카드)을 제공합니다. Stripe을 사용하면 제공 업체가 은행 세부 정보를 제공하여 은행 계좌로 직접 돈을받을 수도 있습니다. PayPal은 두 가지 지불 방법 (신용 카드 및 PayPal 계정)을 제공하며 구매자와 판매자를위한 보호 프로그램을 제공합니다. 귀하의 사업자는 지불을 수락하기 위해 PayPal 비즈니스 계좌를 개설해야합니다.
-          Stripe을 사용하는 경우 수수료가 거래 수수료에서 차감되므로 최저 수수료를 충분히 높게 설정하십시오. PayPal을 사용하는 경우 수수료는 거래 수수료 외에 별도로 제공됩니다. Stripe과 PayPal은 약간 다른 수수료 구조를 가지고 있습니다. 대부분의 경우 스트라이프 수수료는 약간 낮습니다.
+          사용자가 온라인 결제를 허용 할 수있게 하려면 결제 통화를 선택한 다음 마켓플레이스가 지원하는 두 개의 전자결제 서비스 제공자인 Stripe 또는 PayPal 중 하나를 연결해야 합니다. 두 가지를 모두 사용하도록 선택할 수도 있습니다. 즉, 사용자가 두 가지 결제 방법 중 하나를 사용하여 결제를 수락 할 수 있습니다.
+          아직 계정이 없다면 새 계정을 만들 수 있습니다. 계정을 연결하면 각 거래에서 청구할 수수료를 선택할 수 있습니다.
+          Stripe와 PayPal의 차이점은, Stripe를 사용하면 최대 3개월 동안 판매자에게 결제대금 지불을 연기 할 수 있으며 하나의 지불 방법(신용/직불 카드)을 제공합니다. Stripe는 판매자가 은행 정보를 등록하여 직접 본인의 은행 계좌로 결제대금을 받을 수 있습니다. PayPal은 두 가지 지불 방법(신용 카드 및 PayPal 계정)을 제공하며 구매자와 판매자를 위한 보호 프로그램을 제공합니다. 결제를 위해서 판매자는 PayPal Business 계좌를 개설해야 합니다.
+          Stripe를 사용하는 경우 결제 수수료가 거래 수수료에서 차감되므로 최저 수수료를 충분히 높게 설정하십시오. PayPal을 사용하는 경우 거래 수수료와는 별도로 결제 수수료가 판매자에게 부과됩니다. Stripe과 PayPal은 약간 다른 수수료 구조를 가지고 있습니다. 대부분의 경우 Stripe의 수수료가 약간 낮습니다.
       invalid_api_keys: "잘못된 Stripe API 키"
       missing_api_keys: "누락된 Stripe API 키"
       stripe_verified: "Stripe API 액세스가 확인되었습니다."
@@ -1026,7 +1026,7 @@ ko:
       link_to_stripe_text: 여기
   conversations:
     accept:
-      details: "주문 세부 정보"
+      details: "주문 정보"
       order_by: "%{orderer_link} 주문"
       accept_offer: "제안 승인"
       accept_request: "요청 승인"
@@ -1272,7 +1272,7 @@ ko:
       view_it_in_your_browser: "브라우저에서 보기"
       or: 또는
       unsubscribe_from_these_emails_info: "%{service_name}의 회원이므로 이 이메일을 받으셨습니다."
-      unsubscribe_from_these_emails: "이러한 이메일들을 수신 거부"
+      unsubscribe_from_these_emails: "이메일 수신 거부"
       unsubscribe_from_invitation_emails_info: "%{service_name}의 회원이 귀하를 초대했기 때문에이 이메일을 받았습니다."
       unsubscribe_from_invitation_emails: "초대 이메일에서 %{service_name} 가입을 취소합니다."
     conversation_status_changed:
@@ -1635,7 +1635,7 @@ ko:
       errors_in_emails: "추가한 이메일 주소가 유효하고 비정상적인 문자가 없는지 확인하십시오. 이메일 주소를 여러개를 추가한 경우, 각 이메일 주소를 쉼표로 구분하여 주십시요"
     list_item:
       review: 리뷰
-      reviews: 리뷰들
+      reviews: 리뷰
       distance_away: "%{distance} %{distance_unit}  떨어져"
     news_item:
       show_less: "덜 보여주기"
@@ -2105,7 +2105,7 @@ ko:
       select_category: "카테고리 선택"
       select_subcategory: "하위카테고리 선택"
       select_transaction_type: "목록타입 선택"
-      you_need_to_fill_payout_details_before_accepting: "당신이 목록을 게시하려면 먼저 판매 대금 세부 정보를 입력해야합니다. 세부 정보를 입력 하시려면 %{payment_settings_link}(으)로 이동하십시오."
+      you_need_to_fill_payout_details_before_accepting: "리스트를 게시하려면 먼저 결제 정보를 입력해야 합니다. 결제 정보를 입력 하려면 %{payment_settings_link}로 이동 하십시오."
       contact_admin_link_text: "%{service_name} 팀에 문의하기"
       community_not_configured_for_payments: "%{service_name}의 지불 구성이 되지 않아 신규 리스트를 아직 게제 할 수 없습니다. 자세한 내용은 %{contact_admin_link}에 문의 하시기 바랍니다."
       payment_settings_link: "결제 설정"
@@ -2136,7 +2136,7 @@ ko:
       item_request_trade: "교환 요청"
       no_description: "이 상품리스팅에는 상품에 대한 설명이 없습니다."
       no_image: "이미지가 없음"
-      no_reviews: "받은 리뷰 없음"
+      no_reviews: "리뷰 없음"
       offer: 제안
       listing_created: 생성
       open_until: "%{date}까지 열기"
@@ -2368,8 +2368,8 @@ ko:
       slightly_better_than_expected: "예상을 초과하다"
       slightly_less_than_expected: "예상보다 저조하다"
       what_are_these: "이게 무엇이죠?"
-      review: "접수된 리뷰"
-      reviews: "접수된 리뷰들"
+      review: "수신된 리뷰"
+      reviews: "수신된 리뷰"
       listing: 목록
       listings: 목록들
       open_listing: "오픈 리스트"
@@ -2438,7 +2438,7 @@ ko:
       email_addresses: 이메일
       new_email: "새로운 이메일 주소"
       delete_personal_information: "계정을 삭제하시면 개인 정보 (이름, 전화 번호, 주소, 이메일, 프로필 사진 등)가 영구적으로 삭제되며 복구 할 수 없습니다. 귀하가 만든 모든 목록은 삭제됩니다. 계정을 다시 활성화 할 수 없습니다. 당신의 사용자 이름은 %{service_name}의 다른 사용자들이 사용할 수 있습니다."
-      delete_information_others_involved: "다른 회원이 참여한 정보 (다른 사람과의 대화, 만든 거래, 다른 사용자에게 준 리뷰 등)는 계정을 삭제해도 삭제되지 않습니다. 그러나 귀하의 이름은이 정보 옆에 더 이상 표시되지 않습니다."
+      delete_information_others_involved: "다른 회원이 관련된 정보(대화내용, 거래내역, 리뷰 등)는 계정이 없어져도 삭제되지 않습니다. 그러나 당신의 이름은 이 정보에 더 이상 표시되지 않습니다."
       unfinished_transactions: "거래가 진행 중이므로 계정을 삭제할 수 없습니다. 계정을 삭제하기 전에 모든 거래를 완료하십시오."
       only_admin: ~
       new_password: "새로운 비밀번호"
@@ -2508,8 +2508,8 @@ ko:
       image_is_processing: "잠시만 기다려주세요. 귀하의 프로필 사진을 처리 중입니다. 1 ~ 2 분 안에 준비될 것입니다."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "마크다운 사용하여 편집"
+      format_markdown: "%{link} 할 수 있습니다."
     save_information: "정보 저장하기"
   shipping_address:
     shipping_address: 배송주소
@@ -2761,8 +2761,8 @@ ko:
     add_and_pay: "결제 확인"
     card_not_stored: "귀하의 결제는 Stripe에 의해 안전하게 처리됩니다. %{service_name}에서는 카드 정보를 저장하지 않습니다."
     missing_payment: "오픈 목록이 있지만 귀하의 계정이 돈을 받을 수 있도록 설정되어 있지 않습니다. 결제 환경을 설정하세요. %{settings_link}"
-    stripe_bank_connected: "은행 계좌 세부 정보가 성공적으로 설정되었습니다!"
-    stripe_can_accept: "이제 귀하의 은행 계좌로 지불금을 받을 수 있습니다."
+    stripe_bank_connected: "결제 정보가 성공적으로 설정되었습니다!"
+    stripe_can_accept: "이제 등록하신 은행 계좌로 결제대금을 받을 수 있습니다."
     stripe_credit_card: 신용카드
     paypal: 페이팔
     paypal_connected: "PayPal 계정이 성공적으로 연결되었습니다!"
@@ -2794,10 +2794,10 @@ ko:
       address_city: 도시
       address_postal_code: 우편번호
       address_line1: 거리주소
-      tos_link: "판매 대금 세부 정보를 추가하려면 %{stripe_link}을(를) 수락하세요"
+      tos_link: "결제 정보를 추가함으로서 %{stripe_link}에 동의하게 됩니다."
       tos_link_title: "스트라이프에 연결된 계정 계약"
-      save_details: "세부 정보 저장"
-      edit: "세부 정보 편집"
+      save_details: "결제 정보 저장"
+      edit: "결제 정보 편집"
       cancel: 취소
       gender: ~
       phone_number: ~
@@ -2850,11 +2850,11 @@ ko:
       messages:
         social_insurance_number: "유효한 SIN (Social Insurance Number)이어야합니다."
   payment_settings:
-    title: "지불금 환경 설정"
+    title: "결제 환경 설정"
     bank_account: 은행계좌
     paypal: 페이팔
     bank_account_details: "은행 계좌로 돈을 받으려면 은행 정보를 제공해야합니다. 고객은 신용 카드로 결제 할 수 있습니다."
-    add_bank_details: "은행 세부 정보 추가"
+    add_bank_details: "은행 정보 추가"
     can_accept_stripe_and_paypal: "은행 계좌나 PayPal 계좌로 돈을 받을 수 있습니다."
     to_accept_paypal: "PayPal 계정으로 돈을 받으려면 PayPal 계정을 연결해야합니다. 고객은 PayPal로 결제 할 수 있습니다."
     connect_paypal: "PayPal 계정 연결"
