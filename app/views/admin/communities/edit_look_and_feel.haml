@@ -35,7 +35,7 @@
     .row
       .col-12
         = form.label :cover_photo, t(".community_cover_photo"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => (t(".cover_photo_visibility") + " " +  t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450, :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link"))).html_safe}
+        = render :partial => "layouts/info_text", :locals => { :text => (t(".cover_photo_visibility") + " " +  t(".cover_photo_instructions_text_with_dimensions", :width => 1920, :height => 450, :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link", :target => :_blank))).html_safe}
         - link = link_to t(".we_have_you_covered"), 'https://help.sharetribe.com/en/articles/666084', target: '_blank'
         = render :partial => "layouts/info_text", :locals => { :text => t(".cover_photo_ready_made", link: link).html_safe }
 
@@ -69,13 +69,13 @@
     .row
       .col-12
         = form.label :slogan_color, t("admin.communities.edit_look_and_feel.community_slogan_color"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_look_and_feel.community_slogan_color_instructions_text", colorpicker: "<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link")).html_safe }
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_look_and_feel.community_slogan_color_instructions_text", colorpicker: "<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link", :target => :_blank)).html_safe }
         = form.text_field :slogan_color, :maxlength => "6", :class => "text_field"
 
     .row
       .col-12
         = form.label :description_color, t("admin.communities.edit_look_and_feel.community_description_color"), :class => "input"
-        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_look_and_feel.community_description_color_instructions_text", colorpicker: "<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link")).html_safe }
+        = render :partial => "layouts/info_text", :locals => { :text => t("admin.communities.edit_look_and_feel.community_description_color_instructions_text", colorpicker: "<a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a>", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", :id => "view_cover_photo_link", :target => :_blank)).html_safe }
         = form.text_field :description_color, :maxlength => "6", :class => "text_field"
 
 

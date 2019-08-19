@@ -14,7 +14,7 @@
       %span#admin_invitations_count
         = page_entries_info(@service.invitations, :model => "Invitation").html_safe
     .col-3
-      = link_to new_invitation_path do
+      = link_to new_invitation_path, { target: :_blank } do
         = "+ " + t("admin.communities.edit_details.invite_people")
 
   %table#admin_invitations

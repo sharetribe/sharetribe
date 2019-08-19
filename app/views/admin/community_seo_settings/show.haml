@@ -257,7 +257,7 @@
         %p= t('admin.communities.seo_settings.robots_info_private')
       - else
         - robots_url = @current_community.full_url + "/robots.txt"
-        - meta_info_link = link_to robots_url, robots_url
+        - meta_info_link = link_to robots_url, robots_url, target: '_blank'
         %p= t('admin.communities.seo_settings.robots_info_2', link: meta_info_link).html_safe
 
     .row

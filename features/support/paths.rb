@@ -104,6 +104,8 @@ module NavigationHelpers
       admin_community_listings_path(:community_id => @current_community.id)
     when /the person custom fields admin page/
       admin_person_custom_fields_path(:locale => "en")
+    when /the big cover photo home page/
+      '/?big_cover_photo=true'
     else
       begin
         page_name =~ /the (.*) page/
