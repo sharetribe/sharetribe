@@ -203,8 +203,8 @@ ru:
         en: Английский
         en-AU: "Английский (Австралия)"
         en-GB: "Английский (Великобритания)"
-        es: ~
-        es-ES: ~
+        es: Испанский
+        es-ES: "Испанский (Испания)"
         fi: Финский
         fr: Французский
         fr-CA: "Французский (Канадский)"
@@ -490,25 +490,25 @@ ru:
           initiated: "Ожидание платежа PayPal"
           pending_ext: "Ожидание платежа PayPal"
           none:
-            free: ~
+            free: "Бесплатная транзакция"
           paypal:
-            free: ~
+            free: Диалог
             pending: "Ожидает подтверждения"
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
-            confirmed: ~
-            canceled: ~
-            initiated: ~
+            preauthorized: Предавторизация
+            accepted: Принято
+            rejected: Отклонено
+            paid: Оплачено
+            confirmed: Завершено
+            canceled: Отменено
+            initiated: "Ожидание платежа PayPal"
             pending_ext: "Ожидание платежа PayPal"
           stripe:
-            free: ~
-            pending: ~
-            preauthorized: ~
-            accepted: ~
-            rejected: ~
-            paid: ~
+            free: Диалог
+            pending: Ожидание
+            preauthorized: Предавторизация
+            accepted: Принято
+            rejected: Отклонено
+            paid: Оплачено
             confirmed: Подтверждено
             canceled: Отменено
             initiated: "Ожидание платежа Stripe"
@@ -897,42 +897,42 @@ ru:
       title: "Настройки платежных систем"
       general_settings: "1. Общие настройки"
       connect_a_payment_provider: "2. Подключение платежной системы"
-      contact_support: ~
-      no_payments_link_text: ~
+      contact_support: "свяжитесь со службой поддержки"
+      no_payments_link_text: здесь
       your_country: "Страна вашего местонахождения:"
-      you_cannot_use_online_payments: ~
+      you_cannot_use_online_payments: "Вы не можете использовать онлайн-платежи в %{country_name} с % {currency}. Пожалуйста, выберите другую валюту или % {support_link}, чтобы изменить свою страну. Вы можете узнать больше о поддерживаемых странах и валютах % {help_link}. В будущем мы может быть добавим больше платежных систем и поддержим больше валют."
       which_to_choose: ~
-      you_can_use_stripe_or_paypal: ~
-      you_can_use_stripe_only: ~
-      read_more_stripe: ~
-      you_can_use_paypal_only: ~
+      you_can_use_stripe_or_paypal: "Вы можете использовать либо Stripe, PayPal, либо оба в качестве ваших поставщиков платежей. %{choose_link} "
+      you_can_use_stripe_only: "Вы можете использовать Stripe в качестве поставщика платежей. %{read_more_link} "
+      read_more_stripe: "Узнайте больше о платежах Stripe."
+      you_can_use_paypal_only: "Вы можете использовать PayPal в качестве поставщика платежей. %{read_more_link} "
       read_more_paypal: "Узнайте больше о платежах PayPal."
-      read_more_about_paypal_and_stripe: ~
-      general_settings_updated: ~
-      transaction_fee_settings_updated: ~
+      read_more_about_paypal_and_stripe: "Узнайте больше об онлайн-платежах Stripe и PayPal"
+      general_settings_updated: "Общие настройки платежной системы обновлены"
+      transaction_fee_settings_updated: "Настройки платы за транзакцию обновлены"
       choose_popup_text: ~
       invalid_api_keys: ~
       missing_api_keys: ~
       stripe_verified: ~
-      change_settings: ~
-      configure_stripe: ~
-      configure_paypal: ~
-      transaction_fee_settings: ~
-      transaction_fee_save: ~
+      change_settings: "Изменить настройки и сборы"
+      configure_stripe: "Настроить Stripe"
+      configure_paypal: "Настроить PayPal"
+      transaction_fee_settings: "Настройки комиссии за транзакцию"
+      transaction_fee_save: Сохранить
       stripe_fee: ~
-      stripe_fee_notice: ~
-      fee_should_be_less_than_minimum_price: ~
+      stripe_fee_notice: "%{stripe_fee_link} будет вычтена из комиссии за транзакцию, которую вы взимаете."
+      fee_should_be_less_than_minimum_price: "Минимальная комиссия за транзакцию должна быть ниже минимального размера транзакции"
       the_transaction_fee_must_be_lower_than_100: ~
       confirm_disable: ~
       commission_from_buyer_label: ~
       minimum_buyer_transaction_fee_label: ~
       stripe_connected:
-        title: ~
+        title: "Stripe аккаунт подключен"
         disable: ~
         disabled: ~
         enable: ~
       paypal_connected:
-        title: ~
+        title: "PayPal аккаунт подключен"
         disable: ~
         disabled: ~
         enable: ~
@@ -950,14 +950,14 @@ ru:
       index:
         header: ~
         info: ~
-        active: ~
+        active: Активно
         gateway: ~
-        process: ~
-        commission: ~
+        process: Процесс
+        commission: Комиссия
         minimum_price: ~
         minimum_fee: ~
         api_verified: ~
-        actions: ~
+        actions: Действия
         payments_not_enabled: ~
     transaction_types:
       sell: Продажа
@@ -1042,7 +1042,7 @@ ru:
     stripe_fee_info:
       title: ~
       body_text: ~
-      link_to_stripe_text: ~
+      link_to_stripe_text: здесь
   conversations:
     accept:
       details: "Детали заказа"
@@ -1331,31 +1331,31 @@ ru:
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
-      shipping_total: ~
-      product: ~
+      shipping_total: "Доставка:"
+      product: Товар
       price_payer_paid: ~
       subtotal: ~
       service_fee: ~
       buyer_service_fee: ~
-      you_will_get: ~
+      you_will_get: "Всего:"
       new_payment: ~
       price_per_unit_type: ~
-      quantity: ~
+      quantity: "Количество:"
       you_have_received_new_payment: ~
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_payer:
       receipt_of_payment: ~
       you_have_made_new_payment: ~
-      product: ~
+      product: Товар
       price_per_unit_type: ~
-      duration: ~
+      duration: Время
       quantity: ~
       subtotal: ~
       buyer_service_fee: ~
-      total: ~
-      price: ~
-      service_fee: ~
+      total: Всего
+      price: Цена
+      service_fee: "Комиссия сервиса"
       stripe_gateway_fee: ~
       paypal_gateway_fee: ~
       money_will_be_transferred: ~
@@ -2211,7 +2211,7 @@ ru:
     transaction_agreement_checkbox:
       read_more: Вид.
     stripe_payment:
-      payment: ~
+      payment: Оплата
       pay_with_card: ~
       address: "Адрес доставки"
       address_country: Страна
