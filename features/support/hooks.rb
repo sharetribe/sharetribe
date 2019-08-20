@@ -66,7 +66,7 @@ After do |scenario|
     end
 
     # Enable this for CircleCI debuging
-    if true # rubocop:disable Lint/LiteralAsCondition
+    if ENV['CIRCLE_TEST_REPORTS'].present?
       puts ""
       puts "*** Rails logs at (#{I18n.l(Time.current, format: '%Y-%m-%d %H:%M:%S %z')}):"
       puts ""

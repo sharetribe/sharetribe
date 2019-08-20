@@ -1,8 +1,8 @@
 %h3= t("admin.communities.default_menu_links.title")
 
-- about_link = link_to(t("admin.communities.default_menu_links.about_link_title"), about_infos_path)
-- contact_link = link_to(t("admin.communities.default_menu_links.contact_link_title"), new_user_feedback_path)
-- invite_link = link_to(t("admin.communities.default_menu_links.invite_link_title"), new_invitation_path)
+- about_link = link_to(t("admin.communities.default_menu_links.about_link_title"), about_infos_path, target: :_blank)
+- contact_link = link_to(t("admin.communities.default_menu_links.contact_link_title"), new_user_feedback_path, target: :_blank)
+- invite_link = link_to(t("admin.communities.default_menu_links.invite_link_title"), new_invitation_path, target: :_blank)
 - info_text = t("admin.communities.default_menu_links.info", about_link: about_link, contact_link: contact_link, invite_link: invite_link).html_safe
 .row
   .col-12

@@ -13,7 +13,7 @@ module CommunitiesHelper
 
   def community_slogan_locals
     translations = find_community_customizations(:slogan)
-    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", id: "view_slogan_link")
+    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", id: "view_slogan_link", target: :_blank, rel: :noopener)
     info_text = I18n.t("admin.communities.edit_details.edit_community_slogan_description_hideable", :see_how_it_looks_like => looks_link)
     {
       header: t("admin.communities.edit_details.community_slogan"),
@@ -26,7 +26,7 @@ module CommunitiesHelper
 
   def community_description_locals
     translations = find_community_customizations(:description)
-    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true")
+    looks_link = link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/?big_cover_photo=true", target: :_blank, rel: :noopener)
     info_text = I18n.t("admin.communities.edit_details.edit_community_description_description_hideable", :see_how_it_looks_like => looks_link)
     {
       header: t("admin.communities.edit_details.community_description"),
@@ -42,7 +42,7 @@ module CommunitiesHelper
     {
       header: t("admin.communities.edit_details.community_search_placeholder"),
       input_classes: "",
-      info_text: I18n.t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/")),
+      info_text: I18n.t("admin.communities.edit_details.edit_community_search_placeholder_description", :see_how_it_looks_like => link_to(t("admin.communities.edit_details.see_how_it_looks_like"), "/", target: :_blank, rel: :noopener)),
       input_name: "search_placeholder",
       translations: translations
     }
