@@ -34,7 +34,7 @@ class TimeSlotWrapper extends Component {
     const day = this.props.formApi.getValue(this.dayField);
     const slot = day.working_time_slots[this.props.index];
     if (slot.id) {
-      slot._destroy = '1';  // eslint-disable-line no-underscore-dangle
+      slot._destroy = '1'; // eslint-disable-line no-underscore-dangle
     } else {
       day.working_time_slots.splice(this.props.index, 1);
     }

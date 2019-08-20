@@ -8,14 +8,14 @@
   - if facebook_connect_in_use?
     = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_provider_account", provider: 'Facebook') }
   - if google_connect_in_use?
-    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login',
+    = link_to person_google_oauth2_omniauth_authorize_path, id: 'google-oauth2-login', method: :post,
       class: 'google-login-button' do
       %span.google-icon
         = render :partial => "layouts/google_icon"
       %span.google-text
         = t('.log_in_with_your_provider_account', provider: 'Google')
   - if linkedin_connect_in_use?
-    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login',
+    = link_to person_linkedin_omniauth_authorize_path, id: 'linkedin-login', method: :post,
       class: 'linkedin-login-button' do
       %span.linkedin-icon
         = render :partial => "layouts/linkedin_icon"

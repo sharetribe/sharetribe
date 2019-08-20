@@ -80,8 +80,8 @@ config.plugins.push(
   new MiniCssExtractPlugin({
     // Options similar to the same options in webpackOptions.output
     // both options are optional
-    filename: '[name]-bundle.css',
     // chunkFilename: '[id].css',
+    filename: '[name]-bundle.css',
   })
 );
 

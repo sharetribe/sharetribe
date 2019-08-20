@@ -50,7 +50,7 @@ class Menu extends Component {
     window.clearTimeout(this.mouseOutTimout);
     window.clearTimeout(this.mouseOverTimout);
     this.mouseOverTimout = setTimeout(() => (
-      this.setState({ isOpen: true })  // eslint-disable-line react/no-set-state
+      this.setState({ isOpen: true }) // eslint-disable-line react/no-set-state
       ), HOVER_TIMEOUT);
   }
 

@@ -52,13 +52,13 @@ const GuideStatusPage = (props) => {
         })),
     p({ className: css.description },
       t('web.admin.onboarding.guide.status_page.congratulation_p3.content',
-         { contact_support_link: a(
-           { 'data-uv-trigger': 'contact',
-             href: 'mailto:help@sharetribe.com',
-             title: t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_title'),
-           },
+        { contact_support_link: a(
+          { 'data-uv-trigger': 'contact',
+            href: 'mailto:help@sharetribe.com',
+            title: t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_title'),
+          },
            t('web.admin.onboarding.guide.status_page.congratulation_p3.contact_support_link')),
-         })),
+        })),
   ]);
 
   const description = nextPage ? todoDescPartial : doneDescPartial;
