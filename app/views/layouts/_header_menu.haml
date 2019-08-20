@@ -8,18 +8,21 @@
     = icon_map_tag(icons, "new_listing", ["icon-with-text"])
     = t("homepage.index.post_new_listing")
 
-  = link_to about_infos_path do
-    = icon_map_tag(icons, "information", ["icon-with-text"])
-    = t("header.about")
+  - if @current_community.configuration.display_about_menu?
+    = link_to about_infos_path do
+      = icon_map_tag(icons, "information", ["icon-with-text"])
+      = t("header.about")
 
-  = link_to new_user_feedback_path do
-    = icon_map_tag(icons, "feedback", ["icon-with-text"])
-    = t("header.contact_us")
+  - if @current_community.configuration.display_contact_menu?
+    = link_to new_user_feedback_path do
+      = icon_map_tag(icons, "feedback", ["icon-with-text"])
+      = t("header.contact_us")
 
-  - with_invite_link do
-    = link_to new_invitation_path do
-      = icon_map_tag(icons, "invite", ["icon-with-text"])
-      = t("header.invite")
+  - if @current_community.configuration.display_invite_menu?
+    - with_invite_link do
+      = link_to new_invitation_path do
+        = icon_map_tag(icons, "invite", ["icon-with-text"])
+        = t("header.invite")
 
   - Maybe(@current_community).menu_links.each do |menu_links|
     - menu_links.each do |menu_link|
