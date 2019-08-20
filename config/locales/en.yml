@@ -505,7 +505,7 @@ en:
             pending_ext: "Waiting Stripe payment"
             payment_intent_requires_action: Pending
             payment_intent_action_expired: Expired
-            payment_intent_failed: Stripe payment failed
+            payment_intent_failed: "Stripe payment failed"
         not_available: "Not available"
       conversations:
         conversations: Conversations

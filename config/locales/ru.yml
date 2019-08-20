@@ -149,7 +149,7 @@ ru:
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
         custom_head_script: "Собственный скрипт"
         custom_head_script_instructions_text: "Данный скрипт находится внутри <head> tag каждой страницы и может быть использован чтобы вставить собственный CSS, JavaScript или HTML. Имейте ввиду что дальнейшие изменения системы Sharetribe могут сделать его несовместимым."
-        current_image: ~
+        current_image: "Текущее изображение:"
       edit_text_instructions:
         edit_text_instructions: Инструкция
       edit_welcome_email:
@@ -178,7 +178,7 @@ ru:
         successfully_saved_name: ~
         set_sender_name: ~
         change_sender_name: ~
-        change_sender_prompt: ~
+        change_sender_prompt: "%{change_email_link} или %{change_name_link} "
         status: "Состояние: %{status}"
         status_verified: "Подтверждено - используется"
         status_error: ~
@@ -197,7 +197,7 @@ ru:
       getting_started:
         getting_started: "Гид для начала работы"
       available_languages:
-        cs: ~
+        cs: Чешский
         da-DK: Датский
         de: Немецкий
         en: Английский
@@ -219,11 +219,11 @@ ru:
         pt-PT: Португальский
         ru: Русский
         sv: Шведский
-        th-TH: ~
+        th-TH: "Тайский (Таиланд)"
         tr-TR: Турецкий
-        vi: ~
+        vi: Вьетнамский
         zh: Китайский
-        zh-TW: ~
+        zh-TW: "Китайский (Тайвань)"
       settings:
         settings: Настройки
         general: Основные
@@ -286,27 +286,27 @@ ru:
         ban_user_confirmation: "Это удалит участника из проекта и доступ из этого аккаунта будет не возможен. Вы уверены что хотите продолжить?"
         unban_user_confirmation: ~
         ban_me_error: "Вы не можете заблокировать сами себя"
-        search: ~
+        search: Поиск
         search_by_name_email: ~
-        reset_search: ~
+        reset_search: "Показать все"
         for_search_terms: ~
         this_makes_the_user_an_admin: ~
         status_filter:
-          all: ~
+          all: "Все статусы"
           selected: ~
           selected_js: ~
-          admin: ~
-          banned: ~
+          admin: Админ
+          banned: Отключено
           posting_allowed: ~
-          accepted: ~
-          unconfirmed: ~
-          pending: ~
+          accepted: Принято
+          unconfirmed: "не подтверждено"
+          pending: "В ожидании"
         this_user_hasnt_confirmed_their_email_address: ~
-        unconfirmed_user: ~
-        resend: ~
-        cancel: ~
+        unconfirmed_user: "не подтвержденный пользователь:%{name} "
+        resend: "Отправить повторно"
+        cancel: Отменить
         user_didnt_complete_the_signup_process: ~
-        pending_user: ~
+        pending_user: "В ожидании: %{name} "
       new_layout:
         new_layout: "Новый макет"
         description_roadmap_new: "Когда для вашего маркетплейса будут доступны новые компоненты макета, вы сможите выбрать, использовать новые или старые компоненты. Вы сможете переключать свои настройки в любое время с этой страницы. Рекомендуется всегда использовать новую версию, поскольку старые компоненты со временем могут быть отключены. В случае, если компонент, который вы используете в настоящее время, будет планироваться отключить, вам сообщат заранее."
@@ -341,7 +341,7 @@ ru:
         invalid_facebook_connect_secret: "Client secret должен содержать только цифры и буквы от a до f."
         enable_facebook_login: ~
         save: "Сохранить настройки"
-        add_another_image: ~
+        add_another_image: "Добавить другое изображение"
         google_connect: ~
         google_instructions_link_text: ~
         google_developers_console: ~
@@ -404,7 +404,7 @@ ru:
         robots_info: ~
         robots_info_link_text: ~
         robots_info_2: ~
-        save: ~
+        save: "Сохранить настройки"
       analytics:
         analytics: Аналитика
         google_analytics_key: "Google Analytics tracking ID"
@@ -438,8 +438,8 @@ ru:
         about_page: "о странице"
       default_menu_links:
         title: ~
-        about_link_title: ~
-        contact_link_title: ~
+        about_link_title: "О нас"
+        contact_link_title: "Свяжитесь с нами"
         invite_link_title: ~
         info: ~
         display_about: ~
@@ -454,18 +454,18 @@ ru:
         processing_export: ~
         transactions: "Посмотреть транзакции"
         search_by_title_parties: ~
-        search: ~
-        reset_search: ~
+        search: Поиск
+        reset_search: "Показать все"
         status_filter:
-          all: ~
+          all: "Все статусы"
           selected: ~
           selected_js: ~
           free: ~
-          confirmed: ~
-          paid: ~
-          canceled: ~
+          confirmed: Завершено
+          paid: Оплачено
+          canceled: Отменено
           preauthorized: ~
-          rejected: ~
+          rejected: Отклонено
           payment_intent_requires_action: ~
           payment_intent_action_expired: ~
         headers:
@@ -478,7 +478,7 @@ ru:
           initiated_by: Создатель
           other_party: "Другая сторона"
         status:
-          conversation: ~
+          conversation: Обсуждение
           free: Диалог
           pending: Ожидание
           preauthorized: Предавторизация
@@ -514,99 +514,99 @@ ru:
             initiated: "Ожидание платежа Stripe"
             pending_ext: "Ожидание платежа Stripe"
             payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
+            payment_intent_action_expired: Истекло
             payment_intent_failed: ~
         not_available: "Не доступно"
       conversations:
-        conversations: ~
+        conversations: Обсуждения
         headers:
           started_from: ~
-          status: ~
-          started: ~
-          last_activity: ~
-          initiated_by: ~
-          other_party: ~
+          status: Статус
+          started: Запущен
+          last_activity: "Последняя активность"
+          initiated_by: Создатель
+          other_party: "Поставщик "
         participants: ~
         profile: ~
         search_by_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Поиск
+        reset_search: "Показать все"
         for_keyword: ~
       testimonials:
-        testimonials: ~
+        testimonials: Отзывы
         no_testimonials_found: ~
         displaying_xx_reviews: ~
         search_keyword: ~
-        search: ~
-        reset_search: ~
+        search: Поиск
+        reset_search: "Показать все"
         for_keyword: ~
         headers:
           transaction: ~
           author: ~
           receiver: ~
-          status: ~
-          grade: ~
-          text: ~
+          status: Статус
+          grade: Оценка
+          text: Текст
         status:
-          waiting: ~
-          skipped: ~
-          published: ~
-          blocked: ~
+          waiting: "Ожидает рассмотрения "
+          skipped: "Пропущено "
+          published: Опубликовано
+          blocked: Заблокировано
         status_filter:
           selected: ~
           all: ~
-          published: ~
-          positive: ~
-          negative: ~
-          skipped: ~
-          waiting: ~
-          blocked: ~
+          published: Опубликовано
+          positive: Положительный
+          negative: Отрицательный
+          skipped: "Пропущено "
+          waiting: "В ожидании"
+          blocked: Заблокировано
           selected_js: ~
         form:
           review_text: ~
-          save: ~
-          cancel: ~
-          delete_review: ~
-          block_review: ~
+          save: Сохранить
+          cancel: Отменить
+          delete_review: "Удалить обзор"
+          block_review: "Блокировать обзор"
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
       invitations:
-        invitations: ~
+        invitations: Приглашения
         used:
-          "yes": ~
+          "yes": Да
           "no": ~
         headers:
-          sent_by: ~
-          message: ~
-          sent_to: ~
-          used: ~
-          date_sent: ~
+          sent_by: "Отправлено от"
+          message: Письмо
+          sent_to: "Отправить на"
+          used: Использовано
+          date_sent: "Дата отправки"
       listings:
-        listings: ~
+        listings: Проживания
         search_by_title_author_category: ~
-        search: ~
-        reset_search: ~
+        search: Поиск
+        reset_search: "Показать все"
         export_all_as_csv: ~
         processing_export: ~
         status:
-          all: ~
+          all: "Все статусы"
           selected_js: ~
-          open: ~
-          closed: ~
-          expired: ~
+          open: Открыто
+          closed: Закрыто
+          expired: Истекло
           approval_pending: ~
           approval_rejected: ~
         headers:
-          title: ~
-          author: ~
-          created: ~
-          updated: ~
-          category: ~
-          status: ~
-        open: ~
-        closed: ~
-        expired: ~
+          title: Заглавие
+          author: Автор
+          created: Создано
+          updated: Обновлено
+          category: Категория
+          status: Статус
+        open: Открыто
+        closed: Закрыто
+        expired: Истекло
         approved: ~
         approval_pending: ~
         approval_rejected: ~
@@ -616,14 +616,14 @@ ru:
           reject: ~
           cancel: ~
       user_fields:
-        user_fields: ~
+        user_fields: "Поля пользователья"
       footer:
         footer: ~
         offer_pro: ~
         upgrade_plan_link: ~
         menu_links: ~
-        language: ~
-        title: ~
+        language: Язык
+        title: Название
         url: ~
         add: ~
         save: ~
@@ -634,12 +634,12 @@ ru:
         title_placeholder: ~
         url_placeholder: ~
         style:
-          dark: ~
-          light: ~
+          dark: Тёмная
+          light: Светлый
           marketplace_color: ~
           logo: ~
         social:
-          title: ~
+          title: Название
           url: ~
       domain:
         domain: ~
@@ -648,7 +648,7 @@ ru:
         upgrade_pro_plan_link: ~
         your_marketplace_address_is: ~
         would_you_like_to_change_address: ~
-        contact_us: ~
+        contact_us: "Свяжитесь с нами"
         you_can_now_use_a_custom_domain: ~
         would_you_like_to_change_domain: ~
     custom_fields:
@@ -704,23 +704,23 @@ ru:
         dropdown: "Выпадающее меню"
         checkbox_group: Флажок
         date: Дата
-        file: ~
-        location: ~
+        file: Файл
+        location: "Место проживания"
     person_custom_fields:
       saving_failed: ~
       index:
-        user_fields: ~
-        field_title: ~
-        field_type: ~
+        user_fields: " Поля пользователья"
+        field_title: "Наименование поля"
+        field_type: "Тип поля"
         signup: Зарегистрироваться
         public: Публичный
-        add_new_field: ~
-        save: ~
-        cancel: ~
-        minimum_value: ~
-        maximum_value: ~
+        add_new_field: "Добавить новое поле:"
+        save: Сохранить
+        cancel: Отмена
+        minimum_value: Минимум
+        maximum_value: Максимум
         allow_decimals: ~
-        add_option: ~
+        add_option: "Добавить опцию"
       new:
         new_user_field: ~
       form:
@@ -857,7 +857,7 @@ ru:
         night: "За ночь"
         week: "За неделю"
         month: "За месяц"
-        unit: ~
+        unit: "За единицу"
       can_not_find: "Не удается найти тип заказа с ID: %{id}"
       add_custom_unit: "+ Добавить пользовательскую ценовую единицу..."
       delete_custom_unit: удалить
@@ -942,8 +942,8 @@ ru:
       stripe_form:
         add_your_api_keys: ~
         how_to_get_these: ~
-        publishable_key_example: ~
-        secret_key_example: ~
+        publishable_key_example: "На пример:%{api_publishable_key_example} "
+        secret_key_example: "На пример:%{api_secret_key_example} "
         save_api_keys: ~
         invalid_secret: ~
         invalid_publishable: ~
@@ -1064,8 +1064,8 @@ ru:
       you_will_get_label: "Вы получите:"
       total_label: "Итог:"
       total_value: "%{seller_gets}*"
-      total_value_paypal: ~
-      total_value_stripe: ~
+      total_value_paypal: "%{seller_gets}*"
+      total_value_stripe: "%{seller_gets} "
       paypal_fee: ~
       paypal_fee_info: "* Исключает %{link}"
       shipping_price_label: "Доставка:"
@@ -1339,19 +1339,19 @@ ru:
       buyer_service_fee: ~
       you_will_get: "Всего:"
       new_payment: ~
-      price_per_unit_type: ~
+      price_per_unit_type: "Цена за %{unit_type} "
       quantity: "Количество:"
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "Вам оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> от %{payer_full_name}. Здесь ваша квитанция."
       stripe:
         you_have_received_new_payment: ~
     payment_receipt_to_payer:
-      receipt_of_payment: ~
-      you_have_made_new_payment: ~
+      receipt_of_payment: "Квитанция об оплате"
+      you_have_made_new_payment: "Вы оплатили <b>%{payment_sum}</b> за <b>%{listing_title}</b> %{recipient_full_name}. Здесь ваша квитанция."
       product: Товар
-      price_per_unit_type: ~
+      price_per_unit_type: "Цена за %{unit_type}"
       duration: Время
-      quantity: ~
-      subtotal: ~
+      quantity: Количество
+      subtotal: Подитог
       buyer_service_fee: ~
       total: Всего
       price: Цена
@@ -1950,11 +1950,11 @@ ru:
       show_in_updates_email_loading: загрузка...
       show_in_updates_email_error: "Не удалось установить связь с сервером. Попробуйте еще раз после перезагрузки страницы."
       show_in_updates_email_success: "Эта публикация будет показана в следующей автоматической рассылке отправляемой участникам"
-      listing_is_pending: "Объявление проходит модерацию"
+      listing_is_pending: "Публикация проходит модерацию"
       listing_is_rejected: ~
       approve_listing: ~
       reject_listing: ~
-      delete_listing: "Удалить объявление"
+      delete_listing: "Удалить публикацию"
     map:
       open_in_google_maps: "Открыть карту Google"
     error:
@@ -2058,7 +2058,7 @@ ru:
         comma_separate: "(разделённые запятыми)"
         tags: Метки
       title:
-        listing_title: "Заголовок объявления"
+        listing_title: "Заголовок публикации"
       valid_until:
         valid_until: "Дата окончания"
       valid_until_radio_buttons:
@@ -2115,9 +2115,9 @@ ru:
       payment_help: "Информация о платежах"
       unable_load_availability: "Не удалось загрузить информацию о доступности. Пожалуйста, попробуйте еще раз."
       booking_date: ~
-      select_one: ~
-      start_time: ~
-      end_time: ~
+      select_one: "Выберите одно"
+      start_time: "Время начала"
+      end_time: "Время заверешения"
       marketplace_fees_may_apply: ~
     new:
       listing: список
@@ -2139,7 +2139,7 @@ ru:
       night: "Количество недель:"
       week: "Количество недель:"
       month: "Количество месяцев:"
-      unit: ~
+      unit: "Количество единиц:"
       custom: "Количество:"
     quantity_placeholder: Количество
     please_comment: Комментарий
@@ -2191,7 +2191,7 @@ ru:
       night: ночь
       week: неделя
       month: месяц
-      unit: ~
+      unit: Отдел
     verification_required:
       verification_required: "Требуется подтверждение"
   listing_conversations:
@@ -2217,10 +2217,10 @@ ru:
       address_country: Страна
       address_name: ~
       address_city: Город
-      address_state: ~
+      address_state: Область
       address_street1: ~
       address_street2: ~
-      address_postal_code: ~
+      address_postal_code: "Почтовый индекс"
   mapview:
     index:
       all_categories: "Все категории"
@@ -2311,8 +2311,8 @@ ru:
     paypal_permission_granted_summary: "Разрешение для комиссий за транзакции получено"
   paypal:
     pay_with_paypal: "Перейти к оплате"
-    checkout_with: ~
-    or_pay_with_paypal: ~
+    checkout_with: "Расчет через "
+    or_pay_with_paypal: или
     checkout_with_paypal: "Расчет через PayPal"
     cancel_succesful: "PayPal платеж успешно отменен."
     transaction:
@@ -2532,7 +2532,7 @@ ru:
       image_is_processing: "Подождите. Изображение вашего профиля обрабатывается. Будет готово через минуту или две."
       shown_in_your_public_profile: ~
       editing_profile_of: ~
-      format_markdown_link: ~
+      format_markdown_link: "форматируйте ваше описание используя Markdown"
       format_markdown: ~
     save_information: Сохранить
   shipping_address:
@@ -2704,7 +2704,7 @@ ru:
     quantity: "Количество: %{quantity}"
     unit_price: "Цена единицы: %{unit_price}"
     total: "Всего:"
-    total_to_pay: ~
+    total_to_pay: "Сумма платежа:"
   unit:
     day: день
     days: дней
@@ -2736,7 +2736,7 @@ ru:
         start_time: ~
         end_time: ~
         add_another_time_slot: ~
-        save: ~
+        save: Сохранить
     no_listings:
       sorry: "Не найдено результатов, совпдающих с вашим запросом."
       try_other_search_terms: "Изменить условия поиска?"
@@ -2777,6 +2777,12 @@ ru:
         few: Участников
         many: Участника
         other: Участников
+      transaction:
+        zero: " транзакции"
+        one: " транзакция"
+        few: " транзакции"
+        many: " транзакции"
+        other: транзакции
     previous_label: "&#8592; Назад"
     next_label: "Далее &#8594;"
     page_gap: "&hellip:"
@@ -2802,15 +2808,15 @@ ru:
   stripe_accounts:
     admin_account_not_connected: ~
     contact_admin_link_text: ~
-    you_are_ready_to_accept_payments: ~
-    commission: ~
+    you_are_ready_to_accept_payments: "Теперь вы готовы принимать платежи!"
+    commission: "%{commission} %"
     pay_with_stripe: ~
-    add_and_pay: ~
+    add_and_pay: "Подтверждение оплаты"
     card_not_stored: ~
     missing_payment: ~
     stripe_bank_connected: ~
     stripe_can_accept: ~
-    stripe_credit_card: ~
+    stripe_credit_card: "Кредитная карта"
     paypal: ~
     paypal_connected: ~
     paypal_can_accept: ~
@@ -2823,31 +2829,31 @@ ru:
     stripe_account_pending_verification_info: ~
     form_new:
       need_info: ~
-      select_country: ~
-      legal_name: ~
-      first_name: ~
-      last_name: ~
+      select_country: "Выбрать страну"
+      legal_name: "Юридическое имя"
+      first_name: Имя
+      last_name: Фамилия
       first_name_kana: ~
       last_name_kana: ~
       first_name_kanji: ~
       last_name_kanji: ~
-      country: ~
-      birth_date: ~
+      country: Страна
+      birth_date: "Дата рождения"
       ssn_last_4: ~
-      personal_id_number: ~
-      address_country: ~
-      address_state: ~
-      address_province: ~
-      address_city: ~
-      address_postal_code: ~
-      address_line1: ~
+      personal_id_number: "Личный ID номер"
+      address_country: Страна
+      address_state: Область
+      address_province: Область
+      address_city: Город
+      address_postal_code: "Почтовый индекс"
+      address_line1: "Название улицы"
       tos_link: ~
       tos_link_title: ~
-      save_details: ~
-      edit: ~
-      cancel: ~
-      gender: ~
-      phone_number: ~
+      save_details: "Сохранить данные"
+      edit: "Редактировать данные"
+      cancel: Отмена
+      gender: Пол
+      phone_number: "Номер телефона"
       address_kana_postal_code: ~
       address_kana_state: ~
       address_kana_city: ~
@@ -2858,25 +2864,25 @@ ru:
       address_kanji_city: ~
       address_kanji_town: ~
       address_kanji_line1: ~
-      male: ~
-      female: ~
+      male: мужской
+      female: женский
     form_bank:
-      bank_account_number: ~
+      bank_account_number: "Номер банковского счета"
       bank_routing_number: ~
-      bank_routing_1: ~
+      bank_routing_1: "Банковский код "
       bank_routing_2: ~
-      bank_currency: ~
+      bank_currency: "Валюта банковского счета"
       update_also_bank_account: ~
       messages:
-        account_number: ~
+        account_number: "Номер счета"
         routing_number: ~
-        bank_code: ~
+        bank_code: "Банковский код "
         branch_code: ~
         transit_number: ~
         institution_number: ~
         format_varies_by_bank: ~
         bsb: ~
-        error_message: ~
+        error_message: "Недопустимый формат"
         clearing_code: ~
         sort_code: ~
         must_match: ~
@@ -2890,7 +2896,7 @@ ru:
       need_verification: ~
     form_pin:
       social_insurance_number: ~
-      social_security_number: ~
+      social_security_number: "Номер Социального Страхования"
       ssn_last_4: ~
       hong_kong_identity_card: ~
       singapore_identity_card: ~
@@ -2898,7 +2904,7 @@ ru:
         social_insurance_number: ~
   payment_settings:
     title: ~
-    bank_account: ~
+    bank_account: "Банковский счет"
     paypal: ~
     bank_account_details: ~
     add_bank_details: ~
