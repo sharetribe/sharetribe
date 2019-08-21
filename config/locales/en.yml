@@ -2624,6 +2624,7 @@ en:
       shorter: "%b %e at %H:%M"
       short_date: "%b %e, %Y"
       hours_only: "%l:%M %P"
+      csv: "%Y-%m-%d %H:%M:%S"
   timestamps:
     day_ago: "%{count} day ago"
     days_ago: "%{count} days ago"
