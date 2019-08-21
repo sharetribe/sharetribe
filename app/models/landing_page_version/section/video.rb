@@ -57,11 +57,11 @@ module LandingPageVersion::Section
     end
 
     def autoplay=(value)
-      if value.blank? || ['0', false, 'false', 'no'].include?(value)
-        @autoplay = false
+      @autoplay = if value.blank? || ['0', false, 'false', 'no'].include?(value)
+        false
       else
-        @autoplay = value
-      end
+        value
+                  end
     end
 
     def i18n_key
