@@ -106,7 +106,7 @@ class Admin::Communities::MembershipService
           address: user.location ? user.location.address : "",
           email_address: nil,
           email_address_confirmed: nil,
-          joined_at: membership.created_at && I18n.l(membership.created_at, format: :csv),
+          joined_at: membership.created_at && I18n.l(membership.created_at, format: '%Y-%m-%d %H:%M:%S'),
           status: membership.status,
           is_admin: membership.admin,
           accept_emails_from_admin: nil,
