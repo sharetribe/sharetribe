@@ -1997,8 +1997,8 @@ ko:
         per: ~
         per_day: 일일
         mass: "piece, kg, l, m2, ..."
-        time: "시, 날, 월, ..."
-        long_time: "주, 월, ..."
+        time: ~
+        long_time: ~
         after_service_fee_you_will_get: "%{service_name}및 결제 회사 수수료를 제외하면  %{sum_with_currency} 금액을 받게 될겁니다"
         no_service_fee_you_will_get_paypal_text: "%{paypal_fee_info_link}는 가격에서 공제됩니다."
         no_service_fee_you_will_get_payment_text: "%{payment_fee_info_link}는 가격에서 공제됩니다."
@@ -2586,8 +2586,8 @@ ko:
       april: 4
       may: 5
       june: 6
-      july: 7
-      august: 8
+      july: ~
+      august: ~
       september: 9
       october: 10
       november: 11
@@ -2599,8 +2599,8 @@ ko:
       april: 4
       may: 5
       june: 6
-      july: 7
-      august: 8
+      july: ~
+      august: ~
       september: 9
       october: 10
       november: 11
@@ -2683,7 +2683,7 @@ ko:
         day: 일
         night: 박
         week: 주
-        month: 월
+        month: ~
       edit_availability_header: 가능여부
       save_and_close_availability_editing: "저장후 닫기"
       confirm_discarding_unsaved_availability_changes_explanation: "가용성 정보에 대한 변경 사항을 저장하지 않았습니다. 계속 진행하면 이러한 변경 사항이 손실됩니다."
