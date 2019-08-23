@@ -1,0 +1,75 @@
+.email-body {
+  border-spacing: 0;
+  border-collapse: collapse;
+  height: 100%;
+  background-color: #ffffff;
+  width: 100%;
+  &> tbody > tr > td {
+    padding: 0px;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  .email-container {
+    width: 400px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    &> tbody > tr > td {
+      padding: 0px;
+    }
+    .logo {
+      text-align: center;
+    }
+    .community-name {
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 5px;
+      border-bottom: 1px dotted grey;
+      color: grey;
+      font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 28px;
+    }
+    .person-name{
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      color:  #3c3c3c;
+      font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-size:14px;
+      line-height:20px;
+    }
+    .unsubscribe {
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 30px;
+      border-top: 1px dotted grey;
+      color: gray;
+      font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+    .invitation {
+      text-align: left;
+      padding-top: 10px;
+      padding-bottom: 30px;
+      border-top: 1px dotted grey;
+      color: gray;
+      font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+    .non-whitelabel-branding {
+      text-align: left;
+      width: 100%;
+      max-width: 602px;
+      color: gray;
+      font-size: 0.8125em;
+      text-align: center;
+      &.link-to-sharetribe {
+        padding-top: 15px;
+      }
+      &.link-to-learn-more {
+        padding-bottom: 15px;
+      }
+    }
+  }
+}

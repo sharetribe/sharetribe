@@ -94,9 +94,9 @@ class TransactionMailer < ActionMailer::Base
         transaction.listing_title
       end
 
-      premailer_mail(:to => seller_model.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_payment.new_payment")) do |format|
+      mail(:to => seller_model.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_payment.new_payment")) do |format|
         format.html {
           render "payment_receipt_to_seller", locals: {
                    conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction.id)),
@@ -117,7 +117,8 @@ class TransactionMailer < ActionMailer::Base
                    payer_given_name: PersonViewUtils.person_display_name_for_type(buyer_model, "first_name_only"),
                    gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(seller_model.locale)
-                 }
+                 },
+                 layout: 'email-v2'
         }
       end
     end
