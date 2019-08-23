@@ -1690,7 +1690,7 @@ en:
       positive_number: "Insert a number."
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
       section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
-      listing_with_this_id_does_not_exist: "Listing with this ID does not exist"
+      listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
