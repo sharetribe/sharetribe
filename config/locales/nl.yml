@@ -95,8 +95,8 @@ nl:
         transaction_agreement_checkbox_label_description: "De tekst zal getoond worden naast de checkbox in het checkout formulier. De gebruiker moet de checkbox aanvinken om verder te gaan met de transactie. Een voorbeeld label zou kunnen zijn: 'Door deze optie te selecteren aanvaard ik de overeenkomst'."
         transaction_agreement_text_header: "Overeenkomst tekst"
         transaction_agreement_description: "Dit is de inhoud van de eigenlijke overeenkomst die gebruikers moeten aanvaarden. Deze inhoud wordt weergegeven wanneer de gebruiker de \"%{read_more}\" link klikt naast de overeenkomst hoofding."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Voorwaarden, privacy beleid en ander statische inhoud."
+        terms_privacy_policy_and_static_content_infotext: "Je kunt tot vier pagina's met statische content bewerken. Gebruikers kunnen deze vinden door op de \"Over\" link in de bovenste menu balk te klikken."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bewerk look & feel marktplaats %{community_name}"
         community_logo: Logo
@@ -119,8 +119,8 @@ nl:
         logo_mobile_icon_instructions_text_with_dimensions: "Dit vierkante logo verschijnt op het home screen van mobiele apparaten wanneer mensen je site bookmarken. De dimensies dienen minstens %{width}x%{height} pixels te zijn."
         cover_photo_visibility: "Cover afbeelding wordt getoond op de homepagina voor gebruikers die niet ingelogd zijn."
         cover_photo_instructions_text_with_dimensions: "De afbeelding zal verkleind worden naar %{width}x%{height} pixels. Grote afbeeldingen zullen in twee gesplitst worden. %{see_how_it_looks_like}"
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Hebben we voor je geregeld"
+        cover_photo_ready_made: "Ben je op zoek naar kant-en-klare cover foto's? Of wil je wat inspiratie en websites waar je goede cover foto's kunt vinden? %{link}."
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
@@ -323,7 +323,7 @@ nl:
         twitter_handle_placeholder: gebruikersnaam
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
         facebook_connect: "Facebook Login"
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
         facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
         facebook_instructions_link_text: "Zie instructies om Facebook Login te configureren."
@@ -336,7 +336,7 @@ nl:
         add_another_image: "Voeg nog een afbeelding toe"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
-        google_developers_console: ~
+        google_developers_console: "Google Developers Console"
         google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
         google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe."
         enable_google_login: "Sta gebruikers toe om in te loggen met hun Google account"
@@ -344,7 +344,7 @@ nl:
         google_connect_secret: "Google client secret"
         linkedin_connect: "LinkedIn Sign in"
         linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In."
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
         linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
         linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
         enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
@@ -760,7 +760,7 @@ nl:
       emails_title: E-mails
       subscription: Abonnement
       preview: "Preview site"
-      whats_new: ~
+      whats_new: "Wat is er nieuw?"
     listing_shapes:
       availability_title: Beschikbaarheid
       read_more: "Lees meer over automatische beschikbaarheidsmanagement."
@@ -1059,7 +1059,7 @@ nl:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: "PayPal's verwerkingskosten"
       paypal_fee_info: "* exclusief %{link}"
       shipping_price_label: "Verzenden:"
       stripe-fee_label: Betalingsverwerkingskosten
@@ -1748,22 +1748,22 @@ nl:
     logged_in_notifications_icon:
       notifications: Meldingen
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: "Hulp bij het opmaken van tekst met Markdown"
+      description: "Markdown is een simpele manier om tekst op te maken dat er altijd goed uitziet, op ieder apparaat. Het doet geen bijzondere opmaak, zoals  veranderen van lettergrootte, kleur of lettertype, maar juist heel simpel, met gebruik van reeds bekende symbolen op het toetsenbord."
+      formatting: Opmaak
+      result: Resultaat
+      h1: H1
+      h2: H2
+      h3: H3
+      italic: cursief
+      bold: vet
+      underline: onderstrepen
+      strikethrough: doorstrepen
+      inline_link: "link in de tekst"
+      list: Lijst
+      one: Een
+      two: Twee
+      three: Drie
     mobile_logged_in:
       admin: Beheer
       go_to_your_profile_page: Profiel
@@ -1922,9 +1922,9 @@ nl:
       are_you_sure: "Weet je zeker dat je het commentaar wilt verwijderen?"
     comment_form:
       ask_a_question: "Plaats een reactie als u meer wilt weten over dit item. Andere gebruikers kunnen uw reactie zien."
-      log_in: "log in"
+      log_in: inloggen
       send_comment: "Verzend reactie"
-      to_send_a_comment: "om nieuwe reactie te verzenden."
+      to_send_a_comment: "om een nieuwe reactie te verzenden."
       write_comment: "Schrijf een nieuwe reactie:"
       you_cannot_send_a_new_comment_because_listing_is_closed: "U kunt geen nieuw commentaar geven want de advertentie is gesloten"
       you_must: "U moet"
@@ -1968,7 +1968,7 @@ nl:
       description:
         detailed_description: Omschrijving
         youtube_info: "Als je beschrijving YouTube links bevat, zullen de videos onder de beschrijving worden getoond."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Je kunt %{link} . Als je beschrijving YouTube links bevat, zullen de videos onder de beschrijving worden weergegeven."
       destination:
         destination: Bestemming
       form_content:
@@ -2521,8 +2521,8 @@ nl:
       image_is_processing: "Je profielfoto wordt verwerkt. Laadt de pagina aub dadelijk even opnieuw."
       shown_in_your_public_profile: "(weergegeven in je publieke profiel)"
       editing_profile_of: "Je wijzigt nu het profiel van %{name}"
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "je beschrijving opmaken met Markdown"
+      format_markdown: "Je kunt %{link}."
     save_information: "Informatie opslaan"
   shipping_address:
     shipping_address: "Verzend adres"

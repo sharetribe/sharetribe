@@ -2610,9 +2610,9 @@ ko:
     format: mm/dd/yyyy
   time:
     formats:
-      short: "%Y,%b,%e %H:%M"
-      shorter: "%b,%e %H:%M"
-      short_date: "%Y,%b,%e"
+      short: "%Y년,%b,%e일 %H:%M"
+      shorter: "%b,%e일 %H:%M"
+      short_date: "%Y년,%b,%e일"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} 일 전"
