@@ -21,6 +21,9 @@
 
   var onCtaSelect = function(e) {
     var cta_input = $("input.cta-select")[0];
+    if (!cta_input) {
+      return;
+    }
     var elems = $(".cta-enabled *");
     if(!cta_input.checked) {
       elems.attr("disabled", true).addClass("disabled");
