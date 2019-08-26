@@ -31,4 +31,5 @@
 .row
   .col-12
     = form.label :text
+    = render partial: 'layouts/info_text', locals: { text: t(".info")}
     = form.text_field :text
