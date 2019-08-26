@@ -94,13 +94,12 @@ module UserService::API
       Person.where(community_id: community_id, locale: locales).update_all(locale: default_locale)
     end
 
-    # private
-
-    def generate_username(given_name, family_name, community_id)
-      base = (given_name.strip + family_name.strip[0]).to_url.delete('-')[0...18]
-      generate_username_from_base(base, community_id)
+    def generate_username(given_name, family_name, community_id, default_username = "username")
+      base = (given_name.strip + family_name.strip[0].to_s).to_url.delete('-')[0...18]
+      generate_username_from_base(base.presence || default_username, community_id)
     end
-    private_class_method :generate_username
+
+    # private
 
     def generate_username_from_base(base, community_id)
       taken = fetch_taken_usernames(base, community_id)

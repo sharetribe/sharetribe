@@ -446,7 +446,6 @@ Rails.application.routes.draw do
 
       resources :people, except: [:show] do
         collection do
-          get :check_username_availability
           get :check_email_availability
           get :check_email_availability_and_validity
           get :check_invitation_code

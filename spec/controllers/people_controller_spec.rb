@@ -152,8 +152,8 @@ describe PeopleController, type: :controller do
       community_host(community)
       person_count = Person.count
       username = generate_random_username
-      post :create, params: {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-      expect(Person.find_by(username: username, community_id: community.id)).not_to be_nil
+      post :create, params: {:person => {:display_name => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
+      expect(Person.find_by(display_name: username, community_id: community.id)).not_to be_nil
       expect(Person.count).to eq(person_count + 1)
     end
 

@@ -323,4 +323,53 @@ describe Person, type: :model do
       expect(person.custom_field_values.count).to eq 0
     end
   end
+
+  describe 'username generation' do
+    let(:community) { FactoryGirl.create(:community) }
+    it 'works' do
+      # blank names
+      person = FactoryGirl.create(:person, :given_name => '', :family_name => '', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'username'
+
+      # incremental
+      person = FactoryGirl.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'joes'
+      1.upto(20) do |index|
+        person = FactoryGirl.create(:person, :given_name => 'Joe', :family_name => 'Smith', :username => '', community: community)
+        expect(person).to be_valid
+        expect(person.username).to eq "joes#{index}"
+      end
+
+      # long first name + increment
+      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'joelongfirstnamehe'
+      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'joelongfirstnamehe1'
+      person = FactoryGirl.create(:person, :given_name => 'Joe Long First Name Here', :family_name => 'Smith', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'joelongfirstnamehe2'
+
+      # Kanji
+      person = FactoryGirl.create(:person, :given_name => 'あべ', :family_name => 'しんぞう', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'abesi'
+
+      # Cyrillic
+      person = FactoryGirl.create(:person, :given_name => 'Ащьф', :family_name => 'Лштшфум', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'ashchfl'
+      person = FactoryGirl.create(:person, :given_name => 'Александр', :family_name => 'Мишкин', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'alieksandrm'
+
+      # diacritics
+      person = FactoryGirl.create(:person, :given_name => 'Arturs Krišjānis', :family_name => 'Kariņš', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq 'arturskrisjanisk'
+    end
+  end
 end
