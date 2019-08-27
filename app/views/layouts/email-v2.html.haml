@@ -17,7 +17,7 @@
                   %tr
                     %td.logo
                       = image_tag community.wide_logo.url(:header), alt: community.full_name(I18n.locale), style: 'margin: 0 auto;'
-                - if @community
+                - elsif @community
                   %tr
                     %td.community-name
                       %font
@@ -28,9 +28,13 @@
                       %font{body_font}
                         = t("emails.common.hey", :name => PersonViewUtils.person_display_name_for_type(@recipient, "first_name_only"))
 
+                %tr
+                  %td.email-content{id: SecureRandom.hex}
+                    = yield
 
-                %span{id: SecureRandom.hex}
-                  = yield
+                %tr
+                  %td.best-regards
+                    = t("emails.common.best_regards")
 
                 - if @show_branding_info
                   = render :partial => "layouts/email-v2/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-auto"}
