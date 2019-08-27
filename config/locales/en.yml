@@ -1464,6 +1464,7 @@ en:
       unsubscribe_from_these_emails: "unsubscribe from these emails"
       unsubscribe_from_invitation_emails_info: "You have received this email because a member of %{service_name} has invited you to join them."
       unsubscribe_from_invitation_emails: "Unsubscribe from invitation emails to join %{service_name}"
+      best_regards: "Best regards from %{service_name}"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
       has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
@@ -1514,6 +1515,11 @@ en:
       you_have_received_new_payment: "You have been paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> by %{payer_full_name}. Here is your receipt."
       stripe:
         you_have_received_new_payment: "The amount of <b>%{payment_sum}</b> has been paid for <b>%{listing_title}</b> by %{payer_full_name}. The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
+    payment_receipt_to_seller_v2:
+      headline: "Hi, %{seller_name}, You have been paid %{payment_sum} for %{listing_link} by %{payer_name}."
+      main_text: "Here is your receipt."
+      main_text_stripe: "The money is being held by %{service_name} until the order is marked as completed. Here is your receipt."
+      price_breakdown: "Price breakdown"
     payment_receipt_to_payer:
       receipt_of_payment: "Receipt of payment"
       you_have_made_new_payment: "You have paid <b>%{payment_sum}</b> for <b>%{listing_title}</b> to %{recipient_full_name}. Here is a receipt of the payment."
