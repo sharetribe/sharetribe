@@ -4,6 +4,7 @@
   height: 100%;
   background-color: #ffffff;
   width: 100%;
+  font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
   &> tbody > tr > td {
     padding: 0px;
     text-align: center;
@@ -18,7 +19,7 @@
       padding: 0px;
     }
     .logo {
-      text-align: center;
+      text-align: left;
     }
     .community-name {
       text-align: left;
@@ -26,7 +27,6 @@
       padding-bottom: 5px;
       border-bottom: 1px dotted grey;
       color: grey;
-      font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
       font-size: 20px;
       line-height: 28px;
     }
@@ -70,6 +70,39 @@
       &.link-to-learn-more {
         padding-bottom: 15px;
       }
+    }
+    .email-action-button {
+      display: block;
+      text-align: center;
+    }
+    .headline {
+      font-weight: bold;
+      padding: 20px 0px;
+      font-size: 20px;
+    }
+    .separator {
+      border-top: 2px solid #c3c3c3;
+    }
+    .item-name {
+      text-align: left;
+      font-size: 14px;
+      padding: 4px 0px;
+    }
+    .item-value {
+      text-align: right;
+      font-size: 14px;
+      padding: 4px 0px;
+    }
+    .price-breakdown {
+      width: 100%;
+      margin: 20px 0px;
+    }
+    .main-text, .best-regards {
+      font-size: 14px;
+      padding: 20px 0px;
+    }
+    .item-name.header {
+      padding: 20px 0px;
     }
   }
 }
