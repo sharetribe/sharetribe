@@ -95,7 +95,7 @@ module UserService::API
     end
 
     def generate_username(given_name, family_name, community_id, default_username = "username")
-      base = (given_name.strip + family_name.strip[0].to_s).to_url.delete('-')[0...18]
+      base = (given_name.strip + family_name.strip[0].to_s).gsub(/[^-\p{L}\p{Nl}\p{Nd}\p{Pc}]/, '-').to_url.delete('-')[0...18]
       generate_username_from_base(base.presence || default_username, community_id)
     end
 

@@ -370,6 +370,12 @@ describe Person, type: :model do
       person = FactoryGirl.create(:person, :given_name => 'Arturs Krišjānis', :family_name => 'Kariņš', :username => '', community: community)
       expect(person).to be_valid
       expect(person.username).to eq 'arturskrisjanisk'
+
+      # Clean extra chars
+      person = FactoryGirl.create(:person, :given_name => '1 Tho + mas & _ ;', :family_name => 'Malbaux', :username => '', community: community)
+      expect(person).to be_valid
+      expect(person.username).to eq '1thomasm'
+
     end
   end
 end
