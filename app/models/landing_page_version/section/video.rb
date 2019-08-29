@@ -33,7 +33,6 @@ module LandingPageVersion::Section
     }
 
     AUTOPLAY_NO = 'no'.freeze
-    AUTOPLAY_YES = 'yes'.freeze
     AUTOPLAY_MUTED = 'muted'.freeze
 
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
@@ -61,7 +60,7 @@ module LandingPageVersion::Section
         false
       else
         value
-                  end
+      end
     end
 
     def i18n_key
