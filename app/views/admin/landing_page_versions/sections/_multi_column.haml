@@ -1,17 +1,10 @@
 - content_for :javascript do
   ST.LandingPageSectionEditor.initForm();
 
-= form.hidden_field :previous_id
-= form.hidden_field :kind
 = form.hidden_field :variation
 = form.hidden_field :multi_columns
 
-.row
-  .col-12
-    = form.label :id
-    = form.text_field :id, disabled: presenter.section.persisted?, required: true
-    - if presenter.id_error?
-      %label.error= t("errors.messages.section_with_this_id_already_exists")
+= render partial: 'id_field', locals: {presenter: presenter, form: form}
 
 .row
   .col-12

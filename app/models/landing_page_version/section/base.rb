@@ -2,8 +2,10 @@ module LandingPageVersion::Section
   class Base
     include ActiveModel::Model
     include ActiveModel::Serialization
+    include ActiveModel::Validations::Callbacks
 
     extend ActiveModel::Callbacks
+
     define_model_callbacks :save
 
     HELPER_ATTRIBUTES = [
@@ -17,6 +19,8 @@ module LandingPageVersion::Section
     validates :id, presence: true
     validates :kind, presence: true
     validate :not_overwrite_another_section
+
+    before_validation :normalize_id_for_css
 
     def save
       ActiveRecord::Base.transaction do
@@ -146,6 +150,11 @@ module LandingPageVersion::Section
 
     def blob_path(blob)
       Rails.application.routes.url_helpers.landing_page_asset_path(signed_id: blob.signed_id, filename: blob.filename.to_s, sitename: landing_page_version.community.ident, only_path: true)
+    end
+
+    # normalize section id to be usable as part of html element "id" and "class" attributes
+    def normalize_id_for_css
+      self.id = self.id.to_s.strip.gsub(/\s+/,'-').gsub(/[^-A-Z0-9_]/i,'').gsub(/^[^A-Z]+/i, '').gsub(/-+/,'-').sub(/-+$/,'')
     end
   end
 end

@@ -33,6 +33,14 @@ function add_validator_methods() {
     );
 
   $.validator.
+    addMethod( "valid_identifier",
+      function(value, element, param) {
+        return value.match(new RegExp("(^[A-Za-z][-A-Za-z0-9_]*$)"));
+      }
+    );
+
+
+  $.validator.
     addMethod("regex",
       function(value, element, regexp) {
         var re = new RegExp(regexp);
@@ -148,6 +156,9 @@ function add_validator_methods() {
     url: true
   });
 
+  $.validator.addClassRules("identifier", {
+    "valid_identifier": true
+  });
 
   $.validator.
     addMethod("number_no_decimals", function(value, element, opts) {
