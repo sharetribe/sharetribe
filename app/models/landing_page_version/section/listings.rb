@@ -63,6 +63,8 @@ module LandingPageVersion::Section
       end
     end
 
+    before_save :check_extra_attributes
+
     def initialize(attributes={})
       self.listings = DEFAULTS['listings']
       super(attributes)
@@ -88,11 +90,18 @@ module LandingPageVersion::Section
     end
 
     def button_path_string=(value)
-      self.button_path = {value: value}
+      self.button_path = {'value' => value}
     end
 
     def button_path_string
       button_path&.[]('value')
+    end
+
+    def check_extra_attributes
+      unless cta_enabled
+        self.button_title = nil
+        self.button_path = nil
+      end
     end
 
     def i18n_key
