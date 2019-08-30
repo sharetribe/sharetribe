@@ -2,7 +2,5 @@
   %td.non-whitelabel-branding.link-to-sharetribe
     - sharetribe_link = link_to("Sharetribe", link_to_sharetribe)
     = t("emails.branding.powered_by", sharetribe_link: sharetribe_link).html_safe
-%tr
-  %td.non-whitelabel-branding.link-to-learn-more
-    - learn_more = link_to(t("emails.branding.learn_more"), link_to_sharetribe)
+    - learn_more = link_to(t("emails.branding.learn_more"), link_to_sharetribe, :class => 'text-bold')
     = t("emails.branding.create_own", learn_more: learn_more).html_safe
