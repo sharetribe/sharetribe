@@ -1,0 +1,129 @@
+!!!
+
+%html
+
+  = render 'layouts/email-v2/email_head'
+
+  %body
+
+    %table.email-body
+      %tbody
+        %tr
+          %td
+            %table.email-container
+              %tbody
+                - community = @community || @current_community
+                -# LOGO 
+                %tr
+                  %td.logo
+                    = image_tag('logos/full/default.png', alt: community.full_name(I18n.locale), style: 'margin: 0 auto;')
+
+                -# COMMUNITY NAME
+                -# %tr
+                -#   %td.community-name
+                -#     %font
+                -#       = community.full_name(I18n.locale)
+
+                -# HEADING
+                %tr
+                  %td.person-name
+                    %h1
+                      = t("emails.common.hey", :name => 'Luis')
+                      -# Hi Luis, here’s your receipt for
+                      -# %a{:href => '#'} Daschund rental.
+
+                -# CONTENT
+                %tr
+                  %td.email-content{id: SecureRandom.hex}
+                    -# BASIC PARAGRAPH
+                    %p You added a listing Test with payment. We noticed that you haven’t yet added your payout details. In order to receive the payment you need to provide your payment information.
+                    -# SUBHEADING / BOLD TEXT
+                    -# %p.text-bold
+                      -# provider u has sent you a message in 
+                      -# %a{:href => '#'} thomastest
+                      -# You paid €15 for Daschund rental, per hour.
+                    -# %p 
+                    -#   The money is being held by 
+                    -#   %strong thomastest
+                    -#   and will be released to
+                    -#   %strong Thomas
+                    -#   once you mark the order completed.
+                    
+                    -# QUOTE
+                    -# %blockquote “Sorry, my dog can be a dick sometimes.”
+                
+                -# RECEIPT
+                -# %tr
+                -#   %td.email-receipt
+                -#     %p.text-bold Price breakdown
+                -#     %table
+                -#       %tbody
+                -#         %tr
+                -#           %td Price per hour
+                -#           %td
+                -#             %strong €15
+                -#         %tr
+                -#           %td Duration
+                -#           %td
+                -#             %strong 1
+                -#         %tr
+                -#           %td Subtotal
+                -#           %td
+                -#             %strong €15
+                -#         %tr
+                -#           %td
+                -#             %strong Total
+                -#           %td
+                -#             %strong €15
+
+                -# LISTINGS
+                %tr
+                  %td.email-listings
+                    %table
+                      %tbody
+                        %tr.email-listings-item
+                          %td.email-listings-item-image
+                            = image_tag 'https://source.unsplash.com/random/156x112'
+                            %div.email-listings-item-seller
+                              = image_tag 'https://source.unsplash.com/random/48x48'
+                          %td.email-listings-text
+                            %small Luis added a listing
+                            %a.email-listings-title{:href => '#'} Selling: Testing without pricing units
+                            %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies lorem…
+
+
+
+                -# EMAIL ACTION
+                %tr
+                  %td.email-action
+                    %a.email-action-button{:href => '#'} Fill the payout details
+                    %p.email-action-help 
+                      Can't click the button? Here's the link for your convinience;
+                      %a{:href => '#'} http://sharetribe.com/en/people/confirmation?confirmation_token=a1B2c3D4e5F6g7H8i9
+
+                -# SIGNATURE
+                %tr
+                  %td.best-regards
+                    = t("emails.common.best_regards")
+
+                -# SHARETRIBE INFO
+                = render :partial => "layouts/email-v2/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-auto"}
+
+                -# SUBSCRIPTION INFO
+                %tr
+                  %td.unsubscribe
+                    You’ve received this email because you are a member of thomastest.
+                    %br/
+                    %a Subscription settings
+                    •
+                    %a Unsubscribe from these emails
+
+
+                - if @invitation
+                  %tr
+                    %td.invitation
+                      %font
+                        = t("emails.common.unsubscribe_from_invitation_emails_info", service_name: @invitation_community)
+                        = link_to(t("emails.common.unsubscribe_from_invitation_emails", service_name: @invitation_community),
+                          unsubscribe_invitations_url(@url_params)) + "."
+
