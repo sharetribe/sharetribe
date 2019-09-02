@@ -95,9 +95,13 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @testimonial = testimonial
       @wating_testimonial = @testimonial.tx.waiting_testimonial_from?(@testimonial.receiver.id)
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(testimonial.author, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => PersonViewUtils.person_display_name(testimonial.author, community))) do |format|
+        format.html do
+          render v2_template(community.id, 'new_testimonial'), layout: v2_layout(community.id)
+        end
+      end
     end
   end
 
