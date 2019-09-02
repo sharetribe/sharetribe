@@ -1,0 +1,9 @@
+%tr
+  %td.person-name
+    %h1= @hello_line
+
+%tr
+  %td.email-content
+    %p
+      - text_with_line_breaks_html_safe do
+        = @email_content.html_safe
