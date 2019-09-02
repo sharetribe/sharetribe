@@ -228,7 +228,7 @@ class PersonMailer < ActionMailer::Base
   end
 
   # A message from the community admin to a single community member
-  def community_member_email(sender, recipient, email_subject, email_content, community)
+  def community_member_email(sender, recipient, email_subject, hello_line, email_content, community)
     @email_type = "email_from_admins"
     set_up_layout_variables(recipient, community, @email_type)
 
@@ -243,11 +243,15 @@ class PersonMailer < ActionMailer::Base
 
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @email_content = email_content
+      @hello_line = hello_line
       @no_recipient_name = true
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => email_subject,
-                     :reply_to => reply_to)
+      @recipient = recipient
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => email_subject,
+           :reply_to => reply_to) do |format|
+        format.html { render v2_template(community.id, "community_member_email"), layout: v2_layout(community.id) }
+      end
     end
   end
 
@@ -365,9 +369,8 @@ class PersonMailer < ActionMailer::Base
       content_hello = I18n.t('admin.emails.new.hello_firstname_text',
                              :person => PersonViewUtils.person_display_name_for_type(recipient, "first_name_only"),
                              :locale => recipient.locale)
-      content = "#{content_hello}<BR />\n #{email_content}"
       begin
-        MailCarrier.deliver_now(community_member_email(sender, recipient, subject, content, community))
+        MailCarrier.deliver_now(community_member_email(sender, recipient, subject, content_hello, email_content, community))
       rescue StandardError => e
         # Catch the exception and continue sending the emails
         ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name(email_locale)}: #{e.message}", e.class)
