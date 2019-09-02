@@ -95,8 +95,8 @@ es:
         transaction_agreement_checkbox_label_description: "Este texto se mostrará junto a una casilla de verificación en el formulario. El usuario debe marcar la casilla de verificación antes de poder proceder con la transacción. Un ejemplo sería algo como \"Al marcar esta casilla aceptas el presente acuerdo y los términos de uso.\""
         transaction_agreement_text_header: "Texto del acuerdo"
         transaction_agreement_description: "Este el contenido del texto del acuerdo que los usuarios han de aceptar. El texto del presente acuerdo se mostrará cuando los usuarios hagan clic en el enlace %{read_more} ."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Términos, política de privacidad y páginas de contenido"
+        terms_privacy_policy_and_static_content_infotext: "Puedes editar hasta cuatro páginas de contenido. Los usuarios pueden encontrar estas páginas al hacer click en el link \"Acerca de\" en la barra superior."
       edit_look_and_feel:
         edit_community_look_and_feel: "Edita la apariencia de %{community_name}"
         community_logo: Logotipo
@@ -119,12 +119,12 @@ es:
         logo_mobile_icon_instructions_text_with_dimensions: "Este logo cuadrado se mostrará a los usuarios que guarden el link de tu comunidad en la página de inicio de un dispositivo móvil. Las dimensiones de la imagen deben ser (por lo menos) %{width} x %{height} pixeles."
         cover_photo_visibility: "La foto de portada se muestra en la home a usuarios que todavía no han iniciado sesión."
         cover_photo_instructions_text_with_dimensions: "La foto será redimensionada a un tamaño de %{width}x%{height} pixeles y las imágenes más altas se cortarán en el medio. %{see_how_it_looks_like}."
-        we_have_you_covered: ~
-        cover_photo_ready_made: "¿Estás buscando imágenes que ya estén listas para usarse? Si quieres algo de inspiración o información de sitios donde encontrar buenas imágenes. <a href=\"https://help.sharetribe.com/en/articles/666084\" target=\"_blank\"> ¡Nosotros te ayudamos!</a>"
+        we_have_you_covered: "Nosotros te ayudamos"
+        cover_photo_ready_made: "¿Estás buscando imágenes que ya estén listas para usarse? Si quieres algo de inspiración o información de sitios donde encontrar buenas imágenes. ¡%{link}!"
         small_cover_photo_visibility: "La foto de portada pequeña se muestra en todas las páginas excepto en la de inicio para los usuarios que no han iniciado sesión."
         small_cover_photo_instructions_text_with_dimensions: "La imagen será redimensionada a %{width}x%{height} pixeles. Las imágenes más grandes serán recortadas en el centro."
         main_content_width: "Al escoger las fotos de portada ten presente que el contenido principal de la página es de máximo %{main_width} pixeles de ancho. Recuerda también revisar cómo se ve tu foto de portada en otros dispositivos con pantallas más pequeñas (puedes utilizar una ventana de navegación más estrecha para comprobarlo)."
-        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\" rel=\"noreferrer\">ColorPicker.com</a> puede ayudarte a elegir el color y luego puedes copiar el código del color aquí."
+        custom_color1_instructions_text: "Puedes cambiar el color principal de la interfaz de usuario de esta comunidad introduciendo un valor de color hexadecimal. %{link} te puede ayudarte a elegir el color y luego puedes copiar el código del color aquí."
         new_listing_button_instructions_text: "Puedes cambiar el color del botón de Publicar Anuncio escribiendo un código de color hexadecimal. En %{link_to_colorpicker} puedes escoger el color y luego puedes copiar el código del color aquí."
         default_browse_view: "Vista por defecto del buscador"
         default_browse_view_instructions_text: "La vista seleccionada se usa en la página principal para elegir cómo se muestran los resultados por defecto."
@@ -321,9 +321,9 @@ es:
         twitter_handle_placeholder: Usuario
         invalid_twitter_handle: "Twitter handle debe tener un máximo de 15 caracteres alfanuméricos (letras de la A-Z y números del 0-9)."
         facebook_connect: "Facebook Login"
-        facebook_developers_dashboard: ~
-        facebook_connect_info_text: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado."
-        facebook_connect_info_text_with_instructions: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en la <a href='https://developers.facebook.com/'>Pagina de desarrolladores de Facebook</a>. Añade aquí el ID y la clave secreta que se hayan generado. %{instructions_link}"
+        facebook_developers_dashboard: "Panel para Desarrolladores de Facebook"
+        facebook_connect_info_text: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en el %{dashboard_link}. Añade aquí el ID y la clave secreta que se hayan generado."
+        facebook_connect_info_text_with_instructions: "Para que la habilitar Facebook Login, debes crear una aplicación para tu marketplace en el %{dashboard_link}. Añade aquí el ID y la clave secreta que se hayan generado. %{instructions_link}"
         facebook_instructions_link_text: "Ver instrucciones para configurar Facebook Login."
         facebook_connect_id: "App ID de Facebook"
         invalid_facebook_connect_id: "El app ID debe incluir sólo números."
@@ -334,17 +334,17 @@ es:
         add_another_image: "Cambia la imagen"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Ver las instrucciones para configurar Google Sign-In."
-        google_developers_console: ~
-        google_connect_info_text_with_instructions: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto. %{instructions_link}"
-        google_connect_info_text: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Añade aquí la ID y la llave secreta que se genera en el proyecto."
+        google_developers_console: "Consola para desarrolladores de Google"
+        google_connect_info_text_with_instructions: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la %{dashboard_link}. Añade aquí la ID y la llave secreta que se genera en el proyecto. %{instructions_link}"
+        google_connect_info_text: "Para habilitar Google Sign-In, tienes que crear un proyecto para tu marketplace en la %{dashboard_link}. Añade aquí la ID y la llave secreta que se genera en el proyecto."
         enable_google_login: "Permitir a los usuarios que inicien sesión con su cuenta de Google"
         google_connect_id: "Client ID de Google"
         google_connect_secret: "Llave secreta (client secret) de Google"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Ver las instrucciones para configurar LinkedIn Sign In."
-        linkedin_developers_dashboard: ~
-        linkedin_connect_info_text_with_instructions: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app. %{instructions_link}"
-        linkedin_connect_info_text: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboard</a>. Añade aquí la ID y la llave secreta que se genera en la app."
+        linkedin_developers_dashboard: "Panel para desarrolladores de LinkedIn"
+        linkedin_connect_info_text_with_instructions: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el %{dashboard_link}. Añade aquí la ID y la llave secreta que se genera en la app. %{instructions_link}"
+        linkedin_connect_info_text: "Para habilitar LinkedIn Sign In, tienes que crear una app para tu marketplace en el %{dashboard_link}. Añade aquí la ID y la llave secreta que se genera en la app."
         enable_linkedin_login: "Permitir a los usuarios iniciar sesión con su cuenta de LinkedIn"
         linkedin_connect_id: "Client ID de LinkedIn"
         linkedin_connect_secret: "Llave secreta (client secret) de LinkedIn"
@@ -456,8 +456,8 @@ es:
           canceled: Cancelada
           preauthorized: Preautorizada
           rejected: Rechazada
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Pendiente
+          payment_intent_action_expired: Expirada
         headers:
           conversation: Conversación
           listing: Anuncio
@@ -503,9 +503,9 @@ es:
             canceled: Cancelada
             initiated: "Esperando el pago de Stripe"
             pending_ext: "Esperando el pago de Stripe"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Pendiente
+            payment_intent_action_expired: Expirada
+            payment_intent_failed: "El pago por medio de Stripe falló"
         not_available: "No disponible"
       conversations:
         conversations: Conversaciones
@@ -1056,7 +1056,7 @@ es:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: "Cuota de procesamiento de pago de PayPal"
       paypal_fee_info: "* No incluye %{link}"
       shipping_price_label: "Costos de envío:"
       stripe-fee_label: "Cuota de procesamiento de pago"
@@ -2343,7 +2343,7 @@ es:
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de %{service_name}"
       sign_up: "Crear una nueva cuenta en %{service_name}"
       terms: "Términos de uso"
-      privacy: "política de privacidad"
+      privacy: "Política de privacidad"
       username_is_in_use: "El nombre de usuario ingresado ya está en uso."
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el equipo de %{service_name}"

@@ -95,8 +95,8 @@ de:
         transaction_agreement_checkbox_label_description: "Dieser Text wird neben einer Checkbox beim Checkout angezeigt. Der Nutzer muss mit einem Haken in der Checkbox zustimmen, um die Transaktion abzuschließen. Ein Beispiel wäre etwa \"Mit Klicken dieser Box akzeptiere ich die Vereinbarung.\""
         transaction_agreement_text_header: "Allgemeine Geschäftsbedingungen"
         transaction_agreement_description: "Dies ist der Inhalt der Allgemeinen Geschäftsbedingungen (AGBs), die der Anwender akzeptieren muss. Der Inhalt der AGBs wird angezeigt, wenn der Benutzer den %{read_more} Link neben dem Label der Allgemeinen Geschäftsbedingungen klickt."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Nutzungsbedingungen, datenschutz, und Inhaltsseiten"
+        terms_privacy_policy_and_static_content_infotext: "Du kannst bis zu vier Inhaltsseiten bearbeiten. Die Benutzer können die Seiten mit hilfe des \"Über\"-links auf dem Top Bar finden."
       edit_look_and_feel:
         edit_community_look_and_feel: "Bearbeite das \"Look & Feel\" des Marktplatzes %{community_name}"
         community_logo: Logo
@@ -119,8 +119,8 @@ de:
         logo_mobile_icon_instructions_text_with_dimensions: "Dieses viereckige Logo wird auf dem Mobil-Startbildschirm von deinen Benutzern angezeigt, wenn sie ein Lesezeichen für deinen Marktplatz auf ihren Mobilgeräten erstellen. Die Größe sollte (zumindest) %{width} x%{height} px betragen."
         cover_photo_visibility: "Das Titelbild wird den nicht angemeldeten Benutzern auf der Startseite angezeigt."
         cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt. %{see_how_it_looks_like}."
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Wir können helfen"
+        cover_photo_ready_made: "Suchst du nach fertige und optimierte Titelbilder? Oder möchtest du inspirert werden und einige Webseiten ansehen, wo man gute Titelbilder finden kann? %{link}!"
         small_cover_photo_visibility: "Das kleine Titelfoto wird nicht angemeldeten Benutzern auf allen Seiten angezeigt, außer auf der Startseite."
         small_cover_photo_instructions_text_with_dimensions: "Die Größe des Fotos wird auf %{width}x%{height} Pixel geändert, und größere Bilder werden in der Mitte geteilt."
         main_content_width: "Wenn du ein Titelfoto aussuchst, beachte bitte, dass die Breite des Inhalts auf der Startseite höchstens %{main_width} Pixel beträgt. Überprüfe außerdem, wie dein Titelfoto auf kleineren Bildschirmen aussieht (z.B wenn du einen schmaleren Browser benutzt)."
@@ -321,7 +321,7 @@ de:
         twitter_handle_placeholder: Benutzername
         invalid_twitter_handle: "Ihr Twitter-Nutzername sollte höchstens 15 alphanumerische (Buchstaben A-Z und Nummern 0-9) Zeichen lang sein."
         facebook_connect: "Facebook Login"
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Um Facebook Login zu aktivieren, bitte erstellen Sie einen App für Ihren Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Fügen Sie die generierte ID und den Geheimschlüssel der App hier ein."
         facebook_connect_info_text_with_instructions: "Um Facebook Login zu aktivieren, bitte erstelle einen App für Deinen Marktplatz auf dem <a href='https://developers.facebook.com/'>Facebook Entwicklerpanel</a>. Füge die generierte ID und den Geheimschlüssel der App hier ein.%{instructions_link}"
         facebook_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von Facebook Login."
@@ -334,7 +334,7 @@ de:
         add_another_image: "Zusätzliches Bild hinzufügen"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von Google Sign-In."
-        google_developers_console: ~
+        google_developers_console: "Google Developers Console"
         google_connect_info_text_with_instructions: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Füge die generierte ID und Clientschlüssel des Projektes hier ein. %{instructions_link}"
         google_connect_info_text: "Um Google Sign-In zu aktivieren, bitte erstelle ein Projekt für deinen Marktplatz auf <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Console</a>. Füge die generierte ID und Clientschlüssel des Projektes hier ein."
         enable_google_login: "Google-Anmeldung für deine Benutzer aktivieren"
@@ -342,7 +342,7 @@ de:
         google_connect_secret: "Google Clientschlüssel"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Siehe die Anleitung zum Konfigurieren von LinkedIn Sign In."
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
         linkedin_connect_info_text_with_instructions: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem <a href='https://www.linkedin.com/developers/'>Linkedin Developers Dashboard</a>. Füge die generierte ID und Geheimschlüssel des Projektes hier ein. %{instructions_link}"
         linkedin_connect_info_text: "Um LinkedIn Sign-In zu aktivieren, bitte erstelle eine App für deinen Marktplatz auf dem <a href='https://www.linkedin.com/developers/'>Linkedin Developers Dashboard</a>. Füge die generierte ID und Geheimschlüssel des Projektes hier ein."
         enable_linkedin_login: "LinkedIn-Anmeldung für deine Benutzer aktivieren"
@@ -436,7 +436,7 @@ de:
         display_contact: "Link zu der <i>Kontakt</i>-Seite anzeigen"
         display_invite: "Link zu der <i>neue Mitglieder einladen</i>-Seite anzeigen"
       topbar:
-        topbar: "Top bar"
+        topbar: "Top Bar"
         new_listing_button_label: "Text auf der \"Neuen Eintrag erstellen\" Taste"
         invalid_post_listing_button_label: "Bitte einen gültigen Text für die \"Neuen Eintrag erstellen\" Taste eingeben."
       transactions:
@@ -456,8 +456,8 @@ de:
           canceled: Abgebrochen
           preauthorized: Vorautorisiert
           rejected: Abgelehnt
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Ausstehend
+          payment_intent_action_expired: Abgelaufen
         headers:
           conversation: Unterhaltungsverlauf
           listing: Eintrag
@@ -503,9 +503,9 @@ de:
             canceled: Abgebrochen
             initiated: "Warte auf Stripe-Bezahlung"
             pending_ext: "Warte auf Stripe-Bezahlung"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Ausstehend
+            payment_intent_action_expired: Abgelaufen
+            payment_intent_failed: "Stripe-Zahlung gescheitert"
         not_available: "nicht verfügbar"
       conversations:
         conversations: Unterhaltungen
@@ -758,7 +758,7 @@ de:
       emails_title: E-Mails
       subscription: Abonnement
       preview: "Seitenvorschau anzeigen"
-      whats_new: ~
+      whats_new: "Was ist neu?"
     listing_shapes:
       availability_title: Verfügbarkeit
       read_more: "Mehr über automatische Verfügbarkeitsverwaltung lesen."
@@ -1056,7 +1056,7 @@ de:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: PayPal-Zahlungsbearbeitungsgebühr
       paypal_fee_info: "* Ohne %{link}"
       shipping_price_label: "Versand:"
       stripe-fee_label: Zahlungsbearbeitungsgebühr
@@ -1745,22 +1745,22 @@ de:
     logged_in_notifications_icon:
       notifications: Benachrichtigungen
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: Markdown-Formatierungshilfe
+      description: "Mit Markdown kannst du Texte formatieren, so dass die gut auf allen Geräten ansieht. Es ist nicht für sonderliche formatierungen gemeint, so wie das ändern der Fontgröße, -Farbe, oder des Fontstils, sondern für die Grundsachen, die du mit vertrauten Tastatursymbolen anwenden kannst."
+      formatting: Formatierung
+      result: Ergebnis
+      h1: H1
+      h2: H2
+      h3: H3
+      italic: kursiv
+      bold: fett
+      underline: unterstreichen
+      strikethrough: durchstreichen
+      inline_link: Inline-Link
+      list: Liste
+      one: Eins
+      two: Zwei
+      three: Drei
     mobile_logged_in:
       admin: Administrator
       go_to_your_profile_page: Profil
@@ -1964,8 +1964,8 @@ de:
         repeated: "Wiederholt (ergänze Uhrzeiten und Tage im 'Beschreibungs-Feld')"
       description:
         detailed_description: "Ausführliche Beschreibung"
-        youtube_info: "Wenn Deine Beschreibung YouTube Links enthält, werden die Videos unterhalb der Beschreibung angezeigt."
-        youtube_info_markdown: ~
+        youtube_info: "Wenn deine Beschreibung YouTube Links enthält, werden die Videos unterhalb der Beschreibung angezeigt."
+        youtube_info_markdown: "Du kannst %{link}. Wenn deine Beschreibung YouTube Links enthält, werden die Videos unterhalb der Beschreibung angezeigt."
       destination:
         destination: Ziel
       form_content:
@@ -2518,8 +2518,8 @@ de:
       image_is_processing: "Dein Profilbild wird verarbeitet. Es wird gleich fertig sein."
       shown_in_your_public_profile: "(wird im öffentlichen Profil angezeigt)"
       editing_profile_of: "Du bearbeitest jetzt das Profil von %{name}"
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "die Beschreibung mit Markdown formatieren"
+      format_markdown: "Du kannst %{link}."
     save_information: "Informationen speichern"
   shipping_address:
     shipping_address: Lieferadresse
