@@ -1,0 +1,20 @@
+- link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
+
+%tr
+  %td.person-name
+    %h1
+      = t("emails.confirmation_instructions_v2.headline", :name => PersonViewUtils.person_display_name_for_type(@resource, "first_name_only"))
+
+%tr
+  %td{:align => "left"}
+    %p
+      = t("emails.confirmation_instructions_v2.need_to_confirm")
+
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.confirmation_instructions_v2.confirmation_link_text", :email => @email_address), :url => link }
+
+%tr
+  %td.email-action
+    %p.email-action-help
+      = t("emails.confirmation_instructions_v2.or_paste_link")
+      %br
+      = link_to link, link
