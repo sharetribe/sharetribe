@@ -1,0 +1,24 @@
+- view_url = person_url(@recipient, @url_params) + "#testimonial#{@testimonial.id.to_s}"
+- give_url = new_person_message_feedback_url(@recipient, @url_params.merge({message_id: @testimonial.tx.id}))
+
+%tr
+  %td.person-name
+    %h1= t("emails.new_testimonial_v2.headline", name: PersonViewUtils.person_display_name_for_type(@recipient, 'first_name_only'))
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.new_testimonial.has_given_you_feedback_in_kassi", name: PersonViewUtils.person_display_name(@testimonial.author, @current_community))
+
+    = render :partial => "quote-v2", locals: { quote: @testimonial.text }
+
+= render :partial => "action_button-v2", locals: { text: t("emails.new_testimonial.view_feedback"), url: view_url}
+
+- if @waiting_testimonial
+  %tr
+    %td.email-content
+      %p
+        = t("emails.new_testimonial.you_can_give_feedback_to", name: PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only"))
+        = t("emails.transaction_confirmed.giving_feedback_is_good_idea", other_party_given_name: PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only"))
+
+  = render :partial => "action_button-v2", locals: {text: t("emails.transaction_confirmed.give_feedback_to", other_party_given_name: PersonViewUtils.person_display_name_for_type(@testimonial.author, "first_name_only")), url: give_url}
