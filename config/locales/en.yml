@@ -1420,6 +1420,9 @@ en:
       if_will_not_happen_you_should_cancel: "If you think this order will not be completed for one reason or another, you can %{cancel_it_link}."
       cancel_it_link_text: "cancel it"
       automatic_confirmation: "If you don't confirm or cancel the order within %{days_to_automatic_confirmation} days after the request was accepted, we will mark it automatically as completed."
+    confirm_reminder_v2:
+      headline: "Hi %{name}, you have not yet completed or canceled the order %{request_link}."
+      you_have_not_yet_confirmed_or_canceled_request: "If the order has been completed, you should confirm that. After that you can give feedback to %{other_party_given_name}."
     payment_settings_reminder:
       remember_to_add_payment_details: "Remember to add your payment details to receive payments"
       you_have_added_listing_with_payment: "You have added a listing %{listing_link} with payment. However, you haven't yet added your payment details. In order to receive the payment you have to add your payment information."

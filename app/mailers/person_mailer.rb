@@ -139,11 +139,10 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @days_to_cancel = days_to_cancel
-      template = "confirm_reminder"
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
-        format.html { render template }
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.confirm_reminder.remember_to_confirm_request")) do |format|
+        format.html { render v2_template(community.id, "confirm_reminder"), layout: v2_layout(community.id) }
       end
     end
   end
