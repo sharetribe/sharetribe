@@ -1,0 +1,21 @@
+- action_url = person_transaction_url(@recipient, @url_params.merge({:id => @transaction.id}))
+- listing_link = link_to @transaction.listing_title, listing_url(@url_params.merge(:id => @transaction.listing_id))
+
+%tr
+  %td.person-name
+    %h1
+      = t("emails.conversation_status_changed_v2.has_#{@transaction.status}_your_request", :starter => PersonViewUtils.person_display_name(@transaction.starter, @current_community))
+
+%tr
+  %td.email-content
+    %p.text-bold
+      =raw t("emails.conversation_status_changed_v2.has_#{@transaction.status}_your_request_text", :accepter => PersonViewUtils.person_display_name(@transaction.listing.author, @current_community), :listing => listing_link)
+
+    - if @transaction.conversation.last_message.present? && @transaction.conversation.last_message.sender_id != @recipient.id
+      = render :partial => "quote-v2", :locals => { :quote => @transaction.conversation.last_message.content }
+
+    - if TransactionService::StateMachine.can_transition_to?(@transaction.id, :confirmed) && !@recipient.should_pay?(@transaction, @community)
+      %p
+        = t("emails.conversation_status_changed.remember_to_confirm", :days_to_automatic_confirmation => @transaction.automatic_confirmation_after_days)
+
+= render :partial => "action_button-v2", :locals => { :text => t("emails.conversation_status_changed.view_thread"), :url => action_url}
