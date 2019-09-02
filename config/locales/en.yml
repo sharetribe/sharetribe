@@ -1458,6 +1458,11 @@ en:
       need_to_confirm: "To join %{service_name}, confirm your email address by clicking the button below."
       confirmation_link_text: "Confirm my address"
       or_paste_link: "Alternatively, you can copy the following link to your browser's address bar:"
+    confirmation_instructions_v2:
+      headline: "Hi %{name}, confirm your email to join %{service_name}!"
+      need_to_confirm: "Confirm your email address to complete your %{service_name} account. It's easy - just click the button below!"
+      confirmation_link_text: "Confirm %{email}"
+      or_paste_link: "Can't click the button? Here's the link for your convenience:"
     common:
       hey: "Hello %{name},"
       kassi_team: "The %{service_name} team"

@@ -303,14 +303,16 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = community.full_domain
+    @email_address = email.address
     @show_branding_info = !PlanService::API::Api.plans.get_current(community_id: community.id).data[:features][:whitelabel]
     with_locale(email.person.locale, community.locales.map(&:to_sym), community.id) do
       email.update_attribute(:confirmation_sent_at, Time.now)
-      premailer_mail(:to => email.address,
-                     :from => community_specific_sender(community),
-                     :subject => t("devise.mailer.confirmation_instructions.subject"),
-                     :template_path => 'devise/mailer',
-                     :template_name => 'confirmation_instructions')
+      mail(:to => email.address,
+           :from => community_specific_sender(community),
+           :subject => t("devise.mailer.confirmation_instructions.subject")
+          ) do |format|
+        format.html { render "devise/mailer/" + v2_template(community.id, 'confirmation_instructions'), layout: v2_layout(community.id) }
+      end
     end
   end
 
