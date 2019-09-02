@@ -25,9 +25,13 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @transaction = transaction
 
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}"))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.conversation_status_changed.your_request_was_#{transaction.status}")) do |format|
+        format.html do
+          render v2_template(community.id, 'conversation_status_changed'), layout: v2_layout(community.id)
+        end
+      end
     end
   end
 

@@ -1478,6 +1478,11 @@ en:
       you_can_now_pay_to: "You can now pay the requested amount to %{payment_receiver}."
       pay_now: "Pay now"
       remember_to_confirm: "When the order is fulfilled, remember to mark it as completed. If the order is not fulfilled your have %{days_to_automatic_confirmation} days to cancel it. Otherwise it will be automatically marked as completed."
+    conversation_status_changed_v2:
+      has_accepted_your_request: "Hi %{starter}, your request was accepted."
+      has_accepted_your_request_text: "%{accepter} has accepted your request %{listing}."
+      has_rejected_your_request: "Hi %{starter}, unfortunately your request was declined."
+      has_rejected_your_request_text: "%{accepter} has rejected your request %{listing}."
     invitation_to_kassi:
       hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to %{service_name}."
