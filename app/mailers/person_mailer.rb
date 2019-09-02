@@ -45,7 +45,11 @@ class PersonMailer < ActionMailer::Base
                         :subject => t("emails.new_message.you_have_a_new_message", :sender_name => PersonViewUtils.person_display_name(message.sender, community)),
                         :from => community_specific_sender(community)}
 
-      premailer_mail(sending_params)
+      mail(sending_params) do |format|
+        format.html do
+          render v2_template(community.id, 'new_message_notification'), layout: v2_layout(community.id)
+        end
+      end
     end
   end
 
