@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::LandingPageVersions::SectionsController, type: :controller do
+describe Admin::LandingPageVersions::SectionsController, type: :controller do # rubocop:disable Metrics/BlockLength
   let(:community) { FactoryGirl.create(:community) }
   let(:landing_page_version) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
 
@@ -889,3 +889,4 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
     end
   end
 end
+
