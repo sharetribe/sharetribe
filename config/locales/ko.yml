@@ -160,7 +160,7 @@ ko:
         send_verification_button: "확인 이메일 보내기"
         change_sender_email: "발신자 이메일 변경"
         successfully_saved: "보낸 사람 주소가 성공적으로 저장되었습니다. 확인 이메일이 곧 전송됩니다."
-        successfully_saved_name: "보낸 사람 이름이 성공적으로 업데이트되었습니다."
+        successfully_saved_name: "발신자 이름이 업데이트 되었습니다."
         set_sender_name: "발신자 이름 변경"
         change_sender_name: "발신자 이름 변경"
         change_sender_prompt: "%{change_name_link} 또는 %{change_email_link}"
@@ -589,7 +589,7 @@ ko:
           updated: 업데이트
           category: 카테고리
           status: 상태
-        open: 열림
+        open: 오픈
         closed: 닫힘
         expired: ~
         approved: 승인
@@ -774,7 +774,7 @@ ko:
         no_categories: "카테고리 없음"
         category_count: "%{category_count} 카테고리"
         header:
-          listing_shape_name: 주문유형이름
+          listing_shape_name: "주문 유형"
           listing_shape_categories: "사용된 카테고리"
         order:
           saving_order: 주문저장
@@ -805,7 +805,7 @@ ko:
           other: "이 주문 유형에는 %{count}개의 목록이 있습니다. 주문 유형을 삭제하면이 목록이 닫힙니다. 주문 유형을 삭제 하시겠습니까?"
         can_not_delete_last: "이 주문 유형은 마켓 플레이스에서 유일한 유형이므로 삭제할 수 없습니다."
         can_not_delete_only_one_in_categories: "다음과 같은 주문 유형이 사용중인 유일한 주문 유형이므로 이 주문 유형을 삭제할 수 없습니다 : %{categories}"
-      listing_shape_name: 이름
+      listing_shape_name: 제품명
       listing_shape_name_placeholder: "예 : 팔다"
       action_button_label: "체크아웃 버튼 라벨"
       action_button_placeholder: "예 : 사다"
@@ -1631,7 +1631,7 @@ ko:
       add_lots_of_email_addresses: "관리자인 경우 여기에 팁이 있습니다. 많은 초대장을 보내려는 경우 이메일 도구를 사용해야합니다. 적합한 이메일 서비스에 대한 자료를 찾으려면 %{this_article_link}을(를) 확인하십시오."
       this_article_link: "이 내용"
       invitation_emails_field_placeholder: "친구1@example.com, 친구2@example.com, ..."
-      invitation_message_field_placeholder: "이 마켓플레이스는 아주 놀라워요. 당신도 함께 해요!"
+      invitation_message_field_placeholder: "새로운 경험으로 초대합니다!"
       errors_in_emails: "추가한 이메일 주소가 유효하고 비정상적인 문자가 없는지 확인하십시오. 이메일 주소를 여러개를 추가한 경우, 각 이메일 주소를 쉼표로 구분하여 주십시요"
     list_item:
       review: 리뷰
@@ -1955,7 +1955,7 @@ ko:
       description:
         detailed_description: "상세 설명"
         youtube_info: "설명에 YouTube 링크가 포함되어 있는 경우, 동영상이 설명 아래에 표시됩니다."
-        youtube_info_markdown: "%{link}를 이용하여 설명을 작성 하실 수 있고, 설명에 YouTube 링크가 포함되어 있는 경우, 동영상이 설명 아래에 표시됩니다."
+        youtube_info_markdown: "%{link} 기능으로 설명을 작성 하실 수 있고, 설명에 YouTube 링크가 포함되어 있는 경우, 동영상이 설명 아래에 표시됩니다."
       destination:
         destination: 목적지
       form_content:
@@ -2586,8 +2586,8 @@ ko:
       april: 4
       may: 5
       june: 6
-      july: ~
-      august: ~
+      july: 7
+      august: 8
       september: 9
       october: 10
       november: 11
@@ -2599,8 +2599,8 @@ ko:
       april: 4
       may: 5
       june: 6
-      july: ~
-      august: ~
+      july: 7
+      august: 8
       september: 9
       october: 10
       november: 11
@@ -2610,9 +2610,9 @@ ko:
     format: mm/dd/yyyy
   time:
     formats:
-      short: "%Y년,%b,%e일 %H:%M"
-      shorter: "%b,%e일 %H:%M"
-      short_date: "%Y년,%b,%e일"
+      short: "%Y년%b%e일 %H:%M"
+      shorter: "%b%e일 %H:%M"
+      short_date: "%Y년%b%e일"
       hours_only: "%H:%M"
   timestamps:
     day_ago: "%{count} 일 전"

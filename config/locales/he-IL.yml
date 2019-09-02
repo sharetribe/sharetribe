@@ -20,10 +20,10 @@ he-IL:
         new_listing_category: "קטרגוריה חדשה"
       form:
         category_name:
-          category_title: ~
+          category_title: "כותרת הקטגוריה"
         category_parent:
           category_parent: "כותרת קטגוריה"
-          no_parent: ~
+          no_parent: "אין הורה"
         category_transaction_types:
           transaction_types: "סוגי הזמנות"
           transaction_types_description: "סוגי הזמנות קובעים איזה סוג של תהליך הזמנה מותר עם רישומים בקטגוריה זו. לדוגמה, זה רק למכור, או להשכיר ולתת משם בחינם מותר גם."
@@ -67,7 +67,7 @@ he-IL:
         edit_community_description_description_hideable: ~
         community_search_placeholder: "חפש טקסט עזרה"
         edit_community_search_placeholder_description: ~
-        private_community_homepage_content: ~
+        private_community_homepage_content: "תוכן עמוד הבית של מרקטפלייס פרטי."
         edit_private_community_homepage_content_description: "תוכן זה מוצג בדף הבית של משווקים פרטיים למשתמשים שאינם מחוברים. כאן תוכל לתאר את האתר שלך ואת התהליך הצטרפות אליו. ניתן גם להוסיף תמונות, קטעי וידאו ותוכן HTML כאן. ‎%{see_how_it_looks_like}‎"
         update_information: "שמור הגדרות"
         invite_people: "הזמן את החברים ל‎%{service_name}‎"
@@ -944,7 +944,7 @@ he-IL:
         inquiry: "שלח/י הודעה"
   common:
     edit_page: "ערוך דף"
-    default_community_slogan: ~
+    default_community_slogan: "מרקטפלייס קהילתי"
     default_community_description: "זה מקום למכור, לשכור, להחליף ולשתף סחורות ושירותים עם שאר חברי האתר."
     cancel: בטל
     fields_that_are_mandatory: "שדות המסומנים ב (*) הם חובה."
@@ -969,7 +969,7 @@ he-IL:
     categories:
       item: פריטים
       favor: שירותים
-      rideshare: ~
+      rideshare: "נסיעה שיתופית"
       housing: מקומות
       tools: כלים
       sports: ספורט
@@ -1104,7 +1104,7 @@ he-IL:
       conversation_about_listing: "‎%{listing}‎ לגבי ‎‎%{person}‎‎  עם"
       conversation_with_user: "‎%{person}‎ עם"
       conversation_with: "שיחה עם ‎%{person}‎"
-      last_message_at: ~
+      last_message_at: "הודעה אחרונה ‎%{time}‎ ‎ "
       price: "‎%{price}‎ מחיר"
       sum: "סה\"כ: ‎%{sum}‎"
       total: "סה\"כ: ‎%{total}‎"
@@ -1113,7 +1113,7 @@ he-IL:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ביטול
-      feedback_given: "קיים משוב"
+      feedback_given: "ביקורת ניתנה"
       feedback_skipped: "לא קיים משוב"
       give_feedback: "כתוב/כתבי המלצה או הערה"
       offer_accepted: "התקבל בהצלחה"
@@ -1141,11 +1141,11 @@ he-IL:
       request_preauthorized: "התשלום אושר"
       skip_feedback: "דלג/י על המשוב"
       waiting_for_listing_author_to_accept_offer: "ממתין ל-‎%{listing_author_name}‎ כדי לאשר את ההצעה"
-      waiting_for_listing_author_to_accept_request: ~
+      waiting_for_listing_author_to_accept_request: "מחכה ל‎%{listing_author_name}‎ שיאשר את הבקשה. ברגע ש‎%{listing_author_name}‎  ייאשר, אתה תחוייב."
       waiting_for_you_to_accept_request: "ממתין שתאשר את הבקשה"
-      waiting_confirmation_from_requester: ~
+      waiting_confirmation_from_requester: "מחכה ל‎%{requester_name}‎ שייסמן את ההזמנה כהושלמה."
       waiting_confirmation_from_you: "ממתין לסמן את ההזמנה"
-      waiting_payment_from_requester: ~
+      waiting_payment_from_requester: "מחכה ל‎%{requester_name}‎ שישלם."
       waiting_payment_from_you: "מחכה לתשלום שלך"
       waiting_feedback_from_you: "ממתין למשוב שלך"
       pending_external_inbox:
@@ -1221,9 +1221,9 @@ he-IL:
       here_is_a_message_from: "‎%{other_party_given_name}‎ הודעה מ"
       request_marked_as_confirmed: "ההזמנה הושלמה - זכור לתת משוב"
       request_marked_as_canceled: "ההזמנה בוטלה"
-      has_marked_request_as_confirmed: ~
-      has_marked_request_as_canceled: ~
-      giving_feedback_is_good_idea: ~
+      has_marked_request_as_confirmed: "‎%{other_party_full_name}‎  סימן את ההזמנה ‎%{request}‎ כהושלמה. אתה יכול עכשיו לתת ביקורת ל‎%{other_party_given_name}‎."
+      has_marked_request_as_canceled: "‎%{other_party_full_name}‎ ביטל את ההזמנה הבאה ‎%{request}‎. אתה עדיין יכול לדרג את ‎%{other_party_given_name}‎."
+      giving_feedback_is_good_idea: "לתת ביקורת זה תמיד רעיון טוב. אם הכול הלך כשורה, את אמור לתת לאחרים לדעת ש‎%{other_party_given_name}‎ אמין. אם היו בעיות כלשהן, חשוב להזכיר גם אותן."
       give_feedback_to: "לתת משוב ל ‎%{other_party_given_name}‎"
       stripe:
         has_marked_request_as_confirmed: ~
@@ -1288,7 +1288,7 @@ he-IL:
       new_payment: "קיבלת תשלום חדש"
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
       quantity: ~
-      you_have_received_new_payment: ~
+      you_have_received_new_payment: "קיבלת תשלום בסך: ‎%{payment_sum}‎  עבור: ‎%{listing_title}‎ מ‎%{payer_full_name}‎. הנה הקבלה שלך. "
       listing_per_unit_title: ~
     payment_receipt_to_seller:
       payment_gateway_fee: ~
@@ -1330,7 +1330,7 @@ he-IL:
       you_will_get: "סה\"כ:"
     receipt_to_payer:
       receipt_of_payment: "קבלת תשלום"
-      you_have_made_new_payment: ~
+      you_have_made_new_payment: "שילמת ‎%{payment_sum}‎ עבור ‎%{listing_title}‎ ל‎%{recipient_full_name}‎. הנה הקבלה שלך."
       product: מוצר
       price_per_unit_type: "‎%{unit_type}‎ מחיר ל"
       duration: ~
@@ -1351,7 +1351,7 @@ he-IL:
       view_feedback: "הצג משוב"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "המודעה שאתה עוקב אחריה עודכנה"
-      has_updated_listing_you_follow_in_kassi: ~
+      has_updated_listing_you_follow_in_kassi: "‎%{author}‎ עדכן את הרישום '‎%{listing}‎' אתה עוקב ב‎%{service_name}‎."
       view_changes: "הצג שינויים"
     community_updates:
       added_offer: "הוסיף מודעה ‎%{name_link}‎"
@@ -1376,7 +1376,7 @@ he-IL:
           ‎%{password_reset_link}‎ :לאיפוס סיסמה לחץ כאן
     testimonial_reminder:
       remember_to_give_feedback_to: "‎%{name}‎ תזכורת: זכור/זכרי לתת משוב ל‎"
-      you_have_not_given_feedback_yet: ~
+      you_have_not_given_feedback_yet: "עוד לא נתת ביקורת ל‎%{name}‎ בקשר לאירוע ‎%{event}‎. אנא זכור לתת ביקורת על ביצועו של ‎%{given_name}‎ באירוע."
     transaction_preauthorized:
       subject: ~
       transaction_requested_by_user: ~
@@ -1507,10 +1507,10 @@ he-IL:
       has_accepted_trade_item: "‎%{offerer_name}‎ הסכים להיתחלף  ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
       has_accepted_sell_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
       has_accepted_buy_housing: "‎%{offerer_name}‎ הסכים למכור ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
-      has_accepted_rent_out_housing: ~
+      has_accepted_rent_out_housing: "‎%{offerer_name}‎  הסכים להשכיר את ‎%{listing_title}‎  ל‎%{requester_name}‎ ‎%{time_ago}‎ ."
       has_accepted_rent_housing: "‎%{offerer_name}‎ הסכים להשכיר ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}‎"
       has_accepted_favor: "‎%{offerer_name}‎ הסכים להצעה ‎%{listing_title}‎ ל‎%{requester_name}‎ ‎%{time_ago}"
-      has_accepted_rideshare: ~
+      has_accepted_rideshare: "‎%{offerer_name}‎  הסכים לנסיעה משותפת ב‎%{listing_title}‎ עם‎%{requester_name}‎ ‎%{time_ago}‎ ."
     join:
       joined_kassi: "‎%{name}‎ הצטרף ‎%{service_name}‎ ‎%{time_ago}‎"
     login:
@@ -1564,7 +1564,7 @@ he-IL:
       no_requests_visible_unless_logged_in: "עליך להתחבר בכדי שהשירות יהיה זמין"
       one_private_offer_exists: "ישנה כבר הצעה אחת‎</b>‎‎<b>‎"
       one_private_request_exists: "ישנה כבר בקשה אחת‎</b>‎‎<b>‎"
-      ride_offer: ~
+      ride_offer: "קח את ילדיהם של אחרים לתחביבים שלהם."
       ride_request: "הסעה לעבודה"
       some_private_offers_exist: "הצעות ‎<b>‎‎%{number_of_listings}‎ כבר קיים ‎</b>‎"
       some_private_requests_exist: "הזמנות ‎%{number_of_listings}‎ ישנן ‎</b>‎‎<b>‎"
@@ -1583,8 +1583,8 @@ he-IL:
       open_listing: "מודעה פתוחה"
       open_listings: "מודעות פתוחות"
       private_listing_notification_log_in: התחבר
-      is: ~
-      are: ~
+      is: הוא
+      are: אנחנו
       what_do_you_need: "?מה אתה מחפש"
       post_new_listing: "פרסם מודעה חדשה"
       are_offering: הזמנה
@@ -2122,8 +2122,8 @@ he-IL:
       feedback: משוב
       qr_code: "קוד QR"
       request: בקשה
-      rideshare_offer: ~
-      rideshare_request: ~
+      rideshare_offer: "הצעה לנסיעה משותפת"
+      rideshare_request: "בקשה לנסיעה משותפת"
       send_private_message: "שלח/י הודעה פרטית"
       tags: תוויות
       time: זמן
@@ -2196,7 +2196,7 @@ he-IL:
       request_something: בקש
       request_type: "סוג הבקשה"
       requests: בקשות
-      rideshare: ~
+      rideshare: "נסיעה משותפת"
       you_have_something_others_do_not: "יש לך מה להציע?"
     please_comment: תגובה
   mercury:
@@ -2381,7 +2381,7 @@ he-IL:
       connect_your_facebook_to_kassi: "‎%{service_name}‎ חבר את חשבון הפייסבוק שלך אל"
       facebook_account: "חשבון פייסבוק:"
       log_in_to_link_account: "היכנס כדי לקשר אותו לחשבון פייסבוק שלך ‎ %{service_name}‎אם כבר יש לך חשבון"
-      you_can_also_create_new_account: ~
+      you_can_also_create_new_account: "אם אין לך משתמש ב‎%{service_name}‎, לחץ על קישור זה ‎%{accont_creation_link}‎ על מנת ליצור אחד עם משתמש הפייסבוק שלך."
       account_creation_link_text: "לחף כאן"
       cancle_facebook_connect: "‎%{cancel_link}‎ אם אינך רוצה לקשר חשבון זה, תוכל לבצע את ‎"
       facebook_cancel_link_text: ביטול

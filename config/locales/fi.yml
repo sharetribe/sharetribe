@@ -95,8 +95,8 @@ fi:
         transaction_agreement_checkbox_label_description: "Tämä on ohjeteksti valintaruudulle, joka käyttäjän pitää valita sopimuksen hyväksymiseksi."
         transaction_agreement_text_header: Sopimusteksti
         transaction_agreement_description: "Tämä on sopimustekstin sisältö kokonaisuudessaan. Teksti näytetään käyttäjälle kun hän klikkaa \"%{read_more}\" linkkiä."
-        terms_privacy_policy_and_static_content: ~
-        terms_privacy_policy_and_static_content_infotext: ~
+        terms_privacy_policy_and_static_content: "Käyttöehdot, tietosuojakäytäntö ja staattinen sisältö"
+        terms_privacy_policy_and_static_content_infotext: "Voit muokata enintään neljää staattista sisältöä sisältävää sivua. Käyttäjät voivat löytää sivut klikkaamalla \"Tietoa\" -linkkiä yläpalkissa."
       edit_look_and_feel:
         edit_community_look_and_feel: Ulkoasu
         community_logo: Peruslogo
@@ -119,8 +119,8 @@ fi:
         logo_mobile_icon_instructions_text_with_dimensions: "Tämä neliömuotoinen logo näytetään, kun käyttäjät luovat kirjanmerkin markkinapaikallesi mobiililaitteillaan. Suositeltu koko on (vähintään) %{width} x %{height} pikseliä."
         cover_photo_visibility: "Kansikuva näytetään etusivulla kirjautumattomille käyttäjille."
         cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä. %{see_how_it_looks_like}."
-        we_have_you_covered: ~
-        cover_photo_ready_made: ~
+        we_have_you_covered: "Me voimme auttaa"
+        cover_photo_ready_made: "Etsitko joitain valmiita ja optimoituja kansikuvia? Vai haluaisitko inspiroitua ja nähdä nettisivuja joista voisit löytää hienoja kansikuvia? %{link}!"
         small_cover_photo_visibility: "Matala kansikuva näytetään kaikilla sivuilla paitsi etusivulla kirjautumattomille käyttäjille."
         small_cover_photo_instructions_text_with_dimensions: "Kuva muutetaan %{width}x%{height} pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         main_content_width: "Valitessasi kansikuvia, huomaathan että sivuston sisällön leveys on korkeintaan %{main_width} pikseliä. Muistathan katsoa myös miltä kansikuvasi näyttää pienemmillä näytöillä, esimerkiksi muuttamalla selainikkunasi kokoa."
@@ -222,7 +222,7 @@ fi:
         users_can_invite_new_users: "Kaikilla käyttäjillä on oikeus kutsua muita käyttäjiä palveluun"
         private: "Yksityinen kauppapaikka (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
-        allow_free_conversations: ~
+        allow_free_conversations: "Salli käyttäjien viestitellä keskenään vapaasti"
         search_preferences: Hakuasetukset
         default_search_type: "Haun tyyppi: %{select_search_type}"
         keyword_search: Avainsanahaku
@@ -321,7 +321,7 @@ fi:
         twitter_handle_placeholder: tunnus
         invalid_twitter_handle: "Twitter-tilin tunnus voi olla enintään 15 merkkiä pitkä sekä sisältää vain kirjaimia (A-Z) ja numeroita (0-9)."
         facebook_connect: Facebook
-        facebook_developers_dashboard: ~
+        facebook_developers_dashboard: "Facebook Developers Dashboard"
         facebook_connect_info_text: "Luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. Tämä mahdollistaa sivustolle kirjautumisen Facebookin kautta."
         facebook_connect_info_text_with_instructions: "Jos haluat ottaa Facebook-kirjautumisen käyttöön, luo omalle kauppapaikallesi sovellus  <a href='https://developers.facebook.com/'>Facebookin kehittäjäsivustolla</a> ja lisää luodun sovelluksen tunnukset tähän. %{instructions_link}"
         facebook_instructions_link_text: "Lue ohjeet Facebook-sovelluksen luontiin."
@@ -334,7 +334,7 @@ fi:
         add_another_image: "Lisää uusi kuva"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Katso ohjeet Google Sign-In:in käyttöön ottamiseksi."
-        google_developers_console: ~
+        google_developers_console: "Googlen Developers Console"
         google_connect_info_text_with_instructions: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne. %{instructions_link}"
         google_connect_info_text: "Ottaaksesi käyttöön Google Sign-In:in, luo projekti markkinapaikallesi <a href='https://developers.google.com/identity/sign-in/web/sign-in'>Google Developers Consolessa</a>. Lisää generoitu ID ja projektin 'secret key' tänne."
         enable_google_login: "Salli käyttäjien kirjautua Google-tilillään"
@@ -342,7 +342,7 @@ fi:
         google_connect_secret: "Google Client secret"
         linkedin_connect: "LinkedIn Sign In"
         linkedin_instructions_link_text: "Lue ohjeet LinkedIn Sign In:in käyttöönottamiseksi."
-        linkedin_developers_dashboard: ~
+        linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
         linkedin_connect_info_text_with_instructions: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne. %{instructions_link}"
         linkedin_connect_info_text: "Voidaksesi kytkeä päälle LinkedIn Sign In:in, luo appi markkinapaikallesi <a href='https://www.linkedin.com/developers/'>LinkedIn Developers Dashboardissa</a>. Lisää sitten appia varten generoitu ID ja 'secret key' tänne."
         enable_linkedin_login: "Salli käyttäjien kirjautua LinkedIn -tilillä"
@@ -432,7 +432,7 @@ fi:
         contact_link_title: "Ota yhteyttä"
         invite_link_title: "Kutsu uusia jäseniä"
         info: "Oletusarvoisesti linkkejä seuraaville sivuille ei näytetä missään muualla markkinapaikassasi: %{about_link}, %{contact_link}, %{invite_link}."
-        display_about: "Näytä linkki sivulle <i>Tietoa alvelusta</i> ja muille staattisille sivuille"
+        display_about: "Näytä linkki sivulle <i>Tietoa palvelusta</i> ja muille staattisille sivuille"
         display_contact: "Näytä linkki <i>Ota yhteyttä</i> sivulle"
         display_invite: "Näytä linkki <i>Kutsu uusia käyttäjiä</i> sivulle"
       topbar:
@@ -456,8 +456,8 @@ fi:
           canceled: Peruutettu
           preauthorized: "Katevaraus tehty"
           rejected: Hylätty
-          payment_intent_requires_action: ~
-          payment_intent_action_expired: ~
+          payment_intent_requires_action: Odottaa
+          payment_intent_action_expired: Vanhentunut
         headers:
           conversation: Viestiketju
           listing: Ilmoitus
@@ -503,9 +503,9 @@ fi:
             canceled: Peruutettu
             initiated: "Odottaa Stripe-maksua"
             pending_ext: "Odottaa Stripe-maksua"
-            payment_intent_requires_action: ~
-            payment_intent_action_expired: ~
-            payment_intent_failed: ~
+            payment_intent_requires_action: Odottaa
+            payment_intent_action_expired: Vanhentunut
+            payment_intent_failed: "Stripe-maksu epäonnistui"
         not_available: "Ei saatavilla"
       conversations:
         conversations: Keskustelut
@@ -577,8 +577,8 @@ fi:
         search_by_title_author_category: "Etsi ilmoituksen otsikkoa, tekijää, tai kategorian nimeä"
         search: Etsi
         reset_search: "Näytä kaikki"
-        export_all_as_csv: ~
-        processing_export: ~
+        export_all_as_csv: "Vie kaikki CSV-muodossa"
+        processing_export: "Prosessoidaan CSV-vientiä..."
         status:
           all: "Kaikki tilat"
           selected_js: "Valitut tilat: "
@@ -758,7 +758,7 @@ fi:
       emails_title: Sähköpostit
       subscription: Tilaus
       preview: "Esikatsele sivustoa"
-      whats_new: ~
+      whats_new: "Mikä on uutta?"
     listing_shapes:
       availability_title: Saatavuus
       read_more: "Lue lisää automaattisesta saatavuuden hallinnasta."
@@ -908,7 +908,7 @@ fi:
       stripe_fee: "Stripen veloittamat maksut"
       stripe_fee_notice: "%{stripe_fee_link} vähennetään välityspalkkiostasi."
       fee_should_be_less_than_minimum_price: "Minimivälityspalkkion pitää olla pienempi kuin transaktion minimikoko."
-      the_transaction_fee_must_be_lower_than_100: ~
+      the_transaction_fee_must_be_lower_than_100: "Välityspalkkion pitää olla alle 100%"
       confirm_disable: "Oletko varma että haluat ottaa maksualustan %{gateway} pois käytöstä? Jos otat sen pois käytöstä, myyjät eivät voi enää vastaanottaa sillä rahaa, eivätkä asiakkaat enää voi maksaa sen kautta. Mikäli myyjät eivät ole ottaneet käyttöön jotain toista maksualustaa, asiakkaat eivät voi ostaa heiltä mitään."
       commission_from_buyer_label: "Ostajan välityspalkkio:"
       minimum_buyer_transaction_fee_label: "Ostajan minimipalkkio:"
@@ -1056,7 +1056,7 @@ fi:
       total_value: "%{seller_gets}*"
       total_value_paypal: "%{seller_gets}*"
       total_value_stripe: "%{seller_gets}"
-      paypal_fee: ~
+      paypal_fee: "PayPalin palvelumaksu"
       paypal_fee_info: "* Ei sisällä %{link}"
       shipping_price_label: "Postikulut:"
       stripe-fee_label: "Maksunvälittäjän palvelumaksu"
@@ -1473,7 +1473,7 @@ fi:
       buyer_cannot_pay_error: "PayPal hylkäsi maksuyrityksen. Ole hyvä ja ota yhteyttä PayPalin asiakastukeen: %{customer_service_link}"
       pending_review_error: "Maksu on vastaanotettu mutta PayPal merkitsi sen katselmoitavaksi. Kun PayPal on suorittanut katselmoinnin tehdään katevaraus automaattisesti."
       seller_express_checkout_disabled: "Ilmoituksen jättäjän PayPal-tili ei tällä hetkellä tue Express Checkout -toimintoa. Ole yhteydessä ilmoituksen jättäjään ja kerro hänelle, että hänen PayPal-tilissään on ongelma, joka estää maksujen vastaanottamisen, ja pyydä häntä olemaan yhteydessä PayPalin asiakaspalveluun."
-      seller_express_checkout_disabled_no_free: ~
+      seller_express_checkout_disabled_no_free: "PayPal Express Checkout on otettu pois käytöstä ilmoituksen luojan PayPal-tililtä. Ole hyvä ja pyydä %{service_name} -tiimiä ottamaan yhteyttä ilmoituksen luojaan ja kehottamaan heitä ottamaan PayPaliin yhteyttä."
       generic_error: "Maksuprosessin yhteydessä tapahtui virhe. PayPal-maksu ei onnistunut."
       cancel_error: "Maksun perumisen yhteydessä tapahtui virhe."
       accept_authorization_error: "Maksun vastaanotto epäonnistui. Yritä uudelleen."
@@ -1745,22 +1745,22 @@ fi:
     logged_in_notifications_icon:
       notifications: Tiedotteet
     markdown_help:
-      title: ~
-      description: ~
-      formatting: ~
-      result: ~
-      h1: ~
-      h2: ~
-      h3: ~
-      italic: ~
-      bold: ~
-      underline: ~
-      strikethrough: ~
-      inline_link: ~
-      list: ~
-      one: ~
-      two: ~
-      three: ~
+      title: "Markdown -muotoilun ohje"
+      description: "Markdown on yksinkertainen tapa muotoilla tekstiä, jotta se näyttää hyvältä kaikilla laitteilla. Se ei tee mitään erityisen isoja muutoksia kuten fonttityypin, -värin, tai -koon muuttelua - vain perusasiat, jotka hoituvat tuttuja näppäimistömerkkejä käyttäen."
+      formatting: Muotoilu
+      result: Lopputulos
+      h1: H1
+      h2: H2
+      h3: H3
+      italic: kursivoitu
+      bold: lihavoitu
+      underline: alleviivaus
+      strikethrough: yliviivaus
+      inline_link: tekstilinkki
+      list: Lista
+      one: Yksi
+      two: Kaksi
+      three: Kolme
     mobile_logged_in:
       admin: Ylläpito
       go_to_your_profile_page: Profiili
@@ -1822,7 +1822,7 @@ fi:
       listing_updated_successfully: "Ilmoitus päivitetty onnistuneesti"
       listing_updated_availability_management_enabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta aktivoitu."
       listing_updated_availability_management_disabled: "Ilmoitus päivitetty onnistuneesti. Saatavuuden hallinta pois käytöstä."
-      listing_deleted: ~
+      listing_deleted: "Ilmoitus poistettu"
       only_kassi_administrators_can_access_this_area: "Ole hyvä ja kirjaudu sisään ylläpitäjän tilillä päästäksesi tälle alueelle"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
@@ -1889,7 +1889,7 @@ fi:
       user_does_not_have_email_to_delete: "Et omista sähköpostiosoitetta, jota yrität poistaa."
       email_deleted: "Sähköpostiosoite poistettu"
       listing_author_payment_details_missing: "Ole hyvä ja ota yhteyttä ilmoituksen tekijään painamalla alla olevaa nappia. Heidän tulee päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
-      listing_author_payment_details_missing_no_free: ~
+      listing_author_payment_details_missing_no_free: "Ole hyvä ja ota yhteyttä %{service_name} -tiimiin pyytääksesi heitä ottamaan yhteyttä ilmoituksen luojaan. Ilmoituksen luojan pitää päivittää maksutietonsa pystyäkseen vastaanottamaan maksuja."
       images_are_processing: "Prosessoimme kuviasi. Ole hyvä ja odota pari minuuttia, niin ne tulevat valmiiksi ja näkyvät."
       maintenance_mode:
         zero: "Sivusto menee nyt offline-tilaan huoltoa varten"
@@ -1926,7 +1926,7 @@ fi:
       you_cannot_send_a_new_comment_because_listing_is_closed: "Et voi lähettää uutta kommenttia koska ilmoitus on suljettu."
       you_must: "Sinun täytyy"
       subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
-    deleting_a_listing_cannot_be_undone: ~
+    deleting_a_listing_cannot_be_undone: "Ilmoituksen poistoa ei voi peruuttaa. Oletko varma että haluat jatkaa?"
     edit:
       edit_listing: "Muokkaa ilmoitusta"
     edit_links:
@@ -1942,7 +1942,7 @@ fi:
       listing_is_rejected: "Ilmoitus on hylätty"
       approve_listing: "Hyväksy ilmoitus"
       reject_listing: "Hylkää ilmoitus"
-      delete_listing: ~
+      delete_listing: "Poista ilmoitus"
     map:
       open_in_google_maps: "Avaa Google Maps -palvelussa"
     error:
@@ -1965,7 +1965,7 @@ fi:
       description:
         detailed_description: "Tarkempi kuvaus"
         youtube_info: "Jos kuvauksesi sisältää YouTube-linkkejä, videot näytetään kuvauksen alla."
-        youtube_info_markdown: ~
+        youtube_info_markdown: "Voit %{link}. Jos kuvauksesi sisältää YouTube-linkkejä, videot näytetään kuvauksen alla."
       destination:
         destination: Määränpää
       form_content:
@@ -2518,8 +2518,8 @@ fi:
       image_is_processing: "Profiilikuvaasi valmistellaan taustalla. Lataa sivu uudelleen hetken kuluttua."
       shown_in_your_public_profile: "(Näkyy julkisessa profiilissasi)"
       editing_profile_of: "Muokkaat nyt käyttäjän %{name} profiilia"
-      format_markdown_link: ~
-      format_markdown: ~
+      format_markdown_link: "muotoilla kuvaustekstiä käyttäen Markdownia"
+      format_markdown: "Voit %{link}."
     save_information: "Tallenna tiedot"
   shipping_address:
     shipping_address: Postitusosoite
@@ -2805,7 +2805,7 @@ fi:
     stripe_account_restricted_soon: "Online-maksuja tilillesi tullaan pian rajoittamaan."
     stripe_account_restricted_soon_info: "Sinun tulisi muokata pankkitilitietojasi ja antaa maksunvälittäjälle lisää tietoa."
     stripe_account_pending_verification: "Tilitiedot tallennettu onnistuneesti. Odotetaan tilin vahvistusta maksunvälittäjältä."
-    stripe_account_pending_verification_info: ~
+    stripe_account_pending_verification_info: "Tarkista myöhemmin täältä että kaikki on kunnossa."
     form_new:
       need_info: "Tarvitsemme hieman tietoja sinusta, jotta voimme lähettää sinulle rahaa."
       select_country: "Valitse maa..."
