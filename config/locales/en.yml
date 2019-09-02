@@ -1503,6 +1503,9 @@ en:
       view_message: "View message"
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "A new message in %{service_name} from %{sender_name}"
+    new_message_v2:
+      hi: "Hi %{name}, you have a message!"
+      reply: "Reply to %{sender}"
     new_payment:
       new_payment: "You have received a new payment"
       price_per_unit_type: "Price per %{unit_type}"
