@@ -6,6 +6,12 @@
   color: #333;
   width: 100%;
   font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+
+  td {
+    font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+  }
 
   &> tbody > tr > td {
     padding: 50px 10px;
@@ -215,31 +221,6 @@
       color: gray;
       font-family: Helvetica Neue, Arial, Helvetica, Arial, sans-serif;
       font-size: 12px;
-    }
-    .headline {
-      font-weight: bold;
-      padding: 20px 0px;
-      font-size: 20px;
-    }
-    .separator {
-      border-top: 2px solid #c3c3c3;
-    }
-    .item-name {
-      text-align: left;
-      font-size: 14px;
-      padding: 4px 0px;
-    }
-    .item-value {
-      text-align: right;
-      font-size: 14px;
-      padding: 4px 0px;
-    }
-    .price-breakdown {
-      width: 100%;
-      margin: 20px 0px;
-    }
-    .item-name.header {
-      padding: 20px 0px;
     }
   }
 }

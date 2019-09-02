@@ -94,8 +94,6 @@ class TransactionMailer < ActionMailer::Base
         transaction.listing_title
       end
 
-      @no_recipient_name = v2_enabled?(community.id)
-
       mail(:to => seller_model.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
            :subject => t("emails.new_payment.new_payment")) do |format|
@@ -148,13 +146,14 @@ class TransactionMailer < ActionMailer::Base
         transaction.listing_title
       end
 
-      premailer_mail(:to => buyer_model.confirmed_notification_emails_to,
+      mail(:to => buyer_model.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
                      :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
         format.html {
-          render "payment_receipt_to_buyer", locals: {
+          render v2_template(community.id, "payment_receipt_to_buyer"), locals: {
                    conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction.id})),
                    listing_title: listing_title,
+                   listing_info_url: listing_url(@url_params.merge(id: transaction.listing_id)),
                    price_per_unit_title: t("emails.receipt_to_payer.price_per_unit_type", unit_type: unit_type),
                    quantity_selector_label: quantity_selector_label,
                    listing_price: MoneyViewUtils.to_humanized(transaction.unit_price),
@@ -170,7 +169,8 @@ class TransactionMailer < ActionMailer::Base
                    gateway: transaction.payment_gateway,
                    community_name: community.name_with_separator(buyer_model.locale),
                    payment_buyer_service_fee: buyer_service_fee
-                 }
+                 },
+                 layout: v2_layout(community.id)
         }
       }
     end
