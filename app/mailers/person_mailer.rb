@@ -154,9 +154,11 @@ class PersonMailer < ActionMailer::Base
     with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
       @conversation = conversation
       @other_party = @conversation.other_party(recipient)
-      premailer_mail(:to => recipient.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => PersonViewUtils.person_display_name(@other_party, community)))
+      mail(:to => recipient.confirmed_notification_emails_to,
+           :from => community_specific_sender(community),
+           :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => PersonViewUtils.person_display_name(@other_party, community))) do |format|
+        format.html { render v2_template(community.id, "testimonial_reminder"), layout: v2_layout(community.id) }
+      end
     end
   end
 
