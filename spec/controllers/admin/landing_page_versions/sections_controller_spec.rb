@@ -156,7 +156,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do # 
         expect(asset['id']).to eq("default_hero_background")
         expect(asset['absolute_path']).to eq true
         expect(asset['asset_id']).to_not be_nil
-        expect(asset['src']).to match(/#{community.ident}\/.+\/Bison_skull_pile.png/)
+        expect(asset['src']).to match(/.+\/Bison_skull_pile.png/)
       end
     end
 

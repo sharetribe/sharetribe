@@ -558,8 +558,4 @@ Rails.application.routes.draw do
   # NOTE: default routes from ActiveStorage are overriden below by catchall, so redefining them here
   get '/landing_page/:sitename/assets/:signed_id/*filename' => 'active_storage/blobs#show', as: :landing_page_asset
   get  "/rails/active_storage/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :landing_page_asset_service
-
-  #keep this matcher last
-  #catches all non matched routes, shows 404 and logs more reasonably than the alternative RoutingError + stacktrace
-  match "*path" => "errors#not_found", via: :all
 end

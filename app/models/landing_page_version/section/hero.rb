@@ -70,7 +70,7 @@ module LandingPageVersion::Section
     end
 
     def asset_added(new_asset)
-      add_or_replace_asset(new_asset, background_image['id'])
+      add_or_replace_asset(new_asset, background_image['id'], BACKGROUND_RESIZE_OPTIONS)
     end
 
     def i18n_key

@@ -49,7 +49,7 @@ module LandingPageVersion::Section
 
     def asset_added(new_asset)
       self.background_image = {'type' => 'assets', 'id' => self.id+"_background_image"}
-      add_or_replace_asset(new_asset, background_image['id'])
+      add_or_replace_asset(new_asset, background_image['id'], BACKGROUND_RESIZE_OPTIONS)
     end
 
     class << self

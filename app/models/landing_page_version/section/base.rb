@@ -54,7 +54,7 @@ module LandingPageVersion::Section
 
     def asset_added(asset); end
 
-    def add_or_replace_asset(new_asset, image_id)
+    def add_or_replace_asset(new_asset, image_id, resize_options = {})
       assets = landing_page_version.parsed_content['assets']
       item = assets.find{|x| x['id'] == image_id }
       unless item
@@ -62,7 +62,12 @@ module LandingPageVersion::Section
         assets << item
       end
       blob = new_asset.blob
-      item['src'] = blob_path(blob)
+      if resize_options.any?
+        variant = new_asset.variant(resize_options)
+        item['src'] = Rails.application.routes.url_helpers.polymorphic_url(variant, only_path: true)
+      else
+        item['src'] = blob_path(blob)
+      end
       item['content_type'] = blob.content_type
       item['absolute_path'] = true
       item['asset_id'] = new_asset.id

@@ -140,6 +140,10 @@ module LandingPageVersion::Section
       listings[index]['listing']['id'] = value
     end
 
+    def removable?
+      true
+    end
+
     class << self
       def new_from_content(content_section)
         new(content_section)

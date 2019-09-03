@@ -127,8 +127,8 @@ module LandingPageVersion::Section
         category = LandingPageVersion::Section::Categories::Category.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
-          category.asset_id = category.asset_id.presence || "category_#{id}_#{category.category_id}"
-          add_or_replace_asset(new_asset, category.asset_id)
+          category.asset_id = category.asset_id.presence || "category_#{id}_#{new_asset.id}"
+          add_or_replace_asset(new_asset, category.asset_id, CATEGORY_IMAGE_RESIZE_OPTIONS)
         end
         category
       end
@@ -144,7 +144,11 @@ module LandingPageVersion::Section
 
     def asset_added(new_asset)
       self.background_image = {'type' => 'assets', 'id' => self.id+"_background_image"}
-      add_or_replace_asset(new_asset, background_image['id'])
+      add_or_replace_asset(new_asset, background_image['id'], BACKGROUND_RESIZE_OPTIONS)
+    end
+
+    def removable?
+      true
     end
 
     class << self

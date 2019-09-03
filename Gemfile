@@ -27,6 +27,9 @@ gem 'rest-client', '~> 2.0.2'
 gem 'paperclip', '~> 6.0.0'
 gem 'delayed_paperclip', '~> 3.0.1'
 
+# Active Storage
+gem 'image_processing', '~> 1.9.3'
+
 gem 'aws-sdk-s3', '~> 1'
 gem 'aws-sdk-ses', '~> 1'
 gem "will_paginate", '~> 3.1.7'
