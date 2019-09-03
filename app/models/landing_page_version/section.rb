@@ -18,7 +18,7 @@ module LandingPageVersion::Section
   BACKGROUND_STYLE_COLOR = 'color'.freeze
   BACKGROUND_STYLE_NONE = 'none'.freeze
 
-  BACKGROUND_RESIZE_OPTIONS = {resize: '1920x450'}.freeze
-  LOCATION_IMAGE_RESIZE_OPTIONS = {resize: '325x264'}.freeze
-  CATEGORY_IMAGE_RESIZE_OPTIONS = {resize: '325x264'}.freeze
+  BACKGROUND_RESIZE_OPTIONS = {resize: '2000x1328'}.freeze
+  LOCATION_IMAGE_RESIZE_OPTIONS = {resize: '1000x667'}.freeze
+  CATEGORY_IMAGE_RESIZE_OPTIONS = {resize: '1000x667'}.freeze
 end
