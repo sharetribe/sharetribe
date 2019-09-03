@@ -113,11 +113,14 @@ describe "CommunityMailer", type: :mailer do
       CommunityMailer.deliver_community_updates
       expect(ActionMailer::Base.deliveries.size).to eq(3)
       email = find_email_body_for(@p1.emails.first)
-      expect(email.body.include?("during the past 1 day")).to be_truthy
+      email_body = email.html_part.body.to_s
+      expect(email_body.include?("during the past 1 day")).to be_truthy
       email = find_email_body_for(@p2.emails.first)
-      expect(email.body.include?("during the past 14 day")).to be_truthy
+      email_body = email.html_part.body.to_s
+      expect(email_body.include?("during the past 14 day")).to be_truthy
       email = find_email_body_for(@p4.emails.first)
-      expect(email.body.include?("during the past 9 day")).to be_truthy
+      email_body = email.html_part.body.to_s
+      expect(email_body.include?("during the past 9 day")).to be_truthy
     end
 
     it "should send with default 7 days to those with nil as last time sent" do
@@ -128,7 +131,8 @@ describe "CommunityMailer", type: :mailer do
       expect(ActionMailer::Base.deliveries.size).to eq(3)
       email = find_email_body_for(@p5.emails.first)
       expect(email).not_to be_nil
-      expect(email.body.include?("during the past 7 days")).to be_truthy
+      email_body = email.html_part.body.to_s
+      expect(email_body.include?("during the past 7 days")).to be_truthy
     end
 
   end
