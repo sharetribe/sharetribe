@@ -4,6 +4,6 @@
 .row
   .col-12
     = form.label :id
-    = form.text_field :id, disabled: presenter.section.persisted?, required: true, class: 'identifier', 'data-msg-valid_identifier': I18n.t("errors.messages.identifier_format_error")
+    = form.text_field :id, disabled: presenter.section.persisted?, required: true, class: 'presence', 'data-msg-presence': I18n.t("errors.messages.presence")
     - if presenter.id_error?
       %label.error= t("errors.messages.section_with_this_id_already_exists")

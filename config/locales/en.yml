@@ -1691,7 +1691,7 @@ en:
       from_must_be_less_than_till: "\"Start time\" must be less than \"End time\""
       section_with_this_id_already_exists: "This identifier is in use. Please choose another one."
       listing_with_this_id_does_not_exist: "This listing id is not one of yours. Maybe you made a typo? Please verify and try again"
-      identifier_format_error: "Identifier must start with an ASCII letter (a-z or A-Z) followed by any number of ASCII letters (a-z or A-Z), digits (0 - 9), hyphens ('-'), underscores ('_')"
+      presence: "Can't be blank"
   event_feed_events:
     accept:
       has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."

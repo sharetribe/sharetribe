@@ -33,9 +33,9 @@ function add_validator_methods() {
     );
 
   $.validator.
-    addMethod( "valid_identifier",
+    addMethod( "presence",
       function(value, element, param) {
-        return value.match(new RegExp("(^[A-Za-z][-A-Za-z0-9_]*$)"));
+        return value && value.replace(/\s+/g, '').length > 0;
       }
     );
 
@@ -156,8 +156,8 @@ function add_validator_methods() {
     url: true
   });
 
-  $.validator.addClassRules("identifier", {
-    "valid_identifier": true
+  $.validator.addClassRules("presence", {
+    presence: true
   });
 
   $.validator.
