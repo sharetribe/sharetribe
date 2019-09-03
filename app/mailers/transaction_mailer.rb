@@ -96,9 +96,10 @@ class TransactionMailer < ActionMailer::Base
 
       mail(:to => seller_model.confirmed_notification_emails_to,
            :from => community_specific_sender(community),
-           :subject => t("emails.new_payment.new_payment")) do |format|
+           :subject => t("emails.new_payment.new_payment")) { |format|
         format.html {
-          render v2_template(community.id, "payment_receipt_to_seller"), locals: {
+          render v2_template(community.id, "payment_receipt_to_seller"),
+                 locals: {
                    conversation_url: person_transaction_url(seller_model, @url_params.merge(id: transaction.id)),
                    listing_title: listing_title,
                    listing_info_url: listing_url(@url_params.merge(id: transaction.listing_id)),
@@ -121,7 +122,7 @@ class TransactionMailer < ActionMailer::Base
                  },
                  layout: v2_layout(community.id)
         }
-      end
+      }
     end
   end
 
@@ -147,10 +148,11 @@ class TransactionMailer < ActionMailer::Base
       end
 
       mail(:to => buyer_model.confirmed_notification_emails_to,
-                     :from => community_specific_sender(community),
-                     :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
+           :from => community_specific_sender(community),
+           :subject => t("emails.receipt_to_payer.receipt_of_payment")) { |format|
         format.html {
-          render v2_template(community.id, "payment_receipt_to_buyer"), locals: {
+          render v2_template(community.id, "payment_receipt_to_buyer"),
+                 locals: {
                    conversation_url: person_transaction_url(buyer_model, @url_params.merge({:id => transaction.id})),
                    listing_title: listing_title,
                    listing_info_url: listing_url(@url_params.merge(id: transaction.listing_id)),
