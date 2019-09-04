@@ -56,13 +56,13 @@
       }
     });
 
-    $("form.edit_section, form.new_section").validate({
-      ignore: 'input[type=hidden], input[disabled]',
-      invalidHandler: function(event, validator) {
-        var error_elements = $.map(validator.invalid, function(message, key) { return 'input[name="'+key+'"]'; });
-        $(error_elements.join(", ")).parents(".collapsed").find(".section-column-header-toggle").click();
-      }
-    });
+    // This uses already initialized validator from a ST.FooterMenu
+    // Required calling ST.FooterMenu.init() before this!
+    var validator = $("form.edit_section, form.new_section").validate();
+    validator.settings.invalidHandler = function(event, validator) {
+      var error_elements = $.map(validator.invalid, function(message, key) { return 'input[name="'+key+'"]'; });
+      $(error_elements.join(", ")).parents(".collapsed").find(".section-column-header-toggle").click();
+    };
   };
 
   module.LandingPageSectionEditor = {
