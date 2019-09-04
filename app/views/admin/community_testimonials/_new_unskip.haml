@@ -1,0 +1,19 @@
+.testimonial-edit-form
+  = form_for :testimonial, url: unskip_admin_community_testimonials_path,
+    remote: true do |form|
+    .row
+      .col-12.testimonial-save
+        = t('admin.communities.testimonials.form.if_you_unskip_the_review')
+        %br
+        = t('admin.communities.testimonials.form.they_will_not_be_notified_automatically')
+    .row
+      .col-12.testimonial-save
+        = form.submit t('admin.communities.testimonials.form.unskip'), class: 'button'
+        .inline-button-container
+          %a#close_x1{:href => '#', :class => "cancel-button"}
+            .content
+              = t("admin.communities.testimonials.form.cancel")
+    = hidden_field_tag :transaction_id, service.testimonial.tx.id
+    = hidden_field_tag :from_tx_author, params[:from_tx_author]
+    = hidden_field_tag :testimonial_index, params[:testimonial_index]
+

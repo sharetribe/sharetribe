@@ -288,7 +288,12 @@ Rails.application.routes.draw do
           end
         end
         resources :conversations, controller: :community_conversations, only: [:index, :show]
-        resources :testimonials, controller: :community_testimonials, only: [:index, :edit, :update, :new, :create]
+        resources :testimonials, controller: :community_testimonials, only: [:index, :edit, :update, :new, :create] do
+          collection do
+            get :new_unskip
+            post :unskip
+          end
+        end
         resources :invitations, controller: :community_invitations, only: [:index]
         resources :emails
         resources :community_memberships do
