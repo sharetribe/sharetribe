@@ -105,12 +105,11 @@ class PersonMailer < ActionMailer::Base
       if community.payments_in_use?
         @payment_settings_link = paypal_account_settings_payment_url(recipient, @url_params.merge(locale: recipient.locale))
       end
+      @skip_unsubscribe_footer = true
 
       premailer_mail(:to => recipient.confirmed_notification_emails_to,
                      :from => community_specific_sender(community),
-                     :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details")) do |format|
-        format.html {render :locals => {:skip_unsubscribe_footer => true} }
-      end
+                     :subject => t("emails.payment_settings_reminder.remember_to_add_payment_details"))
     end
   end
 

@@ -34,8 +34,8 @@
 
                 - if @show_branding_info
                   = render :partial => "layouts/email_non_whitelabel_branding", locals: {link_to_sharetribe: "https://www.sharetribe.com/?utm_source=#{@current_community.ident}.sharetribe.com&utm_medium=email&utm_campaign=nowl-emails-auto"}
-                - skip_unsubscribe_footer ||= false
-                - if @recipient && @url_params && !skip_unsubscribe_footer
+                - @skip_unsubscribe_footer ||= false
+                - if @recipient && @url_params && !@skip_unsubscribe_footer
                   %tr
                     %td{:align => "left",  :style => "padding-top: 10px; padding-bottom: 30px;border-top:1px dotted grey;"}
                       %font{:size => 3, :color => "gray", :face => "font-family:Helvetica Neue, Arial, Helvetica, Arial, sans-serif;", :style => "font-size:12px;"}

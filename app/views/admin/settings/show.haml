@@ -89,6 +89,9 @@
         .checkbox-container
           = form.check_box :email_admins_about_new_members
           = form.label :email_admins_about_new_members, t("admin.communities.settings.email_admins_about_new_members"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :email_admins_about_new_transactions
+          = form.label :email_admins_about_new_transactions, t("admin.communities.settings.email_admins_about_new_transactions"), :class => "settings-checkbox-label"
 
     .row
       .col-12

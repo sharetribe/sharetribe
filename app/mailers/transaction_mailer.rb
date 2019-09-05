@@ -172,6 +172,19 @@ class TransactionMailer < ActionMailer::Base
     end
   end
 
+  def new_transaction(transaction, recipient)
+    @transaction = transaction
+    community = transaction.community
+    set_up_layout_variables(recipient, community)
+    with_locale(recipient.locale, community.locales.map(&:to_sym), community.id) do
+      @community_name = community.full_name(recipient.locale)
+      @skip_unsubscribe_footer = true
+      premailer_mail(to: recipient.confirmed_notification_emails_to,
+                     from: community_specific_sender(community),
+                     subject: t("emails.new_transaction.subject"))
+    end
+  end
+
   private
 
   def premailer_mail(opts, &block)

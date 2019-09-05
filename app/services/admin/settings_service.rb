@@ -28,7 +28,8 @@ class Admin::SettingsService
       :default_min_days_between_community_updates,
       :email_admins_about_new_members,
       :pre_approved_listings,
-      :allow_free_conversations
+      :allow_free_conversations,
+      :email_admins_about_new_transactions
     )
   end
 
