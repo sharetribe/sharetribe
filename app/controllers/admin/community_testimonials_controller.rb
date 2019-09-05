@@ -2,7 +2,7 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
   before_action :set_selected_left_navi_link
   before_action :set_service
 
-  layout false, only: [:edit, :update, :new, :create]
+  layout false, only: [:edit, :update, :new, :create, :new_unskip, :unskip]
   respond_to :html, :js
 
   def index; end
@@ -19,6 +19,15 @@ class Admin::CommunityTestimonialsController < Admin::AdminBaseController
 
   def create
     @service.create
+  end
+
+  def new_unskip
+    @service.new_testimonial
+  end
+
+  def unskip
+    @service.unskip
+    render :create
   end
 
   private

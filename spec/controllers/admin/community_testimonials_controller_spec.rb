@@ -178,4 +178,28 @@ describe Admin::CommunityTestimonialsController, type: :controller do
       expect(service.testimonials[:all_count]).to eq 4
     end
   end
+
+  describe "#unskip" do
+    let(:tx) do
+      FactoryGirl.create(:transaction, community: community,
+                                       listing: listing1,
+                                       starter: person3,
+                                       starter_skipped_feedback: true,
+                                       author_skipped_feedback: true,
+                                       current_state: 'confirmed')
+    end
+
+    it 'unskips skipped testimonial' do
+      expect(tx.starter_skipped_feedback).to eq true
+      expect(tx.author_skipped_feedback).to eq true
+      post :unskip, params: {format: :js, community_id: community.id, transaction_id: tx.id, from_tx_author: false}
+      tx.reload
+      expect(tx.starter_skipped_feedback).to eq false
+      expect(tx.author_skipped_feedback).to eq true
+      post :unskip, params: {format: :js, community_id: community.id, transaction_id: tx.id, from_tx_author: true}
+      tx.reload
+      expect(tx.starter_skipped_feedback).to eq false
+      expect(tx.author_skipped_feedback).to eq false
+    end
+  end
 end

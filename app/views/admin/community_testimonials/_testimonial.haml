@@ -56,7 +56,11 @@
     %td
     %td
     %td
-      - unless skipped_feedback
+      - if skipped_feedback
+        = link_to new_unskip_admin_community_testimonials_path(transaction_id: tx.id, from_tx_author: for_author, testimonial_index: testimonial_index),
+          remote: true, class: 'edit' do
+          = icon_tag("edit", ["icon-fix"])
+      - else
         = link_to new_admin_community_testimonial_path(transaction_id: tx.id, from_tx_author: for_author, testimonial_index: testimonial_index),
           remote: true, class: 'edit' do
           = icon_tag("edit", ["icon-fix"])

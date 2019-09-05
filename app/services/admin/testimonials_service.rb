@@ -65,6 +65,18 @@ class Admin::TestimonialsService
     @testimonial.tx.reload
   end
 
+  def unskip
+    tx = new_testimonial.tx
+    if params_true?(:from_tx_author)
+      testimonial.author_id = tx.author.id
+      tx.author_skipped_feedback = false
+    else
+      testimonial.author_id = tx.starter.id
+      tx.starter_skipped_feedback = false
+    end
+    tx.save
+  end
+
   def filter?
     params[:q].present? || params[:status].present?
   end
