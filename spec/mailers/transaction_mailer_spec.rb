@@ -195,9 +195,45 @@ describe TransactionMailer, type: :mailer do
         end
       end
     end
+  end
 
-    def service_name(community_id)
-      ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
+  describe 'new transaction notification' do
+    let(:community) { FactoryGirl.create(:community) }
+    let(:seller) {
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: "Joan", family_name: "Smith")
+    }
+    let(:buyer) { FactoryGirl.create(:person, member_of: community) }
+    let(:listing) { FactoryGirl.create(:listing, community_id: community.id, author: seller) }
+    let(:paypal_transaction) do
+      transaction = FactoryGirl.create(:transaction, starter: buyer,
+                                                     community: community, listing: listing,
+                                                     current_state: 'paid', payment_gateway: 'paypal',
+                                                     unit_price_cents: 500,
+                                                     unit_price_currency: "EUR")
+      FactoryGirl.create(:paypal_payment, community_id: community.id, transaction_id: transaction.id,
+                                          payment_total_cents: 500, fee_total_cents: 150, payment_status: "completed",
+                                          commission_total_cents: 0, commission_fee_total_cents: 0)
+      service_name(transaction.community_id)
+      transaction
     end
+    let(:admin) {
+      FactoryGirl.create(:person, member_of: community,
+                                  given_name: "Estelle", family_name: "Perry")
+    }
+
+    it 'works' do
+      email = TransactionMailer.new_transaction(paypal_transaction, admin)
+      expect(email.body).to have_text('Hello Estelle,')
+      expect(email.body).to have_text('There is a new transaction in Sharetribe.')
+      expect(email.body).to have_text('Listing: Sledgehammer', normalize_ws: true)
+      expect(email.body).to have_text('Sum: €5', normalize_ws: true)
+      expect(email.body).to have_text('Starter: Proto T', normalize_ws: true)
+      expect(email.body).to have_text('Provider: Joan S', normalize_ws: true)
+    end
+  end
+
+  def service_name(community_id)
+    ApplicationHelper.store_community_service_name_to_thread_from_community_id(community_id)
   end
 end

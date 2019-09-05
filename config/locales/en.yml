@@ -1452,6 +1452,14 @@ en:
       subject: "Edited listing to review: \"%{listing_title}\" by %{author_name} in %{community}"
       there_is_a_edited_listing_to_review: "There is an edited listing to review: \"%{listing_title}\" by %{author_name}. You now have to approve or reject that listing."
       review_the_listing: "Review the edited listing"
+    new_transaction:
+      subject: "New transaction in %{service_name}"
+      there_is_a_new_transaction: "There is %{link} in %{service_name}."
+      a_new_transaction: "a new transaction"
+      listing: "Listing: %{title}"
+      sum: "Sum: %{amount}"
+      starter: "Starter: %{name}"
+      provider: "Provider: %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "Booking failed due to an unexpected error. Please try again later. You haven't been charged."

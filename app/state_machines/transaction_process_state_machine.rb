@@ -63,4 +63,20 @@ class TransactionProcessStateMachine
   after_transition(to: :payment_intent_failed, after_commit: true) do |transaction|
     transaction.update_column(:deleted, true) # rubocop:disable Rails/SkipsModelValidations
   end
+
+  after_transition(to: :free, after_commit: true) do |transaction|
+    send_new_transaction_email(transaction)
+  end
+
+  after_transition(to: :preauthorized, after_commit: true) do |transaction|
+    send_new_transaction_email(transaction)
+  end
+
+  class << self
+    def send_new_transaction_email(transaction)
+      if transaction.community.email_admins_about_new_transactions
+        Delayed::Job.enqueue(SendNewTransactionEmail.new(transaction.id))
+      end
+    end
+  end
 end

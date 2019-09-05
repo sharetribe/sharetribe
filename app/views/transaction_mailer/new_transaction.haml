@@ -1,0 +1,26 @@
+%tr
+  %td{align: "left"}
+    %font{body_font}
+      - url = link_to t("emails.new_transaction.a_new_transaction"), person_transaction_url(@transaction.starter, @url_params.merge({:id => @transaction.id}))
+      = t("emails.new_transaction.there_is_a_new_transaction", :link => url).html_safe
+
+%tr
+  %td{align: "left", style: "padding: 20px 0;"}
+    %table{cellpadding: 5, cellspacing: 0, style: "border-collapse: collapse; width: 100%; background-color: #d1c9b4;"}
+      %tbody
+        %tr
+          %td
+            = t("emails.new_transaction.listing", title: @transaction.listing_title)
+        %tr
+          %td
+            = t("emails.new_transaction.sum", amount: MoneyViewUtils.to_humanized(@transaction.payment_total))
+        %tr
+          %td
+            = t("emails.new_transaction.starter", name: PersonViewUtils.person_display_name_for_type(@transaction.starter, "first_name_with_initial"))
+        %tr
+          %td
+            = t("emails.new_transaction.provider", name: PersonViewUtils.person_display_name_for_type(@transaction.author, "first_name_with_initial"))
+
+%tr
+  %td
+    = t("emails.new_member_notification.this_is_automatic_message", community: @community_name)
