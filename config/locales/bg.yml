@@ -245,6 +245,7 @@ bg:
         delete_this_marketplace: ~
         payment_preferences: ~
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -546,6 +547,9 @@ bg:
           confirm_modify: "Сигурен ли си че искаш да промениш/изтриеш този коментар? След промяната/истриването няма да имаш възможност да възстановиш тази информация"
           deleting_info: "Изтриването на коментар позволява на неговия автор да остави нов коментар за дадената транзакция."
           blocking_info: "Блокирането на коментара след неговото изтриване не позволява на неговия автор да остави нов коментар за същата транзакция."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Покани
         used:
@@ -1416,6 +1420,14 @@ bg:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

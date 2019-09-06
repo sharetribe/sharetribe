@@ -260,6 +260,7 @@ fi:
         delete_this_marketplace: "Poista tämä markkinapaikka"
         payment_preferences: Maksujärjestelmä
         pre_approved_listings: "Arvioi kaikki ilmoitukset ennen niiden julkaisua"
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: Käyttäjät
         email: Sähköposti
@@ -561,6 +562,9 @@ fi:
           confirm_modify: "Oletko varma, että haluat muuttaa palautetta tai poistaa sen? Tämän toiminnon jälkeen palautteen vanhoja tietoja ei voida enää palauttaa."
           deleting_info: "Palautteen poistaminen antaa sen kirjoittajalle mahdollisuuden kirjoittaa uusi palaute samasta ostotapahtumasta."
           blocking_info: "Palautteen estäminen estää sen kirjoittajaa kirjoittamasta uutta palautetta samasta ostotapahtumasta."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Kutsut
         used:
@@ -1451,6 +1455,14 @@ fi:
       subject: "Muokattiin arvioitavaa ilmoitusta: \"%{listing_title}\" käyttäjältä %{author_name} palvelussa %{community}"
       there_is_a_edited_listing_to_review: "Muokattu ilmoitus on valmiina arvioitavaksi: \"%{listing_title}\" käyttäjältä %{author_name}. Sinun tulee nyt hyväksyä tai hylätä ilmoitus."
       review_the_listing: "Arvioi muokattua ilmoitusta"
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Varaus epäonnistui tunnistamattoman virheen vuoksi. Ole hyvä ja yritä myöhemmin uudelleen. Sinua ei ole veloitettu."

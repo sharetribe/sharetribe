@@ -563,9 +563,8 @@ en:
           deleting_info: "Deleting a review allows its author to leave another one for the same transaction."
           blocking_info: "Blocking the review after deletion prevents its author from leaving another one for the same transaction."
           unskip: Unskip
-          if_you_unskip_the_review: If you unskip the review, the user will be able to post one.
-          they_will_not_be_notified_automatically: They will not be notified automatically.
-
+          if_you_unskip_the_review: "If you unskip the review, the user will be able to post one."
+          they_will_not_be_notified_automatically: "They will not be notified automatically."
       invitations:
         invitations: Invitations
         used:

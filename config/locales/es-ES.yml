@@ -260,6 +260,7 @@ es-ES:
         delete_this_marketplace: "Eliminar esta comunidad"
         payment_preferences: "Sistema de pagos"
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: Usuarios
         email: Email
@@ -561,6 +562,9 @@ es-ES:
           confirm_modify: "¿Estás seguro de querer modificar/borrar esta reseña? Una vez modificada/borrada no es possible recuperar la información en el futuro."
           deleting_info: "Borrar la reseña le permite al autor dejar otra para la misma transacción."
           blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Invitaciones
         used:
@@ -1451,6 +1455,14 @@ es-ES:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."

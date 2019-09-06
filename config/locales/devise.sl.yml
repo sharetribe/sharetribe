@@ -1,18 +1,18 @@
 sl:
   errors:
     messages:
-      expired: "je potekla, prosimo, zahtevajte novo"
+      expired: "je potekla, prosim, zahtevajte novo"
       not_found: "ni najdeno"
-      already_confirmed: "je že potrjen, poskusite se prijaviti"
+      already_confirmed: "je že bilo potrjeno, poskusite se prijaviti"
       not_locked: "ni bilo zaklenjeno"
       not_saved:
-        one: "1 napaka onemogoča %{resource} shranjevanje:"
-        two: "%{count} napaki onemogočata %{resource} shranjevanje:"
-        few: "%{count} napak onemogoča %{resource} shranjevanje:"
-        other: "%{count} napak onemogoča %{resource} shranjevanje:"
+        one: "1 napaka onemogoča to %{resource} pred shranjevanjem:"
+        two: "%{count} napaki onemogočata %{resource} pred shranjevanjem:"
+        few: "%{count} napak onemogoča %{resource} pred shranjevanjem:"
+        other: "%{count} napak onemogoča %{resource} pred shranjevanjem:"
   devise:
     failure:
-      already_authenticated: "Ste že prijavljeni"
+      already_authenticated: "Ste že prijavljeni."
       unauthenticated: "Preden nadaljuješ, se moraš prijaviti ali registrirati."
       unconfirmed: "Pred nadaljevanjem morate potrditi svoj račun."
       locked: "Vaš račun je zaklenjen."
@@ -50,7 +50,7 @@ sl:
       unlocked: "Vaš račun je bil uspešno odklenjen. Če želite nadaljevati, se prijavite."
     omniauth_callbacks:
       success: "Uspešno avtoriziran s strani %{kind} računa"
-      failure: ~
+      failure: "Ne morem vas pooblastiti %{kind} zarado \"%{reason}\"."
     mailer:
       confirmation_instructions:
         subject: "Navodila za potrditev pridružitve %{service_name}"

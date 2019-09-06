@@ -255,6 +255,7 @@ ko:
         delete_this_marketplace: "이 마켓플레이스를 삭제하기"
         payment_preferences: "결제 시스템"
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "사용자 관리"
         email: 이메일
@@ -556,6 +557,9 @@ ko:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: 초대하기
         used:
@@ -805,7 +809,7 @@ ko:
           other: "이 주문 유형에는 %{count}개의 목록이 있습니다. 주문 유형을 삭제하면이 목록이 닫힙니다. 주문 유형을 삭제 하시겠습니까?"
         can_not_delete_last: "이 주문 유형은 마켓 플레이스에서 유일한 유형이므로 삭제할 수 없습니다."
         can_not_delete_only_one_in_categories: "다음과 같은 주문 유형이 사용중인 유일한 주문 유형이므로 이 주문 유형을 삭제할 수 없습니다 : %{categories}"
-      listing_shape_name: 제품명
+      listing_shape_name: 이름
       listing_shape_name_placeholder: "예 : 팔다"
       action_button_label: "체크아웃 버튼 라벨"
       action_button_placeholder: "예 : 사다"
@@ -1442,6 +1446,14 @@ ko:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "예상치 못한 오류로 인해 예약에 실패했습니다. 나중에 다시 시도 해주십시오. 결제가 청구되지 않았습니다."
@@ -1798,7 +1810,7 @@ ko:
       account_creation_successful: "%{person_name}%님, {service_name}에 오신 것을 환영합니다!"
       account_deleted: "이제 계정이 지워졌습니다"
       login_successful: "%{person_name}님 환영합니다,"
-      logout_successful: "%{service_name}에서 로그아웃하셨습니다. 다시 뵙기를 바랍니다."
+      logout_successful: "%{service_name}에서 로그아웃 하셨습니다!"
       news_item_created: "작성된 내용"
       news_item_creation_failed: "내용 작성 실패"
       news_item_update_failed: "내용 업데이트 실패"
@@ -2312,7 +2324,7 @@ ko:
       this_person_is_not_active_in_kassi: "이 사용자는 더 이상 %{service_name}에서 활성화되어 있지 않습니다."
       inactive_description: "이 사용자는 %{service_name} 사용을 중지했습니다. 해당 사용자에게 연락하거나 피드백을 주거나 리스트에 메시지를 남길 수 없습니다."
     new:
-      create_new_account: "계정을 만들어주세요"
+      create_new_account: "계정 만들기"
       email: 이메일
       email_is_in_use: "입력하신 이메일은 이미 사용 중입니다."
       email_is_in_use_or_not_allowed: "이 이메일은 허용되지 않았거나 이미 사용 중입니다. 들어올 수없는 경우 우리에 문의해 주세요"
@@ -2323,13 +2335,13 @@ ko:
         other: "%{service_name}에 대한 액세스가 제한됩니다. 가입 자격이 있음을 증명하는 이메일 주소가 필요합니다."
       family_name: 성
       given_name: 이름
-      i_accept_the_terms_and_privacy: ~
-      admin_emails_consent: ~
+      i_accept_the_terms_and_privacy: "%{terms} 및 %{privacy}에 동의 합니다."
+      admin_emails_consent: "%{service_name}의 이메일 수신에 동의하고 언제든지 취소 할 수 있음을 알고 있습니다."
       invalid_invitation_code: "초대 코드가 유효하지 않습니다."
       invitation_code: 초대코드
       not_required: ", 필요하지 않습니다"
       notification_is_mandatory: "알림 수신을 위해 하나 이상의 전자 메일 주소를 선택해야합니다. %{service_name}에서 이메일을받지 않으려면 이메일 알림 설정을 확인하십시오."
-      password_again: "비밀번호를 다시 확인해주세요"
+      password_again: "비밀번호 재확인"
       show_my_name_to_others: "다른 %{service_name} 사용자에게 내 실명 표시"
       sign_up: "새 %{service_name} 계정을 만드세요"
       terms: 이용약관
@@ -2460,7 +2472,7 @@ ko:
         status_confirmed: 확인됨
         status_pending: 대기중
     notifications:
-      email_from_admins: "%{service_name}팀으로 부터 가끔 이메일을 받는데 동의합니다."
+      email_from_admins: "%{service_name}의 이메일 수신에 동의합니다."
       i_want_to_get_email_notification_when: "다음과 같은 경우 이메일 알림 받기"
       newsletters: "관리자 이메일 수신"
       community_updates: 뉴스레터

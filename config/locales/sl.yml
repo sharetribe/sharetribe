@@ -245,6 +245,7 @@ sl:
         delete_this_marketplace: ~
         payment_preferences: ~
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: ~
         email: ~
@@ -546,6 +547,9 @@ sl:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: ~
         used:
@@ -948,7 +952,7 @@ sl:
     share_types:
       request: ~
       offer: ~
-      borrow: ~
+      borrow: "izposoditi si"
       buy: Nakup
       give_away: ~
       lend: ~
@@ -1107,7 +1111,7 @@ sl:
       payment_errored_starter: ~
       payment_errored_author: ~
       cancel_payed_transaction: ~
-      feedback_given: ~
+      feedback_given: "Podane povratne informacije"
       feedback_skipped: ~
       give_feedback: ~
       offer_accepted: ~
@@ -1133,7 +1137,7 @@ sl:
       request_canceled: ~
       request_paid: ~
       request_preauthorized: ~
-      skip_feedback: ~
+      skip_feedback: "Preskočite povratne informacije"
       waiting_for_listing_author_to_accept_offer: ~
       waiting_for_listing_author_to_accept_request: ~
       waiting_for_you_to_accept_request: ~
@@ -1191,7 +1195,7 @@ sl:
     accept_reminder:
       remember_to_accept_offer: ~
       remember_to_accept_request: ~
-      you_can_accept_or_reject_offer_at: ~
+      you_can_accept_or_reject_offer_at: "Ponudbo lahko sprejmeš ali zavrneš na"
       you_can_accept_or_reject_request_at: ~
       you_have_not_yet_accepted_or_rejected_offer: ~
       you_have_not_yet_accepted_or_rejected_request: ~
@@ -1416,6 +1420,14 @@ sl:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: ~

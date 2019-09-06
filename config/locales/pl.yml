@@ -270,6 +270,7 @@ pl:
         delete_this_marketplace: "Usuń tę platformę"
         payment_preferences: "System płatności"
         pre_approved_listings: "Zatwierdź wszystkie oferty zanim zostaną opublikowane."
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Zarządzaj użytkownikami"
         email: "Adres email"
@@ -571,6 +572,9 @@ pl:
           confirm_modify: "Czy jesteś pewny, że chcesz skasować/modyfikować tą recenzję? Jeśli zmodyfikujesz lub skasujesz recenzję nie będzie możliwe przywrócenie wcześniejszej treści."
           deleting_info: "Skasowanie opini pozwala autorowi wystawić kolejną za tą samą transakcję"
           blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Zaproszenia
         used:
@@ -1469,6 +1473,14 @@ pl:
       subject: ~
       there_is_a_edited_listing_to_review: "Jest zmieniona oferta do zaopiniowania: \"%{listing_title}\" przez %{author_name}. Musisz zatwierdzić lub odrzucić ofertę."
       review_the_listing: "Zaopiniuj zmienioną ofertę"
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezerwacja nie powiodła się ze względu na niespodziewany błąd. Proszę spróbuj ponownie później. Nie zostałeś obciążony opłatą."
@@ -2439,7 +2451,7 @@ pl:
       cancle_facebook_connect: "Jeżeli nie chcesz łączyć tego konta, możesz %{cancel_link}."
       facebook_cancel_link_text: anuluj
       log_in_with_your_provider_account: "Zaloguj się za pomocą %{provider}"
-      or_sign_up_with_your_username: "...lub Twoim kontem użytkownika lub adresem email:"
+      or_sign_up_with_your_username: "...albo Twoim kontem użytkownika lub adresem email:"
       we_will_not_post_without_asking_you: "Nigdy nie opublikujemy niczego na Facebooku bez zapytania Ciebie."
     password_forgotten:
       email: "Adres email"

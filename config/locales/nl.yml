@@ -90,7 +90,7 @@ nl:
         contact_admin_link_text: "neem contact op met het %{service_name} team"
         save: "Instellingen opslaan"
         transaction_agreement: "Transactie overeenkomst"
-        transaction_agreement_checkbox: "Vereis van gebruikers dat ze een overeenkomst aanvaarden voor een transactie"
+        transaction_agreement_checkbox: "Vereis van kopers dat ze een overeenkomst aanvaarden voor een transactie"
         transaction_agreement_checkbox_header: "Overeenkomst hoofding"
         transaction_agreement_checkbox_label_description: "De tekst zal getoond worden naast de checkbox in het checkout formulier. De gebruiker moet de checkbox aanvinken om verder te gaan met de transactie. Een voorbeeld label zou kunnen zijn: 'Door deze optie te selecteren aanvaard ik de overeenkomst'."
         transaction_agreement_text_header: "Overeenkomst tekst"
@@ -124,7 +124,7 @@ nl:
         small_cover_photo_visibility: "Kleine cover afbeeldingen worden op alle pagina's getoond behalve op de homepagina voor gebruikers die niet ingelogd zijn."
         small_cover_photo_instructions_text_with_dimensions: "De afbeelding wordt verkleind tot %{width}x%{height} pixels. Grotere afbeeldingen worden in twee gesplitst."
         main_content_width: "Hou er bij het kiezen van een cover afbeelding rekening mee dat de hoofdpagina maximaal %{main_width} pixels is. Vergeet ook niet na te gaan hoe je cover afbeelding eruit ziet op kleinere schermen (b.v. door een smal browser scherm te gebruiken)."
-        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. <a href=\"https://www.webfx.com/web-design/color-picker/d96e21\" target=\"_blank\" rel=\"noreferrer\">WebFX.com</a> kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
+        custom_color1_instructions_text: "Je kan de hoofdkleur van de interface wijzigen door een zgn. hex kleur waarde in te geven. %{link}  kan je helpen deze kleur te kiezen en de bijbehorende code hier te kopiëren."
         new_listing_button_instructions_text: "Je kunt de kleur van de button \"Post een nieuwe advertentie\" veranderen door een hex-kleurwaarde in te vullen. %{link_to_colorpicker} kan je helpen om de kleur te kiezen en de code te achterhalen. Je kunt de code dan hier kopieren."
         default_browse_view: "Standaard browse overzicht"
         default_browse_view_instructions_text: "Standaard browse overzicht is gebruikt op de homepagina om te bepalen hoe de advertenties standaard weergegeven worden."
@@ -219,7 +219,7 @@ nl:
       settings:
         settings: Instellingen
         general: Algemeen
-        access: Toegang
+        access: "Toegang en contact voorkeuren"
         join_with_invite_only: "Aansluiten bij deze marktplaats kan enkel met een uitnodiging van een andere gebruiker"
         users_can_invite_new_users: "Alle gebruikers kunnen nieuwe leden uitnodigen voor deze marktplaats"
         private: "Deze marktplaats is privé (enkel geregistreerde gebruikers kunnen de inhoud zien)"
@@ -262,6 +262,7 @@ nl:
         delete_this_marketplace: "Verwijder deze marktplaats"
         payment_preferences: Betalingsysteem
         pre_approved_listings: "Controleer alle advertenties voordat ze gepubliceerd worden"
+        email_admins_about_new_transactions: "Zend een email naar beheerders wanneer een nieuwe transactie begint"
       manage_members:
         manage_members: Gebruikers
         email: E-mail
@@ -297,7 +298,7 @@ nl:
         unconfirmed_user: "Onbevestigde gebruiker: %{name}"
         resend: "Zend opnieuw"
         cancel: Annuleer
-        user_didnt_complete_the_signup_process: "Deze gebruiker heeft geregistreerd via Facebook maar het proces niet voltooid. Na het koppelen van een Facebook account moeten gebruikers nog steeds de gebruikersvoorwaarden accepteren en eventuele verplichte velden invullen."
+        user_didnt_complete_the_signup_process: "Deze gebruiker heeft geregistreerd via sociale login maar het proces niet voltooid. Na het koppelen van een sociaal login account moeten gebruikers nog steeds de gebruikersvoorwaarden accepteren en eventuele verplichte velden invullen."
         pending_user: "In afwachting: %{name}"
       new_layout:
         new_layout: "Nieuwe layout"
@@ -324,32 +325,32 @@ nl:
         invalid_twitter_handle: "Twitter account kan maximaal 15 alfanumerische karakters bevatten (letters A-Z en nummers 0-9)."
         facebook_connect: "Facebook Login"
         facebook_developers_dashboard: "Facebook Developers Dashboard"
-        facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
-        facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de <a href='https://developers.facebook.com/'>Facebook developers dashboard</a>. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
+        facebook_connect_info_text: "Om een Facebook log in mogelijk te maken, moet je een applicatie maken voor je marktplaats in de %{dashboard_link} . Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe."
+        facebook_connect_info_text_with_instructions: "Om Facebook toe te laten in te loggen, moet je een applicatie maken voor je marktplaats in de %{dashboard_link}. Voeg de aangemaakte ID en geheime sleutel van de toepassing hier toe. %{instructions_link}"
         facebook_instructions_link_text: "Zie instructies om Facebook Login te configureren."
-        facebook_connect_id: "Facebook client ID"
-        invalid_facebook_connect_id: "Client ID kan enkel nummers bevatten"
-        facebook_connect_secret: "Facebook client geheim"
-        invalid_facebook_connect_secret: "Client geheim kan enkel nummer en letter A-F bevatten."
+        facebook_connect_id: "Facebook App ID"
+        invalid_facebook_connect_id: "App ID kan enkel nummers bevatten"
+        facebook_connect_secret: "Facebook App Secret"
+        invalid_facebook_connect_secret: "App Secret kan enkel nummers en letters van A-F bevatten."
         enable_facebook_login: "Sta gebruikers toe in te loggen met hun Facebook account"
         save: "Opslaan instellingen"
         add_another_image: "Voeg nog een afbeelding toe"
         google_connect: "Google Sign-In"
         google_instructions_link_text: "Zie instructies voor het configureren van Google Sign-In."
         google_developers_console: "Google Developers Console"
-        google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
-        google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de <a href='https://console.developers.google.com/'>Google developers Console</a>. Voeg de gegeneerde ID en secret key van het project hier toe."
+        google_connect_info_text_with_instructions: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de %{dashboard_link}. Voeg de gegeneerde ID en secret key van het project hier toe. %{instructions_link}"
+        google_connect_info_text: "Om Google Sign-In in te stellen, configureer eerst een project voor je marktplaats in de %{dashboard_link} . Voeg de gegeneerde ID en secret key van het project hier toe."
         enable_google_login: "Sta gebruikers toe om in te loggen met hun Google account"
-        google_connect_id: "Google client id"
-        google_connect_secret: "Google client secret"
+        google_connect_id: "Google Client ID"
+        google_connect_secret: "Google Client secret"
         linkedin_connect: "LinkedIn Sign in"
         linkedin_instructions_link_text: "Zie instructies voor het configureren van Linkedin Sign In."
         linkedin_developers_dashboard: "LinkedIn Developers Dashboard"
-        linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
-        linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de <a href='https://www.linkedin.com/developers/'>LinkedIn developers dashboard</a>. Voeg de gegenereerde ID en secret key van de app hier toe."
+        linkedin_connect_info_text_with_instructions: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de %{dashboard_link}. Voeg de gegenereerde ID en secret key van de app hier toe. %{instructions_link}"
+        linkedin_connect_info_text: "Voor het instellen van LinkedIn Sign In, creeer een app voor je marktplaats in de %{dashboard_link}. Voeg de gegenereerde ID en secret key van de app hier toe."
         enable_linkedin_login: "Sta gebruikers toe om in te loggen met hun LinkedIn account"
-        linkedin_connect_id: "LinkedIn client id"
-        linkedin_connect_secret: "LinkedIn client secret"
+        linkedin_connect_id: "LinkedIn Client ID"
+        linkedin_connect_secret: "LinkedIn Client Secret"
       seo_settings:
         seo: "SEO (Zoekmachine optimalisatie)"
         title: "Home pagina of Custom Landing pagina"
@@ -468,7 +469,7 @@ nl:
           started: Gestart
           last_activity: "Laatste activiteit"
           initiated_by: Door
-          other_party: "Andere partij"
+          other_party: Leverancier
         status:
           conversation: Conversaties
           free: "Vrije transactie"
@@ -517,7 +518,7 @@ nl:
           started: Begonnen
           last_activity: "Laatste Activiteit"
           initiated_by: Starter
-          other_party: "Andere partij"
+          other_party: Leverancier
         participants: "Conversatie: %{starter} met %{author}"
         profile: "Profiel van %{author}"
         search_by_keyword: "Zoek voor een naam, email of trefwoord"
@@ -563,6 +564,9 @@ nl:
           confirm_modify: "Weet je zeker dat je deze recensie wilt aanpassen/verwijderen? Wanneer je een recensie aanpast/verwijdert, is het niet mogelijk om de oude gegevens terug te krijgen."
           deleting_info: "Het verwijderen van een recensie stelt de schrijver in staat om opnieuw een recensie voor dezelfde transactie achter te laten."
           blocking_info: "Het blokkeren van een recensie voorkomt dat de schrijver opnieuw een recensie achterlaat voor dezelfde transactie."
+          unskip: "Maak overslaan ongedaan"
+          if_you_unskip_the_review: "Als je het overslaan van de recensie ongedaan maakt, kan de gebruiker alsnog een recensie geven."
+          they_will_not_be_notified_automatically: "Ze worden niet automatisch op de hoogte gesteld."
       invitations:
         invitations: Uitnodigingen
         used:
@@ -872,8 +876,8 @@ nl:
       currency_change_warning_text: "Let op: als je doorgaat met deze valuta verandering, vergeet dan niet om je leveranciers te vragen om handmatig hun bestaande advertenties te wijzigen om de nieuwe valuta te krijgen."
       marketplace_currency_label: "Marktplaats valuta:"
       minimum_listing_price_label: "Minimale transactie prijs:"
-      transaction_fee_label: "Transactiekosten:"
-      minimum_transaction_fee_label: "Minimale transactie kosten:"
+      transaction_fee_label: "Transactiekosten verkoper:"
+      minimum_transaction_fee_label: "Minimale transactie kosten verkoper:"
       save_settings: "Instellingen opslaan"
       minimum_listing_price_below_tx_fee: "De minimal transactie grootte moet op zijn minst gelijk zijn aan de minimale transactie kosten %{minimum_transaction_fee}."
       minimum_listing_price_below_min: "De minimal transactie moet groter zijn dan de minimale commissie %{minimum_commission}."
@@ -1454,6 +1458,14 @@ nl:
       subject: "Aangepaste advertentie te controleren: \"%{listing_title}\" van %{author_name} op %{community}"
       there_is_a_edited_listing_to_review: "Er is een aangepaste advertentie te controleren: \"%{listing_title}\" van %{author_name}. Je kunt deze nu goed- of afkeuren."
       review_the_listing: "Controleer de aangepaste advertentie"
+    new_transaction:
+      subject: "Nieuwe transactie in %{service_name}"
+      there_is_a_new_transaction: "Er is %{link} in %{service_name}."
+      a_new_transaction: "een nieuwe transactie"
+      listing: "Advertentie: %{title}"
+      sum: "Totaal: %{amount}"
+      starter: "Initiatiefnemer: %{name}"
+      provider: "Leverancier: %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "Boeking mislukt door een onverwachte fout. Probeer het later opnieuw. Er is niets in rekening gebracht."
@@ -1832,7 +1844,7 @@ nl:
       payment_successful: "Betaling succesvol"
       payment_canceled: "Betaling geannuleerd"
       error_in_payment: "Fout bij betaling. Als u nog geen betaling heeft uitgevoerd, probeer dan opnieuw. Als u dat wel al gedaan heeft, stuur ons dan een bericht."
-      cannot_receive_payment: "De tegenpartij kan de betaling niet ontvangen door een fout. Contacteer het %{service_name} team om dit op te lossen"
+      cannot_receive_payment: "De leverancier kan de betaling niet ontvangen door een fout. Contacteer het %{service_name} team om dit op te lossen"
       payment_waiting_for_later_accomplishment: "We sturen de aanbieder een bericht zodra u betaald heeft. U krijgt een betalingsbewijs via e-mail."
       password_recovery_sent: "Instructies om uw wachtwoord te wijzigen zijn naar uw e-mail adres gestuurd."
       person_activated: "Gebruiker geactiveerd"
@@ -2208,7 +2220,7 @@ nl:
       address_country: "Land *"
       address_name: "Voor en achternaam *"
       address_city: "Plaats *"
-      address_state: "Staat/Provincie *"
+      address_state: Staat/Provincie
       address_street1: "Adres regel 1 *"
       address_street2: "Adres regel 2"
       address_postal_code: Postcode
@@ -2473,7 +2485,7 @@ nl:
         status_confirmed: Bevestigd
         status_pending: Hangende
     notifications:
-      email_from_admins: "Ik ben bereid zo nu en dan updates te ontvangen van de beheerder(s)."
+      email_from_admins: "Ik ben bereid zo nu en dan updates te ontvangen van het %{service_name} team"
       i_want_to_get_email_notification_when: "Ik wil graag een e-mail bevestiging krijgen wanneer..."
       newsletters: "Emails van beheerders"
       community_updates: Nieuwsbrieven
@@ -2872,7 +2884,7 @@ nl:
         digits_or_chars: "cijfers of A-Z letters"
     form_verification:
       personal_id_number: "Persoonlijk ID nummer"
-      document: Verificatiedocument
+      document: "Verificatiedocument (paspoort, identiteitsbewijs)"
       send_verification: "Verstuur Verificatie"
       need_verification: "Aanvullende verificatie nodig"
     form_pin:

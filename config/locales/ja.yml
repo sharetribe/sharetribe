@@ -255,6 +255,7 @@ ja:
         delete_this_marketplace: マーケットプレイスを削除
         payment_preferences: お支払い
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: ユーザを管理
         email: メールアドレス
@@ -556,6 +557,9 @@ ja:
           confirm_modify: このレビューを変更または削除してもよろしいですか？レビューを編集/削除すると、古いデータを元に戻すことはできません。
           deleting_info: ~
           blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: ~
         used:
@@ -1440,6 +1444,14 @@ ja:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: 問題が起きたため取引リクエストが完了しませんでした、再度お試しください。お支払いも実行されませんでしたのでご安心ください。

@@ -270,6 +270,7 @@ ru:
         delete_this_marketplace: "Удалить этот проект"
         payment_preferences: "Платежная система"
         pre_approved_listings: "Проверьте все объявления до публикации"
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Управление участниками"
         email: E-mail
@@ -571,6 +572,9 @@ ru:
           confirm_modify: "Вы уверены, что хотите изменить / удалить этот отзыв? После того как вы отредактируете / удалите рецензию, восстановить старые данные невозможно."
           deleting_info: "Удаление отзыва позволяет его автору оставить другой для той же транзакции."
           blocking_info: "Блокировка отзыва после удаления не позволяет его автору оставить другой отзыв для той же транзакции."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Приглашения
         used:
@@ -584,7 +588,7 @@ ru:
           date_sent: "Дата отправки"
       listings:
         listings: Публикации
-        search_by_title_author_category: "Поиск по названию списка, автору или названию категории"
+        search_by_title_author_category: "Поиск по названию публикации, автору или названию категории"
         search: Поиск
         reset_search: "Показать все"
         export_all_as_csv: "Экспортировать все как CSV"
@@ -611,7 +615,7 @@ ru:
         approval_pending: "В ожидании"
         approval_rejected: Отклонено
         form:
-          this_listing_has_not_not_been_approved_yet: "Этот список еще не был одобрен. Теперь вы можете принять решение одобрить или отклонить объявление. Если вы утвердите объявление, оно будет доступным для всех пользователей. Если вы отклоните объявление, оно не будет публичным."
+          this_listing_has_not_not_been_approved_yet: "Эта публикация еще не был одобрена. Теперь вы можете принять решение одобрить или отклонить публикацию. Если вы утвердите публикацию, оно будет доступным для всех пользователей. Если вы отклоните публикацию, оно не будет публичным."
           approve: Подтвердить
           reject: Отказать
           cancel: Отменить
@@ -1057,7 +1061,7 @@ ru:
       accept_request: "Принять запрос"
       reject_offer: "Не сейчас"
       reject_request: "Не сейчас"
-      close_listing: "Закрыть объявление %{listing_title_link}"
+      close_listing: "Закрыть публикацию %{listing_title_link}"
       update_later: "Оставить размещения открытыми"
       optional_message: "Сообщение (необязательно)"
       price_to_pay: "Сумма к оплате"
@@ -1450,9 +1454,9 @@ ru:
       person_name: "Имя:"
       person_email: "Эл. почта:"
     listing_submited_for_review:
-      subject: "Новый список для обзора: \"%{listing_title}\" от%{author_name}в%{community}"
-      there_is_a_new_listing_to_review: "Существует новый список для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить этот список."
-      review_the_listing: "Просмотреть новый список"
+      subject: "Новая публикация для просмотра: \"%{listing_title}\" от%{author_name}в%{community}"
+      there_is_a_new_listing_to_review: "Появился новая публикация для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить этот список."
+      review_the_listing: "Просмотреть новую публикацию"
       this_is_automatic_message: "Это автоматическое сообщение, отправленное администраторам%{community}"
     listing_approved:
       subject: "Команда%{community}одобрила ваше объявление \"%{listing_title}''"
@@ -1462,11 +1466,19 @@ ru:
       subject: "Команда%{community}отклонила ваше объявление \"%{listing_title}\""
       listing_has_been_rejected: "К сожалению, команда%{community}отклонила ваше объявление \"%{listing_title}\" после тщательного рассмотрения. Вы можете%{contact_link} узнать больше или отредактировать свое объявление и отправить его на новое рассмотрение."
       contact_link: "свяжитесь с командой%{community}"
-      edit_the_listing: "Изменить список"
+      edit_the_listing: "Редактировать публикацию"
     edited_listing_submited_for_review:
-      subject: "Отредактированный список для проверки: \"%{listing_title}\"%{author_name} в%{community}"
-      there_is_a_edited_listing_to_review: "Существует новый список для просмотра: \"%{listing_title}\" от%{author_name}. Теперь вы должны одобрить или отклонить этот список."
-      review_the_listing: "Просмотрите отредактированный список"
+      subject: "Отредактированная публикация для проверки: \"%{listing_title}\"%{author_name} в %{community}"
+      there_is_a_edited_listing_to_review: "Появилась новая публикация для проверки: \"%{listing_title}\" от %{author_name}. Теперь вы должны одобрить или отклонить эту публикацию."
+      review_the_listing: "Просмотрите отредактированную публикацию"
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Бронирование не было осуществлено из-за неизвестной ошибки. Пожалуйста, попробуйте еще раз позже. Списание средств не было осуществлено."
@@ -1838,7 +1850,7 @@ ru:
       listing_updated_successfully: "Публикация обновлена успешно"
       listing_updated_availability_management_enabled: "Каталог успешно обновлен. Управление доступностью включено."
       listing_updated_availability_management_disabled: "Каталог успешно обновлен. Управление доступностью отключено."
-      listing_deleted: "Список удален"
+      listing_deleted: "Публикация удалена"
       only_kassi_administrators_can_access_this_area: ~
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
@@ -1926,7 +1938,7 @@ ru:
       stripe_payments: "Stripe платежи"
       payments: Платежи
       listings: публикации
-      listings_search_placeholder: "Поиск по названию списка"
+      listings_search_placeholder: "Поиск по названию публикации"
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
@@ -1958,7 +1970,7 @@ ru:
       show_in_updates_email_success: "Эта публикация будет показана в следующей автоматической рассылке отправляемой участникам"
       listing_is_pending: "Публикация проходит модерацию"
       listing_is_rejected: "Листинг отклонен"
-      approve_listing: "Утвердить список"
+      approve_listing: "Одобрить публикацию"
       reject_listing: "Отклонить задание"
       delete_listing: "Удалить публикацию"
     map:
@@ -2126,7 +2138,7 @@ ru:
       end_time: "Время заверешения"
       marketplace_fees_may_apply: "Может взиматься плата в размере%{service_name}"
     new:
-      listing: список
+      listing: публикация
       selected_category: "Категория: %{category}"
       selected_subcategory: "Подкатегория: %{subcategory}"
       selected_transaction_type: "Тип публикации: %{transaction_type}"
@@ -2138,7 +2150,7 @@ ru:
       community_not_configured_for_payments: "Сайт %{service_name} не был настроен для платежей, поэтому вы пока не можете размещать новые объявления. Пожалуйста, %{contact_admin_link} для уточнения деталей."
       payment_settings_link: "настройки оплаты"
       community_not_configured_for_payments_admin: "%{service_name} не был настроен для принятия платежей, поэтому вы не можете размещать новые публикации сейчас. Перейдите на %{payment_settings_link} чтобы настроить платежные реквизиты."
-      you_are_now_posting_a_listing_on_behalf_of: "Теперь вы публикуете список от имени%{name} "
+      you_are_now_posting_a_listing_on_behalf_of: "Вы отправляйте публикацию от имени %{name}"
     quantity:
       hour: "Количество часов:"
       day: "Количество дней:"
@@ -2696,6 +2708,11 @@ ru:
         few: "Забронированные ночи:"
         many: "Забронированные ночи:"
         other: "Забронированные ночи:"
+      booked_hours_label:
+        one: "Бронированный час:"
+        few: "Бронированный час:"
+        many: "Бронированные часы:"
+        other: "Бронированные часы:"
       price_per_day: "Цена за день:"
       price_per_night: "Стоимость за сутки:"
       price_per_hour: "Цена за час:"
@@ -2704,17 +2721,12 @@ ru:
       subtotal: "Предварительный итог:"
       shipping-price: "Доставка:"
       stripe-fee: "Stripe оплата (по оценкам):"
-      start_end_time: "от%{start_time} до%{end_time}"
-      booked_hours_label:
-        one: "Бронированный час:"
-        many: "Бронированные часы:"
-        few: "Бронированный час:"
-        other: "Бронированные часы:"
       duration_in_hours:
         one: "1 час%{count}"
         few: "1 час%{count} "
         many: "часы%{count} "
         other: "часы%{count} "
+      start_end_time: "от%{start_time} до%{end_time}"
     price_per_quantity: "Цена за %{unit_type}:"
     price: "Цена:"
     quantity: "Количество: %{quantity}"
@@ -2819,8 +2831,6 @@ ru:
       multi_page_html: "Показываем %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b> в общем"
     person:
       community_members_entries_info:
-        multi_page: "Отображение %{model} %{from} -%{to} из%{accept_count} принято % {accept_model} и%{other_count} другое%{other_model}"
-        multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>% {accept_count}</b> принятых%{accept_model} и %{other_count} других %{ other_model}"
         single_page:
           zero: "%{model}не найден"
           one: "Отображение%{accepted_count} принято%{accepted_model} и %{other_count} другое %{other_model}"
@@ -2833,6 +2843,8 @@ ru:
           few: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
           many: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
           other: "Отображение <b>%{accepted_count} </b>%{accepted_model} и%{other_count} другой%{other_model}"
+        multi_page: "Отображение %{model} %{from} -%{to} из%{accept_count} принято % {accept_model} и%{other_count} другое%{other_model}"
+        multi_page_html: "Отображение%{model}<b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>% {accept_count}</b> принятых%{accept_model} и %{other_count} других %{ other_model}"
   stripe_accounts:
     admin_account_not_connected: "Использование платежной системы сайта %{service_name} для того, чтобы получать платежи, невозможно, поскольку платежная система не была настроена. Пожалуйста %{contact_admin_link} для уточнения деталей."
     contact_admin_link_text: "связаться с командой%{service_name}"

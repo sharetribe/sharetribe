@@ -255,6 +255,7 @@ vi:
         delete_this_marketplace: "Xóa thị trường này"
         payment_preferences: "Hệ thống thanh toán"
         pre_approved_listings: ~
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Điều hành người dùng"
         email: Email
@@ -556,6 +557,9 @@ vi:
           confirm_modify: ~
           deleting_info: ~
           blocking_info: ~
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: ~
         used:
@@ -1440,6 +1444,14 @@ vi:
       subject: ~
       there_is_a_edited_listing_to_review: ~
       review_the_listing: ~
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Việc đặt chỗ không thành công do lỗi không mong muốn. Vui lòng thử lại sau. Bạn chưa bị tính phí."
@@ -1717,7 +1729,7 @@ vi:
       how_to_use: "Cách sử dụng"
       info_about_kassi: "Thông tin về %{service_name}"
       news: "Tin tức"
-      register_details: "Chi tiết đăng ký"
+      register_details: "Chính sách bảo mật"
       terms: "Điều khoản sử dụng"
     logged_in:
       admin: "Quản trị"
@@ -2328,7 +2340,7 @@ vi:
       show_my_name_to_others: "Hiển thị tên thật của tôi cho các người dùng %{service_name} khác"
       sign_up: "Tạo một tài khoản mới trong %{service_name}"
       terms: "Điều khoản sử dụng"
-      privacy: ~
+      privacy: "Chính sách bảo mật"
       username_is_in_use: "Tên người dùng này đang được sử dụng."
       username_is_invalid: "Tên người dùng không hợp lệ. Cho phép các ký tự là chữ cái, số và gạch dưới."
       visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"

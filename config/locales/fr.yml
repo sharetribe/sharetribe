@@ -239,7 +239,7 @@ fr:
         listing_comments_in_use: "Permettre aux utilisateurs de commenter les annonces (visibles par tous les utilisateurs)"
         email_preferences: "Paramètres d'email"
         automatic_newsletters: "Envoyer l'email quotidien/hebdomadaire automatique à tous les utilisateurs (sauf s'ils se désabonnent)"
-        email_admins_about_new_members: "Envoyer aux administrateurs un email à chaque fois qu'un nouvel utilisateur s'inscrit"
+        email_admins_about_new_members: "Envoyer un email aux administrateurs à chaque fois qu'un nouvel utilisateur s'inscrit"
         google_analytics_key: "Google Analytics tracking ID"
         twitter_handle: "Nom Twitter (utilisé dans le bouton \"Tweeter\" sur les pages des annonces)"
         update_settings: "Sauvegarder les paramètres"
@@ -260,6 +260,7 @@ fr:
         delete_this_marketplace: "Supprimer cette place de marché"
         payment_preferences: "Système de paiements"
         pre_approved_listings: "Vérifier toutes les annonces avant qu'elles ne soient publiées"
+        email_admins_about_new_transactions: "Envoyer un email aux administrateurs à chaque fois qu'il y a une nouvelle transaction"
       manage_members:
         manage_members: Utilisateurs
         email: Email
@@ -561,6 +562,9 @@ fr:
           confirm_modify: "Voulez-vous vraiment modifier/supprimer cet avis ? Une fois modifiée ou supprimée, il n'est plus possible d'en récupérer la version précédente."
           deleting_info: "Supprimer un avis permet à son auteur d''en laisser un nouveau pour la même transaction."
           blocking_info: "Bloquer un avis lors de sa suppression empêche son auteur d'en laisser un nouveau pour la même transaction."
+          unskip: Re-proposer
+          if_you_unskip_the_review: "Si vous proposez de nouveau l'avis, l'utiliser pourra en donner un."
+          they_will_not_be_notified_automatically: "L'utilisateur ne sera pas automatiquement prévenu."
       invitations:
         invitations: Invitations
         used:
@@ -1451,6 +1455,14 @@ fr:
       subject: "Annonce éditée à vérifier : \"%{listing_title}\" par %{author_name} sur %{community}"
       there_is_a_edited_listing_to_review: "Il y a une annonce éditée à vérifier : \"%{listing_title}\" par %{author_name}. Vous devez maintenant approuver ou rejeter cette annonce."
       review_the_listing: "Vérifier l'annonce éditée"
+    new_transaction:
+      subject: "Une nouvelle transaction sur %{service_name}"
+      there_is_a_new_transaction: "Il y a %{link} sur %{service_name}."
+      a_new_transaction: "une nouvelle transaction"
+      listing: "Annonce : %{title}"
+      sum: "Total : %{amount}"
+      starter: "Initiateur : %{name}"
+      provider: "Vendeur : %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "La réservation a échoué à cause d'une erreur inattendue. Veuillez essayer de nouveau un peu plus tard. Vous n'avez pas été facturé."

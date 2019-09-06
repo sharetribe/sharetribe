@@ -265,6 +265,7 @@ sk-SK:
         delete_this_marketplace: "Zmazať trhovisko"
         payment_preferences: "Platobný systém"
         pre_approved_listings: "Pred zverejnením skontrolujte všetky záznamy"
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Správa užívateľov"
         email: E-mail
@@ -272,7 +273,7 @@ sk-SK:
         display_name: "Zobrazované Meno"
         join_date: "Dátum registrácie"
         admin: Administrátor
-        posting_allowed: "Pridávanie príspevkov je povolené"
+        posting_allowed: "Povolené pridávanie príspevkov"
         ban_user: "Zakázať užívateľa"
         saving_user_status: Ukladám...
         save_user_status_successful: Uložené
@@ -281,7 +282,7 @@ sk-SK:
         ban_user_confirmation: "Týmto bude užívateľ odstránený z trhoviska a nebude už pod týmto účtom pristupovať na túto stránku. Ste si istý, že chcete pokračovať?"
         unban_user_confirmation: "Toto umožňuje používateľskému účtu znova pristupovať na stránku pomocou tohto účtu. Naozaj chcete pokračovať?"
         ban_me_error: "Nemôžete seba samého vylúčiť."
-        search: Hľadanie
+        search: Hľadať
         search_by_name_email: "Hľadanie podľa mena, e-mailu alebo zobrazovaného názvu"
         reset_search: "Zobraziť všetko"
         for_search_terms: "pre: %{terms}"
@@ -291,11 +292,11 @@ sk-SK:
           selected: "Vybraté stavy:%{count}"
           selected_js: "Vybrané stavy: "
           admin: Správca
-          banned: Deaktivované
+          banned: Deaktivovaní
           posting_allowed: "Pridávanie príspevkov je povolené"
-          accepted: Prijaté
-          unconfirmed: Nepotvrdené
-          pending: Zadržané
+          accepted: Prijatí
+          unconfirmed: Nepotvrdení
+          pending: Zadržaní
         this_user_hasnt_confirmed_their_email_address: "Tento používateľ nepotvrdil svoju e-mailovú adresu. Je možné, že používateľ nedostal potvrdzovací e-mail. Ak ho chcete znova odoslať, kliknite na tlačidlo Znova odoslať."
         unconfirmed_user: "Nepotvrdený používateľ: %{name}"
         resend: "Znovu odoslať"
@@ -566,6 +567,9 @@ sk-SK:
           confirm_modify: "Naozaj chcete upraviť alebo odstrániť túto recenziu? Po úprave alebo odstránení recenzie nie je možné obnoviť žiadne zo starých údajov."
           deleting_info: "Odstránenie recenzie umožňuje jej autorovi zanechať iného pre tú istú transakciu."
           blocking_info: "Blokovanie kontroly po vymazaní zabráni jej autorovi v tom, aby pre tú istú transakciu opustil iného."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Pozvánky
         used:
@@ -1460,6 +1464,14 @@ sk-SK:
       subject: "Upravený inzerát na kontrolu: \"%{listing_title}\" od %{author_name} v %{community}"
       there_is_a_edited_listing_to_review: "K dispozícii je upravený inzerát: \"%{listing_title}\" od %{author_name}. Teraz musíte tento zoznam schváliť alebo zamietnuť."
       review_the_listing: "Skontrolujte upravený záznam"
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervácia zlyhala z dôvodu neočakávanej chyby. Skúste to neskôr prosím. Platba neprebehla."
@@ -2404,7 +2416,7 @@ sk-SK:
       show_all_open_listings: "Zobraziť všetky otvorené inzeráty"
       show_all_reviews: "Zobraziť všetky hodnotenia"
       admin_actions: "Správcovské akcie"
-      post_listing_as: "Zoznam príspevkov ako"
+      post_listing_as: "Zobraziť inzerát ako"
     followed_people:
       you_follow_plural: "Sledujete %{count} ľudí"
       you_follow_singular: "Sledujete %{count} osôb"
@@ -2682,6 +2694,10 @@ sk-SK:
         one: "Rezervovaná noc:"
         few: "Rezervované noci:"
         other: "Rezervovaných nocí:"
+      booked_hours_label:
+        one: "Rezervovaná hodina:"
+        few: "Rezervované hodiny:"
+        other: "Rezervované hodiny:"
       price_per_day: "Cena za deň:"
       price_per_night: "Cena za noc:"
       price_per_hour: "Cena za hodinu:"
@@ -2690,15 +2706,11 @@ sk-SK:
       subtotal: "Medzisúčet:"
       shipping-price: "Doprava:"
       stripe-fee: "Poplatok Stripe (odhad):"
-      start_end_time: "%{start_time} do %{end_time}"
-      booked_hours_label:
-        one: "Rezervovaná hodina:"
-        few: "Rezervované hodiny:"
-        other: "Rezervované hodiny:"
       duration_in_hours:
         one: "(1 hodina)"
         few: "(%{count} hodiny)"
         other: "(%{count} hodiny)"
+      start_end_time: "%{start_time} do %{end_time}"
     price_per_quantity: "Cena za %{unit_type}:"
     price: "Cena:"
     quantity: "Množstvo: %{quantity}"
@@ -2786,12 +2798,12 @@ sk-SK:
     page_gap: "&hellip;"
     page_entries_info:
       single_page:
-        zero: "Nenašiel sa žiadny %{model}"
-        one: "Nájdený 1 %{model}"
+        zero: "Nenašla sa žiadna %{model}"
+        one: "Nájdená 1 %{model}"
         few: "Nájdené %{count} %{model}"
         other: "Nájdených %{count} %{model}"
       single_page_html:
-        zero: "Nenašiel sa žiadny %{model}"
+        zero: "Nenašla sa žiadna %{model}"
         one: "Nájdená <b>1</b> %{model}"
         few: "Nájdené <b>all&nbsp;%{count}</b> %{model}"
         other: "Nájdených <b>all&nbsp;%{count}</b> %{model}"
@@ -2799,8 +2811,6 @@ sk-SK:
       multi_page_html: "Nájdený %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{count}</b> celkovo"
     person:
       community_members_entries_info:
-        multi_page: "Zobrazuje sa %{model} %{from}  - %{to} z %{accepted_count} prijatých %{accepted_model} a %{other_count}  ďalšie %{other_model}"
-        multi_page_html: "Zobrazuje sa %{model}  <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{accepted_count}</b> prijatých %{accepted_model} a %{other_count} ďalšie %{other_model}"
         single_page:
           zero: "%{model} nebolo nájdených"
           one: "Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count} ostatné %{other_model}"
@@ -2808,9 +2818,11 @@ sk-SK:
           other: "Zobrazuje %{accepted_count}  prijatý %{accepted_model} a %{other_count} ostatné %{other_model}"
         single_page_html:
           zero: "Žiadny% {model} nebol nájdený"
-          one: "Zobrazenie <b>%{accepted_count}</b> odsúhlasené %{accepted_model} a %{other_count} iné %{other_model}"
-          few: "Zobrazenie <b>%{accepted_count}</b> odsúhlasené %{accepted_model} a %{other_count} iné %{other_model}"
-          other: "Zobrazenie <b>%{accepted_count}</b> odsúhlasené %{accepted_model} a %{other_count} iné %{other_model}"
+          one: "Zobrazujem <b>%{accepted_count}</b> odsúhlaseného %{accepted_model} a %{other_count} ostatných %{other_model}"
+          few: "Zobrazujem <b>%{accepted_count}</b> odsúhlasených %{accepted_model} a %{other_count} ostatných %{other_model}"
+          other: "Zobrazujem <b>%{accepted_count}</b> odsúhlasených %{accepted_model} a %{other_count} ostatných %{other_model}"
+        multi_page: "Zobrazuje sa %{model} %{from}  - %{to} z %{accepted_count} prijatých %{accepted_model} a %{other_count}  ďalšie %{other_model}"
+        multi_page_html: "Zobrazuje sa %{model}  <b>%{from}&nbsp;-&nbsp;%{to}</b> z <b>%{accepted_count}</b> prijatých %{accepted_model} a %{other_count} ďalšie %{other_model}"
   stripe_accounts:
     admin_account_not_connected: "Použitie platobného systému %{service_name} na prijímanie platieb nie je možné, pretože platby neboli nastavené. Podrobnosti získate na %{contact_admin_link}."
     contact_admin_link_text: "kontaktujte správcu %{service_name}"

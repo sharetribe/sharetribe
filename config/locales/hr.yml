@@ -268,6 +268,7 @@ hr:
         delete_this_marketplace: "Izbriši svoju platformu"
         payment_preferences: "Postavke plaćanja"
         pre_approved_listings: "Pregledaj sve oglase prije objave"
+        email_admins_about_new_transactions: ~
       manage_members:
         manage_members: "Uredite korisnike"
         email: Email
@@ -569,6 +570,9 @@ hr:
           confirm_modify: "Jeste li sigurni da želite promijeniti/obrisati ovu ocjenu? Jednom kada promijenite/pobrišete ocjenu, povrat starih podataka više nije moguć."
           deleting_info: "Brisanje ocjene omogućava autoru ponovno ocjenjivanje iste transakcije."
           blocking_info: "Blokiranje ocjene nakon brisanja sprečava autoru ponovno ocjenjivanje iste transakcije."
+          unskip: ~
+          if_you_unskip_the_review: ~
+          they_will_not_be_notified_automatically: ~
       invitations:
         invitations: Pozivnice
         used:
@@ -1462,6 +1466,14 @@ hr:
       subject: "Promijenjeni oglas za pregled: \"%{listing_title}\" od %{author_name} u %{community}"
       there_is_a_edited_listing_to_review: "Imate uređivani oglas za pregled: \"%{listing_title}\" by %{author_name}. Sada trebate ili odobriti ili odbiti taj oglas."
       review_the_listing: "Pregledaj uređeni oglas"
+    new_transaction:
+      subject: ~
+      there_is_a_new_transaction: ~
+      a_new_transaction: ~
+      listing: ~
+      sum: ~
+      starter: ~
+      provider: ~
   error_messages:
     booking:
       booking_failed_payment_voided: "Rezervacija nije uspjela zbog neočekivane greške.Molimo probajte ponovo kasnije.Nije Vam ništa naplaćeno"

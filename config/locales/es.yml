@@ -239,7 +239,7 @@ es:
         listing_comments_in_use: "Todos los usuarios pueden publicar comentarios en los anuncios (visibles para el resto de los usuarios)"
         email_preferences: "Preferencias de correo"
         automatic_newsletters: "Enviar el newsletter diario/semanal a todos los usuarios (excepto si no han aceptado el envío de mensajes automáticos)"
-        email_admins_about_new_members: "Enviar un email al administrador cada vez que un nuevo usuario se registra."
+        email_admins_about_new_members: "Enviar un email al administrador cada vez que un nuevo usuario se registra"
         google_analytics_key: "Tracking ID de Google Analytics"
         twitter_handle: "Publicar en Twitter (a través del botón \"twittear\" en la página del anuncio)"
         update_settings: "Guardar configuración"
@@ -260,6 +260,7 @@ es:
         delete_this_marketplace: "Eliminar esta comunidad"
         payment_preferences: "Sistema de pagos"
         pre_approved_listings: "Revisar todos los anuncios antes de su publicación"
+        email_admins_about_new_transactions: "Enviar un email al administrador cada vez que haya una nueva transacción"
       manage_members:
         manage_members: Usuarios
         email: Email
@@ -561,6 +562,9 @@ es:
           confirm_modify: "¿Estás seguro de querer modificar/borrar esta reseña? Una vez modificada/borrada no es possible recuperar la información en el futuro."
           deleting_info: "Borrar la reseña le permite al autor dejar otra para la misma transacción."
           blocking_info: "Bloquear la reseña tras borrarla, previene al autor la posibilidad de dejar otra reseña."
+          unskip: Rehabilitar
+          if_you_unskip_the_review: "Si rehabilitas la opción de valoración, el usuario podrá dejar una valoración."
+          they_will_not_be_notified_automatically: "No serán notificados automáticamente."
       invitations:
         invitations: Invitaciones
         used:
@@ -1451,6 +1455,14 @@ es:
       subject: "Anuncio editado para revisión: \"%{listing_title}\" creado por %{author_name} en %{community}"
       there_is_a_edited_listing_to_review: "Hay un anuncio editado para revisión: \"%{listing_title}\" creado por %{author_name}. Ahora puedes aprobar o rechazar el anuncio."
       review_the_listing: "Revisar el anuncio editado"
+    new_transaction:
+      subject: "Nueva transacción en %{service_name}"
+      there_is_a_new_transaction: "Hay %{link} en %{service_name}"
+      a_new_transaction: "una nueva transacción"
+      listing: "Anuncio: %{title}"
+      sum: "Total: %{amount}"
+      starter: "Iniciador: %{name}"
+      provider: "Proveedor: %{name}"
   error_messages:
     booking:
       booking_failed_payment_voided: "La reserva falló debido a un error inesperado. Por favor intenta de nuevo más tarde. No se te ha cargado nada."
