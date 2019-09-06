@@ -331,7 +331,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
   });
 }
 
-function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, invalid_invitation_code_message, name_required, invitation_required) {
+function initialize_signup_form(locale, email_in_use_message, invalid_invitation_code_message, name_required, invitation_required) {
   $('#help_invitation_code_link').click(function(link) {
     //link.preventDefault();
     $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 });

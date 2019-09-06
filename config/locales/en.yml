@@ -1400,7 +1400,7 @@ en:
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reset_password_instructions:
       change_my_password: "Change my password"
-      reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the %{service_name} service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
+      reset_password_instructions: "<p>You have indicated that you have forgotten your password in the %{service_name} service.</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
     testimonial_reminder:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
@@ -2327,7 +2327,7 @@ en:
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed or it is already in use. If you can't get in, contact us."
       email_not_allowed: "This email is not allowed in %{service_name}. Please use an email address that is allowed. If you still cannot get in, contact us."
-      invalid_username_or_email: "The username or email are invalid or already in use"
+      invalid_username_or_email: "Email is invalid or already in use"
       email_restriction_instructions:
         one: "The access to %{service_name} is restricted. To join you need a '%{allowed_emails}' email address."
         other: "The access to %{service_name} is restricted. You need an email address that proves that you are entitled to join."
@@ -2344,8 +2344,6 @@ en:
       sign_up: "Create a new %{service_name} account"
       terms: "Terms of Use"
       privacy: "Privacy policy"
-      username_is_in_use: "This username is already in use."
-      username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and the %{service_name} team"
       visible_to_everybody: "visible to everybody"
       create_account_with_provider: "Sign up with %{provider}"
@@ -2406,7 +2404,7 @@ en:
   sessions:
     new:
       create_new_account: "Create a new account"
-      i_forgot_my_password: "Forgot username or password"
+      i_forgot_my_password: "Forgot password"
       login: "Log in"
       login_to_kassi: "Log in to %{service_name}"
       connect_your_facebook_to_kassi: "Connect your Facebook account to %{service_name}"
@@ -2417,11 +2415,11 @@ en:
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
       log_in_with_your_provider_account: "Log in with %{provider}"
-      or_sign_up_with_your_username: "...or with your username or email:"
+      or_sign_up_with_your_username: "...or with your email:"
       we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Enter your email address to receive your username and reset your password."
+      password_recovery_instructions: "Enter your email address to reset your password."
       request_new_password: "Request new password"
       change_your_password: "Change your password"
     confirmation_pending:
@@ -2447,7 +2445,7 @@ en:
       delete_account_confirmation_popup: "Are you sure you really want to delete your user account and permanently lose all data related to it? Account deletion cannot be reversed."
       email_addresses: "Email addresses"
       new_email: "New email address"
-      delete_personal_information: "If you delete your account, your personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings you have created will be removed. You won't be able to reactivate your account. Your username will become available for others to register on %{service_name}."
+      delete_personal_information: "If you delete your account, your personal information (name, phone number, address, email, profile picture, etc.) will be deleted permanently and can't be recovered. All the listings you have created will be removed. You won't be able to reactivate your account."
       delete_information_others_involved: "Information where other members are involved (conversations with other people, transactions you've made, reviews you've given to others, etc) is not removed when you delete your account. However, your name will no longer be displayed next to this information."
       unfinished_transactions: "Your account can't be deleted because you have ongoing transactions. Please complete all transactions before deleting your account."
       only_admin: "Your account can't be deleted because you are the only administrator of the marketplace."
