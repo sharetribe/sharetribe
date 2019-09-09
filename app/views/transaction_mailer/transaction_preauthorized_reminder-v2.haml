@@ -1,0 +1,17 @@
+- reply_url = person_transaction_url(@transaction.author, @url_params.merge({:id => @transaction.id.to_s}))
+%tr
+  %td.person-name
+    - payer_name = PersonViewUtils.person_display_name(@transaction.starter, @transaction.community)
+    - seller_name = PersonViewUtils.person_display_name_for_type(@transaction.listing.author, 'first_name_only')
+    - listing_link = link_to @transaction.listing.title, listing_url(@url_params.merge(id: @transaction.listing_id))
+    %h1= t("emails.transaction_preauthorized_reminder_v2.headline", seller_name: seller_name, requester: payer_name, listing_link: listing_link).html_safe
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.transaction_preauthorized_reminder_v2.remember_to_accept", :listing_title => @transaction.listing.title, :requester => @transaction.starter.name(@transaction.community))
+    %p
+      - # Hard coded for one day
+      = t("emails.transaction_preauthorized_reminder.one_day_left")
+
+= render :partial => "person_mailer/action_button-v2", :locals => { :text => t("emails.transaction_preauthorized_reminder.click_here_to_reply"), :url => reply_url}
