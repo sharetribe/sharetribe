@@ -1443,6 +1443,15 @@ en:
       stripe:
         has_marked_request_as_confirmed: "%{other_party_full_name} has marked the order about '%{request}' completed. The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
       team_title: 'the %{service_name} team'
+    transaction_confirmed_v2:
+      headline_stripe_confirmed: "Hi %{seller_name}, %{requester} has marked order about %{listing_link} completed."
+      headline_confirmed: "Hi %{seller_name}, %{other_party_full_name} has marked the order about %{listing_link} completed."
+      headline_canceled: "Hi %{seller_name}, %{other_party_full_name} has canceled the order about %{listing_link}."
+      stripe:
+        has_marked_request_as_confirmed: "The payment for this transaction has now been released to your bank account. You can now give feedback to %{other_party_given_name}."
+      has_marked_request_as_confirmed: "You can now give feedback to %{other_party_given_name}."
+      has_marked_request_as_canceled: "You can still give feedback to %{other_party_given_name}."
+      team_title: 'the %{service_name} team'
     transaction_automatically_confirmed:
       subject: "Order automatically completed - remember to give feedback"
       we_have_marked_request_as_confirmed: "We have marked the order about '%{request}' completed. The order was automatically completed because %{days_passed} days have passed since the request was accepted."
