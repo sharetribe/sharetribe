@@ -61,11 +61,13 @@ class TransactionMailer < ActionMailer::Base
     set_up_layout_variables(recipient, transaction.community)
     with_locale(recipient.locale, transaction.community.locales.map(&:to_sym), transaction.community.id) do
 
-      premailer_mail(
+      mail(
         mail_params(
           @recipient,
           @community,
-          t("emails.transaction_preauthorized_reminder.subject", requester: transaction.starter.name(@community), listing_title: transaction.listing.title)))
+          t("emails.transaction_preauthorized_reminder.subject", requester: transaction.starter.name(@community), listing_title: transaction.listing.title))) do |format|
+            format.html { render v2_template(@community.id, 'transaction_preauthorized_reminder'), layout: v2_layout(@community.id) }
+        end
     end
   end
 
