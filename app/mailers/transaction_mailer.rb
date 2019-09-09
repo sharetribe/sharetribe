@@ -36,16 +36,18 @@ class TransactionMailer < ActionMailer::Base
       buffer = 1.minute # Add a small buffer (it might take a couple seconds until the email is sent)
       expires_in = TimeUtils.time_to(expires + buffer)
 
-      premailer_mail(
+      mail(
         mail_params(
           @recipient,
           @community,
           t("emails.transaction_preauthorized.subject", requester: PersonViewUtils.person_display_name(transaction.starter, @community), listing_title: transaction.listing.title))) do |format|
         format.html {
-          render locals: {
+          render v2_template(@community.id, 'transaction_preauthorized'),
+                 locals: {
                    payment_expires_in_unit: expires_in[:unit],
                    payment_expires_in_count: expires_in[:count]
-                 }
+                 },
+                 layout: v2_layout(@community.id)
         }
       end
     end

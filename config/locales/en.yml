@@ -1630,6 +1630,8 @@ en:
       if_you_do_accept_stripe: "If you accept the request within this timeframe, the payment will go through. You will receive the money directly to your bank account after you have delivered %{listing_title} to %{requester}."
       if_you_do_not_accept: "If you reject the request or don't accept it within this timeframe, the transaction will be automatically canceled, %{requester} will not be charged and you will not get paid."
       click_here_to_reply: "Click here to respond to the request"
+    transaction_preauthorized_v2:
+      headline: "Hi %{seller_name}, %{requester} is interested  and has authorized payment for %{listing_link}."
     transaction_preauthorized_reminder:
       subject: "Remember to accept the request from %{requester} about listing %{listing_title}"
       remember_to_accept: "Remember to accept the request from %{requester} about listing \"%{listing_title}\". %{requester} has already paid for the listing. You have to accept the request in order to receive the payment."
