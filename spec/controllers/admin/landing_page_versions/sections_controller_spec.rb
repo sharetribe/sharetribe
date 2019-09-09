@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::LandingPageVersions::SectionsController, type: :controller do # rubocop:disable Metrics/BlockLength
+describe Admin::LandingPageVersions::SectionsController, type: :controller do
   let(:community) { FactoryGirl.create(:community) }
   let(:landing_page_version) { FactoryGirl.create(:landing_page_version, community: community, version: '1') }
 
@@ -154,7 +154,6 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do # 
         expect(assets.size).to eq 1
         asset = assets.first
         expect(asset['id']).to eq("default_hero_background")
-        expect(asset['absolute_path']).to eq true
         expect(asset['asset_id']).to_not be_nil
         expect(asset['src']).to match(/.+\/Bison_skull_pile.png/)
       end
@@ -499,7 +498,6 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do # 
       expect(section['background_image']).to eq expect_image
 
       asset = lpv.parsed_content['assets'].last
-      expect(asset["absolute_path"]).to eq true
       expect(asset["content_type"]).to eq "image/png"
       expect(asset["id"]).to eq "test1_background_image"
       expect(asset["src"]).to match(/Bison_skull_pile.png$/)

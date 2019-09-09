@@ -61,15 +61,15 @@ module LandingPageVersion::Section
         item = {'id' => image_id}
         assets << item
       end
-      blob = new_asset.blob
-      if resize_options.any?
+      service_url = if resize_options.any?
         variant = new_asset.variant(resize_options)
-        item['src'] = Rails.application.routes.url_helpers.polymorphic_url(variant, only_path: true)
+        variant.processed.service_url
       else
-        item['src'] = blob_path(blob)
+        new_asset.service_url
       end
-      item['content_type'] = blob.content_type
-      item['absolute_path'] = true
+      uri = URI.parse(service_url)
+      item['src'] = uri.path.sub(/\/[^\/]*\/[^\/]*\//, '') # remove "/sites/sitename/"
+      item['content_type'] = new_asset.blob.content_type
       item['asset_id'] = new_asset.id
       item
     end
@@ -151,10 +151,6 @@ module LandingPageVersion::Section
 
     def find_existing_section_by_id(identifier)
       landing_page_version.parsed_content['sections'].find{|x| x['id'] == identifier}
-    end
-
-    def blob_path(blob)
-      Rails.application.routes.url_helpers.landing_page_asset_path(signed_id: blob.signed_id, filename: blob.filename.to_s, sitename: landing_page_version.community.ident, only_path: true)
     end
 
     # normalize section id to be usable as part of html element "id" and "class" attributes

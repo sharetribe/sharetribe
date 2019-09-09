@@ -13,6 +13,8 @@ amazon:
   secret_access_key: <%= APP_CONFIG.aws_secret_access_key %>
   region: <%= APP_CONFIG.s3_region %>
   bucket: <%= APP_CONFIG.clp_s3_bucket_name %>
+  upload:
+    acl: "public-read"
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
