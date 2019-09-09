@@ -1,0 +1,24 @@
+- conversation_url = person_transaction_url(@recipient, @url_params.merge({:id => @conversation.id.to_s}))
+- url = new_person_message_feedback_url(@recipient, @url_params.merge({:message_id => @conversation.id.to_s}))
+
+%tr
+  %td.person-name
+    - payer_name = PersonViewUtils.person_display_name(@conversation.starter, @conversation.community)
+    - seller_name = PersonViewUtils.person_display_name_for_type(@conversation.listing.author, 'first_name_only')
+    - listing_link = link_to @conversation.listing.title, listing_url(@url_params.merge(id: @conversation.listing_id))
+    - stripe_confirmed = @conversation.payment_gateway == :stripe && @conversation.status == 'confirmed'
+    - if stripe_confirmed
+      %h1= t("emails.transaction_confirmed_v2.headline_stripe_confirmed", seller_name: seller_name, requester: payer_name, listing_link: listing_link).html_safe
+    - else
+      %h1= t("emails.transaction_confirmed_v2.headline_#{@conversation.status}", seller_name: seller_name, other_party_full_name: payer_name, listing_link: listing_link).html_safe
+
+%tr
+  %td.email-content
+    %p.text-bold
+      - key = stripe_confirmed ? 'emails.transaction_confirmed_v2.stripe.has_marked_request_as_confirmed' : "emails.transaction_confirmed.has_marked_request_as_#{@conversation.status}"
+      = t(key, :other_party_full_name => @conversation.other_party(@recipient).name(@conversation.community), :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"), :request => @conversation.listing.title)
+
+    %p
+      = t("emails.transaction_confirmed.giving_feedback_is_good_idea", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only"))
+
+= render :partial => "action_button-v2", :locals => { :text => t("emails.transaction_confirmed.give_feedback_to", :other_party_given_name => PersonViewUtils.person_display_name_for_type(@conversation.other_party(@recipient), "first_name_only")), :url => url}
