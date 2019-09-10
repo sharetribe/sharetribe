@@ -272,7 +272,7 @@ class PersonMailer < ActionMailer::Base
       if address.present?
         premailer_mail(:to => address,
                        :from => community_specific_sender(community),
-                       :subject =>  t("emails.new_member_notification.subject", community: @community.full_name(@person.locale)),
+                       :subject => t("emails.new_member_notification.subject", community: @community.full_name(@person.locale)),
                        :template_name => "new_member_notification")
       end
     end
