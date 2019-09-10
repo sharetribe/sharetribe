@@ -178,7 +178,8 @@ describe IntApi::MarketplacesController, type: :controller do
       expect_trial_plan(c.id)
     end
 
-    it "should create a marketplace and assign stripe_payment_intents feature flag" do
+    it "should create a marketplace and assign feature flags" do
+      default_flags_for_trial = [:topbar_v1]
       post :create, params: { admin_email: "eddie.admin@example.com",
                      admin_first_name: "Eddie",
                      admin_last_name: "Admin",
@@ -190,8 +191,10 @@ describe IntApi::MarketplacesController, type: :controller do
 
       expect(response.status).to eql 201
       community = Community.find_by(ident: "imaginationtraders")
-      feature_flag = FeatureFlag.find_by(community_id: community.id, enabled: true, feature: :stripe_payment_intents)
-      expect(feature_flag.persisted?).to eq true
+      default_flags_for_trial.each do |flag_name|
+        feature_flag = FeatureFlag.find_by(community_id: community.id, enabled: true, feature: flag_name)
+        expect(feature_flag.persisted?).to eq true
+      end
     end
   end
 end
