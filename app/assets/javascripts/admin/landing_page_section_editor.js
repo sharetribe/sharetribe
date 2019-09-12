@@ -63,6 +63,18 @@
       var error_elements = $.map(validator.invalid, function(message, key) { return 'input[name="'+key+'"]'; });
       $(error_elements.join(", ")).parents(".collapsed").find(".section-column-header-toggle").click();
     };
+    var setSortPriority = function(selector) {
+      var index = 0;
+      $(selector).each(function(){
+        $(this).val(index);
+        index++;
+      });
+    };
+    validator.settings.submitHandler = function(form) {
+      setSortPriority("#menu-links .sort-priority");
+      setSortPriority("#social-links .sort-priority");
+      form.submit();
+    };
   };
 
   module.LandingPageSectionEditor = {

@@ -24,6 +24,19 @@ window.ST = window.ST || {};
 
     var fieldCount = fieldMap.length;
 
+    var updateVisibilityByCount = function() {
+      var minValue = $("input[count-validation][data-min]").data("min");
+      var maxValue = $("input[count-validation][data-max]").data("max");
+      if (!minValue || !maxValue) return;
+      // toggle error message
+      $("input[count-validation]").valid();
+      if (fieldCount >= maxValue) {
+        $(".add-fields").prop('disabled', true).addClass('disabled');
+      } else {
+        $(".add-fields").prop('disabled', false).removeClass('disabled');
+      }
+    };
+
     var updateTableVisibility = function() {
       var $menuLinksTable = $("#menu-links-table");
       var $menuLinksEmpty = $("#menu-links-empty");
@@ -35,6 +48,7 @@ window.ST = window.ST || {};
         $menuLinksTable.hide();
         $menuLinksEmpty.show();
       }
+      updateVisibilityByCount();
     };
 
     updateTableVisibility();

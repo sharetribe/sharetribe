@@ -27,11 +27,11 @@
         .row
           %span.hidden-tablet
             = t(".title")
-          = f.text_field :title, placeholder: t(".title_placeholder"), required: true
+          = f.text_field :title, placeholder: t(".title_placeholder")
         .row
           %span.hidden-tablet
             = t(".url")
-          = f.text_field :url, placeholder: t(".url_placeholder"), url: true, required: true
+          = f.text_field :url, placeholder: t(".url_placeholder"), url: true
 
 
   .col-2.menu-links-actions

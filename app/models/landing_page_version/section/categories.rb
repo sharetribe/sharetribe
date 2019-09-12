@@ -80,7 +80,6 @@ module LandingPageVersion::Section
       :categories_attributes => LandingPageVersion::Section::Categories::Category::ATTRIBUTES
     ]
 
-
     attr_accessor(*(ATTRIBUTES + HELPER_ATTRIBUTES))
 
     attr_writer :background_style
@@ -94,6 +93,9 @@ module LandingPageVersion::Section
         unless self.send(key)
           self.send("#{key}=", value)
         end
+      end
+      while categories.size < 3
+        categories << LandingPageVersion::Section::Categories::Category.new
       end
     end
 
