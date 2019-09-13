@@ -357,10 +357,10 @@ $content-padding: 36px;
   }
   .info__column-icon {
     svg {
-      g, circle, path {
-        stroke: #ffffff; 
+      g, circle, path, rect {
+        stroke: #ffffff;
       }
-    }    
+    }
   }
 }
 

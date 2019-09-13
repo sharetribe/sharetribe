@@ -34,7 +34,11 @@
             <div class="info__column-text-content">
               <% if c["icon"] %>
                 <div class="info__column-icon <%= section_id %>__info__column-icon">
-                  <%= render partial: "icon", locals: { icon: c["icon"] } %>
+                  <% if CUSTOM_ICONS.include?(c["icon"]) %>
+                    <%= render template: "custom_icons/#{c["icon"]}" %>
+                  <% else %>
+                    <%= render partial: "icon", locals: { icon: c["icon"] } %>
+                  <% end %>
                 </div>
               <% end %>
               <h2 class="info__column-title"><%= c["title"] %></h2>
