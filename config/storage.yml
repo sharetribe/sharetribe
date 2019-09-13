@@ -15,8 +15,7 @@ amazon:
   bucket: <%= APP_CONFIG.clp_s3_bucket_name %>
   upload:
     acl: "public-read"
-    metadata:
-      Cache-Control: 'max-age=3600'
+    cache_control: 'max-age=3600'
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:
