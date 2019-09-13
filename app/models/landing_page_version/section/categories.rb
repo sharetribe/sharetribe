@@ -94,9 +94,7 @@ module LandingPageVersion::Section
           self.send("#{key}=", value)
         end
       end
-      while categories.size < 3
-        categories << LandingPageVersion::Section::Categories::Category.new
-      end
+      categories << LandingPageVersion::Section::Categories::Category.new while categories.size < 3
     end
 
     def attributes
