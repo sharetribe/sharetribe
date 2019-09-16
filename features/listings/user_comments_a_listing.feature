@@ -94,8 +94,8 @@ Feature: User comments a listing
   Scenario: Users get email from followed listing
     Given there are following users:
       | person            | email          | given_name         | family_name |
-      | kassi_testperson1 | t1@example.com | John               | MacTest     |
-      | kassi_testperson2 | t2@example.com | Anthony            | Debugger    |
+      | kassi_testperson1 | kassi_testperson1@example.com | John               | MacTest     |
+      | kassi_testperson2 | kassi_testperson2@example.com | Anthony            | Debugger    |
     And there is a listing with title "Walking dogs" from "kassi_testperson1" with category "Services" and with listing shape "Requesting"
     And listing comments are in use in community "test"
     And I am logged in as "kassi_testperson2"
@@ -104,21 +104,21 @@ Feature: User comments a listing
     When I fill in "comment_content" with "Test comment 1"
     And I press "Send comment"
     Then I should see "Test comment 1" within "#comments"
-    And "t1@example.com" should receive an email with subject "Anthony D has commented on your listing in Sharetribe"
-    And "t2@example.com" should have no emails
+    And "kassi_testperson1@example.com" should receive an email with subject "Anthony D has commented on your listing in Sharetribe"
+    And "kassi_testperson2@example.com" should have no emails
 
     When I log out
     And I log in as "kassi_testperson1"
-    When "t1@example.com" opens the email
+    When "kassi_testperson1@example.com" opens the email
     And I follow "en/listings" in the email
     Then I should see "Walking dogs"
     And I should see "Test comment 1" within "#comments"
     When I fill in "comment_content" with "Test comment 2"
     And I press "Send comment"
     Then I should see "Test comment 2" within "#comments"
-    And "t2@example.com" should receive an email with subject "John M has commented on a listing you follow in Sharetribe"
+    And "kassi_testperson2@example.com" should receive an email with subject "John M has commented on a listing you follow in Sharetribe"
 
-    When "t2@example.com" opens the email
+    When "kassi_testperson2@example.com" opens the email
     And I follow "en/listings" in the email
     Then I should see "Walking dogs"
     And I should see "Test comment 1" within "#comments"
