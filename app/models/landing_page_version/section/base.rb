@@ -61,14 +61,26 @@ module LandingPageVersion::Section
         item = {'id' => image_id}
         assets << item
       end
-      service_url = if resize_options.any?
+      disk_service = new_asset.service.class.to_s == 'ActiveStorage::Service::DiskService'
+      result_asset = if resize_options.any?
         variant = new_asset.variant(resize_options)
-        variant.processed.service_url
+        variant.processed
       else
-        new_asset.service_url
+        new_asset
+      end
+      service_url = if disk_service
+        Rails.application.routes.url_helpers.polymorphic_url(result_asset, only_path: true)
+      else
+        result_asset.service_url
       end
       uri = URI.parse(service_url)
-      item['src'] = uri.path.sub(/\/[^\/]*\/[^\/]*\//, '') # remove "/sites/sitename/"
+      if disk_service
+        item['src'] = service_url
+        item['absolute_path'] = true
+      else
+        item['src'] = uri.path.sub(/\/[^\/]*\/[^\/]*\//, '') # remove "/sites/sitename/"
+        item['absolute_path'] = false
+      end
       item['content_type'] = new_asset.blob.content_type
       item['asset_id'] = new_asset.id
       item

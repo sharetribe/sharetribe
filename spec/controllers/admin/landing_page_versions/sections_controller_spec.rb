@@ -626,8 +626,8 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
     it 'creates categories section with title and paragraph' do
       section_id = 'all_categories'
       post :create, params: {
-        landing_page_version_id: landing_page_version.id,
-        section: {
+      landing_page_version_id: landing_page_version.id,
+      section: {
           kind: 'categories',
           id: section_id,
           title: 'Explore Destinations',
@@ -653,7 +653,7 @@ describe Admin::LandingPageVersions::SectionsController, type: :controller do
             }
           }
         },
-        bg_image: stubbed_upload('ds1-2.jpg', 'image/jpeg')
+      bg_image: stubbed_upload('ds1-2.jpg', 'image/jpeg')
       }
       lpv = LandingPageVersion.find(landing_page_version.id)
       sections = lpv.parsed_content['sections']
