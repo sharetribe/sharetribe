@@ -13,6 +13,8 @@ module LandingPageVersion::Section
       :success,
       :landing_page_version,
       :previous_id,
+      :paragraph_link_color, # every section has this is in the json pushed by CLI
+      :paragraph_link_color_hover, # every section has this is in the json pushed by CLI
     ].freeze
 
     validates :landing_page_version, presence: true
