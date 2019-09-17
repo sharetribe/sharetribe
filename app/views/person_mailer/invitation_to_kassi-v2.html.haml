@@ -1,0 +1,24 @@
+- url = sign_up_url(@url_params.merge({:locale => @invitation.inviter.locale, :code => @invitation.code}))
+
+%tr
+  %td.person-name
+    %h1= t("emails.invitation_to_kassi_v2.headline")
+
+%tr
+  %td.email-content
+    %p.text-bold
+      = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => PersonViewUtils.person_display_name(@invitation.inviter, @current_community), :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
+      - if @invitation.message && !@invitation.message.blank?
+        %p
+          = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => PersonViewUtils.person_display_name_for_type(@invitation.inviter, "first_name_only"))
+
+    - if @invitation.message && !@invitation.message.blank?
+      = render :partial => "quote-v2", :locals => { :quote => @invitation.message }
+
+= render :partial => "action_button-v2", :locals => { :text => t("emails.invitation_to_kassi.join_now"), :url => url}
+
+-if @invitation_code_required
+  %tr
+    %td.email-content
+      %p.text-bold
+        = t("emails.invitation_to_kassi.invitation_code", :code => @invitation.code)
