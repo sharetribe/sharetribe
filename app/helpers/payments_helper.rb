@@ -27,6 +27,9 @@ module PaymentsHelper
     DK: {
       account_number: {title: 'IBAN', format: 'DK5000400440116243', regexp: 'DK[0-9]{2}[0-9]{14}', test_regexp: 'DK'+TEST_IBAN }
     },
+    EE: {
+      account_number: {title: 'IBAN', format: 'EE382200221020145685', regexp: 'EE[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{11}[0-9]{1}', test_regexp: 'EE'+TEST_IBAN }
+    },
     FI: {
       account_number: {title: 'IBAN', format: 'FI2112345600000785', regexp: 'FI[0-9]{2}[0-9]{14}', test_regexp: 'FI'+TEST_IBAN }
     },
@@ -38,6 +41,9 @@ module PaymentsHelper
     },
     GI: {
       account_number: { title: 'IBAN', format: 'GI75NWBK000000007099453', regexp: 'GI[0-9]{2}[A-Z]{4}[A-Z0-9]{15}', test_regexp: 'GI'+TEST_IBAN }
+    },
+    GR: {
+      account_number: {title: 'IBAN', format: 'GR1601101250000000012300695', regexp: 'GR[0-9]{2}[0-9]{3}[0-9]{4}[A-Z0-9]{16}', test_regexp: 'GR'+TEST_IBAN }
     },
     HK: {
       account_number: { format: '123456-789', regexp: '[0-9]{5,6}-[0-9]{1,3}', test_regexp: '[0-9]{5,6}-[0-9]{1,3}' },
@@ -60,6 +66,12 @@ module PaymentsHelper
     LU: {
       account_number: {title: 'IBAN', format: 'LU280019400644750000', regexp: 'LU[0-9]{2}[0-9]{3}[A-Z0-9]{13}', test_regexp: 'LU'+TEST_IBAN }
     },
+    LT: {
+      account_number: {title: 'IBAN', format: 'LT121000011101001000', regexp: 'LT[0-9]{2}[0-9]{5}[0-9]{11}', test_regexp: 'LT'+TEST_IBAN }
+    },
+    LV: {
+      account_number: {title: 'IBAN', format: 'LV80BANK0000435195001', regexp: 'LV[0-9]{2}[A-Z]{4}[A-Z0-9]{13}', test_regexp: 'LV'+TEST_IBAN }
+    },
     MX: {
       account_number: {title: 'CLABE', format: '123456789012345678', regexp: '[0-9]{18}', test_regexp: '[0-9]{18}' }
     },
@@ -72,6 +84,9 @@ module PaymentsHelper
     NO: {
       account_number: {title: 'IBAN', format: 'NO9386011117947', regexp: 'NO[0-9]{2}[0-9]{11}', test_regexp: 'NO'+TEST_IBAN }
     },
+    PL: {
+      account_number: {title: 'IBAN', format: 'PL61109010140000071219812874', regexp: 'PL[0-9]{2}[0-9]{8}[0-9]{16}', test_regexp: 'PL'+TEST_IBAN }
+    },
     PT: {
       account_number: {title: 'IBAN', format: 'PT50123443211234567890172', regexp: 'PT[0-9]{2}[0-9]{4}[0-9]{4}[0-9]{11}[0-9]{2}', test_regexp: 'PT'+TEST_IBAN }
     },
@@ -80,6 +95,12 @@ module PaymentsHelper
       routing_1: {title: "bank_code", format: '1234', regexp: '[0-9]{4}', test_regexp: '[0-9]{4}' },
       routing_2: {title: 'branch_code', format: '567', regexp: '[0-9]{3}', test_regexp: '[0-9]{3}'},
       separator: "-"
+    },
+    SI: {
+      account_number: {title: 'IBAN', format: 'SI56263300012039086', regexp: 'SI[0-9]{2}[0-9]{5}[0-9]{8}[0-9]{2}', test_regexp: 'SI'+TEST_IBAN }
+    },
+    SK: {
+      account_number: {title: 'IBAN', format: 'SK3112000000198742637541', regexp: 'SK[0-9]{2}[0-9]{4}[0-9]{6}[0-9]{10}', test_regexp: 'SK'+TEST_IBAN }
     },
     ES: {
       account_number: {title: 'IBAN', format: 'ES9121000418450200051332', regexp: 'ES[0-9]{2}[0-9]{20}', test_regexp: 'ES'+TEST_IBAN }
