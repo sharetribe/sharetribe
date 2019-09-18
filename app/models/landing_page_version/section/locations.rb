@@ -130,7 +130,7 @@ module LandingPageVersion::Section
         location = LandingPageVersion::Section::Locations::Location.new(attrs)
         new_asset = attrs['image']
         if new_asset.is_a?(ActiveStorage::Attachment)
-          location.asset_id = location.asset_id.presence || "location_#{id}_#{new_asset.id}"
+          location.asset_id = "location_#{id}_#{new_asset.id}"
           add_or_replace_asset(new_asset, location.asset_id, LOCATION_IMAGE_RESIZE_OPTIONS)
         end
         location
