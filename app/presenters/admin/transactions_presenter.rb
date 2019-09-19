@@ -1,14 +1,18 @@
-class AdminTransactionsPresenter
+class Admin::TransactionsPresenter
   include Collator
 
-  def initialize(community, params, format)
+  private
+
+  attr_reader :service
+
+  public
+
+  def initialize(params, service)
     @params = params
-    @tx_search = Admin::TransactionsSearchService.new(community, params, format)
+    @service = service
   end
 
-  def transactions
-    @tx_search.paginated
-  end
+  delegate :transactions, to: :service, prefix: false
 
   def selected_statuses_title
     if @params[:status].present?
