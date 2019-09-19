@@ -15,7 +15,7 @@ class ExportTransactionsJob < Struct.new(:current_user_id, :community_id, :expor
     export_task = ExportTaskResult.find(export_task_id)
     export_task.update(status: 'started')
 
-    conversations = Transaction.for_community_sorted_by_activity(community.id, 'desc', nil, nil, true)
+    conversations = Transaction.for_community_sorted_by_activity(community.id, 'desc', true)
     csv_rows = []
     ExportTransactionsJob.generate_csv_for(csv_rows, conversations)
     csv_content = csv_rows.join("")
