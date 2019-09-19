@@ -12,7 +12,7 @@ module FeatureTests
 
         visit("/")
         topbar.click_login_link
-        login_page.fill_and_submit(username: username, password: password)
+        login_page.fill_and_submit(username: username+"@example.com", password: password)
         expect(page).to have_content("Welcome")
       end
 

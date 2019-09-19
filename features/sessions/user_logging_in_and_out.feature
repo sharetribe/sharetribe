@@ -6,7 +6,7 @@ Feature: User logging in and out
   Scenario: logging in successfully
     Given I am not logged in
     And I am on the login page
-    When I fill in "main_person_login" with "kassi_testperson1"
+    When I fill in "main_person_login" with "kassi_testperson1@example.com"
     And I fill in "main_person_password" with "testi"
     And I click "#main_log_in_button"
     Then I should see "Welcome, Kassi!"

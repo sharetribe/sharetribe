@@ -212,12 +212,6 @@ class PeopleController < Devise::RegistrationsController
     redirect_to search_path
   end
 
-  def check_username_availability
-    respond_to do |format|
-      format.json { render :json => Person.username_available?(params[:person][:username], @current_community.id) }
-    end
-  end
-
   def check_email_availability_and_validity
     email = params[:person][:email].to_s.downcase
 
@@ -294,7 +288,6 @@ class PeopleController < Devise::RegistrationsController
         :password2,
         :locale,
         :email,
-        :username,
         :test_group_number,
         :community_id,
         :admin_emails_consent

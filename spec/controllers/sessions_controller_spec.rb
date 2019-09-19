@@ -8,7 +8,7 @@ describe SessionsController, "POST create", type: :controller do
                                     settings: {"locales" => ["en", "fi"]},
                                     real_name_required: true)
 
-    person1 = FactoryGirl.create(:person,
+    @person1 = FactoryGirl.create(:person,
                                  username: "testpersonusername",
                                  is_admin: 0, "locale" => "en",
                                  encrypted_password: "$2a$10$WQHcobA3hrTdSDh1jfiMquuSZpM3rXlcMU71bhE1lejzBa3zN7yY2",
@@ -19,7 +19,7 @@ describe SessionsController, "POST create", type: :controller do
                                  community_id: community1.id)
 
     FactoryGirl.create(:community_membership,
-                        person: person1,
+                        person: @person1,
                         community: community1,
                         admin: 1,
                         consent: "test_consent0.1",
@@ -32,7 +32,7 @@ describe SessionsController, "POST create", type: :controller do
 
   it "redirects back to original community's domain" do
     RequestStore.store[:clp_enabled] = false
-    post :create, params: {:person  => {:login => "testpersonusername", :password => "testi"}}
+    post :create, params: {:person  => {:login => @person1.primary_email.address, :password => "testi"}}
     expect(response).to redirect_to "http://#{@request.host}/"
   end
 end

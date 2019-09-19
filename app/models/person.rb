@@ -231,6 +231,7 @@ class Person < ApplicationRecord
 
   before_validation(:on => :create) do
     self.id = SecureRandom.urlsafe_base64
+    self.username = self.username.presence || UserService::API::Users.generate_username(given_name, family_name, community_id)
     set_default_preferences unless self.preferences
   end
 

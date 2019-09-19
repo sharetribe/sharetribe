@@ -7,7 +7,7 @@ module LoginHelpers
 
   def login_user(username = "kassi_testperson1", password = "testi")
     visit login_path(:locale => :en)
-    fill_in("main_person_login", :with => username)
+    fill_in("main_person_login", :with => "#{username}@example.com")
     fill_in("main_person_password", :with => password)
     click_button(:main_log_in_button)
 

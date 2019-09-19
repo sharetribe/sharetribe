@@ -331,7 +331,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
   });
 }
 
-function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, invalid_invitation_code_message, name_required, invitation_required) {
+function initialize_signup_form(locale, email_in_use_message, invalid_invitation_code_message, name_required, invitation_required) {
   $('#help_invitation_code_link').click(function(link) {
     //link.preventDefault();
     $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 });
@@ -355,7 +355,6 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       }
     },
     rules: {
-      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email_remove_spaces: true, remote: "/people/check_email_availability_and_validity"},
@@ -365,7 +364,6 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
     },
     messages: {
-      "person[username]": { valid_username: invalid_username_message, remote: username_in_use_message },
       "person[email]": { remote: email_in_use_message, email_remove_spaces: $.validator.messages.email },
       "invitation_code": { remote: invalid_invitation_code_message }
     },
