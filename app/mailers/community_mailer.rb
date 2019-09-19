@@ -5,6 +5,7 @@ include TruncateHtmlHelper
 # rubocop:enable Style/MixinUsage
 
 class CommunityMailer < ActionMailer::Base
+  helper :markdown
 
   include MailUtils
 

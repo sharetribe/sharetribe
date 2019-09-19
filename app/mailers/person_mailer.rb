@@ -11,6 +11,7 @@ class PersonMailer < ActionMailer::Base
   require 'active_support/core_ext'
 
   require "truncate_html"
+  helper :markdown
 
   default :from => APP_CONFIG.sharetribe_mail_from_address
   layout 'email'
